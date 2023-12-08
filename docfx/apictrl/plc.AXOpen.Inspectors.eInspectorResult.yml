@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.eInspectorResult
     path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
@@ -35,7 +35,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.eInspectorResult.NoAction
     path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
@@ -51,7 +51,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.eInspectorResult.Running
     path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
@@ -67,7 +67,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.eInspectorResult.Passed
     path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
@@ -83,7 +83,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.eInspectorResult.Failed
     path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
@@ -99,7 +99,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.eInspectorResult.Inconclusive
     path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
@@ -115,7 +115,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.eInspectorResult.Excluded
     path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
@@ -131,7 +131,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.eInspectorResult.Bypassed
     path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st

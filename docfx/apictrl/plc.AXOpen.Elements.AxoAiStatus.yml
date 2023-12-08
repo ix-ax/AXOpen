@@ -13,7 +13,7 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAiStatus
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
@@ -35,11 +35,11 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAiStatus.RawRange
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
-    startLine: 10
+    startLine: 11
   namespace: plc.AXOpen.Elements
   syntax:
     content: 'RawRange : REAL'
@@ -55,11 +55,11 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAiStatus.RealRange
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
-    startLine: 16
+    startLine: 17
   namespace: plc.AXOpen.Elements
   syntax:
     content: 'RealRange : REAL'
@@ -75,11 +75,11 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAiStatus.Scaled
     path: .\src\components.elements\ctrl\src\AxoAi\AxoAiStatus.st
-    startLine: 21
+    startLine: 23
   namespace: plc.AXOpen.Elements
   syntax:
     content: 'Scaled : REAL'

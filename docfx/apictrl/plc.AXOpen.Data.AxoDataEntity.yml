@@ -11,7 +11,7 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataEntity.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.AxoDataEntity
     path: .\src\data\ctrl\src\AxoDataEntity.st
@@ -34,11 +34,11 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataEntity.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.AxoDataEntity.DataEntityId
     path: .\src\data\ctrl\src\AxoDataEntity.st
-    startLine: 9
+    startLine: 10
   namespace: plc.AXOpen.Data
   summary: Gets or sets data entity identifier.
   syntax:

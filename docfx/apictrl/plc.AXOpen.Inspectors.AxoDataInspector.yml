@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoDataInspector
     path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
@@ -30,7 +30,6 @@ items:
   - plc.AXOpen.Inspectors.AxoInspector
   - plc.AXOpen.Core.AxoObject
   inheritedMembers:
-  - plc.AXOpen.Inspectors.AxoInspector._axoInspectorDialog
   - plc.AXOpen.Core.AxoObject.Identity
   - plc.AXOpen.Inspectors.AxoInspector.CheckOverInspection()
   - plc.AXOpen.Inspectors.AxoInspector.IsOverInspected()
@@ -49,6 +48,7 @@ items:
   - plc.AXOpen.Inspectors.AxoInspector.Result()
   - plc.AXOpen.Core.AxoObject.GetIdentity()
   - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
   - plc.AXOpen.Core.AxoObject.GetParent()
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
@@ -67,11 +67,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoDataInspector._data
     path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
-    startLine: 10
+    startLine: 11
   namespace: plc.AXOpen.Inspectors
   syntax:
     content: '_data : AXOpen.Inspectors.AxoDataInspectorData'
@@ -87,11 +87,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoDataInspector._lastOutValue
     path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
-    startLine: 13
+    startLine: 14
   namespace: plc.AXOpen.Inspectors
   syntax:
     content: '_lastOutValue : STRING'
@@ -107,11 +107,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoDataInspector.Inspect
     path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
-    startLine: 22
+    startLine: 23
   namespace: plc.AXOpen.Inspectors
   summary: Inspection method, which contains main logic of inspection.
   syntax:
@@ -133,11 +133,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoDataInspector.WithCoordinator
     path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
-    startLine: 126
+    startLine: 127
   namespace: plc.AXOpen.Inspectors
   summary: Set coordinator to this instance
   syntax:
@@ -157,11 +157,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoDataInspector.OnDone
     path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
-    startLine: 144
+    startLine: 145
   namespace: plc.AXOpen.Inspectors
   summary: If inspection fails, set result to data
   syntax:
@@ -179,11 +179,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoDataInspector.IsCharNumber
     path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
-    startLine: 153
+    startLine: 154
   namespace: plc.AXOpen.Inspectors
   summary: Check, if character is a number
   syntax:
@@ -203,11 +203,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoDataInspector.Data
     path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
-    startLine: 178
+    startLine: 180
   namespace: plc.AXOpen.Inspectors
   summary: Set coordinator to this instance
   syntax:
@@ -216,12 +216,6 @@ items:
     return:
       type: plc.REF_TO AXOpen.Inspectors.AxoDataInspectorData
 references:
-- uid: plc.AXOpen.Inspectors.AxoInspector._axoInspectorDialog
-  commentId: plc.AXOpen.Inspectors.AxoInspector._axoInspectorDialog
-  name: _axoInspectorDialog
-  nameWithType: _axoInspectorDialog
-  fullName: plc.AXOpen.Inspectors.AxoInspector._axoInspectorDialog
-  parent: plc.AXOpen.Inspectors.AxoInspector._axoInspectorDialog
 - uid: plc.AXOpen.Core.AxoObject.Identity
   commentId: plc.AXOpen.Core.AxoObject.Identity
   name: Identity
@@ -330,6 +324,12 @@ references:
   nameWithType: GetContext()
   fullName: plc.AXOpen.Core.AxoObject.GetContext()
   parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
 - uid: plc.AXOpen.Core.AxoObject.GetParent()
   commentId: plc.AXOpen.Core.AxoObject.GetParent()
   name: GetParent()

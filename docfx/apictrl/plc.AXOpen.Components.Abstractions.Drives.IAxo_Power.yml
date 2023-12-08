@@ -14,7 +14,7 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
@@ -33,7 +33,7 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.EnabledPositive
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
@@ -55,7 +55,7 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.DisabledPositive
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
@@ -77,7 +77,7 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.EnabledNegative
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
@@ -99,7 +99,7 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.DisabledNegative
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st

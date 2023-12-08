@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorData
     path: .\src\inspectors\ctrl\src\AxoInspectorData.st
@@ -40,11 +40,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorData.Timestamp
     path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-    startLine: 11
+    startLine: 12
   namespace: plc.AXOpen.Inspectors
   syntax:
     content: 'Timestamp : LDATE_AND_TIME'
@@ -60,11 +60,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorData.PassTime
     path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-    startLine: 15
+    startLine: 16
   namespace: plc.AXOpen.Inspectors
   syntax:
     content: 'PassTime : TIME'
@@ -80,11 +80,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorData.FailTime
     path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-    startLine: 19
+    startLine: 21
   namespace: plc.AXOpen.Inspectors
   syntax:
     content: 'FailTime : TIME'
@@ -100,11 +100,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorData.Result
     path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-    startLine: 24
+    startLine: 25
   namespace: plc.AXOpen.Inspectors
   syntax:
     content: 'Result : AXOpen.Inspectors.eInspectorResult'
@@ -120,11 +120,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorData.IsExcluded
     path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-    startLine: 28
+    startLine: 29
   namespace: plc.AXOpen.Inspectors
   syntax:
     content: 'IsExcluded : BOOL'
@@ -140,11 +140,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorData.IsByPassed
     path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-    startLine: 32
+    startLine: 33
   namespace: plc.AXOpen.Inspectors
   syntax:
     content: 'IsByPassed : BOOL'
@@ -160,11 +160,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorData.NumberOfAllowedRetries
     path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-    startLine: 36
+    startLine: 37
   namespace: plc.AXOpen.Inspectors
   syntax:
     content: 'NumberOfAllowedRetries : UINT'
@@ -180,11 +180,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoInspectorData.RetryAttemptsCount
     path: .\src\inspectors\ctrl\src\AxoInspectorData.st
-    startLine: 41
+    startLine: 42
   namespace: plc.AXOpen.Inspectors
   syntax:
     content: 'RetryAttemptsCount : UINT'

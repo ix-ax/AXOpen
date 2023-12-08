@@ -8,16 +8,18 @@ items:
   - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoHalt(LREAL,LREAL)
   - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoHome(LREAL,INT,LREAL,LREAL,LREAL)
   - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveAbsolute(BOOL,LREAL,LREAL,LREAL,LREAL,LREAL,eAxoDriveDirection)
-  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveRelative(BOOL,LREAL,LREAL,LREAL,LREAL,LREAL,eAxoDriveDirection)
-  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveAdditive(BOOL,LREAL,LREAL,LREAL,LREAL,LREAL,eAxoDriveDirection)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveRelative(BOOL,LREAL,LREAL,LREAL,LREAL,LREAL)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveAdditive(BOOL,LREAL,LREAL,LREAL,LREAL,LREAL)
   - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveVelocity(BOOL,LREAL,LREAL,LREAL,LREAL,eAxoDriveDirection)
   - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoTorqueControl(BOOL,LREAL,LREAL,LREAL,LREAL,LREAL,LREAL,eAxoDriveDirection)
-  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoSetPosition(REAL,BOOL,eAxoExecutionMode)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoSetPosition(LREAL,BOOL,eAxoExecutionMode)
   - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoSetOverride(BOOL,LREAL,LREAL,LREAL)
-  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadParameter(BOOL,INT)
-  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadBoolParameter(BOOL,INT)
-  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteParameter(INT,REAL,eAxoExecutionMode)
-  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteBoolParameter(INT,BOOL,eAxoExecutionMode)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadParameter(BOOL,DINT)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadRealParameter(BOOL,DINT)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadBoolParameter(BOOL,DINT)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteParameter(DINT,DINT,eAxoExecutionMode)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteRealParameter(DINT,REAL,eAxoExecutionMode)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteBoolParameter(DINT,BOOL,eAxoExecutionMode)
   - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadDigitalInput(BOOL,INT)
   - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadDigitalOutput(BOOL,INT)
   - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteDigitalOutput(INT,BOOL,eAxoExecutionMode)
@@ -35,7 +37,7 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
@@ -54,11 +56,11 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoStop
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 502
+    startLine: 3
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
     content: Public AXOpen.Core.IAxoTaskState AxoStop(in plc.LREAL Deceleration,in plc.LREAL Jerk)
@@ -79,11 +81,11 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoHalt
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 516
+    startLine: 17
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
     content: Public AXOpen.Core.IAxoTaskState AxoHalt(in plc.LREAL Deceleration,in plc.LREAL Jerk)
@@ -104,11 +106,11 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoHome
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 530
+    startLine: 32
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
     content: Public AXOpen.Core.IAxoTaskState AxoHome(in plc.LREAL Position,in plc.INT HommingMode,in plc.LREAL Velocity,in plc.LREAL Acceleration,in plc.LREAL Deceleration)
@@ -135,11 +137,11 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveAbsolute
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 544
+    startLine: 50
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
     content: Public AXOpen.Core.IAxoTaskState AxoMoveAbsolute(in plc.BOOL ContinuousUpdate,in plc.LREAL Position,in plc.LREAL Velocity,in plc.LREAL Acceleration,in plc.LREAL Deceleration,in plc.LREAL Jerk,in plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection Direction)
@@ -160,7 +162,7 @@ items:
       type: plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection
     return:
       type: plc.AXOpen.Core.IAxoTaskState
-- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveRelative(BOOL,LREAL,LREAL,LREAL,LREAL,LREAL,eAxoDriveDirection)
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveRelative(BOOL,LREAL,LREAL,LREAL,LREAL,LREAL)
   id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveRelative
   parent: IAxoDrive
   children: []
@@ -170,14 +172,14 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveRelative
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 565
+    startLine: 69
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
-    content: Public AXOpen.Core.IAxoTaskState AxoMoveRelative(in plc.BOOL ContinuousUpdate,in plc.LREAL Distance,in plc.LREAL Velocity,in plc.LREAL Acceleration,in plc.LREAL Deceleration,in plc.LREAL Jerk,in plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection Direction)
+    content: Public AXOpen.Core.IAxoTaskState AxoMoveRelative(in plc.BOOL ContinuousUpdate,in plc.LREAL Distance,in plc.LREAL Velocity,in plc.LREAL Acceleration,in plc.LREAL Deceleration,in plc.LREAL Jerk)
     parameters:
     - id: ContinuousUpdate
       type: plc.BOOL
@@ -191,11 +193,9 @@ items:
       type: plc.LREAL
     - id: Jerk
       type: plc.LREAL
-    - id: Direction
-      type: plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection
     return:
       type: plc.AXOpen.Core.IAxoTaskState
-- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveAdditive(BOOL,LREAL,LREAL,LREAL,LREAL,LREAL,eAxoDriveDirection)
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveAdditive(BOOL,LREAL,LREAL,LREAL,LREAL,LREAL)
   id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveAdditive
   parent: IAxoDrive
   children: []
@@ -205,14 +205,14 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveAdditive
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 585
+    startLine: 87
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
-    content: Public AXOpen.Core.IAxoTaskState AxoMoveAdditive(in plc.BOOL ContinuousUpdate,in plc.LREAL Distance,in plc.LREAL Velocity,in plc.LREAL Acceleration,in plc.LREAL Deceleration,in plc.LREAL Jerk,in plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection Direction)
+    content: Public AXOpen.Core.IAxoTaskState AxoMoveAdditive(in plc.BOOL ContinuousUpdate,in plc.LREAL Distance,in plc.LREAL Velocity,in plc.LREAL Acceleration,in plc.LREAL Deceleration,in plc.LREAL Jerk)
     parameters:
     - id: ContinuousUpdate
       type: plc.BOOL
@@ -226,8 +226,6 @@ items:
       type: plc.LREAL
     - id: Jerk
       type: plc.LREAL
-    - id: Direction
-      type: plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection
     return:
       type: plc.AXOpen.Core.IAxoTaskState
 - uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveVelocity(BOOL,LREAL,LREAL,LREAL,LREAL,eAxoDriveDirection)
@@ -240,11 +238,11 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveVelocity
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 604
+    startLine: 105
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
     content: Public AXOpen.Core.IAxoTaskState AxoMoveVelocity(in plc.BOOL ContinuousUpdate,in plc.LREAL Velocity,in plc.LREAL Acceleration,in plc.LREAL Deceleration,in plc.LREAL Jerk,in plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection Direction)
@@ -273,11 +271,11 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoTorqueControl
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 620
+    startLine: 124
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
     content: Public AXOpen.Core.IAxoTaskState AxoTorqueControl(in plc.BOOL ContinuousUpdate,in plc.LREAL Torque,in plc.LREAL TorqueRamp,in plc.LREAL Velocity,in plc.LREAL Acceleration,in plc.LREAL Deceleration,in plc.LREAL Jerk,in plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection Direction)
@@ -300,7 +298,7 @@ items:
       type: plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection
     return:
       type: plc.AXOpen.Core.IAxoTaskState
-- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoSetPosition(REAL,BOOL,eAxoExecutionMode)
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoSetPosition(LREAL,BOOL,eAxoExecutionMode)
   id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoSetPosition
   parent: IAxoDrive
   children: []
@@ -310,17 +308,17 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoSetPosition
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 647
+    startLine: 144
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
-    content: Public AXOpen.Core.IAxoTaskState AxoSetPosition(in plc.REAL Position,in plc.BOOL Relative,in plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode ExecutionMode)
+    content: Public AXOpen.Core.IAxoTaskState AxoSetPosition(in plc.LREAL Position,in plc.BOOL Relative,in plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode ExecutionMode)
     parameters:
     - id: Position
-      type: plc.REAL
+      type: plc.LREAL
     - id: Relative
       type: plc.BOOL
     - id: ExecutionMode
@@ -337,11 +335,11 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoSetOverride
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 659
+    startLine: 156
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
     content: Public AXOpen.Core.IAxoToggleTask AxoSetOverride(in plc.BOOL Enable,in plc.LREAL VelFactor,in plc.LREAL AccFactor,in plc.LREAL JerkFactor)
@@ -356,7 +354,7 @@ items:
       type: plc.LREAL
     return:
       type: plc.AXOpen.Core.IAxoToggleTask
-- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadParameter(BOOL,INT)
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadParameter(BOOL,DINT)
   id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadParameter
   parent: IAxoDrive
   children: []
@@ -366,22 +364,47 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadParameter
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 673
+    startLine: 170
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
-    content: Public AXOpen.Core.IAxoToggleTask AxoReadParameter(in plc.BOOL Enable,in plc.INT ParameterNumber)
+    content: Public AXOpen.Core.IAxoToggleTask AxoReadParameter(in plc.BOOL Enable,in plc.DINT ParameterNumber)
     parameters:
     - id: Enable
       type: plc.BOOL
     - id: ParameterNumber
-      type: plc.INT
+      type: plc.DINT
     return:
       type: plc.AXOpen.Core.IAxoToggleTask
-- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadBoolParameter(BOOL,INT)
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadRealParameter(BOOL,DINT)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadRealParameter
+  parent: IAxoDrive
+  children: []
+  name: AxoReadRealParameter
+  fullName: AxoReadRealParameter
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadRealParameter
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 183
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoToggleTask AxoReadRealParameter(in plc.BOOL Enable,in plc.DINT ParameterNumber)
+    parameters:
+    - id: Enable
+      type: plc.BOOL
+    - id: ParameterNumber
+      type: plc.DINT
+    return:
+      type: plc.AXOpen.Core.IAxoToggleTask
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadBoolParameter(BOOL,DINT)
   id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadBoolParameter
   parent: IAxoDrive
   children: []
@@ -391,22 +414,22 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadBoolParameter
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 686
+    startLine: 197
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
-    content: Public AXOpen.Core.IAxoToggleTask AxoReadBoolParameter(in plc.BOOL Enable,in plc.INT ParameterNumber)
+    content: Public AXOpen.Core.IAxoToggleTask AxoReadBoolParameter(in plc.BOOL Enable,in plc.DINT ParameterNumber)
     parameters:
     - id: Enable
       type: plc.BOOL
     - id: ParameterNumber
-      type: plc.INT
+      type: plc.DINT
     return:
       type: plc.AXOpen.Core.IAxoToggleTask
-- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteParameter(INT,REAL,eAxoExecutionMode)
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteParameter(DINT,DINT,eAxoExecutionMode)
   id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteParameter
   parent: IAxoDrive
   children: []
@@ -416,24 +439,51 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteParameter
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 700
+    startLine: 210
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
-    content: Public AXOpen.Core.IAxoTaskState AxoWriteParameter(in plc.INT ParameterNumber,in plc.REAL Value,in plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode ExecutionMode)
+    content: Public AXOpen.Core.IAxoTaskState AxoWriteParameter(in plc.DINT ParameterNumber,in plc.DINT Value,in plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode ExecutionMode)
     parameters:
     - id: ParameterNumber
-      type: plc.INT
+      type: plc.DINT
+    - id: Value
+      type: plc.DINT
+    - id: ExecutionMode
+      type: plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteRealParameter(DINT,REAL,eAxoExecutionMode)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteRealParameter
+  parent: IAxoDrive
+  children: []
+  name: AxoWriteRealParameter
+  fullName: AxoWriteRealParameter
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteRealParameter
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 223
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState AxoWriteRealParameter(in plc.DINT ParameterNumber,in plc.REAL Value,in plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode ExecutionMode)
+    parameters:
+    - id: ParameterNumber
+      type: plc.DINT
     - id: Value
       type: plc.REAL
     - id: ExecutionMode
       type: plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode
     return:
       type: plc.AXOpen.Core.IAxoTaskState
-- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteBoolParameter(INT,BOOL,eAxoExecutionMode)
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteBoolParameter(DINT,BOOL,eAxoExecutionMode)
   id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteBoolParameter
   parent: IAxoDrive
   children: []
@@ -443,17 +493,17 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteBoolParameter
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 712
+    startLine: 236
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
-    content: Public AXOpen.Core.IAxoTaskState AxoWriteBoolParameter(in plc.INT ParameterNumber,in plc.BOOL Value,in plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode ExecutionMode)
+    content: Public AXOpen.Core.IAxoTaskState AxoWriteBoolParameter(in plc.DINT ParameterNumber,in plc.BOOL Value,in plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode ExecutionMode)
     parameters:
     - id: ParameterNumber
-      type: plc.INT
+      type: plc.DINT
     - id: Value
       type: plc.BOOL
     - id: ExecutionMode
@@ -470,11 +520,11 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadDigitalInput
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 726
+    startLine: 251
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
     content: Public AXOpen.Core.IAxoToggleTask AxoReadDigitalInput(in plc.BOOL Enable,in plc.INT InputNumber)
@@ -495,11 +545,11 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadDigitalOutput
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 739
+    startLine: 264
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
     content: Public AXOpen.Core.IAxoToggleTask AxoReadDigitalOutput(in plc.BOOL Enable,in plc.INT OutputNumber)
@@ -520,11 +570,11 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteDigitalOutput
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 754
+    startLine: 278
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
     content: Public AXOpen.Core.IAxoTaskState AxoWriteDigitalOutput(in plc.INT OutputNumber,in plc.BOOL Value,in plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode ExecutionMode)
@@ -547,11 +597,11 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadActualPosition
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 768
+    startLine: 291
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
     content: Public AXOpen.Core.IAxoToggleTask AxoReadActualPosition(in plc.BOOL Enable)
@@ -570,11 +620,11 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadActualVelocity
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 780
+    startLine: 303
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
     content: Public AXOpen.Core.IAxoToggleTask AxoReadActualVelocity(in plc.BOOL Enable)
@@ -593,11 +643,11 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadActualTorque
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 792
+    startLine: 316
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
     content: Public AXOpen.Core.IAxoToggleTask AxoReadActualTorque(in plc.BOOL Enable)
@@ -616,11 +666,11 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadStatus
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 805
+    startLine: 328
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
     content: Public AXOpen.Core.IAxoToggleTask AxoReadStatus(in plc.BOOL Enable)
@@ -639,11 +689,11 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadMotionState
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 822
+    startLine: 347
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
     content: Public AXOpen.Core.IAxoToggleTask AxoReadMotionState(in plc.BOOL Enable,in plc.AXOpen.Components.Abstractions.Drives.eAxoSource Source)
@@ -664,11 +714,11 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadAxisInfo
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 837
+    startLine: 365
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
     content: Public AXOpen.Core.IAxoToggleTask AxoReadAxisInfo(in plc.BOOL Enable)
@@ -687,11 +737,11 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadAxisError
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 863
+    startLine: 385
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
     content: Public AXOpen.Core.IAxoToggleTask AxoReadAxisError(in plc.BOOL Enable)
@@ -710,11 +760,11 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReset
     path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-    startLine: 863
+    startLine: 399
   namespace: plc.AXOpen.Components.Abstractions.Drives
   syntax:
     content: Public AXOpen.Core.IAxoTaskState AxoReset()
@@ -742,10 +792,6 @@ references:
   name: eAxoDriveDirection
   nameWithType: eAxoDriveDirection
   fullName: AXOpen.Components.Abstractions.Drives.eAxoDriveDirection
-- uid: plc.REAL
-  name: REAL
-  nameWithType: REAL
-  fullName: REAL
 - uid: plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode
   name: eAxoExecutionMode
   nameWithType: eAxoExecutionMode
@@ -754,6 +800,14 @@ references:
   name: IAxoToggleTask
   nameWithType: IAxoToggleTask
   fullName: AXOpen.Core.IAxoToggleTask
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
 - uid: plc.AXOpen.Components.Abstractions.Drives.eAxoSource
   name: eAxoSource
   nameWithType: eAxoSource

@@ -38,7 +38,12 @@ NAMESPACE AXOpen.Components.Festo.Drives
             statStartCounter	    :   INT;
             stat_ActMode	        :   INT;
             stat_MaxCounterRetries	:   INT;
-            // State           :   UINT; 
+            LastMessageCode         :   ULINT;
+            ScalingRead             :   BOOL := FALSE;
+            PNU_11724               :   LINT;
+            PNU_11725               :   LINT;
+            PNU_12345               :   REAL;
+            PNU_11122               :   REAL;
         END_VAR
     
         VAR PUBLIC  //HEADER
@@ -46,21 +51,25 @@ NAMESPACE AXOpen.Components.Festo.Drives
             {#ix-attr:[ComponentHeader()]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Position#>"}
+            {#ix-set: AttributeUnits = "mm"}            
             ActualPosition          :   LREAL;
             {#ix-attr:[ComponentHeader()]}
             {#ix-attr:[ReadOnly()]}
+            {#ix-set: AttributeUnits = "mm/s"}
             {#ix-set:AttributeName = "<#Velocity#>"}
             ActualVelocity          :   LREAL;
             {#ix-attr:[ComponentHeader()]}
             {#ix-attr:[ReadOnly()]}
+            {#ix-set: AttributeUnits = "Nm"}
             {#ix-set:AttributeName = "<#Torque#>"}
             ActualTorque          :   LREAL;
         END_VAR
+
         VAR PUBLIC //TASKS
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Restore#>"}
-            RestoreTask : AXOpen.Core.AxoTask;
+            Restore_Task : AXOpen.Core.AxoTask;
             //***********Stop*********************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -228,36 +237,50 @@ NAMESPACE AXOpen.Components.Festo.Drives
             JogNegative_Task                          :   AXOpen.Core.AxoMomentaryTask;
         END_VAR
 
-
         VAR PUBLIC //CONFIG
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Config")]}
             {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#PositionScaling#>"}
+            {#ix-set:AttributeName = "<#Scaling constant required position#>"}
             {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
-            PositionScaling         :   LREAL   :=  1000;
+            ScalingConstantRequiredPosition         :   LREAL   :=  1000;
             {#ix-attr:[ComponentDetails("Config")]}
             {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#VelocityScaling#>"}
-            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite 1073741824.0/Base speed (P1.11280701.0.0)#>"}
-            VelocityScaling         :   LREAL   :=  1073741824.0;
+            {#ix-set:AttributeName = "<#Scaling constant actual position#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            ScalingConstantActualPosition         :   LREAL   :=  0.001;
             {#ix-attr:[ComponentDetails("Config")]}
-            {#ix-set:AttributeName = "<#TorqueScaling#>"}
-            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite (not yet discovered the proper formula :-) )#>"}
             {#ix-attr:[ReadOnly()]}
-            TorqueScaling         :   LREAL   :=  1000;
+            {#ix-set:AttributeName = "<#Scaling constant required velocity#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            ScalingConstantRequiredVelocity         :   LREAL   :=  1;
+            {#ix-attr:[ComponentDetails("Config")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant actual velocity#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            ScalingConstantActualVelocity         :   LREAL   :=  0.000000000931322574615478515625;
+            {#ix-attr:[ComponentDetails("Config")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant required torque#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            ScalingConstantRequiredTorque         :   LREAL   :=  1;
+            {#ix-attr:[ComponentDetails("Config")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant actual torque#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            ScalingConstantActualTorque         :   LREAL   :=  0.00006103515625;
         END_VAR
 
         VAR PUBLIC //STATUS
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[ComponentDetails("Status")]}
+            // {#ix-attr:[Container(Layout.Stack)]}
+            // {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
             DriveStatus         :   AxoDrive_Status;
             Messenger           :   AXOpen.Messaging.Static.AxoMessenger;
             TaskMessenger       :   AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
         
-        VAR PUBLIC
+        VAR PUBLIC //POSITIONING
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Positioning-Experts only")]}
             {#ix-attr:[DisplayRole("can_debug_components")]}
@@ -265,16 +288,18 @@ NAMESPACE AXOpen.Components.Festo.Drives
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Positioning-Experts only")]}
             {#ix-attr:[DisplayRole("can_debug_components")]}
+            {#ix-attr:[ReadOnly()]}
             State           :   UINT; 
+        END_VAR
 
+        VAR PUBLIC //PARAMETRIZATION
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Parametrization-Experts only")]}
             {#ix-attr:[DisplayRole("can_debug_components")]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Parametrization#>"}
-            Parametrization : AxoReadWritePROFIdriveParameter;
+            Parametrization : AxoReadWritePROFIdriveParameter;        
         END_VAR
-
 
         ///<summary>
         /// Runs tasks and logic of this component.
@@ -288,7 +313,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 refTelegram111_Out  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the Profidrive telegram 111 of this axis
                 refTelegram750_Out  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the Profidrive telegram 750 of this axis
                 MAP_HW_ID           :   ULINT;                      //  Hardware identifier of the module acces point submodule 
-                Enable              :   BOOL;                       //  As long as ‘Enable’ is TRUE, power is being enabled.
             END_VAR
 
 
@@ -327,7 +351,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 refTelegram111_Out  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the Profidrive telegram 111 of this axis
                 refTelegram750_Out  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the Profidrive telegram 750 of this axis
                 MAP_HW_ID           :   ULINT;                      //  Hardware identifier of the module acces point submodule 
-                Enable              :   BOOL;                       //  As long as ‘Enable’ is TRUE, power is being enabled.
             END_VAR
            
             IF _context_ = null THEN 
@@ -378,7 +401,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
             Messenger.ActivateOnCondition(ULINT#705,refTelegram111_In = NULL, eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(ULINT#706,refTelegram111_Out = NULL, eAxoMessageCategory#ProgrammingError);
         END_METHOD
-
 
         ///<summary>
         /// Ensures swapping the hardware input data structure into the AxisRef data structure  
@@ -468,6 +490,21 @@ NAMESPACE AXOpen.Components.Festo.Drives
             //MAP_HW_ID
             AxisRef^.Data.MAP_HW_ID := MAP_HW_ID;
         END_METHOD   
+
+        METHOD PRIVATE UpdateStatus 
+            VAR_INPUT
+                AxisRef :   REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsPtPAxisReference;
+            END_VAR
+
+            IF(AxisRef <> NULL) THEN
+                THIS.ActualPosition := TO_LREAL(AxisRef^.Telegram111_In.XIST_A) * ScalingConstantActualPosition;
+                THIS.ActualVelocity := TO_LREAL(AxisRef^.Telegram111_In.NIST_B) * ScalingConstantActualVelocity;
+                THIS.ActualTorque := TO_LREAL(AxisRef^.Telegram750_In.M_Actual) * ScalingConstantActualTorque;
+            ELSE
+                DriveStatus.Error.Id := UINT#707;
+            END_IF;
+            Messenger.ActivateOnCondition(ULINT#707,AxisRef = NULL, eAxoMessageCategory#ProgrammingError);
+        END_METHOD  
 
         ///<summary>
         /// Ensures swapping the AxisRef data structure into the hardware output data structure
@@ -591,8 +628,10 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
 
         METHOD PRIVATE Execute
-            //********************INITIALIZATION**************//        
-            RestoreTask.Initialize(THIS);
+            //********************INITIALIZATION**************//     
+            Messenger.Serve(THIS);
+            TaskMessenger.Serve(THIS);
+            Restore_Task.Initialize(THIS);
             Stop_Task.Initialize(THIS);
             Home_Task.Initialize(THIS);
             MoveAbsolute_Task.Initialize(THIS);
@@ -603,12 +642,101 @@ NAMESPACE AXOpen.Components.Festo.Drives
             JogPositive_Task.Initialize(THIS);
             JogNegative_Task.Initialize(THIS);
             //*************************************************//       
-            //********************RESTORE**********************//          
-            IF RestoreTask.Execute() THEN
-                THIS.Restore();
-                RestoreTask.DoneWhen(TRUE);
+            //********************PARAMETRIZAION***************//          
+            Parametrization.Run(THIS);
+            Parametrization.Inputs.HardwareId := TO_WORD(_AxisRef.Data.MAP_HW_ID);
+            //*******************SCALING***********************//          
+            IF NOT ScalingRead THEN
+                IF State = UINT#0 THEN
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    Parametrization.Inputs.ParameterNo := 11724;
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        PNU_11724 := Parametrization.Outputs.ValueReadLINT;
+                        State := UINT#10;
+                    END_IF;
+                END_IF;
+                IF State = UINT#10 THEN
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF NOT Parametrization.Outputs.Done THEN
+                        State := UINT#20;
+                    END_IF;
+                END_IF;
+                IF State = UINT#20 THEN
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    Parametrization.Inputs.ParameterNo := 11725;
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        PNU_11725 := Parametrization.Outputs.ValueReadLINT;
+                        State := UINT#30;
+                    END_IF;
+                END_IF;
+                IF State = UINT#30 THEN
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF NOT Parametrization.Outputs.Done THEN
+                        State := UINT#40;
+                    END_IF;
+                END_IF;                
+                IF State = UINT#40 THEN
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    Parametrization.Inputs.ParameterNo := 12345;
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        PNU_12345 := Parametrization.Outputs.ValueReadREAL;
+                        State := UINT#50;
+                    END_IF;
+                END_IF;
+                IF State = UINT#50 THEN
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF NOT Parametrization.Outputs.Done THEN
+                        State := UINT#60;
+                    END_IF;
+                END_IF;  
+                IF State = UINT#60 THEN
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    Parametrization.Inputs.ParameterNo := 11122;
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        PNU_11122 := Parametrization.Outputs.ValueReadREAL;
+                        State := UINT#70;
+                    END_IF;
+                END_IF;
+                IF State = UINT#70 THEN
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF NOT Parametrization.Outputs.Done THEN
+                        State := UINT#80;
+                    END_IF;
+                END_IF;                                
+                IF State = UINT#80 THEN
+                    ScalingConstantRequiredPosition := EXP(LN(10) * TO_LREAL(-1 * PNU_11724 - LINT#3));
+                    ScalingConstantActualPosition := EXP(LN(10) * TO_LREAL(PNU_11724 + LINT#3));
+                    ScalingConstantRequiredVelocity := EXP(LN(10) * TO_LREAL(-1 * PNU_11725 - LINT#3));
+                    ScalingConstantActualVelocity := PNU_12345 / 1073741.824;
+                    ScalingConstantRequiredTorque := 1;
+                    ScalingConstantActualTorque := PNU_11122 / 16384;
+                    ScalingRead := TRUE;
+                    State := UINT#0;
+                END_IF;                                
+                RETURN;
             END_IF;
-            //*************************************************//                 
+            IF NOT THIS.IsManuallyControllable() THEN
+                Positioning.Inputs.Jog1 := FALSE;
+                Positioning.Inputs.Jog2 := FALSE;
+            END_IF;
+            //********************RESTORE**********************//          
+            IF Restore_Task.Execute() THEN
+                THIS.Restore();
+                Restore_Task.DoneWhen(TRUE);
+            END_IF;
+            //*************************************************//      
             //********************STOP*************************//          
             IF Stop_Task.Execute() THEN
                 Positioning.Inputs.Jog1 := FALSE;
@@ -660,14 +788,15 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 IF State = UINT#0 THEN
                     Positioning.Inputs.EnableAxis := TRUE;
                     Positioning.Inputs.TravelToFixStop := FALSE;
-                    IF Positioning.Outputs.AxisEnabled AND NOT Positioning.Outputs.ClampTorqueReached THEN
+                    Positioning.Inputs.ExecuteMode := FALSE;
+                    IF Positioning.Outputs.AxisEnabled AND NOT Positioning.Outputs.ClampTorqueReached AND NOT Positioning.Outputs.AxisAckSetpoint THEN
                         State := UINT#10;
                     END_IF;
                 END_IF;
                 IF State = UINT#10 THEN
                     Positioning.Inputs.ModePos := 2;
-                    Positioning.Inputs.Position := TO_DINT(MoveAbsolute_Position * PositionScaling);
-                    Positioning.Inputs.Velocity := TO_DINT(MoveAbsolute_Velocity);
+                    Positioning.Inputs.Position := TO_DINT(MoveAbsolute_Position * ScalingConstantRequiredPosition);
+                    Positioning.Inputs.Velocity := TO_DINT(MoveAbsolute_Velocity *ScalingConstantRequiredVelocity);
                     Positioning.Inputs.IntermediateStop := TRUE;
                     Positioning.Inputs.ExecuteMode := TRUE;
                     IF Positioning.Outputs.AxisAckSetpoint THEN    
@@ -693,14 +822,15 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 IF State = UINT#0 THEN
                     Positioning.Inputs.EnableAxis := TRUE;
                     Positioning.Inputs.TravelToFixStop := FALSE;
-                    IF Positioning.Outputs.AxisEnabled AND NOT Positioning.Outputs.ClampTorqueReached THEN
+                    Positioning.Inputs.ExecuteMode := FALSE;
+                    IF Positioning.Outputs.AxisEnabled AND NOT Positioning.Outputs.ClampTorqueReached AND NOT Positioning.Outputs.AxisAckSetpoint THEN
                         State := UINT#10;
                     END_IF;
                 END_IF;
                 IF State = UINT#10 THEN
                     Positioning.Inputs.ModePos := 1;
-                    Positioning.Inputs.Position := TO_DINT(MoveRelative_Distance * PositionScaling);
-                    Positioning.Inputs.Velocity := TO_DINT(MoveRelative_Velocity);
+                    Positioning.Inputs.Position := TO_DINT(MoveRelative_Distance * ScalingConstantRequiredPosition);
+                    Positioning.Inputs.Velocity := TO_DINT(MoveRelative_Velocity * ScalingConstantRequiredVelocity);
                     Positioning.Inputs.IntermediateStop := TRUE;
                     Positioning.Inputs.ExecuteMode := TRUE;
                     IF Positioning.Outputs.AxisAckSetpoint THEN    
@@ -745,14 +875,16 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 //Enable axis
                 ELSIF State = UINT#20 THEN
                     Positioning.Inputs.EnableAxis := TRUE;
-                    IF Positioning.Outputs.AxisEnabled THEN
-                        State := UINT#30;
+                    Positioning.Inputs.ExecuteMode := FALSE;
+                    Positioning.Inputs.TravelToFixStop := FALSE;
+                    IF Positioning.Outputs.AxisEnabled AND NOT Positioning.Outputs.ClampTorqueReached AND NOT Positioning.Outputs.AxisAckSetpoint THEN
+                       State := UINT#30;
                     END_IF;
                 //Start movement
                 ELSIF State = UINT#30 THEN
                     Positioning.Inputs.ModePos := 2;
-                    Positioning.Inputs.Position := TO_DINT(TravelToFixStop_Position * PositionScaling);
-                    Positioning.Inputs.Velocity := TO_DINT(TravelToFixStop_Velocity );
+                    Positioning.Inputs.Position := TO_DINT(TravelToFixStop_Position * ScalingConstantRequiredPosition);
+                    Positioning.Inputs.Velocity := TO_DINT(TravelToFixStop_Velocity * ScalingConstantRequiredVelocity);
                     Positioning.Inputs.IntermediateStop := TRUE;
                     Positioning.Inputs.ExecuteMode := TRUE;
                     Positioning.Inputs.TravelToFixStop := TRUE;
@@ -787,8 +919,13 @@ NAMESPACE AXOpen.Components.Festo.Drives
             //*************************************************//            
             //********************RESET************************//          
             IF Reset_Task.Execute() THEN
+                State := UINT#0;
                 Positioning.Inputs.EnableAxis := FALSE;
+                Positioning.Inputs.Jog1 := FALSE;
+                Positioning.Inputs.Jog2 := FALSE;
                 Positioning.Inputs.AckError :=TRUE;
+                Positioning.Inputs.ExecuteMode := FALSE;
+                Positioning.Inputs.TravelToFixStop := FALSE;
                 Reset_Task.DoneWhen(NOT Positioning.Outputs.AxisError);
                 Reset_Task.ThrowWhen(Positioning.Outputs.AxisError AND Reset_Task.Duration > T#1s);
                 IF Reset_Task.IsDone() THEN
@@ -798,10 +935,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
             Reset_Done  := Reset_Task.IsDone();
             Reset_Busy  := Reset_Task.IsBusy();
             Reset_Error := Reset_Task.HasError();
-            //*************************************************//          
-            //********************PARAMETRIZAION***************//          
-            Parametrization.Run(THIS);
-            Parametrization.Inputs.HardwareId := TO_WORD(_AxisRef.Data.MAP_HW_ID);
             //*************************************************//          
 
             //********************POSITIONING******************//          
@@ -1349,22 +1482,12 @@ NAMESPACE AXOpen.Components.Festo.Drives
             Positioning.Outputs.Status := stat_Status;
             Positioning.Outputs.ActMode := stat_ActMode;
             //*************************************************//          
-        END_METHOD
 
-        METHOD PRIVATE UpdateStatus 
-            VAR_INPUT
-                AxisRef :   REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsPtPAxisReference;
-            END_VAR
-
-            IF(AxisRef <> NULL) THEN
-                THIS.ActualPosition := TO_LREAL(AxisRef^.Telegram111_In.XIST_A) / PositionScaling;
-                THIS.ActualVelocity := TO_LREAL(AxisRef^.Telegram111_In.NIST_B) / VelocityScaling;
-                THIS.ActualTorque := TO_LREAL(AxisRef^.Telegram750_In.M_Actual) / TorqueScaling;
-            ELSE
-                DriveStatus.Error.Id := UINT#707;
+            Messenger.ActivateOnCondition(LastMessageCode, Positioning.Outputs.AxisError AND LastMessageCode = TO_ULINT(Positioning.Outputs.ActFault), AXOpen.Messaging.eAxoMessageCategory#Error );
+            IF NOT Messenger.IsActive THEN
+                LastMessageCode := TO_ULINT(Positioning.Outputs.ActFault);
             END_IF;
-            Messenger.ActivateOnCondition(ULINT#707,AxisRef = NULL, eAxoMessageCategory#ProgrammingError);
-        END_METHOD  
+        END_METHOD
 
         ///<summary>
         /// This method commands the axis to perform the «search home» sequence. 
@@ -1445,8 +1568,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
             SetOverride  := SetOverride_Task.Invoke();
         END_METHOD
 
-
-
         ///<summary>
         /// This method makes the transition from the state ‘ErrorStop’ to ‘Standstill’ or ‘Disabled’ by resetting all 
         /// internal axis-related errors – it does not affect the output of the other methods.
@@ -1464,6 +1585,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             SetOverride_Task.Restore();
             Reset_Task.Restore();
             State := UINT#0;
+            Restore := Restore_Task;
         END_METHOD
 
         METHOD PROTECTED OVERRIDE ManualControl

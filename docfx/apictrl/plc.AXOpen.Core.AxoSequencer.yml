@@ -22,6 +22,7 @@ items:
   - plc.AXOpen.Core.AxoSequencer._refBeforeStep
   - plc.AXOpen.Core.AxoSequencer._refCurrentStep
   - plc.AXOpen.Core.AxoSequencer._refAfterStep
+  - plc.AXOpen.Core.AxoSequencer._microStep
   - plc.AXOpen.Core.AxoSequencer.Open()
   - plc.AXOpen.Core.AxoSequencer.Execute(IAxoStep,BOOL)
   - plc.AXOpen.Core.AxoSequencer.MoveNext()
@@ -32,11 +33,11 @@ items:
   - plc.AXOpen.Core.AxoSequencer.GetCoordinatorState()
   - plc.AXOpen.Core.AxoSequencer.DetermineOrder(IAxoStep)
   - plc.AXOpen.Core.AxoSequencer.GetNumberOfConfiguredSteps()
-  - plc.AXOpen.Core.AxoSequencer.InvalidContext()
-  - plc.AXOpen.Core.AxoSequencer.InvalidContext(IAxoStep)
   - plc.AXOpen.Core.AxoSequencer.DisableAllSteppingComands()
   - plc.AXOpen.Core.AxoSequencer.AbortCurrentStep()
   - plc.AXOpen.Core.AxoSequencer.OnRestore()
+  - plc.AXOpen.Core.AxoSequencer.GetMicroStepValue()
+  - plc.AXOpen.Core.AxoSequencer.SetMicroStepValue(UINT)
   - plc.AXOpen.Core.AxoSequencer.AndThen(IAxoTask)
   - plc.AXOpen.Core.AxoSequencer.Close()
   name: AxoSequencer
@@ -45,7 +46,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
@@ -67,7 +68,6 @@ items:
   - plc.AXOpen.Core.AxoTask.Duration
   - plc.AXOpen.Core.AxoTask.StartTimeStamp
   - plc.AXOpen.Core.AxoTask.ErrorDetails
-  - plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
   - plc.AXOpen.Core.AxoObject.Identity
   - plc.AXOpen.Core.AxoTask.GetState()
   - plc.AXOpen.Core.AxoTask.GetErrorDetails()
@@ -76,10 +76,10 @@ items:
   - plc.AXOpen.Core.AxoTask.IsBusy()
   - plc.AXOpen.Core.AxoTask.IsAborted()
   - plc.AXOpen.Core.AxoTask.HasError()
-  - plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+  - plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
+  - plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  - plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
   - plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
-  - plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-  - plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
   - plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
   - plc.AXOpen.Core.AxoTask.IsExecuteCalledInThisPlcCycle()
   - plc.AXOpen.Core.AxoTask.WasExecuteCalledInPreviousPlcCycle()
@@ -95,6 +95,10 @@ items:
   - plc.AXOpen.Core.AxoTask.GetIsDisabled()
   - plc.AXOpen.Core.AxoTask.Abort()
   - plc.AXOpen.Core.AxoTask.Resume()
+  - plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  - plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  - plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  - plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
   - plc.AXOpen.Core.AxoTask.OnAbort()
   - plc.AXOpen.Core.AxoTask.OnResume()
   - plc.AXOpen.Core.AxoTask.OnDone()
@@ -102,8 +106,15 @@ items:
   - plc.AXOpen.Core.AxoTask.OnRestore()
   - plc.AXOpen.Core.AxoTask.OnStart()
   - plc.AXOpen.Core.AxoTask.WhileError()
+  - plc.AXOpen.Core.AxoTask.AbortTriggered()
+  - plc.AXOpen.Core.AxoTask.ResumeTriggered()
+  - plc.AXOpen.Core.AxoTask.DoneReached()
+  - plc.AXOpen.Core.AxoTask.ErrorOccured()
+  - plc.AXOpen.Core.AxoTask.RestoreTriggered()
+  - plc.AXOpen.Core.AxoTask.StartTriggered()
   - plc.AXOpen.Core.AxoObject.GetIdentity()
   - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
   - plc.AXOpen.Core.AxoObject.GetParent()
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
@@ -121,11 +132,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.SteppingMode
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 3
+    startLine: 4
   namespace: plc.AXOpen.Core
   syntax:
     content: 'SteppingMode : AXOpen.Core.eAxoSteppingMode'
@@ -141,11 +152,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.SequenceMode
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 5
+    startLine: 6
   namespace: plc.AXOpen.Core
   syntax:
     content: 'SequenceMode : AXOpen.Core.eAxoSequenceMode'
@@ -161,11 +172,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.CurrentOrder
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 7
+    startLine: 8
   namespace: plc.AXOpen.Core
   syntax:
     content: 'CurrentOrder : ULINT'
@@ -181,11 +192,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.StepForwardCommand
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 8
+    startLine: 9
   namespace: plc.AXOpen.Core
   syntax:
     content: 'StepForwardCommand : AXOpen.Core.AxoTask'
@@ -201,11 +212,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.StepIn
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 10
+    startLine: 11
   namespace: plc.AXOpen.Core
   syntax:
     content: 'StepIn : AXOpen.Core.AxoTask'
@@ -221,11 +232,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.StepBackwardCommand
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 12
+    startLine: 13
   namespace: plc.AXOpen.Core
   syntax:
     content: 'StepBackwardCommand : AXOpen.Core.AxoTask'
@@ -241,11 +252,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.BeforeStep
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 15
+    startLine: 16
   namespace: plc.AXOpen.Core
   syntax:
     content: 'BeforeStep : AXOpen.Core.AxoStep'
@@ -261,11 +272,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.CurrentStep
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 16
+    startLine: 17
   namespace: plc.AXOpen.Core
   syntax:
     content: 'CurrentStep : AXOpen.Core.AxoStep'
@@ -281,11 +292,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.AfterStep
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 17
+    startLine: 18
   namespace: plc.AXOpen.Core
   syntax:
     content: 'AfterStep : AXOpen.Core.AxoStep'
@@ -301,11 +312,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer._configurationFlowOrder
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 20
+    startLine: 21
   namespace: plc.AXOpen.Core
   syntax:
     content: '_configurationFlowOrder : ULINT'
@@ -321,11 +332,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer._numberOfConfiguredSteps
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 21
+    startLine: 22
   namespace: plc.AXOpen.Core
   syntax:
     content: '_numberOfConfiguredSteps : ULINT'
@@ -341,11 +352,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer._coordinatorState
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 22
+    startLine: 23
   namespace: plc.AXOpen.Core
   syntax:
     content: '_coordinatorState : AXOpen.Core.AxoCoordinatorStates'
@@ -361,11 +372,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer._step
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 23
+    startLine: 24
   namespace: plc.AXOpen.Core
   syntax:
     content: '_step : AXOpen.Core.IAxoStep'
@@ -381,11 +392,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer._openCycleCounter
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 24
+    startLine: 25
   namespace: plc.AXOpen.Core
   syntax:
     content: '_openCycleCounter : ULINT'
@@ -401,11 +412,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer._closeCycleCounter
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 25
+    startLine: 26
   namespace: plc.AXOpen.Core
   syntax:
     content: '_closeCycleCounter : ULINT'
@@ -421,11 +432,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer._refBeforeStep
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 26
+    startLine: 27
   namespace: plc.AXOpen.Core
   syntax:
     content: '_refBeforeStep : REF_TO AXOpen.Core.AxoStep'
@@ -441,11 +452,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer._refCurrentStep
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 27
+    startLine: 28
   namespace: plc.AXOpen.Core
   syntax:
     content: '_refCurrentStep : REF_TO AXOpen.Core.AxoStep'
@@ -461,16 +472,36 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer._refAfterStep
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 30
+    startLine: 29
   namespace: plc.AXOpen.Core
   syntax:
     content: '_refAfterStep : REF_TO AXOpen.Core.AxoStep'
     return:
       type: REF_TO AXOpen.Core.AxoStep
+- uid: plc.AXOpen.Core.AxoSequencer._microStep
+  id: plc.AXOpen.Core.AxoSequencer._microStep
+  parent: AXOpen.Core
+  children: []
+  name: _microStep
+  fullName: _microStep
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoSequencer._microStep
+    path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
+    startLine: 32
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_microStep : UINT'
+    return:
+      type: UINT
 - uid: plc.AXOpen.Core.AxoSequencer.Open()
   id: plc.AXOpen.Core.AxoSequencer.Open()
   parent: AXOpen.Core.AxoSequencer
@@ -481,11 +512,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.Open
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 37
+    startLine: 39
   namespace: plc.AXOpen.Core
   summary: Opens sequencers operations.This method must be called prior to any other calls of this instance ofsequencer.
   syntax:
@@ -503,11 +534,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.Execute
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 61
+    startLine: 88
   namespace: plc.AXOpen.Core
   syntax:
     content: Internal BOOL Execute(in plc.AXOpen.Core.IAxoStep step,in plc.BOOL Enable)
@@ -528,11 +559,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.MoveNext
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 166
+    startLine: 196
   namespace: plc.AXOpen.Core
   summary: Moves the execution to the next step.
   syntax:
@@ -550,11 +581,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.RequestStep
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 187
+    startLine: 215
   namespace: plc.AXOpen.Core
   summary: Terminates the currently executed step and initiates the RequestedStep to be executed
   syntax:
@@ -574,11 +605,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.CompleteSequence
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 209
+    startLine: 237
   namespace: plc.AXOpen.Core
   summary: Completes (finishes) the execution of this sequencer and set the coordination state to Idle.If the `SequenceMode` of the sequencer is set to `RunOnce`, terminates also execution of the sequencer itself.
   syntax:
@@ -596,11 +627,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.OnBeforeSequenceStart
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 235
+    startLine: 263
   namespace: plc.AXOpen.Core
   summary: Executes once when the sequence starts.
   syntax:
@@ -618,11 +649,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.OnCompleteSequence
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 242
+    startLine: 271
   namespace: plc.AXOpen.Core
   summary: Executes once when the sequence is completed.
   syntax:
@@ -640,11 +671,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.GetCoordinatorState
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 247
+    startLine: 275
   namespace: plc.AXOpen.Core
   summary: Gets the state of the coordinator
   syntax:
@@ -662,14 +693,14 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.DetermineOrder
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 251
+    startLine: 279
   namespace: plc.AXOpen.Core
   syntax:
-    content: Protected ULINT DetermineOrder(in plc.AXOpen.Core.IAxoStep step)
+    content: Private ULINT DetermineOrder(in plc.AXOpen.Core.IAxoStep step)
     parameters:
     - id: step
       type: plc.AXOpen.Core.IAxoStep
@@ -685,11 +716,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.GetNumberOfConfiguredSteps
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 274
+    startLine: 302
   namespace: plc.AXOpen.Core
   summary: Gets the number of the configured steps in the sequence.
   syntax:
@@ -697,50 +728,6 @@ items:
     parameters: *o0
     return:
       type: plc.ULINT
-- uid: plc.AXOpen.Core.AxoSequencer.InvalidContext()
-  id: plc.AXOpen.Core.AxoSequencer.InvalidContext()
-  parent: AXOpen.Core.AxoSequencer
-  children: []
-  name: InvalidContext
-  fullName: InvalidContext
-  type: Method
-  source:
-    remote:
-      path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
-      repo: https://github.com/ix-ax/AXOpen.git
-    id: plc.AXOpen.Core.AxoSequencer.InvalidContext
-    path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 285
-  namespace: plc.AXOpen.Core
-  syntax:
-    content: Protected BOOL InvalidContext()
-    parameters: *o0
-    return:
-      type: plc.BOOL
-- uid: plc.AXOpen.Core.AxoSequencer.InvalidContext(IAxoStep)
-  id: plc.AXOpen.Core.AxoSequencer.InvalidContext(IAxoStep)
-  parent: AXOpen.Core.AxoSequencer
-  children: []
-  name: InvalidContext
-  fullName: InvalidContext
-  type: Method
-  source:
-    remote:
-      path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
-      repo: https://github.com/ix-ax/AXOpen.git
-    id: plc.AXOpen.Core.AxoSequencer.InvalidContext
-    path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 293
-  namespace: plc.AXOpen.Core
-  syntax:
-    content: Protected BOOL InvalidContext(in plc.AXOpen.Core.IAxoStep step)
-    parameters:
-    - id: step
-      type: plc.AXOpen.Core.IAxoStep
-    return:
-      type: plc.BOOL
 - uid: plc.AXOpen.Core.AxoSequencer.DisableAllSteppingComands()
   id: plc.AXOpen.Core.AxoSequencer.DisableAllSteppingComands()
   parent: AXOpen.Core.AxoSequencer
@@ -751,11 +738,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.DisableAllSteppingComands
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 308
+    startLine: 338
   namespace: plc.AXOpen.Core
   syntax:
     content: Protected VOID DisableAllSteppingComands()
@@ -772,11 +759,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.AbortCurrentStep
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 314
+    startLine: 345
   namespace: plc.AXOpen.Core
   syntax:
     content: Protected VOID AbortCurrentStep()
@@ -793,17 +780,67 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.OnRestore
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 333
+    startLine: 351
   namespace: plc.AXOpen.Core
   syntax:
     content: Protected VOID OnRestore()
     parameters: *o0
     return:
       type: VOID
+- uid: plc.AXOpen.Core.AxoSequencer.GetMicroStepValue()
+  id: plc.AXOpen.Core.AxoSequencer.GetMicroStepValue()
+  parent: AXOpen.Core.AxoSequencer
+  children: []
+  name: GetMicroStepValue
+  fullName: GetMicroStepValue
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoSequencer.GetMicroStepValue
+    path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
+    startLine: 364
+  namespace: plc.AXOpen.Core
+  summary: Retrieves the current micro-step value.
+  remarks: This method provides the current micro-step value, which indicates the granularity of the step in the execution cycle.The micro-step value is useful for fine-grained control or monitoring of the execution cycle progress.
+  syntax:
+    content: Public UINT GetMicroStepValue()
+    parameters: *o0
+    return:
+      type: plc.UINT
+      description: An unsigned integer representing the current micro-step value.
+- uid: plc.AXOpen.Core.AxoSequencer.SetMicroStepValue(UINT)
+  id: plc.AXOpen.Core.AxoSequencer.SetMicroStepValue(UINT)
+  parent: AXOpen.Core.AxoSequencer
+  children: []
+  name: SetMicroStepValue
+  fullName: SetMicroStepValue
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoSequencer.SetMicroStepValue
+    path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
+    startLine: 389
+  namespace: plc.AXOpen.Core
+  summary: Sets the micro-step value to control the granularity of the execution cycle.
+  remarks: This method allows dynamic control over the granularity of the execution cycle.The micro-step value determines the fine-grained progress within the execution cycle.Higher values result in more frequent updates or smaller steps, while lower values indicate larger steps.
+  syntax:
+    content: Public UINT SetMicroStepValue(in plc.UINT MicroStep)
+    parameters:
+    - id: MicroStep
+      type: plc.UINT
+      description: An unsigned integer representing the desired micro-step value.
+    return:
+      type: plc.UINT
 - uid: plc.AXOpen.Core.AxoSequencer.AndThen(IAxoTask)
   id: plc.AXOpen.Core.AxoSequencer.AndThen(IAxoTask)
   parent: AXOpen.Core.AxoSequencer
@@ -814,11 +851,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.AndThen
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 340
+    startLine: 399
   namespace: plc.AXOpen.Core
   syntax:
     content: Public VOID AndThen(in plc.AXOpen.Core.IAxoTask tsk)
@@ -837,11 +874,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoSequencer.Close
     path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\AxoSequencer.st
-    startLine: 345
+    startLine: 399
   namespace: plc.AXOpen.Core
   syntax:
     content: Protected VOID Close()
@@ -909,12 +946,6 @@ references:
   nameWithType: ErrorDetails
   fullName: plc.AXOpen.Core.AxoTask.ErrorDetails
   parent: plc.AXOpen.Core.AxoTask.ErrorDetails
-- uid: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
-  commentId: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
-  name: _CyclicExecuteIsNotCalled
-  nameWithType: _CyclicExecuteIsNotCalled
-  fullName: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
-  parent: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
 - uid: plc.AXOpen.Core.AxoObject.Identity
   commentId: plc.AXOpen.Core.AxoObject.Identity
   name: Identity
@@ -963,30 +994,30 @@ references:
   nameWithType: HasError()
   fullName: plc.AXOpen.Core.AxoTask.HasError()
   parent: plc.AXOpen.Core.AxoTask.HasError()
-- uid: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
-  commentId: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
-  name: IsInvokeCalled()
-  nameWithType: IsInvokeCalled()
-  fullName: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
-  parent: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+- uid: plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
+  commentId: plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
+  name: IsFirstExecutionCycle()
+  nameWithType: IsFirstExecutionCycle()
+  fullName: plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
+  parent: plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
+- uid: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  commentId: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  name: SetSuspendMultipleExecuteCallCheck(BOOL)
+  nameWithType: SetSuspendMultipleExecuteCallCheck(BOOL)
+  fullName: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  parent: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+- uid: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
+  commentId: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
+  name: GetSuspendMultipleExecuteCallCheckState()
+  nameWithType: GetSuspendMultipleExecuteCallCheckState()
+  fullName: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
+  parent: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
 - uid: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
   commentId: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
   name: IsNewInvokeCall()
   nameWithType: IsNewInvokeCall()
   fullName: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
   parent: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
-- uid: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-  commentId: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-  name: IsInvokeCalledInThisPlcCycle()
-  nameWithType: IsInvokeCalledInThisPlcCycle()
-  fullName: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-  parent: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-- uid: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
-  commentId: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
-  name: WasInvokeCalledInPreviousPlcCycle()
-  nameWithType: WasInvokeCalledInPreviousPlcCycle()
-  fullName: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
-  parent: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
 - uid: plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
   commentId: plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
   name: IsNewExecuteCall()
@@ -1077,6 +1108,30 @@ references:
   nameWithType: Resume()
   fullName: plc.AXOpen.Core.AxoTask.Resume()
   parent: plc.AXOpen.Core.AxoTask.Resume()
+- uid: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  commentId: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  name: SetRemoteRestoreEnabled(BOOL)
+  nameWithType: SetRemoteRestoreEnabled(BOOL)
+  fullName: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  parent: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+- uid: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  commentId: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  name: GetRemoteRestoreEnabled()
+  nameWithType: GetRemoteRestoreEnabled()
+  fullName: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  parent: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+- uid: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  commentId: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  name: SetRemoteAbortEnabled(BOOL)
+  nameWithType: SetRemoteAbortEnabled(BOOL)
+  fullName: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  parent: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+- uid: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
+  commentId: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
+  name: GetRemoteAbortEnabled()
+  nameWithType: GetRemoteAbortEnabled()
+  fullName: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
+  parent: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
 - uid: plc.AXOpen.Core.AxoTask.OnAbort()
   commentId: plc.AXOpen.Core.AxoTask.OnAbort()
   name: OnAbort()
@@ -1119,6 +1174,42 @@ references:
   nameWithType: WhileError()
   fullName: plc.AXOpen.Core.AxoTask.WhileError()
   parent: plc.AXOpen.Core.AxoTask.WhileError()
+- uid: plc.AXOpen.Core.AxoTask.AbortTriggered()
+  commentId: plc.AXOpen.Core.AxoTask.AbortTriggered()
+  name: AbortTriggered()
+  nameWithType: AbortTriggered()
+  fullName: plc.AXOpen.Core.AxoTask.AbortTriggered()
+  parent: plc.AXOpen.Core.AxoTask.AbortTriggered()
+- uid: plc.AXOpen.Core.AxoTask.ResumeTriggered()
+  commentId: plc.AXOpen.Core.AxoTask.ResumeTriggered()
+  name: ResumeTriggered()
+  nameWithType: ResumeTriggered()
+  fullName: plc.AXOpen.Core.AxoTask.ResumeTriggered()
+  parent: plc.AXOpen.Core.AxoTask.ResumeTriggered()
+- uid: plc.AXOpen.Core.AxoTask.DoneReached()
+  commentId: plc.AXOpen.Core.AxoTask.DoneReached()
+  name: DoneReached()
+  nameWithType: DoneReached()
+  fullName: plc.AXOpen.Core.AxoTask.DoneReached()
+  parent: plc.AXOpen.Core.AxoTask.DoneReached()
+- uid: plc.AXOpen.Core.AxoTask.ErrorOccured()
+  commentId: plc.AXOpen.Core.AxoTask.ErrorOccured()
+  name: ErrorOccured()
+  nameWithType: ErrorOccured()
+  fullName: plc.AXOpen.Core.AxoTask.ErrorOccured()
+  parent: plc.AXOpen.Core.AxoTask.ErrorOccured()
+- uid: plc.AXOpen.Core.AxoTask.RestoreTriggered()
+  commentId: plc.AXOpen.Core.AxoTask.RestoreTriggered()
+  name: RestoreTriggered()
+  nameWithType: RestoreTriggered()
+  fullName: plc.AXOpen.Core.AxoTask.RestoreTriggered()
+  parent: plc.AXOpen.Core.AxoTask.RestoreTriggered()
+- uid: plc.AXOpen.Core.AxoTask.StartTriggered()
+  commentId: plc.AXOpen.Core.AxoTask.StartTriggered()
+  name: StartTriggered()
+  nameWithType: StartTriggered()
+  fullName: plc.AXOpen.Core.AxoTask.StartTriggered()
+  parent: plc.AXOpen.Core.AxoTask.StartTriggered()
 - uid: plc.AXOpen.Core.AxoObject.GetIdentity()
   commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
   name: GetIdentity()
@@ -1131,6 +1222,12 @@ references:
   nameWithType: GetContext()
   fullName: plc.AXOpen.Core.AxoObject.GetContext()
   parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
 - uid: plc.AXOpen.Core.AxoObject.GetParent()
   commentId: plc.AXOpen.Core.AxoObject.GetParent()
   name: GetParent()
@@ -1199,6 +1296,10 @@ references:
   name: REF_TO AXOpen.Core.AxoStep
   nameWithType: REF_TO AXOpen.Core.AxoStep
   fullName: REF_TO AXOpen.Core.AxoStep
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
 - uid: plc.BOOL
   name: BOOL
   nameWithType: BOOL

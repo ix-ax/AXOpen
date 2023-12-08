@@ -6,11 +6,11 @@ items:
   children: []
   name: AxoDataExchangeBase
   fullName: AxoDataExchangeBase
-  type: Class
+  type: Interface
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataExchangeBase.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.AxoDataExchangeBase
     path: .\src\data\ctrl\src\AxoDataExchangeBase.st
@@ -18,60 +18,8 @@ items:
   namespace: plc.AXOpen.Data
   summary: Represents base class of data exchange.This class is used to provide abstract information about the type that can be used in rcc.
   syntax:
-    content: CLASS AxoDataExchangeBase
-  inheritance:
-  - plc.AXOpen.Core.AxoObject
-  inheritedMembers:
-  - plc.AXOpen.Core.AxoObject.Identity
-  - plc.AXOpen.Core.AxoObject.GetIdentity()
-  - plc.AXOpen.Core.AxoObject.GetContext()
-  - plc.AXOpen.Core.AxoObject.GetParent()
-  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
-  - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
-  implements:
-  - plc.AXOpen.Core.IAxoObject
-references:
-- uid: plc.AXOpen.Core.AxoObject.Identity
-  commentId: plc.AXOpen.Core.AxoObject.Identity
-  name: Identity
-  nameWithType: Identity
-  fullName: plc.AXOpen.Core.AxoObject.Identity
-  parent: plc.AXOpen.Core.AxoObject.Identity
-- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
-  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
-  name: GetIdentity()
-  nameWithType: GetIdentity()
-  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
-  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
-- uid: plc.AXOpen.Core.AxoObject.GetContext()
-  commentId: plc.AXOpen.Core.AxoObject.GetContext()
-  name: GetContext()
-  nameWithType: GetContext()
-  fullName: plc.AXOpen.Core.AxoObject.GetContext()
-  parent: plc.AXOpen.Core.AxoObject.GetContext()
-- uid: plc.AXOpen.Core.AxoObject.GetParent()
-  commentId: plc.AXOpen.Core.AxoObject.GetParent()
-  name: GetParent()
-  nameWithType: GetParent()
-  fullName: plc.AXOpen.Core.AxoObject.GetParent()
-  parent: plc.AXOpen.Core.AxoObject.GetParent()
-- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
-  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
-  name: Initialize(IAxoObject)
-  nameWithType: Initialize(IAxoObject)
-  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
-  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
-- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
-  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
-  name: Initialize(IAxoContext)
-  nameWithType: Initialize(IAxoContext)
-  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
-  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
-- uid: plc.AXOpen.Core.IAxoObject
-  commentId: plc.AXOpen.Core.IAxoObject
-  name: IAxoObject
-  nameWithType: IAxoObject
-  fullName: plc.AXOpen.Core.IAxoObject
-  parent: plc.AXOpen.Core.IAxoObject
+    content: INTERFACE AxoDataExchangeBase
+  implements: []
+references: []
 
 

@@ -14,7 +14,7 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoDriveDirection.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection
     path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoDriveDirection.st
@@ -32,7 +32,7 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoDriveDirection.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection.PositiveDirection
     path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoDriveDirection.st
@@ -48,7 +48,7 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoDriveDirection.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection.ShortestWay
     path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoDriveDirection.st
@@ -64,7 +64,7 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoDriveDirection.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection.NegativeDirection
     path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoDriveDirection.st
@@ -80,7 +80,7 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoDriveDirection.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection.CurrentDirection
     path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoDriveDirection.st

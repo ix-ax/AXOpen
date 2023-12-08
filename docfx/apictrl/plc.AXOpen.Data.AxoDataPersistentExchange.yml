@@ -1,0 +1,728 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange
+  id: plc.AXOpen.Data.AxoDataPersistentExchange
+  parent: plc.AXOpen.Data
+  children:
+  - plc.AXOpen.Data.AxoDataPersistentExchange.Operation
+  - plc.AXOpen.Data.AxoDataPersistentExchange.DEFAULT_ID
+  - plc.AXOpen.Data.AxoDataPersistentExchange._IsFirstReadAllDone
+  - plc.AXOpen.Data.AxoDataPersistentExchange.LastCallerIdentity
+  - plc.AXOpen.Data.AxoDataPersistentExchange.LastCycleCount
+  - plc.AXOpen.Data.AxoDataPersistentExchange.LastOperation
+  - plc.AXOpen.Data.AxoDataPersistentExchange.IsNotConcurrentCall(IAxoObject)
+  - plc.AXOpen.Data.AxoDataPersistentExchange.Run(IAxoObject)
+  - plc.AXOpen.Data.AxoDataPersistentExchange.Run(IAxoContext)
+  - plc.AXOpen.Data.AxoDataPersistentExchange.Restore()
+  - plc.AXOpen.Data.AxoDataPersistentExchange.EntityExistResult()
+  - plc.AXOpen.Data.AxoDataPersistentExchange.InvokeRead(IAxoObject,STRING[254])
+  - plc.AXOpen.Data.AxoDataPersistentExchange.InvokeReadDefault(IAxoObject)
+  - plc.AXOpen.Data.AxoDataPersistentExchange.InvokeUpdate(IAxoObject,STRING[254])
+  - plc.AXOpen.Data.AxoDataPersistentExchange.InvokeUpdateDefault(IAxoObject)
+  - plc.AXOpen.Data.AxoDataPersistentExchange.InvokeUpdateAll(IAxoObject)
+  - plc.AXOpen.Data.AxoDataPersistentExchange.InvokeReadAll(IAxoObject)
+  - plc.AXOpen.Data.AxoDataPersistentExchange.InvokeEntityExist(IAxoObject,STRING[254])
+  - plc.AXOpen.Data.AxoDataPersistentExchange.IsReadDone(IAxoObject)
+  - plc.AXOpen.Data.AxoDataPersistentExchange.IsUpdateDone(IAxoObject)
+  - plc.AXOpen.Data.AxoDataPersistentExchange.IsUpdateAllDone(IAxoObject)
+  - plc.AXOpen.Data.AxoDataPersistentExchange.IsReadAllDone(IAxoObject)
+  - plc.AXOpen.Data.AxoDataPersistentExchange.IsEntityExistDone(IAxoObject)
+  - plc.AXOpen.Data.AxoDataPersistentExchange.IsFirstReadDone()
+  - plc.AXOpen.Data.AxoDataPersistentExchange.SetFirstReadDone()
+  name: AxoDataPersistentExchange
+  fullName: AxoDataPersistentExchange
+  type: Class
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 2
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: CLASS AxoDataPersistentExchange
+  inheritance:
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  implements:
+  - plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.Operation
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.Operation
+  parent: AXOpen.Data
+  children: []
+  name: Operation
+  fullName: Operation
+  type: Property
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.Operation
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 5
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: 'Operation : AXOpen.Data.AxoDataPersistentCurdTask'
+    return:
+      type: AXOpen.Data.AxoDataPersistentCurdTask
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.DEFAULT_ID
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.DEFAULT_ID
+  parent: AXOpen.Data
+  children: []
+  name: DEFAULT_ID
+  fullName: DEFAULT_ID
+  type: Property
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.DEFAULT_ID
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 9
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: 'DEFAULT_ID : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange._IsFirstReadAllDone
+  id: plc.AXOpen.Data.AxoDataPersistentExchange._IsFirstReadAllDone
+  parent: AXOpen.Data
+  children: []
+  name: _IsFirstReadAllDone
+  fullName: _IsFirstReadAllDone
+  type: Property
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange._IsFirstReadAllDone
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 13
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: '_IsFirstReadAllDone : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.LastCallerIdentity
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.LastCallerIdentity
+  parent: AXOpen.Data
+  children: []
+  name: LastCallerIdentity
+  fullName: LastCallerIdentity
+  type: Property
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.LastCallerIdentity
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 17
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: 'LastCallerIdentity : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.LastCycleCount
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.LastCycleCount
+  parent: AXOpen.Data
+  children: []
+  name: LastCycleCount
+  fullName: LastCycleCount
+  type: Property
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.LastCycleCount
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 18
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: 'LastCycleCount : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.LastOperation
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.LastOperation
+  parent: AXOpen.Data
+  children: []
+  name: LastOperation
+  fullName: LastOperation
+  type: Property
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.LastOperation
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 18
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: 'LastOperation : AXOpen.Data.ePersistentOperation'
+    return:
+      type: AXOpen.Data.ePersistentOperation
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.IsNotConcurrentCall(IAxoObject)
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.IsNotConcurrentCall(IAxoObject)
+  parent: AXOpen.Data.AxoDataPersistentExchange
+  children: []
+  name: IsNotConcurrentCall
+  fullName: IsNotConcurrentCall
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.IsNotConcurrentCall
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 30
+  namespace: plc.AXOpen.Data
+  summary: This method determines if the current call is concurrent or not.It takes an AXOpen.Core.IAxoObject as input and returns a BOOL.The logic involves checking the identity of the caller and comparing it with the last caller identity,along with the operation's readiness and cycle count checks.
+  syntax:
+    content: Private BOOL IsNotConcurrentCall(in plc.AXOpen.Core.IAxoObject caller)
+    parameters:
+    - id: caller
+      type: plc.AXOpen.Core.IAxoObject
+      description: IAxoObject for identifying the caller in the context of concurrent calls
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.Run(IAxoObject)
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.Run(IAxoObject)
+  parent: AXOpen.Data.AxoDataPersistentExchange
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.Run
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 81
+  namespace: plc.AXOpen.Data
+  summary: Runs intialization and cyclical handling of this AxoDataPersistentExchange.
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject parent)
+    parameters:
+    - id: parent
+      type: plc.AXOpen.Core.IAxoObject
+      description: Parent of this object
+    return:
+      type: VOID
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.Run(IAxoContext)
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.Run(IAxoContext)
+  parent: AXOpen.Data.AxoDataPersistentExchange
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.Run
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 111
+  namespace: plc.AXOpen.Data
+  summary: Runs intialization and cyclical handling of this AxoDataPersistentExchange.
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoContext context)
+    parameters:
+    - id: context
+      type: plc.AXOpen.Core.IAxoContext
+      description: Root context of this object
+    return:
+      type: VOID
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.Restore()
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.Restore()
+  parent: AXOpen.Data.AxoDataPersistentExchange
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.Restore
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 140
+  namespace: plc.AXOpen.Data
+  summary: Executes the restore Operation for the AxoDataPersistentExchange component.
+  syntax:
+    content: Public VOID Restore()
+    parameters: &o0 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.EntityExistResult()
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.EntityExistResult()
+  parent: AXOpen.Data.AxoDataPersistentExchange
+  children: []
+  name: EntityExistResult
+  fullName: EntityExistResult
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.EntityExistResult
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 147
+  namespace: plc.AXOpen.Data
+  summary: Return last result of EntitiyExist Operation. True = Record Exist.
+  syntax:
+    content: Public BOOL EntityExistResult()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeRead(IAxoObject,STRING[254])
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeRead(IAxoObject,STRING[254])
+  parent: AXOpen.Data.AxoDataPersistentExchange
+  children: []
+  name: InvokeRead
+  fullName: InvokeRead
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeRead
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 160
+  namespace: plc.AXOpen.Data
+  summary: This method attempts to invoke a read operation.It checks if the call is concurrent and, if not,invokes the read operation on the Operation object.
+  syntax:
+    content: Public BOOL InvokeRead(in plc.AXOpen.Core.IAxoObject caller,in plc.STRING[254] identifier)
+    parameters:
+    - id: caller
+      type: plc.AXOpen.Core.IAxoObject
+      description: IAxoObject for identifying the caller in the context of concurrent calls
+    - id: identifier
+      type: plc.STRING[254]
+      description: The data identifier for the persistent group.
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeReadDefault(IAxoObject)
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeReadDefault(IAxoObject)
+  parent: AXOpen.Data.AxoDataPersistentExchange
+  children: []
+  name: InvokeReadDefault
+  fullName: InvokeReadDefault
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeReadDefault
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 180
+  namespace: plc.AXOpen.Data
+  summary: This method attempts to invoke a read operation.It checks if the call is concurrent and, if not,invokes the read operation on the Operation object.
+  syntax:
+    content: Public BOOL InvokeReadDefault(in plc.AXOpen.Core.IAxoObject caller)
+    parameters:
+    - id: caller
+      type: plc.AXOpen.Core.IAxoObject
+      description: IAxoObject for identifying the caller in the context of concurrent calls
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeUpdate(IAxoObject,STRING[254])
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeUpdate(IAxoObject,STRING[254])
+  parent: AXOpen.Data.AxoDataPersistentExchange
+  children: []
+  name: InvokeUpdate
+  fullName: InvokeUpdate
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeUpdate
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 203
+  namespace: plc.AXOpen.Data
+  summary: This method attempts to invoke a update operation.It checks if the call is concurrent and, if not,invokes the update operation on the Operation object.
+  syntax:
+    content: Public BOOL InvokeUpdate(in plc.AXOpen.Core.IAxoObject Caller,in plc.STRING[254] identifier)
+    parameters:
+    - id: Caller
+      type: plc.AXOpen.Core.IAxoObject
+    - id: identifier
+      type: plc.STRING[254]
+      description: The data identifier for the persistent group.
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeUpdateDefault(IAxoObject)
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeUpdateDefault(IAxoObject)
+  parent: AXOpen.Data.AxoDataPersistentExchange
+  children: []
+  name: InvokeUpdateDefault
+  fullName: InvokeUpdateDefault
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeUpdateDefault
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 223
+  namespace: plc.AXOpen.Data
+  summary: This method attempts to invoke a update operation.It checks if the call is concurrent and, if not,invokes the update operation on the Operation object.
+  syntax:
+    content: Public BOOL InvokeUpdateDefault(in plc.AXOpen.Core.IAxoObject Caller)
+    parameters:
+    - id: Caller
+      type: plc.AXOpen.Core.IAxoObject
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeUpdateAll(IAxoObject)
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeUpdateAll(IAxoObject)
+  parent: AXOpen.Data.AxoDataPersistentExchange
+  children: []
+  name: InvokeUpdateAll
+  fullName: InvokeUpdateAll
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeUpdateAll
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 247
+  namespace: plc.AXOpen.Data
+  summary: This method attempts to invoke a updateAll operation.It checks if the call is concurrent and, if not,invokes the update operation on the Operation object.
+  syntax:
+    content: Public BOOL InvokeUpdateAll(in plc.AXOpen.Core.IAxoObject Caller)
+    parameters:
+    - id: Caller
+      type: plc.AXOpen.Core.IAxoObject
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeReadAll(IAxoObject)
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeReadAll(IAxoObject)
+  parent: AXOpen.Data.AxoDataPersistentExchange
+  children: []
+  name: InvokeReadAll
+  fullName: InvokeReadAll
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeReadAll
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 271
+  namespace: plc.AXOpen.Data
+  summary: This method attempts to invoke a readAll operation.It checks if the call is concurrent and, if not,invokes the readAll operation on the Operation object.
+  syntax:
+    content: Public BOOL InvokeReadAll(in plc.AXOpen.Core.IAxoObject Caller)
+    parameters:
+    - id: Caller
+      type: plc.AXOpen.Core.IAxoObject
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeEntityExist(IAxoObject,STRING[254])
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeEntityExist(IAxoObject,STRING[254])
+  parent: AXOpen.Data.AxoDataPersistentExchange
+  children: []
+  name: InvokeEntityExist
+  fullName: InvokeEntityExist
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.InvokeEntityExist
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 293
+  namespace: plc.AXOpen.Data
+  summary: This method attempts to invoke a update operation.It checks if the call is concurrent and, if not,invokes the update operation on the Operation object.
+  syntax:
+    content: Public BOOL InvokeEntityExist(in plc.AXOpen.Core.IAxoObject Caller,in plc.STRING[254] identifier)
+    parameters:
+    - id: Caller
+      type: plc.AXOpen.Core.IAxoObject
+    - id: identifier
+      type: plc.STRING[254]
+      description: The data identifier for the persistent group.
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.IsReadDone(IAxoObject)
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.IsReadDone(IAxoObject)
+  parent: AXOpen.Data.AxoDataPersistentExchange
+  children: []
+  name: IsReadDone
+  fullName: IsReadDone
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.IsReadDone
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 316
+  namespace: plc.AXOpen.Data
+  summary: Determines whether a read operation has been completed.
+  syntax:
+    content: Public BOOL IsReadDone(in plc.AXOpen.Core.IAxoObject caller)
+    parameters:
+    - id: caller
+      type: plc.AXOpen.Core.IAxoObject
+      description: The object representing the caller of the method, used to check for concurrent calls.
+    return:
+      type: plc.BOOL
+      description: Boolean indicating whether the read operation was completed.
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.IsUpdateDone(IAxoObject)
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.IsUpdateDone(IAxoObject)
+  parent: AXOpen.Data.AxoDataPersistentExchange
+  children: []
+  name: IsUpdateDone
+  fullName: IsUpdateDone
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.IsUpdateDone
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 336
+  namespace: plc.AXOpen.Data
+  summary: Determines whether a update operation has been completed.
+  syntax:
+    content: Public BOOL IsUpdateDone(in plc.AXOpen.Core.IAxoObject caller)
+    parameters:
+    - id: caller
+      type: plc.AXOpen.Core.IAxoObject
+      description: The object representing the caller of the method, used to check for concurrent calls.
+    return:
+      type: plc.BOOL
+      description: Boolean indicating whether the read operation was completed.
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.IsUpdateAllDone(IAxoObject)
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.IsUpdateAllDone(IAxoObject)
+  parent: AXOpen.Data.AxoDataPersistentExchange
+  children: []
+  name: IsUpdateAllDone
+  fullName: IsUpdateAllDone
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.IsUpdateAllDone
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 356
+  namespace: plc.AXOpen.Data
+  summary: Determines whether a updateAll operation has been completed.
+  syntax:
+    content: Public BOOL IsUpdateAllDone(in plc.AXOpen.Core.IAxoObject caller)
+    parameters:
+    - id: caller
+      type: plc.AXOpen.Core.IAxoObject
+      description: The object representing the caller of the method, used to check for concurrent calls.
+    return:
+      type: plc.BOOL
+      description: Boolean indicating whether the updateAll operation was completed.
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.IsReadAllDone(IAxoObject)
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.IsReadAllDone(IAxoObject)
+  parent: AXOpen.Data.AxoDataPersistentExchange
+  children: []
+  name: IsReadAllDone
+  fullName: IsReadAllDone
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.IsReadAllDone
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 377
+  namespace: plc.AXOpen.Data
+  summary: Determines whether a readAll operation has been completed.
+  syntax:
+    content: Public BOOL IsReadAllDone(in plc.AXOpen.Core.IAxoObject caller)
+    parameters:
+    - id: caller
+      type: plc.AXOpen.Core.IAxoObject
+      description: The object representing the caller of the method, used to check for concurrent calls.
+    return:
+      type: plc.BOOL
+      description: Boolean indicating whether the readAll operation was completed.
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.IsEntityExistDone(IAxoObject)
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.IsEntityExistDone(IAxoObject)
+  parent: AXOpen.Data.AxoDataPersistentExchange
+  children: []
+  name: IsEntityExistDone
+  fullName: IsEntityExistDone
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.IsEntityExistDone
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 398
+  namespace: plc.AXOpen.Data
+  summary: Determines whether a entityExist operation has been completed.
+  syntax:
+    content: Public BOOL IsEntityExistDone(in plc.AXOpen.Core.IAxoObject caller)
+    parameters:
+    - id: caller
+      type: plc.AXOpen.Core.IAxoObject
+      description: The object representing the caller of the method, used to check for concurrent calls.
+    return:
+      type: plc.BOOL
+      description: Boolean indicating whether the entityExist operation was completed.
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.IsFirstReadDone()
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.IsFirstReadDone()
+  parent: AXOpen.Data.AxoDataPersistentExchange
+  children: []
+  name: IsFirstReadDone
+  fullName: IsFirstReadDone
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.IsFirstReadDone
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 410
+  namespace: plc.AXOpen.Data
+  summary: Checks if the first read operation has been completed.
+  syntax:
+    content: Public BOOL IsFirstReadDone()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+      description: Boolean indicating whether the first read operation is done.
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange.SetFirstReadDone()
+  id: plc.AXOpen.Data.AxoDataPersistentExchange.SetFirstReadDone()
+  parent: AXOpen.Data.AxoDataPersistentExchange
+  children: []
+  name: SetFirstReadDone
+  fullName: SetFirstReadDone
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentExchange.SetFirstReadDone
+    path: .\src\data\ctrl\src\AxoDataPersistentExchange.st
+    startLine: 410
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: Internal BOOL SetFirstReadDone()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+references:
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  name: Initialize(IAxoContext)
+  nameWithType: Initialize(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+- uid: plc.AXOpen.Core.IAxoObject
+  commentId: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: plc.AXOpen.Core.IAxoObject
+  parent: plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Data.AxoDataPersistentCurdTask
+  name: AxoDataPersistentCurdTask
+  nameWithType: AxoDataPersistentCurdTask
+  fullName: AXOpen.Data.AxoDataPersistentCurdTask
+- uid: plc.STRING
+  name: STRING
+  nameWithType: STRING
+  fullName: STRING
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.AXOpen.Data.ePersistentOperation
+  name: ePersistentOperation
+  nameWithType: ePersistentOperation
+  fullName: AXOpen.Data.ePersistentOperation
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+- uid: plc.STRING[254]
+  name: STRING[254]
+  nameWithType: STRING[254]
+  fullName: STRING[254]
+
+
