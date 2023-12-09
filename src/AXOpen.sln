@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Base.Abstractions", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Logging.Serilog", "base\src\AXOpen.Logging\AXOpen.Logging.Serilog.csproj", "{99464146-EC4F-48F3-AE0C-D2C572728DDA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.VisualComposer", "base\src\AXOpen.VisualComposer\AXOpen.VisualComposer.csproj", "{A86D3F4B-DDD3-4E8F-899A-D53F15BF1111}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.VisualComposer", "base\src\AXOpen.VisualComposer\AXOpen.VisualComposer.csproj", "{B0B71B26-80CD-4E9C-8425-EBAE1AFC3BB5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Base.AbstractionsTests", "base\tests\AXOpen.Base.AbstractionsTests\AXOpen.Base.AbstractionsTests.csproj", "{364522D1-4CCF-41F3-8F4F-90DDF37DF34B}"
 EndProject
@@ -175,107 +175,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_utils_tests_L1", "ut
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "librarytemplate.blazor", "abstractions\app\ix-blazor\librarytemplate.blazor", "{EE4838A3-A45B-4B45-A402-AD029717366A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix-blazor", "abstractions\app\ix-blazor", "{B9670154-124C-4F78-B405-04D4E695C684}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix-blazor", "probers\app\ix-blazor", "{9229FC97-F107-46E7-9553-9847B689F815}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix", "abstractions\app\ix", "{6E2B0D6D-6193-4447-91F9-83D0B5086EE4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix", "probers\app\ix", "{B0538DD2-8F11-440E-AF9C-A5AB55754083}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "abstractions\app", "{E032D216-069A-41B0-9004-5DE10F42ED85}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "probers\app", "{8E732DDA-C1FD-41E9-963B-FBDB9FE5C981}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Abstractions", "abstractions\src\AXOpen.Abstractions", "{7BC59CF5-44C3-47ED-B310-9C4299FE6C33}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Probers", "probers\src\AXOpen.Probers", "{773E315C-7A05-4AE7-AE64-E594C656CB7C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "abstractions\src", "{54168002-8869-468E-ACC1-01A02020BB35}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "probers\src", "{7D51569D-E8DE-4F52-94B4-3E9319ACD8D1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "abstractions", "abstractions", "{D585BE63-E5B4-4E45-A944-FA599295749C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Probers.Tests", "probers\tests\AXOpen.Probers.Tests", "{B0DC727A-F29A-4D90-8AEF-4FD5AF3E0260}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Base.Abstractions", "base\src\AXOpen.Base.Abstractions", "{6EB477CA-9FD5-43AD-B3BE-FB524699D628}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Logging", "base\src\AXOpen.Logging", "{EAA96166-B988-415F-8940-F989AC65D012}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.VisualComposer", "base\src\AXOpen.VisualComposer", "{235F3924-3886-4B2B-A5E8-CEBA93BE9A5D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "base\src", "{35D4DDF2-F5A0-4A22-978A-8009E08B41E3}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Base.AbstractionsTests", "base\tests\AXOpen.Base.AbstractionsTests", "{6A3DEFA3-75CA-4520-9C15-E55B56F9F209}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.LoggingTests", "base\tests\AXOpen.LoggingTests", "{9364FD7E-AE4F-410B-8777-872641C923D6}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "base\tests", "{6ECE7DC6-C992-49D2-BD32-BB2D7A702103}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "base", "base", "{8520BE45-D758-4EAD-824A-139BB726EF9C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "clientchat\src", "{0CA872C6-522D-4CC8-BCC1-7C07EF8732A9}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "clientchat", "clientchat", "{FEF28A3F-E141-4492-8055-3B21A1BDDAAB}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "librarytemplate.blazor", "components.abstractions\app\ix-blazor\librarytemplate.blazor", "{8A28D716-70F9-427A-AF9D-2EE5D81464AF}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix-blazor", "components.abstractions\app\ix-blazor", "{157D9DB8-D7DD-42FF-B2AD-00A2083C71EC}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix", "components.abstractions\app\ix", "{714246E3-D0B9-40FE-A33D-D4D2054F034F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "components.abstractions\app", "{7069A62B-1A88-4A73-B757-8CD1DAB436CE}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Components.Abstractions", "components.abstractions\src\AXOpen.Components.Abstractions", "{427A7E8C-783C-4377-A971-DFC9CF8AE2A5}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "components.abstractions\src", "{287B9B2C-0C27-4EA1-8400-01E7369C52CD}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components.abstractions", "components.abstractions", "{7B7AAED6-B6BF-46B5-80FF-0AE11B4D0039}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix-blazor", "components.cognex.vision\app\ix-blazor", "{E2B75244-1767-4301-9F62-E0DA39E84396}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix", "components.cognex.vision\app\ix", "{F18494D7-8EB5-432A-9853-B7728E904287}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "components.cognex.vision\app", "{37F60D00-EC9B-4738-931C-82047D55EFF7}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Cognex.Vision.Blazor", "components.cognex.vision\src\AXOpen.Cognex.Vision.Blazor", "{63773F76-7F30-4B2B-B7FF-208E8D873969}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Cognex.Vision", "components.cognex.vision\src\AXOpen.Cognex.Vision", "{CC25D919-C7AB-43F3-8EFA-4ADCA5DD6202}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "components.cognex.vision\src", "{C701CFDC-7145-4A3D-AC41-87D06B130B91}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Cognex.Vision.Tests", "components.cognex.vision\tests\AXOpen.Cognex.Vision.Tests", "{2990D3BE-D3BD-4BCA-9BC2-CE2496C9E2EA}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "components.cognex.vision\tests", "{CC4119A4-10D5-450F-9EDC-392B001DDC1C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components.cognex.vision", "components.cognex.vision", "{31669443-69E7-4D8F-9800-E71887684792}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix-blazor", "components.drives\app\ix-blazor", "{2E46CFA4-7136-437C-955B-2335BAA6699C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix", "components.drives\app\ix", "{E24F5B08-C535-4CB7-8556-374BBCDF4CE2}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "components.drives\app", "{FEBB8045-0F61-4F81-8243-4E1F182642FF}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Components.Drives.blazor", "components.drives\src\AXOpen.Components.Drives.blazor", "{C85C14F1-8D7F-4446-9824-520CEF9EDE9F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Components.Drives", "components.drives\src\AXOpen.Components.Drives", "{5ED9E999-F268-420C-A5E2-85795695F576}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "components.drives\src", "{9C0F7C53-24CD-41D0-A543-F95E29DD9D44}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Components.Drives.Tests", "components.drives\tests\AXOpen.Components.Drives.Tests", "{2F5B3461-A7A2-4725-B027-6B7AE2DCF8F3}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "components.drives\tests", "{D2DE4273-1101-4788-A56F-C8DA9A15ACE9}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components.drives", "components.drives", "{97ADE0A1-864B-4A16-94CC-C35180B2D408}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ElementsComponents.blazor", "components.elements\app\ix-blazor\ElementsComponents.blazor", "{4DE78FF3-FB80-403C-8223-15EF9EAAA125}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix-blazor", "components.elements\app\ix-blazor", "{A2B78E75-3B3B-4D23-8050-CA45C0914C0F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix", "components.elements\app\ix", "{C619359C-0188-4661-9F3F-FF4FD9070137}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "components.elements\app", "{6D8376DA-1339-4EC5-9897-0751CF7E35C9}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Components.Elements.blazor", "components.elements\src\AXOpen.Components.Elements.blazor", "{9BFAFA54-3257-4A3F-8BAE-5321C10B80BB}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Components.Elements", "components.elements\src\AXOpen.Components.Elements", "{44A02CD5-50BF-4175-BAAC-4A33A7FBDD39}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "components.elements\src", "{6969FE31-B528-4F88-B7C6-D82168AD7D0A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Components.Elements.Tests", "components.elements\tests\AXOpen.Components.Elements.Tests", "{3C191195-D42A-47E6-8DD4-42B9A0EB2941}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "components.elements\tests", "{88D8A89F-CF32-4616-86D3-3891ABF32B49}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components.elements", "components.elements", "{4E13F7CF-2738-4B48-AD0F-3D0E26935E59}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "probers\tests", "{9548EC9C-74B0-49CB-8135-B75A0CB37C78}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PneumaticComponents.blazor", "components.pneumatics\app\ix-blazor\PneumaticComponents.blazor", "{35EF04A8-1398-4D3A-AD6C-6264CFD8F066}"
 EndProject
@@ -541,10 +453,10 @@ Global
 		{99464146-EC4F-48F3-AE0C-D2C572728DDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99464146-EC4F-48F3-AE0C-D2C572728DDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99464146-EC4F-48F3-AE0C-D2C572728DDA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A86D3F4B-DDD3-4E8F-899A-D53F15BF1111}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A86D3F4B-DDD3-4E8F-899A-D53F15BF1111}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A86D3F4B-DDD3-4E8F-899A-D53F15BF1111}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A86D3F4B-DDD3-4E8F-899A-D53F15BF1111}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0B71B26-80CD-4E9C-8425-EBAE1AFC3BB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0B71B26-80CD-4E9C-8425-EBAE1AFC3BB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0B71B26-80CD-4E9C-8425-EBAE1AFC3BB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0B71B26-80CD-4E9C-8425-EBAE1AFC3BB5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{364522D1-4CCF-41F3-8F4F-90DDF37DF34B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{364522D1-4CCF-41F3-8F4F-90DDF37DF34B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{364522D1-4CCF-41F3-8F4F-90DDF37DF34B}.Release|Any CPU.ActiveCfg = Release|Any CPU

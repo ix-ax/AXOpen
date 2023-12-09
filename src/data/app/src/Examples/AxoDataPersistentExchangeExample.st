@@ -17,7 +17,7 @@ NAMESPACE AxoDataPersistentExchangeExample
         
         METHOD OVERRIDE Main
             DataManager.Run(THIS);
-            ManagerUsage.Use(DataManager);
+            ConcurrentMangerUsage.Use(DataManager);
         END_METHOD
     END_CLASS
     //</ContextDeclaration>
@@ -92,7 +92,7 @@ NAMESPACE AxoDataPersistentExchangeExample
             END_IF;
         END_METHOD        
     END_CLASS
-    //</Usage>
+    //</ConcurrentUsage>
 
     //<PersistentAttribute>
     {S7.extern=ReadWrite}
