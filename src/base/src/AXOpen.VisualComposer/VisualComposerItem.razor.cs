@@ -52,7 +52,18 @@ namespace AXOpen.VisualComposer
         private IJSObjectReference? jsModule;
 
         public ITwinElement? TwinElement { get; set; }
-        public string Id { get; set; }
+
+        public string? IdPlain
+        {
+            get => _id;
+        }
+
+        public string? Id
+        {
+            get => _id?.ComputeSha256Hash();
+            set => _id = value;
+        }
+
         public Guid? UniqueGuid { get; set; } = null;
 
         private double startX;
@@ -69,7 +80,7 @@ namespace AXOpen.VisualComposer
             set
             {
                 _presentation = value;
-                CustomPresentation = !PresentationType.IsEnumValue(value);
+                // CustomPresentation = !PresentationType.IsEnumValue(value);
             }
         }
         public bool CustomPresentation { get; set; } = false;
@@ -79,6 +90,7 @@ namespace AXOpen.VisualComposer
         public int ZIndex = 0;
 
         public string Roles = "";
+        private string _id;
 
         private void OnDragStart(DragEventArgs args)
         {

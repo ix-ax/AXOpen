@@ -14,11 +14,16 @@ namespace AXOpen.VisualComposer
         public string? ImgSrc { get; set; }
 
         [Parameter]
-        public string? Id { get; set; }
+        public string? Id
+        {
+            get => _id?.ComputeSha256Hash();
+            set => _id = value;
+        }
 
         private Guid _imgId = Guid.NewGuid();
 
         private List<VisualComposerItem> _children = new();
+        private string? _id;
 
         private IEnumerable<ITwinElement> _childrenOfAxoObject { get; set; }
 
@@ -127,11 +132,11 @@ namespace AXOpen.VisualComposer
 
                 foreach (var item in deserialize.Items)
                 {
-                    var a = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper() == item.Id);
+                    var a = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper().ComputeSha256Hash() == item.Id);
                     _children.Add(new VisualComposerItem()
                     {
                         UniqueGuid = Guid.NewGuid(),
-                        TwinElement = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper() == item.Id),
+                        TwinElement = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper().ComputeSha256Hash() == item.Id),
                         ratioImgX = item.RatioImgX,
                         ratioImgY = item.RatioImgY,
                         Transform = Types.TransformType.FromString(item.Transform),
