@@ -17,7 +17,7 @@ NAMESPACE AxoDataPersistentExchangeExample
         
         METHOD OVERRIDE Main
             DataManager.Run(THIS);
-            ConcurrentMangerUsage.Use(DataManager);
+            ManagerUsage.Use(DataManager);
         END_METHOD
     END_CLASS
     //</ContextDeclaration>
