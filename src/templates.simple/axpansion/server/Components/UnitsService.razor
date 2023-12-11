@@ -1,15 +1,17 @@
 ﻿@using AXOpen.Core;
 @using AXSharp.Connector
+@using AXOpen.VisualComposer;
 @inherits RenderableComponentBase
 
 
 
 <div class="container">
     <!-- TASK DETAILS -->
-    <div class="row">
+    <div class="row p-3">
         @if (ServiceTask?.Status.Cyclic == (ushort)eAxoTaskState.Busy)
         {
-            <RenderableContentControl Context="Components" Presentation="Command-Control" />
+            <VisualComposerContainer Objects="@( new [] { Components })" />
+            @* <RenderableContentControl Context="Components" Presentation="Command-Control"/> *@
         }
     </div>
 </div>

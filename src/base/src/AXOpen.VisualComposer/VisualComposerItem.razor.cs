@@ -41,8 +41,9 @@ namespace AXOpen.VisualComposer
                 Width = value.Width;
                 Height = value.Height;
                 ZIndex = value.ZIndex;
+                Roles = value.Roles;
 
-                Id = value.TwinElement.HumanReadable.Replace(".", "_").Replace(" ", "_");
+                Id = value.TwinElement.Symbol.ModalIdHelper();
             }
         }
 
@@ -51,7 +52,18 @@ namespace AXOpen.VisualComposer
         private IJSObjectReference? jsModule;
 
         public ITwinElement? TwinElement { get; set; }
-        public string Id { get; set; }
+
+        public string? IdPlain
+        {
+            get => _id;
+        }
+
+        public string? Id
+        {
+            get => _id?.ComputeSha256Hash();
+            set => _id = value;
+        }
+
         public Guid? UniqueGuid { get; set; } = null;
 
         private double startX;
@@ -68,7 +80,7 @@ namespace AXOpen.VisualComposer
             set
             {
                 _presentation = value;
-                CustomPresentation = !PresentationType.IsEnumValue(value);
+                // CustomPresentation = !PresentationType.IsEnumValue(value);
             }
         }
         public bool CustomPresentation { get; set; } = false;
@@ -76,6 +88,9 @@ namespace AXOpen.VisualComposer
         public double Width = -1;
         public double Height = -1;
         public int ZIndex = 0;
+
+        public string Roles = "";
+        private string _id;
 
         private void OnDragStart(DragEventArgs args)
         {
@@ -92,8 +107,15 @@ namespace AXOpen.VisualComposer
             double offsetX = startX - (ratioImgX / 100 * imageSize.Width);
             double offsetY = startY - (ratioImgY / 100 * imageSize.Height);
 
-            ratioImgX = ((args.ClientX - offsetX) / imageSize.Width * 100);
-            ratioImgY = ((args.ClientY - offsetY) / imageSize.Height * 100);
+            if (imageSize.Width == 0)
+                ratioImgX = (args.ClientX - offsetX);
+            else
+                ratioImgX = ((args.ClientX - offsetX) / imageSize.Width * 100);
+
+            if (imageSize.Height == 0)
+                ratioImgY = (args.ClientY - offsetY);
+            else
+                ratioImgY = ((args.ClientY - offsetY) / imageSize.Height * 100);
 
             StateHasChanged();
         }

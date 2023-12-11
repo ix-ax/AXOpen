@@ -9,4 +9,6 @@ items:
     href: ../timers/docs/index.html  
   - name: Application Template
     href: ../templates.simple/docs/index.html
+  - name: VisualComposer
+    href: ../base/src/AXOpen.VisualComposer/README.html
     
