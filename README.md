@@ -1,3 +1,5 @@
+# WE ARE UPDATING TO `@ax/sdk 2311` and `apax 3.0.0`. There are some disruptions at the moment while adjusting to breaking changes. The `dev` branch is suspended from PRs for the moment (CI/CDactions will fail); we continue development on the dev-2311 branch while aligning to the latest versions.
+
 ![AXOpen Banner](/docfx/images/banner.png)
 
 [![dev](https://github.com/ix-ax/AXOpen/actions/workflows/dev.yml/badge.svg?branch=dev)](https://github.com/ix-ax/axsharp/actions/workflows/dev.yml)
