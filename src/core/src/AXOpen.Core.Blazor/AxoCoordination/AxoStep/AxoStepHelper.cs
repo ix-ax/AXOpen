@@ -6,7 +6,7 @@
         {
             var text = string.IsNullOrEmpty(step.StepDescription.Cyclic)
                 ? step.Order.Cyclic.ToString()
-                : step.StepDescription.Cyclic;
+                : step.StepDescription.GetCyclic();
 
             if (step.IsActive.Cyclic)
             {

@@ -21,8 +21,11 @@ namespace AXOpen.Messaging.Static
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.Core.Blazor/AxoMessenger/Static/AxoMessengerView.razor.js");
-            await jsObject.InvokeVoidAsync("addPopovers");
+            if (firstRender)
+            {
+                var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.Core.Blazor/AxoMessenger/Static/AxoMessengerView.razor.js");
+                await jsObject.InvokeVoidAsync("addPopovers");
+            }
         }
 
         protected async Task<string?> GetCurrentUserName()
