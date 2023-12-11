@@ -38,7 +38,7 @@ NAMESPACE axosimple.UnitTemplate
             components.HorizontalCylinder.ActivateManualControl();
             components.VerticalCylinder.ActivateManualControl();
             components.GripperCylinder.ActivateManualControl();
-            components.PartPresenceSensor.ActivateManualControl();
+            components.PartPresenceSensor.ActivateManualControl();            
         END_METHOD
     END_CLASS
 END_NAMESPACE    
