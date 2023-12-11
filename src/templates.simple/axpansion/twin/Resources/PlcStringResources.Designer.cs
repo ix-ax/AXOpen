@@ -214,6 +214,15 @@ namespace axosimple.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New gripper.
+        /// </summary>
+        public static string New_gripper {
+            get {
+                return ResourceManager.GetString("New_gripper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Next on Failed.
         /// </summary>
         public static string Next_on_Failed {
@@ -282,6 +291,15 @@ namespace axosimple.Resources {
         public static string Operatod_id {
             get {
                 return ResourceManager.GetString("Operatod_id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to READ PERSISTENT SETTINGS.
+        /// </summary>
+        public static string READ_PERSISTENT_SETTINGS {
+            get {
+                return ResourceManager.GetString("READ_PERSISTENT_SETTINGS", resourceCulture);
             }
         }
         

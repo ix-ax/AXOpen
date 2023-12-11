@@ -14,9 +14,9 @@ NAMESPACE axosimple.UnitTemplate
             // HERE DECLARE COMPONENTS USED BY THIS CONTROLLED UNIT
             HorizontalCylinder : AXOpen.Components.Pneumatics.AxoCylinder;
             VerticalCylinder : AXOpen.Components.Pneumatics.AxoCylinder;
-            GripperCylinder : AXOpen.Components.Pneumatics.AxoCylinder;
+            GripperCylinder : AXOpen.Components.Pneumatics.AxoCylinder;   
             DMCReader : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman;
-            PartPresenceSensor : AXOpen.Elements.AxoDi;
+            PartPresenceSensor : AXOpen.Elements.AxoDi;                    
         END_VAR
 
         

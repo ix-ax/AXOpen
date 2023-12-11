@@ -14,7 +14,7 @@
 
 <body>
     <div class="content-wrapper">
-        <UnitsSequences Component="@this.Component"></UnitsSequences>
+        <UnitsSequences Component="@this.Component" ObjectCollection="new ITwinObject[]{this.Data, this.DataManger, this.TechnologySettings, this.Component}"></UnitsSequences>
         <UnitsService ServiceTask="((dynamic)this.Component).ServiceMode" Components="((dynamic)this.Component).UnitObjects.Components"></UnitsService>
     </div>
 </body>

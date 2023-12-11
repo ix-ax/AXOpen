@@ -31,9 +31,11 @@ builder.Services.AddHttpContextAccessor();
 #region AxoApplication
 
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
-Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
+Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 50;
 Entry.Plc.Connector.ConcurrentRequestMaxCount = 3;
 Entry.Plc.Connector.ConcurrentRequestDelay = 25;
+Entry.Plc.Connector.ExceptionBehaviour = CommExceptionBehaviour.Ignore;
+
 Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()
     .WriteTo
     .Console()
