@@ -15,6 +15,7 @@ dependencies:
   "@ix-ax/axopen.timers": '0.0.0-dev.0'
   "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
   "@ix-ax/axopen.components.festo.drives": '0.0.0-dev.0'
+  "@ix-ax/axopen.components.rexroth.drives": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
   "@ix-ax/axopen.components.abstractions": '0.0.0-dev.0'
   "@ix-ax/axopen.components.drives": '0.0.0-dev.0'

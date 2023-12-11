@@ -312,7 +312,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 refTelegram750_In   :   REF_TO  WORD;   //  Reference to the input data of the Profidrive telegram 750 of this axis
                 refTelegram111_Out  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the Profidrive telegram 111 of this axis
                 refTelegram750_Out  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the Profidrive telegram 750 of this axis
-                MAP_HW_ID           :   ULINT;                      //  Hardware identifier of the module acces point submodule 
+                MAP_HW_ID           :   WORD;                      //  Hardware identifier of the module acces point submodule 
             END_VAR
 
 
@@ -350,7 +350,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 refTelegram750_In   :   REF_TO  WORD;   //  Reference to the input data of the Profidrive telegram 750 of this axis
                 refTelegram111_Out  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the Profidrive telegram 111 of this axis
                 refTelegram750_Out  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the Profidrive telegram 750 of this axis
-                MAP_HW_ID           :   ULINT;                      //  Hardware identifier of the module acces point submodule 
+                MAP_HW_ID           :   WORD;                      //  Hardware identifier of the module acces point submodule 
             END_VAR
            
             IF _context_ = null THEN 
@@ -379,7 +379,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         METHOD PRIVATE AreValidReferences: BOOL
             VAR_INPUT
                 refTelegram111_In       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the parameter input data of the axis
-                refTelegram750_In   :   REF_TO  WORD;   //  Reference to the input data of the Profidrive telegram 750 of this axis
+                refTelegram750_In       :   REF_TO  WORD;   //  Reference to the input data of the Profidrive telegram 750 of this axis
                 refTelegram111_Out      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the parameter output data of the axis
                 refTelegram750_Out      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
             END_VAR
@@ -409,7 +409,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             VAR_INPUT
                 refTelegram111_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 111 of this axis
                 refTelegram750_In   :   REF_TO WORD;   //  Reference to the input data of the Profidrive telegram 750 of this axis
-                MAP_HW_ID           :   ULINT;                      //  Hardware identifier of the module acces point submodule 
+                MAP_HW_ID           :   WORD;                      //  Hardware identifier of the module acces point submodule 
                 AxisRef             :   REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsPtPAxisReference;
             END_VAR
 
@@ -644,7 +644,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             //*************************************************//       
             //********************PARAMETRIZAION***************//          
             Parametrization.Run(THIS);
-            Parametrization.Inputs.HardwareId := TO_WORD(_AxisRef.Data.MAP_HW_ID);
+            Parametrization.Inputs.HardwareId := _AxisRef.Data.MAP_HW_ID;
             //*******************SCALING***********************//          
             IF NOT ScalingRead THEN
                 IF State = UINT#0 THEN
@@ -735,6 +735,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF Restore_Task.Execute() THEN
                 THIS.Restore();
                 Restore_Task.DoneWhen(TRUE);
+
+                
             END_IF;
             //*************************************************//      
             //********************STOP*************************//          
@@ -1495,7 +1497,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         METHOD PUBLIC Home   : IAxoTaskState
             Home := Home_Task.Invoke();
         END_METHOD
-    
+
         ///<summary>
         /// This method commands a controlled motion stop and transfers the axis to the state ‘Stopping’. It aborts any
         /// ongoing method execution. While the axis is in state ‘Stopping’, no other method can perform any motion on this axis. 
@@ -1576,7 +1578,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             Reset    := Reset_Task.Invoke();
         END_METHOD
 
-        METHOD PROTECTED OVERRIDE Restore : IAxoTask
+        METHOD PUBLIC OVERRIDE Restore 
             Stop_Task.Restore();
             Home_Task.Restore();
             MoveAbsolute_Task.Restore();
@@ -1585,8 +1587,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
             SetOverride_Task.Restore();
             Reset_Task.Restore();
             State := UINT#0;
-            Restore := Restore_Task;
         END_METHOD
+
 
         METHOD PROTECTED OVERRIDE ManualControl
             JogPositive_Task.Run();

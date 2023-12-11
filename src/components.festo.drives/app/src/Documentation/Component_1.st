@@ -40,7 +40,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         THIS.UseInSequencer();
 
     END_METHOD
-
+    
     //<Usage>    
     VAR PUBLIC                       
         Sequencer : AxoSequencer;       
@@ -64,9 +64,12 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         _i := 0;
         IF(Steps[_i].Execute(Sequencer, 'Restore')) THEN
             manualControl := FALSE;
-            IF(AxoCmmtAsPtP_.Restore_Task.Invoke().IsDone()) THEN                
+            // IF(AxoCmmtAsPtP_.ComponentRestore().IsDone()) THEN   
+
+            //            IF(AxoCmmtAsPtP_.Restore_Task.Invoke().IsDone()) THEN   
+            AxoCmmtAsPtP_.Restore();
                 Sequencer.MoveNext();                
-            END_IF;    
+            // END_IF;    
         END_IF;
 
         _i := _i + 1;
