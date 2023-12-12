@@ -7,17 +7,18 @@ items:
   - plc.AXOpen.Core._NULL_OBJECT.NULL_CONTEXT
   - plc.AXOpen.Core._NULL_OBJECT.GetIdentity()
   - plc.AXOpen.Core._NULL_OBJECT.GetContext()
+  - plc.AXOpen.Core._NULL_OBJECT.GetContextUnsafe()
   name: _NULL_OBJECT
   fullName: _NULL_OBJECT
   type: Class
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core._NULL_OBJECT
     path: .\src\core\ctrl\src\abstractions\NULLs.st
-    startLine: 25
+    startLine: 27
   namespace: plc.AXOpen.Core
   summary: Provides an empty object for uninitialized objects.
   syntax:
@@ -36,11 +37,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core._NULL_OBJECT.NULL_CONTEXT
     path: .\src\core\ctrl\src\abstractions\NULLs.st
-    startLine: 28
+    startLine: 29
   namespace: plc.AXOpen.Core
   syntax:
     content: 'NULL_CONTEXT : AXOpen.Core._NULL_CONTEXT'
@@ -56,11 +57,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core._NULL_OBJECT.GetIdentity
     path: .\src\core\ctrl\src\abstractions\NULLs.st
-    startLine: 29
+    startLine: 32
   namespace: plc.AXOpen.Core
   syntax:
     content: Public ULINT GetIdentity()
@@ -77,14 +78,35 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core._NULL_OBJECT.GetContext
     path: .\src\core\ctrl\src\abstractions\NULLs.st
-    startLine: 32
+    startLine: 35
   namespace: plc.AXOpen.Core
   syntax:
     content: Public AXOpen.Core.IAxoContext GetContext()
+    parameters: *o1
+    return:
+      type: plc.AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Core._NULL_OBJECT.GetContextUnsafe()
+  id: plc.AXOpen.Core._NULL_OBJECT.GetContextUnsafe()
+  parent: AXOpen.Core._NULL_OBJECT
+  children: []
+  name: GetContextUnsafe
+  fullName: GetContextUnsafe
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core._NULL_OBJECT.GetContextUnsafe
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 38
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoContext GetContextUnsafe()
     parameters: *o1
     return:
       type: plc.AXOpen.Core.IAxoContext

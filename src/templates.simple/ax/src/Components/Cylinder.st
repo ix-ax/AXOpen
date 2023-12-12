@@ -102,7 +102,7 @@ NAMESPACE AXOpen.Pneumatics
         END_METHOD
 
         
-        METHOD PROTECTED OVERRIDE Restore : IAxoTask
+        METHOD PUBLIC OVERRIDE Restore 
             MoveToWork.Restore();
             MoveToWork.Restore();
             Stop.Restore();

@@ -6,7 +6,7 @@ NAMESPACE AxoComponentExamples
     {#ix-set:AttributeName = "AxoComponent with header only example"}
     {S7.extern=ReadWrite}
     CLASS PUBLIC AxoComponentHeaderOnlyExample EXTENDS AXOpen.Core.AxoComponent 
-        METHOD PROTECTED OVERRIDE Restore: IAxoTask 
+        METHOD PUBLIC OVERRIDE Restore
             // Some logic for Restore could be placed here. For Example:
             valueReal := REAL#1.0;
             valueDint := DINT#0;

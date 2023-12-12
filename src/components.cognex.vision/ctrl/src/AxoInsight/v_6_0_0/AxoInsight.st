@@ -136,7 +136,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
         ///<summary>
 		/// Restores this instance . 
         ///</summary>   
-        METHOD PROTECTED OVERRIDE Restore: IAxoTask 
+        METHOD PUBLIC OVERRIDE Restore
             VAR
                 _index : INT;
             END_VAR

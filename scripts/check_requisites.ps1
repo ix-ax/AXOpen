@@ -25,9 +25,9 @@ if (-not $dotnet6Installed) {
 }
 
 if (-not $dotnet7Installed) {
-    Write-Host ".NET 7.0.402 SDK is not installed." -ForegroundColor Red
+    Write-Host ".NET 7.0.404 SDK is not installed." -ForegroundColor Red
 } else {
-    Write-Host ".NET 7.0.402 SDK detected." -ForegroundColor Green
+    Write-Host ".NET 7.0.404 SDK detected." -ForegroundColor Green
 }
 
 if (-not $dotnet8Installed) {

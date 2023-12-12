@@ -130,7 +130,7 @@ NAMESPACE AXOpen.Components.Example
         ///<summary>
         /// Restores this component into intial state.        
         ///</summary>
-        METHOD PROTECTED OVERRIDE Restore : IAxoTask
+        METHOD PUBLIC OVERRIDE Restore
             MoveToWork.Restore();
             MoveToWork.Restore();
             Stop.Restore();

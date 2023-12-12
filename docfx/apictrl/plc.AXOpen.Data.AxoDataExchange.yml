@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataExchange.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.AxoDataExchange
     path: .\src\data\ctrl\src\AxoDataExchange.st
@@ -30,18 +30,18 @@ items:
   syntax:
     content: CLASS AxoDataExchange
   inheritance:
-  - plc.AXOpen.Data.AxoDataExchangeBase
   - plc.AXOpen.Core.AxoObject
   inheritedMembers:
   - plc.AXOpen.Core.AxoObject.Identity
   - plc.AXOpen.Core.AxoObject.GetIdentity()
   - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
   - plc.AXOpen.Core.AxoObject.GetParent()
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
   implements:
   - plc.AXOpen.Data.IAxoDataExchange
-  - plc.AXOpen.Core.IAxoObject
+  - plc.AXOpen.Data.AxoDataExchangeBase
 - uid: plc.AXOpen.Data.AxoDataExchange.Operation
   id: plc.AXOpen.Data.AxoDataExchange.Operation
   parent: AXOpen.Data
@@ -52,11 +52,11 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataExchange.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.AxoDataExchange.Operation
     path: .\src\data\ctrl\src\AxoDataExchange.st
-    startLine: 9
+    startLine: 10
   namespace: plc.AXOpen.Data
   syntax:
     content: 'Operation : AXOpen.Data.AxoDataCrudTask'
@@ -72,11 +72,11 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataExchange.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.AxoDataExchange.Run
     path: .\src\data\ctrl\src\AxoDataExchange.st
-    startLine: 17
+    startLine: 18
   namespace: plc.AXOpen.Data
   summary: Runs intialization and cyclical handling of this AxoDataExchange.
   syntax:
@@ -97,11 +97,11 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataExchange.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.AxoDataExchange.Run
     path: .\src\data\ctrl\src\AxoDataExchange.st
-    startLine: 31
+    startLine: 32
   namespace: plc.AXOpen.Data
   summary: Runs intialization and cyclical handling of this AxoDataExchange.
   syntax:
@@ -122,11 +122,11 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataExchange.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.AxoDataExchange.Create
     path: .\src\data\ctrl\src\AxoDataExchange.st
-    startLine: 44
+    startLine: 45
   namespace: plc.AXOpen.Data
   summary: Creates new entry into the remote repository from data entity of this AxoDataExchange.
   syntax:
@@ -147,11 +147,11 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataExchange.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.AxoDataExchange.Read
     path: .\src\data\ctrl\src\AxoDataExchange.st
-    startLine: 56
+    startLine: 57
   namespace: plc.AXOpen.Data
   summary: Reads data from remote repository and copies them into data entity of this AxoDataExchange.
   syntax:
@@ -172,11 +172,11 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataExchange.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.AxoDataExchange.Update
     path: .\src\data\ctrl\src\AxoDataExchange.st
-    startLine: 68
+    startLine: 69
   namespace: plc.AXOpen.Data
   summary: Updates data in remote repository from data entiry of this AxoDataExchange.
   syntax:
@@ -197,11 +197,11 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataExchange.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.AxoDataExchange.Delete
     path: .\src\data\ctrl\src\AxoDataExchange.st
-    startLine: 79
+    startLine: 80
   namespace: plc.AXOpen.Data
   summary: Deletes data entry with given ID from remote repository.
   syntax:
@@ -222,11 +222,11 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataExchange.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.AxoDataExchange.EntityExist
     path: .\src\data\ctrl\src\AxoDataExchange.st
-    startLine: 90
+    startLine: 91
   namespace: plc.AXOpen.Data
   summary: Check if data entry exists with given ID in remote repository.
   syntax:
@@ -247,11 +247,11 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataExchange.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.AxoDataExchange.CreateOrUpdate
     path: .\src\data\ctrl\src\AxoDataExchange.st
-    startLine: 102
+    startLine: 103
   namespace: plc.AXOpen.Data
   summary: Creates or Updates data in remote repository from data entiry of this AxoDataExchange.
   syntax:
@@ -272,11 +272,11 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataExchange.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.AxoDataExchange.Restore
     path: .\src\data\ctrl\src\AxoDataExchange.st
-    startLine: 113
+    startLine: 115
   namespace: plc.AXOpen.Data
   summary: Restores all tasks associated with this object.
   syntax:
@@ -303,6 +303,12 @@ references:
   nameWithType: GetContext()
   fullName: plc.AXOpen.Core.AxoObject.GetContext()
   parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
 - uid: plc.AXOpen.Core.AxoObject.GetParent()
   commentId: plc.AXOpen.Core.AxoObject.GetParent()
   name: GetParent()
@@ -327,16 +333,20 @@ references:
   nameWithType: IAxoDataExchange
   fullName: plc.AXOpen.Data.IAxoDataExchange
   parent: plc.AXOpen.Data.IAxoDataExchange
-- uid: plc.AXOpen.Core.IAxoObject
-  commentId: plc.AXOpen.Core.IAxoObject
-  name: IAxoObject
-  nameWithType: IAxoObject
-  fullName: plc.AXOpen.Core.IAxoObject
-  parent: plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Data.AxoDataExchangeBase
+  commentId: plc.AXOpen.Data.AxoDataExchangeBase
+  name: AxoDataExchangeBase
+  nameWithType: AxoDataExchangeBase
+  fullName: plc.AXOpen.Data.AxoDataExchangeBase
+  parent: plc.AXOpen.Data.AxoDataExchangeBase
 - uid: plc.AXOpen.Data.AxoDataCrudTask
   name: AxoDataCrudTask
   nameWithType: AxoDataCrudTask
   fullName: AXOpen.Data.AxoDataCrudTask
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
 - uid: plc.AXOpen.Core.IAxoContext
   name: IAxoContext
   nameWithType: IAxoContext

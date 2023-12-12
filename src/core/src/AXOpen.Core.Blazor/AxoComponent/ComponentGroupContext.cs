@@ -19,6 +19,16 @@ namespace AXOpen.Core
             _kids = kids;
             HumanReadable = tabName;
         }
+
+        public ComponentGroupContext(ITwinObject parent, IList<ITwinElement> kids, string tabName, string roleName)
+        {
+            this._parent = parent;
+            this._symbolTail = this._parent.GetSymbolTail();
+            _kids = kids;
+            HumanReadable = tabName;
+            RoleName = roleName;
+        }
+        
         public string TabName { get; set; } = string.Empty;
 
         public string Symbol { get; } = string.Empty;
@@ -26,6 +36,7 @@ namespace AXOpen.Core
         public string AttributeName { get; } = string.Empty;
 
         public string HumanReadable { get; set; } = string.Empty;
+        public string RoleName { get; set; } = string.Empty;
         public Translator Interpreter => this._parent.Interpreter;
 
         private readonly ITwinObject _parent;

@@ -145,7 +145,7 @@ NAMESPACE AXOpen.Components.Pneumatics
         ///<summary>
         /// Restores this component into intial state.        
         ///</summary>
-        METHOD PROTECTED OVERRIDE Restore : IAxoTask
+        METHOD PUBLIC OVERRIDE Restore 
             _MoveToWorkTask.Restore();
             _MoveToHomeTask.Restore();
             _StopTask.Restore();

@@ -1,28 +1,29 @@
 ## YamlMime:ManagedReference
 items:
-- uid: plc.AXOpen.Data.AxoDataExchangeTask
-  id: plc.AXOpen.Data.AxoDataExchangeTask
+- uid: plc.AXOpen.Data.AxoDataPersistentCurdTask
+  id: plc.AXOpen.Data.AxoDataPersistentCurdTask
   parent: plc.AXOpen.Data
   children:
-  - plc.AXOpen.Data.AxoDataExchangeTask.DataEntityIdentifier
-  - plc.AXOpen.Data.AxoDataExchangeTask._exist
-  - plc.AXOpen.Data.AxoDataExchangeTask.Invoke(STRING[254])
-  - plc.AXOpen.Data.AxoDataExchangeTask.Exist()
-  name: AxoDataExchangeTask
-  fullName: AxoDataExchangeTask
+  - plc.AXOpen.Data.AxoDataPersistentCurdTask.CrudOperation
+  - plc.AXOpen.Data.AxoDataPersistentCurdTask.DataEntityIdentifier
+  - plc.AXOpen.Data.AxoDataPersistentCurdTask._exist
+  - plc.AXOpen.Data.AxoDataPersistentCurdTask.Invoke(STRING[254],ePersistentOperation)
+  - plc.AXOpen.Data.AxoDataPersistentCurdTask.Exist()
+  name: AxoDataPersistentCurdTask
+  fullName: AxoDataPersistentCurdTask
   type: Class
   source:
     remote:
-      path: .\src\data\ctrl\src\AxoDataExchangeTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
-    id: plc.AXOpen.Data.AxoDataExchangeTask
-    path: .\src\data\ctrl\src\AxoDataExchangeTask.st
-    startLine: 6
+    id: plc.AXOpen.Data.AxoDataPersistentCurdTask
+    path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
+    startLine: 7
   namespace: plc.AXOpen.Data
-  summary: Extends AxoRemoteTask for data operation within AxoData
+  summary: Provides remote execution for CRUD operations.> [!NOTE]> This is an extension of <xref href="AxoTask" data-throw-if-not-resolved="false"></xref>task see the documentation for details about implementation in .NET.
   syntax:
-    content: CLASS AxoDataExchangeTask
+    content: CLASS AxoDataPersistentCurdTask
   inheritance:
   - plc.AXOpen.Core.AxoRemoteTask
   - plc.AXOpen.Core.AxoTask
@@ -44,7 +45,6 @@ items:
   - plc.AXOpen.Core.AxoTask.Duration
   - plc.AXOpen.Core.AxoTask.StartTimeStamp
   - plc.AXOpen.Core.AxoTask.ErrorDetails
-  - plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
   - plc.AXOpen.Core.AxoObject.Identity
   - plc.AXOpen.Core.AxoRemoteTask.Execute()
   - plc.AXOpen.Core.AxoRemoteTask.GetStartSignature()
@@ -56,10 +56,10 @@ items:
   - plc.AXOpen.Core.AxoTask.IsBusy()
   - plc.AXOpen.Core.AxoTask.IsAborted()
   - plc.AXOpen.Core.AxoTask.HasError()
-  - plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+  - plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
+  - plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  - plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
   - plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
-  - plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-  - plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
   - plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
   - plc.AXOpen.Core.AxoTask.IsExecuteCalledInThisPlcCycle()
   - plc.AXOpen.Core.AxoTask.WasExecuteCalledInPreviousPlcCycle()
@@ -75,6 +75,10 @@ items:
   - plc.AXOpen.Core.AxoTask.GetIsDisabled()
   - plc.AXOpen.Core.AxoTask.Abort()
   - plc.AXOpen.Core.AxoTask.Resume()
+  - plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  - plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  - plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  - plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
   - plc.AXOpen.Core.AxoTask.OnAbort()
   - plc.AXOpen.Core.AxoTask.OnResume()
   - plc.AXOpen.Core.AxoTask.OnDone()
@@ -82,16 +86,44 @@ items:
   - plc.AXOpen.Core.AxoTask.OnRestore()
   - plc.AXOpen.Core.AxoTask.OnStart()
   - plc.AXOpen.Core.AxoTask.WhileError()
+  - plc.AXOpen.Core.AxoTask.AbortTriggered()
+  - plc.AXOpen.Core.AxoTask.ResumeTriggered()
+  - plc.AXOpen.Core.AxoTask.DoneReached()
+  - plc.AXOpen.Core.AxoTask.ErrorOccured()
+  - plc.AXOpen.Core.AxoTask.RestoreTriggered()
+  - plc.AXOpen.Core.AxoTask.StartTriggered()
   - plc.AXOpen.Core.AxoObject.GetIdentity()
   - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
   - plc.AXOpen.Core.AxoObject.GetParent()
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
   implements:
   - plc.AXOpen.Data.IAxoEntityExistTaskState
   - plc.AXOpen.Core.IAxoTask
-- uid: plc.AXOpen.Data.AxoDataExchangeTask.DataEntityIdentifier
-  id: plc.AXOpen.Data.AxoDataExchangeTask.DataEntityIdentifier
+- uid: plc.AXOpen.Data.AxoDataPersistentCurdTask.CrudOperation
+  id: plc.AXOpen.Data.AxoDataPersistentCurdTask.CrudOperation
+  parent: AXOpen.Data
+  children: []
+  name: CrudOperation
+  fullName: CrudOperation
+  type: Property
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataPersistentCurdTask.CrudOperation
+    path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
+    startLine: 14
+  namespace: plc.AXOpen.Data
+  summary: Gets or sets the type of CRUD operation to be perfomed.
+  syntax:
+    content: 'CrudOperation : AXOpen.Data.ePersistentOperation'
+    return:
+      type: AXOpen.Data.ePersistentOperation
+- uid: plc.AXOpen.Data.AxoDataPersistentCurdTask.DataEntityIdentifier
+  id: plc.AXOpen.Data.AxoDataPersistentCurdTask.DataEntityIdentifier
   parent: AXOpen.Data
   children: []
   name: DataEntityIdentifier
@@ -99,19 +131,19 @@ items:
   type: Property
   source:
     remote:
-      path: .\src\data\ctrl\src\AxoDataExchangeTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
-    id: plc.AXOpen.Data.AxoDataExchangeTask.DataEntityIdentifier
-    path: .\src\data\ctrl\src\AxoDataExchangeTask.st
-    startLine: 11
+    id: plc.AXOpen.Data.AxoDataPersistentCurdTask.DataEntityIdentifier
+    path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
+    startLine: 15
   namespace: plc.AXOpen.Data
   syntax:
     content: 'DataEntityIdentifier : STRING[254]'
     return:
       type: STRING[254]
-- uid: plc.AXOpen.Data.AxoDataExchangeTask._exist
-  id: plc.AXOpen.Data.AxoDataExchangeTask._exist
+- uid: plc.AXOpen.Data.AxoDataPersistentCurdTask._exist
+  id: plc.AXOpen.Data.AxoDataPersistentCurdTask._exist
   parent: AXOpen.Data
   children: []
   name: _exist
@@ -119,55 +151,60 @@ items:
   type: Property
   source:
     remote:
-      path: .\src\data\ctrl\src\AxoDataExchangeTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
-    id: plc.AXOpen.Data.AxoDataExchangeTask._exist
-    path: .\src\data\ctrl\src\AxoDataExchangeTask.st
-    startLine: 13
+    id: plc.AXOpen.Data.AxoDataPersistentCurdTask._exist
+    path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
+    startLine: 17
   namespace: plc.AXOpen.Data
   syntax:
     content: '_exist : BOOL'
     return:
       type: BOOL
-- uid: plc.AXOpen.Data.AxoDataExchangeTask.Invoke(STRING[254])
-  id: plc.AXOpen.Data.AxoDataExchangeTask.Invoke(STRING[254])
-  parent: AXOpen.Data.AxoDataExchangeTask
+- uid: plc.AXOpen.Data.AxoDataPersistentCurdTask.Invoke(STRING[254],ePersistentOperation)
+  id: plc.AXOpen.Data.AxoDataPersistentCurdTask.Invoke(STRING[254],ePersistentOperation)
+  parent: AXOpen.Data.AxoDataPersistentCurdTask
   children: []
   name: Invoke
   fullName: Invoke
   type: Method
   source:
     remote:
-      path: .\src\data\ctrl\src\AxoDataExchangeTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
-    id: plc.AXOpen.Data.AxoDataExchangeTask.Invoke
-    path: .\src\data\ctrl\src\AxoDataExchangeTask.st
-    startLine: 15
+    id: plc.AXOpen.Data.AxoDataPersistentCurdTask.Invoke
+    path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
+    startLine: 25
   namespace: plc.AXOpen.Data
+  summary: Invokes this task.
   syntax:
-    content: Public AXOpen.Core.IAxoTaskState Invoke(in plc.STRING[254] identifier)
+    content: Public AXOpen.Core.IAxoTaskState Invoke(in plc.STRING[254] identifier,in plc.AXOpen.Data.ePersistentOperation operation)
     parameters:
     - id: identifier
       type: plc.STRING[254]
+      description: Data entity identifier
+    - id: operation
+      type: plc.AXOpen.Data.ePersistentOperation
+      description: Operation to perfom.
     return:
       type: plc.AXOpen.Core.IAxoTaskState
-- uid: plc.AXOpen.Data.AxoDataExchangeTask.Exist()
-  id: plc.AXOpen.Data.AxoDataExchangeTask.Exist()
-  parent: AXOpen.Data.AxoDataExchangeTask
+- uid: plc.AXOpen.Data.AxoDataPersistentCurdTask.Exist()
+  id: plc.AXOpen.Data.AxoDataPersistentCurdTask.Exist()
+  parent: AXOpen.Data.AxoDataPersistentCurdTask
   children: []
   name: Exist
   fullName: Exist
   type: Method
   source:
     remote:
-      path: .\src\data\ctrl\src\AxoDataExchangeTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
-    id: plc.AXOpen.Data.AxoDataExchangeTask.Exist
-    path: .\src\data\ctrl\src\AxoDataExchangeTask.st
-    startLine: 25
+    id: plc.AXOpen.Data.AxoDataPersistentCurdTask.Exist
+    path: .\src\data\ctrl\src\AxoDataPersistentCurdTask.st
+    startLine: 36
   namespace: plc.AXOpen.Data
   syntax:
     content: Public BOOL Exist()
@@ -271,12 +308,6 @@ references:
   nameWithType: ErrorDetails
   fullName: plc.AXOpen.Core.AxoTask.ErrorDetails
   parent: plc.AXOpen.Core.AxoTask.ErrorDetails
-- uid: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
-  commentId: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
-  name: _CyclicExecuteIsNotCalled
-  nameWithType: _CyclicExecuteIsNotCalled
-  fullName: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
-  parent: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
 - uid: plc.AXOpen.Core.AxoObject.Identity
   commentId: plc.AXOpen.Core.AxoObject.Identity
   name: Identity
@@ -343,30 +374,30 @@ references:
   nameWithType: HasError()
   fullName: plc.AXOpen.Core.AxoTask.HasError()
   parent: plc.AXOpen.Core.AxoTask.HasError()
-- uid: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
-  commentId: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
-  name: IsInvokeCalled()
-  nameWithType: IsInvokeCalled()
-  fullName: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
-  parent: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+- uid: plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
+  commentId: plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
+  name: IsFirstExecutionCycle()
+  nameWithType: IsFirstExecutionCycle()
+  fullName: plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
+  parent: plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
+- uid: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  commentId: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  name: SetSuspendMultipleExecuteCallCheck(BOOL)
+  nameWithType: SetSuspendMultipleExecuteCallCheck(BOOL)
+  fullName: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  parent: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+- uid: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
+  commentId: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
+  name: GetSuspendMultipleExecuteCallCheckState()
+  nameWithType: GetSuspendMultipleExecuteCallCheckState()
+  fullName: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
+  parent: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
 - uid: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
   commentId: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
   name: IsNewInvokeCall()
   nameWithType: IsNewInvokeCall()
   fullName: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
   parent: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
-- uid: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-  commentId: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-  name: IsInvokeCalledInThisPlcCycle()
-  nameWithType: IsInvokeCalledInThisPlcCycle()
-  fullName: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-  parent: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-- uid: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
-  commentId: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
-  name: WasInvokeCalledInPreviousPlcCycle()
-  nameWithType: WasInvokeCalledInPreviousPlcCycle()
-  fullName: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
-  parent: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
 - uid: plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
   commentId: plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
   name: IsNewExecuteCall()
@@ -457,6 +488,30 @@ references:
   nameWithType: Resume()
   fullName: plc.AXOpen.Core.AxoTask.Resume()
   parent: plc.AXOpen.Core.AxoTask.Resume()
+- uid: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  commentId: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  name: SetRemoteRestoreEnabled(BOOL)
+  nameWithType: SetRemoteRestoreEnabled(BOOL)
+  fullName: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  parent: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+- uid: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  commentId: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  name: GetRemoteRestoreEnabled()
+  nameWithType: GetRemoteRestoreEnabled()
+  fullName: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  parent: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+- uid: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  commentId: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  name: SetRemoteAbortEnabled(BOOL)
+  nameWithType: SetRemoteAbortEnabled(BOOL)
+  fullName: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  parent: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+- uid: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
+  commentId: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
+  name: GetRemoteAbortEnabled()
+  nameWithType: GetRemoteAbortEnabled()
+  fullName: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
+  parent: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
 - uid: plc.AXOpen.Core.AxoTask.OnAbort()
   commentId: plc.AXOpen.Core.AxoTask.OnAbort()
   name: OnAbort()
@@ -499,6 +554,42 @@ references:
   nameWithType: WhileError()
   fullName: plc.AXOpen.Core.AxoTask.WhileError()
   parent: plc.AXOpen.Core.AxoTask.WhileError()
+- uid: plc.AXOpen.Core.AxoTask.AbortTriggered()
+  commentId: plc.AXOpen.Core.AxoTask.AbortTriggered()
+  name: AbortTriggered()
+  nameWithType: AbortTriggered()
+  fullName: plc.AXOpen.Core.AxoTask.AbortTriggered()
+  parent: plc.AXOpen.Core.AxoTask.AbortTriggered()
+- uid: plc.AXOpen.Core.AxoTask.ResumeTriggered()
+  commentId: plc.AXOpen.Core.AxoTask.ResumeTriggered()
+  name: ResumeTriggered()
+  nameWithType: ResumeTriggered()
+  fullName: plc.AXOpen.Core.AxoTask.ResumeTriggered()
+  parent: plc.AXOpen.Core.AxoTask.ResumeTriggered()
+- uid: plc.AXOpen.Core.AxoTask.DoneReached()
+  commentId: plc.AXOpen.Core.AxoTask.DoneReached()
+  name: DoneReached()
+  nameWithType: DoneReached()
+  fullName: plc.AXOpen.Core.AxoTask.DoneReached()
+  parent: plc.AXOpen.Core.AxoTask.DoneReached()
+- uid: plc.AXOpen.Core.AxoTask.ErrorOccured()
+  commentId: plc.AXOpen.Core.AxoTask.ErrorOccured()
+  name: ErrorOccured()
+  nameWithType: ErrorOccured()
+  fullName: plc.AXOpen.Core.AxoTask.ErrorOccured()
+  parent: plc.AXOpen.Core.AxoTask.ErrorOccured()
+- uid: plc.AXOpen.Core.AxoTask.RestoreTriggered()
+  commentId: plc.AXOpen.Core.AxoTask.RestoreTriggered()
+  name: RestoreTriggered()
+  nameWithType: RestoreTriggered()
+  fullName: plc.AXOpen.Core.AxoTask.RestoreTriggered()
+  parent: plc.AXOpen.Core.AxoTask.RestoreTriggered()
+- uid: plc.AXOpen.Core.AxoTask.StartTriggered()
+  commentId: plc.AXOpen.Core.AxoTask.StartTriggered()
+  name: StartTriggered()
+  nameWithType: StartTriggered()
+  fullName: plc.AXOpen.Core.AxoTask.StartTriggered()
+  parent: plc.AXOpen.Core.AxoTask.StartTriggered()
 - uid: plc.AXOpen.Core.AxoObject.GetIdentity()
   commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
   name: GetIdentity()
@@ -511,6 +602,12 @@ references:
   nameWithType: GetContext()
   fullName: plc.AXOpen.Core.AxoObject.GetContext()
   parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
 - uid: plc.AXOpen.Core.AxoObject.GetParent()
   commentId: plc.AXOpen.Core.AxoObject.GetParent()
   name: GetParent()
@@ -541,6 +638,10 @@ references:
   nameWithType: IAxoTask
   fullName: plc.AXOpen.Core.IAxoTask
   parent: plc.AXOpen.Core.IAxoTask
+- uid: plc.AXOpen.Data.ePersistentOperation
+  name: ePersistentOperation
+  nameWithType: ePersistentOperation
+  fullName: AXOpen.Data.ePersistentOperation
 - uid: plc.STRING[254]
   name: STRING[254]
   nameWithType: STRING[254]

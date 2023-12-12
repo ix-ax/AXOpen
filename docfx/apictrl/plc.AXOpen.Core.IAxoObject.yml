@@ -6,13 +6,14 @@ items:
   children:
   - plc.AXOpen.Core.IAxoObject.GetIdentity()
   - plc.AXOpen.Core.IAxoObject.GetContext()
+  - plc.AXOpen.Core.IAxoObject.GetContextUnsafe()
   name: IAxoObject
   fullName: IAxoObject
   type: Interface
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoObject
     path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
@@ -31,7 +32,7 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoObject.GetIdentity
     path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
@@ -52,7 +53,7 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoObject.GetContext
     path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
@@ -60,6 +61,27 @@ items:
   namespace: plc.AXOpen.Core
   syntax:
     content: Public AXOpen.Core.IAxoContext GetContext()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Core.IAxoObject.GetContextUnsafe()
+  id: plc.AXOpen.Core.IAxoObject.GetContextUnsafe
+  parent: IAxoObject
+  children: []
+  name: GetContextUnsafe
+  fullName: GetContextUnsafe
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoObject.GetContextUnsafe
+    path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
+    startLine: 4
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoContext GetContextUnsafe()
     parameters: *o0
     return:
       type: plc.AXOpen.Core.IAxoContext

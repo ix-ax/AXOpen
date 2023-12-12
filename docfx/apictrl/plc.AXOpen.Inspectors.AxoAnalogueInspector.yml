@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\AxoAnalogueInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoAnalogueInspector
     path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\AxoAnalogueInspector.st
@@ -29,7 +29,6 @@ items:
   - plc.AXOpen.Inspectors.AxoInspector
   - plc.AXOpen.Core.AxoObject
   inheritedMembers:
-  - plc.AXOpen.Inspectors.AxoInspector._axoInspectorDialog
   - plc.AXOpen.Core.AxoObject.Identity
   - plc.AXOpen.Inspectors.AxoInspector.CheckOverInspection()
   - plc.AXOpen.Inspectors.AxoInspector.IsOverInspected()
@@ -48,6 +47,7 @@ items:
   - plc.AXOpen.Inspectors.AxoInspector.Result()
   - plc.AXOpen.Core.AxoObject.GetIdentity()
   - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
   - plc.AXOpen.Core.AxoObject.GetParent()
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
@@ -66,11 +66,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\AxoAnalogueInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoAnalogueInspector._data
     path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\AxoAnalogueInspector.st
-    startLine: 10
+    startLine: 11
   namespace: plc.AXOpen.Inspectors
   syntax:
     content: '_data : AXOpen.Inspectors.AxoAnalogueInspectorData'
@@ -86,11 +86,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\AxoAnalogueInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoAnalogueInspector._lastOutValue
     path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\AxoAnalogueInspector.st
-    startLine: 13
+    startLine: 14
   namespace: plc.AXOpen.Inspectors
   syntax:
     content: '_lastOutValue : LREAL'
@@ -106,11 +106,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\AxoAnalogueInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoAnalogueInspector.Inspect
     path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\AxoAnalogueInspector.st
-    startLine: 22
+    startLine: 23
   namespace: plc.AXOpen.Inspectors
   summary: Inspection method, which contains main logic of inspection.
   syntax:
@@ -132,11 +132,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\AxoAnalogueInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoAnalogueInspector.WithCoordinator
     path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\AxoAnalogueInspector.st
-    startLine: 98
+    startLine: 99
   namespace: plc.AXOpen.Inspectors
   summary: Set coordinator to this instance
   syntax:
@@ -156,11 +156,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\AxoAnalogueInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoAnalogueInspector.OnDone
     path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\AxoAnalogueInspector.st
-    startLine: 114
+    startLine: 115
   namespace: plc.AXOpen.Inspectors
   summary: If inspection fails, set result to data
   syntax:
@@ -178,11 +178,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\AxoAnalogueInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoAnalogueInspector.Data
     path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\AxoAnalogueInspector.st
-    startLine: 123
+    startLine: 125
   namespace: plc.AXOpen.Inspectors
   summary: Set coordinator to this instance
   syntax:
@@ -191,12 +191,6 @@ items:
     return:
       type: plc.REF_TO AXOpen.Inspectors.AxoAnalogueInspectorData
 references:
-- uid: plc.AXOpen.Inspectors.AxoInspector._axoInspectorDialog
-  commentId: plc.AXOpen.Inspectors.AxoInspector._axoInspectorDialog
-  name: _axoInspectorDialog
-  nameWithType: _axoInspectorDialog
-  fullName: plc.AXOpen.Inspectors.AxoInspector._axoInspectorDialog
-  parent: plc.AXOpen.Inspectors.AxoInspector._axoInspectorDialog
 - uid: plc.AXOpen.Core.AxoObject.Identity
   commentId: plc.AXOpen.Core.AxoObject.Identity
   name: Identity
@@ -305,6 +299,12 @@ references:
   nameWithType: GetContext()
   fullName: plc.AXOpen.Core.AxoObject.GetContext()
   parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
 - uid: plc.AXOpen.Core.AxoObject.GetParent()
   commentId: plc.AXOpen.Core.AxoObject.GetParent()
   name: GetParent()

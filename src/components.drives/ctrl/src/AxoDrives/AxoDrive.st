@@ -2231,7 +2231,7 @@ NAMESPACE AXOpen.Components.Drives
         ///<summary>
 		/// Restores this instance . 
         ///</summary>   
-        METHOD PROTECTED OVERRIDE Restore: IAxoTask 
+        METHOD PUBLIC OVERRIDE Restore 
             VAR
                 _index : INT;
             END_VAR

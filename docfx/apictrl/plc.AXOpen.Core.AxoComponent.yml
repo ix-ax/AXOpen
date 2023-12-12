@@ -8,7 +8,7 @@ items:
   - plc.AXOpen.Core.AxoComponent._isManuallyControllable
   - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
   - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
-  - plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  - plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivatedInlined()
   - plc.AXOpen.Core.AxoComponent.Open()
   - plc.AXOpen.Core.AxoComponent.Run()
   - plc.AXOpen.Core.AxoComponent.Close()
@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoComponent
     path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
@@ -34,6 +34,7 @@ items:
   - plc.AXOpen.Core.AxoObject.Identity
   - plc.AXOpen.Core.AxoObject.GetIdentity()
   - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
   - plc.AXOpen.Core.AxoObject.GetParent()
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
@@ -49,11 +50,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoComponent._manualControlContextCycle
     path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-    startLine: 42
+    startLine: 56
   namespace: plc.AXOpen.Core
   syntax:
     content: '_manualControlContextCycle : ULINT'
@@ -69,11 +70,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoComponent._isManuallyControllable
     path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-    startLine: 43
+    startLine: 58
   namespace: plc.AXOpen.Core
   syntax:
     content: '_isManuallyControllable : BOOL'
@@ -89,11 +90,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoComponent.ActivateManualControl
     path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-    startLine: 6
+    startLine: 7
   namespace: plc.AXOpen.Core
   summary: Executes the logic for manual-maintenance control.
   syntax:
@@ -111,11 +112,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoComponent.IsManuallyControllable
     path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-    startLine: 19
+    startLine: 20
   namespace: plc.AXOpen.Core
   summary: Gets whether the AxoComponent is manually controllable.To make the AxoComponent manually controllable, it is necessary to call the `ActivateManualMode()` method cyclically.
   syntax:
@@ -123,24 +124,24 @@ items:
     parameters: *o0
     return:
       type: plc.BOOL
-- uid: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
-  id: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+- uid: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivatedInlined()
+  id: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivatedInlined()
   parent: AXOpen.Core.AxoComponent
   children: []
-  name: CheckIfManualControlIsActivated
-  fullName: CheckIfManualControlIsActivated
+  name: CheckIfManualControlIsActivatedInlined
+  fullName: CheckIfManualControlIsActivatedInlined
   type: Method
   source:
     remote:
       path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
-    id: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated
+    id: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivatedInlined
     path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-    startLine: 49
+    startLine: 64
   namespace: plc.AXOpen.Core
   syntax:
-    content: Private VOID CheckIfManualControlIsActivated()
+    content: Private VOID CheckIfManualControlIsActivatedInlined()
     parameters: *o0
     return:
       type: VOID
@@ -154,11 +155,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoComponent.Open
     path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-    startLine: 67
+    startLine: 80
   namespace: plc.AXOpen.Core
   syntax:
     content: Protected VOID Open()
@@ -175,11 +176,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoComponent.Run
     path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-    startLine: 73
+    startLine: 103
   namespace: plc.AXOpen.Core
   syntax:
     content: Public VOID Run()
@@ -196,11 +197,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoComponent.Close
     path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-    startLine: 79
+    startLine: 107
   namespace: plc.AXOpen.Core
   syntax:
     content: Protected VOID Close()
@@ -217,11 +218,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoComponent.Restore
     path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-    startLine: 28
+    startLine: 44
   namespace: plc.AXOpen.Core
   summary: Restores this instance. This method must be implemented in derived class.
   syntax:
@@ -239,11 +240,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoComponent.ManualControl
     path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
-    startLine: 37
+    startLine: 52
   namespace: plc.AXOpen.Core
   summary: Custom logic for manual control of the AxoComponent.This method must be implemented in derived class.
   syntax:
@@ -270,6 +271,12 @@ references:
   nameWithType: GetContext()
   fullName: plc.AXOpen.Core.AxoObject.GetContext()
   parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
 - uid: plc.AXOpen.Core.AxoObject.GetParent()
   commentId: plc.AXOpen.Core.AxoObject.GetParent()
   name: GetParent()
