@@ -6,7 +6,7 @@ NAMESPACE AxoComponentExamples
     {#ix-set:AttributeName = "AxoComponent example name"}
     {S7.extern=ReadWrite}
     CLASS PUBLIC AxoComponentExample EXTENDS AXOpen.Core.AxoComponent  
-        METHOD PROTECTED OVERRIDE Restore: IAxoTask 
+        METHOD PUBLIC OVERRIDE Restore 
             ;
         END_METHOD
         METHOD PROTECTED OVERRIDE ManualControl
