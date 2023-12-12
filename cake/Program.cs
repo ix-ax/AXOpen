@@ -164,22 +164,6 @@ public sealed class BuildTask : FrostingTask<BuildContext>
         {
             if (context.BuildParameters.Paralellize)
             {
-                Parallel.ForEach(context.Libraries, lib => context.ApaxInstall(context.GetApplicationAxFolders(lib)));
-                Parallel.ForEach(context.Libraries, lib => context.ApaxBuild(context.GetApplicationAxFolders(lib)));
-                context.Libraries.ToList().ForEach(lib => context.ApaxIxc(context.GetApplicationAxFolders(lib)));
-            }
-            else
-            {
-                context.Libraries.ToList().ForEach(lib =>
-                {
-                    context.ApaxInstall(context.GetApplicationAxFolders(lib));
-                    context.ApaxBuild(context.GetApplicationAxFolders(lib));
-                    context.ApaxIxc(context.GetApplicationAxFolders(lib));
-                });
-            }
-
-            if (context.BuildParameters.Paralellize)
-            {
                 Parallel.ForEach(context.Libraries, lib => context.ApaxInstall(context.GetLibraryAxFolders(lib)));
                 Parallel.ForEach(context.Libraries, lib => context.ApaxBuild(context.GetLibraryAxFolders(lib)));
                 context.Libraries.ToList().ForEach(lib => context.ApaxIxc(context.GetLibraryAxFolders(lib)));
@@ -191,6 +175,22 @@ public sealed class BuildTask : FrostingTask<BuildContext>
                     context.ApaxInstall(context.GetLibraryAxFolders(lib));
                     context.ApaxBuild(context.GetLibraryAxFolders(lib));
                     context.ApaxIxc(context.GetLibraryAxFolders(lib));
+                });
+            }
+
+            if (context.BuildParameters.Paralellize)
+            {
+                Parallel.ForEach(context.Libraries, lib => context.ApaxInstall(context.GetApplicationAxFolders(lib)));
+                Parallel.ForEach(context.Libraries, lib => context.ApaxBuild(context.GetApplicationAxFolders(lib)));
+                context.Libraries.ToList().ForEach(lib => context.ApaxIxc(context.GetApplicationAxFolders(lib)));
+            }
+            else
+            {
+                context.Libraries.ToList().ForEach(lib =>
+                {
+                    context.ApaxInstall(context.GetApplicationAxFolders(lib));
+                    context.ApaxBuild(context.GetApplicationAxFolders(lib));
+                    context.ApaxIxc(context.GetApplicationAxFolders(lib));
                 });
             }
 
