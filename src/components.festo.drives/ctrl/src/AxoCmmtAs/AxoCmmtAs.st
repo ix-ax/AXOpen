@@ -21,6 +21,27 @@ NAMESPACE AXOpen.Components.Festo.Drives
             {#ix-attr:[ComponentHeader()]}            
             {#ix-set:AttributeName = "<#State#>"}
             State : UINT;
+
+            {#ix-attr:[ComponentHeader()]}            
+            ScalingRead             :   BOOL := FALSE;
+            {#ix-attr:[ComponentHeader()]}            
+            PNU_11724               :   LINT;
+            {#ix-attr:[ComponentHeader()]}            
+            PNU_11725               :   LINT;
+            {#ix-attr:[ComponentHeader()]}            
+            PNU_12345               :   REAL;
+            {#ix-attr:[ComponentHeader()]}            
+            PNU_11122               :   REAL;
+            {#ix-attr:[ComponentHeader()]}            
+            PNU_810                 :   REAL;
+            {#ix-attr:[ComponentHeader()]}            
+            PNU_811                 :   REAL;
+            {#ix-attr:[ComponentHeader()]}            
+            PNU_11203               :   BOOL;
+            {#ix-attr:[ComponentHeader()]}            
+            PNU_11734               :   LINT;
+            {#ix-attr:[ComponentHeader()]}            
+            PNU_11735               :   LINT;
         END_VAR
 
         VAR PUBLIC //CONFIG
@@ -90,13 +111,16 @@ NAMESPACE AXOpen.Components.Festo.Drives
         END_VAR
 
         VAR PRIVATE
-            ScalingRead             :   BOOL := FALSE;
-            PNU_11724               :   LINT;
-            PNU_11725               :   LINT;
-            PNU_12345               :   REAL;
-            PNU_11122               :   REAL;
-            PNU_810                 :   REAL;
-            PNU_811                 :   REAL;
+            // ScalingRead             :   BOOL := FALSE;
+            // PNU_11724               :   LINT;
+            // PNU_11725               :   LINT;
+            // PNU_12345               :   REAL;
+            // PNU_11122               :   REAL;
+            // PNU_810                 :   REAL;
+            // PNU_811                 :   REAL;
+            // PNU_11203               :   BOOL;
+            // PNU_11734               :   LINT;
+            // PNU_11735               :   LINT;
         //     _AxisRefExt :  AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
         END_VAR
 
@@ -456,7 +480,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
             END_IF;
             //*************************************************//
 
-            // THIS.UpdateStatus(_AxisRefExt);
             THIS.ActualPosition := TO_LREAL(_AxisReference^.Telegram111_In.XIST_A) * ScalingConstantActualPosition;
             THIS.ActualVelocity := TO_LREAL(_AxisReference^.Telegram111_In.NIST_B) * ScalingConstantActualVelocity;
             THIS.ActualTorque := TO_LREAL(_AxisReference^.Telegram750_In.M_Actual) * ScalingConstantActualTorque;
@@ -643,6 +666,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF Enable OR MC_PowerEnable_PV THEN
                 IF Enable THEN (*	raising edge of ENABLE *)
                     _AxisReference^.Telegram111_Out.STW1.on_ := TRUE;
+                    _AxisReference^.Telegram750_Out.M_LIMIT_POS := 16384;
+                    _AxisReference^.Telegram750_Out.M_LIMIT_NEG := -16384;
+                    _AxisReference^.Telegram111_Out.MDI_VELOCITY := DINT#1;
+                    _AxisReference^.Telegram111_Out.MDI_ACC := UINT#16384;
+                    _AxisReference^.Telegram111_Out.MDI_DEC := UINT#16384;
+                    _AxisReference^.Telegram111_Out.Override_ := WORD#16384;
+                    _AxisReference^.Telegram111_Out.POS_STW2.SW_Limit := TRUE;
+                    _AxisReference^.Telegram111_Out.POS_STW2.HW_Limit := TRUE;
                 END_IF;
                 IF _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
                     Status	:= TRUE;						(* Status OK*)
@@ -671,16 +702,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
         /// position when reference signal is detected. This method completes at ‘Standstill’ if it was started in ‘Standstill’.
         ///</summary>
         VAR INTERNAL
-            // MC_HomeExecute_PV					:	BOOL := FALSE;		//Execute - previous value           
-            // MC_HomeCallNumber					: 	INT; 				//Call number of the method MC_Stop  
-            // MC_HomeFirstCall					: 	BOOL;				//First call of the method MC_Stop   	
-            // MC_HomeDone_						:	BOOL; 				
-            // MC_HomeActive_						:	BOOL;				
-            // MC_HomeCommandAborted_				:	BOOL;				
-            // MC_HomeError_						:	BOOL;				
-            // MC_HomeErrorID_						:	AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode; 		
-            // MC_HomeState_						:	UINT;				
-
             MC_HomeExecute_PV					: 	BOOL;				//Execute - previous value
             MC_HomeErrorID					    : 	eAxoCmmtAsErrorCode;
             MC_HomeCycle					    : 	ULINT;
@@ -705,11 +726,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
              END_VAR
              VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
-
-                _ErrorID : WORD;
-                _HommingMode: DINT;
-                Dummy : BOOL;
-                _result : IAxoTaskState;
+                HommingModeInvalid : BOOL;
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -722,290 +739,557 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             Messenger.ActivateOnCondition(ULINT#745, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(ULINT#746, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
+            HommingModeInvalid := TRUE;
+            IF HommingMode = -27 OR  HommingMode = -23 OR HommingMode = -18 OR  HommingMode = -17 OR  HommingMode = -2 OR  HommingMode = -1 OR HommingMode = 1 OR HommingMode = 2 THEN
+                HommingModeInvalid := FALSE;
+            ELSIF HommingMode = 7 OR  HommingMode = 11 OR HommingMode = 17 OR  HommingMode = 18 OR  HommingMode = 23 OR  HommingMode = 27 OR HommingMode = 33 OR HommingMode = 34 OR HommingMode = 37 THEN
+                HommingModeInvalid := FALSE;
+            END_IF;            
+            Messenger.ActivateOnCondition(ULINT#747, Execute AND HommingModeInvalid, eAxoMessageCategory#ProgrammingError);
 
-            // IF Execute AND NOT MC_HomeExecute_PV THEN
-            //     _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle + ULINT#2;
-            //     MC_StopCycle := _AxisReference^.Data.Cycle ;
-            //     State := UINT#0;
-            // END_IF;
+            IF Execute AND NOT MC_HomeExecute_PV AND State = UINT#0 THEN
+                _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle + ULINT#2;
+                MC_HomeCycle := _AxisReference^.Data.Cycle ;
+            END_IF;
 
-            // IF Execute THEN 				
-            //     IF State = UINT#0 THEN
-            //         Busy := TRUE;            
-            //         Active := TRUE;          
-            //         MC_HomeErrorID :=AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_ERROR;         
-            //         State := UINT#30;
-            //     END_IF;
+            IF Execute THEN 				
+                IF State = UINT#0 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    MC_HomeErrorID :=AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_ERROR;         
+                    _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
+                    Parametrization.Inputs.Enable := FALSE;
+                    State := UINT#20;
+                END_IF;
 
-            //     IF State = UINT#30 THEN
-            //         IF Acceleration <= 0 OR Deceleration <= 0 THEN
-            //             State := UINT#36;
-            //         ELSE
-            //             State := UINT#31;
-            //         END_IF;
-            //     END_IF;
-            //     IF State = UINT#31 THEN
-            //         Busy := TRUE;            
-            //         Active := TRUE;          
-            //         Parametrization.Inputs.Enable := TRUE;
-            //         Parametrization.Inputs.ReadWrite   := TRUE;
-            //         Parametrization.Inputs.ParameterNo := 12327;
-            //         Parametrization.Inputs.Subindex    := 0;
-            //         Parametrization.Inputs.AxisNo  := BYTE#1;
-            //         Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
-            //         Parametrization.Inputs.ValueWriteREAL := TO_REAL(Jerk);
-            //         IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
-            //             State := UINT#42;
-            //         END_IF;
-            //         IF Parametrization.Outputs.Error THEN 
-            //             State := UINT#46;
-            //         END_IF;
-            //     END_IF;
-            //     IF State = UINT#42 THEN
-            //         Busy := TRUE;            
-            //         Active := TRUE;          
-            //         _AxisReference^.Telegram111_Out.MDI_DEC := TO_UINT(Deceleration * ScalingConstantRequiredDeceleration);
-            //         _AxisReference^.Telegram111_Out.STW1.cancelTraversing := FALSE; 
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         Parametrization.Inputs.ReadWrite   := FALSE;
-            //         IF  NOT Parametrization.Outputs.Done THEN
-            //             State := UINT#43;
-            //         END_IF;
-            //     END_IF;               
-            //     IF State = UINT#43 THEN
-            //         Busy := TRUE;            
-            //         Active := TRUE;          
-            //         IF _AxisReference^.Telegram111_In.ZSW1.driveStopped  THEN
-            //             State := UINT#44;
-            //         END_IF;
-            //     END_IF;                           
-            //     IF State = UINT#44 THEN
-            //         Done := TRUE;            
-            //         Active := TRUE;     
-            //         MC_StopCycle := ULINT#0;     
-            //     END_IF;         
-            //     IF State = UINT#45 THEN
-            //         CommandAborted := TRUE;            
-            //     END_IF;         
-            //     IF State = UINT#46 THEN
-            //         _AxisReference^.Telegram111_Out.MDI_DEC := UINT#16384;
-            //         _AxisReference^.Telegram111_Out.STW1.cancelTraversing := FALSE; 
-            //         MC_StopCycle := ULINT#0;     
-            //         Error := TRUE;    
-            //     END_IF;         
+                IF State = UINT#20 THEN
+                    IF Acceleration <= 0 OR Deceleration <= 0 OR HommingModeInvalid THEN
+                        State := UINT#59;
+                    ELSE
+                        State := UINT#21;
+                    END_IF;
+                END_IF;
+                //Write  PNU 11206 Acceleration
+                IF State = UINT#21 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 11206; //Acc
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Acceleration);
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        State := UINT#22;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_HomeErrorID := WORD#748;
+                        State := UINT#59;
+                    END_IF;
+                END_IF;
+                IF State = UINT#22 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#23;
+                    END_IF;
+                END_IF;   
+                //Write  PNU 11209 Acceleration
+                IF State = UINT#23 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 11209;//Acc
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Acceleration);
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        State := UINT#24;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_HomeErrorID := WORD#749;
+                        State := UINT#59;
+                    END_IF;
+                END_IF;
+                IF State = UINT#24 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#25;
+                    END_IF;
+                END_IF;        
+                //Write  PNU 11728 Acceleration
+                IF State = UINT#25 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 11728;//Acc
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Acceleration);
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        State := UINT#26;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_HomeErrorID := WORD#750;
+                        State := UINT#59;
+                    END_IF;
+                END_IF;
+                IF State = UINT#26 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#27;
+                    END_IF;
+                END_IF;                 
+                //Write  PNU 11205 Velocity
+                IF State = UINT#27 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 11205; //Vel
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Velocity);
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        State := UINT#28;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_HomeErrorID := WORD#751;
+                        State := UINT#59;
+                    END_IF;
+                END_IF;
+                IF State = UINT#28 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#29;
+                    END_IF;
+                END_IF;        
+                //Write  PNU 11208 Velocity
+                IF State = UINT#29 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 11208;//Vel
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Velocity)*REAL#0.5;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        State := UINT#30;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_HomeErrorID := WORD#752;
+                        State := UINT#59;
+                    END_IF;
+                END_IF;
+                IF State = UINT#30 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#31;
+                    END_IF;
+                END_IF;        
+                //Write  PNU 11211 Velocity
+                IF State = UINT#31 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 11211;//Vel
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Velocity)*REAL#5.0;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        State := UINT#32;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_HomeErrorID := WORD#753;
+                        State := UINT#59;
+                    END_IF;
+                END_IF;
+                IF State = UINT#32 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#33;
+                    END_IF;
+                END_IF;    
+                //Read  PNU 11735 Homing mode
+                IF State = UINT#33 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    Parametrization.Inputs.ParameterNo := 11735;//mode
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        PNU_11735 := Parametrization.Outputs.ValueReadLINT;
+                        State := UINT#34;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_HomeErrorID := WORD#765;
+                        State := UINT#59;
+                    END_IF;
+                END_IF;
+                IF State = UINT#34 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#35;
+                    END_IF;
+                END_IF;    
+                //Write  PNU 11735 Homing mode
+                IF State = UINT#35 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 11735;//mode
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteLINT := TO_LINT(HommingMode);
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        State := UINT#36;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_HomeErrorID := WORD#754;
+                        State := UINT#59;
+                    END_IF;
+                END_IF;
+                IF State = UINT#36 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#37;
+                    END_IF;
+                END_IF;    
+                //Write  PNU 12681 deactivate save zero offset
+                IF State = UINT#37 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 12681;//deactivate save zero offset
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteBOOL := FALSE;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        State := UINT#38;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_HomeErrorID := WORD#756;
+                        State := UINT#59;
+                    END_IF;
+                END_IF;
+                IF State = UINT#38 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#39;
+                    END_IF;
+                END_IF;    
+                //Homing started
+                IF State = UINT#39 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;     
+                    _AxisReference^.Telegram111_Out.STW1.StartHoming := TRUE; 
+                    IF  NOT _AxisReference^.Telegram111_In.ZSW1.targetPosReached AND NOT _AxisReference^.Telegram111_In.ZSW1.homePosSet THEN
+                        State := UINT#40;
+                    END_IF;
+                END_IF;                                       
+                IF State = UINT#40 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    IF _AxisReference^.Telegram111_In.ZSW1.targetPosReached AND _AxisReference^.Telegram111_In.ZSW1.homePosSet THEN
+                        _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
+                        IF Position = 0 THEN
+                            State := UINT#57;
+                        ELSE
+                            State := UINT#41;
+                        END_IF;
+                    END_IF;
+                END_IF;  
+                //Read PNU 11203 Move to axis zero after homming
+                IF State = UINT#41 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    Parametrization.Inputs.ParameterNo := 11203;//Move to axis zero after homming
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        PNU_11203 := Parametrization.Outputs.ValueReadBool;
+                        State := UINT#42;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_HomeErrorID := WORD#757;
+                        State := UINT#59;
+                    END_IF;
+                END_IF;
+                IF State = UINT#42 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#43;
+                    END_IF;
+                END_IF; 
+                //Read PNU 11734 Axis zero point offset
+                IF State = UINT#43 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    Parametrization.Inputs.ParameterNo := 11734;//Move to axis zero after homming
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        PNU_11734 := Parametrization.Outputs.ValueReadLINT;
+                        State := UINT#44;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_HomeErrorID := WORD#758;
+                        State := UINT#59;
+                    END_IF;
+                END_IF;
+                IF State = UINT#44 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#45;
+                    END_IF;
+                END_IF; 
+                //Write PNU 11203 deactivate Move to axis zero after homming
+                IF State = UINT#45 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 11203;//Move to axis zero after homming
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteBOOL := FALSE;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        State := UINT#46;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_HomeErrorID := WORD#759;
+                        State := UINT#59;
+                    END_IF;
+                END_IF;
+                IF State = UINT#46 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#47;
+                    END_IF;
+                END_IF;   
+                //Write PNU 11734 Axis zero point offset
+                IF State = UINT#47 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 11734;//Move to axis zero after homming
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteLINT := (*TO_LINT(-10000000.0);*) TO_LINT(Position * -10000000000.0);
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        State := UINT#48;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_HomeErrorID := WORD#760;
+                        State := UINT#59;
+                    END_IF;
+                END_IF;
+                IF State = UINT#48 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#49;
+                    END_IF;
+                END_IF; 
+                //Write  PNU 11735 Homing mode
+                IF State = UINT#49 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 11735;//mode
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteLINT := TO_LINT(37);
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        State := UINT#50;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_HomeErrorID := WORD#761;
+                        State := UINT#59;
+                    END_IF;
+                END_IF;
+                IF State = UINT#50 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#51;
+                    END_IF;
+                END_IF;    
+                //Homing started
+                IF State = UINT#51 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;     
+                    _AxisReference^.Telegram111_Out.STW1.StartHoming := TRUE; 
+                    IF  NOT _AxisReference^.Telegram111_In.ZSW1.targetPosReached AND NOT _AxisReference^.Telegram111_In.ZSW1.homePosSet THEN
+                        State := UINT#52;
+                    END_IF;
+                END_IF;                                       
+                IF State = UINT#52 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    IF _AxisReference^.Telegram111_In.ZSW1.targetPosReached AND _AxisReference^.Telegram111_In.ZSW1.homePosSet THEN
+                        State := UINT#53;
+                    END_IF;
+                END_IF;  
+                //Write PNU 11203 Move to axis zero after homming
+                IF State = UINT#53 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 11203;//Move to axis zero after homming
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteBool := PNU_11203;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        State := UINT#54;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_HomeErrorID := WORD#762;
+                        State := UINT#59;
+                    END_IF;
+                END_IF;
+                IF State = UINT#54 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#55;
+                    END_IF;
+                END_IF; 
+                //Write PNU 11734 Axis zero point offset
+                IF State = UINT#55 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    Parametrization.Inputs.ParameterNo := 11734;//Move to axis zero after homming
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteLINT := PNU_11734;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                         State := UINT#56;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_HomeErrorID := WORD#763;
+                        State := UINT#59;
+                    END_IF;
+                END_IF;
+                IF State = UINT#56 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#57;
+                    END_IF;
+                END_IF; 
+
+                IF State = UINT#57 THEN
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 11735;
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteLINT := PNU_11735;
+
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_HomeErrorID := WORD#766;
+                        State := UINT#59;
+                    END_IF;                    
+                    _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE;
+                    Done := TRUE;            
+                    MC_HomeCycle := ULINT#0;     
+                END_IF;         
+                IF State = UINT#58 THEN
+                    _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE;
+                    CommandAborted := TRUE;            
+                END_IF;         
+                IF State = UINT#59 THEN
+                    _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE;
+                    MC_HomeCycle := ULINT#0;     
+                    Error := TRUE;    
+                END_IF;         
                 
-            //     IF State>=UINT#40 AND State<UINT#44 THEN
-            //         IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
-            //             State := UINT#45;
-            //         ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent THEN
-            //             MC_StopErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
-            //             State := UINT#46;
-            //         ELSIF _AxisReference^.Data.Cycle <> MC_StopCycle THEN
-            //             _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
-            //             State := UINT#45;
-            //         END_IF;                  
-            //     END_IF;                  
-            // END_IF;
+                IF State>=UINT#20 AND State<UINT#57 THEN
+                    IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
+                        State := UINT#58;
+                    ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent THEN
+                        IF MC_HomeErrorID = WORD#0 THEN
+                            MC_HomeErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
+                        END_IF;
+                        State := UINT#59;
+                    ELSIF _AxisReference^.Data.Cycle <> MC_HomeCycle THEN
+                        _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
+                        State := UINT#58;
+                    END_IF;                  
+                END_IF;                  
+            END_IF;
 
-            // IF NOT Execute AND MC_StopExecute_PV THEN
-            //     _AxisReference^.Telegram111_Out.STW1.cancelTraversing := TRUE; 
-            //     MC_StopErrorID := WORD#0;
-            //     State := UINT#0;
-            //     MC_StopCycle := ULINT#0;     
-            // END_IF;
-            // ErrorID := MC_StopErrorID;
-            // MC_StopExecute_PV := Execute;
-
-
-            // IF Execute AND NOT MC_HomeExecute_PV AND MC_HomeState_ = UINT#0 THEN
-            //     MC_HomeState_ := UINT#10;	
-            // END_IF;
-            // IF MC_HomeState_ = UINT#10 THEN
-            //     //S-0-0052, Reference distance of encoder 1
-            //     _result := THIS.AxoWriteParameter(ParameterNumber := 52, Value := TO_DINT(Position * EXP(LN(10)* PositionExponent)),ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately, ErrorID =>_ErrorID);
-            //     IF _result.IsDone() THEN
-            //         MC_HomeState_ := UINT#20;	
-            //     END_IF;
-            //     IF _result.HasError() THEN
-            //         MC_HomeError_ := TRUE;
-            //         MC_HomeErrorID_ := _ErrorID;
-            //     END_IF;
-            // END_IF;
-            // IF MC_HomeState_ = UINT#20 THEN
-            //     AxoWriteParameter_Task.Restore();
-            //     IF(AxoWriteParameter_Task.IsReady()) THEN
-            //         MC_HomeState_ :=UINT#30;	
-            //         RETURN;
-            //     END_IF;	
-            // END_IF;
-            // IF MC_HomeState_ = UINT#30 THEN
-            //     IF HommingMode = 0 THEN
-            //         _HommingMode := 551;
-            //     ELSE
-            //         _HommingMode := HommingMode;
-            //     END_IF;
-            //     //S-0-0147, Homing parameter
-            //     _result := THIS.AxoWriteParameter(ParameterNumber := 147, Value := _HommingMode ,ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately,ErrorID =>_ErrorID);
-            //     IF _result.IsDone() THEN
-            //         MC_HomeState_ := UINT#40;		
-            //     END_IF;
-            //     IF _result.HasError() THEN
-            //         MC_HomeError_ := TRUE;
-            //         MC_HomeErrorID_ := _ErrorID;
-            //     END_IF;
-            // END_IF;
-            // IF MC_HomeState_ = UINT#40 THEN
-            //     AxoWriteParameter_Task.Restore();
-            //     IF(AxoWriteParameter_Task.IsReady()) THEN
-            //         MC_HomeState_ := UINT#50;
-            //         RETURN;
-            //     END_IF;	
-            // END_IF;
-            // IF MC_HomeState_ = UINT#50 THEN
-            //     //S-0-0041, Homing velocity
-            //     _result := THIS.AxoWriteParameter(ParameterNumber := 41, Value := TO_DINT(Velocity * EXP(LN(10)*VelocityExponent)) ,ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately, ErrorID =>_ErrorID);
-            //     IF _result.IsDone() THEN
-            //         MC_HomeState_ :=UINT#60;	
-            //     END_IF;
-            //     IF _result.HasError() THEN
-            //         MC_HomeError_ := TRUE;
-            //         MC_HomeErrorID_ := _ErrorID;
-            //     END_IF;
-            // END_IF;
-            // IF MC_HomeState_ = UINT#60 THEN
-            //     AxoWriteParameter_Task.Restore();
-            //     IF(AxoWriteParameter_Task.IsReady()) THEN
-            //         MC_HomeState_ :=UINT#70;
-            //         RETURN;
-            //     END_IF;	
-            // END_IF;
-            // IF MC_HomeState_ = UINT#70 THEN
-            //     //S-0-0042, Homing acceleration
-            //     _result := THIS.AxoWriteParameter(ParameterNumber := 42, Value := TO_DINT(Acceleration * EXP(LN(10)*AccelerationExponent)) ,ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately, ErrorID =>_ErrorID);
-            //     IF _result.IsDone() THEN
-            //         MC_HomeState_ := UINT#80;	
-            //     END_IF;
-            //     IF _result.HasError() THEN
-            //         MC_HomeError_ := TRUE;
-            //         MC_HomeErrorID_ := _ErrorID;
-            //     END_IF;
-            // END_IF;
-            // IF MC_HomeState_ = UINT#80 THEN
-            //     AxoWriteParameter_Task.Restore();
-            //     IF(AxoWriteParameter_Task.IsReady()) THEN
-            //         MC_HomeState_ := UINT#90;
-            //         RETURN;
-            //     END_IF;	
-            // END_IF;
-        
-            // IF Execute AND MC_HomeState_ < UINT#90 THEN
-            //     RETURN;
-            // END_IF;
-            
-            // (************ start of homing *****************************)
-            // IF Execute OR MC_HomeExecute_PV  THEN
-            //     MC_HomeFirstCall := TRUE;
-            //     IF _AxisReference^.Data.CheckAccessOK	THEN
-            //         IF NOT _AxisReference^.Data.PowerOK OR  _AxisReference^.Data.DriveStopReq AND MC_HomeActive_ THEN
-            //             MC_HomeDone_ := FALSE;
-            //             MC_HomeActive_ := FALSE;
-            //             MC_HomeCommandAborted_ := TRUE;
-            //             _AxisReference^.Data.HomingReq:= FALSE;
-            //         END_IF;
-            //         IF Execute AND NOT MC_HomeExecute_PV  THEN
-            //             IF _AxisReference^.Data.PowerOK AND NOT _AxisReference^.Data.DriveStopReq THEN
-            //                 _AxisReference^.Data.CallNumberCyclic := _AxisReference^.Data.CallNumberCyclic + INT#2;
-            //                 MC_HomeCallNumber := _AxisReference^.Data.CallNumberCyclic;
-            //                 _AxisReference^.Data.WriteCommand:= TRUE;
-            //                 _AxisReference^.Data.HomingReq:= TRUE;
-            //                 _AxisReference^.Data.DriveStopReq:= FALSE;
-            //                 _AxisReference^.Data.DriveHaltReq:= FALSE;
-            //                 _AxisReference^.Data.MoveVelocityReq:= FALSE;
-            //                 _AxisReference^.Data.TorqueControlReq:= FALSE;
-            //                 _AxisReference^.Data.Relative:= FALSE;
-            //                 _AxisReference^.Data.Additive:= FALSE;
-            //                 _AxisReference^.Data.Position := Position;
-            //                 _AxisReference^.Data.Velocity := Velocity;
-            //                 _AxisReference^.Data.Acceleration := Acceleration;
-            //                 _AxisReference^.Data.Deceleration := Deceleration;
-            //             ELSE
-            //                 MC_HomeError_ := TRUE;
-            //                 MC_HomeErrorID_ := AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#STATE_MACHINE_Error; 	(*State machine MC_HomeError_*)
-            //             END_IF;
-            //         END_IF;
-            //     ELSE
-            //         MC_HomeCallNumber := MC_HomeCallNumber - INT#1;
-            //         MC_HomeError_ := TRUE;
-            //         MC_HomeErrorID_ := AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#RESOURCE_Error;
-            //     END_IF;
-            //     IF NOT Execute AND MC_HomeExecute_PV THEN
-            //         _AxisReference^.Data.HomingReq:= FALSE;
-            //         MC_HomeCommandAborted_ := FALSE;
-            //         MC_HomeError_ := FALSE;
-            //         MC_HomeErrorID_ := AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_Error;
-            //     END_IF;
-            // // ELSE
-            // //     MC_HomeDone_					:= FALSE; 					
-            // //     MC_HomeActive_					:= FALSE;					
-            // //     MC_HomeCommandAborted_ 			:= FALSE;					
-            // //     MC_HomeError_					:= FALSE;					
-            // //     MC_HomeErrorID_ 				:= AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_Error;
-            // //     MC_HomeState_ 					:= UINT#0;
-            // END_IF;
-            // (*************** detection of command finished *******************)
-            // IF MC_HomeFirstCall THEN
-            //     IF MC_HomeCallNumber = _AxisReference^.Data.CallNumberCyclic THEN
-            //         _AxisReference^.Data.CallAxis := TRUE;
-            //         _AxisReference^.Data.ReadOnlyData := FALSE;
-            //         // THIS.FieldBusCommunication(	AxisRef := _AxisReference,CommandWriteActive=> Dummy);
-            //         IF NOT _AxisReference^.Data.CommandWriteActive THEN
-            //              IF _AxisReference^.Data.SetpointReached THEN
-            //                 MC_HomeDone_ := TRUE;
-            //                 MC_HomeActive_ := FALSE;
-            //                 _AxisReference^.Data.HomingReq:= FALSE;
-            //             ELSE
-            //                 MC_HomeActive_ := TRUE;
-            //             END_IF;
-            //             IF _AxisReference^.Data.Error THEN
-            //                 MC_HomeDone_ 	:= FALSE;
-            //                 MC_HomeActive_ 	:= FALSE;
-            //                 MC_HomeError_ 	:= TRUE;
-            //                 MC_HomeErrorID_ := _AxisReference^.Data.ErrorID;
-            //             ELSIF _AxisReference^.Data.CallAxis THEN
-            //                 MC_HomeError_ := TRUE;
-            //                 MC_HomeErrorID_ := AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#RESOURCE_ERROR;
-            //             END_IF;
-            //         END_IF;
-            //     END_IF;
-            //     (************** reset of outputs *************************************)
-            //     IF Execute = FALSE THEN
-            //         _AxisReference^.Data.HomingReq:= FALSE;
-            //         (****** reset outputs ***********)
-            //         MC_HomeDone_ := FALSE;
-            //         MC_HomeActive_ := FALSE;
-            //         MC_HomeCommandAborted_ := FALSE;
-            //         MC_HomeError_ := FALSE;
-            //         MC_HomeErrorID_ :=	AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_ERROR;
-            //         MC_HomeState_ := UINT#0;
-            //         IF MC_HomeCallNumber = _AxisReference^.Data.CallNumberCyclic THEN
-            //             _AxisReference^.Data.CallAxis := TRUE;
-            //             _AxisReference^.Data.ReadOnlyData := FALSE;
-            //             // THIS.FieldBusCommunication(	AxisRef := _AxisReference,CommandWriteActive=> Dummy);
-            //             IF _AxisReference^.Data.SetpointReached THEN
-            //                 MC_HomeDone_ := TRUE;
-            //                 MC_HomeCallNumber := MC_HomeCallNumber - INT#1; (*Reset MC_HomeCallNumber because reset MC_HomeDone_ *)
-            //             END_IF;
-            //         END_IF;
-            //     END_IF;
-            // END_IF;
-            
-            // MC_HomeExecute_PV 	:=	Execute;
-            // Done				:=	MC_HomeDone_;		
-            // Active 				:=	MC_HomeActive_;		
-            // CommandAborted 		:=	MC_HomeCommandAborted_;
-            // Error 				:=	MC_HomeError_;				
-            // ErrorID 			:=	MC_HomeErrorID_;
-            // Busy				:=	MC_HomeActive_ AND NOT Done AND NOT Error;	
+            IF NOT Execute AND MC_HomeExecute_PV THEN
+                MC_HomeErrorID := WORD#0;
+                State := UINT#0;
+                MC_HomeCycle := ULINT#0;     
+                Parametrization.Inputs.Enable := FALSE;
+                Parametrization.Inputs.ReadWrite   := FALSE;
+            END_IF;
+            ErrorID := MC_HomeErrorID;
+            MC_HomeExecute_PV := Execute;
             
         END_METHOD
 
@@ -1060,17 +1344,17 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Busy := TRUE;            
                     Active := TRUE;          
                     MC_StopErrorID :=AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_ERROR;         
-                    State := UINT#40;
+                    State := UINT#60;
                 END_IF;
 
-                IF State = UINT#40 THEN
+                IF State = UINT#60 THEN
                     IF Deceleration <= 0 OR Jerk <= 0 THEN
-                        State := UINT#46;
+                        State := UINT#69;
                     ELSE
-                        State := UINT#41;
+                        State := UINT#61;
                     END_IF;
                 END_IF;
-                IF State = UINT#41 THEN
+                IF State = UINT#61 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
                     Parametrization.Inputs.Enable := TRUE;
@@ -1081,13 +1365,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
                     Parametrization.Inputs.ValueWriteREAL := TO_REAL(Jerk);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
-                        State := UINT#42;
+                        State := UINT#62;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        State := UINT#46;
+                        MC_StopErrorID := WORD#755;
+                        State := UINT#69;
                     END_IF;
                 END_IF;
-                IF State = UINT#42 THEN
+                IF State = UINT#62 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
                     _AxisReference^.Telegram111_Out.MDI_DEC := TO_UINT(Deceleration * ScalingConstantRequiredDeceleration);
@@ -1095,40 +1380,63 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Enable := FALSE;
                     Parametrization.Inputs.ReadWrite   := FALSE;
                     IF  NOT Parametrization.Outputs.Done THEN
-                        State := UINT#43;
+                        State := UINT#63;
                     END_IF;
                 END_IF;               
-                IF State = UINT#43 THEN
+                IF State = UINT#63 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
                     IF _AxisReference^.Telegram111_In.ZSW1.driveStopped  THEN
-                        State := UINT#44;
+                        State := UINT#64;
                     END_IF;
-                END_IF;                           
-                IF State = UINT#44 THEN
+                END_IF;     
+                IF State = UINT#64 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    IF TRUE THEN
+                        State := UINT#65;
+                    END_IF;
+                END_IF;                          
+                IF State = UINT#65 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    IF TRUE THEN
+                        State := UINT#66;
+                    END_IF;
+                END_IF;                          
+                IF State = UINT#66 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    IF TRUE THEN
+                        State := UINT#67;
+                    END_IF;
+                END_IF;                          
+                IF State = UINT#67 THEN
                     Done := TRUE;            
                     Active := TRUE;     
                     MC_StopCycle := ULINT#0;     
                 END_IF;         
-                IF State = UINT#45 THEN
+                IF State = UINT#68 THEN
                     CommandAborted := TRUE;            
                 END_IF;         
-                IF State = UINT#46 THEN
+                IF State = UINT#69 THEN
                     _AxisReference^.Telegram111_Out.MDI_DEC := UINT#16384;
                     _AxisReference^.Telegram111_Out.STW1.cancelTraversing := FALSE; 
                     MC_StopCycle := ULINT#0;     
                     Error := TRUE;    
                 END_IF;         
                 
-                IF State>=UINT#40 AND State<UINT#44 THEN
+                IF State>=UINT#60 AND State<UINT#67 THEN
                     IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
-                        State := UINT#45;
+                        State := UINT#68;
                     ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent THEN
-                        MC_StopErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
-                        State := UINT#46;
+                        IF MC_StopErrorID = WORD#0 THEN
+                            MC_StopErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
+                        END_IF;
+                        State := UINT#69;
                     ELSIF _AxisReference^.Data.Cycle <> MC_StopCycle THEN
                         _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
-                        State := UINT#45;
+                        State := UINT#68;
                     END_IF;                  
                 END_IF;                  
             END_IF;
@@ -1193,17 +1501,17 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Busy := TRUE;            
                     Active := TRUE;          
                     MC_HaltErrorID :=AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_ERROR;         
-                    State := UINT#50;
+                    State := UINT#70;
                 END_IF;
 
-                IF State = UINT#50 THEN
+                IF State = UINT#70 THEN
                     IF Deceleration <= 0 OR Jerk <= 0 THEN
-                        State := UINT#56;
+                        State := UINT#79;
                     ELSE
-                        State := UINT#51;
+                        State := UINT#71;
                     END_IF;
                 END_IF;
-                IF State = UINT#51 THEN
+                IF State = UINT#71 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
                     Parametrization.Inputs.Enable := TRUE;
@@ -1214,13 +1522,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
                     Parametrization.Inputs.ValueWriteREAL := TO_REAL(Jerk);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
-                        State := UINT#52;
+                        State := UINT#72;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        State := UINT#56;
+                        MC_HaltErrorID := WORD#764;
+                        State := UINT#79;
                     END_IF;
                 END_IF;
-                IF State = UINT#52 THEN
+                IF State = UINT#72 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
                     _AxisReference^.Telegram111_Out.MDI_DEC := TO_UINT(Deceleration * ScalingConstantRequiredDeceleration);
@@ -1228,41 +1537,58 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Enable := FALSE;
                     Parametrization.Inputs.ReadWrite   := FALSE;
                     IF  NOT Parametrization.Outputs.Done THEN
-                        State := UINT#53;
+                        State := UINT#73;
                     END_IF;
                 END_IF;               
-                IF State = UINT#53 THEN
+                IF State = UINT#73 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
                     IF _AxisReference^.Telegram111_In.ZSW1.driveStopped  THEN
-                        State := UINT#54;
+                        State := UINT#74;
                     END_IF;
-                END_IF;                           
-                IF State = UINT#54 THEN
+                END_IF;          
+                IF State = UINT#74 THEN
+                    IF TRUE THEN
+                        State := UINT#75;
+                    END_IF;
+                END_IF;                                           
+                IF State = UINT#75 THEN
+                    IF TRUE THEN
+                        State := UINT#76;
+                    END_IF;
+                END_IF;                                           
+                IF State = UINT#76 THEN
+                    IF TRUE THEN
+                        State := UINT#77;
+                    END_IF;
+                END_IF;                                           
+                IF State = UINT#77 THEN
                     Done := TRUE;            
                     _AxisReference^.Telegram111_Out.STW1.cancelTraversing := TRUE; 
                     MC_HaltCycle := ULINT#0;     
                 END_IF;         
-                IF State = UINT#55 THEN
+                IF State = UINT#78 THEN
                     _AxisReference^.Telegram111_Out.STW1.cancelTraversing := TRUE; 
                     CommandAborted := TRUE;            
                 END_IF;         
-                IF State = UINT#56 THEN
+                IF State = UINT#79 THEN
                     _AxisReference^.Telegram111_Out.MDI_DEC := UINT#16384;
                     _AxisReference^.Telegram111_Out.STW1.cancelTraversing := FALSE; 
                     MC_HaltCycle := ULINT#0;     
                     Error := TRUE;    
                 END_IF;         
                 
-                IF State>=UINT#50 AND State<UINT#54 THEN
+                IF State>=UINT#70 AND State<UINT#77 THEN
                     IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
-                        State := UINT#55;
+                        State := UINT#78;
                     ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent THEN
-                        MC_HaltErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
-                        State := UINT#56;
-                    // ELSIF _AxisReference^.Data.Cycle <> MC_HaltCycle THEN
-                    //     _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
-                    //     State := UINT#55;
+                        IF MC_HaltErrorID = WORD#0 THEN
+                            MC_HaltErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
+                        END_IF;
+                        State := UINT#79;
+                    ELSIF _AxisReference^.Data.Cycle <> MC_HaltCycle THEN
+                        _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
+                        State := UINT#78;
                     END_IF;                  
                 END_IF;                  
             END_IF;
