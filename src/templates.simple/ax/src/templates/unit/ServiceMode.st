@@ -12,6 +12,7 @@ NAMESPACE axosimple.UnitTemplate
     {S7.extern=ReadWrite}
     CLASS PUBLIC ServiceMode
         EXTENDS AXOpen.Core.AxoTask
+        IMPLEMENTS IModeContainer
         ///<summary>
         /// Runs service mode logic. This method must be called cyclically.
         ///</summary>

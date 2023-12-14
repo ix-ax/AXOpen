@@ -44,6 +44,8 @@ namespace AXOpen.Core
             Component.ReadAsync();
         }
 
+        public bool EnableModalContent { set; get; }
+
         private ElementReference activeStepReference { get; set; }
     }
 
