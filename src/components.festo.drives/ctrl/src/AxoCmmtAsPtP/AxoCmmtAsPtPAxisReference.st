@@ -8,7 +8,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             Telegram111_Out     :   AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT;
             Telegram750_In      :   AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_IN;
             Telegram750_Out     :   AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT;
-            Data                :   AXOpen.Components.Festo.Drives.AxoCmmtAsPtPAxisData;
+            Data                :   AXOpen.Components.Festo.Drives.AxoCmmtAsAxisData;
             Config              :   AXOpen.Components.Drives.AxoDrive_Config;
             Status              :   AXOpen.Components.Drives.AxoDrive_Status;
         END_VAR

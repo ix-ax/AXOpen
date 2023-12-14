@@ -2201,16 +2201,6 @@ NAMESPACE AXOpen.Components.Drives
                 IF _messageCode = ULINT#0 THEN
                     _messageCode := TO_ULINT(AxoJog_ErrorID);
                 END_IF;
-            ELSIF NOT EnablePositive THEN
-                _warning := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := ULINT#300;
-                END_IF;
-            ELSIF NOT EnableNegative THEN
-                _warning := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := ULINT#301;
-                END_IF;
             END_IF;
 
             _category   :=  eAxoMessageCategory#Error;

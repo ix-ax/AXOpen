@@ -18,7 +18,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         END_VAR
 
         VAR PRIVATE
-            _AxisRef                :   AXOpen.Components.Festo.Drives.AxoCmmtAsPtPAxisReference;
+//            _AxisRef                :   AXOpen.Components.Festo.Drives.AxoCmmtAsPtPAxisReference;
             stat_Ready4Motion	    :   BOOL;
             stat_ExecuteIntern	    :   BOOL;
             stat_StepHome	        :   UINT;
@@ -301,6 +301,12 @@ NAMESPACE AXOpen.Components.Festo.Drives
             Parametrization : AxoReadWritePROFIdriveParameter;        
         END_VAR
 
+        VAR PUBLIC
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentDetails("Drive data")]}
+            {#ix-set:AttributeName = "<#AxisRef#>"}
+            _AxisRef                :   AXOpen.Components.Festo.Drives.AxoCmmtAsPtPAxisReference;
+        END_VAR
         ///<summary>
         /// Runs tasks and logic of this component.
         /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
@@ -378,10 +384,10 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
         METHOD PRIVATE AreValidReferences: BOOL
             VAR_INPUT
-                refTelegram111_In       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the parameter input data of the axis
-                refTelegram750_In       :   REF_TO  WORD;   //  Reference to the input data of the Profidrive telegram 750 of this axis
-                refTelegram111_Out      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the parameter output data of the axis
-                refTelegram750_Out      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
+                refTelegram111_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 111 of this axis
+                refTelegram750_In   :   REF_TO  WORD;               //  Reference to the input data of the Profidrive telegram 750 of this axis
+                refTelegram111_Out  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the Profidrive telegram 111 of this axis
+                refTelegram750_Out  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the Profidrive telegram 750 of this axis
             END_VAR
             AreValidReferences := FALSE;
             IF refTelegram750_In = NULL THEN
@@ -408,8 +414,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
         METHOD PRIVATE UpdateInputs : BOOL
             VAR_INPUT
                 refTelegram111_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 111 of this axis
-                refTelegram750_In   :   REF_TO WORD;   //  Reference to the input data of the Profidrive telegram 750 of this axis
-                MAP_HW_ID           :   WORD;                      //  Hardware identifier of the module acces point submodule 
+                refTelegram750_In   :   REF_TO WORD;                //  Reference to the input data of the Profidrive telegram 750 of this axis
+                MAP_HW_ID           :   WORD;                       //  Hardware identifier of the module acces point submodule 
                 AxisRef             :   REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsPtPAxisReference;
             END_VAR
 

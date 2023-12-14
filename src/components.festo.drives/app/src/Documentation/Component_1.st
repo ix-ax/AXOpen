@@ -14,6 +14,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         PlcInputs : REF_TO PlcInputs;
         PlcOutputs : REF_TO PlcOutputs;          
 
+        run_            :   BOOL := FALSE;
         manualControl   :   BOOL;
     END_VAR
     //</InitializationArgumentsDeclaration>            
@@ -22,7 +23,9 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         VAR_INPUT
             parent : IAxoContext;
         END_VAR    
-
+        IF NOT run_ THEN
+            RETURN;
+        END_IF;
         THIS.Initialize(parent);
 
         IF(manualControl) THEN            

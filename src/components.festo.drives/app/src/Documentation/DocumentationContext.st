@@ -1,12 +1,14 @@
 {S7.extern=ReadWrite}
 CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
-        componentOne : Component_1;
-        componentTwo : Component_2;
+        componentOne    : Component_1;
+        componentTwo    : Component_2;
+        componentThree  : Component_3;
     END_VAR
    
     METHOD PROTECTED OVERRIDE Main
         componentOne.Run(THIS);
         componentTwo.Run(THIS);
+        componentThree.Run(THIS);
     END_METHOD
 END_CLASS
