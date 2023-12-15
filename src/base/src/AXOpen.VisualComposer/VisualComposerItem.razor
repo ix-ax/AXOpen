@@ -2,13 +2,14 @@
     <Authorized>
         <div draggable="true" @ondragend="OnDragEnd" @ondragstart="OnDragStart" style="position: absolute; left: @(ratioImgX.ToString().Replace(',', '.'))%; top: @(ratioImgY.ToString().Replace(',', '.'))%; translate: @(Transform.X)% @(Transform.Y)%; width: @(Width != -1 ? Width + "rem" : "max-content"); height: @(Height != -1 ? Height + "rem" : "max-content"); z-index: @ZIndex;">
             <RenderableContentControl Context="@TwinElement" Presentation="@Presentation.ToString()" />
+
             <a class="position-absolute text-decoration-none text-black" style="left: 97%; top: 0%; translate: -100% -50%; cursor: pointer;" data-bs-toggle="modal" 
                data-bs-target="#settings-@Id.Replace('.', '_')-@UniqueGuid">
                 <span class="bi bi-pencil-square fs-4" aria-hidden="true" />
             </a>
         </div>
 
-        <div class="modal fade" id="settings-@Id.Replace('.', '_')-@UniqueGuid" tabindex="-1" aria-hidden="true">
+        <div class="modal fade" id="settings-@Id.Replace('.', '_')-@UniqueGuid" tabindex="-1" aria-hidden="true" data-bs-backdrop="false" style="transform: none;">
             <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">

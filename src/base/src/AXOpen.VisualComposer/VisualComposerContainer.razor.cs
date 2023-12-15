@@ -2,6 +2,7 @@
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Components.Web;
 using System.Xml.Linq;
 
 namespace AXOpen.VisualComposer
@@ -33,7 +34,7 @@ namespace AXOpen.VisualComposer
 
         protected override void OnInitialized()
         {
-            if(Id is null || Id == "")
+            if (Id is null || Id == "")
             {
                 Id = "";
                 foreach (ITwinObject obj in Objects)
@@ -92,7 +93,7 @@ namespace AXOpen.VisualComposer
         {
             if (fileName is null || fileName == "")
             {
-                if(CurrentTemplate is null || CurrentTemplate == "")
+                if (CurrentTemplate is null || CurrentTemplate == "")
                     fileName = "Default";
                 else
                     fileName = CurrentTemplate;
@@ -234,7 +235,7 @@ namespace AXOpen.VisualComposer
 
             try
             {
-                if(!Directory.Exists("wwwroot/Images/"))
+                if (!Directory.Exists("wwwroot/Images/"))
                     Directory.CreateDirectory("wwwroot/Images/");
 
                 string newName = CurrentTemplate + Path.GetExtension(e.File.Name);
