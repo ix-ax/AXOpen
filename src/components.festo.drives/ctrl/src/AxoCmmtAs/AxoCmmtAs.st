@@ -1851,7 +1851,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 MC_MoveAbsoluteCycle := ULINT#0;     
             END_IF;
 
-            IF THIS.AxoStop_Task.RestoreTriggered() AND State>=UINT#80 AND State<=UINT#89 THEN
+            IF THIS.AxoMoveAbsolute_Task.RestoreTriggered() AND State>=UINT#80 AND State<=UINT#89 THEN
                 State := UINT#0;
             END_IF;     
 
@@ -1863,17 +1863,26 @@ NAMESPACE AXOpen.Components.Festo.Drives
         /// This method  commands a controlled motion of a specified distance relative to the set position at the time of the execution.
         ///<summary>
         VAR INTERNAL
-            MC_MoveRelativeExecute_PV			: 	BOOL := FALSE;		//Execute - previous value                      
-            MC_MoveRelativeDone_PV				:	BOOL := FALSE;		//Done - previous value                         
-            MC_MoveRelativeCallNumber			: 	INT; 				//Call number of the method MC_MoveRelative     
-            MC_MoveRelativeFirstCall			: 	BOOL;				//First call of the method MC_MoveRelative  	  
-            MC_MoveRelativeDone_				:	BOOL;
-            MC_MoveRelativeActive_				:	BOOL;
-            MC_MoveRelativeCommandAborted_		:	BOOL;
-            MC_MoveRelativeError_				:   BOOL;
-            MC_MoveRelativeErrorID_				:   eAxoCmmtAsErrorCode;
-            MC_MoveRelativeContinuousUpdate_PV  :   BOOL;
-            MC_MoveRelativeDistance_PV          :   LREAL;
+            // MC_MoveRelativeExecute_PV			: 	BOOL := FALSE;		//Execute - previous value                      
+            // MC_MoveRelativeDone_PV				:	BOOL := FALSE;		//Done - previous value                         
+            // MC_MoveRelativeCallNumber			: 	INT; 				//Call number of the method MC_MoveRelative     
+            // MC_MoveRelativeFirstCall			: 	BOOL;				//First call of the method MC_MoveRelative  	  
+            // MC_MoveRelativeDone_				:	BOOL;
+            // MC_MoveRelativeActive_				:	BOOL;
+            // MC_MoveRelativeCommandAborted_		:	BOOL;
+            // MC_MoveRelativeError_				:   BOOL;
+            // MC_MoveRelativeErrorID_				:   eAxoCmmtAsErrorCode;
+            // MC_MoveRelativeContinuousUpdate_PV  :   BOOL;
+            // MC_MoveRelativeDistance_PV          :   LREAL;
+            MC_MoveRelativeExecute_PV					: 	BOOL;				//Execute - previous value
+            MC_MoveRelativeErrorID					    : 	eAxoCmmtAsErrorCode;
+            MC_MoveRelativeCycle					    : 	ULINT;
+            MC_MoveRelativeContinuousUpdate_SV          :   BOOL;
+            MC_MoveRelativeDistance_PV                  :   LREAL;                                          
+            MC_MoveRelativeVelocity_PV                  :   LREAL;                    
+            MC_MoveRelativeAcceleration_PV              :   LREAL;                    
+            MC_MoveRelativeDeceleration_PV              :   LREAL;                                
+            MC_MoveRelativeJerk_PV                      :   LREAL;                     
         END_VAR
         METHOD PUBLIC OVERRIDE MC_MoveRelative 
             VAR_INPUT
@@ -1907,111 +1916,282 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 RETURN;
             END_IF;
 
-            IF Execute OR (NOT Execute AND MC_MoveRelativeExecute_PV) THEN (*detection of falling edge execute*)
-                MC_MoveRelativeFirstCall := TRUE;
-                IF _AxisReference^.Data.CheckAccessOK	THEN
-                    IF Execute AND NOT MC_MoveRelativeExecute_PV THEN (*	raising edge of EXECUTE *)
-                        MC_MoveRelativeDistance_PV := Distance;
-                        MC_MoveRelativeContinuousUpdate_PV := ContinuousUpdate;
-                        _AxisReference^.Data.CallNumberCyclic := _AxisReference^.Data.CallNumberCyclic + INT#2;
-                        MC_MoveRelativeCallNumber := _AxisReference^.Data.CallNumberCyclic;
-                        _AxisReference^.Data.WriteCommand:= TRUE;
-                        _AxisReference^.Data.HomingReq:= FALSE;
-            (*			Axis.Data.DriveStopReq:= FALSE;*)
-                        _AxisReference^.Data.DriveHaltReq := FALSE;		
-                        _AxisReference^.Data.MoveVelocityReq:= FALSE;				
-                        _AxisReference^.Data.TorqueControlReq:= FALSE;
-                        _AxisReference^.Data.Relative:= TRUE;
-                        _AxisReference^.Data.Additive:= TRUE;
-                        _AxisReference^.Data.Position := Distance;
-                        _AxisReference^.Data.Velocity := Velocity;
-                        _AxisReference^.Data.Acceleration := Acceleration;
-                        _AxisReference^.Data.Deceleration := Deceleration;
-                        _AxisReference^.Data.Jerk:= Jerk;
-                        MC_MoveRelativeDone_ := FALSE;
-                        MC_MoveRelativeActive_ := TRUE;
-                        MC_MoveRelativeError_ := FALSE;
-                        MC_MoveRelativeErrorID_ :=	AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_ERROR;
-                    END_IF;
-                ELSE
-                    MC_MoveRelativeCallNumber := MC_MoveRelativeCallNumber - INT#1;
-                    MC_MoveRelativeError_ := TRUE;
-                    MC_MoveRelativeErrorID_ := AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#RESOURCE_ERROR;
+            Messenger.ActivateOnCondition(ULINT#772, Execute AND Velocity <= 0, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#773, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#774, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#775, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
+
+            IF Execute AND NOT MC_MoveRelativeExecute_PV AND State = UINT#0 THEN
+                _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle + ULINT#2;
+                MC_MoveRelativeCycle := _AxisReference^.Data.Cycle ;
+            END_IF;
+
+            IF Execute THEN 	
+                IF NOT ContinuousUpdate THEN
+                    MC_MoveRelativeContinuousUpdate_SV := FALSE;
                 END_IF;
-            END_IF;
-            (************** reset of outputs *************************************)
-            IF Execute = FALSE THEN
-                MC_MoveRelativeCommandAborted_ := FALSE;
-                MC_MoveRelativeDone_ := FALSE;
-                MC_MoveRelativeError_ := FALSE;
-                MC_MoveRelativeErrorID_ :=	AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_ERROR;
-                MC_MoveRelativeDistance_PV := 0;
-            END_IF;
-            (*************** detection of command finished *******************)
-            IF MC_MoveRelativeFirstCall THEN
-                IF MC_MoveRelativeCallNumber = _AxisReference^.Data.CallNumberCyclic THEN
-                    MC_MoveRelativeActive_ := TRUE;
-                    _AxisReference^.Data.CallAxis := TRUE;
-                    _AxisReference^.Data.ReadOnlyData := FALSE;
-                    // THIS.FieldBusCommunication(AxisRef := _AxisReference,CommandWriteActive=> Dummy);
-                    IF NOT _AxisReference^.Data.CommandWriteActive THEN
-                        MC_MoveRelativeActive_ := TRUE;
-                        IF MC_MoveRelativeContinuousUpdate_PV AND 
-                            (MC_MoveRelativeDistance_PV<> Distance OR
-                            _AxisReference^.Data.Velocity <> Velocity OR
-                            _AxisReference^.Data.Acceleration <> Acceleration OR
-                            _AxisReference^.Data.Deceleration <> Deceleration OR
-                            _AxisReference^.Data.Jerk <> Jerk ) THEN
-                            _AxisReference^.Data.Position := Distance-MC_MoveRelativeDistance_PV;
-                            _AxisReference^.Data.Velocity := Velocity;
-                            _AxisReference^.Data.Acceleration := Acceleration;
-                            _AxisReference^.Data.Deceleration := Deceleration;
-                            _AxisReference^.Data.Jerk:= Jerk;	
-                            _AxisReference^.Data.WriteCommand := TRUE;
-                            _AxisReference^.Data.CallAxis := TRUE;
-                            _AxisReference^.Data.ReadOnlyData := FALSE;
-                            MC_MoveRelativeDistance_PV := Distance;
-                            // THIS.FieldBusCommunication(AxisRef := _AxisReference,CommandWriteActive=> Dummy);
-                            RETURN;
-                        END_IF;
-    
-                        IF _AxisReference^.Data.SetpointReached THEN
-                            MC_MoveRelativeDone_ := TRUE;
-                            MC_MoveRelativeActive_ := FALSE;
-                            MC_MoveRelativeCallNumber := MC_MoveRelativeCallNumber - INT#1; (*Reset MC_MoveRelativeCallNumber because reset Done *)
-                        END_IF;
-                    END_IF;
-                    IF _AxisReference^.Data.Error THEN
-                        MC_MoveRelativeCallNumber := MC_MoveRelativeCallNumber - INT#1;
-                        MC_MoveRelativeActive_ := FALSE;
-                        MC_MoveRelativeError_ := TRUE;
-                        MC_MoveRelativeErrorID_ := _AxisReference^.Data.ErrorID;
-                    ELSIF _AxisReference^.Data.CallAxis THEN
-                        MC_MoveRelativeCallNumber := MC_MoveRelativeCallNumber - INT#1;
-                        MC_MoveRelativeActive_ := FALSE;
-                        MC_MoveRelativeError_ := TRUE;
-                        MC_MoveRelativeErrorID_ := AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#RESOURCE_ERROR;
-                    END_IF;
-                ELSE
-                    (*************** detection of command aborted ********************)
-                    IF MC_MoveRelativeActive_ THEN
-                        MC_MoveRelativeCommandAborted_ := TRUE;
-                    END_IF;
-                    MC_MoveRelativeActive_ := FALSE;
+
+                IF State = UINT#0 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    MC_MoveRelativeErrorID :=AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_ERROR;         
+                    _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
+                    _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
+                    _AxisReference^.Telegram111_Out.POS_STW1.PosModulo := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.NegModulo := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.SetupMode := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.MDI_Activate := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW2.Trackingmode := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW2.jog_inc := FALSE;   
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit0 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit1 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit2 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit3 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit4 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit5 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit6 := FALSE;    
+                    Parametrization.Inputs.Enable := FALSE;
+                    MC_MoveRelativeContinuousUpdate_SV := ContinuousUpdate;
+                    State := UINT#90;
                 END_IF;
+                IF State = UINT#90 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;   
+                    IF Velocity > 0 AND Acceleration > 0 AND Deceleration >0 AND Jerk > 0 THEN
+                        _AxisReference^.Telegram111_Out.MDI_TARPOS := TO_DINT(Distance * ScalingConstantRequiredPosition);
+                        _AxisReference^.Telegram111_Out.MDI_VELOCITY :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
+                        _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration);
+                        _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration);
+                        MC_MoveRelativeDistance_PV      :=  Distance;                  
+                        MC_MoveRelativeVelocity_PV      :=  Velocity;                  
+                        MC_MoveRelativeAcceleration_PV  :=  Acceleration;              
+                        MC_MoveRelativeDeceleration_PV  :=  Deceleration;              
+                        MC_MoveRelativeJerk_PV          :=  Jerk;   
+                        State := UINT#91;
+                    END_IF;
+                END_IF;
+                //Writing PNU 12327 Jerk
+                IF State = UINT#91 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 12327;
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Jerk);
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        State := UINT#92;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_MoveRelativeErrorID := WORD#776;
+                        State := UINT#99;
+                    END_IF;
+                END_IF;
+                IF State = UINT#92 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := FALSE;
+                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#93;
+                    END_IF;
+                END_IF;               
+                //Executing movement
+                IF State = UINT#93 THEN
+
+                    _AxisReference^.Telegram111_Out.POS_STW1.MDI_Activate := TRUE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
+                    _AxisReference^.Telegram111_Out.STW1.activateTraversing := TRUE;        
+                    IF _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated THEN      
+                        State := UINT#94;
+                    END_IF;    
+                END_IF;
+                IF State = UINT#94 THEN
+                    _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE;        
+                    IF _AxisReference^.Telegram111_In.ZSW1.targetPosReached THEN      
+                        State := UINT#95;
+                    END_IF;    
+                END_IF;
+                IF State = UINT#95 THEN
+                    IF TRUE THEN      
+                        State := UINT#96;
+                    END_IF;    
+                END_IF;
+                IF State = UINT#96 THEN
+                    IF TRUE THEN      
+                        State := UINT#97;
+                    END_IF;    
+                END_IF;
+                IF State = UINT#97 THEN
+                    Done := TRUE;            
+                    MC_MoveRelativeCycle := ULINT#0;     
+                END_IF;         
+                IF State = UINT#98 THEN
+                    CommandAborted := TRUE;            
+                END_IF;         
+                IF State = UINT#99 THEN
+                    MC_MoveRelativeCycle := ULINT#0;     
+                    Error := TRUE;    
+                END_IF;         
+                
+                IF State>=UINT#90 AND State<UINT#97 THEN
+                    IF MC_MoveRelativeContinuousUpdate_SV AND (
+                        MC_MoveRelativeDistance_PV      <>  Distance OR                  
+                        MC_MoveRelativeVelocity_PV      <>  Velocity OR                  
+                        MC_MoveRelativeAcceleration_PV  <>  Acceleration OR              
+                        MC_MoveRelativeDeceleration_PV  <>  Deceleration OR              
+                        MC_MoveRelativeJerk_PV          <>  Jerk ) THEN
+                        _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE;    
+                        // _AxisReference^.Telegram111_Out.POS_STW1.MDI_Activate := FALSE;
+                        IF NOT _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated THEN    
+                            _AxisReference^.Telegram111_Out.MDI_TARPOS := TO_DINT((Distance) * ScalingConstantRequiredPosition) - _AxisReference^.Telegram111_In.XIST_A;
+                            // _AxisReference^.Telegram111_Out.MDI_TARPOS := TO_DINT((Distance ) * ScalingConstantRequiredPosition);
+                            _AxisReference^.Telegram111_Out.MDI_VELOCITY :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
+                            _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration);
+                            _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration);
+                            MC_MoveRelativeDistance_PV      :=  Distance;                  
+                            MC_MoveRelativeVelocity_PV      :=  Velocity;                  
+                            MC_MoveRelativeAcceleration_PV  :=  Acceleration;              
+                            MC_MoveRelativeDeceleration_PV  :=  Deceleration;              
+                            MC_MoveRelativeJerk_PV          :=  Jerk;   
+                            State := UINT#91;
+                        END_IF;   
+                    END_IF;   
+                    IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
+                        State := UINT#98;
+                    ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent THEN
+                        IF MC_MoveRelativeErrorID = WORD#0 THEN
+                            MC_MoveRelativeErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
+                        END_IF;
+                        State := UINT#99;
+                    ELSIF _AxisReference^.Data.Cycle <> MC_MoveRelativeCycle THEN
+                        _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
+                        State := UINT#98;
+                    END_IF;                  
+                END_IF;   
             END_IF;
-            
-            IF NOT ContinuousUpdate THEN
-                MC_MoveRelativeContinuousUpdate_PV := FALSE;
+
+            IF NOT Execute AND MC_MoveRelativeExecute_PV THEN
+                _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
+                MC_MoveRelativeErrorID := WORD#0;
+                State := UINT#0;
+                MC_MoveRelativeCycle := ULINT#0;     
             END_IF;
+
+            IF THIS.AxoMoveRelative_Task.RestoreTriggered() AND State>=UINT#90 AND State<=UINT#99 THEN
+                State := UINT#0;
+            END_IF;     
+
+            ErrorID := MC_MoveRelativeErrorID;
             MC_MoveRelativeExecute_PV := Execute;
+
+            // IF Execute OR (NOT Execute AND MC_MoveRelativeExecute_PV) THEN (*detection of falling edge execute*)
+            //     MC_MoveRelativeFirstCall := TRUE;
+            //     IF _AxisReference^.Data.CheckAccessOK	THEN
+            //         IF Execute AND NOT MC_MoveRelativeExecute_PV THEN (*	raising edge of EXECUTE *)
+            //             MC_MoveRelativeDistance_PV := Distance;
+            //             MC_MoveRelativeContinuousUpdate_PV := ContinuousUpdate;
+            //             _AxisReference^.Data.CallNumberCyclic := _AxisReference^.Data.CallNumberCyclic + INT#2;
+            //             MC_MoveRelativeCallNumber := _AxisReference^.Data.CallNumberCyclic;
+            //             _AxisReference^.Data.WriteCommand:= TRUE;
+            //             _AxisReference^.Data.HomingReq:= FALSE;
+            // (*			Axis.Data.DriveStopReq:= FALSE;*)
+            //             _AxisReference^.Data.DriveHaltReq := FALSE;		
+            //             _AxisReference^.Data.MoveVelocityReq:= FALSE;				
+            //             _AxisReference^.Data.TorqueControlReq:= FALSE;
+            //             _AxisReference^.Data.Relative:= TRUE;
+            //             _AxisReference^.Data.Additive:= TRUE;
+            //             _AxisReference^.Data.Position := Distance;
+            //             _AxisReference^.Data.Velocity := Velocity;
+            //             _AxisReference^.Data.Acceleration := Acceleration;
+            //             _AxisReference^.Data.Deceleration := Deceleration;
+            //             _AxisReference^.Data.Jerk:= Jerk;
+            //             MC_MoveRelativeDone_ := FALSE;
+            //             MC_MoveRelativeActive_ := TRUE;
+            //             MC_MoveRelativeError_ := FALSE;
+            //             MC_MoveRelativeErrorID_ :=	AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_ERROR;
+            //         END_IF;
+            //     ELSE
+            //         MC_MoveRelativeCallNumber := MC_MoveRelativeCallNumber - INT#1;
+            //         MC_MoveRelativeError_ := TRUE;
+            //         MC_MoveRelativeErrorID_ := AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#RESOURCE_ERROR;
+            //     END_IF;
+            // END_IF;
+            // (************** reset of outputs *************************************)
+            // IF Execute = FALSE THEN
+            //     MC_MoveRelativeCommandAborted_ := FALSE;
+            //     MC_MoveRelativeDone_ := FALSE;
+            //     MC_MoveRelativeError_ := FALSE;
+            //     MC_MoveRelativeErrorID_ :=	AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_ERROR;
+            //     MC_MoveRelativeDistance_PV := 0;
+            // END_IF;
+            // (*************** detection of command finished *******************)
+            // IF MC_MoveRelativeFirstCall THEN
+            //     IF MC_MoveRelativeCallNumber = _AxisReference^.Data.CallNumberCyclic THEN
+            //         MC_MoveRelativeActive_ := TRUE;
+            //         _AxisReference^.Data.CallAxis := TRUE;
+            //         _AxisReference^.Data.ReadOnlyData := FALSE;
+            //         // THIS.FieldBusCommunication(AxisRef := _AxisReference,CommandWriteActive=> Dummy);
+            //         IF NOT _AxisReference^.Data.CommandWriteActive THEN
+            //             MC_MoveRelativeActive_ := TRUE;
+            //             IF MC_MoveRelativeContinuousUpdate_PV AND 
+            //                 (MC_MoveRelativeDistance_PV<> Distance OR
+            //                 _AxisReference^.Data.Velocity <> Velocity OR
+            //                 _AxisReference^.Data.Acceleration <> Acceleration OR
+            //                 _AxisReference^.Data.Deceleration <> Deceleration OR
+            //                 _AxisReference^.Data.Jerk <> Jerk ) THEN
+            //                 _AxisReference^.Data.Position := Distance-MC_MoveRelativeDistance_PV;
+            //                 _AxisReference^.Data.Velocity := Velocity;
+            //                 _AxisReference^.Data.Acceleration := Acceleration;
+            //                 _AxisReference^.Data.Deceleration := Deceleration;
+            //                 _AxisReference^.Data.Jerk:= Jerk;	
+            //                 _AxisReference^.Data.WriteCommand := TRUE;
+            //                 _AxisReference^.Data.CallAxis := TRUE;
+            //                 _AxisReference^.Data.ReadOnlyData := FALSE;
+            //                 MC_MoveRelativeDistance_PV := Distance;
+            //                 // THIS.FieldBusCommunication(AxisRef := _AxisReference,CommandWriteActive=> Dummy);
+            //                 RETURN;
+            //             END_IF;
+    
+            //             IF _AxisReference^.Data.SetpointReached THEN
+            //                 MC_MoveRelativeDone_ := TRUE;
+            //                 MC_MoveRelativeActive_ := FALSE;
+            //                 MC_MoveRelativeCallNumber := MC_MoveRelativeCallNumber - INT#1; (*Reset MC_MoveRelativeCallNumber because reset Done *)
+            //             END_IF;
+            //         END_IF;
+            //         IF _AxisReference^.Data.Error THEN
+            //             MC_MoveRelativeCallNumber := MC_MoveRelativeCallNumber - INT#1;
+            //             MC_MoveRelativeActive_ := FALSE;
+            //             MC_MoveRelativeError_ := TRUE;
+            //             MC_MoveRelativeErrorID_ := _AxisReference^.Data.ErrorID;
+            //         ELSIF _AxisReference^.Data.CallAxis THEN
+            //             MC_MoveRelativeCallNumber := MC_MoveRelativeCallNumber - INT#1;
+            //             MC_MoveRelativeActive_ := FALSE;
+            //             MC_MoveRelativeError_ := TRUE;
+            //             MC_MoveRelativeErrorID_ := AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#RESOURCE_ERROR;
+            //         END_IF;
+            //     ELSE
+            //         (*************** detection of command aborted ********************)
+            //         IF MC_MoveRelativeActive_ THEN
+            //             MC_MoveRelativeCommandAborted_ := TRUE;
+            //         END_IF;
+            //         MC_MoveRelativeActive_ := FALSE;
+            //     END_IF;
+            // END_IF;
             
-            Done			:=	MC_MoveRelativeDone_;	
-            Busy			:=	Execute AND NOT Done AND NOT Error;			        
-            Active			:=	MC_MoveRelativeActive_;				      
-            CommandAborted	:=	MC_MoveRelativeCommandAborted_;		
-            Error			:=	MC_MoveRelativeError_;				       
-            ErrorID			:=	MC_MoveRelativeErrorID_;				     
+            // IF NOT ContinuousUpdate THEN
+            //     MC_MoveRelativeContinuousUpdate_PV := FALSE;
+            // END_IF;
+            // MC_MoveRelativeExecute_PV := Execute;
+            
+            // Done			:=	MC_MoveRelativeDone_;	
+            // Busy			:=	Execute AND NOT Done AND NOT Error;			        
+            // Active			:=	MC_MoveRelativeActive_;				      
+            // CommandAborted	:=	MC_MoveRelativeCommandAborted_;		
+            // Error			:=	MC_MoveRelativeError_;				       
+            // ErrorID			:=	MC_MoveRelativeErrorID_;				     
         END_METHOD
 
         ///<summary>
