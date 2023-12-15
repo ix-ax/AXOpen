@@ -365,6 +365,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 IF State = UINT#0 THEN
                     State := UINT#1;
                 END_IF;
+                //Reading PNU 11724 Factor group Position
                 IF State = UINT#1 THEN
                     Parametrization.Inputs.Enable := TRUE;
                     Parametrization.Inputs.ReadWrite   := FALSE;
@@ -383,6 +384,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#3;
                     END_IF;
                 END_IF;
+                //Reading PNU 11725 Factor group Velocity
                 IF State = UINT#3 THEN
                     Parametrization.Inputs.Enable := TRUE;
                     Parametrization.Inputs.ReadWrite   := FALSE;
@@ -401,6 +403,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#5;
                     END_IF;
                 END_IF;                
+                //Reading PNU 12345 Base value velocity
                 IF State = UINT#5 THEN
                     Parametrization.Inputs.Enable := TRUE;
                     Parametrization.Inputs.ReadWrite   := FALSE;
@@ -419,6 +422,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#7;
                     END_IF;
                 END_IF;  
+                //Reading PNU 11122 Maximum motor torque/servo drive 
                 IF State = UINT#7 THEN
                     Parametrization.Inputs.Enable := TRUE;
                     Parametrization.Inputs.ReadWrite   := FALSE;
@@ -436,7 +440,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     IF NOT Parametrization.Outputs.Done THEN
                         State := UINT#9;
                     END_IF;
-                END_IF;                                
+                END_IF;
+                //Reading PNU 810 Base value acceleration
                 IF State = UINT#9 THEN
                     Parametrization.Inputs.Enable := TRUE;
                     Parametrization.Inputs.ReadWrite   := FALSE;
@@ -455,6 +460,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#11;
                     END_IF;
                 END_IF;    
+                //Reading PNU 811 Base value deceleration
                 IF State = UINT#11 THEN
                     Parametrization.Inputs.Enable := TRUE;
                     Parametrization.Inputs.ReadWrite   := FALSE;
@@ -481,8 +487,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     ScalingConstantActualVelocity := PNU_12345 / 1073741824.0;
                     ScalingConstantRequiredTorque := 1;
                     ScalingConstantActualTorque := PNU_11122 / 16384;
-                    ScalingConstantRequiredAcceleration := PNU_810 / 16384;
-                    ScalingConstantRequiredDeceleration := PNU_811 / 16384;
+                    ScalingConstantRequiredAcceleration := 16384 / PNU_810;
+                    ScalingConstantRequiredDeceleration := 16384 / PNU_811;
                     ScalingRead := TRUE;
                     State := UINT#0;
                 END_IF;                                
@@ -673,9 +679,10 @@ NAMESPACE AXOpen.Components.Festo.Drives
             Error	:= FALSE;
             ErrorID :=	WORD#0;
             Valid := FALSE;
-            IF Enable OR MC_PowerEnable_PV THEN
-                IF Enable THEN (*	raising edge of ENABLE *)
+            IF Enable THEN
+                IF NOT MC_PowerEnable_PV THEN (*	raising edge of ENABLE *)
                     _AxisReference^.Telegram111_Out.STW1.on_ := TRUE;
+                    _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
                     _AxisReference^.Telegram750_Out.M_LIMIT_POS := 16384;
                     _AxisReference^.Telegram750_Out.M_LIMIT_NEG := -16384;
                     _AxisReference^.Telegram111_Out.MDI_VELOCITY := DINT#1;
@@ -684,6 +691,12 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     _AxisReference^.Telegram111_Out.Override_ := WORD#16384;
                     _AxisReference^.Telegram111_Out.POS_STW2.SW_Limit := TRUE;
                     _AxisReference^.Telegram111_Out.POS_STW2.HW_Limit := TRUE;
+                    _AxisReference^.Telegram111_Out.STW1.noCoastStop := TRUE;
+                    _AxisReference^.Telegram111_Out.STW1.noQuickStop := TRUE;
+                    _AxisReference^.Telegram111_Out.STW1.enableOperation := TRUE;
+                    _AxisReference^.Telegram111_Out.STW1.cancelTraversing := TRUE;
+                    _AxisReference^.Telegram111_Out.STW1.intermediateStop := TRUE;
+                    _AxisReference^.Telegram111_Out.STW1.controlByPlc := TRUE;
                 END_IF;
                 IF _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
                     Status	:= TRUE;						(* Status OK*)
@@ -696,12 +709,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 END_IF;
             ELSE
                 _AxisReference^.Telegram111_Out.STW1.on_  := FALSE;
-                _AxisReference^.Telegram111_Out.STW1.noCoastStop := TRUE;
-                _AxisReference^.Telegram111_Out.STW1.noQuickStop := TRUE;
-                _AxisReference^.Telegram111_Out.STW1.enableOperation := TRUE;
-                _AxisReference^.Telegram111_Out.STW1.cancelTraversing := TRUE;
-                _AxisReference^.Telegram111_Out.STW1.intermediateStop := TRUE;
-                _AxisReference^.Telegram111_Out.STW1.controlByPlc := TRUE;
             END_IF;
             MC_PowerEnable_PV := Enable;
         END_METHOD 
@@ -768,6 +775,21 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Active := TRUE;          
                     MC_HomeErrorID :=AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_ERROR;         
                     _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
+                    _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
+                    _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
+                    _AxisReference^.Telegram111_Out.POS_STW1.PosModulo := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.NegModulo := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.SetupMode := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.MDI_Activate := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW2.Trackingmode := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW2.jog_inc := FALSE;   
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit0 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit1 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit2 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit3 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit4 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit5 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit6 := FALSE;    
                     Parametrization.Inputs.Enable := FALSE;
                     State := UINT#20;
                 END_IF;
@@ -1299,9 +1321,13 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Parametrization.Inputs.Enable := FALSE;
                 Parametrization.Inputs.ReadWrite   := FALSE;
             END_IF;
+
+            IF THIS.AxoHome_Task.RestoreTriggered() AND State>=UINT#20 AND State<=UINT#59 THEN
+                State := UINT#0;
+            END_IF;     
+
             ErrorID := MC_HomeErrorID;
             MC_HomeExecute_PV := Execute;
-            
         END_METHOD
 
         ///<summary>
@@ -1365,6 +1391,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#61;
                     END_IF;
                 END_IF;
+                //Writing PNU 12327 Jerk
                 IF State = UINT#61 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
@@ -1451,6 +1478,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     END_IF;                  
                 END_IF;                  
             END_IF;
+            IF THIS.AxoStop_Task.RestoreTriggered() AND State>=UINT#60 AND State<=UINT#69 THEN
+                State := UINT#0;
+            END_IF;     
 
             IF NOT Execute AND MC_StopExecute_PV THEN
                 _AxisReference^.Telegram111_Out.STW1.cancelTraversing := TRUE; 
@@ -1610,6 +1640,11 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 State := UINT#0;
                 MC_HaltCycle := ULINT#0;     
             END_IF;
+
+            IF THIS.AxoHalt_Task.RestoreTriggered() AND State>=UINT#70 AND State<=UINT#79 THEN
+                State := UINT#0;
+            END_IF;     
+
             ErrorID := MC_HaltErrorID;
             MC_HaltExecute_PV := Execute;
         END_METHOD
@@ -1618,16 +1653,16 @@ NAMESPACE AXOpen.Components.Festo.Drives
         /// This method commands a controlled motion to a specified absolute position.
         ///<summary>
         VAR INTERNAL
-            MC_MoveAbsoluteExecute_PV			: 	BOOL := FALSE;		//Execute - previous value           
-            MC_MoveAbsoluteDone_PV				:	BOOL := FALSE;		//Done - previous value              
-            MC_MoveAbsoluteCallNumber			: 	INT; 				//Call number of the method MC_MoveAbsolute  
-            MC_MoveAbsoluteFirstCall			: 	BOOL;				//First call of the method MC_MoveAbsolute   
-            MC_MoveAbsoluteDone_				:	BOOL;
-            MC_MoveAbsoluteActive_				:	BOOL;
-            MC_MoveAbsoluteCommandAborted_		:	BOOL;
-            MC_MoveAbsoluteError_				:   BOOL;
-            MC_MoveAbsoluteErrorID_				:   eAxoCmmtAsErrorCode;				
-            MC_MoveAbsoluteContinuousUpdate_PV  :   BOOL;
+            MC_MoveAbsoluteExecute_PV					: 	BOOL;				//Execute - previous value
+            MC_MoveAbsoluteErrorID					    : 	eAxoCmmtAsErrorCode;
+            MC_MoveAbsoluteCycle					    : 	ULINT;
+            MC_MoveAbsoluteContinuousUpdate_SV          :   BOOL;
+            MC_MoveAbsolutePosition_PV                  :   LREAL;                                          
+            MC_MoveAbsoluteVelocity_PV                  :   LREAL;                    
+            MC_MoveAbsoluteAcceleration_PV              :   LREAL;                    
+            MC_MoveAbsoluteDeceleration_PV              :   LREAL;                                
+            MC_MoveAbsoluteJerk_PV                      :   LREAL;                     
+            MC_MoveAbsoluteDirection_PV                 :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;        
         END_VAR
         METHOD PUBLIC OVERRIDE MC_MoveAbsolute
             VAR_INPUT
@@ -1662,109 +1697,166 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 RETURN;
             END_IF;
 
-            IF Execute OR (NOT Execute AND MC_MoveAbsoluteExecute_PV) THEN (*detection of falling edge execute*)
-                MC_MoveAbsoluteFirstCall := TRUE;
-                IF _AxisReference^.Data.CheckAccessOK	THEN
-                    IF Execute AND NOT MC_MoveAbsoluteExecute_PV THEN (*	raising edge of EXECUTE *)
-                        MC_MoveAbsoluteContinuousUpdate_PV := ContinuousUpdate;
-                        _AxisReference^.Data.CallNumberCyclic := _AxisReference^.Data.CallNumberCyclic + INT#2;
-                        MC_MoveAbsoluteCallNumber := _AxisReference^.Data.CallNumberCyclic;
-                        _AxisReference^.Data.WriteCommand:= TRUE;
-                        _AxisReference^.Data.HomingReq:= FALSE;
-            (*			Axis.Data.DriveStopReq:= FALSE;*)
-                        _AxisReference^.Data.DriveHaltReq := FALSE;		
-                        _AxisReference^.Data.MoveVelocityReq:= FALSE;				
-                        _AxisReference^.Data.TorqueControlReq:= FALSE;
-                        _AxisReference^.Data.Relative:= FALSE;
-                        _AxisReference^.Data.Additive:= FALSE;
-                        _AxisReference^.Data.Position := Position;
-                        _AxisReference^.Data.Velocity := Velocity;
-                        _AxisReference^.Data.Acceleration := Acceleration;
-                        _AxisReference^.Data.Deceleration := Deceleration;
-                        _AxisReference^.Data.Jerk:= Jerk;
-                        MC_MoveAbsoluteDone_ := FALSE;
-                        MC_MoveAbsoluteActive_ := TRUE;
-                        MC_MoveAbsoluteError_ := FALSE;
-                        MC_MoveAbsoluteErrorID_ :=	AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_ERROR;
-                    END_IF;
-                ELSE
-                    MC_MoveAbsoluteCallNumber := MC_MoveAbsoluteCallNumber - INT#1;
-                    MC_MoveAbsoluteError_ := TRUE;
-                    MC_MoveAbsoluteErrorID_ := AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#RESOURCE_ERROR;
-                END_IF;
-            END_IF;
-            (************** reset of outputs *************************************)
-            IF Execute = FALSE THEN
-                MC_MoveAbsoluteCommandAborted_ := FALSE;
-                MC_MoveAbsoluteDone_ := FALSE;
-                MC_MoveAbsoluteError_ := FALSE;
-                MC_MoveAbsoluteErrorID_ :=	AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_ERROR;
-            END_IF;
-            (*************** detection of command finished *******************)
-            IF MC_MoveAbsoluteFirstCall THEN
-                IF MC_MoveAbsoluteCallNumber = _AxisReference^.Data.CallNumberCyclic THEN
-                    MC_MoveAbsoluteActive_ := TRUE;
-                    _AxisReference^.Data.CallAxis := TRUE;
-                    _AxisReference^.Data.ReadOnlyData := FALSE;
-                    // THIS.FieldBusCommunication(AxisRef := _AxisReference,CommandWriteActive=> Dummy);
-                    IF NOT _AxisReference^.Data.CommandWriteActive THEN
-                        MC_MoveAbsoluteActive_ := TRUE;
-                        IF MC_MoveAbsoluteContinuousUpdate_PV AND 
-                            (_AxisReference^.Data.Position <> Position OR
-                            _AxisReference^.Data.Velocity <> Velocity OR
-                            _AxisReference^.Data.Acceleration <> Acceleration OR
-                            _AxisReference^.Data.Deceleration <> Deceleration OR
-                            _AxisReference^.Data.Jerk <> Jerk ) THEN
-                            _AxisReference^.Data.Position := Position;
-                            _AxisReference^.Data.Velocity := Velocity;
-                            _AxisReference^.Data.Acceleration := Acceleration;
-                            _AxisReference^.Data.Deceleration := Deceleration;
-                            _AxisReference^.Data.Jerk:= Jerk;	
-                            _AxisReference^.Data.WriteCommand := TRUE;
-                            _AxisReference^.Data.CallAxis := TRUE;
-                            _AxisReference^.Data.ReadOnlyData := FALSE;
-                            // THIS.FieldBusCommunication(AxisRef := _AxisReference,CommandWriteActive=> Dummy);
-                            RETURN;
-                        END_IF;
-    
-                        IF _AxisReference^.Data.SetpointReached THEN
-                            MC_MoveAbsoluteDone_ := TRUE;
-                            MC_MoveAbsoluteActive_ := FALSE;
-                            MC_MoveAbsoluteCallNumber := MC_MoveAbsoluteCallNumber - INT#1; (*Reset MC_MoveAbsoluteCallNumber because reset Done *)
-                        END_IF;
-                    END_IF;
-                    IF _AxisReference^.Data.Error THEN
-                        MC_MoveAbsoluteCallNumber := MC_MoveAbsoluteCallNumber - INT#1;
-                        MC_MoveAbsoluteActive_ := FALSE;
-                        MC_MoveAbsoluteError_ := TRUE;
-                        MC_MoveAbsoluteErrorID_ := _AxisReference^.Data.ErrorID;
-                    ELSIF _AxisReference^.Data.CallAxis THEN
-                        MC_MoveAbsoluteCallNumber := MC_MoveAbsoluteCallNumber - INT#1;
-                        MC_MoveAbsoluteActive_ := FALSE;
-                        MC_MoveAbsoluteError_ := TRUE;
-                        MC_MoveAbsoluteErrorID_ := AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#RESOURCE_ERROR;
-                    END_IF;
-                ELSE
-                    (*************** detection of command aborted ********************)
-                    IF MC_MoveAbsoluteActive_ THEN
-                        MC_MoveAbsoluteCommandAborted_ := TRUE;
-                    END_IF;
-                    MC_MoveAbsoluteActive_ := FALSE;
-                END_IF;
-            END_IF;
-            
-            IF NOT ContinuousUpdate THEN
-                MC_MoveAbsoluteContinuousUpdate_PV := FALSE;
-            END_IF;
-            MC_MoveAbsoluteExecute_PV := Execute;
-            
-            Done			:=	MC_MoveAbsoluteDone_;	
-            Busy			:=	Execute AND NOT Done AND NOT Error;			        
-            Active			:=	MC_MoveAbsoluteActive_;				      
-            CommandAborted	:=	MC_MoveAbsoluteCommandAborted_;		
-            Error			:=	MC_MoveAbsoluteError_;				       
-            ErrorID			:=	MC_MoveAbsoluteErrorID_;				     
+            Messenger.ActivateOnCondition(ULINT#767, Execute AND Velocity <= 0, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#768, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#769, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#770, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
 
+            IF Execute AND NOT MC_MoveAbsoluteExecute_PV AND State = UINT#0 THEN
+                _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle + ULINT#2;
+                MC_MoveAbsoluteCycle := _AxisReference^.Data.Cycle ;
+            END_IF;
+
+            IF Execute THEN 	
+                IF NOT ContinuousUpdate THEN
+                    MC_MoveAbsoluteContinuousUpdate_SV := FALSE;
+                END_IF;
+
+                IF State = UINT#0 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    MC_MoveAbsoluteErrorID :=AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_ERROR;         
+                    _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
+                    _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
+                    _AxisReference^.Telegram111_Out.POS_STW1.PosModulo := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.NegModulo := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.SetupMode := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.MDI_Activate := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW2.Trackingmode := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW2.jog_inc := FALSE;   
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit0 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit1 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit2 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit3 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit4 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit5 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit6 := FALSE;    
+                    Parametrization.Inputs.Enable := FALSE;
+                    MC_MoveAbsoluteContinuousUpdate_SV := ContinuousUpdate;
+                    State := UINT#80;
+                END_IF;
+                IF State = UINT#80 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;   
+                    IF Velocity > 0 AND Acceleration > 0 AND Deceleration >0 AND Jerk > 0 THEN
+                        MC_MoveAbsolutePosition_PV      :=  Position;                  
+                        MC_MoveAbsoluteVelocity_PV      :=  Velocity;                  
+                        MC_MoveAbsoluteAcceleration_PV  :=  Acceleration;              
+                        MC_MoveAbsoluteDeceleration_PV  :=  Deceleration;              
+                        MC_MoveAbsoluteJerk_PV          :=  Jerk;                      
+                        MC_MoveAbsoluteDirection_PV     :=  Direction;                                         
+                        State := UINT#81;
+                    END_IF;
+                END_IF;
+                //Writing PNU 12327 Jerk
+                IF State = UINT#81 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 12327;
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Jerk);
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        State := UINT#82;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_MoveAbsoluteErrorID := WORD#771;
+                        State := UINT#89;
+                    END_IF;
+                END_IF;
+                IF State = UINT#82 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := FALSE;
+                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#83;
+                    END_IF;
+                END_IF;               
+                //Executing movement
+                IF State = UINT#83 THEN
+                    _AxisReference^.Telegram111_Out.MDI_TARPOS := TO_DINT(Position * ScalingConstantRequiredPosition);
+                    _AxisReference^.Telegram111_Out.MDI_VELOCITY :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
+                    _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration);
+                    _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration);
+                    _AxisReference^.Telegram111_Out.POS_STW1.MDI_Activate := TRUE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := TRUE; 
+                    _AxisReference^.Telegram111_Out.STW1.activateTraversing := TRUE;        
+                    IF _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated THEN      
+                        State := UINT#84;
+                    END_IF;    
+                END_IF;
+                IF State = UINT#84 THEN
+                    _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE;        
+                    IF _AxisReference^.Telegram111_In.ZSW1.targetPosReached THEN      
+                        State := UINT#85;
+                    END_IF;    
+                END_IF;
+                IF State = UINT#85 THEN
+                    IF TRUE THEN      
+                        State := UINT#86;
+                    END_IF;    
+                END_IF;
+                IF State = UINT#86 THEN
+                    IF TRUE THEN      
+                        State := UINT#87;
+                    END_IF;    
+                END_IF;
+                IF State = UINT#87 THEN
+                    Done := TRUE;            
+                    MC_MoveAbsoluteCycle := ULINT#0;     
+                END_IF;         
+                IF State = UINT#88 THEN
+                    CommandAborted := TRUE;            
+                END_IF;         
+                IF State = UINT#89 THEN
+                    MC_MoveAbsoluteCycle := ULINT#0;     
+                    Error := TRUE;    
+                END_IF;         
+                
+                IF State>=UINT#80 AND State<UINT#87 THEN
+                    IF MC_MoveAbsoluteContinuousUpdate_SV AND (
+                        MC_MoveAbsolutePosition_PV      <>  Position OR                  
+                        MC_MoveAbsoluteVelocity_PV      <>  Velocity OR                  
+                        MC_MoveAbsoluteAcceleration_PV  <>  Acceleration OR              
+                        MC_MoveAbsoluteDeceleration_PV  <>  Deceleration OR              
+                        MC_MoveAbsoluteJerk_PV          <>  Jerk OR                      
+                        MC_MoveAbsoluteDirection_PV     <>  Direction ) THEN
+                        _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE;        
+                        IF NOT _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated THEN    
+                            State := UINT#80;
+                        END_IF;   
+                    END_IF;   
+                    IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
+                        State := UINT#88;
+                    ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent THEN
+                        IF MC_MoveAbsoluteErrorID = WORD#0 THEN
+                            MC_MoveAbsoluteErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
+                        END_IF;
+                        State := UINT#89;
+                    ELSIF _AxisReference^.Data.Cycle <> MC_MoveAbsoluteCycle THEN
+                        _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
+                        State := UINT#88;
+                    END_IF;                  
+                END_IF;   
+            END_IF;
+
+            IF NOT Execute AND MC_MoveAbsoluteExecute_PV THEN
+                _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
+                MC_MoveAbsoluteErrorID := WORD#0;
+                State := UINT#0;
+                MC_MoveAbsoluteCycle := ULINT#0;     
+            END_IF;
+
+            IF THIS.AxoStop_Task.RestoreTriggered() AND State>=UINT#80 AND State<=UINT#89 THEN
+                State := UINT#0;
+            END_IF;     
+
+            ErrorID := MC_MoveAbsoluteErrorID;
+            MC_MoveAbsoluteExecute_PV := Execute;
         END_METHOD
 
         ///<summary>
