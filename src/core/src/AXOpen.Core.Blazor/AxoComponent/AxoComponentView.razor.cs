@@ -59,34 +59,44 @@ namespace AXOpen.Core
             return twinObject.GetKids().Where(p => p.GetAttribute<ComponentDetailsAttribute>() != null);
         }
 
-        private ITwinObject _header;
+        //private ITwinObject _header;
+        //private ITwinObject Header
+        //{
+        //    get
+        //    {
+        //        if (_header == null)
+        //        {
+        //            _header = new ComponentGroupContext(this.Component, this.Component.GetKids().Where(p => p.GetAttribute<ComponentHeaderAttribute>() != null).ToList());
+        //        }
+
+        //        return _header;
+        //    }
+        //}
+
+        //private IEnumerable<ITwinObject> _detailsTabs;
+
+        //private IEnumerable<ITwinObject> DetailsTabs
+        //{
+        //    get
+        //    {
+        //        if (_detailsTabs == null)
+        //        {
+        //            _detailsTabs = CreateDetailsTabs();
+        //        }
+
+        //        return _detailsTabs;
+        //    }
+        //}
+
         private ITwinObject Header
         {
             get
             {
-                if (_header == null)
-                {
-                    _header = new ComponentGroupContext(this.Component, this.Component.GetKids().Where(p => p.GetAttribute<ComponentHeaderAttribute>() != null).ToList());
-                }
-
-                return _header;
+                return new ComponentGroupContext(this.Component, this.Component.GetKids().Where(p => p.GetAttribute<ComponentHeaderAttribute>() != null).ToList());
             }
         }
 
-        private IEnumerable<ITwinObject> _detailsTabs;
-
-        private IEnumerable<ITwinObject> DetailsTabs
-        {
-            get
-            {
-                if (_detailsTabs == null)
-                {
-                    _detailsTabs = CreateDetailsTabs();
-                }
-
-                return _detailsTabs;
-            }
-        }
+        private IEnumerable<ITwinObject> DetailsTabs => CreateDetailsTabs();
 
         private IEnumerable<ITwinObject> CreateDetailsTabs()
         {

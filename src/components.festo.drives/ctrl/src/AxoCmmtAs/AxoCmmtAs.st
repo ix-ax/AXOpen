@@ -23,24 +23,34 @@ NAMESPACE AXOpen.Components.Festo.Drives
             State : UINT;
 
             {#ix-attr:[ComponentHeader()]}            
+            {#ix-set:AttributeName = "<#ScalingRead#>"}
             ScalingRead             :   BOOL := FALSE;
             {#ix-attr:[ComponentHeader()]}            
+            {#ix-set:AttributeName = "<#PNU_11724#>"}
             PNU_11724               :   LINT;
             {#ix-attr:[ComponentHeader()]}            
+            {#ix-set:AttributeName = "<#PNU_11725#>"}
             PNU_11725               :   LINT;
             {#ix-attr:[ComponentHeader()]}            
+            {#ix-set:AttributeName = "<#PNU_12345#>"}
             PNU_12345               :   REAL;
             {#ix-attr:[ComponentHeader()]}            
+            {#ix-set:AttributeName = "<#PNU_11122#>"}
             PNU_11122               :   REAL;
             {#ix-attr:[ComponentHeader()]}            
+            {#ix-set:AttributeName = "<#PNU_810#>"}
             PNU_810                 :   REAL;
             {#ix-attr:[ComponentHeader()]}            
+            {#ix-set:AttributeName = "<#PNU_811#>"}
             PNU_811                 :   REAL;
             {#ix-attr:[ComponentHeader()]}            
+            {#ix-set:AttributeName = "<#PNU_11203#>"}
             PNU_11203               :   BOOL;
             {#ix-attr:[ComponentHeader()]}            
+            {#ix-set:AttributeName = "<#PNU_11734#>"}
             PNU_11734               :   LINT;
             {#ix-attr:[ComponentHeader()]}            
+            {#ix-set:AttributeName = "<#PNU_11735#>"}
             PNU_11735               :   LINT;
         END_VAR
 
@@ -1124,7 +1134,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
                     Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
-                    Parametrization.Inputs.ValueWriteLINT := (*TO_LINT(-10000000.0);*) TO_LINT(Position * -10000000000.0);
+                    Parametrization.Inputs.ValueWriteLINT := TO_LINT(Position * -10000000000.0);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#48;
                     END_IF;
@@ -1181,6 +1191,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Busy := TRUE;            
                     Active := TRUE;          
                     IF _AxisReference^.Telegram111_In.ZSW1.targetPosReached AND _AxisReference^.Telegram111_In.ZSW1.homePosSet THEN
+                        _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
                         State := UINT#53;
                     END_IF;
                 END_IF;  
@@ -1216,7 +1227,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Busy := TRUE;            
                     Active := TRUE;          
                     Parametrization.Inputs.Enable := TRUE;
-                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
                     Parametrization.Inputs.ParameterNo := 11734;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
@@ -1253,7 +1264,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#59;
                     END_IF;                    
                     _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE;
-                    Done := TRUE;            
+                    Done := Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error;            
                     MC_HomeCycle := ULINT#0;     
                 END_IF;         
                 IF State = UINT#58 THEN
