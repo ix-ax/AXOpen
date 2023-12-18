@@ -5,6 +5,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
         VAR PUBLIC
             MAP_HW_ID   :   WORD;
             Cycle       :   ULINT;
+            OverrideVelocityFactor		:	LREAL := 1.0;	//LREAL value to be written
+            OverrideAccelerationFactor	:	LREAL := 1.0;	//LREAL value to be written
+            OverrideJerkFactor			:	LREAL := 1.0;	//LREAL value to be written
 
             (* Commands *)
             CallAxis					:	BOOL;			//Call axis method for cyclic communication
@@ -37,9 +40,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
             ParameterNumber				:	DINT;			//Parameter number
             WriteValueDint				:	DINT;			//DINT value to be written
             WriteValueReal				:	REAL;			//REAL value to be written
-            OverrideVelocityFactor		:	LREAL := 1.0;	//LREAL value to be written
-            OverrideAccelerationFactor	:	LREAL := 1.0;	//LREAL value to be written
-            OverrideJerkFactor			:	LREAL := 1.0;	//LREAL value to be written
         (* States *)                                    	
             CommandWriteActive			:	BOOL; 			//Command transfer to drive is active
             SetpointReached				: 	BOOL;			//Setpoint reached

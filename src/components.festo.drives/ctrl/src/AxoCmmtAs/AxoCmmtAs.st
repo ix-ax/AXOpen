@@ -686,9 +686,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     _AxisReference^.Telegram750_Out.M_LIMIT_POS := 16384;
                     _AxisReference^.Telegram750_Out.M_LIMIT_NEG := -16384;
                     _AxisReference^.Telegram111_Out.MDI_VELOCITY := DINT#1;
-                    _AxisReference^.Telegram111_Out.MDI_ACC := UINT#16384;
-                    _AxisReference^.Telegram111_Out.MDI_DEC := UINT#16384;
-                    _AxisReference^.Telegram111_Out.Override_ := WORD#16384;
+                    _AxisReference^.Telegram111_Out.MDI_ACC := TO_UINT(16384.0 * _AxisReference^.Data.OverrideAccelerationFactor);
+                    _AxisReference^.Telegram111_Out.MDI_DEC := TO_UINT(16384.0 * _AxisReference^.Data.OverrideAccelerationFactor);
+                    _AxisReference^.Telegram111_Out.Override_ := TO_WORD(TO_INT(16384.0 * _AxisReference^.Data.OverrideVelocityFactor));
                     _AxisReference^.Telegram111_Out.POS_STW2.SW_Limit := TRUE;
                     _AxisReference^.Telegram111_Out.POS_STW2.HW_Limit := TRUE;
                     _AxisReference^.Telegram111_Out.STW1.noCoastStop := TRUE;
@@ -1773,8 +1773,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     IF Velocity > 0 AND Acceleration > 0 AND Deceleration >0 AND Jerk > 0 THEN
                         _AxisReference^.Telegram111_Out.MDI_TARPOS := TO_DINT(Position * ScalingConstantRequiredPosition);
                         _AxisReference^.Telegram111_Out.MDI_VELOCITY :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
-                        _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration);
-                        _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration);                        
+                        _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
+                        _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);                        
                         MC_MoveAbsolutePosition_PV      :=  Position;                  
                         MC_MoveAbsoluteVelocity_PV      :=  Velocity;                  
                         MC_MoveAbsoluteAcceleration_PV  :=  Acceleration;              
@@ -1794,7 +1794,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
                     Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveAbsoluteJerk_PV);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveAbsoluteJerk_PV * _AxisReference^.Data.OverrideJerkFactor);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#82;
                     END_IF;
@@ -1990,8 +1990,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     IF Velocity > 0 AND Acceleration > 0 AND Deceleration >0 AND Jerk > 0 THEN
                         _AxisReference^.Telegram111_Out.MDI_TARPOS := TO_DINT(Distance * ScalingConstantRequiredPosition);
                         _AxisReference^.Telegram111_Out.MDI_VELOCITY :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
-                        _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration);
-                        _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration);
+                        _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
+                        _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);
                         MC_MoveRelativeDistance_PV      :=  Distance;                  
                         MC_MoveRelativeVelocity_PV      :=  Velocity;                  
                         MC_MoveRelativeAcceleration_PV  :=  Acceleration;              
@@ -2010,7 +2010,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
                     Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Jerk);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveRelativeJerk_PV * _AxisReference^.Data.OverrideJerkFactor);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#92;
                     END_IF;
@@ -2076,8 +2076,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         IF NOT _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated THEN    
                             _AxisReference^.Telegram111_Out.MDI_TARPOS := TO_DINT((Distance) * ScalingConstantRequiredPosition) - _AxisReference^.Telegram111_In.XIST_A;
                             _AxisReference^.Telegram111_Out.MDI_VELOCITY :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
-                            _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration);
-                            _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration);
+                            _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
+                            _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);
                             MC_MoveRelativeDistance_PV      :=  Distance;                  
                             MC_MoveRelativeVelocity_PV      :=  Velocity;                  
                             MC_MoveRelativeAcceleration_PV  :=  Acceleration;              
@@ -2215,13 +2215,13 @@ NAMESPACE AXOpen.Components.Festo.Drives
                             AxoMoveAbsolute_Task.Abort();
                             _AxisReference^.Telegram111_Out.MDI_TARPOS := TO_DINT((MC_MoveAbsolutePosition_PV + Distance) * ScalingConstantRequiredPosition);
                             _AxisReference^.Telegram111_Out.MDI_VELOCITY :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
-                            _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration);
-                            _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration);
+                            _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
+                            _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);
                         ELSE
                             _AxisReference^.Telegram111_Out.MDI_TARPOS := TO_DINT((Distance) * ScalingConstantRequiredPosition);
                             _AxisReference^.Telegram111_Out.MDI_VELOCITY :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
-                            _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration);
-                            _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration);
+                            _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
+                            _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);
                             _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
                         END_IF;
                         IF _AxisReference^.Status.CurrentMotionTaskId = eAxoMotionTaskId#Axo_MoveRelative THEN
@@ -2246,7 +2246,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
                     Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveAdditiveJerk_PV);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveAdditiveJerk_PV * _AxisReference^.Data.OverrideJerkFactor);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#102;
                     END_IF;
@@ -2315,8 +2315,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                                 _AxisReference^.Telegram111_Out.MDI_TARPOS := TO_DINT((Distance) * ScalingConstantRequiredPosition) - _AxisReference^.Telegram111_In.XIST_A;
                             END_IF;
                             _AxisReference^.Telegram111_Out.MDI_VELOCITY :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
-                            _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration);
-                            _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration);
+                            _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
+                            _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);
                             MC_MoveAdditiveDistance_PV      :=  Distance;                  
                             MC_MoveAdditiveVelocity_PV      :=  Velocity;                  
                             MC_MoveAdditiveAcceleration_PV  :=  Acceleration;              
@@ -2474,8 +2474,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     IF Velocity <> 0 AND Acceleration > 0 AND Deceleration >0 AND Jerk > 0 THEN
                         _AxisReference^.Telegram111_Out.MDI_TARPOS := DINT#0;
                         _AxisReference^.Telegram111_Out.MDI_VELOCITY :=  TO_DINT(ABS(Velocity_) *ScalingConstantRequiredVelocity);
-                        _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration);
-                        _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration);                     
+                        _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
+                        _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);                     
 
                         MC_MoveVelocityVelocity_PV      :=  Velocity_;                  
                         MC_MoveVelocityAcceleration_PV  :=  Acceleration;              
@@ -2495,7 +2495,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
                     Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveVelocityJerk_PV);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveVelocityJerk_PV * _AxisReference^.Data.OverrideJerkFactor);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#112;
                     END_IF;
@@ -3144,7 +3144,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Done := TRUE;            
                     MC_SetPositionCycle := ULINT#0;     
                 END_IF;    
-                
                 IF State = UINT#158 THEN
                     _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE;
                 END_IF;         
@@ -3216,6 +3215,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _AxisReference ?= AxisRef;
 
             Messenger.ActivateOnCondition(ULINT#719,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#798, Enable AND  (VelocityFactor <= 0.0 OR  VelocityFactor >= 2.0), eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#799, Enable AND  (AccelerationFactor <= 0.0 OR  AccelerationFactor > 1.0), eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#800, Enable AND  (JerkFactor <= 0.0 OR JerkFactor > 1.0), eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -3223,41 +3225,16 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             IF Enable THEN
                 Busy := TRUE;
-                IF _AxisReference^.Data.CheckAccessOK	THEN
-                    IF VelocityFactor <= 0.0 OR  VelocityFactor > 1.0 OR AccelerationFactor <= 0.0 OR  AccelerationFactor > 1.0 OR JerkFactor <= 0.0 OR  JerkFactor > 1.0 THEN
-                        Enabled	:= FALSE;
-                        Busy := FALSE;
-                        Error := TRUE;
-                        ErrorID:= AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#INPUT_RANGE_ERROR;
-                    ELSE
-                        _AxisReference^.Data.CallAxis := TRUE;
-                        IF _AxisReference^.Data.OverrideVelocityFactor <> VelocityFactor OR _AxisReference^.Data.OverrideAccelerationFactor <> AccelerationFactor OR  _AxisReference^.Data.OverrideJerkFactor <> JerkFactor THEN   
-                            _AxisReference^.Data.OverrideVelocityFactor := VelocityFactor;  
-                            _AxisReference^.Data.OverrideAccelerationFactor := AccelerationFactor;
-                            _AxisReference^.Data.OverrideJerkFactor := JerkFactor;    
-                            _AxisReference^.Data.WriteCommand := TRUE;
-                        END_IF;; 
-                        _AxisReference^.Data.ReadOnlyData := FALSE;
-                        // THIS.FieldBusCommunication(AxisRef := _AxisReference, CommandWriteActive=> Dummy);
-                        Enabled := TRUE;
-                        Busy := FALSE;
-                        Error := FALSE;
-                        ErrorID := AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_ERROR;
-                    END_IF;
-                ELSE
-                    Enabled	:= FALSE;
-                    Busy := FALSE;
+                IF VelocityFactor <= 0.0 OR  VelocityFactor >= 2.0 OR AccelerationFactor <= 0.0 OR  AccelerationFactor > 1.0 OR JerkFactor <= 0.0 OR  JerkFactor > 1.0 THEN
                     Error := TRUE;
-                    ErrorID := AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#RESOURCE_ERROR;
+                ELSE             
+                    _AxisReference^.Data.OverrideVelocityFactor := VelocityFactor;  
+                    _AxisReference^.Data.OverrideAccelerationFactor := AccelerationFactor;
+                    _AxisReference^.Data.OverrideJerkFactor := JerkFactor;    
+                    _AxisReference^.Telegram111_Out.Override_ := TO_WORD(TO_INT(16384.0/VelocityFactor));
+                    Enabled	:= TRUE;
                 END_IF;
-            ELSE
-                Enabled	:= FALSE;
-                Busy := FALSE;
-                Error := FALSE;
-                ErrorID := AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_ERROR;	
             END_IF;
-
-
         END_METHOD
 
         ///<summary>
@@ -4610,9 +4587,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///<summary>
         VAR INTERNAL
             MC_ResetExecute_PV					: 	BOOL := FALSE;		//Execute - previous value           
-            // MC_ResetDone_PV						:	BOOL := FALSE;		//Done - previous value              
-            // MC_ResetBusy_PV						:	BOOL := FALSE;		//Busy - previous value              
-            // MC_ResetFirstCall					: 	BOOL;				//First call of the method MC_Reset  
         END_VAR    
         METHOD PUBLIC OVERRIDE MC_Reset
             VAR_INPUT
