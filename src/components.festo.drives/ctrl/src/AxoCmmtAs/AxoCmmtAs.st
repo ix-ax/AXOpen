@@ -16,42 +16,42 @@ NAMESPACE AXOpen.Components.Festo.Drives
         VAR PUBLIC //Debug
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentHeader()]}            
-            Debug   : ULINT;
+            Debug   : LINT;
 
             {#ix-attr:[ComponentHeader()]}            
             {#ix-set:AttributeName = "<#State#>"}
             State : UINT;
 
-            {#ix-attr:[ComponentHeader()]}            
-            {#ix-set:AttributeName = "<#ScalingRead#>"}
-            ScalingRead             :   BOOL := FALSE;
-            {#ix-attr:[ComponentHeader()]}            
-            {#ix-set:AttributeName = "<#PNU_11724#>"}
-            PNU_11724               :   LINT;
-            {#ix-attr:[ComponentHeader()]}            
-            {#ix-set:AttributeName = "<#PNU_11725#>"}
-            PNU_11725               :   LINT;
-            {#ix-attr:[ComponentHeader()]}            
-            {#ix-set:AttributeName = "<#PNU_12345#>"}
-            PNU_12345               :   REAL;
-            {#ix-attr:[ComponentHeader()]}            
-            {#ix-set:AttributeName = "<#PNU_11122#>"}
-            PNU_11122               :   REAL;
-            {#ix-attr:[ComponentHeader()]}            
-            {#ix-set:AttributeName = "<#PNU_810#>"}
-            PNU_810                 :   REAL;
-            {#ix-attr:[ComponentHeader()]}            
-            {#ix-set:AttributeName = "<#PNU_811#>"}
-            PNU_811                 :   REAL;
-            {#ix-attr:[ComponentHeader()]}            
-            {#ix-set:AttributeName = "<#PNU_11203#>"}
-            PNU_11203               :   BOOL;
-            {#ix-attr:[ComponentHeader()]}            
-            {#ix-set:AttributeName = "<#PNU_11734#>"}
-            PNU_11734               :   LINT;
-            {#ix-attr:[ComponentHeader()]}            
-            {#ix-set:AttributeName = "<#PNU_11735#>"}
-            PNU_11735               :   LINT;
+            // {#ix-attr:[ComponentHeader()]}            
+            // {#ix-set:AttributeName = "<#ScalingRead#>"}
+            // ScalingRead             :   BOOL := FALSE;
+            // {#ix-attr:[ComponentHeader()]}            
+            // {#ix-set:AttributeName = "<#PNU_11724#>"}
+            // PNU_11724               :   LINT;
+            // {#ix-attr:[ComponentHeader()]}            
+            // {#ix-set:AttributeName = "<#PNU_11725#>"}
+            // PNU_11725               :   LINT;
+            // {#ix-attr:[ComponentHeader()]}            
+            // {#ix-set:AttributeName = "<#PNU_12345#>"}
+            // PNU_12345               :   REAL;
+            // {#ix-attr:[ComponentHeader()]}            
+            // {#ix-set:AttributeName = "<#PNU_11122#>"}
+            // PNU_11122               :   REAL;
+            // {#ix-attr:[ComponentHeader()]}            
+            // {#ix-set:AttributeName = "<#PNU_810#>"}
+            // PNU_810                 :   REAL;
+            // {#ix-attr:[ComponentHeader()]}            
+            // {#ix-set:AttributeName = "<#PNU_811#>"}
+            // PNU_811                 :   REAL;
+            // {#ix-attr:[ComponentHeader()]}            
+            // {#ix-set:AttributeName = "<#PNU_11203#>"}
+            // PNU_11203               :   BOOL;
+            // {#ix-attr:[ComponentHeader()]}            
+            // {#ix-set:AttributeName = "<#PNU_11734#>"}
+            // PNU_11734               :   LINT;
+            // {#ix-attr:[ComponentHeader()]}            
+            // {#ix-set:AttributeName = "<#PNU_11735#>"}
+            // PNU_11735               :   LINT;
         END_VAR
 
         VAR PUBLIC //CONFIG
@@ -121,16 +121,16 @@ NAMESPACE AXOpen.Components.Festo.Drives
         END_VAR
 
         VAR PRIVATE
-            // ScalingRead             :   BOOL := FALSE;
-            // PNU_11724               :   LINT;
-            // PNU_11725               :   LINT;
-            // PNU_12345               :   REAL;
-            // PNU_11122               :   REAL;
-            // PNU_810                 :   REAL;
-            // PNU_811                 :   REAL;
-            // PNU_11203               :   BOOL;
-            // PNU_11734               :   LINT;
-            // PNU_11735               :   LINT;
+            ScalingRead             :   BOOL := FALSE;
+            PNU_11724               :   LINT;
+            PNU_11725               :   LINT;
+            PNU_12345               :   REAL;
+            PNU_11122               :   REAL;
+            PNU_810                 :   REAL;
+            PNU_811                 :   REAL;
+            PNU_11203               :   BOOL;
+            PNU_11734               :   LINT;
+            PNU_11735               :   LINT;
         //     _AxisRefExt :  AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
         END_VAR
 
@@ -1318,20 +1318,21 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 END_IF;                  
             END_IF;
 
-            IF NOT Execute AND MC_HomeExecute_PV THEN
+            IF THIS.AxoHome_Task.DoneReached() THEN
+                _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
                 MC_HomeErrorID := WORD#0;
                 State := UINT#0;
                 MC_HomeCycle := ULINT#0;     
                 Parametrization.Inputs.Enable := FALSE;
                 Parametrization.Inputs.ReadWrite   := FALSE;
             END_IF;
-
-            IF THIS.AxoHome_Task.DoneReached() THEN
-                _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
-            END_IF;
             IF THIS.AxoHome_Task.RestoreTriggered() AND State>=UINT#20 AND State<=UINT#59 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
+                MC_HomeErrorID := WORD#0;
                 State := UINT#0;
+                MC_HomeCycle := ULINT#0;     
+                Parametrization.Inputs.Enable := FALSE;
+                Parametrization.Inputs.ReadWrite   := FALSE;
             END_IF;     
 
             ErrorID := MC_HomeErrorID;
@@ -2765,12 +2766,10 @@ NAMESPACE AXOpen.Components.Festo.Drives
         /// the commanded position, which is now positioned in the shifted coordinate system.
         ///<summary>
         VAR INTERNAL
-            MC_SetPositionDone_					:	BOOL; 							
-            MC_SetPositionBusy_					:	BOOL; 							
-            MC_SetPositionError_ 				:	BOOL; 							
-            MC_SetPositionErrorID_ 				:	eAxoCmmtAsErrorCode; 							
-            MC_SetPositionState_ 				:	UINT; 							
-            MC_SetPositionValue_ 				:	DINT; 							
+            MC_SetPositionExecute_PV				: 	BOOL;				//Execute - previous value
+            MC_SetPositionErrorID					: 	eAxoCmmtAsErrorCode;
+            MC_SetPositionCycle					    : 	ULINT;						
+            MC_SetPositionActualPosition            : 	LINT;						
         END_VAR  
         METHOD PUBLIC OVERRIDE MC_SetPosition
             VAR_INPUT
@@ -2795,7 +2794,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _Error  :   BOOL;
                 _Position   :   LREAL;
             END_VAR
-            
+
             _AxisReference ?= AxisRef;
 
             Messenger.ActivateOnCondition(ULINT#718,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
@@ -2804,117 +2803,391 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 RETURN;
             END_IF;
 
-            IF Execute THEN
-                IF MC_SetPositionState_ = UINT#0 THEN
-                    MC_SetPositionDone_ := FALSE;
-                    MC_SetPositionBusy_ := TRUE;
-                    MC_SetPositionError_ := FALSE; 
-                    MC_SetPositionErrorID_ := AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_ERROR;
-                    MC_SetPositionValue_ := 0;
-                    MC_SetPositionState_ := MC_SetPositionState_ + UINT#10;	
-                END_IF;
-            END_IF;	
-            IF MC_SetPositionState_ = UINT#10 THEN
-                IF ExecutionMode = AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately OR ExecutionMode =AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Queued AND _AxisReference^.Data.Standstill THEN
-                    IF Relative THEN
-                        MC_SetPositionValue_ := MC_SetPositionValue_ + TO_DINT(Position * EXP(LN(10)*PositionExponent));
-                        MC_SetPositionState_ := MC_SetPositionState_ + UINT#30;	
-                    ELSE	
-                        MC_SetPositionValue_ := MC_SetPositionValue_ + TO_DINT(Position * EXP(LN(10)*PositionExponent));
-                        MC_SetPositionState_ := MC_SetPositionState_ + UINT#10;	
-                    END_IF;
-                END_IF;
-            END_IF;
-            IF MC_SetPositionState_ = UINT#20 THEN
-                THIS.AxoReadActualPosition(Enable := TRUE,Valid => _Valid, Error => _Error,ErrorID => _ErrorID, Position => _Position);
-                IF _Error THEN
-                    MC_SetPositionError_ 		:= TRUE;
-                    MC_SetPositionErrorID_ 		:= _ErrorID;
-                END_IF;
-                IF _Valid THEN
-                    MC_SetPositionValue_ := MC_SetPositionValue_ - TO_DINT((_Position ) * EXP(LN(10)*PositionExponent));
-                    MC_SetPositionState_ := MC_SetPositionState_ + UINT#10;
-                END_IF;
-            END_IF;
-            IF MC_SetPositionState_ = UINT#30 THEN
-                THIS.AxoReadActualPosition(Enable := FALSE,Valid => _Valid, Error => _Error,ErrorID => _ErrorID, Position => _Position);
-                IF NOT _Valid THEN
-                    MC_SetPositionState_ := MC_SetPositionState_ + UINT#10;
-                END_IF;
-            END_IF;
-            IF MC_SetPositionState_ = UINT#40 THEN
-                //S-0-0275, Coordinate offset value
-                _result := THIS.AxoWriteParameter(ParameterNumber := 275, Value := MC_SetPositionValue_ ,ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately, ErrorID =>_ErrorID);
-                IF _result.IsDone() THEN
-                    MC_SetPositionState_ := MC_SetPositionState_ + UINT#10;	
-                END_IF;
-                IF _result.HasError() THEN
-                    MC_SetPositionError_ 		:= TRUE;
-                    MC_SetPositionErrorID_ 		:= _ErrorID;
-                END_IF;
-            END_IF;
-            IF MC_SetPositionState_ = UINT#50 THEN
-                AxoWriteParameter_Task.Restore();
-                IF(AxoWriteParameter_Task.IsReady()) THEN
-                    MC_SetPositionState_ := MC_SetPositionState_ + UINT#10;	
-                    RETURN;
-                END_IF;
-            END_IF;
-            IF MC_SetPositionState_ = UINT#60 THEN
-                //S-0-0199, C3400 Shift coordinate system procedure command
-                _result := THIS.AxoWriteParameter(ParameterNumber := 199, Value := 3 ,ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately, ErrorID =>_ErrorID);
-                IF _result.IsDone() THEN
-                    MC_SetPositionState_ := MC_SetPositionState_ + UINT#10;	
-                END_IF;
-                IF _result.HasError() THEN
-                    MC_SetPositionError_ 		:= TRUE;
-                    MC_SetPositionErrorID_ 		:= _ErrorID;
-                END_IF;
-            END_IF;
-            IF MC_SetPositionState_ = UINT#70 THEN
-                AxoWriteParameter_Task.Restore();
-                IF(AxoWriteParameter_Task.IsReady()) THEN
-                    MC_SetPositionState_ := MC_SetPositionState_ + UINT#10;	
-                    RETURN;
-                END_IF;
-            END_IF;
-            IF MC_SetPositionState_ = UINT#80 THEN
-                //S-0-0199, C3400 Shift coordinate system procedure command
-                _result := THIS.AxoWriteParameter(ParameterNumber := 199, Value := 0 ,ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately, ErrorID =>_ErrorID);
-                IF _result.IsDone() THEN
-                    MC_SetPositionState_ := MC_SetPositionState_ + UINT#10;	
-                END_IF;
-                IF _result.HasError() THEN
-                    MC_SetPositionError_ 		:= TRUE;
-                    MC_SetPositionErrorID_ 		:= _ErrorID;
-                END_IF;
-            END_IF;
-            IF MC_SetPositionState_ = UINT#90 THEN
-                AxoWriteParameter_Task.Restore();
-                IF(AxoWriteParameter_Task.IsReady()) THEN
-                    MC_SetPositionState_ := MC_SetPositionState_ + UINT#10;	
-                    RETURN;
-                END_IF;
-            END_IF;
-            
-            IF MC_SetPositionState_ = UINT#100 THEN
-                MC_SetPositionDone_ := TRUE;
-                MC_SetPositionBusy_ := FALSE;
+            IF THIS.AxoSetPosition_Task.StartTriggered() THEN
+                _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_SetPosition;
             END_IF;
 
-            Done				:=	MC_SetPositionDone_;
-            Busy 				:=	MC_SetPositionBusy_;
-            Error 				:=	MC_SetPositionError_;
-            ErrorID 			:=	MC_SetPositionErrorID_;	
-            
-            
-            IF NOT Execute THEN
-                MC_SetPositionDone_ := FALSE;
-                MC_SetPositionBusy_ := FALSE;
-                MC_SetPositionError_ := FALSE; 
-                MC_SetPositionErrorID_ := AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_ERROR;
-                MC_SetPositionState_ := UINT#0;
+            IF Execute AND NOT MC_SetPositionExecute_PV AND State = UINT#0 THEN
+                _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle + ULINT#2;
+                MC_SetPositionCycle := _AxisReference^.Data.Cycle ;
             END_IF;
+
+            IF Execute AND NOT MC_SetPositionExecute_PV AND State = UINT#0 THEN
+                _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle + ULINT#2;
+                MC_SetPositionCycle := _AxisReference^.Data.Cycle ;
+            END_IF;
+
+            IF Execute THEN 				
+                IF State = UINT#0 THEN
+                    Busy := TRUE;            
+                    MC_SetPositionErrorID :=AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_ERROR;         
+                    _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
+                    _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
+                    _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
+                    _AxisReference^.Telegram111_Out.POS_STW1.PosModulo := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.NegModulo := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.SetupMode := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.MDI_Activate := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW2.Trackingmode := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW2.jog_inc := FALSE;   
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit0 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit1 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit2 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit3 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit4 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit5 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit6 := FALSE;    
+                    Parametrization.Inputs.Enable := FALSE;
+                    State := UINT#130;
+                END_IF;
+                //Read  PNU 11735 Homing mode
+                IF State = UINT#130 THEN
+                    Busy := TRUE;            
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    Parametrization.Inputs.ParameterNo := 11735;//mode
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        PNU_11735 := Parametrization.Outputs.ValueReadLINT;
+                        State := UINT#131;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_SetPositionErrorID := WORD#787;
+                        State := UINT#159;
+                    END_IF;
+                END_IF;
+                IF State = UINT#131 THEN
+                    Busy := TRUE;            
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#132;
+                    END_IF;
+                END_IF;    
+                //Write  PNU 12681 deactivate save zero offset
+                IF State = UINT#132 THEN
+                    Busy := TRUE;            
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 12681;//deactivate save zero offset
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteBOOL := FALSE;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        State := UINT#133;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_SetPositionErrorID := WORD#789;
+                        State := UINT#159;
+                    END_IF;
+                END_IF;
+                IF State = UINT#133 THEN
+                    Busy := TRUE;            
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#134;
+                    END_IF;
+                END_IF;    
+                //Read PNU 11203 Move to axis zero after homming
+                IF State = UINT#134 THEN
+                    Busy := TRUE;            
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    Parametrization.Inputs.ParameterNo := 11203;//Move to axis zero after homming
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        PNU_11203 := Parametrization.Outputs.ValueReadBool;
+                        State := UINT#135;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_SetPositionErrorID := WORD#790;
+                        State := UINT#159;
+                    END_IF;
+                END_IF;
+                IF State = UINT#135 THEN
+                    Busy := TRUE;            
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#136;
+                    END_IF;
+                END_IF; 
+                //Read PNU 11734 Axis zero point offset
+                IF State = UINT#136 THEN
+                    Busy := TRUE;            
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    Parametrization.Inputs.ParameterNo := 11734;//Move to axis zero after homming
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        PNU_11734 := Parametrization.Outputs.ValueReadLINT;
+                        State := UINT#137;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_SetPositionErrorID := WORD#791;
+                        State := UINT#159;
+                    END_IF;
+                END_IF;
+                IF State = UINT#137 THEN
+                    Busy := TRUE;            
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#138;
+                    END_IF;
+                END_IF; 
+                //Write PNU 11203 deactivate Move to axis zero after homming
+                IF State = UINT#138 THEN
+                    Busy := TRUE;            
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 11203;//Move to axis zero after homming
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteBOOL := FALSE;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        State := UINT#139;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_SetPositionErrorID := WORD#792;
+                        State := UINT#159;
+                    END_IF;
+                END_IF;
+                IF State = UINT#139 THEN
+                    Busy := TRUE;            
+                    Parametrization.Inputs.Enable := FALSE;
+                    MC_SetPositionActualPosition :=  TO_LINT(ActualPosition * -10000000000.0);
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#140;
+                    END_IF;
+                END_IF;   
+                //Write PNU 11734 Axis zero point offset
+                IF State = UINT#140 THEN
+                    Busy := TRUE;            
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 11734;//Move to axis zero after homming
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    IF Relative THEN
+                        Parametrization.Inputs.ValueWriteLINT := MC_SetPositionActualPosition + TO_LINT(Position * -10000000000.0);
+                    ELSE
+                        Parametrization.Inputs.ValueWriteLINT := TO_LINT(Position * -10000000000.0);
+                    END_IF;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        State := UINT#141;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_SetPositionErrorID := WORD#793;
+                        State := UINT#159;
+                    END_IF;
+                END_IF;
+                IF State = UINT#141 THEN
+                    Busy := TRUE;            
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#142;
+                    END_IF;
+                END_IF; 
+                //Write  PNU 11735 Homing mode
+                IF State = UINT#142 THEN
+                    Busy := TRUE;            
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 11735;//mode
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteLINT := TO_LINT(37);
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        State := UINT#143;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_SetPositionErrorID := WORD#794;
+                        State := UINT#159;
+                    END_IF;
+                END_IF;
+                IF State = UINT#143 THEN
+                    Busy := TRUE;            
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#144;
+                    END_IF;
+                END_IF;    
+                //Homing started
+                IF State = UINT#144 THEN
+                    Busy := TRUE;            
+                    _AxisReference^.Telegram111_Out.STW1.StartHoming := TRUE; 
+                    IF  NOT _AxisReference^.Telegram111_In.ZSW1.targetPosReached AND NOT _AxisReference^.Telegram111_In.ZSW1.homePosSet THEN
+                        State := UINT#145;
+                    END_IF;
+                END_IF;                                       
+                IF State = UINT#145 THEN
+                    Busy := TRUE;            
+                    IF _AxisReference^.Telegram111_In.ZSW1.targetPosReached AND _AxisReference^.Telegram111_In.ZSW1.homePosSet THEN
+                        _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
+                        State := UINT#146;
+                    END_IF;
+                END_IF;  
+                //Write PNU 11203 Move to axis zero after homming
+                IF State = UINT#146 THEN
+                    Busy := TRUE;            
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 11203;//Move to axis zero after homming
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteBool := PNU_11203;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        State := UINT#147;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_SetPositionErrorID := WORD#795;
+                        State := UINT#159;
+                    END_IF;
+                END_IF;
+                IF State = UINT#147 THEN
+                    Busy := TRUE;            
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#148;
+                    END_IF;
+                END_IF; 
+                //Write PNU 11734 Axis zero point offset
+                IF State = UINT#148 THEN
+                    Busy := TRUE;            
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 11734;//Move to axis zero after homming
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteLINT := PNU_11734;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                         State := UINT#149;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_SetPositionErrorID := WORD#796;
+                        State := UINT#159;
+                    END_IF;
+                END_IF;
+                IF State = UINT#149 THEN
+                    Busy := TRUE;            
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#150;
+                    END_IF;
+                END_IF; 
+                //Write PNU 11735 homming mode
+                IF State = UINT#150 THEN
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 11735;
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteLINT := PNU_11735;
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        State := UINT#151;
+                   END_IF;
+                   IF Parametrization.Outputs.Error THEN 
+                       MC_SetPositionErrorID := WORD#797;
+                       State := UINT#159;
+                   END_IF;
+                END_IF;
+                IF State = UINT#151 THEN
+                    Busy := TRUE;            
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#152;
+                    END_IF;
+                END_IF; 
+                IF State = UINT#152 THEN
+                    Busy := TRUE;            
+                    IF TRUE THEN
+                        State := UINT#153;
+                    END_IF;
+                END_IF; 
+                IF State = UINT#153 THEN
+                    Busy := TRUE;            
+                    IF TRUE THEN
+                        State := UINT#154;
+                    END_IF;
+                END_IF; 
+                IF State = UINT#154 THEN
+                    Busy := TRUE;            
+                    IF TRUE THEN
+                        State := UINT#155;
+                    END_IF;
+                END_IF; 
+                IF State = UINT#155 THEN
+                    Busy := TRUE;            
+                    IF TRUE THEN
+                        State := UINT#156;
+                    END_IF;
+                END_IF; 
+                IF State = UINT#156 THEN
+                    Busy := TRUE;            
+                    IF TRUE THEN
+                        State := UINT#157;
+                    END_IF;
+                END_IF; 
+                IF State = UINT#157 THEN
+                    _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE;
+                    Done := TRUE;            
+                    MC_SetPositionCycle := ULINT#0;     
+                END_IF;    
+                
+                IF State = UINT#158 THEN
+                    _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE;
+                END_IF;         
+                IF State = UINT#159 THEN
+                    _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE;
+                    MC_SetPositionCycle := ULINT#0;     
+                    Error := TRUE;    
+                END_IF;         
+                
+                IF State>=UINT#130 AND State<UINT#157 THEN
+                    IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
+                        State := UINT#158;
+                    ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent THEN
+                        IF MC_SetPositionErrorID = WORD#0 THEN
+                            MC_SetPositionErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
+                        END_IF;
+                        State := UINT#159;
+                    ELSIF _AxisReference^.Data.Cycle <> MC_SetPositionCycle THEN
+                        _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
+                        State := UINT#158;
+                    END_IF;                  
+                END_IF;                  
+            END_IF;
+
+            IF THIS.AxoSetPosition_Task.DoneReached() THEN
+                _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
+                MC_SetPositionErrorID := WORD#0;
+                MC_SetPositionCycle := ULINT#0;     
+                Parametrization.Inputs.Enable := FALSE;
+                Parametrization.Inputs.ReadWrite   := FALSE;
+                State := UINT#0;
+            END_IF;
+            IF THIS.AxoSetPosition_Task.RestoreTriggered() AND State>=UINT#20 AND State<=UINT#59 THEN
+                _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
+                MC_SetPositionErrorID := WORD#0;
+                MC_SetPositionCycle := ULINT#0;     
+                Parametrization.Inputs.Enable := FALSE;
+                Parametrization.Inputs.ReadWrite   := FALSE;
+                State := UINT#0;
+            END_IF;     
+
+            ErrorID := MC_SetPositionErrorID;
+            MC_SetPositionExecute_PV := Execute;
         END_METHOD
 
         ///<summary>
