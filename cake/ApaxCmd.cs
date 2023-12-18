@@ -5,6 +5,8 @@
 // https://github.com/ix-ax/ix/blob/master/LICENSE
 // Third party licenses: https://github.com/ix-ax/ix/blob/master/notices.md
 
+using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -19,13 +21,13 @@ using Path = System.IO.Path;
 
 public static class ApaxCmd
 {
-    public static void ApaxInstall(this BuildContext context, (string folder, string name, bool pack) lib)
+    public static void ApaxInstall(this BuildContext context, IEnumerable<string> folders)
     {
-        foreach (var folder in context.GetAxFolders(lib))
+        foreach (var folder in folders)
         {
             var apaxArguments = context.BuildParameters.DoApaxInstallReDownload ? "install -r" : "install";
 
-            context.Log.Information($"apax install started for '{lib.folder} : {lib.name}'");
+            context.Log.Information($"apax install started in '{folder}'");
             context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
             {
                 Arguments = apaxArguments,
@@ -56,12 +58,11 @@ public static class ApaxCmd
         }
     }
 
-
-    public static void ApaxBuild(this BuildContext context, (string folder, string name, bool pack) lib)
+    public static void ApaxBuild(this BuildContext context, IEnumerable<string> folders)
     {
-        foreach (var folder in context.GetAxFolders(lib))
+        foreach (var folder in folders)
         {
-            context.Log.Information($"apax build started for '{lib.folder} : {lib.name}'");
+            context.Log.Information($"apax build started for in '{folder}'");
             var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
             {
                 Arguments = "build --ignore-scripts",
@@ -81,10 +82,6 @@ public static class ApaxCmd
             }
         }
     }
-
-   
-
- 
 
     public static void ApaxUpdate(this BuildContext context, (string folder, string name, bool pack) lib)
     {
@@ -110,8 +107,6 @@ public static class ApaxCmd
             }
         }
     }
-
-  
 
     public static void ApaxPack(this BuildContext context, (string folder, string name, bool pack) lib)
     {
@@ -161,9 +156,9 @@ public static class ApaxCmd
         }
     }
 
-    public static void ApaxIxc(this BuildContext context, (string folder, string name, bool pack) lib)
+    public static void ApaxIxc(this BuildContext context, IEnumerable<string> folders)
     {
-        foreach (var folder in context.GetAxFolders(lib))
+        foreach (var folder in folders)
         {
             context.ProcessRunner.Start(Helpers.GetDotNetCommand(), new ProcessSettings()
             {
