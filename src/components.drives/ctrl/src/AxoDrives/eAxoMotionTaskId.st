@@ -2,6 +2,8 @@ NAMESPACE AXOpen.Components.Drives
     TYPE PUBLIC
         eAxoMotionTaskId :
         (		
+            Axo_None,
+            Axo_Done,
             Axo_Power,
             Axo_Home,
             Axo_Stop,

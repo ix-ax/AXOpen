@@ -85,10 +85,10 @@ scripts:
     - apax plc-mode set stop -t $AXTARGET -y
     - apax plc-mode set run -t $AXTARGET -y
   d:
-    - apax download    
+    - apax download
   do:
-    - apax download_only    
+    - apax download_only
   dd:
-    - apax delta    
+    - apax delta
 installStrategy: strict
 apaxVersion: 3.0.0

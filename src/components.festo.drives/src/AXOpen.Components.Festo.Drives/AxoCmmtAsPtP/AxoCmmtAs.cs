@@ -417,6 +417,11 @@ namespace AXOpen.Components.Festo.Drives
                 new KeyValuePair<ulong, AxoMessengerTextItem>(774, new AxoMessengerTextItem("Input variable `Deceleration` has invalid value in `MC_MoveRelative` method!",                  "Check the value of the `Deceleration` at the input of the `MC_MoveRelative` method.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(775, new AxoMessengerTextItem("Input variable `Jerk` has invalid value in `MC_MoveRelative` method!",                          "Check the value of the `Jerk` at the input of the `MC_MoveRelative` method.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(776, new AxoMessengerTextItem("Unable to write parameter PNU 12327 into the drive in `MC_MoveRelative` method!",               "Check the value of the `PNU 12327` or Module access point Hardware ID in the `MC_MoveRelative` method.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(777, new AxoMessengerTextItem("Input variable `Velocity` has invalid value in `MC_MoveAdditive` method!",                      "Check the value of the `Velocity` at the input of the `MC_MoveAdditive` method.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(778, new AxoMessengerTextItem("Input variable `Acceleration` has invalid value in `MC_MoveAdditive` method!",                  "Check the value of the `Acceleration` at the input of the `MC_MoveAdditive` method.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(779, new AxoMessengerTextItem("Input variable `Deceleration` has invalid value in `MC_MoveAdditive` method!",                  "Check the value of the `Deceleration` at the input of the `MC_MoveAdditive` method.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(780, new AxoMessengerTextItem("Input variable `Jerk` has invalid value in `MC_MoveAdditive` method!",                          "Check the value of the `Jerk` at the input of the `MC_MoveAdditive` method.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(781, new AxoMessengerTextItem("Unable to write parameter PNU 12327 into the drive in `MC_MoveAdditive` method!",               "Check the value of the `PNU 12327` or Module access point Hardware ID in the `MC_MoveAdditive` method.")),
 
 
         };
