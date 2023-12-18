@@ -2537,7 +2537,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     END_IF;    
                 END_IF;
                 IF State = UINT#116 THEN
-                    IF TRUE THEN      
+                    InVelocity := TRUE;            
+                    IF NOT MC_MoveVelocityContinuousUpdate_SV THEN      
                         State := UINT#117;
                     END_IF;    
                 END_IF;
