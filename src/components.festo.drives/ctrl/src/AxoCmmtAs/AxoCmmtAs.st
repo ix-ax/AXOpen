@@ -1875,13 +1875,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 END_IF;   
             END_IF;
 
-            // IF NOT Execute AND MC_MoveAbsoluteExecute_PV THEN
-            //     _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
-            //     MC_MoveAbsoluteErrorID := WORD#0;
-            //     MC_MoveAbsoluteCycle := ULINT#0;     
-            //     State := UINT#0;
-            // END_IF;
-
             IF THIS.AxoMoveAbsolute_Task.DoneReached() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
                 _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
@@ -2105,13 +2098,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     END_IF;                  
                 END_IF;   
             END_IF;
-
-            // IF NOT Execute AND MC_MoveRelativeExecute_PV THEN
-            //     _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
-            //     MC_MoveRelativeErrorID := WORD#0;
-            //     State := UINT#0;
-            //     MC_MoveRelativeCycle := ULINT#0;     
-            // END_IF;
 
             IF THIS.AxoMoveRelative_Task.DoneReached() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
@@ -2352,13 +2338,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 END_IF;   
             END_IF;
 
-            // IF NOT Execute AND MC_MoveAdditiveExecute_PV THEN
-            //     _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
-            //     MC_MoveAdditiveErrorID := WORD#0;
-            //     State := UINT#0;
-            //     MC_MoveAdditiveCycle := ULINT#0;     
-            // END_IF;
-
             IF THIS.AxoMoveAdditive_Task.DoneReached() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
                 _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
@@ -2383,14 +2362,15 @@ NAMESPACE AXOpen.Components.Festo.Drives
         /// This method commands a never ending controlled motion at a specified velocity.
         ///<summary>
         VAR INTERNAL
-            MC_MoveVelocityExecute_PV			: 	BOOL := FALSE;		//Execute - previous value                      
-            MC_MoveVelocityCallNumber			: 	INT; 				//Call number of the method MC_MoveVelocity    
-            MC_MoveVelocityFirstCall			: 	BOOL;				//First call of the method MC_MoveVelocity 	   
-            MC_MoveVelocityActive_				:	BOOL;
-            MC_MoveVelocityCommandAborted_		:	BOOL;
-            MC_MoveVelocityError_				:   BOOL;
-            MC_MoveVelocityErrorID_				:   eAxoCmmtAsErrorCode;				
-            MC_MoveVelocityContinuousUpdate_PV	:   BOOL;
+            MC_MoveVelocityExecute_PV					: 	BOOL;				//Execute - previous value
+            MC_MoveVelocityErrorID					    : 	eAxoCmmtAsErrorCode;
+            MC_MoveVelocityCycle					    : 	ULINT;
+            MC_MoveVelocityContinuousUpdate_SV          :   BOOL;
+            MC_MoveVelocityVelocity_PV                  :   LREAL;                    
+            MC_MoveVelocityAcceleration_PV              :   LREAL;                    
+            MC_MoveVelocityDeceleration_PV              :   LREAL;                                
+            MC_MoveVelocityJerk_PV                      :   LREAL;                     
+            MC_MoveVelocityDirection_PV                 :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;        
         END_VAR
         METHOD PUBLIC OVERRIDE MC_MoveVelocity
             VAR_INPUT
@@ -2414,7 +2394,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
                 Dummy : BOOL;
-                Velocity_        :   LREAL;                     
+                Velocity_   :   LREAL;                     
+                Direction_  :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;                         
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -2435,94 +2416,188 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 RETURN;
             END_IF;
 
-            IF Execute OR (NOT Execute AND MC_MoveVelocityExecute_PV) THEN (*detection of falling edge execute*)
-                MC_MoveVelocityFirstCall := TRUE;
-                IF _AxisReference^.Data.CheckAccessOK THEN
-                    IF Execute AND NOT MC_MoveVelocityExecute_PV THEN (*	raising edge of EXECUTE *)
-                        MC_MoveVelocityContinuousUpdate_PV := ContinuousUpdate;
-                        _AxisReference^.Data.CallNumberCyclic := _AxisReference^.Data.CallNumberCyclic + INT#2;
-                        MC_MoveVelocityCallNumber := _AxisReference^.Data.CallNumberCyclic;
-                        _AxisReference^.Data.WriteCommand:= TRUE;
-                        _AxisReference^.Data.HomingReq:= FALSE;
-            (*			Axis.Data.DriveStopReq:= FALSE;*)
-                        _AxisReference^.Data.DriveHaltReq := FALSE;		
-                        _AxisReference^.Data.MoveVelocityReq:= TRUE;
-                        _AxisReference^.Data.TorqueControlReq:= FALSE;
-                        _AxisReference^.Data.Relative:= FALSE;
-                        _AxisReference^.Data.Additive:= FALSE;
-                        _AxisReference^.Data.Position:= 0;
-                        _AxisReference^.Data.Velocity := Velocity_;
-                        _AxisReference^.Data.Acceleration := Acceleration;
-                        _AxisReference^.Data.Deceleration := Deceleration;
-                        _AxisReference^.Data.Jerk:= Jerk;
-                        MC_MoveVelocityActive_ := TRUE;
-                        MC_MoveVelocityError_ := FALSE;
-                        MC_MoveVelocityErrorID_ :=	 AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_ERROR;
-                    END_IF;
-                ELSE
-                    MC_MoveVelocityCallNumber := MC_MoveVelocityCallNumber - INT#1;
-                    MC_MoveVelocityError_ := TRUE;
-                    MC_MoveVelocityErrorID_ :=  AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#RESOURCE_ERROR;
-                END_IF;
+            IF Velocity_> 0 THEN 
+                Direction_ := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
+            ELSE
+                Direction_ := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection;
             END_IF;
-            (************** reset of outputs *************************************)
-            IF Execute = FALSE THEN
-                MC_MoveVelocityCommandAborted_ := FALSE;
-                MC_MoveVelocityError_ := FALSE;
-                MC_MoveVelocityErrorID_ :=	 AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_ERROR;
-            END_IF;
-            (*************** detection of command finished *******************)
-            IF MC_MoveVelocityFirstCall THEN
-                IF MC_MoveVelocityCallNumber = _AxisReference^.Data.CallNumberCyclic THEN
-                    MC_MoveVelocityActive_ := TRUE;
-                    _AxisReference^.Data.CallAxis := TRUE;
-                    _AxisReference^.Data.ReadOnlyData := FALSE;
-                    // THIS.FieldBusCommunication(AxisRef := _AxisReference,CommandWriteActive=> Dummy);
-                    IF NOT _AxisReference^.Data.CommandWriteActive THEN
-                        MC_MoveVelocityActive_ := TRUE;
-                        IF MC_MoveVelocityContinuousUpdate_PV AND 
-                            (_AxisReference^.Data.Velocity <> Velocity_ OR
-                            _AxisReference^.Data.Acceleration <> Acceleration OR
-                            _AxisReference^.Data.Deceleration <> Deceleration OR
-                            _AxisReference^.Data.Jerk <> Jerk ) THEN
-                            _AxisReference^.Data.Velocity := Velocity;
-                            _AxisReference^.Data.Acceleration := Acceleration;
-                            _AxisReference^.Data.Deceleration := Deceleration;
-                            _AxisReference^.Data.Jerk:= Jerk;	
-                            _AxisReference^.Data.WriteCommand := TRUE;
-                            _AxisReference^.Data.CallAxis := TRUE;
-                            _AxisReference^.Data.ReadOnlyData := FALSE;
-                            // THIS.FieldBusCommunication(AxisRef := _AxisReference,CommandWriteActive=> Dummy);
-                        END_IF;
+                     
+            _AxisReference ?= AxisRef;
 
-                    END_IF;
-                    IF _AxisReference^.Data.Error THEN
-                        MC_MoveVelocityCallNumber := MC_MoveVelocityCallNumber - INT#1;
-                        MC_MoveVelocityActive_ := FALSE;
-                        MC_MoveVelocityError_ := TRUE;
-                        MC_MoveVelocityErrorID_ := _AxisReference^.Data.ErrorID;
-                    ELSIF _AxisReference^.Data.CallAxis THEN
-                        MC_MoveVelocityCallNumber := MC_MoveVelocityCallNumber - INT#1;
-                        MC_MoveVelocityActive_ := FALSE;
-                        MC_MoveVelocityError_ := TRUE;
-                        MC_MoveVelocityErrorID_ :=  AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#RESOURCE_ERROR;
-                    END_IF;
-                ELSE
-                    (*************** detection of command aborted ********************)
-                    IF MC_MoveVelocityActive_ THEN
-                        MC_MoveVelocityCommandAborted_ := TRUE;
-                    END_IF;
-                    MC_MoveVelocityActive_ := FALSE;
-                END_IF;
+            Messenger.ActivateOnCondition(ULINT#713,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#782, Execute AND Velocity = 0, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#783, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#784, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#785, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
+
+            IF THIS.AxoMoveVelocity_Task.StartTriggered()  THEN
+                _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_MoveVelocity;
             END_IF;
+
+            IF Execute AND NOT MC_MoveVelocityExecute_PV AND State = UINT#0 THEN
+                _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle + ULINT#2;
+                MC_MoveVelocityCycle := _AxisReference^.Data.Cycle ;
+            END_IF;
+
+            IF Execute THEN 	
+                IF NOT ContinuousUpdate THEN
+                    MC_MoveVelocityContinuousUpdate_SV := FALSE;
+                END_IF;
+
+                IF State = UINT#0 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    MC_MoveVelocityErrorID :=AXOpen.Components.Festo.Drives.eAxoCmmtAsErrorCode#NONE_ERROR;         
+                    _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
+                    _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
+                    _AxisReference^.Telegram111_Out.POS_STW1.PosModulo := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.NegModulo := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.SetupMode := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.MDI_Activate := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW2.Trackingmode := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW2.jog_inc := FALSE;   
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit0 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit1 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit2 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit3 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit4 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit5 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit6 := FALSE;    
+                    Parametrization.Inputs.Enable := FALSE;
+                    MC_MoveVelocityContinuousUpdate_SV := ContinuousUpdate;
+                    State := UINT#110;
+                END_IF;
+                IF State = UINT#110 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;   
+                    IF Velocity <> 0 AND Acceleration > 0 AND Deceleration >0 AND Jerk > 0 THEN
+                        _AxisReference^.Telegram111_Out.MDI_TARPOS := DINT#0;
+                        _AxisReference^.Telegram111_Out.MDI_VELOCITY :=  TO_DINT(ABS(Velocity_) *ScalingConstantRequiredVelocity);
+                        _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration);
+                        _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration);                     
+
+                        MC_MoveVelocityVelocity_PV      :=  Velocity_;                  
+                        MC_MoveVelocityAcceleration_PV  :=  Acceleration;              
+                        MC_MoveVelocityDeceleration_PV  :=  Deceleration;              
+                        MC_MoveVelocityJerk_PV          :=  Jerk;                      
+                        MC_MoveVelocityDirection_PV     :=  Direction_;                                         
+                        State := UINT#111;
+                    END_IF;
+                END_IF;
+                //Writing PNU 12327 Jerk
+                IF State = UINT#111 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 12327;
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.MAP_HW_ID;
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveVelocityJerk_PV);
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        State := UINT#112;
+                    END_IF;
+                    IF Parametrization.Outputs.Error THEN 
+                        MC_MoveVelocityErrorID := WORD#786;
+                        State := UINT#119;
+                    END_IF;
+                END_IF;
+                IF State = UINT#112 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    Parametrization.Inputs.Enable := FALSE;
+                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    IF  NOT Parametrization.Outputs.Done THEN
+                        State := UINT#113;
+                    END_IF;
+                END_IF;               
+                //Executing movement
+                IF State = UINT#113 THEN
+                    _AxisReference^.Telegram111_Out.POS_STW1.MDI_Activate := TRUE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := TRUE; 
+                    _AxisReference^.Telegram111_Out.POS_STW1.SetupMode := TRUE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.PosModulo := Direction_ = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
+                    _AxisReference^.Telegram111_Out.POS_STW1.NegModulo := Direction_ = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection;
+                    _AxisReference^.Telegram111_Out.STW1.activateTraversing := TRUE;     
+   
+                    IF _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated THEN      
+                        State := UINT#114;
+                    END_IF;    
+                END_IF;
+                IF State = UINT#114 THEN
+                    // _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE;        
+                    IF NOT _AxisReference^.Telegram111_In.ZSW1.targetPosReached  AND NOT _AxisReference^.Telegram111_In.ZSW1.axisAccelerates THEN      
+                        State := UINT#115;
+                    END_IF;    
+                END_IF;
+                IF State = UINT#115 THEN
+                    IF TRUE THEN      
+                        State := UINT#116;
+                    END_IF;    
+                END_IF;
+                IF State = UINT#116 THEN
+                    IF TRUE THEN      
+                        State := UINT#117;
+                    END_IF;    
+                END_IF;
+                IF State = UINT#117 THEN
+                    InVelocity := TRUE;            
+                    MC_MoveVelocityCycle := ULINT#0;     
+                END_IF;         
+                IF State = UINT#118 THEN
+                    CommandAborted := TRUE;            
+                END_IF;         
+                IF State = UINT#119 THEN
+                    MC_MoveVelocityCycle := ULINT#0;     
+                    Error := TRUE;    
+                END_IF;         
+                
+                IF State>=UINT#110 AND State<UINT#117 THEN
+                    IF MC_MoveVelocityContinuousUpdate_SV AND (
+                        MC_MoveVelocityVelocity_PV      <>  Velocity_ OR                  
+                        MC_MoveVelocityAcceleration_PV  <>  Acceleration OR              
+                        MC_MoveVelocityDeceleration_PV  <>  Deceleration OR              
+                        MC_MoveVelocityJerk_PV          <>  Jerk OR                      
+                        MC_MoveVelocityDirection_PV     <>  Direction_ ) THEN
+                        _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE;        
+                        IF NOT _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated THEN    
+                            State := UINT#110;
+                        END_IF;   
+                    END_IF;   
+                    IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
+                        State := UINT#118;
+                    ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent THEN
+                        IF MC_MoveVelocityErrorID = WORD#0 THEN
+                            MC_MoveVelocityErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
+                        END_IF;
+                        State := UINT#119;
+                    ELSIF _AxisReference^.Data.Cycle <> MC_MoveVelocityCycle THEN
+                        _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
+                        State := UINT#118;
+                    END_IF;                  
+                END_IF;   
+            END_IF;
+
+            IF THIS.AxoMoveVelocity_Task.DoneReached() THEN
+                _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
+                _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
+                MC_MoveVelocityErrorID := WORD#0;
+                MC_MoveVelocityCycle := ULINT#0;     
+                State := UINT#0;
+            END_IF;
+
+            IF THIS.AxoMoveVelocity_Task.RestoreTriggered() AND State>=UINT#110 AND State<=UINT#119 THEN
+                _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
+                _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
+                MC_MoveVelocityErrorID := WORD#0;
+                MC_MoveVelocityCycle := ULINT#0;     
+                State := UINT#0;
+            END_IF;     
+
+            ErrorID := MC_MoveVelocityErrorID;
             MC_MoveVelocityExecute_PV := Execute;
-            
-            Active			:=   MC_MoveVelocityActive_ ;		
-            InVelocity		:=   Active AND _AxisReference^.Data.SetpointReached;		
-            Busy 			:= 	 Active AND NOT InVelocity;	      
-            CommandAborted	:=   MC_MoveVelocityCommandAborted_;	
-            Error			:=   MC_MoveVelocityError_;			       
-            ErrorID			:=   MC_MoveVelocityErrorID_;			     
+		     
         END_METHOD
 
         ///<summary>
