@@ -27,6 +27,7 @@ namespace AXOpen.Core
         private bool containsDetailsAttribute;
         private IEnumerable<string> tabNames = new List<string>();
         private IEnumerable<ClaimsIdentity> identities;
+        private IEnumerable<ITwinObject> detailsTabs;
 
         [Parameter]
         public bool IsControllable { get; set; }
@@ -59,14 +60,24 @@ namespace AXOpen.Core
             return twinObject.GetKids().Where(p => p.GetAttribute<ComponentDetailsAttribute>() != null);
         }
 
+
+        private ITwinObject header;
         private ITwinObject Header
         {
             get
             {
-                return new ComponentGroupContext(this.Component, this.Component.GetKids().Where(p => p.GetAttribute<ComponentHeaderAttribute>() != null).ToList());
+                return header = header ?? new ComponentGroupContext(this.Component,
+                    this.Component.GetKids().Where(p => p.GetAttribute<ComponentHeaderAttribute>() != null)
+                        .ToList());
             }
         }
-        private IEnumerable<ITwinObject> DetailsTabs => CreateDetailsTabs();
+
+        private IEnumerable<ITwinObject> DetailsTabs
+        {
+            get { return detailsTabs = detailsTabs ?? CreateDetailsTabs(); } 
+        }
+
+        
 
         private IEnumerable<ITwinObject> CreateDetailsTabs()
         {

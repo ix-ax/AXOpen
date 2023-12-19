@@ -2,7 +2,7 @@ name: "app_axopen.components.festo.drives"
 version: 0.0.0
 type: app
 targets:
-  #- plcsim
+  - plcsim
   #- llvm
   - "1500"
 variables:
