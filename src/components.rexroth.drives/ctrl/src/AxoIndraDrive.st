@@ -330,7 +330,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 ELSIF _AxisReference^.Data.DiscreteMotion THEN
                     DriveState := AXOpen.Components.Drives.eAxoDriveState#DiscreteMotion;
                 ELSIF _AxisReference^.Data.ContinuousMotion THEN
-                    DriveState := AXOpen.Components.Drives.eAxoDriveState#ContinousMotion;
+                    DriveState := AXOpen.Components.Drives.eAxoDriveState#ContinuousMotion;
                 ELSIF _AxisReference^.Data.SynchronizedMotion THEN
                     DriveState := AXOpen.Components.Drives.eAxoDriveState#SynchronizedMotion;
                 ELSIF _AxisReference^.Data.DriveStopReq THEN
@@ -379,7 +379,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 DPV1ParameterNumber		:	BOOL;			//Parameter numbers according to DPV1
                 ParameterNumber			:	DINT;			//Parameter number
                 WriteValueReal			:	REAL;			//REAL value of the individual parameter with weighting
-                WriteValueDint			:	DINT;			//DINT value of the individual parameter without weighting
+                WriteValueLint			:	LINT;			//DINT value of the individual parameter without weighting
             END_VAR
             VAR_OUTPUT
                 Done 					:	BOOL; 			//Reading/writing of the individual parameter completed, output variables valid
@@ -521,7 +521,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         IF SelectDataType = UINT#2 THEN
                             AcyclicCommWriteValue:= TO_DINT(WriteValueReal * EXP(LN(10) * AcyclicCommDecimalPlaces_)) (*signed decimal*);
                         ELSE
-                            AcyclicCommWriteValue:= WriteValueDint;
+                            AcyclicCommWriteValue:= TO_DINT(WriteValueLint);
                         END_IF;
                         AcyclicCommWriteValueDW := TO_DWORD(AcyclicCommWriteValue);
                         IF AcyclicCommDataLengthRead_ = UINT#2 (*4-byte value*)THEN
@@ -686,7 +686,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DPV1ParameterNumber := DPV1ParameterNumber,
                     ParameterNumber:= AxisRef^.Data.ParameterNumber,
                     WriteValueReal:= AxisRef^.Data.WriteValueReal ,
-                    WriteValueDint:= AxisRef^.Data.WriteValueDint,
+                    WriteValueLint:= AxisRef^.Data.WriteValueLint,
                     Done=>AxisRef^.Data.DoneAcyclicCommunication,
                     Active=> AxisRef^.Data.ActiveAcyclicCommunication,
                     DataLengthRead=> AxisRef^.Data.DataLengthRead,
@@ -2362,6 +2362,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 ContinuousUpdate:   BOOL;                       //  Activate ‘ContinuousUpdate’ - target parameters should be changed during movement
                 Torque          :   LREAL;                      //  Value of the torque (Torque or force in technical unit [u])
                 TorqueRamp      :   LREAL;                      //  The maximum time derivative of the set value of the torque or force (in technical unit per sec. [u/s]) 
+                PositionLimit   :   LREAL;                      //  PositionLimit
                 Velocity        :   LREAL;                      //  Absolute value of the maximum velocity.
                 Acceleration    :   LREAL;                      //  Value of the maximum acceleration (acceleration is applicable with same sign of torque and velocity)
                 Deceleration    :   LREAL;                      //  Value of the maximum deceleration (deceleration is applicable with opposite signs of torque and velocity)
@@ -2380,6 +2381,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference;
                 Dummy : BOOL;
                 Torque_          :   LREAL;
+                PositiveDirection_  : BOOL;
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -2400,9 +2402,22 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 RETURN;
             END_IF; 
 
-                        
+            PositiveDirection_ := Torque_ > 0;                        
+
+            
             IF Execute OR (NOT Execute AND MC_TorqueControlExecute_PV) THEN (*detection of falling edge execute*)
                 MC_TorqueControlFirstCall := TRUE;
+                IF PositiveDirection_  AND THIS.ActualPosition >= PositionLimit THEN
+                    _AxisReference^.Data.DriveHaltReq := TRUE;		
+                    _AxisReference^.Data.MoveVelocityReq:= FALSE;
+                    _AxisReference^.Data.TorqueControlReq:= FALSE;
+                    RETURN;
+                ELSIF NOT PositiveDirection_  AND THIS.ActualPosition <= PositionLimit THEN
+                    _AxisReference^.Data.DriveHaltReq := TRUE;		
+                    _AxisReference^.Data.MoveVelocityReq:= FALSE;
+                    _AxisReference^.Data.TorqueControlReq:= FALSE;
+                    RETURN;
+                END_IF;
                 IF _AxisReference^.Data.CheckAccessOK THEN
                     IF Execute AND NOT MC_TorqueControlExecute_PV THEN (*raising edge of EXECUTE *)
                         MC_TorqueControlContinuousUpdate_PV := ContinuousUpdate;
@@ -2752,7 +2767,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
-                Value           :   DINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
+                Value           :   LINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference;
@@ -3026,7 +3041,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Write the value of the parameter at rising edge
                 ParameterNumber :   DINT;                       //  Number of the parameter (correspondence between number andparameter is specified in the table above)
-                Value           :   DINT;                       //  New value of the specified parameter
+                Value           :   LINT;                       //  New value of the specified parameter
                 ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
             VAR_OUTPUT
@@ -3058,7 +3073,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                             _AxisReference^.Data.WriteParameter := TRUE;
                             _AxisReference^.Data.SelectDataType := UINT#1;
                             _AxisReference^.Data.ParameterNumber := ParameterNumber;
-                            _AxisReference^.Data.WriteValueDint := Value;
+                            _AxisReference^.Data.WriteValueLint := Value;
                             MC_WriteParameterError_ := FALSE;
                             MC_WriteParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
                         ELSE
@@ -3540,8 +3555,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             MC_WriteDigitalOutputError_				:	BOOL;				
             MC_WriteDigitalOutputErrorID_			:	eAxoIndraDriveErrorCode;			
             MC_WriteDigitalOutputState_				:	UINT;		
-            MC_WriteDigitalOutputValueRead_ 		:	DINT;		
-            MC_WriteDigitalOutputValueToWrite_		:	DINT;		
+            MC_WriteDigitalOutputValueRead_ 		:	LINT;		
+            MC_WriteDigitalOutputValueToWrite_		:	LINT;		
         END_VAR
         METHOD PUBLIC OVERRIDE MC_WriteDigitalOutput
             VAR_INPUT
@@ -3609,7 +3624,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                 _AxisReference^.Data.WriteParameter := TRUE;
                                 _AxisReference^.Data.SelectDataType := UINT#1;
                                 _AxisReference^.Data.ParameterNumber := DINT#33072; (*P-0-0304, Digital outputs, output image device*)
-                                _AxisReference^.Data.WriteValueDint := MC_WriteDigitalOutputValueToWrite_;
+                                _AxisReference^.Data.WriteValueLint := MC_WriteDigitalOutputValueToWrite_;
                                 MC_WriteDigitalOutputError_ := FALSE;
                                 MC_WriteDigitalOutputErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
                             ELSE

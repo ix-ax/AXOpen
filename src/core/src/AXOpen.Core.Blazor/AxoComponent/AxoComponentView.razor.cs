@@ -60,7 +60,6 @@ namespace AXOpen.Core
             return twinObject.GetKids().Where(p => p.GetAttribute<ComponentDetailsAttribute>() != null);
         }
 
-
         private ITwinObject header;
         private ITwinObject Header
         {
@@ -71,13 +70,7 @@ namespace AXOpen.Core
                         .ToList());
             }
         }
-
-        private IEnumerable<ITwinObject> DetailsTabs
-        {
-            get { return detailsTabs = detailsTabs ?? CreateDetailsTabs(); } 
-        }
-
-        
+        private IEnumerable<ITwinObject> DetailsTabs => CreateDetailsTabs();
 
         private IEnumerable<ITwinObject> CreateDetailsTabs()
         {
