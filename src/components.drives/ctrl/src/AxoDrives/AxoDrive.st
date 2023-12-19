@@ -100,7 +100,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-set:AttributeName = "<#Halt decceleration#>"}
             AxoHalt_Deceleration                    :   LREAL   :=  1.0;                     
             {#ix-attr:[ComponentDetails("Administrative")]}
-            {#ix-set:AttributeName = "<#Halt decceleration#>"}
+            {#ix-set:AttributeName = "<#Halt jerk#>"}
             AxoHalt_Jerk                            :   LREAL   :=  1.0;     
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Halt done#>"}
@@ -518,7 +518,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read parameter value#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoReadParameter_Value                  :   DINT;          
+            AxoReadParameter_Value                  :   LINT;          
             //***********ReadRealParameter************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -588,7 +588,7 @@ NAMESPACE AXOpen.Components.Drives
             AxoWriteParameter_ParameterNumber       :   DINT;                    
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter value#>"}
-            AxoWriteParameter_Value                 :   DINT;                     
+            AxoWriteParameter_Value                 :   LINT;                     
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter execution mode#>"}
             AxoWriteParameter_ExecutionMode         :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode :=  AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately;                  
@@ -1189,7 +1189,7 @@ NAMESPACE AXOpen.Components.Drives
             _AxoReadBoolParameter_ParameterNumber   :   DINT;
             //***********WriteParameter***********************
             _AxoWriteParameter_ParameterNumber      :   DINT;                    
-            _AxoWriteParameter_Value                :   DINT;                     
+            _AxoWriteParameter_Value                :   LINT;                     
             _AxoWriteParameter_ExecutionMode        :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                  
             //***********WriteRealParameter***********************
             _AxoWriteRealParameter_ParameterNumber  :   DINT;                    
@@ -1707,7 +1707,7 @@ NAMESPACE AXOpen.Components.Drives
                 END_IF;
             END_IF;
             //******************************************
-            IF DriveState = eAxoDriveState#ContinousMotion AND (ActualVelocity > 0.5 AND NOT EnablePositive OR ActualVelocity < -0.5 AND NOT EnableNegative) THEN
+            IF DriveState = eAxoDriveState#ContinuousMotion AND (ActualVelocity > 0.5 AND NOT EnablePositive OR ActualVelocity < -0.5 AND NOT EnableNegative) THEN
                 _disabledDuringMovement := TRUE;
                 IF AxoMoveVelocity_Task.IsBusy() THEN
                     AxoMoveVelocity_Task.Restore();
@@ -2757,7 +2757,7 @@ NAMESPACE AXOpen.Components.Drives
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
-                Value           :   DINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
+                Value           :   LINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
 
             IF Enable THEN
@@ -2849,7 +2849,7 @@ NAMESPACE AXOpen.Components.Drives
         METHOD PUBLIC AxoWriteParameter : IAxoTaskState
             VAR_INPUT
                 ParameterNumber :   DINT;                       //  Number of the parameter (correspondence between number andparameter is specified in the table above)
-                Value           :   DINT;                       //  New value of the specified parameter
+                Value           :   LINT;                       //  New value of the specified parameter
                 ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
             VAR_OUTPUT
@@ -3621,7 +3621,7 @@ NAMESPACE AXOpen.Components.Drives
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
-                Value           :   DINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
+                Value           :   LINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
         END_METHOD
 
@@ -3672,7 +3672,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Write the value of the parameter at rising edge
                 ParameterNumber :   DINT;                       //  Number of the parameter (correspondence between number andparameter is specified in the table above)
-                Value           :   DINT;                       //  New value of the specified parameter
+                Value           :   LINT;                       //  New value of the specified parameter
                 ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
             VAR_OUTPUT
@@ -3861,7 +3861,7 @@ NAMESPACE AXOpen.Components.Drives
                 Homing          :   BOOL;                       //  See state diagram
                 Standstill      :   BOOL;                       //  See state diagram
                 DiscreteMotion  :   BOOL;                       //  See state diagram
-                ContinuousMotion:   BOOL;                       //  See state diagram
+                ContinousMotion :   BOOL;                       //  See state diagram
                 SynchronizedMotion: BOOL;                       //  See state diagram
             END_VAR
         END_METHOD

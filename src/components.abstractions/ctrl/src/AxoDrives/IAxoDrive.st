@@ -175,7 +175,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
-                Value           :   DINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
+                Value           :   LINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
         END_METHOD
         METHOD AxoReadRealParameter : AXOpen.Core.IAxoToggleTask
@@ -207,7 +207,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
         METHOD AxoWriteParameter :   AXOpen.Core.IAxoTaskState
             VAR_INPUT
                 ParameterNumber :   DINT;                       //  Number of the parameter (correspondence between number andparameter is specified in the table above)
-                Value           :   DINT;                       //  New value of the specified parameter
+                Value           :   LINT;                       //  New value of the specified parameter
                 ExecutionMode   :   eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
             VAR_OUTPUT
