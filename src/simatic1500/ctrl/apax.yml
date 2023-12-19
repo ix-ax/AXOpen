@@ -15,4 +15,4 @@ scripts:
   postbuild:
     - dotnet ixc
 installStrategy: strict
-apaxVersion: 3.0.0
+apaxVersion: 3.1.0
