@@ -238,6 +238,7 @@ NAMESPACE AXOpen.Components.Drives
                 ContinuousUpdate:   BOOL;                       //  Activate ‘ContinuousUpdate’ - target parameters should be changed during movement
                 Torque          :   LREAL;                      //  Value of the torque (Torque or force in technical unit [u])
                 TorqueRamp      :   LREAL;                      //  The maximum time derivative of the set value of the torque or force (in technical unit per sec. [u/s]) 
+                PositionLimit   :   LREAL;                      //  Position limit
                 Velocity        :   LREAL;                      //  Absolute value of the maximum velocity.
                 Acceleration    :   LREAL;                      //  Value of the maximum acceleration (acceleration is applicable with same sign of torque and velocity)
                 Deceleration    :   LREAL;                      //  Value of the maximum deceleration (deceleration is applicable with opposite signs of torque and velocity)
@@ -314,7 +315,7 @@ NAMESPACE AXOpen.Components.Drives
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
-                Value           :   DINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
+                Value           :   LINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
             ;					          
         END_METHOD
@@ -365,7 +366,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Write the value of the parameter at rising edge
                 ParameterNumber :   DINT;                       //  Number of the parameter (correspondence between number andparameter is specified in the table above)
-                Value           :   DINT;                       //  New value of the specified parameter
+                Value           :   LINT;                       //  New value of the specified parameter
                 ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
             VAR_OUTPUT

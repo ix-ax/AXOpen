@@ -100,7 +100,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-set:AttributeName = "<#Halt decceleration#>"}
             AxoHalt_Deceleration                    :   LREAL   :=  1.0;                     
             {#ix-attr:[ComponentDetails("Administrative")]}
-            {#ix-set:AttributeName = "<#Halt decceleration#>"}
+            {#ix-set:AttributeName = "<#Halt jerk#>"}
             AxoHalt_Jerk                            :   LREAL   :=  1.0;     
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Halt done#>"}
@@ -378,54 +378,57 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Continuous motion")]}
-            {#ix-set:AttributeName = "<#Move torque task#>"}
+            {#ix-set:AttributeName = "<#Torque control task#>"}
             AxoTorqueControl_Task                   :   AXOpen.Core.AxoTask;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
-            {#ix-set:AttributeName = "<#Move torque continuous update#>"}
+            {#ix-set:AttributeName = "<#Torque control continuous update#>"}
             AxoTorqueControl_ContinuousUpdate       :   BOOL;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
-            {#ix-set:AttributeName = "<#Move torque torque#>"}
+            {#ix-set:AttributeName = "<#Torque control torque#>"}
             AxoTorqueControl_Torque                 :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
-            {#ix-set:AttributeName = "<#Move torque torque ramp#>"}
+            {#ix-set:AttributeName = "<#Torque control torque ramp#>"}
             AxoTorqueControl_TorqueRamp             :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
-            {#ix-set:AttributeName = "<#Move torque velocity#>"}
+            {#ix-set:AttributeName = "<#Torque control position limit#>"}
+            AxoTorqueControl_PositionLimit               :   LREAL   :=  1.0;
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
+            {#ix-set:AttributeName = "<#Torque control velocity#>"}
             AxoTorqueControl_Velocity               :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
-            {#ix-set:AttributeName = "<#Move torque acceleration#>"}
+            {#ix-set:AttributeName = "<#Torque control acceleration#>"}
             AxoTorqueControl_Acceleration           :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
-            {#ix-set:AttributeName = "<#Move torque deceleration#>"}
+            {#ix-set:AttributeName = "<#Torque control deceleration#>"}
             AxoTorqueControl_Deceleration           :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
-            {#ix-set:AttributeName = "<#Move torque jerk#>"}
+            {#ix-set:AttributeName = "<#Torque control jerk#>"}
             AxoTorqueControl_Jerk                   :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
-            {#ix-set:AttributeName = "<#Move torque direction#>"}
+            {#ix-set:AttributeName = "<#Torque control direction#>"}
             AxoTorqueControl_Direction              :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection    := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
-            {#ix-set:AttributeName = "<#Move torque in torque#>"}
+            {#ix-set:AttributeName = "<#Torque control in torque#>"}
             {#ix-attr:[ReadOnly()]}
             AxoTorqueControl_InTorque               :   BOOL;                   
             {#ix-attr:[ComponentDetails("Continuous motion")]}
-            {#ix-set:AttributeName = "<#Move torque busy#>"}
+            {#ix-set:AttributeName = "<#Torque control busy#>"}
             {#ix-attr:[ReadOnly()]}
             AxoTorqueControl_Busy                   :   BOOL;                   
             {#ix-attr:[ComponentDetails("Continuous motion")]}
-            {#ix-set:AttributeName = "<#Move torque active#>"}
+            {#ix-set:AttributeName = "<#Torque control active#>"}
             {#ix-attr:[ReadOnly()]}
             AxoTorqueControl_Active                 :   BOOL;                   
             {#ix-attr:[ComponentDetails("Continuous motion")]}
-            {#ix-set:AttributeName = "<#Move torque aborted#>"}
+            {#ix-set:AttributeName = "<#Torque control aborted#>"}
             {#ix-attr:[ReadOnly()]}
             AxoTorqueControl_CommandAborted         :   BOOL;                                 
             {#ix-attr:[ComponentDetails("Continuous motion")]}
-            {#ix-set:AttributeName = "<#Move torque error#>"}
+            {#ix-set:AttributeName = "<#Torque control error#>"}
             {#ix-attr:[ReadOnly()]}
             AxoTorqueControl_Error                  :   BOOL;                   
             {#ix-attr:[ComponentDetails("Continuous motion")]}
-            {#ix-set:AttributeName = "<#Move torque error ID#>"}
+            {#ix-set:AttributeName = "<#Torque control error ID#>"}
             {#ix-attr:[ReadOnly()]}
             AxoTorqueControl_ErrorID                :   WORD;                   
             //***********SetPosition**************************
@@ -518,7 +521,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read parameter value#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoReadParameter_Value                  :   DINT;          
+            AxoReadParameter_Value                  :   LINT;          
             //***********ReadRealParameter************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -588,7 +591,7 @@ NAMESPACE AXOpen.Components.Drives
             AxoWriteParameter_ParameterNumber       :   DINT;                    
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter value#>"}
-            AxoWriteParameter_Value                 :   DINT;                     
+            AxoWriteParameter_Value                 :   LINT;                     
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter execution mode#>"}
             AxoWriteParameter_ExecutionMode         :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode :=  AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately;                  
@@ -1168,6 +1171,7 @@ NAMESPACE AXOpen.Components.Drives
             _AxoTorqueControl_ContinuousUpdate      :   BOOL;
             _AxoTorqueControl_Torque                :   LREAL;
             _AxoTorqueControl_TorqueRamp            :   LREAL;
+            _AxoTorqueControl_PositionLimit         :   LREAL;
             _AxoTorqueControl_Velocity              :   LREAL;
             _AxoTorqueControl_Acceleration          :   LREAL;
             _AxoTorqueControl_Deceleration          :   LREAL;
@@ -1189,7 +1193,7 @@ NAMESPACE AXOpen.Components.Drives
             _AxoReadBoolParameter_ParameterNumber   :   DINT;
             //***********WriteParameter***********************
             _AxoWriteParameter_ParameterNumber      :   DINT;                    
-            _AxoWriteParameter_Value                :   DINT;                     
+            _AxoWriteParameter_Value                :   LINT;                     
             _AxoWriteParameter_ExecutionMode        :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                  
             //***********WriteRealParameter***********************
             _AxoWriteRealParameter_ParameterNumber  :   DINT;                    
@@ -1677,6 +1681,7 @@ NAMESPACE AXOpen.Components.Drives
                         _AxoTorqueControl_ContinuousUpdate,
                         _AxoTorqueControl_Torque, 
                         _AxoTorqueControl_TorqueRamp,
+                        _AxoTorqueControl_PositionLimit,
                         _AxoTorqueControl_Velocity,
                         _AxoTorqueControl_Acceleration,
                         _AxoTorqueControl_Deceleration,
@@ -1694,6 +1699,7 @@ NAMESPACE AXOpen.Components.Drives
                     AxoTorqueControl_ContinuousUpdate   :=  _AxoTorqueControl_ContinuousUpdate;
                     AxoTorqueControl_Torque             :=  _AxoTorqueControl_Torque;
                     AxoTorqueControl_TorqueRamp         :=  _AxoTorqueControl_TorqueRamp;
+                    AxoTorqueControl_PositionLimit      :=  _AxoTorqueControl_PositionLimit;
                     AxoTorqueControl_Velocity           :=  _AxoTorqueControl_Velocity;
                     AxoTorqueControl_Acceleration       :=  _AxoTorqueControl_Acceleration;
                     AxoTorqueControl_Deceleration       :=  _AxoTorqueControl_Deceleration;
@@ -1707,7 +1713,7 @@ NAMESPACE AXOpen.Components.Drives
                 END_IF;
             END_IF;
             //******************************************
-            IF DriveState = eAxoDriveState#ContinousMotion AND (ActualVelocity > 0.5 AND NOT EnablePositive OR ActualVelocity < -0.5 AND NOT EnableNegative) THEN
+            IF DriveState = eAxoDriveState#ContinuousMotion AND (ActualVelocity > 0.5 AND NOT EnablePositive OR ActualVelocity < -0.5 AND NOT EnableNegative) THEN
                 _disabledDuringMovement := TRUE;
                 IF AxoMoveVelocity_Task.IsBusy() THEN
                     AxoMoveVelocity_Task.Restore();
@@ -2201,16 +2207,6 @@ NAMESPACE AXOpen.Components.Drives
                 IF _messageCode = ULINT#0 THEN
                     _messageCode := TO_ULINT(AxoJog_ErrorID);
                 END_IF;
-            ELSIF NOT EnablePositive THEN
-                _warning := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := ULINT#300;
-                END_IF;
-            ELSIF NOT EnableNegative THEN
-                _warning := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := ULINT#301;
-                END_IF;
             END_IF;
 
             _category   :=  eAxoMessageCategory#Error;
@@ -2327,6 +2323,7 @@ NAMESPACE AXOpen.Components.Drives
             _AxoTorqueControl_ContinuousUpdate      := AxoTorqueControl_ContinuousUpdate;
             _AxoTorqueControl_Torque                := AxoTorqueControl_Torque;
             _AxoTorqueControl_TorqueRamp            := AxoTorqueControl_TorqueRamp;
+            _AxoTorqueControl_PositionLimit         := AxoTorqueControl_PositionLimit;
             _AxoTorqueControl_Velocity              := AxoTorqueControl_Velocity;
             _AxoTorqueControl_Acceleration          := AxoTorqueControl_Acceleration;
             _AxoTorqueControl_Deceleration          := AxoTorqueControl_Deceleration;
@@ -2659,6 +2656,7 @@ NAMESPACE AXOpen.Components.Drives
                 ContinuousUpdate:   BOOL;                       //  Activate ‘ContinuousUpdate’ - target parameters should be changed during movement
                 Torque          :   LREAL;                      //  Value of the torque (Torque or force in technical unit [u])
                 TorqueRamp      :   LREAL;                      //  The maximum time derivative of the set value of the torque or force (in technical unit per sec. [u/s]) 
+                PositionLimit   :   LREAL;                      //  Position limit.
                 Velocity        :   LREAL;                      //  Absolute value of the maximum velocity.
                 Acceleration    :   LREAL;                      //  Value of the maximum acceleration (acceleration is applicable with same sign of torque and velocity)
                 Deceleration    :   LREAL;                      //  Value of the maximum deceleration (deceleration is applicable with opposite signs of torque and velocity)
@@ -2677,6 +2675,7 @@ NAMESPACE AXOpen.Components.Drives
             _AxoTorqueControl_ContinuousUpdate  :=  ContinuousUpdate;
             _AxoTorqueControl_Torque            :=  Torque;
             _AxoTorqueControl_TorqueRamp        :=  TorqueRamp;
+            _AxoTorqueControl_PositionLimit     :=  PositionLimit;
             _AxoTorqueControl_Velocity          :=  Velocity;
             _AxoTorqueControl_Acceleration      :=  Acceleration;
             _AxoTorqueControl_Deceleration      :=  Deceleration;
@@ -2767,7 +2766,7 @@ NAMESPACE AXOpen.Components.Drives
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
-                Value           :   DINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
+                Value           :   LINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
 
             IF Enable THEN
@@ -2859,7 +2858,7 @@ NAMESPACE AXOpen.Components.Drives
         METHOD PUBLIC AxoWriteParameter : IAxoTaskState
             VAR_INPUT
                 ParameterNumber :   DINT;                       //  Number of the parameter (correspondence between number andparameter is specified in the table above)
-                Value           :   DINT;                       //  New value of the specified parameter
+                Value           :   LINT;                       //  New value of the specified parameter
                 ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
             VAR_OUTPUT
@@ -3555,6 +3554,7 @@ NAMESPACE AXOpen.Components.Drives
                 ContinuousUpdate:   BOOL;                       //  Activate ‘ContinuousUpdate’ - target parameters should be changed during movement
                 Torque          :   LREAL;                      //  Value of the torque (Torque or force in technical unit [u])
                 TorqueRamp      :   LREAL;                      //  The maximum time derivative of the set value of the torque or force (in technical unit per sec. [u/s]) 
+                PositionLimit   :   LREAL;                      //  Position limit.
                 Velocity        :   LREAL;                      //  Absolute value of the maximum velocity.
                 Acceleration    :   LREAL;                      //  Value of the maximum acceleration (acceleration is applicable with same sign of torque and velocity)
                 Deceleration    :   LREAL;                      //  Value of the maximum deceleration (deceleration is applicable with opposite signs of torque and velocity)
@@ -3631,7 +3631,7 @@ NAMESPACE AXOpen.Components.Drives
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
-                Value           :   DINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
+                Value           :   LINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
         END_METHOD
 
@@ -3682,7 +3682,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Write the value of the parameter at rising edge
                 ParameterNumber :   DINT;                       //  Number of the parameter (correspondence between number andparameter is specified in the table above)
-                Value           :   DINT;                       //  New value of the specified parameter
+                Value           :   LINT;                       //  New value of the specified parameter
                 ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
             VAR_OUTPUT
@@ -3871,7 +3871,7 @@ NAMESPACE AXOpen.Components.Drives
                 Homing          :   BOOL;                       //  See state diagram
                 Standstill      :   BOOL;                       //  See state diagram
                 DiscreteMotion  :   BOOL;                       //  See state diagram
-                ContinuousMotion:   BOOL;                       //  See state diagram
+                ContinousMotion :   BOOL;                       //  See state diagram
                 SynchronizedMotion: BOOL;                       //  See state diagram
             END_VAR
         END_METHOD
