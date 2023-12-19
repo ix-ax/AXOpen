@@ -71,10 +71,14 @@
     {
         base.OnInitialized();
 
-        Component.GetChildren().OfType<AxoSequencer>().ToList().ForEach(p => UpdateValuesOnChange(p.CurrentStep));
+        List<AxoSequencer> allSequencers = Component.GetChildren().OfType<AxoSequencer>().ToList();
 
-        Component.GetChildren().OfType<AxoSequencer>().ToList().ForEach(p => UpdateValuesOnChange(p.Status));
-
+        foreach (var sequncer in allSequencers)
+        {
+            UpdateValuesOnChange(sequncer.Status);
+            UpdateValuesOnChange(sequncer.CurrentStep.StepDescription);
+            UpdateValuesOnChange(sequncer.CurrentStep.Status);
+        }
     }
 
     private void Collapse()
