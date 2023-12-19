@@ -102,7 +102,7 @@
 @{
     void OnOpenModalWindow()
     {
-        RefreshComponent();
+        RefreshStepsInSequnce();
         this.EnableModalContent = true;
     }
 
@@ -127,15 +127,17 @@
                     <table class="table rounded-3 overflow-hidden">
                         <thead class="bg-light">
                             <tr>
+                                <th scope="col" width="30">Order</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Duration</th>
                                 <th scope="col">Start time</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var step in this.Steps.Where(p => p != null && p.Order.Cyclic != 0).Skip(3).OrderBy(p => p.Order.Cyclic))
+                            @foreach (var step in this.AllSteps.Where(p => p != null && p.Order.Cyclic != 0).OrderBy(p => p.Order.Cyclic))
                             {
                                 <tr class="@AxoStepHelper.StepRowColor(step)">
+                                    <td>@step.Order.Cyclic</td>
                                     <th scope="row">@AxoStepHelper.Description(step)</th>
                                     <td>@step.Duration.Cyclic.TotalSeconds</td>
                                     <td>@Humanizer.DateHumanizeExtensions.Humanize(step.StartTimeStamp.Cyclic, culture: CultureExtensions.Culture)</td>
@@ -147,7 +149,8 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" @onclick="RefreshComponent">Refresh</button>
+                <button type="button" class="btn btn-primary" @onclick="RefreshDurationAndStatus">Refresh steps duration</button>
+                <button type="button" class="btn btn-primary" @onclick="RefreshStepsInSequnce">Refresh steps</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="OnCloseModalWindow">Close</button>
             </div>
         </div>

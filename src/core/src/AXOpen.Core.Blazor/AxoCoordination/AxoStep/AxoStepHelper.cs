@@ -1,4 +1,6 @@
-﻿namespace AXOpen.Core
+﻿using AXSharp.Connector;
+
+namespace AXOpen.Core
 {
     public static class AxoStepHelper
     {
@@ -36,5 +38,25 @@
                     return "bg-white text-dark";
             }
         }
+
+        public static void GetPrimitivesDescription(this AxoStep step, IList<ITwinPrimitive> ListOfPrimitives)
+        {
+            ListOfPrimitives.Add(step.StepDescription);
+            ListOfPrimitives.Add(step.StartTimeStamp);
+        }
+
+        public static void GetPrimitivesDescriptionErrorDetails(this AxoStep step, IList<ITwinPrimitive> ListOfPrimitives )
+        {
+            ListOfPrimitives.Add(step.StepDescription); 
+            ListOfPrimitives.Add(step.ErrorDetails); 
+        }
+
+        public static void GetPrimitivesDurationStatus(this AxoStep step, IList<ITwinPrimitive> ListOfPrimitives)
+        {
+            ListOfPrimitives.Add(step.Status);
+            ListOfPrimitives.Add(step.Duration);
+            ListOfPrimitives.Add(step.StartTimeStamp);
+        }
+
     }
 }
