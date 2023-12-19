@@ -124,6 +124,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 ContinuousUpdate:   BOOL;                       //  Activate ‘ContinuousUpdate’ - target parameters should be changed during movement
                 Torque          :   LREAL;                      //  Value of the torque (Torque or force in technical unit [u])
                 TorqueRamp      :   LREAL;                      //  The maximum time derivative of the set value of the torque or force (in technical unit per sec. [u/s]) 
+                PositionLimit   :   LREAL;                      //  Position limit                            
                 Velocity        :   LREAL;                      //  Absolute value of the maximum velocity.
                 Acceleration    :   LREAL;                      //  Value of the maximum acceleration (acceleration is applicable with same sign of torque and velocity)
                 Deceleration    :   LREAL;                      //  Value of the maximum deceleration (deceleration is applicable with opposite signs of torque and velocity)

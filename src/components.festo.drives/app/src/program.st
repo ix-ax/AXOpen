@@ -18,8 +18,6 @@ PROGRAM MyProgram
     documentation.componentOne.PlcOutputs := REF(PlcOutputs);
     documentation.componentTwo.PlcInputs := REF(PlcInputs); 
     documentation.componentTwo.PlcOutputs := REF(PlcOutputs);
-    documentation.componentThree.PlcInputs := REF(PlcInputs); 
-    documentation.componentThree.PlcOutputs := REF(PlcOutputs);
     documentation.Run();
     documentation.InjectRtc(_rtc);
  

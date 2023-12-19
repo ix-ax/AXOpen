@@ -60,6 +60,7 @@ namespace AXOpen.Core
             return twinObject.GetKids().Where(p => p.GetAttribute<ComponentDetailsAttribute>() != null);
         }
 
+        private ITwinObject header;
         private ITwinObject Header
         {
             get

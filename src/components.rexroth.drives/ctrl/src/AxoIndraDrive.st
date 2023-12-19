@@ -2362,6 +2362,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 ContinuousUpdate:   BOOL;                       //  Activate ‘ContinuousUpdate’ - target parameters should be changed during movement
                 Torque          :   LREAL;                      //  Value of the torque (Torque or force in technical unit [u])
                 TorqueRamp      :   LREAL;                      //  The maximum time derivative of the set value of the torque or force (in technical unit per sec. [u/s]) 
+                PositionLimit   :   LREAL;                      //  PositionLimit
                 Velocity        :   LREAL;                      //  Absolute value of the maximum velocity.
                 Acceleration    :   LREAL;                      //  Value of the maximum acceleration (acceleration is applicable with same sign of torque and velocity)
                 Deceleration    :   LREAL;                      //  Value of the maximum deceleration (deceleration is applicable with opposite signs of torque and velocity)
@@ -2380,6 +2381,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference;
                 Dummy : BOOL;
                 Torque_          :   LREAL;
+                PositiveDirection_  : BOOL;
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -2400,9 +2402,22 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 RETURN;
             END_IF; 
 
-                        
+            PositiveDirection_ := Torque_ > 0;                        
+
+            
             IF Execute OR (NOT Execute AND MC_TorqueControlExecute_PV) THEN (*detection of falling edge execute*)
                 MC_TorqueControlFirstCall := TRUE;
+                IF PositiveDirection_  AND THIS.ActualPosition >= PositionLimit THEN
+                    _AxisReference^.Data.DriveHaltReq := TRUE;		
+                    _AxisReference^.Data.MoveVelocityReq:= FALSE;
+                    _AxisReference^.Data.TorqueControlReq:= FALSE;
+                    RETURN;
+                ELSIF NOT PositiveDirection_  AND THIS.ActualPosition <= PositionLimit THEN
+                    _AxisReference^.Data.DriveHaltReq := TRUE;		
+                    _AxisReference^.Data.MoveVelocityReq:= FALSE;
+                    _AxisReference^.Data.TorqueControlReq:= FALSE;
+                    RETURN;
+                END_IF;
                 IF _AxisReference^.Data.CheckAccessOK THEN
                     IF Execute AND NOT MC_TorqueControlExecute_PV THEN (*raising edge of EXECUTE *)
                         MC_TorqueControlContinuousUpdate_PV := ContinuousUpdate;

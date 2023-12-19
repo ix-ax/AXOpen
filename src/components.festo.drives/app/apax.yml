@@ -92,4 +92,4 @@ scripts:
   dd:
     - apax delta
 installStrategy: strict
-apaxVersion: 3.1.0
+apaxVersion: 3.0.0
