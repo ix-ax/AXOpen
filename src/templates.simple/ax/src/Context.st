@@ -68,7 +68,7 @@ NAMESPACE axosimple
                UnitTemplate.UnitObjects.ProcessSettings := REF(ProcessSettings.UnitTemplate);
                UnitTemplate.UnitObjects.ProcessData := REF(UnitTemplateProcessData);
                UnitTemplate.UnitObjects.Global := REF(GlobalObjects);
-               UnitTemplate.Run(THIS, Inputs^, Outputs^);
+               UnitTemplate.Run(THIS, Inputs, Outputs);
            END_IF;                           
         END_METHOD        
     END_CLASS   

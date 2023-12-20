@@ -37,26 +37,25 @@ NAMESPACE axosimple.UnitTemplate
 
         METHOD PUBLIC Run
             VAR_INPUT
-                parent : AXOpen.Core.IAxoContext;
-            END_VAR
-            VAR_IN_OUT
+                parent : IAxoContext;
+  
                 ///<summary>
                 /// Hardware input structure
                 ///</summary>
-                Inputs : axosimple.Inputs;
+                Inputs : REF_TO axosimple.Inputs; // MUST BE AS REF_TO DUE TO COMPONENTS THAT HAS REF TO ARRAYS
                 ///<summary>
                 /// Hardware output structure
                 ///</summary>
-                Outputs : axosimple.Outputs;                
+                Outputs : REF_TO  axosimple.Outputs;                
             END_VAR
             THIS.Initialize(parent);
             THIS.Execute(Inputs, Outputs);
         END_METHOD
 
         METHOD PRIVATE Execute
-            VAR_IN_OUT
-                Inputs : axosimple.Inputs;
-                Outputs : axosimple.Outputs;
+            VAR_INPUT
+                Inputs : REF_TO axosimple.Inputs;
+                Outputs : REF_TO  axosimple.Outputs;
             END_VAR
           
             // Component I/O immange and management handling.
