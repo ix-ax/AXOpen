@@ -17,7 +17,6 @@ using System.Linq;
 
 namespace AXOpen.Core
 {
-
     public partial class AxoComponentView : RenderableComplexComponentBase<AxoComponent>, IDisposable
     {
         private bool areDetailsCollapsed = true;
@@ -31,6 +30,8 @@ namespace AXOpen.Core
 
         [Parameter]
         public bool IsControllable { get; set; }
+
+        private Pocos.AXOpen.Core.AxoComponent _lastPocoValue = new();
 
         public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
         {
@@ -60,8 +61,8 @@ namespace AXOpen.Core
             return twinObject.GetKids().Where(p => p.GetAttribute<ComponentDetailsAttribute>() != null);
         }
 
-
         private ITwinObject header;
+
         private ITwinObject Header
         {
             get
@@ -74,10 +75,8 @@ namespace AXOpen.Core
 
         private IEnumerable<ITwinObject> DetailsTabs
         {
-            get { return detailsTabs = detailsTabs ?? CreateDetailsTabs(); } 
+            get { return detailsTabs = detailsTabs ?? CreateDetailsTabs(); }
         }
-
-        
 
         private IEnumerable<ITwinObject> CreateDetailsTabs()
         {
@@ -112,15 +111,34 @@ namespace AXOpen.Core
             return _detailsTabs;
         }
 
-        protected override void OnInitialized()
+        protected override async void OnInitialized()
         {
             base.OnInitialized();
             containsHeaderAttribute = this.Header.GetKids().Count() != 0;
             tabNames = GetAllTabNames(this.Component);
             containsDetailsAttribute = this.DetailsTabs.Count() != 0;
-            UpdateValuesOnChange(Component);
 
-           
+            // read variables that are needed for fist render
+            var requstedVariablesForFistRender = new List<ITwinPrimitive>() { Component._isManuallyControllable };
+            await Component.GetConnector().ReadBatchAsync(requstedVariablesForFistRender);
+
+            UpdateValuesOnChange(Component);
+        }
+
+        protected override bool ShouldRender()
+        {
+            if (_lastPocoValue._isManuallyControllable != this.Component._isManuallyControllable.LastValue)
+            {
+                saveLastPocoValue();
+                return true;
+            }
+
+            return true;
+        }
+
+        private void saveLastPocoValue()
+        {
+            _lastPocoValue._isManuallyControllable = this.Component._isManuallyControllable.LastValue;
         }
 
         protected override async Task OnInitializedAsync()
@@ -134,7 +152,6 @@ namespace AXOpen.Core
             identities = await GetClaimsIdentitiesAsync();
             await base.OnInitializedAsync();
         }
-
 
         private bool DisplayByTheRole(string role)
         {
@@ -156,58 +173,60 @@ namespace AXOpen.Core
             return false;
         }
 
-
         [Inject]
         private AuthenticationStateProvider? AuthenticationStateProvider { get; set; }
+
         private async Task<IEnumerable<ClaimsIdentity>?> GetClaimsIdentitiesAsync()
         {
             var authenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
             return authenticationState?.User?.Identities;
         }
-        private IEnumerable<AxoMessenger>? Messengers => this.Component?.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
 
+        private IEnumerable<AxoMessenger>? Messengers => this.Component?.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
 
         private eAlarmLevel AlarmLevel
         {
             get
             {
-
                 var _messengers = Messengers?.ToList();
                 if (_messengers == null) { return eAlarmLevel.NoAlarms; }
-                
+
                 if (_messengers.Any(p => p.State > eAxoMessengerState.Idle))
                 {
-                                     
                     var seriousness = (eAxoMessageCategory)_messengers.Max(p => p.Category.LastValue);
 
                     switch (seriousness)
                     {
-                        case eAxoMessageCategory.All:                            
-                        case eAxoMessageCategory.Trace:                            
-                        case eAxoMessageCategory.Debug:                            
+                        case eAxoMessageCategory.All:
+                        case eAxoMessageCategory.Trace:
+                        case eAxoMessageCategory.Debug:
                         case eAxoMessageCategory.Info:
                             return eAlarmLevel.ActiveInfo;
-                        case eAxoMessageCategory.TimedOut:                        
-                        case eAxoMessageCategory.Notification:                            
+
+                        case eAxoMessageCategory.TimedOut:
+                        case eAxoMessageCategory.Notification:
                         case eAxoMessageCategory.Warning:
                             return eAlarmLevel.ActiveWarnings;
-                        case eAxoMessageCategory.Error:                           
-                        case eAxoMessageCategory.ProgrammingError:                            
-                        case eAxoMessageCategory.Critical:                            
-                        case eAxoMessageCategory.Fatal:                            
+
+                        case eAxoMessageCategory.Error:
+                        case eAxoMessageCategory.ProgrammingError:
+                        case eAxoMessageCategory.Critical:
+                        case eAxoMessageCategory.Fatal:
                         case eAxoMessageCategory.Catastrophic:
                             return eAlarmLevel.ActiveErrors;
+
                         case eAxoMessageCategory.None:
                             break;
+
                         default:
                             break;
-                    }                   
+                    }
                 }
                 else if (_messengers.Any(p => p.State > eAxoMessengerState.NotActiveWatingAckn))
                 {
                     return eAlarmLevel.Unacknowledged;
                 }
-                
+
                 return eAlarmLevel.NoAlarms;
             }
         }
@@ -248,4 +267,3 @@ namespace AXOpen.Core
         }
     }
 }
-
