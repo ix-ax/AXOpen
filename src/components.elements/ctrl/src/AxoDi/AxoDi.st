@@ -52,14 +52,14 @@ NAMESPACE AXOpen.Elements
         METHOD PUBLIC Run
 
             VAR_INPUT
-                context : IAxoContext;
+                parent : Axopen.Core.IAxoObject;
                 inSignal: BOOL;
             END_VAR
 
-            IF (context = NULL) THEN RETURN; END_IF;
+            IF (parent = NULL) THEN RETURN; END_IF;
 
             IF THIS._context_ = NULL THEN
-                THIS.Initialize(context);
+                THIS.Initialize(parent);
                 _isTrueTask.Initialize(THIS);
                 _isFalseTask.Initialize(THIS);
             end_if;
@@ -77,9 +77,6 @@ NAMESPACE AXOpen.Elements
             IF(_isFalseTask.Execute())THEN
                 _isFalseTask.DoneWhen(THIS.IsFalse());
             END_IF;
-
-            
-
         END_METHOD
 
         /// <summary>

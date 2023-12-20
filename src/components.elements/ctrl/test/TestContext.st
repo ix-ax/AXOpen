@@ -10,10 +10,16 @@ NAMESPACE AxoIO.Tests
             _closeCounter : ULINT; 
             _RtcMock : AxoRtcMock;
             _LoggerMock : AxoLoggerMock;
+          
+        END_VAR
+
+        var PUBLIC
+            SignalParent : AxoObject;
         END_VAR
             
         METHOD PUBLIC Open : ULINT
             _openCounter := _openCounter + ULINT#1;
+            SignalParent.Initialize(this);
         END_METHOD    
 
         METHOD PUBLIC Close : ULINT

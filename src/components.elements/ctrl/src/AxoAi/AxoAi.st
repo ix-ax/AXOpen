@@ -49,14 +49,14 @@ NAMESPACE AXOpen.Elements
     METHOD PUBLIC Run 
 
         VAR_INPUT
-            context : IAxoContext;
+            parent : Axopen.Core.IAxoObject;
             inSignal: DINT;
         END_VAR
         
-        IF (context = NULL) THEN RETURN; END_IF;
+        IF (parent = NULL) THEN RETURN; END_IF;
 
         IF THIS._context_ = NULL THEN
-            THIS.Initialize(context);
+            THIS.Initialize(parent);
         end_if;
 
         _messengerDivisionByZero.Serve(THIS); 
@@ -94,7 +94,6 @@ NAMESPACE AXOpen.Elements
         _status.RawRange  := _rawRange;
         _status.RealRange := _realRange;
         _status.Scaled    := _scaled;
-
     END_METHOD
 
     

@@ -44,7 +44,7 @@ NAMESPACE AxoIO.Tests
             _testAxoAo._requiredValue := setVal;
          
 
-            _testAxoAo.Run(context, _signal);
+            _testAxoAo.Run(context.SignalParent, _signal);
         
             AxUnit.Assert.Equal(TRUE, required = TO_DINT(_testAxoAo._unscaled));
             AxUnit.Assert.Equal(TRUE, _signal = required);
@@ -77,7 +77,7 @@ NAMESPACE AxoIO.Tests
             _testAxoAo._requiredValue := setVal;
          
 
-            _testAxoAo.Run(context, _signal);
+            _testAxoAo.Run(context.SignalParent, _signal);
             _unscaledResult := TO_DINT(_testAxoAo._status.Unscaled);
 
             AxUnit.Assert.Equal(TRUE, TO_REAL(_unscaledResult - epsilon) <= required AND required <= TO_REAL(_unscaledResult + epsilon));
@@ -111,7 +111,7 @@ NAMESPACE AxoIO.Tests
             _testAxoAo._requiredValue := setVal;
          
 
-            _testAxoAo.Run(context, _signal);
+            _testAxoAo.Run(context.SignalParent, _signal);
             _unscaledResult := TO_DINT(_testAxoAo._status.Unscaled);
             AxUnit.Assert.Equal(TRUE, TO_REAL(_unscaledResult - epsilon) <= required AND required <= TO_REAL(_unscaledResult + epsilon));
             AxUnit.Assert.Equal(TRUE, _signal = TO_DINT(required));
@@ -143,7 +143,7 @@ NAMESPACE AxoIO.Tests
             _testAxoAo._requiredValue := setVal;
          
 
-            _testAxoAo.Run(context, _signal);
+            _testAxoAo.Run(context.SignalParent, _signal);
             _unscaledResult := TO_DINT(_testAxoAo._status.Unscaled);
             AxUnit.Assert.Equal(TRUE, TO_REAL(_unscaledResult - epsilon) <= required AND required <= TO_REAL(_unscaledResult + epsilon));
             AxUnit.Assert.Equal(TRUE, _signal = TO_DINT(required));
@@ -175,7 +175,7 @@ NAMESPACE AxoIO.Tests
             _testAxoAo._requiredValue := setVal;
          
 
-            _testAxoAo.Run(context, _signal);
+            _testAxoAo.Run(context.SignalParent, _signal);
             _unscaledResult := TO_DINT(_testAxoAo._status.Unscaled);
             AxUnit.Assert.Equal(TRUE, TO_REAL(_unscaledResult - epsilon) <= required AND required <= TO_REAL(_unscaledResult + epsilon));
             AxUnit.Assert.Equal(TRUE, _signal = TO_DINT(required));
@@ -207,7 +207,7 @@ NAMESPACE AxoIO.Tests
             _testAxoAo._requiredValue := setVal;
          
 
-            _testAxoAo.Run(context, _signal);
+            _testAxoAo.Run(context.SignalParent, _signal);
             _unscaledResult := TO_DINT(_testAxoAo._status.Unscaled);
             AxUnit.Assert.Equal(TRUE, TO_REAL(_unscaledResult - epsilon) <= required AND required <= TO_REAL(_unscaledResult + epsilon));
             AxUnit.Assert.Equal(TRUE, _signal = TO_DINT(required));
@@ -239,7 +239,7 @@ NAMESPACE AxoIO.Tests
             _testAxoAo._requiredValue := setVal;
          
 
-            _testAxoAo.Run(context, _signal);
+            _testAxoAo.Run(context.SignalParent, _signal);
             _unscaledResult := TO_DINT(_testAxoAo._status.Unscaled);
             AxUnit.Assert.Equal(TRUE, TO_REAL(_unscaledResult - epsilon) <= required AND required <= TO_REAL(_unscaledResult + epsilon));
             AxUnit.Assert.Equal(TRUE, _signal = TO_DINT(required));
@@ -272,7 +272,7 @@ NAMESPACE AxoIO.Tests
             _testAxoAo._requiredValue := setVal;
          
 
-            _testAxoAo.Run(context, _signal);
+            _testAxoAo.Run(context.SignalParent, _signal);
         
             _unscaledResult := TO_DINT(_testAxoAo._status.Unscaled);
             AxUnit.Assert.Equal(TRUE, TO_REAL(_unscaledResult - epsilon) <= required AND required <= TO_REAL(_unscaledResult + epsilon));
@@ -305,7 +305,7 @@ NAMESPACE AxoIO.Tests
             _testAxoAo._requiredValue := setVal;
          
 
-            _testAxoAo.Run(context, _signal);
+            _testAxoAo.Run(context.SignalParent, _signal);
         
             _unscaledResult := TO_DINT(_testAxoAo._status.Unscaled);
             AxUnit.Assert.Equal(TRUE, TO_REAL(_unscaledResult - epsilon) <= required AND required <= TO_REAL(_unscaledResult + epsilon));
