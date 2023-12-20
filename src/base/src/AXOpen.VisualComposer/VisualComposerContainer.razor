@@ -46,6 +46,11 @@
             </div>
         </ZoomableContainer>
 
+        @foreach (VisualComposerItem child in _children)
+        {
+            <VisualComposerItemModal Origin="@child" />
+        }
+
         <div class="modal fade" id="showAllModal-@Id" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">

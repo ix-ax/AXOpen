@@ -57,6 +57,7 @@ namespace AXOpen.VisualComposer
 
                 Load();
             }
+            StateHasChanged();
         }
 
         public void AddChildren(ITwinElement item)
