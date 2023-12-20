@@ -15,15 +15,17 @@ NAMESPACE axosimple
             Outputs : REF_TO axosimple.Outputs; 
             // Units - You can use snippet unitDeclaration 
 
-        StarterUnitTemplate : axosimple.StarterUnitTemplate.Unit;
-        StarterUnitTemplateProcessData : axosimple.StarterUnitTemplate.ProcessDataManager;
-        StarterUnitTemplateTechnologySettings : axosimple.StarterUnitTemplate.TechnologyDataManager;
-        
+            StarterUnitTemplate : axosimple.StarterUnitTemplate.Unit;
+            StarterUnitTemplateComponents : axosimple.StarterUnitTemplate.Components;
+            StarterUnitTemplateProcessData : axosimple.StarterUnitTemplate.ProcessDataManager;
+            StarterUnitTemplateTechnologySettings : axosimple.StarterUnitTemplate.TechnologyDataManager;
             
-        UnitTemplate : axosimple.UnitTemplate.Unit;
-        UnitTemplateProcessData : axosimple.UnitTemplate.ProcessDataManager;
-        UnitTemplateTechnologySettings : axosimple.UnitTemplate.TechnologyDataManager;
-         
+                
+            UnitTemplate : axosimple.UnitTemplate.Unit;
+            UnitTemplateComponents : axosimple.UnitTemplate.Components;
+            UnitTemplateProcessData : axosimple.UnitTemplate.ProcessDataManager;
+            UnitTemplateTechnologySettings : axosimple.UnitTemplate.TechnologyDataManager;
+              
         END_VAR      
         
         METHOD PROTECTED OVERRIDE Main    
@@ -51,20 +53,22 @@ NAMESPACE axosimple
            IF(Inputs <> NULL AND Outputs <> NULL) THEN
                ;//Units entry calls - You can use snippet unitRootCall
             
-                StarterUnitTemplate.UnitObjects.StationNumber := eStations#StarterUnitTemplate;
-                StarterUnitTemplate.UnitObjects.TechnologySettings := REF(StarterUnitTemplateTechnologySettings);
-                StarterUnitTemplate.UnitObjects.ProcessSettings := REF(ProcessSettings.StarterUnitTemplate);
-                StarterUnitTemplate.UnitObjects.ProcessData := REF(StarterUnitTemplateProcessData);
-                StarterUnitTemplate.UnitObjects.Global := REF(GlobalObjects);
-                StarterUnitTemplate.Run(THIS, Inputs^, Outputs^);
+               StarterUnitTemplate.UnitObjects.StationNumber := eStations#StarterUnitTemplate;
+               StarterUnitTemplate.UnitObjects.Components := REF(StarterUnitTemplateComponents);
+               StarterUnitTemplate.UnitObjects.TechnologySettings := REF(StarterUnitTemplateTechnologySettings);
+               StarterUnitTemplate.UnitObjects.ProcessSettings := REF(ProcessSettings.StarterUnitTemplate);
+               StarterUnitTemplate.UnitObjects.ProcessData := REF(StarterUnitTemplateProcessData);
+               StarterUnitTemplate.UnitObjects.Global := REF(GlobalObjects);
+               StarterUnitTemplate.Run(THIS, Inputs^, Outputs^);
 
 
-                UnitTemplate.UnitObjects.StationNumber := eStations#UnitTemplate;
-                UnitTemplate.UnitObjects.TechnologySettings := REF(UnitTemplateTechnologySettings);
-                UnitTemplate.UnitObjects.ProcessSettings := REF(ProcessSettings.UnitTemplate);
-                UnitTemplate.UnitObjects.ProcessData := REF(UnitTemplateProcessData);
-                UnitTemplate.UnitObjects.Global := REF(GlobalObjects);
-                UnitTemplate.Run(THIS, Inputs^, Outputs^);
+               UnitTemplate.UnitObjects.StationNumber := eStations#UnitTemplate;
+               UnitTemplate.UnitObjects.Components := REF(UnitTemplateComponents);
+               UnitTemplate.UnitObjects.TechnologySettings := REF(UnitTemplateTechnologySettings);
+               UnitTemplate.UnitObjects.ProcessSettings := REF(ProcessSettings.UnitTemplate);
+               UnitTemplate.UnitObjects.ProcessData := REF(UnitTemplateProcessData);
+               UnitTemplate.UnitObjects.Global := REF(GlobalObjects);
+               UnitTemplate.Run(THIS, Inputs^, Outputs^);
            END_IF;                           
         END_METHOD        
     END_CLASS   

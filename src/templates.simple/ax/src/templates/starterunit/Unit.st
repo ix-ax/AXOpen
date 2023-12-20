@@ -60,7 +60,7 @@ NAMESPACE axosimple.StarterUnitTemplate
             END_VAR
            
             // Component I/O immange and management handling.
-             UnitObjects.Components.Update(THIS, Inputs, Outputs);
+             UnitObjects.Components^.Update(THIS, Inputs, Outputs);
              // Process data manager
              UnitObjects.ProcessData^.Run(THIS);
              // Technology data manager
@@ -77,7 +77,7 @@ NAMESPACE axosimple.StarterUnitTemplate
              AutomatSequence.IsDisabled := GroundSequence.Status <> eAxoTaskState#Done;
              AutomatSequence.Run(THIS, REF(UnitObjects));
              // Handles service/manual mode
-             ServiceMode.Run(THIS, UnitObjects.Components);
+             ServiceMode.Run(THIS, UnitObjects.Components^);
  
              IF ServiceMode.IsBusy() THEN
                  GroundSequence.Restore();

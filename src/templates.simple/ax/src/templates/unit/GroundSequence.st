@@ -38,7 +38,7 @@ NAMESPACE axosimple.UnitTemplate
             IF Objs = NULL THEN 
                 Objs := _unitObjects;
                 
-                Components := Ref(Objs^.Components);
+                Components := Objs^.Components;
                 ProcessData := Objs^.ProcessData;
                 ProcessSettings := Objs^.ProcessSettings;
                 TechnologySettings := Objs^.TechnologySettings;
