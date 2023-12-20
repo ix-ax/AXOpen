@@ -6,6 +6,7 @@
         "scope": "st",
         "body":[
         "${1:name} : axosimple.${1:name}.Unit;",
+        "${1:name}Components : axosimple.${1:name}.Components;",
         "${1:name}ProcessData : axosimple.${1:name}.ProcessDataManager;",
         "${1:name}TechnologySettings : axosimple.${1:name}.TechnologyDataManager;",
         "$0"
@@ -19,6 +20,7 @@
         "scope": "st",
         "body":[
         "${1:name}.UnitObjects.StationNumber := eStations#${1:name};",
+        "${1:name}.UnitObjects.Components := REF(${1:name}Components);",
         "${1:name}.UnitObjects.TechnologySettings := REF(${1:name}TechnologySettings);",
         "${1:name}.UnitObjects.ProcessSettings := REF(ProcessSettings.${1:name});",
         "${1:name}.UnitObjects.ProcessData := REF(${1:name}ProcessData);",
