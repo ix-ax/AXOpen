@@ -32,6 +32,12 @@ namespace AXOpen.Core
             var task = (AxoTask)element;
             var kids = task.GetValueTags().ToList();
 
+            kids.Remove(task.Identity); 
+            kids.Remove(task.RemoteAbort); 
+            kids.Remove(task.RemoteInvoke);
+            kids.Remove(task.RemoteRestore);
+            kids.Remove(task.RemoteResume);
+
             kids.ForEach(p =>
             {
                 p.StartPolling(pollingInterval, this);
