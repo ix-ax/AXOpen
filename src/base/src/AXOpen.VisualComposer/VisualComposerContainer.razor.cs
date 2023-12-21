@@ -8,6 +8,15 @@ namespace AXOpen.VisualComposer
 {
     public partial class VisualComposerContainer
     {
+        /// <summary>
+        /// Gets or sets element for processing in a detailed view.
+        /// </summary>
+        public ITwinElement DetailsObject
+        {
+            get { return _detailsObject; }
+            set => _detailsObject = value;
+        }
+
         [Parameter]
         public ITwinObject[] Objects { get; set; }
 
@@ -24,6 +33,7 @@ namespace AXOpen.VisualComposer
 
         private List<VisualComposerItem> _children = new();
         private string? _id;
+        private ITwinElement _detailsObject;
 
         private IEnumerable<ITwinElement> _childrenOfAxoObject { get; set; }
 
