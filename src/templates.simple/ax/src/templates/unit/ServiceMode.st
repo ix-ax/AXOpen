@@ -35,10 +35,46 @@ NAMESPACE axosimple.UnitTemplate
             END_VAR
             ;
             // HERE CALL LOGIC FOR MANUAL/SERICE OPERATIONS
-            components.HorizontalCylinder.ActivateManualControl();
-            components.VerticalCylinder.ActivateManualControl();
-            components.GripperCylinder.ActivateManualControl();
-            components.PartPresenceSensor.ActivateManualControl();            
+           
+            components.DI_1.ActivateManualControl();
+            components.DI_2.ActivateManualControl();
+            // components.DI_3.ActivateManualControl();
+            // components.DI_4.ActivateManualControl();
+
+            components.DO_1.ActivateManualControl();
+            components.DO_2.ActivateManualControl();
+            // components.DO_3.ActivateManualControl();
+            // components.DO_4.ActivateManualControl();
+
+
+            components.AI_1.ActivateManualControl();
+            components.AI_2.ActivateManualControl();
+            // components.AI_3.ActivateManualControl();
+            // components.AI_4.ActivateManualControl();
+
+            components.AO_1.ActivateManualControl();
+            components.AO_2.ActivateManualControl();
+            // components.AO_3.ActivateManualControl();
+            // components.AO_4.ActivateManualControl();
+
+            components.Cylinder_1.ActivateManualControl();
+            components.Cylinder_2.ActivateManualControl();
+            // components.Cylinder_3.ActivateManualControl();
+            // components.Cylinder_4.ActivateManualControl();
+                        
+            components.Reader_1.ActivateManualControl();
+            components.Reader_2.ActivateManualControl();
+            
+            components.Camera_1.ActivateManualControl();
+            components.Camera_2.ActivateManualControl();
+
+            components.Drive_R1.ActivateManualControl();
+            components.Drive_R2.ActivateManualControl();
+        
+            components.Drive_F1.ActivateManualControl();
+            components.Drive_F2.ActivateManualControl();
+        
+
         END_METHOD
     END_CLASS
 END_NAMESPACE    

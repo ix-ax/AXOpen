@@ -15,7 +15,7 @@
 <body>
     <div class="content-wrapper">
         <UnitsSequences Component="@this.Component" ObjectCollection="new ITwinObject[]{this.Data, this.DataManger, this.TechnologySettings, this.Component}"></UnitsSequences>
-        <UnitsService ServiceTask="((dynamic)this.Component).ServiceMode" Components="((dynamic)this.Component).UnitObjects.Components"></UnitsService>
+        <UnitsService ServiceTask="((dynamic)this.Component).ServiceMode" Components="UnitComponents"></UnitsService>
     </div>
 </body>
 
@@ -110,7 +110,7 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
-                        <RenderableContentControl Context="((dynamic)this.Component)?.UnitObjects.Components" Presentation="Command-Control" />
+                        <RenderableContentControl Context="UnitComponents" Presentation="Command-Control" />
                     </div>
                 </div>
             </div>
@@ -161,5 +161,8 @@
 
     [Parameter]
     public AXOpen.Data.AxoDataEntity? SharedTechnologySettings { get; set; }
+
+    [Parameter]
+    public AxoObject? UnitComponents { get; set; }
 }
 

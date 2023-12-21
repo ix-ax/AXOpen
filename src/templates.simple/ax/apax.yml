@@ -21,6 +21,10 @@ dependencies:
   "@ix-ax/axopen.components.elements": '0.0.0-dev.0'
   "@ix-ax/axopen.components.pneumatics": '0.0.0-dev.0'
   "@ix-ax/axopen.components.cognex.vision": '0.0.0-dev.0'
+  "@ix-ax/axopen.components.drives": '0.0.0-dev.0'
+  "@ix-ax/axopen.components.rexroth.drives": '0.0.0-dev.0'
+  "@ix-ax/axopen.components.festo.drives": '0.0.0-dev.0'
+
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
   "@ax/system-strings": ^6.0.94
   "@ax/system-serde": ^6.0.94
