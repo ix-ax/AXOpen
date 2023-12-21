@@ -1,5 +1,18 @@
+USING AXOpen.Core;
 {S7.extern=ReadWrite}
 CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
+    VAR PUBLIC
+        Cu : DocumentationControllUnit;
+    END_VAR
+
+    METHOD PROTECTED OVERRIDE Main
+        Cu.Main(THIS);
+    END_METHOD
+END_CLASS
+
+{S7.extern=ReadWrite}
+CLASS DocumentationControllUnit EXTENDS AXOpen.Core.AxoObject
+
     //<AxoDiDeclaration>
     VAR PUBLIC
         _testDi : AXOpen.Elements.AxoDi;
@@ -51,7 +64,13 @@ CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
     END_VAR
     //</AxoAoInitializationArgumentsDeclaration>
 
-    METHOD PROTECTED OVERRIDE Main
+    METHOD PUBLIC Main
+        VAR_INPUT
+            parent  : IAxoContext;
+        END_VAR
+
+        THIS.Initialize(THIS);
+
         
         //<AxoDiManualControl>
         _testDi.ActivateManualControl();

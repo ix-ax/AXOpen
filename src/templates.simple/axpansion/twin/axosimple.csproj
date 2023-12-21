@@ -68,5 +68,8 @@
 	  <ProjectReference Include="..\..\..\components.abstractions\src\AXOpen.Components.Abstractions\ix_ax_axopen_components_abstractions.csproj" />
 	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj" />
 	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj" />
+	  <ProjectReference Include="..\..\..\components.drives\src\AXOpen.Components.Drives\ix_ax_axopen_components_drives.csproj" />
+	  <ProjectReference Include="..\..\..\components.rexroth.drives\src\AXOpen.Components.Rexroth.Drives\ix_ax_axopen_components_rexroth_drives.csproj" />
+	  <ProjectReference Include="..\..\..\components.festo.drives\src\AXOpen.Components.Festo.Drives\ix_ax_axopen_components_festo_drives.csproj" />
 	</ItemGroup>
 </Project>
