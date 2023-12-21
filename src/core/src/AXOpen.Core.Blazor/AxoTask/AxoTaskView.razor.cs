@@ -12,7 +12,6 @@ namespace AXOpen.Core
 {
     public partial class AxoTaskView : RenderableComplexComponentBase<AxoTask>, IDisposable
     {
-
         [Inject]
         protected AuthenticationStateProvider? AuthenticationStateProvider { get; set; }
 
@@ -30,17 +29,20 @@ namespace AXOpen.Core
 
         public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
         {
-
             var task = (AxoTask)element;
             var kids = task.GetValueTags().ToList();
 
-            
-               kids.ForEach(p =>
-               {
-                   p.StartPolling(pollingInterval, this);
-                   PolledElements.Add(p);
-               });
-               
+            kids.Remove(task.Identity); 
+            kids.Remove(task.RemoteAbort); 
+            kids.Remove(task.RemoteInvoke);
+            kids.Remove(task.RemoteRestore);
+            kids.Remove(task.RemoteResume);
+
+            kids.ForEach(p =>
+            {
+                p.StartPolling(pollingInterval, this);
+                PolledElements.Add(p);
+            });
         }
 
         private async void InvokeTask()
@@ -48,17 +50,20 @@ namespace AXOpen.Core
             AxoApplication.Current.Logger.Information($"Command `{Component.HumanReadable}` invoked by user action.", this.Component, await GetCurrentUserIdentity());
             await Component.ExecuteAsync();
         }
+
         private async void RestoreTask()
         {
             AxoApplication.Current.Logger.Information($"Command `{Component.HumanReadable}` restored by user action.", Component, await GetCurrentUserIdentity());
             Component.Restore();
             (this.Component as AxoRemoteTask)?.ResetExecution();
         }
+
         private async void AbortTask()
         {
             AxoApplication.Current.Logger.Information($"Command `{Component.HumanReadable}` aborted by user action.", Component, await GetCurrentUserIdentity());
             Component.Abort();
         }
+
         private async void ResumeTask()
         {
             AxoApplication.Current.Logger.Information($"Command `{Component.HumanReadable}` resumed by user action.", Component, await GetCurrentUserIdentity());
@@ -73,12 +78,14 @@ namespace AXOpen.Core
                 {
                     case eAxoTaskState.Done:
                         return "btn-success";
+
                     case eAxoTaskState.Error:
                         return "btn-danger";
+
                     default:
                         return "btn-primary";
                 }
-            } 
+            }
         }
 
         private bool IsTaskRunning => Component.Status.Cyclic == (ushort)eAxoTaskState.Busy;
@@ -88,6 +95,50 @@ namespace AXOpen.Core
         {
             base.OnInitialized();
             UpdateValuesOnChange(Component);
+        }
+
+        private Pocos.AXOpen.Core.AxoTask _lastPocoValue = new();
+
+        protected override bool ShouldRender()
+        {
+            if (_lastPocoValue.Status != Component.Status.LastValue)
+            {
+                SaveLastPocoValue();
+                return true;
+            }
+
+            if (_lastPocoValue.IsDisabled != IsDisabled)
+            {
+                SaveLastPocoValue();
+                return true;
+            }
+
+            if (_lastPocoValue.StartTimeStamp != Component.StartTimeStamp.LastValue)
+            {
+                SaveLastPocoValue();
+                return true;
+            }
+            if (_lastPocoValue.StartSignature != Component.StartSignature.LastValue)
+            {
+                SaveLastPocoValue();
+                return true;
+            }
+
+            return false;
+        }
+
+        private void SaveLastPocoValue()
+        {
+            _lastPocoValue.Status = Component.Status.LastValue;
+            _lastPocoValue.IsDisabled = IsDisabled;
+            _lastPocoValue.RemoteInvoke = Component.RemoteInvoke.LastValue;
+            _lastPocoValue.RemoteRestore = Component.RemoteRestore.LastValue;
+            _lastPocoValue.RemoteAbort = Component.RemoteAbort.LastValue;
+            _lastPocoValue.RemoteResume = Component.RemoteResume.LastValue;
+            _lastPocoValue.StartSignature = Component.StartSignature.LastValue;
+            _lastPocoValue.Duration = Component.Duration.LastValue;
+            _lastPocoValue.StartTimeStamp = Component.StartTimeStamp.LastValue;
+            _lastPocoValue.ErrorDetails = Component.ErrorDetails.LastValue;
         }
 
         [Parameter]

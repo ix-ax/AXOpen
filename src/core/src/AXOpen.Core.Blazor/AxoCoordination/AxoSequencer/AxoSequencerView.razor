@@ -40,23 +40,45 @@
                 <div>
                     <AuthorizeView Roles="can_skip_steps_in_sequence">
                         <Authorized>
-                            <RenderableContentControl Context="@Component.StepBackwardCommand" Presentation="@(IsControllable ? "Command" : "Status")" />
+                            @if (IsControllable)
+                            {
+                                <AXOpen.Core.AxoTaskCommandView Component="@Component.StepBackwardCommand" />
+                            }
+                            else
+                            {
+                                <AXOpen.Core.AxoTaskStatusView Component="@Component.StepBackwardCommand" />
+                            }
                         </Authorized>
                         <NotAuthorized>
-                            <RenderableContentControl Context="@Component.StepBackwardCommand" Presentation="Status" />
+                            <AXOpen.Core.AxoTaskStatusView Component="@Component.StepBackwardCommand" />
                         </NotAuthorized>
                     </AuthorizeView>
                 </div>
+
                 <div>
-                    <RenderableContentControl Context="@Component.StepIn" Presentation="@(IsControllable ? "Command" : "Status")" />
+                    @if (IsControllable)
+                    {
+                        <AXOpen.Core.AxoTaskCommandView Component="@Component.StepIn" />
+                    }
+                    else
+                    {
+                        <AXOpen.Core.AxoTaskStatusView Component="@Component.StepIn" />
+                    }
                 </div>
                 <div>
                     <AuthorizeView Roles="can_skip_steps_in_sequence">
                         <Authorized>
-                            <RenderableContentControl Context="@Component.StepForwardCommand" Presentation="@(IsControllable ? "Command" : "Status")" />
+                            @if (IsControllable)
+                            {
+                                <AXOpen.Core.AxoTaskCommandView Component="@Component.StepForwardCommand" />
+                            }
+                            else
+                            {
+                                <AXOpen.Core.AxoTaskStatusView Component="@Component.StepForwardCommand" />
+                            }
                         </Authorized>
                         <NotAuthorized>
-                            <RenderableContentControl Context="@Component.StepForwardCommand" Presentation="Status" />
+                            <AXOpen.Core.AxoTaskStatusView Component="@Component.StepForwardCommand" />
                         </NotAuthorized>
                     </AuthorizeView>
                 </div>
@@ -66,7 +88,7 @@
     @if (HasStepDetails)
     {
         <div class="row justify-content-end">
-            <button type="button" class="btn btn-primary ms-auto my-2 mx-3 col-auto" data-bs-toggle="modal" data-bs-target="#showStepsModal" @onclick="RefreshComponent">Show all steps</button>
+            <button type="button" class="btn btn-primary ms-auto my-2 mx-3 col-auto" data-bs-toggle="modal" data-bs-target="#showStepsModal" @onclick="OnOpenModalWindow">Show all steps</button>
         </div>
 
         <div class="rounded-3 overflow-hidden">
@@ -77,38 +99,59 @@
     }
 </div>
 
+@{
+    void OnOpenModalWindow()
+    {
+        RefreshStepsInSequnce();
+        this.EnableModalContent = true;
+    }
+
+    void OnCloseModalWindow()
+    {
+        this.EnableModalContent = false;
+    }
+}
+
 
 <div class="modal fade" id="showStepsModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Steps</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="OnCloseModalWindow"></button>
             </div>
             <div class="modal-body" style="max-height: calc(95vh - 200px); overflow-x: auto;">
-                <table class="table rounded-3 overflow-hidden">
-                    <thead class="bg-light">
-                        <tr>
-                            <th scope="col">Description</th>
-                            <th scope="col">Duration</th>
-                            <th scope="col">Start time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var step in this.Steps.Where(p => p != null && p.Order.Cyclic != 0).Skip(3).OrderBy(p => p.Order.Cyclic))
-                        {
-                            <tr class="@AxoStepHelper.StepRowColor(step)">
-                                <th scope="row">@AxoStepHelper.Description(step)</th>
-                                <td>@step.Duration.Cyclic.TotalSeconds</td>
-                                <td>@Humanizer.DateHumanizeExtensions.Humanize(step.StartTimeStamp.Cyclic, culture: CultureExtensions.Culture)</td>
+
+                @if (this.EnableModalContent)
+                {
+                    <table class="table rounded-3 overflow-hidden">
+                        <thead class="bg-light">
+                            <tr>
+                                <th scope="col" width="30">Order</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Duration</th>
+                                <th scope="col">Start time</th>
                             </tr>
-                        }
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach (var step in this.AllSteps.Where(p => p != null && p.Order.Cyclic != 0).OrderBy(p => p.Order.Cyclic))
+                            {
+                                <tr class="@AxoStepHelper.StepRowColor(step)">
+                                    <td>@step.Order.Cyclic</td>
+                                    <th scope="row">@AxoStepHelper.Description(step)</th>
+                                    <td>@step.Duration.Cyclic.TotalSeconds</td>
+                                    <td>@Humanizer.DateHumanizeExtensions.Humanize(step.StartTimeStamp.Cyclic, culture: CultureExtensions.Culture)</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
             </div>
+
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" @onclick="RefreshComponent">Refresh</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" @onclick="RefreshDurationAndStatus">Refresh steps duration</button>
+                <button type="button" class="btn btn-primary" @onclick="RefreshStepsInSequnce">Refresh steps</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="OnCloseModalWindow">Close</button>
             </div>
         </div>
     </div>
