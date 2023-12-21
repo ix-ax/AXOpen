@@ -56,17 +56,17 @@ NAMESPACE AXOpen.Elements
         METHOD PUBLIC Run
 
             VAR_INPUT
-                context : IAxoContext;
+                parent : Axopen.Core.IAxoObject;
             END_VAR
 
             VAR_IN_OUT
                 inoSignal: DINT;
             END_VAR
     
-            IF (context = NULL) THEN RETURN; END_IF;
+            IF (parent = NULL) THEN RETURN; END_IF;
 
             IF THIS._context_ = NULL THEN
-                THIS.Initialize(context);
+                THIS.Initialize(parent);
             end_if;
 
             _messengerDivisionByZero.Serve(THIS); 
