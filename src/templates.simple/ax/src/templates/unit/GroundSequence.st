@@ -11,6 +11,7 @@ NAMESPACE axosimple.UnitTemplate
     {S7.extern=ReadWrite}
     CLASS PUBLIC GroundSequence
         EXTENDS AXOpen.Core.AxoSequencerContainer
+        IMPLEMENTS IModeContainer
         VAR PUBLIC
             Steps : ARRAY[0..20] OF AXOpen.Core.AxoStep;      
             MoveToWork : AXOpen.Core.AxoTask;

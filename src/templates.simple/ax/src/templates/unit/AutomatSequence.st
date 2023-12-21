@@ -12,6 +12,7 @@ NAMESPACE axosimple.UnitTemplate
     {S7.extern=ReadWrite}
     CLASS PUBLIC AutomatSequence
         EXTENDS AXOpen.Core.AxoSequencerContainer
+        IMPLEMENTS IModeContainer
         VAR PUBLIC
             Steps : ARRAY[0..150] OF AXOpen.Core.AxoStep;            
         END_VAR
