@@ -18,10 +18,10 @@
 
 @code
 {
-    [Parameter]
+    [Parameter, EditorRequired]
     public ITwinObject? Components { get; set; }
 
-    [Parameter]
+    [Parameter, EditorRequired]
     public AxoTask? ServiceTask { get; set; }
 
     protected override void OnInitialized()
