@@ -5,7 +5,7 @@ VisualComposer library is for creating draggable elements in AXOpen applications
 ## Usage
 
 ~~~ HTML
-<VisualComposerContainer ImgSrc="logo-header.svg" Objects="@(new [] { Entry.Plc.Context.StarterUnitTemplate })"/>
+<VisualComposerContainer Objects="@(new[] {Entry.Plc.Context.UnitTemplate})" />
 ~~~
 
 ## VisualComposerContainer
@@ -14,11 +14,12 @@ The `VisualComposerContainer` is default component that is used to generate cust
 
 ### Attributes
 
-ImgSrc - The path to the image that will be used as the background of the container.
 Objects - The list of ITwinObject from which is been claim all children and all primitives.
+Id - The id of the container. If not specified, the id is generated automatically.
 
 ## Customizing
 
+You can pan and zoom the entire Visual Composer container by holding the Ctrl key.
 All option that is bellow is only available with role Administrator.
 
 ## Adding items
@@ -41,6 +42,8 @@ You can every item customizing with these options:
 
 ### Layout
 
+- `Save` - save current layout
 - `Save as default` - save current layout as default layout. Default layout is loaded when application is started. Its available for every user.
 - `Save as` - save current layout as new layout. Only administrator can change to this layout. (from name of new file is removed all special characters, that is not supported in file name)
-- `Remove` - show all layouts with remove button,
+- `Templates` - show all templates with remove buttons
+- `Set image` - set image for current layout

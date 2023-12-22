@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using AXSharp.Connector;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel;
 
 namespace AXOpen.VisualComposer
 {
@@ -36,11 +37,11 @@ namespace AXOpen.VisualComposer
                 TwinElement = value.TwinElement;
                 ratioImgX = value.ratioImgX;
                 ratioImgY = value.ratioImgY;
-                Transform = value.Transform;
-                Presentation = value.Presentation;
-                Width = value.Width;
-                Height = value.Height;
-                ZIndex = value.ZIndex;
+                _transform = value.Transform;
+                _presentation = value.Presentation;
+                _width = value.Width;
+                _height = value.Height;
+                _zIndex = value.ZIndex;
                 Roles = value.Roles;
 
                 Id = value.TwinElement.Symbol.ModalIdHelper();
@@ -72,8 +73,18 @@ namespace AXOpen.VisualComposer
         public double ratioImgX = 10;
         public double ratioImgY = 10;
 
-        public TransformType Transform { get; set; } = TransformType.TopCenter;
-        private string _presentation = PresentationType.StatusDisplay.Value;
+        public TransformType _transform = TransformType.TopCenter;
+        public TransformType Transform
+        {
+            get => _transform;
+            set
+            {
+                _transform = value;
+                StateHasChanged();
+            }
+        }
+
+        public string _presentation = PresentationType.StatusDisplay.Value;
         public string Presentation
         {
             get => _presentation;
@@ -81,13 +92,43 @@ namespace AXOpen.VisualComposer
             {
                 _presentation = value;
                 // CustomPresentation = !PresentationType.IsEnumValue(value);
+                StateHasChanged();
             }
         }
         public bool CustomPresentation { get; set; } = false;
 
-        public double Width = -1;
-        public double Height = -1;
-        public int ZIndex = 0;
+        public double _width = -1;
+        public double Width
+        {
+            get => _width;
+            set
+            {
+                _width = value;
+                StateHasChanged();
+            }
+        }
+
+        public double _height = -1;
+        public double Height
+        {
+            get => _height;
+            set
+            {
+                _height = value;
+                StateHasChanged();
+            }
+        }
+
+        public int _zIndex = 0;
+        public int ZIndex
+        {
+            get => _zIndex;
+            set
+            {
+                _zIndex = value;
+                StateHasChanged();
+            }
+        }
 
         public string Roles = "";
         private string _id;

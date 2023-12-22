@@ -3,13 +3,17 @@
 
 <AuthorizeView Roles="Administrator">
     <Authorized>
-        <div style="position: relative; width: 100%; height: 100%;" ondragover="event.preventDefault();">
-            @if(_imgId != null)
-            {
-                <img id="@_imgId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
-            }
+        <div class="d-flex justify-content-end my-2">
+            <div style="z-index: 100;">
+                <select class="form-select w-auto" @onchange="(ChangeEventArgs args) => Load(args.Value.ToString())">
+                    @foreach (var item in GetAllFiles())
+                    {
+                        <option value="@item" selected="@(CurrentTemplate is null || CurrentTemplate == "" ? item == "Default" ? "selected" : null : item == CurrentTemplate ? "selected" : null)">@item</option>
+                    }
+                </select>
+            </div>
 
-            <div class="dropdown position-absolute" style="left: 97%; top: 0%; translate: -100% -50%;">
+            <div class="dropdown ms-4" style="z-index: 100;">
                 <a class="dropdown-toggle text-decoration-none text-black" style="cursor: pointer;" data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="bi bi-pencil-square fs-4" aria-hidden="true" />
                 </a>
@@ -23,25 +27,35 @@
                     <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#setImageModal-@Id">Set image</a></li>
                 </ul>
             </div>
+        </div>
+        <ZoomableContainer>
+            <div ondragover="event.preventDefault();">
+                @if (_imgId != null)
+                {
+                    <img id="@_imgId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
+                }
 
-            <div class="position-absolute" style="left: 90%; top: 0%; translate: -100% -50%;">
-                <select class="form-select w-auto" @onchange="(ChangeEventArgs args) => Load(args.Value.ToString())">
-                    @foreach (var item in GetAllFiles())
-                    {
-                        <option value="@item" selected="@(CurrentTemplate is null || CurrentTemplate == "" ? item == "Default" ? "selected" : null : item == CurrentTemplate ? "selected" : null)">@item</option>
-                    }
-                </select>
+                <CascadingValue Value="@this" Name="Parent" IsFixed="true">
+                    <CascadingValue Value="@_imgId" Name="ImgId" IsFixed="true">
+                        @foreach (VisualComposerItem child in _children)
+                        {
+                            <VisualComposerItem Origin="@child" />
+                        }
+                    </CascadingValue>
+                </CascadingValue>
             </div>
+        </ZoomableContainer>
 
+        <EmptyContainer>
             <CascadingValue Value="@this" Name="Parent" IsFixed="true">
                 <CascadingValue Value="@_imgId" Name="ImgId" IsFixed="true">
                     @foreach (VisualComposerItem child in _children)
                     {
-                        <VisualComposerItem Origin="@child" />
+                        <VisualComposerItemModal Origin="@child" />
                     }
                 </CascadingValue>
             </CascadingValue>
-        </div>
+        </EmptyContainer>
 
         <div class="modal fade" id="showAllModal-@Id" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
@@ -198,16 +212,18 @@
         </div>
     </Authorized>
     <NotAuthorized>
-        <div style="position: relative; width: 100%; height: 100%;">
-            <img id="@_imgId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
-            <CascadingValue Value="@this" Name="Parent" IsFixed="true">
-                <CascadingValue Value="@_imgId" Name="ImgId" IsFixed="true">
-                    @foreach (VisualComposerItem child in _children)
-                    {
-                        <VisualComposerItem Origin="@child" />
-                    }
+        <ZoomableContainer>
+            <div style="position: relative; width: 100%; height: 100%;">
+                <img id="@_imgId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
+                <CascadingValue Value="@this" Name="Parent" IsFixed="true">
+                    <CascadingValue Value="@_imgId" Name="ImgId" IsFixed="true">
+                        @foreach (VisualComposerItem child in _children)
+                        {
+                            <VisualComposerItem Origin="@child" />
+                        }
+                    </CascadingValue>
                 </CascadingValue>
-            </CascadingValue>
-        </div>
+            </div>
+        </ZoomableContainer>
     </NotAuthorized>
 </AuthorizeView>
