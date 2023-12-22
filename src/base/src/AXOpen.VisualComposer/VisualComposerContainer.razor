@@ -35,25 +35,21 @@
                     <img id="@_imgId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
                 }
 
-                <CascadingValue Value="@this" Name="Parent" IsFixed="true">
-                    <CascadingValue Value="@_imgId" Name="ImgId" IsFixed="true">
-                        @foreach (VisualComposerItem child in _children)
-                        {
-                            <VisualComposerItem Origin="@child" />
-                        }
-                    </CascadingValue>
+                <CascadingValue Value="@((this, _imgId))" IsFixed="true">
+                    @foreach (VisualComposerItem child in _children)
+                    {
+                        <VisualComposerItem Origin="@child" />
+                    }
                 </CascadingValue>
             </div>
         </ZoomableContainer>
 
         <EmptyContainer>
-            <CascadingValue Value="@this" Name="Parent" IsFixed="true">
-                <CascadingValue Value="@_imgId" Name="ImgId" IsFixed="true">
-                    @foreach (VisualComposerItem child in _children)
-                    {
-                        <VisualComposerItemModal Origin="@child" />
-                    }
-                </CascadingValue>
+            <CascadingValue Value="@((this, _imgId))" IsFixed="true">
+                @foreach (VisualComposerItem child in _children)
+                {
+                    <VisualComposerItemModal Origin="@child" />
+                }
             </CascadingValue>
         </EmptyContainer>
 

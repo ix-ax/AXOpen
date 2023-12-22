@@ -11,22 +11,20 @@ namespace AXOpen.VisualComposer
     public partial class VisualComposerItem
     {
         private VisualComposerContainer? _parent;
+        private Guid _imgId { get; set; }
 
         [CascadingParameter(Name = "Parent")]
-        protected VisualComposerContainer? Parent
+        protected Tuple<VisualComposerContainer, Guid>? Tuple
         {
-            get => _parent;
             set
             {
-                _parent = value;
+                _parent = value.Item1;
+                _imgId = value.Item2;
 
                 if (value != null)
-                    value.AddChildren(this);
+                    value.Item1.AddChildren(this);
             }
         }
-
-        [CascadingParameter(Name = "ImgId")]
-        private Guid _imgId { get; set; }
 
         [Parameter]
         public VisualComposerItem? Origin
@@ -163,7 +161,7 @@ namespace AXOpen.VisualComposer
 
         public void Remove()
         {
-            Parent.RemoveChildren(this);
+            _parent.RemoveChildren(this);
         }
     }
 }
