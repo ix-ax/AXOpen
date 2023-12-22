@@ -56,7 +56,7 @@ namespace AXOpen.VisualComposer
                 }
 
                 Load();
-                StateHasChanged();
+                //StateHasChanged();
             }
         }
 
@@ -141,11 +141,11 @@ namespace AXOpen.VisualComposer
                         TwinElement = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper().ComputeSha256Hash() == item.Id),
                         ratioImgX = item.RatioImgX,
                         ratioImgY = item.RatioImgY,
-                        Transform = Types.TransformType.FromString(item.Transform),
-                        Presentation = item.Presentation,
-                        Width = item.Width,
-                        Height = item.Height,
-                        ZIndex = item.ZIndex,
+                        _transform = Types.TransformType.FromString(item.Transform),
+                        _presentation = item.Presentation,
+                        _width = item.Width,
+                        _height = item.Height,
+                        _zIndex = item.ZIndex,
                         Roles = item.Roles
                     });
                 }
