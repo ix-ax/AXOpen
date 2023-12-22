@@ -200,7 +200,11 @@ namespace AXOpen.VisualComposer
             }
             else
             {
-                SearchResult.Clear();
+                if (SearchResult == null)
+                    SearchResult = new();
+                else
+                    SearchResult.Clear();
+                
                 foreach (ITwinObject obj in Objects)
                 {
                     SearchResult.AddRange(obj.GetChildren().Flatten(p => p.GetChildren()).ToList().FindAll(p => p.Symbol.Contains(SearchValue, StringComparison.OrdinalIgnoreCase)));
@@ -218,7 +222,11 @@ namespace AXOpen.VisualComposer
             }
             else
             {
-                SearchResultPrimitive.Clear();
+                if (SearchResultPrimitive == null)
+                    SearchResultPrimitive = new();
+                else
+                    SearchResultPrimitive.Clear();
+
                 foreach (ITwinObject obj in Objects)
                 {
                     SearchResultPrimitive.AddRange(obj.RetrievePrimitives().ToList().FindAll(p => p.Symbol.Contains(SearchValuePrimitive, StringComparison.OrdinalIgnoreCase)));
