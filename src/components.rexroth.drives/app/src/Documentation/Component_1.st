@@ -291,6 +291,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         _i := _i + 1;
         IF(Steps[_i].Execute(Sequencer, 'Torque control')) THEN
             AxoIndraDrive_.AxoTorqueControl(Torque          := LREAL#9.5 ,
+                                            PositionLimit   :=  LREAL#100.0,
                                             Velocity        :=  LREAL#50.0,
                                             Acceleration    :=  LREAL#50.0,
                                             Deceleration    :=  LREAL#50.0,

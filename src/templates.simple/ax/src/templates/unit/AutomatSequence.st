@@ -12,6 +12,7 @@ NAMESPACE axosimple.UnitTemplate
     {S7.extern=ReadWrite}
     CLASS PUBLIC AutomatSequence
         EXTENDS AXOpen.Core.AxoSequencerContainer
+        IMPLEMENTS IModeContainer
         VAR PUBLIC
             Steps : ARRAY[0..150] OF AXOpen.Core.AxoStep;            
         END_VAR
@@ -33,7 +34,7 @@ NAMESPACE axosimple.UnitTemplate
             IF Objs = NULL THEN 
                 Objs := _unitObjects;
                 
-                Components := Ref(Objs^.Components);
+                Components := Objs^.Components;
                 ProcessData := Objs^.ProcessData;
                 ProcessSettings := Objs^.ProcessSettings;
                 TechnologySettings := Objs^.TechnologySettings;

@@ -11,7 +11,7 @@ NAMESPACE axosimple.StarterUnitTemplate
             ///<summary>
             /// Handles and intializes components used by this unit.
             ///</summary>
-            Components : axosimple.StarterUnitTemplate.Components;
+            Components : REF_TO axosimple.StarterUnitTemplate.Components;
 
             ///<summary>
             /// Provides access to process data manager of this unit

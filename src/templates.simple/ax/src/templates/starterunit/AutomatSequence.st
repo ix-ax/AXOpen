@@ -11,9 +11,9 @@ NAMESPACE axosimple.StarterUnitTemplate
     {#ix-set:AttributeName = "<#AUTOMAT#>"}
     {S7.extern=ReadWrite}
     CLASS PUBLIC AutomatSequence
-        EXTENDS AXOpen.Core.AxoSequencerContainer
+        EXTENDS AXOpen.Core.AxoSequencerContainer IMPLEMENTS IModeContainer
         VAR PUBLIC
-            Steps : ARRAY[0..25] OF AxoStep;           
+            Steps : ARRAY[0..100] OF AxoStep;    
         END_VAR
         VAR PRIVATE
             Objs : REF_TO axosimple.StarterUnitTemplate.UnitObjects;
@@ -33,7 +33,7 @@ NAMESPACE axosimple.StarterUnitTemplate
             IF Objs = NULL THEN 
                 Objs := _unitObjects;
                 
-                Components := Ref(Objs^.Components);
+                Components := Objs^.Components;
                 ProcessData := Objs^.ProcessData;
                 ProcessSettings := Objs^.ProcessSettings;
                 TechnologySettings := Objs^.TechnologySettings;
@@ -46,6 +46,10 @@ NAMESPACE axosimple.StarterUnitTemplate
         ///</summary>
 
         METHOD OVERRIDE Main
+            VAR
+                forIterator : INT := 0;       
+            END_VAR
+
             IF (Components = NULL OR ProcessData = NULL) THEN
                 RETURN;
             END_IF;
@@ -71,24 +75,28 @@ NAMESPACE axosimple.StarterUnitTemplate
                 //-------------------------------------------------------
             END_IF;
             
-            IF (Steps[2].Execute(THIS, TRUE, '<#DO SOMETHING#>')) THEN
-                //-------------------------------------------------------                
-                IF CurrentStep.Duration > TIME#2s THEN                         
-                    THIS.MoveNext();
-                END_IF;                
-                //-------------------------------------------------------
-            END_IF;
+              
+            FOR forIterator := 4 TO 98 BY 1 DO
+                IF (Steps[forIterator].Execute(THIS, TRUE,Concat('DO SOMETHING -A-',ToString(forIterator)) )) THEN
+                    //-------------------------------------------------------                
+                    IF CurrentStep.Duration > TIME#25ms THEN                         
+                        THIS.MoveNext();
+                    END_IF;                
+                    //-------------------------------------------------------
+                END_IF;
+            END_FOR;
 
-            IF (Steps[20].Execute(THIS, TRUE, '<#UPDATE DATA#>')) THEN
+            IF (Steps[99].Execute(THIS, TRUE,'<#UPDATE DATA#>')) THEN
                 //-------------------------------------------------------
                 IF (ProcessData^.Update(_currentId).IsDone()) THEN 
                     THIS.MoveNext(); 
                 END_IF;
                 //-------------------------------------------------------
-            END_IF;    
+            END_IF;  
+         
                       
             // This will close the sequence and will return to the first step.
-            THIS.Close(Steps[25]);
+            THIS.Close(Steps[100]);
         END_METHOD
     END_CLASS
 

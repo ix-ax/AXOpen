@@ -9,7 +9,7 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         PlcOutputs : REF_TO PlcOutputs;          
 
         {#ix-attr:[Container(Layout.Stack)]}
-        _testDrive  : AXOpen.Components.Festo.Drives.AxoCmmtAsPtP;
+        _testDrive  : AXOpen.Components.Festo.Drives.AxoCmmtAs;
     END_VAR
     
 

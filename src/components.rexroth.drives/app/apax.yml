@@ -79,4 +79,4 @@ scripts:
     - apax plc-mode set stop -t $AXTARGET -y
     - apax plc-mode set run -t $AXTARGET -y
 installStrategy: strict
-apaxVersion: 3.0.0
+apaxVersion: 3.1.0

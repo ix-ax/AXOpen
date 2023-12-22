@@ -1,4 +1,4 @@
-# @ix-ax/axlibname
+# @ix-ax/axopen.components.festo.drives
 
 [!INCLUDE [General](../docs/README.md)]
 
@@ -7,7 +7,7 @@
 
 ## Adding package to your project
 ~~~bash
-apax add "@ix-ax/axlibname"
+apax add "@ix-ax/axopen.components.festo.drives"
 ~~~
 
 ## Modifying your `apax.yml`
