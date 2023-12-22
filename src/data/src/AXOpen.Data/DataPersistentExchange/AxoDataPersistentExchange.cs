@@ -81,6 +81,19 @@ namespace AXOpen.Data
         /// <returns>Returns true if the write operation is successful; otherwise, false.</returns>
         public async Task<bool> WritePersistentGroupFromRepository(string group)
         {
+            // in some cases when document not exist (was deleted, added new group during runtime) needs to be created.
+            if (!Repository.Exists(group))
+            {
+                if (CollectedGroups.Contains(group))
+                {
+                    await UpdatePersistentGroupFromPlcToRepository(group);
+                }
+                else
+                {
+                    throw new Exception($"Persistent group \"{group}\" not exist in the persistent repository and not exist in the PLC controller!");
+                }
+            }
+
             var recordFromRepo = Repository.Read(group);
 
             List<ITwinPrimitive> tagsToWrite = new List<ITwinPrimitive>();
