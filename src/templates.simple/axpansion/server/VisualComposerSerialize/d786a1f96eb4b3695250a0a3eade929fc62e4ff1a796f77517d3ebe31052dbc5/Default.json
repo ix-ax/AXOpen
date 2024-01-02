@@ -1,0 +1,60 @@
+{
+  "ImgSrc": "Images/VisualComposerSerialize/d786a1f96eb4b3695250a0a3eade929fc62e4ff1a796f77517d3ebe31052dbc5/Default.png",
+  "Items": [
+    {
+      "Id": "f4604aad0a074ceddfcfb36ce1368c5b5f42abe96debd1b1111becd21a569fac",
+      "RatioImgX": 14.578495288855041,
+      "RatioImgY": 80.08265757825048,
+      "Transform": "TopCenter",
+      "Presentation": "Spot",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Roles": ""
+    },
+    {
+      "Id": "a0a69447681684e47ab4a8986f2213a1431047738111d19ef64e923157fcfa38",
+      "RatioImgX": 13.425692395545822,
+      "RatioImgY": 54.781172875778594,
+      "Transform": "TopCenter",
+      "Presentation": "Spot",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Roles": ""
+    },
+    {
+      "Id": "5df2c92f84540a4076ab0a2bc2e2f9c4c36af435392e8fcaab123e350053f4c0",
+      "RatioImgX": 72.70700485390691,
+      "RatioImgY": 31.007874015748033,
+      "Transform": "TopCenter",
+      "Presentation": "Spot",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Roles": ""
+    },
+    {
+      "Id": "f46a61fa03d8155ffbfcc678eecfe3041daae5ab629e945d2620e8da408144b9",
+      "RatioImgX": 65.74081564671171,
+      "RatioImgY": 56.59055118110237,
+      "Transform": "TopCenter",
+      "Presentation": "Spot",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Roles": ""
+    },
+    {
+      "Id": "61039e7e7dfd3dfb3a25f3a0eb84b9ea5f79ad9e76b69eb9533f506745c6bc51",
+      "RatioImgX": 50.50632911392405,
+      "RatioImgY": 9.170812603648425,
+      "Transform": "TopCenter",
+      "Presentation": "Spot",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Roles": ""
+    }
+  ]
+}
