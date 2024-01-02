@@ -17,16 +17,16 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <FrameworkReference Include="Microsoft.AspNetCore.App" />   
-	  <PackageReference Include="AXSharp.Presentation.Blazor" />
-    <PackageReference Include="AXSharp.Presentation.Blazor.Controls" />
-    <PackageReference Include="Humanizer" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" />
-	  
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />   
+		<PackageReference Include="AXSharp.Presentation.Blazor" />
+	    <PackageReference Include="AXSharp.Presentation.Blazor.Controls" />
+	    <PackageReference Include="Humanizer" />
+	    <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
+	    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" />
   </ItemGroup>
 
   <ItemGroup>
+	  <ProjectReference Include="..\..\..\base\src\AXOpen.VisualComposer\AXOpen.VisualComposer.csproj" />
 	  <ProjectReference Include="..\AXOpen.Core\ix_ax_axopen_core.csproj" />
   </ItemGroup>
 

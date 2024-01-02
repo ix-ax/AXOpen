@@ -21,7 +21,7 @@ NAMESPACE AxoIO.Tests
         METHOD PUBLIC SetSignalOn
    
             context.Open();
-            _testAxoDo.Run(context,_signal);
+            _testAxoDo.Run(context.SignalParent,_signal);
             _testAxoDo.Set();
 
             AxUnit.Assert.Equal(TRUE, _testAxoDo.IsTrue());
@@ -36,7 +36,7 @@ NAMESPACE AxoIO.Tests
    
             context.Open();
             _signal := TRUE;
-            _testAxoDo.Run(context,_signal);
+            _testAxoDo.Run(context.SignalParent,_signal);
             _testAxoDo.Reset();
 
             AxUnit.Assert.Equal(FALSE, _testAxoDo.IsTrue());

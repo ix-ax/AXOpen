@@ -22,7 +22,7 @@ NAMESPACE AxoIO.Tests
    
             context.Open();
             _signal := TRUE;
-            _testAxoDi.Run(context, _signal);
+            _testAxoDi.Run(context.SignalParent, _signal);
 
             AxUnit.Assert.Equal(TRUE, _testAxoDi.IsTrue());
             AxUnit.Assert.Equal(FALSE, _testAxoDi.IsFalse());
@@ -38,7 +38,7 @@ NAMESPACE AxoIO.Tests
    
             context.Open();
             _signal := FALSE;
-            _testAxoDi.Run(context,_signal);
+            _testAxoDi.Run(context.SignalParent,_signal);
 
             AxUnit.Assert.Equal(FALSE, _testAxoDi.IsTrue());
             AxUnit.Assert.Equal(TRUE, _testAxoDi.IsFalse());

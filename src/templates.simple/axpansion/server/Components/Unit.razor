@@ -15,7 +15,7 @@
 <body>
     <div class="content-wrapper">
         <UnitsSequences Component="@this.Component" ObjectCollection="new ITwinObject[]{this.Data, this.DataManger, this.TechnologySettings, this.Component}"></UnitsSequences>
-        <UnitsService ServiceTask="((dynamic)this.Component).ServiceMode" Components="((dynamic)this.Component).UnitObjects.Components"></UnitsService>
+        <UnitsService ServiceTask="((dynamic)this.Component).ServiceMode" Components="UnitComponents"></UnitsService>
     </div>
 </body>
 
@@ -27,20 +27,20 @@
 
 
 <!-- Modal technology window -->
-<div class="modal fade" id="technologysettingsviewmodal" tabindex="-1" aria-labelledby="technologysettingsviewmodalTitle" aria-hidden="true">
+<div class="modal fade" id="technologysettingsviewmodal" tabindex="-1" aria-labelledby="technologysettingsviewmodalTitle" aria-hidden="true" data-bs-backdrop="static">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="container">
                     <div class="row">
                         <h1 class="modal-title fs-5" id="technologysettingsviewmodalTitle">@Component?.HumanReadable</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="@HideModalTechnologySettings"></button>
                     </div>
                     <div class="row p-2">
                     </div>
                     <div class="row">
                         <button type="button" class="btn btn-primary"
-                        @onclick="async () => {await TechnologySettings.OnlineToShadowAsync();
+                                @onclick="async () => {await TechnologySettings.OnlineToShadowAsync();
                                                await SharedTechnologySettings.OnlineToShadowAsync();
                                     }">
                             Refresh
@@ -51,8 +51,11 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
-                        <RenderableContentControl Context="@SharedTechnologySettings" Presentation="Display" />
-                        <RenderableContentControl Context="@TechnologySettings" Presentation="Display" />
+                        @if (EnableModalTechnologySettings)
+                        {
+                            <RenderableContentControl Context="@SharedTechnologySettings" Presentation="Display" />
+                            <RenderableContentControl Context="@TechnologySettings" Presentation="Display" />
+                        }
                     </div>
                 </div>
             </div>
@@ -61,20 +64,20 @@
 </div>
 
 <!-- Modal data window -->
-<div class="modal fade" id="dataviewmodal" tabindex="-1" aria-labelledby="dataviewmodalTitle" aria-hidden="true">
+<div class="modal fade" id="dataviewmodal" tabindex="-1" aria-labelledby="dataviewmodalTitle" aria-hidden="true" data-bs-backdrop="static">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="container">
                     <div class="row">
                         <h1 class="modal-title fs-5" id="dataviewmodalTitle">@Component?.HumanReadable</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="@HideModalProductionData"></button>
                     </div>
                     <div class="row p-2">
                     </div>
                     <div class="row">
                         <button type="button" class="btn btn-primary"
-                        @onclick="async () => {await DataHeader.OnlineToShadowAsync();
+                                @onclick="async () => {await DataHeader.OnlineToShadowAsync();
                                                await Data.OnlineToShadowAsync();
                                     }">
                             Refresh
@@ -83,12 +86,15 @@
                 </div>
             </div>
             <div class="modal-body">
-                <div class="container-fluid">
-                    <div class="row">
-                        <RenderableContentControl Context="@DataHeader" Presentation="Display" />
-                        <RenderableContentControl Context="@Data" Presentation="Display" />
+                @if (EnableModalProductionData)
+                {
+                    <div class="container-fluid">
+                        <div class="row">
+                            <RenderableContentControl Context="@DataHeader" Presentation="Display" />
+                            <RenderableContentControl Context="@Data" Presentation="Display" />
+                        </div>
                     </div>
-                </div>
+                }
             </div>
         </div>
     </div>
@@ -96,23 +102,26 @@
 
 
 <!-- Modal data components -->
-<div class="modal fade" id="componentsviewmodal" tabindex="-1" aria-labelledby="componentsviewTitle" aria-hidden="true">
+<div class="modal fade" id="componentsviewmodal" tabindex="-1" aria-labelledby="componentsviewTitle" aria-hidden="true" data-bs-backdrop="static">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="container">
                     <div class="row">
                         <h1 class="modal-title fs-5" id="componentsTitle">Components</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="@HideModalComponents"></button>
                     </div>
                 </div>
             </div>
             <div class="modal-body">
-                <div class="container-fluid">
-                    <div class="row">
-                        <RenderableContentControl Context="((dynamic)this.Component)?.UnitObjects.Components" Presentation="Command-Control" />
+                @if (EnableModalComponents)
+                {
+                    <div class="container-fluid">
+                        <div class="row">
+                            <RenderableContentControl Context="UnitComponents" Presentation="Command-Control" />
+                        </div>
                     </div>
-                </div>
+                }
             </div>
         </div>
     </div>
@@ -120,16 +129,16 @@
 
 <div class="text-white p-2 fixed-bottom" style="z-index: 0;">
 
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#technologysettingsviewmodal">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#technologysettingsviewmodal" onclick="@ShowModalTechnologySettings">
         Technology Settings
     </button>
 
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dataviewmodal">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dataviewmodal" onclick="@ShowModalProductionData">
         Process Data
     </button>
-    
+
     <AlarmsButton Component="this.Component" MessageProvider="AxoMessageProvider"></AlarmsButton>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#componentsviewmodal">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#componentsviewmodal" onclick="@ShowModalComponents">
         Components
     </button>
 </div>
@@ -139,9 +148,9 @@
 
 @code
 {
-    private AxoMessageProvider AxoMessageProvider => 
+    private AxoMessageProvider AxoMessageProvider =>
         AxoMessageProvider.Create(new ITwinObject[] { this.Component, this.DataManger });
-    
+
     [Parameter]
     public AXOpen.Data.AxoDataEntity? Data { get; set; }
 
@@ -161,5 +170,53 @@
 
     [Parameter]
     public AXOpen.Data.AxoDataEntity? SharedTechnologySettings { get; set; }
+
+    [Parameter]
+    public AxoObject? UnitComponents { get; set; }
+
+    public bool EnableModalComponents { set; get; }
+    public bool EnableModalProductionData { set; get; }
+    public bool EnableModalProcessSettings { set; get; }
+    public bool EnableModalTechnologySettings { set; get; }
+
+    private void ShowModalComponents()
+    {
+        EnableModalComponents = true;
+    }
+
+    private void HideModalComponents()
+    {
+        EnableModalComponents = false;
+    }
+
+    private void ShowModalProductionData()
+    {
+        EnableModalProductionData = true;
+    }
+
+    private void HideModalProductionData()
+    {
+        EnableModalProductionData = false;
+    }
+
+    private void ShowModalProcessSettings()
+    {
+        EnableModalProcessSettings = true;
+    }
+
+    private void HideModalProcessSettings()
+    {
+        EnableModalProcessSettings = false;
+    }
+
+    private void ShowModalTechnologySettings()
+    {
+        EnableModalTechnologySettings = true;
+    }
+
+    private void HideModalTechnologySettings()
+    {
+        EnableModalTechnologySettings = false;
+    }
 }
 

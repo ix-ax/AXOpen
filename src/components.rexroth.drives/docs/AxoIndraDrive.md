@@ -1,4 +1,4 @@
-# Component_1
+# AxoIndraDrive
 
 # [CONTROLLER](#tab/controller)
 
@@ -23,7 +23,7 @@
 # [.NET TWIN](#tab/twin)
 
 
-[!code-csharp[](../app/ix-blazor/Pages/Component_1.razor?name=WriteTaskDurationToConsole)]
+[!code-csharp[](../app/ix-blazor/Pages/Component_1.razor?name=PartialExtensionExample)]
 
 
 # [BLAZOR](#tab/blazor)

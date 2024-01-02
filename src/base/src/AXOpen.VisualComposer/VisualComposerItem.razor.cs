@@ -9,13 +9,14 @@ namespace AXOpen.VisualComposer
 {
     public partial class VisualComposerItem
     {
+
         private VisualComposerContainer? _parent;
 
         [CascadingParameter(Name = "Parent")]
-        protected VisualComposerContainer? Parent
+        public VisualComposerContainer? Parent
         {
             get => _parent;
-            set
+            protected set
             {
                 _parent = value;
 
@@ -79,8 +80,15 @@ namespace AXOpen.VisualComposer
             get => _presentation;
             set
             {
-                _presentation = value;
-                // CustomPresentation = !PresentationType.IsEnumValue(value);
+                if (_presentation != value)
+                {
+                    _presentation = value;
+                    if (renderableContentControlRcc != null)
+                    {
+                        renderableContentControlRcc.Presentation = value;
+                        renderableContentControlRcc?.ForceRender();
+                    }
+                }
             }
         }
         public bool CustomPresentation { get; set; } = false;

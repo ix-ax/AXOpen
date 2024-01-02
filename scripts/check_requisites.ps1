@@ -57,11 +57,11 @@ if (Test-Path $vsWhere) {
 $isApaxInstalled = $false
 try {
     $apaxVersion = (apax --version).Trim()
-    if ($apaxVersion -eq "3.0.0") {
-        Write-Host "Apax 3.0.0 detected." -ForegroundColor Green
+    if ($apaxVersion -eq "3.1.0") {
+        Write-Host "Apax 3.1.0 detected." -ForegroundColor Green
         $isApaxInstalled = $true;
     } else {
-        Write-Host "Apax version mismatch. Expected 3.0.0 but found $apaxVersion." -ForegroundColor Red
+        Write-Host "Apax version mismatch. Expected 3.1.0 but found $apaxVersion." -ForegroundColor Red
         Write-Host "Run apax self-update $apaxVersion." -ForegroundColor Red
     }
 } catch {
@@ -73,7 +73,7 @@ try {
 $command = "axcode --version"
 
 # Define the expected version
-$expectedVersion = "1.79.2"
+$expectedVersion = "1.83.0"
 
 # Execute the command and capture the output
 try {

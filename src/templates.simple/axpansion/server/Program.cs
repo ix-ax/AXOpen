@@ -92,8 +92,8 @@ var UnitTemplate_ProcessData = Repository.Factory<Pocos.axosimple.UnitTemplate.P
 #endregion MongoDB repository
 
 
-//var persistentRepository = Repository.Factory<AXOpen.Data.PersistentRecord>("Persistent_Data");
-//Entry.Plc.Context.PersistentData.InitializeRemoteDataExchange( Entry.Plc.Context, persistentRepository );
+var persistentRepository = Repository.Factory<AXOpen.Data.PersistentRecord>("Persistent_Data");
+Entry.Plc.Context.PersistentData.InitializeRemoteDataExchange(Entry.Plc.Context, persistentRepository);
 
 var axoappContext = ContextService.Create();
 axoappContext.SetContextData(

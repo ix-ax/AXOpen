@@ -1,7 +1,9 @@
 ﻿@using AXSharp.Connector;
 @using Microsoft.AspNetCore.Components.Forms;
 
-<AuthorizeView Roles="Administrator">
+<div class="container">
+    <div class="row">
+        <AuthorizeView Roles="Administrator">
     <Authorized>
         <div class="d-flex justify-content-end my-2">
             <div style="z-index: 100;">
@@ -221,3 +223,20 @@
         </ZoomableContainer>
     </NotAuthorized>
 </AuthorizeView>
+    </div>
+
+    <div class="row shadow-lg w-auto m-5 p-3 mb-5 bg-body-tertiary rounded">
+       <RenderableContentControl @ref="detailsRcc" Context="@DetailsObject" Presentation="Command-Control"></RenderableContentControl>
+    </div>
+</div>
+@code
+{
+    
+    private RenderableContentControl detailsRcc { get; set; }
+
+    public void UpdateDetails(ITwinElement element)
+    {
+        detailsRcc.Context = element;
+        detailsRcc?.ForceRender();
+    }
+}

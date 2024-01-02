@@ -1,4 +1,4 @@
-# @ix-ax/axlibname
+# @ix-ax/axopen.components.rexroth.drives
 
 [!INCLUDE [General](../docs/README.md)]
 
@@ -7,12 +7,12 @@
 
 ## Adding package to your project
 ~~~bash
-apax add "@ix-ax/axlibname"
+apax add "@ix-ax/axopen.components.rexroth.drives"
 ~~~
 
 ## Modifying your `apax.yml`
 
 ~~~yml
 dependencies:
-  "@ix-ax/axlibname": '{axopen-version}'  
+  "@ix-ax/axopen.components.rexroth.drives": '{axopen-version}'  
 ~~~

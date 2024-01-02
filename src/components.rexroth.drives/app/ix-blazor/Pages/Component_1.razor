@@ -12,25 +12,27 @@
     }
     #endregion
 
+    #region PartialExtensionExample
+    // No partial extension example available
+    #endregion
+
 }
 
 <!-- <GenericComponentStatusView> -->
-@* <AxoComponentStatusView Component="@Entry.Plc.documentation.componentOne.AxoIndraDrive_" /> *@
+ <AxoComponentStatusView Component="@Entry.Plc.documentation.componentOne.AxoIndraDrive_" /> 
 <!-- </GenericComponentStatusView> -->
 
 <!-- <GenericComponentCommandView> -->
-@* <AxoComponentCommandView Component="@Entry.Plc.documentation.componentOne.AxoIndraDrive_" /> *@
+ <AxoComponentCommandView Component="@Entry.Plc.documentation.componentOne.AxoIndraDrive_" />
 <!-- </GenericComponentCommandView> -->
 
 <!-- <RccComponentStatusView> -->
-<!-- This will render anything found on parameter assigned to Context  -->
-@* <RenderableContentControl Context="@Entry.Plc.documentation.componentOne" Presentation="Status-Display" />
- *@<!-- </RccComponentStatusView> -->
+ <RenderableContentControl Context="@Entry.Plc.documentation.componentOne.AxoIndraDrive_" Presentation="Status-Display" />
+<!-- </RccComponentStatusView> -->
 
 
 <!-- <RccComponentCommandView> -->
-<!-- This will render anything found on parameter assigned to Context  -->
-<RenderableContentControl Context="@Entry.Plc.documentation.componentOne" Presentation="Command-Control" />
+<RenderableContentControl Context="@Entry.Plc.documentation.componentOne.AxoIndraDrive_" Presentation="Command-Control" />
 <!-- </RccComponentCommandView> -->
 
 

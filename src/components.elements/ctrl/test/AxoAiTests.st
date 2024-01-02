@@ -40,7 +40,7 @@ NAMESPACE AxoIO.Tests
             _testAxoAi._config.Offset := 0;
             _signal := signal;
 
-            _testAxoAi.Run(context, _signal);
+            _testAxoAi.Run(context.SignalParent, _signal);
         
             AxUnit.Assert.Equal(TRUE, TO_DINT(required) = TO_DINT(_testAxoAi._scaled));
            
@@ -71,7 +71,7 @@ NAMESPACE AxoIO.Tests
             _testAxoAi._config.Offset := 0;
             _signal := signal;
 
-            _testAxoAi.Run(context, _signal);
+            _testAxoAi.Run(context.SignalParent, _signal);
 
             AxUnit.Assert.Equal(TRUE, TO_DINT(required) = TO_DINT(_testAxoAi._scaled));
            
@@ -101,7 +101,7 @@ NAMESPACE AxoIO.Tests
             _testAxoAi._config.Offset := 0;
             _signal := signal;
 
-            _testAxoAi.Run(context, _signal);
+            _testAxoAi.Run(context.SignalParent, _signal);
 
             AxUnit.Assert.Equal(TRUE, TO_DINT(required) = TO_DINT(_testAxoAi._scaled));
            
@@ -131,7 +131,7 @@ NAMESPACE AxoIO.Tests
             _testAxoAi._config.Offset := 0;
             _signal := signal;
 
-            _testAxoAi.Run(context, _signal);
+            _testAxoAi.Run(context.SignalParent, _signal);
 
             AxUnit.Assert.Equal(TRUE, TO_DINT(required) = TO_DINT(_testAxoAi._scaled));
            
@@ -162,7 +162,7 @@ NAMESPACE AxoIO.Tests
             _testAxoAi._config.Offset := 0;
             _signal := signal;
 
-            _testAxoAi.Run(context, _signal);
+            _testAxoAi.Run(context.SignalParent, _signal);
 
             AxUnit.Assert.Equal(TRUE, TO_DINT(required) = TO_DINT(_testAxoAi._scaled));
            
@@ -192,7 +192,7 @@ NAMESPACE AxoIO.Tests
             _testAxoAi._config.Offset := 0;
             _signal := signal;
 
-            _testAxoAi.Run(context, _signal);
+            _testAxoAi.Run(context.SignalParent, _signal);
 
             AxUnit.Assert.Equal(TRUE, TO_DINT(required) = TO_DINT(_testAxoAi._scaled));
            
@@ -222,7 +222,7 @@ NAMESPACE AxoIO.Tests
             _testAxoAi._config.Offset := 0;
             _signal := signal;
 
-            _testAxoAi.Run(context, _signal);
+            _testAxoAi.Run(context.SignalParent, _signal);
 
             AxUnit.Assert.Equal(TRUE, TO_DINT(required) = TO_DINT(_testAxoAi._scaled));
            
@@ -252,7 +252,7 @@ NAMESPACE AxoIO.Tests
             _testAxoAi._config.Offset := 20;
             _signal := signal;
 
-            _testAxoAi.Run(context, _signal);
+            _testAxoAi.Run(context.SignalParent, _signal);
 
             AxUnit.Assert.Equal(TRUE, TO_DINT(required) = TO_DINT(_testAxoAi._scaled));
            
@@ -282,7 +282,7 @@ NAMESPACE AxoIO.Tests
             _testAxoAi._config.Offset := 20;
             _signal := signal;
 
-            _testAxoAi.Run(context, _signal);
+            _testAxoAi.Run(context.SignalParent, _signal);
 
             AxUnit.Assert.Equal(TRUE, TO_DINT(required) = TO_DINT(_testAxoAi._scaled));
            

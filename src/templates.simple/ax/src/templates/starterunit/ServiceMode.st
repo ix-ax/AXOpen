@@ -11,7 +11,7 @@ NAMESPACE axosimple.StarterUnitTemplate
     {#ix-set:AttributeName = "<#SERVICE#>"}
     {S7.extern=ReadWrite}
     CLASS PUBLIC ServiceMode
-        EXTENDS AXOpen.Core.AxoTask
+        EXTENDS AXOpen.Core.AxoTask IMPLEMENTS IModeContainer
         ///<summary>
         /// Runs service mode logic. This method must be called cyclically.
         ///</summary>

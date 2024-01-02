@@ -214,15 +214,6 @@ namespace axosimple.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New gripper.
-        /// </summary>
-        public static string New_gripper {
-            get {
-                return ResourceManager.GetString("New_gripper", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Next on Failed.
         /// </summary>
         public static string Next_on_Failed {

@@ -12,10 +12,10 @@
       - name: Components
         href: README.md
         items:
-          - name: Component 1
-            href: Component_1.md
-          - name: Component 2
-            href: Component_2.md
+          - name: AxoCmmtAsPtP
+            href: AxoCmmtAsPtP.md
+          # - name: Component 2
+          #   href: Component_2.md
       - name: Changes
         href: CHANGELOG.md      
       - name: Troubleshooting
