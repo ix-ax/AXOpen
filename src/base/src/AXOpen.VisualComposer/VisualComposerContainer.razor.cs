@@ -2,6 +2,7 @@
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Components.Web;
 using System.Xml.Linq;
 
 namespace AXOpen.VisualComposer
@@ -43,7 +44,7 @@ namespace AXOpen.VisualComposer
 
         protected override void OnInitialized()
         {
-            if(Id is null || Id == "")
+            if (Id is null || Id == "")
             {
                 Id = "";
                 foreach (ITwinObject obj in Objects)
@@ -65,6 +66,7 @@ namespace AXOpen.VisualComposer
                 }
 
                 Load();
+                //StateHasChanged();
             }
         }
 
@@ -102,7 +104,7 @@ namespace AXOpen.VisualComposer
         {
             if (fileName is null || fileName == "")
             {
-                if(CurrentTemplate is null || CurrentTemplate == "")
+                if (CurrentTemplate is null || CurrentTemplate == "")
                     fileName = "Default";
                 else
                     fileName = CurrentTemplate;
@@ -149,11 +151,11 @@ namespace AXOpen.VisualComposer
                         TwinElement = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper().ComputeSha256Hash() == item.Id),
                         ratioImgX = item.RatioImgX,
                         ratioImgY = item.RatioImgY,
-                        Transform = Types.TransformType.FromString(item.Transform),
-                        Presentation = item.Presentation,
-                        Width = item.Width,
-                        Height = item.Height,
-                        ZIndex = item.ZIndex,
+                        _transform = Types.TransformType.FromString(item.Transform),
+                        _presentation = item.Presentation,
+                        _width = item.Width,
+                        _height = item.Height,
+                        _zIndex = item.ZIndex,
                         Roles = item.Roles
                     });
                 }
@@ -208,7 +210,11 @@ namespace AXOpen.VisualComposer
             }
             else
             {
-                SearchResult.Clear();
+                if (SearchResult == null)
+                    SearchResult = new();
+                else
+                    SearchResult.Clear();
+                
                 foreach (ITwinObject obj in Objects)
                 {
                     SearchResult.AddRange(obj.GetChildren().Flatten(p => p.GetChildren()).ToList().FindAll(p => p.Symbol.Contains(SearchValue, StringComparison.OrdinalIgnoreCase)));
@@ -226,7 +232,11 @@ namespace AXOpen.VisualComposer
             }
             else
             {
-                SearchResultPrimitive.Clear();
+                if (SearchResultPrimitive == null)
+                    SearchResultPrimitive = new();
+                else
+                    SearchResultPrimitive.Clear();
+
                 foreach (ITwinObject obj in Objects)
                 {
                     SearchResultPrimitive.AddRange(obj.RetrievePrimitives().ToList().FindAll(p => p.Symbol.Contains(SearchValuePrimitive, StringComparison.OrdinalIgnoreCase)));
@@ -244,7 +254,7 @@ namespace AXOpen.VisualComposer
 
             try
             {
-                if(!Directory.Exists("wwwroot/Images/"))
+                if (!Directory.Exists("wwwroot/Images/"))
                     Directory.CreateDirectory("wwwroot/Images/");
 
                 string newName = CurrentTemplate + Path.GetExtension(e.File.Name);

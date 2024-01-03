@@ -1,0 +1,77 @@
+﻿@if (Origin.IdPlain != null)
+{
+    <AuthorizeView Roles="Administrator">
+        <Authorized>
+            <div class="modal fade" id="settings-@Origin.Id.Replace('.', '_')-@Origin.UniqueGuid" tabindex="-1" aria-hidden="true" data-bs-backdrop="false" style="transform: none;">
+                <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="alarmsviewTitle" style="width: 90%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">@Origin.IdPlain</h1>
+                            <a class="text-decoration-none text-black ms-auto" style="cursor: pointer;" data-bs-dismiss="modal" @onclick="Remove"><span class="bi bi-trash fs-5" aria-hidden="true" /></a>
+                            <button type="button" class="btn-close ms-3" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body justify-content-center">
+                            <div class="mb-1 row">
+                                <label class="col-sm-2 col-form-label">Presentation</label>
+                                <div class="col-sm-6">
+                                    @if (Origin.CustomPresentation)
+                                    {
+                                        <input type="text" class="form-control" placeholder="Presentation" @bind="Origin.Presentation">
+                                    }
+                                    else
+                                    {
+                                        <select class="form-select" value="@Origin.Presentation" @onchange="@((args) => @Origin.Presentation = (string)args.Value)">
+                                            @foreach (var presentation in PresentationType.AllTypes)
+                                            {
+                                                <option data value="@presentation.ToString()">@presentation.ToString()</option>
+                                            }
+                                        </select>
+                                    }
+                                </div>
+                                <div class="col-sm-4 d-flex align-items-center">
+                                    <label class="col-form-label ms-auto">Custom</label>
+                                    <input class="form-check-input ms-2 mt-0" type="checkbox" checked="@(Origin.CustomPresentation ? "checked" : null)" @onclick="() => Origin.CustomPresentation = !Origin.CustomPresentation">
+                                </div>
+                            </div>
+                            <div class="mb-1 row">
+                                <label class="col-sm-2 col-form-label">Transform</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" value="@Origin.Transform.ToString()" @onchange="@((args) => @Origin.Transform = TransformType.FromString((string)args.Value))">
+                                        @foreach (var transform in TransformType.AllTypes)
+                                        {
+                                            <option data value="@transform.ToString()">@transform.ToString()</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-1 row">
+                                <label class="col-sm-2 col-form-label">Width</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="Width" @bind="Origin.Width">
+                                </div>
+                            </div>
+                            <div class="mb-1 row">
+                                <label class="col-sm-2 col-form-label">Height</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="Height" @bind="Origin.Height">
+                                </div>
+                            </div>
+                            <div class="mb-1 row">
+                                <label class="col-sm-2 col-form-label">ZIndex</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="ZIndex" @bind="Origin.ZIndex">
+                                </div>
+                            </div>
+                            <div class="mb-1 row">
+                                <label class="col-sm-2 col-form-label">Roles</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="Roles" @bind="Origin.Roles">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Authorized>
+    </AuthorizeView>
+}
