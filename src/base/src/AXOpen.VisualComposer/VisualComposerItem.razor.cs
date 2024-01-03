@@ -43,6 +43,7 @@ namespace AXOpen.VisualComposer
                 _width = value.Width;
                 _height = value.Height;
                 _zIndex = value.ZIndex;
+                _scale = value.Scale;
                 Roles = value.Roles;
 
                 Id = value.TwinElement.Symbol.ModalIdHelper();
@@ -135,6 +136,17 @@ namespace AXOpen.VisualComposer
             set
             {
                 _zIndex = value;
+                StateHasChanged();
+            }
+        }
+
+        public double _scale = 1;
+        public double Scale
+        {
+            get => _scale;
+            set
+            {
+                _scale = value;
                 StateHasChanged();
             }
         }

@@ -1,6 +1,6 @@
 ﻿<AuthorizeView Roles="Administrator">
     <Authorized>
-        <div draggable="true" @ondragend="OnDragEnd" @ondragstart="OnDragStart" style="position: absolute; left: @(ratioImgX.ToString().Replace(',', '.'))%; top: @(ratioImgY.ToString().Replace(',', '.'))%; translate: @(Transform.X)% @(Transform.Y)%; width: @(Width != -1 ? Width + "rem" : "max-content"); height: @(Height != -1 ? Height + "rem" : "max-content"); z-index: @ZIndex;">
+        <div draggable="true" @ondragend="OnDragEnd" @ondragstart="OnDragStart" style="position: absolute; left: @(ratioImgX.ToString().Replace(',', '.'))%; top: @(ratioImgY.ToString().Replace(',', '.'))%; transform: scale(@(Scale)); translate: @(Transform.X)% @(Transform.Y)%; width: @(Width != -1 ? Width + "rem" : "max-content"); height: @(Height != -1 ? Height + "rem" : "max-content"); z-index: @ZIndex;">
             <RenderableContentControl @ref="renderableContentControlRcc"
                           Context="@TwinElement" 
                           Presentation="@Presentation.ToString()"

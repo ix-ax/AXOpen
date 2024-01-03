@@ -59,7 +59,13 @@
                             <div class="mb-1 row">
                                 <label class="col-sm-2 col-form-label">ZIndex</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="ZIndex" @bind="Origin.ZIndex">
+                                    <input type="number" class="form-control" placeholder="ZIndex" @bind="Origin.ZIndex">
+                                </div>
+                            </div>
+                            <div class="mb-1 row">
+                                <label class="col-sm-2 col-form-label">Scale</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" placeholder="Scale" @bind="Origin.Scale" step="0.1">
                                 </div>
                             </div>
                             <div class="mb-1 row">
