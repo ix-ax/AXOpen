@@ -43,6 +43,7 @@ namespace AXOpen.VisualComposer
                 _width = value.Width;
                 _height = value.Height;
                 _zIndex = value.ZIndex;
+                _scale = value.Scale;
                 Roles = value.Roles;
 
                 Id = value.TwinElement.Symbol.ModalIdHelper();
@@ -91,9 +92,17 @@ namespace AXOpen.VisualComposer
             get => _presentation;
             set
             {
-                _presentation = value;
-                // CustomPresentation = !PresentationType.IsEnumValue(value);
-                StateHasChanged();
+                if (_presentation != value)
+                {
+                    _presentation = value;
+                    if (renderableContentControlRcc != null)
+                    {
+                        renderableContentControlRcc.Presentation = value;
+                        renderableContentControlRcc?.ForceRender();
+                    }                    
+                    StateHasChanged();
+                }
+                
             }
         }
         public bool CustomPresentation { get; set; } = false;
@@ -127,6 +136,17 @@ namespace AXOpen.VisualComposer
             set
             {
                 _zIndex = value;
+                StateHasChanged();
+            }
+        }
+
+        public double _scale = 1;
+        public double Scale
+        {
+            get => _scale;
+            set
+            {
+                _scale = value;
                 StateHasChanged();
             }
         }

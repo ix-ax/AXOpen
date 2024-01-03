@@ -1,10 +1,10 @@
 ﻿<AuthorizeView Roles="Administrator">
     <Authorized>
-        <div draggable="true" @ondragend="OnDragEnd" @ondragstart="OnDragStart" style="position: absolute; left: @(ratioImgX.ToString().Replace(',', '.'))%; top: @(ratioImgY.ToString().Replace(',', '.'))%; translate: @(Transform.X)% @(Transform.Y)%; width: @(Width != -1 ? Width + "rem" : "max-content"); height: @(Height != -1 ? Height + "rem" : "max-content"); z-index: @ZIndex;">
-            <RenderableContentControl @ref="renderableContentControlRcc" 
-                                      Context="@TwinElement" 
-                                      Presentation="@Presentation.ToString()"
-                                      ParentContainer="@this" />
+        <div draggable="true" @ondragend="OnDragEnd" @ondragstart="OnDragStart" style="position: absolute; left: @(ratioImgX.ToString().Replace(',', '.'))%; top: @(ratioImgY.ToString().Replace(',', '.'))%; transform: scale(@(Scale)); translate: @(Transform.X)% @(Transform.Y)%; width: @(Width != -1 ? Width + "rem" : "max-content"); height: @(Height != -1 ? Height + "rem" : "max-content"); z-index: @ZIndex;">
+            <RenderableContentControl @ref="renderableContentControlRcc"
+                          Context="@TwinElement" 
+                          Presentation="@Presentation.ToString()"
+                          ParentContainer="@this"/>
             <a class="position-absolute text-decoration-none text-black" style="left: 97%; top: 0%; translate: -100% -50%; cursor: pointer;" data-bs-toggle="modal" 
                data-bs-target="#settings-@Id.Replace('.', '_')-@UniqueGuid">
                 <span class="bi bi-pencil-square fs-4" aria-hidden="true" />

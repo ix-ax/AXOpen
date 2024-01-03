@@ -122,7 +122,7 @@ namespace AXOpen.VisualComposer
             List<SerializableVisualComposerItem> serializableChildren = new List<SerializableVisualComposerItem>();
             foreach (var child in _children)
             {
-                serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.ratioImgX, child.ratioImgY, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex, child.Roles));
+                serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.ratioImgX, child.ratioImgY, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex, child.Scale, child.Roles));
             }
 
             if (!Directory.Exists("VisualComposerSerialize/" + Id))
@@ -156,6 +156,7 @@ namespace AXOpen.VisualComposer
                         _width = item.Width,
                         _height = item.Height,
                         _zIndex = item.ZIndex,
+                        _scale = item.Scale,
                         Roles = item.Roles
                     });
                 }
@@ -210,7 +211,11 @@ namespace AXOpen.VisualComposer
             }
             else
             {
-                SearchResult.Clear();
+                if (SearchResult == null)
+                    SearchResult = new();
+                else
+                    SearchResult.Clear();
+                
                 foreach (ITwinObject obj in Objects)
                 {
                     SearchResult.AddRange(obj.GetChildren().Flatten(p => p.GetChildren()).ToList().FindAll(p => p.Symbol.Contains(SearchValue, StringComparison.OrdinalIgnoreCase)));
@@ -228,7 +233,11 @@ namespace AXOpen.VisualComposer
             }
             else
             {
-                SearchResultPrimitive.Clear();
+                if (SearchResultPrimitive == null)
+                    SearchResultPrimitive = new();
+                else
+                    SearchResultPrimitive.Clear();
+
                 foreach (ITwinObject obj in Objects)
                 {
                     SearchResultPrimitive.AddRange(obj.RetrievePrimitives().ToList().FindAll(p => p.Symbol.Contains(SearchValuePrimitive, StringComparison.OrdinalIgnoreCase)));
