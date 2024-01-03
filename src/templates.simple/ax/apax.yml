@@ -10,6 +10,7 @@ registries:
   '@ix-ax': https://npm.pkg.github.com/
 devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
+  "@ax/st-lang-contrib-library-toolbox": ^0.17.2
 dependencies:
   "@ix-ax/axopen.components.abstractions": '0.0.0-dev.0'
   "@ix-ax/axopen.core": '0.0.0-dev.0'

@@ -17,7 +17,7 @@ using System.Linq;
 
 namespace AXOpen.Core
 {
-    public partial class AxoComponentView : RenderableComplexComponentBase<AxoComponent>, IDisposable
+    public partial class AxoComponentView : RenderableComplexComponentBase<AxoComponent>
     {
         private bool areDetailsCollapsed = true;
         private bool areAlarmsCollapsed = true;
@@ -31,7 +31,13 @@ namespace AXOpen.Core
         [Parameter]
         public bool IsControllable { get; set; }
 
-        private Pocos.AXOpen.Core.AxoComponent _lastPocoValue = new();
+        public override void OnComponentChanged()
+        {
+            header = null;
+            detailsTabs = null;
+            this.RemovePolledElements();
+            this.OnInitialized();
+        }
 
         public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
         {
@@ -61,8 +67,8 @@ namespace AXOpen.Core
             return twinObject.GetKids().Where(p => p.GetAttribute<ComponentDetailsAttribute>() != null);
         }
 
-        private ITwinObject header;
 
+        private ITwinObject header;
         private ITwinObject Header
         {
             get
@@ -111,34 +117,15 @@ namespace AXOpen.Core
             return _detailsTabs;
         }
 
-        protected override async void OnInitialized()
+        protected override void OnInitialized()
         {
             base.OnInitialized();
             containsHeaderAttribute = this.Header.GetKids().Count() != 0;
             tabNames = GetAllTabNames(this.Component);
             containsDetailsAttribute = this.DetailsTabs.Count() != 0;
-
-            // read variables that are needed for fist render
-            var requstedVariablesForFistRender = new List<ITwinPrimitive>() { Component._isManuallyControllable };
-            await Component.GetConnector().ReadBatchAsync(requstedVariablesForFistRender);
-
             UpdateValuesOnChange(Component);
-        }
 
-        protected override bool ShouldRender()
-        {
-            if (_lastPocoValue._isManuallyControllable != this.Component._isManuallyControllable.LastValue)
-            {
-                saveLastPocoValue();
-                return true;
-            }
 
-            return true;
-        }
-
-        private void saveLastPocoValue()
-        {
-            _lastPocoValue._isManuallyControllable = this.Component._isManuallyControllable.LastValue;
         }
 
         protected override async Task OnInitializedAsync()
@@ -153,7 +140,7 @@ namespace AXOpen.Core
             await base.OnInitializedAsync();
         }
 
-        private bool DisplayByTheRole(string role)
+       private bool DisplayByTheRole(string role)
         {
             if (identities != null && role != null)
             {
@@ -175,13 +162,11 @@ namespace AXOpen.Core
 
         [Inject]
         private AuthenticationStateProvider? AuthenticationStateProvider { get; set; }
-
         private async Task<IEnumerable<ClaimsIdentity>?> GetClaimsIdentitiesAsync()
         {
             var authenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
             return authenticationState?.User?.Identities;
         }
-
         private IEnumerable<AxoMessenger>? Messengers => this.Component?.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
 
         private eAlarmLevel AlarmLevel
@@ -202,22 +187,18 @@ namespace AXOpen.Core
                         case eAxoMessageCategory.Debug:
                         case eAxoMessageCategory.Info:
                             return eAlarmLevel.ActiveInfo;
-
                         case eAxoMessageCategory.TimedOut:
                         case eAxoMessageCategory.Notification:
                         case eAxoMessageCategory.Warning:
                             return eAlarmLevel.ActiveWarnings;
-
                         case eAxoMessageCategory.Error:
                         case eAxoMessageCategory.ProgrammingError:
                         case eAxoMessageCategory.Critical:
                         case eAxoMessageCategory.Fatal:
                         case eAxoMessageCategory.Catastrophic:
                             return eAlarmLevel.ActiveErrors;
-
                         case eAxoMessageCategory.None:
                             break;
-
                         default:
                             break;
                     }

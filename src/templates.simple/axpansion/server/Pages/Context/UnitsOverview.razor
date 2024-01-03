@@ -8,7 +8,7 @@
 
 <div class="container">
     <div class="row">
-            @foreach (var unit in ControlledUnits)
+        @foreach (var unit in ControlledUnits)
         {
             <div class="col">
                 <UnitSpotView Component="unit.unit.Component" Link="@unit.link" ImageLink="@unit.imageLink" />

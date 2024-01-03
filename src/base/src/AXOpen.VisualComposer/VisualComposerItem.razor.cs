@@ -10,13 +10,14 @@ namespace AXOpen.VisualComposer
 {
     public partial class VisualComposerItem
     {
+
         private VisualComposerContainer? _parent;
 
         [CascadingParameter(Name = "Parent")]
-        protected VisualComposerContainer? Parent
+        public VisualComposerContainer? Parent
         {
             get => _parent;
-            set
+            protected set
             {
                 _parent = value;
 
