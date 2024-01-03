@@ -66,7 +66,7 @@ namespace AXOpen.VisualComposer
                 }
 
                 Load();
-                StateHasChanged();
+                //StateHasChanged();
             }
         }
 
@@ -151,11 +151,11 @@ namespace AXOpen.VisualComposer
                         TwinElement = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper().ComputeSha256Hash() == item.Id),
                         ratioImgX = item.RatioImgX,
                         ratioImgY = item.RatioImgY,
-                        Transform = Types.TransformType.FromString(item.Transform),
-                        Presentation = item.Presentation,
-                        Width = item.Width,
-                        Height = item.Height,
-                        ZIndex = item.ZIndex,
+                        _transform = Types.TransformType.FromString(item.Transform),
+                        _presentation = item.Presentation,
+                        _width = item.Width,
+                        _height = item.Height,
+                        _zIndex = item.ZIndex,
                         Roles = item.Roles
                     });
                 }
@@ -210,7 +210,11 @@ namespace AXOpen.VisualComposer
             }
             else
             {
-                SearchResult.Clear();
+                if (SearchResult == null)
+                    SearchResult = new();
+                else
+                    SearchResult.Clear();
+                
                 foreach (ITwinObject obj in Objects)
                 {
                     SearchResult.AddRange(obj.GetChildren().Flatten(p => p.GetChildren()).ToList().FindAll(p => p.Symbol.Contains(SearchValue, StringComparison.OrdinalIgnoreCase)));
@@ -228,7 +232,11 @@ namespace AXOpen.VisualComposer
             }
             else
             {
-                SearchResultPrimitive.Clear();
+                if (SearchResultPrimitive == null)
+                    SearchResultPrimitive = new();
+                else
+                    SearchResultPrimitive.Clear();
+
                 foreach (ITwinObject obj in Objects)
                 {
                     SearchResultPrimitive.AddRange(obj.RetrievePrimitives().ToList().FindAll(p => p.Symbol.Contains(SearchValuePrimitive, StringComparison.OrdinalIgnoreCase)));
