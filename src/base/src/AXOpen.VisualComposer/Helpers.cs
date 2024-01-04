@@ -14,6 +14,15 @@ namespace AXOpen.VisualComposer
             return id.Replace('.', '_').Replace(' ', '_').Replace('=', '_').Replace('\'', '_').Replace('"', '_').Replace('[', '_').Replace(']', '_').Replace('<', '_').Replace('>', '_').Replace('{', '_').Replace('}', '_').Replace('(', '_').Replace(')', '_');
         }
 
+        public static string CorrectFilePath(this string path)
+        {
+            foreach (char c in Path.GetInvalidFileNameChars().Concat(Path.GetInvalidPathChars()))
+            {
+                path = path.Replace(c, '_');
+            }
+            return path;
+        }
+
         public static string ComputeSha256Hash(this string rawData)
         {
             // Create a SHA256   

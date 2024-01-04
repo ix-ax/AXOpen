@@ -1,5 +1,5 @@
-(function () {
-    const elementContainer = document.getElementById('zoomAndMoveContainer');
+
+const elementContainer = document.getElementById('zoomAndMoveContainer');
 const elementItem = document.getElementById('zoomAndMoveItem');
 
 elementContainer.addEventListener('wheel', zoom);
@@ -10,7 +10,8 @@ elementContainer.addEventListener('mouseleave', stopDrag);
 
 let isDragging = false;
 let startX, startY, offsetX = 0, offsetY = 0;
-let scale = 1;
+let scale;
+let dotNetComponentInstance;
 
 function zoom(event) {
     if (event.ctrlKey) {
@@ -44,5 +45,14 @@ function drag(event) {
 
 function updateTransform() {
     elementItem.style.transform = `scale(${scale}) translate(${offsetX}px, ${offsetY}px)`;
-    }
-})();
+
+    dotNetComponentInstance.invokeMethodAsync('SetDataAsync', scale, offsetX, offsetY);
+}
+
+export function setData(dotNetInstance, s, x, y) {
+    dotNetComponentInstance = dotNetInstance;
+    scale = s;
+    offsetX = x;
+    offsetY = y;
+    updateTransform();
+}
