@@ -17,22 +17,22 @@ namespace axosimple.server.Components
         private AxoMessageProvider AxoMessageProvider =>
         AxoMessageProvider.Create(new ITwinObject[] { base.Component, this.DataManger });
 
-        [Parameter, BindRequired]
+        [Parameter, EditorRequired]
         public AXOpen.Data.AxoDataEntity? Data { get; set; }
 
-        [Parameter]
+        [Parameter, EditorRequired]
         public AXOpen.Data.AxoDataEntity? DataHeader { get; set; }
 
-        [Parameter]
+        [Parameter, EditorRequired]
         public AXOpen.Data.AxoDataExchangeBase? DataManger { get; set; }
 
-        [Parameter]
+        [Parameter, EditorRequired]
         public AXOpen.Data.AxoDataEntity? TechnologySettings { get; set; }
 
-        [Parameter]
+        [Parameter, EditorRequired]
         public AXOpen.Data.AxoDataEntity? SharedTechnologySettings { get; set; }
 
-        [Parameter]
+        [Parameter, EditorRequired]
         public AxoObject? UnitComponents { get; set; }
 
         [Parameter]
