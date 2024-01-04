@@ -1,4 +1,16 @@
 {
   "ImgSrc": "Images/VisualComposerSerialize/0e7f5e2035e8717f7b4c8fbd06569666e490ac494738de872935bf0c2df4866d/Default.png",
-  "Items": []
+  "Items": [
+    {
+      "Id": "b26e16b0be4536d0e90230eda556185e18a8af289b91d36ef01a1e2c29812b64",
+      "RatioImgX": 34.48186528497409,
+      "RatioImgY": -39.32249322493225,
+      "Transform": "TopCenter",
+      "Presentation": "Display",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Roles": ""
+    }
+  ]
 }
