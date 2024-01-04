@@ -1,4 +1,5 @@
-﻿using AXOpen.VisualComposer;
+﻿using AXOpen.Messaging.Static.Blazor;
+using AXOpen.VisualComposer;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 
 namespace AXOpen.Core
@@ -7,11 +8,11 @@ namespace AXOpen.Core
     {
         private void SetCurrentObject()
         {
-            if (RccContainer is RenderableContentControl vc)
+            if (RccContainer is RenderableContentControl rccContainer)
             {
-                if (vc.ParentContainer is VisualComposerItem a)
+                if (rccContainer.ParentContainer is VisualComposerItem composerItem)
                 {
-                    a.Parent.UpdateDetails(this.Component);
+                    composerItem.Parent.UpdateDetails(this.Component);
                 }
             }
         }
