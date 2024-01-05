@@ -166,18 +166,18 @@ namespace AXOpen.VisualComposer
             //var windowSize = await jsObject.InvokeAsync<WindowSize>("getWindowSize");
             var imageSize = await jsObject.InvokeAsync<WindowSize>("getImageSize", _imgId);
 
-            double offsetX = startX - (ratioImgX / 100 * imageSize.Width);
-            double offsetY = startY - (ratioImgY / 100 * imageSize.Height);
+            double offsetX = startX - (ratioImgX / 100 * imageSize.Width) * (Parent._zoomableContainer.Scale);
+            double offsetY = startY - (ratioImgY / 100 * imageSize.Height) * (Parent._zoomableContainer.Scale);
 
             if (imageSize.Width == 0)
                 ratioImgX = (args.ClientX - offsetX);
             else
-                ratioImgX = ((args.ClientX - offsetX) / imageSize.Width * 100);
+                ratioImgX = ((args.ClientX - offsetX) / imageSize.Width * 100) * (1 / Parent._zoomableContainer.Scale);
 
             if (imageSize.Height == 0)
                 ratioImgY = (args.ClientY - offsetY);
             else
-                ratioImgY = ((args.ClientY - offsetY) / imageSize.Height * 100);
+                ratioImgY = ((args.ClientY - offsetY) / imageSize.Height * 100) * (1 / Parent._zoomableContainer.Scale);
 
             StateHasChanged();
         }

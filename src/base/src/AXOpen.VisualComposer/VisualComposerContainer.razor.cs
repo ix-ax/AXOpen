@@ -34,7 +34,7 @@ namespace AXOpen.VisualComposer
         private List<VisualComposerItem> _children = new();
         private ITwinElement _detailsObject;
 
-        private ZoomableContainer _zoomableContainer { get; set; }
+        public ZoomableContainer _zoomableContainer { get; set; }
 
         private IEnumerable<ITwinElement> _childrenOfAxoObject { get; set; }
 
@@ -51,6 +51,8 @@ namespace AXOpen.VisualComposer
                 {
                     Id += obj.Symbol;
                 }
+
+                Id = Id.ComputeSha256Hash();
             }
         }
 
