@@ -1,12 +1,13 @@
 ﻿@namespace AXOpen.Core
 @using AXOpen.Messaging.Static
+@using AXOpen.Messaging.Static.Blazor
 @using AXSharp.Connector
 @inherits RenderableComplexComponentBase<AXSharp.Connector.ITwinObject>
 
 
 @if(MessageProvider?.MessagesCount > 0)
 {
-    <button type="button" class="btn btn-danger position-relative" data-bs-toggle="modal" data-bs-target="#alarmsviewmodal">
+    <button type="button" class="btn btn-@Observer?.HighestSeverityColor position-relative" data-bs-toggle="modal" data-bs-target="#alarmsviewmodal">
         @Localizer["Alarms"]
         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
             @MessageProvider?.MessagesCount
@@ -23,21 +24,23 @@ else
         
 
 @code {
+    private AxoMessageObserver? observer;
 
     [Parameter]
     public AxoMessageProvider? MessageProvider { get; set; }
 
-    private string Disabled => MessageProvider?.MessagesCount> 0 ? "false" : "true";
-
-    public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+    private AxoMessageObserver? Observer
     {
-        if (MessageProvider?.Observables != null)
-            foreach (var axoMessenger in MessageProvider.Observables)
-            {
-                axoMessenger.StartPolling(2500, this);
-                PolledElements.Add(axoMessenger);
-            }
+        get
+        {
+            if (observer == null && MessageProvider != null)
+                observer = AxoMessageObserver.Create(MessageProvider, this);
+
+            return observer;
+        } 
     }
+    
+    private string Disabled => MessageProvider?.MessagesCount> 0 ? "false" : "true";
     
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -47,12 +50,7 @@ else
     
     protected override async Task OnInitializedAsync()
     {
+        if (Observer != null) await Observer.InitializeUpdate();
         await base.OnInitializedAsync();
-
-        if (MessageProvider?.Observables != null)
-            foreach (var axoMessenger in MessageProvider.Observables)
-            {
-                this.UpdateValuesOnChange(axoMessenger);
-            }
     }
 }

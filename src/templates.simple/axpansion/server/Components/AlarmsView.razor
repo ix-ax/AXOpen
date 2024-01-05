@@ -1,5 +1,6 @@
 ﻿@namespace AXOpen.Core
 @using AXOpen.Messaging.Static
+@using AXOpen.Messaging.Static.Blazor
 @using AXSharp.Connector
 @inherits RenderableComplexComponentBase<AXSharp.Connector.ITwinObject>
 @inject AuthenticationStateProvider AuthenticationStateProvider;
@@ -41,33 +42,31 @@
 
 
 @code {
-
-
+    
     [Parameter]
     public AxoMessageProvider? MessageProvider { get; set; }
-    public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+
+    private AxoMessageObserver? observer;
+    
+    /// <summary>
+    /// This method is called when a component is changed.
+    /// It creates a new instance of AxoMessageObserver using the changed component and assigns it to the observer variable.
+    /// </summary>
+    public override void OnComponentChanged()
     {
-        if (MessageProvider?.Observables != null)
-            foreach (var axoMessenger in MessageProvider.Observables)
-            {
-                axoMessenger.StartPolling(2500, this);
-                PolledElements.Add(axoMessenger);
-            }
+        if (MessageProvider != null) observer = AxoMessageObserver.Create(MessageProvider, this);
     }
+    
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await base.OnAfterRenderAsync(firstRender);
         this.StateHasChanged();
     }
+    
     protected override async Task OnInitializedAsync()
     {
+        if (observer != null) await observer.InitializeUpdate();
         await base.OnInitializedAsync();
-
-        if (MessageProvider?.Observables != null)
-            foreach (var axoMessenger in MessageProvider.Observables)
-            {
-                this.UpdateValuesOnChange(axoMessenger);
-            }
     }
 
     private async Task AcknowledgeAll()

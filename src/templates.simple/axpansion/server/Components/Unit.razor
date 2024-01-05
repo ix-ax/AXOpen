@@ -1,5 +1,5 @@
 ﻿@using AXSharp.Connector
-
+@using AXOpen.Core
 @inherits RenderableComplexComponentBase<axosimple.IUnit>
 
 <body>
@@ -80,8 +80,8 @@
                 {
                     <div class="container-fluid">
                         <div class="row">
-                            <RenderableContentControl Context="@DataHeader" Presentation="Display" />
-                            <RenderableContentControl Context="@Data" Presentation="Display" />
+                            <RenderableContentControl Context="@DataHeader" Presentation="Status-Display" />
+                            <RenderableContentControl Context="@Data" Presentation="Status-Display" />
                         </div>
                     </div>
                 }

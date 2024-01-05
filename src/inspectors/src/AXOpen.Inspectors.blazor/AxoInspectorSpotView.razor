@@ -1,0 +1,50 @@
+﻿@namespace AXOpen.Inspectors
+@using AXOpen.VisualComposer
+@using AXSharp.Connector
+@inherits RenderableComplexComponentBase<AxoInspector>
+
+<p type="button" class="btn btn-outline-primary"
+        data-bs-toggle="tooltip" 
+        data-bs-placement="top"
+        data-bs-custom-class="custom-tooltip"
+        data-bs-title="@Component.HumanReadable"
+        @onclick="SetCurrentObject">
+    @Component.AttributeName
+    <GenericIconView Result="Data.Result.LastValue" HasLabel="false" />
+</p>
+
+
+
+@code {
+    private AxoInspectorData? Data
+    {
+        get
+        {
+            return this.Component?.GetChildren().OfType<AxoInspectorData>().FirstOrDefault();
+        }
+    }
+    
+    private void SetCurrentObject()
+    {
+        if (RccContainer is RenderableContentControl rccContainer)
+        {
+            if (rccContainer.ParentContainer is VisualComposerItem composerItem)
+            {
+                composerItem.Parent.DetailsPresentationType = "Status";
+                composerItem.Parent.UpdateDetails(this.Component);
+            }
+        }
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        if (this.Data != null)
+        {
+            base.AddToPolling(Data.Result, 1000);
+            UpdateValuesOnChange(Data.Result);
+        }
+
+        return base.OnInitializedAsync();
+    }
+
+}

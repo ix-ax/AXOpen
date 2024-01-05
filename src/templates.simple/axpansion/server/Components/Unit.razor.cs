@@ -14,8 +14,16 @@ namespace axosimple.server.Components
         [Inject]
         public IAlertDialogService _alerts { set; get; }
 
-        private AxoMessageProvider AxoMessageProvider =>
-        AxoMessageProvider.Create(new ITwinObject[] { base.Component, this.DataManger });
+        private AxoMessageProvider _axoMessageProvider;
+        private AxoMessageProvider AxoMessageProvider
+        {
+            get
+            {
+                if(_axoMessageProvider == null) _axoMessageProvider = AxoMessageProvider.Create(AllVisualItems);
+                return _axoMessageProvider;
+            }
+            
+        }
 
         [Parameter, BindRequired]
         public AXOpen.Data.AxoDataEntity? Data { get; set; }

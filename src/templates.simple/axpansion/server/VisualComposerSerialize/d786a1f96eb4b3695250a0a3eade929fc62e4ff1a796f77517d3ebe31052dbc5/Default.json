@@ -10,6 +10,7 @@
       "Width": -1,
       "Height": -1,
       "ZIndex": 0,
+      "Scale": 0,
       "Roles": ""
     },
     {
@@ -21,6 +22,7 @@
       "Width": -1,
       "Height": -1,
       "ZIndex": 0,
+      "Scale": 0,
       "Roles": ""
     },
     {
@@ -32,6 +34,7 @@
       "Width": -1,
       "Height": -1,
       "ZIndex": 0,
+      "Scale": 0,
       "Roles": ""
     },
     {
@@ -43,6 +46,7 @@
       "Width": -1,
       "Height": -1,
       "ZIndex": 0,
+      "Scale": 0,
       "Roles": ""
     },
     {
@@ -54,6 +58,55 @@
       "Width": -1,
       "Height": -1,
       "ZIndex": 0,
+      "Scale": 0,
+      "Roles": ""
+    },
+    {
+      "Id": "17602be75d18686d2a6b9025791c4483737e94e3e436e690454b27143783e270",
+      "RatioImgX": 28.275316455696203,
+      "RatioImgY": 17.13101160862355,
+      "Transform": "TopCenter",
+      "Presentation": "Spot",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": ""
+    },
+    {
+      "Id": "4d4f07971ddbca97ad505367216fcdff269069dcdb4596dc5d7c0a463c9a668b",
+      "RatioImgX": 50.03164556962025,
+      "RatioImgY": 50.6301824212272,
+      "Transform": "TopCenter",
+      "Presentation": "Spot",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": ""
+    },
+    {
+      "Id": "5df2c92f84540a4076ab0a2bc2e2f9c4c36af435392e8fcaab123e350053f4c0",
+      "RatioImgX": 50.03164556962025,
+      "RatioImgY": 15.306799336650084,
+      "Transform": "TopCenter",
+      "Presentation": "Spot",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": ""
+    },
+    {
+      "Id": "2305a4c6e91a5eccd40c8aab836514ce967ea4cba55d3fc417eef607be74599d",
+      "RatioImgX": 70.12658227848101,
+      "RatioImgY": 19.950248756218908,
+      "Transform": "TopCenter",
+      "Presentation": "Spot",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
       "Roles": ""
     }
   ]

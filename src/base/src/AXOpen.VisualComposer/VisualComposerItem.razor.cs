@@ -46,7 +46,7 @@ namespace AXOpen.VisualComposer
                 _scale = value.Scale;
                 Roles = value.Roles;
 
-                Id = value.TwinElement.Symbol.ModalIdHelper();
+                Id = value.TwinElement?.Symbol.ModalIdHelper();
             }
         }
 
