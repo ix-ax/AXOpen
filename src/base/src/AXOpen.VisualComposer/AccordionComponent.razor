@@ -3,27 +3,34 @@
 <div class="accordion-item">
     <div class="accordion-header">
         <div class="input-group flex-nowrap">
-            <button class="accordion-button collapsed py-2" type="button" data-bs-toggle="collapse" data-bs-target="#@AccordionContent.Symbol.ModalIdHelper()" aria-expanded="false" aria-controls="@AccordionContent.Symbol.ModalIdHelper()">
-                @AccordionContent.Symbol
+            <i class="bi bi-boxes m-2"></i>
+            <button class="accordion-button collapsed py-2" type="button" data-bs-toggle="collapse" data-bs-target="#@SourceTwinElement.Symbol.ModalIdHelper()" aria-expanded="false" aria-controls="@SourceTwinElement.Symbol.ModalIdHelper()">
+                @SourceTwinElement.Symbol
             </button>
-            <a class="text-decoration-none text-black p-2 align-self-center" style="cursor: pointer;" @onclick="() => Parent.AddChildren(AccordionContent)"><span class="bi bi-plus-lg" aria-hidden="true" /></a>
+            <a class="text-decoration-none text-black p-2 align-self-center" style="cursor: pointer;" @onclick="() => Parent.AddChildren(SourceTwinElement)"><span class="bi bi-plus-lg" aria-hidden="true"/></a>
         </div>
     </div>
-    <div id="@AccordionContent.Symbol.ModalIdHelper()" class="accordion-collapse collapse">
+    <div id="@SourceTwinElement.Symbol.ModalIdHelper()" class="accordion-collapse collapse">
         <div class="accordion-body">
             <ul class="list-group">
-                @foreach (var item in AccordionContent.GetChildren())
+                
+                @if (SourceTwinElement is ITwinObject primary)
                 {
-                    @if (!item.GetChildren().Any())
+                    @foreach (var kid in primary.GetKids())
                     {
-                        <li class="list-group-item d-flex">
-                            <p class="mb-0">@item.Symbol</p>
-                            <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => Parent.AddChildren(item)"><span class="bi bi-plus-lg" aria-hidden="true" /></a>
-                        </li>
-                    }
-                    else
-                    {
-                        <AccordionComponent AccordionContent="item" Parent="@Parent" />
+                        if (kid is ITwinObject tobj)
+                        {
+                            <AccordionComponent SourceTwinElement="tobj" Parent="@Parent"/>    
+                        }
+
+                        if (kid is ITwinPrimitive prim)
+                        {
+                            <li class="list-group-item d-flex">
+                                <i class="bi bi-card-text mr-2"></i>
+                                <p class="mb-0">@prim.Symbol</p>
+                                <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => Parent.AddChildren(prim)"><span class="bi bi-plus-lg" aria-hidden="true"/></a>
+                            </li> 
+                        }
                     }
                 }
             </ul>
@@ -34,7 +41,7 @@
 
 @code {
     [Parameter]
-    public ITwinObject AccordionContent { get; set; }
+    public ITwinElement SourceTwinElement { get; set; }
 
     [Parameter]
     public VisualComposerContainer Parent { get; set; }

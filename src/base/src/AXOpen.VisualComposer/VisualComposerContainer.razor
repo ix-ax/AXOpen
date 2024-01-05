@@ -20,8 +20,7 @@
                             <span class="bi bi-pencil-square fs-4" aria-hidden="true" />
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#showAllModal-@Id.ModalIdHelper()">Show all</a></li>
-                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#showAllPrimitivesModal-@Id.ModalIdHelper()">Show all primitives</a></li>
+                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#showAllModal-@Id.ModalIdHelper()">Controller objects</a></li>
                             <li><a class="dropdown-item" @onclick="() => Save()">Save</a></li>
                             <li><a class="dropdown-item" @onclick='() => Save("Default")'>Save as default</a></li>
                             <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#saveAsModal-@Id.ModalIdHelper()">Save as</a></li>
@@ -77,9 +76,9 @@
                                 @if (SearchValue is null || SearchResult is null)
                                 {
                                     <div class="accordion" id="accordionExample">
-                                        @foreach (var item in Objects.SelectMany(p => p.GetChildren()))
+                                        @foreach (var item in Objects)
                                         {
-                                            <AccordionComponent AccordionContent="@item" Parent="@this" />
+                                            <AccordionComponent SourceTwinElement="@item" Parent="@this" />
                                         }
                                     </div>
                                 }
