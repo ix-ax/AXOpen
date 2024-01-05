@@ -1,0 +1,91 @@
+﻿@namespace AXOpen.Core
+@inherits RenderableComplexComponentBase<AxoObject>
+@using AXOpen.Core
+@using AXOpen.Messaging.Static
+@using System.Runtime.CompilerServices
+@using AXOpen.Messaging.Static.Blazor
+@using AXSharp.Connector
+@using Microsoft.JSInterop
+@implements IAsyncDisposable;
+@inject IJSRuntime JSRuntime
+
+
+@using AXOpen.Messaging.Static
+@using AXOpen.Messaging.Static.Blazor
+@using AXSharp.Connector
+@inject AuthenticationStateProvider AuthenticationStateProvider;
+
+ 
+<div class="container-fluid">
+    @if (observer?.Provider.MessagesCount > 0)
+    {
+        <div class="row p-3">
+            <button type="button" class="btn btn-primary m-3" @onclick="AcknowledgeAll">ACKN</button>
+        </div>
+        <div class="row">
+            @if (observer.Provider != null)
+            {
+                if (observer.Provider.Messengers != null)
+                {
+                    foreach (var message in observer.Provider.Messengers)
+                    {
+                        if (message.State > eAxoMessengerState.Idle)
+                        {
+                            <RenderableContentControl Context="@message" Presentation="Detailed"></RenderableContentControl>
+                        }
+                    }
+                }
+            }
+        </div>
+    }
+    else
+    {
+        <h2>No issues detected</h2>
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-emoji-sunglasses-fill" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16M2.31 5.243A1 1 0 0 1 3.28 4H6a1 1 0 0 1 1 1v.116A4.2 4.2 0 0 1 8 5c.35 0 .69.04 1 .116V5a1 1 0 0 1 1-1h2.72a1 1 0 0 1 .97 1.243l-.311 1.242A2 2 0 0 1 11.439 8H11a2 2 0 0 1-1.994-1.839A3 3 0 0 0 8 6c-.393 0-.74.064-1.006.161A2 2 0 0 1 5 8h-.438a2 2 0 0 1-1.94-1.515zM4.969 9.75A3.5 3.5 0 0 0 8 11.5a3.5 3.5 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1-3.898-2.25.5.5 0 0 1 .866-.5z"/>
+        </svg>
+    }
+</div>
+
+@code
+{
+    private IJSObjectReference? module;
+    private AxoMessageObserver? observer; 
+    
+    /// <summary>
+    /// This method is called when a component is changed.
+    /// It creates a new instance of AxoMessageObserver using the changed component and assigns it to the observer variable.
+    /// </summary>
+    public override void OnComponentChanged()
+    {
+        observer = AxoMessageObserver.Create(new[] { this.Component }, this);
+    }
+    
+    ///<inheritdoc/>
+    public async ValueTask DisposeAsync()
+    {
+        if (module != null) await module.DisposeAsync();
+    }
+    
+    ///<inheritdoc/>
+    protected override async Task OnInitializedAsync()
+    {
+        if (observer != null) await observer.InitializeUpdate();
+        await base.OnInitializedAsync();
+    }
+    
+    private async Task AcknowledgeAll()
+    {
+        var ast = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        if (observer.Provider is {Messengers: not null })
+        {
+            foreach (var messenger in observer.Provider.Messengers)
+            {
+                messenger.Acknowledge(ast.User.Identity);
+            }
+        }
+    }
+}
+
+
+

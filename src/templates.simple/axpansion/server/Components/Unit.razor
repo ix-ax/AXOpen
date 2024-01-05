@@ -1,21 +1,11 @@
-﻿@using AXOpen.Base.Dialogs;
-@using AXOpen.Core.Blazor.AxoDialogs;
-@using AXOpen.Core.Blazor.Dialogs
-@using axosimple.server.Components;
-@using AXOpen.Data;
-@using AXOpen.Messaging.Static
-@using AXSharp.Connector;
-@using AXOpen.Core;
-
-
-@inject IAlertDialogService _alerts
+﻿@using AXSharp.Connector
+@using AXOpen.Core
 @inherits RenderableComplexComponentBase<axosimple.IUnit>
-@using AXOpen.VisualComposer;
 
 <body>
     <div class="content-wrapper">
-        <UnitsSequences Component="@this.Component" ObjectCollection="new ITwinObject[]{this.Data, this.DataManger, this.TechnologySettings, this.Component}"></UnitsSequences>
-        <UnitsService ServiceTask="((dynamic)this.Component).ServiceMode" Components="UnitComponents"></UnitsService>
+        <UnitsSequences Component="@this.Component" ObjectCollection=AllVisualItems></UnitsSequences>
+        <UnitsService ServiceTask="((dynamic)this.Component).ServiceMode" Components="AllVisualItems"></UnitsService>
     </div>
 </body>
 
@@ -90,8 +80,8 @@
                 {
                     <div class="container-fluid">
                         <div class="row">
-                            <RenderableContentControl Context="@DataHeader" Presentation="Display" />
-                            <RenderableContentControl Context="@Data" Presentation="Display" />
+                            <RenderableContentControl Context="@DataHeader" Presentation="Status-Display" />
+                            <RenderableContentControl Context="@Data" Presentation="Status-Display" />
                         </div>
                     </div>
                 }
@@ -146,77 +136,4 @@
 <AxoDialogLocator DialogId="@this.Component?.Symbol" ObservedObjects="new[] {this.Component}"></AxoDialogLocator>
 <AxoAlertDialogLocator ObservedObjects="new[] {this.Component}" />
 
-@code
-{
-    private AxoMessageProvider AxoMessageProvider =>
-        AxoMessageProvider.Create(new ITwinObject[] { this.Component, this.DataManger });
-
-    [Parameter]
-    public AXOpen.Data.AxoDataEntity? Data { get; set; }
-
-    [Parameter]
-    public AXOpen.Data.AxoDataEntity? DataHeader { get; set; }
-
-
-    [Parameter]
-    public AXOpen.Data.AxoDataExchangeBase? DataManger { get; set; }
-
-
-    [Parameter]
-    public RenderFragment? ChildContent { get; set; }
-
-    [Parameter]
-    public AXOpen.Data.AxoDataEntity? TechnologySettings { get; set; }
-
-    [Parameter]
-    public AXOpen.Data.AxoDataEntity? SharedTechnologySettings { get; set; }
-
-    [Parameter]
-    public AxoObject? UnitComponents { get; set; }
-
-    public bool EnableModalComponents { set; get; }
-    public bool EnableModalProductionData { set; get; }
-    public bool EnableModalProcessSettings { set; get; }
-    public bool EnableModalTechnologySettings { set; get; }
-
-    private void ShowModalComponents()
-    {
-        EnableModalComponents = true;
-    }
-
-    private void HideModalComponents()
-    {
-        EnableModalComponents = false;
-    }
-
-    private void ShowModalProductionData()
-    {
-        EnableModalProductionData = true;
-    }
-
-    private void HideModalProductionData()
-    {
-        EnableModalProductionData = false;
-    }
-
-    private void ShowModalProcessSettings()
-    {
-        EnableModalProcessSettings = true;
-    }
-
-    private void HideModalProcessSettings()
-    {
-        EnableModalProcessSettings = false;
-    }
-
-    private void ShowModalTechnologySettings()
-    {
-        EnableModalTechnologySettings = true;
-    }
-
-    private void HideModalTechnologySettings()
-    {
-        EnableModalTechnologySettings = false;
-    }
-}
 

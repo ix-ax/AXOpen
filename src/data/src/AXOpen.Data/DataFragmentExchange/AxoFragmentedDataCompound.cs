@@ -117,4 +117,9 @@ public class AxoFragmentedDataCompound : ITwinObject
     {
         throw new NotImplementedException();
     }
+
+    public Task<bool> AnyChangeAsync<T>(T plain)
+    {
+        throw new NotImplementedException();
+    }
 }

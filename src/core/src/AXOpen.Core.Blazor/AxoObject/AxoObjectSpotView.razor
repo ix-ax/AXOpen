@@ -1,11 +1,76 @@
 ﻿@namespace AXOpen.Core
 @inherits RenderableComplexComponentBase<AxoObject>
 @using AXOpen.Core
+@using AXOpen.Messaging.Static
+@using System.Runtime.CompilerServices
+@using AXOpen.Messaging.Static.Blazor
+@using AXSharp.Connector
+@using Microsoft.JSInterop
+@implements IAsyncDisposable;
+@inject IJSRuntime JSRuntime
 
-<button type="button" class="btn btn-primary" @onclick="SetCurrentObject">
-    <i class="bi bi-info-square-fill"></i> 
+
+<button type="button" class="btn btn-primary"
+        data-bs-toggle="tooltip" 
+        data-bs-placement="top"
+        data-bs-custom-class="custom-tooltip"
+        data-bs-title="@Component.HumanReadable"
+        @onclick="SetCurrentObject">
     @Component.AttributeName
+    <a>
+       @if (observer?.Provider?.MessagesCount > 0)
+       {
+           <span class="position-absolute top-0 start-100 translate-middle p-2 bg-@observer?.HighestSeverityColor border border-light rounded-circle">
+               <span class="visually-hidden">New alerts</span>
+           </span>
+       }
+    </a>
 </button>
+
+@code
+{
+    private IJSObjectReference? module;
+    private AxoMessageObserver? observer; 
+    
+    ///<inheritdoc/>
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            try
+            {
+                module = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.Core.Blazor/AxoObject/AxoObjectSpotView.razor.js");
+                await module.InvokeVoidAsync("addToolTips");
+            }
+            catch (Exception e)
+            {
+                // ignored
+            }
+        }
+    }
+
+    /// <summary>
+    /// This method is called when a component is changed.
+    /// It creates a new instance of AxoMessageObserver using the changed component and assigns it to the observer variable.
+    /// </summary>
+    public override void OnComponentChanged()
+    {
+        observer = AxoMessageObserver.Create(new[] { this.Component }, this);
+    }
+    
+    ///<inheritdoc/>
+    public async ValueTask DisposeAsync()
+    {
+        if (module != null) await module.DisposeAsync();
+    }
+    
+    ///<inheritdoc/>
+    protected override async Task OnInitializedAsync()
+    {
+        if (observer != null) await observer.InitializeUpdate();
+        await base.OnInitializedAsync();
+    }
+}
 
 
 

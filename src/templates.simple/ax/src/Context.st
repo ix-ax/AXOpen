@@ -13,6 +13,11 @@ NAMESPACE axosimple
             
             Inputs : REF_TO axosimple.Inputs;
             Outputs : REF_TO axosimple.Outputs; 
+
+            Safety : TechnologySafety;
+
+
+
             // Units - You can use snippet unitDeclaration 
 
             StarterUnitTemplate : axosimple.StarterUnitTemplate.Unit;
@@ -29,7 +34,8 @@ NAMESPACE axosimple
         END_VAR      
         
         METHOD PROTECTED OVERRIDE Main    
-                        
+            Safety.Run(THIS);        
+            
             TechnologySettings.Run(THIS);
             ProcessSettings.Run(THIS);
             ProcessData.Run(THIS);

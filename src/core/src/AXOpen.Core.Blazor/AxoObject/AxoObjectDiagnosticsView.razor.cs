@@ -4,7 +4,7 @@ using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 
 namespace AXOpen.Core
 {
-    public partial class AxoObjectSpotView
+    public partial class AxoObjectDiagnosticsView
     {
         private void SetCurrentObject()
         {
@@ -12,7 +12,6 @@ namespace AXOpen.Core
             {
                 if (rccContainer.ParentContainer is VisualComposerItem composerItem)
                 {
-                    composerItem.Parent.DetailsPresentationType = "Diagnostics";
                     composerItem.Parent.UpdateDetails(this.Component);
                 }
             }

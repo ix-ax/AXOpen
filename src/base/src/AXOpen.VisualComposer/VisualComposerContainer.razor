@@ -236,19 +236,82 @@
             </NotAuthorized>
         </AuthorizeView>
     </div>
-
-    <div class="row shadow-lg w-auto m-5 p-3 mb-5 bg-body-tertiary rounded">
-        <RenderableContentControl @ref="detailsRcc" Context="@DetailsObject" Presentation="Command-Control"></RenderableContentControl>
-    </div>
+    <span class="@DetailsVisibility m-4">
+        <div class="card overflow-auto" style="height: 500px;">
+          <div class="card-header">
+              <button class="btn btn-close" @onclick="ToggleDetailsVisibility"></button>
+          </div>
+          <div class="card-body">
+              <p class="card-deck overflow-auto" style="height: 250px;">
+                  <RenderableContentControl @ref="detailsRcc" Context="@DetailsObject" Presentation="Command-Control"></RenderableContentControl>
+              </p>
+          </div>
+           <div class="card-footer">
+               <input type="text" class="form-control" placeholder="Presentation" @bind="DetailsPresentationType">
+               <div class="m-3">
+                   <button class="btn btn-primary" @onclick="SetCommandPresentationType">Command</button>
+                   <button class="btn btn-primary" @onclick="SetControlPresentationType">Control</button>
+                   <button class="btn btn-primary" @onclick="SetStatusPresentationType">Status</button>
+                   <button class="btn btn-primary" @onclick="SetDisplayPresentationType">Display</button>
+               </div>
+            </div>
+        </div>
+    </span >
 </div>
 @code
 {
+    private string detailsPresentationType;
 
+    private void SetCommandPresentationType()
+    {
+        DetailsPresentationType = "Command";
+    }
+    
+    private void SetControlPresentationType()
+    {
+        DetailsPresentationType = "Control";
+    }
+    
+    private void SetStatusPresentationType()
+    {
+        DetailsPresentationType = "Status";
+    }
+    
+    private void SetDisplayPresentationType()
+    {
+        DetailsPresentationType = "Display";
+    }
+    
     private RenderableContentControl detailsRcc { get; set; }
 
+    private const string VISUALLY_HIDDEN = "visually-hidden";
+    private string DetailsVisibility { get; set; } = VISUALLY_HIDDEN;
+
+    public string DetailsPresentationType
+    {
+        get => detailsPresentationType;
+        set
+        {
+            detailsPresentationType = value;
+            detailsRcc.Presentation = value;
+            this.StateHasChanged();
+        }
+    }
+
+    private void ToggleDetailsVisibility()
+    {
+        this.DetailsVisibility = this.DetailsVisibility == VISUALLY_HIDDEN ? string.Empty : VISUALLY_HIDDEN;
+        this.StateHasChanged();
+    }
+    
     public void UpdateDetails(ITwinElement element)
     {
-        detailsRcc.Context = element;
-        detailsRcc?.ForceRender();
+        if (detailsRcc != null)
+        {
+            DetailsVisibility = string.Empty;
+            this.StateHasChanged();
+            detailsRcc.Context = element;
+            detailsRcc?.ForceRender();
+        }
     }
 }
