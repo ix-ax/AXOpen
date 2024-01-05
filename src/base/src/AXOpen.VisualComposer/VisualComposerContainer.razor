@@ -4,38 +4,38 @@
 <div class="container">
     <div class="row">
         <AuthorizeView Roles="Administrator">
-    <Authorized>
-        <div class="d-flex justify-content-end my-2">
-            <div style="z-index: 100;">
-                <select class="form-select w-auto" @onchange="(ChangeEventArgs args) => Load(args.Value.ToString())">
-                    @foreach (var item in GetAllFiles())
-                    {
-                        <option value="@item" selected="@(CurrentTemplate is null || CurrentTemplate == "" ? item == "Default" ? "selected" : null : item == CurrentTemplate ? "selected" : null)">@item</option>
-                    }
-                </select>
-            </div>
+            <Authorized>
+                <div class="d-flex justify-content-end my-2">
+                    <div style="z-index: 100;">
+                        <select class="form-select w-auto" @onchange="(ChangeEventArgs args) => Load(args.Value.ToString())">
+                            @foreach (var item in GetAllFiles())
+                            {
+                                <option value="@item" selected="@(CurrentTemplate is null || CurrentTemplate == "" ? item == "Default" ? "selected" : null : item == CurrentTemplate ? "selected" : null)">@item</option>
+                            }
+                        </select>
+                    </div>
 
-            <div class="dropdown ms-4" style="z-index: 100;">
-                <a class="dropdown-toggle text-decoration-none text-black" style="cursor: pointer;" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="bi bi-pencil-square fs-4" aria-hidden="true" />
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#showAllModal-@Id">Show all</a></li>
-                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#showAllPrimitivesModal-@Id">Show all primitives</a></li>
-                    <li><a class="dropdown-item" @onclick="() => Save()">Save</a></li>
-                    <li><a class="dropdown-item" @onclick='() => Save("Default")'>Save as default</a></li>
-                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#saveAsModal-@Id">Save as</a></li>
-                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#templatesModal-@Id">Templates</a></li>
-                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#setImageModal-@Id">Set image</a></li>
-                </ul>
-            </div>
-        </div>
-        <ZoomableContainer>
-            <div ondragover="event.preventDefault();">
-                @if (_imgId != null)
-                {
-                    <img id="@_imgId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
-                }
+                    <div class="dropdown ms-4" style="z-index: 100;">
+                        <a class="dropdown-toggle text-decoration-none text-black" style="cursor: pointer;" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="bi bi-pencil-square fs-4" aria-hidden="true" />
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#showAllModal-@Id.ModalIdHelper()">Show all</a></li>
+                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#showAllPrimitivesModal-@Id.ModalIdHelper()">Show all primitives</a></li>
+                            <li><a class="dropdown-item" @onclick="() => Save()">Save</a></li>
+                            <li><a class="dropdown-item" @onclick='() => Save("Default")'>Save as default</a></li>
+                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#saveAsModal-@Id.ModalIdHelper()">Save as</a></li>
+                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#templatesModal-@Id.ModalIdHelper()">Templates</a></li>
+                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#setImageModal-@Id.ModalIdHelper()">Set image</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <ZoomableContainer Parent="this">
+                    <div ondragover="event.preventDefault();">
+                        @if (_imgId != null)
+                        {
+                            <img id="@_imgId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
+                        }
 
                         <CascadingValue Value="@this" Name="Parent" IsFixed="true">
                             <CascadingValue Value="@_imgId" Name="ImgId" IsFixed="true">
@@ -45,191 +45,196 @@
                                 }
                             </CascadingValue>
                         </CascadingValue>
-            </div>
-        </ZoomableContainer>
+                    </div>
+                </ZoomableContainer>
 
-        <EmptyContainer>
-            <CascadingValue Value="@this" Name="Parent" IsFixed="true">
-                <CascadingValue Value="@_imgId" Name="ImgId" IsFixed="true">
-                    @foreach (VisualComposerItem child in _children)
-                    {
-                        <VisualComposerItemModal Origin="@child" />
-                    }
-                </CascadingValue>
-                </CascadingValue>
-        </EmptyContainer>
-
-        <div class="modal fade" id="showAllModal-@Id" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="alarmsviewTitle">All components</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body justify-content-center">
-                        <div class="row mb-2">
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Search" @bind="SearchValue">
-                            </div>
-                            <button type="button" class="btn btn-primary col-sm me-3" @onclick="() => Search()">Search</button>
-                        </div>
-
-                        @if (SearchValue is null || SearchResult is null)
-                        {
-                            <div class="accordion" id="accordionExample">
-                                @* @foreach (var item in Objects.SelectMany(p => p.GetChildren())) *@
-                                @foreach (var item in Objects)
-                                {
-                                    <AccordionComponent AccordionContent="@item" Parent="@this" />
-                                }
-                            </div>
-                        }
-                        else
-                        {
-                            <ul class="list-group">
-                                @foreach (var item in SearchResult)
-                                {
-                                    <li class="list-group-item d-flex">
-                                        <p class="mb-0">@item.Symbol</p>
-                                        <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => AddChildren(item)"><span class="bi bi-plus-lg" aria-hidden="true" /></a>
-                                    </li>
-                                }
-                            </ul>
-                        }
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="showAllPrimitivesModal-@Id" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="alarmsviewTitle">All primitives</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body justify-content-center">
-                        <div class="row mb-2">
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Search" @bind="SearchValuePrimitive">
-                            </div>
-                            <button type="button" class="btn btn-primary col-sm me-3" @onclick="() => SearchPrimitive()">Search</button>
-                        </div>
-
-                        @if (SearchValuePrimitive is null || SearchResultPrimitive is null)
-                        {
-                            <ul class="list-group">
-                                @foreach (var item in Objects.SelectMany(p => p.RetrievePrimitives()))
-                                {
-                                    <li class="list-group-item d-flex">
-                                        <p class="mb-0">@item.Symbol</p>
-                                        <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => AddChildren(item)"><span class="bi bi-plus-lg" aria-hidden="true" /></a>
-                                    </li>
-                                }
-                            </ul>
-                        }
-                        else
-                        {
-                            <ul class="list-group">
-                                @foreach (var item in SearchResultPrimitive)
-                                {
-                                    <li class="list-group-item d-flex">
-                                        <p class="mb-0">@item.Symbol</p>
-                                        <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => AddChildren(item)"><span class="bi bi-plus-lg" aria-hidden="true" /></a>
-                                    </li>
-                                }
-                            </ul>
-                        }
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="saveAsModal-@Id" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="alarmsviewTitle">Save as</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body justify-content-center">
-                        <div class="row">
-                            <label class="col-sm-2 col-form-label">File name</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="File name" @bind="FileName">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Save(FileName)">Save</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="templatesModal-@Id" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="alarmsviewTitle">Templates</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body justify-content-center">
-                        <ul class="list-group">
-                            @foreach (var item in GetAllFiles())
+                <EmptyContainer>
+                    <CascadingValue Value="@this" Name="Parent" IsFixed="true">
+                        <CascadingValue Value="@_imgId" Name="ImgId" IsFixed="true">
+                            @foreach (VisualComposerItem child in _children)
                             {
-                                <li class="list-group-item d-flex">
-                                    <p class="mb-0">@item</p>
-                                    <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => Remove(item)"><span class="bi bi-trash fs-5" aria-hidden="true" /></a>
-                                </li>
+                                <VisualComposerItemModal Origin="@child" />
                             }
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="setImageModal-@Id" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="alarmsviewTitle">Set background image</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body justify-content-center">
-                        <label for="inputFile" class="form-label">Upload image</label>
-                        <InputFile class="form-control col-10" id="inputFile" accept=".png, .jpg, .jpeg, .svg" OnChange="@UploadFile" />
-                    </div>
-                    <div class="modal-footer">
-                        @if (!isFileImported && isFileImporting)
-                        {
-                            <div class="spinner-border" role="status">
-                                <span class="visually-hidden">Loading...</span>
-                            </div>
-                        }
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </Authorized>
-    <NotAuthorized>
-        <ZoomableContainer>
-            <div style="position: relative; width: 100%; height: 100%;">
-                <img id="@_imgId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
-                <CascadingValue Value="@this" Name="Parent" IsFixed="true">
-                    <CascadingValue Value="@_imgId" Name="ImgId" IsFixed="true">
-                        @foreach (VisualComposerItem child in _children)
-                        {
-                            <VisualComposerItem Origin="@child" />
-                        }
+                        </CascadingValue>
                     </CascadingValue>
-                </CascadingValue>
-            </div>
-        </ZoomableContainer>
-    </NotAuthorized>
-</AuthorizeView>
+                </EmptyContainer>
+
+                <div class="modal fade" id="showAllModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="alarmsviewTitle">All components</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body justify-content-center">
+                                <div class="row mb-2">
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" placeholder="Search" @bind="SearchValue">
+                                    </div>
+                                    <button type="button" class="btn btn-primary col-sm me-3" @onclick="() => Search()">Search</button>
+                                </div>
+
+                                @if (SearchValue is null || SearchResult is null)
+                                {
+                                    <div class="accordion" id="accordionExample">
+                                        @foreach (var item in Objects.SelectMany(p => p.GetChildren()))
+                                        {
+                                            <AccordionComponent AccordionContent="@item" Parent="@this" />
+                                        }
+                                    </div>
+                                }
+                                else
+                                {
+                                    <ul class="list-group">
+                                        @foreach (var item in SearchResult)
+                                        {
+                                            <li class="list-group-item d-flex">
+                                                <p class="mb-0">@item.Symbol</p>
+                                                <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => AddChildren(item)"><span class="bi bi-plus-lg" aria-hidden="true" /></a>
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="showAllPrimitivesModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="alarmsviewTitle">All primitives</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body justify-content-center">
+                                <div class="row mb-2">
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" placeholder="Search" @bind="SearchValuePrimitive">
+                                    </div>
+                                    <button type="button" class="btn btn-primary col-sm me-3" @onclick="() => SearchPrimitive()">Search</button>
+                                </div>
+
+                                @if (SearchValuePrimitive is null || SearchResultPrimitive is null)
+                                {
+                                    <ul class="list-group">
+                                        @foreach (var item in Objects.SelectMany(p => p.RetrievePrimitives()))
+                                        {
+                                            <li class="list-group-item d-flex">
+                                                <p class="mb-0">@item.Symbol</p>
+                                                <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => AddChildren(item)"><span class="bi bi-plus-lg" aria-hidden="true" /></a>
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+                                else
+                                {
+                                    <ul class="list-group">
+                                        @foreach (var item in SearchResultPrimitive)
+                                        {
+                                            <li class="list-group-item d-flex">
+                                                <p class="mb-0">@item.Symbol</p>
+                                                <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => AddChildren(item)"><span class="bi bi-plus-lg" aria-hidden="true" /></a>
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="saveAsModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="alarmsviewTitle">Save as</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body justify-content-center">
+                                <div class="row">
+                                    <label class="col-sm-2 col-form-label">File name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" placeholder="File name" @bind="FileName">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Save(FileName)">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="templatesModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="alarmsviewTitle">Templates</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body justify-content-center">
+                                <ul class="list-group">
+                                    @foreach (var item in GetAllVisualComposerContainer())
+                                    {
+                                        <li class="list-group-item">
+                                            <div class="fw-bold d-flex">
+                                                <p class="mb-0">@item.file</p>
+                                                <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => Remove(item.file)"><span class="bi bi-trash fs-5" aria-hidden="true" /></a>
+                                            </div>
+                                            <div class="d-flex">
+                                                <p class="mb-0">Scale: @item.scale X: @(item.translateX)px Y: @(item.translateY)px</p>
+                                                <a class="ms-4 text-decoration-none text-black" style="cursor: pointer;" @onclick="() => ClearScaleAndTranslate(item.file)"><span class="bi bi-arrow-clockwise fs-5" aria-hidden="true" /></a>
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="setImageModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="alarmsviewTitle">Set background image</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body justify-content-center">
+                                <label for="inputFile" class="form-label">Upload image</label>
+                                <InputFile class="form-control col-10" id="inputFile" accept=".png, .jpg, .jpeg, .svg" OnChange="@UploadFile" />
+                            </div>
+                            <div class="modal-footer">
+                                @if (!isFileImported && isFileImporting)
+                                {
+                                    <div class="spinner-border" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                }
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Authorized>
+            <NotAuthorized>
+                <ZoomableContainer>
+                    <div style="position: relative; width: 100%; height: 100%;">
+                        <img id="@_imgId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
+                        <CascadingValue Value="@this" Name="Parent" IsFixed="true">
+                            <CascadingValue Value="@_imgId" Name="ImgId" IsFixed="true">
+                                @foreach (VisualComposerItem child in _children)
+                                {
+                                    <VisualComposerItem Origin="@child" />
+                                }
+                            </CascadingValue>
+                        </CascadingValue>
+                    </div>
+                </ZoomableContainer>
+            </NotAuthorized>
+        </AuthorizeView>
     </div>
     <span class="@DetailsVisibility m-4">
         <div class="card overflow-auto" style="height: 500px;">

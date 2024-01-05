@@ -18,23 +18,23 @@ namespace AXOpen.VisualComposer
             set => _detailsObject = value;
         }
 
+        [Inject]
+        NavigationManager NavigationManager { get; set; }
+
         [Parameter]
         public ITwinObject[] Objects { get; set; }
 
         public string? ImgSrc { get; set; }
 
-        [Parameter]
-        public string? Id
-        {
-            get => _id?.ComputeSha256Hash();
-            set => _id = value;
-        }
+        [Parameter, EditorRequired]
+        public string? Id { get; set; }
 
         private Guid _imgId = Guid.NewGuid();
 
         private List<VisualComposerItem> _children = new();
-        private string? _id;
         private ITwinElement _detailsObject;
+
+        private ZoomableContainer _zoomableContainer { get; set; }
 
         private IEnumerable<ITwinElement> _childrenOfAxoObject { get; set; }
 
@@ -49,7 +49,7 @@ namespace AXOpen.VisualComposer
                 Id = "";
                 foreach (ITwinObject obj in Objects)
                 {
-                    Id += obj.Symbol.ModalIdHelper();
+                    Id += obj.Symbol;
                 }
             }
         }
@@ -114,28 +114,23 @@ namespace AXOpen.VisualComposer
                 CurrentTemplate = fileName;
             }
 
-            foreach (char c in Path.GetInvalidFileNameChars().Concat(Path.GetInvalidPathChars()))
-            {
-                fileName = fileName.Replace(c, '_');
-            }
-
             List<SerializableVisualComposerItem> serializableChildren = new List<SerializableVisualComposerItem>();
             foreach (var child in _children)
             {
                 serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.ratioImgX, child.ratioImgY, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex, child.Scale, child.Roles));
             }
 
-            if (!Directory.Exists("VisualComposerSerialize/" + Id))
+            if (!Directory.Exists("VisualComposerSerialize/" + Id.CorrectFilePath()))
             {
-                Directory.CreateDirectory("VisualComposerSerialize/" + Id);
+                Directory.CreateDirectory("VisualComposerSerialize/" + Id.CorrectFilePath());
             }
 
-            Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id + "/" + fileName + ".json", new SerializableObject(ImgSrc, serializableChildren));
+            Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", new SerializableObject(ImgSrc, serializableChildren, _zoomableContainer.Scale, _zoomableContainer.TranslateX, _zoomableContainer.TranslateY));
         }
 
         public void Load(string? fileName = "Default")
         {
-            SerializableObject? deserialize = Serializing.Serializing<SerializableObject>.Deserialize("VisualComposerSerialize/" + Id + "/" + fileName + ".json");
+            SerializableObject? deserialize = Serializing.Serializing<SerializableObject>.Deserialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json");
 
             if (deserialize != null)
             {
@@ -144,22 +139,29 @@ namespace AXOpen.VisualComposer
 
                 foreach (var item in deserialize.Items)
                 {
-                    var a = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper().ComputeSha256Hash() == item.Id);
-                    _children.Add(new VisualComposerItem()
+                    var childObject = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper().ComputeSha256Hash() == item.Id);
+                    if (childObject != null)
                     {
-                        UniqueGuid = Guid.NewGuid(),
-                        TwinElement = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper().ComputeSha256Hash() == item.Id),
-                        ratioImgX = item.RatioImgX,
-                        ratioImgY = item.RatioImgY,
-                        _transform = Types.TransformType.FromString(item.Transform),
-                        _presentation = item.Presentation,
-                        _width = item.Width,
-                        _height = item.Height,
-                        _zIndex = item.ZIndex,
-                        _scale = item.Scale,
-                        Roles = item.Roles
-                    });
+                        _children.Add(new VisualComposerItem()
+                        {
+                            UniqueGuid = Guid.NewGuid(),
+                            TwinElement = childObject,
+                            ratioImgX = item.RatioImgX,
+                            ratioImgY = item.RatioImgY,
+                            _transform = Types.TransformType.FromString(item.Transform),
+                            _presentation = item.Presentation,
+                            _width = item.Width,
+                            _height = item.Height,
+                            _zIndex = item.ZIndex,
+                            _scale = item.Scale,
+                            Roles = item.Roles
+                        });
+                    }
                 }
+
+                _zoomableContainer.Scale = deserialize.Scale;
+                _zoomableContainer.TranslateX = deserialize.TranslateX;
+                _zoomableContainer.TranslateY = deserialize.TranslateY;
             }
 
             CurrentTemplate = fileName;
@@ -169,22 +171,38 @@ namespace AXOpen.VisualComposer
 
         public void Remove(string fileName)
         {
-            if (File.Exists("VisualComposerSerialize/" + Id + "/" + fileName + ".json"))
+            if (File.Exists("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json"))
             {
-                File.Delete("VisualComposerSerialize/" + Id + "/" + fileName + ".json");
+                File.Delete("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json");
             }
+        }
+
+        public void ClearScaleAndTranslate(string fileName)
+        {
+            SerializableObject? deserialize = Serializing.Serializing<SerializableObject>.Deserialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json");
+
+            if (deserialize != null)
+            {
+                deserialize.Scale = 1;
+                deserialize.TranslateX = 0;
+                deserialize.TranslateY = 0;
+
+                Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", deserialize);
+            }
+
+            NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
         }
 
         public List<string> GetAllFiles()
         {
             List<string> files = new();
 
-            if (!Directory.Exists("VisualComposerSerialize/" + Id))
+            if (!Directory.Exists("VisualComposerSerialize/" + Id.CorrectFilePath()))
                 return files;
 
             try
             {
-                Directory.GetFiles("VisualComposerSerialize/" + Id + "/", "*.json").ToList().ForEach(p => files.Add(Path.GetFileNameWithoutExtension(p)));
+                Directory.GetFiles("VisualComposerSerialize/" + Id.CorrectFilePath() + "/", "*.json").ToList().ForEach(p => files.Add(Path.GetFileNameWithoutExtension(p)));
             }
             catch (Exception ex)
             {
@@ -201,6 +219,22 @@ namespace AXOpen.VisualComposer
             return files;
         }
 
+        public List<(string file, double scale, int translateX, int translateY)> GetAllVisualComposerContainer()
+        {
+            List<(string, double, int, int)> data = new();
+            foreach (var file in GetAllFiles())
+            {
+                SerializableObject? deserialize = Serializing.Serializing<SerializableObject>.Deserialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + file + ".json");
+
+                if (deserialize != null)
+                {
+                    data.Add((file, deserialize.Scale, deserialize.TranslateX, deserialize.TranslateY));
+                }
+            }
+
+            return data;
+        }
+
         public string? SearchValue { get; set; } = null;
         public List<ITwinObject>? SearchResult { get; set; } = null;
         public void Search()
@@ -215,7 +249,7 @@ namespace AXOpen.VisualComposer
                     SearchResult = new();
                 else
                     SearchResult.Clear();
-                
+
                 foreach (ITwinObject obj in Objects)
                 {
                     SearchResult.AddRange(obj.GetChildren().Flatten(p => p.GetChildren()).ToList().FindAll(p => p.Symbol.Contains(SearchValue, StringComparison.OrdinalIgnoreCase)));
@@ -260,13 +294,13 @@ namespace AXOpen.VisualComposer
 
                 string newName = CurrentTemplate + Path.GetExtension(e.File.Name);
 
-                if (!Directory.Exists("wwwroot/Images/VisualComposerSerialize/" + Id))
-                    Directory.CreateDirectory("wwwroot/Images/VisualComposerSerialize/" + Id);
+                if (!Directory.Exists("wwwroot/Images/VisualComposerSerialize/" + Id.CorrectFilePath()))
+                    Directory.CreateDirectory("wwwroot/Images/VisualComposerSerialize/" + Id.CorrectFilePath());
 
-                await using FileStream fs = new("wwwroot/Images/VisualComposerSerialize/" + Id + "/" + newName, FileMode.Create);
+                await using FileStream fs = new("wwwroot/Images/VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + newName.CorrectFilePath(), FileMode.Create);
                 await e.File.OpenReadStream().CopyToAsync(fs);
 
-                ImgSrc = "Images/VisualComposerSerialize/" + Id + "/" + newName;
+                ImgSrc = "Images/VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + newName.CorrectFilePath();
 
                 isFileImported = true;
             }
@@ -276,6 +310,11 @@ namespace AXOpen.VisualComposer
             }
 
             isFileImporting = false;
+        }
+
+        internal void AddZoomableContainer(ZoomableContainer zoomableContainer)
+        {
+            _zoomableContainer = zoomableContainer;
         }
     }
 }

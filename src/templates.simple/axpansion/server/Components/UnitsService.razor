@@ -10,7 +10,8 @@
     <div class="row p-3">
         @if (ServiceTask?.Status.Cyclic == (ushort)eAxoTaskState.Busy)
         {
-            <VisualComposerContainer Objects="@Components" />
+            <VisualComposerContainer Objects="@(new [] { Components })" Id="ServiceComposer" />
+            @* <RenderableContentControl Context="Components" Presentation="Command-Control"/> *@
         }
     </div>
 </div>
@@ -18,7 +19,7 @@
 @code
 {
     [Parameter]
-    public ITwinObject?[] Components { get; set; }
+    public ITwinObject? Components { get; set; }
 
     [Parameter]
     public AxoTask? ServiceTask { get; set; }
