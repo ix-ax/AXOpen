@@ -51,7 +51,7 @@ Moreover, AXOpen comprises powerful tools that expedite the development of HMI/U
 
 The task provides a simple coordination primitive to execute actions. Tasks provide additional benefits regarding handling and observability of executed actions.
 
-![Task Example](assets/readme_pics/image-task.png)
+<!-- ![Task Example](assets/readme_pics/image-task.png) -->
 
 ~~~iecst
 IF _myTask.Invoke().IsDone() THEN
