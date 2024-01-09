@@ -70,7 +70,8 @@ NAMESPACE axosimple.StarterUnitTemplate
                 TechnologySettings^.Restore(); 
                 ProcessSettings^.Restore(); 
                 ProcessData^.Restore();
-                
+                Objs^._dialog.Restore();
+                Objs^._alertDialog.Restore();
                 THIS.MoveNext();
                 //-------------------------------------------------------
             END_IF;
