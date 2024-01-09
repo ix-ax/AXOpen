@@ -8,19 +8,16 @@ NAMESPACE AXOpen.Core
         VAR PUBLIC      
             _text : STRING;
             _caption : STRING;
-            _hasOK : BOOL;
-            _hasYes : BOOL;
-            _hasNo : BOOL;
-            _hasCancel : BOOL;
+            _buttons : eDialogButtons;
             _answer : eDialogAnswer;
             _dialogType : eDialogType;
             _externalCloseReq : BOOL;
             _closeSignal : BOOL;
-            _risingEdge : BOOL;            
         END_VAR
         
         VAR PRIVATE
             _lastCall : ULINT;
+            _risingEdge : BOOL;  // not used in .net side          
         END_VAR    
 
         ///<summary>
@@ -50,10 +47,7 @@ NAMESPACE AXOpen.Core
 
             THIS.Invoke();
             SUPER.Execute();
-            _hasOK := false;
-            _hasYes := false;
-            _hasNo := false;
-            _hasCancel := false;
+            _buttons := eDialogButtons#NoButtons;
             _text := '';
             _caption := '';
             _dialogType := eDialogType#Undefined;
@@ -95,11 +89,8 @@ NAMESPACE AXOpen.Core
             THIS.Invoke();
             SUPER.Execute();
 
+            _buttons := eDialogButtons#NoButtons;
 
-            _hasOK := FALSE;
-            _hasYes := FALSE;
-            _hasNo := FALSE;
-            _hasCancel := FALSE;
             _externalCloseReq := TRUE;
             _text := '';
             _caption := '';
@@ -139,6 +130,23 @@ NAMESPACE AXOpen.Core
         END_METHOD
 
     
+        ///<summary>
+        /// Executes once when the task is restored.
+        ///</summary>
+        METHOD PROTECTED OVERRIDE OnRestore 
+                  
+            
+            _buttons := eDialogButtons#NoButtons;
+
+            _externalCloseReq := TRUE;
+            _text := '';
+            _caption := '';
+            _dialogType := eDialogType#Undefined;
+            
+            THIS.DoneSignature  := ULINT#0;
+            THIS.StartSignature :=ULINT#0;
+        END_METHOD
+
     METHOD PUBLIC WithCaption : IAxoDialogAnswer
         VAR_INPUT
             inCaption : STRING;
@@ -149,7 +157,7 @@ NAMESPACE AXOpen.Core
     END_METHOD
 
     METHOD PUBLIC WithOk : IAxoDialogAnswer
-        _hasOK := TRUE;
+        _buttons := eDialogButtons#Ok;
         WithOk := THIS;
     END_METHOD
 
@@ -172,15 +180,12 @@ NAMESPACE AXOpen.Core
     END_METHOD
 
     METHOD PUBLIC WithYesNo : IAxoDialogAnswer
-        _hasYes := TRUE;
-        _hasNo := TRUE;
+        _buttons := eDialogButtons#YesNo;
         WithYesNo := THIS;
     END_METHOD
 
     METHOD PUBLIC WithYesNoCancel : IAxoDialogAnswer
-        _hasYES := TRUE;
-        _hasNo := TRUE;
-        _hasCancel := TRUE;
+        _buttons := eDialogButtons#YesNoCancel;
         WithYesNoCancel := THIS;
     END_METHOD
 

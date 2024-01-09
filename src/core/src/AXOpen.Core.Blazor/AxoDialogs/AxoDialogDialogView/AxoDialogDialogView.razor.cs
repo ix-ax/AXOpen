@@ -7,13 +7,13 @@ namespace AXOpen.Core
     {
        
 
-        private bool IsOkDialogType() => Component._hasOK.Cyclic;
+        private bool IsOkDialogType() => (Component._buttons.Cyclic == (short)eDialogButtons.Ok);
         
 
-        private bool IsYesNoDialogType() => Component._hasYes.Cyclic && Component._hasNo.Cyclic;
+        private bool IsYesNoDialogType() => (Component._buttons.Cyclic == (short)eDialogButtons.YesNo);
         
 
-        private bool IsYesNoCancelDialogType() => Component._hasYes.Cyclic && Component._hasNo.Cyclic && Component._hasCancel.Cyclic;
+        private bool IsYesNoCancelDialogType() => (Component._buttons.Cyclic == (short)eDialogButtons.YesNoCancel);
 
 
         protected override void OnInitialized()
