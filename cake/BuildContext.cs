@@ -163,6 +163,7 @@ public class BuildContext : FrostingContext
         ("components.drives", "axopen.components.drives", true),
         ("components.rexroth.drives", "axopen.components.rexroth.drives", true),
         ("components.festo.drives", "axopen.components.festo.drives", true),
+        ("components.desoutter.tightening", "axopen.components.desoutter.tightening", true),
         ("integrations", "ix.integrations", false),
         ("templates.simple", "templates.simple", false),
         ("template.axolibrary", "template.axolibrary", false)
