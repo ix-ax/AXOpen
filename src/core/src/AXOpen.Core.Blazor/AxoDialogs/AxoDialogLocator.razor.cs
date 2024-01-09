@@ -25,10 +25,10 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         public string DialogId { get; set; }
 
         /// <summary>
-        /// The opening dialog delay (default value is 100 ms).
+        /// The opening dialog delay (default value is 0 ms).
         /// </summary>
         [Parameter]
-        public int DialogOpenDelay { get; set; } = 100;
+        public int DialogOpenDelay { get; set; } = 0;
 
         private AxoDialogProxyService _axoDialogProxyService { get; set; }
 
@@ -65,7 +65,12 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         private async void OnDialogInvoked(object? sender, AxoDialogEventArgs e)
         {
             await InvokeAsync(StateHasChanged);
-            await Task.Delay(DialogOpenDelay);
+
+            if (DialogOpenDelay > 0)
+            {
+                await Task.Delay(DialogOpenDelay);
+            }
+
             await _dialogContainer.DialogClient.SendDialogOpen(DialogId);
         }
 
