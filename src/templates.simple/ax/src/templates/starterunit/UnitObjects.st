@@ -31,6 +31,12 @@ NAMESPACE axosimple.StarterUnitTemplate
             {#ix-attr:[AXOpen.Data.PersistentAttribute("StarterUnitTemplate")]}
             SpecialSettings :STRING[64] ;
 
+            // https://ix-ax.github.io/AXOpen/core/docs/AXODIALOG.html#closing-a-dialog-with-external-signal
+            _dialog : AXOpen.Core.AxoDialog;
+
+            // https://ix-ax.github.io/AXOpen/core/docs/AXOALERTDIALOG.html#invoking-alerts-from-plc
+            _alertDialog : AXOpen.Core.AxoAlertDialog;
+
         END_VAR        
     END_CLASS
 
