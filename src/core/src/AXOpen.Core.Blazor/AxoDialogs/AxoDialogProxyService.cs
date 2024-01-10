@@ -9,7 +9,10 @@ namespace AXOpen.Core.Blazor.AxoDialogs
     public class AxoDialogProxyService : AxoDialogProxyServiceBase, IDisposable
     {
         private AxoDialogContainer _axoDialogContainer;
+
         private readonly IEnumerable<ITwinObject> _observedObject;
+        private List<IsDialogType> _observedDialogs = new();
+        private string DialogId { get; set; }
 
         /// <summary>
         /// Creates new instance of <see cref="AxoDialogProxyService"/>
@@ -17,15 +20,13 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// <param name="dialogContainer">Container of proxy services handled by the application over SignalR.</param>
         /// <param name="dialogId">Id of the dialogue (typical the URL of the page where the dialogue is handled).</param>
         /// <param name="observedObjects">Twin objects that may contain invokable dialogs from the controller that are to be handled by this proxy service.</param>
-        public AxoDialogProxyService(AxoDialogContainer dialogContainer,string dialogId, IEnumerable<ITwinObject> observedObjects)
+        public AxoDialogProxyService(AxoDialogContainer dialogContainer, string dialogId, IEnumerable<ITwinObject> observedObjects)
         {
             _observedObject = observedObjects;
             _axoDialogContainer = dialogContainer;
             DialogId = dialogId;
             StartObservingObjectsForDialogues();
         }
-
-        private string DialogId { get; set; }
 
         /// <summary>
         /// Starts observing dialogue of this proxy service.
@@ -57,8 +58,10 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         private void StartObservingDialogs<T>(ITwinObject observedObject) where T : class, IsDialogType
         {
             var descendants = GetDescendants<T>(observedObject);
+
             foreach (var dialog in descendants)
             {
+                _observedDialogs.Add(dialog);
                 dialog.Initialize(() => HandleDialogInvocation(dialog));
             }
         }
@@ -68,14 +71,11 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// </summary>
         public void Dispose()
         {
-            foreach (var observedObject in _observedObject)
+            foreach (var dialog in _observedDialogs)
             {
-                var descendants = GetDescendants<IsDialogType>(observedObject);
-                foreach (var dialog in descendants)
-                {
-                    dialog.DeInitialize();
-                }
+                dialog.DeInitialize();
             }
+            _observedDialogs.Clear();
         }
     }
 }
