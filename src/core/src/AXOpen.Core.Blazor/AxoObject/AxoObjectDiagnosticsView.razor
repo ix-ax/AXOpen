@@ -17,26 +17,38 @@
 
  
 <div class="container-fluid">
-    @if (observer?.Provider.MessagesCount > 0)
+    @if (Observer?.Provider.MessagesCount > 0)
     {
         <div class="row p-3">
             <button type="button" class="btn btn-primary m-3" @onclick="AcknowledgeAll">ACKN</button>
         </div>
-        <div class="row">
-            @if (observer.Provider != null)
-            {
-                if (observer.Provider.Messengers != null)
-                {
-                    foreach (var message in observer.Provider.Messengers)
-                    {
-                        if (message.State > eAxoMessengerState.Idle)
-                        {
-                            <RenderableContentControl Context="@message" Presentation="Detailed"></RenderableContentControl>
-                        }
-                    }
-                }
-            }
-        </div>
+        <table class="table">
+           <thead>
+             <tr>
+               <th scope="col">@Localizer["Source"]</th>
+               <th scope="col">@Localizer["Category"]</th>
+               <th scope="col">@Localizer["Description"]</th>
+               <th scope="col">@Localizer["Risen"]</th>
+               <th scope="col">@Localizer["Fallen"]</th>
+               <th scope="col">@Localizer["Acknowledged"]</th>
+             </tr>
+           </thead>
+           <tbody>
+                 @if (Observer.Provider != null)
+                 {
+                     if (Observer.Provider.Messengers != null)
+                     {
+                         foreach (var message in Observer.Provider.Messengers)
+                         {
+                             if (message.State > eAxoMessengerState.Idle)
+                             {
+                                 <AxoMessengerView Component="message"></AxoMessengerView>
+                             }
+                         }
+                     }
+                 }
+             </tbody>
+        </table>
     }
     else
     {
@@ -50,15 +62,34 @@
 @code
 {
     private IJSObjectReference? module;
-    private AxoMessageObserver? observer; 
     
+    [Parameter]
+    public AxoMessageObserver? Observer { get; set; }
+
+    [Parameter]
+    public IEnumerable<ITwinObject> ObservedObjects { get; set; } = new List<ITwinObject>();
+
+    public override Task SetParametersAsync(ParameterView parameters)
+    {
+        OnComponentChanged();
+        return base.SetParametersAsync(parameters);
+    }
+
     /// <summary>
     /// This method is called when a component is changed.
     /// It creates a new instance of AxoMessageObserver using the changed component and assigns it to the observer variable.
     /// </summary>
     public override void OnComponentChanged()
     {
-        observer = AxoMessageObserver.Create(new[] { this.Component }, this);
+        if (this.Component != null)
+        {
+            Observer = AxoMessageObserver.Create(new ITwinObject[]{this.Component}, this);
+        }
+
+        if (ObservedObjects.Any())
+        {
+            Observer = AxoMessageObserver.Create(ObservedObjects, this);
+        }
     }
     
     ///<inheritdoc/>
@@ -70,16 +101,16 @@
     ///<inheritdoc/>
     protected override async Task OnInitializedAsync()
     {
-        if (observer != null) await observer.InitializeUpdate();
+        if (Observer != null) await Observer.InitializeUpdate();
         await base.OnInitializedAsync();
     }
     
     private async Task AcknowledgeAll()
     {
         var ast = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        if (observer.Provider is {Messengers: not null })
+        if (Observer.Provider is {Messengers: not null })
         {
-            foreach (var messenger in observer.Provider.Messengers)
+            foreach (var messenger in Observer.Provider.Messengers)
             {
                 messenger.Acknowledge(ast.User.Identity);
             }

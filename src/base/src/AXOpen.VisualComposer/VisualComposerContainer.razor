@@ -7,7 +7,6 @@
     <AuthorizeView Roles="Administrator">
        
         <Authorized>
-                <button class="btn btn-outline-primary m-2" @onclick="ToggleInDesignMode">Toggle design mode</button> 
                 @if (InDesignMode)
                 {
                     <div class="d-flex justify-content-end my-2">
@@ -63,6 +62,7 @@
                             </CascadingValue>
                         </CascadingValue>
                     </EmptyContainer>
+                     <button class="btn btn-outline-primary m-2" @onclick="ToggleInDesignMode">Toggle design mode</button> 
                 @if (InDesignMode)
                 {
                     <div class="modal fade" id="showAllModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">

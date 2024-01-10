@@ -45,7 +45,7 @@ public class AxoMessageObserver
     {
         return new AxoMessageObserver(observedObjects, component);
     }
-
+    
     /// <summary>
     /// Creates an instance of the AxoMessageObserver class.
     /// </summary>

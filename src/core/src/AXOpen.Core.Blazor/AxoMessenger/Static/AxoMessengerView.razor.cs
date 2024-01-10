@@ -97,6 +97,27 @@ namespace AXOpen.Messaging.Static
                 return retval;
             }
         }
+        
+        private string TableRowBackgroundColor
+        {
+            get
+            {
+                string retval = "table-primary";
+                if (Component.Category.Cyclic < 600)         // Upto warning level excluding
+                {
+                    retval = "table-info";
+                }
+                else if (Component.Category.Cyclic < 700)   //From warning level including, upto error level excluding
+                {
+                    retval = "table-warning";
+                }
+                else if (Component.Category.Cyclic <= 1200) //From error level including, upto catastrophic level including
+                {
+                    retval = "table-danger";
+                }
+                return retval;
+            }
+        }
         private string Category
         {
             get

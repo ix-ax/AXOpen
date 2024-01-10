@@ -5,6 +5,7 @@
 @inherits RenderableComplexComponentBase<AXSharp.Connector.ITwinObject>
 @inject AuthenticationStateProvider AuthenticationStateProvider;
 
+
 <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
         <div class="modal-header">
@@ -13,27 +14,28 @@
                     <h1 class="modal-title fs-5" id="alarmsviewTitle">Alarms</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="StateHasChanged"></button>
                 </div>
-                <div class="row p-3">
-                    <button type="button" class="btn btn-primary m-3" @onclick="AcknowledgeAll">@Localizer["ACKNOWLEDGE ALL"]</button>
-                </div>
+                @* <div class="row p-3"> *@
+                @*     <button type="button" class="btn btn-primary m-3" @onclick="AcknowledgeAll">@Localizer["ACKNOWLEDGE ALL"]</button> *@
+                @* </div> *@
             </div>
         </div>
         <div class="modal-body">
             <div class="container-fluid">
                 <div class="row">
-                    @if (MessageProvider != null)
-                    {
-                        if (MessageProvider.Messengers != null)
-                        {
-                            foreach (var message in MessageProvider.Messengers)
-                            {
-                                if (message.State > eAxoMessengerState.Idle)
-                                {
-                                    <RenderableContentControl Context="@message" Presentation="Detailed"></RenderableContentControl>
-                                }
-                            }
-                        }
-                    }
+                    <AxoObjectDiagnosticsView ObservedObjects="@ObservedObjects"></AxoObjectDiagnosticsView>
+                    @* @if (MessageProvider != null) *@
+                    @* { *@
+                    @*     if (MessageProvider.Messengers != null) *@
+                    @*     { *@
+                    @*         foreach (var message in MessageProvider.Messengers) *@
+                    @*         { *@
+                    @*             if (message.State > eAxoMessengerState.Idle) *@
+                    @*             { *@
+                    @*                 <RenderableContentControl Context="@message" Presentation="Detailed"></RenderableContentControl> *@
+                    @*             } *@
+                    @*         } *@
+                    @*     } *@
+                    @* } *@
                 </div>
             </div>
         </div>
@@ -44,40 +46,5 @@
 @code {
     
     [Parameter]
-    public AxoMessageProvider? MessageProvider { get; set; }
-
-    private AxoMessageObserver? observer;
-    
-    /// <summary>
-    /// This method is called when a component is changed.
-    /// It creates a new instance of AxoMessageObserver using the changed component and assigns it to the observer variable.
-    /// </summary>
-    public override void OnComponentChanged()
-    {
-        if (MessageProvider != null) observer = AxoMessageObserver.Create(MessageProvider, this);
-    }
-    
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        await base.OnAfterRenderAsync(firstRender);
-        this.StateHasChanged();
-    }
-    
-    protected override async Task OnInitializedAsync()
-    {
-        if (observer != null) await observer.InitializeUpdate();
-        await base.OnInitializedAsync();
-    }
-
-    private async Task AcknowledgeAll()
-    {
-        var ast = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        if (MessageProvider is {Messengers: not null })
-        {
-            foreach (var messenger in MessageProvider.Messengers)
-            {
-                messenger.Acknowledge(ast.User.Identity);
-            }
-        }
-    }
+    public IEnumerable<ITwinObject>? ObservedObjects { get; set; }
 }
