@@ -24,6 +24,7 @@ namespace axopen_integrations_blazor
             builder.Services.AddSingleton<WeatherForecastService>();
             builder.Services.AddAxoCoreServices();
             builder.Services.AddIxBlazorServices();
+            builder.Services.AddLocalization();
 
             //builder.Services.AddScoped<IAlertDialogService, ToasterService>();
 
@@ -92,6 +93,12 @@ namespace axopen_integrations_blazor
 
             app.UseRouting();
 
+            var supportedCultures = new[] { "en-US", "sk-SK", "es-ES" };
+            var localizationOptions = new RequestLocalizationOptions()
+                .AddSupportedCultures(supportedCultures)
+                .AddSupportedUICultures(supportedCultures);
+
+            app.UseRequestLocalization(localizationOptions);
             app.MapBlazorHub();
             app.MapFallbackToPage("/_Host");
 
