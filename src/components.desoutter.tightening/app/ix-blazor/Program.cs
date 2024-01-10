@@ -26,6 +26,8 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddIxBlazorServices();
 builder.Services.AddAxoCoreServices();
 
+//Entry.Plc.Connector.ExceptionBehaviour = CommExceptionBehaviour.Ignore;
+
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
 Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
 Entry.Plc.Connector.ConcurrentRequestMaxCount = 4; 

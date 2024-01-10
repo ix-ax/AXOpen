@@ -39,7 +39,6 @@
 		<Folder Include=".meta\" />
 		<Content Include=".meta\**" />
 	</ItemGroup>
-
 	<ItemGroup>
 		<PackageReference Include="AXSharp.Abstractions" />
 		<PackageReference Include="AXSharp.Connector" />

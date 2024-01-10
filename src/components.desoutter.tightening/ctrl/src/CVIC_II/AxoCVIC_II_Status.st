@@ -1,4 +1,5 @@
 NAMESPACE AXOpen.Components.Desoutter.Tightening
+    {S7.extern=ReadWrite}
     {#ix-attr:[Container(Layout.Stack)]}
     CLASS PUBLIC AxoCVIC_II_Status
         VAR PUBLIC 

@@ -1,5 +1,6 @@
 NAMESPACE AXOpen.Components.Desoutter.Tightening
     {#ix-attr:[Container(Layout.Stack)]}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoCVIC_II_Control
         VAR PUBLIC 
             {#ix-set:AttributeName = "<#Cycle bit 1#>"}
