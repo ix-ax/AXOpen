@@ -169,9 +169,12 @@ namespace AXOpen.VisualComposer
                     }
                 }
 
-                _zoomableContainer.Scale = deserialize.Scale;
-                _zoomableContainer.TranslateX = deserialize.TranslateX;
-                _zoomableContainer.TranslateY = deserialize.TranslateY;
+                if (_zoomableContainer != null)
+                {
+                    _zoomableContainer.Scale = deserialize.Scale;
+                    _zoomableContainer.TranslateX = deserialize.TranslateX;
+                    _zoomableContainer.TranslateY = deserialize.TranslateY;
+                }
             }
 
             CurrentTemplate = fileName;
@@ -246,7 +249,7 @@ namespace AXOpen.VisualComposer
         }
 
         public string? SearchValue { get; set; } = null;
-        public List<ITwinObject>? SearchResult { get; set; } = null;
+        public List<ITwinElement>? SearchResult { get; set; } = null;
         public void Search()
         {
             if (SearchValue is null || SearchValue == "")
@@ -261,8 +264,10 @@ namespace AXOpen.VisualComposer
                     SearchResult.Clear();
 
                 foreach (ITwinObject obj in Objects)
-                {
+                { 
+                    //SearchResult.Add(obj.GetChildren().Flatten(p => p.GetChildren()).FirstOrDefault(p => p.Symbol.StartsWith(SearchValue, StringComparison.OrdinalIgnoreCase)));
                     SearchResult.AddRange(obj.GetChildren().Flatten(p => p.GetChildren()).ToList().FindAll(p => p.Symbol.Contains(SearchValue, StringComparison.OrdinalIgnoreCase)));
+                    SearchResult.AddRange(obj.RetrievePrimitives().ToList().FindAll(p => p.Symbol.Contains(SearchValue, StringComparison.OrdinalIgnoreCase)));
                 }
             }
         }

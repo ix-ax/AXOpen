@@ -12,16 +12,18 @@
                  
         @foreach (var task in this.Component.GetChildren().OfType<IModeContainer>().Where(p => p is AxoTask).Select(p => p as AxoTask))
         {
-            <div>
-                <AuthorizeView Roles="can_run_automat_mode">
-                    <Authorized>
-                        <AxoTaskCommandView Component="@task" />
-                    </Authorized>
-                    <NotAuthorized>
-                        <AxoTaskStatusView Component="@task" />
-                    </NotAuthorized>
-                </AuthorizeView>
-            </div>
+            @* <div> *@
+            @*     <AuthorizeView Roles="can_run_automat_mode"> *@
+            @*         <Authorized> *@
+            @*             <AxoTaskCommandView Component="@task" /> *@
+            @*         </Authorized> *@
+            @*         <NotAuthorized> *@
+            @*             <AxoTaskStatusView Component="@task" /> *@
+            @*         </NotAuthorized> *@
+            @*     </AuthorizeView> *@
+            @* </div> *@
+            
+            <AxoTaskCommandView Component="@task" />
         }
     </div>
 

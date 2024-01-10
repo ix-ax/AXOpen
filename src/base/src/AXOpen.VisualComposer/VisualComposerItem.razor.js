@@ -22,13 +22,15 @@ export function getImageSize(imageId) {
 export function dragElement(id, dotNetInstance, left, top, imgId, scale) {
     var elmnt = document.getElementById(id);
 
-    var imageSize = getImageSize(imgId);
+    if (elmnt != null) {
+        var imageSize = getImageSize(imgId);
 
-    elmnt.onmousedown = function (e) {
-        dragMouseDown(e, elmnt, left, top, dotNetInstance, imageSize, scale);
-    };
+        elmnt.onmousedown = function (e) {
+            dragMouseDown(e, elmnt, left, top, dotNetInstance, imageSize, scale);
+        };
 
-    updateTransform(elmnt, left, top, dotNetInstance);
+        updateTransform(elmnt, left, top, dotNetInstance);
+    }
 }
 
 function dragMouseDown(e, elmnt, left, top, dotNetInstance, imageSize, scale) {

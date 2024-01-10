@@ -1,0 +1,68 @@
+{
+  "ImgSrc": "Images/VisualComposerSerialize/ServiceComposer/Default.png",
+  "Items": [
+    {
+      "Id": "f4604aad0a074ceddfcfb36ce1368c5b5f42abe96debd1b1111becd21a569fac",
+      "RatioImgX": 31.123417721518987,
+      "RatioImgY": 20.116731517509724,
+      "Transform": "TopCenter",
+      "Presentation": "Spot",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": ""
+    },
+    {
+      "Id": "a0a69447681684e47ab4a8986f2213a1431047738111d19ef64e923157fcfa38",
+      "RatioImgX": 61.18670886075949,
+      "RatioImgY": 10.389105058365754,
+      "Transform": "TopCenter",
+      "Presentation": "Spot",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": ""
+    },
+    {
+      "Id": "789dbd3ceeadd5575187ca3fd6b38cc6f9090f709f8308ce40a99f84197dfa07",
+      "RatioImgX": 32.54746835443038,
+      "RatioImgY": 52.80155642023345,
+      "Transform": "TopCenter",
+      "Presentation": "Spot",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": ""
+    },
+    {
+      "Id": "357da12e47a3aa5214b0e4485d3906e1b9132f95e94a34dc18686e7190dcc789",
+      "RatioImgX": 48.05379746835443,
+      "RatioImgY": 35.68093385214007,
+      "Transform": "TopCenter",
+      "Presentation": "Spot",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": ""
+    },
+    {
+      "Id": "61039e7e7dfd3dfb3a25f3a0eb84b9ea5f79ad9e76b69eb9533f506745c6bc51",
+      "RatioImgX": 46.42536919831226,
+      "RatioImgY": 7.568093385214001,
+      "Transform": "TopCenter",
+      "Presentation": "Spot",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": ""
+    }
+  ],
+  "Scale": 0.879999999999999,
+  "TranslateX": 29,
+  "TranslateY": 13
+}
