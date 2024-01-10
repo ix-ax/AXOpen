@@ -50,13 +50,13 @@ namespace AXOpen.VisualComposer
         }
 
         [JSInvokable]
-        public Task SetDataAsync(double scale, int translateX, int translateY)
+        public async Task SetDataAsync(double scale, int translateX, int translateY)
         {
             Scale = scale;
             TranslateX = translateX;
             TranslateY = translateY;
 
-            return Task.CompletedTask;
+            await _parent!.ReDragElement();
         }
 
 

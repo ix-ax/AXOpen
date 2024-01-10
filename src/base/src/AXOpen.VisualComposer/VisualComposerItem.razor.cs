@@ -5,6 +5,7 @@ using Microsoft.JSInterop;
 using AXSharp.Connector;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel;
+using AXSharp.Connector.Localizations;
 
 namespace AXOpen.VisualComposer
 {
@@ -36,8 +37,8 @@ namespace AXOpen.VisualComposer
             {
                 UniqueGuid = value.UniqueGuid;
                 TwinElement = value.TwinElement;
-                ratioImgX = value.ratioImgX;
-                ratioImgY = value.ratioImgY;
+                Left = value.Left;
+                Top = value.Top;
                 _transform = value.Transform;
                 _presentation = value.Presentation;
                 _width = value.Width;
@@ -69,11 +70,8 @@ namespace AXOpen.VisualComposer
 
         public Guid? UniqueGuid { get; set; } = null;
 
-        private double startX;
-        private double startY;
-
-        public double ratioImgX = 10;
-        public double ratioImgY = 10;
+        public double Left { get; set; } = 10;
+        public double Top { get; set; } = 10;
 
         public TransformType _transform = TransformType.TopCenter;
         public TransformType Transform
@@ -154,32 +152,27 @@ namespace AXOpen.VisualComposer
         public string Roles = "";
         private string _id;
 
-        private void OnDragStart(DragEventArgs args)
+        protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            startX = args.ClientX;
-            startY = args.ClientY;
+            if (firstRender)
+            {
+                await DragElement();
+            }
         }
 
-        private async void OnDragEnd(DragEventArgs args)
+        public async Task DragElement()
         {
             var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/VisualComposerItem.razor.js");
-            //var windowSize = await jsObject.InvokeAsync<WindowSize>("getWindowSize");
-            var imageSize = await jsObject.InvokeAsync<WindowSize>("getImageSize", _imgId);
+            await jsObject.InvokeVoidAsync("dragElement", Id.Replace('.', '_') + "-" + UniqueGuid, DotNetObjectReference.Create(this), Left, Top, _imgId, Parent._zoomableContainer.Scale);
+        }
 
-            double offsetX = startX - (ratioImgX / 100 * imageSize.Width) * (Parent._zoomableContainer.Scale);
-            double offsetY = startY - (ratioImgY / 100 * imageSize.Height) * (Parent._zoomableContainer.Scale);
+        [JSInvokable]
+        public Task SetDataAsync(double left, double top)
+        {
+            Left = left;
+            Top = top;
 
-            if (imageSize.Width == 0)
-                ratioImgX = (args.ClientX - offsetX);
-            else
-                ratioImgX = ((args.ClientX - offsetX) / imageSize.Width * 100) * (1 / Parent._zoomableContainer.Scale);
-
-            if (imageSize.Height == 0)
-                ratioImgY = (args.ClientY - offsetY);
-            else
-                ratioImgY = ((args.ClientY - offsetY) / imageSize.Height * 100) * (1 / Parent._zoomableContainer.Scale);
-
-            StateHasChanged();
+            return Task.CompletedTask;
         }
 
         public void Remove()

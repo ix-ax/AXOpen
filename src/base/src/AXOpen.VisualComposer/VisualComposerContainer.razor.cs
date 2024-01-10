@@ -95,6 +95,14 @@ namespace AXOpen.VisualComposer
             }
         }
 
+        public async Task ReDragElement()
+        {
+            foreach (var child in _children)
+            {
+                await child.DragElement();
+            }
+        }
+
         public void RemoveChildren(VisualComposerItem item)
         {
             _children.Remove(_children.Find(p => p.UniqueGuid == item.UniqueGuid));
@@ -119,7 +127,7 @@ namespace AXOpen.VisualComposer
             List<SerializableVisualComposerItem> serializableChildren = new List<SerializableVisualComposerItem>();
             foreach (var child in _children)
             {
-                serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.ratioImgX, child.ratioImgY, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex, child.Scale, child.Roles));
+                serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.Left, child.Top, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex, child.Scale, child.Roles));
             }
 
             if (!Directory.Exists("VisualComposerSerialize/" + Id.CorrectFilePath()))
@@ -148,8 +156,8 @@ namespace AXOpen.VisualComposer
                         {
                             UniqueGuid = Guid.NewGuid(),
                             TwinElement = childObject,
-                            ratioImgX = item.RatioImgX,
-                            ratioImgY = item.RatioImgY,
+                            Left = item.Left,
+                            Top = item.Top,
                             _transform = Types.TransformType.FromString(item.Transform),
                             _presentation = item.Presentation,
                             _width = item.Width,

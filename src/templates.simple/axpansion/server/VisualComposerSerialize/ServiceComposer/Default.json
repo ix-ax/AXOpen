@@ -1,0 +1,44 @@
+{
+  "ImgSrc": "Images/VisualComposerSerialize/ServiceComposer/Default.svg",
+  "Items": [
+    {
+      "Id": "5df2c92f84540a4076ab0a2bc2e2f9c4c36af435392e8fcaab123e350053f4c0",
+      "Left": 34.17393462058064,
+      "Top": 35.748776719031675,
+      "Transform": "TopLeft",
+      "Presentation": "Status-Display",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 0.5,
+      "Roles": ""
+    },
+    {
+      "Id": "7188cde9edcee7fdfb4dbc97e124f6b4e4d9a3d17c45afe5d65215572b03a7f9",
+      "Left": 86.87366167023555,
+      "Top": 75.15580736543909,
+      "Transform": "TopCenter",
+      "Presentation": "Status-Display",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": ""
+    },
+    {
+      "Id": "7188cde9edcee7fdfb4dbc97e124f6b4e4d9a3d17c45afe5d65215572b03a7f9",
+      "Left": 86.44539614561027,
+      "Top": 22.464589235127477,
+      "Transform": "TopCenter",
+      "Presentation": "Status-Display",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": ""
+    }
+  ],
+  "Scale": 1,
+  "TranslateX": 0,
+  "TranslateY": 0
+}

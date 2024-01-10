@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <ZoomableContainer Parent="this">
-                    <div ondragover="event.preventDefault();">
+                    <div onmousedown="event.preventDefault();">
                         @if (_imgId != null)
                         {
                             <img id="@_imgId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
@@ -178,15 +178,10 @@
                                 <ul class="list-group">
                                     @foreach (var item in GetAllVisualComposerContainer())
                                     {
-                                        <li class="list-group-item">
-                                            <div class="fw-bold d-flex">
-                                                <p class="mb-0">@item.file</p>
-                                                <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => Remove(item.file)"><span class="bi bi-trash fs-5" aria-hidden="true" /></a>
-                                            </div>
-                                            <div class="d-flex">
-                                                <p class="mb-0">Scale: @item.scale X: @(item.translateX)px Y: @(item.translateY)px</p>
-                                                <a class="ms-4 text-decoration-none text-black" style="cursor: pointer;" @onclick="() => ClearScaleAndTranslate(item.file)"><span class="bi bi-arrow-clockwise fs-5" aria-hidden="true" /></a>
-                                            </div>
+                                        <li class="list-group-item d-flex">
+                                            <p class="mb-0">@item.file</p>
+                                            <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => ClearScaleAndTranslate(item.file)"><span class="bi bi-arrow-clockwise fs-5" aria-hidden="true" /></a>
+                                            <a class="ms-2 text-decoration-none text-black" style="cursor: pointer;" @onclick="() => Remove(item.file)"><span class="bi bi-trash fs-5" aria-hidden="true" /></a>
                                         </li>
                                     }
                                 </ul>
@@ -238,25 +233,25 @@
     </div>
     <span class="@DetailsVisibility m-4">
         <div class="card overflow-auto" style="height: 500px;">
-          <div class="card-header">
-              <button class="btn btn-close" @onclick="ToggleDetailsVisibility"></button>
-          </div>
-          <div class="card-body">
-              <p class="card-deck overflow-auto" style="height: 250px;">
-                  <RenderableContentControl @ref="detailsRcc" Context="@DetailsObject" Presentation="Command-Control"></RenderableContentControl>
-              </p>
-          </div>
-           <div class="card-footer">
-               <input type="text" class="form-control" placeholder="Presentation" @bind="DetailsPresentationType">
-               <div class="m-3">
-                   <button class="btn btn-primary" @onclick="SetCommandPresentationType">Command</button>
-                   <button class="btn btn-primary" @onclick="SetControlPresentationType">Control</button>
-                   <button class="btn btn-primary" @onclick="SetStatusPresentationType">Status</button>
-                   <button class="btn btn-primary" @onclick="SetDisplayPresentationType">Display</button>
-               </div>
+            <div class="card-header">
+                <button class="btn btn-close" @onclick="ToggleDetailsVisibility"></button>
+            </div>
+            <div class="card-body">
+                <p class="card-deck overflow-auto" style="height: 250px;">
+                    <RenderableContentControl @ref="detailsRcc" Context="@DetailsObject" Presentation="Command-Control"></RenderableContentControl>
+                </p>
+            </div>
+            <div class="card-footer">
+                <input type="text" class="form-control" placeholder="Presentation" @bind="DetailsPresentationType">
+                <div class="m-3">
+                    <button class="btn btn-primary" @onclick="SetCommandPresentationType">Command</button>
+                    <button class="btn btn-primary" @onclick="SetControlPresentationType">Control</button>
+                    <button class="btn btn-primary" @onclick="SetStatusPresentationType">Status</button>
+                    <button class="btn btn-primary" @onclick="SetDisplayPresentationType">Display</button>
+                </div>
             </div>
         </div>
-    </span >
+    </span>
 </div>
 @code
 {
@@ -266,22 +261,22 @@
     {
         DetailsPresentationType = "Command";
     }
-    
+
     private void SetControlPresentationType()
     {
         DetailsPresentationType = "Control";
     }
-    
+
     private void SetStatusPresentationType()
     {
         DetailsPresentationType = "Status";
     }
-    
+
     private void SetDisplayPresentationType()
     {
         DetailsPresentationType = "Display";
     }
-    
+
     private RenderableContentControl detailsRcc { get; set; }
 
     private const string VISUALLY_HIDDEN = "visually-hidden";
@@ -303,7 +298,7 @@
         this.DetailsVisibility = this.DetailsVisibility == VISUALLY_HIDDEN ? string.Empty : VISUALLY_HIDDEN;
         this.StateHasChanged();
     }
-    
+
     public void UpdateDetails(ITwinElement element)
     {
         if (detailsRcc != null)
