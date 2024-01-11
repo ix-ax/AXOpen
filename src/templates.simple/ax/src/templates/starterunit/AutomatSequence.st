@@ -22,6 +22,9 @@ NAMESPACE axosimple.StarterUnitTemplate
             ProcessSettings : REF_TO axosimple.StarterUnitTemplate.FragmentProcessDataManger;
             TechnologySettings : REF_TO axosimple.StarterUnitTemplate.TechnologyDataManager;
             _currentId : STRING;
+
+            _dialogAnswer : eDialogAnswer;
+            _externalCloseOkSignal : BOOL;
         END_VAR
 
         METHOD INTERNAL Run
@@ -75,8 +78,59 @@ NAMESPACE axosimple.StarterUnitTemplate
                 //-------------------------------------------------------
             END_IF;
             
-              
-            FOR forIterator := 4 TO 98 BY 1 DO
+           
+            
+            IF (Steps[2].Execute(THIS, TRUE, '<#Dialog notify#>')) THEN
+                //-------------------------------------------------------
+                _externalCloseOkSignal := CurrentStep.Duration > TIME#2s;
+                
+                _dialogAnswer := Objs^._dialog.ShowWithExternalClose(THIS, _externalCloseOkSignal)
+                .WithOK()
+                .WithType(eDialogType#Info)
+                .WithCaption('Info dialog caption!')
+                .WithText('Dialog will be closed by external timeout 2s!').Answer();
+                
+                IF( _dialogAnswer = eDialogAnswer#Ok) THEN
+                    THIS.MoveNext();
+                END_IF;
+                //-------------------------------------------------------
+            END_IF;
+
+                         
+            IF (Steps[3].Execute(THIS, TRUE, '<#Dialog success#>')) THEN
+                //-------------------------------------------------------
+                _externalCloseOkSignal := CurrentStep.Duration > TIME#2s;
+
+                    _dialogAnswer := Objs^._dialog.ShowWithExternalClose(THIS, _externalCloseOkSignal)
+                    .WithOK()
+                    .WithType(eDialogType#Success)
+                    .WithCaption('Success caption!')
+                    .WithText('Success DIALOG will be closed by external timeout 2s!').Answer();
+                    
+                    IF( _dialogAnswer = eDialogAnswer#Ok) THEN
+                        THIS.MoveNext();
+                    END_IF;
+                //-------------------------------------------------------
+            END_IF;
+
+            IF (Steps[4].Execute(THIS, TRUE, '<#Dialog Warning (5sTimeOut)#>')) THEN
+                //-------------------------------------------------------
+                _externalCloseOkSignal := CurrentStep.Duration > TIME#2s;
+
+                    _dialogAnswer := Objs^._dialog.ShowWithExternalClose(THIS, _externalCloseOkSignal)
+                    .WithOK()
+                    .WithType(eDialogType#Warning)
+                    .WithCaption('Warning caption!')
+                    .WithText('Warning will be closed by external timeout 2s!').Answer();
+                    
+                    IF( _dialogAnswer = eDialogAnswer#Ok) THEN
+                        THIS.MoveNext();
+                    END_IF;
+                //-------------------------------------------------------
+            END_IF;
+
+            
+            FOR forIterator := 10 TO 20 BY 1 DO
                 IF (Steps[forIterator].Execute(THIS, TRUE,Concat('DO SOMETHING -A-',ToString(forIterator)) )) THEN
                     //-------------------------------------------------------                
                     IF CurrentStep.Duration > TIME#25ms THEN                         
@@ -85,6 +139,9 @@ NAMESPACE axosimple.StarterUnitTemplate
                     //-------------------------------------------------------
                 END_IF;
             END_FOR;
+
+
+
 
             IF (Steps[99].Execute(THIS, TRUE,'<#UPDATE DATA#>')) THEN
                 //-------------------------------------------------------

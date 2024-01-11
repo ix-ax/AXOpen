@@ -12,6 +12,13 @@ NAMESPACE AxoDialogExamples
             {#ix-set:AttributeName = "Call dialog"}
             _callDialog : BOOL;
 
+            {#ix-set:AttributeName = "Call dialog in sequnce"}
+            _callDialogInSequnce : BOOL;
+            {#ix-set:AttributeName = "Iteration"}
+            _iterationStep : INT;
+            _timeOutCounter : INT;                
+
+
             {#ix-set:AttributeName = "External Button signal - OK"}
             _externButtonSignal_ok : BOOL;
             {#ix-set:AttributeName = "External Button signal - YES"}
@@ -27,6 +34,10 @@ NAMESPACE AxoDialogExamples
             {#ix-set:AttributeName = "example dialog"}
             _dialog : AXOpen.Core.AxoDialog;
         END_VAR    
+
+
+        VAR 
+        END_VAR
     
         METHOD PUBLIC Run
            VAR_INPUT
@@ -34,15 +45,18 @@ NAMESPACE AxoDialogExamples
             END_VAR;
 
             THIS.Initialize(_context);
-
+            
             IF(_restoreDialog) THEN
-                _dialog.Restore();    
                 _restoreDialog := false;
+                _dialog.Restore();    
                 _callDialog:= false;
+                _callDialogInSequnce := false;
+                _iterationStep := 0;
+                _timeOutCounter := 0;
             END_IF;   
             
             IF(_callDialog) THEN
-               _dialogAnswer := _dialog.ShowWithExternalClose(_parent, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
+               _dialogAnswer := _dialog.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
                                                 .WithYesNoCancel()
                                                 .WithType(eDialogType#Warning)
                                                 .WithCaption('What`s next?')
@@ -52,9 +66,114 @@ NAMESPACE AxoDialogExamples
                 if _dialogAnswer <> eDialogAnswer#NoAnswer THEN
                     _callDialog := FALSE;
                END_IF;
-
             END_IF;
             
+
+            IF _callDialogInSequnce THEN
+
+
+                if  _iterationStep  = 0 then 
+                    _iterationStep := _iterationStep + 1;
+                end_if;
+
+
+                if  _iterationStep  = 1 then 
+
+                    if not _dialog.HasError() then 
+                        _dialogAnswer := _dialog.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
+                        .WithYesNoCancel()
+                        .WithType(eDialogType#Info)
+                        .WithCaption('Iteraion 1')
+                        .WithText('Decide what next?')
+                        .Answer();
+            
+                        THIS.Watcher_Monitor();
+                        if _dialogAnswer <> eDialogAnswer#NoAnswer THEN
+                            THIS.Watcher_Reset();
+                            _iterationStep := _iterationStep + 1;
+                        END_IF;
+
+                    end_if;
+                  
+                end_if;
+
+                if  _iterationStep  = 2 then 
+
+                    if not _dialog.HasError() then 
+                        _dialogAnswer := _dialog.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
+                        .WithYesNoCancel()
+                        .WithType(eDialogType#Success)
+                        .WithCaption('Iteraion 2')
+                        .WithText('Decide what next?')
+                        .Answer();
+            
+                        THIS.Watcher_Monitor();
+                        if _dialogAnswer <> eDialogAnswer#NoAnswer THEN
+                            THIS.Watcher_Reset();
+                            _iterationStep := _iterationStep + 1;
+                        END_IF;
+                    end_if;
+
+                end_if;
+
+                if  _iterationStep  = 3 then 
+                    if not _dialog.HasError() then 
+                        _dialogAnswer := _dialog.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
+                        .WithYesNoCancel()
+                        .WithType(eDialogType#Warning)
+                        .WithCaption('Iteraion 3')
+                        .WithText('Decide what next?')
+                        .Answer();
+            
+                        THIS.Watcher_Monitor();
+                        if _dialogAnswer <> eDialogAnswer#NoAnswer THEN
+                            THIS.Watcher_Reset();
+                            _iterationStep := _iterationStep + 1;
+                        END_IF;
+                    end_if;
+
+                end_if;
+
+                if  _iterationStep  = 4 then 
+                    if not _dialog.HasError() then 
+                        _dialogAnswer := _dialog.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
+                        .WithYesNoCancel()
+                        .WithType(eDialogType#Danger)
+                        .WithCaption('Iteraion 4')
+                        .WithText('Decide what next?')
+                        .Answer();
+            
+                        THIS.Watcher_Monitor();
+                        if _dialogAnswer <> eDialogAnswer#NoAnswer THEN
+                            THIS.Watcher_Reset();
+                            _iterationStep := _iterationStep + 1;
+                        END_IF;
+                    end_if;
+
+                end_if;
+
+                // if  _iterationStep  >= 5 then 
+                //     _iterationStep := 0;
+                //     _callDialogInSequnce := false;
+                // end_if;
+            end_if;
+
         END_METHOD
+
+        METHOD PRIVATE Watcher_Monitor
+            _timeOutCounter := _timeOutCounter + 1;
+            if _timeOutCounter > 300 then 
+                _externButtonSignal_cancel := true;
+            END_IF;
+        END_METHOD
+
+        METHOD PRIVATE Watcher_Reset
+            _timeOutCounter := 0;
+            _externButtonSignal_cancel := false;
+            _externButtonSignal_ok := false;
+            _externButtonSignal_yes := false;
+            _externButtonSignal_no := false;
+        END_METHOD
+
     END_CLASS    
 END_NAMESPACE
