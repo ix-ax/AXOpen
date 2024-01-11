@@ -15,7 +15,7 @@ namespace projname
         private const string Pass = ""; // <- Pass in the password that you have set up for the user. NOT AS PLAIN TEXT! Use user secrets instead.
         private const bool IgnoreSslErrors = true; // <- When you have your certificates in order set this to false.
 
-#if !appconnectorname
+#if appconnectorname
         public static app_appconnectornameTwinController Plc { get; }
 #else
         public static app_apaxappnameTwinController Plc { get; }

@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\projname\ix_ax_axolib.csproj" />
+    <ProjectReference Include="..\..\src\projname\projname.csproj" />
   </ItemGroup>
 
 	<ItemGroup>
