@@ -87,9 +87,9 @@ NAMESPACE axosimple.StarterUnitTemplate
                 _dialogAnswer := Objs^._dialog.ShowWithExternalClose(THIS, _externalCloseOkSignal)
                 .WithOK()
                 .WithType(eDialogType#Info)
-                .WithCaption('Info dialog caption!')
-                .WithText('Dialog will be closed by external timeout 2s!').Answer();
-                
+                .WithCaption('Info caption!')
+                .WithText('Info - dialog will be closed by external timeout 2s!').Answer();
+                    
                 IF( _dialogAnswer = eDialogAnswer#Ok) THEN
                     THIS.MoveNext();
                 END_IF;
@@ -105,7 +105,7 @@ NAMESPACE axosimple.StarterUnitTemplate
                     .WithOK()
                     .WithType(eDialogType#Success)
                     .WithCaption('Success caption!')
-                    .WithText('Success DIALOG will be closed by external timeout 2s!').Answer();
+                    .WithText('Success - dialog will be closed by external timeout 2s!').Answer();
                     
                     IF( _dialogAnswer = eDialogAnswer#Ok) THEN
                         THIS.MoveNext();
@@ -113,15 +113,31 @@ NAMESPACE axosimple.StarterUnitTemplate
                 //-------------------------------------------------------
             END_IF;
 
-            IF (Steps[4].Execute(THIS, TRUE, '<#Dialog Warning (5sTimeOut)#>')) THEN
+            IF (Steps[4].Execute(THIS, TRUE, '<#Dialog Warning#>')) THEN
                 //-------------------------------------------------------
                 _externalCloseOkSignal := CurrentStep.Duration > TIME#2s;
 
                     _dialogAnswer := Objs^._dialog.ShowWithExternalClose(THIS, _externalCloseOkSignal)
-                    .WithOK()
+                    .WithYesNo()
                     .WithType(eDialogType#Warning)
                     .WithCaption('Warning caption!')
-                    .WithText('Warning will be closed by external timeout 2s!').Answer();
+                    .WithText('Warning - dialog will be closed by external timeout 2s!').Answer();
+                    
+                    IF( _dialogAnswer = eDialogAnswer#Ok) THEN
+                        THIS.MoveNext();
+                    END_IF;
+                //-------------------------------------------------------
+            END_IF;
+
+            IF (Steps[5].Execute(THIS, TRUE, '<#Dialog danger#>')) THEN
+                //-------------------------------------------------------
+                _externalCloseOkSignal := CurrentStep.Duration > TIME#2s;
+
+                    _dialogAnswer := Objs^._dialog.ShowWithExternalClose(THIS, _externalCloseOkSignal)
+                    .WithYesNoCancel()
+                    .WithType(eDialogType#Warning)
+                    .WithCaption('Danger caption!')
+                    .WithText('Danger - dialog will be closed by external timeout 2s!').Answer();
                     
                     IF( _dialogAnswer = eDialogAnswer#Ok) THEN
                         THIS.MoveNext();
