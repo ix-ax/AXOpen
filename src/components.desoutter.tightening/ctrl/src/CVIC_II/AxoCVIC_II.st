@@ -1,3 +1,4 @@
+USING AXOpen.Logging;
 USING AXOpen.Core;
 USING AXOpen.Messaging.Static;
 USING AXOpen.Messaging;
@@ -13,6 +14,10 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
     CLASS PUBLIC AxoCVIC_II EXTENDS AXOpen.Core.AxoComponent
         VAR PRIVATE
             _RequiredScrewingProgram : BYTE;
+            _infoTimer :  AXOpen.Timers.OnDelayTimer;
+            // _errorTimer :  AXOpen.Timers.OnDelayTimer;
+            _infoTime       :   LTIME := LT#2S;
+            // _errorTime      :   LTIME := LT#5S;
         END_VAR
         VAR PUBLIC  //HEADER
             {#ix-attr:[Container(Layout.Wrap)]}
@@ -76,32 +81,37 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
         END_VAR
 
         VAR PUBLIC //CONFIG
+            // {#ix-attr:[Container(Layout.Stack)]}
+            // {#ix-attr:[ComponentDetails("Config")]}
+            // {#ix-set:AttributeName = "<#Screwing program min#>"}
+            // {#ix-attr:[ReadOnly()]}
+            // ScrewingProgramMin         :   BYTE := BYTE#0;
+            // {#ix-attr:[Container(Layout.Stack)]}
+            // {#ix-attr:[ComponentDetails("Config")]}
+            // {#ix-set:AttributeName = "<#Screwing program max#>"}
+            // {#ix-attr:[ReadOnly()]}
+            // ScrewingProgramMax         :   BYTE := BYTE#255;
+            // {#ix-attr:[Container(Layout.Stack)]}
+            // {#ix-attr:[ComponentDetails("Config")]}
+            // {#ix-set:AttributeName = "<#Program change timeout#>"}
+            // {#ix-attr:[ReadOnly()]}
+            // ProgramChangeTimeout         :   TIME := TIME#2S;
+            // {#ix-attr:[ComponentDetails("Config")]}
+            // {#ix-set:AttributeName = "<#Screwing cycle timeout#>"}
+            // {#ix-attr:[ReadOnly()]}
+            // ScrewingCycleTimeout         :   TIME := TIME#60S;
+
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Config")]}
-            {#ix-set:AttributeName = "<#Screwing program min#>"}
             {#ix-attr:[ReadOnly()]}
-            ScrewingProgramMin         :   BYTE := BYTE#0;
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[ComponentDetails("Config")]}
-            {#ix-set:AttributeName = "<#Screwing program max#>"}
-            {#ix-attr:[ReadOnly()]}
-            ScrewingProgramMax         :   BYTE := BYTE#255;
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[ComponentDetails("Config")]}
-            {#ix-set:AttributeName = "<#Program change timeout#>"}
-            {#ix-attr:[ReadOnly()]}
-            ProgramChangeTimeout         :   TIME := TIME#2S;
-            {#ix-attr:[ComponentDetails("Config")]}
-            {#ix-set:AttributeName = "<#Screwing cycle timeout#>"}
-            {#ix-attr:[ReadOnly()]}
-            ScrewingCycleTimeout         :   TIME := TIME#60S;
+            Config  :   AxoCVIC_II_Config;
         END_VAR
 
         VAR PUBLIC //STATUS
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
-            Status              :   AXOpen.Components.Abstractions.AxoComponent_Status;
+            Status              :   AxoCVIC_II_ComponentStatus;
             Messenger           :   AXOpen.Messaging.Static.AxoMessenger;
             TaskMessenger       :   AXOpen.Messaging.Static.AxoMessenger;
         END_VAR    
@@ -135,15 +145,15 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent              :   IAxoObject; 
-                refInput_1_byte_1   :   REF_TO BYTE;
-                refInput_1_byte_2   :   REF_TO BYTE;
-                refInput_2_word_1   :   REF_TO DWORD;
-                refInput_1_word_1   :   REF_TO WORD;
-                refInput_2_word_2   :   REF_TO DWORD;
-                refInput_1_word_2   :   REF_TO WORD;
-                refOutput_1_byte_1  :   REF_TO BYTE;
-                refOutput_1_byte_2  :   REF_TO BYTE;
+                parent                  :   IAxoObject; 
+                refStatus               :   REF_TO BYTE;
+                refActScrewingProgram   :   REF_TO BYTE;
+                refTorque               :   REF_TO DWORD;
+                refTorqueTrend          :   REF_TO WORD;
+                refAngle                :   REF_TO DWORD;
+                refAngleTrend           :   REF_TO WORD;
+                refControl              :   REF_TO BYTE;
+                refReqScrewingProgram   :   REF_TO BYTE;
             END_VAR
 
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
@@ -154,7 +164,8 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             END_IF;
 
             THIS.Initialize(parent);
-            THIS.Execute(refInput_1_byte_1,refInput_1_byte_2,refInput_2_word_1,refInput_1_word_1,refInput_2_word_2,refInput_1_word_2,refOutput_1_byte_1,refOutput_1_byte_2);
+            THIS.Execute(refStatus,refActScrewingProgram,refTorque,refTorqueTrend,refAngle,refAngleTrend,refControl,refReqScrewingProgram);
+                
         END_METHOD   
 
         ///<summary>
@@ -163,15 +174,15 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent              :   IAxoContext; 
-                refInput_1_byte_1   :   REF_TO BYTE;
-                refInput_1_byte_2   :   REF_TO BYTE;
-                refInput_2_word_1   :   REF_TO DWORD;
-                refInput_1_word_1   :   REF_TO WORD;
-                refInput_2_word_2   :   REF_TO DWORD;
-                refInput_1_word_2   :   REF_TO WORD;
-                refOutput_1_byte_1  :   REF_TO BYTE;
-                refOutput_1_byte_2  :   REF_TO BYTE;
+                parent                  :   IAxoContext; 
+                refStatus               :   REF_TO BYTE;
+                refActScrewingProgram   :   REF_TO BYTE;
+                refTorque               :   REF_TO DWORD;
+                refTorqueTrend          :   REF_TO WORD;
+                refAngle                :   REF_TO DWORD;
+                refAngleTrend           :   REF_TO WORD;
+                refControl              :   REF_TO BYTE;
+                refReqScrewingProgram   :   REF_TO BYTE;
             END_VAR
 
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
@@ -182,76 +193,79 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             END_IF;
 
             THIS.Initialize(parent);
-            THIS.Execute(refInput_1_byte_1,refInput_1_byte_2,refInput_2_word_1,refInput_1_word_1,refInput_2_word_2,refInput_1_word_2,refOutput_1_byte_1,refOutput_1_byte_2);
+            THIS.Execute(refStatus,refActScrewingProgram,refTorque,refTorqueTrend,refAngle,refAngleTrend,refControl,refReqScrewingProgram);
         END_METHOD  
 
         METHOD PRIVATE Execute
             VAR_INPUT
-                refInput_1_byte_1   :   REF_TO BYTE;
-                refInput_1_byte_2   :   REF_TO BYTE;
-                refInput_2_word_1   :   REF_TO DWORD;
-                refInput_1_word_1   :   REF_TO WORD;
-                refInput_2_word_2   :   REF_TO DWORD;
-                refInput_1_word_2   :   REF_TO WORD;
-                refOutput_1_byte_1  :   REF_TO BYTE;
-                refOutput_1_byte_2  :   REF_TO BYTE;
+                refStatus       :   REF_TO BYTE;
+                refActScrewingProgram   :   REF_TO BYTE;
+                refTorque               :   REF_TO DWORD;
+                refTorqueTrend          :   REF_TO WORD;
+                refAngle                :   REF_TO DWORD;
+                refAngleTrend           :   REF_TO WORD;
+                refControl              :   REF_TO BYTE;
+                refReqScrewingProgram   :   REF_TO BYTE;
             END_VAR
             VAR 
                 _tempDword  :   DWORD;
             END_VAR
 
-            Messenger.ActivateOnCondition(ULINT#701,refInput_1_byte_1   = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#702,refInput_1_byte_2   = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#703,refInput_2_word_1   = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#704,refInput_1_word_1   = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#705,refInput_2_word_2   = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#706,refInput_1_word_2   = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#707,refOutput_1_byte_1  = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#708,refOutput_1_byte_2  = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#701,refStatus   = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#702,refActScrewingProgram   = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#703,refTorque   = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#704,refTorqueTrend   = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#705,refAngle   = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#706,refAngleTrend   = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#707,refControl  = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#708,refReqScrewingProgram  = NULL, eAxoMessageCategory#ProgrammingError);
 
-            IF refInput_1_byte_1 = NULL THEN
+            IF refStatus = NULL THEN
                 Status.Error.Id := UINT#701;
                 RETURN;
-            ELSIF refInput_1_byte_2 = NULL THEN
+            ELSIF refActScrewingProgram = NULL THEN
                 Status.Error.Id := UINT#702;
                 RETURN;
-            ELSIF refInput_2_word_1 = NULL THEN
+            ELSIF refTorque = NULL THEN
                 Status.Error.Id := UINT#703;
                 RETURN;
-            ELSIF refInput_1_word_1 = NULL THEN
+            ELSIF refTorqueTrend = NULL THEN
                 Status.Error.Id := UINT#704;
                 RETURN;
-            ELSIF refInput_2_word_2 = NULL THEN
+            ELSIF refAngle = NULL THEN
                 Status.Error.Id := UINT#705;
                 RETURN;
-            ELSIF refInput_1_word_2 = NULL THEN
+            ELSIF refAngleTrend = NULL THEN
                 Status.Error.Id := UINT#706;
                 RETURN;
-            ELSIF refOutput_1_byte_1 = NULL THEN
+            ELSIF refControl = NULL THEN
                 Status.Error.Id := UINT#707;
                 RETURN;
-            ELSIF refOutput_1_byte_2 = NULL THEN
+            ELSIF refReqScrewingProgram = NULL THEN
                 Status.Error.Id := UINT#708;
                 RETURN;
             END_IF;
             
             THIS.Open();
 
-            Inputs.Status.CycleBit1         := refInput_1_byte_1^.%X0;
-            Inputs.Status.CycleBit2         := refInput_1_byte_1^.%X1;
-            Inputs.Status.CycleBit4         := refInput_1_byte_1^.%X2;
-            Inputs.Status.Ready             := refInput_1_byte_1^.%X3;
-            Inputs.Status.InCycle           := refInput_1_byte_1^.%X4;
-            Inputs.Status.Passed            := refInput_1_byte_1^.%X5;
-            Inputs.Status.Failed            := refInput_1_byte_1^.%X6;
-            Inputs.Status.NumberOfCyclesOk  := refInput_1_byte_1^.%X7;
+            Inputs.Status.CycleBit1         := refStatus^.%X0;
+            Inputs.Status.CycleBit2         := refStatus^.%X1;
+            Inputs.Status.CycleBit4         := refStatus^.%X2;
+            Inputs.Status.Ready             := refStatus^.%X3;
+            Inputs.Status.InCycle           := refStatus^.%X4;
+            Inputs.Status.Passed            := refStatus^.%X5;
+            Inputs.Status.Failed            := refStatus^.%X6;
+            Inputs.Status.NumberOfCyclesOk  := refStatus^.%X7;
 
-            Inputs.ScrewingProgram          := refInput_1_byte_2^;
-            Inputs.Torque                   := TO_REAL(refInput_2_word_1^);
-            Inputs.TorqueTrend              := TO_INT(refInput_1_word_1^);
-            Inputs.Angle                    := TO_REAL(refInput_2_word_2^);
-            Inputs.AngleTrend               := TO_INT(refInput_1_word_2^);
+            Inputs.ScrewingProgram          := refActScrewingProgram^;
+            Inputs.Torque                   := TO_REAL(refTorque^);
+            Inputs.TorqueTrend              := TO_INT(refTorqueTrend^);
+            Inputs.Angle                    := TO_REAL(refAngle^);
+            Inputs.AngleTrend               := TO_INT(refAngleTrend^);
             //***********************************************//
+
+            _infoTime := Config.InfoTime;
+
             //*************INITIALIZATION*************
             RestoreTask.Initialize(THIS);
             ResetTask.Initialize(THIS);
@@ -280,48 +294,90 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             END_IF;
             IF ResetTask.DoneReached() THEN
                 Outputs.Control.Reset := FALSE;
+                Status.Action.Id :=  UINT#320;
+                Status.Error.Id :=  UINT#0;
+            ELSIF ResetTask.ErrorOccured() THEN
+                Status.Action.Id :=  UINT#713;
+                Status.Error.Id :=  UINT#713;
             END_IF;
+            Messenger.ActivateOnCondition(ULINT#713,ResetTask.ErrorOccured() , eAxoMessageCategory#Error);
+
             //******************************************
 
             //*************SetScrewingProgram***********
             SetScrewingProgramTask.IsDisabled := FALSE;
             IF SetScrewingProgramTask.Execute() THEN
-                IF _RequiredScrewingProgram < ScrewingProgramMin THEN
+                IF _RequiredScrewingProgram < Config.ScrewingProgramMin THEN
                     Status.Error.Id := UINT#709;
                     RETURN;
                 END_IF;
-                IF _RequiredScrewingProgram > ScrewingProgramMax THEN
+                IF _RequiredScrewingProgram > Config.ScrewingProgramMax THEN
                     Status.Error.Id := UINT#710;
                     RETURN;
                 END_IF; 
 
-                Outputs.ScrewingProgram := _RequiredScrewingProgram;
+                IF State = 0 THEN
+                    THIS.CallTimers(FALSE);
+                    State := 300;         
+                END_IF; 
 
-                SetScrewingProgramTask.DoneWhen(Inputs.ScrewingProgram = Outputs.ScrewingProgram);
-                SetScrewingProgramTask.ThrowWhen(SetScrewingProgramTask.Duration > ProgramChangeTimeout, 'Unable to change screwing program.');
+                //Set program
+                IF State = 300 THEN
+                    Outputs.ScrewingProgram := _RequiredScrewingProgram;
+                    
+                    IF _infoTimer.output THEN
+                        Status.Error.Id := UINT#600;
+                    END_IF;
+
+                    IF _RequiredScrewingProgram = Inputs.ScrewingProgram THEN
+                        ScrewingProgram	:= _RequiredScrewingProgram;
+                        THIS.CallTimers(FALSE);
+                        State := 301;
+                    END_IF;
+                END_IF;
+
+                IF State = 301 THEN
+                    SetScrewingProgramTask.DoneWhen(TRUE);
+                    State := 0;
+                END_IF;
+
+                SetScrewingProgramTask.ThrowWhen(SetScrewingProgramTask.Duration > Config.ProgramChangeTimeout, 'Unable to change the screwing program.');
+
+                Status.Action.Id := TO_UINT(State);
+                THIS.CallTimers(TRUE);
             END_IF;
-            Messenger.ActivateOnCondition(ULINT#709,SetScrewingProgramTask.IsBusy() AND _RequiredScrewingProgram < ScrewingProgramMin, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#710,SetScrewingProgramTask.IsBusy() AND _RequiredScrewingProgram > ScrewingProgramMax, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#709,SetScrewingProgramTask.IsBusy() AND _RequiredScrewingProgram < Config.ScrewingProgramMin, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#710,SetScrewingProgramTask.IsBusy() AND _RequiredScrewingProgram > Config.ScrewingProgramMax, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#711,SetScrewingProgramTask.ErrorOccured() , eAxoMessageCategory#Error);
 
             IF SetScrewingProgramTask.DoneReached() THEN
-                ScrewingProgram := _RequiredScrewingProgram;
+                Status.Action.Id :=  UINT#302;
+                Status.Error.Id :=  UINT#0;
+            ELSIF SetScrewingProgramTask.ErrorOccured() THEN
+                Status.Action.Id :=  UINT#711;
+                Status.Error.Id :=  UINT#711;
             END_IF;
             //****************************************
 
             //*************StartScrewing**************
             StartScrewingTask.IsDisabled := FALSE;
             IF StartScrewingTask.Execute() THEN
-                IF _RequiredScrewingProgram < ScrewingProgramMin THEN
+                IF _RequiredScrewingProgram < Config.ScrewingProgramMin THEN
                     Status.Error.Id := UINT#709;
                     RETURN;
                 END_IF;
-                IF _RequiredScrewingProgram > ScrewingProgramMax THEN
+                IF _RequiredScrewingProgram > Config.ScrewingProgramMax THEN
                     Status.Error.Id := UINT#710;
                     RETURN;
                 END_IF; 
 
-                //Reset results
                 IF State = 0 THEN
+                    THIS.CallTimers(FALSE);
+                    State := 310;
+                END_IF; 
+
+                //Reset results
+                IF State = 310 THEN
                     Outputs.Control.SpindleValidation := FALSE;
                     Outputs.Control.Reset := FALSE;
                     Outputs.Control.StartCycle := FALSE;
@@ -331,47 +387,74 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                     TorqueTrend	:=  INT#0;
                     Angle	    :=  REAL#0.0;
                     AngleTrend	:=  INT#0;
-                    State := 10;
+                    THIS.CallTimers(FALSE);
+                    State := 311;
                 END_IF;
 
                 //Check if program already set 
-                IF State = 10 THEN
+                IF State = 311 THEN
                     IF _RequiredScrewingProgram = Inputs.ScrewingProgram THEN
                         ScrewingProgram	:= _RequiredScrewingProgram;
-                        State := 30;
+                        State := 313;
                     ELSE
                         ScrewingProgram	:= BYTE#0;
-                        State := 20;
+                        State := 312;
                     END_IF;
                 END_IF;
 
                 //Set program
-                IF State = 20 THEN
+                IF State = 312 THEN
                     Outputs.ScrewingProgram := _RequiredScrewingProgram;
+
+                    IF _infoTimer.output THEN
+                        Status.Error.Id := UINT#601;
+                    END_IF;
+
                     IF _RequiredScrewingProgram = Inputs.ScrewingProgram THEN
                         ScrewingProgram	:= _RequiredScrewingProgram;
-                        State := 30;
+                        THIS.CallTimers(FALSE);
+                        State := 313;
                     END_IF;
                 END_IF;
 
                 // wait for screwdriver ready
-                IF State = 30 THEN
+                IF State = 313 THEN
+                    IF _infoTimer.output THEN
+                        IF NOT Inputs.Status.Ready THEN
+                            Status.Error.Id := UINT#602;
+                        ELSIF Inputs.Status.InCycle THEN
+                            Status.Error.Id := UINT#603;
+                        END_IF;
+                    END_IF;
                     IF (Inputs.Status.Ready AND NOT Inputs.Status.InCycle) THEN
-                        State := 40;
+                        THIS.CallTimers(FALSE);
+                        State := 314;
                     END_IF;
                 END_IF;
 
                 // start screwing cycle 
-                IF State = 40 THEN
+                IF State = 314 THEN
                     Outputs.Control.StartCycle := TRUE;
                     Outputs.Control.SpindleValidation := TRUE;
+                    IF _infoTimer.output THEN
+                        Status.Error.Id := UINT#604;
+                    END_IF;
                     IF (Inputs.Status.InCycle) THEN
-                        State := 50;
+                        THIS.CallTimers(FALSE);
+                        State := 315;
                     END_IF;
                 END_IF;
 
                 // wait for screwing cycle end
-                IF State = 50 THEN
+                IF State = 315 THEN
+                    IF _infoTimer.output THEN
+                        IF Inputs.Status.InCycle THEN
+                            Status.Error.Id := UINT#605;
+                        ELSIF NOT Inputs.Status.Failed AND NOT Inputs.Status.Passed THEN
+                            Status.Error.Id := UINT#606;
+                        END_IF;
+                    END_IF;
+                    
                     IF (NOT Inputs.Status.InCycle AND (Inputs.Status.Failed OR Inputs.Status.Passed)) THEN
                         Outputs.Control.StartCycle := FALSE;
                         Outputs.Control.SpindleValidation := FALSE;
@@ -382,31 +465,46 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                         TorqueTrend     := Inputs.TorqueTrend;
                         Angle           := Inputs.Angle;
                         AngleTrend      := Inputs.AngleTrend;
-                        State := 60;
+                        THIS.CallTimers(FALSE);
+                        State := 316;
                     END_IF;
                 END_IF;
 
                 // finished
-                IF State = 60 THEN
+                IF State = 316 THEN
+                    State := 0;
                     StartScrewingTask.DoneWhen(TRUE);
                 END_IF;
-            END_IF;
-            Messenger.ActivateOnCondition(ULINT#709,SetScrewingProgramTask.IsBusy() AND _RequiredScrewingProgram < ScrewingProgramMin, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#710,SetScrewingProgramTask.IsBusy() AND _RequiredScrewingProgram > ScrewingProgramMax, eAxoMessageCategory#ProgrammingError);
 
+                StartScrewingTask.ThrowWhen(StartScrewingTask.Duration > Config.ScrewingCycleTimeout, 'Screwing cycle takes too long.');
+                Status.Action.Id := TO_UINT(State);
+                THIS.CallTimers(TRUE);
+            END_IF;
+
+            Messenger.ActivateOnCondition(ULINT#709,SetScrewingProgramTask.IsBusy() AND _RequiredScrewingProgram < Config.ScrewingProgramMin, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#710,SetScrewingProgramTask.IsBusy() AND _RequiredScrewingProgram > Config.ScrewingProgramMax, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#712,SetScrewingProgramTask.ErrorOccured(), eAxoMessageCategory#ProgrammingError);
+
+            IF StartScrewingTask.DoneReached() THEN
+                Status.Action.Id :=  UINT#317;
+                Status.Error.Id :=  UINT#0;
+            ELSIF StartScrewingTask.ErrorOccured() THEN
+                Status.Action.Id :=  UINT#712;
+                Status.Error.Id :=  UINT#712;
+            END_IF;
             //****************************************
 
             //***********************************************//
-            refOutput_1_byte_1^.%X0         :=  Outputs.Control.CycleBit1;      
-            refOutput_1_byte_1^.%X1         :=  Outputs.Control.CycleBit2;      
-            refOutput_1_byte_1^.%X2         :=  Outputs.Control.CycleBit4;      
-            refOutput_1_byte_1^.%X3         :=  Outputs.Control.SpindleValidation;      
-            refOutput_1_byte_1^.%X4         :=  Outputs.Control.ErrorAck;      
-            refOutput_1_byte_1^.%X5         :=  Outputs.Control.StartCycle;      
-            refOutput_1_byte_1^.%X6         :=  Outputs.Control.Direction;      
-            refOutput_1_byte_1^.%X7         :=  Outputs.Control.Reset;      
+            refControl^.%X0         :=  Outputs.Control.CycleBit1;      
+            refControl^.%X1         :=  Outputs.Control.CycleBit2;      
+            refControl^.%X2         :=  Outputs.Control.CycleBit4;      
+            refControl^.%X3         :=  Outputs.Control.SpindleValidation;      
+            refControl^.%X4         :=  Outputs.Control.ErrorAck;      
+            refControl^.%X5         :=  Outputs.Control.StartCycle;      
+            refControl^.%X6         :=  Outputs.Control.Direction;      
+            refControl^.%X7         :=  Outputs.Control.Reset;      
 
-            refOutput_1_byte_2^             :=  Outputs.ScrewingProgram;             
+            refReqScrewingProgram^  :=  Outputs.ScrewingProgram;             
             THIS.Close();
         END_METHOD  
 
@@ -453,6 +551,9 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
 
 
         METHOD PUBLIC OVERRIDE Restore
+            Status.Action.Id := UINT#0;
+            Status.Error.Id  := UINT#0;
+
             ResetTask.Restore();
             SetScrewingProgramTask.Restore();
             StartScrewingTask.Restore();
@@ -464,5 +565,16 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             _RequiredScrewingProgram := RequiredScrewingProgram;
             
         END_METHOD
+
+        METHOD PRIVATE CallTimers
+            VAR_INPUT
+                signal : BOOL;
+            END_VAR
+            
+            _infoTimer.OnDelay(THIS, signal , _infoTime);
+            // _errorTimer.OnDelay(THIS, signal , _errorTime );
+        END_METHOD
+
+
     END_CLASS
 END_NAMESPACE

@@ -16,15 +16,15 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
             _testScrewdriver.ActivateManualControl();
         END_IF;   
 
-        _testScrewdriver.Run( parent             :=  THIS,
-                                refInput_1_byte_1  := REF(PlcInputs^.wp462_t1_rh_deso_Input_1_byte_1),
-                                refInput_1_byte_2  := REF(PlcInputs^.wp462_t1_rh_deso_Input_1_byte_2),
-                                refInput_2_word_1  := REF(PlcInputs^.wp462_t1_rh_deso_Input_2_word_1),
-                                refInput_1_word_1  := REF(PlcInputs^.wp462_t1_rh_deso_Input_1_word_1),
-                                refInput_2_word_2  := REF(PlcInputs^.wp462_t1_rh_deso_Input_2_word_2),
-                                refInput_1_word_2  := REF(PlcInputs^.wp462_t1_rh_deso_Input_1_word_2),
-                                refOutput_1_byte_1 := REF(PlcOutputs^.wp462_t1_rh_deso_Output_1_byte_1),
-                                refOutput_1_byte_2 := REF(PlcOutputs^.wp462_t1_rh_deso_Output_1_byte_2));        
+        _testScrewdriver.Run(   parent             :=  THIS,
+                                refStatus               := REF(PlcInputs^.wp462_t1_rh_deso_Input_1_byte_1),
+                                refActScrewingProgram   := REF(PlcInputs^.wp462_t1_rh_deso_Input_1_byte_2),
+                                refTorque               := REF(PlcInputs^.wp462_t1_rh_deso_Input_2_word_1),
+                                refTorqueTrend          := REF(PlcInputs^.wp462_t1_rh_deso_Input_1_word_1),
+                                refAngle                := REF(PlcInputs^.wp462_t1_rh_deso_Input_2_word_2),
+                                refAngleTrend           := REF(PlcInputs^.wp462_t1_rh_deso_Input_1_word_2),
+                                refControl              := REF(PlcOutputs^.wp462_t1_rh_deso_Output_1_byte_1),
+                                refReqScrewingProgram   := REF(PlcOutputs^.wp462_t1_rh_deso_Output_1_byte_2));        
 
         
     END_METHOD
