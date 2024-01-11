@@ -191,31 +191,31 @@ NAMESPACE axosimple.StarterUnitTemplate
                 //-------------------------------------------------------
             END_IF;
 
-            IF (Steps[35].Execute(THIS, TRUE, 'Example Analog inspection')) THEN         
+            IF (Steps[7].Execute(THIS, TRUE, 'Example Analog inspection')) THEN         
                 //-------------------------------------------------------
                 ProcessData^.LoadPosition.WithCoordinator(THIS)
                 .Inspect(THIS,_inspectionValue)
                 .UpdateComprehensiveResult(_comprehensiveResult)
                 .OnFail()
-                .CarryOn();
+                .Dialog( inRetryStep := Steps[50], inTerminateStep := Steps[60], inoDialog := _dataInspectorDialog);
                 //-------------------------------------------------------
             END_IF;
             
-            IF (Steps[40].Execute(THIS, TRUE, 'Example Data inspection')) THEN
+            IF (Steps[8].Execute(THIS, TRUE, 'Example Data inspection')) THEN
                 //-------------------------------------------------------
                 ProcessData^.JigDataMatrixCode.WithCoordinator(THIS)
                 .Inspect(THIS,_inspectionData)
                 .UpdateComprehensiveResult(_comprehensiveResult)
                 .OnFail()
-                .Dialog(Steps[20], Steps[45],_dataInspectorDialog);
+                .Dialog( inRetryStep := Steps[70], inTerminateStep := Steps[80], inoDialog := _dataInspectorDialog);
                 //-------------------------------------------------------
             END_IF;
 
             
-            FOR forIterator := 10 TO 20 BY 1 DO
+            FOR forIterator := 10 TO 89 BY 1 DO
                 IF (Steps[forIterator].Execute(THIS, TRUE,Concat('DO SOMETHING -A-',ToString(forIterator)) )) THEN
                     //-------------------------------------------------------                
-                    IF CurrentStep.Duration > TIME#25ms THEN                         
+                    IF CurrentStep.Duration > TIME#50ms THEN                         
                         THIS.MoveNext();
                     END_IF;                
                     //-------------------------------------------------------
