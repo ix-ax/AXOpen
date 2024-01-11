@@ -3,45 +3,43 @@
 @inject NavigationManager _navigationManager
 @inherits AxoDialogBaseView<AxoDialog>
 @inject AuthenticationStateProvider _asp
-    
 
-<ModalDialog @ref="@base.ModalDialog" >
+
+<ModalDialog @ref="@base.ModalDialog">
     <HeaderTemplate>
         <div class="text-center d-flex">
-        @RenderDialogIcon()
-        <h3 class="modal-title m-2 ">@Component._caption.Cyclic</h3>
-        
+            @RenderDialogIcon()
+            <h3 class="modal-title m-2 ">@Component._caption.Cyclic</h3>
+
         </div>
         @if (IsYesNoCancelDialogType())
         {
             <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" disabled="@ButtonDisabled()" @onclick="DialogAnswerCancel"> </button>
         }
-       
+
     </HeaderTemplate>
     <BodyTemplate>
-    <p>@Component._text.Cyclic</p>
-    <div class="d-flex justify-content-center ">
+        <p>@Component._text.Cyclic</p>
+        <div class="d-flex justify-content-center ">
 
-
-        @if (IsOkDialogType())
-        {
+            @if (IsOkDialogType())
+            {
                 <button type="button" class="btn btn-primary m-2 w-50" disabled=@ButtonDisabled() @onclick="DialogAnswerOk">Ok</button>
 
-        }
-        @if (IsYesNoDialogType() || IsYesNoCancelDialogType())
-        {
+            }
+            @if (IsYesNoDialogType() || IsYesNoCancelDialogType())
+            {
                 <button type="button" class="btn btn-primary m-2 w-50" @onclick="DialogAnswerYes" disabled=@ButtonDisabled()>Yes</button>
                 <button type="button" class="btn btn-primary m-2 w-50" @onclick="DialogAnswerNo" disabled=@ButtonDisabled()>No</button>
-        }
-     
-        
-    </div>
-    <div>
-        @if (!_asp.GetAuthenticationStateAsync().Result.User.Identity.IsAuthenticated)
-        {
-            <p>You are not authorized, please <a href="Identity/Account/Login">Log In</a>.</p>
-        }
-    </div>
+            }
+
+        </div>
+        <div>
+            @if (!_asp.GetAuthenticationStateAsync().Result.User.Identity.IsAuthenticated)
+            {
+                <p>You are not authorized, please <a href="Identity/Account/Login">Log In</a>.</p>
+            }
+        </div>
     </BodyTemplate>
 </ModalDialog>
 

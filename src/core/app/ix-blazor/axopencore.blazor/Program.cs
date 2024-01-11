@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Components.Web;
 using Serilog;
 using AXOpen.Core;
 using axopencore;
+using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 
 namespace axopen_integrations_blazor
 {
@@ -99,7 +100,10 @@ namespace axopen_integrations_blazor
                 .AddSupportedUICultures(supportedCultures);
 
             app.UseRequestLocalization(localizationOptions);
+
+
             app.MapBlazorHub();
+            app.MapHub<DialogHub>("/dialoghub");
             app.MapFallbackToPage("/_Host");
 
             #region InitializeRemoteTask

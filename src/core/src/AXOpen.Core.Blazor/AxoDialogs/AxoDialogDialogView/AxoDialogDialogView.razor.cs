@@ -5,13 +5,13 @@ namespace AXOpen.Core
 {
     public partial class AxoDialogDialogView : AxoDialogBaseView<AxoDialog>, IDisposable
     {
-       
+
 
         private bool IsOkDialogType() => (Component._buttons.Cyclic == (short)eDialogButtons.Ok);
-        
+
 
         private bool IsYesNoDialogType() => (Component._buttons.Cyclic == (short)eDialogButtons.YesNo);
-        
+
 
         private bool IsYesNoCancelDialogType() => (Component._buttons.Cyclic == (short)eDialogButtons.YesNoCancel);
 
@@ -22,8 +22,45 @@ namespace AXOpen.Core
             base.OnInitialized();
         }
 
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            base.OnAfterRenderAsync(firstRender);
+
+            if (Component._closeSignal.Cyclic) // when is fist render
+            {
+                await CloseDialogsWithSignalR();
+            }
+
+        }
+
+
+        public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+        {
+            var dialog = (AxoDialog)element;
+
+            if (dialog != null)
+            {
+                var selecedToPool = new List<ITwinElement>();
+
+                selecedToPool.Add(dialog._dialogType);
+                selecedToPool.Add(dialog._buttons);
+                selecedToPool.Add(dialog._caption);
+                selecedToPool.Add(dialog._text); // can be changed
+                selecedToPool.Add(dialog._closeSignal); // used in  AxoDialogDialogView.razor -> +onClose()
+
+                foreach (var item in selecedToPool)
+                {
+                    item.StartPolling(pollingInterval, this);
+                    PolledElements.Add(item);
+                }
+            }
+
+        }
+
+
         // experimental stuff for external closings
-        private async void OnCloseSignal(object sender, EventArgs e) 
+        private async void OnCloseSignal(object sender, EventArgs e)
         {
             if (Component._closeSignal.Cyclic)
             {
@@ -31,7 +68,7 @@ namespace AXOpen.Core
                 await CloseDialogsWithSignalR();
             }
         }
-        public async Task DialogAnswerOk()  
+        public async Task DialogAnswerOk()
         {
             Component._answer.Edit = (short)eDialogAnswer.OK;
             await CloseDialogsWithSignalR();
@@ -52,7 +89,7 @@ namespace AXOpen.Core
             await CloseDialogsWithSignalR();
         }
 
-        
+
 
         public override void Dispose()
         {

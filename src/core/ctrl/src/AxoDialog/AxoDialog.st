@@ -11,13 +11,12 @@ NAMESPACE AXOpen.Core
             _buttons : eDialogButtons;
             _answer : eDialogAnswer;
             _dialogType : eDialogType;
-            _externalCloseReq : BOOL;
             _closeSignal : BOOL;
         END_VAR
         
         VAR PRIVATE
-            _lastCall : ULINT;
             _risingEdge : BOOL;  // not used in .net side          
+            _lastCall : ULINT;
         END_VAR    
 
         ///<summary>
@@ -36,17 +35,20 @@ NAMESPACE AXOpen.Core
             //before task initialization, set _asnwer to #NoAnswer to avoid inconsitencies
             IF (THIS.Status = eAxoTaskState#Ready) THEN
                 _answer := eDialogAnswer#NoAnswer;
+                _closeSignal := FALSE;
             END_IF;
             
            // Restores when not called for 2+ consecutive cycles of the context.
            callCounter := THIS.GetParent().GetContext().OpenCycleCount();
            IF(callCounter > _lastCall + ULINT#1) THEN
                THIS.Restore();
-           END_IF;                
+           END_IF;  
            _lastCall := callCounter;
 
             THIS.Invoke();
+
             SUPER.Execute();
+
             _buttons := eDialogButtons#NoButtons;
             _text := '';
             _caption := '';
@@ -55,15 +57,13 @@ NAMESPACE AXOpen.Core
             Show := THIS;
             //after task is done and some answer is provided, restore this task
             IF (THIS.Status = eAxoTaskState#Done && _answer <> eDialogAnswer#NoAnswer) THEN
-                
                 THIS.Restore();   
-                    
             END_IF;
             
         END_METHOD
 
 
-         ///<summary>
+        ///<summary>
         /// Show method with a possibility to close dialog externally by setting a signal.
         /// WARNING: This is experimental implementation of possibility to close dialogs externally. More testing need to be done.
         ///</summary>
@@ -74,33 +74,45 @@ NAMESPACE AXOpen.Core
                 inYesAnswerSignal : BOOL := FALSE;
                 inNoAnswerSignal : BOOL := FALSE;
                 inCancelAnswerSignal : BOOL := FALSE;
-            END_VAR    
-            VAR_TEMP
+            END_VAR
+
+            VAR
+                callCounter : ULINT;
                 edgeDetected : BOOL;
             END_VAR
 
+            IF(_parent = NULL) THEN RETURN; END_IF;
+
             THIS.Initialize(_parent);
+
             //before task initialization, set _asnwer to #NoAnswer to avoid inconsitencies
             IF (THIS.Status = eAxoTaskState#Ready) THEN
                 _answer := eDialogAnswer#NoAnswer;
                 _closeSignal := FALSE;
             END_IF;
 
+            // I AM NOT SURE >>>> 
+            // Restores when not called for 2+ consecutive cycles of the context.
+            callCounter := THIS.GetParent().GetContext().OpenCycleCount();
+            IF(callCounter > _lastCall + ULINT#1) THEN
+                THIS.Restore();
+            END_IF;  
+            _lastCall := callCounter;
+
             THIS.Invoke();
+
             SUPER.Execute();
 
             _buttons := eDialogButtons#NoButtons;
 
-            _externalCloseReq := TRUE;
+            //_externalCloseReq := TRUE;
             _text := '';
             _caption := '';
             _dialogType := eDialogType#Undefined;
 
             ShowWithExternalClose := THIS;
             // watch close signals on rising edge
-            
-            //_risingEdge(signal := inOkAnswerSignal XOR inYesAnswerSignal XOR inNoAnswerSignal XOR inCancelAnswerSignal, detected => edgeDetected);
-
+           
             edgeDetected := ((inOkAnswerSignal XOR inYesAnswerSignal XOR inNoAnswerSignal XOR inCancelAnswerSignal) AND NOT _risingEdge);
             _risingEdge := inOkAnswerSignal XOR inYesAnswerSignal XOR inNoAnswerSignal XOR inCancelAnswerSignal;
 
@@ -120,12 +132,8 @@ NAMESPACE AXOpen.Core
 
             //after task is done and some answer is provided, restore this task
             IF (THIS.Status = eAxoTaskState#Done && _answer <> eDialogAnswer#NoAnswer) THEN
-                _externalCloseReq := FALSE;
-                //_closeSignal := FALSE;
                 THIS.Restore();       
             END_IF;
-            
-        
             
         END_METHOD
 
@@ -134,17 +142,12 @@ NAMESPACE AXOpen.Core
         /// Executes once when the task is restored.
         ///</summary>
         METHOD PROTECTED OVERRIDE OnRestore 
-                  
-            
             _buttons := eDialogButtons#NoButtons;
-
-            _externalCloseReq := TRUE;
             _text := '';
             _caption := '';
             _dialogType := eDialogType#Undefined;
             
-            THIS.DoneSignature  := ULINT#0;
-            THIS.StartSignature :=ULINT#0;
+            _closeSignal := true; // close all dialogs...
         END_METHOD
 
     METHOD PUBLIC WithCaption : IAxoDialogAnswer

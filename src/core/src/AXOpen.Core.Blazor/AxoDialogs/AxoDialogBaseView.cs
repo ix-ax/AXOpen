@@ -40,6 +40,9 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         protected async void OnCloseDialogMessage(object sender, MessageReceivedEventArgs e)
         {
+            if (e == null) return;// in same cases can be null
+            if (e.Message == null) return;
+
             if (_dialogId == e.Message.ToString())
             {
                 await Close();
@@ -47,6 +50,9 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         }
         protected async void OnOpenDialogMessage(object sender, MessageReceivedEventArgs e)
         {
+            if (e == null) return;// in same cases can be null
+            if (e.Message == null) return;
+
             if (_dialogId == e.Message.ToString())
             {
                 await OpenDialog();

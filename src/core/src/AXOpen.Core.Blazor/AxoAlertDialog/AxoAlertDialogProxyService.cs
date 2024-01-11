@@ -14,6 +14,7 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
     /// </summary>
     public class AxoAlertDialogProxyService : AxoDialogProxyServiceBase, IDisposable
     {
+        private List<IsDialogType> _observedDialogs = new();
 
         private AxoDialogContainer _axoDialogContainer;
         public AxoAlertDialogProxyService(AxoDialogContainer dialogContainer, IEnumerable<ITwinObject> observedOjects)
@@ -55,22 +56,18 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
             foreach (var dialog in descendants)
             {
                 dialog.Initialize(() => Queue(dialog));
+                _observedDialogs.Add(dialog);
             }
 
         }
 
-        public void Dispose()
+            public void Dispose()
         {
-
-            foreach (var observedObject in _observedObject)
+            foreach (var dialog in _observedDialogs)
             {
-                var descendants = GetDescendants<IsDialogType>(observedObject);
-                foreach (var dialog in descendants)
-                {
-                    dialog.DeInitialize();
-                }
+                dialog.DeInitialize();
             }
-
+            _observedDialogs.Clear();
         }
     }
 }
