@@ -14,13 +14,30 @@ NAMESPACE axosimple.StarterUnitTemplate
         EXTENDS AXOpen.Core.AxoSequencerContainer IMPLEMENTS IModeContainer
         VAR PUBLIC
             Steps : ARRAY[0..100] OF AxoStep;    
+    
+            _digitalInspectorDialog       : AXOpen.Inspectors.AxoInspectorDialog;
+            _analogueInspectorDialog      : AXOpen.Inspectors.AxoInspectorDialog;
+            _dataInspectorDialog          : AXOpen.Inspectors.AxoInspectorDialog;
+            
+            _inspectionResult: BOOL;
+            _inspectionValue: LREAL;
+            _inspectionData: STRING;
+    
+            _comprehensiveResult: AXOpen.Inspectors.AxoComprehensiveResult;
         END_VAR
+
         VAR PRIVATE
             Objs : REF_TO axosimple.StarterUnitTemplate.UnitObjects;
             Components : REF_TO axosimple.StarterUnitTemplate.Components;
-            ProcessData : REF_TO axosimple.StarterUnitTemplate.ProcessDataManager;
-            ProcessSettings : REF_TO axosimple.StarterUnitTemplate.FragmentProcessDataManger;
-            TechnologySettings : REF_TO axosimple.StarterUnitTemplate.TechnologyDataManager;
+            ProcessDataManager : REF_TO axosimple.StarterUnitTemplate.ProcessDataManager;
+            ProcessSettingsManager : REF_TO axosimple.StarterUnitTemplate.FragmentProcessDataManger;
+            TechnologySettingsManager : REF_TO axosimple.StarterUnitTemplate.TechnologyDataManager;
+
+            EntityHeader : REF_TO axosimple.EntityData;
+            ProcessData : REF_TO axosimple.StarterUnitTemplate.ProcessData;
+            ProcessSettings : REF_TO axosimple.StarterUnitTemplate.ProcessData;
+            TechnologySettings : REF_TO axosimple.StarterUnitTemplate.TechnologyData;
+
             _currentId : STRING;
 
             _dialogAnswer : eDialogAnswer;
@@ -37,9 +54,15 @@ NAMESPACE axosimple.StarterUnitTemplate
                 Objs := _unitObjects;
                 
                 Components := Objs^.Components;
-                ProcessData := Objs^.ProcessData;
-                ProcessSettings := Objs^.ProcessSettings;
-                TechnologySettings := Objs^.TechnologySettings;
+                ProcessDataManager := Objs^.ProcessData;
+                ProcessSettingsManager := Objs^.ProcessSettings;
+                TechnologySettingsManager := Objs^.TechnologySettings;
+
+                EntityHeader := REF(ProcessDataManager^.Shared.Entity);
+                ProcessData :=  REF(ProcessDataManager^.DataManger.Payload);
+                ProcessSettings :=  REF(ProcessSettingsManager^.Payload);
+                TechnologySettings :=  REF(TechnologySettingsManager^.DataManger.Payload);
+
             END_IF;
 
             SUPER.Run(_parent);
@@ -50,10 +73,11 @@ NAMESPACE axosimple.StarterUnitTemplate
 
         METHOD OVERRIDE Main
             VAR
-                forIterator : INT := 0;       
+                forIterator : INT := 0;  
+                dialogTimeOut : TIME:= t#500ms;         
             END_VAR
 
-            IF (Components = NULL OR ProcessData = NULL) THEN
+            IF (Components = NULL OR ProcessDataManager = NULL) THEN
                 RETURN;
             END_IF;
             // This sequecner executes the steps in cycles from top to bottom
@@ -65,6 +89,19 @@ NAMESPACE axosimple.StarterUnitTemplate
             
             IF (Steps[0].Execute(THIS, TRUE, '<#GET ID#>')) THEN
                 //-------------------------------------------------------
+                _digitalInspectorDialog.Restore();  
+                _analogueInspectorDialog.Restore();  
+                _dataInspectorDialog.Restore();      
+
+                // data simulation..
+                ProcessData^.PartPresence.Data()^.FailTime := TIME#3s;
+                ProcessData^.LoadPosition.Data()^.FailTime := TIME#3s;
+                ProcessData^.JigDataMatrixCode.Data()^.FailTime := TIME#3s;
+    
+                ProcessData^.PartPresence.Data()^.PassTime := TIME#2.5s;
+                ProcessData^.LoadPosition.Data()^.PassTime := TIME#2s;
+                ProcessData^.JigDataMatrixCode.Data()^.PassTime := TIME#2s;
+
                 _currentId := 'newProducedPart';
                 THIS.MoveNext(); 
                 //-------------------------------------------------------
@@ -72,7 +109,7 @@ NAMESPACE axosimple.StarterUnitTemplate
 
             IF (Steps[1].Execute(THIS, TRUE, '<#GET DATA#>')) THEN
                 //-------------------------------------------------------
-                IF (ProcessData^.CreateOrUpdate(_currentId).IsDone()) THEN 
+                IF (ProcessDataManager^.CreateOrUpdate(_currentId).IsDone()) THEN 
                     THIS.MoveNext(); 
                 END_IF;
                 //-------------------------------------------------------
@@ -82,7 +119,7 @@ NAMESPACE axosimple.StarterUnitTemplate
             
             IF (Steps[2].Execute(THIS, TRUE, '<#Dialog notify#>')) THEN
                 //-------------------------------------------------------
-                _externalCloseOkSignal := CurrentStep.Duration > TIME#2s;
+                _externalCloseOkSignal := CurrentStep.Duration > dialogTimeOut;
                 
                 _dialogAnswer := Objs^._dialog.ShowWithExternalClose(THIS, _externalCloseOkSignal)
                 .WithOK()
@@ -99,7 +136,7 @@ NAMESPACE axosimple.StarterUnitTemplate
                          
             IF (Steps[3].Execute(THIS, TRUE, '<#Dialog success#>')) THEN
                 //-------------------------------------------------------
-                _externalCloseOkSignal := CurrentStep.Duration > TIME#2s;
+                _externalCloseOkSignal := CurrentStep.Duration > dialogTimeOut;
 
                     _dialogAnswer := Objs^._dialog.ShowWithExternalClose(THIS, _externalCloseOkSignal)
                     .WithOK()
@@ -115,7 +152,7 @@ NAMESPACE axosimple.StarterUnitTemplate
 
             IF (Steps[4].Execute(THIS, TRUE, '<#Dialog Warning#>')) THEN
                 //-------------------------------------------------------
-                _externalCloseOkSignal := CurrentStep.Duration > TIME#2s;
+                _externalCloseOkSignal := CurrentStep.Duration > dialogTimeOut;
 
                     _dialogAnswer := Objs^._dialog.ShowWithExternalClose(THIS, _externalCloseOkSignal)
                     .WithYesNo()
@@ -131,7 +168,7 @@ NAMESPACE axosimple.StarterUnitTemplate
 
             IF (Steps[5].Execute(THIS, TRUE, '<#Dialog danger#>')) THEN
                 //-------------------------------------------------------
-                _externalCloseOkSignal := CurrentStep.Duration > TIME#2s;
+                _externalCloseOkSignal := CurrentStep.Duration > dialogTimeOut;
 
                     _dialogAnswer := Objs^._dialog.ShowWithExternalClose(THIS, _externalCloseOkSignal)
                     .WithYesNoCancel()
@@ -142,6 +179,35 @@ NAMESPACE axosimple.StarterUnitTemplate
                     IF( _dialogAnswer = eDialogAnswer#Ok) THEN
                         THIS.MoveNext();
                     END_IF;
+                //-------------------------------------------------------
+            END_IF;
+
+            IF (Steps[6].Execute(THIS, TRUE, 'Example Digital inspection')) THEN
+                //-------------------------------------------------------
+                ProcessData^.PartPresence.WithCoordinator(THIS).Inspect(THIS,_inspectionResult)
+                .UpdateComprehensiveResult(_comprehensiveResult)
+                .OnFail()
+                .CarryOn();
+                //-------------------------------------------------------
+            END_IF;
+
+            IF (Steps[35].Execute(THIS, TRUE, 'Example Analog inspection')) THEN         
+                //-------------------------------------------------------
+                ProcessData^.LoadPosition.WithCoordinator(THIS)
+                .Inspect(THIS,_inspectionValue)
+                .UpdateComprehensiveResult(_comprehensiveResult)
+                .OnFail()
+                .CarryOn();
+                //-------------------------------------------------------
+            END_IF;
+            
+            IF (Steps[40].Execute(THIS, TRUE, 'Example Data inspection')) THEN
+                //-------------------------------------------------------
+                ProcessData^.JigDataMatrixCode.WithCoordinator(THIS)
+                .Inspect(THIS,_inspectionData)
+                .UpdateComprehensiveResult(_comprehensiveResult)
+                .OnFail()
+                .Dialog(Steps[20], Steps[45],_dataInspectorDialog);
                 //-------------------------------------------------------
             END_IF;
 
@@ -161,7 +227,7 @@ NAMESPACE axosimple.StarterUnitTemplate
 
             IF (Steps[99].Execute(THIS, TRUE,'<#UPDATE DATA#>')) THEN
                 //-------------------------------------------------------
-                IF (ProcessData^.Update(_currentId).IsDone()) THEN 
+                IF (ProcessDataManager^.Update(_currentId).IsDone()) THEN 
                     THIS.MoveNext(); 
                 END_IF;
                 //-------------------------------------------------------
