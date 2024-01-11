@@ -2,7 +2,7 @@
 {
     internal class SerializableVisualComposerItem
     {
-        public SerializableVisualComposerItem(string id, double left, double top, string transform, string presentation, double width, double height, int zIndex, double scale, string roles)
+        public SerializableVisualComposerItem(string id, double left, double top, string transform, string presentation, double width, double height, int zIndex, double scale, string roles, bool background)
         {
             Id = id;
             Left = left;
@@ -14,6 +14,7 @@
             ZIndex = zIndex;
             Scale = scale;
             Roles = roles;
+            Background = background;
         }
 
         public string Id { get; set; }
@@ -26,5 +27,6 @@
         public int ZIndex { get; set; } = 0;
         public double Scale { get; set; } = 1;
         public string Roles { get; set; } = "";
+        public bool Background { get; set; } = false;
     }
 }

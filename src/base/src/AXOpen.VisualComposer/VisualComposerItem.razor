@@ -3,22 +3,26 @@
         @if (InDesign)
         {
             <div id="@Id.Replace('.', '_')-@UniqueGuid" style="position: absolute; left: @(Left.ToString().Replace(',', '.'))%; top: @(Top.ToString().Replace(',', '.'))%; transform: scale(@(Scale)); translate: @(Transform.X)% @(Transform.Y)%; width: @(Width != -1 ? Width + "rem" : "max-content"); height: @(Height != -1 ? Height + "rem" : "max-content"); z-index: @ZIndex;">
-                <RenderableContentControl @ref="renderableContentControlRcc"
-                                          Context="@TwinElement"
-                                          Presentation="@Presentation.ToString()"
-                                          ParentContainer="@this" />
+                <div class="@(Background ? "card border border-3 p-2 rounded-3" : null)">
+                    <RenderableContentControl @ref="renderableContentControlRcc"
+                                              Context="@TwinElement"
+                                              Presentation="@Presentation.ToString()"
+                                              ParentContainer="@this" />
+                </div>
                 <a class="position-absolute text-decoration-none text-black" style="left: 97%; top: 0%; translate: -100% -50%; cursor: pointer;" data-bs-toggle="modal"
                    data-bs-target="#settings-@Id.Replace('.', '_')-@UniqueGuid">
-                    <span class="bi bi-pencil-square fs-4" aria-hidden="true" />
+                    <span class="bi bi-pencil-square fs-4 @(Parent?.Theme)" aria-hidden="true" />
                 </a>
             </div>
         }
         else
         {
             <div style="position: absolute; left: @(Left.ToString().Replace(',', '.'))%; top: @(Top.ToString().Replace(',', '.'))%; transform: scale(@(Scale)); translate: @(Transform.X)% @(Transform.Y)%; @(Width != -1 ? "width: " + Width + "rem" : null); @(Height != -1 ? "height: " + Height + "rem" : null); z-index: @ZIndex;">
-                <RenderableContentControl Context="@TwinElement"
-                                          Presentation="@Presentation.ToString()"
-                                          ParentContainer="@this" />
+                <div class="@(Background ? "card border border-3 p-2 rounded-3" : null)">
+                    <RenderableContentControl Context="@TwinElement"
+                                              Presentation="@Presentation.ToString()"
+                                              ParentContainer="@this" />
+                </div>
             </div>
         }
     </Authorized>
@@ -27,18 +31,22 @@
         {
             <AuthorizeView Roles="@Roles" Context="SecondAuthorizeView">
                 <div style="position: absolute; left: @(Left.ToString().Replace(',', '.'))%; top: @(Top.ToString().Replace(',', '.'))%; translate: @(Transform.X)% @(Transform.Y)%; @(Width != -1 ? "width: " + Width + "rem" : null); @(Height != -1 ? "height: " + Height + "rem" : null); z-index: @ZIndex;">
-                    <RenderableContentControl Context="@TwinElement"
-                                              Presentation="@Presentation.ToString()"
-                                              ParentContainer="@this" />
+                    <div class="@(Background ? "card border border-3 p-2 rounded-3" : null)">
+                        <RenderableContentControl Context="@TwinElement"
+                                                  Presentation="@Presentation.ToString()"
+                                                  ParentContainer="@this" />
+                    </div>
                 </div>
             </AuthorizeView>
         }
         else
         {
             <div style="position: absolute; left: @(Left.ToString().Replace(',', '.'))%; top: @(Top.ToString().Replace(',', '.'))%; translate: @(Transform.X)% @(Transform.Y)%; @(Width != -1 ? "width: " + Width + "rem" : null); @(Height != -1 ? "height: " + Height + "rem" : null); z-index: @ZIndex;">
-                <RenderableContentControl Context="@TwinElement"
-                                          Presentation="@Presentation.ToString()"
-                                          ParentContainer="@this" />
+                <div class="@(Background ? "card border border-3 p-2 rounded-3" : null)">
+                    <RenderableContentControl Context="@TwinElement"
+                                              Presentation="@Presentation.ToString()"
+                                              ParentContainer="@this" />
+                </div>
             </div>
         }
     </NotAuthorized>

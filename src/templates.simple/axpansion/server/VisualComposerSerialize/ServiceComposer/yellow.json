@@ -1,10 +1,10 @@
 {
-  "ImgSrc": "Images/VisualComposerSerialize/ServiceComposer/Default.svg",
+  "ImgSrc": "Images/VisualComposerSerialize/ServiceComposer/green.png",
   "Items": [
     {
       "Id": "5df2c92f84540a4076ab0a2bc2e2f9c4c36af435392e8fcaab123e350053f4c0",
-      "Left": 13.730780895313892,
-      "Top": 12.845737831573523,
+      "Left": 25.14708990818943,
+      "Top": 17.845737831573523,
       "Transform": "TopLeft",
       "Presentation": "Status-Display",
       "Width": -1,
@@ -12,7 +12,7 @@
       "ZIndex": 0,
       "Scale": 0.7,
       "Roles": "",
-      "Background": false
+      "Background": true
     },
     {
       "Id": "7188cde9edcee7fdfb4dbc97e124f6b4e4d9a3d17c45afe5d65215572b03a7f9",
@@ -29,8 +29,8 @@
     },
     {
       "Id": "7188cde9edcee7fdfb4dbc97e124f6b4e4d9a3d17c45afe5d65215572b03a7f9",
-      "Left": 86.44539614561027,
-      "Top": 22.464589235127477,
+      "Left": 14.85741331299225,
+      "Top": 41.10095287149112,
       "Transform": "TopCenter",
       "Presentation": "Status-Display",
       "Width": -1,
@@ -38,7 +38,7 @@
       "ZIndex": 0,
       "Scale": 1,
       "Roles": "",
-      "Background": false
+      "Background": true
     }
   ],
   "Theme": "text-dark",

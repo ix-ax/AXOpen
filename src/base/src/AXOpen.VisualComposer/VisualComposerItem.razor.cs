@@ -150,6 +150,19 @@ namespace AXOpen.VisualComposer
         }
 
         public string Roles = "";
+
+
+        public bool _background = false;
+        public bool Background
+        {
+            get => _background;
+            set
+            {
+                _background = value;
+                StateHasChanged();
+            }
+        }
+
         private string _id;
 
         protected override async Task OnAfterRenderAsync(bool firstRender)

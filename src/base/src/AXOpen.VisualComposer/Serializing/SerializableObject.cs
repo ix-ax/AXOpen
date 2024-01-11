@@ -2,10 +2,11 @@
 {
     internal class SerializableObject
     {
-        public SerializableObject(string? imgSrc, List<SerializableVisualComposerItem> items, double scale, int translateX, int translateY)
+        public SerializableObject(string? imgSrc, List<SerializableVisualComposerItem> items, string? theme, double scale, int translateX, int translateY)
         {
             ImgSrc = imgSrc;
             Items = items;
+            Theme = theme;
             Scale = scale;
             TranslateX = translateX;
             TranslateY = translateY;
@@ -13,6 +14,8 @@
 
         public string? ImgSrc { get; set; }
         public List<SerializableVisualComposerItem> Items { get; set; }
+
+        public string? Theme { get; set; }
 
         public double Scale { get; set; }
         public int TranslateX { get; set; }

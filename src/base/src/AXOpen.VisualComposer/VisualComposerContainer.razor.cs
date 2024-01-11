@@ -25,6 +25,7 @@ namespace AXOpen.VisualComposer
         public ITwinObject[] Objects { get; set; }
 
         public string? ImgSrc { get; set; }
+        public string? Theme { get; set; }
 
         [Parameter, EditorRequired]
         public string? Id { get; set; }
@@ -127,7 +128,7 @@ namespace AXOpen.VisualComposer
             List<SerializableVisualComposerItem> serializableChildren = new List<SerializableVisualComposerItem>();
             foreach (var child in _children)
             {
-                serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.Left, child.Top, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex, child.Scale, child.Roles));
+                serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.Left, child.Top, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex, child.Scale, child.Roles, child.Background));
             }
 
             if (!Directory.Exists("VisualComposerSerialize/" + Id.CorrectFilePath()))
@@ -135,7 +136,7 @@ namespace AXOpen.VisualComposer
                 Directory.CreateDirectory("VisualComposerSerialize/" + Id.CorrectFilePath());
             }
 
-            Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", new SerializableObject(ImgSrc, serializableChildren, _zoomableContainer.Scale, _zoomableContainer.TranslateX, _zoomableContainer.TranslateY));
+            Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", new SerializableObject(ImgSrc, serializableChildren, Theme, _zoomableContainer.Scale, _zoomableContainer.TranslateX, _zoomableContainer.TranslateY));
         }
 
         public void Load(string? fileName = "Default")
@@ -145,6 +146,8 @@ namespace AXOpen.VisualComposer
             if (deserialize != null)
             {
                 ImgSrc = deserialize.ImgSrc;
+                Theme = deserialize.Theme;
+
                 _children.Clear();
 
                 foreach (var item in deserialize.Items)
@@ -164,7 +167,8 @@ namespace AXOpen.VisualComposer
                             _height = item.Height,
                             _zIndex = item.ZIndex,
                             _scale = item.Scale,
-                            Roles = item.Roles
+                            Roles = item.Roles,
+                            _background = item.Background
                         });
                     }
                 }
@@ -188,6 +192,14 @@ namespace AXOpen.VisualComposer
             {
                 File.Delete("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json");
             }
+        }
+
+        public void ChangeTheme()
+        {
+            if(Theme == "text-dark")
+                Theme = "text-light";
+            else
+                Theme = "text-dark";
         }
 
         public void ClearScaleAndTranslate(string fileName)
