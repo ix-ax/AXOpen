@@ -11,7 +11,6 @@ NAMESPACE AXOpen.Core
             _buttons : eDialogButtons;
             _answer : eDialogAnswer;
             _dialogType : eDialogType;
-            _closeSignal : BOOL;
         END_VAR
         
         VAR PRIVATE
@@ -167,22 +166,10 @@ NAMESPACE AXOpen.Core
         END_METHOD
 
         ///<summary>
-        /// Restore dialog. In special case context can be null.
-        ///</summary>
-        METHOD PUBLIC OVERRIDE Restore : IAxoTaskState
-            IF _context_ = NULL THEN
-                THIS.OnRestore();
-            ELSE
-                SUPER.Restore(); 
-            END_IF;
-
-            Restore := THIS;
-        END_METHOD   
-
-        ///<summary>
         /// Executes once when the task is restored.
         ///</summary>
         METHOD PROTECTED OVERRIDE OnRestore 
+            SUPER.OnRestore();
             _buttons := eDialogButtons#NoButtons;
             _text := '';
             _caption := '';
@@ -190,8 +177,6 @@ NAMESPACE AXOpen.Core
 
             _createPlcCycleSpace :=  FALSE;
             _PlcCycleSpaceCounter:=  UINT#0;
-
-            _closeSignal := true; // close all dialogs...
         END_METHOD
 
     METHOD PUBLIC WithCaption : IAxoDialogAnswer
