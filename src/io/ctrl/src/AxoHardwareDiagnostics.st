@@ -7,6 +7,7 @@ NAMESPACE AXOpen.Io
     {S7.extern=ReadWrite}
     CLASS AxoHardwareDiagnostics EXTENDS AXOpen.Core.AxoTask 
         VAR PUBLIC
+            {#ix-attr:[Container(Layout.Stack)]}
             {#ix-set:AttributeName = "<#Hardware ID#>"}
             {#ix-attr:[ReadOnly()]}
             hardwareID	                :   UINT;	                //  Input	Hardware identifier of the component.
@@ -30,6 +31,7 @@ NAMESPACE AXOpen.Io
                 diagInfo : Siemens.Simatic.S71500.Diagnostics.Hardware.DiagnosticDetails;            
             END_VAR
                    
+            
             IF SUPER.Execute() THEN
                 GetDiagnosticsReturnCode := GetDiagnostics(hwID, diagInfo);
                 SUPER.DoneWhen(Duration >= T#250ms AND GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError);
