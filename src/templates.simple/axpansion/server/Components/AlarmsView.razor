@@ -14,28 +14,12 @@
                     <h1 class="modal-title fs-5" id="alarmsviewTitle">Alarms</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="StateHasChanged"></button>
                 </div>
-                @* <div class="row p-3"> *@
-                @*     <button type="button" class="btn btn-primary m-3" @onclick="AcknowledgeAll">@Localizer["ACKNOWLEDGE ALL"]</button> *@
-                @* </div> *@
             </div>
         </div>
         <div class="modal-body">
             <div class="container-fluid">
                 <div class="row">
-                    <AxoObjectDiagnosticsView ObservedObjects="@ObservedObjects"></AxoObjectDiagnosticsView>
-                    @* @if (MessageProvider != null) *@
-                    @* { *@
-                    @*     if (MessageProvider.Messengers != null) *@
-                    @*     { *@
-                    @*         foreach (var message in MessageProvider.Messengers) *@
-                    @*         { *@
-                    @*             if (message.State > eAxoMessengerState.Idle) *@
-                    @*             { *@
-                    @*                 <RenderableContentControl Context="@message" Presentation="Detailed"></RenderableContentControl> *@
-                    @*             } *@
-                    @*         } *@
-                    @*     } *@
-                    @* } *@
+                    <AxoObjectDiagnosticsView MessageProvider="@MessageProvider"></AxoObjectDiagnosticsView>
                 </div>
             </div>
         </div>
@@ -46,5 +30,11 @@
 @code {
     
     [Parameter]
-    public IEnumerable<ITwinObject>? ObservedObjects { get; set; }
+    public AxoMessageProvider? MessageProvider { get; set; }
+
+    public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+    {
+        
+    }
+
 }

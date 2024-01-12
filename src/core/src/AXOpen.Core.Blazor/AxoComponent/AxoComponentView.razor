@@ -93,12 +93,7 @@
     {
         @if (!areAlarmsCollapsed)
         {
-            @foreach (var message in Messengers)
-            {
-                <div class=" p-1 d-block w-100">
-                    <RenderableContentControl Context="message"></RenderableContentControl>
-                </div>
-            }
+            <AxoObjectDiagnosticsView Component="@this.Component"></AxoObjectDiagnosticsView>
         }
     }
     else

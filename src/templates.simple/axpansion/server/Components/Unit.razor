@@ -12,7 +12,7 @@
 
 <!-- Modal data alarms -->
 <div class="modal fade" id="alarmsviewmodal" tabindex="-1" aria-labelledby="alarmsviewTitle" aria-hidden="true">
-    <AlarmsView ObservedObjects="AllVisualItems"></AlarmsView>
+    <AlarmsView MessageProvider="@MessageProvider"></AlarmsView>
 </div>
 
 
@@ -127,7 +127,7 @@
         Process Data
     </button>
 
-    <AlarmsButton Component="this.Component" MessageProvider="AxoMessageProvider"></AlarmsButton>
+    <AlarmsButton Component="this.Component" MessageProvider="@MessageProvider"></AlarmsButton>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#componentsviewmodal" onclick="@ShowModalComponents">
         Components
     </button>

@@ -19,18 +19,36 @@ namespace AXOpen.Messaging.Static
         }
 
         private IEnumerable<ITwinObject> ObservedObjects { get; }
-        
+
         /// <summary>
-        /// Gets the count of messages for the current instance.
+        /// Gets the number of active messages.
         /// </summary>
-        /// <value>
-        /// The count of messages.
-        /// </value>
-        public int? MessagesCount
+        /// <remarks>
+        /// This property counts the number of messages that are currently active.
+        /// An active message is defined as a message belonging to a Messenger that has a state other than Idle or NotActiveWatingAckn.
+        /// </remarks>
+        public int? ActiveMessagesCount
         {
             get
             {
-                return this.Messengers?.Count(p => p.State > eAxoMessengerState.Idle && p.State != eAxoMessengerState.NotActiveWatingAckn);
+                return this.Messengers?.Count(p => p.State > eAxoMessengerState.Idle && p.State != eAxoMessengerState.NotActiveWaitingAckn);
+            }
+        }
+
+
+        /// <summary>
+        /// Gets the count of relevant messages based on the state of Messengers.
+        /// </summary>
+        /// <remarks>
+        /// The RelevantMessagesCount property will return the number of messengers that have a state greater than eAxoMessengerState.Idle.
+        /// Messengers is a collection of objects that represents messengers.
+        /// </remarks>
+        /// <returns>An integer that represents the count of relevant messages.</returns>
+        public int? RelevantMessagesCount
+        {
+            get
+            {
+                return this.Messengers?.Count(p => p.State > eAxoMessengerState.Idle);
             }
         }
         

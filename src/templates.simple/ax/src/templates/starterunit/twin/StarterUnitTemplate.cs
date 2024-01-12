@@ -22,7 +22,7 @@ namespace axosimple.server.Units
         
         private ContextService _contextService { get; }
 
-          /// <summary>
+        /// <summary>
         /// repository - settings connected with technology not with procuction process
         /// </summary>
         public IRepository<Pocos.axosimple.StarterUnitTemplate.TechnologyData> TechnologySettingsRepository { get; private set; }
@@ -36,8 +36,8 @@ namespace axosimple.server.Units
         /// repository - data connected with specific part or piece in production/technology
         /// </summary>
         public IRepository<Pocos.axosimple.StarterUnitTemplate.ProcessData> ProcessDataRepository { get; private set; }
-
-
+        
+        
         public static StarterUnitTemplateServices Create(ContextService contextService)
         {
             var retVal = new StarterUnitTemplateServices(contextService);

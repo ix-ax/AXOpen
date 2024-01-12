@@ -256,23 +256,51 @@
 </div>
     <span class="@DetailsVisibility m-4">
         <div class="card overflow-auto" style="height: 500px;">
-          <div class="card-header">
-              <button class="btn btn-close" @onclick="ToggleDetailsVisibility"></button>
-          </div>
-          <div class="card-body">
-              <p class="card-deck overflow-auto" style="height: 250px;">
+            <div class="card-header">
+                <div class="container-fluid m-0 p-0">
+                    <div class="row">
+                        <div class="col-auto">
+                             <button class="btn btn-close" @onclick="ToggleDetailsVisibility"></button>
+                        </div>
+                        <div class="col">
+                            <AuthorizeView Roles="Administrator">
+                                <Authorized>
+                                    <div class="input-group mb-3">
+                                        <button type="button" class="btn btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="visually-hidden">Toggle Dropdown</span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" @onmouseleave="@SetCommandPresentationType">Command</a></li>
+                                            <li><a class="dropdown-item" @onmouseleave="@SetStatusPresentationType">Status</a></li>
+                                            <li><a class="dropdown-item" @onmouseleave="@SetControlPresentationType">Control</a></li>
+                                            <li><a class="dropdown-item" @onmouseleave="@SetDisplayPresentationType">Display</a></li>
+                                        </ul>
+                                        <input type="text" class="form-control" @bind="@DetailsPresentationType" aria-label="Text input with segmented dropdown button">
+                                    </div>
+                                </Authorized>
+                                <NotAuthorized>
+                                    
+                                </NotAuthorized>
+                            </AuthorizeView>
+                        </div>
+
+                    </div>
+                </div>
+                @* <div class="m-3"> *@
+                @*     <button class="btn btn-close" @onclick="ToggleDetailsVisibility"></button> *@
+                @*     <button class="btn btn-primary" @onclick="SetCommandPresentationType">Command</button> *@
+                @*     <button class="btn btn-primary" @onclick="SetControlPresentationType">Control</button> *@
+                @*     <button class="btn btn-primary" @onclick="SetStatusPresentationType">Status</button> *@
+                @*     <button class="btn btn-primary" @onclick="SetDisplayPresentationType">Display</button> *@
+                @*     <input type="text" class="form-control" placeholder="Presentation" @bind="DetailsPresentationType"> *@
+                @* </div> *@
+            </div>
+          <div class="card-body" style="height: 250px;">
+              <p class="card-deck overflow-auto">
                   <RenderableContentControl @ref="detailsRcc" Context="@DetailsObject" Presentation="Command-Control"></RenderableContentControl>
               </p>
           </div>
-           <div class="card-footer">
-               <input type="text" class="form-control" placeholder="Presentation" @bind="DetailsPresentationType">
-               <div class="m-3">
-                   <button class="btn btn-primary" @onclick="SetCommandPresentationType">Command</button>
-                   <button class="btn btn-primary" @onclick="SetControlPresentationType">Control</button>
-                   <button class="btn btn-primary" @onclick="SetStatusPresentationType">Status</button>
-                   <button class="btn btn-primary" @onclick="SetDisplayPresentationType">Display</button>
-               </div>
-            </div>
         </div>
     </span >
 </div>
@@ -319,6 +347,12 @@
     private void ToggleDetailsVisibility()
     {
         this.DetailsVisibility = this.DetailsVisibility == VISUALLY_HIDDEN ? string.Empty : VISUALLY_HIDDEN;
+        if (DetailsVisibility == string.Empty)
+        {
+            detailsRcc.Presentation = "empty";
+            detailsRcc.ForceRender();
+            System.GC.Collect();
+        }
         this.StateHasChanged();
     }
     

@@ -97,27 +97,6 @@ namespace AXOpen.Messaging.Static
                 return retval;
             }
         }
-        
-        private string TableRowBackgroundColor
-        {
-            get
-            {
-                string retval = "table-primary";
-                if (Component.Category.Cyclic < 600)         // Upto warning level excluding
-                {
-                    retval = "table-info";
-                }
-                else if (Component.Category.Cyclic < 700)   //From warning level including, upto error level excluding
-                {
-                    retval = "table-warning";
-                }
-                else if (Component.Category.Cyclic <= 1200) //From error level including, upto catastrophic level including
-                {
-                    retval = "table-danger";
-                }
-                return retval;
-            }
-        }
         private string Category
         {
             get
@@ -176,11 +155,12 @@ namespace AXOpen.Messaging.Static
         private string Risen => !(string.IsNullOrEmpty(Component.Risen.Cyclic.ToString())) ? Component.Risen.Cyclic.ToString() : "";
         private string Fallen => !(string.IsNullOrEmpty(Component.Fallen.Cyclic.ToString())) ? Component.Fallen.Cyclic.ToString() : "";
         private string Acknowledged => !(string.IsNullOrEmpty(Component.Acknowledged.Cyclic.ToString())) ? Component.Acknowledged.Cyclic.ToString() : "";
-        private bool IsActive => Component.State > eAxoMessengerState.Idle;
+        private bool IsActive => Component.State > eAxoMessengerState.Idle && Component.State != eAxoMessengerState.NotActiveWaitingAckn;
+        
         private bool AcknowledgementRequired => true; //Component.State >= eAxoMessengerState.ActiveAckn;
         private bool AcknowledgedBeforeFallen => Component.AcknowledgedBeforeFallen.Cyclic;
         private bool AcknowledgementDoesNotRequired => !AcknowledgementRequired;
-        private bool WaitingForAcknowledge => Component.State >= eAxoMessengerState.NotActiveWatingAckn;
+        private bool WaitingForAcknowledge => Component.State >= eAxoMessengerState.NotActiveWaitingAckn;
         private bool HideAckowledgeButton => !AcknowledgementRequired || AcknowledgedBeforeFallen || (!IsActive && !WaitingForAcknowledge);
 
         private string GetMessageText()
@@ -190,7 +170,7 @@ namespace AXOpen.Messaging.Static
 
             //Just one static text defined inside the `MessageText` attribute in the PLC code is used
             if (Component.MessageCode.Cyclic == 0)
-                retVal = string.IsNullOrEmpty(Component.MessageText) ? "Message text not defined!" : Component.MessageText;
+                retVal = string.IsNullOrEmpty(Component.MessageText) || Component.MessageText == Component.GetSymbolTail() ? "Message text not defined!" : Component.MessageText;
             else
             {
                 try
@@ -260,19 +240,32 @@ namespace AXOpen.Messaging.Static
             }
             return retVal;
         }
+
+        private bool OnlyAlarmView { get; set; } = true;
+
+        private void ToggleComponentView()
+        {
+            this.OnlyAlarmView =false;
+        }
+
+        private void ToggleAlarmView()
+        {
+            this.OnlyAlarmView = !this.OnlyAlarmView;
+            this.StateHasChanged();
+        }
     }
 
-    public class AxoMessengerCommandView : AxoMessengerView
+    public class AxoMessengerDetailedCommandView : AxoMessengerView
     {
-        public AxoMessengerCommandView()
+        public AxoMessengerDetailedCommandView()
         {
 
         }
     }
 
-    public class AxoMessengerStatusView : AxoMessengerView
+    public class AxoMessengerDetailedStatusView : AxoMessengerView
     {
-        public AxoMessengerStatusView()
+        public AxoMessengerDetailedStatusView()
         {
         }
     }
