@@ -74,7 +74,7 @@ NAMESPACE axosimple.StarterUnitTemplate
         METHOD OVERRIDE Main
             VAR
                 forIterator : INT := 0;  
-                dialogTimeOut : TIME:= t#500ms;         
+                dialogTimeOut : TIME:= t#3000ms;         
             END_VAR
 
             IF (Components = NULL OR ProcessDataManager = NULL) THEN
@@ -101,6 +101,11 @@ NAMESPACE axosimple.StarterUnitTemplate
                 ProcessData^.PartPresence.Data()^.PassTime := TIME#2.5s;
                 ProcessData^.LoadPosition.Data()^.PassTime := TIME#2s;
                 ProcessData^.JigDataMatrixCode.Data()^.PassTime := TIME#2s;
+
+                ProcessData^.PartPresence.Data()^.RequiredStatus := TRUE;
+                ProcessData^.LoadPosition.Data()^.RequiredMin := 1000.0;
+                ProcessData^.LoadPosition.Data()^.RequiredMax := 2000.0;
+                ProcessData^.JigDataMatrixCode.Data()^.RequiredStatus := 'passCode';
 
                 _currentId := 'newProducedPart';
                 THIS.MoveNext(); 
@@ -193,6 +198,8 @@ NAMESPACE axosimple.StarterUnitTemplate
 
             IF (Steps[7].Execute(THIS, TRUE, 'Example Analog inspection')) THEN         
                 //-------------------------------------------------------
+                _inspectionValue := -5500;
+
                 ProcessData^.LoadPosition.WithCoordinator(THIS)
                 .Inspect(THIS,_inspectionValue)
                 .UpdateComprehensiveResult(_comprehensiveResult)
@@ -203,11 +210,13 @@ NAMESPACE axosimple.StarterUnitTemplate
             
             IF (Steps[8].Execute(THIS, TRUE, 'Example Data inspection')) THEN
                 //-------------------------------------------------------
+                _inspectionData := 'tempCode';
+
                 ProcessData^.JigDataMatrixCode.WithCoordinator(THIS)
                 .Inspect(THIS,_inspectionData)
                 .UpdateComprehensiveResult(_comprehensiveResult)
                 .OnFail()
-                .Dialog( inRetryStep := Steps[70], inTerminateStep := Steps[80], inoDialog := _dataInspectorDialog);
+                .Dialog( inRetryStep := Steps[70], inTerminateStep := Steps[80], inoDialog := _analogueInspectorDialog);
                 //-------------------------------------------------------
             END_IF;
 
