@@ -44,21 +44,30 @@ namespace AXOpen.Logging
                 if (toDequeue.Length <= 0)
                     return;
 
-                await this.GetConnector()?.ReadBatchAsync(toDequeue.SelectMany(p => p.GetValueTags()))!;
+                var a = toDequeue.SelectMany(p => p.GetValueTags()).ToArray();
+                await this.GetConnector()?.ReadBatchAsync(a)!;
 
                 foreach (var entry in toDequeue.Where(p => p.ToDequeue.LastValue))
                 {
-                    var sender = entry.GetConnector().IdentityProvider.GetTwinByIdentity(entry.Sender.LastValue) as ITwinObject;
+                    var senderIdentity = entry.Sender.LastValue;
+                    var sender = entry.GetConnector().IdentityProvider.GetTwinByIdentity(senderIdentity) as ITwinObject;
                     var message = string.Empty;
                     var level = (eLogLevel)entry.Level.LastValue;
 
+                    if (sender == null)
+                    {
+                        continue;
+                    }
+                    
                     switch (sender)
                     {
                         case AxoMessenger messenger:
-                            message = $"{entry.Message.LastValue} : {messenger.MessageText}";
+                            await messenger.ReadAsync();
+                            message = $"{entry.Message.LastValue} : {messenger.GetMessageText()}";
                             break;
                         case AxoStep step:
-                            message = $"{entry.Message.LastValue} : {step.StepDescription.LastValue ?? step.Description}";
+                            await step.ReadAsync();
+                            message = $"Step : {entry.Message.LastValue} : {step.StepDescription.LastValue ?? step.Description}";
                             break;
                         case null:
                             message = $"{entry.Message.LastValue} : [no identity provided '{entry.Sender.LastValue}']";
@@ -82,22 +91,22 @@ namespace AXOpen.Logging
             switch (level)
             {
                 case eLogLevel.Verbose:
-                    _logger.Verbose($"{message}", sender, new GenericIdentity("Controller"));
+                    _logger.Verbose($"{message}", sender, new GenericIdentity("Controller"), sender);
                     break;
                 case eLogLevel.Debug:
-                    _logger.Debug($"{message}", sender, new GenericIdentity("Controller"));
+                    _logger.Debug($"{message}", sender, new GenericIdentity("Controller"), sender);
                     break;
                 case eLogLevel.Information:
-                    _logger.Information($"{message}", sender, new GenericIdentity("Controller"));
+                    _logger.Information($"{message}", sender, new GenericIdentity("Controller"), sender);
                     break;
                 case eLogLevel.Warning:
-                    _logger.Warning($"{message}", sender, new GenericIdentity("Controller"));
+                    _logger.Warning($"{message}", sender, new GenericIdentity("Controller"), sender);
                     break;
                 case eLogLevel.Error:
-                    _logger.Error($"{message}", sender, new GenericIdentity("Controller"));
+                    _logger.Error($"{message}", sender, new GenericIdentity("Controller"), sender);
                     break;
                 case eLogLevel.Fatal:
-                    _logger.Fatal($"{message}", sender, new GenericIdentity("Controller"));
+                    _logger.Fatal($"{message}", sender, new GenericIdentity("Controller"), sender);
                     break;
             }
         }
