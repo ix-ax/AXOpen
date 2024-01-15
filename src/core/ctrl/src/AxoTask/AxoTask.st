@@ -67,13 +67,7 @@ NAMESPACE AXOpen.Core
             /// Contains details about the error.            
             ///</summary>                       
             ErrorDetails : STRING[254];
-        END_VAR    
-        
-        VAR PRIVATE
-            _openCycleCountInvoke : ULINT;
-            _openCycleCountExecute : ULINT;            
-            _taskTimer : AXOpen.Timers.OnDelayTimer;          
-            _isFirstExecutionCycle   : BOOL;
+
             ///<summary>
             /// Enable error message when task is not calling cyclically .            
             ///</summary> 
@@ -86,6 +80,14 @@ NAMESPACE AXOpen.Core
             {#ix-set:MessageText = "<#Execute method is called more then once inside one PLC cycle.#>"}
             {#ix-set:Help = "<#Check task calling in the code, task is called more then once.#>"}
             _MultipleExecuteIsCalled : AXOpen.Messaging.Static.AxoMessenger;  
+        END_VAR    
+        
+        VAR PRIVATE
+            _openCycleCountInvoke : ULINT;
+            _openCycleCountExecute : ULINT;            
+            _taskTimer : AXOpen.Timers.OnDelayTimer;          
+            _isFirstExecutionCycle   : BOOL;
+            
             _SuspendMultipleExecuteCallCheck : BOOL :=  FALSE;
             _RemoteRestoreEnabled   : BOOL := TRUE;
             _RemoteAbortEnabled     : BOOL := FALSE;
@@ -373,7 +375,7 @@ NAMESPACE AXOpen.Core
             IF Status = eAxoTaskState#Ready THEN
                 IF (THIS.IsExecuteCalledInThisPlcCycle() OR THIS.WasExecuteCalledInPreviousPlcCycle()) THEN
                     Status := eAxoTaskState#Kicking;      
-                    THIS.LogTask('Task invoked', eLogLevel#Verbose, THIS);                                             
+                    _context_.GetLogger().Log('Task invoked', eLogLevel#Verbose, THIS);
                   ELSE                                         
                     _CyclicExecuteIsNotCalled.Activate(eAxoMessageCategory#ProgrammingError);                     
                  END_IF;     
@@ -387,7 +389,7 @@ NAMESPACE AXOpen.Core
         ///</summary>    
         METHOD PUBLIC Restore : IAxoTaskState
             IF(Status <> eAxoTaskState#Ready AND Status <> eAxoTaskState#Disabled) THEN
-                THIS.LogTask('Task restored', eLogLevel#Verbose, THIS);
+                _context_.GetLogger().Log('Task restored', eLogLevel#Verbose, THIS);
                 _restoreCycleCount :=  _context_.OpenCycleCount();
             END_IF;    
             Status := eAxoTaskState#Ready; 
@@ -417,7 +419,7 @@ NAMESPACE AXOpen.Core
             END_VAR
               
             IF Condition AND Status = eAxoTaskState#Busy THEN   
-                THIS.LogTask('Task done.', eLogLevel#Verbose, THIS);
+                _context_.GetLogger().Log('Task done.', eLogLevel#Verbose, THIS);
                 Status := eAxoTaskState#Done;
                 THIS.OnDone();
                 _doneCycleCount :=  _context_.OpenCycleCount();
@@ -488,7 +490,7 @@ NAMESPACE AXOpen.Core
                   
                 // Don't touch this, it is used for remote execs.
                 StartSignature := _openCycleCountExecute;//_context_.OpenCycleCount();    
-                THIS.LogTask('Task started.', eLogLevel#Verbose, THIS);                       
+                _context_.GetLogger().Log('Task started.', eLogLevel#Verbose, THIS);                       
                 THIS.OnStart();
                 _isFirstExecutionCycle := TRUE; 
                 _startCycleCount :=  _context_.OpenCycleCount();
@@ -516,19 +518,19 @@ NAMESPACE AXOpen.Core
             IF(Execute) THEN Duration := _taskTimer.ElapsedTime;  END_IF;             
         END_METHOD    
 
-        METHOD PRIVATE LogTask 
-            VAR_INPUT
-                _message : STRING[80];
-                _level : eLogLevel;
-                _sender : IAxoObject;
-            END_VAR
-            VAR
-                _castIIAxoStep : IAxoStep;
-            END_VAR               
-            _castIIAxoStep ?= _sender;
-            IF(_castIIAxoStep <> NULL) THEN RETURN; END_IF;            
-            _context_.GetLogger().Log(_message, _level, THIS);       
-        END_METHOD
+        // METHOD PRIVATE LogTask 
+        //     VAR_INPUT
+        //         _message : STRING[80];
+        //         _level : eLogLevel;
+        //         _sender : IAxoObject;
+        //     END_VAR
+        //     VAR
+        //         _castIIAxoStep : IAxoStep;
+        //     END_VAR               
+        //     _castIIAxoStep ?= _sender;
+        //     IF(_castIIAxoStep <> NULL) THEN RETURN; END_IF;            
+        //     _context_.GetLogger().Log(_message, _level, THIS);       
+        // END_METHOD
 
         ///<summary>
         /// Makes this task enter into `Error` state, when `HasErrorState` argument is `TRUE`
@@ -541,7 +543,7 @@ NAMESPACE AXOpen.Core
 
             IF(HasErrorState) THEN
                 Status := eAxoTaskState#Error;  
-                THIS.LogTask('Task failed', eLogLevel#Error, THIS);             
+                _context_.GetLogger().Log('Task failed', eLogLevel#Error, THIS);             
                 THIS.OnError();  
                 THIS.WhileError();   
                 _errorCycleCount :=  _context_.OpenCycleCount();
@@ -559,7 +561,7 @@ NAMESPACE AXOpen.Core
             END_VAR            
             IF(HasErrorState) THEN                
                 ErrorDetails :=  ErrorDescription; 
-                THIS.LogTask(ErrorDetails, eLogLevel#Error, THIS);  
+                _context_.GetLogger().Log(ErrorDetails, eLogLevel#Error, THIS);  
             END_IF;    
             THIS.ThrowWhen(HasErrorState);        
         END_METHOD    

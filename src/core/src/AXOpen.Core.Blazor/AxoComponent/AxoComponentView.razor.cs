@@ -203,7 +203,7 @@ namespace AXOpen.Core
                             break;
                     }
                 }
-                else if (_messengers.Any(p => p.State > eAxoMessengerState.NotActiveWatingAckn))
+                else if (_messengers.Any(p => p.State > eAxoMessengerState.NotActiveWaitingAckn))
                 {
                     return eAlarmLevel.Unacknowledged;
                 }
