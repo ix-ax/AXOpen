@@ -1,0 +1,37 @@
+﻿@page "/Component_1"
+@using AXOpen.Core;
+
+<button class="btn btn-outline-primary" @onclick="WriteTaskTimesToConsole">Write times to console</button>
+
+@code
+{
+    #region WriteTaskDurationToConsole
+    private async Task WriteTaskTimesToConsole()
+    {
+        await Entry.Plc.documentation.componentOne.testInsight.WriteTaskDurationToConsole();
+    }
+    #endregion
+
+}
+
+<!-- <GenericComponentStatusView> -->
+<AxoComponentStatusView Component="@Entry.Plc.documentation.componentOne.testInsight" />
+<!-- </GenericComponentStatusView> -->
+
+<!-- <GenericComponentCommandView> -->
+<AxoComponentCommandView Component="@Entry.Plc.documentation.componentOne.testInsight" />
+<!-- </GenericComponentCommandView> -->
+
+<!-- <RccComponentStatusView> -->
+<!-- This will render anything found on parameter assigned to Context  -->
+<RenderableContentControl Context="@Entry.Plc.documentation.componentOne" Presentation="Status-Display" />
+<!-- </RccComponentStatusView> -->
+
+
+<!-- <RccComponentCommandView> -->
+<!-- This will render anything found on parameter assigned to Context  -->
+<RenderableContentControl Context="@Entry.Plc.documentation.componentOne" Presentation="Command-Control" />
+<!-- </RccComponentCommandView> -->
+
+
+

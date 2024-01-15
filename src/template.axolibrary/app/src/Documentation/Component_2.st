@@ -9,6 +9,8 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
 
     //<InitializationArgumentsDeclaration>
     VAR PUBLIC         
+        {#ix-set:AttributeName = "<#Activate manual control#>"}
+        ActivateManualControl : BOOL;         
         PlcInputs : REF_TO PlcInputs;
         PlcOutputs : REF_TO PlcOutputs;                         
     END_VAR
@@ -20,6 +22,10 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
         END_VAR    
 
         THIS.Initialize(parent);
+
+        IF ActivateManualControl THEN
+            ExampleCylinder.ActivateManualControl();
+        END_IF;
 
         //<Initialization>        
         ExampleCylinder.Run(THIS, 
