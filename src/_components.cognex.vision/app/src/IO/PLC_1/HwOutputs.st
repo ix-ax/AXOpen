@@ -1,5 +1,4 @@
 TYPE
-	{S7.extern=ReadWrite}
 	HwOutputs : STRUCT
 		_10a1_Acquisition_Control_1 AT %B72 : BYTE;
 		_10a1_Results_Control_1 AT %B73 : BYTE;

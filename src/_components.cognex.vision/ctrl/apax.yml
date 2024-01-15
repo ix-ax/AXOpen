@@ -21,6 +21,7 @@ dependencies:
   "@ix-ax/axopen.utils": '0.0.0-dev.0'
   "@ax/system-serde": ^6.0.94
   "@ax/system-strings": ^6.0.94
+  "@ix-ax/axopen.io": '0.0.0-dev.0'
 publicKeys:
   "@ix-ax": 30c06ef7830b4dfd8f16e003508da1ac2d187714d0e1f38279a9332cbe4e4e17
 installStrategy: strict

@@ -1,5 +1,4 @@
 TYPE
-	{S7.extern=ReadWrite}
 	PlcOutputs : STRUCT
 		_10a1_Acquisition_Control_1 : BYTE;
 		_10a1_Results_Control_1 : BYTE;

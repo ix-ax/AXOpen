@@ -8,11 +8,9 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
     //</ComponentDeclaration>                          
 
     //<InitializationArgumentsDeclaration>
-    VAR PUBLIC                
-        _homeSensor : BOOL;
-        _workSensor : BOOL;
-        _moveHomeSignal : BOOL;
-        _moveWorkSignal : BOOL;        
+    VAR PUBLIC         
+        PlcInputs : REF_TO PlcInputs;
+        PlcOutputs : REF_TO PlcOutputs;                         
     END_VAR
     //</InitializationArgumentsDeclaration>            
 
@@ -24,7 +22,11 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
         THIS.Initialize(parent);
 
         //<Initialization>        
-        ExampleCylinder.Run(THIS, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);        
+        ExampleCylinder.Run(THIS, 
+                            REF(PlcInputs^._homeSensor_2), 
+                            REF(PlcInputs^._workSensor_2), 
+                            REF(PlcOutputs^._moveHomeSignal_2), 
+                            REF(PlcOutputs^._moveWorkSignal_2));
         //</Initialization>
 
        THIS.UseInSequencer();
