@@ -64,19 +64,41 @@ NAMESPACE axosimple.UnitTemplate
                 //-------------------------------------------------------
             END_IF;
 
-            IF (Steps[1].Execute(THIS, TRUE, '<#GET DATA#>')) THEN
+            IF (Steps[10].Execute(THIS, TRUE, '<#GET DATA#>')) THEN
                 //-------------------------------------------------------
+                // IF(ProcessSettings^.Read('MODEL_S').IsDone()) THEN
+                //     THIS.ProcessData^.DataManger.Payload := ProcessSettings^.Payload;
+                //     THIS.MoveNext(); 
+                // END_IF;    
+
                 IF (ProcessData^.CreateOrUpdate(_currentId).IsDone()) THEN 
                     THIS.MoveNext(); 
                 END_IF;
                 //-------------------------------------------------------
             END_IF;
             
-            IF (Steps[2].Execute(THIS, TRUE, '<#DO SOMETHING#>')) THEN
-                //-------------------------------------------------------                
-                IF CurrentStep.Duration > TIME#2s THEN                         
+            IF (Steps[20].Execute(THIS, TRUE, '<#DO SOMETHING#>')) THEN
+                //-------------------------------------------------------   
+                
+                IF(THIS.ProcessData^.DataManger.Payload.JigDataMatrixCode.Inspect(THIS, '').Done()) THEN
                     THIS.MoveNext();
-                END_IF;                
+                END_IF;                                  
+                //-------------------------------------------------------
+            END_IF;
+
+            IF (Steps[30].Execute(THIS, TRUE, '<#DO SOMETHING#>')) THEN
+                //-------------------------------------------------------                   
+                IF(THIS.ProcessData^.DataManger.Payload.PartPresence.Inspect(THIS, TRUE).Done()) THEN
+                    THIS.MoveNext();
+                END_IF;                                  
+                //-------------------------------------------------------
+            END_IF;
+
+            IF (Steps[4].Execute(THIS, TRUE, '<#DO SOMETHING#>')) THEN
+                //-------------------------------------------------------                   
+                IF(THIS.ProcessData^.DataManger.Payload.RivetingPreasure.Inspect(THIS, 1.5).Done()) THEN
+                    THIS.MoveNext();
+                END_IF;                                  
                 //-------------------------------------------------------
             END_IF;
 
