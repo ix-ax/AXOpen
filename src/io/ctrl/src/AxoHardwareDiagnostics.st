@@ -14,6 +14,7 @@ NAMESPACE AXOpen.Io
             {#ix-set:AttributeName = "<#Diagnostics return code#>"}
             {#ix-attr:[ReadOnly()]}
             GetDiagnosticsReturnCode    :   GetDiagnosticsReturnCode;
+            {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-set:AttributeName = "<#Diagnostics details#>"}
             {#ix-attr:[ReadOnly()]}
             diagnosticDetails	        :   DiagnosticDetails;	    //  Diagnostic information of the addressed hardware component.
@@ -34,44 +35,81 @@ NAMESPACE AXOpen.Io
             
             IF SUPER.Execute() THEN
                 GetDiagnosticsReturnCode := GetDiagnostics(hwID, diagInfo);
-                SUPER.DoneWhen(Duration >= T#250ms AND GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError);
-                SUPER.ThrowWhen(Duration >= T#250ms AND GetDiagnosticsReturnCode<>GetDiagnosticsReturnCode#NoError);
+
+                IF GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
+                    diagnosticDetails.ComponentStateDetail.HardwareComponentState.NoAdditionalInformation   :=  diagInfo.ComponentStateDetail.HardwareComponentState.NoAdditionalInformation;    
+                    diagnosticDetails.ComponentStateDetail.HardwareComponentState.TransferNotPermitted      :=  diagInfo.ComponentStateDetail.HardwareComponentState.TransferNotPermitted;       
+                    diagnosticDetails.ComponentStateDetail.HardwareComponentState.DiagnosticsAvailable      :=  diagInfo.ComponentStateDetail.HardwareComponentState.DiagnosticsAvailable;       
+                    diagnosticDetails.ComponentStateDetail.HardwareComponentState.MaintenanceRequired       :=  diagInfo.ComponentStateDetail.HardwareComponentState.MaintenanceRequired;        
+                    diagnosticDetails.ComponentStateDetail.HardwareComponentState.MaintenanceDemanded       :=  diagInfo.ComponentStateDetail.HardwareComponentState.MaintenanceDemanded;        
+                    diagnosticDetails.ComponentStateDetail.HardwareComponentState.Error                     :=  diagInfo.ComponentStateDetail.HardwareComponentState.Error;                      
+                    diagnosticDetails.ComponentStateDetail.HardwareComponentState.ComponentAvailability     :=  diagInfo.ComponentStateDetail.HardwareComponentState.ComponentAvailability;    
+                    diagnosticDetails.ComponentStateDetail.HardwareComponentState.ReplacementState          :=  diagInfo.ComponentStateDetail.HardwareComponentState.ReplacementState;        
+    
+                    diagnosticDetails.ComponentStateDetail.PlcState.ModuleDisabled                          :=  diagInfo.ComponentStateDetail.PlcState.ModuleDisabled;             
+                    diagnosticDetails.ComponentStateDetail.PlcState.ConfigurationInRunActive                :=  diagInfo.ComponentStateDetail.PlcState.ConfigurationInRunActive;   
+                    diagnosticDetails.ComponentStateDetail.PlcState.InputNotAvailable                       :=  diagInfo.ComponentStateDetail.PlcState.InputNotAvailable;          
+                    diagnosticDetails.ComponentStateDetail.PlcState.OutputNotAvailable                      :=  diagInfo.ComponentStateDetail.PlcState.OutputNotAvailable;         
+                    diagnosticDetails.ComponentStateDetail.PlcState.DiagnosticsBufferOverflow               :=  diagInfo.ComponentStateDetail.PlcState.DiagnosticsBufferOverflow;  
+                    diagnosticDetails.ComponentStateDetail.PlcState.DiagnosticsNotAvailable                 :=  diagInfo.ComponentStateDetail.PlcState.DiagnosticsNotAvailable;    
+                    diagnosticDetails.ComponentStateDetail.PlcState.PartialDeviceFailure                    :=  diagInfo.ComponentStateDetail.PlcState.PartialDeviceFailure;       
+    
+                    diagnosticDetails.ComponentState                                                        :=  diagInfo.ComponentState;      
+                    
+                    diagnosticDetails.IoState.Good                                                          :=  diagInfo.IoState.Good;                     
+                    diagnosticDetails.IoState.Disabled                                                      :=  diagInfo.IoState.Disabled;                 
+                    diagnosticDetails.IoState.MaintenanceRequired                                           :=  diagInfo.IoState.MaintenanceRequired;      
+                    diagnosticDetails.IoState.MaintenanceDemanded                                           :=  diagInfo.IoState.MaintenanceDemanded;      
+                    diagnosticDetails.IoState.Error                                                         :=  diagInfo.IoState.Error;                    
+                    diagnosticDetails.IoState.NotAccessible                                                 :=  diagInfo.IoState.NotAccessible;            
+                    diagnosticDetails.IoState.DiagnosticsAvailable                                          :=  diagInfo.IoState.DiagnosticsAvailable;     
+                    diagnosticDetails.IoState.IODataNotAvailable                                            :=  diagInfo.IoState.IODataNotAvailable;       
+                    diagnosticDetails.IoState.NetworkError                                                  :=  diagInfo.IoState.NetworkError;             
+                    diagnosticDetails.IoState.HardwareError                                                 :=  diagInfo.IoState.HardwareError;            
+    
+                    diagnosticDetails.OperatingState                                                        :=  diagInfo.OperatingState;
+                END_IF;
+
+                SUPER.DoneWhen(Duration >= T#500ms AND GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError);
+                SUPER.ThrowWhen(Duration >= T#2s OR GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
             END_IF;
 
-            IF SUPER.DoneReached() THEN
-                diagnosticDetails.ComponentStateDetail.HardwareComponentState.NoAdditionalInformation   :=  diagInfo.ComponentStateDetail.HardwareComponentState.NoAdditionalInformation;    
-                diagnosticDetails.ComponentStateDetail.HardwareComponentState.TransferNotPermitted      :=  diagInfo.ComponentStateDetail.HardwareComponentState.TransferNotPermitted;       
-                diagnosticDetails.ComponentStateDetail.HardwareComponentState.DiagnosticsAvailable      :=  diagInfo.ComponentStateDetail.HardwareComponentState.DiagnosticsAvailable;       
-                diagnosticDetails.ComponentStateDetail.HardwareComponentState.MaintenanceRequired       :=  diagInfo.ComponentStateDetail.HardwareComponentState.MaintenanceRequired;        
-                diagnosticDetails.ComponentStateDetail.HardwareComponentState.MaintenanceDemanded       :=  diagInfo.ComponentStateDetail.HardwareComponentState.MaintenanceDemanded;        
-                diagnosticDetails.ComponentStateDetail.HardwareComponentState.Error                     :=  diagInfo.ComponentStateDetail.HardwareComponentState.Error;                      
-                diagnosticDetails.ComponentStateDetail.HardwareComponentState.ComponentAvailability     :=  diagInfo.ComponentStateDetail.HardwareComponentState.ComponentAvailability;    
-                diagnosticDetails.ComponentStateDetail.HardwareComponentState.ReplacementState          :=  diagInfo.ComponentStateDetail.HardwareComponentState.ReplacementState;        
+            IF SUPER.StartTriggered() THEN
+                hardwareID := hwID;
+                GetDiagnosticsReturnCode                                                                :=  GetDiagnosticsReturnCode#Unknown;
 
-                diagnosticDetails.ComponentStateDetail.PlcState.ModuleDisabled                          :=  diagInfo.ComponentStateDetail.PlcState.ModuleDisabled;             
-                diagnosticDetails.ComponentStateDetail.PlcState.ConfigurationInRunActive                :=  diagInfo.ComponentStateDetail.PlcState.ConfigurationInRunActive;   
-                diagnosticDetails.ComponentStateDetail.PlcState.InputNotAvailable                       :=  diagInfo.ComponentStateDetail.PlcState.InputNotAvailable;          
-                diagnosticDetails.ComponentStateDetail.PlcState.OutputNotAvailable                      :=  diagInfo.ComponentStateDetail.PlcState.OutputNotAvailable;         
-                diagnosticDetails.ComponentStateDetail.PlcState.DiagnosticsBufferOverflow               :=  diagInfo.ComponentStateDetail.PlcState.DiagnosticsBufferOverflow;  
-                diagnosticDetails.ComponentStateDetail.PlcState.DiagnosticsNotAvailable                 :=  diagInfo.ComponentStateDetail.PlcState.DiagnosticsNotAvailable;    
-                diagnosticDetails.ComponentStateDetail.PlcState.PartialDeviceFailure                    :=  diagInfo.ComponentStateDetail.PlcState.PartialDeviceFailure;       
+                diagnosticDetails.ComponentStateDetail.HardwareComponentState.NoAdditionalInformation   :=  FALSE;    
+                diagnosticDetails.ComponentStateDetail.HardwareComponentState.TransferNotPermitted      :=  FALSE;    
+                diagnosticDetails.ComponentStateDetail.HardwareComponentState.DiagnosticsAvailable      :=  FALSE;    
+                diagnosticDetails.ComponentStateDetail.HardwareComponentState.MaintenanceRequired       :=  FALSE;    
+                diagnosticDetails.ComponentStateDetail.HardwareComponentState.MaintenanceDemanded       :=  FALSE;    
+                diagnosticDetails.ComponentStateDetail.HardwareComponentState.Error                     :=  FALSE;    
+                diagnosticDetails.ComponentStateDetail.HardwareComponentState.ComponentAvailability     :=  ComponentAvailability#Unknown;    
+                diagnosticDetails.ComponentStateDetail.HardwareComponentState.ReplacementState          :=  ReplacementState#Unknown;        
 
-                diagnosticDetails.ComponentState                                                        :=  diagInfo.ComponentState;      
+                diagnosticDetails.ComponentStateDetail.PlcState.ModuleDisabled                          :=  FALSE; 
+                diagnosticDetails.ComponentStateDetail.PlcState.ConfigurationInRunActive                :=  FALSE; 
+                diagnosticDetails.ComponentStateDetail.PlcState.InputNotAvailable                       :=  FALSE; 
+                diagnosticDetails.ComponentStateDetail.PlcState.OutputNotAvailable                      :=  FALSE; 
+                diagnosticDetails.ComponentStateDetail.PlcState.DiagnosticsBufferOverflow               :=  FALSE; 
+                diagnosticDetails.ComponentStateDetail.PlcState.DiagnosticsNotAvailable                 :=  FALSE; 
+                diagnosticDetails.ComponentStateDetail.PlcState.PartialDeviceFailure                    :=  FALSE; 
+
+                diagnosticDetails.ComponentState                                                        :=  ComponentState#Unknown;
                 
-                diagnosticDetails.IoState.Good                                                          :=  diagInfo.IoState.Good;                     
-                diagnosticDetails.IoState.Disabled                                                      :=  diagInfo.IoState.Disabled;                 
-                diagnosticDetails.IoState.MaintenanceRequired                                           :=  diagInfo.IoState.MaintenanceRequired;      
-                diagnosticDetails.IoState.MaintenanceDemanded                                           :=  diagInfo.IoState.MaintenanceDemanded;      
-                diagnosticDetails.IoState.Error                                                         :=  diagInfo.IoState.Error;                    
-                diagnosticDetails.IoState.NotAccessible                                                 :=  diagInfo.IoState.NotAccessible;            
-                diagnosticDetails.IoState.DiagnosticsAvailable                                          :=  diagInfo.IoState.DiagnosticsAvailable;     
-                diagnosticDetails.IoState.IODataNotAvailable                                            :=  diagInfo.IoState.IODataNotAvailable;       
-                diagnosticDetails.IoState.NetworkError                                                  :=  diagInfo.IoState.NetworkError;             
-                diagnosticDetails.IoState.HardwareError                                                 :=  diagInfo.IoState.HardwareError;            
+                diagnosticDetails.IoState.Good                                                          :=  FALSE;
+                diagnosticDetails.IoState.Disabled                                                      :=  FALSE;
+                diagnosticDetails.IoState.MaintenanceRequired                                           :=  FALSE;
+                diagnosticDetails.IoState.MaintenanceDemanded                                           :=  FALSE;
+                diagnosticDetails.IoState.Error                                                         :=  FALSE;
+                diagnosticDetails.IoState.NotAccessible                                                 :=  FALSE;
+                diagnosticDetails.IoState.DiagnosticsAvailable                                          :=  FALSE;
+                diagnosticDetails.IoState.IODataNotAvailable                                            :=  FALSE;
+                diagnosticDetails.IoState.NetworkError                                                  :=  FALSE;
+                diagnosticDetails.IoState.HardwareError                                                 :=  FALSE;
 
-                diagnosticDetails.OperatingState                                                        :=  diagInfo.OperatingState;
+                diagnosticDetails.OperatingState                                                        :=  OperatingState#Unknown;    
             END_IF;
         END_METHOD
-             
     END_CLASS
 END_NAMESPACE

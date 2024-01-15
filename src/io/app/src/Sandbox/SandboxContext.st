@@ -2,11 +2,8 @@
 CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
         _manualControl : BOOL;
-        _testComponent : AXOpen.Io.AxoIoComponent;
-    END_VAR
-
-    VAR PRIVATE
         _hwID   : UINT;
+        _testComponent : AXOpen.Io.AxoIoComponent;
     END_VAR    
 
     METHOD PROTECTED OVERRIDE Main

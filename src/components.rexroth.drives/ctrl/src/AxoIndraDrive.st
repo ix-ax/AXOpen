@@ -60,7 +60,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
 
             THIS.Initialize(parent);
-
+            HardwareDiagnosticsTask.Initialize(THIS);
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(ULINT#300, Enable AND NOT EnablePositive, eAxoMessageCategory#Warning);
             Messenger.ActivateOnCondition(ULINT#301, Enable AND NOT EnableNegative, eAxoMessageCategory#Warning);
@@ -70,6 +70,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
             
             THIS.Open();
+            HardwareDiagnosticsTask.Run(hwID);
             THIS.UpdateInputs(refParameter_In := refParameter_In, refFieldbus_In := refFieldbus_In,AxisRef :=_AxisRefExt);
             SUPER.Execute(_AxisRefExt,Enable,EnablePositive,EnableNegative);
             THIS.UpdateStatus(_AxisRefExt);

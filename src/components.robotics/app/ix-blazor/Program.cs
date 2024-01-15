@@ -14,7 +14,7 @@ using Serilog;
 using AXOpen;
 using AXOpen.Logging;
 using AXOpen.Components.Robotics;
-using Castle.Components.DictionaryAdapter.Xml;
+//using Castle.Components.DictionaryAdapter.Xml;
 
 var builder = WebApplication.CreateBuilder(args);
 

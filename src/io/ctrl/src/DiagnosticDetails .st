@@ -4,7 +4,7 @@ NAMESPACE AXOpen.Io
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-set:AttributeName = "<#Component state details#>"}
+            {#ix-set:AttributeName = "<#Component state detail#>"}
             ComponentStateDetail    :	ComponentStateDetail;	//  Represents detailed state information about the hardware component and the PLC.
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 

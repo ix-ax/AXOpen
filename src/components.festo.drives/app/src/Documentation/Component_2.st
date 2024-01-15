@@ -32,10 +32,11 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
         END_IF;   
         //<Initialization>        
         AxoIndraDrive_.Run(parent:=THIS,
-                        refParameter_In     :=  REF(PlcInputs^.ST3_indradrive_ID_PaCh_5Words ),
-                        refFieldbus_In      :=  REF(PlcInputs^.ST3_indradrive_ID_InMod_9Words),
-                        refParameter_Out    :=  REF(PlcOutputs^.ST3_indradrive_ID_PaCh_5Words ),
-                        refFieldbus_Out     :=  REF(PlcOutputs^.ST3_indradrive_ID_OutMod_13Words),
+                        hwID                :=  TO_UINT(HwIdentifiers#ST3_indradrive_PN_IO),
+                        refParameter_In     :=  REF(PlcInputs^.ST3_indradrive_ParamCh_IDN_1 ),
+                        refFieldbus_In      :=  REF(PlcInputs^.ST3_indradrive_Input_9_Words_1),
+                        refParameter_Out    :=  REF(PlcOutputs^.ST3_indradrive_ParamCh_IDN_1),
+                        refFieldbus_Out     :=  REF(PlcOutputs^.ST3_indradrive_Output_13_Words_1),
                         Enable              :=  Enable,
                         EnablePositive      :=  EnablePositive,
                         EnableNegative      :=  EnableNegative);

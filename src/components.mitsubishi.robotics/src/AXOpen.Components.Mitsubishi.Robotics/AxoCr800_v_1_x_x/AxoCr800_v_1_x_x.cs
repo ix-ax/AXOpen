@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AXOpen.Components.Example
+namespace AXOpen.Components.Mitsubishi.Robotics
 {
-    public partial class ExampleCylinder
+    public partial class AxoCr800_v_1_x_x : AXOpen.Core.AxoComponent
     {
         public async Task WriteTaskDurationToConsole()
         {

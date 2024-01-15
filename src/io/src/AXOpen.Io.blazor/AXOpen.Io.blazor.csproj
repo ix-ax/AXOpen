@@ -42,11 +42,11 @@
 
   <ItemGroup>
 	<FrameworkReference Include="Microsoft.AspNetCore.App" />  
-	<PackageReference Include="AXSharp.Presentation.Blazor"/>
-    <PackageReference Include="AXSharp.Presentation.Blazor.Controls"/>
-    <PackageReference Include="Humanizer"/>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web"/>
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client"/>
+	<PackageReference Include="AXSharp.Presentation.Blazor" />
+    <PackageReference Include="AXSharp.Presentation.Blazor.Controls" />
+    <PackageReference Include="Humanizer" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" />
 	  
   </ItemGroup>
 

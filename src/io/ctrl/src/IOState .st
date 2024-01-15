@@ -2,6 +2,7 @@ NAMESPACE AXOpen.Io
     {S7.extern=ReadWrite}
     CLASS IOState 
         VAR PUBLIC
+            {#ix-attr:[Container(Layout.Stack)]}
             Good                    :	BOOL;   //	No problems detected.
             Disabled                :	BOOL;   //	The hardware component is disabled.
             MaintenanceRequired     :	BOOL;   //	Maintenance required.

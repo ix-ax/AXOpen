@@ -1,5 +1,6 @@
 NAMESPACE AXOpen.Io
     TYPE OperatingState   : UINT (
+        Unknown                     :=  UINT#255,
         NotSupported                :=	UINT#0,     //	Not Supported; for I/O modules OperatingState always has this value.
         StopFirmwareUpdate          :=	UINT#1,     //	STOP; firmware update.
         StopMemoryReset             :=	UINT#2,     //	STOP; memory reset.
@@ -25,7 +26,7 @@ NAMESPACE AXOpen.Io
         RunSoloSystemState          :=	UINT#37,    //	RUN-SOLO system state
         SyncupSystemState           :=	UINT#38,    //	SYNCUP system state
         RunRedundantSystemState     :=	UINT#40    //	RUN-REDUNDANT system state
-                    );
+                    ) := Unknown;
     END_TYPE
 END_NAMESPACE
 

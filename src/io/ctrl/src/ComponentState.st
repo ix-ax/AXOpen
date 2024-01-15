@@ -8,7 +8,7 @@ NAMESPACE AXOpen.Io
         NotAccessible           :=	UINT#5, //	Status unknown or error in higher-level hardware component.
         Unknown                 :=	UINT#6, //	Default value for components that do not return diagnostic events.
         IONotAvailable          :=	UINT#7  //	Inputs/outputs are not available.
-                    );
+                    ) := Unknown;
     END_TYPE
 END_NAMESPACE
 

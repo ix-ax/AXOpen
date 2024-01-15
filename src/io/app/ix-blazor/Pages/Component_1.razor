@@ -8,29 +8,29 @@
     #region WriteTaskDurationToConsole
     private async Task WriteTaskTimesToConsole()
     {
-        await Entry.Plc.documentation.compnentOne.ExampleCylinder.WriteTaskDurationToConsole();
+        await Entry.Plc.documentation.componentOne.ExampleComponent.WriteTaskDurationToConsole();
     }
     #endregion
 
 }
 
 <!-- <GenericComponentStatusView> -->
-<AxoComponentStatusView Component="@Entry.Plc.documentation.compnentOne.ExampleCylinder"/>
+<AxoComponentStatusView Component="@Entry.Plc.documentation.componentOne.ExampleComponent" />
 <!-- </GenericComponentStatusView> -->
 
 <!-- <GenericComponentCommandView> -->
-<AxoComponentCommandView Component="@Entry.Plc.documentation.compnentOne.ExampleCylinder" />
+<AxoComponentCommandView Component="@Entry.Plc.documentation.componentOne.ExampleComponent" />
 <!-- </GenericComponentCommandView> -->
 
 <!-- <RccComponentStatusView> -->
 <!-- This will render anything found on parameter assigned to Context  -->
-<RenderableContentControl Context="@Entry.Plc.documentation.compnentOne" Presentation="Status-Display" />
+<RenderableContentControl Context="@Entry.Plc.documentation.componentOne" Presentation="Status-Display" />
 <!-- </RccComponentStatusView> -->
 
 
 <!-- <RccComponentCommandView> -->
 <!-- This will render anything found on parameter assigned to Context  -->
-<RenderableContentControl Context="@Entry.Plc.documentation.compnentOne" Presentation="Command-Control" />
+<RenderableContentControl Context="@Entry.Plc.documentation.componentOne" Presentation="Command-Control" />
 <!-- </RccComponentCommandView> -->
 
 

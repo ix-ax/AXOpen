@@ -66,6 +66,13 @@ NAMESPACE AXOpen.Components.Festo.Drives
             {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
             ScalingConstantRequiredDeceleration        :   LREAL   :=  0.00006103515625;
         END_VAR
+        VAR PUBLIC
+
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentDetails("Hardware diagnostics")]}
+            {#ix-set:AttributeName = "<#Update diagnostics#>"}
+            HardwareDiagnosticsTask :   AXOpen.Io.AxoHardwareDiagnostics;
+        END_VAR
 
 
         VAR CONSTANT
@@ -104,6 +111,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         METHOD PUBLIC Run
             VAR_INPUT
                 parent              :   IAxoObject; 
+                hwID                :   UINT;
                 refTelegram111_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 111 of this axis
                 refTelegram750_In   :   REF_TO  WORD;               //  Reference to the input data of the Profidrive telegram 750 of this axis
                 refTelegram111_Out  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the Profidrive telegram 111 of this axis
@@ -130,7 +138,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             //     RETURN;
             // END_IF;
             SUPER.Execute(_AxisRefExt,_enable,EnablePositive,EnableNegative);
-            THIS.PostExecute(refTelegram111_In,refTelegram750_In,refTelegram111_Out,refTelegram750_Out,(*MAP_HW_ID,Enable,EnablePositive,EnableNegative,*)_AxisRefExt);
+            THIS.PostExecute(hwID,refTelegram111_In,refTelegram750_In,refTelegram111_Out,refTelegram750_Out,(*MAP_HW_ID,Enable,EnablePositive,EnableNegative,*)_AxisRefExt);
         END_METHOD   
 
         ///<summary>
@@ -139,7 +147,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent          :   IAxoContext; 
+                parent              :   IAxoContext; 
+                hwID                :   UINT;
                 refTelegram111_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 111 of this axis
                 refTelegram750_In   :   REF_TO  WORD;               //  Reference to the input data of the Profidrive telegram 750 of this axis
                 refTelegram111_Out  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the Profidrive telegram 111 of this axis
@@ -152,7 +161,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
             VAR
                 _enable : BOOL;
             END_VAR
-          
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF parent = NULL THEN
@@ -167,9 +175,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
             //     RETURN;
             // END_IF;
             SUPER.Execute(_AxisRefExt,_enable,EnablePositive,EnableNegative);
-            THIS.PostExecute(refTelegram111_In,refTelegram750_In,refTelegram111_Out,refTelegram750_Out,(*MAP_HW_ID,Enable,EnablePositive,EnableNegative,*)_AxisRefExt);
-       END_METHOD   
-
+            THIS.PostExecute(hwID,refTelegram111_In,refTelegram750_In,refTelegram111_Out,refTelegram750_Out,(*MAP_HW_ID,Enable,EnablePositive,EnableNegative,*)_AxisRefExt);
+        END_METHOD   
 
         METHOD PRIVATE PreExecute : BOOL
             VAR_INPUT
@@ -290,11 +297,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _AxisReference^.Data.MAP_HW_ID := MAP_HW_ID;
 
             Parametrization.Initialize(THIS);
+            HardwareDiagnosticsTask.Initialize(THIS);
+
             PreExecute := TRUE;
         END_METHOD
 
         METHOD PRIVATE PostExecute
             VAR_INPUT
+                hwID            :   UINT;
                 refTelegram111_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 111 of this axis
                 refTelegram750_In   :   REF_TO  WORD;               //  Reference to the input data of the Profidrive telegram 750 of this axis
                 refTelegram111_Out  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the Profidrive telegram 111 of this axis
@@ -312,6 +322,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 DriveStatus.Error.Id := UINT#707;
                 RETURN;
             END_IF;
+            //********************Diagnostics******************//          
+            HardwareDiagnosticsTask.Run(hwID);
             //********************PARAMETRIZAION***************//          
             Parametrization.Run(THIS);
             Parametrization.Inputs.HardwareId := _AxisReference^.Data.MAP_HW_ID;            
