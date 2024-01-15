@@ -15,10 +15,6 @@ NAMESPACE axosimple.StarterUnitTemplate
         VAR PUBLIC
             Steps : ARRAY[0..100] OF AxoStep;    
     
-            _digitalInspectorDialog       : AXOpen.Inspectors.AxoInspectorDialog;
-            _analogueInspectorDialog      : AXOpen.Inspectors.AxoInspectorDialog;
-            _dataInspectorDialog          : AXOpen.Inspectors.AxoInspectorDialog;
-            
             _inspectionResult: BOOL;
             _inspectionValue: LREAL;
             _inspectionData: STRING;
@@ -89,9 +85,7 @@ NAMESPACE axosimple.StarterUnitTemplate
             
             IF (Steps[0].Execute(THIS, TRUE, '<#GET ID#>')) THEN
                 //-------------------------------------------------------
-                _digitalInspectorDialog.Restore();  
-                _analogueInspectorDialog.Restore();  
-                _dataInspectorDialog.Restore();      
+                Objs^._inspectorDialog.Restore();  
 
                 // data simulation..
                 ProcessData^.PartPresence.Data()^.FailTime := TIME#3s;
@@ -204,7 +198,7 @@ NAMESPACE axosimple.StarterUnitTemplate
                 .Inspect(THIS,_inspectionValue)
                 .UpdateComprehensiveResult(_comprehensiveResult)
                 .OnFail()
-                .Dialog( inRetryStep := Steps[50], inTerminateStep := Steps[60], inoDialog := _dataInspectorDialog);
+                .Dialog( inRetryStep := Steps[50], inTerminateStep := Steps[60], inoDialog := Objs^._inspectorDialog);
                 //-------------------------------------------------------
             END_IF;
             
@@ -216,7 +210,7 @@ NAMESPACE axosimple.StarterUnitTemplate
                 .Inspect(THIS,_inspectionData)
                 .UpdateComprehensiveResult(_comprehensiveResult)
                 .OnFail()
-                .Dialog( inRetryStep := Steps[70], inTerminateStep := Steps[80], inoDialog := _analogueInspectorDialog);
+                .Dialog( inRetryStep := Steps[70], inTerminateStep := Steps[80], inoDialog := Objs^._inspectorDialog);
                 //-------------------------------------------------------
             END_IF;
 

@@ -37,6 +37,9 @@ NAMESPACE axosimple.StarterUnitTemplate
             // https://ix-ax.github.io/AXOpen/core/docs/AXOALERTDIALOG.html#invoking-alerts-from-plc
             _alertDialog : AXOpen.Core.AxoAlertDialog;
 
+            // it needs to be handle from auto or ground sequnce
+            _inspectorDialog       : AXOpen.Inspectors.AxoInspectorDialog;
+
         END_VAR        
     END_CLASS
 
