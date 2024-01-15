@@ -17,7 +17,7 @@ CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
         _automat.Execute();
 
         IF _startInspection THEN
-            _inspectors.Run();
+            _automat.Invoke();
         END_IF;
       
      

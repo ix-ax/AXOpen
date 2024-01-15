@@ -41,11 +41,16 @@ NAMESPACE AXOpen.Inspectors
                 callCounter : ULINT;
             END_VAR   
 
-         
-            // IF _createPlcCycleSpace THEN // create cycle space AFTER RESPONSE
-            //     _createPlcCycleSpace := FALSE;
-            //     RETURN; 
-            // END_IF;
+            IF(_parentInspectorRef = NULL) THEN
+                RETURN;
+            END_IF;
+
+            THIS.Initialize(_parentInspectorRef^);
+  
+            IF _createPlcCycleSpace THEN // create cycle space AFTER RESPONSE
+                _createPlcCycleSpace := FALSE;
+                RETURN; 
+            END_IF;
 
             //Restores when not called for 2+ consecutive cycles of the context.
             callCounter := THIS.GetParent().GetContext().OpenCycleCount();
@@ -58,20 +63,12 @@ NAMESPACE AXOpen.Inspectors
                 THIS.Restore();
             END_IF;                
             _lastCall := callCounter;
-
-         
-            IF(_parentInspectorRef = NULL) THEN
-                RETURN;
-            END_IF;
-
             
             _isOverInspected := _parentInspectorRef^.CheckOverInspection();
-
 
             IF(_parentInspectorRef^.Done()) THEN	
 
                 IF(_parentInspectorRef^.Result() = eInspectorResult#Failed) THEN
-                    THIS.Initialize(_parentInspectorRef^);
                     
                     IF (THIS.Status = eAxoTaskState#Ready) THEN
                         _closeSignal := FALSE;
@@ -129,8 +126,6 @@ NAMESPACE AXOpen.Inspectors
             _dialogueRetry := FALSE;	
             _dialogueTerminate := FALSE;	
             _dialogueOverride := FALSE;
-           // _dialogIsClosed := FALSE;
-
         END_METHOD
 
       
