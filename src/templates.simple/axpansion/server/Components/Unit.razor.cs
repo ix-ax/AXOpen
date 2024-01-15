@@ -2,6 +2,7 @@
 using AXOpen.Core;
 using AXOpen.Data;
 using AXOpen.Messaging.Static;
+using AXOpen.Messaging.Static.Blazor;
 using AXSharp.Connector;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 using Microsoft.AspNetCore.Components;
@@ -14,17 +15,17 @@ namespace axosimple.server.Components
         [Inject]
         public IAlertDialogService _alerts { set; get; }
 
-        private AxoMessageProvider _axoMessageProvider;
-        private AxoMessageProvider AxoMessageProvider
+        private AxoMessageProvider messageProvider;
+        private AxoMessageProvider MessageProvider
         {
             get
             {
-                if(_axoMessageProvider == null) _axoMessageProvider = AxoMessageProvider.Create(AllVisualItems);
-                return _axoMessageProvider;
+                if(messageProvider == null) messageProvider = AxoMessageProvider.Create(AllVisualItems);
+                return messageProvider;
             }
             
         }
-
+        
         [Parameter, BindRequired]
         public AXOpen.Data.AxoDataEntity? Data { get; set; }
 
@@ -47,6 +48,7 @@ namespace axosimple.server.Components
         public IEnumerable<ITwinObject>? AditionalItems { get; set; } // Items that are passed into VisualComposer
 
         private ITwinObject[] _allVisualItems = null;
+        private AxoMessageObserver observer;
 
         public ITwinObject[] AllVisualItems
         {

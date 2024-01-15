@@ -21,6 +21,11 @@
     [Parameter]
     public ITwinObject[]? Components { get; set; }
 
+    public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+    {
+        base.AddToPolling(ServiceTask?.Status, pollingInterval);
+    }
+
     [Parameter]
     public AxoTask? ServiceTask { get; set; }
 

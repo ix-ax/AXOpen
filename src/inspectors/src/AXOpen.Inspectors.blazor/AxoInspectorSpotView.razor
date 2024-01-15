@@ -23,7 +23,13 @@
             return this.Component?.GetChildren().OfType<AxoInspectorData>().FirstOrDefault();
         }
     }
-    
+
+    /// <inheritdoc />
+    public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+    {
+        
+    }
+
     private void SetCurrentObject()
     {
         if (RccContainer is RenderableContentControl rccContainer)
