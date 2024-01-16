@@ -9,7 +9,7 @@ namespace AXOpen.Base.Dialogs
         /// <summary>
         /// Gets or sets dialog locator id.
         /// </summary>
-        string DialogId { get; set; }
+        string DialogLocatorId { get; set; }
 
         /// <summary>
         /// Initialized remote task for this dialog, with polling instead of cyclic subscription.

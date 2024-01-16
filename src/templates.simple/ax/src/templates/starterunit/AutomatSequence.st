@@ -87,8 +87,8 @@ NAMESPACE axosimple.StarterUnitTemplate
                 //-------------------------------------------------------
                 Objs^._inspectorDialog.Restore();  
 
-                // data simulation..
-                // ProcessData^ :=  ProcessSettings^;
+                // copy data from setting to station data -> it's a problem with override checks identity
+                //ProcessData^ :=  ProcessSettings^;
 
                 ProcessData^.PartPresence.Data()^.FailTime := TIME#3s;
                 ProcessData^.LoadPosition.Data()^.FailTime := TIME#3s;

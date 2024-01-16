@@ -8,35 +8,41 @@ namespace AXOpen.Core.Blazor.AxoDialogs
     /// </summary>
     public class AxoDialogProxyService : AxoDialogProxyServiceBase, IDisposable
     {
-        private AxoDialogContainer _axoDialogContainer;
-
+        private readonly AxoDialogContainer _dialogContainer;
         private readonly IEnumerable<ITwinObject> _observedObject;
+
         private List<IsDialogType> _observedDialogs = new();
-        private string DialogId { get; set; }
+
+        private string DialogLocatorId { get; set; }
 
         /// <summary>
-        /// Creates new instance of <see cref="AxoDialogProxyService"/>
+        /// Creates new instance of <see cref="AxoDialogProxyService"/>, in standard case is this constructor called only once.
         /// </summary>
+        /// <param name="dialogLocatorId">Id of DialogLocator. Use for identification of the service in the dailogContainer. (typical the URL of the page where the dialogue is handled)..</param>
         /// <param name="dialogContainer">Container of proxy services handled by the application over SignalR.</param>
-        /// <param name="dialogId">Id of the dialogue (typical the URL of the page where the dialogue is handled).</param>
         /// <param name="observedObjects">Twin objects that may contain invokable dialogs from the controller that are to be handled by this proxy service.</param>
-        public AxoDialogProxyService(AxoDialogContainer dialogContainer, string dialogId, IEnumerable<ITwinObject> observedObjects)
+        public AxoDialogProxyService(string dialogLocatorId, AxoDialogContainer dialogContainer, IEnumerable<ITwinObject> observedObjects)
         {
+            DialogLocatorId = dialogLocatorId;
+            _dialogContainer = dialogContainer;
             _observedObject = observedObjects;
-            _axoDialogContainer = dialogContainer;
-            DialogId = dialogId;
+
+            _dialogContainer.DialogProxyServicesDictionary.TryAdd(DialogLocatorId, this);
+
             StartObservingObjectsForDialogues();
         }
 
         /// <summary>
         /// Starts observing dialogue of this proxy service.
         /// </summary>
-        internal void StartObservingObjectsForDialogues()
+        protected void StartObservingObjectsForDialogues()
         {
             if (_observedObject == null || _observedObject.Count() == 0) return;
+
             foreach (var item in _observedObject)
             {
-                _axoDialogContainer.ObservedObjects.Add(item.Symbol);
+                //todo -> it is needed: _dialogContainer.ObservedObjects,  are not used...
+                _dialogContainer.ObservedObjects.Add(item.Symbol);
                 StartObservingDialogs<IsModalDialogType>(item);
             }
         }
@@ -49,10 +55,16 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// <param name="dialog">Dialogue to be handled.</param>
         protected async void HandleDialogInvocation(IsDialogType dialog)
         {
-            DialogInstance = dialog;
-            DialogInstance.DialogId = DialogId;
-            await DialogInstance.ReadAsync();
-            DialogInvoked?.Invoke(this, new AxoDialogEventArgs(DialogId));
+            await dialog.ReadAsync();
+
+            var exist = this.DisplayedDialogs.Any((p) => p.Symbol == dialog.Symbol);
+            if (!exist)
+            {
+                this.DisplayedDialogs.Add(dialog);
+            }
+
+            // just invoke in dialog locator state change....
+            DialogInvoked?.Invoke(this, new AxoDialogEventArgs(DialogLocatorId, dialog.Symbol));
         }
 
         private void StartObservingDialogs<T>(ITwinObject observedObject) where T : class, IsDialogType
@@ -65,6 +77,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
                 dialog.Initialize(() => HandleDialogInvocation(dialog));
             }
         }
+
 
         /// <summary>
         /// Releases resources related to handling and communication with the controller.

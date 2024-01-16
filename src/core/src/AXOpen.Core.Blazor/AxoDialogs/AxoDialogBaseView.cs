@@ -13,24 +13,23 @@ namespace AXOpen.Core.Blazor.AxoDialogs
     {
 
         [Inject]
-        public AxoDialogContainer _dialogContainer { get; set; }
+        public AxoDialogContainer DialogContainer { get; set; }
         [Inject]
-        public NavigationManager _navigationManager { get; set; }
-
+        public NavigationManager NavigationManager { get; set; }
 
         protected ModalDialog ModalDialog;
-        private string _dialogId;
-        private AxoDialogProxyService _myProxyService;
 
+        private string _ParentDialogLocatorId;
+
+        private AxoDialogProxyService _dialogProxyService;
+
+        
         public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
         {
+            //todo -> it is not needed to subscibe all -> optimalize at the end...
             var task = (AxoDialogBase)element;
             var kids = task.GetValueTags().ToList();
-
-            //var task1 = (AxoDialog)element;
-            //var kids1 = task.GetValueTags().ToList();
-
-
+            
             kids.ForEach(p =>
             {
                 p.StartPolling(pollingInterval, this);
@@ -43,7 +42,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             if (e == null) return;// in same cases can be null
             if (e.Message == null) return;
 
-            if (_dialogId == e.Message.ToString())
+            if (_ParentDialogLocatorId == e.Message.ToString())
             {
                 await Close();
             }
@@ -53,7 +52,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             if (e == null) return;// in same cases can be null
             if (e.Message == null) return;
 
-            if (_dialogId == e.Message.ToString())
+            if (_ParentDialogLocatorId == e.Message.ToString())
             {
                 await OpenDialog();
             }
@@ -62,31 +61,37 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            _dialogId = Component.DialogId;
-            _dialogContainer.DialogProxyServicesDictionary.TryGetValue(_dialogId, out AxoDialogProxyService proxy);
-            _myProxyService = proxy;
+            _ParentDialogLocatorId = Component.DialogLocatorId;
+
+            DialogContainer.DialogProxyServicesDictionary.TryGetValue(_ParentDialogLocatorId, out AxoDialogProxyService proxy);
+            _dialogProxyService = proxy;
+
             if (firstRender)
             {
-                if (_myProxyService.DialogInstance != null)
+                if (_dialogProxyService.IsInListOfDisplayeDialog(Component.Symbol))
                 {
                    await ModalDialog.Open();
                 }
-                _dialogContainer.DialogClient.MessageReceivedDialogClose += OnCloseDialogMessage;
-                _dialogContainer.DialogClient.MessageReceivedDialogOpen += OnOpenDialogMessage;
+
+                DialogContainer.DialogClient.MessageReceivedDialogClose += OnCloseDialogMessage;
+                DialogContainer.DialogClient.MessageReceivedDialogOpen += OnOpenDialogMessage;
             }
         }
 
         public virtual async Task CloseDialogsWithSignalR()
         {
-            await _dialogContainer.DialogClient.SendDialogClose(_dialogId);
+            await DialogContainer.DialogClient.SendDialogClose(_ParentDialogLocatorId);
         }
 
         protected async Task Close()
         {
             await ModalDialog.Close();
-            _dialogContainer.DialogProxyServicesDictionary.TryGetValue(_dialogId, out var proxy);
-            proxy.DialogInstance = null;
-            _myProxyService = proxy;
+            DialogContainer.DialogProxyServicesDictionary.TryGetValue(_ParentDialogLocatorId, out var proxy);
+
+            //todo -> verify if is passed dialog and if is removed...
+            proxy.RemoveDisplayeDialog(Component);
+
+            _dialogProxyService = proxy;
            
         }
 
@@ -98,8 +103,8 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         public override void Dispose()
         {
             base.Dispose();
-            _dialogContainer.DialogClient.MessageReceivedDialogClose -= OnCloseDialogMessage;
-            _dialogContainer.DialogClient.MessageReceivedDialogOpen -= OnOpenDialogMessage;
+            DialogContainer.DialogClient.MessageReceivedDialogClose -= OnCloseDialogMessage;
+            DialogContainer.DialogClient.MessageReceivedDialogOpen -= OnOpenDialogMessage;
         }
 
         protected override void OnInitialized()

@@ -6,7 +6,7 @@ namespace AXOpen.Core
 
     public partial class AxoDialogBase : IsModalDialogType
     {
-        public string DialogId { get; set; }
+        public string DialogLocatorId { get; set; }
 
         /// <summary>
         /// Initialized remote task for this dialog, with polling instead of cyclic subscription.

@@ -60,17 +60,17 @@ namespace AXOpen.Core.Blazor.Dialogs
 
         private async void OnDialogInvoked(object? sender, AxoDialogEventArgs e)
         {
-            // if alert dialog is invoked, based on UseScopedAlerts attribute call dialog on UI
-            if (_axoDialogProxyService.DialogInstance is AXOpen.Core.AxoAlertDialog)
-            {
-                IsDialogInvoked = true;
-                AXOpen.Core.AxoAlertDialog a = (AXOpen.Core.AxoAlertDialog)_axoDialogProxyService.DialogInstance;
+            //// if alert dialog is invoked, based on UseScopedAlerts attribute call dialog on UI
+            //if (_axoDialogProxyService.DialogInstance is AXOpen.Core.AxoAlertDialog)
+            //{
+            //    IsDialogInvoked = true;
+            //    AXOpen.Core.AxoAlertDialog a = (AXOpen.Core.AxoAlertDialog)_axoDialogProxyService.DialogInstance;
 
-                AlertDialogService.AddAlertDialog((eAlertDialogType)a._dialogType.Cyclic, a._title.Cyclic, a._message.Cyclic, a._timeToBurn.Cyclic);
+            //    AlertDialogService.AddAlertDialog((eAlertDialogType)a._dialogType.Cyclic, a._title.Cyclic, a._message.Cyclic, a._timeToBurn.Cyclic);
 
-                await InvokeAsync(StateHasChanged);
-                IsDialogInvoked = false;
-            }
+            //    await InvokeAsync(StateHasChanged);
+            //    IsDialogInvoked = false;
+            //}
 
         }
 

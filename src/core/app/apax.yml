@@ -74,6 +74,6 @@ scripts:
     - apax sld load --accept-security-disclaimer -t $AXTARGET -i
       $AXTARGETPLATFORMINPUT --mode delta
     - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"
-    
+
 installStrategy: strict
 apaxVersion: 3.1.0

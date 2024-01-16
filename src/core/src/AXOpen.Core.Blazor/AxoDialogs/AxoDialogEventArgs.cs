@@ -8,10 +8,12 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 {
     public class AxoDialogEventArgs : EventArgs
     {
-        public AxoDialogEventArgs(string id)
+        public AxoDialogEventArgs(string dialogLocatorId, string dialogInstanceSymbol)
         {
-            DialogId = id;
+            DialogLocatorId = dialogLocatorId;
+            DialogInstanceSymbol = dialogInstanceSymbol;
         }
-        public string DialogId { get; set; }
+        public string DialogLocatorId { get; set; }
+        public string DialogInstanceSymbol { get; set; }
     }
 }

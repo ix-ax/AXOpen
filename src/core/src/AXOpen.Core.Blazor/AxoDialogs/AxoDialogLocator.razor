@@ -2,14 +2,12 @@
 @using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 @using AXSharp.Connector;
 @using Microsoft.AspNetCore.SignalR.Client;
-@inject NavigationManager _navigationManager
-@inject AxoDialogContainer _dialogContainer
 
 
-
-
-@if (_axoDialogProxyService?.DialogInstance != null)
+@if (_dialogProxyService?.DisplayedDialogs.Count() > 0)
 {
-    <RenderableContentControl Context="_axoDialogProxyService.DialogInstance"
-                              Presentation="Dialog"/>
+    foreach (var dialogInstance in _dialogProxyService?.DisplayedDialogs)
+    {
+        <RenderableContentControl Context="@dialogInstance" Presentation="Dialog"/>
+    }
 }
