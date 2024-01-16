@@ -14,6 +14,7 @@ NAMESPACE AXOpen.Inspectors
             _dialogueRetry : BOOL;	
             _dialogueTerminate : BOOL;	
             _dialogueOverride : BOOL;
+            _inspectorIndentity : ULINT; //try display inspector inside dialog.
         END_VAR
 
         VAR PRIVATE
@@ -74,6 +75,7 @@ NAMESPACE AXOpen.Inspectors
                         _closeSignal := FALSE;
                     END_IF;
 
+                    _inspectorIndentity := _parentInspectorRef^.GetIdentity();
                     THIS.Invoke();
                     SUPER.Execute();
 
