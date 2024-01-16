@@ -63,6 +63,8 @@ NAMESPACE axosimple.StarterUnitTemplate
              UnitObjects.Components^.Update(THIS, Inputs, Outputs);
              // Process data manager
              UnitObjects.ProcessData^.Run(THIS);
+             // Process settings data manager
+             UnitObjects.ProcessSettings^.Run(THIS);
              // Technology data manager
              UnitObjects.TechnologySettings^.Run(THIS);
              // Handles ground sequence

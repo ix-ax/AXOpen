@@ -88,6 +88,8 @@ NAMESPACE axosimple.StarterUnitTemplate
                 Objs^._inspectorDialog.Restore();  
 
                 // data simulation..
+                // ProcessData^ :=  ProcessSettings^;
+
                 ProcessData^.PartPresence.Data()^.FailTime := TIME#3s;
                 ProcessData^.LoadPosition.Data()^.FailTime := TIME#3s;
                 ProcessData^.JigDataMatrixCode.Data()^.FailTime := TIME#3s;
