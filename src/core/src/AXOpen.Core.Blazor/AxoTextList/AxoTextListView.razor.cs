@@ -3,7 +3,7 @@ using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 
 namespace AXOpen.Core
 {
-    public partial class AxoTextListView : RenderableComplexComponentBase<AxoTextList>, IDisposable
+    public partial class AxoTextListView : RenderableComplexComponentBase<AxoTextList>
     {
         private uint _warningLevel => this.Component.GetAttribute<WarningLevelAttribute>() != null ? this.Component.GetAttribute<WarningLevelAttribute>().Level : 0;
         private uint _errorLevel => this.Component.GetAttribute<ErrorLevelAttribute>() != null ? this.Component.GetAttribute<ErrorLevelAttribute>().Level : 0;
@@ -28,12 +28,14 @@ namespace AXOpen.Core
             }
         }
 
+      
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            UpdateValuesOnChange(Component);
+            UpdateValuesOnChange(Component);            
         }
 
+        // Attribute name contains interpolation from twin object.
         private string _text => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName;
 
 

@@ -4,18 +4,10 @@ using AXSharp.Connector;
 using System;
 using System.Collections.Generic;
 
-
 namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
 {
-    public partial class AxoInsight : AXOpen.Core.AxoComponent
+    public partial class AxoInsight
     {
-        public async Task WriteTaskDurationToConsole()
-        {
-            foreach (var task in this.GetChildren().OfType<AxoTask>())
-            {
-                Console.WriteLine($"{task.Symbol} : {await task.Duration.GetAsync()}");
-            }
-        }
         partial void PostConstruct(ITwinObject parent, string readableTail, string symbolTail)
         {
             try
@@ -72,7 +64,7 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
             List<KeyValuePair<ulong, AxoMessengerTextItem>> messengerTextList = new List<KeyValuePair<ulong, AxoMessengerTextItem>>
             {
                 new KeyValuePair<ulong, AxoMessengerTextItem>(0, new AxoMessengerTextItem("  ", "  ")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(600, new AxoMessengerTextItem("Waiting for the signal ExposureComplete to be reseted!"                  ,"Check the status of the `ExposureComplete` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(600, new AxoMessengerTextItem("Waiting for the signal ExposureComplete to be reseted!"                  ,"Check the status of the `ExposureComplete` signal.")), 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(601, new AxoMessengerTextItem("Waiting for the signal ResultsValid to be reseted!"                      ,"Check the status of the `ResultsValid` signal.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(602, new AxoMessengerTextItem("Waiting for the signal Error to be reseted!"                             ,"Check the status of the `Error` signal.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(603, new AxoMessengerTextItem("Waiting for the signal TriggerReady to be set!"                          ,"Check the status of the `TriggerReady` signal.")),
@@ -120,14 +112,14 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
         Dictionary<uint, string> errorDescriptionDict = new Dictionary<uint, string>();
         Dictionary<uint, string> actionDescriptionDict = new Dictionary<uint, string>();
 
-        public string ErrorDescription
+        public string ErrorDescription 
         {
             get
             {
-                if (errorDescriptionDict == null) { errorDescriptionDict = new Dictionary<uint, string>(); }
-                if (errorDescriptionDict.Count == 0)
+                if(errorDescriptionDict == null) { errorDescriptionDict = new Dictionary<uint, string>(); }
+                if(errorDescriptionDict.Count == 0)
                 {
-                    errorDescriptionDict.Add(0, "   ");
+                    errorDescriptionDict.Add(0      , "   ");
                     errorDescriptionDict.Add(600, "Waiting for the signal ExposureComplete to be reseted!");
                     errorDescriptionDict.Add(601, "Waiting for the signal ResultsValid to be reseted!");
                     errorDescriptionDict.Add(602, "Waiting for the signal Error to be reseted!");
@@ -187,7 +179,7 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 }
                 string errorDescription = "   ";
 
-                if (Error == null)
+                if(Error == null)
                     return errorDescription;
 
                 if (errorDescriptionDict.TryGetValue(Error.Id.LastValue, out errorDescription))
@@ -259,7 +251,7 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
 
 
                 }
-
+                
                 string actionDescription = "   ";
 
                 if (Action == null)
@@ -273,7 +265,7 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 {
                     return "   ";
                 }
-
+                
             }
         }
     }
