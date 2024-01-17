@@ -179,7 +179,7 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 }
                 string errorDescription = "   ";
 
-                if(Error == null)
+                if(Error == null || Error.Id == null)
                     return errorDescription;
 
                 if (errorDescriptionDict.TryGetValue(Error.Id.LastValue, out errorDescription))
@@ -254,7 +254,7 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 
                 string actionDescription = "   ";
 
-                if (Action == null)
+                if (Action == null || Action.Id == null)
                     return actionDescription;
 
                 if (actionDescriptionDict.TryGetValue(Action.Id.LastValue, out actionDescription))
