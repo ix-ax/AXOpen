@@ -16,7 +16,6 @@ using AxOpen.Security;
 using AxOpen.Security.Services;
 using AxOpen.Security.Entities;
 
-
 namespace axopen_integrations_blazor
 {
     public class Program
@@ -26,7 +25,7 @@ namespace axopen_integrations_blazor
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.ConfigureAxBlazorSecurity(PrepareUserRepository(), Roles.CreateRoles());
+            builder.Services.ConfigureAxBlazorSecurity(PrepareUserRepository(), axopen_integrations_blazor.Roles.CreateRoles());
             builder.Services.AddRazorPages();
             builder.Services.AddServerSideBlazor();
             builder.Services.AddSingleton<WeatherForecastService>();
@@ -57,14 +56,9 @@ namespace axopen_integrations_blazor
 
             Entry.Plc.Connector.ExceptionBehaviour = CommExceptionBehaviour.Ignore;
 
-
-
             Entry.Plc.Connector.SubscriptionMode = AXSharp.Connector.ReadSubscriptionMode.Polling;
 
             await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
-
-
-
 
             //<AxoAppBuilder>
             var axoAppBuilder = AxoApplication.CreateBuilder();
@@ -82,8 +76,6 @@ namespace axopen_integrations_blazor
             //<AxoLoggerInitialization>
             Entry.Plc.AxoLoggers.LoggerOne.StartDequeuing(AxoApplication.Current.Logger, 250);
             //</AxoLoggerInitialization>
-
-
 
             var app = builder.Build();
 
@@ -108,26 +100,22 @@ namespace axopen_integrations_blazor
 
             app.UseRequestLocalization(localizationOptions);
 
-
             app.MapBlazorHub();
-            app.MapHub<DialogHub>("/dialoghub");
+            app.MapHub<DialogHub>(AXOpen.Core.Blazor.AxoDialogs.Hubs.DialogHub.HUB_URL_SUFFIX);
             app.MapFallbackToPage("/_Host");
 
             #region InitializeRemoteTask
+
             Entry.Plc.AxoRemoteTasks._remoteTask.Initialize(() => Console.WriteLine($"Remote task executed PLC sent this string: '{Entry.Plc.AxoRemoteTasks._remoteTask.Message.GetAsync().Result}'"));
-            #endregion
+
+            #endregion InitializeRemoteTask
 
             app.Run();
-
-
-
         }
-
-
-        static (IRepository<User>, IRepository<Group>) PrepareUserRepository()
+        private static (IRepository<User>, IRepository<Group>) PrepareUserRepository()
         {
-            var repoPath = Environment.GetEnvironmentVariable("AX_JSON_REPOSITORY"); 
-            
+            var repoPath = Environment.GetEnvironmentVariable("AX_JSON_REPOSITORY");
+
             if (!Directory.Exists(repoPath))
             {
                 Directory.CreateDirectory(repoPath);
@@ -138,12 +126,13 @@ namespace axopen_integrations_blazor
 
             return (userRepo, groupRepo);
         }
+    }
 
-        public static class Roles
+    internal static class Roles
+    {
+        public static List<Role> CreateRoles()
         {
-            public static List<Role> CreateRoles()
-            {
-                var roles = new List<Role>
+            var roles = new List<Role>
         {
             new Role(process_settings_access),
             new Role(process_traceability_access),
@@ -153,16 +142,14 @@ namespace axopen_integrations_blazor
             new Role(can_skip_steps_in_sequence),
         };
 
-                return roles;
-            }
-
-            public const string can_run_ground_mode = nameof(can_run_ground_mode);
-            public const string can_run_automat_mode = nameof(can_run_automat_mode);
-            public const string can_run_service_mode = nameof(can_run_service_mode);
-            public const string process_settings_access = nameof(process_settings_access);
-            public const string process_traceability_access = nameof(process_traceability_access);
-            public const string can_skip_steps_in_sequence = nameof(can_skip_steps_in_sequence);
+            return roles;
         }
 
+        public const string can_run_ground_mode = nameof(can_run_ground_mode);
+        public const string can_run_automat_mode = nameof(can_run_automat_mode);
+        public const string can_run_service_mode = nameof(can_run_service_mode);
+        public const string process_settings_access = nameof(process_settings_access);
+        public const string process_traceability_access = nameof(process_traceability_access);
+        public const string can_skip_steps_in_sequence = nameof(can_skip_steps_in_sequence);
     }
 }

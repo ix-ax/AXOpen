@@ -47,7 +47,9 @@ CONFIGURATION MyConfiguration
         {S7.extern=ReadWrite}
         AxoLoggers : AxoLoggerExamples.Loggers;
         {S7.extern=ReadWrite}
-        Dialogs : AxoDialogExamples.Dialogs;
+        Dialogs_1 : AxoDialogExamples.Dialogs;              
+        {S7.extern=ReadWrite}
+        Dialogs_2 : AxoDialogExamples.Dialogs;   
         // Issues
         {S7.extern=ReadWrite}
         gh_ptku_8 : Layouts.Tabbed.weather;        

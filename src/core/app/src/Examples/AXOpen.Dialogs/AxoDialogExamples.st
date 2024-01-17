@@ -11,6 +11,9 @@ NAMESPACE AxoDialogExamples
 
             {#ix-set:AttributeName = "Call ALL"}
             _invokeCallAll : BOOL;
+
+            {#ix-set:AttributeName = "Call ALL in Sequnce"}
+            _invokeSequnceAll : BOOL;
  
              {#ix-set:AttributeName = "Dialog Test 1"}
              _dailogTest_1 : AxoDialogTest;
@@ -31,6 +34,12 @@ NAMESPACE AxoDialogExamples
                 _dailogTest_1._callDialog := TRUE;
                 _dailogTest_2._callDialog := TRUE;
                 _invokeCallAll := FALSE;
+            END_IF;
+
+            IF _invokeSequnceAll THEN
+                _dailogTest_1._callDialogInSequnce := TRUE;
+                _dailogTest_2._callDialogInSequnce := TRUE;
+                _invokeSequnceAll := FALSE;
             END_IF;
 
             _dailogTest_1.Run(THIS);
