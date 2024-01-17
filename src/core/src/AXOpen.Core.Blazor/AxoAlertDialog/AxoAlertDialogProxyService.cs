@@ -12,7 +12,7 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
     /// <summary>
     /// Proxy service for alert dialogs, where remote tasks responsible for dialogues handling are initilized 
     /// </summary>
-    public class AxoAlertDialogProxyService : AxoDialogProxyServiceBase, IDisposable
+    public class AxoAlertDialogProxyService : IDisposable
     {
         private List<IsDialogType> _observedDialogs = new();
 
@@ -61,13 +61,34 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
 
         }
 
-            public void Dispose()
+        public void Dispose()
         {
             foreach (var dialog in _observedDialogs)
             {
                 dialog.DeInitialize();
             }
             _observedDialogs.Clear();
+        }
+
+        protected IEnumerable<T> GetDescendants<T>(ITwinObject obj, IList<T> children = null) where T : class
+        {
+            children = children != null ? children : new List<T>();
+
+            if (obj != null)
+            {
+                foreach (var child in obj.GetChildren())
+                {
+                    var ch = child as T;
+                    if (ch != null)
+                    {
+                        children.Add(ch);
+                    }
+
+                    GetDescendants<T>(child, children);
+                }
+            }
+
+            return children;
         }
     }
 }

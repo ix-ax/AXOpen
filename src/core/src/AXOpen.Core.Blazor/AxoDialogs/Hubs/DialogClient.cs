@@ -12,7 +12,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs.Hubs
     /// </summary>
     public class DialogClient : IAsyncDisposable
     {
-        public const string HUBURL = "/dialoghub";
         public delegate void MessageReceivedEventHandler(object sender, MessageReceivedEventArgs e);
         private readonly string _hubUrl;
         public HubConnection _hubConnection;
@@ -20,17 +19,16 @@ namespace AXOpen.Core.Blazor.AxoDialogs.Hubs
 
         public DialogClient(string siteUrl)
         {
-            // set the hub URL
-            _hubUrl = siteUrl.TrimEnd('/') + HUBURL;
+            _hubUrl = siteUrl.TrimEnd('/') + DialogHub.HUB_URL_SUFFIX;
         }
 
-        public async Task SendDialogOpen(string message)
+        public async Task SendDialogOpenRequest(string message)
         {
             await _hubConnection.SendAsync(DialogMessages.SEND_DIALOG_OPEN, message);
         }
-        public async Task SendDialogClose(string message)
+        public async Task SendDialogCloseRequest(string message)
         {
-            await _hubConnection.SendAsync(DialogMessages.SEND_DIALOG_CLOSE, message);
+            await _hubConnection.SendAsync(DialogMessages.SEND_DIALOG_CLOSE_REQUEST, message);
         }
 
         public async Task StartAsync()
@@ -79,18 +77,30 @@ namespace AXOpen.Core.Blazor.AxoDialogs.Hubs
                 _isConnected = true;
             }
         }
+
+        /// <summary>
+        /// Called on SignalR DialogMessages.RECEIVE_DIALOG_OPEN
+        /// </summary>
+        /// <param name="message"></param>
         private void HandleReceiveMessage(string message)
         {
             // raise an event to subscribers
             MessageReceivedDialogOpen?.Invoke(this, new MessageReceivedEventArgs(message));
         }
+
+        /// <summary>
+        /// Called on SignalR DialogMessages.RECEIVE_DIALOG_CLOSE
+        /// </summary>
+        /// <param name="message"></param>
         private void HandleReceiveDialogClose(string message)
         {
             // raise an event to subscribers
             MessageReceivedDialogClose?.Invoke(this, new MessageReceivedEventArgs(message));
         }
         public event MessageReceivedEventHandler MessageReceivedDialogOpen;
+
         public event MessageReceivedEventHandler MessageReceivedDialogClose;
+
         public async Task StopAsync()
         {
             if (_isConnected && _hubConnection != null)

@@ -9,7 +9,8 @@ namespace AXOpen.Core.Blazor.AxoDialogs.Hubs
     public static class DialogMessages
     {
         public const string SEND_DIALOG_OPEN = "SendDialogOpen";
-        public const string SEND_DIALOG_CLOSE = "SendDialogClose";
+        public const string SEND_DIALOG_CLOSE_REQUEST = "SendDialogClose";
+
         public const string RECEIVE_DIALOG_OPEN = "ReceiveDialogOpen";
         public const string RECEIVE_DIALOG_CLOSE = "ReceiveDialogClose";
     }

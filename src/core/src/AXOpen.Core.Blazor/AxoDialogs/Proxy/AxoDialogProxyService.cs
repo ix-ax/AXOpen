@@ -6,14 +6,17 @@ namespace AXOpen.Core.Blazor.AxoDialogs
     /// <summary>
     /// Proxy service for modal dialogs, where remote tasks responsible for dialogues handling are initialized. 
     /// </summary>
-    public class AxoDialogProxyService : AxoDialogProxyServiceBase, IDisposable
+    public class AxoDialogProxyService :  IDisposable
     {
         private readonly AxoDialogContainer _dialogContainer;
         private readonly IEnumerable<ITwinObject> _observedObject;
 
         private List<IsDialogType> _observedDialogs = new();
 
-        private string DialogLocatorId { get; set; }
+        private string _dialogLocatorId { get; set; }
+
+        public List<IsDialogType> DisplayedDialogs { get; set; } = new();
+
 
         /// <summary>
         /// Creates new instance of <see cref="AxoDialogProxyService"/>, in standard case is this constructor called only once.
@@ -23,11 +26,11 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// <param name="observedObjects">Twin objects that may contain invokable dialogs from the controller that are to be handled by this proxy service.</param>
         public AxoDialogProxyService(string dialogLocatorId, AxoDialogContainer dialogContainer, IEnumerable<ITwinObject> observedObjects)
         {
-            DialogLocatorId = dialogLocatorId;
+            _dialogLocatorId = dialogLocatorId;
             _dialogContainer = dialogContainer;
             _observedObject = observedObjects;
 
-            _dialogContainer.DialogProxyServicesDictionary.TryAdd(DialogLocatorId, this);
+            _dialogContainer.DialogProxyServicesDictionary.TryAdd(_dialogLocatorId, this);
 
             StartObservingObjectsForDialogues();
         }
@@ -47,7 +50,8 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             }
         }
 
-        internal event EventHandler<AxoDialogEventArgs>? DialogInvoked;
+        internal event EventHandler<AxoDialogEventArgs>? NewDialogInvoked;
+        internal event EventHandler<AxoDialogEventArgs>? DailogRemoved;
 
         /// <summary>
         /// Handles the invocation of the dialogue from the controller.
@@ -57,6 +61,8 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         {
             await dialog.ReadAsync();
 
+            dialog.DialogLocatorId = _dialogLocatorId;
+
             var exist = this.DisplayedDialogs.Any((p) => p.Symbol == dialog.Symbol);
             if (!exist)
             {
@@ -64,7 +70,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             }
 
             // just invoke in dialog locator state change....
-            DialogInvoked?.Invoke(this, new AxoDialogEventArgs(DialogLocatorId, dialog.Symbol));
+            NewDialogInvoked?.Invoke(this, new AxoDialogEventArgs(_dialogLocatorId, dialog.Symbol));
         }
 
         private void StartObservingDialogs<T>(ITwinObject observedObject) where T : class, IsDialogType
@@ -78,6 +84,55 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             }
         }
 
+
+        public void RemoveDisplayedDialog(IsDialogType dialog)
+        {
+            var exist = this.DisplayedDialogs.Any((p) => p.Symbol == dialog.Symbol);
+            if (exist)
+            {
+                this.DisplayedDialogs.Remove(dialog);
+                DailogRemoved?.Invoke(this, new AxoDialogEventArgs(_dialogLocatorId, dialog.Symbol));
+            }
+        }
+
+        public void RemoveDisplayedDialog(string dialogSymbol)
+        {
+            var exist = this.DisplayedDialogs.Any((p) => p.Symbol == dialogSymbol);
+            if (exist)
+            {
+                var first = this.DisplayedDialogs.First((p) => p.Symbol == dialogSymbol);
+                this.DisplayedDialogs.Remove(first);
+                DailogRemoved?.Invoke(this, new AxoDialogEventArgs(_dialogLocatorId, dialogSymbol));
+
+            }
+        }
+
+        public bool IsDisplayedDialogWithSymbol(string dialogSymbol)
+        {
+            return this.DisplayedDialogs.Any((p) => p.Symbol == dialogSymbol);
+        }
+
+
+        protected IEnumerable<T> GetDescendants<T>(ITwinObject obj, IList<T> children = null) where T : class
+        {
+            children = children != null ? children : new List<T>();
+
+            if (obj != null)
+            {
+                foreach (var child in obj.GetChildren())
+                {
+                    var ch = child as T;
+                    if (ch != null)
+                    {
+                        children.Add(ch);
+                    }
+
+                    GetDescendants<T>(child, children);
+                }
+            }
+
+            return children;
+        }
 
         /// <summary>
         /// Releases resources related to handling and communication with the controller.

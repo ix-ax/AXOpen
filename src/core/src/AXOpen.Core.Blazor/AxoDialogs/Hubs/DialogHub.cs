@@ -11,6 +11,8 @@ namespace AXOpen.Core.Blazor.AxoDialogs.Hubs
 {
     public class DialogHub : Hub
     {
+        public const string HUB_URL_SUFFIX = "/dialoghub";
+
         public async Task SendDialogOpen(string message)
         {
             await Clients.All.SendAsync(DialogMessages.RECEIVE_DIALOG_OPEN, message);

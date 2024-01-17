@@ -42,17 +42,11 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         protected override async Task OnInitializedAsync()
         {
-
-            //initialize signalR
-            DialogContainer.InitializeSignalR(NavigationManager.BaseUri);
-
-            await DialogContainer.DialogClient.StartAsync();
+            // create signalR client and start it
+            await DialogContainer.InitializeSignalR(NavigationManager.BaseUri);
 
             //if dialog id is null, set it to actual URI
-            if (string.IsNullOrEmpty(DialogLocatorId))
-            {
-                DialogLocatorId = NavigationManager.Uri;
-            }
+            if (string.IsNullOrEmpty(DialogLocatorId)) DialogLocatorId = NavigationManager.Uri;
 
             //try to acquire existing dialog service instance
             var proxyExists = DialogContainer.DialogProxyServicesDictionary.TryGetValue(DialogLocatorId, out AxoDialogProxyService proxy);
@@ -60,27 +54,33 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             if (!proxyExists)
             {
                 // if it does not exist, create new instance with observed objects and add it into container
-                _dialogProxyService = new AxoDialogProxyService(DialogLocatorId, DialogContainer,ObservedObjects); 
+                _dialogProxyService = new AxoDialogProxyService(DialogLocatorId, DialogContainer, ObservedObjects); 
             }
             else
             {
                 _dialogProxyService = proxy;
             }
 
-            _dialogProxyService.DialogInvoked += OnDialogInvoked; // handle reaction on any dialog inside DialoLocator
+            _dialogProxyService.NewDialogInvoked += OnNewDialogInvoked; // handle reaction on any dialog inside DialoLocator
+            _dialogProxyService.DailogRemoved += OnDialogRemoved; // handle reaction on any dialog inside DialoLocator
         }
 
-        private async void OnDialogInvoked(object? sender, AxoDialogEventArgs e)
+        private async void OnNewDialogInvoked(object? sender, AxoDialogEventArgs e)
         {
-            await InvokeAsync(StateHasChanged);
-
             if (DialogOpenDelay > 0)
             {
                 await Task.Delay(DialogOpenDelay);
             }
+            
+            await InvokeAsync(StateHasChanged);
 
             //todo : what in case of multiple instancess ???
-            await DialogContainer.DialogClient.SendDialogOpen(DialogLocatorId);
+            await DialogContainer.DialogClient.SendDialogOpenRequest(DialogLocatorId);
+        }
+
+        private async void OnDialogRemoved(object? sender, AxoDialogEventArgs e)
+        {
+            await InvokeAsync(StateHasChanged);
         }
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         {
             if (_dialogProxyService != null)
             {
-                _dialogProxyService.DialogInvoked -= OnDialogInvoked; // unsubscribe current view 
+                _dialogProxyService.NewDialogInvoked -= OnNewDialogInvoked; // unsubscribe current view 
                 //_dialogProxyService.Dispose(); // Not call Dispose -> in case when you open view again....
             }
         }

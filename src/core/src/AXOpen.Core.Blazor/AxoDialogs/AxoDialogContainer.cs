@@ -12,18 +12,20 @@ namespace AXOpen.Core.Blazor.AxoDialogs
     /// <summary>
     ///  Container for multiple AxoDialogProxyService types, based on multiple different dialogues instances and opened web clients.
     /// </summary>
-    public class AxoDialogContainer: IAsyncDisposable
+    public class AxoDialogContainer : IAsyncDisposable
     {
 
+        //todo - AxoDialogContainer is injected as a singleton it is signalR needeed?
         public DialogClient DialogClient { get; set; }
-        public AxoDialogContainer()
-        {
-          
-        }
 
-        public void InitializeSignalR(string uri)
+        public Task InitializeSignalR(string uri)
         {
-            DialogClient = new DialogClient(uri);
+            if (DialogClient == null)
+            {
+                DialogClient = new DialogClient(uri);
+            }
+
+            return DialogClient.StartAsync();
         }
         public HashSet<string> ObservedObjects { get; set; } = new HashSet<string>();
         public HashSet<string> ObservedObjectsAlerts { get; set; } = new HashSet<string>();
@@ -31,7 +33,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// <summary>
         /// DialogLocator has only one proxy service.   
         /// </summary>
-        public Dictionary<string, AxoDialogProxyService> DialogProxyServicesDictionary { get; set; } = new Dictionary<string,AxoDialogProxyService>();
+        public Dictionary<string, AxoDialogProxyService> DialogProxyServicesDictionary { get; set; } = new Dictionary<string, AxoDialogProxyService>();
         public Dictionary<string, AxoAlertDialogProxyService> AlertDialogProxyServicesDictionary { get; set; } = new Dictionary<string, AxoAlertDialogProxyService>();
         public async ValueTask DisposeAsync()
         {
