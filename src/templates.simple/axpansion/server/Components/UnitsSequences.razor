@@ -22,8 +22,9 @@
             @*         </NotAuthorized> *@
             @*     </AuthorizeView> *@
             @* </div> *@
-            
-            <AxoTaskCommandView Component="@task" />
+
+            <RenderableContentControl Context="@task" PresentationTemplate="AXOpen.Core.AxoTaskView"></RenderableContentControl>
+            @* <AxoTaskCommandView Component="@task" /> *@
         }
     </div>
 
