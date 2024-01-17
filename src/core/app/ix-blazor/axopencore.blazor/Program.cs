@@ -1,15 +1,21 @@
-using AXOpen;
-using axopen_integrations_blazor.Data;
-using AXSharp.Connector;
-using AXOpen.Data.Json;
-using AXOpen.Logging;
-using AXSharp.Presentation.Blazor.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using System.Reflection;
+using AXSharp.Connector;
+using AXSharp.Presentation.Blazor.Services;
+using AXOpen;
+using AXOpen.Data.Json;
+using axopen_integrations_blazor.Data;
+using AXOpen.Logging;
 using Serilog;
 using AXOpen.Core;
 using axopencore;
+using AXOpen.Base.Data;
 using AXOpen.Core.Blazor.AxoDialogs.Hubs;
+using AxOpen.Security;
+using AxOpen.Security.Services;
+using AxOpen.Security.Entities;
+
 
 namespace axopen_integrations_blazor
 {
@@ -20,6 +26,7 @@ namespace axopen_integrations_blazor
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.ConfigureAxBlazorSecurity(PrepareUserRepository(), Roles.CreateRoles());
             builder.Services.AddRazorPages();
             builder.Services.AddServerSideBlazor();
             builder.Services.AddSingleton<WeatherForecastService>();
@@ -56,7 +63,7 @@ namespace axopen_integrations_blazor
 
             await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
 
-          
+
 
 
             //<AxoAppBuilder>
@@ -66,7 +73,7 @@ namespace axopen_integrations_blazor
             //<AxoLoggerConfiguration>
 
             // Creates serilog logger with single sink to Console window.
-            
+
             axoAppBuilder.ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
                 .WriteTo.Console().MinimumLevel.Verbose()
                 .CreateLogger()));
@@ -115,5 +122,47 @@ namespace axopen_integrations_blazor
 
 
         }
+
+
+        static (IRepository<User>, IRepository<Group>) PrepareUserRepository()
+        {
+            var repoPath = Environment.GetEnvironmentVariable("AX_JSON_REPOSITORY"); 
+            
+            if (!Directory.Exists(repoPath))
+            {
+                Directory.CreateDirectory(repoPath);
+            }
+
+            IRepository<User> userRepo = new JsonRepository<User>(new JsonRepositorySettings<User>(Path.Combine(repoPath, "Users")));
+            IRepository<Group> groupRepo = new JsonRepository<Group>(new JsonRepositorySettings<Group>(Path.Combine(repoPath, "Groups")));
+
+            return (userRepo, groupRepo);
+        }
+
+        public static class Roles
+        {
+            public static List<Role> CreateRoles()
+            {
+                var roles = new List<Role>
+        {
+            new Role(process_settings_access),
+            new Role(process_traceability_access),
+            new Role(can_run_ground_mode),
+            new Role(can_run_automat_mode),
+            new Role(can_run_service_mode),
+            new Role(can_skip_steps_in_sequence),
+        };
+
+                return roles;
+            }
+
+            public const string can_run_ground_mode = nameof(can_run_ground_mode);
+            public const string can_run_automat_mode = nameof(can_run_automat_mode);
+            public const string can_run_service_mode = nameof(can_run_service_mode);
+            public const string process_settings_access = nameof(process_settings_access);
+            public const string process_traceability_access = nameof(process_traceability_access);
+            public const string can_skip_steps_in_sequence = nameof(can_skip_steps_in_sequence);
+        }
+
     }
 }
