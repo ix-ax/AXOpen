@@ -38,7 +38,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// <summary>
         /// Starts observing dialogue of this proxy service.
         /// </summary>
-        protected void StartObservingObjectsForDialogues()
+        internal void StartObservingObjectsForDialogues()
         {
             if (_observedObject == null || _observedObject.Count() == 0) return;
 
@@ -50,8 +50,8 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             }
         }
 
-        internal event EventHandler<AxoDialogEventArgs>? NewDialogInvoked;
-        internal event EventHandler<AxoDialogEventArgs>? DailogRemoved;
+        internal event EventHandler<AxoDialogEventArgs>? EventFromPlc_DialogInvoked;
+        internal event EventHandler<AxoDialogEventArgs>? EventFromPlc_DialogRemoved;
 
         /// <summary>
         /// Handles the invocation of the dialogue from the controller.
@@ -70,7 +70,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             }
 
             // just invoke in dialog locator state change....
-            NewDialogInvoked?.Invoke(this, new AxoDialogEventArgs(_dialogLocatorId, dialog.Symbol));
+            EventFromPlc_DialogInvoked?.Invoke(this, new AxoDialogEventArgs(_dialogLocatorId, dialog.Symbol));
         }
 
         private void StartObservingDialogs<T>(ITwinObject observedObject) where T : class, IsDialogType
@@ -91,7 +91,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             if (exist)
             {
                 this.DisplayedDialogs.Remove(dialog);
-                DailogRemoved?.Invoke(this, new AxoDialogEventArgs(_dialogLocatorId, dialog.Symbol));
+                EventFromPlc_DialogRemoved?.Invoke(this, new AxoDialogEventArgs(_dialogLocatorId, dialog.Symbol));
             }
         }
 
@@ -102,7 +102,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             {
                 var first = this.DisplayedDialogs.First((p) => p.Symbol == dialogSymbol);
                 this.DisplayedDialogs.Remove(first);
-                DailogRemoved?.Invoke(this, new AxoDialogEventArgs(_dialogLocatorId, dialogSymbol));
+                EventFromPlc_DialogRemoved?.Invoke(this, new AxoDialogEventArgs(_dialogLocatorId, dialogSymbol));
 
             }
         }
@@ -111,7 +111,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         {
             return this.DisplayedDialogs.Any((p) => p.Symbol == dialogSymbol);
         }
-
 
         protected IEnumerable<T> GetDescendants<T>(ITwinObject obj, IList<T> children = null) where T : class
         {

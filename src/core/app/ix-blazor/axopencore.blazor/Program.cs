@@ -101,7 +101,7 @@ namespace axopen_integrations_blazor
             app.UseRequestLocalization(localizationOptions);
 
             app.MapBlazorHub();
-            app.MapHub<DialogHub>(AXOpen.Core.Blazor.AxoDialogs.Hubs.DialogHub.HUB_URL_SUFFIX);
+            app.MapHub<SignalRDialogHub>(AXOpen.Core.Blazor.AxoDialogs.Hubs.SignalRDialogHub.HUB_URL_SUFFIX);
             app.MapFallbackToPage("/_Host");
 
             #region InitializeRemoteTask

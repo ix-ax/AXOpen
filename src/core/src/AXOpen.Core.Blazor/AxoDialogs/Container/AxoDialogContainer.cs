@@ -1,9 +1,11 @@
 ﻿using AXOpen.Core.Blazor.AxoAlertDialog;
 using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 using AXSharp.Connector;
+using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,18 +17,26 @@ namespace AXOpen.Core.Blazor.AxoDialogs
     public class AxoDialogContainer : IAsyncDisposable
     {
 
-        //todo - AxoDialogContainer is injected as a singleton it is signalR needeed?
-        public DialogClient DialogClient { get; set; }
+        [Inject]
+        public NavigationManager NavigationManager { get; set; }
 
-        public Task InitializeSignalR(string uri)
+        /// <summary>
+        /// SingalRClient it is used for sending dignal to the server from dialogs -> especialy for closing dialogs
+        /// </summary>
+        /// 
+        private SignalRDialogClient _singalRDialogClient;
+        public SignalRDialogClient SingalRDialogClient
         {
-            if (DialogClient == null)
+            get
             {
-                DialogClient = new DialogClient(uri);
+                if (_singalRDialogClient == null)
+                {
+                    _singalRDialogClient = new SignalRDialogClient(NavigationManager.BaseUri);
+                }
+                return _singalRDialogClient;
             }
-
-            return DialogClient.StartAsync();
         }
+
         public HashSet<string> ObservedObjects { get; set; } = new HashSet<string>();
         public HashSet<string> ObservedObjectsAlerts { get; set; } = new HashSet<string>();
 
@@ -35,11 +45,22 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// </summary>
         public Dictionary<string, AxoDialogProxyService> DialogProxyServicesDictionary { get; set; } = new Dictionary<string, AxoDialogProxyService>();
         public Dictionary<string, AxoAlertDialogProxyService> AlertDialogProxyServicesDictionary { get; set; } = new Dictionary<string, AxoAlertDialogProxyService>();
+
+        public Task InitializeSignalR()
+        {
+            return SingalRDialogClient.StartAsync();
+        }
+
+        public Task SendToAllClients_CloseDialog(string dialogInstanceSymbol)
+        {
+            return SingalRDialogClient.SendToAllClients_CloseDialog(dialogInstanceSymbol);
+        }
+
         public async ValueTask DisposeAsync()
         {
-            if (DialogClient != null)
+            if (SingalRDialogClient != null)
             {
-                await DialogClient.StopAsync();
+                await SingalRDialogClient.StopAsync();
             }
         }
     }

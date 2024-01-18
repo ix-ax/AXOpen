@@ -18,25 +18,19 @@ namespace AXOpen.Core
 
         protected override void OnInitialized()
         {
-            Component._closeSignal.ValueChangeEvent += OnCloseSignal;
-            base.OnInitialized();
+            base.OnInitialized(); // call always "base"
         }
-
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            base.OnAfterRenderAsync(firstRender);
-
-            if (Component._closeSignal.Cyclic) // when is fist render
-            {
-                await CloseDialogsWithSignalR();
-            }
-
+            await base.OnAfterRenderAsync(firstRender); // call always "base"
         }
 
 
         public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
         {
+            base.AddToPolling(element, pollingInterval); // call always "base"
+
             var dialog = (AxoDialog)element;
 
             if (dialog != null)
@@ -47,7 +41,6 @@ namespace AXOpen.Core
                 selecedToPool.Add(dialog._buttons);
                 selecedToPool.Add(dialog._caption);
                 selecedToPool.Add(dialog._text); // can be changed
-                selecedToPool.Add(dialog._closeSignal); // used in  AxoDialogDialogView.razor -> +onClose()
 
                 foreach (var item in selecedToPool)
                 {
@@ -59,15 +52,6 @@ namespace AXOpen.Core
         }
 
 
-        // experimental stuff for external closings
-        private async void OnCloseSignal(object sender, EventArgs e)
-        {
-            if (Component._closeSignal.Cyclic)
-            {
-                //this is probably reduntant (normal Close should enough, however some wierdness is occuring
-                await CloseDialogsWithSignalR();
-            }
-        }
         public async Task DialogAnswerOk()
         {
             Component._answer.Edit = (short)eDialogAnswer.OK;
@@ -94,7 +78,6 @@ namespace AXOpen.Core
         public override void Dispose()
         {
             base.Dispose();
-            Component._answer.ValueChangeEvent -= OnCloseSignal;
         }
     }
 }
