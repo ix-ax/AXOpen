@@ -14,13 +14,17 @@ namespace AXOpen.Core.Blazor.AxoDialogs
     {
         private AxoDialogProxyService _dialogProxyService { get; set; }
 
+        public string ModalDisplay { set; get; } = "none;";
+        public string ModalClass { set; get; } = string.Empty;
+        public bool ShowBackdrop { set; get; } = false;
+
         [Inject]
         public AxoDialogContainer DialogContainer { get; set; }
 
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
-        public SignalRDialogClient SingalRClient { get; set; }
+        public SignalRDialogClient SignalRClient { get; set; }
 
         /// <summary>
         /// List of objects, which are observed for dialogs.
@@ -46,22 +50,35 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         public Task InitializeSignalR(string uri)
         {
-            if (SingalRClient == null)
+            if (SignalRClient == null)
             {
-                SingalRClient = new SignalRDialogClient(uri);
+                SignalRClient = new SignalRDialogClient(uri);
             }
 
-            return SingalRClient.StartAsync();
+            return SignalRClient.StartAsync();
         }
 
-
-        protected override async Task OnInitializedAsync()
+        protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            // create signalR client and start it
-            await InitializeSignalR(NavigationManager.BaseUri);
+            if (firstRender)
+            {
+                await InitializedDialogHandling();
+            }
+        }
+
+        protected async Task InitializedDialogHandling()
+        {
+            var uri = NavigationManager.BaseUri;
+
+            // create local signalR client and start it for local container
+            await this.InitializeSignalR(uri);
+
+            // start signalR client and start it for global container
+            await DialogContainer.InitializeSignalR(uri);
 
             //if dialog id is null, set it to actual URI
-            if (string.IsNullOrEmpty(DialogLocatorId)) DialogLocatorId = NavigationManager.Uri;
+            if (string.IsNullOrEmpty(DialogLocatorId)) DialogLocatorId = uri;
+
 
             //try to acquire existing dialog service instance
             var proxyExists = DialogContainer.DialogProxyServicesDictionary.TryGetValue(DialogLocatorId, out AxoDialogProxyService proxy);
@@ -69,7 +86,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             if (!proxyExists)
             {
                 // if it does not exist, create new instance with observed objects and add it into container
-                this._dialogProxyService = new AxoDialogProxyService(DialogLocatorId, DialogContainer, ObservedObjects); 
+                this._dialogProxyService = new AxoDialogProxyService(DialogLocatorId, DialogContainer, ObservedObjects);
             }
             else
             {
@@ -81,22 +98,25 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             this._dialogProxyService.EventFromPlc_DialogRemoved += OnPlc_DialogRemoved; // 
 
 
-            this.SingalRClient.EventDialogOpen += OnSignalRClient_DialogOpen;
-            this.SingalRClient.EventDialogClose += OnSignalRClient_DialogClose;
+            this.SignalRClient.EventDialogOpen += OnSignalRClient_DialogOpen;
+            this.SignalRClient.EventDialogClose += OnSignalRClient_DialogClose;
+
+            if (this._dialogProxyService.DisplayedDialogs.Count() > 0)
+                this.Refresh();
 
         }
 
-        private void OnSignalRClient_DialogOpen(object sender, SignalRClientReceivedMessageArgs e)
+        private async void OnSignalRClient_DialogOpen(object sender, SignalRClientReceivedMessageArgs e)
         {
             ; // swallow -> it must be opened from plc
             // fix way when multiple locator are observing 1 instance..
         }
 
-        private void OnSignalRClient_DialogClose(object sender, SignalRClientReceivedMessageArgs e)
+        private async void OnSignalRClient_DialogClose(object sender, SignalRClientReceivedMessageArgs e)
         {
             _dialogProxyService.RemoveDisplayedDialog(e.SymbolOfDialogInstance);
 
-            this.StateHasChanged();// rerender
+            await Refresh(); // rerender
         }
 
         private async void OnPlc_DialogInvoked(object? sender, AxoDialogEventArgs e)
@@ -105,30 +125,59 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             {
                 await Task.Delay(DialogOpenDelay);
             }
-            
-            await InvokeAsync(StateHasChanged);
+
+            await Refresh();
         }
 
         private async void OnPlc_DialogRemoved(object? sender, AxoDialogEventArgs e)
         {
-            await InvokeAsync(StateHasChanged);
+            await Refresh();
+        }
+
+
+        protected Task Refresh()
+        {
+            if (_dialogProxyService.DisplayedDialogs.Count() > 0)
+            {
+                this.Open();
+            }
+            else
+                this.Close();
+
+            return this.InvokeAsync(StateHasChanged);
+        }
+
+        protected void Open()
+        {
+            ModalDisplay = "flex";
+            ModalClass = "show";
+            ShowBackdrop = true;
+        }
+        protected void Close()
+        {
+            ModalDisplay = "none";
+            ModalClass = string.Empty;
+            ShowBackdrop = false;
         }
 
         /// <summary>
         /// Releases communication and event resources when disposed.
         /// </summary>
-        public async void Dispose()
+        public void Dispose()
         {
             if (_dialogProxyService != null)
             {
                 _dialogProxyService.EventFromPlc_DialogInvoked -= OnPlc_DialogInvoked; // unsubscribe current view 
                 _dialogProxyService.EventFromPlc_DialogRemoved -= OnPlc_DialogRemoved; // 
-                _dialogProxyService.Dispose(); 
+                _dialogProxyService.Dispose();
             }
 
-            this.SingalRClient.EventDialogOpen -= OnSignalRClient_DialogOpen;
-            this.SingalRClient.EventDialogClose -= OnSignalRClient_DialogClose;
-            await this.SingalRClient.StopAsync();
+            if (this.SignalRClient != null)
+            {
+                this.SignalRClient.EventDialogOpen -= OnSignalRClient_DialogOpen;
+                this.SignalRClient.EventDialogClose -= OnSignalRClient_DialogClose;
+                this.SignalRClient.StopAsync();
+            }
         }
     }
 }

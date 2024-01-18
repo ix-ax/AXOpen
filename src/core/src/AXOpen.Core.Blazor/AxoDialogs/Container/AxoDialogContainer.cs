@@ -17,9 +17,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
     public class AxoDialogContainer : IAsyncDisposable
     {
 
-        [Inject]
-        public NavigationManager NavigationManager { get; set; }
-
         /// <summary>
         /// SingalRClient it is used for sending dignal to the server from dialogs -> especialy for closing dialogs
         /// </summary>
@@ -29,15 +26,11 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         {
             get
             {
-                if (_singalRDialogClient == null)
-                {
-                    _singalRDialogClient = new SignalRDialogClient(NavigationManager.BaseUri);
-                }
                 return _singalRDialogClient;
             }
         }
 
-        public HashSet<string> ObservedObjects { get; set; } = new HashSet<string>();
+        //public HashSet<string> ObservedObjects { get; set; } = new HashSet<string>();
         public HashSet<string> ObservedObjectsAlerts { get; set; } = new HashSet<string>();
 
         /// <summary>
@@ -46,8 +39,13 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         public Dictionary<string, AxoDialogProxyService> DialogProxyServicesDictionary { get; set; } = new Dictionary<string, AxoDialogProxyService>();
         public Dictionary<string, AxoAlertDialogProxyService> AlertDialogProxyServicesDictionary { get; set; } = new Dictionary<string, AxoAlertDialogProxyService>();
 
-        public Task InitializeSignalR()
+        public Task InitializeSignalR(string uri)
         {
+            if (_singalRDialogClient == null)
+            {
+                _singalRDialogClient = new SignalRDialogClient(uri);
+            }
+
             return SingalRDialogClient.StartAsync();
         }
 

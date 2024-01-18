@@ -1,12 +1,13 @@
 ﻿using AXOpen.Base.Dialogs;
 using AXSharp.Connector;
+using System.Security.Cryptography.Xml;
 
 namespace AXOpen.Core.Blazor.AxoDialogs
 {
     /// <summary>
     /// Proxy service for modal dialogs, where remote tasks responsible for dialogues handling are initialized. 
     /// </summary>
-    public class AxoDialogProxyService :  IDisposable
+    public class AxoDialogProxyService : IDisposable
     {
         private readonly AxoDialogContainer _dialogContainer;
         private readonly IEnumerable<ITwinObject> _observedObject;
@@ -14,6 +15,11 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         private List<IsDialogType> _observedDialogs = new();
 
         private string _dialogLocatorId { get; set; }
+
+        /// <summary>
+        /// Count how many klient is observing this servise
+        /// </summary>
+        int ObservationCounter = 0; 
 
         public List<IsDialogType> DisplayedDialogs { get; set; } = new();
 
@@ -40,12 +46,18 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// </summary>
         internal void StartObservingObjectsForDialogues()
         {
+            ObservationCounter++;
+
             if (_observedObject == null || _observedObject.Count() == 0) return;
+
+            if (_observedDialogs.Count() > 0)
+            {
+                return; // some other client start observation..
+            }
 
             foreach (var item in _observedObject)
             {
                 //todo -> it is needed: _dialogContainer.ObservedObjects,  are not used...
-                _dialogContainer.ObservedObjects.Add(item.Symbol);
                 StartObservingDialogs<IsModalDialogType>(item);
             }
         }
@@ -138,11 +150,17 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// </summary>
         public void Dispose()
         {
-            foreach (var dialog in _observedDialogs)
+            ObservationCounter--;
+
+            if (ObservationCounter < 1) // clear it only int that case when is not observed...
             {
-                dialog.DeInitialize();
+                foreach (var dialog in _observedDialogs)
+                {
+                    dialog.DeInitialize();
+                }
+                _observedDialogs.Clear();
             }
-            _observedDialogs.Clear();
+
         }
     }
 }
