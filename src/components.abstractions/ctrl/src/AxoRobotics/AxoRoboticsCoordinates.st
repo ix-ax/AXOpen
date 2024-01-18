@@ -1,5 +1,7 @@
 NAMESPACE AXOpen.Components.Abstractions.Robotics
-    TYPE AxoRoboticsCoordinates : STRUCT
+    {S7.extern=ReadWrite}
+    CLASS PUBLIC AxoRoboticsCoordinates 
+        VAR PUBLIC
             {#ix-set:AttributeName = "<#Coordinate X#>"}
             X : REAL;
             {#ix-set:AttributeName = "<#Coordinate Y#>"}
@@ -12,6 +14,6 @@ NAMESPACE AXOpen.Components.Abstractions.Robotics
             Ry : REAL;
             {#ix-set:AttributeName = "<#Coordinate Rz#>"}
             Rz : REAL;
-        END_STRUCT;
-    END_TYPE
+        END_VAR
+    END_CLASS
 END_NAMESPACE

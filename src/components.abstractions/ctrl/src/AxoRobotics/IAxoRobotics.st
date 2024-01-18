@@ -4,7 +4,7 @@ NAMESPACE AXOpen.Components.Abstractions.Robotics
         METHOD StartAtMain : AXOpen.Core.IAxoTaskState  END_METHOD
         METHOD StartMotorsAndProgram : AXOpen.Core.IAxoTaskState  END_METHOD
         METHOD StartMovements  :   AXOpen.Core.IAxoTaskState
-            VAR_INPUT
+            VAR_IN_OUT
                 inData : AxoRoboticsMovementsParams;
             END_VAR
         END_METHOD

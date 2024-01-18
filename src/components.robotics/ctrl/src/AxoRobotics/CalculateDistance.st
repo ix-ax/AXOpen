@@ -4,6 +4,8 @@ NAMESPACE AXOpen.Components.Robotics
     FUNCTION CalculateDistance : REAL
         VAR_INPUT
             inDistType : AXOpen.Components.Abstractions.Robotics.eAxoRoboticsDistance;
+        END_VAR
+        VAR_IN_OUT
             inP1 : AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates;
             inP2 : AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates;
         END_VAR

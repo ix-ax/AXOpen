@@ -2,9 +2,11 @@ USING System.Math;
 
 NAMESPACE AXOpen.Components.Robotics
     FUNCTION CoordinatesAreNearlyEqual : BOOL
-        VAR_INPUT
+        VAR_IN_OUT
             Coordinates1 : AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates;
             Coordinates2 : AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates;
+        END_VAR
+        VAR_INPUT
             EpsilonX : REAL; 
             EpsilonY : REAL; 
             EpsilonZ : REAL; 

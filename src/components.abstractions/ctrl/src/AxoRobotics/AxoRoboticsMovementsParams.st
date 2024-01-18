@@ -1,5 +1,7 @@
 NAMESPACE AXOpen.Components.Abstractions.Robotics
-    TYPE AxoRoboticsMovementsParams : STRUCT
+    {S7.extern=ReadWrite}
+    CLASS PUBLIC AxoRoboticsMovementsParams
+        VAR PUBLIC
             {#ix-set:AttributeName = "<#ActionNo#>"}
             ActionNo:BYTE;  
             {#ix-set:AttributeName = "<#GlobalSpeed#>"}
@@ -16,6 +18,6 @@ NAMESPACE AXOpen.Components.Abstractions.Robotics
             UserSpecSpeed2:INT;  
             {#ix-set:AttributeName = "<#Coordinates#>"}     
             Coordinates :AxoRoboticsCoordinates; 		
-        END_STRUCT;
-    END_TYPE
+        END_VAR
+    END_CLASS
 END_NAMESPACE
