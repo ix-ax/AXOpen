@@ -2,6 +2,7 @@
 using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,6 +52,8 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         public Task SendToAllClients_CloseDialog(string dialogInstanceSymbol)
         {
+            Log.Logger.Information($"CONTAINER | SignalR | Close FOR  {dialogInstanceSymbol}");
+
             return SingalRDialogClient.SendToAllClients_CloseDialog(dialogInstanceSymbol);
         }
 

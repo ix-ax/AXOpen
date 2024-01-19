@@ -38,7 +38,7 @@ namespace axopen_integrations_blazor
             //builder.Services.AddTcoCoreExtensions();
 
             AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
-                .WriteTo.Console().MinimumLevel.Debug()
+                .WriteTo.Console().MinimumLevel.Information()
                 .CreateLogger()));
 
             Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()
@@ -48,7 +48,7 @@ namespace axopen_integrations_blazor
                                                         .File($"connector.log",
                                                             outputTemplate: "{Timestamp:yyyy-MMM-dd HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}",
                                                             fileSizeLimitBytes: 100000)
-                                                        .MinimumLevel.Debug()
+                                                        .MinimumLevel.Information()
                                                         .CreateLogger());
 
             Entry.Plc.Connector.ReadWriteCycleDelay = 250;

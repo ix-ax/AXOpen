@@ -21,11 +21,6 @@ namespace AXOpen.Core
             base.OnInitialized(); // call always "base"
         }
 
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            await base.OnAfterRenderAsync(firstRender); // call always "base"
-        }
-
 
         public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
         {

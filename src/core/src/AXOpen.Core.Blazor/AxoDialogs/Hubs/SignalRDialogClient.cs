@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.SignalR.Client;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.SignalR.Client;
+using Polly;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,12 +47,14 @@ namespace AXOpen.Core.Blazor.AxoDialogs.Hubs
                                 return msg;
                             };
                         })
+                        .WithAutomaticReconnect()
                         .Build();
                 }
                 else
                 {
                     _hubConnection = new HubConnectionBuilder()
                         .WithUrl(_hubUrl)
+                        .WithAutomaticReconnect()
                         .Build();
                 }
 
@@ -73,15 +77,24 @@ namespace AXOpen.Core.Blazor.AxoDialogs.Hubs
 
         public async Task SendToAllClients_OpenDialog(string SymbolOfDialogInstance)
         {
+            while (_hubConnection.State != HubConnectionState.Connected)
+            {
+                await Console.Out.WriteLineAsync($"SignalR Hub is not connected! {_hubConnection.State.ToString()}");
+                await Task.Delay(6000);
+            }
+
             await _hubConnection.SendAsync(SignalRDialogMessages.SERVER_SEND_DIALOG_OPEN, SymbolOfDialogInstance);
         }
 
         public async Task SendToAllClients_CloseDialog(string SymbolOfDialogInstance)
         {
-            if (_hubConnection.State == HubConnectionState.Connected)
-                await _hubConnection.SendAsync(SignalRDialogMessages.SERVER_SEND_DIALOG_CLOSE, SymbolOfDialogInstance);
-            else
-                await Console.Out.WriteLineAsync("SignalR Hub is not connected!");
+            while (_hubConnection.State != HubConnectionState.Connected)
+            {
+                await Console.Out.WriteLineAsync($"SignalR Hub is not connected! {_hubConnection.State.ToString()}");
+                await Task.Delay(6000);
+            }
+
+            await _hubConnection.SendAsync(SignalRDialogMessages.SERVER_SEND_DIALOG_CLOSE, SymbolOfDialogInstance);
         }
 
         #endregion Ssending messages to all SignalR Client

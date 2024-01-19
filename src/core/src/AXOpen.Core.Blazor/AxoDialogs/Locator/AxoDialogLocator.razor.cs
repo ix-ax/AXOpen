@@ -1,6 +1,7 @@
 ﻿using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -108,12 +109,16 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         private async void OnSignalRClient_DialogOpen(object sender, SignalRClientReceivedMessageArgs e)
         {
+            Log.Logger.Information($"DialogLocator | SignalR | Open -  {e.SymbolOfDialogInstance}");
+
             ; // swallow -> it must be opened from plc
             // fix way when multiple locator are observing 1 instance..
         }
 
         private async void OnSignalRClient_DialogClose(object sender, SignalRClientReceivedMessageArgs e)
         {
+            Log.Logger.Information($"DialogLocator | SignalR | Close -  {e.SymbolOfDialogInstance}");
+
             _dialogProxyService.RemoveDisplayedDialog(e.SymbolOfDialogInstance);
 
             await Refresh(); // rerender
@@ -121,6 +126,8 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         private async void OnPlc_DialogInvoked(object? sender, AxoDialogEventArgs e)
         {
+            Log.Logger.Information($"DialogLocator | PLC | Open -  {e.SymbolOfDialogInstance}");
+
             if (DialogOpenDelay > 0)
             {
                 await Task.Delay(DialogOpenDelay);
@@ -131,6 +138,8 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         private async void OnPlc_DialogRemoved(object? sender, AxoDialogEventArgs e)
         {
+            Log.Logger.Information($"DialogLocator | PLC | Close -  {e.SymbolOfDialogInstance}");
+
             await Refresh();
         }
 

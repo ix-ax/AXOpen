@@ -1,6 +1,12 @@
 ﻿using AXOpen.Base.Dialogs;
 using AXSharp.Connector;
+using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Components;
+using System.ComponentModel;
 using System.Security.Cryptography.Xml;
+using System.Security.Principal;
+using Serilog;
+using System;
 
 namespace AXOpen.Core.Blazor.AxoDialogs
 {
@@ -12,6 +18,8 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         private readonly AxoDialogContainer _dialogContainer;
         private readonly IEnumerable<ITwinObject> _observedObject;
 
+        private volatile object _lockObject = new object();
+
         private List<IsDialogType> _observedDialogs = new();
 
         private string _dialogLocatorId { get; set; }
@@ -19,7 +27,8 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// <summary>
         /// Count how many klient is observing this servise
         /// </summary>
-        int ObservationCounter = 0; 
+        int ObservationCounter = 0;
+
 
         public List<IsDialogType> DisplayedDialogs { get; set; } = new();
 
@@ -55,11 +64,13 @@ namespace AXOpen.Core.Blazor.AxoDialogs
                 return; // some other client start observation..
             }
 
+
             foreach (var item in _observedObject)
             {
                 //todo -> it is needed: _dialogContainer.ObservedObjects,  are not used...
                 StartObservingDialogs<IsModalDialogType>(item);
             }
+            Log.Logger.Information($"Starting observation in proxy service for {_dialogLocatorId}");
         }
 
         internal event EventHandler<AxoDialogEventArgs>? EventFromPlc_DialogInvoked;
@@ -75,14 +86,21 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
             dialog.DialogLocatorId = _dialogLocatorId;
 
-            var exist = this.DisplayedDialogs.Any((p) => p.Symbol == dialog.Symbol);
-            if (!exist)
+            lock (_lockObject)
             {
-                this.DisplayedDialogs.Add(dialog);
+                var exist = this.DisplayedDialogs.Any((p) => p.Symbol == dialog.Symbol);
+                if (!exist)
+                {
+                    this.DisplayedDialogs.Add(dialog);
+                }
             }
+
 
             // just invoke in dialog locator state change....
             EventFromPlc_DialogInvoked?.Invoke(this, new AxoDialogEventArgs(_dialogLocatorId, dialog.Symbol));
+
+            Log.Logger.Information($"PROXY event Invoke {dialog.Symbol}");
+
         }
 
         private void StartObservingDialogs<T>(ITwinObject observedObject) where T : class, IsDialogType
@@ -99,29 +117,41 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         public void RemoveDisplayedDialog(IsDialogType dialog)
         {
-            var exist = this.DisplayedDialogs.Any((p) => p.Symbol == dialog.Symbol);
-            if (exist)
+            lock (_lockObject)
             {
-                this.DisplayedDialogs.Remove(dialog);
-                EventFromPlc_DialogRemoved?.Invoke(this, new AxoDialogEventArgs(_dialogLocatorId, dialog.Symbol));
+                var exist = this.DisplayedDialogs.Any((p) => p.Symbol == dialog.Symbol);
+                if (exist)
+                {
+                    this.DisplayedDialogs.Remove(dialog);
+                    EventFromPlc_DialogRemoved?.Invoke(this, new AxoDialogEventArgs(_dialogLocatorId, dialog.Symbol));
+                    Log.Logger.Information($"PROXY event Remove {dialog.Symbol}");
+                }
             }
         }
 
         public void RemoveDisplayedDialog(string dialogSymbol)
         {
-            var exist = this.DisplayedDialogs.Any((p) => p.Symbol == dialogSymbol);
-            if (exist)
+            lock (_lockObject)
             {
-                var first = this.DisplayedDialogs.First((p) => p.Symbol == dialogSymbol);
-                this.DisplayedDialogs.Remove(first);
-                EventFromPlc_DialogRemoved?.Invoke(this, new AxoDialogEventArgs(_dialogLocatorId, dialogSymbol));
+                Log.Logger.Information($"PROXY try to remove {dialogSymbol}");
 
+                var exist = this.DisplayedDialogs.Any((p) => p.Symbol == dialogSymbol);
+                if (exist)
+                {
+                    var first = this.DisplayedDialogs.First((p) => p.Symbol == dialogSymbol);
+                    this.DisplayedDialogs.Remove(first);
+                    EventFromPlc_DialogRemoved?.Invoke(this, new AxoDialogEventArgs(_dialogLocatorId, dialogSymbol));
+                    Log.Logger.Information($"PROXY event Remove {dialogSymbol}");
+                }
             }
         }
 
         public bool IsDisplayedDialogWithSymbol(string dialogSymbol)
         {
-            return this.DisplayedDialogs.Any((p) => p.Symbol == dialogSymbol);
+            lock (_lockObject)
+            {
+                return this.DisplayedDialogs.Any((p) => p.Symbol == dialogSymbol);
+            }
         }
 
         protected IEnumerable<T> GetDescendants<T>(ITwinObject obj, IList<T> children = null) where T : class
@@ -159,6 +189,9 @@ namespace AXOpen.Core.Blazor.AxoDialogs
                     dialog.DeInitialize();
                 }
                 _observedDialogs.Clear();
+
+                Log.Logger.Information($"PROXY is disposing {_dialogLocatorId}");
+
             }
 
         }

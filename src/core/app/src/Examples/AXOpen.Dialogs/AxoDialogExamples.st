@@ -16,34 +16,66 @@ NAMESPACE AxoDialogExamples
             _invokeSequnceAll : BOOL;
  
              {#ix-set:AttributeName = "Dialog Test 1"}
-             _dailogTest_1 : AxoDialogTest;
+             AA : AxoDialogTest;
        
              {#ix-set:AttributeName = "Dialog Test 2"}
-             _dailogTest_2 : AxoDialogTest;
+             BB : AxoDialogTest;
+
+             {#ix-set:AttributeName = "Dialog Test 1"}
+             CC : AxoDialogTest;
+       
+             {#ix-set:AttributeName = "Dialog Test 2"}
+             DD : AxoDialogTest;
+
+             init_done : bool := false;
         END_VAR    
     
         METHOD PROTECTED OVERRIDE Main  
 
+            if not init_done THEN
+                AA.Caption := 'AA caption';
+                BB.Caption := 'BB caption';
+                CC.Caption := 'CC caption';
+                DD.Caption := 'DD caption';
+                
+                AA.Question := 'AA Question';
+                BB.Question := 'BB Question';
+                CC.Question := 'CC Question';
+                DD.Question := 'DD Question';
+                
+                init_done := true;
+                
+            end_if;
+
+
             IF _invokeRestoreAll THEN
-                _dailogTest_1._restoreDialog := TRUE;
-                _dailogTest_2._restoreDialog := TRUE;
+                AA._restoreDialog := TRUE;
+                BB._restoreDialog := TRUE;
+                CC._restoreDialog := TRUE;
+                DD._restoreDialog := TRUE;
                 _invokeRestoreAll := FALSE;
             END_IF;
 
             IF _invokeCallAll THEN
-                _dailogTest_1._callDialog := TRUE;
-                _dailogTest_2._callDialog := TRUE;
+                AA._callDialog := TRUE;
+                BB._callDialog := TRUE;
+                CC._callDialog := TRUE;
+                DD._callDialog := TRUE;
                 _invokeCallAll := FALSE;
             END_IF;
 
             IF _invokeSequnceAll THEN
-                _dailogTest_1._callDialogInSequnce := TRUE;
-                _dailogTest_2._callDialogInSequnce := TRUE;
+                AA._callDialogInSequnce := TRUE;
+                BB._callDialogInSequnce := TRUE;
+                CC._callDialogInSequnce := TRUE;
+                DD._callDialogInSequnce := TRUE;
                 _invokeSequnceAll := FALSE;
             END_IF;
 
-            _dailogTest_1.Run(THIS);
-            _dailogTest_2.Run(THIS);
+            AA.Run(THIS);
+            BB.Run(THIS);
+            CC.Run(THIS);
+            DD.Run(THIS);
 
         END_METHOD
     END_CLASS    

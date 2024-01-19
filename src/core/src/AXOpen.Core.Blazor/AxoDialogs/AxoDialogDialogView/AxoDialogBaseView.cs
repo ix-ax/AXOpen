@@ -2,6 +2,7 @@
 using AXSharp.Connector;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 using Microsoft.AspNetCore.Components;
+using Serilog;
 
 namespace AXOpen.Core.Blazor.AxoDialogs
 {
@@ -22,6 +23,8 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             Component._closeSignal.ValueChangeEvent += OnCloseSignal;
             
             this.UpdateValuesOnChange(Component); //todo - every children must define addto pooling... verify ...
+            Log.Logger.Information($"- AxoDialogBaseView --> Initialized --> CloseValue:{Component._closeSignal.Cyclic.ToString()}, in {Component.Symbol}");
+
         }
 
         public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
@@ -35,30 +38,31 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         private async void OnCloseSignal(object sender, EventArgs e)
         {
+            Log.Logger.Information($"- AxoDialogBaseView --> OnCloseSignal() --> CloseValue:{Component._closeSignal.Cyclic.ToString()}, in {Component.Symbol}");
             if (Component._closeSignal.Cyclic)
             {
                 //this is probably reduntant (normal Close should enough, however some wierdness is occuring
                 await CloseDialogsWithSignalR();
             }
-        }
-
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            await base.OnAfterRenderAsync(firstRender);
-
-            if (Component._closeSignal.Cyclic)
+            else
             {
-                await CloseDialogsWithSignalR();
+                var ss = Component._closeSignal;
             }
         }
 
+        private bool _sendingCloseToAll = false;
+
         public virtual async Task CloseDialogsWithSignalR()
         {
+            Log.Logger.Information($"- AxoDialogBaseView - Closing by SignalR {Component.Symbol}");
             await DialogContainer.SendToAllClients_CloseDialog(Component.Symbol);
         }
 
         public override void Dispose()
         {
+
+            Log.Logger.Information($"- AxoDialogBaseView --> Disposing --> CloseValue:{Component._closeSignal.Cyclic.ToString()}, in {Component.Symbol}");
+
             Component._closeSignal.ValueChangeEvent -= OnCloseSignal;
             base.Dispose();
         }

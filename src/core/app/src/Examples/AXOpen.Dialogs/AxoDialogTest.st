@@ -28,11 +28,14 @@ NAMESPACE AxoDialogExamples
             {#ix-set:AttributeName = "External Button signal - CANCEL"}
             _externButtonSignal_cancel : BOOL;
 
+            Caption : STRING := 'Caption';
+            Question : STRING := 'Question';
+
             {#ix-set:AttributeName = "Dialog Answer"}
-            _dialogAnswer : eDialogAnswer;
+            _answer : eDialogAnswer;
  
             {#ix-set:AttributeName = "example dialog"}
-            _dialog : AXOpen.Core.AxoDialog;
+            _d : AXOpen.Core.AxoDialog;
         END_VAR    
 
 
@@ -48,7 +51,7 @@ NAMESPACE AxoDialogExamples
             
             IF(_restoreDialog) THEN
                 _restoreDialog := false;
-                _dialog.Restore();    
+                _d.Restore();    
                 _callDialog:= false;
                 _callDialogInSequnce := false;
                 _iterationStep := 0;
@@ -56,14 +59,14 @@ NAMESPACE AxoDialogExamples
             END_IF;   
             
             IF(_callDialog) THEN
-               _dialogAnswer := _dialog.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
+               _answer := _d.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
                                                 .WithYesNoCancel()
                                                 .WithType(eDialogType#Warning)
-                                                .WithCaption('What`s next?')
-                                                .WithText('Decide what next?')
+                                                .WithCaption(Caption)
+                                                .WithText(Question)
                                                 .Answer();
                                     
-                if _dialogAnswer <> eDialogAnswer#NoAnswer THEN
+                if _answer <> eDialogAnswer#NoAnswer THEN
                     _callDialog := FALSE;
                END_IF;
             END_IF;
@@ -79,16 +82,16 @@ NAMESPACE AxoDialogExamples
 
                 if  _iterationStep  = 1 then 
 
-                    if not _dialog.HasError() then 
-                        _dialogAnswer := _dialog.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
+                    if not _d.HasError() then 
+                        _answer := _d.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
                         .WithYesNoCancel()
                         .WithType(eDialogType#Info)
-                        .WithCaption('Iteraion 1')
-                        .WithText('Decide what next?')
+                        .WithCaption( 'Iteraion 1')
+                        .WithText(Question)
                         .Answer();
             
                         THIS.Watcher_Monitor();
-                        if _dialogAnswer <> eDialogAnswer#NoAnswer THEN
+                        if _answer <> eDialogAnswer#NoAnswer THEN
                             THIS.Watcher_Reset();
                             _iterationStep := _iterationStep + 1;
                         END_IF;
@@ -99,16 +102,16 @@ NAMESPACE AxoDialogExamples
 
                 if  _iterationStep  = 2 then 
 
-                    if not _dialog.HasError() then 
-                        _dialogAnswer := _dialog.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
+                    if not _d.HasError() then 
+                        _answer := _d.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
                         .WithYesNoCancel()
                         .WithType(eDialogType#Success)
                         .WithCaption('Iteraion 2')
-                        .WithText('Decide what next?')
+                        .WithText(Question)
                         .Answer();
             
                         THIS.Watcher_Monitor();
-                        if _dialogAnswer <> eDialogAnswer#NoAnswer THEN
+                        if _answer <> eDialogAnswer#NoAnswer THEN
                             THIS.Watcher_Reset();
                             _iterationStep := _iterationStep + 1;
                         END_IF;
@@ -117,16 +120,16 @@ NAMESPACE AxoDialogExamples
                 end_if;
 
                 if  _iterationStep  = 3 then 
-                    if not _dialog.HasError() then 
-                        _dialogAnswer := _dialog.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
+                    if not _d.HasError() then 
+                        _answer := _d.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
                         .WithYesNoCancel()
                         .WithType(eDialogType#Warning)
                         .WithCaption('Iteraion 3')
-                        .WithText('Decide what next?')
+                        .WithText(Question)
                         .Answer();
             
                         THIS.Watcher_Monitor();
-                        if _dialogAnswer <> eDialogAnswer#NoAnswer THEN
+                        if _answer <> eDialogAnswer#NoAnswer THEN
                             THIS.Watcher_Reset();
                             _iterationStep := _iterationStep + 1;
                         END_IF;
@@ -135,16 +138,16 @@ NAMESPACE AxoDialogExamples
                 end_if;
 
                 if  _iterationStep  = 4 then 
-                    if not _dialog.HasError() then 
-                        _dialogAnswer := _dialog.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
+                    if not _d.HasError() then 
+                        _answer := _d.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
                         .WithYesNoCancel()
                         .WithType(eDialogType#Danger)
                         .WithCaption('Iteraion 4')
-                        .WithText('Decide what next?')
+                        .WithText(Question)
                         .Answer();
             
                         THIS.Watcher_Monitor();
-                        if _dialogAnswer <> eDialogAnswer#NoAnswer THEN
+                        if _answer <> eDialogAnswer#NoAnswer THEN
                             THIS.Watcher_Reset();
                             _iterationStep := _iterationStep + 1;
                         END_IF;
