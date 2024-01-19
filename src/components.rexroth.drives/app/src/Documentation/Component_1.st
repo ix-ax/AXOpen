@@ -31,7 +31,8 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
             AxoIndraDrive_.ActivateManualControl();
         END_IF;   
         //<Initialization>        
-        AxoIndraDrive_.Run(parent:=THIS,
+        AxoIndraDrive_.Run(parent           :=  THIS,
+                        hwID                :=  TO_UINT(HwIdentifiers#ST3_indradrive),
                         refParameter_In     :=  REF(PlcInputs^.ST3_indradrive_ParamCh_IDN_1),
                         refFieldbus_In      :=  REF(PlcInputs^.ST3_indradrive_Input_9_Words_1),
                         refParameter_Out    :=  REF(PlcOutputs^.ST3_indradrive_ParamCh_IDN_1),

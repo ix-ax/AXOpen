@@ -164,6 +164,9 @@ public class BuildContext : FrostingContext
         ("components.rexroth.drives", "axopen.components.rexroth.drives", true),
         ("components.festo.drives", "axopen.components.festo.drives", true),
         ("components.desoutter.tightening", "axopen.components.desoutter.tightening", true),
+        ("io", "axopen.io", true),
+        ("components.robotics", "axopen.components.robotics", true),
+        ("components.mitsubishi.robotics", "axopen.components.mitsubishi.robotics", true),
         ("integrations", "ix.integrations", false),
         ("templates.simple", "templates.simple", false),
         ("template.axolibrary", "template.axolibrary", false)

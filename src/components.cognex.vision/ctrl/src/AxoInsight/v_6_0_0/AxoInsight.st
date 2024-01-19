@@ -128,7 +128,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             {#ix-set:AttributeName = "<#User data#>"}
             {#ix-attr:[ReadOnly()]}
             UserData        :   AxoInsight_UserData;
-
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentDetails("Hardware diagnostics")]}
+            {#ix-set:AttributeName = "<#Update diagnostics#>"}
+            HardwareDiagnosticsTask :   AXOpen.Io.AxoHardwareDiagnostics;
             _Messenger          :   AXOpen.Messaging.Static.AxoMessenger;
             _TaskMessenger      :   AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
@@ -420,6 +423,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
         METHOD PUBLIC Run
             VAR_INPUT
                 parent                 :   IAxoObject; 
+                hwID                    :   UINT;
                 refAcquisitionControl  :   REF_TO  BYTE;
                 refAcquisitionStatus   :   REF_TO  ARRAY[0..2] OF BYTE;
                 refInspectionControl   :   REF_TO  BYTE;
@@ -447,13 +451,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 ChangeJobByNameTask.Initialize(THIS);
                 ChangeJobByNumberTask.Initialize(THIS);
                 SoftEventTask.Initialize(THIS);
+                HardwareDiagnosticsTask.Initialize(THIS);
             END_IF;
 
             IF NOT THIS.IsValidReferences(refAcquisitionControl,refAcquisitionStatus,refInspectionControl,refInspectionStatus,refCommandControl,refCommandStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData) THEN
                 RETURN;
             END_IF;
             THIS.Open();
-            THIS.Execute(refAcquisitionControl,refAcquisitionStatus,refInspectionControl,refInspectionStatus,refCommandControl,refCommandStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData);
+            THIS.Execute(hwID,refAcquisitionControl,refAcquisitionStatus,refInspectionControl,refInspectionStatus,refCommandControl,refCommandStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData);
             THIS.Close();            
         END_METHOD
 
@@ -464,6 +469,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
         METHOD PUBLIC Run
             VAR_INPUT
                 parent                 :   IAxoContext; 
+                hwID                    :   UINT;
                 refAcquisitionControl  :   REF_TO  BYTE;
                 refAcquisitionStatus   :   REF_TO  ARRAY[0..2] OF BYTE;
                 refInspectionControl   :   REF_TO  BYTE;
@@ -497,12 +503,13 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             END_IF;
             
             THIS.Open();
-            THIS.Execute(refAcquisitionControl,refAcquisitionStatus,refInspectionControl,refInspectionStatus,refCommandControl,refCommandStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData);
+            THIS.Execute(hwID,refAcquisitionControl,refAcquisitionStatus,refInspectionControl,refInspectionStatus,refCommandControl,refCommandStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData);
             THIS.Close();            
         END_METHOD
 
         METHOD PRIVATE Execute
             VAR_INPUT
+                hwID                   :   UINT;
                 refAcquisitionControl  :   REF_TO  BYTE;
                 refAcquisitionStatus   :   REF_TO  ARRAY[0..2] OF BYTE;
                 refInspectionControl   :   REF_TO  BYTE;
@@ -518,7 +525,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             _Messenger.Serve(THIS);
  
             THIS.UpdateInputs(refAcquisitionStatus,refInspectionStatus,refCommandStatus,refSoftEventStatus,refResultData);
-
+            
+            HardwareDiagnosticsTask.Run(hwID);
+            
             //*************RESTORE********************
             RestoreTask.IsDisabled := FALSE;
             IF RestoreTask.Execute() THEN

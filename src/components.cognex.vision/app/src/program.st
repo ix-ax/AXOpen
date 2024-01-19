@@ -1,21 +1,26 @@
 PROGRAM MyProgram
     VAR_EXTERNAL
-        I_am_alive : ULINT;
-        AxoCognexVisionExampleContext : AxoCognexVisionExample.AxoCognexVisionExampleContext;
-		PlcInputs : PlcInputs;
-		PlcOutputs : PlcOutputs;
+        sandbox : SandboxContext;
+        documentation : DocumentationContext;
         _rtc : AXOpen.S71500.Rtc;
-	END_VAR
+        PlcInputs : PlcInputs;
+		PlcOutputs : PlcOutputs;
+    END_VAR
 
     CopyInputs();
+    
+    sandbox.PlcInputs := REF(PlcInputs); 
+    sandbox.PlcOutputs := REF(PlcOutputs);
+    sandbox.Run();    
+    sandbox.InjectRtc(_rtc);
+    
+    documentation.componentOne.PlcInputs := REF(PlcInputs); 
+    documentation.componentOne.PlcOutputs := REF(PlcOutputs);
+    documentation.componentTwo.PlcInputs := REF(PlcInputs); 
+    documentation.componentTwo.PlcOutputs := REF(PlcOutputs);
+    documentation.Run();
+    documentation.InjectRtc(_rtc);
 
-    I_am_alive := I_am_alive + ULINT#1;
-        
-    AxoCognexVisionExampleContext.PlcInputs := REF(PlcInputs);
-    AxoCognexVisionExampleContext.PlcOutputs := REF(PlcOutputs);
-    AxoCognexVisionExampleContext.Run();
-    AxoCognexVisionExampleContext.InjectRtc(_rtc);
 
-    CopyOutputs();  
+    CopyOutputs();
 END_PROGRAM
-

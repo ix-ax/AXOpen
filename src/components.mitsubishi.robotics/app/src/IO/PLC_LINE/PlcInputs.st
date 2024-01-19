@@ -1,0 +1,5 @@
+TYPE
+	PlcInputs : STRUCT
+		TZ535_PN_In_Out_64_byte_1 : ARRAY[0..63] OF BYTE;
+	END_STRUCT;
+END_TYPE

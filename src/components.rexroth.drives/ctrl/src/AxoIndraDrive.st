@@ -12,6 +12,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
     {#ix-attr:[Container(Layout.Wrap)]}
     {S7.extern=ReadWrite}
     CLASS PUBLIC AxoIndraDrive EXTENDS AXOpen.Components.Drives.AxoDrive IMPLEMENTS AXOpen.Components.Abstractions.Drives.IAxoDrive
+        VAR PUBLIC
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentDetails("Hardware diagnostics")]}
+            {#ix-set:AttributeName = "<#Update diagnostics#>"}
+            HardwareDiagnosticsTask :   AXOpen.Io.AxoHardwareDiagnostics;
+        END_VAR
         
         VAR CONSTANT
             PositionExponent		:	INT := 4;
@@ -38,6 +44,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         METHOD PUBLIC Run
             VAR_INPUT
                 parent          :   IAxoObject; 
+                hwID            :   UINT;
                 refParameter_In :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the parameter input data of the axis
                 refFieldbus_In  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
                 refParameter_Out:   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the parameter output data of the axis
@@ -53,7 +60,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
 
             THIS.Initialize(parent);
-
+            HardwareDiagnosticsTask.Initialize(THIS);
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(ULINT#300, Enable AND NOT EnablePositive, eAxoMessageCategory#Warning);
             Messenger.ActivateOnCondition(ULINT#301, Enable AND NOT EnableNegative, eAxoMessageCategory#Warning);
@@ -63,6 +70,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
             
             THIS.Open();
+            HardwareDiagnosticsTask.Run(hwID);
             THIS.UpdateInputs(refParameter_In := refParameter_In, refFieldbus_In := refFieldbus_In,AxisRef :=_AxisRefExt);
             SUPER.Execute(_AxisRefExt,Enable,EnablePositive,EnableNegative);
             THIS.UpdateStatus(_AxisRefExt);
@@ -77,6 +85,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         METHOD PUBLIC Run
             VAR_INPUT
                 parent          :   IAxoContext; 
+                hwID            :   UINT;
                 refParameter_In :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the parameter input data of the axis
                 refFieldbus_In  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
                 refParameter_Out:   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the parameter output data of the axis
@@ -92,7 +101,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
  
             THIS.Initialize(parent);
-
+            HardwareDiagnosticsTask.Initialize(THIS);
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(ULINT#300, Enable AND NOT EnablePositive, eAxoMessageCategory#Warning);
             Messenger.ActivateOnCondition(ULINT#301, Enable AND NOT EnableNegative, eAxoMessageCategory#Warning);
@@ -102,6 +111,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
             
             THIS.Open();
+            HardwareDiagnosticsTask.Run(hwID);
             THIS.UpdateInputs(refParameter_In := refParameter_In, refFieldbus_In := refFieldbus_In,AxisRef :=_AxisRefExt);
             SUPER.Execute(_AxisRefExt,Enable,EnablePositive,EnableNegative);
             THIS.UpdateStatus(_AxisRefExt);
