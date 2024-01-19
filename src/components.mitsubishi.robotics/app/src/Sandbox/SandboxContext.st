@@ -17,14 +17,9 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
             _testRobot.ActivateManualControl();
         END_IF;   
 
-        // _testRobot.Run(   parent             :=  THIS,
-        //                         refStatus               := REF(PlcInputs^.wp462_t1_rh_deso_Input_1_byte_1),
-        //                         refActScrewingProgram   := REF(PlcInputs^.wp462_t1_rh_deso_Input_1_byte_2),
-        //                         refTorque               := REF(PlcInputs^.wp462_t1_rh_deso_Input_2_word_1),
-        //                         refTorqueTrend          := REF(PlcInputs^.wp462_t1_rh_deso_Input_1_word_1),
-        //                         refAngle                := REF(PlcInputs^.wp462_t1_rh_deso_Input_2_word_2),
-        //                         refAngleTrend           := REF(PlcInputs^.wp462_t1_rh_deso_Input_1_word_2),
-        //                         refControl              := REF(PlcOutputs^.wp462_t1_rh_deso_Output_1_byte_1),
-        //                         refReqScrewingProgram   := REF(PlcOutputs^.wp462_t1_rh_deso_Output_1_byte_2));      
+        _testRobot.Run( parent      := THIS,
+                        hwID        := TO_UINT(HwIdentifiers#TZ535_PN),
+                        refInputs   := REF(PlcInputs^.TZ535_PN_In_Out_64_byte_1),      
+                        refOutputs  := REF(PlcOutputs^.TZ535_PN_In_Out_64_byte_1));     
     END_METHOD
 END_CLASS

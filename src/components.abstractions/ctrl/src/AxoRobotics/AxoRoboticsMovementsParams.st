@@ -1,7 +1,10 @@
 NAMESPACE AXOpen.Components.Abstractions.Robotics
     {S7.extern=ReadWrite}
+    {#ix-attr:[Container(Layout.Wrap)]}
     CLASS PUBLIC AxoRoboticsMovementsParams
         VAR PUBLIC
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#ActionNo#>"}
             ActionNo:BYTE;  
             {#ix-set:AttributeName = "<#GlobalSpeed#>"}
@@ -17,6 +20,8 @@ NAMESPACE AXOpen.Components.Abstractions.Robotics
             {#ix-set:AttributeName = "<#UserSpecSpeed2#>"}
             UserSpecSpeed2:INT;  
             {#ix-set:AttributeName = "<#Coordinates#>"}     
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]}
             Coordinates :AxoRoboticsCoordinates; 		
         END_VAR
     END_CLASS
