@@ -8,16 +8,8 @@ targets:
 devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
 dependencies:
-  "@ix-ax/axopen.components.abstractions": '0.0.0-dev.0'
-  "@ix-ax/axopen.timers": '0.0.0-dev.0'
-  "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
-  "@ix-ax/axopen.core": '0.0.0-dev.0'
-  "@ix-ax/axopen.utils": '0.0.0-dev.0'
-  "@ax/system-serde": ^6.0.94
-  "@ax/system-strings": ^6.0.94
   "@ix-ax/axopen.components.cognex.vision": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
-  "@ax/simatic-1500-clocks": ^6.0.37
 variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
