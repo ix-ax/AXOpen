@@ -148,19 +148,19 @@
   </data>
   <data name="RESTORE" xml:space="preserve">
     <value>RESTORE</value>
-    <comment>src\templates\starterunit\GroundSequence.st,65</comment>
+    <comment>src\templates\starterunit\GroundSequence.st,66</comment>
   </data>
   <data name="READ_PERSISTENT_SETTINGS" xml:space="preserve">
     <value>READ PERSISTENT SETTINGS</value>
-    <comment>src\templates\starterunit\GroundSequence.st,75</comment>
+    <comment>src\templates\starterunit\GroundSequence.st,76</comment>
   </data>
   <data name="READ_TECHNOLOGY_SETTINS" xml:space="preserve">
     <value>READ TECHNOLOGY SETTINS</value>
-    <comment>src\templates\starterunit\GroundSequence.st,121</comment>
+    <comment>src\templates\starterunit\GroundSequence.st,122</comment>
   </data>
   <data name="SAVE_DATA" xml:space="preserve">
     <value>SAVE DATA</value>
-    <comment>src\templates\starterunit\GroundSequence.st,159</comment>
+    <comment>src\templates\starterunit\GroundSequence.st,160</comment>
   </data>
   <data name="GROUND" xml:space="preserve">
     <value>GROUND</value>

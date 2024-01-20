@@ -3,14 +3,17 @@ version: 0.0.0
 type: app
 targets:
   - plcsim
-  - axunit-llvm
+  - llvm
 variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
 devDependencies:
-  "@ax/sdk": 4.0.12
-  "@ax/sld": 2.0.5
+  "@ix-ax/ax-sdk": '0.0.0-dev.0'
 dependencies:
+  "@ax/system-strings": ^6.0.94
+  "@ax/simatic-1500-clocks": ^6.0.37
+  "@ix-ax/axopen.timers": '0.0.0-dev.0'
+  "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
   "@ix-ax/axopen.core": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
 scripts:
@@ -21,7 +24,8 @@ scripts:
     - echo "Built by ixc in :" $(expr $(date +%s) - $START) "s"
   download:
     - START=$(date +%s)
-    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i
+      $AXTARGETPLATFORMINPUT -r
     - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"
   check+download: |
     if [ $AXTARGET ]; then
@@ -45,7 +49,8 @@ scripts:
   postbuild:
     - apax ixc
   watch:
-    - dotnet watch --project ..\\src\\AXOpen.Core.Blazor\\axopen_core_blazor.csproj
+    - dotnet watch --project
+      ..\\src\\AXOpen.Core.Blazor\\axopen_core_blazor.csproj
   rr:
     - apax build
     - apax download
@@ -57,7 +62,10 @@ scripts:
   da:
     - START=$(date +%s)
     - apax do-it-all
-    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
+    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in
+      :" $(expr $(date +%s) - $START) "s"
   r:
     - apax plc-mode set stop -t $AXTARGET -y
     - apax plc-mode set run -t $AXTARGET -y
+installStrategy: strict
+apaxVersion: 3.1.0

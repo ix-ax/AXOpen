@@ -134,6 +134,11 @@ public static class ApaxCmd
     {
         foreach (var folder in context.GetAxFolders(lib))
         {
+            if(!Directory.Exists(Path.Combine(folder, "test")))
+            {
+                context.Log.Warning($"skipping apax test for '{lib.folder} : {lib.name}' [{folder}] no 'test' folder present in the directory.");
+            }
+
             context.Log.Information($"apax test started for '{lib.folder} : {lib.name}' [{folder}]");
             var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
             {

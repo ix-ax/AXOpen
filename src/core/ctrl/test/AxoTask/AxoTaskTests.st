@@ -290,11 +290,11 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             END_IF;
             actState := myTask.GetState();
             Assert.Equal(TRUE,THIS.Equal(expState, actState));     
-            Assert.Equal('this is the reson of failure...', myTask.ErrorDetails);         
-            Assert.Equal('this is the reson of failure...', myTask.GetErrorDetails());    
+            AxOpenCoreAssert.Equal('this is the reson of failure...', myTask.ErrorDetails);         
+            AxOpenCoreAssert.Equal('this is the reson of failure...', myTask.GetErrorDetails());    
             myTask.Restore();
-            Assert.Equal('', myTask.ErrorDetails);         
-            Assert.Equal('', myTask.GetErrorDetails());    
+            AxOpenCoreAssert.Equal('', myTask.ErrorDetails);         
+            AxOpenCoreAssert.Equal('', myTask.GetErrorDetails());    
         END_METHOD
 
 
