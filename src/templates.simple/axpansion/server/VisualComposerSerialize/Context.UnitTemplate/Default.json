@@ -1,0 +1,47 @@
+{
+  "ImgSrc": null,
+  "Items": [
+    {
+      "Id": "5e7000db704b42f898b52b8edca1ecee3111e04c073feaa32431db1ae3a1222d",
+      "RatioImgX": 52.66975308641976,
+      "RatioImgY": -5,
+      "Transform": "TopCenter",
+      "Presentation": "Status-Display",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": "",
+      "PresentationTemplate": "AXOpen.Core.AxoTaskView"
+    },
+    {
+      "Id": "31015467c3400986218d94d66b6c2b9b90c8d75b8c76b685dc0fd2963ea19c28",
+      "RatioImgX": 67.87037037037037,
+      "RatioImgY": -8,
+      "Transform": "TopCenter",
+      "Presentation": "Status-Display",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": "",
+      "PresentationTemplate": "AXOpen.Core.AxoTaskView"
+    },
+    {
+      "Id": "b9341b5103b919868a8b893f5141940bb5dfebf647a5df17531ea709987f785f",
+      "RatioImgX": 83.14814814814814,
+      "RatioImgY": -11,
+      "Transform": "TopCenter",
+      "Presentation": "Status-Display",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": "",
+      "PresentationTemplate": "AXOpen.Core.AxoTaskView"
+    }
+  ],
+  "Scale": 1,
+  "TranslateX": 0,
+  "TranslateY": 0
+}

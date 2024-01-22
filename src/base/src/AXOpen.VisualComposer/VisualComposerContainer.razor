@@ -3,10 +3,10 @@
 
 <div class="container">
 <div class="row">
-    
     <AuthorizeView Roles="Administrator">
        
         <Authorized>
+                <i class="bi bi-tools" @onclick="ToggleInDesignMode"></i>
                 @if (InDesignMode)
                 {
                     <div class="d-flex justify-content-end my-2">
@@ -62,7 +62,7 @@
                             </CascadingValue>
                         </CascadingValue>
                     </EmptyContainer>
-                     <button class="btn btn-outline-primary m-2" @onclick="ToggleInDesignMode">Toggle design mode</button> 
+                     @* <button class="btn btn-outline-primary m-2" @onclick="ToggleInDesignMode">Toggle design mode</button>  *@
                 @if (InDesignMode)
                 {
                     <div class="modal fade" id="showAllModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
@@ -252,7 +252,6 @@
             </ZoomableContainer>
         </NotAuthorized>
     </AuthorizeView>
-
 </div>
     <span class="@DetailsVisibility m-4">
         <div class="card overflow-auto" style="height: 500px;">

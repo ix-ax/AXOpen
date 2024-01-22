@@ -55,8 +55,8 @@
     },
     {
       "Id": "5e7000db704b42f898b52b8edca1ecee3111e04c073feaa32431db1ae3a1222d",
-      "RatioImgX": 70.82519514750115,
-      "RatioImgY": 9.5999599959996,
+      "RatioImgX": 60,
+      "RatioImgY": 10,
       "Transform": "TopCenter",
       "Presentation": "Status-Display",
       "Width": -1,

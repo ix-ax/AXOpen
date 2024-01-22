@@ -92,6 +92,20 @@ namespace AXOpen.VisualComposer
         internal double ratioImgX = 10;
         internal double ratioImgY = 10;
 
+
+        public double PosX
+        {
+            get { return ratioImgX; }
+            set { ratioImgX = value; StateHasChanged(); }
+        }
+
+        public double PosY
+        {
+            get { return ratioImgY; }
+            set { ratioImgY = value; StateHasChanged(); }
+        }
+
+        
         internal TransformType _transform = TransformType.TopCenter;
         public TransformType Transform
         {
