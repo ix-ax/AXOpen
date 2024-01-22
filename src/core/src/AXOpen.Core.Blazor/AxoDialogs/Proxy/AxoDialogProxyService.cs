@@ -7,31 +7,28 @@ using System.Security.Cryptography.Xml;
 using System.Security.Principal;
 using Serilog;
 using System;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using AXSharp.Connector.ValueTypes.Shadows;
+using System.Reflection;
 
 namespace AXOpen.Core.Blazor.AxoDialogs
 {
     /// <summary>
-    /// Proxy service for modal dialogs, where remote tasks responsible for dialogues handling are initialized. 
+    /// Proxy service for modal dialogs, where remote tasks responsible for dialogues handling are initialized.
     /// </summary>
     public class AxoDialogProxyService : IDisposable
     {
         private readonly AxoDialogContainer _dialogContainer;
+
         private readonly IEnumerable<ITwinObject> _observedObject;
 
         private volatile object _lockObject = new object();
 
-        private List<IsDialogType> _observedDialogs = new();
+        private Dictionary<string, DialogMonitor> _observedDialogs = new();
 
         private string _dialogLocatorId { get; set; }
 
-        /// <summary>
-        /// Count how many klient is observing this servise
-        /// </summary>
-        int ObservationCounter = 0;
-
-
         public List<IsDialogType> DisplayedDialogs { get; set; } = new();
-
 
         /// <summary>
         /// Creates new instance of <see cref="AxoDialogProxyService"/>, in standard case is this constructor called only once.
@@ -46,102 +43,104 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             _observedObject = observedObjects;
 
             _dialogContainer.DialogProxyServicesDictionary.TryAdd(_dialogLocatorId, this);
+            _observedDialogs = _dialogContainer.CollectDialogsOnObjects(_observedObject);
 
-            StartObservingObjectsForDialogues();
+            StartObservingDialogues();
         }
 
         /// <summary>
         /// Starts observing dialogue of this proxy service.
         /// </summary>
-        internal void StartObservingObjectsForDialogues()
+        internal void StartObservingDialogues()
         {
-            ObservationCounter++;
-
-            if (_observedObject == null || _observedObject.Count() == 0) return;
-
-            if (_observedDialogs.Count() > 0)
+            foreach (var dialog in _observedDialogs)
             {
-                return; // some other client start observation..
+                dialog.Value.StartDialogMonitoring(_dialogLocatorId);
+
+                dialog.Value.EventHandler_Invoke += HandleDialogInvocation_FromPlc;
+                dialog.Value.EventHandler_Close += HandleDialogClosing_FromPlc;
             }
+        }
 
-
-            foreach (var item in _observedObject)
+        internal void StopObservingDialogues()
+        {
+            foreach (var dialog in _observedDialogs)
             {
-                //todo -> it is needed: _dialogContainer.ObservedObjects,  are not used...
-                StartObservingDialogs<IsModalDialogType>(item);
+                dialog.Value.StopDialogMonitoring(_dialogLocatorId);
+
+                dialog.Value.EventHandler_Invoke -= HandleDialogInvocation_FromPlc;
+                dialog.Value.EventHandler_Close -= HandleDialogClosing_FromPlc;
             }
-            Log.Logger.Information($"Starting observation in proxy service for {_dialogLocatorId}");
         }
 
         internal event EventHandler<AxoDialogEventArgs>? EventFromPlc_DialogInvoked;
+
         internal event EventHandler<AxoDialogEventArgs>? EventFromPlc_DialogRemoved;
 
         /// <summary>
         /// Handles the invocation of the dialogue from the controller.
         /// </summary>
         /// <param name="dialog">Dialogue to be handled.</param>
-        protected async void HandleDialogInvocation(IsDialogType dialog)
+        protected async void HandleDialogInvocation_FromPlc(object? sender, AxoDialogEventArgs e)
         {
-            await dialog.ReadAsync();
+            var senderAsDialogMonitor = sender as DialogMonitor;
 
-            dialog.DialogLocatorId = _dialogLocatorId;
-
-            lock (_lockObject)
+            if (senderAsDialogMonitor != null)
             {
-                var exist = this.DisplayedDialogs.Any((p) => p.Symbol == dialog.Symbol);
-                if (!exist)
+                lock (_lockObject)
+
                 {
-                    this.DisplayedDialogs.Add(dialog);
+                    Log.Logger.Information($"Proxy->Plc Invoke of : {senderAsDialogMonitor.Dialog.Symbol}");
+
+                    var exist = this.DisplayedDialogs.Any((p) => p.Symbol == e.SymbolOfDialogInstance);
+                    if (!exist)
+                    {
+                        this.DisplayedDialogs.Add(senderAsDialogMonitor.Dialog);
+                    }
                 }
-            }
 
-
-            // just invoke in dialog locator state change....
-            EventFromPlc_DialogInvoked?.Invoke(this, new AxoDialogEventArgs(_dialogLocatorId, dialog.Symbol));
-
-            Log.Logger.Information($"PROXY event Invoke {dialog.Symbol}");
-
-        }
-
-        private void StartObservingDialogs<T>(ITwinObject observedObject) where T : class, IsDialogType
-        {
-            var descendants = GetDescendants<T>(observedObject);
-
-            foreach (var dialog in descendants)
-            {
-                _observedDialogs.Add(dialog);
-                dialog.Initialize(() => HandleDialogInvocation(dialog));
+                EventFromPlc_DialogInvoked?.Invoke(senderAsDialogMonitor.Dialog, e);
             }
         }
 
-
-        public void RemoveDisplayedDialog(IsDialogType dialog)
+        public void HandleDialogClosing_FromPlc(object? sender, AxoDialogEventArgs e)
         {
-            lock (_lockObject)
+            var senderAsDialogMonitor = sender as DialogMonitor;
+
+            if (senderAsDialogMonitor != null)
             {
-                var exist = this.DisplayedDialogs.Any((p) => p.Symbol == dialog.Symbol);
-                if (exist)
+                lock (_lockObject)
                 {
-                    this.DisplayedDialogs.Remove(dialog);
-                    EventFromPlc_DialogRemoved?.Invoke(this, new AxoDialogEventArgs(_dialogLocatorId, dialog.Symbol));
-                    Log.Logger.Information($"PROXY event Remove {dialog.Symbol}");
+                    Log.Logger.Information($"Proxy->Plc Closing of : {senderAsDialogMonitor.Dialog.Symbol}");
+
+                    var exist = this.DisplayedDialogs.Any((p) => p.Symbol == senderAsDialogMonitor.Dialog.Symbol);
+                    if (exist)
+                    {
+                        this.DisplayedDialogs.Remove(senderAsDialogMonitor.Dialog);
+
+                        EventFromPlc_DialogRemoved?.Invoke(this, e);
+                    }
                 }
             }
         }
 
         public void RemoveDisplayedDialog(string dialogSymbol)
         {
-            lock (_lockObject)
+            if (!string.IsNullOrEmpty(dialogSymbol))
             {
-                Log.Logger.Information($"PROXY try to remove {dialogSymbol}");
-
-                var exist = this.DisplayedDialogs.Any((p) => p.Symbol == dialogSymbol);
-                if (exist)
+                lock (_lockObject)
                 {
-                    var first = this.DisplayedDialogs.First((p) => p.Symbol == dialogSymbol);
-                    this.DisplayedDialogs.Remove(first);
-                    EventFromPlc_DialogRemoved?.Invoke(this, new AxoDialogEventArgs(_dialogLocatorId, dialogSymbol));
-                    Log.Logger.Information($"PROXY event Remove {dialogSymbol}");
+                    Log.Logger.Information($"Proxy->Plc Closing of : {dialogSymbol}");
+
+                    var exist = this.DisplayedDialogs.Any((p) => p.Symbol == dialogSymbol);
+
+                    if (exist)
+                    {
+                        var first = this.DisplayedDialogs.First((p) => p.Symbol == dialogSymbol);
+                        this.DisplayedDialogs.Remove(first);
+
+                        EventFromPlc_DialogRemoved?.Invoke(this, new AxoDialogEventArgs(dialogSymbol));
+                    }
                 }
             }
         }
@@ -154,46 +153,16 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             }
         }
 
-        protected IEnumerable<T> GetDescendants<T>(ITwinObject obj, IList<T> children = null) where T : class
-        {
-            children = children != null ? children : new List<T>();
-
-            if (obj != null)
-            {
-                foreach (var child in obj.GetChildren())
-                {
-                    var ch = child as T;
-                    if (ch != null)
-                    {
-                        children.Add(ch);
-                    }
-
-                    GetDescendants<T>(child, children);
-                }
-            }
-
-            return children;
-        }
-
         /// <summary>
         /// Releases resources related to handling and communication with the controller.
         /// </summary>
         public void Dispose()
         {
-            ObservationCounter--;
+            StopObservingDialogues();
 
-            if (ObservationCounter < 1) // clear it only int that case when is not observed...
-            {
-                foreach (var dialog in _observedDialogs)
-                {
-                    dialog.DeInitialize();
-                }
-                _observedDialogs.Clear();
+            _observedDialogs.Clear();
 
-                Log.Logger.Information($"PROXY is disposing {_dialogLocatorId}");
-
-            }
-
+            Log.Logger.Information($"Proxy->Dislose {_dialogLocatorId}");
         }
     }
 }

@@ -14,7 +14,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
     public partial class AxoDialogLocator : ComponentBase, IDisposable
     {
         private AxoDialogProxyService _dialogProxyService { get; set; }
-
+        
         public string ModalDisplay { set; get; } = "none;";
         public string ModalClass { set; get; } = string.Empty;
         public bool ShowBackdrop { set; get; } = false;
@@ -40,6 +40,9 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// </summary>
         [Parameter, EditorRequired]
         public string DialogLocatorId { get; set; }
+
+        public Guid InstanceGuid { get; private set; } = new Guid();
+
 
         /// <summary>
         /// The opening dialog delay (default value is 0 ms).
@@ -92,7 +95,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             else
             {
                 this._dialogProxyService = proxy;
-                this._dialogProxyService.StartObservingObjectsForDialogues(); // needs to be reinitialized
+                this._dialogProxyService.StartObservingDialogues(); // needs to be reinitialized
             }
 
             this._dialogProxyService.EventFromPlc_DialogInvoked += OnPlc_DialogInvoked; // 
@@ -109,7 +112,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         private async void OnSignalRClient_DialogOpen(object sender, SignalRClientReceivedMessageArgs e)
         {
-            Log.Logger.Information($"DialogLocator | SignalR | Open -  {e.SymbolOfDialogInstance}");
+            Log.Logger.Information($"Locator -> SignalR | Open -  {e.SymbolOfDialogInstance}");
 
             ; // swallow -> it must be opened from plc
             // fix way when multiple locator are observing 1 instance..
@@ -117,7 +120,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         private async void OnSignalRClient_DialogClose(object sender, SignalRClientReceivedMessageArgs e)
         {
-            Log.Logger.Information($"DialogLocator | SignalR | Close -  {e.SymbolOfDialogInstance}");
+            Log.Logger.Information($"Locator -> SignalR | Close -  {e.SymbolOfDialogInstance}");
 
             _dialogProxyService.RemoveDisplayedDialog(e.SymbolOfDialogInstance);
 
@@ -126,7 +129,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         private async void OnPlc_DialogInvoked(object? sender, AxoDialogEventArgs e)
         {
-            Log.Logger.Information($"DialogLocator | PLC | Open -  {e.SymbolOfDialogInstance}");
+            Log.Logger.Information($"Locator -> PLC | Open -  {e.SymbolOfDialogInstance}");
 
             if (DialogOpenDelay > 0)
             {
@@ -138,7 +141,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         private async void OnPlc_DialogRemoved(object? sender, AxoDialogEventArgs e)
         {
-            Log.Logger.Information($"DialogLocator | PLC | Close -  {e.SymbolOfDialogInstance}");
+            Log.Logger.Information($"Locator -> PLC | Close -  {e.SymbolOfDialogInstance}");
 
             await Refresh();
         }
