@@ -12,11 +12,6 @@ namespace AXOpen.VisualComposer
 {
     public partial class ZoomableContainer
     {
-
-        [Parameter] public string Width { get; set; } = "1000px";
-
-        [Parameter] public string Height { get; set; } = "500px";
-        
         [Parameter] public RenderFragment ChildContent { get; set; }
 
         private VisualComposerContainer? _parent;
