@@ -551,6 +551,32 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Components.Cognex.Vi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Components.Cognex.Vision_tests", "components.cognex.vision\tests\AXOpen.Components.Cognex.Vision.Tests\AXOpen.Components.Cognex.Vision_tests.csproj", "{D1FFEDD9-D094-4DB7-A94D-0884A6BE6BEA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "io", "io", "{AD706706-DA32-4F68-BDDA-BE2D1C64581A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{C9CB0B5F-A776-4AD1-8FF8-99012917FED6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1142E035-B2C6-4192-BF69-A841E0497BCA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{1BE91D6A-526D-4DDE-A28D-1B4A747CCDF8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "app_axopen_io", "io\app\ix\app_axopen_io.csproj", "{B8107316-2043-4560-89BD-D260F165CC2E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix", "ix", "{50A02885-7A27-4542-ADE1-B4CE14BC9C61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix-blazor", "ix-blazor", "{5D793512-E8E3-483C-9EA3-4A12D49A9D12}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Io.blazorapp", "io\app\ix-blazor\AXOpen.Io.blazorapp.csproj", "{177CC6E6-6B07-4472-8009-0288D6E38513}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Io", "AXOpen.Io", "{58EBAD17-CC18-4988-956F-4A8581AFD9D2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_io", "io\src\AXOpen.Io\ix_ax_axopen_io.csproj", "{ACF78F5D-AB24-4A14-81C5-B99668FCE757}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Io.blazor", "io\src\AXOpen.Io.blazor\AXOpen.Io.blazor.csproj", "{13C7B3B7-18FB-401A-93C8-8145EC99BAFE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Io.Blazor", "AXOpen.Io.Blazor", "{2F570E1F-0326-4F15-B8E6-F3785D823599}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Io_tests", "io\tests\AXOpen.Io.Tests\AXOpen.Io_tests.csproj", "{2F41DF3E-5089-4798-B120-9C0B19CD977A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
