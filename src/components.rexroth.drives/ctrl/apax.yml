@@ -43,8 +43,7 @@ scripts:
   postbuild:
     - apax ixc
   watch:
-    - dotnet watch --project
-      ..\\app\\ix-blazor\\AXOpen.Io.blazorapp.csproj
+    - dotnet watch --project ..\\app\\ix-blazor\\AXOpen.Io.blazorapp.csproj
   fr:
     - ..\\..\\integrations\\scripts\\StartPlcSimAdvCli.exe
     - apax rr

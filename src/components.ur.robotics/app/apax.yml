@@ -1,0 +1,90 @@
+name: "app_axopen.components.ur.robotics"
+version: 0.0.0
+type: app
+targets:
+  - plcsim
+  - llvm
+  - "1500"
+variables:
+  APAX_BUILD_ARGS:
+    - "--debug" # Generate debug information for target "1500"
+devDependencies:
+  "@ix-ax/ax-sdk": '0.0.0-dev.0'
+  "@ax/sld": 2.0.5
+dependencies:
+  "@ix-ax/axopen.core": '0.0.0-dev.0'
+  "@ix-ax/axopen.timers": '0.0.0-dev.0'
+  "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
+  "@ix-ax/axopen.components.ur.robotics": '0.0.0-dev.0'
+  "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
+  "@ax/simatic-1500-clocks": ^6.0.37
+scripts:
+  delta:
+    - START=$(date +%s)
+    - apax build --ignore-scripts
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i
+      $AXTARGETPLATFORMINPUT --mode delta
+    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in
+      :" $(expr $(date +%s) - $START) "s"
+  download:
+    - START=$(date +%s)
+    - apax build --ignore-scripts
+    - dotnet ixc
+    - apax download_only
+    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in
+      :" $(expr $(date +%s) - $START) "s"
+  ixc:
+    - START=$(date +%s)
+    - dotnet tool restore
+    - dotnet ixc
+    - echo "Built by ixc in :" $(expr $(date +%s) - $START) "s"
+  download_only:
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i
+      $AXTARGETPLATFORMINPUT -r
+  check+download: |
+    if [ $AXTARGET ]; then
+      if [ $AXTARGETPLATFORMINPUT ]; then
+        if ping -n 1 $AXTARGET &> /dev/null; then
+          echo "Downloading from:" $AXTARGETPLATFORMINPUT "=>" $AXTARGET
+          apax download_only
+        else
+          echo "Target with IP address:" $AXTARGET "is not accessible. No download is going to be performed!!!"
+        fi
+      else
+        echo "Environment variable AXTARGETPLATFORMINPUT not defined!!!"
+      fi
+    else
+      echo "Environment variable AXTARGET not defined!!!"
+    fi
+  postbuild:
+    - apax ixc
+  watch:
+    - dotnet watch --project
+      ..\\app\\ix-blazor\\AXOpen.Components.Ur.Robotics.blazorapp.csproj
+  fr:
+    - ..\\..\\integrations\\scripts\\StartPlcSimAdvCli.exe
+    - apax rr
+  frw:
+    - apax fr
+    - apax watch
+  rr:
+    - START=$(date +%s)
+    - apax clean
+    - apax install
+    - apax download
+    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in
+      :" $(expr $(date +%s) - $START) "s"
+  rrw:
+    - apax rr
+    - apax watch
+  r:
+    - apax plc-mode set stop -t $AXTARGET -y
+    - apax plc-mode set run -t $AXTARGET -y
+  d:
+    - apax download
+  do:
+    - apax download_only
+  dd:
+    - apax delta
+installStrategy: strict
+apaxVersion: 3.1.0
