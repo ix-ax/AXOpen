@@ -44,7 +44,7 @@ namespace AXOpen.Core
             if (element is AxoComponent axoComponent)
             {
                 axoComponent._isManuallyControllable.StartPolling(pollingInterval, this);
-                PolledElements.Add(axoComponent._isManuallyControllable);
+                PolledElements.Add(axoComponent._isManuallyControllable);               
             }
 
             Messengers?.Select(p => p.MessengerState).ToList().ForEach(messenger =>
@@ -203,7 +203,7 @@ namespace AXOpen.Core
                             break;
                     }
                 }
-                else if (_messengers.Any(p => p.State > eAxoMessengerState.NotActiveWatingAckn))
+                else if (_messengers.Any(p => p.State > eAxoMessengerState.NotActiveWaitingAckn))
                 {
                     return eAlarmLevel.Unacknowledged;
                 }

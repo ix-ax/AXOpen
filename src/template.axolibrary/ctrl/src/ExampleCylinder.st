@@ -51,12 +51,10 @@ NAMESPACE AXOpen.Components.Example
         METHOD PUBLIC Run
             VAR_INPUT
                 parent : IAxoObject;
-                homeSensor : BOOL;
-                workSensor : BOOL;    
-            END_VAR
-            VAR_OUTPUT
-                moveHomeSignal : BOOL;
-                moveWorkSignal : BOOL;
+                homeSensor : REF_TO BOOL;
+                workSensor : REF_TO BOOL;    
+                 moveHomeSignal : REF_TO BOOL;
+                moveWorkSignal : REF_TO BOOL;
             END_VAR
             IF (parent = NULL) THEN RETURN; END_IF;
             THIS.Initialize(parent);    
@@ -70,12 +68,10 @@ NAMESPACE AXOpen.Components.Example
         METHOD PUBLIC Run 
             VAR_INPUT
                 context : IAxoContext;
-                homeSensor : BOOL;
-                workSensor : BOOL;    
-            END_VAR
-            VAR_OUTPUT
-                moveHomeSignal : BOOL;
-                moveWorkSignal : BOOL;
+                homeSensor : REF_TO BOOL;
+                workSensor : REF_TO BOOL;    
+                moveHomeSignal : REF_TO BOOL;
+                moveWorkSignal : REF_TO BOOL;
             END_VAR
 
             THIS.Open();
@@ -89,8 +85,8 @@ NAMESPACE AXOpen.Components.Example
             _MoveToHomeNotReached.Serve(THIS);
 
             IF(Stop.Execute()) THEN
-                moveHomeSignal := FALSE;
-                moveWorkSignal := FALSE;
+                moveHomeSignal^ := FALSE;
+                moveWorkSignal^ := FALSE;
                 MoveToHome.Restore();
                 MoveToWork.Restore();                
                 Stop.DoneWhen(TRUE);
@@ -98,27 +94,27 @@ NAMESPACE AXOpen.Components.Example
             END_IF;    
 
             IF(MoveToWork.Execute()) THEN                
-                moveHomeSignal := FALSE;
-                moveWorkSignal := TRUE;                
-                MoveToWork.DoneWhen(workSensor);
+                moveHomeSignal^ := FALSE;
+                moveWorkSignal^ := TRUE;                
+                MoveToWork.DoneWhen(workSensor^);
                 MoveToHome.Restore();
         
                 _MoveToWorkNotReached.ActivateOnCondition(MoveToWork.Duration >= T#10S, eAxoMessageCategory#Error);            
             END_IF;        
 
             IF(MoveToHome.Execute()) THEN                
-                moveHomeSignal := TRUE;
-                moveWorkSignal := FALSE;
-                MoveToHome.DoneWhen(homeSensor);
+                moveHomeSignal^ := TRUE;
+                moveWorkSignal^ := FALSE;
+                MoveToHome.DoneWhen(homeSensor^);
                 MoveToWork.Restore();
                 _MoveToHomeNotReached.ActivateOnCondition(MoveToHome.Duration >= T#10S, eAxoMessageCategory#Error); 
             END_IF; 
             
-            _HomeSensor := homeSensor;
-            _WorkSensor := workSensor; 
+            _HomeSensor := homeSensor^;
+            _WorkSensor := workSensor^; 
 
-            _MoveHomeSignal := moveHomeSignal;
-            _MoveWorkSignal := moveWorkSignal;      
+            _MoveHomeSignal := moveHomeSignal^;
+            _MoveWorkSignal := moveWorkSignal^;      
 
             THIS.Close();                      
         END_METHOD

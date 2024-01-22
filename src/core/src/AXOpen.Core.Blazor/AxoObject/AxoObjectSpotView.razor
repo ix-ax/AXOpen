@@ -1,8 +1,6 @@
 ﻿@namespace AXOpen.Core
 @inherits RenderableComplexComponentBase<AxoObject>
-@using AXOpen.Core
-@using AXOpen.Messaging.Static
-@using System.Runtime.CompilerServices
+@using System.Timers
 @using AXOpen.Messaging.Static.Blazor
 @using AXSharp.Connector
 @using Microsoft.JSInterop
@@ -18,7 +16,7 @@
         @onclick="SetCurrentObject">
     @Component.AttributeName
     <a>
-       @if (observer?.Provider?.MessagesCount > 0)
+       @if (observer?.Provider?.RelevantMessagesCount > 0)
        {
            <span class="position-absolute top-0 start-100 translate-middle p-2 bg-@observer?.HighestSeverityColor border border-light rounded-circle">
                <span class="visually-hidden">New alerts</span>
@@ -49,6 +47,11 @@
         }
     }
 
+    public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+    {
+        
+    }
+
     /// <summary>
     /// This method is called when a component is changed.
     /// It creates a new instance of AxoMessageObserver using the changed component and assigns it to the observer variable.
@@ -56,7 +59,20 @@
     public override void OnComponentChanged()
     {
         observer = AxoMessageObserver.Create(new[] { this.Component }, this);
+        
+        updateTimer.Interval = this.PollingInterval;
+        updateTimer.Enabled = true;
+        updateTimer.Elapsed += (sender, args) =>
+        {
+            InvokeAsync(this.StateHasChanged);
+
+        };
+        updateTimer.Start();
+        
     }
+
+    private readonly Timer updateTimer = new Timer();
+    
     
     ///<inheritdoc/>
     public async ValueTask DisposeAsync()

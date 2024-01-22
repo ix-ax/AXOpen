@@ -528,5 +528,66 @@ NAMESPACE AxoDriveTests.Tests
             END_VAR
             ;
         END_METHOD
-    END_CLASS  
+    
+    METHOD PUBLIC OVERRIDE MC_TorqueControl
+        VAR_INPUT
+            AxisRef : IAxoAxisReference;
+            Execute : BOOL;
+            ContinuousUpdate : BOOL;
+            Torque : LREAL;
+            TorqueRamp : LREAL;
+            PositionLimit : LREAL;
+            Velocity : LREAL;
+            Acceleration : LREAL;
+            Deceleration : LREAL;
+            Jerk : LREAL;
+            Direction : eAxoDriveDirection;
+        END_VAR
+        VAR_OUTPUT
+            InTorque : BOOL;
+            Busy : BOOL;
+            Active : BOOL;
+            CommandAborted : BOOL;
+            Error : BOOL;
+            ErrorID : WORD;
+        END_VAR
+
+        ;
+    END_METHOD
+
+    METHOD PUBLIC OVERRIDE MC_ReadParameter
+        VAR_INPUT
+            AxisRef : IAxoAxisReference;
+            Enable : BOOL;
+            ParameterNumber : DINT;
+        END_VAR
+        VAR_OUTPUT
+            Valid : BOOL;
+            Busy : BOOL;
+            Error : BOOL;
+            ErrorID : WORD;
+            Value : LINT;
+        END_VAR
+
+        ;
+    END_METHOD
+
+    METHOD PUBLIC OVERRIDE MC_WriteParameter
+        VAR_INPUT
+            AxisRef : IAxoAxisReference;
+            Execute : BOOL;
+            ParameterNumber : DINT;
+            Value : LINT;
+            ExecutionMode : eAxoExecutionMode;
+        END_VAR
+        VAR_OUTPUT
+            Done : BOOL;
+            Busy : BOOL;
+            Error : BOOL;
+            ErrorID : WORD;
+        END_VAR
+
+        ;
+    END_METHOD
+END_CLASS  
 END_NAMESPACE

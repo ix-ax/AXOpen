@@ -7,6 +7,7 @@
 
 using System.Collections;
 using AXSharp.Connector;
+using AXSharp.Connector.ValueTypes;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 
 namespace AXOpen.Messaging.Static.Blazor;
@@ -45,7 +46,7 @@ public class AxoMessageObserver
     {
         return new AxoMessageObserver(observedObjects, component);
     }
-
+    
     /// <summary>
     /// Creates an instance of the AxoMessageObserver class.
     /// </summary>
@@ -61,8 +62,16 @@ public class AxoMessageObserver
     {
         get
         {
-            var s = Provider?.Messengers?.Where(p =>(eAxoMessengerState)p.MessengerState.LastValue == eAxoMessengerState.ActiveNoAck).Select(p => p.Category.LastValue).Max();
-            return SeverityToColor(s);
+            try
+            {
+                return SeverityToColor(Provider?.Messengers?
+                    .Where(p => (eAxoMessengerState)p.MessengerState.LastValue > eAxoMessengerState.Idle)
+                    .Select(p => p.Category.LastValue).Max());
+            }
+            catch (Exception e)
+            {
+                return "secondary";
+            }
         }
     }
     
@@ -106,11 +115,15 @@ public class AxoMessageObserver
     {
         await Task.Run(() => {
             foreach (var axoMessenger in this.Provider?.Messengers?
-                         .SelectMany(p => new ITwinElement[] { p.MessengerState, p.Category })!)
+                         .SelectMany(p => new ITwinElement[] { p.MessengerState, 
+                                                                           p.Category, 
+                                                                           p.MessageCode,
+                                                                           p.AcknowledgedBeforeFallen
+                         })!)
             {
-                Component.AddToPolling(axoMessenger, 2500);
-                Component.UpdateValuesOnChange(axoMessenger);
+                Component.UpdateValuesOnChange(axoMessenger, 2500);
             }
         });
     }
+    
 }

@@ -277,7 +277,6 @@ namespace AXOpen.VisualComposer
 
                 foreach (ITwinObject obj in Objects)
                 { 
-                    //SearchResult.Add(obj.GetChildren().Flatten(p => p.GetChildren()).FirstOrDefault(p => p.Symbol.StartsWith(SearchValue, StringComparison.OrdinalIgnoreCase)));
                     SearchResult.AddRange(obj.GetChildren().Flatten(p => p.GetChildren()).ToList().FindAll(p => p.Symbol.Contains(SearchValue, StringComparison.OrdinalIgnoreCase)));
                     SearchResult.AddRange(obj.RetrievePrimitives().ToList().FindAll(p => p.Symbol.Contains(SearchValue, StringComparison.OrdinalIgnoreCase)));
                 }
