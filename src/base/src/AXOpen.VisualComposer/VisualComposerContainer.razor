@@ -197,7 +197,10 @@
                                         {
                                             <li class="list-group-item d-flex">
                                                 <p class="mb-0">@item.file</p>
-                                                <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => ClearScaleAndTranslate(item.file)"><span class="bi bi-arrow-clockwise fs-5" aria-hidden="true" /></a>
+                                                <div class="ms-auto d-flex align-items-center">
+                                                    <input class="form-check-input mt-0" type="checkbox" checked="@(Origin.Background ? "checked" : null)" @onclick="() => Origin.Background = !Origin.Background">
+                                                </div>
+                                                <a class="ms-2 text-decoration-none text-black" style="cursor: pointer;" @onclick="() => ClearScaleAndTranslate(item.file)"><span class="bi bi-arrow-clockwise fs-5" aria-hidden="true" /></a>
                                                 <a class="ms-2 text-decoration-none text-black" style="cursor: pointer;" @onclick="() => Remove(item.file)"><span class="bi bi-trash fs-5" aria-hidden="true" /></a>
                                             </li>
                                         }
