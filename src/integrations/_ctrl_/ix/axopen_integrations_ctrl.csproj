@@ -24,6 +24,6 @@
 	  <ProjectReference Include="..\..\..\data\src\AXOpen.Data\ix_ax_axopen_data.csproj" />
 	  <ProjectReference Include="..\..\..\probers\src\AXOpen.Probers\ix_ax_axopen_probers.csproj" />
 	  <ProjectReference Include="..\..\..\simatic1500\ctrl\ix\ix_ax_axopen_simatic1500.csproj" />
-	  <ProjectReference Include="..\..\..\components.cognex.vision\src\AXOpen.Cognex.Vision\ix_ax_axopen_components_cognex_vision.csproj" />
+	  <ProjectReference Include="..\..\..\components.cognex.vision\src\AXOpen.Components.Cognex.Vision\ix_ax_axopen_components_cognex_vision.csproj" />
 	</ItemGroup>
 </Project>
