@@ -7,47 +7,44 @@ using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Policy;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace AXOpen.Core.Blazor.AxoDialogs
 {
     /// <summary>
-    ///  Container for multiple AxoDialogProxyService types, based on multiple different dialogues instances and opened web clients.
+    /// Manages and contains multiple AxoDialogLocatorService instances, catering to various dialog instances and web clients.
+    /// It serves as a central hub for all dialog-related activities within the application.
     /// </summary>
     public class AxoDialogContainer : IAsyncDisposable
     {
+        // The SignalR client used for sending signals to the server, especially for closing dialogs
+        private SignalRDialogClient _singalRDialogClient;
 
         /// <summary>
-        /// SingalRClient it is used for sending dignal to the server from dialogs -> especialy for closing dialogs
+        /// Provides access to the initialized SignalR dialog client.
         /// </summary>
-        /// 
-        private SignalRDialogClient _singalRDialogClient;
-        public SignalRDialogClient SingalRDialogClient
-        {
-            get
-            {
-                return _singalRDialogClient;
-            }
-        }
+        public SignalRDialogClient SingalRDialogClient => _singalRDialogClient;
 
-
-        //public HashSet<string> ObservedObjects { get; set; } = new HashSet<string>();
+        // Tracks alerts associated with observed objects
         public HashSet<string> ObservedObjectsAlerts { get; set; } = new HashSet<string>();
 
+        /// <summary>
+        /// Maintains a collection of dialog monitors for handling PLC events. These objects generate new events managed by the proxy service.
+        /// </summary>
+        public Dictionary<string, AxoDialogMonitoring> MonitoredDialogs { get; set; } = new Dictionary<string, AxoDialogMonitoring>();
 
         /// <summary>
-        /// Dictionary of the Handling PLC events. On thist objects generate new evetns that are handled by proxy service.
+        /// Stores existing dialog-locators services, allowing for the management and retrieval of dialog services.
         /// </summary>
-        public Dictionary<string, DialogMonitor> MonitoredDialogs { get; set; } = new Dictionary<string, DialogMonitor>();
-        /// <summary>
-        /// Dictionary of the existing proxy services.
-        /// </summary>
-        public Dictionary<string, AxoDialogProxyService> DialogProxyServicesDictionary { get; set; } = new Dictionary<string, AxoDialogProxyService>();
+        public Dictionary<string, AxoDialogLocatorService> DialogLocatorServicesDictionary { get; set; } = new Dictionary<string, AxoDialogLocatorService>();
 
+        // Additional container for managing alert dialog proxy services
         public Dictionary<string, AxoAlertDialogProxyService> AlertDialogProxyServicesDictionary { get; set; } = new Dictionary<string, AxoAlertDialogProxyService>();
 
+        /// <summary>
+        /// Initializes the SignalR client for dialog management and starts the connection.
+        /// </summary>
+        /// <param name="uri">The URI for the SignalR hub connection.</param>
         public Task InitializeSignalR(string uri)
         {
             if (_singalRDialogClient == null)
@@ -58,43 +55,48 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             return SingalRDialogClient.StartAsync();
         }
 
+        /// <summary>
+        /// Sends a signal to all clients to close a specific dialog instance.
+        /// </summary>
+        /// <param name="dialogInstanceSymbol">The symbol representing the dialog instance to be closed.</param>
         public Task SendToAllClients_CloseDialog(string dialogInstanceSymbol)
         {
-            Log.Logger.Information($"CONTAINER | SignalR | Close FOR  {dialogInstanceSymbol}");
+            Log.Logger.Information($"CONTAINER | SignalR | Close FOR {dialogInstanceSymbol}");
 
             return SingalRDialogClient.SendToAllClients_CloseDialog(dialogInstanceSymbol);
         }
 
-
         /// <summary>
-        /// Collect and Add dialogs to MonitoredDialogs.
+        /// Collects and adds dialogs to the MonitoredDialogs based on the observed objects.
         /// </summary>
-        /// <param name="_observedObject"></param>
-        /// <returns>list symblol list of the dialogs</returns>
-        internal Dictionary<string, DialogMonitor> CollectDialogsOnObjects( IEnumerable<ITwinObject> _observedObject)
+        /// <param name="_observedObject">The objects being observed for dialogs.</param>
+        /// <returns>A dictionary symbol list of the dialogs.</returns>
+        internal Dictionary<string, AxoDialogMonitoring> CollectDialogsOnObjects(IEnumerable<ITwinObject> _observedObject)
         {
-
             var SymbolListOfDialogs = new List<string>();
 
-            if (_observedObject == null || _observedObject.Count() == 0) return null;
+            if (_observedObject == null || !_observedObject.Any()) return null;
 
             foreach (var item in _observedObject)
             {
-                CollectDialogs<IsModalDialogType>(item , SymbolListOfDialogs);
+                CollectDialogs<IsModalDialogType>(item, SymbolListOfDialogs);
             }
 
             return GetDialogsBySymbol(SymbolListOfDialogs);
-
         }
 
-        private Dictionary<string, DialogMonitor> GetDialogsBySymbol(List<string> symbols)
-        { 
-            var dialogs = new Dictionary<string, DialogMonitor>();
+        /// <summary>
+        /// Retrieves dialog monitors based on provided symbols.
+        /// </summary>
+        /// <param name="symbols">List of dialog symbols to retrieve monitors for.</param>
+        /// <returns>A dictionary of dialog monitors.</returns>
+        private Dictionary<string, AxoDialogMonitoring> GetDialogsBySymbol(List<string> symbols)
+        {
+            var dialogs = new Dictionary<string, AxoDialogMonitoring>();
 
             foreach (var symbol in symbols)
             {
-
-                MonitoredDialogs.TryGetValue(symbol, out DialogMonitor d);
+                MonitoredDialogs.TryGetValue(symbol, out AxoDialogMonitoring d);
                 if (d != null)
                     dialogs.Add(symbol, d);
             }
@@ -103,11 +105,11 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         }
 
         /// <summary>
-        /// Collect dialogs on the object
+        /// Collects dialogs from the specified observed object and adds them to the provided symbol list.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="observedObject"></param>
-        /// <param name="SymbolListOfDialogs"></param>
+        /// <typeparam name="T">The dialog type to collect.</typeparam>
+        /// <param name="observedObject">The object being observed.</param>
+        /// <param name="SymbolListOfDialogs">The list where collected dialog symbols are added.</param>
         private void CollectDialogs<T>(ITwinObject observedObject, List<string> SymbolListOfDialogs) where T : class, IsDialogType
         {
             var descendants = GetDescendants<T>(observedObject);
@@ -118,15 +120,22 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
                 if (!MonitoredDialogs.ContainsKey(dialog.Symbol))
                 {
-                    var monitoring = new DialogMonitor(dialog);
-                    MonitoredDialogs.Add(dialog.Symbol, monitoring);               
+                    var monitoring = new AxoDialogMonitoring(dialog);
+                    MonitoredDialogs.Add(dialog.Symbol, monitoring);
                 }
             }
         }
 
+        /// <summary>
+        /// Recursively collects descendants of the specified type from the given object.
+        /// </summary>
+        /// <typeparam name="T">The type of descendants to collect.</typeparam>
+        /// <param name="obj">The starting object.</param>
+        /// <param name="children">The list to which found descendants are added.</param>
+        /// <returns>An enumerable of found descendants.</returns>
         protected IEnumerable<T> GetDescendants<T>(ITwinObject obj, IList<T> children = null) where T : class
         {
-            children = children != null ? children : new List<T>();
+            children = children ?? new List<T>();
 
             if (obj != null)
             {
@@ -144,6 +153,9 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             return children;
         }
 
+        /// <summary>
+        /// Disposes of the SignalR client and cleans up any resources.
+        /// </summary>
         public async ValueTask DisposeAsync()
         {
             if (SingalRDialogClient != null)
