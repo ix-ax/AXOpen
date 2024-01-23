@@ -2,6 +2,7 @@
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.Extensions.Localization;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -42,8 +43,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         [Inject]
         public AuthenticationStateProvider Authentification { get; set; }
-
-
 
         /// <summary>
         /// The SignalR client for managing real-time dialogue events.

@@ -36,12 +36,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>AxOpenCoreResources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\StringResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>StringResources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="Properties\AxOpenCoreResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AxOpenCoreResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\StringResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 </Project>
