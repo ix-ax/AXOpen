@@ -1,8 +1,6 @@
 TYPE
 	PlcInputs : STRUCT
-		_homeSensor_1 : BOOL;
-		_workSensor_1 : BOOL;
-		_homeSensor_2 : BOOL;
-		_workSensor_2 : BOOL;
+		RobotBasicIO_DI_64_bytes_1 : ARRAY[0..63] OF BYTE;
+		OmniCore_DI_64_bytes_1 : ARRAY[0..63] OF BYTE;
 	END_STRUCT;
 END_TYPE

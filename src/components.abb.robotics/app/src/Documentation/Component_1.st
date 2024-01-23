@@ -3,16 +3,17 @@ USING AXOpen.Core;
 CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
     //<ComponentDeclaration>
     VAR PUBLIC                
-        ExampleCylinder : AXOpen.Components.Example.ExampleCylinder;             
+        ExampleRobot : AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x;  
     END_VAR
     //</ComponentDeclaration>                          
 
     //<InitializationArgumentsDeclaration>
-    VAR PUBLIC              
-        {#ix-set:AttributeName = "<#Activate manual control#>"}
-        ActivateManualControl : BOOL;         
+    VAR PUBLIC                
         PlcInputs : REF_TO PlcInputs;
-        PlcOutputs : REF_TO PlcOutputs;              
+        PlcOutputs : REF_TO PlcOutputs;     
+
+        movementParams : AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams;
+        manualControl   :   BOOL;  
     END_VAR
     //</InitializationArgumentsDeclaration>            
 
@@ -23,16 +24,15 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
 
         THIS.Initialize(parent);
 
-        IF ActivateManualControl THEN
-            ExampleCylinder.ActivateManualControl();
+        IF(manualControl) THEN            
+            ExampleRobot.ActivateManualControl();
         END_IF;
 
         //<Initialization>        
-        ExampleCylinder.Run(THIS, 
-                            REF(PlcInputs^._homeSensor_1), 
-                            REF(PlcInputs^._workSensor_1), 
-                            REF(PlcOutputs^._moveHomeSignal_1), 
-                            REF(PlcOutputs^._moveWorkSignal_1));
+        ExampleRobot.Run(   parent      := THIS,
+                            hwID        := TO_UINT(HwIdentifiers#RobotBasicIO),
+                            refInputs   := REF(PlcInputs^.RobotBasicIO_DI_64_bytes_1),      
+                            refOutputs  := REF(PlcOutputs^.RobotBasicIO_DO_64_bytes_1));        
         //</Initialization>
 
        THIS.UseInSequencer();
@@ -49,15 +49,21 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         Sequencer.Initialize(THIS);
         Sequencer.Open();
 
-        IF(Steps[0].Execute(Sequencer, 'Move to home position')) THEN
-            IF(ExampleCylinder.MoveToHome.Invoke().IsDone()) THEN                
+        IF(Steps[0].Execute(Sequencer, 'Start at main')) THEN
+            IF(ExampleRobot.StartAtMain().IsDone()) THEN                
                 Sequencer.MoveNext();                
             END_IF;    
         END_IF;
 
-        IF(Steps[1].Execute(Sequencer, 'Move to work position')) THEN
-            IF(ExampleCylinder.MoveToWork.Invoke().IsDone()) THEN                
+        IF(Steps[1].Execute(Sequencer, 'Move to position')) THEN
+            IF(ExampleRobot.StartMovements(movementParams).IsDone()) THEN                
                 Sequencer.MoveNext();                
+            END_IF;    
+        END_IF;       
+
+        IF(Steps[1].Execute(Sequencer, 'Stop')) THEN
+            IF(ExampleRobot.StopMovements().IsDone()) THEN                
+                Sequencer.CompleteSequence();                
             END_IF;    
         END_IF;       
     END_METHOD
