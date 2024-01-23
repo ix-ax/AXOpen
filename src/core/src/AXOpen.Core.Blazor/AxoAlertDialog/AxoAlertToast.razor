@@ -45,8 +45,8 @@
                         <div class="dropup">
                             <button type="button" class="btn-close" data-bs-toggle="dropdown" aria-expanded="false"></button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" @onclick="() => _dialogService.RemoveAllAlertDialogs()">Close all</a></li>
-                                <li><a class="dropdown-item" @onclick="() => _dialogService.RemoveAlertDialog(toast)">Close</a></li>
+                                <li><a class="dropdown-item" @onclick="() => _dialogService.RemoveAllAlertDialogs()">@Localizer["Close all"]</a></li>
+                                <li><a class="dropdown-item" @onclick="() => _dialogService.RemoveAlertDialog(toast)">@Localizer["Close"]</a></li>
                             </ul>
                         </div>
                     }

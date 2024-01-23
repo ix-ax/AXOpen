@@ -14,9 +14,10 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
     /// </summary>
     public class AxoAlertDialogProxyService : IDisposable
     {
-        private List<IsDialogType> _observedDialogs = new();
 
         private AxoDialogContainer _axoDialogContainer;
+        public IsDialogType DialogInstance { set; get; }
+
         public AxoAlertDialogProxyService(AxoDialogContainer dialogContainer, IEnumerable<ITwinObject> observedOjects)
         {
             _axoDialogContainer = dialogContainer;
@@ -44,51 +45,34 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
         /// <param name="dialog"></param>
         protected async void Queue(IsDialogType dialog)
         {
-            //DialogInstance = dialog;
-            //await DialogInstance.ReadAsync();
-            //AlertDialogInvoked?.Invoke(this, new AxoDialogEventArgs(string.Empty));
+            DialogInstance = dialog;
+            await DialogInstance.ReadAsync();
+            AlertDialogInvoked?.Invoke(this, new AxoDialogEventArgs(string.Empty));
         }
 
         public List<string> ObservedObjects { get; set; } = new List<string>();
         void UpdateDialogs<T>(ITwinObject observedObject) where T : class, IsDialogType
         {
-            var descendants = GetDescendants<T>(observedObject);
+            var descendants = observedObject.GetDescendants<T>();
             foreach (var dialog in descendants)
             {
                 dialog.Initialize(() => Queue(dialog));
-                _observedDialogs.Add(dialog);
             }
 
         }
 
         public void Dispose()
         {
-            foreach (var dialog in _observedDialogs)
-            {
-                dialog.DeInitialize();
-            }
-            _observedDialogs.Clear();
-        }
 
-        protected IEnumerable<T> GetDescendants<T>(ITwinObject obj, IList<T> children = null) where T : class
-        {
-            children = children != null ? children : new List<T>();
-
-            if (obj != null)
+            foreach (var observedObject in _observedObject)
             {
-                foreach (var child in obj.GetChildren())
+                var descendants = observedObject.GetDescendants<IsDialogType>();
+                foreach (var dialog in descendants)
                 {
-                    var ch = child as T;
-                    if (ch != null)
-                    {
-                        children.Add(ch);
-                    }
-
-                    GetDescendants<T>(child, children);
+                    dialog.DeInitialize();
                 }
             }
 
-            return children;
         }
     }
 }

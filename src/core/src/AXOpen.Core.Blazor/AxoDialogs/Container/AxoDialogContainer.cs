@@ -1,4 +1,5 @@
 ﻿using AXOpen.Base.Dialogs;
+using AXOpen.Core;
 using AXOpen.Core.Blazor.AxoAlertDialog;
 using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 using AXSharp.Connector;
@@ -112,7 +113,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// <param name="SymbolListOfDialogs">The list where collected dialog symbols are added.</param>
         private void CollectDialogs<T>(ITwinObject observedObject, List<string> SymbolListOfDialogs) where T : class, IsDialogType
         {
-            var descendants = GetDescendants<T>(observedObject);
+            var descendants = observedObject.GetDescendants<T>();
 
             foreach (var dialog in descendants)
             {
@@ -126,32 +127,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             }
         }
 
-        /// <summary>
-        /// Recursively collects descendants of the specified type from the given object.
-        /// </summary>
-        /// <typeparam name="T">The type of descendants to collect.</typeparam>
-        /// <param name="obj">The starting object.</param>
-        /// <param name="children">The list to which found descendants are added.</param>
-        /// <returns>An enumerable of found descendants.</returns>
-        protected IEnumerable<T> GetDescendants<T>(ITwinObject obj, IList<T> children = null) where T : class
-        {
-            children = children ?? new List<T>();
-
-            if (obj != null)
-            {
-                foreach (var child in obj.GetChildren())
-                {
-                    var ch = child as T;
-                    if (ch != null)
-                    {
-                        children.Add(ch);
-                    }
-
-                    GetDescendants<T>(child, children);
-                }
-            }
-            return children;
-        }
 
         /// <summary>
         /// Disposes of the SignalR client and cleans up any resources.
