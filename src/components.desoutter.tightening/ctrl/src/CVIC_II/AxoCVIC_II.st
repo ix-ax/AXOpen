@@ -15,9 +15,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
         VAR PRIVATE
             _RequiredScrewingProgram : BYTE;
             _infoTimer :  AXOpen.Timers.OnDelayTimer;
-            // _errorTimer :  AXOpen.Timers.OnDelayTimer;
             _infoTime       :   LTIME := LT#2S;
-            // _errorTime      :   LTIME := LT#5S;
         END_VAR
         VAR PUBLIC  //HEADER
             {#ix-attr:[Container(Layout.Wrap)]}
@@ -81,26 +79,6 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
         END_VAR
 
         VAR PUBLIC //CONFIG
-            // {#ix-attr:[Container(Layout.Stack)]}
-            // {#ix-attr:[ComponentDetails("Config")]}
-            // {#ix-set:AttributeName = "<#Screwing program min#>"}
-            // {#ix-attr:[ReadOnly()]}
-            // ScrewingProgramMin         :   BYTE := BYTE#0;
-            // {#ix-attr:[Container(Layout.Stack)]}
-            // {#ix-attr:[ComponentDetails("Config")]}
-            // {#ix-set:AttributeName = "<#Screwing program max#>"}
-            // {#ix-attr:[ReadOnly()]}
-            // ScrewingProgramMax         :   BYTE := BYTE#255;
-            // {#ix-attr:[Container(Layout.Stack)]}
-            // {#ix-attr:[ComponentDetails("Config")]}
-            // {#ix-set:AttributeName = "<#Program change timeout#>"}
-            // {#ix-attr:[ReadOnly()]}
-            // ProgramChangeTimeout         :   TIME := TIME#2S;
-            // {#ix-attr:[ComponentDetails("Config")]}
-            // {#ix-set:AttributeName = "<#Screwing cycle timeout#>"}
-            // {#ix-attr:[ReadOnly()]}
-            // ScrewingCycleTimeout         :   TIME := TIME#60S;
-
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Config")]}
             {#ix-attr:[ReadOnly()]}
@@ -131,6 +109,13 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             Outputs              :   AxoCVIC_II_Out;
         END_VAR    
 
+        VAR PUBLIC
+
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentDetails("Hardware diagnostics")]}
+            {#ix-set:AttributeName = "<#Update diagnostics#>"}
+            HardwareDiagnosticsTask :   AXOpen.Io.AxoHardwareDiagnostics;
+        END_VAR
 
         ///<summary>
 		/// Custom component logic running before any other component logic.
@@ -146,6 +131,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
         METHOD PUBLIC Run
             VAR_INPUT
                 parent                  :   IAxoObject; 
+                hwID                    :   UINT;
                 refStatus               :   REF_TO BYTE;
                 refActScrewingProgram   :   REF_TO BYTE;
                 refTorque               :   REF_TO DWORD;
@@ -164,7 +150,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             END_IF;
 
             THIS.Initialize(parent);
-            THIS.Execute(refStatus,refActScrewingProgram,refTorque,refTorqueTrend,refAngle,refAngleTrend,refControl,refReqScrewingProgram);
+            THIS.Execute(hwID,refStatus,refActScrewingProgram,refTorque,refTorqueTrend,refAngle,refAngleTrend,refControl,refReqScrewingProgram);
                 
         END_METHOD   
 
@@ -175,6 +161,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
         METHOD PUBLIC Run
             VAR_INPUT
                 parent                  :   IAxoContext; 
+                hwID                    :   UINT;
                 refStatus               :   REF_TO BYTE;
                 refActScrewingProgram   :   REF_TO BYTE;
                 refTorque               :   REF_TO DWORD;
@@ -193,12 +180,13 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             END_IF;
 
             THIS.Initialize(parent);
-            THIS.Execute(refStatus,refActScrewingProgram,refTorque,refTorqueTrend,refAngle,refAngleTrend,refControl,refReqScrewingProgram);
+            THIS.Execute(hwID,refStatus,refActScrewingProgram,refTorque,refTorqueTrend,refAngle,refAngleTrend,refControl,refReqScrewingProgram);
         END_METHOD  
 
         METHOD PRIVATE Execute
             VAR_INPUT
-                refStatus       :   REF_TO BYTE;
+                hwID                    :   UINT;
+                refStatus               :   REF_TO BYTE;
                 refActScrewingProgram   :   REF_TO BYTE;
                 refTorque               :   REF_TO DWORD;
                 refTorqueTrend          :   REF_TO WORD;
@@ -271,6 +259,10 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             ResetTask.Initialize(THIS);
             SetScrewingProgramTask.Initialize(THIS);
             StartScrewingTask.Initialize(THIS);
+            HardwareDiagnosticsTask.Initialize(THIS);
+            //****************************************
+            //********************Diagnostics*********        
+            HardwareDiagnosticsTask.Run(hwID);
             //****************************************
 
             //*************RESTORE********************

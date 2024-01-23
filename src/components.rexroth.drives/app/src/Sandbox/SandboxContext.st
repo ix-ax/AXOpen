@@ -19,7 +19,8 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         IF(_manualControl) THEN            
             _testDrive.ActivateManualControl();
         END_IF;   
-        _testDrive.Run(parent:=THIS,
+        _testDrive.Run(parent               :=  THIS,
+                        hwID                :=  TO_UINT(HwIdentifiers#ST3_indradrive),
                         refParameter_In     :=  REF(PlcInputs^.ST3_indradrive_ParamCh_IDN_1),
                         refFieldbus_In      :=  REF(PlcInputs^.ST3_indradrive_Input_9_Words_1),
                         refParameter_Out    :=  REF(PlcOutputs^.ST3_indradrive_ParamCh_IDN_1),

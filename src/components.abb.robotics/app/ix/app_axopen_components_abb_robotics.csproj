@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<Packable>false</Packable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AXSharp.Abstractions" />
+		<PackageReference Include="AXSharp.Connector" />
+		<PackageReference Include="AXSharp.Connector.S71500.WebAPI" />
+	</ItemGroup>
+
+	<ItemGroup>
+    	<Compile Include=".g\**" />
+  	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include=".meta\" />
+		<Content Include=".meta\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\src\AXOpen.Components.Abb.Robotics\ix_ax_axopen_components_abb_robotics.csproj" />
+	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
+	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj" />
+	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj" />
+	  <ProjectReference Include="..\..\..\simatic1500\ctrl\ix\ix_ax_axopen_simatic1500.csproj" />
+	</ItemGroup>
+</Project>

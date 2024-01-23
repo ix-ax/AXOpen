@@ -16,7 +16,8 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
             _testScrewdriver.ActivateManualControl();
         END_IF;   
 
-        _testScrewdriver.Run(   parent             :=  THIS,
+        _testScrewdriver.Run(   parent                  :=  THIS,
+                                hwID                    := TO_UINT(HwIdentifiers#wp462_t1_rh_deso),
                                 refStatus               := REF(PlcInputs^.wp462_t1_rh_deso_Input_1_byte_1),
                                 refActScrewingProgram   := REF(PlcInputs^.wp462_t1_rh_deso_Input_1_byte_2),
                                 refTorque               := REF(PlcInputs^.wp462_t1_rh_deso_Input_2_word_1),
