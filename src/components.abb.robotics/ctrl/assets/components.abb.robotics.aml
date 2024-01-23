@@ -1,0 +1,622 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CAEXFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" FileName="components.abb.robotics.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd">
+  <AdditionalInformation>
+    <WriterHeader>
+      <WriterName>Totally Integrated Automation Portal</WriterName>
+      <WriterID>1d4fcebb-1ad6-4881-b01d-bca335d94a46:V1.0</WriterID>
+      <WriterVendor>Siemens AG</WriterVendor>
+      <WriterVendorURL>www.siemens.com</WriterVendorURL>
+      <WriterVersion>1900</WriterVersion>
+      <WriterRelease>1900.0.6801.3</WriterRelease>
+      <LastWritingDateTime>2024-01-23T19:15:31.1534569Z</LastWritingDateTime>
+    </WriterHeader>
+  </AdditionalInformation>
+  <AdditionalInformation AutomationMLVersion="2.0" />
+  <AdditionalInformation DocumentVersions="Recommendations">
+    <Document DocumentIdentifier="AR APC" Version="1.4.0" />
+  </AdditionalInformation>
+  <InstanceHierarchy Name="APC Sample Instance Hierarchy">
+    <InternalElement ID="288de65d-1f86-4e3e-a672-e2d425f013c0" Name="components.abb.robotics">
+      <InternalElement ID="d4ff15cb-ef1c-4e34-a497-da0f25702534" Name="PN/IE_1">
+        <Attribute Name="Type" AttributeDataType="xs:string">
+          <Value>Ethernet</Value>
+        </Attribute>
+        <ExternalInterface ID="4237fe83-9fd8-48c4-8e18-8f5826f5c052" Name="LogicalEndPoint_Subnet" RefBaseClassPath="CommunicationInterfaceClassLib/LogicalEndPoint" />
+        <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/Subnet" />
+      </InternalElement>
+      <InternalElement ID="f616117e-9e22-4f90-8f3e-5a49008d0321" Name="Ungrouped devices">
+        <InternalElement ID="70e883f0-ac3b-4fe2-8f20-7c011c090ec5" Name="GSD device_1">
+          <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
+            <Value>GSD:GSDML-V2.33-ABB-ROBOTICS-ROBOT-DEVICE-20180814.XML/D</Value>
+          </Attribute>
+          <InternalElement ID="01dca425-ac68-45ff-8194-22d0ffd94992" Name="Rack">
+            <Attribute Name="TypeName" AttributeDataType="xs:string">
+              <Value>Rack</Value>
+            </Attribute>
+            <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+              <Value>0</Value>
+            </Attribute>
+            <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+              <Value>false</Value>
+            </Attribute>
+            <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
+              <Value>GSD:GSDML-V2.33-ABB-ROBOTICS-ROBOT-DEVICE-20180814.XML/R/DIM IO</Value>
+            </Attribute>
+            <InternalElement ID="359148c4-d942-4d90-8401-6ae9c4d1041a" Name="RobotBasicIO">
+              <Attribute Name="TypeName" AttributeDataType="xs:string">
+                <Value>BASIC V1.4</Value>
+              </Attribute>
+              <Attribute Name="DeviceItemType" AttributeDataType="xs:string">
+                <Value>HeadModule</Value>
+              </Attribute>
+              <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                <Value>0</Value>
+              </Attribute>
+              <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                <Value>false</Value>
+              </Attribute>
+              <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
+                <Value>GSD:GSDML-V2.33-ABB-ROBOTICS-ROBOT-DEVICE-20180814.XML/DAP/DIM IO</Value>
+              </Attribute>
+              <InternalElement ID="a77828ac-8669-4c44-9e39-ec1ccb4df27a" Name="Robot Basic Device">
+                <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                  <Value>0</Value>
+                </Attribute>
+                <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                  <Value>true</Value>
+                </Attribute>
+                <Attribute Name="InstallationDate" AttributeDataType="xs:dateTime">
+                  <Value>2024-01-22T18:29:58.0729121Z</Value>
+                </Attribute>
+                <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
+              </InternalElement>
+              <InternalElement ID="38906008-b0c2-4488-b6a8-01026fbadd15" Name="PROFINET Interface">
+                <Attribute Name="Label" AttributeDataType="xs:string">
+                  <Value>X1</Value>
+                </Attribute>
+                <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                  <Value>1</Value>
+                </Attribute>
+                <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                  <Value>true</Value>
+                </Attribute>
+                <ExternalInterface ID="b9e7fd69-1003-4f27-89ac-762ba217ea47" Name="LogicalEndPoint_Interface" RefBaseClassPath="CommunicationInterfaceClassLib/LogicalEndPoint" />
+                <InternalElement ID="2bff51be-3c1e-401c-b0c9-e9343124b0da" Name="IE1">
+                  <Attribute Name="SubnetMask" AttributeDataType="xs:string">
+                    <Value>255.255.255.0</Value>
+                  </Attribute>
+                  <Attribute Name="IpProtocolSelection" AttributeDataType="xs:string">
+                    <Value>Project</Value>
+                  </Attribute>
+                  <Attribute Name="Type" AttributeDataType="xs:string">
+                    <Value>Ethernet</Value>
+                  </Attribute>
+                  <Attribute Name="NetworkAddress" AttributeDataType="xs:string">
+                    <Value>172.20.30.1</Value>
+                  </Attribute>
+                  <ExternalInterface ID="e675c19a-d613-49ea-8f27-a74bfca9715d" Name="LogicalEndPoint_Node" RefBaseClassPath="CommunicationInterfaceClassLib/LogicalEndPoint" />
+                  <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/Node" />
+                  <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationEthernetRoleClassLib/NodeEthernet" />
+                </InternalElement>
+                <InternalElement ID="54503f1c-cf32-46f1-bafd-399cbd7254ea" Name="Network Port">
+                  <Attribute Name="Label" AttributeDataType="xs:string">
+                    <Value>P1</Value>
+                  </Attribute>
+                  <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                    <Value>1</Value>
+                  </Attribute>
+                  <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                    <Value>true</Value>
+                  </Attribute>
+                  <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationPort" />
+                </InternalElement>
+                <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationInterface" />
+              </InternalElement>
+              <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
+            </InternalElement>
+            <InternalElement ID="c3eafc62-b556-4c95-9d35-cc365414ccf6" Name="DI 64 bytes_1">
+              <Attribute Name="TypeName" AttributeDataType="xs:string">
+                <Value>DI 64 bytes</Value>
+              </Attribute>
+              <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                <Value>1</Value>
+              </Attribute>
+              <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                <Value>false</Value>
+              </Attribute>
+              <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
+                <Value>GSD:GSDML-V2.33-ABB-ROBOTICS-ROBOT-DEVICE-20180814.XML/M/1</Value>
+              </Attribute>
+              <InternalElement ID="7c816b15-b097-42f0-ad63-50b66a682ee5" Name="DI 64 bytes">
+                <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                  <Value>0</Value>
+                </Attribute>
+                <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                  <Value>true</Value>
+                </Attribute>
+                <Attribute Name="Address">
+                  <RefSemantic CorrespondingAttributePath="OrderedListType" />
+                  <Attribute Name="1">
+                    <Attribute Name="StartAddress" AttributeDataType="xs:int">
+                      <Value>0</Value>
+                    </Attribute>
+                    <Attribute Name="Length" AttributeDataType="xs:int">
+                      <Value>512</Value>
+                    </Attribute>
+                    <Attribute Name="IoType" AttributeDataType="xs:string">
+                      <Value>Input</Value>
+                    </Attribute>
+                  </Attribute>
+                </Attribute>
+                <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
+              </InternalElement>
+              <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
+            </InternalElement>
+            <InternalElement ID="076e3820-40a3-4b62-ad17-ff008e0e54b6" Name="DO 64 bytes_1">
+              <Attribute Name="TypeName" AttributeDataType="xs:string">
+                <Value>DO 64 bytes</Value>
+              </Attribute>
+              <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                <Value>2</Value>
+              </Attribute>
+              <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                <Value>false</Value>
+              </Attribute>
+              <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
+                <Value>GSD:GSDML-V2.33-ABB-ROBOTICS-ROBOT-DEVICE-20180814.XML/M/2</Value>
+              </Attribute>
+              <InternalElement ID="fc5a4608-453a-402f-9fe8-f4a9bcc6ef8b" Name="DO 64 bytes">
+                <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                  <Value>0</Value>
+                </Attribute>
+                <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                  <Value>true</Value>
+                </Attribute>
+                <Attribute Name="Address">
+                  <RefSemantic CorrespondingAttributePath="OrderedListType" />
+                  <Attribute Name="1">
+                    <Attribute Name="StartAddress" AttributeDataType="xs:int">
+                      <Value>0</Value>
+                    </Attribute>
+                    <Attribute Name="Length" AttributeDataType="xs:int">
+                      <Value>512</Value>
+                    </Attribute>
+                    <Attribute Name="IoType" AttributeDataType="xs:string">
+                      <Value>Output</Value>
+                    </Attribute>
+                  </Attribute>
+                </Attribute>
+                <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
+              </InternalElement>
+              <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
+            </InternalElement>
+            <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
+          </InternalElement>
+          <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/Device" />
+        </InternalElement>
+        <InternalElement ID="a5189c63-1182-4904-ad2e-3e8359fb9303" Name="GSD device_2">
+          <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
+            <Value>GSD:GSDML-V2.43-ABB-ROBOTICS-OMNICORE-20230327.XML/D</Value>
+          </Attribute>
+          <InternalElement ID="86806268-31f4-4b89-9b63-9e0f7dd1b5a7" Name="Rack">
+            <Attribute Name="TypeName" AttributeDataType="xs:string">
+              <Value>Rack</Value>
+            </Attribute>
+            <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+              <Value>0</Value>
+            </Attribute>
+            <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+              <Value>false</Value>
+            </Attribute>
+            <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
+              <Value>GSD:GSDML-V2.43-ABB-ROBOTICS-OMNICORE-20230327.XML/R/DIM IO</Value>
+            </Attribute>
+            <InternalElement ID="d977affc-a791-4262-b2f6-5b75d7fd1666" Name="OmniCore">
+              <Attribute Name="TypeName" AttributeDataType="xs:string">
+                <Value>OmniCore Standard</Value>
+              </Attribute>
+              <Attribute Name="DeviceItemType" AttributeDataType="xs:string">
+                <Value>HeadModule</Value>
+              </Attribute>
+              <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                <Value>0</Value>
+              </Attribute>
+              <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                <Value>false</Value>
+              </Attribute>
+              <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
+                <Value>GSD:GSDML-V2.43-ABB-ROBOTICS-OMNICORE-20230327.XML/DAP/DIM IO</Value>
+              </Attribute>
+              <InternalElement ID="1f2bf8db-ff26-4917-a5c9-1b9296a8d178" Name="OmniCore Standard PROFINET Device">
+                <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                  <Value>0</Value>
+                </Attribute>
+                <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                  <Value>true</Value>
+                </Attribute>
+                <Attribute Name="InstallationDate" AttributeDataType="xs:dateTime">
+                  <Value>2024-01-23T19:11:26.9240843Z</Value>
+                </Attribute>
+                <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
+              </InternalElement>
+              <InternalElement ID="9d8ab1fa-44b3-4311-b808-82665601ebc6" Name="PROFINET Interface">
+                <Attribute Name="Label" AttributeDataType="xs:string">
+                  <Value>X1</Value>
+                </Attribute>
+                <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                  <Value>1</Value>
+                </Attribute>
+                <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                  <Value>true</Value>
+                </Attribute>
+                <ExternalInterface ID="77f89e4d-5c6c-4453-8ac7-c06638412432" Name="LogicalEndPoint_Interface" RefBaseClassPath="CommunicationInterfaceClassLib/LogicalEndPoint" />
+                <InternalElement ID="9a87a1cf-a280-46b7-a5eb-ff4dbff39082" Name="IE1">
+                  <Attribute Name="SubnetMask" AttributeDataType="xs:string">
+                    <Value>255.255.255.0</Value>
+                  </Attribute>
+                  <Attribute Name="IpProtocolSelection" AttributeDataType="xs:string">
+                    <Value>Project</Value>
+                  </Attribute>
+                  <Attribute Name="Type" AttributeDataType="xs:string">
+                    <Value>Ethernet</Value>
+                  </Attribute>
+                  <Attribute Name="NetworkAddress" AttributeDataType="xs:string">
+                    <Value>172.20.30.2</Value>
+                  </Attribute>
+                  <ExternalInterface ID="133f6ed3-70df-4053-8733-b8acca065454" Name="LogicalEndPoint_Node" RefBaseClassPath="CommunicationInterfaceClassLib/LogicalEndPoint" />
+                  <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/Node" />
+                  <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationEthernetRoleClassLib/NodeEthernet" />
+                </InternalElement>
+                <InternalElement ID="25db57ab-cd8c-42dc-8efc-0a7a3d26b8eb" Name="Network Port 1">
+                  <Attribute Name="Label" AttributeDataType="xs:string">
+                    <Value>P1</Value>
+                  </Attribute>
+                  <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                    <Value>1</Value>
+                  </Attribute>
+                  <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                    <Value>true</Value>
+                  </Attribute>
+                  <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationPort" />
+                </InternalElement>
+                <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationInterface" />
+              </InternalElement>
+              <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
+            </InternalElement>
+            <InternalElement ID="a88a7a30-e87b-42f7-a654-443376a92ee9" Name="DI 64 bytes_1">
+              <Attribute Name="TypeName" AttributeDataType="xs:string">
+                <Value>DI 64 bytes</Value>
+              </Attribute>
+              <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                <Value>1</Value>
+              </Attribute>
+              <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                <Value>false</Value>
+              </Attribute>
+              <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
+                <Value>GSD:GSDML-V2.43-ABB-ROBOTICS-OMNICORE-20230327.XML/M/1</Value>
+              </Attribute>
+              <InternalElement ID="eb888420-6de8-4995-a0df-f91b228f83c0" Name="DI 64 bytes">
+                <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                  <Value>0</Value>
+                </Attribute>
+                <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                  <Value>true</Value>
+                </Attribute>
+                <Attribute Name="Address">
+                  <RefSemantic CorrespondingAttributePath="OrderedListType" />
+                  <Attribute Name="1">
+                    <Attribute Name="StartAddress" AttributeDataType="xs:int">
+                      <Value>64</Value>
+                    </Attribute>
+                    <Attribute Name="Length" AttributeDataType="xs:int">
+                      <Value>512</Value>
+                    </Attribute>
+                    <Attribute Name="IoType" AttributeDataType="xs:string">
+                      <Value>Input</Value>
+                    </Attribute>
+                  </Attribute>
+                </Attribute>
+                <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
+              </InternalElement>
+              <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
+            </InternalElement>
+            <InternalElement ID="09cb23b7-e57d-4c82-8384-0214a62c8653" Name="DO 64 bytes_1">
+              <Attribute Name="TypeName" AttributeDataType="xs:string">
+                <Value>DO 64 bytes</Value>
+              </Attribute>
+              <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                <Value>2</Value>
+              </Attribute>
+              <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                <Value>false</Value>
+              </Attribute>
+              <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
+                <Value>GSD:GSDML-V2.43-ABB-ROBOTICS-OMNICORE-20230327.XML/M/2</Value>
+              </Attribute>
+              <InternalElement ID="cd8dcaee-bf10-4091-9bc2-72f19944ff5a" Name="DO 64 bytes">
+                <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                  <Value>0</Value>
+                </Attribute>
+                <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                  <Value>true</Value>
+                </Attribute>
+                <Attribute Name="Address">
+                  <RefSemantic CorrespondingAttributePath="OrderedListType" />
+                  <Attribute Name="1">
+                    <Attribute Name="StartAddress" AttributeDataType="xs:int">
+                      <Value>64</Value>
+                    </Attribute>
+                    <Attribute Name="Length" AttributeDataType="xs:int">
+                      <Value>512</Value>
+                    </Attribute>
+                    <Attribute Name="IoType" AttributeDataType="xs:string">
+                      <Value>Output</Value>
+                    </Attribute>
+                  </Attribute>
+                </Attribute>
+                <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
+              </InternalElement>
+              <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
+            </InternalElement>
+            <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
+          </InternalElement>
+          <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/Device" />
+        </InternalElement>
+        <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceUserFolder" />
+      </InternalElement>
+      <InternalElement ID="732eea8a-5eee-439d-9f5e-dfff880ee465" Name="S71500/ET200MP station_2">
+        <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
+          <Value>System:Device.S71500</Value>
+        </Attribute>
+        <InternalElement ID="ac0b2115-a583-47e0-88ed-ca39118c4875" Name="Rail_0">
+          <Attribute Name="TypeName" AttributeDataType="xs:string">
+            <Value>Rack</Value>
+          </Attribute>
+          <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+            <Value>0</Value>
+          </Attribute>
+          <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+            <Value>false</Value>
+          </Attribute>
+          <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
+            <Value>OrderNumber:6ES7 590-1***0-0AA0</Value>
+          </Attribute>
+          <InternalElement ID="823960f8-e908-4338-b4e1-7500f6f82298" Name="PLC_LINE">
+            <Attribute Name="TypeName" AttributeDataType="xs:string">
+              <Value>CPU 1518F-4 PN/DP</Value>
+            </Attribute>
+            <Attribute Name="DeviceItemType" AttributeDataType="xs:string">
+              <Value>CPU</Value>
+            </Attribute>
+            <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+              <Value>1</Value>
+            </Attribute>
+            <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+              <Value>false</Value>
+            </Attribute>
+            <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
+              <Value>OrderNumber:6ES7 518-4FP00-0AB0</Value>
+            </Attribute>
+            <Attribute Name="InstallationDate" AttributeDataType="xs:dateTime">
+              <Value>2019-07-01T08:39:13.893757Z</Value>
+            </Attribute>
+            <Attribute Name="Failsafe_FSourceAddress" AttributeDataType="xs:string">
+              <Value>1</Value>
+            </Attribute>
+            <Attribute Name="Failsafe_LowerBoundForFDestinationAddresses" AttributeDataType="xs:string">
+              <Value>1</Value>
+            </Attribute>
+            <Attribute Name="Failsafe_UpperBoundForFDestinationAddresses" AttributeDataType="xs:string">
+              <Value>99</Value>
+            </Attribute>
+            <Attribute Name="FirmwareVersion" AttributeDataType="xs:string">
+              <Value>V3.0</Value>
+            </Attribute>
+            <InternalElement ID="62d45bcd-4de1-4ef1-871b-fc0c7f1afeed" Name="Default tag table">
+              <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/TagTable" />
+            </InternalElement>
+            <InternalElement ID="879eaf71-a7e3-4c44-a16f-9f1d9a840440" Name="CPU display_1">
+              <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                <Value>3</Value>
+              </Attribute>
+              <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                <Value>true</Value>
+              </Attribute>
+              <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
+            </InternalElement>
+            <InternalElement ID="dc76fc7d-bd14-4992-86b4-926a5b0e1238" Name="Card reader/writer_1">
+              <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                <Value>4</Value>
+              </Attribute>
+              <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                <Value>true</Value>
+              </Attribute>
+              <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
+            </InternalElement>
+            <InternalElement ID="d5629260-59cd-48b9-8cba-c8d5fbe6a040" Name="OPC UA_1">
+              <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                <Value>254</Value>
+              </Attribute>
+              <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                <Value>true</Value>
+              </Attribute>
+              <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
+            </InternalElement>
+            <InternalElement ID="8e366e34-d530-433b-8048-5e1f9a7f73fa" Name="PROFINET interface_1">
+              <Attribute Name="Label" AttributeDataType="xs:string">
+                <Value>X1</Value>
+              </Attribute>
+              <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                <Value>32768</Value>
+              </Attribute>
+              <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                <Value>true</Value>
+              </Attribute>
+              <InternalElement ID="591ceb19-a5e7-4bc5-952f-7c03afdd2124" Name="E1">
+                <Attribute Name="SubnetMask" AttributeDataType="xs:string">
+                  <Value>255.255.255.0</Value>
+                </Attribute>
+                <Attribute Name="IpProtocolSelection" AttributeDataType="xs:string">
+                  <Value>Project</Value>
+                </Attribute>
+                <Attribute Name="Type" AttributeDataType="xs:string">
+                  <Value>Ethernet</Value>
+                </Attribute>
+                <Attribute Name="NetworkAddress" AttributeDataType="xs:string">
+                  <Value>172.20.30.110</Value>
+                </Attribute>
+                <ExternalInterface ID="97874217-6120-43fb-85ef-94493660f8dc" Name="LogicalEndPoint_Node" RefBaseClassPath="CommunicationInterfaceClassLib/LogicalEndPoint" />
+                <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/Node" />
+                <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationEthernetRoleClassLib/NodeEthernet" />
+              </InternalElement>
+              <InternalElement ID="2c23e66f-b864-4799-ba62-cb4dadf2b247" Name="PROFINET IO-System">
+                <Attribute Name="Number" AttributeDataType="xs:int">
+                  <Value>100</Value>
+                </Attribute>
+                <ExternalInterface ID="1e9f80ad-acf7-4933-855a-3ca1b680d141" Name="LogicalEndPoint_IoSystem" RefBaseClassPath="CommunicationInterfaceClassLib/LogicalEndPoint" />
+                <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/IoSystem" />
+              </InternalElement>
+              <InternalElement ID="2f6563e5-cbca-4197-934a-95276c3182d8" Name="Port_1">
+                <Attribute Name="Label" AttributeDataType="xs:string">
+                  <Value>P1R</Value>
+                </Attribute>
+                <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                  <Value>32769</Value>
+                </Attribute>
+                <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                  <Value>true</Value>
+                </Attribute>
+                <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationPort" />
+              </InternalElement>
+              <InternalElement ID="652ee93f-19be-4d72-9845-27de8978886c" Name="Port_2">
+                <Attribute Name="Label" AttributeDataType="xs:string">
+                  <Value>P2R</Value>
+                </Attribute>
+                <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                  <Value>32770</Value>
+                </Attribute>
+                <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                  <Value>true</Value>
+                </Attribute>
+                <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationPort" />
+              </InternalElement>
+              <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationInterface" />
+            </InternalElement>
+            <InternalElement ID="558f6633-dec3-4951-95b8-f5d611e0d89b" Name="PROFINET interface_2">
+              <Attribute Name="Label" AttributeDataType="xs:string">
+                <Value>X2</Value>
+              </Attribute>
+              <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                <Value>33024</Value>
+              </Attribute>
+              <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                <Value>true</Value>
+              </Attribute>
+              <InternalElement ID="12e65c3a-de61-4c81-856d-4ca00f333c19" Name="E1">
+                <Attribute Name="SubnetMask" AttributeDataType="xs:string">
+                  <Value>255.255.255.0</Value>
+                </Attribute>
+                <Attribute Name="IpProtocolSelection" AttributeDataType="xs:string">
+                  <Value>Project</Value>
+                </Attribute>
+                <Attribute Name="Type" AttributeDataType="xs:string">
+                  <Value>Ethernet</Value>
+                </Attribute>
+                <Attribute Name="NetworkAddress" AttributeDataType="xs:string">
+                  <Value>192.168.1.1</Value>
+                </Attribute>
+                <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/Node" />
+                <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationEthernetRoleClassLib/NodeEthernet" />
+              </InternalElement>
+              <InternalElement ID="0a829b47-53c0-4165-a2de-d308260b265e" Name="Port_1">
+                <Attribute Name="Label" AttributeDataType="xs:string">
+                  <Value>P1</Value>
+                </Attribute>
+                <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                  <Value>33025</Value>
+                </Attribute>
+                <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                  <Value>true</Value>
+                </Attribute>
+                <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationPort" />
+              </InternalElement>
+              <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationInterface" />
+            </InternalElement>
+            <InternalElement ID="095505e2-149a-4719-968e-472b8ed6d1eb" Name="PROFINET interface GBIT_3">
+              <Attribute Name="Label" AttributeDataType="xs:string">
+                <Value>X3</Value>
+              </Attribute>
+              <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                <Value>33280</Value>
+              </Attribute>
+              <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                <Value>true</Value>
+              </Attribute>
+              <InternalElement ID="5fc8586e-0af6-4f2f-98f2-dabb6d1b56e0" Name="E1">
+                <Attribute Name="SubnetMask" AttributeDataType="xs:string">
+                  <Value>255.255.255.0</Value>
+                </Attribute>
+                <Attribute Name="IpProtocolSelection" AttributeDataType="xs:string">
+                  <Value>Project</Value>
+                </Attribute>
+                <Attribute Name="Type" AttributeDataType="xs:string">
+                  <Value>Ethernet</Value>
+                </Attribute>
+                <Attribute Name="NetworkAddress" AttributeDataType="xs:string">
+                  <Value>192.168.2.1</Value>
+                </Attribute>
+                <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/Node" />
+                <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationEthernetRoleClassLib/NodeEthernet" />
+              </InternalElement>
+              <InternalElement ID="63f780d0-b36e-464a-b20c-a62ae59bd1ab" Name="Port_1">
+                <Attribute Name="Label" AttributeDataType="xs:string">
+                  <Value>P1</Value>
+                </Attribute>
+                <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                  <Value>33281</Value>
+                </Attribute>
+                <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                  <Value>true</Value>
+                </Attribute>
+                <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationPort" />
+              </InternalElement>
+              <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationInterface" />
+            </InternalElement>
+            <InternalElement ID="d95c08f3-c4c5-45bd-89ea-04563ea68107" Name="DP interface_1">
+              <Attribute Name="Label" AttributeDataType="xs:string">
+                <Value>X4</Value>
+              </Attribute>
+              <Attribute Name="PositionNumber" AttributeDataType="xs:int">
+                <Value>33536</Value>
+              </Attribute>
+              <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+                <Value>true</Value>
+              </Attribute>
+              <InternalElement ID="d56c4f01-358b-4c00-8d01-a27eb694b4c2" Name="P1">
+                <Attribute Name="Type" AttributeDataType="xs:string">
+                  <Value>Profibus</Value>
+                </Attribute>
+                <Attribute Name="NetworkAddress" AttributeDataType="xs:string">
+                  <Value>2</Value>
+                </Attribute>
+                <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/Node" />
+              </InternalElement>
+              <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationInterface" />
+            </InternalElement>
+            <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
+            <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationProfiSafeRoleClassLib/DeviceItemProfiSafe" />
+          </InternalElement>
+          <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
+        </InternalElement>
+        <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/Device" />
+      </InternalElement>
+      <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/AutomationProject" />
+      <InternalLink Name="Link To Subnet_1" RefPartnerSideA="591ceb19-a5e7-4bc5-952f-7c03afdd2124:LogicalEndPoint_Node" RefPartnerSideB="d4ff15cb-ef1c-4e34-a497-da0f25702534:LogicalEndPoint_Subnet" />
+      <InternalLink Name="Link To Subnet_2" RefPartnerSideA="2bff51be-3c1e-401c-b0c9-e9343124b0da:LogicalEndPoint_Node" RefPartnerSideB="d4ff15cb-ef1c-4e34-a497-da0f25702534:LogicalEndPoint_Subnet" />
+      <InternalLink Name="Link To Subnet_3" RefPartnerSideA="9a87a1cf-a280-46b7-a5eb-ff4dbff39082:LogicalEndPoint_Node" RefPartnerSideB="d4ff15cb-ef1c-4e34-a497-da0f25702534:LogicalEndPoint_Subnet" />
+      <InternalLink Name="Link To IoSystem_1" RefPartnerSideA="38906008-b0c2-4488-b6a8-01026fbadd15:LogicalEndPoint_Interface" RefPartnerSideB="2c23e66f-b864-4799-ba62-cb4dadf2b247:LogicalEndPoint_IoSystem" />
+      <InternalLink Name="Link To IoSystem_2" RefPartnerSideA="9d8ab1fa-44b3-4311-b808-82665601ebc6:LogicalEndPoint_Interface" RefPartnerSideB="2c23e66f-b864-4799-ba62-cb4dadf2b247:LogicalEndPoint_IoSystem" />
+    </InternalElement>
+  </InstanceHierarchy>
+</CAEXFile>

@@ -1,8 +1,6 @@
 TYPE
 	PlcOutputs : STRUCT
-		_moveHomeSignal_1 : BOOL;
-		_moveWorkSignal_1 : BOOL;
-		_moveHomeSignal_2 : BOOL;
-		_moveWorkSignal_2 : BOOL;
+		RobotBasicIO_DO_64_bytes_1 : ARRAY[0..63] OF BYTE;
+		OmniCore_DO_64_bytes_1 : ARRAY[0..63] OF BYTE;
 	END_STRUCT;
 END_TYPE
