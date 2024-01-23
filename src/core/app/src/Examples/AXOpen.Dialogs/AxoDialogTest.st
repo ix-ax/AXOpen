@@ -18,6 +18,9 @@ NAMESPACE AxoDialogExamples
             _iterationStep : INT;
             _timeOutCounter : INT;                
 
+            {#ix-set:AttributeName = "Generate Alerts in sequnce"}
+            _alertInSequnce : BOOL;
+            _alertIterationStep : INT;
 
             {#ix-set:AttributeName = "External Button signal - OK"}
             _externButtonSignal_ok : BOOL;
@@ -34,8 +37,11 @@ NAMESPACE AxoDialogExamples
             {#ix-set:AttributeName = "Dialog Answer"}
             _answer : eDialogAnswer;
  
-            {#ix-set:AttributeName = "example dialog"}
-            _d : AXOpen.Core.AxoDialog;
+            {#ix-set:AttributeName = "Dialog"}
+            _dialog : AXOpen.Core.AxoDialog;
+
+            {#ix-set:AttributeName = "Alert Dialog"}
+            _alertDialog : AXOpen.Core.AxoAlertDialog;
         END_VAR    
 
 
@@ -51,15 +57,20 @@ NAMESPACE AxoDialogExamples
             
             IF(_restoreDialog) THEN
                 _restoreDialog := false;
-                _d.Restore();    
+                _dialog.Restore();    
+                _alertDialog.Restore(); 
                 _callDialog:= false;
                 _callDialogInSequnce := false;
                 _iterationStep := 0;
                 _timeOutCounter := 0;
+
+                _alertInSequnce := FALSE;
+                _alertIterationStep := 0;
             END_IF;   
-            
+
+            //----------------------  DIALOG AND WAIT FOR RESPONSE -------
             IF(_callDialog) THEN
-               _answer := _d.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
+               _answer := _dialog.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
                                                 .WithYesNoCancel()
                                                 .WithType(eDialogType#Warning)
                                                 .WithCaption(Caption)
@@ -71,7 +82,7 @@ NAMESPACE AxoDialogExamples
                END_IF;
             END_IF;
             
-
+            //----------------------  DIALOG IN SEQUNCE-------------------
             IF _callDialogInSequnce THEN
 
 
@@ -82,8 +93,8 @@ NAMESPACE AxoDialogExamples
 
                 if  _iterationStep  = 1 then 
 
-                    if not _d.HasError() then 
-                        _answer := _d.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
+                    if not _dialog.HasError() then 
+                        _answer := _dialog.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
                         .WithYesNoCancel()
                         .WithType(eDialogType#Info)
                         .WithCaption( 'Iteraion 1')
@@ -102,8 +113,8 @@ NAMESPACE AxoDialogExamples
 
                 if  _iterationStep  = 2 then 
 
-                    if not _d.HasError() then 
-                        _answer := _d.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
+                    if not _dialog.HasError() then 
+                        _answer := _dialog.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
                         .WithYesNoCancel()
                         .WithType(eDialogType#Success)
                         .WithCaption('Iteraion 2')
@@ -120,8 +131,8 @@ NAMESPACE AxoDialogExamples
                 end_if;
 
                 if  _iterationStep  = 3 then 
-                    if not _d.HasError() then 
-                        _answer := _d.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
+                    if not _dialog.HasError() then 
+                        _answer := _dialog.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
                         .WithYesNoCancel()
                         .WithType(eDialogType#Warning)
                         .WithCaption('Iteraion 3')
@@ -138,8 +149,8 @@ NAMESPACE AxoDialogExamples
                 end_if;
 
                 if  _iterationStep  = 4 then 
-                    if not _d.HasError() then 
-                        _answer := _d.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
+                    if not _dialog.HasError() then 
+                        _answer := _dialog.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
                         .WithYesNoCancel()
                         .WithType(eDialogType#Danger)
                         .WithCaption('Iteraion 4')
@@ -155,12 +166,39 @@ NAMESPACE AxoDialogExamples
 
                 end_if;
 
-                // if  _iterationStep  >= 5 then 
-                //     _iterationStep := 0;
-                //     _callDialogInSequnce := false;
-                // end_if;
             end_if;
 
+            //---------------------- ALERT DIALOG ------------------- 
+            IF _alertInSequnce THEN
+
+                if  _alertIterationStep  = 0 then 
+                    _alertIterationStep := _alertIterationStep + 1;
+                end_if;
+
+                if  _alertIterationStep  = 1 then 
+                    if not _alertDialog.HasError() then 
+                        IF(_alertDialog.Show(THIS)
+                            .WithTitle(Caption)
+                            .WithType(eDialogType#Success)
+                            .WithMessage('This is alert invoked from plc!')
+                            .WithTimeToBurn(UINT#5).IsShown() = true) THEN
+                            //when task is done, move next
+                            _alertIterationStep := _alertIterationStep + 1;
+                        END_IF;	
+                    end_if;
+                end_if;
+
+
+                if  _alertIterationStep  > 1 then  // simulate time gap
+                    _alertIterationStep := _alertIterationStep + 1;
+                end_if;
+
+                if  _alertIterationStep  > 100 then // time simulation is over
+                    _alertIterationStep := 0 ;
+                end_if;
+            ELSE
+                _alertIterationStep := 0 ;
+            END_IF;
         END_METHOD
 
         METHOD PRIVATE Watcher_Monitor
