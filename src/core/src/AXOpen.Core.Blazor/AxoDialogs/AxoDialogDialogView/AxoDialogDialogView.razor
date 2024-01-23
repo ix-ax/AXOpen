@@ -33,14 +33,6 @@
         }
 
     </div>
-    <div>
-
-        @if (!_asp.GetAuthenticationStateAsync().Result.User.Identity.IsAuthenticated)
-        {
-            <p>You are not authorized, please <a href="Identity/Account/Login">Log In</a>.</p>
-        }
-
-    </div>
 </div>
 
 

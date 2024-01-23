@@ -1,11 +1,13 @@
 ﻿using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AXOpen.Core.Blazor.AxoDialogs
 {
@@ -38,6 +40,11 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
+        [Inject]
+        public AuthenticationStateProvider Authentification { get; set; }
+
+
+
         /// <summary>
         /// The SignalR client for managing real-time dialogue events.
         /// </summary>
@@ -55,6 +62,9 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// </summary>
         [Parameter, EditorRequired]
         public string DialogLocatorPath { get; set; }
+
+        [Parameter]
+        public bool DisplayInModalWindow { get; set; } = true;
 
         /// <summary>
         /// A unique GUID for the dialog locator instance, used for internal management and event subscription.
