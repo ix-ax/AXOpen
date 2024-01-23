@@ -27,36 +27,30 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         internal event EventHandler<AxoDialogEventArgs>? EventHandler_Close;
 
-        private List<string> _Subscribers = new();
+        private List<string> _subscribers = new();
 
-        public List<string> Subscribers
-        {
-            get
-            {
-                return _Subscribers;
-            }
-        }
+        
 
         public void StartDialogMonitoring(string locatorId)
         {
-            if (!Subscribers.Any(p => p == locatorId))
+            if (!_subscribers.Any(p => p == locatorId))
             {
-                if (Subscribers.Count < 1)
+                if (_subscribers.Count < 1)
                 {
                     Dialog.Initialize(() => HandleInvocation());
                     Dialog._closeSignal.ValueChangeEvent += HandleClose;
                 }
-                this.Subscribers.Add(locatorId);
+                this._subscribers.Add(locatorId);
             }
         }
 
         public void StopDialogMonitoring(string locatorId)
         {
-            if (Subscribers.Any(p => p == locatorId))
+            if (_subscribers.Any(p => p == locatorId))
             {
-                this.Subscribers.Remove(locatorId);
+                this._subscribers.Remove(locatorId);
 
-                if (Subscribers.Count < 1)
+                if (_subscribers.Count < 1)
                 {
                     Dialog.DeInitialize();
                     Dialog._closeSignal.ValueChangeEvent -= HandleClose;

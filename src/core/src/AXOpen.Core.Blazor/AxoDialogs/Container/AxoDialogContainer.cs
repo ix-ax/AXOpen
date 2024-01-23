@@ -37,9 +37,15 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         public HashSet<string> ObservedObjectsAlerts { get; set; } = new HashSet<string>();
 
 
-        // object that monitor and subscribe events from plc.
+        /// <summary>
+        /// Dictionary of the Handling PLC events. On thist objects generate new evetns that are handled by proxy service.
+        /// </summary>
         public Dictionary<string, DialogMonitor> MonitoredDialogs { get; set; } = new Dictionary<string, DialogMonitor>();
+        /// <summary>
+        /// Dictionary of the existing proxy services.
+        /// </summary>
         public Dictionary<string, AxoDialogProxyService> DialogProxyServicesDictionary { get; set; } = new Dictionary<string, AxoDialogProxyService>();
+
         public Dictionary<string, AxoAlertDialogProxyService> AlertDialogProxyServicesDictionary { get; set; } = new Dictionary<string, AxoAlertDialogProxyService>();
 
         public Task InitializeSignalR(string uri)

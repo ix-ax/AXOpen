@@ -1,15 +1,6 @@
 ﻿using AXOpen.Base.Dialogs;
 using AXSharp.Connector;
-using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Components;
-using System.ComponentModel;
-using System.Security.Cryptography.Xml;
-using System.Security.Principal;
 using Serilog;
-using System;
-using Microsoft.AspNetCore.Identity.UI.Services;
-using AXSharp.Connector.ValueTypes.Shadows;
-using System.Reflection;
 
 namespace AXOpen.Core.Blazor.AxoDialogs
 {
@@ -26,50 +17,69 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         private Dictionary<string, DialogMonitor> _observedDialogs = new();
 
-        private string _dialogLocatorId { get; set; }
+        public string LocatorPath { get; private set; }
+
+        private List<Guid> _subscribers = new();
 
         public List<IsDialogType> DisplayedDialogs { get; set; } = new();
 
         /// <summary>
         /// Creates new instance of <see cref="AxoDialogProxyService"/>, in standard case is this constructor called only once.
         /// </summary>
-        /// <param name="dialogLocatorId">Id of DialogLocator. Use for identification of the service in the dailogContainer. (typical the URL of the page where the dialogue is handled)..</param>
+        /// <param name="dialogLocatorPath">Id of DialogLocator. Use for identification of the service in the dailogContainer. (typical the URL of the page where the dialogue is handled)..</param>
         /// <param name="dialogContainer">Container of proxy services handled by the application over SignalR.</param>
         /// <param name="observedObjects">Twin objects that may contain invokable dialogs from the controller that are to be handled by this proxy service.</param>
-        public AxoDialogProxyService(string dialogLocatorId, AxoDialogContainer dialogContainer, IEnumerable<ITwinObject> observedObjects)
+        public AxoDialogProxyService(
+            string dialogLocatorPath,
+            Guid dialogLocatorGuid,
+            AxoDialogContainer dialogContainer,
+            IEnumerable<ITwinObject> observedObjects)
         {
-            _dialogLocatorId = dialogLocatorId;
+            LocatorPath = dialogLocatorPath;
             _dialogContainer = dialogContainer;
             _observedObject = observedObjects;
 
-            _dialogContainer.DialogProxyServicesDictionary.TryAdd(_dialogLocatorId, this);
+            _dialogContainer.DialogProxyServicesDictionary.TryAdd(LocatorPath, this);
             _observedDialogs = _dialogContainer.CollectDialogsOnObjects(_observedObject);
 
-            StartObservingDialogues();
+            StartObservingDialogues(dialogLocatorGuid);
         }
 
         /// <summary>
         /// Starts observing dialogue of this proxy service.
         /// </summary>
-        internal void StartObservingDialogues()
+        internal void StartObservingDialogues(Guid dialogLocatorGuid)
         {
-            foreach (var dialog in _observedDialogs)
+            if (!_subscribers.Any())
             {
-                dialog.Value.StartDialogMonitoring(_dialogLocatorId);
+                foreach (var dialog in _observedDialogs)
+                {
+                    dialog.Value.StartDialogMonitoring(LocatorPath);
 
-                dialog.Value.EventHandler_Invoke += HandleDialogInvocation_FromPlc;
-                dialog.Value.EventHandler_Close += HandleDialogClosing_FromPlc;
+                    dialog.Value.EventHandler_Invoke += HandleDialogInvocation_FromPlc;
+                    dialog.Value.EventHandler_Close += HandleDialogClosing_FromPlc;
+                }
             }
+
+            this._subscribers.Add(dialogLocatorGuid);
         }
 
-        internal void StopObservingDialogues()
+        internal void StopObservingDialogues(Guid dialogLocatorGuid)
         {
-            foreach (var dialog in _observedDialogs)
+            if (_subscribers.Any(p => p == dialogLocatorGuid))
             {
-                dialog.Value.StopDialogMonitoring(_dialogLocatorId);
+                this._subscribers.Remove(dialogLocatorGuid);
 
-                dialog.Value.EventHandler_Invoke -= HandleDialogInvocation_FromPlc;
-                dialog.Value.EventHandler_Close -= HandleDialogClosing_FromPlc;
+                if (_subscribers.Count < 1)
+                {
+                    foreach (var dialog in _observedDialogs)
+                    {
+                        dialog.Value.StopDialogMonitoring(LocatorPath);
+
+                        dialog.Value.EventHandler_Invoke -= HandleDialogInvocation_FromPlc;
+                        dialog.Value.EventHandler_Close -= HandleDialogClosing_FromPlc;
+                    }
+                }
             }
         }
 
@@ -153,16 +163,20 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             }
         }
 
+        public void TryDispose(Guid dialogLocatorGuid)
+        {
+            StopObservingDialogues(dialogLocatorGuid);
+
+            Log.Logger.Information($"Proxy->TryDislose {LocatorPath}/{dialogLocatorGuid}");
+        }
+
         /// <summary>
         /// Releases resources related to handling and communication with the controller.
         /// </summary>
         public void Dispose()
         {
-            StopObservingDialogues();
-
             _observedDialogs.Clear();
-
-            Log.Logger.Information($"Proxy->Dislose {_dialogLocatorId}");
+            Log.Logger.Information($"Proxy->Dislose {LocatorPath}");
         }
     }
 }

@@ -39,9 +39,9 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// When no value provided, URI is used as a ID. 
         /// </summary>
         [Parameter, EditorRequired]
-        public string DialogLocatorId { get; set; }
+        public string DialogLocatorPath { get; set; }
 
-        public Guid InstanceGuid { get; private set; } = new Guid();
+        public Guid DialogLocatorGuid { get; private set; } = Guid.NewGuid();
 
 
         /// <summary>
@@ -81,26 +81,25 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             await DialogContainer.InitializeSignalR(uri);
 
             //if dialog id is null, set it to actual URI
-            if (string.IsNullOrEmpty(DialogLocatorId)) DialogLocatorId = uri;
+            if (string.IsNullOrEmpty(DialogLocatorPath)) DialogLocatorPath = uri;
 
 
             //try to acquire existing dialog service instance
-            var proxyExists = DialogContainer.DialogProxyServicesDictionary.TryGetValue(DialogLocatorId, out AxoDialogProxyService proxy);
+            var proxyExists = DialogContainer.DialogProxyServicesDictionary.TryGetValue(DialogLocatorPath, out AxoDialogProxyService proxy);
 
             if (!proxyExists)
             {
                 // if it does not exist, create new instance with observed objects and add it into container
-                this._dialogProxyService = new AxoDialogProxyService(DialogLocatorId, DialogContainer, ObservedObjects);
+                this._dialogProxyService = new AxoDialogProxyService(DialogLocatorPath, DialogLocatorGuid, DialogContainer, ObservedObjects);
             }
             else
             {
                 this._dialogProxyService = proxy;
-                this._dialogProxyService.StartObservingDialogues(); // needs to be reinitialized
+                this._dialogProxyService.StartObservingDialogues(DialogLocatorGuid); // needs to be reinitialized
             }
 
             this._dialogProxyService.EventFromPlc_DialogInvoked += OnPlc_DialogInvoked; // 
             this._dialogProxyService.EventFromPlc_DialogRemoved += OnPlc_DialogRemoved; // 
-
 
             this.SignalRClient.EventDialogOpen += OnSignalRClient_DialogOpen;
             this.SignalRClient.EventDialogClose += OnSignalRClient_DialogClose;
@@ -181,7 +180,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             {
                 _dialogProxyService.EventFromPlc_DialogInvoked -= OnPlc_DialogInvoked; // unsubscribe current view 
                 _dialogProxyService.EventFromPlc_DialogRemoved -= OnPlc_DialogRemoved; // 
-                _dialogProxyService.Dispose();
+                _dialogProxyService.TryDispose(this.DialogLocatorGuid);
             }
 
             if (this.SignalRClient != null)
