@@ -1,8 +1,6 @@
 TYPE
 	HwOutputs : STRUCT
-		_moveHomeSignal_1 AT %X0.0 : BOOL;
-		_moveWorkSignal_1 AT %X0.1 : BOOL;
-		_moveHomeSignal_2 AT %X0.2 : BOOL;
-		_moveWorkSignal_2 AT %X0.3 : BOOL;
+		RobotBasicIO_DO_64_bytes_1 AT %B0 : ARRAY[0..63] OF BYTE;
+		OmniCore_DO_64_bytes_1 AT %B64 : ARRAY[0..63] OF BYTE;
 	END_STRUCT;
 END_TYPE
