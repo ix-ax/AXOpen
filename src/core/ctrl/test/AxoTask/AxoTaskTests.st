@@ -1160,7 +1160,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
         END_METHOD
 
         {Test}
-        METHOD PUBLIC error_occured_method_should_return_false_in_the_n_plus_2_PLC_cycle
+        METHOD PUBLIC error_occured_method_should_return_false_in_the_n_plus_2_PLC_cycle_1
             // Arrange
             THIS.Initialize();
             _context.Open();
