@@ -4,13 +4,8 @@
 @using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 @using AXOpen.Core.Blazor.AxoDialogs;
 @using AXSharp.Connector;
-@inject NavigationManager NavigationManager
-@inject IAlertDialogService AlertDialogService
-@inject AxoDialogContainer DialogContainer
-@inherits ComponentBase
-@implements IDisposable
 
 @if (IsScoped)
 {
-    <AxoAlertToast _parameterDialogService="AlertDialogService" />
+    <AxoAlertToast ParameterDialogService="AlertDialogService"/>
 }

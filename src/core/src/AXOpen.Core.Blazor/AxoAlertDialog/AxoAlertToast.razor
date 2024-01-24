@@ -1,11 +1,11 @@
-﻿@using AXOpen.Base.Dialogs;
+﻿@namespace AXOpen.Core.Blazor.AxoAlertDialog
+@using AXOpen.Base.Dialogs;
 
 
-
-@if (_dialogService.GetAlertDialogs() != null && _dialogService.GetAlertDialogs().Count > 0)
+@if (DialogService.GetAlertDialogs() != null && DialogService.GetAlertDialogs().Count > 0)
 {
     <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
-        @foreach (AlertDialog toast in _dialogService.GetAlertDialogs().ToList())
+        @foreach (AlertDialog toast in DialogService.GetAlertDialogs().ToList())
         {
             var bg = "";
             var icon = "";
@@ -40,19 +40,19 @@
                     <span class="@icon me-2" aria-hidden="true"></span>
                     <strong class="me-auto">@toast.Title</strong>
                     <small>@GetTime(toast.Posted)</small>
-                    @if (_dialogService.GetAlertDialogs().Count > 2)
+                    @if (DialogService.GetAlertDialogs().Count > 2)
                     {
                         <div class="dropup">
                             <button type="button" class="btn-close" data-bs-toggle="dropdown" aria-expanded="false"></button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" @onclick="() => _dialogService.RemoveAllAlertDialogs()">@Localizer["Close all"]</a></li>
-                                <li><a class="dropdown-item" @onclick="() => _dialogService.RemoveAlertDialog(toast)">@Localizer["Close"]</a></li>
+                                <li><a class="dropdown-item" @onclick="() => DialogService.RemoveAllAlertDialogs()">@Localizer["Close all"]</a></li>
+                                <li><a class="dropdown-item" @onclick="() => DialogService.RemoveAlertDialog(toast)">@Localizer["Close"]</a></li>
                             </ul>
                         </div>
                     }
                     else
                     {
-                        <button type="button" class="btn-close" @onclick="() => _dialogService.RemoveAlertDialog(toast)"></button>
+                        <button type="button" class="btn-close" @onclick="() => DialogService.RemoveAlertDialog(toast)"></button>
                     }
                 </div>
                 <div class="toast-body">
@@ -61,29 +61,4 @@
             </div>
         }
     </div>
-}
-
-@code {
-    [Inject]
-    private IAlertDialogService _dialogService { get; set; }
-
-    [Parameter]
-    public IAlertDialogService _parameterDialogService { get; set; }
-
-    private string GetTime(DateTimeOffset time)
-    {
-        var calcTime = -(time - DateTimeOffset.Now);
-        if (calcTime.TotalSeconds < 5)
-        {
-            return "just now";
-        }
-        else if (calcTime.TotalSeconds < 60)
-        {
-            return $"{Math.Round(calcTime.TotalSeconds)} secs ago";
-        }
-        else
-        {
-            return $"{Math.Round(calcTime.TotalMinutes)} mins ago";
-        }
-    }
 }

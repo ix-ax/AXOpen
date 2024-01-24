@@ -8,53 +8,78 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AXOpen.Core.Blazor.AxoAlertDialog;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AXOpen.Core.Blazor.Dialogs
 {
     public partial class AxoAlertDialogLocator : ComponentBase, IDisposable
     {
-        [Parameter]
+        [Inject]
+        public NavigationManager NavigationManager {  get; set; }
+        [Inject]    
+        public IAlertDialogService AlertDialogService { get; set; }
+        [Inject]    
+        public AxoDialogContainer DialogContainer { get; set; }
+
+
+        [Parameter, EditorRequired]
         public IEnumerable<ITwinObject> ObservedObjects { get; set; }
 
         [Parameter]
         public bool IsScoped { get; set; }
 
+        /// <summary>
+        /// A unique GUID for the alert dialog locator instance, used for internal management and event subscription.
+        /// </summary>
+        public Guid LocatorGuid { get; private set; } = Guid.NewGuid();
+
+        /// <summary>
+        /// A unique identifier for the dialog locator, typically based on the URL of the page.
+        /// This ensures dialogues are synchronized across different instances.
+        /// </summary>
+        [Parameter]
+        public string DialogLocatorPath { get; set; }
+
         private AxoAlertDialogProxyService _axoDialogProxyService { get; set; }
 
         public bool IsDialogInvoked { get; set; }
-
-        protected override void OnInitialized()
+      
+        protected override void OnAfterRender(bool firstRender)
         {
-            var dialogId = NavigationManager.Uri;
+            if (firstRender)
+            {
+                InitializeDialogsHandling();
+            }
+        }
+
+        private void InitializeDialogsHandling()
+        {
+            if (string.IsNullOrEmpty(DialogLocatorPath))
+            {
+                DialogLocatorPath = NavigationManager.Uri;
+            }
+
             if (IsScoped)
             {
                 AlertDialogService = _axoDialogProxyService.ScopedAlertDialogService;
             }
+
             //try to acquire existing dialog service instance
-            var proxyExists = DialogContainer.AlertDialogProxyServicesDictionary.TryGetValue(dialogId, out AxoAlertDialogProxyService proxy);
+            var proxyExists = DialogContainer.AlertDialogProxyServicesDictionary.TryGetValue(DialogLocatorPath, out AxoAlertDialogProxyService proxy);
 
             if (!proxyExists)
             {
                 // if it does not exist, create new instance with observed objects and add it into container
-                _axoDialogProxyService = new AxoAlertDialogProxyService(DialogContainer, ObservedObjects);
-                DialogContainer.AlertDialogProxyServicesDictionary.TryAdd(dialogId, _axoDialogProxyService);
+                _axoDialogProxyService = new AxoAlertDialogProxyService(LocatorGuid, DialogContainer, ObservedObjects);
+                DialogContainer.AlertDialogProxyServicesDictionary.TryAdd(DialogLocatorPath, _axoDialogProxyService);
             }
             else
             {
                 _axoDialogProxyService = proxy;
+                _axoDialogProxyService.StartObservingAlertDialogues(LocatorGuid);
             }
-        }
-        protected override void OnAfterRender(bool firstRender)
-        {
-            // on first initialization, set objects for observation and subscribe to AlertDialog invoked event
-            if (firstRender)
-            {
-                if (ObservedObjects != null)
-                    _axoDialogProxyService.StartObserveObjects(ObservedObjects);
 
-                _axoDialogProxyService.AlertDialogInvoked += OnDialogInvoked;
-
-            }
+            _axoDialogProxyService.AlertDialogInvoked += OnDialogInvoked;
 
         }
 
@@ -76,8 +101,11 @@ namespace AXOpen.Core.Blazor.Dialogs
 
         public void Dispose()
         {
-            _axoDialogProxyService.AlertDialogInvoked -= OnDialogInvoked;
-            _axoDialogProxyService.Dispose();
+            if (_axoDialogProxyService != null)
+            {
+                _axoDialogProxyService.AlertDialogInvoked -= OnDialogInvoked;
+                _axoDialogProxyService.TryDispose(LocatorGuid);
+            }
         }
     }
 }

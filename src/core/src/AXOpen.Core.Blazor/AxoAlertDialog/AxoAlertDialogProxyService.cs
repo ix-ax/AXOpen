@@ -1,6 +1,7 @@
 ﻿using AXOpen.Base.Dialogs;
 using AXOpen.Core.Blazor.AxoDialogs;
 using AXSharp.Connector;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,28 +16,66 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
     public class AxoAlertDialogProxyService : IDisposable
     {
 
-        private AxoDialogContainer _axoDialogContainer;
+        private AxoDialogContainer _dialogContainer;
+
+        private IEnumerable<ITwinObject> _observedObjects;
+
+        private List<Guid> _subscribers = new();
+
+        private Dictionary<string, IsAlertDialogType> _observedAlertDialogs = new();
+
+
+        public IAlertDialogService ScopedAlertDialogService = new AxoAlertDialogService();
+
         public IsDialogType DialogInstance { set; get; }
 
-        public AxoAlertDialogProxyService(AxoDialogContainer dialogContainer, IEnumerable<ITwinObject> observedOjects)
+        public AxoAlertDialogProxyService(Guid dialogLocatorGuid, AxoDialogContainer dialogContainer, IEnumerable<ITwinObject> observedObjects)
         {
-            _axoDialogContainer = dialogContainer;
-            StartObserveObjects(observedOjects);
-        }
-        public IAlertDialogService ScopedAlertDialogService = new AxoAlertDialogService();
-        private IEnumerable<ITwinObject> _observedObject;
+            _dialogContainer = dialogContainer;
+            _observedObjects = observedObjects;
 
-        public void StartObserveObjects(IEnumerable<ITwinObject> observedObjects)
+            CollectAlertDialogsOnObjects();
+
+            StartObservingAlertDialogues(dialogLocatorGuid);
+        }
+
+        public void StartObservingAlertDialogues(Guid dialogLocatorGuid)
         {
-            _observedObject = observedObjects;
-            if (observedObjects == null || observedObjects.Count() == 0) return;
-            foreach (var item in observedObjects)
+            if (!_subscribers.Any())
             {
-                _axoDialogContainer.ObservedObjectsAlerts.Add(item.Symbol);
-                UpdateDialogs<IsAlertDialogType>(item);
+                foreach (var dialog in _observedAlertDialogs)
+                {
+                    dialog.Value.Initialize(() => Queue(dialog.Value));
+                }
             }
 
+            _subscribers.Add(dialogLocatorGuid);
         }
+
+        /// <summary>
+        /// Stops observing dialogues for this proxy service.
+        /// </summary>
+        internal void StopObservingAlertDialogues(Guid dialogLocatorGuid)
+        {
+            if (_subscribers.Any(p => p == dialogLocatorGuid))
+            {
+                _subscribers.Remove(dialogLocatorGuid);
+
+                if (_subscribers.Count < 1)
+                {
+                    ClearDialogsHandling();
+                }
+            }
+        }
+
+        private void ClearDialogsHandling()
+        {
+            foreach (var dialog in _observedAlertDialogs)
+            {
+                dialog.Value.DeInitialize();
+            }
+        }
+
         public event EventHandler<AxoDialogEventArgs> AlertDialogInvoked;
 
         /// <summary>
@@ -50,28 +89,45 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
             AlertDialogInvoked?.Invoke(this, new AxoDialogEventArgs(string.Empty));
         }
 
-        public List<string> ObservedObjects { get; set; } = new List<string>();
-        void UpdateDialogs<T>(ITwinObject observedObject) where T : class, IsDialogType
-        {
-            var descendants = observedObject.GetDescendants<T>();
-            foreach (var dialog in descendants)
-            {
-                dialog.Initialize(() => Queue(dialog));
-            }
 
+        internal void CollectAlertDialogsOnObjects()
+        {
+            if (_observedObjects == null || !_observedObjects.Any()) return ;
+
+            foreach (var item in _observedObjects)
+            {
+                CollectAlertDialogs(item);
+            }
         }
 
+       private void CollectAlertDialogs(ITwinObject observedObject)
+        {
+            var descendants = observedObject.GetDescendants<IsAlertDialogType>();
+
+            foreach (var dialog in descendants)
+            {
+                _observedAlertDialogs.Add(dialog.Symbol, dialog);
+            }
+        }
+
+        /// <summary>
+        /// Attempts to dispose of the proxy service based on a dialog locator GUID.
+        /// </summary>
+        public void TryDispose(Guid dialogLocatorGuid)
+        {
+            StopObservingAlertDialogues(dialogLocatorGuid);
+        }
+
+        /// <summary>
+        /// Disposes resources related to handling and communication with the controller.
+        /// </summary>
         public void Dispose()
         {
+            _subscribers.Clear();
 
-            foreach (var observedObject in _observedObject)
-            {
-                var descendants = observedObject.GetDescendants<IsDialogType>();
-                foreach (var dialog in descendants)
-                {
-                    dialog.DeInitialize();
-                }
-            }
+            ClearDialogsHandling(); // force dispose
+
+            _observedAlertDialogs.Clear();
 
         }
     }

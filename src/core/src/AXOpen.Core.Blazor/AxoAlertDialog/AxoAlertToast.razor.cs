@@ -1,24 +1,51 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using AXOpen.Base.Dialogs;
+using Microsoft.AspNetCore.Components;
 using System;
 
 namespace AXOpen.Core.Blazor.AxoAlertDialog
 {
     public partial class AxoAlertToast : ComponentBase, IDisposable
     {
+
+        [Inject]
+        public IAlertDialogService DialogService { get; set; }
+
+        [Parameter]
+        public IAlertDialogService ParameterDialogService { get; set; }
+
+
         private void AlertDialogChanged(object? sender, EventArgs e) => InvokeAsync(StateHasChanged);
 
         protected override void OnInitialized()
         {
-            if(_parameterDialogService != null)
+            if(ParameterDialogService != null)
             {
-                _dialogService = _parameterDialogService;
+                DialogService = ParameterDialogService;
             }
-            _dialogService!.AlertDialogChanged += AlertDialogChanged;
+
+            DialogService!.AlertDialogChanged += AlertDialogChanged;
+        }
+
+        private string GetTime(DateTimeOffset time)
+        {
+            var calcTime = -(time - DateTimeOffset.Now);
+            if (calcTime.TotalSeconds < 5)
+            {
+                return "just now";
+            }
+            else if (calcTime.TotalSeconds < 60)
+            {
+                return $"{Math.Round(calcTime.TotalSeconds)} secs ago";
+            }
+            else
+            {
+                return $"{Math.Round(calcTime.TotalMinutes)} mins ago";
+            }
         }
 
         public void Dispose()
         {
-            _dialogService!.AlertDialogChanged -= AlertDialogChanged;
+            DialogService!.AlertDialogChanged -= AlertDialogChanged;
         }
 
     }
