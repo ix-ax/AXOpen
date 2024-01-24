@@ -11,7 +11,7 @@ variables:
 devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
   "@ax/sld": 2.0.5
-dependencies:  
+dependencies:
   "@ix-ax/axopen.components.cognex.vision": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
   "@ax/simatic-1500-clocks": ^6.0.37

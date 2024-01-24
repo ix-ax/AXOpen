@@ -1,11 +1,11 @@
 {
-  "ImgSrc": "Images/VisualComposerSerialize/Context.UnitTemplate/Default.png",
+  "ImgSrc": "Images/VisualComposerSerialize/Context.StarterUnitTemplate/Default.png",
   "Items": [
     {
-      "Id": "5e7000db704b42f898b52b8edca1ecee3111e04c073feaa32431db1ae3a1222d",
+      "Id": "1b11cd59116d4a5d7a4451ddd6ebe6c1ae856bb83a402e1820e32e17db65b2eb",
       "RatioImgX": 40,
       "RatioImgY": 30,
-      "Transform": "TopRight",
+      "Transform": "TopCenter",
       "Presentation": "Status-Display",
       "Width": -1,
       "Height": -1,
@@ -15,10 +15,10 @@
       "PresentationTemplate": "AXOpen.Core.AxoTaskView"
     },
     {
-      "Id": "31015467c3400986218d94d66b6c2b9b90c8d75b8c76b685dc0fd2963ea19c28",
+      "Id": "451c329b242b6b00791f5030673b3b3eb388987a8be81baa6d6f111019f32802",
       "RatioImgX": 55,
       "RatioImgY": 30,
-      "Transform": "TopRight",
+      "Transform": "TopCenter",
       "Presentation": "Status-Display",
       "Width": -1,
       "Height": -1,
@@ -28,10 +28,10 @@
       "PresentationTemplate": "AXOpen.Core.AxoTaskView"
     },
     {
-      "Id": "b9341b5103b919868a8b893f5141940bb5dfebf647a5df17531ea709987f785f",
+      "Id": "6964f28b4de46f78c3272d695ec0208068c92211b1d5637e25a2947183ac81e0",
       "RatioImgX": 70,
       "RatioImgY": 30,
-      "Transform": "TopRight",
+      "Transform": "TopCenter",
       "Presentation": "Status-Display",
       "Width": -1,
       "Height": -1,
