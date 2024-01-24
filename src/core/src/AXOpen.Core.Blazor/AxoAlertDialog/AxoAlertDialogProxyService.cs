@@ -63,12 +63,12 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
 
                 if (_subscribers.Count < 1)
                 {
-                    ClearDialogsHandling();
+                    DeinitializeObservedDialogs();
                 }
             }
         }
 
-        private void ClearDialogsHandling()
+        private void DeinitializeObservedDialogs()
         {
             foreach (var dialog in _observedAlertDialogs)
             {
@@ -125,7 +125,7 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
         {
             _subscribers.Clear();
 
-            ClearDialogsHandling(); // force dispose
+            DeinitializeObservedDialogs(); // force dispose
 
             _observedAlertDialogs.Clear();
 

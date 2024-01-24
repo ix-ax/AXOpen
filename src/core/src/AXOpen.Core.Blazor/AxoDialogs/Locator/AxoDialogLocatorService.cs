@@ -81,12 +81,12 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
                 if (_subscribers.Count < 1)
                 {
-                    ClearDialogsHandling();
+                    DisposeObservedDialogsHandling();
                 }
             }
         }
 
-        private void ClearDialogsHandling()
+        private void DisposeObservedDialogsHandling()
         {
             foreach (var dialog in _observedDialogs)
             {
@@ -209,10 +209,9 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
             _subscribers.Clear();
 
-            ClearDialogsHandling(); // force dispose
+            DisposeObservedDialogsHandling(); // force dispose
 
             _observedDialogs.Clear();
-
         }
     }
 }

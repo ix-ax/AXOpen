@@ -9,21 +9,28 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
 
         [Inject]
         public IAlertDialogService DialogService { get; set; }
-
-        [Parameter]
-        public IAlertDialogService ParameterDialogService { get; set; }
+                
+        //[Parameter]
+        //public IAlertDialogService ParameterDialogService { get; set; }
 
 
         private void AlertDialogChanged(object? sender, EventArgs e) => InvokeAsync(StateHasChanged);
 
-        protected override void OnInitialized()
-        {
-            if(ParameterDialogService != null)
-            {
-                DialogService = ParameterDialogService;
-            }
+        //protected override void OnInitialized()
+        //{
+        //    //if(ParameterDialogService != null)
+        //    //{
+        //    //    DialogService = ParameterDialogService;
+        //    //}
 
-            DialogService!.AlertDialogChanged += AlertDialogChanged;
+        //}
+
+        protected override void OnAfterRender(bool firstRender)
+        {
+            if (firstRender)
+            {
+                DialogService!.AlertDialogChanged += AlertDialogChanged;
+            }
         }
 
         private string GetTime(DateTimeOffset time)
@@ -45,7 +52,10 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
 
         public void Dispose()
         {
-            DialogService!.AlertDialogChanged -= AlertDialogChanged;
+            if (DialogService != null)
+            {
+                DialogService!.AlertDialogChanged -= AlertDialogChanged;
+            }
         }
 
     }

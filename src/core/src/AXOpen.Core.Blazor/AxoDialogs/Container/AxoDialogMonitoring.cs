@@ -81,10 +81,15 @@ namespace AXOpen.Core.Blazor.AxoDialogs
                 // Deinitialize dialog monitoring if there are no more subscribers
                 if (_subscribers.Count < 1)
                 {
-                    Dialog.DeInitialize();
-                    Dialog._closeSignal.ValueChangeEvent -= HandleClose;
+                    DisposeDialogHandling();
                 }
             }
+        }
+
+        private void DisposeDialogHandling()
+        {
+            Dialog.DeInitialize();
+            Dialog._closeSignal.ValueChangeEvent -= HandleClose;
         }
 
         /// <summary>
@@ -115,6 +120,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         public void Dispose()
         {
             // Implementation of IDisposable.Dispose to clean up any resources.
+            DisposeDialogHandling();
         }
     }
 }

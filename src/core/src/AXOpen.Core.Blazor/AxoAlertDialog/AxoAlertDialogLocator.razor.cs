@@ -25,8 +25,8 @@ namespace AXOpen.Core.Blazor.Dialogs
         [Parameter, EditorRequired]
         public IEnumerable<ITwinObject> ObservedObjects { get; set; }
 
-        [Parameter]
-        public bool IsScoped { get; set; }
+        //[Parameter]
+        //public bool IsScoped { get; set; }
 
         /// <summary>
         /// A unique GUID for the alert dialog locator instance, used for internal management and event subscription.
@@ -59,10 +59,10 @@ namespace AXOpen.Core.Blazor.Dialogs
                 DialogLocatorPath = NavigationManager.Uri;
             }
 
-            if (IsScoped)
-            {
-                AlertDialogService = _axoDialogProxyService.ScopedAlertDialogService;
-            }
+            //if (IsScoped)
+            //{
+            //    AlertDialogService = _axoDialogProxyService.ScopedAlertDialogService;
+            //}
 
             //try to acquire existing dialog service instance
             var proxyExists = DialogContainer.AlertDialogProxyServicesDictionary.TryGetValue(DialogLocatorPath, out AxoAlertDialogProxyService proxy);
