@@ -6,6 +6,7 @@
                 <RenderableContentControl @ref="renderableContentControlRcc"
                                           Context="@TwinElement"
                                           Presentation="@Presentation.ToString()"
+                                          PresentationTemplate="@PresentationTemplate"
                                           ParentContainer="@this"/>
                 <a class="position-absolute text-decoration-none text-black" style="left: 97%; top: 0%; translate: -100% -50%; cursor: pointer;" data-bs-toggle="modal"
                    data-bs-target="#settings-@Id.Replace('.', '_')-@UniqueGuid">
@@ -18,6 +19,7 @@
             <div style="position: absolute; left: @(ratioImgX.ToString().Replace(',', '.'))%; top: @(ratioImgY.ToString().Replace(',', '.'))%; translate: @(Transform.X)% @(Transform.Y)%; @(Width != -1 ? "width: " + Width + "rem" : null); @(Height != -1 ? "height: " + Height + "rem" : null); z-index: @ZIndex;">
                 <RenderableContentControl Context="@TwinElement" 
                                           Presentation="@Presentation.ToString()"
+                                          PresentationTemplate="@PresentationTemplate"
                                           ParentContainer="@this" />
             </div>
         }
@@ -29,6 +31,7 @@
                 <div style="position: absolute; left: @(ratioImgX.ToString().Replace(',', '.'))%; top: @(ratioImgY.ToString().Replace(',', '.'))%; translate: @(Transform.X)% @(Transform.Y)%; @(Width != -1 ? "width: " + Width + "rem" : null); @(Height != -1 ? "height: " + Height + "rem" : null); z-index: @ZIndex;">
                     <RenderableContentControl Context="@TwinElement" 
                                               Presentation="@Presentation.ToString()"
+                                              PresentationTemplate="@PresentationTemplate"
                                               ParentContainer="@this" />
                 </div>
             </AuthorizeView>
@@ -38,6 +41,7 @@
             <div style="position: absolute; left: @(ratioImgX.ToString().Replace(',', '.'))%; top: @(ratioImgY.ToString().Replace(',', '.'))%; translate: @(Transform.X)% @(Transform.Y)%; @(Width != -1 ? "width: " + Width + "rem" : null); @(Height != -1 ? "height: " + Height + "rem" : null); z-index: @ZIndex;">
                 <RenderableContentControl Context="@TwinElement" 
                                           Presentation="@Presentation.ToString()"
+                                          PresentationTemplate="@PresentationTemplate"
                                           ParentContainer="@this" />
             </div>
         }
