@@ -2,7 +2,7 @@ name: "app_axopen.components.rexroth.drives"
 version: 0.0.0
 type: app
 targets:
-  #- plcsim
+  - plcsim
   - llvm
   - "1500"
 variables:
@@ -58,6 +58,7 @@ scripts:
     - apax watch
   rr:
     - START=$(date +%s)
+    - apax clean
     - apax install
     - apax build
     - apax ixc

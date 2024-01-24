@@ -95,9 +95,16 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             {#ix-set:DisplayFormat = "hexadecimal"}
             UserData        :   AxoDataman_UserData;
 
+
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentDetails("Hardware diagnostics")]}
+            {#ix-set:AttributeName = "<#Update diagnostics#>"}
+            HardwareDiagnosticsTask :   AXOpen.Io.AxoHardwareDiagnostics;
             _Messenger          :   AXOpen.Messaging.Static.AxoMessenger;
             _TaskMessenger      :   AXOpen.Messaging.Static.AxoMessenger;
+
         END_VAR
+    
 
         ///<summary>
 		/// Restores this instance to its initial state. 
@@ -369,6 +376,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
         METHOD PUBLIC Run
             VAR_INPUT
                 parent                  :   IAxoObject; 
+                hwID                    :   UINT;
                 refAcquisitionControl   :   REF_TO  BYTE;
                 refAcquisitionStatus    :   REF_TO  ARRAY[0..2] OF BYTE;
                 refResultsControl       :   REF_TO  BYTE;
@@ -390,6 +398,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 RestoreTask.Initialize(THIS);
                 ClearResultDataTask.Initialize(THIS);
                 ReadTask.Initialize(THIS);
+                HardwareDiagnosticsTask.Initialize(THIS);
             end_if;
 
             IF NOT THIS.IsValidReferences(refAcquisitionControl,refAcquisitionStatus,refResultsControl,refResultsStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData) THEN
@@ -397,7 +406,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             END_IF;
             
             THIS.Open();
-            THIS.Execute(refAcquisitionControl,refAcquisitionStatus,refResultsControl,refResultsStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData);
+            THIS.Execute(hwID,refAcquisitionControl,refAcquisitionStatus,refResultsControl,refResultsStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData);
             THIS.Close();            
         END_METHOD
 
@@ -408,6 +417,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
         METHOD PUBLIC Run
             VAR_INPUT
                 parent                  :   IAxoContext; 
+                hwID                    :   UINT;
                 refAcquisitionControl   :   REF_TO  BYTE;
                 refAcquisitionStatus    :   REF_TO  ARRAY[0..2] OF BYTE;
                 refResultsControl       :   REF_TO  BYTE;
@@ -429,6 +439,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 RestoreTask.Initialize(THIS);
                 ClearResultDataTask.Initialize(THIS);
                 ReadTask.Initialize(THIS);
+                HardwareDiagnosticsTask.Initialize(THIS);
+
             end_if;
 
             IF NOT THIS.IsValidReferences(refAcquisitionControl,refAcquisitionStatus,refResultsControl,refResultsStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData) THEN
@@ -436,12 +448,13 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             END_IF;
             
             THIS.Open();
-            THIS.Execute(refAcquisitionControl,refAcquisitionStatus,refResultsControl,refResultsStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData);
+            THIS.Execute(hwID,refAcquisitionControl,refAcquisitionStatus,refResultsControl,refResultsStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData);
             THIS.Close();          
         END_METHOD
 
         METHOD PRIVATE Execute
             VAR_INPUT
+                hwID                    :   UINT;
                 refAcquisitionControl  :   REF_TO  BYTE;
                 refAcquisitionStatus   :   REF_TO  ARRAY[0..2] OF BYTE;
                 refResultsControl      :   REF_TO  BYTE;
@@ -461,6 +474,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
 	            THIS.ContinuousReading(REF(Status), REF(Results),refResultData);
             END_IF;
 
+            HardwareDiagnosticsTask.Run(hwID);
+            
             //*************RESTORE********************
             RestoreTask.IsDisabled := FALSE;
             IF RestoreTask.Execute() THEN

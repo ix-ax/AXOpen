@@ -24,7 +24,7 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
                         refTelegram750_In   :=  REF(PlcInputs^.cmmtas_test_DO_SERVO_1_Siemens_telegram_750_PZD_4_1),
                         refTelegram111_Out  :=  REF(PlcOutputs^.cmmtas_test_DO_SERVO_1_Siemens_telegram_111_PZD_12_12),
                         refTelegram750_Out  :=  REF(PlcOutputs^.cmmtas_test_DO_SERVO_1_Siemens_telegram_750_PZD_4_1),
-                        MAP_HW_ID           :=  HwIdentifiers#cmmtas_test_Module_Access_Point);
+                        MAP_HW_ID           :=  HwIdentifiers#cmmtas_test_DO_SERVO_1_Module_Access_Point);
         
     END_METHOD
 END_CLASS

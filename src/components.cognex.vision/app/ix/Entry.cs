@@ -6,15 +6,17 @@ using System.Text;
 using System.Threading.Tasks;
 using AXSharp.Connector.S71500.WebApi;
 
-namespace axopen_components_cognex_vision_integrations
+namespace AXOpen.Components.Cognex.Vision
 {
     public static class Entry
     {
+        private static readonly string TargetIp = Environment.GetEnvironmentVariable("AXTARGET"); // <- replace by your IP 
+        private const string UserName = "Everybody"; //<- replace by user name you have set up in your WebAPI settings
+        private const string Pass = ""; // <- Pass in the password that you have set up for the user. NOT AS PLAIN TEXT! Use user secrets instead.
+        private const bool IgnoreSslErrors = true; // <- When you have your certificates in order set this to false.
 
-        public static axopen_components_cognex_vision_integrationsTwinController Plc { get; }
+        public static app_axopen_components_cognex_visionTwinController Plc { get; }
             = new(ConnectorAdapterBuilder.Build()
-                .CreateWebApi(System.Environment.GetEnvironmentVariable("AXTARGET"), "Everybody", "", true));
-
-
+                .CreateWebApi(TargetIp, UserName, Pass, IgnoreSslErrors));
     }
 }
