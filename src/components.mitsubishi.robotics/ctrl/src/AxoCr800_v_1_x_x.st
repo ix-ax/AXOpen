@@ -380,6 +380,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                 END_IF;
 
                 IF _progress = 305 THEN //Done
+                    _progress := 0;
                     StartAtMainTask.DoneWhen(Inputs.ProgramReset);
                 END_IF;
 
@@ -517,6 +518,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                 END_IF;		
 
                 IF _progress = 316 THEN	//Done
+                    _progress := 0;
                     StartMotorsAndProgramTask.DoneWhen(Inputs.ServoOn AND Inputs.Start AND NOT Inputs.ErrorReset);               
                 END_IF;		
                 
@@ -590,6 +592,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                 END_IF;		
 
                 IF _progress = 323 THEN // Done
+                    _progress := 0;
                     StopMovementsTask.DoneWhen(Inputs.Stop);
                 END_IF;	
 
@@ -662,9 +665,9 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                         _progress := 333;                        
                     END_IF;
                 END_IF;		
-                        
                                 
                 IF _progress = 333 THEN // Done
+                    _progress := 0;
                     StopMovementsAndProgramTask.DoneWhen(Inputs.Stop);
                 END_IF;		
 
@@ -810,6 +813,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                     END_IF;
 	
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
+                        _progress := 0;
                         StartMovementsTask.DoneWhen(TRUE);
                     END_IF;
                 END_IF;	
@@ -881,7 +885,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
 
             _dword                          := TO_DWORD(Outputs.UserSpecSpeed2);
             refOutputs^     [16]            := _dword.%B3;
-            refOutputs^     [18]            := _dword.%B2;
+            refOutputs^     [17]            := _dword.%B2;
             refOutputs^     [18]            := _dword.%B1;
             refOutputs^     [19]            := _dword.%B0;
 
