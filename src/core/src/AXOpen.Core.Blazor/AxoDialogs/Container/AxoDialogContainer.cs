@@ -70,15 +70,15 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// <summary>
         /// Collects and adds dialogs to the MonitoredDialogs based on the observed objects.
         /// </summary>
-        /// <param name="_observedObject">The objects being observed for dialogs.</param>
+        /// <param name="observedObject">The objects being observed for dialogs.</param>
         /// <returns>A dictionary symbol list of the dialogs.</returns>
-        internal Dictionary<string, AxoDialogMonitoring> CollectDialogsOnObjects(IEnumerable<ITwinObject> _observedObject)
+        internal Dictionary<string, AxoDialogMonitoring> CollectDialogsOnObjects(IEnumerable<ITwinObject> observedObject)
         {
             var SymbolListOfDialogs = new List<string>();
 
-            if (_observedObject == null || !_observedObject.Any()) return null;
+            if (observedObject == null || !observedObject.Any()) return null;
 
-            foreach (var item in _observedObject)
+            foreach (var item in observedObject)
             {
                 CollectDialogs<IsModalDialogType>(item, SymbolListOfDialogs);
             }
@@ -110,14 +110,14 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// </summary>
         /// <typeparam name="T">The dialog type to collect.</typeparam>
         /// <param name="observedObject">The object being observed.</param>
-        /// <param name="SymbolListOfDialogs">The list where collected dialog symbols are added.</param>
-        private void CollectDialogs<T>(ITwinObject observedObject, List<string> SymbolListOfDialogs) where T : class, IsDialogType
+        /// <param name="symbolListOfDialogs">The list where collected dialog symbols are added.</param>
+        private void CollectDialogs<T>(ITwinObject observedObject, List<string> symbolListOfDialogs) where T : class, IsDialogType
         {
             var descendants = observedObject.GetDescendants<T>();
 
             foreach (var dialog in descendants)
             {
-                SymbolListOfDialogs.Add(dialog.Symbol);
+                symbolListOfDialogs.Add(dialog.Symbol);
 
                 if (!MonitoredDialogs.ContainsKey(dialog.Symbol))
                 {

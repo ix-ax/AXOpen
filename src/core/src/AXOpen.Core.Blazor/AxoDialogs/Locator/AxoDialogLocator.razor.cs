@@ -99,14 +99,14 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         {
             if (firstRender)
             {
-                await InitializedDialogHandling();
+                await InitializeDialogsHandling();
             }
         }
 
         /// <summary>
         /// Initializes dialog handling by setting up SignalR clients and subscribing to dialog events.
         /// </summary>
-        protected async Task InitializedDialogHandling()
+        protected async Task InitializeDialogsHandling()
         {
             var uri = NavigationManager.BaseUri;
             await InitializeSignalR(uri);

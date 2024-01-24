@@ -198,6 +198,10 @@ NAMESPACE AxoDialogExamples
                 end_if;
             ELSE
                 _alertIterationStep := 0 ;
+                if _alertDialog.HasError() THEN
+                    _alertDialog.Restore();
+                END_IF;
+
             END_IF;
         END_METHOD
 

@@ -11,18 +11,18 @@ namespace AXOpen.Core.Blazor.AxoDialogs
     {
         private readonly AxoDialogContainer _dialogContainer;
 
-        private readonly IEnumerable<ITwinObject> _observedObject;
+        private readonly IEnumerable<ITwinObject> _observedObjects;
 
         private volatile object _lockObject = new object();
 
         private Dictionary<string, AxoDialogMonitoring> _observedDialogs = new();
 
+        private List<Guid> _subscribers = new();
+
         /// <summary>
         /// Gets the locator path used for identifying the service in the dialog container, typically the URL of the page where the dialogue is managed.
         /// </summary>
         public string LocatorPath { get; private set; }
-
-        private List<Guid> _subscribers = new();
 
         /// <summary>
         /// Gets or sets the list of displayed dialogs.
@@ -43,10 +43,10 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         {
             LocatorPath = dialogLocatorPath;
             _dialogContainer = dialogContainer;
-            _observedObject = observedObjects;
+            _observedObjects = observedObjects;
 
             _dialogContainer.DialogLocatorServicesDictionary.TryAdd(LocatorPath, this);
-            _observedDialogs = _dialogContainer.CollectDialogsOnObjects(_observedObject);
+            _observedDialogs = _dialogContainer.CollectDialogsOnObjects(_observedObjects);
 
             StartObservingDialogues(dialogLocatorGuid);
         }
@@ -81,14 +81,19 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
                 if (_subscribers.Count < 1)
                 {
-                    foreach (var dialog in _observedDialogs)
-                    {
-                        dialog.Value.StopDialogMonitoring(LocatorPath);
-
-                        dialog.Value.EventHandler_Invoke -= HandleDialogInvocation_FromPlc;
-                        dialog.Value.EventHandler_Close -= HandleDialogClosing_FromPlc;
-                    }
+                    ClearDialogsHandling();
                 }
+            }
+        }
+
+        private void ClearDialogsHandling()
+        {
+            foreach (var dialog in _observedDialogs)
+            {
+                dialog.Value.StopDialogMonitoring(LocatorPath);
+
+                dialog.Value.EventHandler_Invoke -= HandleDialogInvocation_FromPlc;
+                dialog.Value.EventHandler_Close -= HandleDialogClosing_FromPlc;
             }
         }
 
@@ -192,17 +197,22 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         {
             StopObservingDialogues(dialogLocatorGuid);
 
-            Log.Logger.Information($"Proxy->TryDispose {LocatorPath}/{dialogLocatorGuid}");
+            Log.Logger.Information($"DialogLocatorService -> TryDispose {LocatorPath}/{dialogLocatorGuid}");
         }
 
         /// <summary>
-
         /// Disposes resources related to handling and communication with the controller.
         /// </summary>
         public void Dispose()
         {
+            Log.Logger.Information($"DialogLocatorService -> Dispose {LocatorPath}");
+
+            _subscribers.Clear();
+
+            ClearDialogsHandling(); // force dispose
+
             _observedDialogs.Clear();
-            Log.Logger.Information($"Proxy->Dispose {LocatorPath}");
+
         }
     }
 }
