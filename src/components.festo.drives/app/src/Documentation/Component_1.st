@@ -11,9 +11,6 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
 
     //<InitializationArgumentsDeclaration>
     VAR PUBLIC                
-        PlcInputs : REF_TO PlcInputs;
-        PlcOutputs : REF_TO PlcOutputs;          
-
         manualControl   :   BOOL;
         Enable          :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
         EnablePositive  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
@@ -33,16 +30,14 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         END_IF;  
 
         //<Initialization>        
-        AxoCmmtAs.Run(      parent                :=  THIS,
-                            hwID                  :=  TO_UINT(HwIdentifiers#cmmtas_PN_IO_Interface),
-                            refTelegram111_In     :=  REF(PlcInputs^.cmmtas_DO_SERVO_1_Siemens_telegram_111_PZD_12_12),
-                            refTelegram750_In     :=  REF(PlcInputs^.cmmtas_DO_SERVO_1_Siemens_telegram_750_PZD_4_1),
-                            refTelegram111_Out    :=  REF(PlcOutputs^.cmmtas_DO_SERVO_1_Siemens_telegram_111_PZD_12_12),
-                            refTelegram750_Out    :=  REF(PlcOutputs^.cmmtas_DO_SERVO_1_Siemens_telegram_750_PZD_4_1),
-                            MAP_HW_ID             :=  HwIdentifiers#cmmtas_DO_SERVO_1_Module_Access_Point,
-                            Enable                := Enable,
-                            EnablePositive        := EnablePositive,
-                            EnableNegative        := EnableNegative);
+        AxoCmmtAs.Run(parent            :=  THIS,
+                        hwID                  :=  HwIdentifiers#cmmtas_PN_IO_Interface,
+                        hwIdTelegram111       :=  HwIdentifiers#cmmtas_DO_SERVO_1_Siemens_telegram_111_PZD_12_12,
+                        hwIdTelegram750       :=  HwIdentifiers#cmmtas_DO_SERVO_1_Siemens_telegram_750_PZD_4_1,
+                        MAP_HW_ID             :=  HwIdentifiers#cmmtas_DO_SERVO_1_Module_Access_Point,
+                        Enable                := Enable,
+                        EnablePositive        := EnablePositive,
+                        EnableNegative        := EnableNegative);
         //</Initialization>
         THIS.UseInSequencer();
 
