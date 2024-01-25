@@ -34,12 +34,12 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
 
         //<Initialization>        
         AxoCmmtAsHwId.Run(  parent                :=  THIS,
-                            hwID                  :=  HwIdentifiers#cmmtas_test_PN_IO_Interface,
-                            hwIdTelegram111_In    :=  HwIdentifiers#cmmtas_test_DO_SERVO_1_Siemens_telegram_111_PZD_12_12,
-                            hwIdTelegram750_In    :=  HwIdentifiers#cmmtas_test_DO_SERVO_1_Siemens_telegram_750_PZD_4_1,
-                            hwIdTelegram111_Out   :=  HwIdentifiers#cmmtas_test_DO_SERVO_1_Siemens_telegram_111_PZD_12_12,
-                            hwIdTelegram750_Out   :=  HwIdentifiers#cmmtas_test_DO_SERVO_1_Siemens_telegram_750_PZD_4_1,
-                            MAP_HW_ID             :=  HwIdentifiers#cmmtas_test_DO_SERVO_1_Module_Access_Point,
+                            hwID                  :=  HwIdentifiers#cmmtas_PN_IO_Interface,
+                            hwIdTelegram111_In    :=  HwIdentifiers#cmmtas_DO_SERVO_1_Siemens_telegram_111_PZD_12_12,
+                            hwIdTelegram750_In    :=  HwIdentifiers#cmmtas_DO_SERVO_1_Siemens_telegram_750_PZD_4_1,
+                            hwIdTelegram111_Out   :=  HwIdentifiers#cmmtas_DO_SERVO_1_Siemens_telegram_111_PZD_12_12,
+                            hwIdTelegram750_Out   :=  HwIdentifiers#cmmtas_DO_SERVO_1_Siemens_telegram_750_PZD_4_1,
+                            MAP_HW_ID             :=  HwIdentifiers#cmmtas_DO_SERVO_1_Module_Access_Point,
                             Enable                := Enable,
                             EnablePositive        := EnablePositive,
                             EnableNegative        := EnableNegative);

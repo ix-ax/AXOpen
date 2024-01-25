@@ -35,12 +35,12 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
             END_IF;   
 
             AxoCmmtAs_IO.Run(parent             :=  THIS,
-                                hwID                  :=  TO_UINT(HwIdentifiers#cmmtas_test_PN_IO_Interface),
-                                refTelegram111_In     :=  REF(PlcInputs^.cmmtas_test_DO_SERVO_1_Siemens_telegram_111_PZD_12_12),
-                                refTelegram750_In     :=  REF(PlcInputs^.cmmtas_test_DO_SERVO_1_Siemens_telegram_750_PZD_4_1),
-                                refTelegram111_Out    :=  REF(PlcOutputs^.cmmtas_test_DO_SERVO_1_Siemens_telegram_111_PZD_12_12),
-                                refTelegram750_Out    :=  REF(PlcOutputs^.cmmtas_test_DO_SERVO_1_Siemens_telegram_750_PZD_4_1),
-                                MAP_HW_ID             :=  HwIdentifiers#cmmtas_test_DO_SERVO_1_Module_Access_Point,
+                                hwID                  :=  TO_UINT(HwIdentifiers#cmmtas_PN_IO_Interface),
+                                refTelegram111_In     :=  REF(PlcInputs^.cmmtas_DO_SERVO_1_Siemens_telegram_111_PZD_12_12),
+                                refTelegram750_In     :=  REF(PlcInputs^.cmmtas_DO_SERVO_1_Siemens_telegram_750_PZD_4_1),
+                                refTelegram111_Out    :=  REF(PlcOutputs^.cmmtas_DO_SERVO_1_Siemens_telegram_111_PZD_12_12),
+                                refTelegram750_Out    :=  REF(PlcOutputs^.cmmtas_DO_SERVO_1_Siemens_telegram_750_PZD_4_1),
+                                MAP_HW_ID             :=  HwIdentifiers#cmmtas_DO_SERVO_1_Module_Access_Point,
                                 Enable                := Enable,
                                 EnablePositive        := EnablePositive,
                                 EnableNegative        := EnableNegative);
@@ -52,12 +52,12 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
             END_IF;   
 
             AxoCmmtAs_HwID.Run(parent            :=  THIS,
-                                hwID                  :=  HwIdentifiers#cmmtas_test_PN_IO_Interface,
-                                hwIdTelegram111_In    :=  HwIdentifiers#cmmtas_test_DO_SERVO_1_Siemens_telegram_111_PZD_12_12,
-                                hwIdTelegram750_In    :=  HwIdentifiers#cmmtas_test_DO_SERVO_1_Siemens_telegram_750_PZD_4_1,
-                                hwIdTelegram111_Out   :=  HwIdentifiers#cmmtas_test_DO_SERVO_1_Siemens_telegram_111_PZD_12_12,
-                                hwIdTelegram750_Out   :=  HwIdentifiers#cmmtas_test_DO_SERVO_1_Siemens_telegram_750_PZD_4_1,
-                                MAP_HW_ID             :=  HwIdentifiers#cmmtas_test_DO_SERVO_1_Module_Access_Point,
+                                hwID                  :=  HwIdentifiers#cmmtas_PN_IO_Interface,
+                                hwIdTelegram111_In    :=  HwIdentifiers#cmmtas_DO_SERVO_1_Siemens_telegram_111_PZD_12_12,
+                                hwIdTelegram750_In    :=  HwIdentifiers#cmmtas_DO_SERVO_1_Siemens_telegram_750_PZD_4_1,
+                                hwIdTelegram111_Out   :=  HwIdentifiers#cmmtas_DO_SERVO_1_Siemens_telegram_111_PZD_12_12,
+                                hwIdTelegram750_Out   :=  HwIdentifiers#cmmtas_DO_SERVO_1_Siemens_telegram_750_PZD_4_1,
+                                MAP_HW_ID             :=  HwIdentifiers#cmmtas_DO_SERVO_1_Module_Access_Point,
                                 Enable                := Enable,
                                 EnablePositive        := EnablePositive,
                                 EnableNegative        := EnableNegative);
