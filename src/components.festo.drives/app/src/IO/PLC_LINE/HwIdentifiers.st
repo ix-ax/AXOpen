@@ -31,8 +31,6 @@ TYPE
 		cmmtas_test_DO_SERVO_1_Module_Access_Point :=	WORD#264,
 		cmmtas_test_DO_SERVO_1_Siemens_telegram_111_PZD_12_12 :=	WORD#265,
 		cmmtas_test_DO_SERVO_1_Siemens_telegram_750_PZD_4_1 :=	WORD#266,
-		cmmtas_test_Siemens_telegram_111_PZD_12_12 :=	WORD#265,
-		cmmtas_test_Siemens_telegram_750_PZD_4_1 :=	WORD#266,
 		NONE:= WORD#0
 	);
 END_TYPE

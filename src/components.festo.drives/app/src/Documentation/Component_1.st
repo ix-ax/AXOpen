@@ -34,7 +34,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
 
         //<Initialization>        
         AxoCmmtAs.Run(      parent                :=  THIS,
-                            hwID                :=  TO_UINT(HwIdentifiers#cmmtas_test_PN_IO_Interface),
+                            hwID                  :=  TO_UINT(HwIdentifiers#cmmtas_test_PN_IO_Interface),
                             refTelegram111_In     :=  REF(PlcInputs^.cmmtas_test_DO_SERVO_1_Siemens_telegram_111_PZD_12_12),
                             refTelegram750_In     :=  REF(PlcInputs^.cmmtas_test_DO_SERVO_1_Siemens_telegram_750_PZD_4_1),
                             refTelegram111_Out    :=  REF(PlcOutputs^.cmmtas_test_DO_SERVO_1_Siemens_telegram_111_PZD_12_12),

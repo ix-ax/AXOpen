@@ -1,18 +1,6 @@
 ﻿@page "/Component_2"
 @using AXOpen.Core;
 
-<button class="btn btn-outline-primary" @onclick="WriteTaskTimesToConsole">Write times to console</button>
-
-@code
-{
-    #region WriteTaskDurationToConsole
-    private async Task WriteTaskTimesToConsole()
-    {
-        await Entry.Plc.documentation.componentTwo.AxoIndraDrive_.WriteTaskDurationToConsole();
-    }
-    #endregion
-
-}
 
 <!-- <GenericComponentStatusView> -->
 @* <AxoComponentStatusView Component="@Entry.Plc.documentation.componentOne.AxoCmmtAsDrive_" /> *@
