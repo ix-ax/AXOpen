@@ -9,13 +9,15 @@ NAMESPACE AXOpen.Core
         /// Restore dialog. In special case context can be null.
         ///</summary>
         METHOD PUBLIC OVERRIDE Restore : IAxoTaskState
+            Restore := THIS;
+
             IF _context_ = NULL THEN
+                Status := eAxoTaskState#Ready;  //needed in case when dialog observation was interrupt
+                ErrorDetails := '';
                 THIS.OnRestore();
             ELSE
                 SUPER.Restore(); 
             END_IF;
-
-            Restore := THIS;
         END_METHOD  
 
         ///<summary>

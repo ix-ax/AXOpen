@@ -32,11 +32,18 @@ NAMESPACE AXOpen.Core
                 callCounter : ULINT;
             END_VAR   
 
+            Show := THIS;
+
             IF(_parent = NULL) THEN RETURN; END_IF;
 
             THIS.Initialize(_parent);
 
             IF NOT THIS.IsInitialized THEN // dialog is not observed/monitored by server
+                
+                IF (THIS.Status <> eAxoTaskState#Ready) THEN
+                    THIS.Restore(); 
+                end_if;
+                
                 _answer := eDialogAnswer#NoAnswer; // set default value
                 ErrorDetails := 'THE REMOTE TASK IS NOT INITIALIZED';
                 RETURN; // if it continue  .Execute() call ThrowWhen() and task go to ErrorState  
@@ -121,6 +128,7 @@ NAMESPACE AXOpen.Core
                 _PlcCycleSpaceCounter  := _PlcCycleSpaceCounter + UINT#1; 
                 IF _PlcCycleSpaceCounter > UINT#2 then // IT IS REDUNDAND
                     _createPlcCycleSpace := FALSE;
+                    _PlcCycleSpaceCounter:=  UINT#0;
                 END_IF;
                 RETURN; 
             END_IF;

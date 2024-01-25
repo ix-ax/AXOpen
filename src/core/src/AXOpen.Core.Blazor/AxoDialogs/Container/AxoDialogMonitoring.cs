@@ -60,11 +60,14 @@ namespace AXOpen.Core.Blazor.AxoDialogs
                 // Initialize dialog monitoring if this is the first subscriber
                 if (_subscribers.Count < 1)
                 {
+                    Log.Logger.Information($"AxoDialogMonitoring starting dialog monitoring: {Dialog.Symbol}");
+
                     Dialog.Initialize(() => HandleInvocation());
                     Dialog._closeSignal.ValueChangeEvent += HandleClose;
                 }
                 _subscribers.Add(locatorId);
             }
+
         }
 
         /// <summary>
@@ -88,6 +91,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         private void DisposeDialogHandling()
         {
+            Log.Logger.Information($"AxoDialogMonitoring disposing dialog handling: {Dialog.Symbol}");
             Dialog.DeInitialize();
             Dialog._closeSignal.ValueChangeEvent -= HandleClose;
         }
@@ -99,7 +103,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         {
             await Dialog.ReadAsync();
 
-            Log.Logger.Information($"DM->Invoked {Dialog.Symbol}");
+            Log.Logger.Information($"AxoDialogMonitoring invoke Open: {Dialog.Symbol}");
 
             EventHandler_Invoke?.Invoke(this, new AxoDialogEventArgs(Dialog.Symbol));
         }
@@ -109,7 +113,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// </summary>
         private async void HandleClose(object sender, EventArgs e)
         {
-            Log.Logger.Information($"DM-> Close --> CloseValue:{Dialog._closeSignal.Cyclic.ToString()}, in {Dialog.Symbol}");
+            Log.Logger.Information($"AxoDialogMonitoring invoke Close: {Dialog._closeSignal.Cyclic.ToString()}, in {Dialog.Symbol}");
 
             EventHandler_Close?.Invoke(this, new AxoDialogEventArgs(Dialog.Symbol));
         }

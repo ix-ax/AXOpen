@@ -37,7 +37,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// <param name="observedObjects">The twin objects that may contain invokable dialogs from the controller to be handled by this proxy service.</param>
         public AxoDialogLocatorService(
             string dialogLocatorPath,
-            Guid dialogLocatorGuid,
             AxoDialogContainer dialogContainer,
             IEnumerable<ITwinObject> observedObjects)
         {
@@ -47,14 +46,12 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
             _dialogContainer.DialogLocatorServicesDictionary.TryAdd(LocatorPath, this);
             _observedDialogs = _dialogContainer.CollectDialogsOnObjects(_observedObjects);
-
-            StartObservingDialogues(dialogLocatorGuid);
         }
 
         /// <summary>
         /// Begins observing dialogues for this proxy service.
         /// </summary>
-        internal void StartObservingDialogues(Guid dialogLocatorGuid)
+        public void  StartObservingDialogues(Guid dialogLocatorGuid)
         {
             if (!_subscribers.Any())
             {
@@ -67,7 +64,30 @@ namespace AXOpen.Core.Blazor.AxoDialogs
                 }
             }
 
+            CloseFinishedDialogs(); // if anyone was close during server off state
+
             _subscribers.Add(dialogLocatorGuid);
+        }
+
+        /// <summary>
+        /// Close observing dialogues that was closed or reseted during server off state.
+        /// </summary>
+        internal void CloseFinishedDialogs()
+        {
+            List<string> toRemove = new();
+            foreach (AxoDialogBase d in DisplayedDialogs)
+            {
+                if (d.Status.LastValue == (short)eAxoTaskState.Ready)
+                {
+                    toRemove.Add(d.Symbol);
+                }
+            }
+
+            foreach (var dialogSymbol in toRemove)
+            {
+                Log.Logger.Information($"AxoDialogLocatorService closing inactive dialog: {dialogSymbol}");
+                RemoveDisplayedDialog(dialogSymbol);
+            }
         }
 
         /// <summary>
@@ -119,7 +139,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             {
                 lock (_lockObject)
                 {
-                    Log.Logger.Information($"Proxy->Plc Invoke of: {senderAsDialogMonitor.Dialog.Symbol}");
+                    Log.Logger.Information($"AxoDialogLocatorService invoke dialog (from Plc): {senderAsDialogMonitor.Dialog.Symbol}");
 
                     var exist = DisplayedDialogs.Any(p => p.Symbol == e.SymbolOfDialogInstance);
                     if (!exist)
@@ -143,7 +163,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             {
                 lock (_lockObject)
                 {
-                    Log.Logger.Information($"Proxy->Plc Closing of: {senderAsDialogMonitor.Dialog.Symbol}");
+                    Log.Logger.Information($"AxoDialogLocatorService remove displayed dialog (from Plc): {senderAsDialogMonitor.Dialog.Symbol}");
 
                     var exist = DisplayedDialogs.Any(p => p.Symbol == senderAsDialogMonitor.Dialog.Symbol);
                     if (exist)
@@ -165,7 +185,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             {
                 lock (_lockObject)
                 {
-                    Log.Logger.Information($"Proxy->Plc Closing of: {dialogSymbol}");
+                    Log.Logger.Information($"AxoDialogLocatorService removing displayed dialog: {dialogSymbol}");
 
                     var exist = DisplayedDialogs.Any(p => p.Symbol == dialogSymbol);
                     if (exist)
@@ -195,9 +215,9 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// </summary>
         public void TryDispose(Guid dialogLocatorGuid)
         {
+            Log.Logger.Information($"AxoDialogLocatorService TryDispose() {LocatorPath}/{dialogLocatorGuid}");
             StopObservingDialogues(dialogLocatorGuid);
 
-            Log.Logger.Information($"DialogLocatorService -> TryDispose {LocatorPath}/{dialogLocatorGuid}");
         }
 
         /// <summary>
@@ -205,7 +225,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// </summary>
         public void Dispose()
         {
-            Log.Logger.Information($"DialogLocatorService -> Dispose {LocatorPath}");
+            Log.Logger.Information($"AxoDialogLocatorService Dispose() {LocatorPath}");
 
             _subscribers.Clear();
 

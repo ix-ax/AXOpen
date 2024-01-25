@@ -118,13 +118,14 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
             if (!proxyExists)
             {
-                this._dialogProxyService = new AxoDialogLocatorService(DialogLocatorPath, DialogLocatorGuid, DialogContainer, ObservedObjects);
+                this._dialogProxyService = new AxoDialogLocatorService(DialogLocatorPath, DialogContainer, ObservedObjects);
             }
             else
             {
                 this._dialogProxyService = proxy;
-                this._dialogProxyService.StartObservingDialogues(DialogLocatorGuid);
             }
+                   
+            this._dialogProxyService!.StartObservingDialogues(DialogLocatorGuid);
 
             this._dialogProxyService.EventFromPlc_DialogInvoked += OnPlc_DialogInvoked;
             this._dialogProxyService.EventFromPlc_DialogRemoved += OnPlc_DialogRemoved;
@@ -133,25 +134,26 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             this.SignalRClient.EventDialogClose += OnSignalRClient_DialogClose;
 
             if (this._dialogProxyService.DisplayedDialogs.Count() > 0)
-                this.Refresh();
+                await Refresh();
         }
 
         private async void OnSignalRClient_DialogOpen(object sender, SignalRClientReceivedMessageArgs e)
         {
-            Log.Logger.Information($"Locator -> SignalR | Open -  {e.SymbolOfDialogInstance}");
-            _dialogProxyService.RemoveDisplayedDialog(e.SymbolOfDialogInstance);
+            Log.Logger.Information($"AxoDialogLocator by SignalR Opening : {e.SymbolOfDialogInstance}");
+            // this message is no supported and required at this moment.
             await Refresh();
         }
 
         private async void OnSignalRClient_DialogClose(object sender, SignalRClientReceivedMessageArgs e)
         {
-            Log.Logger.Information($"Locator -> SignalR | Close -  {e.SymbolOfDialogInstance}");
+            Log.Logger.Information($"AxoDialogLocator by SignalR Closing: {e.SymbolOfDialogInstance}");
+            _dialogProxyService.RemoveDisplayedDialog(e.SymbolOfDialogInstance);
             await Refresh();
         }
 
         private async void OnPlc_DialogInvoked(object? sender, AxoDialogEventArgs e)
         {
-            Log.Logger.Information($"Locator -> PLC | Open -  {e.SymbolOfDialogInstance}");
+            Log.Logger.Information($"AxoDialogLocator by PLC Opening: {e.SymbolOfDialogInstance}");
             if (DialogOpenDelay > 0)
             {
                 await Task.Delay(DialogOpenDelay);
@@ -161,7 +163,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         private async void OnPlc_DialogRemoved(object? sender, AxoDialogEventArgs e)
         {
-            Log.Logger.Information($"Locator -> PLC | Close -  {e.SymbolOfDialogInstance}");
+            Log.Logger.Information($"AxoDialogLocator by PLC Closing: {e.SymbolOfDialogInstance}");
             await Refresh();
         }
 

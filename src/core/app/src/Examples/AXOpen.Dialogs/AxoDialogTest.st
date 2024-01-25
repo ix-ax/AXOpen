@@ -180,7 +180,7 @@ NAMESPACE AxoDialogExamples
                         IF(_alertDialog.Show(THIS)
                             .WithTitle(Caption)
                             .WithType(eDialogType#Success)
-                            .WithMessage('This is alert invoked from plc!')
+                            .WithMessage('Alert stage 1!')
                             .WithTimeToBurn(UINT#5).IsShown() = true) THEN
                             //when task is done, move next
                             _alertIterationStep := _alertIterationStep + 1;
@@ -188,14 +188,36 @@ NAMESPACE AxoDialogExamples
                     end_if;
                 end_if;
 
-
-                if  _alertIterationStep  > 1 then  // simulate time gap
-                    _alertIterationStep := _alertIterationStep + 1;
+                if  _alertIterationStep  = 2 then 
+                    if not _alertDialog.HasError() then 
+                        IF(_alertDialog.Show(THIS)
+                            .WithTitle(Caption)
+                            .WithType(eDialogType#Success)
+                            .WithMessage('Alert stage 2!')
+                            .WithTimeToBurn(UINT#5).IsShown()) THEN
+                            //when task is done, move next
+                            _alertIterationStep := _alertIterationStep + 1;
+                        END_IF;	
+                    end_if;
                 end_if;
 
-                if  _alertIterationStep  > 100 then // time simulation is over
+                if  _alertIterationStep  = 3 then 
+                    if not _alertDialog.HasError() then 
+                        IF(_alertDialog.Show(THIS)
+                            .WithTitle(Caption)
+                            .WithType(eDialogType#Success)
+                            .WithMessage('Alert stage 3')
+                            .WithTimeToBurn(UINT#5).IsShown()) THEN
+                            //when task is done, move next
+                            _alertIterationStep := _alertIterationStep + 1;
+                        END_IF;	
+                    end_if;
+                end_if;
+
+                if  _alertIterationStep  = 4 then  // simulate time gap
                     _alertIterationStep := 0 ;
                 end_if;
+
             ELSE
                 _alertIterationStep := 0 ;
                 if _alertDialog.HasError() THEN
