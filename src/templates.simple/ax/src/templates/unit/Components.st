@@ -166,26 +166,26 @@ NAMESPACE axosimple.UnitTemplate
 
 
             Drive_F1.Run(parent               :=  THIS,
-                    refTelegram111_In   :=  REF(Inputs^.Drive_F1_Siemens_telegram_111_PZD_12_12),
-                    refTelegram750_In   :=  REF(Inputs^.Drive_F1_Siemens_telegram_750_PZD_4_1),
-                    refTelegram111_Out  :=  REF(Outputs^.Drive_F1_Siemens_telegram_111_PZD_12_12),
-                    refTelegram750_Out  :=  REF(Outputs^.Drive_F1_Siemens_telegram_750_PZD_4_1),
-                    MAP_HW_ID           :=  Inputs^.Drive_F1_HwId,
+                    hwId                :=  Inputs^.Drive_F1_PN_IO_Interface,              
+                    hwIdTelegram111     :=  Inputs^.Drive_F1_DO_SERVO_1_Siemens_telegram_111_PZD_12_12,
+                    hwIdTelegram750     :=  Inputs^.Drive_F1_DO_SERVO_1_Siemens_telegram_750_PZD_4_1 ,
+                    MAP_HW_ID           :=  Inputs^.Drive_F1_DO_SERVO_1_Module_Access_Point,
                     Enable              :=  _enable,
                     EnablePositive      :=  _enablePositive,
                     EnableNegative      :=  _enableNegative);
                     
 
                     
+
             Drive_F2.Run(parent               :=  THIS,
-                    refTelegram111_In   :=  REF(Inputs^.Drive_F2_Siemens_telegram_111_PZD_12_12),
-                    refTelegram750_In   :=  REF(Inputs^.Drive_F2_Siemens_telegram_750_PZD_4_1),
-                    refTelegram111_Out  :=  REF(Outputs^.Drive_F2_Siemens_telegram_111_PZD_12_12),
-                    refTelegram750_Out  :=  REF(Outputs^.Drive_F2_Siemens_telegram_750_PZD_4_1),
-                    MAP_HW_ID           :=  Inputs^.Drive_F2_HwId,
+                    hwId                :=  Inputs^.Drive_F2_PN_IO_Interface,              
+                    hwIdTelegram111     :=  Inputs^.Drive_F2_DO_SERVO_1_Siemens_telegram_111_PZD_12_12,
+                    hwIdTelegram750     :=  Inputs^.Drive_F2_DO_SERVO_1_Siemens_telegram_750_PZD_4_1 ,
+                    MAP_HW_ID           :=  Inputs^.Drive_F2_DO_SERVO_1_Module_Access_Point,
                     Enable              :=  _enable,
                     EnablePositive      :=  _enablePositive,
                     EnableNegative      :=  _enableNegative);
+                    
 
         END_METHOD
     END_CLASS
