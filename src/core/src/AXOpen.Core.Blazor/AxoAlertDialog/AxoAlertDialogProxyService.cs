@@ -85,14 +85,33 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
         protected async void Queue(IsDialogType dialog)
         {
             DialogInstance = dialog;
-            await DialogInstance.ReadAsync();
+
+            var asAxoAlertDialog = dialog as AXOpen.Core.AxoAlertDialog;
+
+            if (asAxoAlertDialog != null) // is AxoAlertDialog
+            {
+                var reqProps = new List<ITwinPrimitive>()
+                { 
+                    asAxoAlertDialog._title,
+                    asAxoAlertDialog._dialogType,
+                    asAxoAlertDialog._message,
+                    asAxoAlertDialog._timeToBurn,
+                };
+
+               await DialogInstance.GetConnector().ReadBatchAsync(reqProps);
+            }
+            else
+            {
+                await DialogInstance.ReadAsync();
+            }
+
             AlertDialogInvoked?.Invoke(this, new AxoDialogEventArgs(string.Empty));
         }
 
 
         internal void CollectAlertDialogsOnObjects()
         {
-            if (_observedObjects == null || !_observedObjects.Any()) return ;
+            if (_observedObjects == null || !_observedObjects.Any()) return;
 
             foreach (var item in _observedObjects)
             {
@@ -100,7 +119,7 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
             }
         }
 
-       private void CollectAlertDialogs(ITwinObject observedObject)
+        private void CollectAlertDialogs(ITwinObject observedObject)
         {
             var descendants = observedObject.GetDescendants<IsAlertDialogType>();
 

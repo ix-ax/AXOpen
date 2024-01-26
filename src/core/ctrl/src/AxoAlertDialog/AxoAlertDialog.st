@@ -27,6 +27,7 @@ NAMESPACE AXOpen.Core
             END_VAR    
 
             Show := THIS;
+            _wasShow := FALSE;
 
             IF(_parent = NULL) THEN RETURN; END_IF;
 
@@ -61,9 +62,6 @@ NAMESPACE AXOpen.Core
 
             _lastCall := callCounter;
 
-            IF (THIS.Status = eAxoTaskState#Ready) THEN
-                _dialogType := eDialogType#Undefined;
-            END_IF;
 
             THIS.Invoke();
             SUPER.Execute();
@@ -83,6 +81,7 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC OVERRIDE Restore : IAxoTaskState
             Restore := THIS;
 
+            _dialogType := eDialogType#Undefined;
             _title := '';
             _message := '';
             _timeToBurn := UINT#5;

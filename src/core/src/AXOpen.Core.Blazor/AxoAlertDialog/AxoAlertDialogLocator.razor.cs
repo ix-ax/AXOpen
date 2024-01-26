@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AXOpen.Core.Blazor.AxoAlertDialog;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Serilog;
 
 namespace AXOpen.Core.Blazor.Dialogs
 {
@@ -90,6 +91,9 @@ namespace AXOpen.Core.Blazor.Dialogs
             {
                 IsDialogInvoked = true;
                 AXOpen.Core.AxoAlertDialog a = (AXOpen.Core.AxoAlertDialog)_axoDialogProxyService.DialogInstance;
+
+                Log.Logger.Information($"AxoAlertDialogLocator invoking dialog: {(eAlertDialogType)a._dialogType.Cyclic} {a._title.Cyclic} {a._message.Cyclic} {a._timeToBurn.Cyclic}");
+
 
                 AlertDialogService.AddAlertDialog((eAlertDialogType)a._dialogType.Cyclic, a._title.Cyclic, a._message.Cyclic, a._timeToBurn.Cyclic);
 
