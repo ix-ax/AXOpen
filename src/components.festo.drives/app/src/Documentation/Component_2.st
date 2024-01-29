@@ -11,6 +11,8 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
 
     //<InitializationArgumentsDeclaration>
     VAR PUBLIC                
+        PlcInputs : REF_TO PlcInputs;
+        PlcOutputs : REF_TO PlcOutputs;     
         manualControl   :   BOOL;
         Enable          :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
         EnablePositive  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
