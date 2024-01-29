@@ -39,7 +39,7 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
 
     METHOD PROTECTED OVERRIDE Main  
 
-        // RETURN;
+        RETURN;
     
         IF(_manualControl) THEN            
             AxoCmmtAs.ActivateManualControl();
