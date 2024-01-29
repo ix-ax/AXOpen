@@ -30,7 +30,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
 
         //<Initialization>        
         ExampleRobot.Run(   parent      := THIS,
-                            hwID        := TO_UINT(HwIdentifiers#RobotBasicIO),
+                            hwID        := HwIdentifiers#RobotBasicIO,
                             refInputs   := REF(PlcInputs^.RobotBasicIO_DI_64_bytes_1),      
                             refOutputs  := REF(PlcOutputs^.RobotBasicIO_DO_64_bytes_1));        
         //</Initialization>

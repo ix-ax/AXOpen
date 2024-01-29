@@ -125,7 +125,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
         METHOD PUBLIC Run
             VAR_INPUT
                 parent                                                  : IAxoObject;
-                hwID                                                    : UINT;
+                hwID                                                    : WORD;
                 refAxoUrRobotics_T2O_State                              : REF_TO ARRAY[0..31] OF BYTE;
                 refAxoUrRobotics_T2O_IO                                 : REF_TO ARRAY[0..67] OF BYTE;
                 refAxoUrRobotics_T2O_Joints                             : REF_TO ARRAY[0..103] OF BYTE;
@@ -168,7 +168,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
         METHOD PUBLIC Run 
             VAR_INPUT
                 parent                                                  : IAxoContext;
-                hwID                                                    : UINT;
+                hwID                                                    : WORD;
                 refAxoUrRobotics_T2O_State                              : REF_TO ARRAY[0..31] OF BYTE;
                 refAxoUrRobotics_T2O_IO                                 : REF_TO ARRAY[0..67] OF BYTE;
                 refAxoUrRobotics_T2O_Joints                             : REF_TO ARRAY[0..103] OF BYTE;
@@ -207,7 +207,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
 
         METHOD PRIVATE Execute 
             VAR_INPUT
-                hwID                                                    : UINT;
+                hwID                                                    : WORD;
                 refAxoUrRobotics_T2O_State                              : REF_TO ARRAY[0..31] OF BYTE;
                 refAxoUrRobotics_T2O_IO                                 : REF_TO ARRAY[0..67] OF BYTE;
                 refAxoUrRobotics_T2O_Joints                             : REF_TO ARRAY[0..103] OF BYTE;

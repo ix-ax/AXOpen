@@ -10,9 +10,6 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
 
     //<InitializationArgumentsDeclaration>
     VAR PUBLIC 
-        PlcInputs : REF_TO PlcInputs;
-        PlcOutputs : REF_TO PlcOutputs;          
-
         manualControl   :   BOOL;
         Enable          :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
         EnablePositive  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
@@ -25,19 +22,18 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
             parent : IAxoContext;
         END_VAR    
 
-        RETURN;
+        // RETURN;
         THIS.Initialize(parent);
 
         IF(manualControl) THEN            
             IndraDrive.ActivateManualControl();
         END_IF;   
         //<Initialization>        
-        IndraDrive.Run(parent           :=  THIS,
-                        hwID                :=  TO_UINT(HwIdentifiers#ST3_indradrive),
-                        refParameter_In     :=  REF(PlcInputs^.ST3_indradrive_ParamCh_IDN_1),
-                        refFieldbus_In      :=  REF(PlcInputs^.ST3_indradrive_Input_9_Words_1),
-                        refParameter_Out    :=  REF(PlcOutputs^.ST3_indradrive_ParamCh_IDN_1),
-                        refFieldbus_Out     :=  REF(PlcOutputs^.ST3_indradrive_Output_13_Words_1),
+        IndraDrive.Run(parent               :=  THIS,
+                        hwID                :=  HwIdentifiers#ST3_indradrive,
+                        hwIdParamCh_IDN     :=  HwIdentifiers#ST3_indradrive_ParamCh_IDN_1,
+                        hwIdInput_9_Words   :=  HwIdentifiers#ST3_indradrive_Input_9_Words_1,
+                        hwIdOutput_13_Words :=  HwIdentifiers#ST3_indradrive_Output_13_Words_1,
                         Enable              :=  Enable,
                         EnablePositive      :=  EnablePositive,
                         EnableNegative      :=  EnableNegative);
@@ -68,9 +64,11 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         _i := 0;
         IF(Steps[_i].Execute(Sequencer, 'Restore')) THEN
             manualControl := FALSE;
-            IF(IndraDrive.RestoreTask.Invoke().IsDone()) THEN                
-                Sequencer.MoveNext();                
-            END_IF;    
+            Enable := FALSE;
+            EnablePositive := FALSE;
+            EnableNegative := FALSE;
+            IndraDrive.Restore();   
+            Sequencer.MoveNext();                
         END_IF;
 
         _i := _i + 1;
@@ -98,6 +96,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
                                         Acceleration    :=  LREAL#50.0,
                                         Deceleration    :=  LREAL#50.0
                                         ).IsDone()) THEN                
+                IndraDrive.Restore();   
                 Sequencer.MoveNext();                
             END_IF;    
         END_IF;    
@@ -112,6 +111,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         _i := _i + 1;
         IF(Steps[_i].Execute(Sequencer, 'Set position')) THEN
             IF(IndraDrive.AxoSetPosition(Position :=  LREAL#0.0).IsDone()) THEN                
+                IndraDrive.Restore();   
                 Sequencer.MoveNext();       
             END_IF;    
         END_IF;    
@@ -131,9 +131,8 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
                                                 Deceleration    :=  LREAL#50.0,
                                                 Jerk            :=  LREAL#50.0
                                                 ).IsDone()) THEN                
+                IndraDrive.Restore();   
                 Sequencer.MoveNext();     
-                IndraDrive.AxoMoveAbsolute_Task.Restore();    
-                RETURN;       
             END_IF;    
         END_IF;    
 
@@ -161,7 +160,8 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
                                                     );
             END_IF;                                                
             IF(IndraDrive.AxoMoveAdditive_Task.IsDone()) THEN                
-                    Sequencer.MoveNext();                
+                IndraDrive.Restore();   
+                Sequencer.MoveNext();                
             END_IF;    
         END_IF;    
 
@@ -180,6 +180,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
                                                 Deceleration    :=  LREAL#50.0,
                                                 Jerk            :=  LREAL#50.0
                                                 ).IsDone()) THEN                
+                IndraDrive.Restore();   
                 Sequencer.MoveNext();                
             END_IF;    
         END_IF;    
@@ -195,6 +196,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         IF(Steps[_i].Execute(Sequencer, 'Read digital input')) THEN
             IndraDrive.AxoReadDigitalInput(Enable := TRUE, InputNumber := 4 , Valid=> _Valid, Value => _BoolValue);
             IF(_Valid AND _BoolValue) THEN                
+                IndraDrive.Restore();   
                 Sequencer.MoveNext();                
                 IndraDrive.AxoReadDigitalInput(Enable :=FALSE);
             END_IF;   
@@ -209,9 +211,8 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
                                                 Direction       :=  eAxoDriveDirection#NegativeDirection,
                                                 InVelocity      => _BoolValue);
             IF(_BoolValue) THEN                
+                IndraDrive.Restore();   
                 Sequencer.MoveNext();         
-                IndraDrive.AxoMoveVelocity_Task.Restore();
-                RETURN;       
             END_IF;    
         END_IF;    
 
@@ -220,6 +221,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
             IF(IndraDrive.AxoHalt(  Deceleration    :=  LREAL#50.0,
                                         Jerk            :=  LREAL#50.0
                                         ).IsDone()) THEN                
+                IndraDrive.Restore();   
                 Sequencer.MoveNext();                
             END_IF;    
         END_IF;    
@@ -233,6 +235,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
                                                 Direction       :=  eAxoDriveDirection#NegativeDirection,
                                                 InVelocity      => _BoolValue);
             IF(_BoolValue) THEN                
+                IndraDrive.Restore();   
                 Sequencer.MoveNext();                
             END_IF;    
         END_IF;    
@@ -241,6 +244,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         IF(Steps[_i].Execute(Sequencer, 'Read digital input')) THEN
             IndraDrive.AxoReadDigitalInput(Enable := TRUE, InputNumber := 4 , Valid=> _Valid, Value => _BoolValue);
             IF(_Valid AND NOT _BoolValue) THEN                
+                IndraDrive.Restore();   
                 Sequencer.MoveNext();                
                 IndraDrive.AxoReadDigitalInput(Enable :=FALSE);
             END_IF;   
@@ -301,13 +305,15 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
                                             Direction       :=  eAxoDriveDirection#PositiveDirection,
                                             InTorque      => _BoolValue);
             IF(_BoolValue) THEN                
+                // IndraDrive.Restore();    removed due to we want to stay in torque up to reach the position 10.0
                 Sequencer.MoveNext();                
             END_IF;    
         END_IF;    
 
         _i := _i + 1;
         IF(Steps[_i].Execute(Sequencer, 'Check position')) THEN
-            IF(IndraDrive.ActualPosition >=10.0) THEN                
+            IF(IndraDrive.ActualPosition >=10.0) THEN   
+                IndraDrive.Restore(); // moved here from the prevous step             
                 Sequencer.MoveNext();                
             END_IF;    
         END_IF;    
@@ -338,6 +344,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
                                                 Deceleration    :=  LREAL#50.0,
                                                 Jerk            :=  LREAL#50.0
                                                 ).IsDone()) THEN                
+                IndraDrive.Restore();   
                 Sequencer.MoveNext();     
             END_IF;    
         END_IF; 
@@ -348,7 +355,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
             EnablePositive := FALSE;
             EnableNegative := FALSE;
             IF(NOT IndraDrive.AxoPower_Status) THEN                
-                Sequencer.CompleteSequence();                
+                Sequencer.MoveNext();                
             END_IF;    
         END_IF;
 
@@ -361,9 +368,8 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
 
         _i := _i + 1;
         IF(Steps[_i].Execute(Sequencer, 'Restore')) THEN
-            IF(IndraDrive.RestoreTask.Invoke().IsDone()) THEN                
-                Sequencer.MoveNext();                
-            END_IF;    
+            IndraDrive.Restore();   
+            Sequencer.CompleteSequence();
         END_IF;
     END_METHOD
     //</Usage>

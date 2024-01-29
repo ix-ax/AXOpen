@@ -31,7 +31,7 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
 
         //<Initialization>        
         testDataman.Run(parent                     :=  THIS,  
-                        hwID                       :=  TO_UINT(HwIdentifiers#_10a1),
+                        hwID                       :=  HwIdentifiers#_10a1,
                         refAcquisitionControl      :=  REF(PlcOutputs^._10a1_Acquisition_Control_1),
                         refAcquisitionStatus       :=  REF(PlcInputs^._10a1_Acquisition_Status_1),
                         refResultsControl          :=  REF(PlcOutputs^._10a1_Results_Control_1),

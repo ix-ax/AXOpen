@@ -10,13 +10,13 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
 
     METHOD PROTECTED OVERRIDE Main
         _testRobot1.Run( parent      := THIS,
-                         hwID        := TO_UINT(HwIdentifiers#RobotBasicIO),
+                         hwID        := HwIdentifiers#RobotBasicIO,
                          refInputs   := REF(PlcInputs^.RobotBasicIO_DI_64_bytes_1),     
                          refOutputs  := REF(PlcOutputs^.RobotBasicIO_DO_64_bytes_1)); 
 
 
         _testRobot2.Run( parent      := THIS,
-                         hwID        := TO_UINT(HwIdentifiers#OmniCore),
+                         hwID        := HwIdentifiers#OmniCore,
                          refInputs   := REF(PlcInputs^.OmniCore_DI_64_bytes_1),      
                          refOutputs  := REF(PlcOutputs^.OmniCore_DO_64_bytes_1));        
 

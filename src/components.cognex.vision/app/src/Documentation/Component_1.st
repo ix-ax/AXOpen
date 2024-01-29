@@ -31,7 +31,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
 
         //<Initialization>        
         testInsight.Run(parent              :=  THIS,  
-                    hwID                    :=  TO_UINT(HwIdentifiers#_7600),
+                    hwID                    :=  HwIdentifiers#_7600,
                     refAcquisitionControl   :=  REF(PlcOutputs^._7600_Acquisition_Control_1),
                     refAcquisitionStatus    :=  REF(PlcInputs^._7600_Acquisition_Status_1),
                     refInspectionControl    :=  REF(PlcOutputs^._7600_Inspection_Control_1),

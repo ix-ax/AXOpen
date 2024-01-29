@@ -12,9 +12,7 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         {#ix-set:AttributeName = "<#Enable in positive direction signal#>"}
         EnablePositive : BOOL := TRUE;  
         {#ix-set:AttributeName = "<#Enable in positive negative signal#>"}
-        EnableNegative   : BOOL := TRUE;      
-        PlcInputs : REF_TO PlcInputs;
-        PlcOutputs : REF_TO PlcOutputs;          
+        EnableNegative   : BOOL := TRUE; 
         {#ix-attr:[Container(Layout.Stack)]}
         IndraDrive  : AXOpen.Components.Rexroth.Drives.AxoIndraDrive;
     END_VAR
@@ -38,18 +36,17 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     END_VAR
 
     METHOD PROTECTED OVERRIDE Main  
-        // RETURN;
+        RETURN;
 
         IF(_manualControl) THEN            
             IndraDrive.ActivateManualControl();
         END_IF;   
 
         IndraDrive.Run(parent               :=  THIS,
-                        hwID                :=  TO_UINT(HwIdentifiers#ST3_indradrive),
-                        refParameter_In     :=  REF(PlcInputs^.ST3_indradrive_ParamCh_IDN_1),
-                        refFieldbus_In      :=  REF(PlcInputs^.ST3_indradrive_Input_9_Words_1),
-                        refParameter_Out    :=  REF(PlcOutputs^.ST3_indradrive_ParamCh_IDN_1),
-                        refFieldbus_Out     :=  REF(PlcOutputs^.ST3_indradrive_Output_13_Words_1),
+                        hwID                :=  HwIdentifiers#ST3_indradrive,
+                        hwIdParamCh_IDN     :=  HwIdentifiers#ST3_indradrive_ParamCh_IDN_1,
+                        hwIdInput_9_Words   :=  HwIdentifiers#ST3_indradrive_Input_9_Words_1,
+                        hwIdOutput_13_Words :=  HwIdentifiers#ST3_indradrive_Output_13_Words_1,
                         Enable              :=  Enable,
                         EnablePositive      :=  EnablePositive,
                         EnableNegative      :=  EnableNegative);
