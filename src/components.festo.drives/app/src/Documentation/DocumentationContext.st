@@ -7,6 +7,6 @@ CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
    
     METHOD PROTECTED OVERRIDE Main
         componentOne.Run(THIS);
-        componentTwo.Run(THIS);
+        // componentTwo.Run(THIS);
     END_METHOD
 END_CLASS

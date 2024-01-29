@@ -17,6 +17,7 @@ dependencies:
   "@ax/system-bitaccess": ^6.0.94
   "@ax/simatic-1500-clocks": ^6.0.37
   "@ax/simatic-1500-distributedio": ^6.0.3
+  "@ax/system-timer": ^6.0.94
 scripts:
   delta:
     - START=$(date +%s)
