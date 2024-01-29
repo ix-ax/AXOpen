@@ -11,8 +11,6 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
 
     //<InitializationArgumentsDeclaration>
     VAR PUBLIC                
-        PlcInputs : REF_TO PlcInputs;
-        PlcOutputs : REF_TO PlcOutputs;     
         manualControl   :   BOOL;
         Enable          :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
         EnablePositive  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
@@ -101,6 +99,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
                                         Deceleration    :=  LREAL#1.0
                                         ).IsDone()) THEN                
                 Sequencer.MoveNext();                
+                AxoCmmtAs.Restore(); 
             END_IF;    
         END_IF;    
         
@@ -115,6 +114,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         IF(Steps[_i].Execute(Sequencer, 'Set position')) THEN
             IF(AxoCmmtAs.AxoSetPosition(Position :=  LREAL#0.0).IsDone()) THEN                
                 Sequencer.MoveNext();       
+                AxoCmmtAs.Restore();             
             END_IF;    
         END_IF;    
 
@@ -134,8 +134,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
                                                 Jerk            :=  LREAL#500.0
                                                 ).IsDone()) THEN                
                 Sequencer.MoveNext();     
-                AxoCmmtAs.AxoMoveAbsolute_Task.Restore();    
-                RETURN;       
+                AxoCmmtAs.Restore();    
             END_IF;    
         END_IF;    
 
@@ -164,6 +163,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
             END_IF;                                                
             IF(AxoCmmtAs.AxoMoveAdditive_Task.IsDone()) THEN                
                     Sequencer.MoveNext();                
+                    AxoCmmtAs.Restore();    
             END_IF;    
         END_IF;    
 
@@ -182,7 +182,8 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
                                                 Deceleration    :=  LREAL#1.0,
                                                 Jerk            :=  LREAL#500.0
                                                 ).IsDone()) THEN                
-                Sequencer.MoveNext();                
+                Sequencer.MoveNext();
+                AxoCmmtAs.Restore();    
             END_IF;    
         END_IF;    
 
@@ -199,6 +200,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
             IF(_Valid AND _BoolValue) THEN                
                 Sequencer.MoveNext();                
                 AxoCmmtAs.AxoReadDigitalInput(Enable :=FALSE);
+                AxoCmmtAs.Restore();             
             END_IF;   
         END_IF;    
 
@@ -212,17 +214,18 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
                                                 InVelocity      => _BoolValue);
             IF(_BoolValue) THEN                
                 Sequencer.MoveNext();         
-                AxoCmmtAs.AxoMoveVelocity_Task.Restore();
-                RETURN;       
+                AxoCmmtAs.Restore();    
             END_IF;    
         END_IF;    
 
         _i := _i + 1;
         IF(Steps[_i].Execute(Sequencer, 'Halt')) THEN
-            IF(AxoCmmtAs.AxoHalt(  Deceleration    :=  LREAL#1.0,
-                                        Jerk            :=  LREAL#500.0
-                                        ).IsDone()) THEN                
+            IF(AxoCmmtAs.AxoHalt(   Deceleration    :=  LREAL#1.0,
+                                    Jerk            :=  LREAL#500.0
+                                    ).IsDone()) THEN                
                 Sequencer.MoveNext();                
+                AxoCmmtAs.Restore();             
+                RETURN;
             END_IF;    
         END_IF;    
         
@@ -236,6 +239,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
                                                 InVelocity      => _BoolValue);
             IF(_BoolValue) THEN                
                 Sequencer.MoveNext();                
+                AxoCmmtAs.Restore();             
             END_IF;    
         END_IF;    
 
@@ -245,6 +249,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
             IF(_Valid AND _BoolValue) THEN                
                 Sequencer.MoveNext();                
                 AxoCmmtAs.AxoReadDigitalInput(Enable :=FALSE);
+                AxoCmmtAs.Restore();             
             END_IF;   
         END_IF;  
 
@@ -307,6 +312,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
                                             InTorque      => _BoolValue);
             IF(_BoolValue) THEN                
                 Sequencer.MoveNext();                
+                AxoCmmtAs.Restore();    
             END_IF;    
         END_IF;    
 
@@ -344,6 +350,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
                                                 Jerk            :=  LREAL#500.0
                                                 ).IsDone()) THEN                
                 Sequencer.MoveNext();     
+                AxoCmmtAs.Restore();    
             END_IF;    
         END_IF; 
 

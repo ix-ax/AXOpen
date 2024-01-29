@@ -4988,7 +4988,25 @@ NAMESPACE AXOpen.Components.Festo.Drives
             AxoJogNegative.RemoteSwitchOn := FALSE;
             AxoJogNegative.StartMotion := FALSE;
             AxoJogNegative.StopMotion := FALSE;
+            Parametrization.Restore();
              
+            _AxisRefExt.Telegram111_Out.STW1.activateTraversing := FALSE; 
+            _AxisRefExt.Telegram111_Out.STW1.StartHoming := FALSE; 
+            _AxisRefExt.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
+            _AxisRefExt.Telegram111_Out.POS_STW1.PosModulo := FALSE;
+            _AxisRefExt.Telegram111_Out.POS_STW1.NegModulo := FALSE;
+            _AxisRefExt.Telegram111_Out.POS_STW1.SetupMode := FALSE;
+            _AxisRefExt.Telegram111_Out.POS_STW1.MDI_Activate := FALSE;
+            _AxisRefExt.Telegram111_Out.POS_STW2.Trackingmode := FALSE;
+            _AxisRefExt.Telegram111_Out.POS_STW2.jog_inc := FALSE;   
+            _AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit0 := FALSE;
+            _AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit1 := FALSE;
+            _AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit2 := FALSE;
+            _AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit3 := FALSE;
+            _AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit4 := FALSE;
+            _AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit5 := FALSE;
+            _AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit6 := FALSE;    
+            _AxisRefExt.Telegram111_Out.STW2.TravelToFixStop := FALSE;
             RestoreTask.DoneWhen(TRUE);
 
             SUPER.Restore();
