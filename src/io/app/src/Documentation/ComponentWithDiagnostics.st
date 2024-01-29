@@ -11,7 +11,7 @@ CLASS ComponentWithDiagnostics EXTENDS AXOpen.Core.AxoComponent
     METHOD PUBLIC Run
         VAR_INPUT
             parent : IAxoObject;
-            _hwID : UINT;
+            _hwID : WORD;
         END_VAR    
 
         THIS.Initialize(parent);

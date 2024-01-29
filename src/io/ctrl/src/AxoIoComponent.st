@@ -32,7 +32,7 @@ NAMESPACE AXOpen.Io
         METHOD PUBLIC Run
             VAR_INPUT
                 parent  : IAxoObject;
-                hwID    :   UINT;
+                hwID    :   WORD;
             END_VAR
             IF (parent = NULL) THEN RETURN; END_IF;
             THIS.Initialize(parent);    
@@ -46,7 +46,7 @@ NAMESPACE AXOpen.Io
         METHOD PUBLIC Run 
             VAR_INPUT
                 parent  : IAxoContext;
-                hwID    :   UINT;
+                hwID    :   WORD;
             END_VAR
             THIS.Initialize(parent);    
             THIS.Execute(hwID);           
@@ -54,7 +54,7 @@ NAMESPACE AXOpen.Io
         
         METHOD PRIVATE Execute
             VAR_INPUT
-                hwID    :   UINT;
+                hwID    :   WORD;
             END_VAR
             VAR
                 diagInfo : Siemens.Simatic.S71500.Diagnostics.Hardware.DiagnosticDetails;            
@@ -63,7 +63,7 @@ NAMESPACE AXOpen.Io
             UpdateHardwareDiagnosticsTask.Initialize(THIS);
 
             IF UpdateHardwareDiagnosticsTask.Execute() THEN
-                GetDiagnosticsReturnCode := GetDiagnostics(hwID, diagInfo);
+                GetDiagnosticsReturnCode := GetDiagnostics(TO_UINT(hwID), diagInfo);
                 UpdateHardwareDiagnosticsTask.DoneWhen(UpdateHardwareDiagnosticsTask.Duration >= T#250ms AND GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError);
                 UpdateHardwareDiagnosticsTask.ThrowWhen(UpdateHardwareDiagnosticsTask.Duration >= T#250ms AND GetDiagnosticsReturnCode<>GetDiagnosticsReturnCode#NoError);
             END_IF;
