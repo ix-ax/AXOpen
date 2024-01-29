@@ -12,8 +12,8 @@ namespace AXOpen.Core
     {
         public static void AddAxoCoreServices(this IServiceCollection services)
         {
-            services.AddSingleton<AxoDialogContainer>();
-            services.AddScoped<IAlertDialogService, AxoAlertDialogService>();
+            services.AddSingleton<AxoDialogAndAlertContainer>();
+            services.AddScoped<IAlertService, AxoAlertService>();
 
 
             services.AddResponseCompression(opts =>

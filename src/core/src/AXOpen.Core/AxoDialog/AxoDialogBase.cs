@@ -4,7 +4,7 @@ using AXSharp.Connector;
 namespace AXOpen.Core
 {
 
-    public partial class AxoDialogBase : IsModalDialogType
+    public partial class AxoDialogBase : IModalDialog
     {
         public string DialogLocatorId { get; set; }
 

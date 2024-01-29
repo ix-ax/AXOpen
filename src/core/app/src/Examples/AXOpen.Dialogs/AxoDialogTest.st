@@ -41,7 +41,7 @@ NAMESPACE AxoDialogExamples
             _dialog : AXOpen.Core.AxoDialog;
 
             {#ix-set:AttributeName = "Alert Dialog"}
-            _alertDialog : AXOpen.Core.AxoAlertDialog;
+            _alertDialog : AXOpen.Core.AxoAlert;
         END_VAR    
 
 

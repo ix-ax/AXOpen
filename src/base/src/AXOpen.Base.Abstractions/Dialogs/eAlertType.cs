@@ -1,7 +1,7 @@
 ﻿
 namespace AXOpen.Base.Dialogs
 {
-    public enum eAlertDialogType
+    public enum eAlertType
     {
         Undefined = 0,
         Info = 10,

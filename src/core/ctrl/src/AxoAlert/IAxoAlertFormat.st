@@ -1,24 +1,24 @@
 NAMESPACE AXOpen.Core
-    INTERFACE PUBLIC IAxoAlertDialogFormat
-        METHOD WithTitle : IAxoAlertDialogFormat
+    INTERFACE PUBLIC IAxoAlertFormat
+        METHOD WithTitle : IAxoAlertFormat
             VAR_INPUT
                 inTitle : STRING;
             END_VAR
         END_METHOD
 
-        METHOD WithMessage : IAxoAlertDialogFormat
+        METHOD WithMessage : IAxoAlertFormat
             VAR_INPUT
                 inMessage : STRING;
             END_VAR
         END_METHOD
 
-        METHOD WithTimeToBurn : IAxoAlertDialogFormat
+        METHOD WithTimeToBurn : IAxoAlertFormat
             VAR_INPUT
                 inSeconds : UINT;
             END_VAR
         END_METHOD
 
-        METHOD WithType : IAxoAlertDialogFormat
+        METHOD WithType : IAxoAlertFormat
             VAR_INPUT
                 inDialogType : eDialogType;
             END_VAR

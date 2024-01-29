@@ -5,25 +5,25 @@
 @if (DialogService.GetAlertDialogs() != null && DialogService.GetAlertDialogs().Count > 0)
 {
     <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
-        @foreach (AlertDialog toast in DialogService.GetAlertDialogs().ToList())
+        @foreach (AlertToast toast in DialogService.GetAlertDialogs().ToList())
         {
             var bg = "";
             var icon = "";
             switch (toast.Type)
             {
-                case eAlertDialogType.Info:
+                case eAlertType.Info:
                     bg = "bg-primary text-white";
                     icon = "oi oi-info";
                     break;
-                case eAlertDialogType.Success:
+                case eAlertType.Success:
                     bg = "bg-success text-white";
                     icon = "oi oi-circle-check";
                     break;
-                case eAlertDialogType.Danger:
+                case eAlertType.Danger:
                     bg = "bg-danger text-white";
                     icon = "oi oi-circle-x";
                     break;
-                case eAlertDialogType.Warning:
+                case eAlertType.Warning:
                     bg = "bg-warning text-dark";
                     icon = "oi oi-warning";
                     break;

@@ -9,13 +9,13 @@ namespace AXOpen.Core.Blazor.AxoDialogs
     /// </summary>
     public class AxoDialogLocatorService : IDisposable
     {
-        private readonly AxoDialogContainer _dialogContainer;
+        private readonly AxoDialogAndAlertContainer _dialogContainer;
 
         private readonly IEnumerable<ITwinObject> _observedObjects;
 
         private volatile object _lockObject = new object();
 
-        private Dictionary<string, AxoDialogMonitoring> _observedDialogs = new();
+        private Dictionary<string, AxoDialogObserver> _observedDialogs = new();
 
         private List<Guid> _subscribers = new();
 
@@ -27,7 +27,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// <summary>
         /// Gets or sets the list of displayed dialogs.
         /// </summary>
-        public List<IsDialogType> DisplayedDialogs { get; set; } = new();
+        public List<IDialog> DisplayedDialogs { get; set; } = new();
 
         /// <summary>
         /// Instantiates a new <see cref="AxoDialogLocatorService"/>. Typically, this constructor is called only once.
@@ -37,7 +37,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// <param name="observedObjects">The twin objects that may contain invokable dialogs from the controller to be handled by this proxy service.</param>
         public AxoDialogLocatorService(
             string dialogLocatorPath,
-            AxoDialogContainer dialogContainer,
+            AxoDialogAndAlertContainer dialogContainer,
             IEnumerable<ITwinObject> observedObjects)
         {
             LocatorPath = dialogLocatorPath;
@@ -45,6 +45,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             _observedObjects = observedObjects;
 
             _dialogContainer.DialogLocatorServicesDictionary.TryAdd(LocatorPath, this);
+
             _observedDialogs = _dialogContainer.CollectDialogsOnObjects(_observedObjects);
         }
 
@@ -57,7 +58,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             {
                 foreach (var dialog in _observedDialogs)
                 {
-                    dialog.Value.StartDialogMonitoring(LocatorPath);
+                    dialog.Value.StartObservation(LocatorPath);
 
                     dialog.Value.EventHandler_Invoke += HandleDialogInvocation_FromPlc;
                     dialog.Value.EventHandler_Close += HandleDialogClosing_FromPlc;
@@ -110,7 +111,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         {
             foreach (var dialog in _observedDialogs)
             {
-                dialog.Value.StopDialogMonitoring(LocatorPath);
+                dialog.Value.StopObservation(LocatorPath);
 
                 dialog.Value.EventHandler_Invoke -= HandleDialogInvocation_FromPlc;
                 dialog.Value.EventHandler_Close -= HandleDialogClosing_FromPlc;
@@ -133,7 +134,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// <param name="dialog">The dialog to handle.</param>
         protected async void HandleDialogInvocation_FromPlc(object? sender, AxoDialogEventArgs e)
         {
-            var senderAsDialogMonitor = sender as AxoDialogMonitoring;
+            var senderAsDialogMonitor = sender as AxoDialogObserver;
 
             if (senderAsDialogMonitor != null)
             {
@@ -157,7 +158,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// </summary>
         public void HandleDialogClosing_FromPlc(object? sender, AxoDialogEventArgs e)
         {
-            var senderAsDialogMonitor = sender as AxoDialogMonitoring;
+            var senderAsDialogMonitor = sender as AxoDialogObserver;
 
             if (senderAsDialogMonitor != null)
             {

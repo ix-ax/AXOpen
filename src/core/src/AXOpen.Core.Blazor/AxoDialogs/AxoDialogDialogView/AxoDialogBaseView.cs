@@ -13,8 +13,11 @@ namespace AXOpen.Core.Blazor.AxoDialogs
     public partial class AxoDialogBaseView<T> : RenderableComplexComponentBase<T> where T : AxoDialogBase
     {
 
+
         [Inject]
-        public AxoDialogContainer DialogContainer { get; set; }
+        public AxoDialogAndAlertContainer DialogContainer { get; set; }
+
+        public bool EnableLoging { set; get; }
 
         protected override void OnInitialized()
         {
@@ -36,13 +39,17 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         public virtual async Task CloseDialogsWithSignalR()
         {
-            Log.Logger.Information($"AxoDialogBaseView - Closing by SignalR {Component.Symbol}");
+            if (EnableLoging)
+                Log.Logger.Information($"AxoDialogBaseView - Closing by SignalR {Component.Symbol}");
+
             await DialogContainer.SendToAllClients_CloseDialog(Component.Symbol);
         }
 
         public override void Dispose()
         {
-            Log.Logger.Information($"AxoDialogBaseView --> Disposing --> CloseValue:{Component._closeSignal.Cyclic.ToString()}, in {Component.Symbol}");
+            if (EnableLoging)
+                Log.Logger.Information($"AxoDialogBaseView --> Disposing --> CloseValue:{Component._closeSignal.Cyclic.ToString()}, in {Component.Symbol}");
+           
             base.Dispose();
         }
 

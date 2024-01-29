@@ -26,7 +26,7 @@ namespace AxOpen.Security.Views
         private UserManager<User> _userManager { get; set; }
 
         [Inject]
-        private IAlertDialogService _alertDialogService { get; set; }
+        private IAlertService _alertDialogService { get; set; }
 
         private User SelectedUser { get; set; }
         private UpdateUserModel _model { get; set; }
@@ -58,7 +58,7 @@ namespace AxOpen.Security.Views
         {
             await _userManager.DeleteAsync(user);
             SelectedUser = null;
-            _alertDialogService.AddAlertDialog(eAlertDialogType.Success, Localizer["Deleted!"], Localizer["User succesfully deleted!"], 10);
+            _alertDialogService.AddAlertDialog(eAlertType.Success, Localizer["Deleted!"], Localizer["User succesfully deleted!"], 10);
             //TcoAppDomain.Current.Logger.Information($"User '{user.UserName}' deleted. {{@sender}}", new { UserName = user.UserName });
         }
 
@@ -82,12 +82,12 @@ namespace AxOpen.Security.Views
             if (result.Succeeded)
             {
 
-                _alertDialogService.AddAlertDialog(eAlertDialogType.Success, Localizer["Updated!"], Localizer["User succesfully updated!"], 10);
+                _alertDialogService.AddAlertDialog(eAlertType.Success, Localizer["Updated!"], Localizer["User succesfully updated!"], 10);
                 //TcoAppDomain.Current.Logger.Information($"User '{SelectedUser.UserName}' updated. {{@sender}}", new { UserName = SelectedUser.UserName, Group = SelectedUser.Roles });
             }
             else
             {
-                _alertDialogService.AddAlertDialog(eAlertDialogType.Warning, Localizer["Not updated!"], Localizer["User was not updated!"], 10);
+                _alertDialogService.AddAlertDialog(eAlertType.Warning, Localizer["Not updated!"], Localizer["User was not updated!"], 10);
             }
         }
 

@@ -4,18 +4,18 @@ using System;
 namespace AXOpen.Core.Blazor.AxoAlertDialog
 {
     /// <summary>
-    /// Data structure representing AlertDialog.
+    /// Data structure representing AlertToast.
     /// </summary>
-    public class AlertDialog : IAlertDialog
+    public class AlertToast : IAlertToast
     {
         public Guid Id { get; set; } = Guid.NewGuid();
-        public eAlertDialogType Type { get; set; } = eAlertDialogType.Undefined;
+        public eAlertType Type { get; set; } = eAlertType.Undefined;
         public string Title { get; set; } = "";
         public string Message { get; set; } = "";
         public DateTimeOffset TimeToBurn { get; set; } = DateTimeOffset.Now.AddSeconds(30);
         public DateTimeOffset Posted { get; set; } = DateTimeOffset.Now;
 
-        public AlertDialog(eAlertDialogType type, string title, string message, int time)
+        public AlertToast(eAlertType type, string title, string message, int time)
         {
             Type = type;
             Title = title;

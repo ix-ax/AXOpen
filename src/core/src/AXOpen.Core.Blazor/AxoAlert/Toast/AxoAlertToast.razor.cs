@@ -8,10 +8,10 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
     {
 
         [Inject]
-        public IAlertDialogService DialogService { get; set; }
+        public IAlertService DialogService { get; set; }
                 
         //[Parameter]
-        //public IAlertDialogService ParameterDialogService { get; set; }
+        //public IAlertService ParameterDialogService { get; set; }
 
 
         private void AlertDialogChanged(object? sender, EventArgs e) => InvokeAsync(StateHasChanged);

@@ -1,10 +1,10 @@
 NAMESPACE AXOpen.Core
     
     {S7.extern=ReadWrite}
-    CLASS PUBLIC AxoAlertDialog EXTENDS AxoRemoteTask IMPLEMENTS IAxoAlertDialogFormat
+    CLASS PUBLIC AxoAlert EXTENDS AxoRemoteTask IMPLEMENTS IAxoAlertFormat
 
         VAR PUBLIC      
-            _dialogType : eDialogType;
+            _alertType : eDialogType;
             _title : STRING;
             _message : STRING;
             _timeToBurn : UINT := UINT#5;
@@ -17,7 +17,7 @@ NAMESPACE AXOpen.Core
             _wasShow : BOOL;
         END_VAR    
 
-        METHOD PUBLIC Show : IAxoAlertDialogFormat
+        METHOD PUBLIC Show : IAxoAlertFormat
             VAR_INPUT
                 _parent : IAxoObject;
             END_VAR
@@ -75,13 +75,14 @@ NAMESPACE AXOpen.Core
 
         END_METHOD
     
+
         ///<summary>
         /// Restore AlertDialog. In special case context can be null.
         ///</summary>
         METHOD PUBLIC OVERRIDE Restore : IAxoTaskState
             Restore := THIS;
 
-            _dialogType := eDialogType#Undefined;
+            _alertType := eDialogType#Undefined;
             _title := '';
             _message := '';
             _timeToBurn := UINT#5;
@@ -96,7 +97,7 @@ NAMESPACE AXOpen.Core
         END_METHOD  
         
         
-    METHOD PUBLIC WithTitle : IAxoAlertDialogFormat
+    METHOD PUBLIC WithTitle : IAxoAlertFormat
         VAR_INPUT
             inTitle : STRING;
         END_VAR
@@ -104,7 +105,7 @@ NAMESPACE AXOpen.Core
         WithTitle := THIS;
     END_METHOD
 
-    METHOD PUBLIC WithMessage : IAxoAlertDialogFormat
+    METHOD PUBLIC WithMessage : IAxoAlertFormat
         VAR_INPUT
             inMessage : STRING;
         END_VAR
@@ -112,7 +113,7 @@ NAMESPACE AXOpen.Core
         WithMessage := THIS;
     END_METHOD
 
-    METHOD PUBLIC WithTimeToBurn : IAxoAlertDialogFormat
+    METHOD PUBLIC WithTimeToBurn : IAxoAlertFormat
         VAR_INPUT
             inSeconds : UINT;
         END_VAR
@@ -120,11 +121,11 @@ NAMESPACE AXOpen.Core
         WithTimeToBurn := THIS;
     END_METHOD
 
-    METHOD PUBLIC WithType : IAxoAlertDialogFormat
+    METHOD PUBLIC WithType : IAxoAlertFormat
         VAR_INPUT
-            inDialogType : eDialogType;
+            inAlertType : eDialogType;
         END_VAR
-        _dialogType := inDialogType;
+        _alertType := inAlertType;
         WithType := THIS;
     END_METHOD
 

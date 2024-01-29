@@ -1,4 +1,5 @@
 ﻿using AXOpen.Core.Blazor.AxoDialogs.Hubs;
+using AXOpen.Core.Blazor.Dialogs;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -16,7 +17,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
     /// Represents a component responsible for locating and managing dialogues within a Blazor application.
     /// It subscribes to dialog events and manages their display state.
     /// </summary>
-    public partial class AxoDialogLocator : ComponentBase, IDisposable
+    public partial class AxoDialogLocator : AxoLocator
     {
         private AxoDialogLocatorService _dialogProxyService { get; set; }
 
@@ -34,48 +35,18 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// Indicates whether the modal backdrop is shown.
         /// </summary>
         public bool ShowBackdrop { set; get; } = false;
-
-        [Inject]
-        public AxoDialogContainer DialogContainer { get; set; }
-
-        [Inject]
-        public NavigationManager NavigationManager { get; set; }
-
-        [Inject]
-        public AuthenticationStateProvider Authentification { get; set; }
+       
 
         /// <summary>
         /// The SignalR client for managing real-time dialogue events.
         /// </summary>
         public SignalRDialogClient SignalRClient { get; set; }
 
-        /// <summary>
-        /// The objects to observe for dialogues. These are typically data models or application state objects that can initiate dialogues.
-        /// </summary>
-        [Parameter, EditorRequired]
-        public IEnumerable<ITwinObject> ObservedObjects { get; set; }
-
-        /// <summary>
-        /// A unique identifier for the dialog locator, typically based on the URL of the page.
-        /// This ensures dialogues are synchronized across different instances.
-        /// </summary>
-        [Parameter, EditorRequired]
-        public string DialogLocatorPath { get; set; }
-
+        
         [Parameter]
         public bool DisplayInModalWindow { get; set; } = true;
 
-        /// <summary>
-        /// A unique GUID for the dialog locator instance, used for internal management and event subscription.
-        /// </summary>
-        public Guid DialogLocatorGuid { get; private set; } = Guid.NewGuid();
-
-        /// <summary>
-        /// Optional delay in milliseconds before opening a dialog, with a default value of 0ms.
-        /// </summary>
-        [Parameter]
-        public int DialogOpenDelay { get; set; } = 0;
-
+       
         /// <summary>
         /// Flag indicating if any dialog is currently active.
         /// </summary>
@@ -95,37 +66,30 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             return SignalRClient.StartAsync();
         }
 
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            if (firstRender)
-            {
-                await InitializeDialogsHandling();
-            }
-        }
-
         /// <summary>
         /// Initializes dialog handling by setting up SignalR clients and subscribing to dialog events.
         /// </summary>
-        protected async Task InitializeDialogsHandling()
+        protected override async Task InitializeObservationHandling()
         {
             var uri = NavigationManager.BaseUri;
+
             await InitializeSignalR(uri);
             await DialogContainer.InitializeSignalR(uri);
 
-            if (string.IsNullOrEmpty(DialogLocatorPath)) DialogLocatorPath = uri;
+            if (string.IsNullOrEmpty(LocatorPath)) LocatorPath = uri;
 
-            var proxyExists = DialogContainer.DialogLocatorServicesDictionary.TryGetValue(DialogLocatorPath, out AxoDialogLocatorService proxy);
+            var proxyExists = DialogContainer.DialogLocatorServicesDictionary.TryGetValue(LocatorPath, out AxoDialogLocatorService proxy);
 
             if (!proxyExists)
             {
-                this._dialogProxyService = new AxoDialogLocatorService(DialogLocatorPath, DialogContainer, ObservedObjects);
+                this._dialogProxyService = new AxoDialogLocatorService(LocatorPath, DialogContainer, ObservedObjects);
             }
             else
             {
                 this._dialogProxyService = proxy;
             }
                    
-            this._dialogProxyService!.StartObservingDialogues(DialogLocatorGuid);
+            this._dialogProxyService!.StartObservingDialogues(LocatorGuid);
 
             this._dialogProxyService.EventFromPlc_DialogInvoked += OnPlc_DialogInvoked;
             this._dialogProxyService.EventFromPlc_DialogRemoved += OnPlc_DialogRemoved;
@@ -154,10 +118,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         private async void OnPlc_DialogInvoked(object? sender, AxoDialogEventArgs e)
         {
             Log.Logger.Information($"AxoDialogLocator by PLC Opening: {e.SymbolOfDialogInstance}");
-            if (DialogOpenDelay > 0)
-            {
-                await Task.Delay(DialogOpenDelay);
-            }
             await Refresh();
         }
 
@@ -207,13 +167,13 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// <summary>
         /// Cleans up resources and unsubscribes from events on disposal.
         /// </summary>
-        public void Dispose()
+        public override void Dispose()
         {
             if (_dialogProxyService != null)
             {
                 _dialogProxyService.EventFromPlc_DialogInvoked -= OnPlc_DialogInvoked;
                 _dialogProxyService.EventFromPlc_DialogRemoved -= OnPlc_DialogRemoved;
-                _dialogProxyService.TryDispose(DialogLocatorGuid);
+                _dialogProxyService.TryDispose(LocatorGuid);
             }
 
             if (SignalRClient != null)

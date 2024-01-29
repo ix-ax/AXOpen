@@ -24,6 +24,8 @@ namespace AXOpen.Core.Blazor.AxoDialogs.Hubs
         /// Indicates whether the SignalR connection is established.
         /// </summary>
         public bool IsConnected { protected set; get; } = false;
+        public bool EnableLoging { set; get; }
+
         private readonly string _hubUrl = "";
 
         /// <summary>
@@ -93,7 +95,8 @@ namespace AXOpen.Core.Blazor.AxoDialogs.Hubs
             // Ensure the connection is established before sending messages
             while (_hubConnection.State != HubConnectionState.Connected)
             {
-                Log.Logger.Error($"SignalR client is not connected to:{_hubUrl}.For client Instance: {SymbolOfDialogInstance}");
+                if (EnableLoging)
+                    Log.Logger.Error($"SignalR client is not connected to:{_hubUrl}.For client Instance: {SymbolOfDialogInstance}");
                 await Task.Delay(6000);
             }
             await _hubConnection.SendAsync(SignalRDialogMessages.SERVER_SEND_DIALOG_OPEN, SymbolOfDialogInstance);
@@ -108,7 +111,9 @@ namespace AXOpen.Core.Blazor.AxoDialogs.Hubs
             // Ensure the connection is established before sending messages
             while (_hubConnection.State != HubConnectionState.Connected)
             {
-                Log.Logger.Error($"SignalR client is not connected to:{_hubUrl}.For client Instance: {SymbolOfDialogInstance}");
+                if(EnableLoging)
+                    Log.Logger.Error($"SignalR client is not connected to:{_hubUrl}.For client Instance: {SymbolOfDialogInstance}");
+               
                 await Task.Delay(6000);
             }
             await _hubConnection.SendAsync(SignalRDialogMessages.SERVER_SEND_DIALOG_CLOSE, SymbolOfDialogInstance);
@@ -155,6 +160,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs.Hubs
                 IsConnected = false;
             }
         }
+
 
         /// <summary>
         /// Disposes the SignalR client and cleans up resources.

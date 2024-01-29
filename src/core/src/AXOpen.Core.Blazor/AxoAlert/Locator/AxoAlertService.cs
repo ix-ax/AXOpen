@@ -10,14 +10,14 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
     /// <summary>
     /// Class representing implementation of alerts in Blazor.
     /// </summary>
-    public class AxoAlertDialogService : IAlertDialogService, IDisposable
+    public class AxoAlertService : IAlertService, IDisposable
     {
-        private List<IAlertDialog> ToastsList { get; set; } = new List<IAlertDialog>();
+        private List<IAlertToast> ToastsList { get; set; } = new List<IAlertToast>();
         private System.Timers.Timer Timer = new System.Timers.Timer();
 
         public event EventHandler? AlertDialogChanged;
 
-        public AxoAlertDialogService()
+        public AxoAlertService()
         {
             Timer.Interval = 1000;
             Timer.AutoReset = true;
@@ -25,25 +25,25 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
             Timer.Start();
         }
 
-        public void AddAlertDialog(eAlertDialogType type, string title, string message, int time)
+        public void AddAlertDialog(eAlertType type, string title, string message, int time)
         {
-            ToastsList.Add(new AlertDialog(type, title, message, time));
+            ToastsList.Add(new AlertToast(type, title, message, time));
             AlertDialogChanged?.Invoke(this, EventArgs.Empty);
         }
 
-        public void AddAlertDialog(IAlertDialog toast)
+        public void AddAlertDialog(IAlertToast toast)
         {
             ToastsList.Add(toast);
             AlertDialogChanged?.Invoke(this, EventArgs.Empty);
         }
 
-        public List<IAlertDialog> GetAlertDialogs()
+        public List<IAlertToast> GetAlertDialogs()
         {
             ClearBurntAlertDialog();
             return ToastsList;
         }
 
-        public void RemoveAlertDialog(IAlertDialog toast)
+        public void RemoveAlertDialog(IAlertToast toast)
         {
             ToastsList.Remove(toast);
             AlertDialogChanged?.Invoke(this, EventArgs.Empty);

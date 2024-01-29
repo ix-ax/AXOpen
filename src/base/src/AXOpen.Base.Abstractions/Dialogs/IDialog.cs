@@ -4,7 +4,7 @@ using System;
 namespace AXOpen.Base.Dialogs
 {
 
-    public interface IsDialogType : ITwinObject
+    public interface IDialog : ITwinObject
     {
         /// <summary>
         /// Gets or sets dialog locator id.

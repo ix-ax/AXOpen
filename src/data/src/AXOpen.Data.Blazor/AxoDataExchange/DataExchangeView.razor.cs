@@ -42,7 +42,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
     [Parameter] public RenderFragment ChildContent { get; set; }
 
     [Inject]
-    private IAlertDialogService _alertDialogService { get; set; }
+    private IAlertService _alertDialogService { get; set; }
 
     [Inject]
     private ProtectedLocalStorage ProtectedLocalStore { get; set; }
@@ -130,7 +130,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
         }
         catch (Exception ex)
         {
-            _alertDialogService.AddAlertDialog(eAlertDialogType.Danger, "Error!", ex.Message, 10);
+            _alertDialogService.AddAlertDialog(eAlertType.Danger, "Error!", ex.Message, 10);
         }
 
         isFileImporting = false;
