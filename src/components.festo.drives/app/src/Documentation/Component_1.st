@@ -22,6 +22,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         VAR_INPUT
             parent : IAxoContext;
         END_VAR    
+        RETURN;
 
         THIS.Initialize(parent);
 

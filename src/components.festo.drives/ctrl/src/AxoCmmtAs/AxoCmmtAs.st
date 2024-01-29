@@ -131,7 +131,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             THIS.Initialize(parent);
 
-            _enable := Enable AND THIS.PreExecute(hwIdTelegram111,hwIdTelegram750,MAP_HW_ID,Enable,EnablePositive,EnableNegative,_AxisRefExt);
+            _enable := Enable AND THIS.PreExecute(hwID,hwIdTelegram111,hwIdTelegram750,MAP_HW_ID,Enable,EnablePositive,EnableNegative,_AxisRefExt);
             SUPER.Execute(_AxisRefExt,_enable,EnablePositive,EnableNegative);
             THIS.PostExecute(hwID,hwIdTelegram111,hwIdTelegram750,_AxisRefExt);
         END_METHOD   
@@ -163,13 +163,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             THIS.Initialize(parent);
 
-            _enable := Enable AND THIS.PreExecute(hwIdTelegram111,hwIdTelegram750,MAP_HW_ID,Enable,EnablePositive,EnableNegative,_AxisRefExt);
+            _enable := Enable AND THIS.PreExecute(hwID,hwIdTelegram111,hwIdTelegram750,MAP_HW_ID,Enable,EnablePositive,EnableNegative,_AxisRefExt);
             SUPER.Execute(_AxisRefExt,_enable,EnablePositive,EnableNegative);
             THIS.PostExecute(hwID,hwIdTelegram111,hwIdTelegram750,_AxisRefExt);
         END_METHOD   
 
         METHOD PRIVATE PreExecute : BOOL
             VAR_INPUT
+                hwID                :   WORD;
                 hwIdTelegram111     :   WORD;                       //  Hardware ID of the Profidrive telegram 111 of this axis
                 hwIdTelegram750     :   WORD;                       //  Hardware ID of the Profidrive telegram 750 of this axis
                 MAP_HW_ID           :   WORD;                       //  Hardware identifier of the module acces point submodule 
@@ -210,85 +211,92 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 RETURN;
             END_IF;
 
-            returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(hwIdTelegram111,_Telegram111);
-            Messenger.ActivateOnCondition(ULINT#827,returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF returnValue > WORD#0 THEN
-                RETURN;
-            END_IF;
+            // returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(hwIdTelegram111,_Telegram111);
+            // Messenger.ActivateOnCondition(ULINT#827,returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
+            // IF returnValue > WORD#0 THEN
+            //     RETURN;
+            // END_IF;
 
-            // ZSW1
-            _AxisReference^.Telegram111_In.ZSW1.followingErrorInTolerance             := _Telegram111[0].%X0;
-            _AxisReference^.Telegram111_In.ZSW1.controlRequest                        := _Telegram111[0].%X1;
-            _AxisReference^.Telegram111_In.ZSW1.targetPosReached                      := _Telegram111[0].%X2;
-            _AxisReference^.Telegram111_In.ZSW1.homePosSet                            := _Telegram111[0].%X3;
-            _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated   := _Telegram111[0].%X4;
-            _AxisReference^.Telegram111_In.ZSW1.driveStopped                          := _Telegram111[0].%X5;
-            _AxisReference^.Telegram111_In.ZSW1.axisAccelerates                       := _Telegram111[0].%X6;
-            _AxisReference^.Telegram111_In.ZSW1.axisDecelerates                       := _Telegram111[0].%X7;
-            _AxisReference^.Telegram111_In.ZSW1.readyForSwitchOn                      := _Telegram111[1].%X0;
-            _AxisReference^.Telegram111_In.ZSW1.ready                                 := _Telegram111[1].%X1;
-            _AxisReference^.Telegram111_In.ZSW1.operationEnabled                      := _Telegram111[1].%X2;
-            _AxisReference^.Telegram111_In.ZSW1.faultPresent                          := _Telegram111[1].%X3;
-            _AxisReference^.Telegram111_In.ZSW1.noCoastingActive                      := _Telegram111[1].%X4;
-            _AxisReference^.Telegram111_In.ZSW1.noQuickStopActive                     := _Telegram111[1].%X5;
-            _AxisReference^.Telegram111_In.ZSW1.switchingOnInhibitedActive            := _Telegram111[1].%X6;
-            _AxisReference^.Telegram111_In.ZSW1.warningActive                         := _Telegram111[1].%X7;
-            //POS_ZSW1
-            _AxisReference^.Telegram111_In.POS_ZSW1.%B1                               := _Telegram111[2];
-            _AxisReference^.Telegram111_In.POS_ZSW1.%B0                               := _Telegram111[3];
-            // Positioning.Outputs.EPosZSW1 := _AxisReference^.Telegram111_In.POS_ZSW1;
-            //POS_ZSW2
-            _AxisReference^.Telegram111_In.POS_ZSW2.%B1                               := _Telegram111[4];
-            _AxisReference^.Telegram111_In.POS_ZSW2.%B0                               := _Telegram111[5];
-            // Positioning.Outputs.EPosZSW2 := _AxisReference^.Telegram111_In.POS_ZSW2;
-            // ZSW2
-            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit8                    := _Telegram111[6].%X0;
-            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit9                    := _Telegram111[6].%X1;
-            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit10                   := _Telegram111[6].%X2;
-            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit11                   := _Telegram111[6].%X3;
-            _AxisReference^.Telegram111_In.ZSW2.doSignOfLifeBit0                      := _Telegram111[6].%X4;
-            _AxisReference^.Telegram111_In.ZSW2.doSignOfLifeBit1                      := _Telegram111[6].%X5;
-            _AxisReference^.Telegram111_In.ZSW2.doSignOfLifeBit2                      := _Telegram111[6].%X6;
-            _AxisReference^.Telegram111_In.ZSW2.doSignOfLifeBit3                      := _Telegram111[6].%X7;
-            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit0                    := _Telegram111[7].%X0;
-            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit1                    := _Telegram111[7].%X1;
-            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit2                    := _Telegram111[7].%X2;
-            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit3                    := _Telegram111[7].%X3;
-            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit4                    := _Telegram111[7].%X4;
-            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit5                    := _Telegram111[7].%X5;
-            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit6                    := _Telegram111[7].%X6;
-            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit7                    := _Telegram111[7].%X7;
-            //MELDW
-            _AxisReference^.Telegram111_In.MELDW.%B1                                  := _Telegram111[8];
-            _AxisReference^.Telegram111_In.MELDW.%B0                                  := _Telegram111[9];
-            //XIST_A
-            _AxisReference^.Telegram111_In.XIST_A.%B3                                 := _Telegram111[10];
-            _AxisReference^.Telegram111_In.XIST_A.%B2                                 := _Telegram111[11];
-            _AxisReference^.Telegram111_In.XIST_A.%B1                                 := _Telegram111[12];
-            _AxisReference^.Telegram111_In.XIST_A.%B0                                 := _Telegram111[13];
-            //NIST_B
-            _AxisReference^.Telegram111_In.NIST_B.%B3                                 := _Telegram111[14];
-            _AxisReference^.Telegram111_In.NIST_B.%B2                                 := _Telegram111[15];
-            _AxisReference^.Telegram111_In.NIST_B.%B1                                 := _Telegram111[16];
-            _AxisReference^.Telegram111_In.NIST_B.%B0                                 := _Telegram111[17];
-            //Fault_Code
-            _AxisReference^.Telegram111_In.Fault_Code.%B1                             := _Telegram111[18];
-            _AxisReference^.Telegram111_In.Fault_Code.%B0                             := _Telegram111[19];
-            //Warn_Code
-            _AxisReference^.Telegram111_In.Warn_Code.%B1                              := _Telegram111[20];
-            _AxisReference^.Telegram111_In.Warn_Code.%B0                              := _Telegram111[21];
-            //Reserved 
-            _AxisReference^.Telegram111_In.Reserved.%B1                               := _Telegram111[22];
-            _AxisReference^.Telegram111_In.Reserved.%B0                               := _Telegram111[23];
-            //M_Actual 
-            returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(hwIdTelegram750,_Telegram750);
-            Messenger.ActivateOnCondition(ULINT#828,returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF returnValue > WORD#0 THEN
-                RETURN;
-            END_IF;
-            _AxisReference^.Telegram750_In.M_Actual                                   := TO_INT(_Telegram750[0]);
-            //MAP_HW_ID
-            _AxisReference^.Data.MAP_HW_ID := MAP_HW_ID;
+            // // ZSW1
+            // _AxisReference^.Telegram111_In.ZSW1.followingErrorInTolerance             := _Telegram111[0].%X0;
+            // _AxisReference^.Telegram111_In.ZSW1.controlRequest                        := _Telegram111[0].%X1;
+            // _AxisReference^.Telegram111_In.ZSW1.targetPosReached                      := _Telegram111[0].%X2;
+            // _AxisReference^.Telegram111_In.ZSW1.homePosSet                            := _Telegram111[0].%X3;
+            // _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated   := _Telegram111[0].%X4;
+            // _AxisReference^.Telegram111_In.ZSW1.driveStopped                          := _Telegram111[0].%X5;
+            // _AxisReference^.Telegram111_In.ZSW1.axisAccelerates                       := _Telegram111[0].%X6;
+            // _AxisReference^.Telegram111_In.ZSW1.axisDecelerates                       := _Telegram111[0].%X7;
+            // _AxisReference^.Telegram111_In.ZSW1.readyForSwitchOn                      := _Telegram111[1].%X0;
+            // _AxisReference^.Telegram111_In.ZSW1.ready                                 := _Telegram111[1].%X1;
+            // _AxisReference^.Telegram111_In.ZSW1.operationEnabled                      := _Telegram111[1].%X2;
+            // _AxisReference^.Telegram111_In.ZSW1.faultPresent                          := _Telegram111[1].%X3;
+            // _AxisReference^.Telegram111_In.ZSW1.noCoastingActive                      := _Telegram111[1].%X4;
+            // _AxisReference^.Telegram111_In.ZSW1.noQuickStopActive                     := _Telegram111[1].%X5;
+            // _AxisReference^.Telegram111_In.ZSW1.switchingOnInhibitedActive            := _Telegram111[1].%X6;
+            // _AxisReference^.Telegram111_In.ZSW1.warningActive                         := _Telegram111[1].%X7;
+            // //POS_ZSW1
+            // _AxisReference^.Telegram111_In.POS_ZSW1.%B1                               := _Telegram111[2];
+            // _AxisReference^.Telegram111_In.POS_ZSW1.%B0                               := _Telegram111[3];
+            // // Positioning.Outputs.EPosZSW1 := _AxisReference^.Telegram111_In.POS_ZSW1;
+            // //POS_ZSW2
+            // _AxisReference^.Telegram111_In.POS_ZSW2.%B1                               := _Telegram111[4];
+            // _AxisReference^.Telegram111_In.POS_ZSW2.%B0                               := _Telegram111[5];
+            // // Positioning.Outputs.EPosZSW2 := _AxisReference^.Telegram111_In.POS_ZSW2;
+            // // ZSW2
+            // _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit8                    := _Telegram111[6].%X0;
+            // _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit9                    := _Telegram111[6].%X1;
+            // _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit10                   := _Telegram111[6].%X2;
+            // _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit11                   := _Telegram111[6].%X3;
+            // _AxisReference^.Telegram111_In.ZSW2.doSignOfLifeBit0                      := _Telegram111[6].%X4;
+            // _AxisReference^.Telegram111_In.ZSW2.doSignOfLifeBit1                      := _Telegram111[6].%X5;
+            // _AxisReference^.Telegram111_In.ZSW2.doSignOfLifeBit2                      := _Telegram111[6].%X6;
+            // _AxisReference^.Telegram111_In.ZSW2.doSignOfLifeBit3                      := _Telegram111[6].%X7;
+            // _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit0                    := _Telegram111[7].%X0;
+            // _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit1                    := _Telegram111[7].%X1;
+            // _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit2                    := _Telegram111[7].%X2;
+            // _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit3                    := _Telegram111[7].%X3;
+            // _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit4                    := _Telegram111[7].%X4;
+            // _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit5                    := _Telegram111[7].%X5;
+            // _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit6                    := _Telegram111[7].%X6;
+            // _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit7                    := _Telegram111[7].%X7;
+            // //MELDW
+            // _AxisReference^.Telegram111_In.MELDW.%B1                                  := _Telegram111[8];
+            // _AxisReference^.Telegram111_In.MELDW.%B0                                  := _Telegram111[9];
+            // //XIST_A
+            // _AxisReference^.Telegram111_In.XIST_A.%B3                                 := _Telegram111[10];
+            // _AxisReference^.Telegram111_In.XIST_A.%B2                                 := _Telegram111[11];
+            // _AxisReference^.Telegram111_In.XIST_A.%B1                                 := _Telegram111[12];
+            // _AxisReference^.Telegram111_In.XIST_A.%B0                                 := _Telegram111[13];
+            // //NIST_B
+            // _AxisReference^.Telegram111_In.NIST_B.%B3                                 := _Telegram111[14];
+            // _AxisReference^.Telegram111_In.NIST_B.%B2                                 := _Telegram111[15];
+            // _AxisReference^.Telegram111_In.NIST_B.%B1                                 := _Telegram111[16];
+            // _AxisReference^.Telegram111_In.NIST_B.%B0                                 := _Telegram111[17];
+            // //Fault_Code
+            // _AxisReference^.Telegram111_In.Fault_Code.%B1                             := _Telegram111[18];
+            // _AxisReference^.Telegram111_In.Fault_Code.%B0                             := _Telegram111[19];
+            // //Warn_Code
+            // _AxisReference^.Telegram111_In.Warn_Code.%B1                              := _Telegram111[20];
+            // _AxisReference^.Telegram111_In.Warn_Code.%B0                              := _Telegram111[21];
+            // //Reserved 
+            // _AxisReference^.Telegram111_In.Reserved.%B1                               := _Telegram111[22];
+            // _AxisReference^.Telegram111_In.Reserved.%B0                               := _Telegram111[23];
+            // //M_Actual 
+            // returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(hwIdTelegram750,_Telegram750);
+            // Messenger.ActivateOnCondition(ULINT#828,returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
+            // IF returnValue > WORD#0 THEN
+            //     RETURN;
+            // END_IF;
+            // _AxisReference^.Telegram750_In.M_Actual                                   := TO_INT(_Telegram750[0]);
+            // //MAP_HW_ID
+            // _AxisReference^.Data.MAP_HW_ID := MAP_HW_ID;
+
+
+            _AxisReference^.Data.hwID                := hwID;
+            _AxisReference^.Data.hwIdTelegram111     := hwIdTelegram111;
+            _AxisReference^.Data.hwIdTelegram750     := hwIdTelegram750;
+            _AxisReference^.Data.MAP_HW_ID           := MAP_HW_ID;
+
 
             Parametrization.Initialize(THIS);
             HardwareDiagnosticsTask.Initialize(THIS);
@@ -522,6 +530,268 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 DriveState := AXOpen.Components.Drives.eAxoDriveState#Standstill;
             END_IF;
 
+            // //STW1
+            // _Telegram111[1].%X0 := _AxisReference^.Telegram111_Out.STW1.on_;
+            // _Telegram111[1].%X1 := _AxisReference^.Telegram111_Out.STW1.noCoastStop;
+            // _Telegram111[1].%X2 := _AxisReference^.Telegram111_Out.STW1.noQuickStop;
+            // _Telegram111[1].%X3 := _AxisReference^.Telegram111_Out.STW1.enableOperation;
+            // _Telegram111[1].%X4 := _AxisReference^.Telegram111_Out.STW1.cancelTraversing;
+            // _Telegram111[1].%X5 := _AxisReference^.Telegram111_Out.STW1.intermediateStop;
+            // _Telegram111[1].%X6 := _AxisReference^.Telegram111_Out.STW1.activateTraversing;
+            // _Telegram111[1].%X7 := _AxisReference^.Telegram111_Out.STW1.acknowledgeFault;
+            // _Telegram111[0].%X0 := _AxisReference^.Telegram111_Out.STW1.jog1;
+            // _Telegram111[0].%X1 := _AxisReference^.Telegram111_Out.STW1.jog2;
+            // _Telegram111[0].%X2 := _AxisReference^.Telegram111_Out.STW1.controlByPlc;
+            // _Telegram111[0].%X3 := _AxisReference^.Telegram111_Out.STW1.StartHoming;
+            // _Telegram111[0].%X4 := _AxisReference^.Telegram111_Out.STW1.ReleaseBrake;
+            // _Telegram111[0].%X5 := _AxisReference^.Telegram111_Out.STW1.ExternalBlockChange;
+            // _Telegram111[0].%X6 := _AxisReference^.Telegram111_Out.STW1.reserved14;
+            // _Telegram111[0].%X7 := _AxisReference^.Telegram111_Out.STW1.reserved15;
+            // //POS_STW1
+            // _Telegram111[3].%X0 := _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit0;
+            // _Telegram111[3].%X1 := _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit1;
+            // _Telegram111[3].%X2 := _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit2;
+            // _Telegram111[3].%X3 := _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit3;
+            // _Telegram111[3].%X4 := _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit4;
+            // _Telegram111[3].%X5 := _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit5;
+            // _Telegram111[3].%X6 := _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit6;
+            // _Telegram111[3].%X7 := _AxisReference^.Telegram111_Out.POS_STW1.reserved7;
+            // _Telegram111[2].%X0 := _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD;
+            // _Telegram111[2].%X1 := _AxisReference^.Telegram111_Out.POS_STW1.PosModulo;
+            // _Telegram111[2].%X2 := _AxisReference^.Telegram111_Out.POS_STW1.NegModulo;
+            // _Telegram111[2].%X3 := _AxisReference^.Telegram111_Out.POS_STW1.reserved11;
+            // _Telegram111[2].%X4 := _AxisReference^.Telegram111_Out.POS_STW1.reserved12;
+            // _Telegram111[2].%X5 := _AxisReference^.Telegram111_Out.POS_STW1.reserved13;
+            // _Telegram111[2].%X6 := _AxisReference^.Telegram111_Out.POS_STW1.SetupMode;
+            // _Telegram111[2].%X7 := _AxisReference^.Telegram111_Out.POS_STW1.MDI_Activate;    
+            // //POS_STW2
+            // _Telegram111[5].%X0 := _AxisReference^.Telegram111_Out.POS_STW2.Trackingmode;
+            // _Telegram111[5].%X1 := _AxisReference^.Telegram111_Out.POS_STW2.SetReferencePoint;
+            // _Telegram111[5].%X2 := _AxisReference^.Telegram111_Out.POS_STW2.reserved2;
+            // _Telegram111[5].%X3 := _AxisReference^.Telegram111_Out.POS_STW2.reserved3;
+            // _Telegram111[5].%X4 := _AxisReference^.Telegram111_Out.POS_STW2.reserved4;
+            // _Telegram111[5].%X5 := _AxisReference^.Telegram111_Out.POS_STW2.jog_inc;
+            // _Telegram111[5].%X6 := _AxisReference^.Telegram111_Out.POS_STW2.reserved6;
+            // _Telegram111[5].%X7 := _AxisReference^.Telegram111_Out.POS_STW2.reserved7;
+            // _Telegram111[4].%X0 := _AxisReference^.Telegram111_Out.POS_STW2.FlyingRef;
+            // _Telegram111[4].%X1 := _AxisReference^.Telegram111_Out.POS_STW2.reserved9;
+            // _Telegram111[4].%X2 := _AxisReference^.Telegram111_Out.POS_STW2.SelectProbe;
+            // _Telegram111[4].%X3 := _AxisReference^.Telegram111_Out.POS_STW2.ProbeEdgeEval;
+            // _Telegram111[4].%X4 := _AxisReference^.Telegram111_Out.POS_STW2.reserved12;
+            // _Telegram111[4].%X5 := _AxisReference^.Telegram111_Out.POS_STW2.reserved13;
+            // _Telegram111[4].%X6 := _AxisReference^.Telegram111_Out.POS_STW2.SW_Limit;
+            // _Telegram111[4].%X7 := _AxisReference^.Telegram111_Out.POS_STW2.HW_Limit;
+            // //STW2
+            // _Telegram111[7].%X0 := _AxisReference^.Telegram111_Out.STW2.reserved0;
+            // _Telegram111[7].%X1 := _AxisReference^.Telegram111_Out.STW2.reserved1;
+            // _Telegram111[7].%X2 := _AxisReference^.Telegram111_Out.STW2.reserved2;
+            // _Telegram111[7].%X3 := _AxisReference^.Telegram111_Out.STW2.reserved3;
+            // _Telegram111[7].%X4 := _AxisReference^.Telegram111_Out.STW2.reserved4;
+            // _Telegram111[7].%X5 := _AxisReference^.Telegram111_Out.STW2.reserved5;
+            // _Telegram111[7].%X6 := _AxisReference^.Telegram111_Out.STW2.reserved6;
+            // _Telegram111[7].%X7 := _AxisReference^.Telegram111_Out.STW2.reserved7;
+            // _Telegram111[6].%X0 := _AxisReference^.Telegram111_Out.STW2.TravelToFixStop;
+            // _Telegram111[6].%X1 := _AxisReference^.Telegram111_Out.STW2.reserved9;
+            // _Telegram111[6].%X2 := _AxisReference^.Telegram111_Out.STW2.reserved10;
+            // _Telegram111[6].%X3 := _AxisReference^.Telegram111_Out.STW2.reserved11;
+            // _Telegram111[6].%X4 := _AxisReference^.Telegram111_Out.STW2.signOfLifeBit0;
+            // _Telegram111[6].%X5 := _AxisReference^.Telegram111_Out.STW2.signOfLifeBit1;
+            // _Telegram111[6].%X6 := _AxisReference^.Telegram111_Out.STW2.signOfLifeBit2;
+            // _Telegram111[6].%X7 := _AxisReference^.Telegram111_Out.STW2.signOfLifeBit3;   
+            // //Override
+            // _Telegram111[9] := _AxisReference^.Telegram111_Out.Override_.%B0;
+            // _Telegram111[8] := _AxisReference^.Telegram111_Out.Override_.%B1;
+            // //TargetPos
+            // tempDWord := TO_DWORD(_AxisReference^.Telegram111_Out.MDI_TARPOS);
+            // _Telegram111[13] := tempDWord.%B0;
+            // _Telegram111[12] := tempDWord.%B1;
+            // _Telegram111[11] := tempDWord.%B2;
+            // _Telegram111[10] := tempDWord.%B3;
+            // //TargetVelocity
+            // tempDWord := TO_DWORD(_AxisReference^.Telegram111_Out.MDI_VELOCITY);
+            // _Telegram111[17] := tempDWord.%B0;
+            // _Telegram111[16] := tempDWord.%B1;
+            // _Telegram111[15] := tempDWord.%B2;
+            // _Telegram111[14] := tempDWord.%B3;
+            // // ACC, DEC
+            // _Telegram111[19] := _AxisReference^.Telegram111_Out.MDI_ACC.%B0;
+            // _Telegram111[18] := _AxisReference^.Telegram111_Out.MDI_ACC.%B1;
+            // _Telegram111[21] := _AxisReference^.Telegram111_Out.MDI_DEC.%B0;
+            // _Telegram111[20] := _AxisReference^.Telegram111_Out.MDI_DEC.%B1;
+            // _Telegram111[23] := _AxisReference^.Telegram111_Out.reserved11.%B0;
+            // _Telegram111[22] := _AxisReference^.Telegram111_Out.reserved11.%B1;
+
+            // returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(hwIdTelegram111,_Telegram111);
+            // Messenger.ActivateOnCondition(ULINT#829,returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
+            // IF returnValue > WORD#0 THEN
+            //     RETURN;
+            // END_IF;
+            // // M_ADD1, M_LIMIT_POS, M_LIMIT_NEG
+            // _Telegram750[1] := _AxisReference^.Telegram750_Out.M_ADD1.%B0;
+            // _Telegram750[0] := _AxisReference^.Telegram750_Out.M_ADD1.%B1;
+            // _Telegram750[3] := _AxisReference^.Telegram750_Out.M_LIMIT_POS.%B0;
+            // _Telegram750[2] := _AxisReference^.Telegram750_Out.M_LIMIT_POS.%B1;
+            // _Telegram750[5] := _AxisReference^.Telegram750_Out.M_LIMIT_NEG.%B0;
+            // _Telegram750[4] := _AxisReference^.Telegram750_Out.M_LIMIT_NEG.%B1;
+            // _Telegram750[7] := _AxisReference^.Telegram750_Out.Reserved.%B0;
+            // _Telegram750[6] := _AxisReference^.Telegram750_Out.Reserved.%B1;
+
+            // returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(hwIdTelegram750,_Telegram750);
+            // Messenger.ActivateOnCondition(ULINT#830,returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
+            // IF returnValue > WORD#0 THEN
+            //     RETURN;
+            // END_IF;
+
+            THIS.Close();               
+        END_METHOD
+
+        ///<summary>
+        /// Ensures swapping the hardware input data structure into the AxisRef data structure  
+        ///</summary>
+        METHOD PROTECTED  OVERRIDE UpdateInputs : BOOL
+            VAR_INPUT
+                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
+                AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
+            END_VAR
+            ;
+        END_METHOD   
+
+        ///<summary>
+        /// Ensures swapping the AxisRef data structure into the hardware output data structure
+        ///</summary>
+        METHOD PROTECTED OVERRIDE UpdateOutputs : BOOL
+            VAR_INPUT
+                AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
+                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
+            END_VAR
+            ;
+        END_METHOD   
+
+        METHOD PRIVATE ReadInputs   : BOOL
+            VAR_INPUT
+                // hwID                :   WORD;
+                // hwIdTelegram111     :   WORD;                       //  Hardware ID of the Profidrive telegram 111 of this axis
+                // hwIdTelegram750     :   WORD;                       //  Hardware ID of the Profidrive telegram 750 of this axis
+                // MAP_HW_ID           :   WORD;                       //  Hardware identifier of the module acces point submodule 
+                AxisRef             :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
+            END_VAR
+            VAR
+                _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
+                _Telegram111 : ARRAY[0..23] OF BYTE; 
+                _Telegram750 : ARRAY[0..1] OF WORD; 
+                returnValue : WORD;
+            END_VAR
+
+            _AxisReference ?= AxisRef;
+
+            Messenger.ActivateOnCondition(ULINT#707,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+
+            IF(_AxisReference = NULL) THEN
+                DriveStatus.Error.Id := UINT#707;
+                RETURN;
+            END_IF;
+
+            returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_AxisReference^.Data.hwIdTelegram111 ,_Telegram111);
+            Messenger.ActivateOnCondition(ULINT#827,returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
+            IF returnValue > WORD#0 THEN
+                RETURN;
+            END_IF;
+
+            // ZSW1
+            _AxisReference^.Telegram111_In.ZSW1.followingErrorInTolerance             := _Telegram111[0].%X0;
+            _AxisReference^.Telegram111_In.ZSW1.controlRequest                        := _Telegram111[0].%X1;
+            _AxisReference^.Telegram111_In.ZSW1.targetPosReached                      := _Telegram111[0].%X2;
+            _AxisReference^.Telegram111_In.ZSW1.homePosSet                            := _Telegram111[0].%X3;
+            _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated   := _Telegram111[0].%X4;
+            _AxisReference^.Telegram111_In.ZSW1.driveStopped                          := _Telegram111[0].%X5;
+            _AxisReference^.Telegram111_In.ZSW1.axisAccelerates                       := _Telegram111[0].%X6;
+            _AxisReference^.Telegram111_In.ZSW1.axisDecelerates                       := _Telegram111[0].%X7;
+            _AxisReference^.Telegram111_In.ZSW1.readyForSwitchOn                      := _Telegram111[1].%X0;
+            _AxisReference^.Telegram111_In.ZSW1.ready                                 := _Telegram111[1].%X1;
+            _AxisReference^.Telegram111_In.ZSW1.operationEnabled                      := _Telegram111[1].%X2;
+            _AxisReference^.Telegram111_In.ZSW1.faultPresent                          := _Telegram111[1].%X3;
+            _AxisReference^.Telegram111_In.ZSW1.noCoastingActive                      := _Telegram111[1].%X4;
+            _AxisReference^.Telegram111_In.ZSW1.noQuickStopActive                     := _Telegram111[1].%X5;
+            _AxisReference^.Telegram111_In.ZSW1.switchingOnInhibitedActive            := _Telegram111[1].%X6;
+            _AxisReference^.Telegram111_In.ZSW1.warningActive                         := _Telegram111[1].%X7;
+            //POS_ZSW1
+            _AxisReference^.Telegram111_In.POS_ZSW1.%B1                               := _Telegram111[2];
+            _AxisReference^.Telegram111_In.POS_ZSW1.%B0                               := _Telegram111[3];
+            // Positioning.Outputs.EPosZSW1 := _AxisReference^.Telegram111_In.POS_ZSW1;
+            //POS_ZSW2
+            _AxisReference^.Telegram111_In.POS_ZSW2.%B1                               := _Telegram111[4];
+            _AxisReference^.Telegram111_In.POS_ZSW2.%B0                               := _Telegram111[5];
+            // Positioning.Outputs.EPosZSW2 := _AxisReference^.Telegram111_In.POS_ZSW2;
+            // ZSW2
+            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit8                    := _Telegram111[6].%X0;
+            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit9                    := _Telegram111[6].%X1;
+            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit10                   := _Telegram111[6].%X2;
+            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit11                   := _Telegram111[6].%X3;
+            _AxisReference^.Telegram111_In.ZSW2.doSignOfLifeBit0                      := _Telegram111[6].%X4;
+            _AxisReference^.Telegram111_In.ZSW2.doSignOfLifeBit1                      := _Telegram111[6].%X5;
+            _AxisReference^.Telegram111_In.ZSW2.doSignOfLifeBit2                      := _Telegram111[6].%X6;
+            _AxisReference^.Telegram111_In.ZSW2.doSignOfLifeBit3                      := _Telegram111[6].%X7;
+            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit0                    := _Telegram111[7].%X0;
+            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit1                    := _Telegram111[7].%X1;
+            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit2                    := _Telegram111[7].%X2;
+            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit3                    := _Telegram111[7].%X3;
+            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit4                    := _Telegram111[7].%X4;
+            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit5                    := _Telegram111[7].%X5;
+            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit6                    := _Telegram111[7].%X6;
+            _AxisReference^.Telegram111_In.ZSW2.deviceSpecificBit7                    := _Telegram111[7].%X7;
+            //MELDW
+            _AxisReference^.Telegram111_In.MELDW.%B1                                  := _Telegram111[8];
+            _AxisReference^.Telegram111_In.MELDW.%B0                                  := _Telegram111[9];
+            //XIST_A
+            _AxisReference^.Telegram111_In.XIST_A.%B3                                 := _Telegram111[10];
+            _AxisReference^.Telegram111_In.XIST_A.%B2                                 := _Telegram111[11];
+            _AxisReference^.Telegram111_In.XIST_A.%B1                                 := _Telegram111[12];
+            _AxisReference^.Telegram111_In.XIST_A.%B0                                 := _Telegram111[13];
+            //NIST_B
+            _AxisReference^.Telegram111_In.NIST_B.%B3                                 := _Telegram111[14];
+            _AxisReference^.Telegram111_In.NIST_B.%B2                                 := _Telegram111[15];
+            _AxisReference^.Telegram111_In.NIST_B.%B1                                 := _Telegram111[16];
+            _AxisReference^.Telegram111_In.NIST_B.%B0                                 := _Telegram111[17];
+            //Fault_Code
+            _AxisReference^.Telegram111_In.Fault_Code.%B1                             := _Telegram111[18];
+            _AxisReference^.Telegram111_In.Fault_Code.%B0                             := _Telegram111[19];
+            //Warn_Code
+            _AxisReference^.Telegram111_In.Warn_Code.%B1                              := _Telegram111[20];
+            _AxisReference^.Telegram111_In.Warn_Code.%B0                              := _Telegram111[21];
+            //Reserved 
+            _AxisReference^.Telegram111_In.Reserved.%B1                               := _Telegram111[22];
+            _AxisReference^.Telegram111_In.Reserved.%B0                               := _Telegram111[23];
+            //M_Actual 
+            returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_AxisReference^.Data.hwIdTelegram750,_Telegram750);
+            Messenger.ActivateOnCondition(ULINT#828,returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
+            IF returnValue > WORD#0 THEN
+                RETURN;
+            END_IF;
+            _AxisReference^.Telegram750_In.M_Actual                                   := TO_INT(_Telegram750[0]);
+        END_METHOD   
+
+        METHOD PRIVATE WriteOutputs : BOOL
+            VAR_INPUT
+                // hwID                :   WORD;
+                // hwIdTelegram111     :   WORD;                       //  Hardware ID of the Profidrive telegram 111 of this axis
+                // hwIdTelegram750     :   WORD;                       //  Hardware ID of the Profidrive telegram 750 of this axis
+                AxisRef             :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
+            END_VAR
+            VAR 
+                _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
+                tempDWord   :   DWORD;
+                _Telegram111 : ARRAY[0..23] OF BYTE; 
+                _Telegram750 : ARRAY[0..7] OF BYTE; 
+                returnValue : WORD;
+            END_VAR
+            _AxisReference ?= AxisRef;
+            Messenger.ActivateOnCondition(ULINT#707,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);            
+            IF(_AxisReference = NULL) THEN
+                DriveStatus.Error.Id := UINT#707;
+                RETURN;
+            END_IF;
+            
+
             //STW1
             _Telegram111[1].%X0 := _AxisReference^.Telegram111_Out.STW1.on_;
             _Telegram111[1].%X1 := _AxisReference^.Telegram111_Out.STW1.noCoastStop;
@@ -613,7 +883,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _Telegram111[23] := _AxisReference^.Telegram111_Out.reserved11.%B0;
             _Telegram111[22] := _AxisReference^.Telegram111_Out.reserved11.%B1;
 
-            returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(hwIdTelegram111,_Telegram111);
+            returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_AxisReference^.Data.hwIdTelegram111,_Telegram111);
             Messenger.ActivateOnCondition(ULINT#829,returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
             IF returnValue > WORD#0 THEN
                 RETURN;
@@ -628,36 +898,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _Telegram750[7] := _AxisReference^.Telegram750_Out.Reserved.%B0;
             _Telegram750[6] := _AxisReference^.Telegram750_Out.Reserved.%B1;
 
-            returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(hwIdTelegram750,_Telegram750);
+            returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_AxisReference^.Data.hwIdTelegram750,_Telegram750);
             Messenger.ActivateOnCondition(ULINT#830,returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
             IF returnValue > WORD#0 THEN
                 RETURN;
             END_IF;
 
-            THIS.Close();               
-        END_METHOD
-
-        ///<summary>
-        /// Ensures swapping the hardware input data structure into the AxisRef data structure  
-        ///</summary>
-        METHOD PROTECTED  OVERRIDE UpdateInputs : BOOL
-            VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-            END_VAR
-            ;
         END_METHOD   
 
-        ///<summary>
-        /// Ensures swapping the AxisRef data structure into the hardware output data structure
-        ///</summary>
-        METHOD PROTECTED OVERRIDE UpdateOutputs : BOOL
-            VAR_INPUT
-                AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
-            END_VAR
-            ;
-        END_METHOD   
 
         ///<summary>
         /// This method controls the power stage (On or Off).
@@ -690,14 +938,15 @@ NAMESPACE AXOpen.Components.Festo.Drives
             END_IF;
 
             IF Enable THEN
+                THIS.ReadInputs(AxisRef);
                 IF NOT MC_PowerEnable_PV THEN
                     _AxisReference^.Telegram750_Out.M_LIMIT_POS := 16384;
                     _AxisReference^.Telegram750_Out.M_LIMIT_NEG := -16384;
                     _AxisReference^.Telegram111_Out.MDI_ACC := TO_UINT(16384.0 * _AxisReference^.Data.OverrideAccelerationFactor);
                     _AxisReference^.Telegram111_Out.MDI_DEC := TO_UINT(16384.0 * _AxisReference^.Data.OverrideAccelerationFactor);
                     _AxisReference^.Telegram111_Out.Override_ := TO_WORD(TO_INT(16384.0 * _AxisReference^.Data.OverrideVelocityFactor));
-                _AxisReference^.Telegram111_Out.MDI_VELOCITY := DINT#1;
-            END_IF;
+                    _AxisReference^.Telegram111_Out.MDI_VELOCITY := DINT#1;
+                END_IF;
                 _AxisReference^.Telegram111_Out.STW1.on_ := TRUE;
                 _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
                 // _AxisReference^.Telegram111_Out.MDI_VELOCITY := DINT#1;
@@ -717,11 +966,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Valid := TRUE;
                     ErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
                 END_IF;
+                THIS.WriteOutputs(AxisRef);
             END_IF;
 
 
             IF NOT Enable AND MC_PowerEnable_PV THEN
+                THIS.ReadInputs(AxisRef);
                 _AxisReference^.Telegram111_Out.STW1.on_  := FALSE;
+                THIS.WriteOutputs(AxisRef);
             END_IF;
 
             MC_PowerEnable_PV := Enable;
@@ -787,7 +1039,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 MC_HomeCycle := _AxisReference^.Data.Cycle ;
             END_IF;
 
-            IF Execute THEN 				
+            IF Execute THEN 		
+                THIS.ReadInputs(AxisRef);
                 IF State = UINT#0 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
@@ -1329,7 +1582,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
                         State := UINT#58;
                     END_IF;                  
-                END_IF;                  
+                END_IF;         
+                THIS.WriteOutputs(AxisRef);         
             END_IF;
 
             IF THIS.AxoHome_Task.DoneReached() THEN
@@ -1757,6 +2011,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
             END_IF;
 
             IF Execute THEN 	
+                THIS.ReadInputs(AxisRef);
+
                 IF NOT ContinuousUpdate THEN
                     MC_MoveAbsoluteContinuousUpdate_SV := FALSE;
                 END_IF;
@@ -1893,6 +2149,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     END_IF;                  
                 END_IF;   
 
+                THIS.WriteOutputs(AxisRef);
             END_IF;
 
             IF THIS.AxoMoveAbsolute_Task.DoneReached() THEN
@@ -1900,7 +2157,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
                 MC_MoveAbsoluteErrorID := WORD#0;
                 State := UINT#0;
-                // MC_MoveAbsoluteCycle := ULINT#0;     
+                // MC_MoveAbsoluteCycle := ULINT#0;    
+                THIS.WriteOutputs(AxisRef); 
             END_IF;
 
             IF THIS.AxoMoveAbsolute_Task.RestoreTriggered() AND State>=UINT#80 AND State<=UINT#89 THEN
@@ -1910,6 +2168,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 MC_MoveAbsoluteCycle := ULINT#0;     
                 State := UINT#0;
                 MC_MoveAbsoluteExecute_PV := FALSE;
+                THIS.WriteOutputs(AxisRef);
             END_IF;                     
 
             ErrorID := MC_MoveAbsoluteErrorID;
@@ -4765,6 +5024,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
             END_IF;
 
             IF Execute THEN
+                THIS.ReadInputs(AxisRef);
+
                 IF State = UINT#320 THEN
                     Busy := TRUE;
                     THIS.Restore();
@@ -4821,6 +5082,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Error := TRUE;
                     ErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
                 END_IF;
+                THIS.WriteOutputs(AxisRef);
             END_IF;
 
             IF NOT Execute AND MC_ResetExecute_PV THEN
