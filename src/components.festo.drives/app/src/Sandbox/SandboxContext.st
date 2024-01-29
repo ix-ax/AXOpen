@@ -39,7 +39,7 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
 
     METHOD PROTECTED OVERRIDE Main  
 
-        RETURN;
+        // RETURN;
     
         IF(_manualControl) THEN            
             AxoCmmtAs.ActivateManualControl();
@@ -145,7 +145,7 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
             Sequencer.MoveNext();     
         END_IF;
     
-        IF(Steps[8].Execute(Sequencer, 'Move absolute to Position1')) THEN
+        IF(Steps[8].Execute(Sequencer, 'Move absolute to Position2')) THEN
             IF(AxoCmmtAs.AxoMoveAbsolute(   Position        :=  Position2,
                                                 Velocity        :=  Velocity,
                                                 Acceleration    :=  LREAL#1.0,
