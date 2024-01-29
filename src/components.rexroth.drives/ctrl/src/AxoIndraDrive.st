@@ -4167,5 +4167,272 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             MC_ResetDone_PV := Done;
             MC_ResetExecute_PV := Execute;
         END_METHOD
+
+        METHOD PUBLIC OVERRIDE Restore 
+            AcyclicCommEnable_PV					:= 	FALSE;				
+            AcyclicCommParamNum_PV					:= 	DINT#0;				
+            AcyclicCommWriteValue					:= 	DINT#0;				
+            AcyclicCommWriteValueDW					:= 	DWORD#0;				
+            AcyclicCommStateCommand					:= 	INT#0;				
+            AcyclicCommCallNumber_PV				:=	INT#0;				
+            AcyclicCommDone_ 						:=	FALSE; 				
+            AcyclicCommActive_ 						:= 	FALSE; 				
+            AcyclicCommDecimalPlaces_ 				:=	UINT#0;				
+            AcyclicCommDataTypeRead_				:=	UINT#0; 				
+            AcyclicCommDataLengthRead_				:=	UINT#0;				
+            AcyclicCommReadValueDINT_				:=	DINT#0;				
+            AcyclicCommReadValueREAL_				:=	REAL#0.0;				
+            AcyclicCommError_						:=	FALSE;
+            AcyclicCommErrorID_						:=  eAxoIndraDriveErrorCode#NONE_ERROR;	    
+            AcyclicCommErrorIdent_.Table            :=  AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable#NO_TABLE_USED;
+            AcyclicCommErrorIdent_.Additional1      :=  DWORD#0;
+            AcyclicCommErrorIdent_.Additional2      :=  DWORD#0;
+
+	
+            CyclicCommPosition						:=	DINT#0;				
+            CyclicCommVelocity						:=	DINT#0;				
+            CyclicCommAcceleration					:=	DINT#0;				
+            CyclicCommDeceleration					:=	DINT#0;				
+            CyclicCommTorque						:=	INT#0;				
+            CyclicCommJerk							:=	DINT#0;				
+            CyclicCommVelocityWindow				:=	DINT#0; 				
+            CyclicCommTorqueWindow					:=	INT#0;				
+            CyclicCommStateMachine					:=	USINT#0; 				
+            CyclicCommSetpointAcknowledge_PV		:= 	FALSE;				
+            CyclicCommCheckBoundsAndMode			:= 	FALSE;				
+            CyclicCommWriteCommand_PV				:= 	FALSE;				
+            CyclicCommWaitSetpointAcknowledge		:=	FALSE;				
+            CyclicCommWaitSetpointReached			:= 	FALSE;				
+            CyclicCommCheckMultiplexDates			:= 	USINT#0;				
+            CyclicCommContinuousMotion				:= 	FALSE;				
+            CyclicCommPosVelocityWindow				:=	DINT#0;				
+            CyclicCommNegVelocityWindow				:=	DINT#0;				
+            CyclicCommPosTorqueWindow				:=	INT#0;				
+            CyclicCommNegTorqueWindow				:=	INT#0;				
+            CyclicCommActualPosition				:=	DINT#0;			
+            CyclicCommActualVelocity				:=  DINT#0;			
+            CyclicCommDiagnosis						:= 	DWORD#0;		
+            CyclicCommActualTorque					:=	INT#0;
+            CyclicCommCommandPosition				:= 	DINT#0;
+            CyclicCommCommandVelocity				:= 	DINT#1000;		
+            CyclicCommCommandAcceleration			:= 	DINT#1000;		
+            CyclicCommCommandDecceleration			:= 	DINT#1000;		
+            CyclicCommCommandJerk					:=	DINT#1000;		
+            CyclicCommCommandTorque					:= 	INT#0;
+            CyclicCommMoveAdditive					:= 	FALSE;
+            CyclicCommDriveStop_PV					:= 	FALSE;				
+            CyclicCommDriveHalt_PV					:= 	FALSE;				
+            CyclicCommbSelDrvOpMode3_PV				:=	FALSE;				
+	
+            MC_HomeExecute_PV						:=	FALSE;
+            MC_HomeCallNumber						:= 	INT#0; 				
+            MC_HomeFirstCall						:= 	FALSE;				
+            MC_HomeDone_							:=	FALSE; 				
+            MC_HomeActive_							:=	FALSE;				
+            MC_HomeCommandAborted_					:=	FALSE;				
+            MC_HomeError_							:=	FALSE;				
+            MC_HomeErrorID_							:=	eAxoIndraDriveErrorCode#NONE_ERROR;	    
+            MC_HomeState_							:=	UINT#0;				
+	
+            MC_StopExecute_PV						:= 	FALSE;				
+            MC_StopCallNumber						:=	INT#0;				
+            MC_StopFirstCall						:= 	FALSE;				
+	
+            MC_HaltExecute_PV						:= 	FALSE;				
+            MC_HaltCallNumber						:=	INT#0;				
+            MC_HaltFirstCall						:= 	FALSE;				
+            MC_HaltDone_							:=	FALSE;
+            MC_HaltActive_							:=	FALSE; 
+            MC_HaltCommandAborted_					:=	FALSE; 
+            MC_HaltError_							:=	FALSE;
+            MC_HaltErrorID_							:=	eAxoIndraDriveErrorCode#NONE_ERROR;	    
+	
+            MC_MoveAbsoluteExecute_PV				:= 	FALSE;		
+            MC_MoveAbsoluteDone_PV					:=	FALSE;		
+            MC_MoveAbsoluteCallNumber				:= 	INT#0; 				
+            MC_MoveAbsoluteFirstCall				:= 	FALSE;				
+            MC_MoveAbsoluteDone_					:=	FALSE;
+            MC_MoveAbsoluteActive_					:=	FALSE;
+            MC_MoveAbsoluteCommandAborted_			:=	FALSE;
+            MC_MoveAbsoluteError_					:=  FALSE;
+            MC_MoveAbsoluteErrorID_					:=  eAxoIndraDriveErrorCode#NONE_ERROR;	    
+            MC_MoveAbsoluteContinuousUpdate_PV  	:=  FALSE;
+	
+            MC_MoveRelativeExecute_PV				:= 	FALSE;		    
+            MC_MoveRelativeDone_PV					:=	FALSE;		    
+            MC_MoveRelativeCallNumber				:= 	INT#0; 				    
+            MC_MoveRelativeFirstCall				:= 	FALSE;					  
+            MC_MoveRelativeDone_					:=	FALSE;
+            MC_MoveRelativeActive_					:=	FALSE;
+            MC_MoveRelativeCommandAborted_			:=	FALSE;
+            MC_MoveRelativeError_					:=  FALSE;
+            MC_MoveRelativeErrorID_					:=  eAxoIndraDriveErrorCode#NONE_ERROR;	    
+            MC_MoveRelativeContinuousUpdate_PV  	:=  FALSE;
+            MC_MoveRelativeDistance_PV          	:=  LREAL#0.0;
+	
+            MC_MoveAdditiveExecute_PV				:= 	FALSE;		
+            MC_MoveAdditiveDone_PV					:=	FALSE;		
+            MC_MoveAdditiveCallNumber				:= 	INT#0; 				
+            MC_MoveAdditiveFirstCall				:= 	FALSE;				
+            MC_MoveAdditiveDone_					:=	FALSE;
+            MC_MoveAdditiveActive_					:=	FALSE;
+            MC_MoveAdditiveCommandAborted_			:=	FALSE;
+            MC_MoveAdditiveError_					:=	FALSE;
+            MC_MoveAdditiveErrorID_					:=	eAxoIndraDriveErrorCode#NONE_ERROR;	    
+            MC_MoveAdditiveContinuousUpdate_PV  	:=  FALSE;	
+            MC_MoveAdditiveDistance_PV          	:=  LREAL#0.0;
+	
+            MC_MoveVelocityExecute_PV				:= 	FALSE;		
+            MC_MoveVelocityCallNumber				:= 	INT#0; 				
+            MC_MoveVelocityFirstCall				:= 	FALSE;				
+            MC_MoveVelocityActive_					:=	FALSE;
+            MC_MoveVelocityCommandAborted_			:=	FALSE;
+            MC_MoveVelocityError_					:=  FALSE;
+            MC_MoveVelocityErrorID_					:=  eAxoIndraDriveErrorCode#NONE_ERROR;	    
+            MC_MoveVelocityContinuousUpdate_PV		:=  FALSE;
+	
+            MC_TorqueControlExecute_PV				:= 	FALSE;		
+            MC_TorqueControlCallNumber				:= 	INT#0; 				
+            MC_TorqueControlFirstCall				:= 	FALSE;				 
+            MC_TorqueControlActive_					:=	FALSE;
+            MC_TorqueControlCommandAborted_			:=	FALSE;
+            MC_TorqueControlError_					:=  FALSE;
+            MC_TorqueControlErrorID_				:=  eAxoIndraDriveErrorCode#NONE_ERROR;	    
+            MC_TorqueControlContinuousUpdate_PV 	:=  FALSE;			
+	
+            MC_SetPositionDone_						:=	FALSE; 							
+            MC_SetPositionBusy_						:=	FALSE; 							
+            MC_SetPositionError_ 					:=	FALSE; 							
+            MC_SetPositionErrorID_ 					:=	eAxoIndraDriveErrorCode#NONE_ERROR;	    
+            MC_SetPositionState_ 					:=	UINT#0; 							
+            MC_SetPositionValue_ 					:=	DINT#0; 							
+	
+            MC_ReadParameterEnable_PV				:= 	FALSE;		
+            MC_ReadParameterDone_PV					:=	FALSE;		
+            MC_ReadParameterCallNumber				:= 	INT#0; 				
+            MC_ReadParameterNumber_PV				:= 	DINT#0;				
+            MC_ReadParameterFirstCall				:= 	FALSE;				
+            MC_ReadParameterDone_					:=	FALSE;							
+            MC_ReadParameterActive_					:=	FALSE;
+            MC_ReadParameterError_					:=	FALSE;							
+            MC_ReadParameterErrorID_				:=	eAxoIndraDriveErrorCode#NONE_ERROR;	    
+            MC_ReadParameterValue_					:=	DINT#0;							
+	
+            MC_ReadREALParameterEnable_PV			:= 	FALSE;		
+            MC_ReadREALParameterDone_PV				:=	FALSE;		
+            MC_ReadREALParameterCallNumber			:= 	INT#0; 				
+            MC_ReadREALParameterNumber_PV			:= 	DINT#0;				
+            MC_ReadREALParameterFirstCall			:= 	FALSE;				
+            MC_ReadREALParameterDone_				:=	FALSE;				
+            MC_ReadREALParameterActive_				:=	FALSE;
+            MC_ReadREALParameterError_				:=	FALSE;							
+            MC_ReadREALParameterErrorID_			:=	eAxoIndraDriveErrorCode#NONE_ERROR;	    
+            MC_ReadREALParameterValue_				:=	REAL#0.0;							
+	
+            MC_WriteParameterExecute_PV				:= 	FALSE;		
+            MC_WriteParameterDone_PV				:=	FALSE;		
+            MC_WriteParameterCallNumber				:= 	DINT#0; 				
+            MC_WriteParameterFirstCall				:= 	FALSE;				
+            MC_WriteParameterDone_					:=	FALSE;				
+            MC_WriteParameterActive_				:=	FALSE;		
+            MC_WriteParameterError_					:=	FALSE;				
+            MC_WriteParameterErrorID_				:=	eAxoIndraDriveErrorCode#NONE_ERROR;	    
+	
+            MC_WriteREALParameterExecute_PV			:= 	FALSE;		                     
+            MC_WriteREALParameterDone_PV			:=	FALSE;		                     
+            MC_WriteREALParameterCallNumber			:= 	INT#0; 				                         
+            MC_WriteREALParameterFirstCall			:= 	FALSE;				                         
+            MC_WriteREALParameterDone_				:=	FALSE;				
+            MC_WriteREALParameterActive_			:=	FALSE;		
+            MC_WriteREALParameterError_				:=	FALSE;				
+            MC_WriteREALParameterErrorID_			:=	eAxoIndraDriveErrorCode#NONE_ERROR;	    
+	
+            MC_ReadDigitalInputEnable_PV			:= 	FALSE;		
+            MC_ReadDigitalInputDone_PV				:=	FALSE;		
+            MC_ReadDigitalInputCallNumber			:= 	INT#0; 				
+            MC_ReadDigitalInputNumber_PV			:= 	DINT#0;				
+            MC_ReadDigitalInputFirstCall			:= 	FALSE;				
+            MC_ReadDigitalInputDone_				:=	FALSE;							
+            MC_ReadDigitalInputActive_				:=	FALSE;					
+            MC_ReadDigitalInputError_				:=	FALSE;							
+            MC_ReadDigitalInputErrorID_				:=	eAxoIndraDriveErrorCode#NONE_ERROR;	    
+            MC_ReadDigitalInputValue_				:=	DINT#0;							
+	
+            MC_ReadDigitalOutputEnable_PV			:= 	FALSE;		
+            MC_ReadDigitalOutputDone_PV				:=	FALSE;		
+            MC_ReadDigitalOutputCallNumber			:= 	INT#0; 				
+            MC_ReadDigitalOutputNumber_PV			:= 	DINT#0;				
+            MC_ReadDigitalOutputFirstCall			:= 	FALSE;				
+            MC_ReadDigitalOutputDone_				:=	FALSE;							
+            MC_ReadDigitalOutputActive_				:=	FALSE;					
+            MC_ReadDigitalOutputError_				:=	FALSE;							
+            MC_ReadDigitalOutputErrorID_			:=	eAxoIndraDriveErrorCode#NONE_ERROR;	    
+            MC_ReadDigitalOutputValue_				:=	DINT#0;							
+
+            MC_WriteDigitalOutputExecute_PV			:= 	FALSE;		
+            MC_WriteDigitalOutputDone_PV			:=	FALSE;		
+            MC_WriteDigitalOutputCallNumber			:= 	INT#0; 				
+            MC_WriteDigitalOutputFirstCall			:= 	FALSE;				
+            MC_WriteDigitalOutputDone_				:=	FALSE;				
+            MC_WriteDigitalOutputActive_			:=	FALSE;		
+            MC_WriteDigitalOutputError_				:=	FALSE;				
+            MC_WriteDigitalOutputErrorID_			:=	eAxoIndraDriveErrorCode#NONE_ERROR;	    
+            MC_WriteDigitalOutputState_				:=	UINT#0;		
+            MC_WriteDigitalOutputValueRead_ 		:=	LINT#0;		
+            MC_WriteDigitalOutputValueToWrite_		:=	LINT#0;		
+
+            MC_ReadStatusEnable_PV					:= 	FALSE;		           
+            MC_ReadStatusDone_PV					:=	FALSE;		           
+            MC_ReadStatusStateNumber				:= 	INT#0; 				           
+	
+            LastMessageCode :=   ULINT#0;	
+	
+            MC_ResetExecute_PV						:= 	FALSE;		
+            MC_ResetDone_PV							:=	FALSE;		
+            MC_ResetFirstCall						:= 	FALSE;				
+
+            DriveStatus.Action.Id := UINT#0;
+            DriveStatus.Error.Id  := UINT#0;
+            Messenger.Restore();
+            TaskMessenger.Restore();
+
+            //AxoPower_Task.Restore();
+            AxoStop_Task.Restore();
+            AxoHalt_Task.Restore();
+            AxoHome_Task.Restore();
+            AxoMoveAbsolute_Task.Restore();
+            AxoMoveRelative_Task.Restore();
+            AxoMoveAdditive_Task.Restore();
+            AxoMoveVelocity_Task.Restore();
+            AxoTorqueControl_Task.Restore();
+            AxoSetPosition_Task.Restore();
+            AxoSetOverride_Task.SwitchOff();
+            AxoReadParameter_Task.SwitchOff();
+            AxoReadRealParameter_Task.SwitchOff();
+            AxoReadBoolParameter_Task.SwitchOff();
+            AxoWriteParameter_Task.Restore();
+            AxoWriteRealParameter_Task.Restore();
+            AxoWriteBoolParameter_Task.Restore();
+            AxoReadDigitalInput_Task.SwitchOff();
+            AxoReadDigitalOutput_Task.SwitchOff();
+            AxoWriteDigitalOutput_Task.Restore();
+            AxoReadActualPosition_Task.SwitchOff();
+            AxoReadActualVelocity_Task.SwitchOff();
+            AxoReadActualTorque_Task.SwitchOff();
+            AxoReadStatus_Task.SwitchOff();
+            AxoReadMotionState_Task.SwitchOff();
+            AxoReadAxisInfo_Task.SwitchOff();
+            AxoReadAxisError_Task.SwitchOff();
+            AxoReset_Task.Restore();
+            AxoJogPositive.RemoteSwitchOn := FALSE;
+            AxoJogPositive.StartMotion := FALSE;
+            AxoJogPositive.StopMotion := FALSE;
+            AxoJogNegative.RemoteSwitchOn := FALSE;
+            AxoJogNegative.StartMotion := FALSE;
+            AxoJogNegative.StopMotion := FALSE;
+             
+            RestoreTask.DoneWhen(TRUE);
+            SUPER.Restore();
+        END_METHOD
     END_CLASS
 END_NAMESPACE

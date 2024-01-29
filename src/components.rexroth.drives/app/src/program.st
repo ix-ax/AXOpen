@@ -9,10 +9,10 @@ PROGRAM MyProgram
 
     CopyInputs();
 
-    // sandbox.PlcInputs := REF(PlcInputs); 
-    // sandbox.PlcOutputs := REF(PlcOutputs);
-    // sandbox.Run();    
-    // sandbox.InjectRtc(_rtc);
+    sandbox.PlcInputs := REF(PlcInputs); 
+    sandbox.PlcOutputs := REF(PlcOutputs);
+    sandbox.Run();    
+    sandbox.InjectRtc(_rtc);
     
     documentation.componentOne.PlcInputs := REF(PlcInputs); 
     documentation.componentOne.PlcOutputs := REF(PlcOutputs);
