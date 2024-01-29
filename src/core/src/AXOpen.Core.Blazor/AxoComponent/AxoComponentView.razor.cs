@@ -130,7 +130,7 @@ namespace AXOpen.Core
 
         protected override async Task OnInitializedAsync()
         {
-            var a = Messengers?.SelectMany(p => new ITwinPrimitive[] { p.Category, p.MessengerState });
+            var a = Messengers?.SelectMany(p => new ITwinPrimitive[] { p.Category, p.MessengerState, p.MessageCode });
             var connector = Messengers?.FirstOrDefault()?.GetConnector();
             if (connector != null)
             {
