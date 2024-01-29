@@ -13,23 +13,30 @@ devDependencies:
 dependencies:
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
   "@ix-ax/axopen.components.rexroth.drives": '0.0.0-dev.0'
+  "@ax/system-timer": ^6.0.94
 scripts:
-  download:
-    - apax install
-    - apax build
-    - dotnet ixc
+  delta:
+    - START=$(date +%s)
+    - apax build --ignore-scripts
     - apax sld load --accept-security-disclaimer -t $AXTARGET -i
-      $AXTARGETPLATFORMINPUT -r
+      $AXTARGETPLATFORMINPUT --mode delta
+    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in
+      :" $(expr $(date +%s) - $START) "s"
+  download:
+    - START=$(date +%s)
+    - apax build --ignore-scripts
+    - dotnet ixc
+    - apax download_only
+    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in
+      :" $(expr $(date +%s) - $START) "s"
   ixc:
     - START=$(date +%s)
     - dotnet tool restore
     - dotnet ixc
     - echo "Built by ixc in :" $(expr $(date +%s) - $START) "s"
   download_only:
-    - START=$(date +%s)
     - apax sld load --accept-security-disclaimer -t $AXTARGET -i
       $AXTARGETPLATFORMINPUT -r
-    - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"
   check+download: |
     if [ $AXTARGET ]; then
       if [ $AXTARGETPLATFORMINPUT ]; then
@@ -60,9 +67,7 @@ scripts:
     - START=$(date +%s)
     - apax clean
     - apax install
-    - apax build
-    - apax ixc
-    - apax download_only
+    - apax download
     - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in
       :" $(expr $(date +%s) - $START) "s"
   rrw:
@@ -71,5 +76,11 @@ scripts:
   r:
     - apax plc-mode set stop -t $AXTARGET -y
     - apax plc-mode set run -t $AXTARGET -y
+  d:
+    - apax download
+  do:
+    - apax download_only
+  dd:
+    - apax delta
 installStrategy: strict
 apaxVersion: 3.1.0

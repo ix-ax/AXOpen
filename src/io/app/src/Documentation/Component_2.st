@@ -9,7 +9,7 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
 
     //<InitializationArgumentsDeclaration>
     VAR PUBLIC                
-        _hwID : UINT;
+        _hwID : WORD;
     END_VAR
     //</InitializationArgumentsDeclaration>            
 

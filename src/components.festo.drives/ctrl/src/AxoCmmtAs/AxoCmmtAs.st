@@ -222,7 +222,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 RETURN;
             END_IF;
             //********************Diagnostics******************//          
-            HardwareDiagnosticsTask.Run(TO_UINT(_AxisReference^.Data.hwID));
+            HardwareDiagnosticsTask.Run(_AxisReference^.Data.hwID);
             //********************PARAMETRIZAION***************//          
             Parametrization.Run(THIS);
             Parametrization.Inputs.HardwareId := _AxisReference^.Data.MAP_HW_ID;            

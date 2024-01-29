@@ -46,12 +46,11 @@ namespace AXOpen.Components.Rexroth.Drives
                 new KeyValuePair<ulong, AxoMessengerTextItem>(301, new AxoMessengerTextItem("Movement in negative direction is disabled",                                                    "Check the safety condition")),
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(700, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!",                                   "Check the call of the `Run` method, if the `parent` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `refAxisIn` has NULL reference in `Run` method!",                                "Check the call of the `Run` method, if the `refAxisIn` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(702, new AxoMessengerTextItem("Input variable `refAxisOut` has NULL reference in `Run` method!",                               "Check the call of the `Run` method, if the `refAxisOut` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(703, new AxoMessengerTextItem("Input variable `refFieldbus_In` has NULL reference in `Run` method!",                           "Check the call of the `Run` method, if the `refFieldbus_In` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(704, new AxoMessengerTextItem("Input variable `refFieldbus_Out` has NULL reference in `Run` method!",                          "Check the call of the `Run` method, if the `refFieldbus_Out` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(705, new AxoMessengerTextItem("Input variable `refParameter_In` has NULL reference in `Run` method!",                          "Check the call of the `Run` method, if the `refParameter_In` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(706, new AxoMessengerTextItem("Input variable `refParameter_Out` has NULL reference in `Run` method!",                         "Check the call of the `Run` method, if the `refParameter_Out` parameter is assigned.")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(703, new AxoMessengerTextItem("Input variable `hwID` has invalid value in `Run` method!",                                      "Check the call of the `Run` method, if the `hwID` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(704, new AxoMessengerTextItem("Input variable `hwIdParamCh_IDN` invalid value in `Run` method!",                               "Check the call of the `Run` method, if the `hwIdParamCh_IDN` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(705, new AxoMessengerTextItem("Input variable `hwIdInput_9_Words` invalid value in `Run` method!",                             "Check the call of the `Run` method, if the `hwIdInput_9_Words` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(706, new AxoMessengerTextItem("Input variable `hwIdOutput_13_Words` invalid value in `Run` method!",                           "Check the call of the `Run` method, if the `hwIdOutput_13_Words` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(707, new AxoMessengerTextItem("Input variable `AxisRef` has NULL reference in `UpdateInputs` method!",                         "Check the call of the `UpdateInputs` method, if the `AxisRef` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(708, new AxoMessengerTextItem("Input variable `AxisRef` has NULL reference in `UpdateOutputs` method!",                        "Check the call of the `UpdateOutputs` method, if the `AxisRef` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(709, new AxoMessengerTextItem("Input variable `AxisRef` has NULL reference in `MC_Power` method!",                             "Check the call of the `MC_Power` method, if the `AxisRef` parameter is assigned.")),
@@ -96,6 +95,12 @@ namespace AXOpen.Components.Rexroth.Drives
                 new KeyValuePair<ulong, AxoMessengerTextItem>(745, new AxoMessengerTextItem("   ", "   ")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(746, new AxoMessengerTextItem("   ", "   ")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(747, new AxoMessengerTextItem("   ", "   ")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(827, new AxoMessengerTextItem("Error reading the parameter channel data!",                                                     "Check the hardware configuration and hardware identifier.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(828, new AxoMessengerTextItem("Error reading the fieldbus input data!",                                                        "Check the hardware configuration and hardware identifier.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(827, new AxoMessengerTextItem("Error writing the parameter channel data!",                                                     "Check the hardware configuration and hardware identifier.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(828, new AxoMessengerTextItem("Error writing the fieldbus input data!",                                                        "Check the hardware configuration and hardware identifier.")),
+
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(655360, new AxoMessengerTextItem("A0000:Communication phase 0","Check the troubleshooting manual MPx-16 to MPx-20 and PSB Diagnostic Messages, Reference Book R911326738")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(655361, new AxoMessengerTextItem("A0001:Communication phase 1","Check the troubleshooting manual MPx-16 to MPx-20 and PSB Diagnostic Messages, Reference Book R911326738")),

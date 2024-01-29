@@ -360,7 +360,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
             EnablePositive := FALSE;
             EnableNegative := FALSE;
             IF(NOT AxoCmmtAs.AxoPower_Status) THEN                
-                Sequencer.CompleteSequence();                
+                Sequencer.MoveNext();                
             END_IF;    
         END_IF;
 
