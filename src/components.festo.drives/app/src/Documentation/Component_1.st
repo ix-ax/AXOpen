@@ -253,7 +253,6 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
             END_IF;   
         END_IF;  
 
-
         _i := _i + 1;
         IF(Steps[_i].Execute(Sequencer, 'Disable drive')) THEN
             Enable := FALSE;
