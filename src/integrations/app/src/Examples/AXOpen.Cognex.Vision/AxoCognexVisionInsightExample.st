@@ -22,16 +22,17 @@ NAMESPACE AxoCognexVisionInsightExamples
             // Calling the main method `Run` with respective input and output variables. 
             //<HWIO_Assignement>
             MyInsight.Run(  parent                  :=  THIS,  
-                            refAcquisitionControl   :=  REF(PlcOutputs^._7600_Acquisition_Control_1),
-                            refAcquisitionStatus    :=  REF(PlcInputs^._7600_Acquisition_Status_1),
-                            refInspectionControl    :=  REF(PlcOutputs^._7600_Inspection_Control_1),
-                            refInspectionStatus     :=  REF(PlcInputs^._7600_Inspection_Status_1),
-                            refCommandControl       :=  REF(PlcOutputs^._7600_Command_Control_1),
-                            refCommandStatus        :=  REF(PlcInputs^._7600_Command_Control_1),
-                            refSoftEventControl     :=  REF(PlcOutputs^._7600_SoftEvent_Control_1),
-                            refSoftEventStatus      :=  REF(PlcInputs^._7600_SoftEvent_Control_1),
-                            refResultData           :=  REF(PlcInputs^._7600_Results_64_bytes_1),
-                            refUserData             :=  REF(PlcOutputs^._7600_User_Data_64_bytes_1));
+                            ResultDataSize          :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_ResultDataSize#RESULT_DATA_64B,
+                            UserDataSize            :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_UserDataSize#USER_DATA_64B,
+                            hwID                    :=  HwIdentifiers#_7600,
+                            hwIdAcquisitionControl  :=  HwIdentifiers#_7600_Acquisition_Control_1,
+                            hwIdAcquisitionStatus   :=  HwIdentifiers#_7600_Acquisition_Status_1,
+                            hwIdInspectionControl   :=  HwIdentifiers#_7600_Inspection_Control_1,
+                            hwIdInspectionStatus    :=  HwIdentifiers#_7600_Inspection_Status_1,
+                            hwIdCommandControl      :=  HwIdentifiers#_7600_Command_Control_1,
+                            hwIdSoftEventControl    :=  HwIdentifiers#_7600_SoftEvent_Control_1,
+                            hwIdResultData          :=  HwIdentifiers#_7600_Results_64_bytes_1,
+                            hwIdUserData            :=  HwIdentifiers#_7600_User_Data_64_bytes_1);
             //</HWIO_Assignement>
         END_METHOD
 
