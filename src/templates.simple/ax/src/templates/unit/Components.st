@@ -60,6 +60,13 @@ NAMESPACE axosimple.UnitTemplate
             _enable         : BOOL := TRUE;          
             _enablePositive : BOOL := TRUE;          
             _enableNegative : BOOL := TRUE; 
+
+            {#ix-attr:[Container(Layout.Stack)]}
+            Robot_A1  : AXOpen.Components.Abb.Robotics.AxoIrc5_v_1_x_x;  
+            
+            {#ix-attr:[Container(Layout.Stack)]}
+            Robot_A2  : AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x;  
+
         END_VAR
 
         
@@ -95,10 +102,10 @@ NAMESPACE axosimple.UnitTemplate
             // AO_4.Run(THIS, Outputs^.A0[0]);
 
 
-            // Cylinder_1.Run(THIS, Inputs^.P0[0], Inputs^.P0[1], Outputs^.P0[0], Outputs^.P0[1]);
-            // Cylinder_2.Run(THIS, Inputs^.P0[2], Inputs^.P0[3], Outputs^.P0[2], Outputs^.P0[3]);
-            // // Cylinder_3.Run(THIS, Inputs^.P0[4], Inputs^.P0[5], Outputs^.P0[4], Outputs^.P0[5]);
-            // // Cylinder_4.Run(THIS, Inputs^.P0[6], Inputs^.P0[7], Outputs^.P0[6], Outputs^.P0[7]);
+            Cylinder_1.Run(THIS, Inputs^.P0[0], Inputs^.P0[1], Outputs^.P0[0], Outputs^.P0[1]);
+            Cylinder_2.Run(THIS, Inputs^.P0[2], Inputs^.P0[3], Outputs^.P0[2], Outputs^.P0[3]);
+            // Cylinder_3.Run(THIS, Inputs^.P0[4], Inputs^.P0[5], Outputs^.P0[4], Outputs^.P0[5]);
+            // Cylinder_4.Run(THIS, Inputs^.P0[6], Inputs^.P0[7], Outputs^.P0[6], Outputs^.P0[7]);
 
             // Reader_1.Run(parent                     :=  THIS,  
             // refAcquisitionStatus       :=  REF(Inputs^.Reader_1_Acquisition_Status_1),
@@ -146,46 +153,53 @@ NAMESPACE axosimple.UnitTemplate
             // refUserData             :=  REF(Outputs^.Camera_2_User_Data_64_bytes_1));
 
 
-            // Drive_R1.Run(parent:=THIS,
-            //     refParameter_In     :=  REF(Inputs^.Drive_R1_ParamCh_IDN_1),
-            //     refFieldbus_In      :=  REF(Inputs^.Drive_R1_Input_9_Words_1),
-            //     refParameter_Out    :=  REF(Outputs^.Drive_R1_ParamCh_IDN_1),
-            //     refFieldbus_Out     :=  REF(Outputs^.Drive_R1_Output_13_Words_1),
-            //     Enable              :=  _enable,
-            //     EnablePositive      :=  _enablePositive,
-            //     EnableNegative      :=  _enableNegative);
-
-            // Drive_R2.Run(parent:=THIS,
-            //     refParameter_In     :=  REF(Inputs^.Drive_R2_ParamCh_IDN_1),
-            //     refFieldbus_In      :=  REF(Inputs^.Drive_R2_Input_9_Words_1),
-            //     refParameter_Out    :=  REF(Outputs^.Drive_R2_ParamCh_IDN_1),
-            //     refFieldbus_Out     :=  REF(Outputs^.Drive_R2_Output_13_Words_1),
-            //     Enable              :=  _enable,
-            //     EnablePositive      :=  _enablePositive,
-            //     EnableNegative      :=  _enableNegative);
+            Drive_R1.Run(   parent              :=  THIS,
+                            hwID                :=  HwIdentifiers#Drive_R1,
+                            hwIdParamCh_IDN     :=  HwIdentifiers#Drive_R1_ParamCh_IDN,
+                            hwIdInput_9_Words   :=  HwIdentifiers#Drive_R1_Input_9_Words,
+                            hwIdOutput_13_Words :=  HwIdentifiers#Drive_R1_Output_13_Words,
+                            Enable              :=  _enable,
+                            EnablePositive      :=  _enablePositive,
+                            EnableNegative      :=  _enableNegative);
 
 
-            // Drive_F1.Run(parent               :=  THIS,
-            //         hwId                :=  Inputs^.Drive_F1_PN_IO_Interface,              
-            //         hwIdTelegram111     :=  Inputs^.Drive_F1_DO_SERVO_1_Siemens_telegram_111_PZD_12_12,
-            //         hwIdTelegram750     :=  Inputs^.Drive_F1_DO_SERVO_1_Siemens_telegram_750_PZD_4_1 ,
-            //         MAP_HW_ID           :=  Inputs^.Drive_F1_DO_SERVO_1_Module_Access_Point,
-            //         Enable              :=  _enable,
-            //         EnablePositive      :=  _enablePositive,
-            //         EnableNegative      :=  _enableNegative);
-                    
+            Drive_R2.Run(   parent              :=  THIS,
+                            hwID                :=  HwIdentifiers#Drive_R2,
+                            hwIdParamCh_IDN     :=  HwIdentifiers#Drive_R2_ParamCh_IDN,
+                            hwIdInput_9_Words   :=  HwIdentifiers#Drive_R2_Input_9_Words,
+                            hwIdOutput_13_Words :=  HwIdentifiers#Drive_R2_Output_13_Words,
+                            Enable              :=  _enable,
+                            EnablePositive      :=  _enablePositive,
+                            EnableNegative      :=  _enableNegative);
 
-                    
 
-            // Drive_F2.Run(parent               :=  THIS,
-            //         hwId                :=  Inputs^.Drive_F2_PN_IO_Interface,              
-            //         hwIdTelegram111     :=  Inputs^.Drive_F2_DO_SERVO_1_Siemens_telegram_111_PZD_12_12,
-            //         hwIdTelegram750     :=  Inputs^.Drive_F2_DO_SERVO_1_Siemens_telegram_750_PZD_4_1 ,
-            //         MAP_HW_ID           :=  Inputs^.Drive_F2_DO_SERVO_1_Module_Access_Point,
-            //         Enable              :=  _enable,
-            //         EnablePositive      :=  _enablePositive,
-            //         EnableNegative      :=  _enableNegative);
-                    
+            Drive_F1.Run(   parent              :=  THIS,
+                            hwId                :=  HwIdentifiers#Drive_F1_PN_IO_Interface,              
+                            hwIdTelegram111     :=  HwIdentifiers#Drive_F1_DO_SERVO_1_Siemens_telegram_111_PZD_12_12,
+                            hwIdTelegram750     :=  HwIdentifiers#Drive_F1_DO_SERVO_1_Siemens_telegram_750_PZD_4_1,
+                            MAP_HW_ID           :=  HwIdentifiers#Drive_F1_DO_SERVO_1_Module_Access_Point,
+                            Enable              :=  _enable,
+                            EnablePositive      :=  _enablePositive,
+                            EnableNegative      :=  _enableNegative);
+            
+            Drive_F2.Run(   parent              :=  THIS,
+                            hwId                :=  HwIdentifiers#Drive_F2_PN_IO_Interface,              
+                            hwIdTelegram111     :=  HwIdentifiers#Drive_F2_DO_SERVO_1_Siemens_telegram_111_PZD_12_12,
+                            hwIdTelegram750     :=  HwIdentifiers#Drive_F2_DO_SERVO_1_Siemens_telegram_750_PZD_4_1,
+                            MAP_HW_ID           :=  HwIdentifiers#Drive_F2_DO_SERVO_1_Module_Access_Point,
+                            Enable              :=  _enable,
+                            EnablePositive      :=  _enablePositive,
+                            EnableNegative      :=  _enableNegative);
+
+            RobotA1.Run(    parent              :=  THIS,
+                            hwID                :=  HwIdentifiers#Robot_A1,
+                            hwIdDI_64_bytes     :=  HwIdentifiers#Robot_A1_DI_64_bytes,      
+                            hwIdDO_64_bytes     :=  HwIdentifiers#Robot_A1_DO_64_bytes);   
+
+            RobotA2.Run(    parent              :=  THIS,
+                            hwID                :=  HwIdentifiers#Robot_A2,
+                            hwIdDI_64_bytes     :=  HwIdentifiers#Robot_A2_DI_64_bytes,      
+                            hwIdDO_64_bytes     :=  HwIdentifiers#Robot_A2_DO_64_bytes);   
 
         END_METHOD
     END_CLASS

@@ -19,7 +19,11 @@ dependencies:
   "@ix-ax/axopen.components.cognex.vision": '0.0.0-dev.0'
   "@ix-ax/axopen.components.drives": '0.0.0-dev.0'
   "@ix-ax/axopen.components.rexroth.drives": '0.0.0-dev.0'
+  "@ix-ax/axopen.components.rexroth.press": '0.0.0-dev.0'
   "@ix-ax/axopen.components.festo.drives": '0.0.0-dev.0'
+  "@ix-ax/axopen.components.abb.robotics": '0.0.0-dev.0'
+  "@ix-ax/axopen.components.mitsubishi.robotics": '0.0.0-dev.0'
+  "@ix-ax/axopen.components.ur.robotics": '0.0.0-dev.0'
 
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
 
