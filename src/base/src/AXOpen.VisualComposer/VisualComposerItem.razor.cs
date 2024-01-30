@@ -28,7 +28,11 @@ namespace AXOpen.VisualComposer
         }
 
         [CascadingParameter(Name = "ImgId")]
-        private Guid _imgId { get; set; }
+        private Guid _imgId
+        {
+            get => _imgId1;
+            set => _imgId1 = value;
+        }
 
         [Parameter]
         public VisualComposerItem? Origin
@@ -46,16 +50,25 @@ namespace AXOpen.VisualComposer
                 _zIndex = value.ZIndex;
                 _scale = value.Scale;
                 Roles = value.Roles;
-
+                PresentationTemplate = value.PresentationTemplate;
                 Id = value.TwinElement?.Symbol.ModalIdHelper();
             }
         }
 
         [Inject]
-        protected IJSRuntime js { get; set; }
+        protected IJSRuntime js
+        {
+            get => _js;
+            set => _js = value;
+        }
+
         private IJSObjectReference? jsModule;
 
-        public ITwinElement? TwinElement { get; set; }
+        public ITwinElement? TwinElement
+        {
+            get => _twinElement;
+            set => _twinElement = value;
+        }
 
         public string? IdPlain
         {
@@ -68,12 +81,33 @@ namespace AXOpen.VisualComposer
             set => _id = value;
         }
 
-        public Guid? UniqueGuid { get; set; } = null;
+        public Guid? UniqueGuid
+        {
+            get => _uniqueGuid;
+            set => _uniqueGuid = value;
+        }
 
         public double Left { get; set; } = 10;
         public double Top { get; set; } = 10;
 
-        public TransformType _transform = TransformType.TopCenter;
+        internal double ratioImgX = 10;
+        internal double ratioImgY = 10;
+
+
+        public double PosX
+        {
+            get { return ratioImgX; }
+            set { ratioImgX = value; StateHasChanged(); }
+        }
+
+        public double PosY
+        {
+            get { return ratioImgY; }
+            set { ratioImgY = value; StateHasChanged(); }
+        }
+
+        
+        internal TransformType _transform = TransformType.TopCenter;
         public TransformType Transform
         {
             get => _transform;
@@ -84,7 +118,7 @@ namespace AXOpen.VisualComposer
             }
         }
 
-        public string _presentation = PresentationType.StatusDisplay.Value;
+        internal string _presentation = PresentationType.StatusDisplay.Value;
         public string Presentation
         {
             get => _presentation;
@@ -103,9 +137,14 @@ namespace AXOpen.VisualComposer
                 
             }
         }
-        public bool CustomPresentation { get; set; } = false;
 
-        public double _width = -1;
+        public bool CustomPresentation
+        {
+            get => _customPresentation;
+            set => _customPresentation = value;
+        }
+
+        internal double _width = -1;
         public double Width
         {
             get => _width;
@@ -116,7 +155,7 @@ namespace AXOpen.VisualComposer
             }
         }
 
-        public double _height = -1;
+        internal double _height = -1;
         public double Height
         {
             get => _height;
@@ -127,7 +166,7 @@ namespace AXOpen.VisualComposer
             }
         }
 
-        public int _zIndex = 0;
+        internal int _zIndex = 0;
         public int ZIndex
         {
             get => _zIndex;
@@ -138,7 +177,7 @@ namespace AXOpen.VisualComposer
             }
         }
 
-        public double _scale = 1;
+        internal double _scale = 1;
         public double Scale
         {
             get => _scale;
@@ -164,6 +203,26 @@ namespace AXOpen.VisualComposer
         }
 
         private string _id;
+        private Guid _imgId1;
+        private IJSRuntime _js;
+        private ITwinElement? _twinElement;
+        private Guid? _uniqueGuid = null;
+        private bool _customPresentation = false;
+
+
+        internal string? _presentationTemplate;
+        public string? PresentationTemplate
+        {
+            get => _presentationTemplate;
+            set
+            {
+                if (_presentationTemplate != value)
+                {
+                    _presentationTemplate = value;
+                    StateHasChanged();
+                }
+            }
+        }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {

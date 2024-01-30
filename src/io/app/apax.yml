@@ -68,6 +68,7 @@ scripts:
     - apax watch
   rr:
     - START=$(date +%s)
+    - apax clean
     - apax install
     - apax download
     - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in

@@ -52,6 +52,22 @@ NAMESPACE axosimple
             Drive_F2_HwId  : WORD := WORD#257;
             
 
+
+            Drive_F1_PN_IO_Interface : WORD  :=	WORD#271;
+            Drive_F1_PN_IO_Interface_Port_1 : WORD :=	WORD#260;
+            Drive_F1_PN_IO_Interface_Port_2 : WORD :=	WORD#261;
+            Drive_F1_CMMT_AS_MP : WORD :=	WORD#272;
+            Drive_F1_DO_SERVO_1_Module_Access_Point : WORD :=	WORD#264;
+            Drive_F1_DO_SERVO_1_Siemens_telegram_111_PZD_12_12 : WORD :=WORD#265;
+            Drive_F1_DO_SERVO_1_Siemens_telegram_750_PZD_4_1 : WORD :=	WORD#266;
+
+            Drive_F2_PN_IO_Interface : WORD :=	WORD#281;
+            Drive_F2_PN_IO_Interface_Port_1 : WORD :=	WORD#280;
+            Drive_F2_PN_IO_Interface_Port_2 : WORD :=	WORD#281;
+            Drive_F2_CMMT_AS_MP:  WORD  :=	WORD#282;
+            Drive_F2_DO_SERVO_1_Module_Access_Point : WORD :=	WORD#284;
+            Drive_F2_DO_SERVO_1_Siemens_telegram_111_PZD_12_12 : WORD :=	WORD#285;
+            Drive_F2_DO_SERVO_1_Siemens_telegram_750_PZD_4_1 : WORD :=	WORD#286;
         END_STRUCT;
     END_TYPE 
 END_NAMESPACE

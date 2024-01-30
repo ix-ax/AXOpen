@@ -423,7 +423,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
         METHOD PUBLIC Run
             VAR_INPUT
                 parent                 :   IAxoObject; 
-                hwID                    :   UINT;
+                hwID                    :   WORD;
                 refAcquisitionControl  :   REF_TO  BYTE;
                 refAcquisitionStatus   :   REF_TO  ARRAY[0..2] OF BYTE;
                 refInspectionControl   :   REF_TO  BYTE;
@@ -469,7 +469,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
         METHOD PUBLIC Run
             VAR_INPUT
                 parent                 :   IAxoContext; 
-                hwID                    :   UINT;
+                hwID                    :   WORD;
                 refAcquisitionControl  :   REF_TO  BYTE;
                 refAcquisitionStatus   :   REF_TO  ARRAY[0..2] OF BYTE;
                 refInspectionControl   :   REF_TO  BYTE;
@@ -509,7 +509,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
 
         METHOD PRIVATE Execute
             VAR_INPUT
-                hwID                   :   UINT;
+                hwID                   :   WORD;
                 refAcquisitionControl  :   REF_TO  BYTE;
                 refAcquisitionStatus   :   REF_TO  ARRAY[0..2] OF BYTE;
                 refInspectionControl   :   REF_TO  BYTE;

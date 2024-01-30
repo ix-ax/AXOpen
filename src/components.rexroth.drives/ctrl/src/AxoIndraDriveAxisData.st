@@ -75,6 +75,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             Error_AcyclicCommunication	:	BOOL := FALSE;  //Error                          
             ErrorID_AcyclicCommunication:   AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode;		//Error identification, ErrorCode
             ErrorIdent_AcyclicCommunication:AXOpen.Components.Rexroth.Drives.AxoIndraDriveErrorStruct; 	//Error identification      
+            hwID                :   WORD;
+            hwIdParamCh_IDN     :   WORD;
+            hwIdInput_9_Words   :   WORD;
+            hwIdOutput_13_Words :   WORD;
 
         END_VAR
 

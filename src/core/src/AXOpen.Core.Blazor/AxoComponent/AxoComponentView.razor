@@ -93,7 +93,7 @@
     {
         @if (!areAlarmsCollapsed)
         {
-            <AxoObjectDiagnosticsView Component="@this.Component"></AxoObjectDiagnosticsView>
+            <AxoObjectDiagnosticsView ObservedObjects="new ITwinObject[] {this.Component}"></AxoObjectDiagnosticsView>
         }
     }
     else

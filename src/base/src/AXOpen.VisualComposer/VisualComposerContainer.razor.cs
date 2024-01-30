@@ -128,7 +128,7 @@ namespace AXOpen.VisualComposer
             List<SerializableVisualComposerItem> serializableChildren = new List<SerializableVisualComposerItem>();
             foreach (var child in _children)
             {
-                serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.Left, child.Top, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex, child.Scale, child.Roles, child.Background));
+                serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.Left, child.Top, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex, child.Scale, child.Roles, child.Background, child.PresentationTemplate));
             }
 
             if (!Directory.Exists("VisualComposerSerialize/" + Id.CorrectFilePath()))
@@ -168,7 +168,8 @@ namespace AXOpen.VisualComposer
                             _zIndex = item.ZIndex,
                             _scale = item.Scale,
                             Roles = item.Roles,
-                            _background = item.Background
+                            _background = item.Background,
+                            _presentationTemplate = item.PresentationTemplate
                         });
                     }
                 }

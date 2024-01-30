@@ -197,13 +197,12 @@ namespace AXOpen.Components.Mitsubishi.Robotics
 
 
 
-                    actionDescriptionDict.Add(711, "Changing of the screwing program finished with error.");
-                    actionDescriptionDict.Add(712, "Screwing program finished with error.");
-                    actionDescriptionDict.Add(713, "Reseting the device finished with error.");
-                    //actionDescriptionDict.Add(714, "");
-                    //actionDescriptionDict.Add(715, "");
-                    //actionDescriptionDict.Add(716, "");
-                    //actionDescriptionDict.Add(717, "");
+                    actionDescriptionDict.Add(703, "Start at main finished with error!");
+                    actionDescriptionDict.Add(704, "Start motors and program finished with error!");
+                    actionDescriptionDict.Add(705, "Stop movement finished with error!");
+                    actionDescriptionDict.Add(706, "Stop movement and program finished with error!");
+                    actionDescriptionDict.Add(707, "Start movement finished with error!");
+
 
 
                 }

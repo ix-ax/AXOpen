@@ -43,8 +43,7 @@ scripts:
   postbuild:
     - apax ixc
   watch:
-    - dotnet watch --project
-      ..\\app\\ix-blazor\\AXOpen.Io.blazorapp.csproj
+    - dotnet watch --project ..\\app\\ix-blazor\\AXOpen.Io.blazorapp.csproj
   fr:
     - ..\\..\\integrations\\scripts\\StartPlcSimAdvCli.exe
     - apax rr
@@ -68,12 +67,10 @@ scripts:
 dependencies:
   "@ix-ax/axopen.components.abstractions": '0.0.0-dev.0'
   "@ix-ax/axopen.components.drives": '0.0.0-dev.0'
-  "@ix-ax/axopen.timers": '0.0.0-dev.0'
-  "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
-  "@ix-ax/axopen.core": '0.0.0-dev.0'
   "@ix-ax/axopen.io": '0.0.0-dev.0'
   "@ax/system-bitaccess": ^6.0.94
   "@ax/system-math": ^6.0.94
   "@ax/system-strings": ^6.0.94
+  "@ax/simatic-1500-distributedio": ^6.0.3
 installStrategy: strict
 apaxVersion: 3.1.0

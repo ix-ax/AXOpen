@@ -11,7 +11,6 @@
     <ProjectReference Include="..\..\..\base\src\AXOpen.Logging\AXOpen.Logging.Serilog.csproj" />
     <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
     <ProjectReference Include="..\..\..\data\src\repositories\Json\AXOpen.Data.Json.csproj" />
-    <ProjectReference Include="..\..\..\io\src\AXOpen.Io.blazor\AXOpen.Io.blazor.csproj" />
     <ProjectReference Include="..\..\..\security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj" />
     <ProjectReference Include="..\..\src\AXOpen.Components.Desoutter.Tightening.blazor\AXOpen.Components.Desoutter.Tightening.blazor.csproj" />
     <ProjectReference Include="..\ix\app_axopen_components_desoutter_tightening.csproj" />

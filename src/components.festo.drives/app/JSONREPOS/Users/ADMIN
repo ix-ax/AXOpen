@@ -1,11 +1,11 @@
 {
   "Group": "AdminGroup",
-  "GroupHash": "AQAAAAIAAYagAAAAEI9pQwC1g87wL1u06WcSDSIz05TWuBDfK8z+Fjk9oVs3gyKu5Z0Pa+1r4er/8w6kBw==",
+  "GroupHash": "AQAAAAIAAYagAAAAEHekatlldSJu5I12rpMp1BzTWG19DJDaYaa3NCLpDGWDzsNj1Mv29A9UeU99JE7riw==",
   "CanUserChangePassword": false,
   "RecordId": null,
   "DataEntityId": "ADMIN",
   "Created": "2023-12-06T19:10:35.9092885+01:00",
-  "Modified": "2023-12-15T08:53:48.0806334+01:00",
+  "Modified": "2024-01-25T13:26:38.74801+01:00",
   "Id": "27075291-0d6d-4a5a-9691-fb8b24e72966",
   "UserName": "admin",
   "NormalizedUserName": "ADMIN",

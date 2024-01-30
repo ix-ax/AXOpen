@@ -41,11 +41,11 @@
 
   <ItemGroup>
 	<FrameworkReference Include="Microsoft.AspNetCore.App" />  
-	<PackageReference Include="AXSharp.Presentation.Blazor"/>
-    <PackageReference Include="AXSharp.Presentation.Blazor.Controls"/>
-    <PackageReference Include="Humanizer"/>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web"/>
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client"/>
+	<PackageReference Include="AXSharp.Presentation.Blazor" />
+    <PackageReference Include="AXSharp.Presentation.Blazor.Controls" />
+    <PackageReference Include="Humanizer" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" />
 	  
   </ItemGroup>
 
@@ -62,6 +62,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
+    <ProjectReference Include="..\..\..\io\src\AXOpen.Io.blazor\AXOpen.Io.blazor.csproj" />
     <ProjectReference Include="..\AXOpen.Components.Festo.Drives\ix_ax_axopen_components_festo_drives.csproj" />
   </ItemGroup>
 </Project>

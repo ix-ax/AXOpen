@@ -15,6 +15,7 @@
             Scale = scale;
             Roles = roles;
             Background = background;
+            PresentationTemplate = presentationTemplate;
         }
 
         public string Id { get; set; }
@@ -27,6 +28,7 @@
         public int ZIndex { get; set; } = 0;
         public double Scale { get; set; } = 1;
         public string Roles { get; set; } = "";
+        public string PresentationTemplate { get; set; } = "";
         public bool Background { get; set; } = false;
     }
 }
