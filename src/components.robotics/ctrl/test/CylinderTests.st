@@ -1,4 +1,4 @@
-USING AXOpen.Components.Example;
+USING AXOpen.Components.Robotics;
 USING AXOpen.Core;
 USING AXOpen.Rtc;
 USING AXOpen.Logging;

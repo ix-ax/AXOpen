@@ -3,12 +3,14 @@ USING AXOpen.Core;
 CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
     //<ComponentDeclaration>
     VAR PUBLIC                
-        testInsight : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight;            
+        Insight_7600 : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight;            
     END_VAR
     //</ComponentDeclaration>                          
 
     //<InitializationArgumentsDeclaration>
     VAR PUBLIC              
+        {#ix-set:AttributeName = "<#Call#>"}
+        Call : BOOL;         
         {#ix-set:AttributeName = "<#Activate manual control#>"}
         ActivateManualControl : BOOL;         
         PlcInputs : REF_TO PlcInputs;
@@ -20,17 +22,21 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         VAR_INPUT
             parent : IAxoContext;
         END_VAR    
-
+        IF NOT Call THEN
+            RETURN;
+        END_IF;
+        
         THIS.Initialize(parent);
 
         IF ActivateManualControl THEN
             //<InsightManualControl>
-            testInsight.ActivateManualControl();
+            Insight_7600.ActivateManualControl();
             //</InsightManualControl>
         END_IF;
 
+        // RETURN;
         //<Initialization>        
-        testInsight.Run(parent              :=  THIS,  
+        Insight_7600.Run(parent              :=  THIS,  
                     hwID                    :=  HwIdentifiers#_7600,
                     refAcquisitionControl   :=  REF(PlcOutputs^._7600_Acquisition_Control_1),
                     refAcquisitionStatus    :=  REF(PlcInputs^._7600_Acquisition_Status_1),
@@ -63,30 +69,30 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         Sequencer.Open();
 
         IF(Steps[0].Execute(Sequencer, 'Change job')) THEN
-            IF(testInsight.ChangeJob('jobname.job').IsDone()) THEN                
+            IF(Insight_7600.ChangeJob('jobname.job').IsDone()) THEN                
                 Sequencer.MoveNext();                
             END_IF;    
         END_IF;
 
         IF(Steps[1].Execute(Sequencer, 'Trigger')) THEN
-            IF(testInsight.Trigger().IsDone()) THEN                
+            IF(Insight_7600.Trigger().IsDone()) THEN                
                 Sequencer.MoveNext();                
             END_IF;    
         END_IF;       
 
         IF(Steps[2].Execute(Sequencer, 'Evaluate inspection results')) THEN
-            _InspectionResults := testInsight.InspectionResults;
+            _InspectionResults := Insight_7600.InspectionResults;
             Sequencer.MoveNext();                
         END_IF;       
 
         IF(Steps[3].Execute(Sequencer, 'Clear inspaction results')) THEN
-            IF(testInsight.ClearInspectionResults().IsDone()) THEN                
+            IF(Insight_7600.ClearInspectionResults().IsDone()) THEN                
                 Sequencer.MoveNext();                
             END_IF;    
         END_IF;     
 
         IF(Steps[4].Execute(Sequencer, 'Soft event')) THEN
-            IF(testInsight.SoftEvent(UINT#5).IsDone()) THEN                
+            IF(Insight_7600.SoftEvent(UINT#5).IsDone()) THEN                
                 Sequencer.CompleteSequence();                
             END_IF;    
         END_IF;     

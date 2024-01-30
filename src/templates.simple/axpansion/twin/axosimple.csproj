@@ -71,5 +71,9 @@
 	  <ProjectReference Include="..\..\..\components.drives\src\AXOpen.Components.Drives\ix_ax_axopen_components_drives.csproj" />
 	  <ProjectReference Include="..\..\..\components.rexroth.drives\src\AXOpen.Components.Rexroth.Drives\ix_ax_axopen_components_rexroth_drives.csproj" />
 	  <ProjectReference Include="..\..\..\components.festo.drives\src\AXOpen.Components.Festo.Drives\ix_ax_axopen_components_festo_drives.csproj" />
+	  <ProjectReference Include="..\..\..\components.rexroth.press\src\AXOpen.Components.Rexroth.Press\ix_ax_axopen_components_rexroth_press.csproj" />
+	  <ProjectReference Include="..\..\..\components.abb.robotics\src\AXOpen.Components.Abb.Robotics\ix_ax_axopen_components_abb_robotics.csproj" />
+	  <ProjectReference Include="..\..\..\components.mitsubishi.robotics\src\AXOpen.Components.Mitsubishi.Robotics\ix_ax_axopen_components_mitsubishi_robotics.csproj" />
+	  <ProjectReference Include="..\..\..\components.ur.robotics\src\AXOpen.Components.Ur.Robotics\ix_ax_axopen_components_ur_robotics.csproj" />
 	</ItemGroup>
 </Project>

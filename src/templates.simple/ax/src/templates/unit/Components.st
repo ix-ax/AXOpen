@@ -191,12 +191,12 @@ NAMESPACE axosimple.UnitTemplate
                             EnablePositive      :=  _enablePositive,
                             EnableNegative      :=  _enableNegative);
 
-            RobotA1.Run(    parent              :=  THIS,
+            Robot_A1.Run(    parent              :=  THIS,
                             hwID                :=  HwIdentifiers#Robot_A1,
                             hwIdDI_64_bytes     :=  HwIdentifiers#Robot_A1_DI_64_bytes,      
                             hwIdDO_64_bytes     :=  HwIdentifiers#Robot_A1_DO_64_bytes);   
 
-            RobotA2.Run(    parent              :=  THIS,
+            Robot_A2.Run(    parent              :=  THIS,
                             hwID                :=  HwIdentifiers#Robot_A2,
                             hwIdDI_64_bytes     :=  HwIdentifiers#Robot_A2_DI_64_bytes,      
                             hwIdDO_64_bytes     :=  HwIdentifiers#Robot_A2_DO_64_bytes);   

@@ -1,9 +1,9 @@
 USING AXOpen.Core;
 {S7.extern=ReadWrite}
-CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
+CLASS Component_3 EXTENDS AXOpen.Core.AxoObject
     //<ComponentDeclaration>
     VAR PUBLIC                
-        Dataman_280 : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman;     
+        Dataman_300 : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman;     
     END_VAR
     //</ComponentDeclaration>                          
 
@@ -25,21 +25,21 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
 
         IF ActivateManualControl THEN
             //<DatamanManualControl>
-            Dataman_280.ActivateManualControl();
+            Dataman_300.ActivateManualControl();
             //</DatamanManualControl>
         END_IF;
 
         //<Initialization>        
-        Dataman_280.Run(parent                     :=  THIS,  
-                        hwID                       :=  HwIdentifiers#_10a1,
-                        refAcquisitionControl      :=  REF(PlcOutputs^._10a1_Acquisition_Control_1),
-                        refAcquisitionStatus       :=  REF(PlcInputs^._10a1_Acquisition_Status_1),
-                        refResultsControl          :=  REF(PlcOutputs^._10a1_Results_Control_1),
-                        refResultsStatus           :=  REF(PlcInputs^._10a1_Results_Status_1),
-                        refSoftEventControl        :=  REF(PlcOutputs^._10a1_Soft_Event_Control_1),
-                        refSoftEventStatus         :=  REF(PlcInputs^._10a1_Soft_Event_Control_1),
-                        refResultData              :=  REF(PlcInputs^._10a1_Result_Data_128_bytes_1),
-                        refUserData                :=  REF(PlcOutputs^._10a1_User_Data_128_bytes_1));
+        Dataman_300.Run(parent                     :=  THIS,  
+                        hwID                       :=  HwIdentifiers#reader_st2,
+                        refAcquisitionControl      :=  REF(PlcOutputs^.reader_st2_Acquisition_Control_1),
+                        refAcquisitionStatus       :=  REF(PlcInputs^.reader_st2_Acquisition_Status_1),
+                        refResultsControl          :=  REF(PlcOutputs^.reader_st2_Results_Control_1),
+                        refResultsStatus           :=  REF(PlcInputs^.reader_st2_Results_Status_1),
+                        refSoftEventControl        :=  REF(PlcOutputs^.reader_st2_Soft_Event_Control_1),
+                        refSoftEventStatus         :=  REF(PlcInputs^.reader_st2_Soft_Event_Control_1),
+                        refResultData              :=  REF(PlcInputs^.reader_st2_Result_Data_64_bytes_1),
+                        refUserData                :=  REF(PlcOutputs^.reader_st2_User_Data_64_bytes_1));
         //</Initialization>
 
        THIS.UseInSequencer();
@@ -62,19 +62,19 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
 
         
         IF(Steps[0].Execute(Sequencer, 'Clear result data')) THEN
-            IF(Dataman_280.ClearResultData().IsDone()) THEN                
+            IF(Dataman_300.ClearResultData().IsDone()) THEN                
                 Sequencer.MoveNext();                
             END_IF;    
         END_IF;  
 
         IF(Steps[1].Execute(Sequencer, 'Change job')) THEN
-            IF(Dataman_280.Read().IsDone()) THEN                
+            IF(Dataman_300.Read().IsDone()) THEN                
                 Sequencer.MoveNext();                
             END_IF;    
         END_IF;
 
         IF(Steps[2].Execute(Sequencer, 'Evaluate data')) THEN
-            _ResultData := Dataman_280.ResultData;
+            _ResultData := Dataman_300.ResultData;
             Sequencer.MoveNext();                
         END_IF;       
   
