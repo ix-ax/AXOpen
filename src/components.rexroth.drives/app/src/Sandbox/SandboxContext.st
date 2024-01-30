@@ -36,7 +36,7 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     END_VAR
 
     METHOD PROTECTED OVERRIDE Main  
-        RETURN;
+        // RETURN;
 
         IF(_manualControl) THEN            
             IndraDrive.ActivateManualControl();

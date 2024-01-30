@@ -55,6 +55,34 @@ TYPE
 		Robot_A2_DI_64_bytes										:=	WORD#295,
 		Robot_A2_DO_64_bytes										:=	WORD#296,
 
+		Camera_1_Rack 												:=	WORD#300,
+		Camera_1 													:=	WORD#301,
+		Camera_1_Interface 											:=	WORD#302,
+		Camera_1_Interface_Port 									:=	WORD#303,
+		Camera_1_In_Sight_IS79XX_IS75XX_CC 							:=	WORD#304,
+		Camera_1_Inspection_Control 								:=	WORD#305,
+		Camera_1_Acquisition_Control 								:=	WORD#306,
+		Camera_1_Command_Control 									:=	WORD#307,
+		Camera_1_SoftEvent_Control 									:=	WORD#308,
+		Camera_1_Acquisition_Status 								:=	WORD#309,
+		Camera_1_Inspection_Status 									:=	WORD#310,
+		Camera_1_User_Data_64_bytes 								:=	WORD#311,
+		Camera_1_Results_64_bytes 									:=	WORD#312,
+
+		Camera_2_Rack 												:=	WORD#320,
+		Camera_2 													:=	WORD#321,
+		Camera_2_Interface 											:=	WORD#322,
+		Camera_2_Interface_Port 									:=	WORD#323,
+		Camera_2_In_Sight_IS79XX_IS75XX_CC 							:=	WORD#324,
+		Camera_2_Inspection_Control 								:=	WORD#325,
+		Camera_2_Acquisition_Control 								:=	WORD#326,
+		Camera_2_Command_Control 									:=	WORD#327,
+		Camera_2_SoftEvent_Control 									:=	WORD#328,
+		Camera_2_Acquisition_Status 								:=	WORD#329,
+		Camera_2_Inspection_Status 									:=	WORD#330,
+		Camera_2_User_Data_128_bytes 								:=	WORD#331,
+		Camera_2_Results_128_bytes 									:=	WORD#332,
+
 		NONE:= WORD#0
 	);
 END_TYPE

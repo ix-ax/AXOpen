@@ -128,29 +128,31 @@ NAMESPACE axosimple.UnitTemplate
             // refUserData                :=  REF(Outputs^.Reader_2_User_Data_128_bytes_1));
     
 
-            // Camera_1.Run(parent                  :=  THIS,  
-            // refAcquisitionStatus    :=  REF(Inputs^.Camera_1_Acquisition_Status_1),
-            // refInspectionStatus     :=  REF(Inputs^.Camera_1_Inspection_Status_1),
-            // refCommandStatus        :=  REF(Inputs^.Camera_1_Command_Control_1),
-            // refSoftEventStatus      :=  REF(Inputs^.Camera_1_SoftEvent_Control_1),
-            // refResultData           :=  REF(Inputs^.Camera_1_Results_64_bytes_1),
-            // refSoftEventControl     :=  REF(Outputs^.Camera_1_SoftEvent_Control_1),
-            // refCommandControl       :=  REF(Outputs^.Camera_1_Command_Control_1),
-            // refInspectionControl    :=  REF(Outputs^.Camera_1_Inspection_Control_1),
-            // refAcquisitionControl   :=  REF(Outputs^.Camera_1_Acquisition_Control_1),
-            // refUserData             :=  REF(Outputs^.Camera_1_User_Data_64_bytes_1));
+            Camera_1.Run(   parent                  :=  THIS,  
+                            ResultDataSize          :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_ResultDataSize#RESULT_DATA_64B,
+                            UserDataSize            :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_UserDataSize#USER_DATA_64B,
+                            hwID                    :=  HwIdentifiers#Camera_1,
+                            hwIdAcquisitionControl  :=  HwIdentifiers#Camera_1_Acquisition_Control,
+                            hwIdAcquisitionStatus   :=  HwIdentifiers#Camera_1_Acquisition_Status,
+                            hwIdInspectionControl   :=  HwIdentifiers#Camera_1_Inspection_Control,
+                            hwIdInspectionStatus    :=  HwIdentifiers#Camera_1_Inspection_Status,
+                            hwIdCommandControl      :=  HwIdentifiers#Camera_1_Command_Control,
+                            hwIdSoftEventControl    :=  HwIdentifiers#Camera_1_SoftEvent_Control,
+                            hwIdResultData          :=  HwIdentifiers#Camera_1_Results_64_bytes,
+                            hwIdUserData            :=  HwIdentifiers#Camera_1_User_Data_64_bytes);
 
-            // Camera_2.Run(parent                  :=  THIS,  
-            // refAcquisitionStatus    :=  REF(Inputs^.Camera_2_Acquisition_Status_1),
-            // refInspectionStatus     :=  REF(Inputs^.Camera_2_Inspection_Status_1),
-            // refCommandStatus        :=  REF(Inputs^.Camera_2_Command_Control_1),
-            // refSoftEventStatus      :=  REF(Inputs^.Camera_2_SoftEvent_Control_1),
-            // refResultData           :=  REF(Inputs^.Camera_2_Results_64_bytes_1),
-            // refSoftEventControl     :=  REF(Outputs^.Camera_2_SoftEvent_Control_1),
-            // refCommandControl       :=  REF(Outputs^.Camera_2_Command_Control_1),
-            // refInspectionControl    :=  REF(Outputs^.Camera_2_Inspection_Control_1),
-            // refAcquisitionControl   :=  REF(Outputs^.Camera_2_Acquisition_Control_1),
-            // refUserData             :=  REF(Outputs^.Camera_2_User_Data_64_bytes_1));
+            Camera_2.Run(   parent                  :=  THIS,  
+                            ResultDataSize          :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_ResultDataSize#RESULT_DATA_128B,
+                            UserDataSize            :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_UserDataSize#USER_DATA_128B,
+                            hwID                    :=  HwIdentifiers#Camera_2,
+                            hwIdAcquisitionControl  :=  HwIdentifiers#Camera_2_Acquisition_Control,
+                            hwIdAcquisitionStatus   :=  HwIdentifiers#Camera_2_Acquisition_Status,
+                            hwIdInspectionControl   :=  HwIdentifiers#Camera_2_Inspection_Control,
+                            hwIdInspectionStatus    :=  HwIdentifiers#Camera_2_Inspection_Status,
+                            hwIdCommandControl      :=  HwIdentifiers#Camera_2_Command_Control,
+                            hwIdSoftEventControl    :=  HwIdentifiers#Camera_2_SoftEvent_Control,
+                            hwIdResultData          :=  HwIdentifiers#Camera_2_Results_128_bytes,
+                            hwIdUserData            :=  HwIdentifiers#Camera_2_User_Data_128_bytes);
 
 
             Drive_R1.Run(   parent              :=  THIS,
