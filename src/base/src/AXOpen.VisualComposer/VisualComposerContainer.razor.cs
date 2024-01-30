@@ -159,8 +159,8 @@ namespace AXOpen.VisualComposer
                         {
                             UniqueGuid = Guid.NewGuid(),
                             TwinElement = childObject,
-                            Left = item.Left,
-                            Top = item.Top,
+                            _left = item.Left,
+                            _top = item.Top,
                             _transform = Types.TransformType.FromString(item.Transform),
                             _presentation = item.Presentation,
                             _width = item.Width,
@@ -168,8 +168,8 @@ namespace AXOpen.VisualComposer
                             _zIndex = item.ZIndex,
                             _scale = item.Scale,
                             Roles = item.Roles,
-                            _background = item.Background,
-                            _presentationTemplate = item.PresentationTemplate
+                            _presentationTemplate = item.PresentationTemplate,
+                            _background = item.Background
                         });
                     }
                 }

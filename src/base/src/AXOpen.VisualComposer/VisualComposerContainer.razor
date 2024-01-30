@@ -6,7 +6,7 @@
     <AuthorizeView Roles="Administrator">
        
         <Authorized>
-                <i class="bi bi-tools" @onclick="ToggleInDesignMode"></i>
+                <a class="text-decoration-none text-black" style="cursor: pointer;" @onclick="ToggleInDesignMode"><span class="bi bi-tools fs-5" aria-hidden="true" title="Design mode" /></a>
                 @if (InDesignMode)
                 {
                     <div class="d-flex justify-content-end my-2">
@@ -197,8 +197,8 @@
                                         {
                                             <li class="list-group-item d-flex">
                                                 <p class="mb-0">@item.file</p>
-                                                <a class="ms-2 text-decoration-none text-black" style="cursor: pointer;" @onclick="() => ClearScaleAndTranslate(item.file)"><span class="bi bi-arrow-clockwise fs-5" aria-hidden="true" /></a>
-                                                <a class="ms-2 text-decoration-none text-black" style="cursor: pointer;" @onclick="() => Remove(item.file)"><span class="bi bi-trash fs-5" aria-hidden="true" /></a>
+                                                <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => ClearScaleAndTranslate(item.file)"><span class="bi bi-arrow-clockwise fs-5" aria-hidden="true" title="Clear"/></a>
+                                                <a class="ms-2 text-decoration-none text-black" style="cursor: pointer;" @onclick="() => Remove(item.file)"><span class="bi bi-trash fs-5" aria-hidden="true" title="Remove" /></a>
                                             </li>
                                         }
                                     </ul>

@@ -50,7 +50,8 @@ namespace AXOpen.VisualComposer
                 _zIndex = value.ZIndex;
                 _scale = value.Scale;
                 Roles = value.Roles;
-                PresentationTemplate = value.PresentationTemplate;
+                _presentationTemplate = value.PresentationTemplate;
+                _background = value.Background;
                 Id = value.TwinElement?.Symbol.ModalIdHelper();
             }
         }
@@ -87,25 +88,27 @@ namespace AXOpen.VisualComposer
             set => _uniqueGuid = value;
         }
 
-        public double Left { get; set; } = 10;
-        public double Top { get; set; } = 10;
-
-        internal double ratioImgX = 10;
-        internal double ratioImgY = 10;
-
-
-        public double PosX
+        internal double _left { get; set; } = 10;
+        public double Left
         {
-            get { return ratioImgX; }
-            set { ratioImgX = value; StateHasChanged(); }
+            get => _left;
+            set
+            {
+                _left = value;
+                StateHasChanged();
+            }
         }
 
-        public double PosY
+        internal double _top { get; set; } = 10;
+        public double Top
         {
-            get { return ratioImgY; }
-            set { ratioImgY = value; StateHasChanged(); }
+            get => _top;
+            set
+            {
+                _top = value;
+                StateHasChanged();
+            }
         }
-
         
         internal TransformType _transform = TransformType.TopCenter;
         public TransformType Transform
@@ -138,6 +141,7 @@ namespace AXOpen.VisualComposer
             }
         }
 
+        private bool _customPresentation = false;
         public bool CustomPresentation
         {
             get => _customPresentation;
@@ -190,6 +194,19 @@ namespace AXOpen.VisualComposer
 
         public string Roles = "";
 
+        internal string? _presentationTemplate;
+        public string? PresentationTemplate
+        {
+            get => _presentationTemplate;
+            set
+            {
+                if (_presentationTemplate != value)
+                {
+                    _presentationTemplate = value;
+                    StateHasChanged();
+                }
+            }
+        }
 
         public bool _background = false;
         public bool Background
@@ -207,22 +224,6 @@ namespace AXOpen.VisualComposer
         private IJSRuntime _js;
         private ITwinElement? _twinElement;
         private Guid? _uniqueGuid = null;
-        private bool _customPresentation = false;
-
-
-        internal string? _presentationTemplate;
-        public string? PresentationTemplate
-        {
-            get => _presentationTemplate;
-            set
-            {
-                if (_presentationTemplate != value)
-                {
-                    _presentationTemplate = value;
-                    StateHasChanged();
-                }
-            }
-        }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
