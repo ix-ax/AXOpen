@@ -14,14 +14,14 @@ PROGRAM MyProgram
     sandbox.Run();    
     sandbox.InjectRtc(_rtc);
     
-    documentation.componentOne.PlcInputs := REF(PlcInputs); 
-    documentation.componentOne.PlcOutputs := REF(PlcOutputs);
-    documentation.componentTwo.PlcInputs := REF(PlcInputs); 
-    documentation.componentTwo.PlcOutputs := REF(PlcOutputs);
-    documentation.componentThree.PlcInputs := REF(PlcInputs); 
-    documentation.componentThree.PlcOutputs := REF(PlcOutputs);
-    documentation.Run();
-    documentation.InjectRtc(_rtc);
+    // documentation.componentOne.PlcInputs := REF(PlcInputs); 
+    // documentation.componentOne.PlcOutputs := REF(PlcOutputs);
+    // documentation.componentTwo.PlcInputs := REF(PlcInputs); 
+    // documentation.componentTwo.PlcOutputs := REF(PlcOutputs);
+    // documentation.componentThree.PlcInputs := REF(PlcInputs); 
+    // documentation.componentThree.PlcOutputs := REF(PlcOutputs);
+    // documentation.Run();
+    // documentation.InjectRtc(_rtc);
 
 
     CopyOutputs();

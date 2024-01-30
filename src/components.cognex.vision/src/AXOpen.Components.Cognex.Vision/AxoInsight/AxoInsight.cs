@@ -56,7 +56,7 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 new KeyValuePair<ulong, AxoMessengerTextItem>(726, new AxoMessengerTextItem("Soft event was aborted, while not yet completed!",                             "Check the details.")),
             };
 
-            _Messenger.DotNetMessengerTextList = messengerTextList;
+            Messenger.DotNetMessengerTextList = messengerTextList;
         }
 
         private void InitializeTaskMessenger()
@@ -103,7 +103,7 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
 
             };
 
-            _TaskMessenger.DotNetMessengerTextList = messengerTextList;
+            TaskMessenger.DotNetMessengerTextList = messengerTextList;
         }
     }
 
@@ -175,6 +175,11 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     //errorDescriptionDict.Add(7, "");
                     //errorDescriptionDict.Add(7, "");
                     //errorDescriptionDict.Add(7, "");
+                    errorDescriptionDict.Add(800, "Clearing of the inspection results finished with error!");
+                    errorDescriptionDict.Add(810, "Reading finished with error!");
+                    errorDescriptionDict.Add(820, "Change job by name finished with error!");
+                    errorDescriptionDict.Add(840, "Change job by number finished with error!");
+                    errorDescriptionDict.Add(850, "Soft event finished with error!");
 
                 }
                 string errorDescription = "   ";
@@ -202,28 +207,60 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 if (actionDescriptionDict.Count == 0)
                 {
                     actionDescriptionDict.Add(0, "   ");
-                    actionDescriptionDict.Add(300, "Restore executed.");
-                    actionDescriptionDict.Add(301, "Clearing of the inspection results started.");
-                    actionDescriptionDict.Add(302, "Clearing of the inspection results running.");
+                    actionDescriptionDict.Add(300, "Clearing of the inspection results started.");
+                    actionDescriptionDict.Add(301, "Clearing of the inspection results running.");
+                    actionDescriptionDict.Add(302, "Clearing of the inspection results was completed successfully.");
                     actionDescriptionDict.Add(303, "Clearing of the inspection results was completed successfully.");
-                    actionDescriptionDict.Add(304, "Trigger started.");
-                    actionDescriptionDict.Add(305, "Trigger running.");
-                    actionDescriptionDict.Add(306, "Trigger was completed successfully.");
-                    actionDescriptionDict.Add(307, "Continous reading active: New data read.");
-                    actionDescriptionDict.Add(308, "Clearing of the inspection results restored.");
-                    actionDescriptionDict.Add(309, "Reading restored.");
-                    actionDescriptionDict.Add(310, "Change job by name started.");
-                    actionDescriptionDict.Add(311, "Change job by name running.");
-                    actionDescriptionDict.Add(312, "Change job by name was completed successfully.");
-                    actionDescriptionDict.Add(313, "Change job by name restored.");
-                    actionDescriptionDict.Add(314, "Change job by number started.");
-                    actionDescriptionDict.Add(315, "Change job by number running.");
-                    actionDescriptionDict.Add(316, "Change job by number was completed successfully.");
-                    actionDescriptionDict.Add(317, "Change job by number restored.");
-                    actionDescriptionDict.Add(318, "Soft event started.");
-                    actionDescriptionDict.Add(319, "Soft event running.");
-                    actionDescriptionDict.Add(320, "Soft event was completed successfully.");
-                    actionDescriptionDict.Add(321, "Soft event restored.");
+                    actionDescriptionDict.Add(309, "Clearing of the inspection results restored.");
+
+
+                    actionDescriptionDict.Add(310, "Trigger started.");
+                    actionDescriptionDict.Add(311, "Trigger running.");
+                    actionDescriptionDict.Add(312, "Trigger running.");
+                    actionDescriptionDict.Add(313, "Trigger running.");
+                    actionDescriptionDict.Add(314, "Trigger running.");
+                    actionDescriptionDict.Add(315, "Trigger running.");
+                    actionDescriptionDict.Add(316, "Trigger running.");
+                    actionDescriptionDict.Add(317, "Trigger running.");
+                    actionDescriptionDict.Add(318, "Trigger running.");
+                    actionDescriptionDict.Add(319, "Trigger was completed successfully.");
+                    actionDescriptionDict.Add(329, "Trigger was restored.");
+
+                    actionDescriptionDict.Add(330, "Change job by name started.");
+                    actionDescriptionDict.Add(331, "Change job by name running.");
+                    actionDescriptionDict.Add(332, "Change job by name running.");
+                    actionDescriptionDict.Add(333, "Change job by name running.");
+                    actionDescriptionDict.Add(334, "Change job by name running.");
+                    actionDescriptionDict.Add(335, "Change job by name running.");
+                    actionDescriptionDict.Add(336, "Change job by name running.");
+                    actionDescriptionDict.Add(337, "Change job by name running.");
+                    actionDescriptionDict.Add(338, "Change job by name running.");
+                    actionDescriptionDict.Add(339, "Change job by name running.");
+                    actionDescriptionDict.Add(340, "Change job by name was completed successfully.");
+                    actionDescriptionDict.Add(341, "Change job by name was completed successfully.");
+                    actionDescriptionDict.Add(349, "Change job by name was restored.");
+
+                    actionDescriptionDict.Add(350, "Change job by number started.");
+                    actionDescriptionDict.Add(351, "Change job by number running.");
+                    actionDescriptionDict.Add(352, "Change job by number running.");
+                    actionDescriptionDict.Add(353, "Change job by number running.");
+                    actionDescriptionDict.Add(354, "Change job by number running.");
+                    actionDescriptionDict.Add(355, "Change job by number running.");
+                    actionDescriptionDict.Add(356, "Change job by number running.");
+                    actionDescriptionDict.Add(357, "Change job by number was completed successfully.");
+                    actionDescriptionDict.Add(358, "Change job by number was completed successfully.");
+
+                    actionDescriptionDict.Add(360, "Change job by number was restored.");
+
+                    actionDescriptionDict.Add(370, "Soft event started.");
+                    actionDescriptionDict.Add(371, "Soft event running.");
+                    actionDescriptionDict.Add(372, "Soft event running.");
+                    actionDescriptionDict.Add(373, "Soft event running.");
+                    actionDescriptionDict.Add(374, "Soft event running.");
+                    actionDescriptionDict.Add(375, "Soft event was completed successfully.");
+                    actionDescriptionDict.Add(376, "Soft event was completed successfully.");
+
+                    actionDescriptionDict.Add(379, "Soft event was restored.");
 
 
                     actionDescriptionDict.Add(600, "Clearing of the inspection results was aborted, while not yet completed!");
@@ -239,11 +276,11 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     //actionDescriptionDict.Add(6, "");
 
 
-                    actionDescriptionDict.Add(700, "Clearing of the inspection results finished with error!");
-                    actionDescriptionDict.Add(701, "Reading finished with error!");
-                    actionDescriptionDict.Add(702, "Change job by name finished with error!");
-                    actionDescriptionDict.Add(703, "Change job by number finished with error!");
-                    actionDescriptionDict.Add(704, "Soft event finished with error!");
+                    actionDescriptionDict.Add(800, "Clearing of the inspection results finished with error!");
+                    actionDescriptionDict.Add(810, "Reading finished with error!");
+                    actionDescriptionDict.Add(830, "Change job by name finished with error!");
+                    actionDescriptionDict.Add(850, "Change job by number finished with error!");
+                    actionDescriptionDict.Add(870, "Soft event finished with error!");
                     //actionDescriptionDict.Add(705, "");
                     //actionDescriptionDict.Add(706, "");
                     //actionDescriptionDict.Add(706, "");
