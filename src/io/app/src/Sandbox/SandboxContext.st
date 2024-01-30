@@ -2,7 +2,7 @@
 CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
         _manualControl : BOOL;
-        _hwID   : UINT;
+        _hwID   : WORD;
         _testComponent : AXOpen.Io.AxoIoComponent;
     END_VAR    
 

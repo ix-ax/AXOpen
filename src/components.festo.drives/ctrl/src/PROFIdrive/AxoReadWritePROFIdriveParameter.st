@@ -664,5 +664,52 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Enable_PV := Inputs.Enable;
 
         END_METHOD
+    
+        METHOD PUBLIC Restore
+            VAR
+                i : INT;
+            END_VAR
+
+            State := 0;
+            ReqRef := BYTE#1;
+            Outputs.Done := FALSE;
+            Outputs.Busy := FALSE;
+            Outputs.Error := FALSE;
+            Outputs.ErrorId := DWORD#16#00000000;
+            Outputs.ValueReadBOOL := FALSE;
+            Outputs.ValueReadLINT := 0;
+            Outputs.ValueReadREAL := 0;
+            RD_Status := DWORD#0;
+            ErrorCounter := UINT#0;
+            Enable_PV      := FALSE;
+            Busy_	:= FALSE;
+            Done_	:= FALSE;
+            Error_	:= FALSE;
+            ErrorId_:= FALSE;
+            StartTimer := FALSE;
+            StartRW := FALSE;
+
+            AxoOnDelatTimer.OnDelay(THIS, FALSE,T#0MS);
+            FOR i := 0 TO 9 DO
+                RW_Data[i] := BYTE#0;
+            END_FOR;
+            FOR i := 0 TO 19 DO
+                WR_Data[i] := BYTE#0;
+            END_FOR;
+            FOR i := 0 TO 13 DO
+                RD_Data[i] := BYTE#0;
+            END_FOR;
+
+            RW_Status        :=	DWORD#0;
+            WR_Status        :=	DWORD#0;
+            RD_Status        :=	DWORD#0;
+
+            ReadRecord_(request    :=  FALSE, record      :=  RW_Data);
+            WriteRecord_(request    :=  FALSE, record      :=  RW_Data);
+            ErrorCounter    :=	UINT#0;
+
+            LengthRead      :=	UINT#0;
+            wordhlp         :=   WORD#0;
+        END_METHOD
     END_CLASS
 END_NAMESPACE

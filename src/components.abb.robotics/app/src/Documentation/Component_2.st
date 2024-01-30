@@ -30,7 +30,7 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
 
         //<Initialization>        
         ExampleRobot.Run(   parent      := THIS,
-                            hwID        := TO_UINT(HwIdentifiers#OmniCore),
+                            hwID        := HwIdentifiers#OmniCore,
                             refInputs   := REF(PlcInputs^.OmniCore_DI_64_bytes_1),      
                             refOutputs  := REF(PlcOutputs^.OmniCore_DO_64_bytes_1));        
         //</Initialization>

@@ -98,7 +98,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
         METHOD PUBLIC Run
             VAR_INPUT
                 parent : IAxoObject;
-                hwID            :   UINT;
+                hwID            :   WORD;
                 refInputs       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the robot
                 refOutputs      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the robot
             END_VAR
@@ -121,7 +121,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
         METHOD PUBLIC Run 
             VAR_INPUT
                 parent          :   IAxoContext;
-                hwID            :   UINT;
+                hwID            :   WORD;
                 refInputs       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the robot
                 refOutputs      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the robot
             END_VAR
@@ -140,7 +140,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
 
         METHOD PRIVATE Execute 
             VAR_INPUT
-                hwID            :   UINT;
+                hwID            :   WORD;
                 refInputs       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the robot
                 refOutputs      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the robot
             END_VAR

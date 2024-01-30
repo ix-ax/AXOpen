@@ -131,7 +131,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
         METHOD PUBLIC Run
             VAR_INPUT
                 parent                  :   IAxoObject; 
-                hwID                    :   UINT;
+                hwID                    :   WORD;
                 refStatus               :   REF_TO BYTE;
                 refActScrewingProgram   :   REF_TO BYTE;
                 refTorque               :   REF_TO DWORD;
@@ -161,7 +161,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
         METHOD PUBLIC Run
             VAR_INPUT
                 parent                  :   IAxoContext; 
-                hwID                    :   UINT;
+                hwID                    :   WORD;
                 refStatus               :   REF_TO BYTE;
                 refActScrewingProgram   :   REF_TO BYTE;
                 refTorque               :   REF_TO DWORD;
@@ -185,7 +185,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
 
         METHOD PRIVATE Execute
             VAR_INPUT
-                hwID                    :   UINT;
+                hwID                    :   WORD;
                 refStatus               :   REF_TO BYTE;
                 refActScrewingProgram   :   REF_TO BYTE;
                 refTorque               :   REF_TO DWORD;

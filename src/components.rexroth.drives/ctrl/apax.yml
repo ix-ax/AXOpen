@@ -71,5 +71,6 @@ dependencies:
   "@ax/system-bitaccess": ^6.0.94
   "@ax/system-math": ^6.0.94
   "@ax/system-strings": ^6.0.94
+  "@ax/simatic-1500-distributedio": ^6.0.3
 installStrategy: strict
 apaxVersion: 3.1.0

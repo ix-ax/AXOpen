@@ -33,7 +33,7 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
 
         //<Initialization>        
         ExampleRobot.Run(   parent                                                  := THIS,
-                            hwID                                                    := TO_UINT(HwIdentifiers#URIODev1),
+                            hwID                                                    := HwIdentifiers#URIODev1,
                             refAxoUrRobotics_T2O_State                              := REF(PlcInputs^.URIODev1_1_T2O_State_1),
                             refAxoUrRobotics_T2O_IO                                 := REF(PlcInputs^.URIODev1_2_T2O_IO_1),
                             refAxoUrRobotics_T2O_Joints                             := REF(PlcInputs^.URIODev1_3_T2O_Joints_1),

@@ -8,7 +8,7 @@
     #region WriteTaskDurationToConsole
     private async Task WriteTaskTimesToConsole()
     {
-        await Entry.Plc.documentation.componentOne.AxoIndraDrive_.WriteTaskDurationToConsole();
+        await Entry.Plc.documentation.componentOne.IndraDrive.WriteTaskDurationToConsole();
     }
     #endregion
 
@@ -21,20 +21,20 @@
 <RenderableContentControl Context="@Entry.Plc.documentation.componentOne" Presentation="Command-Control" />
 @* 
 <!-- <GenericComponentStatusView> -->
- <AxoComponentStatusView Component="@Entry.Plc.documentation.componentOne.AxoIndraDrive_" /> 
+ <AxoComponentStatusView Component="@Entry.Plc.documentation.componentOne.IndraDrive" /> 
 <!-- </GenericComponentStatusView> -->
 
 <!-- <GenericComponentCommandView> -->
- <AxoComponentCommandView Component="@Entry.Plc.documentation.componentOne.AxoIndraDrive_" />
+ <AxoComponentCommandView Component="@Entry.Plc.documentation.componentOne.IndraDrive" />
 <!-- </GenericComponentCommandView> -->
 
 <!-- <RccComponentStatusView> -->
- <RenderableContentControl Context="@Entry.Plc.documentation.componentOne.AxoIndraDrive_" Presentation="Status-Display" />
+ <RenderableContentControl Context="@Entry.Plc.documentation.componentOne.IndraDrive" Presentation="Status-Display" />
 <!-- </RccComponentStatusView> -->
 
 
 <!-- <RccComponentCommandView> -->
-<RenderableContentControl Context="@Entry.Plc.documentation.componentOne.AxoIndraDrive_" Presentation="Command-Control" />
+<RenderableContentControl Context="@Entry.Plc.documentation.componentOne.IndraDrive" Presentation="Command-Control" />
 <!-- </RccComponentCommandView> -->
 
  *@
