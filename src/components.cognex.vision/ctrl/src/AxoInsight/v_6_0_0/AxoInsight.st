@@ -437,7 +437,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             END_VAR
 
 
-            IF _context_ = null THEN 
+            // IF _context_ = null THEN 
                 _Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
                 IF parent = NULL THEN
                     Status.Error.Id := UINT#700;
@@ -452,7 +452,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 ChangeJobByNumberTask.Initialize(THIS);
                 SoftEventTask.Initialize(THIS);
                 HardwareDiagnosticsTask.Initialize(THIS);
-            END_IF;
+            // END_IF;
 
             IF NOT THIS.IsValidReferences(refAcquisitionControl,refAcquisitionStatus,refInspectionControl,refInspectionStatus,refCommandControl,refCommandStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData) THEN
                 RETURN;
@@ -482,7 +482,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 refUserData            :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR
            
-            IF _context_ = null THEN 
+            // IF _context_ = null THEN 
                 _Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
                 IF parent = NULL THEN
                     Status.Error.Id := UINT#700;
@@ -496,7 +496,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 ChangeJobByNameTask.Initialize(THIS);
                 ChangeJobByNumberTask.Initialize(THIS);
                 SoftEventTask.Initialize(THIS);
-            END_IF;
+            // END_IF;
 
             IF NOT THIS.IsValidReferences(refAcquisitionControl,refAcquisitionStatus,refInspectionControl,refInspectionStatus,refCommandControl,refCommandStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData) THEN
                 RETURN;

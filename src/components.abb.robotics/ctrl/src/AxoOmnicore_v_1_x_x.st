@@ -121,9 +121,9 @@ NAMESPACE AXOpen.Components.Abb.Robotics
         METHOD PUBLIC Run
             VAR_INPUT
                 parent : IAxoObject;
-                hwID            :   WORD;
-                refInputs       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the robot
-                refOutputs      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the robot
+                hwID            :   WORD;   
+                hwIdDI_64_bytes :   WORD;   //  Hardware Id of the input data of the robot
+                hwIdDO_64_bytes :   WORD;   //  Hardware Id of the output data of the robot
             END_VAR
 
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
@@ -134,7 +134,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             END_IF;
 
             THIS.Initialize(parent);
-            THIS.Execute(hwID,refInputs,refOutputs);
+            THIS.Execute(hwID,hwIdDI_64_bytes,hwIdDO_64_bytes);
         END_METHOD
 
         ///<summary>
@@ -144,9 +144,9 @@ NAMESPACE AXOpen.Components.Abb.Robotics
         METHOD PUBLIC Run 
             VAR_INPUT
                 parent          :   IAxoContext;
-                hwID            :   WORD;
-                refInputs       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the robot
-                refOutputs      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the robot
+                hwID            :   WORD;   
+                hwIdDI_64_bytes :   WORD;   //  Hardware Id of the input data of the robot
+                hwIdDO_64_bytes :   WORD;   //  Hardware Id of the output data of the robot
             END_VAR
 
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
@@ -157,143 +157,152 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             END_IF;
 
             THIS.Initialize(parent);
-            THIS.Execute(hwID,refInputs,refOutputs);
-
+            THIS.Execute(hwID,hwIdDI_64_bytes,hwIdDO_64_bytes);
         END_METHOD
 
         METHOD PRIVATE Execute 
             VAR_INPUT
                 hwID            :   WORD;
-                refInputs       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the robot
-                refOutputs      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the robot
+                hwIdDI_64_bytes :   WORD;   //  Hardware Id of the input data of the robot
+                hwIdDO_64_bytes :   WORD;   //  Hardware Id of the output data of the robot
             END_VAR
             VAR 
                 _dword: DWORD;
+                _data : ARRAY[0..63] OF BYTE; 
+                returnValue : WORD;
             END_VAR
 
-            Messenger.ActivateOnCondition(ULINT#701,refInputs       = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#702,refOutputs      = NULL, eAxoMessageCategory#ProgrammingError);
-            IF refInputs        = NULL THEN
+            Messenger.ActivateOnCondition(ULINT#701,hwIdDI_64_bytes = WORD#0, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#702,hwIdDO_64_bytes = WORD#0, eAxoMessageCategory#ProgrammingError);
+            IF hwIdDI_64_bytes = WORD#0 THEN
                 RobotStatus.Error.Id := UINT#701;
                 RETURN;
-            ELSIF refOutputs        = NULL THEN
+            ELSIF hwIdDO_64_bytes = WORD#0 THEN
                 RobotStatus.Error.Id := UINT#702;
                 RETURN;
             END_IF;
 
             THIS.Open();
+
+            returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(hwIdDI_64_bytes ,_data);
+            Messenger.ActivateOnCondition(ULINT#827,returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
+            IF returnValue > WORD#0 THEN
+                RobotStatus.Error.Id := UINT#827;
+                RETURN;
+            END_IF;
+
             //***********UPDATE**INPUTS******************
             //SYSTEM INPUTS
-            Inputs.AutoOn                   := refInputs^       [0].%X0;
-            Inputs.CycleOn                  := refInputs^       [0].%X1;
-            Inputs.EmgStop                  := refInputs^       [0].%X2;
-            Inputs.Error                    := refInputs^       [0].%X3;
-            Inputs.MoveActive               := refInputs^       [0].%X4;
-            Inputs.MoveInactive             := refInputs^       [0].%X5;
-            Inputs.MotorOff                 := refInputs^       [0].%X6;
-            Inputs.MotorOn                  := refInputs^       [0].%X7;
+            Inputs.AutoOn                   := _data[0].%X0;
+            Inputs.CycleOn                  := _data[0].%X1;
+            Inputs.EmgStop                  := _data[0].%X2;
+            Inputs.Error                    := _data[0].%X3;
+            Inputs.MoveActive               := _data[0].%X4;
+            Inputs.MoveInactive             := _data[0].%X5;
+            Inputs.MotorOff                 := _data[0].%X6;
+            Inputs.MotorOn                  := _data[0].%X7;
 
-            Inputs.MotorOffState            := refInputs^       [1].%X0;
-            Inputs.MotorOnState             := refInputs^       [1].%X1;
-            Inputs.ProgExecError            := refInputs^       [1].%X2;
-            Inputs.SafetyOk                 := refInputs^       [1].%X3;
-            Inputs.SystemInputBusy          := refInputs^       [1].%X4;
-            Inputs.PpMoved                  := refInputs^       [1].%X5;
-            Inputs.MotionSupervision        := refInputs^       [1].%X6;
-            Inputs.BatteryLow               := refInputs^       [1].%X7;
+            Inputs.MotorOffState            := _data[1].%X0;
+            Inputs.MotorOnState             := _data[1].%X1;
+            Inputs.ProgExecError            := _data[1].%X2;
+            Inputs.SafetyOk                 := _data[1].%X3;
+            Inputs.SystemInputBusy          := _data[1].%X4;
+            Inputs.PpMoved                  := _data[1].%X5;
+            Inputs.MotionSupervision        := _data[1].%X6;
+            Inputs.BatteryLow               := _data[1].%X7;
 
             //Area/positions flags this  should be obsolete because Zones and InPosition is used as byte below
-            Inputs.InArea_1                 := refInputs^       [2].%X0;
-            Inputs.InArea_2                 := refInputs^       [2].%X1;
-            Inputs.InArea_3                 := refInputs^       [2].%X2;
-            Inputs.InArea_4                 := refInputs^       [2].%X3;
-            Inputs.InPosition_1             := refInputs^       [2].%X4;
-            Inputs.InPosition_2             := refInputs^       [2].%X5;
-            Inputs.InPosition_3             := refInputs^       [2].%X6;
-            Inputs.InPosition_4             := refInputs^       [2].%X7;
+            Inputs.InArea_1                 := _data[2].%X0;
+            Inputs.InArea_2                 := _data[2].%X1;
+            Inputs.InArea_3                 := _data[2].%X2;
+            Inputs.InArea_4                 := _data[2].%X3;
+            Inputs.InPosition_1             := _data[2].%X4;
+            Inputs.InPosition_2             := _data[2].%X5;
+            Inputs.InPosition_3             := _data[2].%X6;
+            Inputs.InPosition_4             := _data[2].%X7;
 
             //Tool signals
-            Inputs.Tool_1_Retract           := refInputs^       [3].%X0;
-            Inputs.Tool_1_Extend            := refInputs^       [3].%X1;
-            Inputs.Tool_2_Retract           := refInputs^       [3].%X2;
-            Inputs.Tool_2_Extend            := refInputs^       [3].%X3;
-            Inputs.Tool_3_Retract           := refInputs^       [3].%X4;
-            Inputs.Tool_3_Extend            := refInputs^       [3].%X5;
-            Inputs.Tool_4_Retract           := refInputs^       [3].%X6;
-            Inputs.Tool_4_Extend            := refInputs^       [3].%X7;
+            Inputs.Tool_1_Retract           := _data[3].%X0;
+            Inputs.Tool_1_Extend            := _data[3].%X1;
+            Inputs.Tool_2_Retract           := _data[3].%X2;
+            Inputs.Tool_2_Extend            := _data[3].%X3;
+            Inputs.Tool_3_Retract           := _data[3].%X4;
+            Inputs.Tool_3_Extend            := _data[3].%X5;
+            Inputs.Tool_4_Retract           := _data[3].%X6;
+            Inputs.Tool_4_Extend            := _data[3].%X7;
 
             //Safety signals
-            Inputs.AutoStop_1               := refInputs^        [4].%X0;
-            Inputs.AutoStop_2               := refInputs^        [4].%X1;
-            Inputs.EmergencyStop_1          := refInputs^        [4].%X2;
-            Inputs.EmergencyStop_2          := refInputs^        [4].%X3;
-            Inputs.GeneralStop_1            := refInputs^        [4].%X4;
-            Inputs.GeneralStop_2            := refInputs^        [4].%X5;
-            Inputs.Enable_1                 := refInputs^        [4].%X6;
-            Inputs.Enable_2                 := refInputs^        [4].%X7;
+            Inputs.AutoStop_1               := _data[4].%X0;
+            Inputs.AutoStop_2               := _data[4].%X1;
+            Inputs.EmergencyStop_1          := _data[4].%X2;
+            Inputs.EmergencyStop_2          := _data[4].%X3;
+            Inputs.GeneralStop_1            := _data[4].%X4;
+            Inputs.GeneralStop_2            := _data[4].%X5;
+            Inputs.Enable_1                 := _data[4].%X6;
+            Inputs.Enable_2                 := _data[4].%X7;
 
-            Inputs.Zone                     := refInputs^       [5];
-            Inputs.InPosition               := refInputs^       [6];
+            Inputs.Zone                     := _data[5];
+            Inputs.InPosition               := _data[6];
 
             //Movement parameters
-            Inputs.ActionNo                 := refInputs^       [7];
-            Inputs.GlobalSpeed              := refInputs^       [8];
-            Inputs.ToolNo                   := refInputs^       [9];
-            Inputs.WorkobjectNo             := refInputs^       [10];
-            Inputs.PointNo                  := refInputs^       [11];
+            Inputs.ActionNo                 := _data[7];
+            Inputs.GlobalSpeed              := _data[8];
+            Inputs.ToolNo                   := _data[9];
+            Inputs.WorkobjectNo             := _data[10];
+            Inputs.PointNo                  := _data[11];
 
-            _dword.%B3                      := refInputs^       [12];
-            _dword.%B2                      := refInputs^       [13];
-            _dword.%B1                      := refInputs^       [14];
-            _dword.%B0                      := refInputs^       [15];
+            _dword.%B3                      := _data[12];
+            _dword.%B2                      := _data[13];
+            _dword.%B1                      := _data[14];
+            _dword.%B0                      := _data[15];
             Inputs.UserSpecSpeed1           := TO_DINT(_dword);
 
-            _dword.%B3                      := refInputs^       [16];
-            _dword.%B2                      := refInputs^       [17];
-            _dword.%B1                      := refInputs^       [18];
-            _dword.%B0                      := refInputs^       [19];
+            _dword.%B3                      := _data[16];
+            _dword.%B2                      := _data[17];
+            _dword.%B1                      := _data[18];
+            _dword.%B0                      := _data[19];
             Inputs.UserSpecSpeed2           := TO_DINT(_dword);
 
-            _dword.%B3                      := refInputs^       [20];
-            _dword.%B2                      := refInputs^       [21];
-            _dword.%B1                      := refInputs^       [22];
-            _dword.%B0                      := refInputs^       [23];
+            _dword.%B3                      := _data[20];
+            _dword.%B2                      := _data[21];
+            _dword.%B1                      := _data[22];
+            _dword.%B0                      := _data[23];
             Inputs.Coordinates.X:= TO_REAL(_dword)/REAL#10000.0-REAL#10000.0;
 
-            _dword.%B3                      := refInputs^       [24];
-            _dword.%B2                      := refInputs^       [25];
-            _dword.%B1                      := refInputs^       [26];
-            _dword.%B0                      := refInputs^       [27];
+            _dword.%B3                      := _data[24];
+            _dword.%B2                      := _data[25];
+            _dword.%B1                      := _data[26];
+            _dword.%B0                      := _data[27];
             Inputs.Coordinates.Y:= TO_REAL(_dword)/REAL#10000.0-REAL#10000.0;
 
-            _dword.%B3                      := refInputs^       [28];
-            _dword.%B2                      := refInputs^       [29];
-            _dword.%B1                      := refInputs^       [30];
-            _dword.%B0                      := refInputs^       [31];
+            _dword.%B3                      := _data[28];
+            _dword.%B2                      := _data[29];
+            _dword.%B1                      := _data[30];
+            _dword.%B0                      := _data[31];
             Inputs.Coordinates.Z:= TO_REAL(_dword)/REAL#10000.0-REAL#10000.0;
 
-            _dword.%B3                      := refInputs^       [32];
-            _dword.%B2                      := refInputs^       [33];
-            _dword.%B1                      := refInputs^       [34];
-            _dword.%B0                      := refInputs^       [35];
+            _dword.%B3                      := _data[32];
+            _dword.%B2                      := _data[33];
+            _dword.%B1                      := _data[34];
+            _dword.%B0                      := _data[35];
             Inputs.Coordinates.Rx:= TO_REAL(_dword)/REAL#10000.0-REAL#360.0;
 
-            _dword.%B3                      := refInputs^       [36];
-            _dword.%B2                      := refInputs^       [37];
-            _dword.%B1                      := refInputs^       [39];
-            _dword.%B0                      := refInputs^       [39];
+            _dword.%B3                      := _data[36];
+            _dword.%B2                      := _data[37];
+            _dword.%B1                      := _data[39];
+            _dword.%B0                      := _data[39];
             Inputs.Coordinates.Ry:= TO_REAL(_dword)/REAL#10000.0-REAL#360.0;
 
-            _dword.%B3                      := refInputs^       [40];
-            _dword.%B2                      := refInputs^       [41];
-            _dword.%B1                      := refInputs^       [42];
-            _dword.%B0                      := refInputs^       [43];
+            _dword.%B3                      := _data[40];
+            _dword.%B2                      := _data[41];
+            _dword.%B1                      := _data[42];
+            _dword.%B0                      := _data[43];
             Inputs.Coordinates.Rz:= TO_REAL(_dword)/REAL#10000.0-REAL#360.0;
 
-            _dword.%B3                      := refInputs^       [44];
-            _dword.%B2                      := refInputs^       [45];
-            _dword.%B1                      := refInputs^       [46];
-            _dword.%B0                      := refInputs^       [47];
+            _dword.%B3                      := _data[44];
+            _dword.%B2                      := _data[45];
+            _dword.%B1                      := _data[46];
+            _dword.%B0                      := _data[47];
             Inputs.EventId                  := TO_UDINT(_dword);
             //*******************************************
             _context := THIS.GetContext();
@@ -1195,98 +1204,105 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             END_IF;
             //***********UPDATE**OUTPUTS*****************
             //SYSTEM OUTPUTS
-            refOutputs^     [0].%X0	        := Outputs.Interupt;     
-            refOutputs^     [0].%X1	        := Outputs.LoadProg;    
-            refOutputs^     [0].%X2         := Outputs.LoadAndStartProg; 
-            refOutputs^     [0].%X3         := Outputs.MotorOff;
-            refOutputs^     [0].%X4         := Outputs.MotorOn;   
-            refOutputs^     [0].%X5         := Outputs.MotorOnAndStart; 
-            refOutputs^     [0].%X6         := Outputs.ResetEmgStop;    
-            refOutputs^     [0].%X7         := Outputs.ResetError; 
+            _data[0].%X0	        := Outputs.Interupt;     
+            _data[0].%X1	        := Outputs.LoadProg;    
+            _data[0].%X2         := Outputs.LoadAndStartProg; 
+            _data[0].%X3         := Outputs.MotorOff;
+            _data[0].%X4         := Outputs.MotorOn;   
+            _data[0].%X5         := Outputs.MotorOnAndStart; 
+            _data[0].%X6         := Outputs.ResetEmgStop;    
+            _data[0].%X7         := Outputs.ResetError; 
 
-            refOutputs^     [1].%X0	        := Outputs.StartProgram;    
-            refOutputs^     [1].%X1	        := Outputs.StartAtMain;    
-            refOutputs^     [1].%X2         := Outputs.StopProgram;     
-            refOutputs^     [1].%X3         := Outputs.QuickStop;    
-            refOutputs^     [1].%X4         := Outputs.SoftStop;    
-            refOutputs^     [1].%X5         := Outputs.StopCycle;    
-            refOutputs^     [1].%X6         := Outputs.StopInstruction;    
-            refOutputs^     [1].%X7         := Outputs.LimitSpeed;    
+            _data[1].%X0	     := Outputs.StartProgram;    
+            _data[1].%X1	     := Outputs.StartAtMain;    
+            _data[1].%X2         := Outputs.StopProgram;     
+            _data[1].%X3         := Outputs.QuickStop;    
+            _data[1].%X4         := Outputs.SoftStop;    
+            _data[1].%X5         := Outputs.StopCycle;    
+            _data[1].%X6         := Outputs.StopInstruction;    
+            _data[1].%X7         := Outputs.LimitSpeed;    
                 
             //Tool signals
-            refOutputs^     [2].%X0 	    := Outputs.Tool_1_Retract;    
-            refOutputs^     [2].%X1 	    := Outputs.Tool_1_Extend;    
-            refOutputs^     [2].%X2	        := Outputs.Tool_2_Retract;    
-            refOutputs^     [2].%X3	        := Outputs.Tool_2_Extend;    
-            refOutputs^     [2].%X4	        := Outputs.Tool_3_Retract;    
-            refOutputs^     [2].%X5	        := Outputs.Tool_3_Extend;    
-            refOutputs^     [2].%X6 	    := Outputs.Tool_4_Retract;    
-            refOutputs^     [2].%X7	        := Outputs.Tool_4_Extend;    
+            _data[2].%X0 	     := Outputs.Tool_1_Retract;    
+            _data[2].%X1 	     := Outputs.Tool_1_Extend;    
+            _data[2].%X2	     := Outputs.Tool_2_Retract;    
+            _data[2].%X3	     := Outputs.Tool_2_Extend;    
+            _data[2].%X4	     := Outputs.Tool_3_Retract;    
+            _data[2].%X5	     := Outputs.Tool_3_Extend;    
+            _data[2].%X6 	     := Outputs.Tool_4_Retract;    
+            _data[2].%X7	     := Outputs.Tool_4_Extend;    
 
             //master mode  such as manual/auto ..
-            refOutputs^     [3]             := Outputs.MasterMode;
+            _data[3]             := Outputs.MasterMode;
 
             //zone
-            refOutputs^     [5]             := Outputs.Zone;
+            _data[5]             := Outputs.Zone;
 
             //position
-            refOutputs^     [6]             := Outputs.InPosition;
+            _data[6]             := Outputs.InPosition;
 
             //Movement parameters
-            refOutputs^     [7]             := Outputs.ActionNo;
-            refOutputs^     [8]             := Outputs.GlobalSpeed;
-            refOutputs^     [9]             := Outputs.ToolNo;
-            refOutputs^     [10]            := Outputs.WorkobjectNo;
-            refOutputs^     [11]            := Outputs.PointNo;
+            _data[7]             := Outputs.ActionNo;
+            _data[8]             := Outputs.GlobalSpeed;
+            _data[9]             := Outputs.ToolNo;
+            _data[10]            := Outputs.WorkobjectNo;
+            _data[11]            := Outputs.PointNo;
 
-            _dword                          := TO_DWORD(Outputs.UserSpecSpeed1);
-            refOutputs^     [12]            := _dword.%B3;
-            refOutputs^     [13]            := _dword.%B2;
-            refOutputs^     [14]            := _dword.%B1;
-            refOutputs^     [15]            := _dword.%B0;
+            _dword               := TO_DWORD(Outputs.UserSpecSpeed1);
+            _data[12]            := _dword.%B3;
+            _data[13]            := _dword.%B2;
+            _data[14]            := _dword.%B1;
+            _data[15]            := _dword.%B0;
 
-            _dword                          := TO_DWORD(Outputs.UserSpecSpeed2);
-            refOutputs^     [16]            := _dword.%B3;
-            refOutputs^     [17]            := _dword.%B2;
-            refOutputs^     [18]            := _dword.%B1;
-            refOutputs^     [19]            := _dword.%B0;
+            _dword               := TO_DWORD(Outputs.UserSpecSpeed2);
+            _data[16]            := _dword.%B3;
+            _data[17]            := _dword.%B2;
+            _data[18]            := _dword.%B1;
+            _data[19]            := _dword.%B0;
 
             ////Coordinates
-            _dword                          := TO_DWORD((Outputs.Coordinates.X +REAL#10000.0)*REAL#10000.0);
-            refOutputs^     [20]            := _dword.%B3;
-            refOutputs^     [21]            := _dword.%B2;
-            refOutputs^     [22]            := _dword.%B1;
-            refOutputs^     [23]            := _dword.%B0;
+            _dword               := TO_DWORD((Outputs.Coordinates.X +REAL#10000.0)*REAL#10000.0);
+            _data[20]            := _dword.%B3;
+            _data[21]            := _dword.%B2;
+            _data[22]            := _dword.%B1;
+            _data[23]            := _dword.%B0;
 
-            _dword                          := TO_DWORD((Outputs.Coordinates.Y +REAL#10000.0)*REAL#10000.0);
-            refOutputs^     [24]            := _dword.%B3;
-            refOutputs^     [25]            := _dword.%B2;
-            refOutputs^     [26]            := _dword.%B1;
-            refOutputs^     [27]            := _dword.%B0;
+            _dword               := TO_DWORD((Outputs.Coordinates.Y +REAL#10000.0)*REAL#10000.0);
+            _data[24]            := _dword.%B3;
+            _data[25]            := _dword.%B2;
+            _data[26]            := _dword.%B1;
+            _data[27]            := _dword.%B0;
 
-            _dword                          := TO_DWORD((Outputs.Coordinates.Z +REAL#10000.0)*REAL#10000.0);
-            refOutputs^     [28]            := _dword.%B3;
-            refOutputs^     [29]            := _dword.%B2;
-            refOutputs^     [30]            := _dword.%B1;
-            refOutputs^     [31]            := _dword.%B0;
+            _dword               := TO_DWORD((Outputs.Coordinates.Z +REAL#10000.0)*REAL#10000.0);
+            _data[28]            := _dword.%B3;
+            _data[29]            := _dword.%B2;
+            _data[30]            := _dword.%B1;
+            _data[31]            := _dword.%B0;
 
-            _dword                          := TO_DWORD((Outputs.Coordinates.Rx +REAL#360.0)*REAL#10000.0);
-            refOutputs^     [32]            := _dword.%B3;
-            refOutputs^     [33]            := _dword.%B2;
-            refOutputs^     [34]            := _dword.%B1;
-            refOutputs^     [35]            := _dword.%B0;
+            _dword               := TO_DWORD((Outputs.Coordinates.Rx +REAL#360.0)*REAL#10000.0);
+            _data[32]            := _dword.%B3;
+            _data[33]            := _dword.%B2;
+            _data[34]            := _dword.%B1;
+            _data[35]            := _dword.%B0;
 
-            _dword                          := TO_DWORD((Outputs.Coordinates.Ry +REAL#360.0)*REAL#10000.0);
-            refOutputs^     [36]            := _dword.%B3;
-            refOutputs^     [37]            := _dword.%B2;
-            refOutputs^     [38]            := _dword.%B1;
-            refOutputs^     [39]            := _dword.%B0;
+            _dword               := TO_DWORD((Outputs.Coordinates.Ry +REAL#360.0)*REAL#10000.0);
+            _data[36]            := _dword.%B3;
+            _data[37]            := _dword.%B2;
+            _data[38]            := _dword.%B1;
+            _data[39]            := _dword.%B0;
 
-            _dword                          := TO_DWORD((Outputs.Coordinates.Rz +REAL#360.0)*REAL#10000.0);
-            refOutputs^     [40]            := _dword.%B3;
-            refOutputs^     [41]            := _dword.%B2;
-            refOutputs^     [42]            := _dword.%B1;
-            refOutputs^     [43]            := _dword.%B0;
+            _dword               := TO_DWORD((Outputs.Coordinates.Rz +REAL#360.0)*REAL#10000.0);
+            _data[40]            := _dword.%B3;
+            _data[41]            := _dword.%B2;
+            _data[42]            := _dword.%B1;
+            _data[43]            := _dword.%B0;
+
+            returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(hwIdDO_64_bytes,_data);
+            Messenger.ActivateOnCondition(ULINT#829,returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
+            IF returnValue > WORD#0 THEN
+                RobotStatus.Error.Id := UINT#829;
+                RETURN;
+            END_IF;
             //*******************************************
             THIS.Close();
         END_METHOD

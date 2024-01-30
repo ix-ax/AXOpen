@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AXOpen.Components.Abb.Robotics
 {
-    public partial class AxoIrc5_v_1_x_x : AXOpen.Core.AxoComponent, AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+    public partial class AxoOmnicore_v_1_x_x : AXOpen.Core.AxoComponent, AXOpen.Components.Abstractions.Robotics.IAxoRobotics
     {
 
         partial void PostConstruct(ITwinObject parent, string readableTail, string symbolTail)

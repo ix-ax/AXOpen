@@ -53,6 +53,7 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
        THIS.UseInSequencer();
                             
     END_METHOD
+    
     METHOD PRIVATE UseInSequencer   
 
         Sequencer.Initialize(THIS);

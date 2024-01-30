@@ -1,26 +1,24 @@
-﻿@page "/Component_2"
+﻿@page "/Component_3"
 @using AXOpen.Core;
 
 <PageTitle>Documentation</PageTitle>
 
-
-
 <!-- <GenericComponentStatusView> -->
-<AxoComponentStatusView Component="@Entry.Plc.documentation.componentTwo.ExampleCylinder" />
+<AxoComponentStatusView Component="@Entry.Plc.documentation.componentThree.Dataman_300" />
 <!-- </GenericComponentStatusView> -->
 
 <!-- <GenericComponentCommandView> -->
-<AxoComponentCommandView Component="@Entry.Plc.documentation.componentTwo.ExampleCylinder" />
+<AxoComponentCommandView Component="@Entry.Plc.documentation.componentThree.Dataman_300" />
 <!-- </GenericComponentCommandView> -->
 
 <!-- <RccComponentStatusView> -->
 <!-- This will render anything found on parameter assigned to Context  -->
-<RenderableContentControl Context="@Entry.Plc.documentation.componentTwo" Presentation="Status-Display" />
+<RenderableContentControl Context="@Entry.Plc.documentation.componentThree" Presentation="Status-Display" />
 <!-- </RccComponentStatusView> -->
 
 <!-- <RccComponentCommandView> -->
 <!-- This will render anything found on parameter assigned to Context  -->
-<RenderableContentControl Context="@Entry.Plc.documentation.componentTwo" Presentation="Command-Control" />
+<RenderableContentControl Context="@Entry.Plc.documentation.componentThree" Presentation="Command-Control" />
 <!-- </RccComponentCommandView> -->
 
 

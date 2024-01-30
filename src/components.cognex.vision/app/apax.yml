@@ -15,6 +15,7 @@ dependencies:
   "@ix-ax/axopen.components.cognex.vision": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
   "@ax/simatic-1500-clocks": ^6.0.37
+  "@ax/system-timer": ^6.0.94
 scripts:
   delta:
     - START=$(date +%s)
