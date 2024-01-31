@@ -13,8 +13,6 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
     VAR PUBLIC              
         {#ix-set:AttributeName = "<#Activate manual control#>"}
         ActivateManualControl : BOOL;         
-        PlcInputs : REF_TO PlcInputs;
-        PlcOutputs : REF_TO PlcOutputs;              
     END_VAR
     //</InitializationArgumentsDeclaration>            
 

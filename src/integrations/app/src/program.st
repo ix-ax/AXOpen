@@ -36,17 +36,6 @@ PROGRAM MyProgram
 
     END_VAR    
 
-    //Copy this VAR_EXTERNAL section into the declaration part of your main program file inside your project.
-	//Do not change any names, addresses or any another content.
-	VAR_EXTERNAL
-		PlcInputs : PlcInputs;
-		PlcOutputs : PlcOutputs;
-	END_VAR
-
-
-    //Copy this function call at the very beginning of your program.
-	//Do not change any names, addresses or any another content.
-    CopyInputs();
 
     I_am_alive := I_am_alive + ULINT#1;
 
@@ -71,13 +60,9 @@ PROGRAM MyProgram
     
     AxoTextListExampleContext.Run();
     
-    AxoCognexVisionDatamanExampleContext.PlcInputs := REF(PlcInputs);
-    AxoCognexVisionDatamanExampleContext.PlcOutputs := REF(PlcOutputs);
     AxoCognexVisionDatamanExampleContext.InjectRtc(AxoRtc);
     AxoCognexVisionDatamanExampleContext.Run();
 
-    AxoCognexVisionInsightExampleContext.PlcInputs := REF(PlcInputs);
-    AxoCognexVisionInsightExampleContext.PlcOutputs := REF(PlcOutputs);
     AxoCognexVisionInsightExampleContext.InjectRtc(AxoRtc);
     AxoCognexVisionInsightExampleContext.Run();
     AxoByteArrayExampleContext.Run();
@@ -88,9 +73,6 @@ PROGRAM MyProgram
     // Integration tests
     Integrations.Run();      
 
- 	//Copy this function call at the very end of your program.
-	//Do not change any names, addresses or any another content.
-	CopyOutputs();  
 END_PROGRAM
 
 

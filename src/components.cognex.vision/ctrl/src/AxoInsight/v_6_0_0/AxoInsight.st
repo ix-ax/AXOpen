@@ -25,8 +25,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             _progress : INT := 0;
             _infoTimer :  AXOpen.Timers.OnDelayTimer;
             _errorTimer :  AXOpen.Timers.OnDelayTimer;
-            _refStatus      :   REF_TO  AxoInsight_Status;	
-            _refMessenger   :   REF_TO  AxoMessenger;	
             _jobName        :   STRING;
             _inspectionCompleted    : BOOL;
             _data_in : ARRAY[0..254] OF BYTE;
@@ -408,14 +406,13 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 RETURN;
             END_IF;
 
-
             _invalidDataSize := NOT (_UserDataSize = eAxoInsight_UserDataSize#USER_DATA_16B OR
                                      _UserDataSize = eAxoInsight_UserDataSize#USER_DATA_32B OR
                                      _UserDataSize = eAxoInsight_UserDataSize#USER_DATA_64B OR
                                      _UserDataSize = eAxoInsight_UserDataSize#USER_DATA_128B OR
                                      _UserDataSize = eAxoInsight_UserDataSize#USER_DATA_254B);
 
-                                     Messenger.ActivateOnCondition(ULINT#713,_invalidDataSize, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#713,_invalidDataSize, eAxoMessageCategory#ProgrammingError);
 
             IF _invalidDataSize THEN
                 Status.Error.Id := UINT#713;
@@ -547,6 +544,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 Status.Error.Id := UINT#710;
                 RETURN;
             END_IF;
+
             _ResultDataSize         :=  ResultDataSize;
             _UserDataSize           :=  UserDataSize;
             _hwID                   :=  hwID;

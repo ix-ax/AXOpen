@@ -83,6 +83,24 @@ TYPE
 		Camera_2_User_Data_128_bytes 								:=	WORD#331,
 		Camera_2_Results_128_bytes 									:=	WORD#332,
 
+		Reader_1													:=	WORD#340,
+		Reader_1_Acquisition_Control_1								:=	WORD#341,
+		Reader_1_Acquisition_Status_1								:=	WORD#342,
+		Reader_1_Results_Control_1									:=	WORD#343,
+		Reader_1_Results_Status_1									:=	WORD#344,
+		Reader_1_Soft_Event_Control_1								:=	WORD#345,
+		Reader_1_Result_Data_128_bytes_1							:=	WORD#346,
+		Reader_1_User_Data_128_bytes_1								:=	WORD#347,
+
+		Reader_2													:=	WORD#350,
+		Reader_2_Acquisition_Control_1								:=	WORD#351,
+		Reader_2_Acquisition_Status_1								:=	WORD#352,
+		Reader_2_Results_Control_1									:=	WORD#353,
+		Reader_2_Results_Status_1									:=	WORD#354,
+		Reader_2_Soft_Event_Control_1								:=	WORD#355,
+		Reader_2_Result_Data_64_bytes_1							:=	WORD#356,
+		Reader_2_User_Data_64_bytes_1								:=	WORD#357,
+
 		NONE:= WORD#0
 	);
 END_TYPE
