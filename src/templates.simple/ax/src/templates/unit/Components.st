@@ -107,25 +107,29 @@ NAMESPACE axosimple.UnitTemplate
             // Cylinder_3.Run(THIS, Inputs^.P0[4], Inputs^.P0[5], Outputs^.P0[4], Outputs^.P0[5]);
             // Cylinder_4.Run(THIS, Inputs^.P0[6], Inputs^.P0[7], Outputs^.P0[6], Outputs^.P0[7]);
 
-            // Reader_1.Run(parent                     :=  THIS,  
-            // refAcquisitionStatus       :=  REF(Inputs^.Reader_1_Acquisition_Status_1),
-            // refResultsStatus           :=  REF(Inputs^.Reader_1_Results_Status_1),
-            // refSoftEventStatus         :=  REF(Inputs^.Reader_1_Soft_Event_Control_1),
-            // refResultData              :=  REF(Inputs^.Reader_1_Result_Data_128_bytes_1),
-            // refAcquisitionControl      :=  REF(Outputs^.Reader_1_Acquisition_Control_1),
-            // refResultsControl          :=  REF(Outputs^.Reader_1_Results_Control_1),
-            // refSoftEventControl        :=  REF(Outputs^.Reader_1_Soft_Event_Control_1),
-            // refUserData                :=  REF(Outputs^.Reader_1_User_Data_128_bytes_1));
+            Reader_1.Run(   parent                     :=  THIS,  
+                            ResultDataSize             :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize#RESULT_DATA_128B,
+                            UserDataSize               :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_UserDataSize#USER_DATA_128B,
+                            hwID                       :=  HwIdentifiers#Reader_1,
+                            hwIdAcquisitionControl     :=  HwIdentifiers#Reader_1_Acquisition_Control_1,
+                            hwIdAcquisitionStatus      :=  HwIdentifiers#Reader_1_Acquisition_Status_1,
+                            hwIdResultsControl         :=  HwIdentifiers#Reader_1_Results_Control_1,
+                            hwIdResultsStatus          :=  HwIdentifiers#Reader_1_Results_Status_1,
+                            hwIdSoftEventControl       :=  HwIdentifiers#Reader_1_Soft_Event_Control_1,
+                            hwIdResultData             :=  HwIdentifiers#Reader_1_Result_Data_128_bytes_1,
+                            hwIdUserData               :=  HwIdentifiers#Reader_1_User_Data_128_bytes_1);
 
-            // Reader_2.Run(parent                     :=  THIS,  
-            // refAcquisitionStatus       :=  REF(Inputs^.Reader_2_Acquisition_Status_1),
-            // refResultsStatus           :=  REF(Inputs^.Reader_2_Results_Status_1),
-            // refSoftEventStatus         :=  REF(Inputs^.Reader_2_Soft_Event_Control_1),
-            // refResultData              :=  REF(Inputs^.Reader_2_Result_Data_128_bytes_1),
-            // refAcquisitionControl      :=  REF(Outputs^.Reader_2_Acquisition_Control_1),
-            // refResultsControl          :=  REF(Outputs^.Reader_2_Results_Control_1),
-            // refSoftEventControl        :=  REF(Outputs^.Reader_2_Soft_Event_Control_1),
-            // refUserData                :=  REF(Outputs^.Reader_2_User_Data_128_bytes_1));
+            Reader_2.Run(   parent                     :=  THIS,  
+                            ResultDataSize             :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize#RESULT_DATA_64B,
+                            UserDataSize               :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_UserDataSize#USER_DATA_64B,
+                            hwID                       :=  HwIdentifiers#Reader_2,
+                            hwIdAcquisitionControl     :=  HwIdentifiers#Reader_2_Acquisition_Control_1,
+                            hwIdAcquisitionStatus      :=  HwIdentifiers#Reader_2_Acquisition_Status_1,
+                            hwIdResultsControl         :=  HwIdentifiers#Reader_2_Results_Control_1,
+                            hwIdResultsStatus          :=  HwIdentifiers#Reader_2_Results_Status_1,
+                            hwIdSoftEventControl       :=  HwIdentifiers#Reader_2_Soft_Event_Control_1,
+                            hwIdResultData             :=  HwIdentifiers#Reader_2_Result_Data_64_bytes_1,
+                            hwIdUserData               :=  HwIdentifiers#Reader_2_User_Data_64_bytes_1);
     
 
             Camera_1.Run(   parent                  :=  THIS,  
