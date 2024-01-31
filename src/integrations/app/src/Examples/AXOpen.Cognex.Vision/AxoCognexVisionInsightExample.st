@@ -10,8 +10,6 @@ NAMESPACE AxoCognexVisionInsightExamples
             MyInsight : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight;  
             {#ix-set:AttributeName = "<#Activate manual control#>"}
             ActivateManualControl : BOOL;  
-            PlcInputs : REF_TO PlcInputs;
-            PlcOutputs : REF_TO PlcOutputs;
         END_VAR
 
         METHOD PROTECTED OVERRIDE Main   

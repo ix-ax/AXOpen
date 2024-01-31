@@ -7,8 +7,6 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         {#ix-set:AttributeName = "<#Activate manual control#>"}
         ActivateManualControl : BOOL;         
         Insight_7600 : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight;            
-        PlcInputs : REF_TO PlcInputs;
-        PlcOutputs : REF_TO PlcOutputs;              
     END_VAR
  
     VAR PRIVATE

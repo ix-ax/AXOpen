@@ -11,8 +11,6 @@ CLASS Component_3 EXTENDS AXOpen.Core.AxoObject
     VAR PUBLIC              
         {#ix-set:AttributeName = "<#Activate manual control#>"}
         ActivateManualControl : BOOL;         
-        PlcInputs : REF_TO PlcInputs;
-        PlcOutputs : REF_TO PlcOutputs;              
     END_VAR
     //</InitializationArgumentsDeclaration>            
 
@@ -31,15 +29,16 @@ CLASS Component_3 EXTENDS AXOpen.Core.AxoObject
 
         //<Initialization>        
         Dataman_300.Run(parent                     :=  THIS,  
+                        ResultDataSize             :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize#RESULT_DATA_64B,
+                        UserDataSize               :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_UserDataSize#USER_DATA_64B,
                         hwID                       :=  HwIdentifiers#reader_st2,
-                        refAcquisitionControl      :=  REF(PlcOutputs^.reader_st2_Acquisition_Control_1),
-                        refAcquisitionStatus       :=  REF(PlcInputs^.reader_st2_Acquisition_Status_1),
-                        refResultsControl          :=  REF(PlcOutputs^.reader_st2_Results_Control_1),
-                        refResultsStatus           :=  REF(PlcInputs^.reader_st2_Results_Status_1),
-                        refSoftEventControl        :=  REF(PlcOutputs^.reader_st2_Soft_Event_Control_1),
-                        refSoftEventStatus         :=  REF(PlcInputs^.reader_st2_Soft_Event_Control_1),
-                        refResultData              :=  REF(PlcInputs^.reader_st2_Result_Data_64_bytes_1),
-                        refUserData                :=  REF(PlcOutputs^.reader_st2_User_Data_64_bytes_1));
+                        hwIdAcquisitionControl     :=  HwIdentifiers#reader_st2_Acquisition_Control_1,
+                        hwIdAcquisitionStatus      :=  HwIdentifiers#reader_st2_Acquisition_Status_1,
+                        hwIdResultsControl         :=  HwIdentifiers#reader_st2_Results_Control_1,
+                        hwIdResultsStatus          :=  HwIdentifiers#reader_st2_Results_Status_1,
+                        hwIdSoftEventControl       :=  HwIdentifiers#reader_st2_Soft_Event_Control_1,
+                        hwIdResultData             :=  HwIdentifiers#reader_st2_Result_Data_64_bytes_1,
+                        hwIdUserData               :=  HwIdentifiers#reader_st2_User_Data_64_bytes_1);
         //</Initialization>
 
        THIS.UseInSequencer();

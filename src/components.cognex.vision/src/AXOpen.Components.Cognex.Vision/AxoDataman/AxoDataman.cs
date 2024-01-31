@@ -57,7 +57,7 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 new KeyValuePair<ulong, AxoMessengerTextItem>(717, new AxoMessengerTextItem("eading was aborted, while not yet completed!",                                 "Check the details.")),
         };
 
-            _Messenger.DotNetMessengerTextList = messengerTextList;
+            Messenger.DotNetMessengerTextList = messengerTextList;
         }
 
         private void InitializeTaskMessenger()
@@ -75,7 +75,7 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
 
         };
 
-            _TaskMessenger.DotNetMessengerTextList = messengerTextList;
+            TaskMessenger.DotNetMessengerTextList = messengerTextList;
         }
     }
 
