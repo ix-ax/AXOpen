@@ -35,6 +35,18 @@
                         </div>
                     </div>
                 }
+                else{
+                    <div name="TabControl" class="w-100">
+                        <ul class="nav nav-tabs mb-3">
+                            @foreach (var item in ShowingTemplates)
+                            {
+                                <li class="nav-item">
+                                    <button type="button" class="nav-link @(CurrentTemplate is null || CurrentTemplate == "" ? item == "Default" ? "active" : "" : item == CurrentTemplate ? "active" : "")" @onclick="() => Load(item)"><b>@item</b></button>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                }
                 <ZoomableContainer Parent="this">
                     <div onmousedown="event.preventDefault();">
                         @if (_imgId != null)
@@ -199,6 +211,7 @@
                                                 <p class="mb-0">@item.file</p>
                                                 <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => ClearScaleAndTranslate(item.file)"><span class="bi bi-arrow-clockwise fs-5" aria-hidden="true" title="Clear"/></a>
                                                 <a class="ms-2 text-decoration-none text-black" style="cursor: pointer;" @onclick="() => Remove(item.file)"><span class="bi bi-trash fs-5" aria-hidden="true" title="Remove" /></a>
+                                                <a class="ms-2 text-decoration-none text-black" style="cursor: pointer;" @onclick="() => ChangeShowingTemplateInConfiguration(item.file)"><span class="bi @(ShowingTemplates.Contains(item.file) ? "bi-dash" : "bi-plus") fs-5" aria-hidden="true" title="Change showing template" /></a>
                                             </li>
                                         }
                                     </ul>

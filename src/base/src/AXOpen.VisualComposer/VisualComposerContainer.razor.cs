@@ -43,6 +43,8 @@ namespace AXOpen.VisualComposer
 
         public string? CurrentTemplate { get; set; } = "Default";
 
+        public List<string> ShowingTemplates { get; set; } = new List<string>();
+
         protected override void OnInitialized()
         {
             if (Id is null || Id == "")
@@ -184,6 +186,13 @@ namespace AXOpen.VisualComposer
 
             CurrentTemplate = fileName;
 
+
+            SerializableConfiguration? deserializeConfiguration = Serializing.Serializing<SerializableConfiguration>.Deserialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json");
+
+            if(deserializeConfiguration != null)
+                ShowingTemplates = deserializeConfiguration.Templates;
+
+
             StateHasChanged();
         }
 
@@ -192,6 +201,12 @@ namespace AXOpen.VisualComposer
             if (File.Exists("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json"))
             {
                 File.Delete("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json");
+            }
+
+            if (ShowingTemplates.Contains(fileName))
+            {
+                ShowingTemplates.Remove(fileName);
+                Serializing.Serializing<SerializableConfiguration>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(ShowingTemplates));
             }
         }
 
@@ -259,6 +274,19 @@ namespace AXOpen.VisualComposer
             }
 
             return data;
+        }
+
+        public void ChangeShowingTemplateInConfiguration(string fileName)
+        {
+            if (ShowingTemplates == null)
+                ShowingTemplates = new();
+
+            if (ShowingTemplates.Contains(fileName))
+                ShowingTemplates.Remove(fileName);
+            else
+                ShowingTemplates.Add(fileName);
+
+            Serializing.Serializing<SerializableConfiguration>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(ShowingTemplates));
         }
 
         public string? SearchValue { get; set; } = null;
