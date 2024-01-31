@@ -26,34 +26,69 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
             List<KeyValuePair<ulong, AxoMessengerTextItem>> messengerTextList = new List<KeyValuePair<ulong, AxoMessengerTextItem>>
             {
                 new KeyValuePair<ulong, AxoMessengerTextItem>(0, new AxoMessengerTextItem("  ", "  ")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(700, new AxoMessengerTextItem("Parent has NULL reference!",                   "Check the call of the `Run` method, if the `parent` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("refAcquisitionControl has NULL reference!",    "Check the call of the `Run` method, if the `refAcquisitionControl` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(702, new AxoMessengerTextItem("refAcquisitionStatus has NULL reference!",     "Check the call of the `Run` method, if the `refAcquisitionStatus` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(703, new AxoMessengerTextItem("refInspectionControl has NULL reference!",     "Check the call of the `Run` method, if the `refInspectionControl` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(704, new AxoMessengerTextItem("refInspectionStatus has NULL reference!",      "Check the call of the `Run` method, if the `refInspectionStatus` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(705, new AxoMessengerTextItem("refCommandControl has NULL reference!",        "Check the call of the `Run` method, if the `refCommandControl` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(706, new AxoMessengerTextItem("refCommandStatus has NULL reference!",         "Check the call of the `Run` method, if the `refCommandStatus` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(707, new AxoMessengerTextItem("refSoftEventControl has NULL reference!",      "Check the call of the `Run` method, if the `refSoftEventControl` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(708, new AxoMessengerTextItem("refSoftEventStatus has NULL reference!",       "Check the call of the `Run` method, if the `refSoftEventStatus` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(709, new AxoMessengerTextItem("refResultData has NULL reference!",            "Check the call of the `Run` method, if the `refResultData` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(710, new AxoMessengerTextItem("refUserData has NULL reference!",              "Check the call of the `Run` method, if the `refUserData` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(711, new AxoMessengerTextItem("refResultData has invalid size!",              "Check the size of the `refResultData`.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(712, new AxoMessengerTextItem("refResultData-lower bound index is not zero!", "Check if the `refResultData` parameter is zero-based.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(713, new AxoMessengerTextItem("refUserData has invalid size!",                "Check the size of the `refUserData`.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(714, new AxoMessengerTextItem("refUserData-lower bound index is not zero!",   "Check if the `refUsertData` parameter is zero-based.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(715, new AxoMessengerTextItem("refUserData has invalid size!",                "Check the size of the `refUserData`.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(716, new AxoMessengerTextItem("refUserData-lower bound index is not zero!",   "Check if the `refUsertData` parameter is zero-based.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(717, new AxoMessengerTextItem("Clearing of the inspection results finished with error!",                      "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(718, new AxoMessengerTextItem("Reading finished with error!",                                                 "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(719, new AxoMessengerTextItem("Change job by name finished with error!",                                      "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(720, new AxoMessengerTextItem("Change job by number finished with error!",                                    "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(721, new AxoMessengerTextItem("Soft event finished with error!",                                              "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(722, new AxoMessengerTextItem("Clearing of the inspection results was aborted, while not yet completed!",     "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(723, new AxoMessengerTextItem("Reading was aborted, while not yet completed!",                                "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(724, new AxoMessengerTextItem("Change job by name was aborted, while not yet completed!",                     "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(725, new AxoMessengerTextItem("Change job by number was aborted, while not yet completed!",                   "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(726, new AxoMessengerTextItem("Soft event was aborted, while not yet completed!",                             "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(50, new AxoMessengerTextItem("Restore has been executed.",                                                    "")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(100, new AxoMessengerTextItem("Clearing of the inspection results started.",                                  "")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(101, new AxoMessengerTextItem("Clearing of the inspection results finished succesfully.",                     "")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(102, new AxoMessengerTextItem("Clearing of the inspection results restored.",                                 "")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(110, new AxoMessengerTextItem("Reading started.",                                                             "")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(111, new AxoMessengerTextItem("Reading finished succesfully.",                                                "")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(112, new AxoMessengerTextItem("Reading restored.",                                                            "")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(120, new AxoMessengerTextItem("Change job by name started.",                                                  "")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(121, new AxoMessengerTextItem("Change job by name finished succesfully.",                                     "")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(122, new AxoMessengerTextItem("Change job by name restored.",                                                 "")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(140, new AxoMessengerTextItem("Change job by number started.",                                                "")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(141, new AxoMessengerTextItem("Change job by number finished succesfully.",                                   "")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(142, new AxoMessengerTextItem("Change job by number restored.",                                               "")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(150, new AxoMessengerTextItem("SoftEvent started.",                                                           "")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(151, new AxoMessengerTextItem("SoftEvent finished succesfully.",                                              "")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(152, new AxoMessengerTextItem("SoftEvent restored.",                                                          "")),
+
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(700, new AxoMessengerTextItem("Parent has NULL reference in the Run method!",                                 "Check the call of the `Run` method, if the `parent` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("hwIdAcquisitionControl has invalid value in the Run method!",                  "Check the call of the `Run` method, if the `hwIdAcquisitionControl` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(702, new AxoMessengerTextItem("hwIdAcquisitionStatus has invalid value in the Run method!",                   "Check the call of the `Run` method, if the `hwIdAcquisitionStatus` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(703, new AxoMessengerTextItem("hwIdInspectionControl has invalid value in the Run method!",                   "Check the call of the `Run` method, if the `hwIdInspectionControl` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(704, new AxoMessengerTextItem("hwIdInspectionStatus has invalid value in the Run method!",                    "Check the call of the `Run` method, if the `hwIdInspectionStatus` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(705, new AxoMessengerTextItem("hwIdCommandControl has invalid value in the Run method!",                      "Check the call of the `Run` method, if the `hwIdCommandControl` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(706, new AxoMessengerTextItem("hwIdSoftEventControl has invalid value in the Run method!",                    "Check the call of the `Run` method, if the `hwIdSoftEventControl` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(707, new AxoMessengerTextItem("hwIdResultData has invalid value in the Run method!",                          "Check the call of the `Run` method, if the `hwIdResultData` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(708, new AxoMessengerTextItem("hwIdUserData has invalid value in the Run method!",                            "Check the call of the `Run` method, if the `hwIdUserData` parameter is assigned.")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(709, new AxoMessengerTextItem("Error reading the AcquisitionStatus in the UpdateInputs method!",              "Check the value of the hwIdAcquisitionStatus and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(710, new AxoMessengerTextItem("Error reading the InspectionStatus in the UpdateInputs method!",               "Check the value of the hwIdInspectionStatus and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(711, new AxoMessengerTextItem("Error reading the CommandControl in the UpdateInputs method!",                 "Check the value of the hwIdCommandControl and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(712, new AxoMessengerTextItem("Error reading the SoftEventControl in the UpdateInputs method!",               "Check the value of the hwIdSoftEventControl and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(713, new AxoMessengerTextItem("Error reading the ResultData in the UpdateInputs method!",                     "Check the value of the hwIdResultData and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(714, new AxoMessengerTextItem("ResultData has invalid size!",                                                 "Check the real size of the `ResultData`, so as the value of the ResultDataSize parameter!")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(715, new AxoMessengerTextItem("Error writing the AcquisitionControl in the UpdateOutputs method!",            "Check the value of the hwIdAcquisitionControl and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(716, new AxoMessengerTextItem("Error writing the ResultsControl in the UpdateOutputs method!",                "Check the value of the hwIdesultsControl and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(717, new AxoMessengerTextItem("Error writing the CommandControl in the UpdateOutputs method!",                "Check the value of the hwIdCommandControl and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(718, new AxoMessengerTextItem("Error writing the SoftEventControl in the UpdateOutputs method!",              "Check the value of the hwIdSoftEventControl and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(719, new AxoMessengerTextItem("UserData has invalid size!",                                                   "Check the real size of the `UserData`, so as the value of the UserDataSize parameter!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(720, new AxoMessengerTextItem("Error writing the 16bytes of the UserData in the UpdateOutputs method!",       "Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(721, new AxoMessengerTextItem("Error writing the 32bytes of the UserData in the UpdateOutputs method!",       "Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(722, new AxoMessengerTextItem("Error writing the 64bytes of the UserData in the UpdateOutputs method!",       "Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(723, new AxoMessengerTextItem("Error writing the 1286bytes of the UserData in the UpdateOutputs method!",     "Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(724, new AxoMessengerTextItem("Error writing the 254bytes of the UserData in the UpdateOutputs method!",      "Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(800, new AxoMessengerTextItem("Clearing of the inspection results finished with error!",                      "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(801, new AxoMessengerTextItem("Clearing of the inspection results was aborted, while not yet completed!",     "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(810, new AxoMessengerTextItem("Reading finished with error!",                                                 "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(811, new AxoMessengerTextItem("Reading was aborted, while not yet completed!",                                "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(820, new AxoMessengerTextItem("Change job by name finished with error!",                                      "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(821, new AxoMessengerTextItem("Change job by name was aborted, while not yet completed!",                     "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(840, new AxoMessengerTextItem("Change job by number finished with error!",                                    "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(841, new AxoMessengerTextItem("Change job by number was aborted, while not yet completed!",                   "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(850, new AxoMessengerTextItem("SoftEvent finished with error!",                                               "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(851, new AxoMessengerTextItem("SoftEvent was aborted, while not yet completed!",                              "Check the details.")),
+
             };
 
             Messenger.DotNetMessengerTextList = messengerTextList;
@@ -64,42 +99,42 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
             List<KeyValuePair<ulong, AxoMessengerTextItem>> messengerTextList = new List<KeyValuePair<ulong, AxoMessengerTextItem>>
             {
                 new KeyValuePair<ulong, AxoMessengerTextItem>(0, new AxoMessengerTextItem("  ", "  ")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(600, new AxoMessengerTextItem("Waiting for the signal ExposureComplete to be reseted!"                  ,"Check the status of the `ExposureComplete` signal.")), 
+
                 new KeyValuePair<ulong, AxoMessengerTextItem>(601, new AxoMessengerTextItem("Waiting for the signal ResultsValid to be reseted!"                      ,"Check the status of the `ResultsValid` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(602, new AxoMessengerTextItem("Waiting for the signal Error to be reseted!"                             ,"Check the status of the `Error` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(603, new AxoMessengerTextItem("Waiting for the signal TriggerReady to be set!"                          ,"Check the status of the `TriggerReady` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(604, new AxoMessengerTextItem("Waiting for the signal TriggerAcknowledge to be set!"                    ,"Check the status of the `TriggerAcknowledge` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(605, new AxoMessengerTextItem("Waiting for the signal InspectionCompleted to be toggled!"               ,"Check the status of the `InspectionCompleted` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(606, new AxoMessengerTextItem("Waiting for the signal ResultsValid to be set!"                          ,"Check the status of the `ResultsValid` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(607, new AxoMessengerTextItem("Waiting for the InspectionResults to be copied!"                         ,"Check the status of the `InspectionResults` data.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(608, new AxoMessengerTextItem("Waiting for the signal CommandExecuting to be reseted!"                  ,"Check the status of the `CommandExecuting` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(609, new AxoMessengerTextItem("Waiting for the signal Online to be reseted!"                            ,"Check the status of the `Online` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(610, new AxoMessengerTextItem("Waiting for the signal Error to be reseted!"                             ,"Check the status of the `Error` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(611, new AxoMessengerTextItem("Waiting for the Job name to be written to User data!"                    ,"Check the status of the `User` data.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(612, new AxoMessengerTextItem("Waiting for the signal ExtendedUserDataSetAcknowledge to be set!"        ,"Check the status of the `ExtendedUserDataSetAcknowledge` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(613, new AxoMessengerTextItem("Waiting for the signal ExtendedUserDataSetAcknowledge to be reseted!"    ,"Check the status of the `ExtendedUserDataSetAcknowledge` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(614, new AxoMessengerTextItem("Waiting for the signal CommandComplete to be set!"                       ,"Check the status of the `CommandComplete` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(615, new AxoMessengerTextItem("Waiting for the signal CommandComplete to be reseted!"                   ,"Check the status of the `CommandComplete` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(616, new AxoMessengerTextItem("Waiting for the signal Online to be set!"                                ,"Check the status of the `Online` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(617, new AxoMessengerTextItem("Waiting for the signal TriggerSoftEvent to be set!"                      ,"Check the status of the `TriggerSoftEvent` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(618, new AxoMessengerTextItem("Waiting for the signal TriggerSoftEvent to be reseted!"                  ,"Check the status of the `TriggerSoftEvent` signal.")),
-                //new KeyValuePair<ulong, AxoMessengerTextItem>(619, new AxoMessengerTextItem("","")),
-                //new KeyValuePair<ulong, AxoMessengerTextItem>(620, new AxoMessengerTextItem("","")),
-                //new KeyValuePair<ulong, AxoMessengerTextItem>(621, new AxoMessengerTextItem("","")),
-                //new KeyValuePair<ulong, AxoMessengerTextItem>(622, new AxoMessengerTextItem("","")),
-                //new KeyValuePair<ulong, AxoMessengerTextItem>(623, new AxoMessengerTextItem("","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(715, new AxoMessengerTextItem("Empty job name inserted!","Check the required job name.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(716, new AxoMessengerTextItem("Index of UserData in the method SetUserDataAsString exceeds the size hardware structure mapped!","Check the size and the offset of the data written to the User data.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(717, new AxoMessengerTextItem("Index of UserData in the method SetUserDataAsString exceeds the defined size!","Check the size and the offset of the data written to the User data.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(718, new AxoMessengerTextItem("Change job by name failed. Check the value of the InspectionStatus.Error code!","Check the sensor manufacturer documentation.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(719, new AxoMessengerTextItem("Required job number is greater than the maximal value!","Check the sensor manufacturer documentation.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(720, new AxoMessengerTextItem("Change job by number failed. Check the value of the InspectionStatus.Error code!","Check the sensor manufacturer documentation.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(721, new AxoMessengerTextItem("Required soft event number is greater than the maximal value of 7!","Check the sensor manufacturer documentation.")),
-                //new KeyValuePair<ulong, AxoMessengerTextItem>(722, new AxoMessengerTextItem("","")),
-                //new KeyValuePair<ulong, AxoMessengerTextItem>(723, new AxoMessengerTextItem("","")),
-                //new KeyValuePair<ulong, AxoMessengerTextItem>(724, new AxoMessengerTextItem("","")),
-                //new KeyValuePair<ulong, AxoMessengerTextItem>(725, new AxoMessengerTextItem("","")),
-                //new KeyValuePair<ulong, AxoMessengerTextItem>(726, new AxoMessengerTextItem("","")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(611, new AxoMessengerTextItem("Waiting for the signal ExposureComplete to be reseted!"                  ,"Check the status of the `ExposureComplete` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(612, new AxoMessengerTextItem("Waiting for the signal ResultsValid to be reseted!"                      ,"Check the status of the `ResultsValid` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(613, new AxoMessengerTextItem("Waiting for the signal Error to be reseted!"                             ,"Check the status of the `Error` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(614, new AxoMessengerTextItem("Waiting for the signal TriggerReady to be set!"                          ,"Check the status of the `TriggerReady` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(615, new AxoMessengerTextItem("Waiting for the signal TriggerAcknowledge to be set!"                    ,"Check the status of the `TriggerAcknowledge` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(616, new AxoMessengerTextItem("Waiting for the signal InspectionCompleted to be toggled!"               ,"Check the status of the `InspectionCompleted` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(617, new AxoMessengerTextItem("Waiting for the signal ResultsValid to be set!"                          ,"Check the status of the `ResultsValid` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(618, new AxoMessengerTextItem("Waiting for the InspectionResults to be copied!"                         ,"Check the status of the `InspectionResults` data.")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(621, new AxoMessengerTextItem("Waiting for the signal CommandExecuting to be reseted!"                  ,"Check the status of the `CommandExecuting` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(622, new AxoMessengerTextItem("Waiting for the signal Online to be reseted!"                            ,"Check the status of the `Online` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(623, new AxoMessengerTextItem("Waiting for the signal Error to be reseted!"                             ,"Check the status of the `Error` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(624, new AxoMessengerTextItem("Waiting for the Job name to be written to User data!"                    ,"Check the status of the `User` data.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(625, new AxoMessengerTextItem("Waiting for the signal ExtendedUserDataSetAcknowledge to be set!"        ,"Check the status of the `ExtendedUserDataSetAcknowledge` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(626, new AxoMessengerTextItem("Waiting for the signal ExtendedUserDataSetAcknowledge to be reseted!"    ,"Check the status of the `ExtendedUserDataSetAcknowledge` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(627, new AxoMessengerTextItem("Waiting for the signal CommandComplete to be set!"                       ,"Check the status of the `CommandComplete` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(628, new AxoMessengerTextItem("Waiting for the signal CommandComplete to be reseted!"                   ,"Check the status of the `CommandComplete` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(629, new AxoMessengerTextItem("Waiting for the signal Online to be set!"                                ,"Check the status of the `Online` signal.")),
+
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(641, new AxoMessengerTextItem("Waiting for the signal CommandExecuting to be reseted!"                  ,"Check the status of the `CommandExecuting` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(642, new AxoMessengerTextItem("Waiting for the signal Online to be reseted!"                            ,"Check the status of the `Online` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(643, new AxoMessengerTextItem("Waiting for the signal Error to be reseted!"                             ,"Check the status of the `Error` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(644, new AxoMessengerTextItem("Waiting for the signal CommandComplete to be set!"                       ,"Check the status of the `CommandComplete` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(645, new AxoMessengerTextItem("Waiting for the signal CommandComplete to be reseted!"                   ,"Check the status of the `CommandComplete` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(646, new AxoMessengerTextItem("Waiting for the signal Online to be set!"                                ,"Check the status of the `Online` signal.")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(652, new AxoMessengerTextItem("Waiting for the signal TriggerSoftEvent to be set!"                      ,"Check the status of the `TriggerSoftEvent` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(653, new AxoMessengerTextItem("Waiting for the signal TriggerSoftEvent to be reseted!"                  ,"Check the status of the `TriggerSoftEvent` signal.")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(725, new AxoMessengerTextItem("Empty job name inserted!"                                                ,"Check the required job name.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(726, new AxoMessengerTextItem("Required job number is greater than the maximal value!"                  ,"Check the sensor manufacturer documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(727, new AxoMessengerTextItem("Required soft event number is greater than the maximal value of 7!"      ,"Check the sensor manufacturer documentation.")),
 
             };
 
@@ -139,48 +174,46 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     errorDescriptionDict.Add(616, "Waiting for the signal Online to be set!");
                     errorDescriptionDict.Add(617, "Waiting for the signal TriggerSoftEvent to be set!");
                     errorDescriptionDict.Add(618, "Waiting for the signal TriggerSoftEvent to be reseted!");
-                    //errorDescriptionDict.Add(6, "");
-                    //errorDescriptionDict.Add(6, "");
-                    //errorDescriptionDict.Add(6, "");
-                    //errorDescriptionDict.Add(6, "");
-                    //errorDescriptionDict.Add(6, "");
 
 
-
-                    errorDescriptionDict.Add(700, "Error: Parent has NULL reference!");
-                    errorDescriptionDict.Add(701, "Error: AcquisitionControl has NULL reference!");
-                    errorDescriptionDict.Add(702, "Error: AcquisitionStatus has NULL reference!");
-                    errorDescriptionDict.Add(703, "Error: InspectionControl has NULL reference!");
-                    errorDescriptionDict.Add(704, "Error: InspectionStatus has NULL reference!");
-                    errorDescriptionDict.Add(705, "Error: CommandControl has NULL reference!");
-                    errorDescriptionDict.Add(706, "Error: CommandStatus has NULL reference!");
-                    errorDescriptionDict.Add(707, "Error: SoftEventControl has NULL reference!");
-                    errorDescriptionDict.Add(708, "Error: SoftEventStatus has NULL reference!");
-                    errorDescriptionDict.Add(709, "Error: ResultData has NULL reference!");
-                    errorDescriptionDict.Add(710, "Error: UserData has NULL reference!");
-                    errorDescriptionDict.Add(711, "Error: ResultData has invalid size!");
-                    errorDescriptionDict.Add(712, "Error: ResultData-lower bound index is not zero!");
-                    errorDescriptionDict.Add(713, "Error: UserData has invalid size!");
-                    errorDescriptionDict.Add(714, "Error: UserData-lower bound index is not zero!");
-                    errorDescriptionDict.Add(715, "Empty job name inserted!");
-                    errorDescriptionDict.Add(716, "Index of UserData in method SetUserDataAsString exceeds the size hardware structure mapped!");
-                    errorDescriptionDict.Add(717, "Index of UserData in method SetUserDataAsString exceeds the defined size!");
-                    errorDescriptionDict.Add(718, "Change job by name failed. Check the value of the InspectionStatus.Error code!");
-                    errorDescriptionDict.Add(719, "Required job number is greater than the maximal value!");
-                    errorDescriptionDict.Add(720, "Change job by number failed. Check the value of the InspectionStatus.Error code!");
-                    errorDescriptionDict.Add(721, "Required soft event number is greater than the maximal value of 7!");
-                    //errorDescriptionDict.Add(7, "");
-                    //errorDescriptionDict.Add(7, "");
-                    //errorDescriptionDict.Add(7, "");
-                    //errorDescriptionDict.Add(7, "");
-                    //errorDescriptionDict.Add(7, "");
-                    //errorDescriptionDict.Add(7, "");
+                    errorDescriptionDict.Add(700, "Parent has NULL reference in the Run method!");
+                    errorDescriptionDict.Add(701, "hwIdAcquisitionControl has invalid value in the Run method!");
+                    errorDescriptionDict.Add(702, "hwIdAcquisitionStatus has invalid value in the Run method!");
+                    errorDescriptionDict.Add(703, "hwIdInspectionControl has invalid value in the Run method!");
+                    errorDescriptionDict.Add(704, "hwIdInspectionStatus has invalid value in the Run method!");
+                    errorDescriptionDict.Add(705, "hwIdCommandControl has invalid value in the Run method!");
+                    errorDescriptionDict.Add(706, "hwIdSoftEventControl has invalid value in the Run method!");
+                    errorDescriptionDict.Add(707, "hwIdResultData has invalid value in the Run method!");
+                    errorDescriptionDict.Add(708, "hwIdUserData has invalid value in the Run method!");
+                    errorDescriptionDict.Add(709, "Error reading the AcquisitionStatus in the UpdateInputs method!");
+                    errorDescriptionDict.Add(710, "Error reading the InspectionStatus in the UpdateInputs method!");
+                    errorDescriptionDict.Add(711, "Error reading the CommandControl in the UpdateInputs method!");
+                    errorDescriptionDict.Add(712, "Error reading the SoftEventControl in the UpdateInputs method!");
+                    errorDescriptionDict.Add(713, "Error reading the ResultData in the UpdateInputs method!");
+                    errorDescriptionDict.Add(714, "ResultData has invalid size!");
+                    errorDescriptionDict.Add(715, "Error writing the AcquisitionControl in the UpdateOutputs method!");
+                    errorDescriptionDict.Add(716, "Error writing the ResultsControl in the UpdateOutputs method!");
+                    errorDescriptionDict.Add(717, "Error writing the CommandControl in the UpdateOutputs method!");
+                    errorDescriptionDict.Add(718, "Error writing the SoftEventControl in the UpdateOutputs method!");
+                    errorDescriptionDict.Add(719, "UserData has invalid size!");
+                    errorDescriptionDict.Add(720, "Error writing the 16bytes of the UserData in the UpdateOutputs method!");
+                    errorDescriptionDict.Add(721, "Error writing the 32bytes of the UserData in the UpdateOutputs method!");
+                    errorDescriptionDict.Add(722, "Error writing the 64bytes of the UserData in the UpdateOutputs method!");
+                    errorDescriptionDict.Add(723, "Error writing the 1286bytes of the UserData in the UpdateOutputs method!");
+                    errorDescriptionDict.Add(724, "Error writing the 254bytes of the UserData in the UpdateOutputs method!");
+                    errorDescriptionDict.Add(725, "Empty job name inserted!");
+                    errorDescriptionDict.Add(726, "Required job number is greater than the maximal value!");
+                    errorDescriptionDict.Add(727, "Required soft event number is greater than the maximal value of 7!");
                     errorDescriptionDict.Add(800, "Clearing of the inspection results finished with error!");
+                    errorDescriptionDict.Add(801, "Clearing of the inspection results was aborted, while not yet completed!");
                     errorDescriptionDict.Add(810, "Reading finished with error!");
+                    errorDescriptionDict.Add(811, "Reading was aborted, while not yet completed!");
                     errorDescriptionDict.Add(820, "Change job by name finished with error!");
+                    errorDescriptionDict.Add(821, "Change job by name was aborted, while not yet completed!");
                     errorDescriptionDict.Add(840, "Change job by number finished with error!");
-                    errorDescriptionDict.Add(850, "Soft event finished with error!");
-
+                    errorDescriptionDict.Add(841, "Change job by number was aborted, while not yet completed!");
+                    errorDescriptionDict.Add(850, "SoftEvent finished with error!");
+                    errorDescriptionDict.Add(851, "SoftEvent was aborted, while not yet completed!");
                 }
                 string errorDescription = "   ";
 
@@ -207,26 +240,49 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 if (actionDescriptionDict.Count == 0)
                 {
                     actionDescriptionDict.Add(0, "   ");
-                    actionDescriptionDict.Add(300, "Clearing of the inspection results started.");
+                    actionDescriptionDict.Add(50, "Restore has been executed.");
+
+                    actionDescriptionDict.Add(100, "Clearing of the inspection results started.");
+                    actionDescriptionDict.Add(300, "Clearing of the inspection results running.");
                     actionDescriptionDict.Add(301, "Clearing of the inspection results running.");
-                    actionDescriptionDict.Add(302, "Clearing of the inspection results was completed successfully.");
-                    actionDescriptionDict.Add(303, "Clearing of the inspection results was completed successfully.");
-                    actionDescriptionDict.Add(309, "Clearing of the inspection results restored.");
+                    actionDescriptionDict.Add(302, "Clearing of the inspection results running.");
+                    actionDescriptionDict.Add(303, "Clearing of the inspection results running.");
+                    actionDescriptionDict.Add(304, "Clearing of the inspection results running.");
+                    actionDescriptionDict.Add(305, "Clearing of the inspection results running.");
+                    actionDescriptionDict.Add(306, "Clearing of the inspection results running.");
+                    actionDescriptionDict.Add(307, "Clearing of the inspection results running.");
+                    actionDescriptionDict.Add(308, "Clearing of the inspection results running.");
+                    actionDescriptionDict.Add(309, "Clearing of the inspection results running.");
+                    actionDescriptionDict.Add(101, "Clearing of the inspection results finished succesfully.");
+                    actionDescriptionDict.Add(102, "Clearing of the inspection results restored.");
 
+                    actionDescriptionDict.Add(110, "Reading started.");
+                    actionDescriptionDict.Add(310, "Reading running.");
+                    actionDescriptionDict.Add(311, "Reading running.");
+                    actionDescriptionDict.Add(312, "Reading running.");
+                    actionDescriptionDict.Add(313, "Reading running.");
+                    actionDescriptionDict.Add(314, "Reading running.");
+                    actionDescriptionDict.Add(315, "Reading running.");
+                    actionDescriptionDict.Add(316, "Reading running.");
+                    actionDescriptionDict.Add(317, "Reading running.");
+                    actionDescriptionDict.Add(318, "Reading running.");
+                    actionDescriptionDict.Add(319, "Reading running.");
+                    actionDescriptionDict.Add(110, "Reading started.");
+                    actionDescriptionDict.Add(111, "Reading finished succesfully.");
+                    actionDescriptionDict.Add(112, "Reading restored.");
 
-                    actionDescriptionDict.Add(310, "Trigger started.");
-                    actionDescriptionDict.Add(311, "Trigger running.");
-                    actionDescriptionDict.Add(312, "Trigger running.");
-                    actionDescriptionDict.Add(313, "Trigger running.");
-                    actionDescriptionDict.Add(314, "Trigger running.");
-                    actionDescriptionDict.Add(315, "Trigger running.");
-                    actionDescriptionDict.Add(316, "Trigger running.");
-                    actionDescriptionDict.Add(317, "Trigger running.");
-                    actionDescriptionDict.Add(318, "Trigger running.");
-                    actionDescriptionDict.Add(319, "Trigger was completed successfully.");
-                    actionDescriptionDict.Add(329, "Trigger was restored.");
-
-                    actionDescriptionDict.Add(330, "Change job by name started.");
+                    actionDescriptionDict.Add(120, "Change job by name started.");
+                    actionDescriptionDict.Add(320, "Change job by name running.");
+                    actionDescriptionDict.Add(321, "Change job by name running.");
+                    actionDescriptionDict.Add(322, "Change job by name running.");
+                    actionDescriptionDict.Add(323, "Change job by name running.");
+                    actionDescriptionDict.Add(324, "Change job by name running.");
+                    actionDescriptionDict.Add(325, "Change job by name running.");
+                    actionDescriptionDict.Add(326, "Change job by name running.");
+                    actionDescriptionDict.Add(327, "Change job by name running.");
+                    actionDescriptionDict.Add(328, "Change job by name running.");
+                    actionDescriptionDict.Add(329, "Change job by name running.");
+                    actionDescriptionDict.Add(330, "Change job by name running.");
                     actionDescriptionDict.Add(331, "Change job by name running.");
                     actionDescriptionDict.Add(332, "Change job by name running.");
                     actionDescriptionDict.Add(333, "Change job by name running.");
@@ -236,57 +292,48 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     actionDescriptionDict.Add(337, "Change job by name running.");
                     actionDescriptionDict.Add(338, "Change job by name running.");
                     actionDescriptionDict.Add(339, "Change job by name running.");
-                    actionDescriptionDict.Add(340, "Change job by name was completed successfully.");
-                    actionDescriptionDict.Add(341, "Change job by name was completed successfully.");
-                    actionDescriptionDict.Add(349, "Change job by name was restored.");
+                    actionDescriptionDict.Add(121, "Change job by name finished succesfully.");
+                    actionDescriptionDict.Add(122, "Change job by name restored.");
 
-                    actionDescriptionDict.Add(350, "Change job by number started.");
-                    actionDescriptionDict.Add(351, "Change job by number running.");
-                    actionDescriptionDict.Add(352, "Change job by number running.");
-                    actionDescriptionDict.Add(353, "Change job by number running.");
-                    actionDescriptionDict.Add(354, "Change job by number running.");
-                    actionDescriptionDict.Add(355, "Change job by number running.");
-                    actionDescriptionDict.Add(356, "Change job by number running.");
-                    actionDescriptionDict.Add(357, "Change job by number was completed successfully.");
-                    actionDescriptionDict.Add(358, "Change job by number was completed successfully.");
+                    actionDescriptionDict.Add(140, "Change job by number started.");
+                    actionDescriptionDict.Add(340, "Change job by number running.");
+                    actionDescriptionDict.Add(341, "Change job by number running.");
+                    actionDescriptionDict.Add(342, "Change job by number running.");
+                    actionDescriptionDict.Add(343, "Change job by number running.");
+                    actionDescriptionDict.Add(344, "Change job by number running.");
+                    actionDescriptionDict.Add(345, "Change job by number running.");
+                    actionDescriptionDict.Add(346, "Change job by number running.");
+                    actionDescriptionDict.Add(347, "Change job by number running.");
+                    actionDescriptionDict.Add(348, "Change job by number running.");
+                    actionDescriptionDict.Add(349, "Change job by number running.");
+                    actionDescriptionDict.Add(141, "Change job by number finished succesfully.");
+                    actionDescriptionDict.Add(142, "Change job by number restored.");
 
-                    actionDescriptionDict.Add(360, "Change job by number was restored.");
-
-                    actionDescriptionDict.Add(370, "Soft event started.");
-                    actionDescriptionDict.Add(371, "Soft event running.");
-                    actionDescriptionDict.Add(372, "Soft event running.");
-                    actionDescriptionDict.Add(373, "Soft event running.");
-                    actionDescriptionDict.Add(374, "Soft event running.");
-                    actionDescriptionDict.Add(375, "Soft event was completed successfully.");
-                    actionDescriptionDict.Add(376, "Soft event was completed successfully.");
-
-                    actionDescriptionDict.Add(379, "Soft event was restored.");
-
-
-                    actionDescriptionDict.Add(600, "Clearing of the inspection results was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(601, "Reading was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(602, "Change job by name was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(603, "Change job by number was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(604, "Soft event was aborted, while not yet completed!");
-                    //actionDescriptionDict.Add(6, "");
-                    //actionDescriptionDict.Add(6, "");
-                    //actionDescriptionDict.Add(6, "");
-                    //actionDescriptionDict.Add(6, "");
-                    //actionDescriptionDict.Add(6, "");
-                    //actionDescriptionDict.Add(6, "");
+                    actionDescriptionDict.Add(150, "SoftEvent started.");
+                    actionDescriptionDict.Add(350, "SoftEvent running.");
+                    actionDescriptionDict.Add(351, "SoftEvent running.");
+                    actionDescriptionDict.Add(352, "SoftEvent running.");
+                    actionDescriptionDict.Add(353, "SoftEvent running.");
+                    actionDescriptionDict.Add(354, "SoftEvent running.");
+                    actionDescriptionDict.Add(355, "SoftEvent running.");
+                    actionDescriptionDict.Add(356, "SoftEvent running.");
+                    actionDescriptionDict.Add(357, "SoftEvent running.");
+                    actionDescriptionDict.Add(358, "SoftEvent running.");
+                    actionDescriptionDict.Add(359, "SoftEvent running.");
+                    actionDescriptionDict.Add(151, "SoftEvent finished succesfully.");
+                    actionDescriptionDict.Add(152, "SoftEvent restored.");
 
 
                     actionDescriptionDict.Add(800, "Clearing of the inspection results finished with error!");
+                    actionDescriptionDict.Add(801, "Clearing of the inspection results was aborted, while not yet completed!");
                     actionDescriptionDict.Add(810, "Reading finished with error!");
-                    actionDescriptionDict.Add(830, "Change job by name finished with error!");
-                    actionDescriptionDict.Add(850, "Change job by number finished with error!");
-                    actionDescriptionDict.Add(870, "Soft event finished with error!");
-                    //actionDescriptionDict.Add(705, "");
-                    //actionDescriptionDict.Add(706, "");
-                    //actionDescriptionDict.Add(706, "");
-                    //actionDescriptionDict.Add(706, "");
-
-
+                    actionDescriptionDict.Add(811, "Reading was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(820, "Change job by name finished with error!");
+                    actionDescriptionDict.Add(821, "Change job by name  was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(840, "Change job by number finished with error!");
+                    actionDescriptionDict.Add(841, "Change job by number  was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(850, "Soft event finished with error!");
+                    actionDescriptionDict.Add(851, "Soft event finished  was aborted, while not yet completed!");
                 }
                 
                 string actionDescription = "   ";
