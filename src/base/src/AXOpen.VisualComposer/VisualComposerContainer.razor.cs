@@ -45,6 +45,8 @@ namespace AXOpen.VisualComposer
 
         public List<string> ShowingTemplates { get; set; } = new List<string>();
 
+        public bool AllowZoomingAndPanning { get; set; } = true;
+
         protected override void OnInitialized()
         {
             if (Id is null || Id == "")
@@ -138,7 +140,7 @@ namespace AXOpen.VisualComposer
                 Directory.CreateDirectory("VisualComposerSerialize/" + Id.CorrectFilePath());
             }
 
-            Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", new SerializableObject(ImgSrc, serializableChildren, Theme, _zoomableContainer.Scale, _zoomableContainer.TranslateX, _zoomableContainer.TranslateY));
+            Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", new SerializableObject(ImgSrc, serializableChildren, Theme, _zoomableContainer.Scale, _zoomableContainer.TranslateX, _zoomableContainer.TranslateY, AllowZoomingAndPanning));
         }
 
         public void Load(string? fileName = "Default")
@@ -181,6 +183,9 @@ namespace AXOpen.VisualComposer
                     _zoomableContainer.Scale = deserialize.Scale;
                     _zoomableContainer.TranslateX = deserialize.TranslateX;
                     _zoomableContainer.TranslateY = deserialize.TranslateY;
+                    AllowZoomingAndPanning = deserialize.AllowZoomingAndPanning;
+
+                    _zoomableContainer.SetDataInJS();
                 }
             }
 
@@ -260,16 +265,16 @@ namespace AXOpen.VisualComposer
             return files;
         }
 
-        public List<(string file, double scale, int translateX, int translateY)> GetAllVisualComposerContainer()
+        public List<(string file, double scale, int translateX, int translateY, bool allowZoomingAndPanning)> GetAllVisualComposerContainer()
         {
-            List<(string, double, int, int)> data = new();
+            List<(string, double, int, int, bool)> data = new();
             foreach (var file in GetAllFiles())
             {
                 SerializableObject? deserialize = Serializing.Serializing<SerializableObject>.Deserialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + file + ".json");
 
                 if (deserialize != null)
                 {
-                    data.Add((file, deserialize.Scale, deserialize.TranslateX, deserialize.TranslateY));
+                    data.Add((file, deserialize.Scale, deserialize.TranslateX, deserialize.TranslateY, deserialize.AllowZoomingAndPanning));
                 }
             }
 
@@ -287,6 +292,18 @@ namespace AXOpen.VisualComposer
                 ShowingTemplates.Add(fileName);
 
             Serializing.Serializing<SerializableConfiguration>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(ShowingTemplates));
+        }
+
+        public void ChangeAllowZoomingAndPanning(string fileName)
+        {
+            SerializableObject? deserialize = Serializing.Serializing<SerializableObject>.Deserialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json");
+
+            if (deserialize != null)
+            {
+                deserialize.AllowZoomingAndPanning = !deserialize.AllowZoomingAndPanning;
+
+                Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", deserialize);
+            }
         }
 
         public string? SearchValue { get; set; } = null;

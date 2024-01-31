@@ -2,7 +2,7 @@
 {
     internal class SerializableObject
     {
-        public SerializableObject(string? imgSrc, List<SerializableVisualComposerItem> items, string? theme, double scale, int translateX, int translateY)
+        public SerializableObject(string? imgSrc, List<SerializableVisualComposerItem> items, string? theme, double scale, int translateX, int translateY, bool allowZoomingAndPanning)
         {
             ImgSrc = imgSrc;
             Items = items;
@@ -10,6 +10,7 @@
             Scale = scale;
             TranslateX = translateX;
             TranslateY = translateY;
+            AllowZoomingAndPanning = allowZoomingAndPanning;
         }
 
         public string? ImgSrc { get; set; }
@@ -20,5 +21,6 @@
         public double Scale { get; set; }
         public int TranslateX { get; set; }
         public int TranslateY { get; set; }
+        public bool AllowZoomingAndPanning { get; set; }
     }
 }

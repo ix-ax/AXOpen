@@ -47,7 +47,7 @@
                         </ul>
                     </div>
                 }
-                <ZoomableContainer Parent="this">
+                <ZoomableContainer Parent="this" Disable="!AllowZoomingAndPanning">
                     <div onmousedown="event.preventDefault();">
                         @if (_imgId != null)
                         {
@@ -212,6 +212,9 @@
                                                 <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => ClearScaleAndTranslate(item.file)"><span class="bi bi-arrow-clockwise fs-5" aria-hidden="true" title="Clear"/></a>
                                                 <a class="ms-2 text-decoration-none text-black" style="cursor: pointer;" @onclick="() => Remove(item.file)"><span class="bi bi-trash fs-5" aria-hidden="true" title="Remove" /></a>
                                                 <a class="ms-2 text-decoration-none text-black" style="cursor: pointer;" @onclick="() => ChangeShowingTemplateInConfiguration(item.file)"><span class="bi @(ShowingTemplates.Contains(item.file) ? "bi-dash" : "bi-plus") fs-5" aria-hidden="true" title="Change showing template" /></a>
+                                                <div class="form-check form-switch ms-2 d-flex align-items-center">
+                                                    <input class="form-check-input" type="checkbox" role="switch" checked="@(item.allowZoomingAndPanning ? "checked" : null)" title="Zooming and panning" @onclick="() => ChangeAllowZoomingAndPanning(item.file)">
+                                                </div>
                                             </li>
                                         }
                                     </ul>
@@ -246,7 +249,7 @@
                 }
             </Authorized>
             <NotAuthorized>
-                <ZoomableContainer>
+                <ZoomableContainer Parent="this" Disable="!AllowZoomingAndPanning">
                     <div style="position: relative; width: 100%; height: 100%;">
                         <img id="@_imgId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
                         <CascadingValue Value="@this" Name="Parent" IsFixed="true">

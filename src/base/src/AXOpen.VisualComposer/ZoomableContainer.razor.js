@@ -2,16 +2,28 @@
 const elementContainer = document.getElementById('zoomAndMoveContainer');
 const elementItem = document.getElementById('zoomAndMoveItem');
 
-elementContainer.addEventListener('wheel', zoom);
-elementContainer.addEventListener('mousedown', startDrag);
-elementContainer.addEventListener('mouseup', stopDrag);
-elementContainer.addEventListener('mousemove', drag);
-elementContainer.addEventListener('mouseleave', stopDrag);
+enableZooming()
 
 let isDragging = false;
 let startX, startY, offsetX = 0, offsetY = 0;
 let scale;
 let dotNetComponentInstance;
+
+export function disableZooming() {
+    elementContainer.removeEventListener('wheel', zoom);
+    elementContainer.removeEventListener('mousedown', startDrag);
+    elementContainer.removeEventListener('mouseup', stopDrag);
+    elementContainer.removeEventListener('mousemove', drag);
+    elementContainer.removeEventListener('mouseleave', stopDrag);
+}
+
+export function enableZooming() {
+    elementContainer.addEventListener('wheel', zoom);
+    elementContainer.addEventListener('mousedown', startDrag);
+    elementContainer.addEventListener('mouseup', stopDrag);
+    elementContainer.addEventListener('mousemove', drag);
+    elementContainer.addEventListener('mouseleave', stopDrag);
+}
 
 function zoom(event) {
     if (event.ctrlKey) {
