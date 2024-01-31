@@ -14,7 +14,7 @@ using System.Runtime.InteropServices;
 
 internal class Helpers
 {
-    public static readonly IEnumerable<string> PublishInternal = new List<string>() { "dev", "main", "master", "release" };
+    public static readonly IEnumerable<string> PublishInternal = new List<string>() { "dev", "dev-2311", "main", "master", "release" };
     public static readonly IEnumerable<string> PublishExternal = new List<string>() { "main", "master", "release" };
 
     public static bool CanReleaseInternal()
