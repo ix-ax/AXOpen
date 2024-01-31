@@ -8,7 +8,7 @@ PROGRAM MyProgram
     sandbox.Run();    
     sandbox.InjectRtc(_rtc);
     
-    // documentation.Run();
-    // documentation.InjectRtc(_rtc);
+    documentation.Run();
+    documentation.InjectRtc(_rtc);
 
 END_PROGRAM
