@@ -2,10 +2,10 @@
 {
     internal class SerializableConfiguration
     {
-        public SerializableConfiguration(List<string> templates)
+        public SerializableConfiguration(List<string> views)
         {
-            Templates = templates;
+            Views = views;
         }
-        public List<string> Templates { get; set; }
+        public List<string> Views { get; set; }
     }
 }

@@ -41,9 +41,9 @@ namespace AXOpen.VisualComposer
 
         public string FileName { get; set; } = "";
 
-        public string? CurrentTemplate { get; set; } = "Default";
+        public string? CurrentView { get; set; } = "Default";
 
-        public List<string> ShowingTemplates { get; set; } = new List<string>();
+        public List<string> BaseViews { get; set; } = new List<string>();
 
         public bool AllowZoomingAndPanning { get; set; } = true;
 
@@ -119,14 +119,14 @@ namespace AXOpen.VisualComposer
         {
             if (fileName is null || fileName == "")
             {
-                if (CurrentTemplate is null || CurrentTemplate == "")
+                if (CurrentView is null || CurrentView == "")
                     fileName = "Default";
                 else
-                    fileName = CurrentTemplate;
+                    fileName = CurrentView;
             }
             else
             {
-                CurrentTemplate = fileName;
+                CurrentView = fileName;
             }
 
             List<SerializableVisualComposerItem> serializableChildren = new List<SerializableVisualComposerItem>();
@@ -189,13 +189,13 @@ namespace AXOpen.VisualComposer
                 }
             }
 
-            CurrentTemplate = fileName;
+            CurrentView = fileName;
 
 
             SerializableConfiguration? deserializeConfiguration = Serializing.Serializing<SerializableConfiguration>.Deserialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json");
 
             if(deserializeConfiguration != null)
-                ShowingTemplates = deserializeConfiguration.Templates;
+                BaseViews = deserializeConfiguration.Views;
 
 
             StateHasChanged();
@@ -208,10 +208,10 @@ namespace AXOpen.VisualComposer
                 File.Delete("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json");
             }
 
-            if (ShowingTemplates.Contains(fileName))
+            if (BaseViews.Contains(fileName))
             {
-                ShowingTemplates.Remove(fileName);
-                Serializing.Serializing<SerializableConfiguration>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(ShowingTemplates));
+                BaseViews.Remove(fileName);
+                Serializing.Serializing<SerializableConfiguration>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(BaseViews));
             }
         }
 
@@ -281,17 +281,17 @@ namespace AXOpen.VisualComposer
             return data;
         }
 
-        public void ChangeShowingTemplateInConfiguration(string fileName)
+        public void ChangeBaseViews(string fileName)
         {
-            if (ShowingTemplates == null)
-                ShowingTemplates = new();
+            if (BaseViews == null)
+                BaseViews = new();
 
-            if (ShowingTemplates.Contains(fileName))
-                ShowingTemplates.Remove(fileName);
+            if (BaseViews.Contains(fileName))
+                BaseViews.Remove(fileName);
             else
-                ShowingTemplates.Add(fileName);
+                BaseViews.Add(fileName);
 
-            Serializing.Serializing<SerializableConfiguration>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(ShowingTemplates));
+            Serializing.Serializing<SerializableConfiguration>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(BaseViews));
         }
 
         public void ChangeAllowZoomingAndPanning(string fileName)
@@ -364,7 +364,7 @@ namespace AXOpen.VisualComposer
                 if (!Directory.Exists("wwwroot/Images/"))
                     Directory.CreateDirectory("wwwroot/Images/");
 
-                string newName = CurrentTemplate + Path.GetExtension(e.File.Name);
+                string newName = CurrentView + Path.GetExtension(e.File.Name);
 
                 if (!Directory.Exists("wwwroot/Images/VisualComposerSerialize/" + Id.CorrectFilePath()))
                     Directory.CreateDirectory("wwwroot/Images/VisualComposerSerialize/" + Id.CorrectFilePath());

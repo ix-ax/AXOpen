@@ -14,7 +14,7 @@
                             <select class="form-select w-auto" @onchange="(ChangeEventArgs args) => Load(args.Value.ToString())">
                                 @foreach (var item in GetAllFiles())
                                 {
-                                    <option value="@item" selected="@(CurrentTemplate is null || CurrentTemplate == "" ? item == "Default" ? "selected" : null : item == CurrentTemplate ? "selected" : null)">@item</option>
+                                    <option value="@item" selected="@(CurrentView is null || CurrentView == "" ? item == "Default" ? "selected" : null : item == CurrentView ? "selected" : null)">@item</option>
                                 }
                             </select>
                         </div>
@@ -28,7 +28,7 @@
                                 <li><a class="dropdown-item" @onclick="() => Save()">Save</a></li>
                                 <li><a class="dropdown-item" @onclick='() => Save("Default")'>Save as default</a></li>
                                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#saveAsModal-@Id.ModalIdHelper()">Save as</a></li>
-                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#templatesModal-@Id.ModalIdHelper()">Templates</a></li>
+                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#viewsModal-@Id.ModalIdHelper()">Views</a></li>
                                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#setImageModal-@Id.ModalIdHelper()">Set image</a></li>
                                 <li><a class="dropdown-item" @onclick="() => ChangeTheme()">Change theme</a></li>
                             </ul>
@@ -38,10 +38,10 @@
                 else{
                     <div name="TabControl" class="w-100">
                         <ul class="nav nav-tabs mb-3">
-                            @foreach (var item in ShowingTemplates)
+                            @foreach (var item in BaseViews)
                             {
                                 <li class="nav-item">
-                                    <button type="button" class="nav-link @(CurrentTemplate is null || CurrentTemplate == "" ? item == "Default" ? "active" : "" : item == CurrentTemplate ? "active" : "")" @onclick="() => Load(item)"><b>@item</b></button>
+                                    <button type="button" class="nav-link @(CurrentView is null || CurrentView == "" ? item == "Default" ? "active" : "" : item == CurrentView ? "active" : "")" @onclick="() => Load(item)"><b>@item</b></button>
                                 </li>
                             }
                         </ul>
@@ -196,11 +196,11 @@
                         </div>
                     </div>
 
-                    <div class="modal fade" id="templatesModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
+                    <div class="modal fade" id="viewsModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="alarmsviewTitle">Templates</h1>
+                                    <h1 class="modal-title fs-5" id="alarmsviewTitle">Views</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body justify-content-center">
@@ -211,7 +211,7 @@
                                                 <p class="mb-0">@item.file</p>
                                                 <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => ClearScaleAndTranslate(item.file)"><span class="bi bi-arrow-clockwise fs-5" aria-hidden="true" title="Clear"/></a>
                                                 <a class="ms-2 text-decoration-none text-black" style="cursor: pointer;" @onclick="() => Remove(item.file)"><span class="bi bi-trash fs-5" aria-hidden="true" title="Remove" /></a>
-                                                <a class="ms-2 text-decoration-none text-black" style="cursor: pointer;" @onclick="() => ChangeShowingTemplateInConfiguration(item.file)"><span class="bi @(ShowingTemplates.Contains(item.file) ? "bi-dash" : "bi-plus") fs-5" aria-hidden="true" title="Change showing template" /></a>
+                                                <a class="ms-2 text-decoration-none text-black" style="cursor: pointer;" @onclick="() => ChangeBaseViews(item.file)"><span class="bi @(BaseViews.Contains(item.file) ? "bi-dash" : "bi-plus") fs-5" aria-hidden="true" title="@(BaseViews.Contains(item.file) ? "Remove from base views" : "Add to base views")" /></a>
                                                 <div class="form-check form-switch ms-2 d-flex align-items-center">
                                                     <input class="form-check-input" type="checkbox" role="switch" checked="@(item.allowZoomingAndPanning ? "checked" : null)" title="Zooming and panning" @onclick="() => ChangeAllowZoomingAndPanning(item.file)">
                                                 </div>
