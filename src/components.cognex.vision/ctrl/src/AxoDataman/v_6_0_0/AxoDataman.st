@@ -745,13 +745,13 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             ELSIF ReadTask.ErrorOccured() THEN
                 Status.Action.Id :=  UINT#810;
                 Status.Error.Id  :=  UINT#810;
-            ELSIF ClearResultDataTask.AbortTriggered()THEN
+            ELSIF ReadTask.AbortTriggered()THEN
                 Status.Action.Id :=  UINT#811;
                 Status.Error.Id  :=  UINT#811;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#810,ReadTask.HasError(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#811,ReadTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#112,ClearResultDataTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#112,ReadTask.RestoreTriggered() , eAxoMessageCategory#Error);
             IF ReadTask.RestoreTriggered() AND _progress >= 300 AND _progress <= 329  THEN
                 Status.Action.Id :=  UINT#112;
                 _progress := 0;
