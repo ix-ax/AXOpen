@@ -2,10 +2,10 @@
 @using Microsoft.AspNetCore.Components.Forms;
 
 <div class="container">
-<div class="row">
-    <AuthorizeView Roles="Administrator">
-       
-        <Authorized>
+    <div class="row">
+        <AuthorizeView Roles="Administrator">
+
+            <Authorized>
                 <a class="text-decoration-none text-black" style="cursor: pointer;" @onclick="ToggleInDesignMode"><span class="bi bi-tools fs-5" aria-hidden="true" title="Design mode" /></a>
                 @if (InDesignMode)
                 {
@@ -14,7 +14,7 @@
                             <select class="form-select w-auto" @onchange="(ChangeEventArgs args) => Load(args.Value.ToString())">
                                 @foreach (var item in GetAllFiles())
                                 {
-                                    <option value="@item" selected="@(CurrentView is null || CurrentView == "" ? item == "Default" ? "selected" : null : item == CurrentView ? "selected" : null)">@item</option>
+                                    <option value="@item" selected="@(CurrentView is null || CurrentView == "" ? item == DefaultView ? "selected" : null : item == CurrentView ? "selected" : null)">@item</option>
                                 }
                             </select>
                         </div>
@@ -24,24 +24,24 @@
                                 <span class="bi bi-pencil-square fs-4" aria-hidden="true" />
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#showAllModal-@Id.ModalIdHelper()">Controller objects</a></li>
-                                <li><a class="dropdown-item" @onclick="() => Save()">Save</a></li>
-                                <li><a class="dropdown-item" @onclick='() => Save("Default")'>Save as default</a></li>
-                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#saveAsModal-@Id.ModalIdHelper()">Save as</a></li>
+                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#controllerObjectModal-@Id.ModalIdHelper()">Controller objects</a></li>
+                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createNewModal-@Id.ModalIdHelper()">Create new</a></li>
+                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createCopyModal-@Id.ModalIdHelper()">Create copy</a></li>
                                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#viewsModal-@Id.ModalIdHelper()">Views</a></li>
-                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#setImageModal-@Id.ModalIdHelper()">Set image</a></li>
+                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#backgroundModal-@Id.ModalIdHelper()">Background</a></li>
                                 <li><a class="dropdown-item" @onclick="() => ChangeTheme()">Change theme</a></li>
                             </ul>
                         </div>
                     </div>
                 }
-                else{
+                else
+                {
                     <div name="TabControl" class="w-100">
                         <ul class="nav nav-tabs mb-3">
                             @foreach (var item in BaseViews)
                             {
                                 <li class="nav-item">
-                                    <button type="button" class="nav-link @(CurrentView is null || CurrentView == "" ? item == "Default" ? "active" : "" : item == CurrentView ? "active" : "")" @onclick="() => Load(item)"><b>@item</b></button>
+                                    <button type="button" class="nav-link @(CurrentView is null || CurrentView == "" ? item == DefaultView ? "active" : "" : item == CurrentView ? "active" : "")" @onclick="() => Load(item)"><b>@item</b></button>
                                 </li>
                             }
                         </ul>
@@ -49,13 +49,20 @@
                 }
                 <ZoomableContainer Parent="this" Disable="!AllowZoomingAndPanning">
                     <div onmousedown="event.preventDefault();">
-                        @if (_imgId != null)
+                        @if (EmptyBackground)
                         {
-                            <img id="@_imgId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
+                            <div id="@_backgroundId" style="width: @(BackgroundWidth)%; height: @(BackgroundHeight)vh;"></div>
+                        }
+                        else
+                        {
+                            @if (ImgSrc != null)
+                            {
+                                <img id="@_backgroundId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
+                            }
                         }
 
                         <CascadingValue Value="@this" Name="Parent" IsFixed="true">
-                            <CascadingValue Value="@_imgId" Name="ImgId" IsFixed="true">
+                            <CascadingValue Value="@_backgroundId" Name="BackgroundId" IsFixed="true">
                                 @foreach (VisualComposerItem child in _children)
                                 {
                                     <VisualComposerItem InDesign="@InDesignMode" Origin="@child" />
@@ -65,20 +72,20 @@
                     </div>
                 </ZoomableContainer>
 
-                    <EmptyContainer>
-                        <CascadingValue Value="@this" Name="Parent" IsFixed="true">
-                            <CascadingValue Value="@_imgId" Name="ImgId" IsFixed="true">
-                                @foreach (VisualComposerItem child in _children)
-                                {
-                                    <VisualComposerItemModal Origin="@child"/>
-                                }
-                            </CascadingValue>
+                <EmptyContainer>
+                    <CascadingValue Value="@this" Name="Parent" IsFixed="true">
+                        <CascadingValue Value="@_backgroundId" Name="BackgroundId" IsFixed="true">
+                            @foreach (VisualComposerItem child in _children)
+                            {
+                                <VisualComposerItemModal Origin="@child" />
+                            }
                         </CascadingValue>
-                    </EmptyContainer>
-                     @* <button class="btn btn-outline-primary m-2" @onclick="ToggleInDesignMode">Toggle design mode</button>  *@
+                    </CascadingValue>
+                </EmptyContainer>
+                @* <button class="btn btn-outline-primary m-2" @onclick="ToggleInDesignMode">Toggle design mode</button>  *@
                 @if (InDesignMode)
                 {
-                    <div class="modal fade" id="showAllModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
+                    <div class="modal fade" id="controllerObjectModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -173,16 +180,16 @@
                     @*     </div> *@
                     @* </div> *@
 
-                    <div class="modal fade" id="saveAsModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
+                    <div class="modal fade" id="createNewModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="alarmsviewTitle">Save as</h1>
+                                    <h1 class="modal-title fs-5" id="alarmsviewTitle">Create new</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body justify-content-center">
                                     <div class="row">
-                                        <label class="col-sm-2 col-form-label">File name</label>
+                                        <label class="col-sm-2 col-form-label">Name</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" placeholder="File name" @bind="FileName">
                                         </div>
@@ -190,7 +197,30 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Save(FileName)">Save</button>
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => CreateNew(FileName)">Create</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="createCopyModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="alarmsviewTitle">Create copy</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body justify-content-center">
+                                    <div class="row">
+                                        <label class="col-sm-2 col-form-label">Name</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" placeholder="File name" @bind="FileName">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => CreateCopy(FileName)">Create</button>
                                 </div>
                             </div>
                         </div>
@@ -209,11 +239,14 @@
                                         {
                                             <li class="list-group-item d-flex">
                                                 <p class="mb-0">@item.file</p>
-                                                <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => ClearScaleAndTranslate(item.file)"><span class="bi bi-arrow-clockwise fs-5" aria-hidden="true" title="Clear"/></a>
+                                                <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => ClearScaleAndTranslate(item.file)"><span class="bi bi-arrow-clockwise fs-5" aria-hidden="true" title="Clear" /></a>
                                                 <a class="ms-2 text-decoration-none text-black" style="cursor: pointer;" @onclick="() => Remove(item.file)"><span class="bi bi-trash fs-5" aria-hidden="true" title="Remove" /></a>
                                                 <a class="ms-2 text-decoration-none text-black" style="cursor: pointer;" @onclick="() => ChangeBaseViews(item.file)"><span class="bi @(BaseViews.Contains(item.file) ? "bi-dash" : "bi-plus") fs-5" aria-hidden="true" title="@(BaseViews.Contains(item.file) ? "Remove from base views" : "Add to base views")" /></a>
                                                 <div class="form-check form-switch ms-2 d-flex align-items-center">
-                                                    <input class="form-check-input" type="checkbox" role="switch" checked="@(item.allowZoomingAndPanning ? "checked" : null)" title="Zooming and panning" @onclick="() => ChangeAllowZoomingAndPanning(item.file)">
+                                                    <input class="form-check-input" type="checkbox" role="switch" checked="@(item.allowZoomingAndPanning ? "checked" : null)" @onclick="() => ChangeAllowZoomingAndPanning(item.file)" title="Zooming and panning">
+                                                </div>
+                                                <div class="form-check ms-2 d-flex align-items-center">
+                                                    <input class="form-check-input" type="radio" checked="@(item.file == DefaultView ? "checked" : null)" @onclick="() => ChangeDefaultView(item.file)" title="Default view">
                                                 </div>
                                             </li>
                                         }
@@ -223,25 +256,64 @@
                         </div>
                     </div>
 
-                    <div class="modal fade" id="setImageModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
+                    <div class="modal fade" id="backgroundModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="alarmsviewTitle">Set background image</h1>
+                                    <h1 class="modal-title fs-5" id="alarmsviewTitle">Background</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body justify-content-center">
-                                    <label for="inputFile" class="form-label">Upload image</label>
-                                    <InputFile class="form-control col-10" id="inputFile" accept=".png, .jpg, .jpeg, .svg" OnChange="@UploadFile" />
-                                </div>
-                                <div class="modal-footer">
-                                    @if (!isFileImported && isFileImporting)
-                                    {
-                                        <div class="spinner-border" role="status">
-                                            <span class="visually-hidden">Loading...</span>
+                                    <div class="accordion" id="backgroundAccordion">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="uploadImage">
+                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#uploadImageCollapse" aria-expanded="true" aria-controls="uploadImageCollapse">
+                                                    Upload image
+                                                </button>
+                                            </h2>
+                                            <div id="uploadImageCollapse" class="accordion-collapse collapse show" aria-labelledby="uploadImage" data-bs-parent="#backgroundAccordion">
+                                                <div class="accordion-body">
+                                                    <InputFile class="form-control col-10" id="inputFile" accept=".png, .jpg, .jpeg, .svg" OnChange="@UploadFile" />
+
+                                                    @if (!isFileImported && isFileImporting)
+                                                    {
+                                                        <div class="spinner-border" role="status">
+                                                            <span class="visually-hidden">Loading...</span>
+                                                        </div>
+                                                    }
+                                                    <div class="d-flex justify-content-end">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    }
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="setEmptyBackground">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#setEmptyBackgroundcollapse" aria-expanded="false" aria-controls="setEmptyBackgroundcollapse">
+                                                    Set empty background
+                                                </button>
+                                            </h2>
+                                            <div id="setEmptyBackgroundcollapse" class="accordion-collapse collapse" aria-labelledby="setEmptyBackground" data-bs-parent="#backgroundAccordion">
+                                                <div class="accordion-body">
+                                                    <div class="mb-1 row">
+                                                        <label class="col-sm-2 col-form-label">Width</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="number" class="form-control" placeholder="Width" @bind="BackgroundWidth" step="1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-1 row">
+                                                        <label class="col-sm-2 col-form-label">Height</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="number" class="form-control" placeholder="Height" @bind="BackgroundHeight" step="1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-end">
+                                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="SetEmptyBackground">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -249,11 +321,32 @@
                 }
             </Authorized>
             <NotAuthorized>
+                <div name="TabControl" class="w-100">
+                    <ul class="nav nav-tabs mb-3">
+                        @foreach (var item in BaseViews)
+                        {
+                            <li class="nav-item">
+                                <button type="button" class="nav-link @(CurrentView is null || CurrentView == "" ? item == DefaultView ? "active" : "" : item == CurrentView ? "active" : "")" @onclick="() => Load(item)"><b>@item</b></button>
+                            </li>
+                        }
+                    </ul>
+                </div>
                 <ZoomableContainer Parent="this" Disable="!AllowZoomingAndPanning">
                     <div style="position: relative; width: 100%; height: 100%;">
-                        <img id="@_imgId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
+                        @if (EmptyBackground)
+                        {
+                            <div id="@_backgroundId" style="width: @(BackgroundWidth)%; height: @(BackgroundHeight)vh;"></div>
+                        }
+                        else
+                        {
+                            @if (ImgSrc != null)
+                            {
+                                <img id="@_backgroundId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
+                            }
+                        }
+
                         <CascadingValue Value="@this" Name="Parent" IsFixed="true">
-                            <CascadingValue Value="@_imgId" Name="ImgId" IsFixed="true">
+                            <CascadingValue Value="@_backgroundId" Name="BackgroundId" IsFixed="true">
                                 @foreach (VisualComposerItem child in _children)
                                 {
                                     <VisualComposerItem Origin="@child" />
@@ -272,7 +365,7 @@
                 <div class="container-fluid m-0 p-0">
                     <div class="row">
                         <div class="col-auto">
-                             <button class="btn btn-close" @onclick="ToggleDetailsVisibility"></button>
+                            <button class="btn btn-close" @onclick="ToggleDetailsVisibility"></button>
                         </div>
                         <div class="col">
                             <AuthorizeView Roles="Administrator">
@@ -292,7 +385,7 @@
                                     </div>
                                 </Authorized>
                                 <NotAuthorized>
-                                    
+
                                 </NotAuthorized>
                             </AuthorizeView>
                         </div>
@@ -308,13 +401,13 @@
                 @*     <input type="text" class="form-control" placeholder="Presentation" @bind="DetailsPresentationType"> *@
                 @* </div> *@
             </div>
-          <div class="card-body" style="height: 250px;">
-              <p class="card-deck overflow-auto">
-                  <RenderableContentControl @ref="detailsRcc" Context="@DetailsObject" Presentation="Command-Control"></RenderableContentControl>
-              </p>
-          </div>
+            <div class="card-body" style="height: 250px;">
+                <p class="card-deck overflow-auto">
+                    <RenderableContentControl @ref="detailsRcc" Context="@DetailsObject" Presentation="Command-Control"></RenderableContentControl>
+                </p>
+            </div>
         </div>
-    </span >
+    </span>
 </div>
 @code
 {

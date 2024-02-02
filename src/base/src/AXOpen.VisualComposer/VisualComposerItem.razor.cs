@@ -6,6 +6,7 @@ using AXSharp.Connector;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel;
 using AXSharp.Connector.Localizations;
+using System.Xml.Linq;
 
 namespace AXOpen.VisualComposer
 {
@@ -27,12 +28,10 @@ namespace AXOpen.VisualComposer
             }
         }
 
-        [CascadingParameter(Name = "ImgId")]
-        private Guid _imgId
-        {
-            get => _imgId1;
-            set => _imgId1 = value;
-        }
+
+
+        [CascadingParameter(Name = "BackgroundId")]
+        private Guid _backgroundId { get; set; }
 
         [Parameter]
         public VisualComposerItem? Origin
@@ -41,15 +40,15 @@ namespace AXOpen.VisualComposer
             {
                 UniqueGuid = value.UniqueGuid;
                 TwinElement = value.TwinElement;
-                Left = value.Left;
-                Top = value.Top;
+                _left = value.Left;
+                _top = value.Top;
                 _transform = value.Transform;
                 _presentation = value.Presentation;
                 _width = value.Width;
                 _height = value.Height;
                 _zIndex = value.ZIndex;
                 _scale = value.Scale;
-                Roles = value.Roles;
+                _roles = value.Roles;
                 _presentationTemplate = value.PresentationTemplate;
                 _background = value.Background;
                 Id = value.TwinElement?.Symbol.ModalIdHelper();
@@ -96,6 +95,7 @@ namespace AXOpen.VisualComposer
             {
                 _left = value;
                 StateHasChanged();
+                Parent?.Save();
             }
         }
 
@@ -107,9 +107,10 @@ namespace AXOpen.VisualComposer
             {
                 _top = value;
                 StateHasChanged();
+                Parent?.Save();
             }
         }
-        
+
         internal TransformType _transform = TransformType.TopCenter;
         public TransformType Transform
         {
@@ -118,6 +119,7 @@ namespace AXOpen.VisualComposer
             {
                 _transform = value;
                 StateHasChanged();
+                Parent?.Save();
             }
         }
 
@@ -134,10 +136,11 @@ namespace AXOpen.VisualComposer
                     {
                         renderableContentControlRcc.Presentation = value;
                         renderableContentControlRcc?.ForceRender();
-                    }                    
+                    }
                     StateHasChanged();
+                    Parent?.Save();
                 }
-                
+
             }
         }
 
@@ -145,7 +148,11 @@ namespace AXOpen.VisualComposer
         public bool CustomPresentation
         {
             get => _customPresentation;
-            set => _customPresentation = value;
+            set
+            {
+                _customPresentation = value;
+                Parent?.Save();
+            }
         }
 
         internal double _width = -1;
@@ -156,6 +163,7 @@ namespace AXOpen.VisualComposer
             {
                 _width = value;
                 StateHasChanged();
+                Parent?.Save();
             }
         }
 
@@ -167,6 +175,7 @@ namespace AXOpen.VisualComposer
             {
                 _height = value;
                 StateHasChanged();
+                Parent?.Save();
             }
         }
 
@@ -178,6 +187,7 @@ namespace AXOpen.VisualComposer
             {
                 _zIndex = value;
                 StateHasChanged();
+                Parent?.Save();
             }
         }
 
@@ -189,10 +199,20 @@ namespace AXOpen.VisualComposer
             {
                 _scale = value;
                 StateHasChanged();
+                Parent?.Save();
             }
         }
 
-        public string Roles = "";
+        internal string _roles = "";
+        public string Roles
+        {
+            get => _roles;
+            set
+            {
+                _roles = value;
+                Parent?.Save();
+            }
+        }
 
         internal string? _presentationTemplate;
         public string? PresentationTemplate
@@ -204,6 +224,7 @@ namespace AXOpen.VisualComposer
                 {
                     _presentationTemplate = value;
                     StateHasChanged();
+                    Parent?.Save();
                 }
             }
         }
@@ -216,11 +237,11 @@ namespace AXOpen.VisualComposer
             {
                 _background = value;
                 StateHasChanged();
+                Parent?.Save();
             }
         }
 
         private string _id;
-        private Guid _imgId1;
         private IJSRuntime _js;
         private ITwinElement? _twinElement;
         private Guid? _uniqueGuid = null;
@@ -236,14 +257,16 @@ namespace AXOpen.VisualComposer
         public async Task DragElement()
         {
             var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/VisualComposerItem.razor.js");
-            await jsObject.InvokeVoidAsync("dragElement", Id.Replace('.', '_') + "-" + UniqueGuid, DotNetObjectReference.Create(this), Left, Top, _imgId, Parent._zoomableContainer.Scale);
+            await jsObject.InvokeVoidAsync("dragElement", Id.Replace('.', '_') + "-" + UniqueGuid, DotNetObjectReference.Create(this), Left, Top, _backgroundId, Parent._zoomableContainer.Scale);
         }
 
         [JSInvokable]
         public Task SetDataAsync(double left, double top)
         {
-            Left = left;
-            Top = top;
+            _left = left;
+            _top = top;
+
+            Parent?.Save();
 
             return Task.CompletedTask;
         }
