@@ -525,7 +525,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _progress := 310;
                     END_IF;
 
-                    IF Inputs.CycleOn THEN
+                    IF NOT Inputs.Error THEN
                          THIS.CallTimers(FALSE);
                          Outputs.MotorOnAndStart := FALSE;
                          _progress := 316;
@@ -672,7 +672,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _progress := 320;
                     END_IF;
 
-                    IF Inputs.CycleOn THEN
+                    IF NOT Inputs.Error THEN
                          THIS.CallTimers(FALSE);
                          Outputs.MotorOnAndStart := FALSE;
                          _progress := 326;
@@ -894,7 +894,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
 
                     Outputs.MotorOn:=_blink.output;	
 
-                    IF Inputs.MotorOnState THEN
+                    IF NOT Inputs.Error  THEN
                          Outputs.MotorOn:=FALSE;
                          THIS.CallTimers(FALSE);
                          _progress := 345;
@@ -1487,19 +1487,19 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                                 OR StopMovementsAndProgramTask.IsBusy()
                                 OR StopProgramTask.IsBusy();
             
-            Messenger.ActivateOnCondition(ULINT#713,_someTaskIsActive AND Inputs.EmgStop, eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#714,_someTaskIsActive AND NOT Inputs.SafetyOk, eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#715,_someTaskIsActive AND Inputs.ProgExecError, eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#705,_someTaskIsActive AND Inputs.EmgStop, eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#706,_someTaskIsActive AND NOT Inputs.SafetyOk, eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#707,_someTaskIsActive AND Inputs.ProgExecError, eAxoMessageCategory#Error);
 
             IF _someTaskIsActive THEN
                 IF(Inputs.EmgStop) THEN
-                    RobotStatus.Error.Id := UINT#713;
+                    RobotStatus.Error.Id := UINT#705;
                 END_IF;
                 IF(NOT Inputs.SafetyOk) THEN
-                    RobotStatus.Error.Id := UINT#714;
+                    RobotStatus.Error.Id := UINT#706;
                 END_IF;
                 IF(Inputs.ProgExecError) THEN
-                    RobotStatus.Error.Id := UINT#715;
+                    RobotStatus.Error.Id := UINT#707;
                 END_IF;
             END_IF;
             //***********UPDATE**OUTPUTS*****************

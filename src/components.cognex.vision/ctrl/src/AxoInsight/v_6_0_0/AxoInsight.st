@@ -604,6 +604,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             IF ClearInspectionResultsTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
             END_IF;
+            Messenger.ActivateOnCondition(ULINT#100,ClearInspectionResultsTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#101,ClearInspectionResultsTask.IsDone(), eAxoMessageCategory#Info);
             IF ClearInspectionResultsTask.Execute() THEN
                 THIS.UpdateInputs();
                 IF _progress = 0 THEN
@@ -679,6 +681,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             IF TriggerTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#110;
             END_IF;
+            Messenger.ActivateOnCondition(ULINT#110,TriggerTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#111,TriggerTask.IsDone(), eAxoMessageCategory#Info);
             IF TriggerTask.Execute() THEN
                 THIS.UpdateInputs();
                 IF _progress = 0 THEN
@@ -855,6 +859,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             IF ChangeJobByNameTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#120;
             END_IF;
+            Messenger.ActivateOnCondition(ULINT#120,ChangeJobByNameTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#121,ChangeJobByNameTask.IsDone(), eAxoMessageCategory#Info);
             IF ChangeJobByNameTask.Execute() THEN
                 THIS.UpdateInputs();
                 IF _progress = 0 THEN
@@ -1065,6 +1071,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             IF ChangeJobByNumberTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#140;
             END_IF;
+            Messenger.ActivateOnCondition(ULINT#140,ChangeJobByNumberTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#141,ChangeJobByNumberTask.IsDone(), eAxoMessageCategory#Info);
             IF ChangeJobByNumberTask.Execute() THEN
                 THIS.UpdateInputs();
                 IF _progress = 0 THEN
@@ -1074,7 +1082,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     Status.CurrentJobNumber := UINT#0;
                     THIS.CallTimers(FALSE);
                     _progress := 340;
-
                 END_IF;
 
                 IF _progress = 340 THEN
@@ -1224,6 +1231,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             IF SoftEventTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#150;
             END_IF;
+            Messenger.ActivateOnCondition(ULINT#150,SoftEventTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#151,SoftEventTask.IsDone(), eAxoMessageCategory#Info);
             IF SoftEventTask.Execute() THEN
                 THIS.UpdateInputs();
                 IF _progress = 0 THEN
@@ -1251,7 +1260,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 
                 IF _progress = 352 THEN
-                    Messenger.ActivateOnCondition(ULINT#652, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#652, _infoTimer.output, eAxoMessageCategory#Warning);
 
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#652;
@@ -1267,7 +1276,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 
                 IF _progress = 353 THEN
-                    Messenger.ActivateOnCondition(ULINT#653, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#653, _infoTimer.output, eAxoMessageCategory#Warning);
 
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#653;
@@ -1310,19 +1319,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 _progress := 0;
             END_IF;   
             //****************************************
-
-            Messenger.ActivateOnCondition(ULINT#717,ClearInspectionResultsTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#718,TriggerTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#719,ChangeJobByNameTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#720,ChangeJobByNumberTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#721,SoftEventTask.HasError(), eAxoMessageCategory#Error);
-
-            Messenger.ActivateOnCondition(ULINT#722,ClearInspectionResultsTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#723,TriggerTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#724,ChangeJobByNameTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#725,ChangeJobByNumberTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#726,SoftEventTask.IsAborted(), eAxoMessageCategory#Error);
-
         END_METHOD    
         
         ///<summary>
