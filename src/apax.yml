@@ -3,3 +3,5 @@ version: 0.1.0
 type: workspace
 devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
+installStrategy: strict
+apaxVersion: 3.1.0
