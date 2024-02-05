@@ -195,19 +195,19 @@ namespace AXOpen.Components.Desoutter.Tightening
 
                     actionDescriptionDict.Add(50, "Restore has been executed.");
 
-                    actionDescriptionDict.Add(100, "CReset started.");
-                    actionDescriptionDict.Add(300, "CReset running.");
-                    actionDescriptionDict.Add(301, "CReset running.");
-                    actionDescriptionDict.Add(302, "CReset running.");
-                    actionDescriptionDict.Add(303, "CReset running.");
-                    actionDescriptionDict.Add(304, "CReset running.");
-                    actionDescriptionDict.Add(305, "CReset running.");
-                    actionDescriptionDict.Add(306, "CReset running.");
-                    actionDescriptionDict.Add(307, "CReset running.");
-                    actionDescriptionDict.Add(308, "CReset running.");
-                    actionDescriptionDict.Add(309, "CReset running.");
-                    actionDescriptionDict.Add(101, "CReset finished succesfully.");
-                    actionDescriptionDict.Add(102, "CReset restored.");
+                    actionDescriptionDict.Add(100, "Reset started.");
+                    actionDescriptionDict.Add(300, "Reset running.");
+                    actionDescriptionDict.Add(301, "Reset running.");
+                    actionDescriptionDict.Add(302, "Reset running.");
+                    actionDescriptionDict.Add(303, "Reset running.");
+                    actionDescriptionDict.Add(304, "Reset running.");
+                    actionDescriptionDict.Add(305, "Reset running.");
+                    actionDescriptionDict.Add(306, "Reset running.");
+                    actionDescriptionDict.Add(307, "Reset running.");
+                    actionDescriptionDict.Add(308, "Reset running.");
+                    actionDescriptionDict.Add(309, "Reset running.");
+                    actionDescriptionDict.Add(101, "Reset finished succesfully.");
+                    actionDescriptionDict.Add(102, "Reset restored.");
 
                     actionDescriptionDict.Add(110, "Set screwing program started.");
                     actionDescriptionDict.Add(310, "Set screwing program running.");

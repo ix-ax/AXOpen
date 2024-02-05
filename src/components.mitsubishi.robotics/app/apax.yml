@@ -4,6 +4,7 @@ type: app
 targets:
   - plcsim
   - llvm
+  - "1500"
 variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
