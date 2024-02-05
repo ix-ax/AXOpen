@@ -1598,9 +1598,9 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             _data[43]            := _dword.%B0;
 
             returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdDO_64_bytes,_data);
-            Messenger.ActivateOnCondition(ULINT#829,returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#704,returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
             IF returnValue > WORD#0 THEN
-                RobotStatus.Error.Id := UINT#829;
+                RobotStatus.Error.Id := UINT#704;
                 RETURN;
             END_IF;
             //*******************************************
@@ -1625,6 +1625,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             StartMotorsTask.Restore();         
             StartMovementsTask.Restore();
             StartMotorsProgramAndMovementsTask.Restore();
+            RobotStatus.Action.Id :=  UINT#50;
             RestoreTask.DoneWhen(TRUE);
         END_METHOD        
     
