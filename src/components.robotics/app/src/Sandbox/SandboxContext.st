@@ -2,7 +2,7 @@
 CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
         _manualControl : BOOL;
-        _testCyclinder : AXOpen.Components.Example.ExampleCylinder;
+        _testCyclinder : AXOpen.Components.Robotics.ExampleCylinder;
     END_VAR
 
     VAR PRIVATE

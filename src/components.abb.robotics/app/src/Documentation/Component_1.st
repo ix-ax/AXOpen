@@ -9,9 +9,6 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
 
     //<InitializationArgumentsDeclaration>
     VAR PUBLIC                
-        PlcInputs : REF_TO PlcInputs;
-        PlcOutputs : REF_TO PlcOutputs;     
-
         movementParams : AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams;
         manualControl   :   BOOL;  
     END_VAR
@@ -29,10 +26,10 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         END_IF;
 
         //<Initialization>        
-        ExampleRobot.Run(   parent      := THIS,
-                            hwID        := HwIdentifiers#RobotBasicIO,
-                            refInputs   := REF(PlcInputs^.RobotBasicIO_DI_64_bytes_1),      
-                            refOutputs  := REF(PlcOutputs^.RobotBasicIO_DO_64_bytes_1));        
+        ExampleRobot.Run(   parent          := THIS,
+                            hwID            := HwIdentifiers#RobotBasicIO,
+                            hwIdDI_64_bytes := HwIdentifiers#RobotBasicIO_DI_64_bytes_1,      
+                            hwIdDO_64_bytes := HwIdentifiers#RobotBasicIO_DO_64_bytes_1);        
         //</Initialization>
 
        THIS.UseInSequencer();

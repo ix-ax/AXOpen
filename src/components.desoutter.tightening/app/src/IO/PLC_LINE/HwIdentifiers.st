@@ -19,14 +19,14 @@ TYPE
 		wp462_t1_rh_deso_Interface :=	WORD#333,
 		wp462_t1_rh_deso_Interface_Port_1 :=	WORD#334,
 		wp462_t1_rh_deso_RT :=	WORD#335,
-		wp462_t1_rh_deso_Input_1_byte_1 :=	WORD#606,
-		wp462_t1_rh_deso_Input_1_byte_2 :=	WORD#609,
-		wp462_t1_rh_deso_Output_1_byte_1 :=	WORD#610,
-		wp462_t1_rh_deso_Output_1_byte_2 :=	WORD#611,
-		wp462_t1_rh_deso_Input_2_word_1 :=	WORD#615,
-		wp462_t1_rh_deso_Input_2_word_2 :=	WORD#614,
-		wp462_t1_rh_deso_Input_1_word_1 :=	WORD#613,
-		wp462_t1_rh_deso_Input_1_word_2 :=	WORD#612,
+		wp462_t1_rh_deso_Input_1_byte_1 :=	WORD#262,
+		wp462_t1_rh_deso_Input_1_byte_2 :=	WORD#263,
+		wp462_t1_rh_deso_Input_2_word_1 :=	WORD#264,
+		wp462_t1_rh_deso_Input_1_word_1 :=	WORD#265,
+		wp462_t1_rh_deso_Input_2_word_2 :=	WORD#266,
+		wp462_t1_rh_deso_Input_1_word_2 :=	WORD#258,
+		wp462_t1_rh_deso_Output_1_byte_1 :=	WORD#259,
+		wp462_t1_rh_deso_Output_1_byte_2 :=	WORD#260,
 		NONE:= WORD#0
 	);
 END_TYPE

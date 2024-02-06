@@ -2,7 +2,7 @@
 CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
         _manualControl : BOOL;
-        _testCyclinder : AXOpen.Components.Example.ExampleCylinder;
+        _testCyclinder : AXOpen.Components.Rexroth.Press.ExampleCylinder;
         PlcInputs : REF_TO PlcInputs;
         PlcOutputs : REF_TO PlcOutputs;       
     END_VAR

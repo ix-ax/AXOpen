@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.components.pneumatics"
-version: '0.0.0-dev.0'
+version        : '0.0.0-dev.0'
 type: lib
 targets:
   - llvm
@@ -12,9 +12,9 @@ variables:
   AXUNIT_TARGET_IP: "172.20.30.110"
   SIM_ENABLED: "true"
 devDependencies:
-  "@ix-ax/ax-sdk": '0.0.0-dev.0'
+  "@ix-ax/ax-sdk"        : '0.0.0-dev.0'
 dependencies:
-  "@ix-ax/axopen.components.abstractions": '0.0.0-dev.0'
+  "@ix-ax/axopen.components.abstractions"        : '0.0.0-dev.0'
 scripts:
   download:
     - START=$(date +%s)

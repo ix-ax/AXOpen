@@ -6,8 +6,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AXSharp.Abstractions"/>
-		<PackageReference Include="AXSharp.Connector"/>
+		<PackageReference Include="AXSharp.Abstractions" />
+		<PackageReference Include="AXSharp.Connector" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -17,5 +17,57 @@
 	<ItemGroup>
 		<Folder Include=".meta\" />
 		<Content Include=".meta\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\abstractions\app\ix\abstractions_app.csproj" />
+	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj" />
+	  <ProjectReference Include="..\..\..\components.abb.robotics\app\ix\app_axopen_components_abb_robotics.csproj" />
+	  <ProjectReference Include="..\..\..\components.abb.robotics\src\AXOpen.Components.Abb.Robotics\ix_ax_axopen_components_abb_robotics.csproj" />
+	  <ProjectReference Include="..\..\..\components.abstractions\app\ix\components_abstractions_app.csproj" />
+	  <ProjectReference Include="..\..\..\components.abstractions\src\AXOpen.Components.Abstractions\ix_ax_axopen_components_abstractions.csproj" />
+	  <ProjectReference Include="..\..\..\components.cognex.vision\app\ix\app_axopen_components_cognex_vision.csproj" />
+	  <ProjectReference Include="..\..\..\components.cognex.vision\src\AXOpen.Components.Cognex.Vision\ix_ax_axopen_components_cognex_vision.csproj" />
+	  <ProjectReference Include="..\..\..\components.desoutter.tightening\app\ix\app_axopen_components_desoutter_tightening.csproj" />
+	  <ProjectReference Include="..\..\..\components.desoutter.tightening\src\AXOpen.Components.Desoutter.Tightening\ix_ax_axopen_components_desoutter_tightening.csproj" />
+	  <ProjectReference Include="..\..\..\components.drives\app\ix\app_axopen_components_drives.csproj" />
+	  <ProjectReference Include="..\..\..\components.drives\src\AXOpen.Components.Drives\ix_ax_axopen_components_drives.csproj" />
+	  <ProjectReference Include="..\..\..\components.elements\app\ix\elementscomponents.csproj" />
+	  <ProjectReference Include="..\..\..\components.elements\src\AXOpen.Components.Elements\ix_ax_axopen_components_elements.csproj" />
+	  <ProjectReference Include="..\..\..\components.festo.drives\app\ix\app_axopen_components_festo_drives.csproj" />
+	  <ProjectReference Include="..\..\..\components.festo.drives\src\AXOpen.Components.Festo.Drives\ix_ax_axopen_components_festo_drives.csproj" />
+	  <ProjectReference Include="..\..\..\components.mitsubishi.robotics\app\ix\app_axopen_components_mitsubishi_robotics.csproj" />
+	  <ProjectReference Include="..\..\..\components.mitsubishi.robotics\src\AXOpen.Components.Mitsubishi.Robotics\ix_ax_axopen_components_mitsubishi_robotics.csproj" />
+	  <ProjectReference Include="..\..\..\components.pneumatics\app\ix\pneumaticcomponents.csproj" />
+	  <ProjectReference Include="..\..\..\components.pneumatics\src\AXOpen.Components.Pneumatics\ix_ax_axopen_components_pneumatics.csproj" />
+	  <ProjectReference Include="..\..\..\components.rexroth.drives\app\ix\app_axopen_components_rexroth_drives.csproj" />
+	  <ProjectReference Include="..\..\..\components.rexroth.drives\src\AXOpen.Components.Rexroth.Drives\ix_ax_axopen_components_rexroth_drives.csproj" />
+	  <ProjectReference Include="..\..\..\components.rexroth.press\app\ix\app_axopen_components_rexroth_press.csproj" />
+	  <ProjectReference Include="..\..\..\components.rexroth.press\src\AXOpen.Components.Rexroth.Press\ix_ax_axopen_components_rexroth_press.csproj" />
+	  <ProjectReference Include="..\..\..\components.robotics\app\ix\app_axopen_components_robotics.csproj" />
+	  <ProjectReference Include="..\..\..\components.robotics\src\AXOpen.Components.Robotics\ix_ax_axopen_components_robotics.csproj" />
+	  <ProjectReference Include="..\..\..\components.ur.robotics\app\ix\app_axopen_components_ur_robotics.csproj" />
+	  <ProjectReference Include="..\..\..\components.ur.robotics\src\AXOpen.Components.Ur.Robotics\ix_ax_axopen_components_ur_robotics.csproj" />
+	  <ProjectReference Include="..\..\..\core\app\ix\ix_axopencore.csproj" />
+	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
+	  <ProjectReference Include="..\..\..\data\app\ix\axopen_data_app.csproj" />
+	  <ProjectReference Include="..\..\..\data\src\AXOpen.Data\ix_ax_axopen_data.csproj" />
+	  <ProjectReference Include="..\..\..\inspectors\app\ix\axopen_inspectors.csproj" />
+	  <ProjectReference Include="..\..\..\inspectors\src\AXOpen.Inspectors\ix_ax_axopen_inspectors.csproj" />
+	  <ProjectReference Include="..\..\..\integrations\src\AXOpen.Integrations\axopen_integrations.csproj" />	  
+	  <ProjectReference Include="..\..\..\io\app\ix\app_axopen_io.csproj" />
+	  <ProjectReference Include="..\..\..\io\src\AXOpen.Io\ix_ax_axopen_io.csproj" />
+	  <ProjectReference Include="..\..\..\probers\app\ix\probers_app.csproj" />
+	  <ProjectReference Include="..\..\..\probers\src\AXOpen.Probers\ix_ax_axopen_probers.csproj" />
+	  <ProjectReference Include="..\..\..\sdk-ax\ctrl\ix\ix_ax_ax_sdk.csproj" />
+	  <ProjectReference Include="..\..\..\simatic1500\app\ix\simatic1500_app.csproj" />
+	  <ProjectReference Include="..\..\..\simatic1500\ctrl\ix\ix_ax_axopen_simatic1500.csproj" />
+	  <ProjectReference Include="..\..\..\template.axolibrary\app\ix\app_apaxappname.csproj" />
+	  <ProjectReference Include="..\..\..\template.axolibrary\src\projname\ix_ax_apaxlibname.csproj" />
+	  <ProjectReference Include="..\..\..\templates.simple\axpansion\twin\axosimple.csproj" />
+	  <ProjectReference Include="..\..\..\timers\app\ix\timers_app.csproj" />
+	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj" />
+	  <ProjectReference Include="..\..\..\utils\app\ix\utils_app.csproj" />
+	  <ProjectReference Include="..\..\..\utils\src\AXOpen.Utils\ix_ax_axopen_utils.csproj" />
 	</ItemGroup>
 </Project>

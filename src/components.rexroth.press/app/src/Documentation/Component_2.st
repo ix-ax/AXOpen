@@ -3,7 +3,7 @@ USING AXOpen.Core;
 CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
     //<ComponentDeclaration>
     VAR PUBLIC                
-        ExampleCylinder : AXOpen.Components.Example.ExampleCylinder;      
+        ExampleCylinder : AXOpen.Components.Rexroth.Press.ExampleCylinder;      
     END_VAR
     //</ComponentDeclaration>                          
 
