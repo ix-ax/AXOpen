@@ -33,5 +33,6 @@
 	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj" />
 	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj" />
 	  <ProjectReference Include="app_appconnectorname.csproj" />
+	  <ProjectReference Include="..\..\src\projname\ix_ax_apaxlibname.csproj" />
 	</ItemGroup>
 </Project>
