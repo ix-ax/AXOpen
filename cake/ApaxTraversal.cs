@@ -106,7 +106,7 @@ public static class ApaxTraversal
                                                                 version = "0.0.0", 
                                                                 type = "app",
                                                                 targets = new string[] {"plcsim", "llvm"},
-                                                                devDependencies = new Dictionary<string, string>() { {"@ix-ax/ax-sdk", "0.0.0-dev.0"} }, 
+                                                                devDependencies = new Dictionary<string, string>() { {"@ix-ax/ax-sdk", dependencies.First(p => p.Name == "@ix-ax/ax-sdk").Version} }, 
                                                                 dependencies = dependenciesDictionary});
 
         File.WriteAllText(filePath, yamlContent);
