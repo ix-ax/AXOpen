@@ -221,17 +221,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_probers_tests_L3", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_ax_sdk", "sdk-ax\ctrl\ix\ix_ax_ax_sdk.csproj", "{850B9585-524E-4A75-B02F-CA9880AF258C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_blazor_auth_app", "Security\integrations\axopen_blazor_auth_app\axopen_blazor_auth_app.csproj", "{ECF099C0-A48E-4DBA-8AA6-748249E4B4F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_blazor_auth_app", "security\integrations\axopen_blazor_auth_app\axopen_blazor_auth_app.csproj", "{ECF099C0-A48E-4DBA-8AA6-748249E4B4F1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security.Blazor", "Security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj", "{65B60E30-016C-464C-A429-1EBA67359806}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security.Blazor", "security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj", "{65B60E30-016C-464C-A429-1EBA67359806}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security", "Security\src\AXOpen.Security\AXOpen.Security.csproj", "{40E68FF4-41B0-4073-9D2B-36B6C4D6478A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security", "security\src\AXOpen.Security\AXOpen.Security.csproj", "{40E68FF4-41B0-4073-9D2B-36B6C4D6478A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.SecurityTests_L1", "Security\tests\axopen_security_tests\AXOpen.SecurityTests_L1.csproj", "{B295A9EA-05CF-45A8-8898-E3CFCDA77AEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.SecurityTests_L1", "security\tests\axopen_security_tests\AXOpen.SecurityTests_L1.csproj", "{B295A9EA-05CF-45A8-8898-E3CFCDA77AEF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "simatic1500_app", "simatic1500\app\ix\simatic1500_app.csproj", "{D7D1909C-ECCE-426A-B5FA-E7FA942E9DF1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_simatic1500", "simatic1500\ctrl\ix\ix_ax_axopen_simatic1500.csproj", "{CB225FD9-C89F-47BA-AA24-F3ED16D5AED7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "app_apaxappname", "template.axolibrary\app\ix\app_apaxappname.csproj", "{8B6A64B4-E027-42FE-9E48-BA52518B03F2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_apaxlibname", "template.axolibrary\src\projname\ix_ax_apaxlibname.csproj", "{51616177-E7B5-4F81-BD81-1B293B014D18}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axolib", "template.axolibrary\src\projname\ix_ax_axolib.csproj", "{0FDAA0DE-E0AB-4141-A716-71933455D319}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axosimple.server", "templates.simple\axpansion\server\axosimple.server.csproj", "{5F615D45-61A8-462A-A482-AE495417DD95}"
 EndProject
@@ -665,21 +671,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ctrl", "sdk-ax\ctrl", "{826
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sdk-ax", "sdk-ax", "{8597E8C1-E9A1-4DAA-A7F8-68686452FBA9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "axopen_blazor_auth_app", "Security\integrations\axopen_blazor_auth_app", "{94C7A450-15DA-4DCE-A1DD-C3FCC32D9A45}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "axopen_blazor_auth_app", "security\integrations\axopen_blazor_auth_app", "{94C7A450-15DA-4DCE-A1DD-C3FCC32D9A45}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "integrations", "Security\integrations", "{B87990CA-CD8A-4080-AA7E-A1104A09751D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "integrations", "security\integrations", "{B87990CA-CD8A-4080-AA7E-A1104A09751D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security.Blazor", "Security\src\AXOpen.Security.Blazor", "{697A5E5B-DF82-472A-A716-3C84BA885DB0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security.Blazor", "security\src\AXOpen.Security.Blazor", "{697A5E5B-DF82-472A-A716-3C84BA885DB0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security", "Security\src\AXOpen.Security", "{E616165A-39F9-411E-A6CA-72E58655244A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security", "security\src\AXOpen.Security", "{E616165A-39F9-411E-A6CA-72E58655244A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "Security\src", "{0C5D853A-811D-406A-A464-D1701FFEAE24}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "security\src", "{0C5D853A-811D-406A-A464-D1701FFEAE24}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "axopen_security_tests", "Security\tests\axopen_security_tests", "{B8EAACF4-7A59-4447-BAEE-A8BD95DE0D4D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "axopen_security_tests", "security\tests\axopen_security_tests", "{B8EAACF4-7A59-4447-BAEE-A8BD95DE0D4D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "Security\tests", "{4072C022-CB0B-4331-B5E8-2783B002FA46}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "security\tests", "{4072C022-CB0B-4331-B5E8-2783B002FA46}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Security", "Security", "{BD1B5192-3C3D-49CA-8840-C8B5A76B0ACF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "security", "security", "{BD1B5192-3C3D-49CA-8840-C8B5A76B0ACF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix", "simatic1500\app\ix", "{D82435A2-66E2-4CFD-82C7-69BC7C160144}"
 EndProject
@@ -690,6 +696,16 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ctrl", "simatic1500\ctrl", "{2FD0F311-1B81-4958-B104-CD775E6FAAC4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "simatic1500", "simatic1500", "{2F0E9866-DDAF-4D5E-A8C5-7344401C2851}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix", "template.axolibrary\app\ix", "{63832B1C-F5D6-4441-AD36-99904EBACEAD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "template.axolibrary\app", "{A7F12AFD-605E-42AF-B5CA-B73CEDFC6C1F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "projname", "template.axolibrary\src\projname", "{1C9023A4-F27D-4CBB-A5FB-814FE3CAD368}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "template.axolibrary\src", "{16DEBE7C-8CF2-448C-B218-9746DCD40181}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "template.axolibrary", "template.axolibrary", "{4AD4F5F9-CE2A-4CB6-89CF-F0B8EF35694F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "server", "templates.simple\axpansion\server", "{8A7DA51C-297B-46C1-A91F-5B7EDFFDEF9F}"
 EndProject
@@ -1217,6 +1233,18 @@ Global
 		{CB225FD9-C89F-47BA-AA24-F3ED16D5AED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB225FD9-C89F-47BA-AA24-F3ED16D5AED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB225FD9-C89F-47BA-AA24-F3ED16D5AED7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B6A64B4-E027-42FE-9E48-BA52518B03F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B6A64B4-E027-42FE-9E48-BA52518B03F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B6A64B4-E027-42FE-9E48-BA52518B03F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B6A64B4-E027-42FE-9E48-BA52518B03F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51616177-E7B5-4F81-BD81-1B293B014D18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51616177-E7B5-4F81-BD81-1B293B014D18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51616177-E7B5-4F81-BD81-1B293B014D18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51616177-E7B5-4F81-BD81-1B293B014D18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FDAA0DE-E0AB-4141-A716-71933455D319}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FDAA0DE-E0AB-4141-A716-71933455D319}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FDAA0DE-E0AB-4141-A716-71933455D319}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FDAA0DE-E0AB-4141-A716-71933455D319}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5F615D45-61A8-462A-A482-AE495417DD95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5F615D45-61A8-462A-A482-AE495417DD95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F615D45-61A8-462A-A482-AE495417DD95}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -1575,6 +1603,13 @@ Global
 		{CB225FD9-C89F-47BA-AA24-F3ED16D5AED7} = {8AE11514-80BA-44AD-B1E3-3C792DD31B58}
 		{8AE11514-80BA-44AD-B1E3-3C792DD31B58} = {2FD0F311-1B81-4958-B104-CD775E6FAAC4}
 		{2FD0F311-1B81-4958-B104-CD775E6FAAC4} = {2F0E9866-DDAF-4D5E-A8C5-7344401C2851}
+		{8B6A64B4-E027-42FE-9E48-BA52518B03F2} = {63832B1C-F5D6-4441-AD36-99904EBACEAD}
+		{63832B1C-F5D6-4441-AD36-99904EBACEAD} = {A7F12AFD-605E-42AF-B5CA-B73CEDFC6C1F}
+		{A7F12AFD-605E-42AF-B5CA-B73CEDFC6C1F} = {4AD4F5F9-CE2A-4CB6-89CF-F0B8EF35694F}
+		{51616177-E7B5-4F81-BD81-1B293B014D18} = {1C9023A4-F27D-4CBB-A5FB-814FE3CAD368}
+		{0FDAA0DE-E0AB-4141-A716-71933455D319} = {1C9023A4-F27D-4CBB-A5FB-814FE3CAD368}
+		{1C9023A4-F27D-4CBB-A5FB-814FE3CAD368} = {16DEBE7C-8CF2-448C-B218-9746DCD40181}
+		{16DEBE7C-8CF2-448C-B218-9746DCD40181} = {4AD4F5F9-CE2A-4CB6-89CF-F0B8EF35694F}
 		{5F615D45-61A8-462A-A482-AE495417DD95} = {8A7DA51C-297B-46C1-A91F-5B7EDFFDEF9F}
 		{8A7DA51C-297B-46C1-A91F-5B7EDFFDEF9F} = {B98237D9-D22E-4AA2-A601-6EBCB5249EDB}
 		{650E4F73-B7E3-4F0A-B8A5-A2EE0CD4D6AD} = {2FA71E8A-FE86-4494-90F3-9B8CFFF23292}

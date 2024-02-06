@@ -1,6 +1,5 @@
 ﻿<Project Sdk="Microsoft.Build.Traversal/4.1.0">
-	<ItemGroup>    
-    <ProjectReference Include="ctrl\ix\axopen_integrations_ctrl.csproj" />    
+	<ItemGroup>        
     <ProjectReference Include="src\AXOpen.Integrations.Blazor\axopen_integrations_blazor.csproj" />    
     <ProjectReference Include="src\AXOpen.Integrations\axopen_integrations.csproj" />    
     <ProjectReference Include="tests\AXOpen.Integration.Data.Blazor.Tests\axopen_integration_data_blazor_tests_LX.csproj" />    
