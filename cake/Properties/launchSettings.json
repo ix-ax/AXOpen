@@ -10,7 +10,7 @@
     },
     "pack": {
       "commandName": "Project",
-      "commandLineArgs": "--do-test --test-level 2 --do-pack"
+      "commandLineArgs": "--do-pack"
     },
     "test-L2": {
       "commandName": "Project",

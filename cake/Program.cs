@@ -160,6 +160,8 @@ public sealed class BuildTask : FrostingTask<BuildContext>
             var traversalProject = Path.Combine(traversalProjectFolder, "apax.yml");
             context.CreateApaxTraversal(context.RootDir, traversalProject );
             
+            
+            
             context.ApaxInstall(new []{traversalProjectFolder});
             context.ApaxBuild(new []{traversalProjectFolder});
             context.ApaxIxc(new []{traversalProjectFolder});

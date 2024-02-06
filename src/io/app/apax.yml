@@ -1,5 +1,5 @@
 name: "app_axopen.io"
-version: 0.0.0
+version     : '0.4.3-dev-2311.608'
 type: app
 targets:
   - plcsim
@@ -9,14 +9,14 @@ variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
 devDependencies:
-  "@ix-ax/ax-sdk": '0.0.0-dev.0'
+  "@ix-ax/ax-sdk"     : '0.4.3-dev-2311.608'
   "@ax/sld": 2.0.5
 dependencies:
-  "@ix-ax/axopen.core": '0.0.0-dev.0'
-  "@ix-ax/axopen.timers": '0.0.0-dev.0'
-  "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
-  "@ix-ax/axopen.io": '0.0.0-dev.0'
-  "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
+  "@ix-ax/axopen.core"     : '0.4.3-dev-2311.608'
+  "@ix-ax/axopen.timers"     : '0.4.3-dev-2311.608'
+  "@ix-ax/axopen.abstractions"     : '0.4.3-dev-2311.608'
+  "@ix-ax/axopen.io"     : '0.4.3-dev-2311.608'
+  "@ix-ax/axopen.simatic1500"     : '0.4.3-dev-2311.608'
   "@ax/simatic-1500-clocks": ^6.0.37
 scripts:
   delta:

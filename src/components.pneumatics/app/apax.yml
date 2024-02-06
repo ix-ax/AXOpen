@@ -1,14 +1,14 @@
 name: "pneumaticcomponents"
-version: '0.0.0-dev.0'
+version     : '0.4.3-dev-2311.608'
 type: app
 targets:
   - llvm
   - plcsim
 devDependencies:
-  "@ix-ax/ax-sdk": '0.0.0-dev.0'
+  "@ix-ax/ax-sdk"     : '0.4.3-dev-2311.608'
 dependencies:
-  "@ix-ax/axopen.components.pneumatics": '0.0.0-dev.0'
-  "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
+  "@ix-ax/axopen.components.pneumatics"     : '0.4.3-dev-2311.608'
+  "@ix-ax/axopen.simatic1500"     : '0.4.3-dev-2311.608'
 variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
