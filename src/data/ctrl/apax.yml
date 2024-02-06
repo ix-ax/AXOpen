@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.data"
-version        : '0.4.3-dev-2311.609'
+version        : '0.0.0-dev.0'
 type: lib
 targets:
   - llvm
@@ -7,9 +7,9 @@ files:
   - src
   - axsharp.companion.json
 dependencies:
-  "@ix-ax/axopen.core"        : '0.4.3-dev-2311.609'
+  "@ix-ax/axopen.core"        : '0.0.0-dev.0'
 devDependencies:
-  "@ix-ax/ax-sdk"        : '0.4.3-dev-2311.609'
+  "@ix-ax/ax-sdk"        : '0.0.0-dev.0'
 scripts:
   postbuild:
     - dotnet ixc

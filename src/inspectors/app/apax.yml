@@ -1,5 +1,5 @@
 name: "axopen.inspectors"
-version        : '0.4.3-dev-2311.609'
+version        : '0.0.0-dev.0'
 type: app
 targets:
   - plcsim
@@ -8,10 +8,10 @@ variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
 devDependencies:
-  "@ix-ax/ax-sdk"        : '0.4.3-dev-2311.609'
+  "@ix-ax/ax-sdk"        : '0.0.0-dev.0'
 dependencies:
-  "@ix-ax/axopen.inspectors"        : '0.4.3-dev-2311.609'
-  "@ix-ax/axopen.simatic1500"        : '0.4.3-dev-2311.609'
+  "@ix-ax/axopen.inspectors"        : '0.0.0-dev.0'
+  "@ix-ax/axopen.simatic1500"        : '0.0.0-dev.0'
 scripts:
   download:
     - apax install
