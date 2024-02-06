@@ -1,5 +1,5 @@
 name: "@ix-ax/ax-sdk"
-version       : '0.0.0-dev.0'
+version        : '0.4.3-dev-2311.609'
 type: generic
 # targets:
 #   - '1500'

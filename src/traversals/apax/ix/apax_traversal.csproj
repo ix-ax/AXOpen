@@ -54,8 +54,7 @@
 	  <ProjectReference Include="..\..\..\data\src\AXOpen.Data\ix_ax_axopen_data.csproj" />
 	  <ProjectReference Include="..\..\..\inspectors\app\ix\axopen_inspectors.csproj" />
 	  <ProjectReference Include="..\..\..\inspectors\src\AXOpen.Inspectors\ix_ax_axopen_inspectors.csproj" />
-	  <ProjectReference Include="..\..\..\integrations\src\AXOpen.Integrations\axopen_integrations.csproj" />
-	  <ProjectReference Include="..\..\..\integrations\_ctrl_\ix\axopen_integrations_ctrl.csproj" />
+	  <ProjectReference Include="..\..\..\integrations\src\AXOpen.Integrations\axopen_integrations.csproj" />	  
 	  <ProjectReference Include="..\..\..\io\app\ix\app_axopen_io.csproj" />
 	  <ProjectReference Include="..\..\..\io\src\AXOpen.Io\ix_ax_axopen_io.csproj" />
 	  <ProjectReference Include="..\..\..\probers\app\ix\probers_app.csproj" />

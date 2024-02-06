@@ -1,5 +1,5 @@
 name: "axopen.data-app"
-version       : '0.0.0-dev.0'
+version        : '0.4.3-dev-2311.609'
 type: app
 targets:
   - plcsim
@@ -8,10 +8,10 @@ variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
 devDependencies:
-  "@ix-ax/ax-sdk"       : '0.0.0-dev.0'
+  "@ix-ax/ax-sdk"        : '0.4.3-dev-2311.609'
 dependencies:
-  "@ix-ax/axopen.simatic1500"       : '0.0.0-dev.0'
-  "@ix-ax/axopen.data"       : '0.0.0-dev.0'
+  "@ix-ax/axopen.simatic1500"        : '0.4.3-dev-2311.609'
+  "@ix-ax/axopen.data"        : '0.4.3-dev-2311.609'
 scripts:
   download:
     - apax install
