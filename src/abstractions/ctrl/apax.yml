@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.abstractions"
-version     : '0.4.3-dev-2311.608'
+version       : '0.0.0-dev.0'
 type: lib
 targets:
   - llvm
@@ -7,7 +7,7 @@ files:
   - src
   - axsharp.companion.json
 devDependencies:
-  "@ix-ax/ax-sdk"     : '0.4.3-dev-2311.608'
+  "@ix-ax/ax-sdk"       : '0.0.0-dev.0'
 dependencies:
   "@ax/system-strings": ^6.0.94
 scripts:
