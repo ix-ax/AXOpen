@@ -1,4 +1,3 @@
-USING AXOpen.Components.Example;
 USING AXOpen.Core;
 USING AXOpen.Rtc;
 USING AXOpen.Logging;
@@ -53,27 +52,10 @@ NAMESPACE Cylinder.Tests
     END_CLASS
     {TestFixture}
     {S7.extern=ReadWrite}
-    CLASS CylinderTests 
-        VAR 
-            context : TestContext;
-            cylinder : ExampleCylinder;
-            _homeSensor : BOOL;
-            _workSensor : BOOL;
-            _moveHomeSignal : BOOL;
-            _moveWorkSignal : BOOL;
-            _done : BOOL;
-        END_VAR           
+    CLASS MyTests           
         {Test}
-        METHOD PUBLIC MoveHome
-            WHILE _done DO
-                context.Open();
-                _done := Cylinder.MoveToHome.Invoke().IsDone();
-                cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);
-                AxUnit.Assert.Equal(_moveHomeSignal, _moveHomeSignal);   
-                context.Close();            
-            END_WHILE;
-            
-            
+        METHOD PUBLIC MyTest
+            AxUnit.Assert.Equal(TRUE, TRUE);   
         END_METHOD
     END_CLASS    
 END_NAMESPACE
