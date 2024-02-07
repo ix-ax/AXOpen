@@ -5,7 +5,7 @@ const elementItem = document.getElementById('zoomAndMoveItem');
 enableZooming()
 
 let isDragging = false;
-let startX, startY, offsetX = 0, offsetY = 0;
+let startX, startY, left = 0, top = 0;
 let scale;
 let dotNetComponentInstance;
 
@@ -37,8 +37,8 @@ function zoom(event) {
 function startDrag(event) {
     if (event.ctrlKey) {
         isDragging = true;
-        startX = event.clientX - offsetX;
-        startY = event.clientY - offsetY;
+        startX = event.clientX - left;
+        startY = event.clientY - top;
     }
 }
 
@@ -49,22 +49,24 @@ function stopDrag() {
 function drag(event) {
     if (event.ctrlKey && isDragging) {
         event.preventDefault();
-        offsetX = event.clientX - startX;
-        offsetY = event.clientY - startY;
+
+        left = event.clientX - startX;
+        top = event.clientY - startY;
+
         updateTransform();
     }
 }
 
 function updateTransform() {
-    elementItem.style.transform = `scale(${scale}) translate(${offsetX}px, ${offsetY}px)`;
+    elementItem.style.transform = `scale(${scale}) translate(${left}px, ${top}px)`;
 
-    dotNetComponentInstance.invokeMethodAsync('SetDataAsync', scale, offsetX, offsetY);
+    dotNetComponentInstance.invokeMethodAsync('SetDataAsync', scale, left, top);
 }
 
 export function setData(dotNetInstance, s, x, y) {
     dotNetComponentInstance = dotNetInstance;
     scale = s;
-    offsetX = x;
-    offsetY = y;
+    left = x;
+    top = y;
     updateTransform();
 }

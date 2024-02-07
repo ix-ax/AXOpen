@@ -373,28 +373,6 @@ namespace AXOpen.VisualComposer
             }
         }
 
-        public string? SearchValuePrimitive { get; set; } = null;
-        public List<ITwinPrimitive>? SearchResultPrimitive { get; set; } = null;
-        public void SearchPrimitive()
-        {
-            if (SearchValuePrimitive is null || SearchValuePrimitive == "")
-            {
-                SearchResultPrimitive = null;
-            }
-            else
-            {
-                if (SearchResultPrimitive == null)
-                    SearchResultPrimitive = new();
-                else
-                    SearchResultPrimitive.Clear();
-
-                foreach (ITwinObject obj in Objects)
-                {
-                    SearchResultPrimitive.AddRange(obj.RetrievePrimitives().ToList().FindAll(p => p.Symbol.Contains(SearchValuePrimitive, StringComparison.OrdinalIgnoreCase)));
-                }
-            }
-        }
-
         private bool isFileImported { get; set; } = false;
         private bool isFileImporting { get; set; } = false;
 

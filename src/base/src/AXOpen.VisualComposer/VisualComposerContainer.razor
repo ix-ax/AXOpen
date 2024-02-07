@@ -25,6 +25,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#controllerObjectModal-@Id.ModalIdHelper()">Controller objects</a></li>
+                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#usedObjectModal-@Id.ModalIdHelper()">Used objects</a></li>
                                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createNewModal-@Id.ModalIdHelper()">Create new</a></li>
                                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createCopyModal-@Id.ModalIdHelper()">Create copy</a></li>
                                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#viewsModal-@Id.ModalIdHelper()">Views</a></li>
@@ -118,10 +119,10 @@
                                                     @switch (item)
                                                     {
                                                         case ITwinObject obj:
-                                                            <i class="bi bi-boxes m-2"></i>
+                                                            <span class="bi bi-boxes me-2" aria-hidden="true" />
                                                             break;
                                                         case ITwinPrimitive prim:
-                                                            <i class="bi bi-card-text mr-2"></i>
+                                                            <span class="bi bi-card-text me-2" aria-hidden="true" />
                                                             break;
                                                     }
 
@@ -179,6 +180,35 @@
                     @*         </div> *@
                     @*     </div> *@
                     @* </div> *@
+
+                    <EmptyContainer>
+                        <EmptyContainer>
+                        <EmptyContainer>
+                    <div class="modal fade" id="usedObjectModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="alarmsviewTitle">Used components</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body justify-content-center">
+                                    <ul class="list-group">
+                                        @foreach (VisualComposerItem child in _children)
+                                        {
+                                            <li class="list-group-item d-flex">
+                                                <p class="mb-0">@child.IdPlain</p>
+                                                <a class="text-decoration-none text-black ms-auto" style="cursor: pointer;" @onclick="() => RemoveChildren(child)"><span class="bi bi-trash fs-5" aria-hidden="true" /></a>
+                                                <a class="text-decoration-none text-black mx-2" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#settings-@child.Id.Replace('.', '_')-@child.UniqueGuid"><span class="bi bi-pencil-square fs-5" aria-hidden="true" /></a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </EmptyContainer>
+                    </EmptyContainer>
+                    </EmptyContainer>
 
                     <div class="modal fade" id="createNewModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
@@ -273,7 +303,7 @@
                                             </h2>
                                             <div id="uploadImageCollapse" class="accordion-collapse collapse show" aria-labelledby="uploadImage" data-bs-parent="#backgroundAccordion">
                                                 <div class="accordion-body">
-                                                    <InputFile class="form-control col-10" id="inputFile" accept=".png, .jpg, .jpeg, .svg" OnChange="@UploadFile" />
+                                                    <InputFile class="form-control col-10 mb-1" id="inputFile" accept=".png, .jpg, .jpeg, .svg" OnChange="@UploadFile" />
 
                                                     @if (!isFileImported && isFileImporting)
                                                     {
