@@ -4,25 +4,12 @@
 <PageTitle>Documentation</PageTitle>
 
 
-<button class="btn btn-outline-primary" @onclick="WriteTaskTimesToConsole">Write times to console</button>
-
-@code
-{
-    #region WriteTaskDurationToConsole
-    private async Task WriteTaskTimesToConsole()
-    {
-        await Entry.Plc.documentation.componentTwo.testDataman.WriteTaskDurationToConsole();
-    }
-    #endregion
-    
-}
-
 <!-- <GenericComponentStatusView> -->
-<AxoComponentStatusView Component="@Entry.Plc.documentation.componentTwo.testDataman" />
+<AxoComponentStatusView Component="@Entry.Plc.documentation.componentTwo.Dataman_280" />
 <!-- </GenericComponentStatusView> -->
 
 <!-- <GenericComponentCommandView> -->
-<AxoComponentCommandView Component="@Entry.Plc.documentation.componentTwo.testDataman" />
+<AxoComponentCommandView Component="@Entry.Plc.documentation.componentTwo.Dataman_280" />
 <!-- </GenericComponentCommandView> -->
 
 <!-- <RccComponentStatusView> -->

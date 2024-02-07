@@ -4,7 +4,7 @@ USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 
 
-NAMESPACE AXOpen.Components.Example
+NAMESPACE AXOpen.Components.Robotics
     {S7.extern=ReadWrite}
     CLASS ExampleCylinder EXTENDS AXOpen.Core.AxoComponent
         VAR PUBLIC
