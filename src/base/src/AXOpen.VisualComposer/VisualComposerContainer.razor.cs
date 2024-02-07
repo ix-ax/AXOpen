@@ -3,6 +3,7 @@ using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Web;
+using Newtonsoft.Json.Linq;
 using System.Xml.Linq;
 
 namespace AXOpen.VisualComposer
@@ -89,7 +90,8 @@ namespace AXOpen.VisualComposer
             _children.Add(new VisualComposerItem()
             {
                 UniqueGuid = Guid.NewGuid(),
-                TwinElement = item
+                TwinElement = item,
+                Id = item.Symbol.ModalIdHelper()
             });
 
             StateHasChanged();
@@ -202,6 +204,7 @@ namespace AXOpen.VisualComposer
                         {
                             UniqueGuid = Guid.NewGuid(),
                             TwinElement = childObject,
+                            Id = item.Id,
                             _left = item.Left,
                             _top = item.Top,
                             _transform = Types.TransformType.FromString(item.Transform),

@@ -40,6 +40,7 @@ namespace AXOpen.VisualComposer
             {
                 UniqueGuid = value.UniqueGuid;
                 TwinElement = value.TwinElement;
+                Id = value.TwinElement?.Symbol.ModalIdHelper();
                 _left = value.Left;
                 _top = value.Top;
                 _transform = value.Transform;
@@ -51,10 +52,10 @@ namespace AXOpen.VisualComposer
                 _roles = value.Roles;
                 _presentationTemplate = value.PresentationTemplate;
                 _background = value.Background;
-                Id = value.TwinElement?.Symbol.ModalIdHelper();
             }
         }
 
+        private IJSRuntime _js;
         [Inject]
         protected IJSRuntime js
         {
@@ -62,14 +63,14 @@ namespace AXOpen.VisualComposer
             set => _js = value;
         }
 
-        private IJSObjectReference? jsModule;
-
+        private ITwinElement? _twinElement;
         public ITwinElement? TwinElement
         {
             get => _twinElement;
             set => _twinElement = value;
         }
 
+        private string _id;
         public string? IdPlain
         {
             get => _id;
@@ -81,6 +82,7 @@ namespace AXOpen.VisualComposer
             set => _id = value;
         }
 
+        private Guid? _uniqueGuid = null;
         public Guid? UniqueGuid
         {
             get => _uniqueGuid;
@@ -240,11 +242,6 @@ namespace AXOpen.VisualComposer
                 Parent?.Save();
             }
         }
-
-        private string _id;
-        private IJSRuntime _js;
-        private ITwinElement? _twinElement;
-        private Guid? _uniqueGuid = null;
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {

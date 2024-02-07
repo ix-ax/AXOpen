@@ -73,16 +73,10 @@
                     </div>
                 </ZoomableContainer>
 
-                <EmptyContainer>
-                    <CascadingValue Value="@this" Name="Parent" IsFixed="true">
-                        <CascadingValue Value="@_backgroundId" Name="BackgroundId" IsFixed="true">
-                            @foreach (VisualComposerItem child in _children)
-                            {
-                                <VisualComposerItemModal Origin="@child" />
-                            }
-                        </CascadingValue>
-                    </CascadingValue>
-                </EmptyContainer>
+                @foreach (VisualComposerItem child in _children)
+                {
+                    <VisualComposerItemModal Origin="@child" />
+                }
                 @* <button class="btn btn-outline-primary m-2" @onclick="ToggleInDesignMode">Toggle design mode</button>  *@
                 @if (InDesignMode)
                 {
@@ -181,9 +175,6 @@
                     @*     </div> *@
                     @* </div> *@
 
-                    <EmptyContainer>
-                        <EmptyContainer>
-                        <EmptyContainer>
                     <div class="modal fade" id="usedObjectModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
                             <div class="modal-content">
@@ -206,9 +197,6 @@
                             </div>
                         </div>
                     </div>
-                    </EmptyContainer>
-                    </EmptyContainer>
-                    </EmptyContainer>
 
                     <div class="modal fade" id="createNewModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
