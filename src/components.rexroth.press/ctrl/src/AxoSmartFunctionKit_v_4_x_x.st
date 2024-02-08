@@ -43,7 +43,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Run command parameters#>"}
-            RunCommandParameters : AxoSmartFunctionKitRequest_v_4_x_x;            
+            RunCommandParameters : AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x;            
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Get results#>"}
@@ -204,6 +204,18 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             END_VAR
 
             THIS.Open();
+            
+            //*************INITIALIZATION*************
+            RestoreTask.Initialize(THIS);
+            RunCommandTask.Initialize(THIS);
+            HardwareDiagnosticsTask.Initialize(THIS);
+            GetResultsTask.Initialize(THIS);
+            ExportCurveTask.Initialize(THIS);
+            TaskMessenger.Serve(THIS);
+            //****************************************
+            //********************Diagnostics*********        
+            HardwareDiagnosticsTask.Run(_hwID);
+            //****************************************
 
             //***********UPDATE**INPUTS******************
             //Parameter Channel
@@ -307,17 +319,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             END_CASE;
             ComponentStatus.Status.DigitalIoMapping:=Inputs.DigitalIoMapping;
             //*******************************************
-                 
-            //*************INITIALIZATION*************
-            RestoreTask.Initialize(THIS);
-            RunCommandTask.Initialize(THIS);
-            HardwareDiagnosticsTask.Initialize(THIS);
-            GetResultsTask.Initialize(THIS);
-            ExportCurveTask.Initialize(THIS);
-            //****************************************
-            //********************Diagnostics*********        
-            HardwareDiagnosticsTask.Run(_hwID);
-            //****************************************
+                
 
             //*************RESTORE********************
             RestoreTask.IsDisabled := FALSE;
@@ -358,40 +360,40 @@ NAMESPACE AXOpen.Components.Rexroth.Press
                             Serialize(UINT#0, ComponentStatus.CurrentCommandParameters.SerialNumber, _data42);
 
                             //todo check if the rest of the array needs to be cleaned
-                            Outputs.Value1.%B0  := _data42[1];
-                            Outputs.Value1.%B1  := _data42[2];
-                            Outputs.Value1.%B2  := _data42[3];
-                            Outputs.Value1.%B3  := _data42[4];
+                            Outputs.Value1.%B0  := _data42[4];
+                            Outputs.Value1.%B1  := _data42[3];
+                            Outputs.Value1.%B2  := _data42[2];
+                            Outputs.Value1.%B3  := _data42[1];
 
-                            Outputs.Value2.%B0  := _data42[5];
-                            Outputs.Value2.%B1  := _data42[6];
-                            Outputs.Value2.%B2  := _data42[7];
-                            Outputs.Value2.%B3  := _data42[8];
+                            Outputs.Value2.%B0  := _data42[8];
+                            Outputs.Value2.%B1  := _data42[7];
+                            Outputs.Value2.%B2  := _data42[6];
+                            Outputs.Value2.%B3  := _data42[5];
 
-                            Outputs.Value3.%B0  := _data42[9];
-                            Outputs.Value3.%B1  := _data42[10];
-                            Outputs.Value3.%B2  := _data42[11];
-                            Outputs.Value3.%B3  := _data42[12];
+                            Outputs.Value3.%B0  := _data42[12];
+                            Outputs.Value3.%B1  := _data42[11];
+                            Outputs.Value3.%B2  := _data42[10];
+                            Outputs.Value3.%B3  := _data42[9];
 
-                            Outputs.Value4.%B0  := _data42[13];
-                            Outputs.Value4.%B1  := _data42[14];
-                            Outputs.Value4.%B2  := _data42[15];
-                            Outputs.Value4.%B3  := _data42[16];
+                            Outputs.Value4.%B0  := _data42[16];
+                            Outputs.Value4.%B1  := _data42[15];
+                            Outputs.Value4.%B2  := _data42[14];
+                            Outputs.Value4.%B3  := _data42[13];
 
-                            Outputs.Value5.%B0  := _data42[17];
-                            Outputs.Value5.%B1  := _data42[18];
-                            Outputs.Value5.%B2  := _data42[19];
-                            Outputs.Value5.%B3  := _data42[20];
+                            Outputs.Value5.%B0  := _data42[20];
+                            Outputs.Value5.%B1  := _data42[19];
+                            Outputs.Value5.%B2  := _data42[18];
+                            Outputs.Value5.%B3  := _data42[17];
 
-                            Outputs.Value6.%B0  := _data42[21];
-                            Outputs.Value6.%B1  := _data42[22];
-                            Outputs.Value6.%B2  := _data42[23];
-                            Outputs.Value6.%B3  := _data42[24];
+                            Outputs.Value6.%B0  := _data42[24];
+                            Outputs.Value6.%B1  := _data42[23];
+                            Outputs.Value6.%B2  := _data42[22];
+                            Outputs.Value6.%B3  := _data42[21];
 
-                            Outputs.Value7.%B0  := _data42[25];
-                            Outputs.Value7.%B1  := _data42[26];
-                            Outputs.Value7.%B2  := _data42[27];
-                            Outputs.Value7.%B3  := _data42[28];
+                            Outputs.Value7.%B0  := _data42[28];
+                            Outputs.Value7.%B1  := _data42[27];
+                            Outputs.Value7.%B2  := _data42[26];
+                            Outputs.Value7.%B3  := _data42[25];
                         
                         eAxoSmartFunctionKitCommand_v_4_x_x#SetProgramActive:
                             Outputs.Value1:= TO_DWORD(ComponentStatus.CurrentCommandParameters.ProgramId*1000);	
@@ -405,10 +407,11 @@ NAMESPACE AXOpen.Components.Rexroth.Press
                             Outputs.Value3:= TO_DWORD(ComponentStatus.CurrentCommandParameters.Acceleration*1000);
                         eAxoSmartFunctionKitCommand_v_4_x_x#Tare:
                             Outputs.Value1:= TO_DWORD(ComponentStatus.CurrentCommandParameters.Offset*1000);		
-                        
                     END_CASE;
-                            
-                    _progress:=301;                    
+                    Outputs.Command     := TO_WORD(ComponentStatus.CurrentCommandParameters.Command);
+                    IF ComponentStatus.Status.ResponseStatus.RequestPossible THEN
+                        _progress:=301;   
+                    END_IF;                 
                 END_IF;
 
                 IF _progress = 301 THEN  
@@ -427,6 +430,8 @@ NAMESPACE AXOpen.Components.Rexroth.Press
 
                 IF _progress = 302 THEN  
                     TaskMessenger.ActivateOnCondition(ULINT#502, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(TO_ULINT(Inputs.Status), Inputs.Status>WORD#0, eAxoMessageCategory#Error);
+                    
                     IF _infoTimer.output THEN
                         ComponentStatus.Error.Id := UINT#502;
                     END_IF;
@@ -469,32 +474,32 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             END_IF;
             //*******************************************
             //*************GetResultsTask***************
-            GetResultsTask.IsDisabled := FALSE;
-            IF ExportCurveTask.StartTriggered() THEN
+            GetResultsTask.IsDisabled := Config.IpAddress = '';
+            IF GetResultsTask.StartTriggered() THEN
                 ComponentStatus.Action.Id :=  UINT#110;
             END_IF;
-            Messenger.ActivateOnCondition(ULINT#110,ExportCurveTask.IsBusy(), eAxoMessageCategory#Info);
-            Messenger.ActivateOnCondition(ULINT#111,ExportCurveTask.IsDone(), eAxoMessageCategory#Info);
-            ExportCurveTask.Execute();
-            IF ExportCurveTask.DoneReached() THEN
+            Messenger.ActivateOnCondition(ULINT#110,GetResultsTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#111,GetResultsTask.IsDone(), eAxoMessageCategory#Info);
+            GetResultsTask.Execute();
+            IF GetResultsTask.DoneReached() THEN
                 ComponentStatus.Action.Id :=  UINT#111;
                 ComponentStatus.Error.Id :=  UINT#0;
-            ELSIF ExportCurveTask.ErrorOccured() THEN
+            ELSIF GetResultsTask.ErrorOccured() THEN
                 ComponentStatus.Action.Id :=  UINT#810;
                 ComponentStatus.Error.Id  :=  UINT#810;
-            ELSIF ExportCurveTask.AbortTriggered()THEN
+            ELSIF GetResultsTask.AbortTriggered()THEN
                 ComponentStatus.Action.Id :=  UINT#811;
                 ComponentStatus.Error.Id  :=  UINT#811;
             END_IF;     
-            Messenger.ActivateOnCondition(ULINT#810,ExportCurveTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#811,ExportCurveTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#112,ExportCurveTask.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF ExportCurveTask.RestoreTriggered()THEN
+            Messenger.ActivateOnCondition(ULINT#810,GetResultsTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#811,GetResultsTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#112,GetResultsTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            IF GetResultsTask.RestoreTriggered()THEN
                 ComponentStatus.Action.Id :=  UINT#112;
             END_IF;
             //*******************************************
             //*************ExportCurveTask***************
-            ExportCurveTask.IsDisabled := FALSE;
+            ExportCurveTask.IsDisabled := Config.IpAddress = '' OR Config.CurveExportLocation = '';
             IF ExportCurveTask.StartTriggered() THEN
                 ComponentStatus.Action.Id :=  UINT#120;
             END_IF;
@@ -590,10 +595,16 @@ NAMESPACE AXOpen.Components.Rexroth.Press
         ///<summary>
         METHOD PUBLIC RunCommand : IAxoTaskState
             VAR_INPUT
-                Parameters : AxoSmartFunctionKitRequest_v_4_x_x;
+                Parameters : REF_TO AxoSmartFunctionKitRequest_v_4_x_x;
             END_VAR
-            
-            ComponentStatus.CurrentCommandParameters := RunCommandParameters;            
+
+            Messenger.ActivateOnCondition(ULINT#709,Parameters = NULL, eAxoMessageCategory#ProgrammingError);
+            IF Parameters = NULL THEN
+                ComponentStatus.Error.Id := UINT#709;
+                RETURN;
+            END_IF;
+
+            ComponentStatus.CurrentCommandParameters := Parameters^;            
 
             RunCommand    := RunCommandTask.Invoke();
         END_METHOD
@@ -636,6 +647,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             RunCommandTask.Restore();
             ExportCurveTask.Restore();
             GetResultsTask.Restore();
+            RestoreTask.DoneWhen(TRUE);
             _progress := 0;
             ComponentStatus.Action.Id := UINT#50;
         END_METHOD

@@ -11,6 +11,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using AXOpen.Components.Rexroth.Press.RestApi;
+using System.Security.Cryptography.Xml;
+using System.Security.Policy;
 
 
 namespace AXOpen.Components.Rexroth.Press
@@ -145,7 +147,7 @@ namespace AXOpen.Components.Rexroth.Press
                 new KeyValuePair<ulong, AxoMessengerTextItem>(706, new AxoMessengerTextItem("Error reading the `hwIdInput_24_Words` in the Run method!",                                                                                "Check the value of the `hwIdInput_24_Words` and reacheability of the device!")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(707, new AxoMessengerTextItem("Error writing the `hwIdParamCh_IDN` in the Run method!",                                                                                   "Check the value of the `hwIdParamCh_IDN` and reacheability of the device!")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(708, new AxoMessengerTextItem("Error writing the `hwIdOutput_21_Words` in the Run method!",                                                                               "Check the value of the `hwIdOutput_21_Words` and reacheability of the device!")),
-
+                new KeyValuePair<ulong, AxoMessengerTextItem>(709, new AxoMessengerTextItem("Input variable `RunCommand` has NULL reference in `Run` method!",                                                                          "Check the call of the `RunCommand` method, if the `Parameters` parameter is assigned.")),
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(800, new AxoMessengerTextItem("Run command finished with error!",                                                                                                       "Check the details.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(801, new AxoMessengerTextItem("Run command was aborted, while not yet completed!",                                                                                      "Check the details.")),
@@ -166,6 +168,70 @@ namespace AXOpen.Components.Rexroth.Press
                 new KeyValuePair<ulong, AxoMessengerTextItem>(0,    new AxoMessengerTextItem("  ", "  ")),
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(502,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.Handle` to be the same as the value of the ``Outputs.Handle`.",                                   "Check the value of the Inputs.Handle signal")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10001,new AxoMessengerTextItem( "No function or invalid input","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10205,new AxoMessengerTextItem("Invalid character given within alphanumeric customID","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10206,new AxoMessengerTextItem("Invalid entry","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10207,new AxoMessengerTextItem("Invalid data type","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10208,new AxoMessengerTextItem("Variable index exceeded","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10209,new AxoMessengerTextItem("Value too small","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10210,new AxoMessengerTextItem("Value too large","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10211, new AxoMessengerTextItem("Value is invalid", "")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(20101, new AxoMessengerTextItem("Command active, command transition not permitted","")),
+            //        for (uint i = 30001; i <= 31901; i++)
+            //{
+            //    if (i != 31007) new KeyValuePair<ulong, AxoMessengerTextItem>(i, new AxoMessengerTextItem("Internal error", "")),
+            //}
+
+            new KeyValuePair<ulong, AxoMessengerTextItem>(31007, new AxoMessengerTextItem("No available space left on IPC (PR21)","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(40101,new AxoMessengerTextItem("Clear Error Command not possible","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(40201,new AxoMessengerTextItem("Reading of SMC variables not possible","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(40301,new AxoMessengerTextItem("Positioning command cannot be started","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(40302,new AxoMessengerTextItem("Error in the processing of the stop command","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(40303,new AxoMessengerTextItem("Target position was not reached","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(40304,new AxoMessengerTextItem("Manual positioning command: Force limit exceeded","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(40401,new AxoMessengerTextItem("Reading of motor feedback memory not possible","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(40501,new AxoMessengerTextItem("Reboot of drive not possible","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(40601,new AxoMessengerTextItem("Homing could not be started","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(40602,new AxoMessengerTextItem("Referencing under load not possible","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(40701,new AxoMessengerTextItem("Could not activate program","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(40702,new AxoMessengerTextItem("Timeout while program will be activated","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(40703,new AxoMessengerTextItem("Timeout after program is activated","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(40801,new AxoMessengerTextItem("Could not write SMC variable","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(40901,new AxoMessengerTextItem("Transition Error Parameter Mode <> Operation Mode","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41001,new AxoMessengerTextItem("Could not start program","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41002,new AxoMessengerTextItem("Could not stop program","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41003,new AxoMessengerTextItem("Program error: Max. position exceeded","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41004,new AxoMessengerTextItem("Program error: Max. force exceeded","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41005,new AxoMessengerTextItem("Program error: Cancelled manually","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41006,new AxoMessengerTextItem("Program error: Abort due to drive error","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41007,new AxoMessengerTextItem("Program error: Could not write Y-Parameter","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41008,new AxoMessengerTextItem("Program error: Timeout exceeded","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41009,new AxoMessengerTextItem("Program error: Safety active","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41010,new AxoMessengerTextItem("Program error: Out of target window, force too low","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41011,new AxoMessengerTextItem("Program error: Out of target window, force exceeded","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41012,new AxoMessengerTextItem("Program error: Out of target window, invalid force evaluation","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41013,new AxoMessengerTextItem("Program error: Out of target window, position too low","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41014,new AxoMessengerTextItem("Program error: Out of target window, force and position too low","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41015,new AxoMessengerTextItem("Program error: Out of target window, force exceeded, position too low","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41016,new AxoMessengerTextItem("Program error: Out of target window, invalid force evaluation, position too low","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41017,new AxoMessengerTextItem("Program error: Out of target window, position exceeded","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41018,new AxoMessengerTextItem("Program error: Out of target window, force too low, position exceeded","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41019,new AxoMessengerTextItem("Program error: Out of target window, force and position exceeded","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41020,new AxoMessengerTextItem("Program error: Out of target window, invalid force evaluation, position exceeded","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41021,new AxoMessengerTextItem("Program error: Out of target window, invalid position evaluation","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41022,new AxoMessengerTextItem("Program error: Out of target window, force too low, invalid position evaluation","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41023,new AxoMessengerTextItem("Program error: Out of target window, force exceeded, invalid position evaluation","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41024,new AxoMessengerTextItem("Program error: Out of target window, invalid force and position evaluation","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41101,new AxoMessengerTextItem("S- or P-parameter could not be read","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41201,new AxoMessengerTextItem("S- or P-parameter could not be written","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41301,new AxoMessengerTextItem("Could not load Y-Parameter file","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41401,new AxoMessengerTextItem("Tare not possible","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41501,new AxoMessengerTextItem("Basic parameter loading not possible at drive commissioning","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41601,new AxoMessengerTextItem("Absolute dimension could not be set","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41701,new AxoMessengerTextItem("Could not read Y-Parameter","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(41801,new AxoMessengerTextItem("Could not write Y-Parameter","")),
+                  new KeyValuePair<ulong, AxoMessengerTextItem>(50001,new AxoMessengerTextItem("Character string too long, error while writing","")),
+
 
         };
 
@@ -195,6 +261,8 @@ namespace AXOpen.Components.Rexroth.Press
                     errorDescriptionDict.Add(706, "Error reading the `hwIdInput_24_Words` in the Run method!");
                     errorDescriptionDict.Add(707, "Error writing the `hwIdParamCh_IDN` in the Run method!");
                     errorDescriptionDict.Add(708, "Error writing the `hwIdOutput_21_Words` in the Run method!");
+                    errorDescriptionDict.Add(709, "Input variable `Parameters` has NULL reference in `RunCommand` method!");
+
                     errorDescriptionDict.Add(800, "Run command finished with error!");
                     errorDescriptionDict.Add(801, "Run command was aborted, while not yet completed!");
                     errorDescriptionDict.Add(810, "Get results finished with error!");
@@ -211,8 +279,11 @@ namespace AXOpen.Components.Rexroth.Press
                     errorDescriptionDict.Add(10210,"Value too large");
                     errorDescriptionDict.Add(10211,"Value is invalid");
                     errorDescriptionDict.Add(20101,"Command active, command transition not permitted");
-                    errorDescriptionDict.Add(30001,"Internal error");
-                    errorDescriptionDict.Add(31901,"Internal error");
+                    for (uint i = 30001; i <= 31901; i++)
+                    {
+                        if(i!=31007) errorDescriptionDict.Add(i, "Internal error");
+                    }
+
                     errorDescriptionDict.Add(31007,"No available space left on IPC (PR21)");
                     errorDescriptionDict.Add(40101,"Clear Error Command not possible");
                     errorDescriptionDict.Add(40201,"Reading of SMC variables not possible");

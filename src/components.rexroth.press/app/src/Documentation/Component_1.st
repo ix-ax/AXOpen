@@ -10,7 +10,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
     //<InitializationArgumentsDeclaration>
     VAR PUBLIC              
         {#ix-set:AttributeName = "<#Activate manual control#>"}
-        ActivateManualControl : BOOL;         
+        ActivateManualControl : BOOL;      
     END_VAR
     //</InitializationArgumentsDeclaration>            
 
@@ -34,6 +34,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
 
         AxoSmartFunctionKit.Config.InfoTime := T#10s;             
         AxoSmartFunctionKit.Config.ErrorTime := T#30s;             
+        AxoSmartFunctionKit.Config.IpAddress := '10.10.10.240';             
         AxoSmartFunctionKit.Config.CurveExportLocation := 'D:\Export';             
         //</Initialization>
 
@@ -44,14 +45,11 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
     VAR PUBLIC                       
         Sequencer : AxoSequencer;       
         Steps : ARRAY[0..10] OF AXOpen.Core.AxoStep;
+        {#ix-attr:[CompilerOmits()]} 
+        Request : AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x; 
     END_VAR
 
     METHOD PRIVATE UseInSequencer   
-        VAR
-            Request : AXOpen.Components.Rexroth.Press.AxoSmartFunctionKitRequest_v_4_x_x; 
-            t : ARRAY[0..20] OF BYTE;
-            _now : STRING;
-        END_VAR
 
         Sequencer.Initialize(THIS);
         Sequencer.Open();
@@ -64,32 +62,34 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
             //-------------------------------------
         END_IF;
         
-        IF(Steps[1].Execute(Sequencer, 'SFK STOP MOVEMENT')) THEN
-            //-------------------------------------
-                Request.Command := AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x#StopMovement; 
-
-                IF AxoSmartFunctionKit.RunCommand(Request).IsDone() THEN
-                    AxoSmartFunctionKit.Restore();
-                    Sequencer.MoveNext();                
-                END_IF;
-            //-------------------------------------
-        END_IF;
         
-        IF(Steps[2].Execute(Sequencer, 'SFK RESET')) THEN
+        IF(Steps[1].Execute(Sequencer, 'SFK RESET')) THEN
             //-------------------------------------
                 Request.Command := AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x#ClearError; 
 
-                IF AxoSmartFunctionKit.RunCommand(Request).IsDone() THEN
+                IF AxoSmartFunctionKit.RunCommand(REF(Request)).IsDone() THEN
                     AxoSmartFunctionKit.Restore();
                     Sequencer.MoveNext();                
                 END_IF;
             //-------------------------------------
         END_IF;
+
+        IF(Steps[2].Execute(Sequencer, 'SFK STOP MOVEMENT')) THEN
+            //-------------------------------------
+                Request.Command := AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x#StopMovement; 
+
+                IF AxoSmartFunctionKit.RunCommand(REF(Request)).IsDone() THEN
+                    AxoSmartFunctionKit.Restore();
+                    Sequencer.MoveNext();                
+                END_IF;
+            //-------------------------------------
+        END_IF;
+
         IF(Steps[3].Execute(Sequencer, 'SFK HOME')) THEN
             //-------------------------------------
                 Request.Command := AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x#StartHoming; 
 
-                IF AxoSmartFunctionKit.RunCommand(Request).IsDone() THEN
+                IF AxoSmartFunctionKit.RunCommand(REF(Request)).IsDone() THEN
                     AxoSmartFunctionKit.Restore();
                     Sequencer.MoveNext();                
                 END_IF;
@@ -99,39 +99,53 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         IF(Steps[4].Execute(Sequencer, 'SFK SET PROGRAM')) THEN
             //-------------------------------------
                 Request.Command     :=  AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x#SetProgramActive; 
-                Request.ProgramId   :=  4; 
+                Request.ProgramId   :=  2; 
 
-                IF AxoSmartFunctionKit.RunCommand(Request).IsDone() THEN
+                IF AxoSmartFunctionKit.RunCommand(REF(Request)).IsDone() THEN
                     AxoSmartFunctionKit.Restore();
                     Sequencer.MoveNext();                
                 END_IF;
             //-------------------------------------
         END_IF;
-        IF(Steps[5].Execute(Sequencer, 'SFK START PROGRAM')) THEN
-            //-------------------------------------
-                System.Serialization.Serialize(UINT#0, THIS.GetContext().GetRtc().NowUTC(), t);
-                System.Serialization.Deserialize(UINT#0, t, _now);
 
+        IF(Steps[5].Execute(Sequencer, 'SFK SET SERIAL ID')) THEN
+            //-------------------------------------
                 Request.Command         :=  AXOpen.Components.Rexroth.Press.eAxoSmartFunctionKitCommand_v_4_x_x#StartProgram; 
-                Request.SerialNumber    :=  System.Strings.Concat('Test_',_now); 
-         
-                IF AxoSmartFunctionKit.RunCommand(Request).IsDone() THEN
+                Request.SerialNumber    :=  System.Strings.Concat('Test_',System.Strings.ToString(THIS.GetContext().OpenCycleCount())); 
+
+                Sequencer.MoveNext();                
+            //-------------------------------------
+        END_IF;
+        
+        IF(Steps[6].Execute(Sequencer, 'SFK START PROGRAM')) THEN
+            //-------------------------------------
+        
+                IF AxoSmartFunctionKit.RunCommand(REF(Request)).IsDone() THEN
                     AxoSmartFunctionKit.Restore();
                     Sequencer.MoveNext();                
                 END_IF;
             //-------------------------------------
         END_IF;
         
-        IF(Steps[6].Execute(Sequencer, 'EXPORT CURVE')) THEN
+        IF(Steps[7].Execute(Sequencer, 'GET RESULTS')) THEN
             //-------------------------------------
-            IF AxoSmartFunctionKit.RunCommand(Request).IsDone() THEN
+            IF AxoSmartFunctionKit.GetResults().IsDone() THEN
                 AxoSmartFunctionKit.Restore();
                 Sequencer.MoveNext();                
             END_IF;
             //-------------------------------------
         END_IF;
         
-        IF(Steps[7].Execute(Sequencer, 'SEQUENCE DONE')) THEN
+        IF(Steps[8].Execute(Sequencer, 'EXPORT CURVE')) THEN
+            //-------------------------------------
+            IF AxoSmartFunctionKit.ExportCurve().IsDone() THEN
+                AxoSmartFunctionKit.Restore();
+                Sequencer.MoveNext();                
+            END_IF;
+            //-------------------------------------
+        END_IF;
+        
+        IF(Steps[9].Execute(Sequencer, 'SEQUENCE DONE')) THEN
             //-------------------------------------
             Sequencer.CompleteSequence();          
             //-------------------------------------	
