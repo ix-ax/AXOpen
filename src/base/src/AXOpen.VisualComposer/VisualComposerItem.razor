@@ -3,7 +3,7 @@
         @if (InDesign)
         {
             <div id="@Id.Replace('.', '_')-@UniqueGuid" style="position: absolute; left: @(Left.ToString().Replace(',', '.'))%; top: @(Top.ToString().Replace(',', '.'))%; transform: scale(@(Scale)); translate: @(Transform.X)% @(Transform.Y)%; width: @(Width != -1 ? Width + "rem" : "max-content"); height: @(Height != -1 ? Height + "rem" : "max-content"); z-index: @ZIndex;">
-                <div class="@(Background ? "card border border-3 p-2 rounded-3" : null)">
+                <div class="@(Background ? "card border border-3 p-2 rounded-3" : null)" style="@(Background ? "background-color: " + @BackgroundColor + "; border-color: " + @BackgroundColor + " !important;" : null)">
                     <RenderableContentControl @ref="renderableContentControlRcc"
                                               Context="@TwinElement"
                                               Presentation="@Presentation.ToString()"
@@ -19,7 +19,7 @@
         else
         {
             <div style="position: absolute; left: @(Left.ToString().Replace(',', '.'))%; top: @(Top.ToString().Replace(',', '.'))%; transform: scale(@(Scale)); translate: @(Transform.X)% @(Transform.Y)%; width: @(Width != -1 ? Width + "rem" : "max-content"); height: @(Height != -1 ? Height + "rem" : "max-content"); z-index: @ZIndex;">
-                <div class="@(Background ? "card border border-3 p-2 rounded-3" : null)">
+                <div class="@(Background ? "card border border-3 p-2 rounded-3" : null)" style="@(Background ? "background-color: " + @BackgroundColor + "; border-color: " + @BackgroundColor + " !important;" : null)">
                     <RenderableContentControl Context="@TwinElement"
                                               Presentation="@Presentation.ToString()"
                                               ParentContainer="@this"
@@ -33,7 +33,7 @@
         {
             <AuthorizeView Roles="@Roles" Context="SecondAuthorizeView">
                 <div style="position: absolute; left: @(Left.ToString().Replace(',', '.'))%; top: @(Top.ToString().Replace(',', '.'))%; translate: @(Transform.X)% @(Transform.Y)%; width: @(Width != -1 ? Width + "rem" : "max-content"); height: @(Height != -1 ? Height + "rem" : "max-content"); z-index: @ZIndex;">
-                    <div class="@(Background ? "card border border-3 p-2 rounded-3" : null)">
+                    <div class="@(Background ? "card border border-3 p-2 rounded-3" : null)" style="@(Background ? "background-color: " + @BackgroundColor + "; border-color: " + @BackgroundColor + " !important;" : null)">
                         <RenderableContentControl Context="@TwinElement"
                                                   Presentation="@Presentation.ToString()"
                                                   ParentContainer="@this"
@@ -45,7 +45,7 @@
         else
         {
             <div style="position: absolute; left: @(Left.ToString().Replace(',', '.'))%; top: @(Top.ToString().Replace(',', '.'))%; translate: @(Transform.X)% @(Transform.Y)%; width: @(Width != -1 ? Width + "rem" : "max-content"); height: @(Height != -1 ? Height + "rem" : "max-content"); z-index: @ZIndex;">
-                <div class="@(Background ? "card border border-3 p-2 rounded-3" : null)">
+                <div class="@(Background ? "card border border-3 p-2 rounded-3" : null)" style="background-color: @(BackgroundColor);">
                     <RenderableContentControl Context="@TwinElement"
                                               Presentation="@Presentation.ToString()"
                                               ParentContainer="@this"

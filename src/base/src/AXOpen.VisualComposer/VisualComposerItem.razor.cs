@@ -52,6 +52,7 @@ namespace AXOpen.VisualComposer
                 _roles = value.Roles;
                 _presentationTemplate = value.PresentationTemplate;
                 _background = value.Background;
+                _backgroundColor = value.BackgroundColor;
             }
         }
 
@@ -238,6 +239,18 @@ namespace AXOpen.VisualComposer
             set
             {
                 _background = value;
+                StateHasChanged();
+                Parent?.Save();
+            }
+        }
+
+        public string _backgroundColor = "#FFFFFF";
+        public string BackgroundColor
+        {
+            get => _backgroundColor;
+            set
+            {
+                _backgroundColor = value;
                 StateHasChanged();
                 Parent?.Save();
             }

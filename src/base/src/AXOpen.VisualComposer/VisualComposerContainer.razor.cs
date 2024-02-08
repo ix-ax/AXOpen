@@ -29,6 +29,7 @@ namespace AXOpen.VisualComposer
 
         public int BackgroundWidth { get; set; } = 0;
         public int BackgroundHeight { get; set; } = 0;
+        public string BackgroundColor { get; set; } = "#FFFFFF";
         public bool EmptyBackground { get; set; } = false;
 
         public string? Theme { get; set; }
@@ -137,7 +138,7 @@ namespace AXOpen.VisualComposer
                 Directory.CreateDirectory("VisualComposerSerialize/" + Id.CorrectFilePath());
             }
 
-            Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", new SerializableObject(null, 0, 0, false, new List<SerializableVisualComposerItem>(), "text-dark", 1, 0, 0, true));
+            Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", new SerializableObject(null, 0, 0, false, "#FFFFFF", new List<SerializableVisualComposerItem>(), "text-dark", 1, 0, 0, true));
 
             Load(fileName);
         }
@@ -161,10 +162,10 @@ namespace AXOpen.VisualComposer
             List<SerializableVisualComposerItem> serializableChildren = new List<SerializableVisualComposerItem>();
             foreach (var child in _children)
             {
-                serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.Left, child.Top, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex, child.Scale, child.Roles, child.PresentationTemplate, child.Background));
+                serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.Left, child.Top, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex, child.Scale, child.Roles, child.PresentationTemplate, child.Background, child.BackgroundColor));
             }
 
-            Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + CurrentView.CorrectFilePath() + ".json", new SerializableObject(ImgSrc, BackgroundWidth, BackgroundHeight, EmptyBackground, serializableChildren, Theme, _zoomableContainer.Scale, _zoomableContainer.TranslateX, _zoomableContainer.TranslateY, AllowZoomingAndPanning));
+            Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + CurrentView.CorrectFilePath() + ".json", new SerializableObject(ImgSrc, BackgroundWidth, BackgroundHeight, EmptyBackground, BackgroundColor, serializableChildren, Theme, _zoomableContainer.Scale, _zoomableContainer.TranslateX, _zoomableContainer.TranslateY, AllowZoomingAndPanning));
         }
 
         public void Load(string? fileName)
@@ -191,6 +192,7 @@ namespace AXOpen.VisualComposer
                 BackgroundWidth = deserialize.BackgroundWidth;
                 BackgroundHeight = deserialize.BackgroundHeight;
                 EmptyBackground = deserialize.EmptyBackground;
+                BackgroundColor = deserialize.BackgroundColor;
                 Theme = deserialize.Theme;
 
                 _children.Clear();
@@ -204,7 +206,7 @@ namespace AXOpen.VisualComposer
                         {
                             UniqueGuid = Guid.NewGuid(),
                             TwinElement = childObject,
-                            Id = item.Id,
+                            Id = childObject.Symbol.ModalIdHelper(),
                             _left = item.Left,
                             _top = item.Top,
                             _transform = Types.TransformType.FromString(item.Transform),
@@ -215,7 +217,8 @@ namespace AXOpen.VisualComposer
                             _scale = item.Scale,
                             _roles = item.Roles,
                             _presentationTemplate = item.PresentationTemplate,
-                            _background = item.Background
+                            _background = item.Background,
+                            _backgroundColor = item.BackgroundColor
                         });
                     }
                 }

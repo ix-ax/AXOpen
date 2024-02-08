@@ -96,6 +96,7 @@
                                 <label class="col-sm-2 col-form-label">Background</label>
                                 <div class="col-sm-10 d-flex align-items-center">
                                     <input class="form-check-input ms-2 mt-0" type="checkbox" checked="@(Origin.Background ? "checked" : null)" @onclick="() => Origin.Background = !Origin.Background">
+                                    <input type="color" class="form-control form-control-color ms-4" @bind="Origin.BackgroundColor" title="Choose color">
                                 </div>
                             </div>
                         </div>
