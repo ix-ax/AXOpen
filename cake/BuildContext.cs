@@ -170,6 +170,7 @@ public class BuildContext : FrostingContext
         ("components.abb.robotics", "axopen.components.abb.robotics", true),
         ("components.mitsubishi.robotics", "axopen.components.mitsubishi.robotics", true),
         ("components.ur.robotics", "axopen.components.ur.robotics", true),
+        ("components.kuka.robotics", "axopen.components.kuka.robotics", true),
         ("integrations", "ix.integrations", false),
         ("templates.simple", "templates.simple", false),
         ("template.axolibrary", "template.axolibrary", false)
