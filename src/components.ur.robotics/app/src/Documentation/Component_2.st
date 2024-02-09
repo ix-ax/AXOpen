@@ -15,8 +15,6 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
         PowerOnImpulse : BOOL;         
         movementParams : AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams;
 
-        PlcInputs : REF_TO PlcInputs;
-        PlcOutputs : REF_TO PlcOutputs;              
     END_VAR
     //</InitializationArgumentsDeclaration>            
 
@@ -33,17 +31,17 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
 
         //<Initialization>        
         ExampleRobot.Run(   parent                                                  := THIS,
-                            hwID                                                    := HwIdentifiers#URIODev1,
-                            refAxoUrRobotics_T2O_State                              := REF(PlcInputs^.URIODev1_1_T2O_State_1),
-                            refAxoUrRobotics_T2O_IO                                 := REF(PlcInputs^.URIODev1_2_T2O_IO_1),
-                            refAxoUrRobotics_T2O_Joints                             := REF(PlcInputs^.URIODev1_3_T2O_Joints_1),
-                            refAxoUrRobotics_T2O_TCP                                := REF(PlcInputs^.URIODev1_4_T2O_TCP_1),
-                            refAxoUrRobotics_T2O_General_Purpose_Bit_Registers      := REF(PlcInputs^.URIODev1_5_T2O_General_Purpose_Bit_Registers_1),
-                            refAxoUrRobotics_T2O_General_Purpose_Int_Registers      := REF(PlcInputs^.URIODev1_6_T2O_General_Purpose_Int_Registers_1),
-                            refAxoUrRobotics_T2O_General_Purpose_Float_Registers    := REF(PlcInputs^.URIODev1_7_T2O_General_Purpose_Float_Registers_1),
-                            refAxoUrRobotics_O2T_Robot_IO                           := REF(PlcOutputs^.URIODev1_8_O2T_Robot_IO_1),
-                            refAxoUrRobotics_O2T_General_Purpose_Registers_1        := REF(PlcOutputs^.URIODev1_9_O2T_General_Purpose_Registers_1_1),
-                            refAxoUrRobotics_O2T_General_Purpose_Registers_2        := REF(PlcOutputs^.URIODev1_10_O2T_General_Purpose_Registers_2_1),
+                            hwID                                                    := HwIdentifiers#URIODev1_1,
+                            hwIdAxoUrRobotics_T2O_State                             := HwIdentifiers#URIODev1_1_1_T2O_State_1,
+                            hwIdAxoUrRobotics_T2O_IO                                := HwIdentifiers#URIODev1_1_2_T2O_IO_1,
+                            hwIdAxoUrRobotics_T2O_Joints                            := HwIdentifiers#URIODev1_1_3_T2O_Joints_1,
+                            hwIdAxoUrRobotics_T2O_TCP                               := HwIdentifiers#URIODev1_1_4_T2O_TCP_1,
+                            hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers     := HwIdentifiers#URIODev1_1_5_T2O_General_Purpose_Bit_Registers_1,
+                            hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers     := HwIdentifiers#URIODev1_1_6_T2O_General_Purpose_Int_Registers_1,
+                            hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers   := HwIdentifiers#URIODev1_1_7_T2O_General_Purpose_Float_Registers_1,
+                            hwIdAxoUrRobotics_O2T_Robot_IO                          := HwIdentifiers#URIODev1_1_8_O2T_Robot_IO_1,
+                            hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1       := HwIdentifiers#URIODev1_1_9_O2T_General_Purpose_Registers_1_1,
+                            hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2       := HwIdentifiers#URIODev1_1_10_O2T_General_Purpose_Registers_2_1,
                             refPowerOnPulse                                         := REF (PowerOnImpulse));
         //</Initialization>
 
