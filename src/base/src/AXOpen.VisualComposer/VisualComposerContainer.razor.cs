@@ -165,7 +165,20 @@ namespace AXOpen.VisualComposer
                 serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.Left, child.Top, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex, child.Scale, child.Roles, child.PresentationTemplate, child.Background, child.BackgroundColor));
             }
 
-            Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + CurrentView.CorrectFilePath() + ".json", new SerializableObject(ImgSrc, BackgroundWidth, BackgroundHeight, EmptyBackground, BackgroundColor, serializableChildren, Theme, _zoomableContainer.Scale, _zoomableContainer.TranslateX, _zoomableContainer.TranslateY, AllowZoomingAndPanning));
+            Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + 
+                                                                  Id.CorrectFilePath() + "/" +
+                                                                  CurrentView.CorrectFilePath() + ".json", 
+                                            new SerializableObject(ImgSrc, 
+                                                BackgroundWidth, 
+                                                BackgroundHeight, 
+                                                EmptyBackground, 
+                                                BackgroundColor, 
+                                                serializableChildren, 
+                                                Theme, 
+                                                _zoomableContainer.Scale, 
+                                                _zoomableContainer.TranslateX, 
+                                                _zoomableContainer.TranslateY, 
+                                                AllowZoomingAndPanning));
         }
 
         public void Load(string? fileName)

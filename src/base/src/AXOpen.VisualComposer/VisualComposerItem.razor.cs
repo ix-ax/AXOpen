@@ -181,7 +181,16 @@ namespace AXOpen.VisualComposer
                 Parent?.Save();
             }
         }
-
+        
+        // public new async Task StateHasChanged()
+        // {
+        //     await InvokeAsync(() =>
+        //     {
+        //         // Your logic here
+        //         base.StateHasChanged();
+        //     });
+        // }
+        
         internal int _zIndex = 0;
         public int ZIndex
         {
