@@ -1,0 +1,47 @@
+{
+  "ImgSrc": "Images/VisualComposerSerialize/ContextView/Default.png",
+  "Items": [
+    {
+      "Id": "c0c0ed08db1a3341a24a6d53ad558460910c1a390123bce21dea7eb97b8a85f9",
+      "RatioImgX": 10.617283950617283,
+      "RatioImgY": 3.0763740185581723,
+      "Transform": "TopCenter",
+      "Presentation": "Status-Display",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": "",
+      "PresentationTemplate": null
+    },
+    {
+      "Id": "f3da3ed3f00f65918405cb1fddbacdaabd58b03bcdd5bc125fbfd67c432ea1af",
+      "RatioImgX": 30.52469135802469,
+      "RatioImgY": 8.215560314061385,
+      "Transform": "TopCenter",
+      "Presentation": "Status-Display",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": "",
+      "PresentationTemplate": null
+    },
+    {
+      "Id": "29cd7ea52f4d0ab5b296cad662f4798174bda96d2567589eed900c8e798c8554",
+      "RatioImgX": 76.97530864197532,
+      "RatioImgY": 3.0763740185581723,
+      "Transform": "TopCenter",
+      "Presentation": "Status-Display",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": "",
+      "PresentationTemplate": null
+    }
+  ],
+  "Scale": 1,
+  "TranslateX": 0,
+  "TranslateY": 0
+}

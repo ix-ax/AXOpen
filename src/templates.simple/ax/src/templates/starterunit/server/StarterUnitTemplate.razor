@@ -4,10 +4,27 @@
 @using axosimple.server.Components;
 @using AXOpen.VisualComposer;
 @using AXSharp.Connector;
+@using AXOpen.Core;
 
 @inject IAlertDialogService _alerts
 @inherits RenderableComplexComponentBase<axosimple.StarterUnitTemplate.Unit>
 
+
+<div class="container text-center">
+    <div class="row">
+        <div class="col">
+            <AxoTaskView Component="Entry.Plc.Context.StarterUnitTemplate.AutomatSequence"/>
+        </div>
+        <div class="col">
+            <AxoTaskView Component="Entry.Plc.Context.StarterUnitTemplate.GroundSequence"/>
+        </div>
+        <div class="col">
+            <AxoTaskView Component="Entry.Plc.Context.StarterUnitTemplate.ServiceMode"/>
+        </div>
+    </div>
+</div>
+
+ 
 <Unit Component="Entry.Plc.Context.StarterUnitTemplate"
       SharedTechnologySettings="Entry.Plc.Context.StarterUnitTemplateTechnologySettings.DataManger.Payload"
       TechnologySettings="Entry.Plc.Context.StarterUnitTemplateTechnologySettings.Shared.Entity"
@@ -15,6 +32,8 @@
       Data="Entry.Plc.Context.StarterUnitTemplateProcessData.DataManger.Payload"
       DataHeader="Entry.Plc.Context.StarterUnitTemplateProcessData.Shared.Entity"
       UnitComponents="Entry.Plc.Context.UnitTemplateComponents"
-      AditionalItems="new ITwinObject[]{Entry.Plc.Context.Safety.Zone_1, Entry.Plc.Context.Safety.Zone_2}">
+      AditionalItems="new ITwinObject[] { Entry.Plc.Context.Safety.Zone_1, Entry.Plc.Context.Safety.Zone_2 }">
 </Unit>
+ 
+
     
