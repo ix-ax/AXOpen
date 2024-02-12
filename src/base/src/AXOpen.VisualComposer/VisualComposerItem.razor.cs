@@ -5,6 +5,8 @@ using Microsoft.JSInterop;
 using AXSharp.Connector;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel;
+using AXSharp.Connector.Localizations;
+using System.Xml.Linq;
 
 namespace AXOpen.VisualComposer
 {
@@ -26,12 +28,10 @@ namespace AXOpen.VisualComposer
             }
         }
 
-        [CascadingParameter(Name = "ImgId")]
-        private Guid _imgId
-        {
-            get => _imgId1;
-            set => _imgId1 = value;
-        }
+
+
+        [CascadingParameter(Name = "BackgroundId")]
+        private Guid _backgroundId { get; set; }
 
         [Parameter]
         public VisualComposerItem? Origin
@@ -40,20 +40,23 @@ namespace AXOpen.VisualComposer
             {
                 UniqueGuid = value.UniqueGuid;
                 TwinElement = value.TwinElement;
-                ratioImgX = value.ratioImgX;
-                ratioImgY = value.ratioImgY;
+                Id = value.TwinElement?.Symbol.ModalIdHelper();
+                _left = value.Left;
+                _top = value.Top;
                 _transform = value.Transform;
                 _presentation = value.Presentation;
                 _width = value.Width;
                 _height = value.Height;
                 _zIndex = value.ZIndex;
                 _scale = value.Scale;
-                Roles = value.Roles;
-                PresentationTemplate = value.PresentationTemplate;
-                Id = value.TwinElement?.Symbol.ModalIdHelper();
+                _roles = value.Roles;
+                _presentationTemplate = value.PresentationTemplate;
+                _background = value.Background;
+                _backgroundColor = value.BackgroundColor;
             }
         }
 
+        private IJSRuntime _js;
         [Inject]
         protected IJSRuntime js
         {
@@ -61,14 +64,14 @@ namespace AXOpen.VisualComposer
             set => _js = value;
         }
 
-        private IJSObjectReference? jsModule;
-
+        private ITwinElement? _twinElement;
         public ITwinElement? TwinElement
         {
             get => _twinElement;
             set => _twinElement = value;
         }
 
+        private string _id;
         public string? IdPlain
         {
             get => _id;
@@ -80,32 +83,37 @@ namespace AXOpen.VisualComposer
             set => _id = value;
         }
 
+        private Guid? _uniqueGuid = null;
         public Guid? UniqueGuid
         {
             get => _uniqueGuid;
             set => _uniqueGuid = value;
         }
 
-        private double startX;
-        private double startY;
-
-        internal double ratioImgX = 10;
-        internal double ratioImgY = 10;
-
-
-        public double PosX
+        internal double _left { get; set; } = 10;
+        public double Left
         {
-            get { return ratioImgX; }
-            set { ratioImgX = value; StateHasChanged(); }
+            get => _left;
+            set
+            {
+                _left = value;
+                StateHasChanged();
+                Parent?.Save();
+            }
         }
 
-        public double PosY
+        internal double _top { get; set; } = 10;
+        public double Top
         {
-            get { return ratioImgY; }
-            set { ratioImgY = value; StateHasChanged(); }
+            get => _top;
+            set
+            {
+                _top = value;
+                StateHasChanged();
+                Parent?.Save();
+            }
         }
 
-        
         internal TransformType _transform = TransformType.TopCenter;
         public TransformType Transform
         {
@@ -114,6 +122,7 @@ namespace AXOpen.VisualComposer
             {
                 _transform = value;
                 StateHasChanged();
+                Parent?.Save();
             }
         }
 
@@ -130,17 +139,23 @@ namespace AXOpen.VisualComposer
                     {
                         renderableContentControlRcc.Presentation = value;
                         renderableContentControlRcc?.ForceRender();
-                    }                    
+                    }
                     StateHasChanged();
+                    Parent?.Save();
                 }
-                
+
             }
         }
 
+        private bool _customPresentation = false;
         public bool CustomPresentation
         {
             get => _customPresentation;
-            set => _customPresentation = value;
+            set
+            {
+                _customPresentation = value;
+                Parent?.Save();
+            }
         }
 
         internal double _width = -1;
@@ -151,6 +166,7 @@ namespace AXOpen.VisualComposer
             {
                 _width = value;
                 StateHasChanged();
+                Parent?.Save();
             }
         }
 
@@ -162,6 +178,7 @@ namespace AXOpen.VisualComposer
             {
                 _height = value;
                 StateHasChanged();
+                Parent?.Save();
             }
         }
 
@@ -173,6 +190,7 @@ namespace AXOpen.VisualComposer
             {
                 _zIndex = value;
                 StateHasChanged();
+                Parent?.Save();
             }
         }
 
@@ -184,17 +202,20 @@ namespace AXOpen.VisualComposer
             {
                 _scale = value;
                 StateHasChanged();
+                Parent?.Save();
             }
         }
 
-        public string Roles = "";
-        private string _id;
-        private Guid _imgId1;
-        private IJSRuntime _js;
-        private ITwinElement? _twinElement;
-        private Guid? _uniqueGuid = null;
-        private bool _customPresentation = false;
-
+        internal string _roles = "";
+        public string Roles
+        {
+            get => _roles;
+            set
+            {
+                _roles = value;
+                Parent?.Save();
+            }
+        }
 
         internal string? _presentationTemplate;
         public string? PresentationTemplate
@@ -206,36 +227,58 @@ namespace AXOpen.VisualComposer
                 {
                     _presentationTemplate = value;
                     StateHasChanged();
+                    Parent?.Save();
                 }
             }
         }
 
-        private void OnDragStart(DragEventArgs args)
+        public bool _background = false;
+        public bool Background
         {
-            startX = args.ClientX;
-            startY = args.ClientY;
+            get => _background;
+            set
+            {
+                _background = value;
+                StateHasChanged();
+                Parent?.Save();
+            }
         }
 
-        private async void OnDragEnd(DragEventArgs args)
+        public string _backgroundColor = "#FFFFFF";
+        public string BackgroundColor
+        {
+            get => _backgroundColor;
+            set
+            {
+                _backgroundColor = value;
+                StateHasChanged();
+                Parent?.Save();
+            }
+        }
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+                await DragElement();
+            }
+        }
+
+        public async Task DragElement()
         {
             var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/VisualComposerItem.razor.js");
-            //var windowSize = await jsObject.InvokeAsync<WindowSize>("getWindowSize");
-            var imageSize = await jsObject.InvokeAsync<WindowSize>("getImageSize", _imgId);
+            await jsObject.InvokeVoidAsync("dragElement", Id.Replace('.', '_') + "-" + UniqueGuid, DotNetObjectReference.Create(this), Left, Top, _backgroundId, Parent._zoomableContainer.Scale);
+        }
 
-            double offsetX = startX - (ratioImgX / 100 * imageSize.Width) * (Parent._zoomableContainer.Scale);
-            double offsetY = startY - (ratioImgY / 100 * imageSize.Height) * (Parent._zoomableContainer.Scale);
+        [JSInvokable]
+        public Task SetDataAsync(double left, double top)
+        {
+            _left = left;
+            _top = top;
 
-            if (imageSize.Width == 0)
-                ratioImgX = (args.ClientX - offsetX);
-            else
-                ratioImgX = ((args.ClientX - offsetX) / imageSize.Width * 100) * (1 / Parent._zoomableContainer.Scale);
+            Parent?.Save();
 
-            if (imageSize.Height == 0)
-                ratioImgY = (args.ClientY - offsetY);
-            else
-                ratioImgY = ((args.ClientY - offsetY) / imageSize.Height * 100) * (1 / Parent._zoomableContainer.Scale);
-
-            StateHasChanged();
+            return Task.CompletedTask;
         }
 
         public void Remove()
