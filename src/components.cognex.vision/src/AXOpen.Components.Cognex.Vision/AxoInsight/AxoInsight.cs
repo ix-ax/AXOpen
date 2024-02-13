@@ -267,7 +267,6 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     actionDescriptionDict.Add(317, "Reading running.");
                     actionDescriptionDict.Add(318, "Reading running.");
                     actionDescriptionDict.Add(319, "Reading running.");
-                    actionDescriptionDict.Add(110, "Reading started.");
                     actionDescriptionDict.Add(111, "Reading finished succesfully.");
                     actionDescriptionDict.Add(112, "Reading restored.");
 

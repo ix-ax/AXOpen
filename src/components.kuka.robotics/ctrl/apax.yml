@@ -16,6 +16,9 @@ dependencies:
   "@ix-ax/axopen.core": '0.0.0-dev.0'
   "@ix-ax/axopen.timers": '0.0.0-dev.0'
   "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
+  "@ix-ax/axopen.components.robotics": '0.0.0-dev.0'
+  "@ix-ax/axopen.io": '0.0.0-dev.0'
+  "@ax/simatic-1500-distributedio": ^6.0.3
 publicKeys:
   "@ix-ax": 30c06ef7830b4dfd8f16e003508da1ac2d187714d0e1f38279a9332cbe4e4e17
 installStrategy: strict

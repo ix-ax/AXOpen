@@ -1,21 +1,17 @@
 {S7.extern=ReadWrite}
 CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
-        _manualControl : BOOL;
-        _testCyclinder : AXOpen.Components.Kuka.Robotics.Example.ExampleCylinder;
-        PlcInputs : REF_TO PlcInputs;
-        PlcOutputs : REF_TO PlcOutputs;       
+        ActivateManualControl : BOOL;         
+        ExampleRobot : AXOpen.Components.Kuka.Robotics.AxoKrc4_v_5_x_x;          
     END_VAR
 
     METHOD PROTECTED OVERRIDE Main
-        _testCyclinder.Run(THIS,                             
-                            REF(PlcInputs^._homeSensor_1), 
-                            REF(PlcInputs^._workSensor_1), 
-                            REF(PlcOutputs^._moveHomeSignal_1), 
-                            REF(PlcOutputs^._moveWorkSignal_1));
+        ExampleRobot.Run(THIS,
+                            HwIdentifiers#KRC4,
+                            HwIdentifiers#KRC4_512_digital_in_and_outputs_1);
 
-        IF(_manualControl) THEN
-            _testCyclinder.ActivateManualControl();
-        END_IF;    
+        IF ActivateManualControl THEN
+            ExampleRobot.ActivateManualControl();
+        END_IF;                    
     END_METHOD
 END_CLASS
