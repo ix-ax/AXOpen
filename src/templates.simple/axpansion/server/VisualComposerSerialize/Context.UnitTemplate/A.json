@@ -22,8 +22,8 @@
     },
     {
       "Id": "357da12e47a3aa5214b0e4485d3906e1b9132f95e94a34dc18686e7190dcc789",
-      "Left": 11.179245283018869,
-      "Top": 50.78212290502793,
+      "Left": 29.103773584905664,
+      "Top": 17.541899441340785,
       "Transform": "TopCenter",
       "Presentation": "Spot",
       "Width": -1,
@@ -55,5 +55,5 @@
   "Scale": 1,
   "TranslateX": 0,
   "TranslateY": 0,
-  "AllowZoomingAndPanning": true
+  "AllowZoomingAndPanning": false
 }

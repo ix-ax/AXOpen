@@ -13,13 +13,26 @@
 <div class="container text-center">
     <div class="row">
         <div class="col">
-            <AxoTaskView Component="Entry.Plc.Context.StarterUnitTemplate.AutomatSequence"/>
+            <AuthorizeView Roles="@Roles.can_run_automat_mode">
+                <Authorized>
+                    <AxoTaskView Component="Unit.AutomatSequence"></AxoTaskView>
+                </Authorized>
+            </AuthorizeView>
         </div>
         <div class="col">
-            <AxoTaskView Component="Entry.Plc.Context.StarterUnitTemplate.GroundSequence"/>
+            <AuthorizeView Roles="@Roles.can_run_ground_mode">
+                <Authorized>
+                     <AxoTaskView Component="Unit.GroundSequence"></AxoTaskView>
+                </Authorized>
+            </AuthorizeView>
         </div>
         <div class="col">
-            <AxoTaskView Component="Entry.Plc.Context.StarterUnitTemplate.ServiceMode"/>
+            <AuthorizeView Roles="@Roles.can_run_service_mode">
+                <Authorized>
+                      <AxoTaskView Component="Unit.ServiceMode"></AxoTaskView>
+                </Authorized>
+            </AuthorizeView>
+           
         </div>
     </div>
 </div>
@@ -35,5 +48,8 @@
       AditionalItems="new ITwinObject[] { Entry.Plc.Context.Safety.Zone_1, Entry.Plc.Context.Safety.Zone_2 }">
 </Unit>
  
-
+@code
+{
+    private axosimple.UnitTemplate.Unit Unit => Entry.Plc.Context.UnitTemplate;
+}
     

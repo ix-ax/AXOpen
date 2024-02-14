@@ -6,12 +6,12 @@
   "BackgroundColor": "#ffffff",
   "Items": [
     {
-      "Id": "2006d3fa86575af5dd9fee66760bfbcc9325bad1ef0a26007ff8bcc416b01728",
-      "Left": 49.872471381217224,
-      "Top": 0.22425181887955006,
+      "Id": "61039e7e7dfd3dfb3a25f3a0eb84b9ea5f79ad9e76b69eb9533f506745c6bc51",
+      "Left": 47.815558175043314,
+      "Top": 0.3103820328294731,
       "Transform": "TopCenter",
       "Presentation": "Status-Display",
-      "Width": 80,
+      "Width": 50,
       "Height": -1,
       "ZIndex": 0,
       "Scale": 1,

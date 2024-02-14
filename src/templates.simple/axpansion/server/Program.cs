@@ -14,6 +14,7 @@ using AXSharp.Connector;
 using AXSharp.Presentation.Blazor.Services;
 using Serilog;
 using System.Reflection;
+using Microsoft.Extensions.Options;
 using MongoDB.Bson.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -202,6 +203,9 @@ public static class Roles
             new Role(can_run_service_mode),
             new Role(can_skip_steps_in_sequence),
             new Role(can_access_menu),
+            new Role(can_access_process_settings),
+            new Role(can_access_technological_settings),
+            new Role(can_access_process_data)
         };
 
         return roles;
@@ -214,4 +218,7 @@ public static class Roles
     public const string process_traceability_access = nameof(process_traceability_access);
     public const string can_skip_steps_in_sequence = nameof(can_skip_steps_in_sequence);
     public const string can_access_menu = nameof(can_access_menu);
+    public const string can_access_process_settings = nameof(can_access_process_settings);
+    public const string can_access_technological_settings = nameof(can_access_technological_settings);
+    public const string can_access_process_data =  nameof(can_access_process_data);
 }

@@ -2,4 +2,8 @@
 @using AXSharp.Connector
 @using AXOpen.Data;
 
-<RenderableContentControl Context="@Entry.Plc.Context.TechnologySettings" Presentation="Command"></RenderableContentControl>
+<AuthorizeView Roles="@Roles.can_access_process_settings">
+    <Authorized>
+        <RenderableContentControl Context="@Entry.Plc.Context.TechnologySettings" Presentation="Command"></RenderableContentControl>
+    </Authorized>
+</AuthorizeView>

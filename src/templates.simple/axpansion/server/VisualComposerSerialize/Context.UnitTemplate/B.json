@@ -1,14 +1,14 @@
 {
-  "ImgSrc": "Images/VisualComposerSerialize/Context.UnitTemplate.ServiceMode/A.jpg",
-  "BackgroundWidth": 100,
-  "BackgroundHeight": 500,
-  "EmptyBackground": true,
-  "BackgroundColor": "#ffffff",
+  "ImgSrc": "Images/VisualComposerSerialize/Context.UnitTemplate/B.jpg",
+  "BackgroundWidth": 0,
+  "BackgroundHeight": 0,
+  "EmptyBackground": false,
+  "BackgroundColor": "#FFFFFF",
   "Items": [
     {
-      "Id": "f4604aad0a074ceddfcfb36ce1368c5b5f42abe96debd1b1111becd21a569fac",
-      "Left": 59.128580808999786,
-      "Top": 5.984482644235638,
+      "Id": "d99fbfb51e5506ae83580440a3a68d287b9867ece67677a5da3b5299f3793dae",
+      "Left": 87.12264150943396,
+      "Top": 4.41340782122905,
       "Transform": "TopCenter",
       "Presentation": "Status-Display",
       "Width": -1,
@@ -17,13 +17,13 @@
       "Scale": 1,
       "Roles": "",
       "PresentationTemplate": null,
-      "Background": false,
+      "Background": true,
       "BackgroundColor": "#FFFFFF"
     },
     {
-      "Id": "2305a4c6e91a5eccd40c8aab836514ce967ea4cba55d3fc417eef607be74599d",
-      "Left": 30.885580247304258,
-      "Top": 0.8516039373020607,
+      "Id": "b26e16b0be4536d0e90230eda556185e18a8af289b91d36ef01a1e2c29812b64",
+      "Left": 10,
+      "Top": 10,
       "Transform": "TopCenter",
       "Presentation": "Status-Display",
       "Width": -1,
@@ -40,5 +40,5 @@
   "Scale": 1,
   "TranslateX": 0,
   "TranslateY": 0,
-  "AllowZoomingAndPanning": true
+  "AllowZoomingAndPanning": false
 }
