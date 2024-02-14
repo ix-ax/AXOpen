@@ -24,7 +24,7 @@
                                 <span class="bi bi-pencil-square fs-4" aria-hidden="true" />
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#controllerObjectModal-@Id.ModalIdHelper()">Controller objects</a></li>
+                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#controllerObjectsModal-@Id.ModalIdHelper()">Controller objects</a></li>
                                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#usedObjectModal-@Id.ModalIdHelper()">Used objects</a></li>
                                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createNewModal-@Id.ModalIdHelper()">Create new</a></li>
                                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createCopyModal-@Id.ModalIdHelper()">Create copy</a></li>
@@ -64,7 +64,7 @@
 
                         <CascadingValue Value="@this" Name="Parent" IsFixed="true">
                             <CascadingValue Value="@_backgroundId" Name="BackgroundId" IsFixed="true">
-                                @foreach (VisualComposerItem child in _children)
+                                @foreach (VisualComposerItemData child in _children)
                                 {
                                     <VisualComposerItem InDesign="@InDesignMode" Origin="@child" />
                                 }
@@ -73,18 +73,20 @@
                     </div>
                 </ZoomableContainer>
 
-                @foreach (VisualComposerItem child in _children)
-                {
-                    <VisualComposerItemModal Origin="@child" />
-                }
+                <CascadingValue Value="@this" Name="Parent" IsFixed="true">
+                    @foreach (VisualComposerItemData child in _children)
+                    {
+                        <VisualComposerItemModal Origin="@child" />
+                    }
+                </CascadingValue>
                 @* <button class="btn btn-outline-primary m-2" @onclick="ToggleInDesignMode">Toggle design mode</button>  *@
                 @if (InDesignMode)
                 {
-                    <div class="modal fade" id="controllerObjectModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
+                    <div class="modal fade" id="controllerObjectsModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="alarmsviewTitle">All components</h1>
+                                    <h1 class="modal-title fs-5" id="alarmsviewTitle">Controller objects</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body justify-content-center">
@@ -184,7 +186,7 @@
                                 </div>
                                 <div class="modal-body justify-content-center">
                                     <ul class="list-group">
-                                        @foreach (VisualComposerItem child in _children)
+                                        @foreach (VisualComposerItemData child in _children)
                                         {
                                             <li class="list-group-item d-flex">
                                                 <p class="mb-0">@child.IdPlain</p>
@@ -371,7 +373,7 @@
 
                         <CascadingValue Value="@this" Name="Parent" IsFixed="true">
                             <CascadingValue Value="@_backgroundId" Name="BackgroundId" IsFixed="true">
-                                @foreach (VisualComposerItem child in _children)
+                                @foreach (VisualComposerItemData child in _children)
                                 {
                                     <VisualComposerItem Origin="@child" />
                                 }
