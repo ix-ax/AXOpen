@@ -25,6 +25,9 @@ namespace AXOpen.VisualComposer
         [Parameter]
         public ITwinObject[] Objects { get; set; }
 
+        public delegate void EmptyDelegate();
+        public EmptyDelegate ReDragElementDelegate;
+
         public string? ImgSrc { get; set; }
 
         public int BackgroundWidth { get; set; } = 0;
@@ -39,7 +42,7 @@ namespace AXOpen.VisualComposer
 
         private Guid _backgroundId = Guid.NewGuid();
 
-        private List<VisualComposerItem> _children = new();
+        private List<VisualComposerItemData> _children = new();
         private ITwinElement _detailsObject;
 
         public ZoomableContainer _zoomableContainer { get; set; }
@@ -88,41 +91,22 @@ namespace AXOpen.VisualComposer
 
         public void AddChildren(ITwinElement item)
         {
-            _children.Add(new VisualComposerItem()
-            {
-                UniqueGuid = Guid.NewGuid(),
-                TwinElement = item,
-                Id = item.Symbol.ModalIdHelper()
-            });
+            _children.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), EventCallback.Factory.Create(this, Save), item, item.Symbol.ModalIdHelper(), Guid.NewGuid()));
 
             StateHasChanged();
 
             Save();
         }
 
-        public void AddChildren(VisualComposerItem item)
-        {
-            if (!_children.Contains(item))
-            {
-                VisualComposerItem? find = _children.Find(p => p.UniqueGuid == item.UniqueGuid);
-                if (find != null)
-                    _children.Remove(find);
-
-                _children.Add(item);
-            }
-        }
-
         public async Task ReDragElement()
         {
-            foreach (var child in _children)
-            {
-                await child.DragElement();
-            }
+            if(ReDragElementDelegate != null)
+                ReDragElementDelegate();
         }
 
-        public void RemoveChildren(VisualComposerItem item)
+        public void RemoveChildren(VisualComposerItemData item)
         {
-            _children.Remove(_children.Find(p => p.UniqueGuid == item.UniqueGuid));
+            _children.Remove(item);
 
             StateHasChanged();
 
@@ -202,24 +186,7 @@ namespace AXOpen.VisualComposer
                     var childObject = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper().ComputeSha256Hash() == item.Id);
                     if (childObject != null)
                     {
-                        _children.Add(new VisualComposerItem()
-                        {
-                            UniqueGuid = Guid.NewGuid(),
-                            TwinElement = childObject,
-                            Id = childObject.Symbol.ModalIdHelper(),
-                            _left = item.Left,
-                            _top = item.Top,
-                            _transform = Types.TransformType.FromString(item.Transform),
-                            _presentation = item.Presentation,
-                            _width = item.Width,
-                            _height = item.Height,
-                            _zIndex = item.ZIndex,
-                            _scale = item.Scale,
-                            _roles = item.Roles,
-                            _presentationTemplate = item.PresentationTemplate,
-                            _background = item.Background,
-                            _backgroundColor = item.BackgroundColor
-                        });
+                        _children.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), EventCallback.Factory.Create(this, Save), childObject, childObject.Symbol.ModalIdHelper(), Guid.NewGuid(), item.Left, item.Top, Types.TransformType.FromString(item.Transform), item.Presentation, false, item.Width, item.Height, item.ZIndex, item.Scale, item.Roles, item.PresentationTemplate, item.Background, item.BackgroundColor));
                     }
                 }
 
