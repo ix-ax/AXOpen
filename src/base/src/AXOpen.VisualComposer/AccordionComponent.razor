@@ -3,7 +3,7 @@
 <div class="accordion-item">
     <div class="accordion-header">
         <div class="input-group flex-nowrap">
-            <i class="bi bi-boxes m-2"></i>
+            <span class="bi bi-boxes align-self-center mx-2" aria-hidden="true" />
             <button class="accordion-button collapsed py-2" type="button" data-bs-toggle="collapse" data-bs-target="#@SourceTwinElement.Symbol.ModalIdHelper()" aria-expanded="false" aria-controls="@SourceTwinElement.Symbol.ModalIdHelper()">
                 @SourceTwinElement.Symbol
             </button>
@@ -26,7 +26,7 @@
                         if (kid is ITwinPrimitive prim)
                         {
                             <li class="list-group-item d-flex">
-                                <i class="bi bi-card-text mr-2"></i>
+                                <span class="bi bi-card-text me-2" aria-hidden="true" />
                                 <p class="mb-0">@prim.Symbol</p>
                                 <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => Parent.AddChildren(prim)"><span class="bi bi-plus-lg" aria-hidden="true"/></a>
                             </li> 

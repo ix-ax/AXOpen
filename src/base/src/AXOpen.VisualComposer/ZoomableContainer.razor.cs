@@ -24,17 +24,35 @@ namespace AXOpen.VisualComposer
             {
                 _parent = value;
 
-                if(value != null)
+                if (value != null)
                     value.AddZoomableContainer(this);
             }
         }
 
+        private bool _disable = false;
+        [Parameter]
+        public bool Disable
+        {
+            get => _disable;
+            set
+            {
+                if (_disable != value)
+                {
+                    _disable = value;
+
+                    if (value)
+                        DisableZooming();
+                    else
+                        EnableZooming();
+                }
+            }
+        }
 
         public double Scale { get; set; } = 1;
         public int TranslateX { get; set; } = 0;
         public int TranslateY { get; set; } = 0;
 
-        
+
         [Inject]
         protected IJSRuntime js { get; set; }
         private IJSObjectReference? jsModule;
@@ -43,19 +61,36 @@ namespace AXOpen.VisualComposer
         {
             if (firstRender)
             {
-                var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/ZoomableContainer.razor.js");
-                await jsObject.InvokeVoidAsync("setData", DotNetObjectReference.Create(this), Scale, TranslateX, TranslateY);
+                await SetDataInJS();
             }
         }
 
+        public async Task DisableZooming()
+        {
+            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/ZoomableContainer.razor.js");
+            await jsObject.InvokeVoidAsync("disableZooming");
+        }
+
+        public async Task EnableZooming()
+        {
+            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/ZoomableContainer.razor.js");
+            await jsObject.InvokeVoidAsync("enableZooming");
+        }
+
+        public async Task SetDataInJS()
+        {
+            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/ZoomableContainer.razor.js");
+            await jsObject.InvokeVoidAsync("setData", DotNetObjectReference.Create(this), Scale, TranslateX, TranslateY);
+        }
+
         [JSInvokable]
-        public Task SetDataAsync(double scale, int translateX, int translateY)
+        public async Task SetDataAsync(double scale, int translateX, int translateY)
         {
             Scale = scale;
             TranslateX = translateX;
             TranslateY = translateY;
 
-            return Task.CompletedTask;
+            await _parent!.ReDragElement();
         }
 
 

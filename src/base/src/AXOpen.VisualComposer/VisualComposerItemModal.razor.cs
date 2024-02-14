@@ -8,12 +8,20 @@ namespace AXOpen.VisualComposer
 {
     public partial class VisualComposerItemModal
     {
+        [CascadingParameter(Name = "Parent")]
+        private VisualComposerContainer? _parent { get; set; }
+
         [Parameter]
-        public VisualComposerItem Origin { get; set; }
+        public VisualComposerItemData Origin { get; set; }
+
+        protected override void OnAfterRender(bool firstRender)
+        {
+            Origin.StateHasChangeModalDelegate += StateHasChanged;
+        }
 
         public void Remove()
         {
-            Origin.Remove();
+            _parent.RemoveChildren(Origin);
         }
     }
 }

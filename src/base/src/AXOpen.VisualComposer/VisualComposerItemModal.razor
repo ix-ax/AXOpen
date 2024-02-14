@@ -2,7 +2,7 @@
 {
     <AuthorizeView Roles="Administrator">
         <Authorized>
-            <div class="modal fade" id="settings-@Origin.Id.Replace('.', '_')-@Origin.UniqueGuid" tabindex="-1" aria-hidden="true" data-bs-backdrop="false" style="transform: none;">
+            <div class="modal fade" id="settings-@Origin.Id.Replace('.', '_')-@Origin.UniqueGuid" tabindex="-1" aria-hidden="true" data-bs-backdrop="true" style="transform: none;">
                 <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -11,6 +11,18 @@
                             <button type="button" class="btn-close ms-3" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body justify-content-center">
+                            <div class="mb-1 row">
+                                <label class="col-sm-2 col-form-label">Top</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="Top" @bind="Origin.Top">
+                                </div>
+                            </div>
+                            <div class="mb-1 row">
+                                <label class="col-sm-2 col-form-label">Left</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="Left" @bind="Origin.Left">
+                                </div>
+                            </div>
                             <div class="mb-1 row">
                                 <label class="col-sm-2 col-form-label">Presentation</label>
                                 <div class="col-sm-6">
@@ -81,15 +93,10 @@
                                 </div>
                             </div>
                             <div class="mb-1 row">
-                                <label class="col-sm-2 col-form-label">X</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="AXOpen.Core.AxoObject" @bind="Origin.PosX">
-                                </div>
-                            </div>
-                            <div class="mb-1 row">
-                                <label class="col-sm-2 col-form-label">Y</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="AXOpen.Core.AxoObject" @bind="Origin.PosY">
+                                <label class="col-sm-2 col-form-label">Background</label>
+                                <div class="col-sm-10 d-flex align-items-center">
+                                    <input class="form-check-input ms-2 mt-0" type="checkbox" checked="@(Origin.Background ? "checked" : null)" @onclick="() => Origin.Background = !Origin.Background">
+                                    <input type="color" class="form-control form-control-color ms-4" @bind="Origin.BackgroundColor" title="Choose color">
                                 </div>
                             </div>
                         </div>
