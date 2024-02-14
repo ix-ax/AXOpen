@@ -32,20 +32,17 @@ namespace AXOpen.VisualComposer
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            if (firstRender)
+            await DragElement();
+
+            Parent.ReDragElementDelegate += async () =>
             {
                 await DragElement();
+            };
 
-                Parent.ReDragElementDelegate += async () =>
-                {
-                    await DragElement();
-                };
-
-                Origin.DragElementDelegate += async () =>
-                {
-                    await DragElement();
-                };
-            }
+            Origin.DragElementDelegate += async () =>
+            {
+                await DragElement();
+            };
         }
 
         public async Task DragElement()

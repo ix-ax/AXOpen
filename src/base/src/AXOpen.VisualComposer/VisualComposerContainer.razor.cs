@@ -85,7 +85,7 @@ namespace AXOpen.VisualComposer
                 }
 
                 Load(null);
-                //StateHasChanged();
+                StateHasChanged();
             }
         }
 
