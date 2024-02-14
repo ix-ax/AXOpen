@@ -1,21 +1,19 @@
 {S7.extern=ReadWrite}
 CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
-        _manualControl : BOOL;
-        _testCyclinder : AXOpen.Components.Rexroth.Press.ExampleCylinder;
-        PlcInputs : REF_TO PlcInputs;
-        PlcOutputs : REF_TO PlcOutputs;       
+        ActivateManualControl : BOOL;
+        AxoSmartFunctionKit : AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x;
     END_VAR
 
     METHOD PROTECTED OVERRIDE Main
-        _testCyclinder.Run(THIS,                             
-                            REF(PlcInputs^._homeSensor_1), 
-                            REF(PlcInputs^._workSensor_1), 
-                            REF(PlcOutputs^._moveHomeSignal_1), 
-                            REF(PlcOutputs^._moveWorkSignal_1));
+        AxoSmartFunctionKit.Run(parent              :=  THIS,                             
+                                hwID                :=  HwIdentifiers#SFK4P_1,
+                                hwIdParamCh_IDN     :=  HwIdentifiers#SFK4P_1_ParamCh_IDN,
+                                hwIdInput_24_Words  :=  HwIdentifiers#SFK4P_1_Input_24_Words,
+                                hwIdOutput_21_Words :=  HwIdentifiers#SFK4P_1_Output_21_Words);
 
-        IF(_manualControl) THEN
-            _testCyclinder.ActivateManualControl();
+        IF(ActivateManualControl) THEN
+            AxoSmartFunctionKit.ActivateManualControl();
         END_IF;    
     END_METHOD
 END_CLASS
