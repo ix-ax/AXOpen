@@ -19,7 +19,6 @@ TYPE
 		KRC4_Interface1 :=	WORD#259,
 		KRC4_Interface1_Port1 :=	WORD#260,
 		KRC4_KRC4_ProfiNet_5_0 :=	WORD#261,
-		KRC4_64_safe_digital_in_and_outputs_2_4_1 :=	WORD#263,
 		KRC4_512_digital_in_and_outputs_1 :=	WORD#265,
 		NONE:= WORD#0
 	);

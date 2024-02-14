@@ -336,8 +336,8 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 THIS.Restore();
             END_IF;
             //****************************************
-(*
-            //*************StartAtMainTask***************
+
+            //*************StartAtMainTask************
             StartAtMainTask.IsDisabled := _stopTasksAreActive;
             IF StartAtMainTask.StartTriggered() THEN
                 RobotStatus.Action.Id :=  UINT#100;
@@ -354,12 +354,12 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 END_IF;
                 
                 IF _progress = 300 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#600, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#500, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#600;
+                        RobotStatus.Error.Id := UINT#500;
                     END_IF;
 
-                    Outputs.StartAtMain := _blink.output;
+                    Outputs.StartAtMain := NOT Inputs.PpMoved  AND _blink.output;
                             
                     IF Inputs.PpMoved  THEN
                         THIS.CallTimers(FALSE);
@@ -397,6 +397,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
             END_IF;
             //*******************************************
 
+ 
             //***********StartMotorsAndProgramTask*******
             StartMotorsAndProgramTask.IsDisabled := _stopTasksAreActive OR StartProgramTask.IsBusy() OR StartMotorsTask.IsBusy();
             IF StartMotorsAndProgramTask.StartTriggered() THEN
@@ -414,107 +415,108 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                     _progress := 310;
                 END_IF;
 
-                IF _progress = 310 THEN //Switching to auto
-                    TaskMessenger.ActivateOnCondition(ULINT#610, _infoTimer.output, eAxoMessageCategory#Warning);
+                IF _progress = 310 THEN 
+                    TaskMessenger.ActivateOnCondition(ULINT#510, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#610;
+                        RobotStatus.Error.Id := UINT#510;
                     END_IF;
 
-                    IF Inputs.AutoOn THEN
+                    IF Inputs.UserSafetySwitchClosed THEN
                         THIS.CallTimers(FALSE);
                         _progress := 311;
                     END_IF;
                 END_IF;
 
-                IF _progress = 311 THEN	//Reseting error
-                    TaskMessenger.ActivateOnCondition(ULINT#611, _infoTimer.output, eAxoMessageCategory#Warning);
+                IF _progress = 311 THEN	
+                    TaskMessenger.ActivateOnCondition(ULINT#511, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#611;
+                        RobotStatus.Error.Id := UINT#511;
                     END_IF;
 
-                    Outputs.ResetError := Inputs.Error AND _blink.output;
-
-                    IF NOT Inputs.Error THEN
-                        Outputs.ResetError:=FALSE;
+                    IF Inputs.AlarmStopActive THEN
                         THIS.CallTimers(FALSE);
                         _progress := 312;
                     END_IF;
                 END_IF;
               
-                IF _progress = 312 THEN	//Reseting emergency stop error
-                    TaskMessenger.ActivateOnCondition(ULINT#612, _infoTimer.output, eAxoMessageCategory#Warning);
+                IF _progress = 312 THEN	
+                    TaskMessenger.ActivateOnCondition(ULINT#512, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#612;
+                        RobotStatus.Error.Id := UINT#512;
                     END_IF;
 
-                    Outputs.ResetEmgStop := Inputs.EmgStop AND _blink.output;
+                    Outputs.DrivesOff:=TRUE;		
+                    Outputs.DrivesOn:=_blink.output;	
 
-                    IF NOT Inputs.EmgStop THEN
-                        Outputs.ResetEmgStop:=FALSE;
+                    IF Inputs.DrivesReady THEN
+                        Outputs.DrivesOn:=FALSE;
                         THIS.CallTimers(FALSE);
                         _progress := 313;
                     END_IF;
                 END_IF;
               
                 IF _progress = 313 THEN	
-                    TaskMessenger.ActivateOnCondition(ULINT#613, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#513, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#613;
+                        RobotStatus.Error.Id := UINT#513;
                     END_IF;
 
-                    Outputs.MotorOnAndStart:=_blink.output;	
+                    Outputs.ErrorConfirmation := Inputs.StopMess AND _blink.output;
 
-                    IF Inputs.Error THEN 
-                        THIS.CallTimers(FALSE);
-                        _progress := 310;
-                    END_IF;
-
-                    IF Inputs.MotorOnState THEN
+                    IF NOT Inputs.StopMess THEN
                          THIS.CallTimers(FALSE);
                          _progress := 314;
                     END_IF;
                 END_IF;		
               
                 IF _progress = 314 THEN	
-                    TaskMessenger.ActivateOnCondition(ULINT#614, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#514, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#614;
+                        RobotStatus.Error.Id := UINT#514;
                     END_IF;
 
-                    Outputs.MotorOnAndStart:=_blink.output;	
+                    Outputs.MoveEnable:=TRUE;	
 
-                    IF Inputs.Error THEN 
-                        THIS.CallTimers(FALSE);
-                        _progress := 310;
-                    END_IF;
-
-                    IF Inputs.CycleOn THEN
+                    IF Inputs.RcReady THEN
                          THIS.CallTimers(FALSE);
                          _progress := 315;
                     END_IF;
                 END_IF;	
 
                 IF _progress = 315 THEN	
-                    TaskMessenger.ActivateOnCondition(ULINT#615, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#515, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#615;
+                        RobotStatus.Error.Id := UINT#515;
                     END_IF;
 
-                    Outputs.MotorOnAndStart:=_blink.output;	
+                    Outputs.ActivateInterface:=TRUE;	
 
-                    IF NOT Inputs.Error THEN 
-                        THIS.CallTimers(FALSE);
-                        _progress := 310;
-                    END_IF;
-
-                    IF NOT Inputs.Error THEN
+                    IF Inputs.InterfaceActivated THEN
                          THIS.CallTimers(FALSE);
-                         Outputs.MotorOnAndStart := FALSE;
                          _progress := 316;
                     END_IF;
                 END_IF;	
 
                 IF _progress = 316 THEN	
+                    TaskMessenger.ActivateOnCondition(ULINT#516, _infoTimer.output, eAxoMessageCategory#Warning);
+                    IF _infoTimer.output THEN
+                        RobotStatus.Error.Id := UINT#516;
+                    END_IF;
+
+                    IF Inputs.StopMess OR Inputs.AlarmStopActive OR NOT Inputs.RcReady THEN 
+                        _progress := 310;
+                    END_IF;
+
+                    Outputs.ExternalStart:=_blink.output;	
+
+                    IF Inputs.ProActive THEN
+                        Outputs.ExternalStart:=FALSE;	
+                        THIS.CallTimers(FALSE);
+                         _progress := 317;
+                    END_IF;
+                END_IF;	
+
+                IF _progress = 317 THEN	
                     StartMotorsAndProgramTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
                     _progress := 0;
@@ -543,7 +545,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
             END_IF;   
             //*******************************************
                         
-            //***********StartMotorsProgramAndMovementsTask*******
+            //****StartMotorsProgramAndMovementsTask*****
             StartMotorsProgramAndMovementsTask.IsDisabled := _stopTasksAreActive OR StartProgramTask.IsBusy() OR StartMotorsTask.IsBusy() OR StartMovementsTask.IsBusy();
             IF StartMotorsProgramAndMovementsTask.StartTriggered() THEN
                 RobotStatus.Action.Id :=  UINT#120;
@@ -554,117 +556,117 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 _blink.Blink(Context := _context, inOnTime:=T#500MS,inOffTime:=T#500MS);
 
                 IF _progress = 0 THEN
-                    RobotStatus.Error.Id := UINT#0;
+                    RobotStatus.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
                     _progress := 320;
                 END_IF;
 
-                IF _progress = 320 THEN //Switching to auto
-                    TaskMessenger.ActivateOnCondition(ULINT#620, _infoTimer.output, eAxoMessageCategory#Warning);
+                IF _progress = 320 THEN 
+                    TaskMessenger.ActivateOnCondition(ULINT#520, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#620;
+                        RobotStatus.Error.Id := UINT#520;
                     END_IF;
 
-
-                    IF Inputs.AutoOn THEN
+                    IF Inputs.UserSafetySwitchClosed THEN
                         THIS.CallTimers(FALSE);
                         _progress := 321;
                     END_IF;
                 END_IF;
 
-                IF _progress = 321 THEN	//Reseting error
-                    TaskMessenger.ActivateOnCondition(ULINT#621, _infoTimer.output, eAxoMessageCategory#Warning);
+                IF _progress = 321 THEN	
+                    TaskMessenger.ActivateOnCondition(ULINT#521, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#621;
+                        RobotStatus.Error.Id := UINT#521;
                     END_IF;
 
-                    Outputs.ResetError := Inputs.Error AND _blink.output;
-
-                    IF NOT Inputs.Error THEN
-                        Outputs.ResetError:=FALSE;
+                    IF Inputs.AlarmStopActive THEN
                         THIS.CallTimers(FALSE);
                         _progress := 322;
                     END_IF;
                 END_IF;
               
-                IF _progress = 322 THEN	//Reseting emergency stop error
-                    TaskMessenger.ActivateOnCondition(ULINT#622, _infoTimer.output, eAxoMessageCategory#Warning);
+                IF _progress = 322 THEN	
+                    TaskMessenger.ActivateOnCondition(ULINT#522, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#622;
+                        RobotStatus.Error.Id := UINT#522;
                     END_IF;
 
-                    Outputs.ResetEmgStop := Inputs.EmgStop AND _blink.output;
+                    Outputs.DrivesOff:=TRUE;		
+                    Outputs.DrivesOn:=_blink.output;	
 
-                    IF NOT Inputs.EmgStop THEN
-                        Outputs.ResetEmgStop:=FALSE;
+                    IF Inputs.DrivesReady THEN
+                        Outputs.DrivesOn:=FALSE;
                         THIS.CallTimers(FALSE);
                         _progress := 323;
                     END_IF;
                 END_IF;
               
                 IF _progress = 323 THEN	
-                    TaskMessenger.ActivateOnCondition(ULINT#623, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#523, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#623;
+                        RobotStatus.Error.Id := UINT#523;
                     END_IF;
 
-                    Outputs.MotorOnAndStart:=_blink.output;	
+                    Outputs.ErrorConfirmation := Inputs.StopMess AND _blink.output;
 
-                    IF Inputs.Error THEN 
-                        THIS.CallTimers(FALSE);
-                        _progress := 320;
-                    END_IF;
-
-                    IF Inputs.MotorOnState THEN
+                    IF NOT Inputs.StopMess THEN
                          THIS.CallTimers(FALSE);
                          _progress := 324;
                     END_IF;
                 END_IF;		
               
                 IF _progress = 324 THEN	
-                    TaskMessenger.ActivateOnCondition(ULINT#624, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#524, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#624;
+                        RobotStatus.Error.Id := UINT#524;
                     END_IF;
 
-                    Outputs.MotorOnAndStart:=_blink.output;	
+                    Outputs.MoveEnable:=TRUE;	
 
-                    IF Inputs.Error THEN 
-                        THIS.CallTimers(FALSE);
-                        _progress := 320;
-                    END_IF;
-
-                    IF Inputs.CycleOn THEN
+                    IF Inputs.RcReady THEN
                          THIS.CallTimers(FALSE);
                          _progress := 325;
                     END_IF;
                 END_IF;	
 
                 IF _progress = 325 THEN	
-                    TaskMessenger.ActivateOnCondition(ULINT#625, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#525, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#625;
+                        RobotStatus.Error.Id := UINT#525;
                     END_IF;
 
-                    Outputs.MotorOnAndStart:=_blink.output;	
+                    Outputs.ActivateInterface:=TRUE;	
 
-                    IF NOT Inputs.Error THEN 
-                        THIS.CallTimers(FALSE);
-                        _progress := 320;
-                    END_IF;
-
-                    IF NOT Inputs.Error THEN
+                    IF Inputs.InterfaceActivated THEN
                          THIS.CallTimers(FALSE);
-                         Outputs.MotorOnAndStart := FALSE;
                          _progress := 326;
                     END_IF;
                 END_IF;	
-	
-                IF _progress = 326 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#626, _infoTimer.output, eAxoMessageCategory#Warning);
+
+                IF _progress = 326 THEN	
+                    TaskMessenger.ActivateOnCondition(ULINT#526, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#626;
+                        RobotStatus.Error.Id := UINT#526;
+                    END_IF;
+
+                    IF Inputs.StopMess OR Inputs.AlarmStopActive OR NOT Inputs.RcReady THEN 
+                        _progress := 320;
+                    END_IF;
+
+                    Outputs.ExternalStart:=_blink.output;	
+
+                    IF Inputs.ProActive THEN
+                        Outputs.ExternalStart:=FALSE;	
+                        THIS.CallTimers(FALSE);
+                         _progress := 327;
+                    END_IF;
+                END_IF;	
+	
+                IF _progress = 327 THEN
+                    TaskMessenger.ActivateOnCondition(ULINT#527, _infoTimer.output, eAxoMessageCategory#Warning);
+                    IF _infoTimer.output THEN
+                        RobotStatus.Error.Id := UINT#527;
                     END_IF;
 
                     Outputs.GlobalSpeed     := RobotStatus.CurrentMovementParameters.GlobalSpeed;
@@ -679,29 +681,29 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
 
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 327;
+                        _progress := 328;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 327 THEN
+                IF _progress = 328 THEN
                     IF _infoTimer.output THEN
                         IF Inputs.GlobalSpeed <> RobotStatus.CurrentMovementParameters.GlobalSpeed THEN
-                            RobotStatus.Error.Id := UINT#627;//<#Waiting for Inputs.GlobalSpeed to be equal to MovementParameters.GlobalSpeed!
+                            RobotStatus.Error.Id := UINT#528;//<#Waiting for Inputs.GlobalSpeed to be equal to MovementParameters.GlobalSpeed!
                         END_IF;
                         IF Inputs.ToolNo <> RobotStatus.CurrentMovementParameters.ToolNo THEN
-                            RobotStatus.Error.Id := UINT#628;//<#Waiting for Inputs.ToolNo to be equal to MovementParameters.ToolNo!
+                            RobotStatus.Error.Id := UINT#529;//<#Waiting for Inputs.ToolNo to be equal to MovementParameters.ToolNo!
                         END_IF;
                         IF Inputs.WorkobjectNo <> RobotStatus.CurrentMovementParameters.WorkobjectNo THEN
-                            RobotStatus.Error.Id := UINT#629;//<#Waiting for Inputs.WorkobjectNo to be equal to MovementParameters.WorkobjectNo!
+                            RobotStatus.Error.Id := UINT#530;//<#Waiting for Inputs.WorkobjectNo to be equal to MovementParameters.WorkobjectNo!
                         END_IF;
                         IF Inputs.PointNo <> RobotStatus.CurrentMovementParameters.PointNo THEN
-                            RobotStatus.Error.Id := UINT#630;//<#Waiting for Inputs.PointNo to be equal to MovementParameters.PointNo!
+                            RobotStatus.Error.Id := UINT#531;//<#Waiting for Inputs.PointNo to be equal to MovementParameters.PointNo!
                         END_IF;
                         IF Inputs.UserSpecSpeed1 <> RobotStatus.CurrentMovementParameters.UserSpecSpeed1 THEN
-                            RobotStatus.Error.Id := UINT#631;//<#Waiting for Inputs.UserSpecSpeed1 to be equal to MovementParameters.UserSpecSpeed1!
+                            RobotStatus.Error.Id := UINT#532;//<#Waiting for Inputs.UserSpecSpeed1 to be equal to MovementParameters.UserSpecSpeed1!
                         END_IF;
                         IF Inputs.UserSpecSpeed2 <> RobotStatus.CurrentMovementParameters.UserSpecSpeed2 THEN
-                            RobotStatus.Error.Id := UINT#632;//<#Waiting for Inputs.UserSpecSpeed2 to be equal to MovementParameters.UserSpecSpeed2!
+                            RobotStatus.Error.Id := UINT#533;//<#Waiting for Inputs.UserSpecSpeed2 to be equal to MovementParameters.UserSpecSpeed2!
                         END_IF;
                     END_IF;
 
@@ -713,42 +715,42 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                         Inputs.UserSpecSpeed2   = RobotStatus.CurrentMovementParameters.UserSpecSpeed2 AND
                         AXOpen.Components.Robotics.CoordinatesAreNearlyEqual(Inputs.Coordinates,RobotStatus.CurrentMovementParameters.Coordinates,REAL#0.01,REAL#0.01,REAL#0.01,REAL#0.01,REAL#0.01,REAL#0.01) THEN
                         THIS.CallTimers(FALSE);
-                        _progress:=333;
+                        _progress:=334;
                     END_IF;
                 END_IF;		
 
-                IF _progress = 333 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#633, _infoTimer.output, eAxoMessageCategory#Warning);
+                IF _progress = 334 THEN
+                    TaskMessenger.ActivateOnCondition(ULINT#534, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#633;
+                        RobotStatus.Error.Id := UINT#534;
                     END_IF;
 
-                    Outputs.ActionNo := BYTE#255;
+                    Outputs.ActionNo := BYTE#253;
 
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
                         THIS.CallTimers(FALSE);
-                        _progress:=334;
+                        _progress:=335;
                     END_IF;
                 END_IF;	
                 
-                IF _progress = 334 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#634, _infoTimer.output, eAxoMessageCategory#Warning);
+                IF _progress = 335 THEN
+                    TaskMessenger.ActivateOnCondition(ULINT#535, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#634;
+                        RobotStatus.Error.Id := UINT#535;
                     END_IF;
 
                     Outputs.ActionNo := RobotStatus.CurrentMovementParameters.ActionNo;
 	
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
                         THIS.CallTimers(FALSE);
-                        _progress:=335;
+                        _progress:=336;
                     END_IF;
                 END_IF;	
 
-                IF _progress = 335 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#635, _infoTimer.output, eAxoMessageCategory#Warning);
+                IF _progress = 336 THEN
+                    TaskMessenger.ActivateOnCondition(ULINT#536, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#635;
+                        RobotStatus.Error.Id := UINT#536;
                     END_IF;
 
                     Outputs.ActionNo := BYTE#255;
@@ -784,7 +786,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 _progress := 0;
             END_IF;  
             //*******************************************
-                        
+
             //***********StartMotorsTask*****************
             StartMotorsTask.IsDisabled := _stopTasksAreActive OR StartMotorsProgramAndMovementsTask.IsBusy() OR StartMotorsAndProgramTask.IsBusy();
             IF StartMotorsTask.StartTriggered() THEN
@@ -802,88 +804,47 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                     _progress := 340;
                 END_IF;
               
-                IF _progress = 340 THEN //Switching to auto
-                    TaskMessenger.ActivateOnCondition(ULINT#640, _infoTimer.output, eAxoMessageCategory#Warning);
+                IF _progress = 340 THEN 
+                    TaskMessenger.ActivateOnCondition(ULINT#540, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#640;
+                        RobotStatus.Error.Id := UINT#540;
                     END_IF;
 
-                    IF Inputs.AutoOn THEN
+                    IF Inputs.UserSafetySwitchClosed THEN
                         THIS.CallTimers(FALSE);
                         _progress := 341;
                     END_IF;
                 END_IF;
 
-                IF _progress = 341 THEN	//Reseting error
-                    TaskMessenger.ActivateOnCondition(ULINT#641, _infoTimer.output, eAxoMessageCategory#Warning);
+                IF _progress = 341 THEN	
+                    TaskMessenger.ActivateOnCondition(ULINT#541, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#641;
+                        RobotStatus.Error.Id := UINT#541;
                     END_IF;
 
-                    Outputs.ResetError := Inputs.Error AND _blink.output;
-
-                    IF NOT Inputs.Error THEN
-                        Outputs.ResetError:=FALSE;
+                    IF Inputs.AlarmStopActive THEN
                         THIS.CallTimers(FALSE);
                         _progress := 342;
                     END_IF;
                 END_IF;
               
-                IF _progress = 342 THEN	//Reseting emergency stop error
-                    TaskMessenger.ActivateOnCondition(ULINT#642, _infoTimer.output, eAxoMessageCategory#Warning);
+                IF _progress = 342 THEN	
+                    TaskMessenger.ActivateOnCondition(ULINT#542, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#642;
+                        RobotStatus.Error.Id := UINT#542;
                     END_IF;
 
-                    Outputs.ResetEmgStop := Inputs.EmgStop AND _blink.output;
+                    Outputs.DrivesOff:=TRUE;
+                    Outputs.DrivesOn:=_blink.output;	
 
-                    IF NOT Inputs.EmgStop THEN
-                        Outputs.ResetEmgStop:=FALSE;
+                    IF Inputs.DrivesReady  THEN
+                        Outputs.DrivesOn:=FALSE;
                         THIS.CallTimers(FALSE);
                         _progress := 343;
                     END_IF;
                 END_IF;
               
                 IF _progress = 343 THEN	
-                    TaskMessenger.ActivateOnCondition(ULINT#643, _infoTimer.output, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#643;
-                    END_IF;
-
-                    IF Inputs.Error THEN 
-                        THIS.CallTimers(FALSE);
-                        _progress := 340;
-                    END_IF;
-
-                    Outputs.MotorOn:=_blink.output;	
-
-                    IF Inputs.MotorOnState THEN
-                         THIS.CallTimers(FALSE);
-                         _progress := 344;
-                    END_IF;
-                END_IF;		
-
-                IF _progress = 344 THEN	
-                    TaskMessenger.ActivateOnCondition(ULINT#644, _infoTimer.output, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#644;
-                    END_IF;
-
-                    IF Inputs.Error THEN 
-                        THIS.CallTimers(FALSE);
-                        _progress := 340;
-                    END_IF;
-
-                    Outputs.MotorOn:=_blink.output;	
-
-                    IF NOT Inputs.Error  THEN
-                         Outputs.MotorOn:=FALSE;
-                         THIS.CallTimers(FALSE);
-                         _progress := 345;
-                    END_IF;
-                END_IF;		
-              
-                IF _progress = 345 THEN	
                     StartMotorsTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
                     _progress := 0;
@@ -911,7 +872,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 _progress := 0;
             END_IF;  
             //*******************************************
-               
+  
             //***********StartMovementsTask**************
             StartMovementsTask.IsDisabled := _stopTasksAreActive OR StartMotorsProgramAndMovementsTask.IsBusy();
             IF StartMovementsTask.StartTriggered() THEN
@@ -928,49 +889,48 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 END_IF;
                 
                 IF _progress = 350 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#650, _infoTimer.output, eAxoMessageCategory#Warning);
-
+                    TaskMessenger.ActivateOnCondition(ULINT#550, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#650;
+                        RobotStatus.Error.Id := UINT#550;
                     END_IF;
 
-                    IF Inputs.CycleOn THEN
+                    IF Inputs.ProActive THEN
                         THIS.CallTimers(FALSE);
                         _progress := 351;
                     END_IF;
                 END_IF;
                 
                 IF _progress = 351 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#651, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#551, _infoTimer.output, eAxoMessageCategory#Warning);
 
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#651;
+                        RobotStatus.Error.Id := UINT#551;
                     END_IF;
 
-                    IF Inputs.MotorOnState THEN
+                    IF Inputs.DrivesReady THEN
                         THIS.CallTimers(FALSE);
                         _progress := 352;
                     END_IF;
                 END_IF;
 
                 IF _progress = 352 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#652, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#552, _infoTimer.output, eAxoMessageCategory#Warning);
 
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#652;
+                        RobotStatus.Error.Id := UINT#552;
                     END_IF;
                                         
-                    IF NOT Inputs.Error THEN
+                    IF NOT Inputs.StopMess THEN
                         THIS.CallTimers(FALSE);
                         _progress := 353;
                     END_IF;
                 END_IF;
 
                 IF _progress = 353 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#653, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#553, _infoTimer.output, eAxoMessageCategory#Warning);
 
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#653;
+                        RobotStatus.Error.Id := UINT#553;
                     END_IF;
                             
                     Outputs.GlobalSpeed     := RobotStatus.CurrentMovementParameters.GlobalSpeed;
@@ -992,22 +952,22 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 IF _progress = 354 THEN
                     IF _infoTimer.output THEN
                         IF Inputs.GlobalSpeed <> RobotStatus.CurrentMovementParameters.GlobalSpeed THEN
-                            RobotStatus.Error.Id := UINT#654;//<#Waiting for Inputs.GlobalSpeed to be equal to MovementParameters.GlobalSpeed!
+                            RobotStatus.Error.Id := UINT#554;//<#Waiting for Inputs.GlobalSpeed to be equal to MovementParameters.GlobalSpeed!
                         END_IF;
                         IF Inputs.ToolNo <> RobotStatus.CurrentMovementParameters.ToolNo THEN
-                            RobotStatus.Error.Id := UINT#655;//<#Waiting for Inputs.ToolNo to be equal to MovementParameters.ToolNo!
+                            RobotStatus.Error.Id := UINT#555;//<#Waiting for Inputs.ToolNo to be equal to MovementParameters.ToolNo!
                         END_IF;
                         IF Inputs.WorkobjectNo <> RobotStatus.CurrentMovementParameters.WorkobjectNo THEN
-                            RobotStatus.Error.Id := UINT#656;//<#Waiting for Inputs.WorkobjectNo to be equal to MovementParameters.WorkobjectNo!
+                            RobotStatus.Error.Id := UINT#556;//<#Waiting for Inputs.WorkobjectNo to be equal to MovementParameters.WorkobjectNo!
                         END_IF;
                         IF Inputs.PointNo <> RobotStatus.CurrentMovementParameters.PointNo THEN
-                            RobotStatus.Error.Id := UINT#657;//<#Waiting for Inputs.PointNo to be equal to MovementParameters.PointNo!
+                            RobotStatus.Error.Id := UINT#557;//<#Waiting for Inputs.PointNo to be equal to MovementParameters.PointNo!
                         END_IF;
                         IF Inputs.UserSpecSpeed1 <> RobotStatus.CurrentMovementParameters.UserSpecSpeed1 THEN
-                            RobotStatus.Error.Id := UINT#658;//<#Waiting for Inputs.UserSpecSpeed1 to be equal to MovementParameters.UserSpecSpeed1!
+                            RobotStatus.Error.Id := UINT#558;//<#Waiting for Inputs.UserSpecSpeed1 to be equal to MovementParameters.UserSpecSpeed1!
                         END_IF;
                         IF Inputs.UserSpecSpeed2 <> RobotStatus.CurrentMovementParameters.UserSpecSpeed2 THEN
-                            RobotStatus.Error.Id := UINT#659;//<#Waiting for Inputs.UserSpecSpeed2 to be equal to MovementParameters.UserSpecSpeed2!
+                            RobotStatus.Error.Id := UINT#559;//<#Waiting for Inputs.UserSpecSpeed2 to be equal to MovementParameters.UserSpecSpeed2!
                         END_IF;
                     END_IF;
 
@@ -1024,13 +984,13 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 END_IF;		
 
                 IF _progress = 360 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#660, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#560, _infoTimer.output, eAxoMessageCategory#Warning);
 
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#660;
+                        RobotStatus.Error.Id := UINT#560;
                     END_IF;
 
-                    Outputs.ActionNo := BYTE#255;
+                    Outputs.ActionNo := BYTE#253;
 
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
                         THIS.CallTimers(FALSE);
@@ -1039,10 +999,10 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 END_IF;	
                 
                 IF _progress = 361 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#661, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#561, _infoTimer.output, eAxoMessageCategory#Warning);
 
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#661;
+                        RobotStatus.Error.Id := UINT#561;
                     END_IF;
 
                     Outputs.ActionNo := RobotStatus.CurrentMovementParameters.ActionNo;
@@ -1054,24 +1014,24 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 END_IF;	
 
                 IF _progress = 662 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#662, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#562, _infoTimer.output, eAxoMessageCategory#Warning);
 
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#662;
+                        RobotStatus.Error.Id := UINT#562;
                     END_IF;
 
                     Outputs.ActionNo := BYTE#255;
 
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
                         _progress := 663;
-                        StartMovementsTask.DoneWhen(TRUE);
                     END_IF;
                 END_IF;	
                 
                 IF _progress = 663 THEN
-                    _progress := 663;
+                    _progress := 0;
                     StartMovementsTask.DoneWhen(TRUE);
                 END_IF;	
+
 	            THIS.CallTimers(TRUE);
                 
                 StartMovementsTask.ThrowWhen(_errorTimer.output);
@@ -1099,8 +1059,8 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 _progress := 0;
             END_IF;  
             //*******************************************
- 
-            //***********StartProgramTask*******
+  
+            //***********StartProgramTask****************
             StartProgramTask.IsDisabled := _stopTasksAreActive;
             IF StartAtMainTask.StartTriggered() THEN
                 RobotStatus.Action.Id :=  UINT#170;
@@ -1118,35 +1078,107 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 END_IF;
               
                 IF _progress = 370 THEN 
-                    TaskMessenger.ActivateOnCondition(ULINT#670, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#570, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#670;
+                        RobotStatus.Error.Id := UINT#570;
                     END_IF;
-
-                    Outputs.StartProgram:=_blink.output;
                     
-                    IF  Inputs.CycleOn THEN
+                    IF  Inputs.UserSafetySwitchClosed THEN
                         THIS.CallTimers(FALSE);
                         _progress := 371;
                     END_IF;
                 END_IF;
 
                 IF _progress = 371 THEN 
-                    TaskMessenger.ActivateOnCondition(ULINT#671, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#571, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#671;
+                        RobotStatus.Error.Id := UINT#571;
                     END_IF;
 
-                    Outputs.StartProgram:=_blink.output;
-                    
-                    IF  NOT Inputs.SystemInputBusy THEN
-                        Outputs.StartProgram:=FALSE;
+                    IF Inputs.AlarmStopActive THEN
                         THIS.CallTimers(FALSE);
                         _progress := 372;
                     END_IF;
                 END_IF;
 
-                IF _progress = 372 THEN	
+                IF _progress = 372 THEN 
+                    TaskMessenger.ActivateOnCondition(ULINT#572, _infoTimer.output, eAxoMessageCategory#Warning);
+                    IF _infoTimer.output THEN
+                        RobotStatus.Error.Id := UINT#572;
+                    END_IF;
+		
+                    Outputs.DrivesOff:=TRUE;		
+                    Outputs.DrivesOn:=_blink.output;
+                    IF Inputs.DrivesReady  THEN
+                        Outputs.DrivesOn:=FALSE;
+                        THIS.CallTimers(FALSE);
+                        _progress := 373;
+                    END_IF;
+                END_IF;
+
+                IF _progress = 373 THEN 
+                    TaskMessenger.ActivateOnCondition(ULINT#573, _infoTimer.output, eAxoMessageCategory#Warning);
+                    IF _infoTimer.output THEN
+                        RobotStatus.Error.Id := UINT#573;
+                    END_IF;
+
+                    Outputs.ErrorConfirmation := Inputs.StopMess AND _blink.output;
+                    
+                    IF NOT Inputs.StopMess THEN
+                        Outputs.ErrorConfirmation:=FALSE;
+                        THIS.CallTimers(FALSE);
+                        _progress := 374;
+                    END_IF;
+                END_IF;
+
+                IF _progress = 374 THEN 
+                    TaskMessenger.ActivateOnCondition(ULINT#574, _infoTimer.output, eAxoMessageCategory#Warning);
+                    IF _infoTimer.output THEN
+                        RobotStatus.Error.Id := UINT#574;
+                    END_IF;
+
+                    Outputs.MoveEnable:=TRUE;
+                    
+                    IF Inputs.RcReady THEN
+                        THIS.CallTimers(FALSE);
+                        _progress := 375;
+                    END_IF;
+                END_IF;
+
+                IF _progress = 375 THEN 
+                    TaskMessenger.ActivateOnCondition(ULINT#575, _infoTimer.output, eAxoMessageCategory#Warning);
+                    IF _infoTimer.output THEN
+                        RobotStatus.Error.Id := UINT#575;
+                    END_IF;
+
+                    Outputs.ActivateInterface:=TRUE;
+                    
+                    IF Inputs.InterfaceActivated THEN
+                        THIS.CallTimers(FALSE);
+                        _progress := 376;
+                    END_IF;
+                END_IF;
+                
+                IF _progress = 376 THEN 
+                    TaskMessenger.ActivateOnCondition(ULINT#576, _infoTimer.output, eAxoMessageCategory#Warning);
+                    IF _infoTimer.output THEN
+                        RobotStatus.Error.Id := UINT#576;
+                    END_IF;
+
+                    IF Inputs.StopMess OR Inputs.AlarmStopActive OR NOT Inputs.RcReady THEN 
+                        _progress := 370;
+                    END_IF;
+
+                    Outputs.ExternalStart:=_blink.output;
+                    
+                    IF Inputs.ProActive THEN
+                        Outputs.ExternalStart:= FALSE;
+                        THIS.CallTimers(FALSE);
+                        _progress := 377;
+                    END_IF;
+                END_IF;
+                
+                IF _progress = 377 THEN	
                     StartProgramTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
                     _progress := 0;
@@ -1174,8 +1206,8 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 _progress := 0;
             END_IF;
             //*******************************************
-
-            //***********StopMotorsTask***************
+ 
+            //***********StopMotorsTask******************
             StopMotorsTask.IsDisabled := FALSE;
             IF StartAtMainTask.StartTriggered() THEN
                 RobotStatus.Action.Id :=  UINT#180;
@@ -1193,31 +1225,18 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 END_IF;
               
                 IF _progress = 380 THEN 
-                    TaskMessenger.ActivateOnCondition(ULINT#680, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#580, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#680;
+                        RobotStatus.Error.Id := UINT#580;
                     END_IF;
 
-                    Outputs.MotorOff := TRUE;
-                   
-                    IF  Inputs.MotorOffState  THEN
+                    Outputs.DrivesOn :=TRUE;
+                    Outputs.DrivesOff := _blink.output;
+                    
+                    IF NOT Inputs.DrivesReady  THEN
+                        Outputs.DrivesOff :=FALSE;
                         THIS.CallTimers(FALSE);
                         _progress := 381;
-                    END_IF;
-                END_IF;
-
-                IF _progress = 381 THEN 
-                    TaskMessenger.ActivateOnCondition(ULINT#681, _infoTimer.output, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#681;
-                    END_IF;
-
-                    Outputs.MotorOff := TRUE;
-                   
-                    IF  NOT Inputs.SystemInputBusy THEN
-                        Outputs.MotorOff:=FALSE;
-                        THIS.CallTimers(FALSE);
-                        _progress := 382;
                     END_IF;
                 END_IF;
                 
@@ -1266,43 +1285,32 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 END_IF;
                 
                 IF _progress = 390 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#690, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#590, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#690;
+                        RobotStatus.Error.Id := UINT#590;
                     END_IF;
 
-                    Outputs.SoftStop := TRUE;
-                    Outputs.QuickStop := FALSE;
-                
-                    IF _stopType = eAxoRoboticsStopType#Quick THEN
-                        Outputs.SoftStop := FALSE;
-                        Outputs.QuickStop := TRUE;
-                    END_IF;
+                    Outputs.MoveEnable := FALSE;
 
-                    IF Inputs.MoveInactive THEN
+                    IF Inputs.RobotStopped THEN
                         THIS.CallTimers(FALSE);
                         _progress := 391;
                     END_IF;
                 END_IF;
                 
                 IF _progress = 391 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#691, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#591, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#691;
+                        RobotStatus.Error.Id := UINT#591;
                     END_IF;
 
-                    Outputs.StopProgram:=TRUE;
-
-                    IF NOT Inputs.CycleOn THEN
+                    IF NOT Inputs.ProActive THEN
                         THIS.CallTimers(FALSE);
                         _progress := 392;
                     END_IF;
                 END_IF;
                 
                 IF _progress = 392 THEN
-                    Outputs.SoftStop := FALSE;
-                    Outputs.QuickStop := FALSE;
-                    Outputs.StopProgram:=FALSE;
                     StopMovementsAndProgramTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;		
@@ -1348,29 +1356,20 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 END_IF;
                 
                 IF _progress = 400 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#692, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#600, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#692;
+                        RobotStatus.Error.Id := UINT#600;
                     END_IF;
 
-                    Outputs.SoftStop := TRUE;
-                    Outputs.QuickStop := FALSE;
-                
-                    IF _stopType = eAxoRoboticsStopType#Quick THEN
-                        Outputs.SoftStop := FALSE;
-                        Outputs.QuickStop := TRUE;
-                    END_IF;
+                    Outputs.MoveEnable := FALSE;
 
-
-                    IF Inputs.MoveInactive THEN
+                    IF Inputs.RobotStopped THEN
                         THIS.CallTimers(FALSE);
                         _progress := 401;
                     END_IF;
                 END_IF;
                 
                 IF _progress = 401 THEN
-                    Outputs.SoftStop := FALSE;
-                    Outputs.QuickStop := FALSE;
                     _progress := 0;
                     StopMovementsTask.DoneWhen(TRUE);
                 END_IF;		
@@ -1417,21 +1416,20 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 END_IF;
                 
                 IF _progress = 410 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#693, _infoTimer.output, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#610, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        RobotStatus.Error.Id := UINT#693;
+                        RobotStatus.Error.Id := UINT#610;
                     END_IF;
 
-                    Outputs.StopProgram:=TRUE;
+                    Outputs.MoveEnable:=FALSE;
 
-                    IF NOT Inputs.CycleOn THEN
+                    IF NOT Inputs.ProActive THEN
                         THIS.CallTimers(FALSE);
                         _progress := 411;
                     END_IF;
                 END_IF;
                 
                 IF _progress = 411 THEN
-                    Outputs.StopProgram:=FALSE;
                     StopProgramTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;		
@@ -1469,22 +1467,22 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                                 OR StopMovementsAndProgramTask.IsBusy()
                                 OR StopProgramTask.IsBusy();
             
-            Messenger.ActivateOnCondition(ULINT#705,_someTaskIsActive AND Inputs.EmgStop, eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#706,_someTaskIsActive AND NOT Inputs.SafetyOk, eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#707,_someTaskIsActive AND Inputs.ProgExecError, eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#705,_someTaskIsActive AND NOT Inputs.AlarmStopActive, eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#706,_someTaskIsActive AND NOT Inputs.UserSafetySwitchClosed, eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#707,_someTaskIsActive AND Inputs.Error, eAxoMessageCategory#Error);
 
             IF _someTaskIsActive THEN
-                IF(Inputs.EmgStop) THEN
+                IF(NOT Inputs.AlarmStopActive) THEN
                     RobotStatus.Error.Id := UINT#705;
                 END_IF;
-                IF(NOT Inputs.SafetyOk) THEN
+                IF(NOT Inputs.UserSafetySwitchClosed) THEN
                     RobotStatus.Error.Id := UINT#706;
                 END_IF;
-                IF(Inputs.ProgExecError) THEN
+                IF(Inputs.Error) THEN
                     RobotStatus.Error.Id := UINT#707;
                 END_IF;
             END_IF;
-*)
+
             //***********UPDATE**OUTPUTS*****************
             //SYSTEM OUTPUTS
             _data[0].%X0	     := Outputs.ExternalStart;     
@@ -1674,7 +1672,6 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
         METHOD PUBLIC StopProgram : IAxoTaskState
             StopProgram := StopProgramTask.Invoke();           
         END_METHOD
-
 
         METHOD PRIVATE CallTimers
             VAR_INPUT
