@@ -7,14 +7,14 @@
   "Items": [
     {
       "Id": "61039e7e7dfd3dfb3a25f3a0eb84b9ea5f79ad9e76b69eb9533f506745c6bc51",
-      "Left": 47.815558175043314,
-      "Top": 0.3103820328294731,
+      "Left": 17.435811339600274,
+      "Top": -0.7572330827703664,
       "Transform": "TopCenter",
       "Presentation": "Status-Display",
       "Width": 50,
       "Height": -1,
       "ZIndex": 0,
-      "Scale": 1,
+      "Scale": 0.5,
       "Roles": "",
       "PresentationTemplate": null,
       "Background": false,

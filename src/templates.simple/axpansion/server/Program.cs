@@ -129,6 +129,8 @@ IAxoDataExchange.CleanUp();
 
 var app = builder.Build();
 
+builder.WebHost.UseUrls("http://*:5262;https://*:7292");
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
