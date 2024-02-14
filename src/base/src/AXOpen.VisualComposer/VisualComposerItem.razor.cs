@@ -5,55 +5,24 @@ using Microsoft.JSInterop;
 using AXSharp.Connector;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel;
+using AXSharp.Connector.Localizations;
+using System.Xml.Linq;
 
 namespace AXOpen.VisualComposer
 {
     public partial class VisualComposerItem
     {
 
-        private VisualComposerContainer? _parent;
-
         [CascadingParameter(Name = "Parent")]
-        public VisualComposerContainer? Parent
-        {
-            get => _parent;
-            protected set
-            {
-                _parent = value;
+        public VisualComposerContainer? Parent { get; set; }
 
-                if (value != null)
-                    value.AddChildren(this);
-            }
-        }
-
-        [CascadingParameter(Name = "ImgId")]
-        private Guid _imgId
-        {
-            get => _imgId1;
-            set => _imgId1 = value;
-        }
+        [CascadingParameter(Name = "BackgroundId")]
+        private Guid _backgroundId { get; set; }
 
         [Parameter]
-        public VisualComposerItem? Origin
-        {
-            set
-            {
-                UniqueGuid = value.UniqueGuid;
-                TwinElement = value.TwinElement;
-                ratioImgX = value.ratioImgX;
-                ratioImgY = value.ratioImgY;
-                _transform = value.Transform;
-                _presentation = value.Presentation;
-                _width = value.Width;
-                _height = value.Height;
-                _zIndex = value.ZIndex;
-                _scale = value.Scale;
-                Roles = value.Roles;
-                PresentationTemplate = value.PresentationTemplate;
-                Id = value.TwinElement?.Symbol.ModalIdHelper();
-            }
-        }
+        public VisualComposerItemData? Origin { get; set; }
 
+        private IJSRuntime _js;
         [Inject]
         protected IJSRuntime js
         {
@@ -61,186 +30,38 @@ namespace AXOpen.VisualComposer
             set => _js = value;
         }
 
-        private IJSObjectReference? jsModule;
-
-        public ITwinElement? TwinElement
+        protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            get => _twinElement;
-            set => _twinElement = value;
-        }
+            await DragElement();
 
-        public string? IdPlain
-        {
-            get => _id;
-        }
-
-        public string? Id
-        {
-            get => _id?.ComputeSha256Hash();
-            set => _id = value;
-        }
-
-        public Guid? UniqueGuid
-        {
-            get => _uniqueGuid;
-            set => _uniqueGuid = value;
-        }
-
-        private double startX;
-        private double startY;
-
-        internal double ratioImgX = 10;
-        internal double ratioImgY = 10;
-
-
-        public double PosX
-        {
-            get { return ratioImgX; }
-            set { ratioImgX = value; StateHasChanged(); }
-        }
-
-        public double PosY
-        {
-            get { return ratioImgY; }
-            set { ratioImgY = value; StateHasChanged(); }
-        }
-
-        
-        internal TransformType _transform = TransformType.TopCenter;
-        public TransformType Transform
-        {
-            get => _transform;
-            set
+            Parent.ReDragElementDelegate += async () =>
             {
-                _transform = value;
-                StateHasChanged();
-            }
-        }
+                await DragElement();
+            };
 
-        internal string _presentation = PresentationType.StatusDisplay.Value;
-        public string Presentation
-        {
-            get => _presentation;
-            set
+            Origin.DragElementDelegate += async () =>
             {
-                if (_presentation != value)
-                {
-                    _presentation = value;
-                    if (renderableContentControlRcc != null)
-                    {
-                        renderableContentControlRcc.Presentation = value;
-                        renderableContentControlRcc?.ForceRender();
-                    }                    
-                    StateHasChanged();
-                }
-                
-            }
+                await DragElement();
+            };
         }
 
-        public bool CustomPresentation
-        {
-            get => _customPresentation;
-            set => _customPresentation = value;
-        }
-
-        internal double _width = -1;
-        public double Width
-        {
-            get => _width;
-            set
-            {
-                _width = value;
-                StateHasChanged();
-            }
-        }
-
-        internal double _height = -1;
-        public double Height
-        {
-            get => _height;
-            set
-            {
-                _height = value;
-                StateHasChanged();
-            }
-        }
-
-        internal int _zIndex = 0;
-        public int ZIndex
-        {
-            get => _zIndex;
-            set
-            {
-                _zIndex = value;
-                StateHasChanged();
-            }
-        }
-
-        internal double _scale = 1;
-        public double Scale
-        {
-            get => _scale;
-            set
-            {
-                _scale = value;
-                StateHasChanged();
-            }
-        }
-
-        public string Roles = "";
-        private string _id;
-        private Guid _imgId1;
-        private IJSRuntime _js;
-        private ITwinElement? _twinElement;
-        private Guid? _uniqueGuid = null;
-        private bool _customPresentation = false;
-
-
-        internal string? _presentationTemplate;
-        public string? PresentationTemplate
-        {
-            get => _presentationTemplate;
-            set
-            {
-                if (_presentationTemplate != value)
-                {
-                    _presentationTemplate = value;
-                    StateHasChanged();
-                }
-            }
-        }
-
-        private void OnDragStart(DragEventArgs args)
-        {
-            startX = args.ClientX;
-            startY = args.ClientY;
-        }
-
-        private async void OnDragEnd(DragEventArgs args)
+        public async Task DragElement()
         {
             var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/VisualComposerItem.razor.js");
-            //var windowSize = await jsObject.InvokeAsync<WindowSize>("getWindowSize");
-            var imageSize = await jsObject.InvokeAsync<WindowSize>("getImageSize", _imgId);
-
-            double offsetX = startX - (ratioImgX / 100 * imageSize.Width) * (Parent._zoomableContainer.Scale);
-            double offsetY = startY - (ratioImgY / 100 * imageSize.Height) * (Parent._zoomableContainer.Scale);
-
-            if (imageSize.Width == 0)
-                ratioImgX = (args.ClientX - offsetX);
-            else
-                ratioImgX = ((args.ClientX - offsetX) / imageSize.Width * 100) * (1 / Parent._zoomableContainer.Scale);
-
-            if (imageSize.Height == 0)
-                ratioImgY = (args.ClientY - offsetY);
-            else
-                ratioImgY = ((args.ClientY - offsetY) / imageSize.Height * 100) * (1 / Parent._zoomableContainer.Scale);
-
-            StateHasChanged();
+            await jsObject.InvokeVoidAsync("dragElement", Origin.Id.Replace('.', '_') + "-" + Origin.UniqueGuid, DotNetObjectReference.Create(this), Origin.Left, Origin.Top, _backgroundId, Parent._zoomableContainer.Scale);
         }
 
-        public void Remove()
+        [JSInvokable]
+        public Task SetDataAsync(double left, double top)
         {
-            Parent.RemoveChildren(this);
+            Origin._left = left;
+            Origin._top = top;
+
+            Origin.StateHasChangeModalDelegate?.Invoke();
+
+            Parent?.Save();
+
+            return Task.CompletedTask;
         }
     }
 }
