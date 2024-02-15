@@ -80,13 +80,32 @@ namespace AXOpen.VisualComposer
                 _childrenOfAxoObject = Enumerable.Empty<ITwinElement>();
                 foreach (ITwinObject obj in Objects)
                 {
-                    _childrenOfAxoObject = _childrenOfAxoObject.Concat(obj.GetChildren().Flatten(p => p.GetChildren()));
-                    _childrenOfAxoObject = _childrenOfAxoObject.Concat(obj.RetrievePrimitives());
+                    _childrenOfAxoObject = _childrenOfAxoObject.Concat(RetrieveKids(obj));
                 }
 
                 Load(null);
                 StateHasChanged();
             }
+        }
+
+        private List<ITwinElement> RetrieveKids(ITwinObject parent)
+        {
+            List<ITwinElement> kids = new List<ITwinElement>();
+            kids.Add(parent);
+            foreach (var kid in parent.GetKids())
+            {
+                if (kid is ITwinObject tobj)
+                {
+                    kids.Add(tobj);
+                    kids.AddRange(RetrieveKids(tobj));
+                }
+                if (kid is ITwinPrimitive prim)
+                {
+                    kids.Add(prim);
+                }
+            }
+
+            return kids;
         }
 
         public void AddChildren(ITwinElement item)
@@ -100,7 +119,7 @@ namespace AXOpen.VisualComposer
 
         public async Task ReDragElement()
         {
-            if(ReDragElementDelegate != null)
+            if (ReDragElementDelegate != null)
                 ReDragElementDelegate();
         }
 
@@ -149,19 +168,19 @@ namespace AXOpen.VisualComposer
                 serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.Left, child.Top, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex, child.Scale, child.Roles, child.PresentationTemplate, child.Background, child.BackgroundColor));
             }
 
-            Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + 
+            Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" +
                                                                   Id.CorrectFilePath() + "/" +
-                                                                  CurrentView.CorrectFilePath() + ".json", 
-                                            new SerializableObject(ImgSrc, 
-                                                BackgroundWidth, 
-                                                BackgroundHeight, 
-                                                EmptyBackground, 
-                                                BackgroundColor, 
-                                                serializableChildren, 
-                                                Theme, 
-                                                _zoomableContainer.Scale, 
-                                                _zoomableContainer.TranslateX, 
-                                                _zoomableContainer.TranslateY, 
+                                                                  CurrentView.CorrectFilePath() + ".json",
+                                            new SerializableObject(ImgSrc,
+                                                BackgroundWidth,
+                                                BackgroundHeight,
+                                                EmptyBackground,
+                                                BackgroundColor,
+                                                serializableChildren,
+                                                Theme,
+                                                _zoomableContainer.Scale,
+                                                _zoomableContainer.TranslateX,
+                                                _zoomableContainer.TranslateY,
                                                 AllowZoomingAndPanning));
         }
 
