@@ -11,7 +11,7 @@ dependencies:
   # "@ax/mod": 1.0.4
   # "@ax/mon": 1.0.4
   # "@ax/sdb": 1.0.4
-  "@ax/sld": 2.1.46
+  # "@ax/sld": 2.1.46
   # #<- "@ax/st": 4.0.12
   # "@ax/stc": 6.0.146
   # #"@ax/stc": 5.4.98
@@ -20,5 +20,5 @@ dependencies:
   # "@ax/target-llvm": 6.0.146
   # "@ax/target-mc7plus": 6.0.146
   # "@ax/simatic-pragma-stc-plugin": 2.0.12
-installStrategy: overridable
+installStrategy: strict
 apaxVersion: 3.1.0
