@@ -8,17 +8,32 @@
 
 
 <div class="card" style="width: 18rem;">
-    <h3 class="m-3">@Component.AttributeName</h3>
+    <img src="@ImageLink" class="card-img-top p-3" alt="...">
     <div class="card-body">
         <h5 class="card-title">@Component.GetAttributeName(CultureInfo.CurrentUICulture)</h5>
         <p class="card-text">
             <span class="badge rounded-pill @Mode">@ModeDescription</span>
         </p>
+        <a href="@Link" class="btn btn-primary position-relative">
+            @Localizer["OPEN"]
+            @if (MessagesCount > 0)
+            {
+                <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                    <span class="visually-hidden">New alerts</span>
+                </span>
+            }
+        </a>
     </div>
 </div> 
 
 @code {
-    
+
+    [Parameter]
+    public string Link { get; set; }
+
+    [Parameter]
+    public string ImageLink { get; set; }
+
     public string Mode
     {
         get
@@ -135,7 +150,11 @@
             return new AxoMessenger[] {};
         }
     }
+
+
     
+
+
     protected override void OnInitialized()
     {
         //base.OnInitialized();

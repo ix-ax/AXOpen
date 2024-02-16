@@ -132,6 +132,7 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     errorDescriptionDict.Add(620, "Waiting for the signal ErrorDetected to be reseted!");
 
 
+
                     errorDescriptionDict.Add(700, "Parent has NULL reference in the Run method!");
                     errorDescriptionDict.Add(701, "hwIdAcquisitionControl has invalid value in the Run method!");
                     errorDescriptionDict.Add(702, "hwIdAcquisitionStatus has invalid value in the Run method!");

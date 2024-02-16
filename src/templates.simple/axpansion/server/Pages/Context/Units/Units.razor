@@ -1,9 +1,10 @@
-﻿@page "/Units/"
+﻿@page "/Context/Units/"
 @using AXSharp.Connector
 @using axosimple.server.Components;
 @using AXOpen.Core;
 @using AXOpen.Core.Blazor.AxoAlertDialog;
 @using AXOpen.Base.Dialogs
+@using axosimple.BaseUnit
 @inject IAlertDialogService _alerts
 
 <div class="container">
@@ -11,7 +12,7 @@
         @foreach (var unit in ControlledUnits)
         {
             <div class="col">
-                <UnitSpotView Component="unit.unit.Component" Link="@unit.link" ImageLink="@unit.imageLink" />
+                <UnitLinkView Component="unit.unit.Component" Link="@unit.link" ImageLink="@unit.imageLink" />
             </div>
         }
     </div>
