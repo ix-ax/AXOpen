@@ -1,26 +1,13 @@
 ﻿@page "/Component_1"
 @using AXOpen.Core;
 
-<button class="btn btn-outline-primary" @onclick="WriteTaskTimesToConsole">Write times to console</button>
-
-@code
-{
-    #region WriteTaskDurationToConsole
-    private async Task WriteTaskTimesToConsole()
-    {
-        await Entry.Plc.documentation.componentOne.ExampleCylinder.WriteTaskDurationToConsole();
-    }
-    #endregion
-
-}
-
-<!-- <GenericComponentStatusView> -->
-<AxoComponentStatusView Component="@Entry.Plc.documentation.componentOne.ExampleCylinder"/>
+@* <!-- <GenericComponentStatusView> -->
+<AxoComponentStatusView Component="@Entry.Plc.documentation.componentOne.rf186_1"/>
 <!-- </GenericComponentStatusView> -->
 
 <!-- <GenericComponentCommandView> -->
-<AxoComponentCommandView Component="@Entry.Plc.documentation.componentOne.ExampleCylinder" />
-<!-- </GenericComponentCommandView> -->
+<AxoComponentCommandView Component="@Entry.Plc.documentation.componentOne.rf186_1" />
+<!-- </GenericComponentCommandView> --> *@
 
 <!-- <RccComponentStatusView> -->
 <!-- This will render anything found on parameter assigned to Context  -->

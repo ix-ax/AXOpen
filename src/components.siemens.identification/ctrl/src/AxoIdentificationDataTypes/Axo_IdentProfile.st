@@ -1,7 +1,8 @@
-(*
+USING AXOpen.Components.Abstractions.Drives;
 USING Siemens.Simatic.S71500.DistributedIO;
 
 NAMESPACE AXOpen.Components.Siemens.Identification
+    {S7.extern=ReadWrite}
     CLASS Axo_IdentProfile 
         VAR
             statLastErrorStatus     :   DWORD :=  DWORD#16#0;               // last error status
@@ -62,7 +63,7 @@ NAMESPACE AXOpen.Components.Siemens.Identification
             ERRID_DEVICE_BUSY       :   WORD    :=  WORD#16#0000_0708;
         END_VAR
           
-        METHOD Run
+        METHOD PUBLIC Run
             VAR_INPUT
                 bExecute            :   BOOL;                               // rising edge: start command
                 bRepeatCommand      :   BOOL;                               // repeat command
@@ -121,6 +122,7 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                 tempChar            :   WSTRING;
                 tempByte            :   BYTE;
                 tempLoop            :   UINT;
+                i                   :   INT;
               END_VAR
               
     
@@ -232,18 +234,11 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                             stHwConnect.STATIC.SRESET_cyc := FALSE;
                             // drop internal rpt 
                             stHwConnect.STATIC.RPTCMD_cyc := FALSE;				
-                            // //Reset ads request
-                            // statAdsRdWrt.WRTRD := FALSE; 
 
                             //Reset WriteRecord request
-                            statWRREC(request := TRUE,
-                                        id := TO_UINT(stHwConnect.HW_ID),
-                                        index := stHwConnect.STATIC.index,
-                                        length := statBufLen,
-                                        record := stHwConnect.STATIC.pnConfigRecord.record.buf);
-                            statWRREC.request := FALSE;    
+                            statWRREC(request := FALSE, record := stHwConnect.STATIC.pnConfigRecord.record.buf);
                             //Reset ReadRecord request
-                            statRDREC.request := FALSE;    
+                            statRDREC(request := FALSE, record := stHwConnect.STATIC.pnConfigRecord.record.buf);
 
                             // calculate INDEX for old modules and RF68xR 
                             IF stHwConnect.STATIC.index_set THEN
@@ -259,13 +254,10 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                             stHwConnect.STATIC.STATUS_INITIALISATION := FALSE;
                             stHwConnect.STATIC.STATUS_IN_WORK := TRUE;
                             
-                            // //Reset ads request
-                            // statAdsRdWrt.WRTRD := FALSE; 
-                            
                             //Reset WriteRecord request
-                            statWRREC.request := FALSE;    
+                            statWRREC(request := FALSE, record := stHwConnect.STATIC.pnConfigRecord.record.buf);
                             //Reset ReadRecord request
-                            statRDREC.request := FALSE;  
+                            statRDREC(request := FALSE, record := stHwConnect.STATIC.pnConfigRecord.record.buf);
 
                             // calculate INDEX for old modules and RF68xR 
                             IF stHwConnect.STATIC.index_set THEN
@@ -356,19 +348,16 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                 
                 // SRESET is set 
                 IF stHwConnect.STATIC.SRESET_cyc THEN
-                    // wait till acycl. communication is done 
-                    // IF statAdsRdWrt.BUSY THEN
-                    //     statAdsRdWrt(wrtrd:=FALSE);
-                    //     statAdsRdWrt.WRTRD := FALSE; 
-                    //     RETURN;
-                    // END_IF;
                     IF statWRREC.BUSY THEN
-                        THIS.statWRREC();
-                        statWRREC.request := FALSE; 
+                        //Reset WriteRecord request
+                        statWRREC(request := FALSE, record := stHwConnect.STATIC.pnConfigRecord.record.buf);
                         RETURN;
                     END_IF;
-
-  
+                    IF statRDREC.BUSY THEN
+                        //Reset ReadRecord request
+                        statRDREC(request := FALSE, record := stHwConnect.STATIC.pnConfigRecord.record.buf);
+                        RETURN;
+                    END_IF;
 
                     // if reader/CM has ack the SRESET with active-bit, reset cyclic SRESET and jump to step 8 
                     IF stHwConnect.STATIC.SRESET_active THEN
@@ -379,18 +368,20 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                         RETURN;
                     END_IF;
                 END_IF;
-                
 
                 // go in statemachine only if Ident_FB is in_work and have no error 
                 IF stHwConnect.STATIC.STATUS_IN_WORK AND NOT tempIntError THEN
                     // The loop will only use to jump out at every place if an error occurs 
-                    FOR tempTmp := 1 TO UINT#1 DO
+                    FOR tempTmp := UINT#1 TO UINT#1 DO
                         CASE stHwConnect.STATIC.state OF
                             STATE0: //----------------------Initialisation 1----------------------------
                                 // wait if WRREC and RDREC are done 
-                                IF statAdsRdWrt.BUSY  THEN
-                                        statAdsRdWrt(wrtrd:=FALSE);
-                                        statAdsRdWrt.WRTRD := FALSE; 
+                                IF statWRREC.BUSY THEN
+                                    statWRREC(request := FALSE, record := stHwConnect.STATIC.pnConfigRecord.record.buf);
+                                    EXIT;
+                                END_IF;
+                                IF statRDREC.BUSY THEN
+                                    statRDREC(request := FALSE, record := stHwConnect.STATIC.pnConfigRecord.record.buf);
                                     EXIT;
                                 END_IF;
                                 
@@ -456,8 +447,6 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                                                 
                                         // 2/3 - SN
                                         stHwConnect.Static.sequence_number := stHwConnect.Static.sequence_number + UINT#1;
-                                        // stHwConnect.Static.pnConfigRecord.record.buf[2] := TO_BYTE(SHR(TO_WORD(stHwConnect.Static.sequence_number),8));
-                                        // stHwConnect.Static.pnConfigRecord.record.buf[3] := TO_BYTE(stHwConnect.Static.sequence_number);
                                         tempW   :=  TO_WORD(stHwConnect.Static.sequence_number);
                                         stHwConnect.Static.pnConfigRecord.record.buf[2] := tempW.%B1;
                                         stHwConnect.Static.pnConfigRecord.record.buf[3] := tempW.%B0;
@@ -487,12 +476,10 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                         stHwConnect.Static.pnConfigRecord.record.buf[11] := stHwConnect.STATIC.config_value;
                                         
                                         // zero out telegram buffer 
-                                        // FILL_BLK(IN := TO_BYTE(16#00),
-                                        //         COUNT := INT_TO_UINT(34),
-                                        //         OUT => hw_connect.Static.pnConfigRecord.record.buf[12]);
-                                        
-                                        MEMSET(destAddr:=ADR(stHwConnect.Static.pnConfigRecord.record.buf[12]) , fillByte:=16#00 , n:=SIZEOF(stHwConnect.STATIC.pnConfigRecord.record.buf)-12);
-                                        
+                                        FOR i := 12 TO 1034 DO
+                                            stHwConnect.STATIC.pnConfigRecord.record.buf[i] := BYTE#16#00;
+                                        END_FOR;
+
                                         // set offsets for data-buffer 
                                         statBufLen := UINT#46;
                                         statDataTodo := UDINT#0;
@@ -503,8 +490,7 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                     
                                         // write packet to the client 									   
                                         stHwConnect.Static.pnConfigRecord.record.nLen := TO_WORD(statBufLen);	
-                                        stHwConnect.Static.pnConfigRecord.nRW := ADS_WRITE;		   
-                                        statAdsRdWrt.WRTRD := TRUE; 		 
+                                        statWRREC.request := TRUE;
                                         // go to next step 
                                         stHwConnect.STATIC.state := STATE5;
                                     END_IF;
@@ -587,9 +573,6 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                     stHwConnect.STATIC.sequence_number := stHwConnect.STATIC.sequence_number + UINT#1;
                                 END_IF;
                                 
-                                // stHwConnect.Static.pnConfigRecord.record.buf[2] := WORD_TO_BYTE(SHR(UINT_TO_WORD(stHwConnect.Static.sequence_number),8));
-                                // stHwConnect.Static.pnConfigRecord.record.buf[3] := TO_BYTE(stHwConnect.Static.sequence_number);                   
-                                
                                 tempW   :=  TO_WORD(stHwConnect.Static.sequence_number);
                                 stHwConnect.Static.pnConfigRecord.record.buf[2] := tempW.%B1;
                                 stHwConnect.Static.pnConfigRecord.record.buf[3] := tempW.%B0;
@@ -615,8 +598,6 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                 ELSE
                                     statSize := UINT#0;
                                 END_IF;
-                                // stHwConnect.Static.pnConfigRecord.record.buf[6] := WORD_TO_BYTE(SHR( UINT_TO_WORD(statAdb),8));
-                                // stHwConnect.Static.pnConfigRecord.record.buf[7] := TO_BYTE(statAdb);
                                 tempW := TO_WORD(statAdb);
                                 stHwConnect.Static.pnConfigRecord.record.buf[6] := tempW.%B1;
                                 stHwConnect.Static.pnConfigRecord.record.buf[7] := tempW.%B0;
@@ -625,9 +606,6 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                     statDbn := UINT#0;
                                 END_IF;
                                 statDbn := statDbn + UINT#1;
-                                // stHwConnect.Static.pnConfigRecord.record.buf[8] := WORD_TO_BYTE(SHR(UINT_TO_WORD(statDbn),8));
-                                // stHwConnect.Static.pnConfigRecord.record.buf[9] := TO_BYTE(statDbn);
-                                
                                 tempW := TO_WORD(statDbn);
                                 stHwConnect.Static.pnConfigRecord.record.buf[8] := tempW.%B1;
                                 stHwConnect.Static.pnConfigRecord.record.buf[9] := tempW.%B0;
@@ -656,11 +634,10 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                 statBufLen := statBufLen + stHwConnect.STATIC.buf_header;
                                 
                                 // zero out telegram buffer 
-                                // FILL_BLK(IN := TO_BYTE(16#00),
-                                //         COUNT := INT_TO_UINT(statSize),
-                                //         OUT => hw_connect.Static.pnConfigRecord.record.buf[11]);
-                                
-                                MEMSET(destAddr:=ADR(stHwConnect.Static.pnConfigRecord.record.buf[11]) , fillByte:=16#00 , n:=statSize);
+                                FOR i := 11 TO TO_INT(UINT#11 + statSize) DO
+                                    stHwConnect.Static.pnConfigRecord.record.buf[i] := BYTE#16#0;
+                                END_FOR;
+
                                 // build CMD-Header in first telegram 
                                 IF NOT statFurtherTelegram THEN
                                     // save chained counter 
@@ -690,26 +667,18 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                         
                                         // 14-15 address 
                                         IF statCmd.CMD = eAxo_IID_COMMANDS#eRead OR statCmd.CMD = eAxo_IID_COMMANDS#eWrite  THEN
-                                            // stHwConnect.Static.pnConfigRecord.record.buf[14] := DWORD_TO_BYTE(SHR(statCmd.ADDR_TAG,8));
-                                            // stHwConnect.Static.pnConfigRecord.record.buf[15] := DWORD_TO_BYTE(statCmd.ADDR_TAG);
                                             stHwConnect.Static.pnConfigRecord.record.buf[14] := statCmd.ADDR_TAG.%B1;
                                             stHwConnect.Static.pnConfigRecord.record.buf[15] := statCmd.ADDR_TAG.%B0;
                                         END_IF;
                                         
                                         // 16#-17 Length 
                                         IF statCmd.CMD = eAxo_IID_COMMANDS#eWriteID OR statCmd.CMD = eAxo_IID_COMMANDS#eRead OR statCmd.CMD = eAxo_IID_COMMANDS#eWrite  THEN
-                                            // stHwConnect.Static.pnConfigRecord.record.buf[16] := WORD_TO_BYTE(SHR(statCmd.LEN_DATA,8));
-                                            // stHwConnect.Static.pnConfigRecord.record.buf[17] := WORD_TO_BYTE(statCmd.LEN_DATA);
                                             stHwConnect.Static.pnConfigRecord.record.buf[16] := statCmd.LEN_DATA.%B1;
                                             stHwConnect.Static.pnConfigRecord.record.buf[17] := statCmd.LEN_DATA.%B0;
                                         END_IF;
                                         
                                         // 18-19 pswd 
                                         IF statCmd.CMD = eAxo_IID_COMMANDS#eWriteID OR statCmd.CMD = eAxo_IID_COMMANDS#eKillTag OR statCmd.CMD = eAxo_IID_COMMANDS#eRead OR statCmd.CMD = eAxo_IID_COMMANDS#eWrite  OR statCmd.CMD = eAxo_IID_COMMANDS#eLockTagBank THEN
-                                            // stHwConnect.Static.pnConfigRecord.record.buf[18] := DWORD_TO_BYTE(SHR(statCmd.EXT_UHF.PSWD,24));
-                                            // stHwConnect.Static.pnConfigRecord.record.buf[19] := DWORD_TO_BYTE(SHR(statCmd.EXT_UHF.PSWD,16));
-                                            // stHwConnect.Static.pnConfigRecord.record.buf[20] := DWORD_TO_BYTE(SHR(statCmd.EXT_UHF.PSWD,8));
-                                            // stHwConnect.Static.pnConfigRecord.record.buf[21] := DWORD_TO_BYTE(statCmd.EXT_UHF.PSWD);
                                             stHwConnect.Static.pnConfigRecord.record.buf[18] := statCmd.EXT_UHF.PSWD.%B3;
                                             stHwConnect.Static.pnConfigRecord.record.buf[19] := statCmd.EXT_UHF.PSWD.%B2;
                                             stHwConnect.Static.pnConfigRecord.record.buf[20] := statCmd.EXT_UHF.PSWD.%B1;
@@ -718,10 +687,6 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                         
                                         // action & mask 
                                         IF statCmd.CMD = eAxo_IID_COMMANDS#eLockTagBank THEN
-                                            // stHwConnect.Static.pnConfigRecord.record.buf[22] := WORD_TO_BYTE(SHR(statCmd.EXT_UHF.LOCK_TAG_BANK_ACTION,8));
-                                            // stHwConnect.Static.pnConfigRecord.record.buf[23] := WORD_TO_BYTE(statCmd.EXT_UHF.LOCK_TAG_BANK_ACTION);
-                                            // stHwConnect.Static.pnConfigRecord.record.buf[24] := WORD_TO_BYTE(SHR(statCmd.EXT_UHF.LOCK_TAG_BANK_MASK,8));
-                                            // stHwConnect.Static.pnConfigRecord.record.buf[25] := WORD_TO_BYTE(statCmd.EXT_UHF.LOCK_TAG_BANK_MASK);
                                             stHwConnect.Static.pnConfigRecord.record.buf[22] := statCmd.EXT_UHF.LOCK_TAG_BANK_ACTION.%B1;
                                             stHwConnect.Static.pnConfigRecord.record.buf[23] := statCmd.EXT_UHF.LOCK_TAG_BANK_ACTION.%B0;
                                             stHwConnect.Static.pnConfigRecord.record.buf[24] := statCmd.EXT_UHF.LOCK_TAG_BANK_MASK.%B1;
@@ -739,7 +704,10 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                             //         COUNT := BYTE_TO_UDINT(statCmd.EXT_UHF.LEN_ID),
                                             //         OUT => hw_connect.Static.pnConfigRecord.record.buf[27]);
                                             
-                                            MEMCPY(destAddr:=ADR(stHwConnect.Static.pnConfigRecord.record.buf[27]) , srcAddr:=ADR(statCmd.EPCID_UID[1]) , n:=statCmd.EXT_UHF.LEN_ID );
+                                            // MEMCPY(destAddr:=ADR(stHwConnect.Static.pnConfigRecord.record.buf[27]) , srcAddr:=ADR(statCmd.EPCID_UID[1]) , n:=statCmd.EXT_UHF.LEN_ID );
+                                            FOR i := 1 TO TO_INT(statCmd.EXT_UHF.LEN_ID) DO
+                                                stHwConnect.Static.pnConfigRecord.record.buf[26+i] := statCmd.EPCID_UID[i];
+                                            END_FOR;
                                         END_IF;
                                     ELSE
                                         // 12-19 UID 
@@ -748,13 +716,14 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                             //         COUNT := 8,
                                             //         OUT => hw_connect.Static.pnConfigRecord.record.buf[12]);
                                             
-                                            MEMCPY(destAddr:=ADR(stHwConnect.Static.pnConfigRecord.record.buf[12]) , srcAddr:=ADR(statCmd.EPCID_UID[1]) , n:=8 );		 
+                                            // MEMCPY(destAddr:=ADR(stHwConnect.Static.pnConfigRecord.record.buf[12]) , srcAddr:=ADR(statCmd.EPCID_UID[1]) , n:=8 );		 
+                                            FOR i := 1 TO 8 DO
+                                                stHwConnect.Static.pnConfigRecord.record.buf[11+i] := statCmd.EPCID_UID[i];
+                                            END_FOR;
                                         END_IF;
                                         
                                         // 32-33 Length 
                                         IF (statCmd.CMD = eAxo_IID_COMMANDS#ePut OR statCmd.CMD = eAxo_IID_COMMANDS#eFormat OR statCmd.CMD = eAxo_IID_COMMANDS#eRead OR statCmd.CMD = eAxo_IID_COMMANDS#eWrite  OR statCmd.CMD = eAxo_IID_COMMANDS#eWriteConfig) THEN
-                                            // stHwConnect.Static.pnConfigRecord.record.buf[32] := WORD_TO_BYTE(SHR(statCmd.LEN_DATA,8));
-                                            // stHwConnect.Static.pnConfigRecord.record.buf[33] := WORD_TO_BYTE(statCmd.LEN_DATA);
                                             stHwConnect.Static.pnConfigRecord.record.buf[32] := statCmd.LEN_DATA.%B1;
                                             stHwConnect.Static.pnConfigRecord.record.buf[33] := statCmd.LEN_DATA.%B0;
                                         END_IF;
@@ -828,10 +797,15 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                     //     EXIT;
                                     // END_IF;
                                 
-                                    MEMCPY(
-                                        destAddr:=ADR(stHwConnect.Static.pnConfigRecord.record.buf[tempBufoffset]) , 
-                                        srcAddr:=ADR(aTxref[statLowerBoundTxref + TO_DINT(statDataOffset)]) , 
-                                        n:=TO_UDINT(tempI) );
+                                    // MEMCPY(
+                                    //     destAddr:=ADR(stHwConnect.Static.pnConfigRecord.record.buf[tempBufoffset]) , 
+                                    //     srcAddr:=ADR(aTxref[statLowerBoundTxref + TO_DINT(statDataOffset)]) , 
+                                    //     n:=TO_UDINT(tempI) );
+
+                                    FOR i := 1 TO TO_INT(tempI) DO
+                                        stHwConnect.Static.pnConfigRecord.record.buf[TO_INT(tempBufoffset)+i-INT#1] := aTxref[statLowerBoundTxref + TO_DINT(statDataOffset) + i - 1];
+                                    END_FOR;
+                                    
                                     
                                 END_IF;
                                 
@@ -845,31 +819,32 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                 // first call of wrrec 
                                 
                                 stHwConnect.Static.pnConfigRecord.record.nLen := TO_WORD(statBufLen);	
-                                stHwConnect.Static.pnConfigRecord.nRW := ADS_WRITE;		   
-                                statAdsRdWrt.WRTRD := TRUE;
-                                // statWRREC(REQ := TRUE,
-                                //         ID := WORD_TO_UINT(hw_connect.HW_ID),
-                                //         INDEX := hw_connect.STATIC.index,
-                                //         LEN := INT_TO_UINT(statBufLen),
-                                //         RECORD := hw_connect.STATIC.buf);
-                                // // save error till next plc-cycle 
-                                // statSaveError := statWRREC.ERROR;
-                                // statIntStatus := statWRREC.STATUS;
+                                // stHwConnect.Static.pnConfigRecord.nRW := ADS_WRITE;		   
+                                // statAdsRdWrt.WRTRD := TRUE;
+                                statWRREC.request := TRUE;
+                                statWRREC(request := TRUE,
+                                        id      :=  stHwConnect.HW_ID,
+                                        index   :=  stHwConnect.STATIC.index,
+                                        length := statBufLen,
+                                        record := stHwConnect.Static.pnConfigRecord.record.buf);
+
+                                // save error till next plc-cycle 
+                                statSaveError := statWRREC.ERROR;
+                                statIntStatus := statWRREC.STATUS;
 
                                 stHwConnect.STATIC.state := STATE5;
                                 
                             STATE5: //------------------------------------finish ADS WRITE--------------------------------------
                                 
                                 // reset start request
-                                statAdsRdWrt.WRTRD := FALSE; 							   
+                                statWRREC.request := FALSE; 							   
                                         
                                 // error at WRREC 
-                                IF statAdsRdWrt.ERR OR statSaveAdsError THEN
-                                    
+                                IF statWRREC.error OR statSaveAdsError THEN
                                     stHwConnect.STATIC.acyc_active := false;
-
                                 IF NOT statSaveAdsError THEN
-                                        tempStatus := TO_WORD(statAdsRdWrt.ERRID);
+                                        // tempStatus := TO_WORD(statAdsRdWrt.ERRID);
+                                        tempStatus := TO_WORD(statWRREC.status); //TODO:from DWORD to WORD ???
                                     ELSE
                                         tempStatus := TO_WORD(statIntAdsErrId);
                                     END_IF;
@@ -879,41 +854,43 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                         
                                         stHwConnect.Static.pnConfigRecord.record.nLen := TO_WORD(statBufLen);	
                                         stHwConnect.Static.pnConfigRecord.nRW := ADS_WRITE;		   
-                                        statAdsRdWrt.WRTRD := TRUE;							
+                                        statWRREC.request := TRUE;							
+                                        // statAdsRdWrt.WRTRD := TRUE;							
                                         // statWRREC(REQ := TRUE,
                                         //         ID := WORD_TO_UINT(hw_connect.HW_ID),
                                         //         INDEX := hw_connect.STATIC.index,
                                         //         LEN := INT_TO_UINT(statBufLen),
                                         //         RECORD := hw_connect.STATIC.buf);
-                                        // statSaveError := statWRREC.ERROR;
-                                        // statIntStatus := statWRREC.STATUS;
-                                        
+                                        statSaveError := statWRREC.error;
+                                        statIntStatus := statWRREC.status;                                        
                                         EXIT;
                                     END_IF;
                                     IF statPduDetection AND stHwConnect.STATIC.index_set THEN
                                         // first pdu-detection with PROFINET-index was failed. try again with PROFIBUS-index 
                                         stHwConnect.STATIC.state := STATE2;
                                         stHwConnect.STATIC.index := stHwConnect.CM_CHANNEL + UINT#100;
-                                        stHwConnect.STATIC.index_set := false;
-                                        statPduRepeat := true;
-                                        statSaveError := false;
+                                        stHwConnect.STATIC.index_set := FALSE;
+                                        statPduRepeat := TRUE;
+                                        statSaveError := FALSE;
                                     ELSE
                                         // any other error is occured => go to error_routine 
-                                        tempIntError := true;
+                                        tempIntError := TRUE;
                                         IF NOT statSaveError THEN
-                                            statIntStatus := statAdsRdWrt.ERRID;
+                                            // statIntStatus := statAdsRdWrt.ERRID;
+                                            statIntStatus := statWRREC.status;
                                         ELSE
-                                            statSaveError := false;
+                                            statSaveError := FALSE;
                                         END_IF;
                                         EXIT;
                                     END_IF;
                                     // WRREC was finished wothout errors 
-                                ELSIF statAdsRdWrt.BUSY = FALSE AND NOT statAdsRdWrt.ERR = TRUE THEN
-                                    stHwConnect.STATIC.acyc_active := false;
+                                // ELSIF statAdsRdWrt.BUSY = FALSE AND NOT statAdsRdWrt.ERR = TRUE THEN
+                                ELSIF statWRREC.done AND NOT statWRREC.busy AND NOT statWRREC.error THEN
+                                    stHwConnect.STATIC.acyc_active := FALSE;
                                     IF statDataTodo > UDINT#0 THEN
                                         // write next packet of command 
                                         stHwConnect.STATIC.state := STATE4;
-                                        statFurtherTelegram := true;
+                                        statFurtherTelegram := TRUE;
                                     ELSE
                                         // if chained comands => increase internal cmd_selektor and get next command  //MN++++
                                         IF statCmd.CHAINED AND statCmdSelCounter < UINT#100 AND NOT stHwConnect.STATIC.STATUS_INITIALISATION THEN
@@ -1013,8 +990,9 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                                 
                                     stHwConnect.Static.pnConfigRecord.record.nLen := TO_WORD(stHwConnect.STATIC.buf_max);	
                                     stHwConnect.Static.pnConfigRecord.nRW := ADS_READ;		   
-                                    statAdsRdWrt.WRTRD := TRUE;
 
+                                    statRDREC.request := TRUE;
+                                    // statAdsRdWrt.WRTRD := TRUE;
                                     // statRDREC(REQ := TRUE,
                                     //         ID := WORD_TO_UINT(hw_connect.HW_ID),
                                     //         INDEX := hw_connect.STATIC.index,
@@ -1023,6 +1001,9 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                     // // save error till next plc-cycle 
                                     // statSaveError := statRDREC.ERROR;
                                     // statIntStatus := statRDREC.STATUS;
+
+                                    statSaveError := statRDREC.error;
+                                    statIntStatus := statRDREC.status;
                                     
                                 ELSIF stHwConnect.STATIC.RPTCMD_cyc AND NOT stHwConnect.STATIC.RPTCMD_active THEN
                                     // check timeout for repeat support
@@ -1042,17 +1023,18 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                 
                             STATE7: //---------------------finish RDREC and receive data----------------------------
                                 // reset start request
-                                statAdsRdWrt.WRTRD := FALSE; 
+                                statRDREC.request := FALSE; 
+                                // statAdsRdWrt.WRTRD := FALSE; 
                                 statEmptyCycle := TRUE;
                         
                                 
                                 // error at RDREC 
-                                IF statAdsRdWrt.ERR OR statSaveAdsError THEN
+                                IF statRDREC.error OR statSaveAdsError THEN
                                     
                                     stHwConnect.STATIC.acyc_active := false;
                                     
                                     IF NOT statSaveAdsError THEN
-                                        tempStatus := TO_WORD(statAdsRdWrt.ERRID);
+                                        tempStatus := TO_WORD(statRDREC.status);  // Todo: from DWORD to Word ???
                                     ELSE
                                         tempStatus := TO_WORD(statIntAdsErrId);
                                     END_IF;
@@ -1062,7 +1044,8 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                         
                                         stHwConnect.Static.pnConfigRecord.record.nLen := TO_WORD(stHwConnect.STATIC.buf_max);	
                                         stHwConnect.Static.pnConfigRecord.nRW := ADS_READ;		   
-                                        statAdsRdWrt.WRTRD := TRUE;							
+                                        statRDREC.request := TRUE;							
+                                        // statAdsRdWrt.WRTRD := TRUE;							
                                         // statWRREC(REQ := TRUE,
                                         //         ID := WORD_TO_UINT(hw_connect.HW_ID),
                                         //         INDEX := hw_connect.STATIC.index,
@@ -1070,7 +1053,8 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                         //         RECORD := hw_connect.STATIC.buf);
                                         // statSaveError := statWRREC.ERROR;
                                         // statIntStatus := statWRREC.STATUS;
-                                        
+                                        statSaveError := statRDREC.ERROR;
+                                        statIntStatus := statRDREC.STATUS;
                                         EXIT;
                                     END_IF;
 
@@ -1087,7 +1071,8 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                         // any other error is occured => go to error_routine 
                                         tempIntError := true;
                                         IF NOT statSaveError THEN
-                                            statIntStatus := statAdsRdWrt.ERRID;
+                                            statIntStatus := statRDREC.status;
+                                            // statIntStatus := statAdsRdWrt.ERRID;
                                         ELSE
                                             statSaveError := FALSE;
                                             statSaveAdsError := FALSE;
@@ -1095,25 +1080,19 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                         EXIT;
                                     END_IF;
                                     // RDREC was finished without errors 
-                                ELSIF NOT statAdsRdWrt.BUSY AND NOT statAdsRdWrt.ERR THEN
+                                // ELSIF NOT statAdsRdWrt.BUSY AND NOT statAdsRdWrt.ERR THEN
+                                ELSIF statRDREC.valid AND NOT statRDREC.busy AND NOT statRDREC.error THEN
                                     stHwConnect.STATIC.acyc_active := false;
                                     
                                     // check error byte 
                                     tempB := stHwConnect.Static.pnConfigRecord.record.buf[5];
                                     
                                     // Read ADB to check at error MN++++
-                                    // tempW := TO_WORD(stHwConnect.Static.pnConfigRecord.record.buf[7]);
-                                    // tempW := tempW OR SHL(TO_WORD(stHwConnect.Static.pnConfigRecord.record.buf[6]),8);
-                                    // tempAdb := WORD_TO_UINT(tempW);						
                                     tempW.%B0 := stHwConnect.Static.pnConfigRecord.record.buf[7];
                                     tempW.%B1 := stHwConnect.Static.pnConfigRecord.record.buf[6];
                                     tempAdb := TO_UINT(tempW);	
 
                                     // Read DBN to check at error MN++++
-                                    // tempW := TO_WORD(stHwConnect.Static.pnConfigRecord.record.buf[9]);
-                                    // tempW := tempW OR SHL(TO_WORD(stHwConnect.Static.pnConfigRecord.record.buf[8]),8);
-                                    // tempDbn := WORD_TO_UINT(tempW);
-                                    
                                     tempW.%B0 := stHwConnect.Static.pnConfigRecord.record.buf[9];
                                     tempW.%B1 := stHwConnect.Static.pnConfigRecord.record.buf[8];
                                     tempDbn := TO_UINT(tempW);	
@@ -1142,11 +1121,6 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                             // any other error is occured => go to error_routine 
                                             tempIntError := true;
                                             // save PIB-Status 
-                                            // statIntStatus := TO_DWORD(stHwConnect.Static.pnConfigRecord.record.buf[11 + 3]);
-                                            // statIntStatus := statIntStatus OR SHL(TO_DWORD(stHwConnect.Static.pnConfigRecord.record.buf[11 + 2]),8);
-                                            // statIntStatus := statIntStatus OR SHL(TO_DWORD(stHwConnect.Static.pnConfigRecord.record.buf[11 + 1]),16);
-                                            // statIntStatus := statIntStatus OR SHL(TO_DWORD(stHwConnect.Static.pnConfigRecord.record.buf[11]),24);
-
                                             tempDword.%B0   := stHwConnect.Static.pnConfigRecord.record.buf[14];
                                             tempDword.%B1   := stHwConnect.Static.pnConfigRecord.record.buf[13];
                                             tempDword.%B2   := stHwConnect.Static.pnConfigRecord.record.buf[12];
@@ -1165,10 +1139,6 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                         END_IF;
                                         
                                         // check sequence number 
-                                        // tempW := TO_WORD(stHwConnect.Static.pnConfigRecord.record.buf[3]);
-                                        // tempW := tempW OR SHL(TO_WORD(stHwConnect.Static.pnConfigRecord.record.buf[2]),8);
-                                        // tempI := WORD_TO_UINT(tempW);
-                                        
                                         tempW.%B0 := stHwConnect.Static.pnConfigRecord.record.buf[3];
                                         tempW.%B1 := stHwConnect.Static.pnConfigRecord.record.buf[2];
                                         tempI := TO_UINT(tempW);
@@ -1231,8 +1201,6 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                                     
 
                                                     nTrlen := 2;
-                                                    // tempI := WORD_TO_UINT(stHwConnect.Static.pnConfigRecord.record.buf[12]);
-                                                    // tempI := WORD_TO_UINT(UINT_TO_WORD(tempI) OR SHL(TO_WORD(stHwConnect.Static.pnConfigRecord.record.buf[11]),8));
                                                     tempW.%B0:= stHwConnect.Static.pnConfigRecord.record.buf[12];
                                                     tempW.%B1:= stHwConnect.Static.pnConfigRecord.record.buf[11];
                                                     tempI := TO_UINT(tempW);
@@ -1287,8 +1255,6 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                         END_IF;
                                         
                                         // check/process adb 
-                                        // tempW := TO_WORD(stHwConnect.Static.pnConfigRecord.record.buf[7]);
-                                        // tempW := tempW OR SHL(TO_WORD(stHwConnect.Static.pnConfigRecord.record.buf[6]),8);
                                         tempW.%B0   :=  stHwConnect.Static.pnConfigRecord.record.buf[7];
                                         tempW.%B1   :=  stHwConnect.Static.pnConfigRecord.record.buf[6];
             
@@ -1312,9 +1278,6 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                         END_IF;
                                         
                                         // check dbn, determining next state 
-                                        // tempW := TO_WORD(stHwConnect.Static.pnConfigRecord.record.buf[9]);
-                                        // tempW := tempW OR SHL(TO_WORD(stHwConnect.Static.pnConfigRecord.record.buf[8]),8);
-                                        // statDbn := WORD_TO_UINT(tempW);
                                         tempW.%B0   := stHwConnect.Static.pnConfigRecord.record.buf[9];
                                         tempW.%B1   := stHwConnect.Static.pnConfigRecord.record.buf[8];
                                         statDbn := TO_UINT(tempW);
@@ -1371,8 +1334,6 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                         
                                         // check dbl // if PDU > 240, length is only in byte 0 and 1 
                                         IF stHwConnect.STATIC.buf_max > UINT#240 THEN
-                                            // statSize := TO_UINT(stHwConnect.Static.pnConfigRecord.record.buf[1]);
-                                            // statSize := TO_UINT(TO_WORD(statSize) OR SHL(TO_WORD(stHwConnect.Static.pnConfigRecord.record.buf[0]),8));
                                             tempW.%B0   :=  stHwConnect.Static.pnConfigRecord.record.buf[1];
                                             tempW.%B1   :=  stHwConnect.Static.pnConfigRecord.record.buf[0];
                                             statSize    :=  TO_UINT(tempW);
@@ -1399,11 +1360,15 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                                                 EXIT;
                                             ELSE
                                                 // anything ok, copy over data 
-                                                                                
-                                                MEMCPY(
-                                                    destAddr:=ADR(aRxref[statLowerBoundRxref + UDINT_TO_DINT(statRecvOffset)]) , 
-                                                    srcAddr:=ADR(stHwConnect.Static.pnConfigRecord.record.buf[stHwConnect.STATIC.buf_header]) , 
-                                                    n:=UINT_TO_UDINT(statSize));
+                                                // MEMCPY(
+                                                //     destAddr:=ADR(aRxref[statLowerBoundRxref + UDINT_TO_DINT(statRecvOffset)]) , 
+                                                //     srcAddr:=ADR(stHwConnect.Static.pnConfigRecord.record.buf[stHwConnect.STATIC.buf_header]) , 
+                                                //     n:=UINT_TO_UDINT(statSize));
+
+                                                FOR i := 1 TO TO_INT(statSize) DO
+                                                    aRxref[statLowerBoundRxref + TO_DINT(statRecvOffset) + TO_DINT(i) - DINT#1] := stHwConnect.Static.pnConfigRecord.record.buf[stHwConnect.STATIC.buf_header + TO_UINT(i) - UINT#1];
+                                                END_FOR;
+                                                    
                                                 // IF TypeOfElements(txref) = Char THEN
                                                 //     FOR tempLoop := 0 TO statSize - 1 DO
                                                         
@@ -1529,28 +1494,45 @@ NAMESPACE AXOpen.Components.Siemens.Identification
                 stHwConnect.Static.pnConfigRecord.nNrAr := stHwConnect.AR_NUMBER; 
                 stHwConnect.Static.pnConfigRecord.record.nIndex := TO_WORD(stHwConnect.Static.index);
 
-                statAdsRdWrt(
-                            NETID:= stHwConnect.AMS_NET_ID, 
-                            PORT:= stHwConnect.PORT, 
-                            IDXGRP:= 16#0000_F823, 
-                            IDXOFFS:= 16#0000_0000, 
-                            WRITELEN:= stHwConnect.Static.pnConfigRecord.record.nLen + PN_CONFIGRECORD_HEADER_LEN, 
-                            READLEN:= stHwConnect.Static.pnConfigRecord.record.nLen, 
-                            SRCADDR:= ADR(stHwConnect.Static.pnConfigRecord), 
-                            DESTADDR:= ADR(stHwConnect.Static.pnConfigRecord.record.buf), 
-                            // WRTRD:= , 
-                            TMOUT:= ADS_TIMEOUT//, 
-                            // BUSY=> , 
-                            // ERR=> , 
-                            // ERRID=> 
-                            );
+                statWRREC(  id      :=  stHwConnect.HW_ID,
+                            index   :=  stHwConnect.STATIC.index,
+                            length  :=  TO_UINT(stHwConnect.Static.pnConfigRecord.record.nLen) + PN_CONFIGRECORD_HEADER_LEN, 
+                            record	:=  stHwConnect.Static.pnConfigRecord.record.buf);
+
+                statRDREC(  id          :=  stHwConnect.HW_ID,
+                            index       :=  stHwConnect.STATIC.index,
+                            maxLength  :=  stHwConnect.Static.buf_max, 
+                            record	    :=  stHwConnect.Static.pnConfigRecord.record.buf);
+
+                // statAdsRdWrt(
+                //             NETID:= stHwConnect.AMS_NET_ID, 
+                //             PORT:= stHwConnect.PORT, 
+                //             IDXGRP:= 16#0000_F823, 
+                //             IDXOFFS:= 16#0000_0000, 
+                //             WRITELEN:= stHwConnect.Static.pnConfigRecord.record.nLen + PN_CONFIGRECORD_HEADER_LEN, 
+                //             READLEN:= stHwConnect.Static.pnConfigRecord.record.nLen, 
+                //             SRCADDR:= ADR(stHwConnect.Static.pnConfigRecord), 
+                //             DESTADDR:= ADR(stHwConnect.Static.pnConfigRecord.record.buf), 
+                //             // WRTRD:= , 
+                //             TMOUT:= ADS_TIMEOUT//, 
+                //             // BUSY=> , 
+                //             // ERR=> , 
+                //             // ERRID=> 
+                //             );
                 
                 statEmptyCycle := FALSE;
                 
             // save istantly rising errors for statemachine 
-            statSaveAdsError := statAdsRdWrt.ERR;
-            statIntAdsErrId := statAdsRdWrt.ERRID;
-                
+            // statSaveAdsError := statAdsRdWrt.ERR;
+            // statIntAdsErrId := statAdsRdWrt.ERRID;
+            statSaveAdsError := statWRREC.error OR statRDREC.error;
+            IF statWRREC.error THEN
+                statIntAdsErrId := TO_UDINT(statWRREC.status);
+            ELSIF statRDREC.error THEN
+                statIntAdsErrId := TO_UDINT(statRDREC.status);
+            ELSE
+                statIntAdsErrId := UDINT#0;
+            END_IF;
                 
                 
                 // error handling 
@@ -1599,4 +1581,3 @@ NAMESPACE AXOpen.Components.Siemens.Identification
         END_METHOD
     END_CLASS
 END_NAMESPACE
-*)

@@ -1,7 +1,5 @@
 NAMESPACE AXOpen.Components.Siemens.Identification
-
-// TYPE ST_IID_IN_PN_CONFIGRECORD :
-//     STRUCT
+    {S7.extern=ReadWrite}
     CLASS Axo_IID_IN_PN_CONFIGRECORD
         VAR PUBLIC
             nRW         :   WORD; 
@@ -10,8 +8,6 @@ NAMESPACE AXOpen.Components.Siemens.Identification
             nSlot       :   WORD; 
             nSubslot    :   WORD; 
             record      :   Axo_IID_IN_PN_RECORDDATA ;
-//     END_STRUCT
-// END_TYPE
-    END_VAR
+        END_VAR
     END_CLASS
 END_NAMESPACE

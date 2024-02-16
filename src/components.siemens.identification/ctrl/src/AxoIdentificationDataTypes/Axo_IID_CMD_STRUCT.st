@@ -1,7 +1,5 @@
 NAMESPACE AXOpen.Components.Siemens.Identification
-
-// TYPE ST_IID_CMD_STRUCT :
-//     STRUCT
+    {S7.extern=ReadWrite}
     CLASS Axo_IID_CMD_STRUCT
         VAR PUBLIC
             CMD			    :   eAxo_IID_COMMANDS;	                    //Command ID
@@ -13,8 +11,6 @@ NAMESPACE AXOpen.Components.Siemens.Identification
             CONFIG		    :   BYTE                    :=BYTE#16#0;	//Config Mode for Init
             CHAINED		    :   BOOL                    :=FALSE;		//Chained Bit: 1= chained; 0=unchained
             EXT_UHF		    :   Axo_IID_IN_EXT_UHF;	                    //further Atrributes for extended UHF commands
-//     END_STRUCT
-// END_TYPE
-    END_VAR
+        END_VAR
     END_CLASS
 END_NAMESPACE

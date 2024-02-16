@@ -3,7 +3,7 @@ USING AXOpen.Core;
 CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
     //<ComponentDeclaration>
     VAR PUBLIC                
-        ExampleCylinder :AXOpen.Components.Siemens.Identification.Example.ExampleCylinder;      
+
     END_VAR
     //</ComponentDeclaration>                          
 
@@ -11,8 +11,7 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
     VAR PUBLIC         
         {#ix-set:AttributeName = "<#Activate manual control#>"}
         ActivateManualControl : BOOL;         
-        PlcInputs : REF_TO PlcInputs;
-        PlcOutputs : REF_TO PlcOutputs;                         
+                   
     END_VAR
     //</InitializationArgumentsDeclaration>            
 
@@ -24,15 +23,12 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
         THIS.Initialize(parent);
 
         IF ActivateManualControl THEN
-            ExampleCylinder.ActivateManualControl();
+            ;
         END_IF;
 
         //<Initialization>        
-        ExampleCylinder.Run(THIS, 
-                            REF(PlcInputs^._homeSensor_2), 
-                            REF(PlcInputs^._workSensor_2), 
-                            REF(PlcOutputs^._moveHomeSignal_2), 
-                            REF(PlcOutputs^._moveWorkSignal_2));
+
+        
         //</Initialization>
 
        THIS.UseInSequencer();
@@ -49,17 +45,17 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
         Sequencer.Initialize(THIS);
         Sequencer.Open();
 
-        IF(Steps[0].Execute(Sequencer, 'Move to home position')) THEN
-            IF(ExampleCylinder.MoveToHome.Invoke().IsDone()) THEN                
-                Sequencer.MoveNext();                
-            END_IF;    
-        END_IF;
+        // IF(Steps[0].Execute(Sequencer, 'Move to home position')) THEN
+        //     IF(ExampleCylinder.MoveToHome.Invoke().IsDone()) THEN                
+        //         Sequencer.MoveNext();                
+        //     END_IF;    
+        // END_IF;
 
-        IF(Steps[1].Execute(Sequencer, 'Move to work position')) THEN
-            IF(ExampleCylinder.MoveToWork.Invoke().IsDone()) THEN                
-                Sequencer.MoveNext();                
-            END_IF;    
-        END_IF;       
+        // IF(Steps[1].Execute(Sequencer, 'Move to work position')) THEN
+        //     IF(ExampleCylinder.MoveToWork.Invoke().IsDone()) THEN                
+        //         Sequencer.MoveNext();                
+        //     END_IF;    
+        // END_IF;       
     END_METHOD
     
     //</Usage>

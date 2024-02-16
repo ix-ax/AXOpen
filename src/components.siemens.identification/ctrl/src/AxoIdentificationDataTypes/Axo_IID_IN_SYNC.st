@@ -1,7 +1,5 @@
 NAMESPACE AXOpen.Components.Siemens.Identification
-
-// TYPE ST_IID_IN_SYNC :
-//     STRUCT
+    {S7.extern=ReadWrite}
     CLASS Axo_IID_IN_SYNC
         VAR PUBLIC
             STATUS_IN_WORK              :   BOOL    :=  FALSE;      //command is in work
@@ -41,8 +39,6 @@ NAMESPACE AXOpen.Components.Siemens.Identification
             buf_maxdata                 :   UINT    :=  UINT#229;   //user data size
             //buf:ARRAY[0..1034] OF BYTE;
             pnConfigRecord : Axo_IID_IN_PN_CONFIGRECORD;
-        //     END_STRUCT
-    // END_TYPE
         END_VAR
     END_CLASS
 END_NAMESPACE
