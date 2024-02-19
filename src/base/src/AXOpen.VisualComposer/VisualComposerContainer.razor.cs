@@ -92,11 +92,11 @@ namespace AXOpen.VisualComposer
         {
             List<ITwinElement> kids = new List<ITwinElement>();
             kids.Add(parent);
+
             foreach (var kid in parent.GetKids())
             {
                 if (kid is ITwinObject tobj)
                 {
-                    kids.Add(tobj);
                     kids.AddRange(RetrieveKids(tobj));
                 }
                 if (kid is ITwinPrimitive prim)
@@ -134,6 +134,9 @@ namespace AXOpen.VisualComposer
 
         public void CreateNew(string fileName)
         {
+            if(fileName == "" || fileName == null)
+                return;
+
             CurrentView = fileName;
 
             if (!Directory.Exists("VisualComposerSerialize/" + Id.CorrectFilePath()))
@@ -148,6 +151,9 @@ namespace AXOpen.VisualComposer
 
         public void CreateCopy(string fileName)
         {
+            if (fileName == "" || fileName == null)
+                return;
+
             CurrentView = fileName;
 
             if (!Directory.Exists("VisualComposerSerialize/" + Id.CorrectFilePath()))

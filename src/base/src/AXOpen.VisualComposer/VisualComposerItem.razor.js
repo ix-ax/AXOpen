@@ -6,7 +6,7 @@
 };
 
 export function getElementSize(id) {
-    const element = document.getElementById(id);
+    const element = document.getElementById(id).parentElement;
 
     if (element) {
 
@@ -19,15 +19,12 @@ export function getElementSize(id) {
         else {
             var computedStyle = window.getComputedStyle(element);
 
-            var width = parseFloat(computedStyle.width);
-            var height = parseFloat(computedStyle.height);
-
             return {
-                width: width,
-                height: height
+                width: parseFloat(computedStyle.width),
+                height: parseFloat(computedStyle.height)
             };
         }
-        
+
     } else {
         return null;
     }
@@ -37,17 +34,16 @@ export function dragElement(id, dotNetInstance, left, top, backgroundId, scale) 
     var elmnt = document.getElementById(id);
 
     if (elmnt != null) {
-        var backgroundSize = getElementSize(backgroundId);
-
         elmnt.onmousedown = function (e) {
-            dragMouseDown(e, elmnt, left, top, dotNetInstance, backgroundSize, scale);
+            dragMouseDown(e, elmnt, left, top, dotNetInstance, backgroundId, scale);
         };
 
         updateTransform(elmnt, left, top, dotNetInstance);
     }
 }
 
-function dragMouseDown(e, elmnt, left, top, dotNetInstance, backgroundSize, scale) {
+function dragMouseDown(e, elmnt, left, top, dotNetInstance, backgroundId, scale) {
+    console.log("call");
     e = e || window.event;
     e.preventDefault();
 
@@ -56,13 +52,15 @@ function dragMouseDown(e, elmnt, left, top, dotNetInstance, backgroundSize, scal
 
     document.onmouseup = closeDragElement;
     document.onmousemove = function (event) {
-        elementDrag(event, elmnt, left, top, startX, startY, dotNetInstance, backgroundSize, scale);
+        elementDrag(event, elmnt, left, top, startX, startY, dotNetInstance, backgroundId, scale);
     };
 }
 
-function elementDrag(e, elmnt, left, top, startX, startY, dotNetInstance, backgroundSize, scale) {
+function elementDrag(e, elmnt, left, top, startX, startY, dotNetInstance, backgroundId, scale) {
     e = e || window.event;
     e.preventDefault();
+
+    var backgroundSize = getElementSize(backgroundId);
 
     if (backgroundSize != null && backgroundSize.width != 0 && backgroundSize.height != 0) {
         var offsetX = ((startX - e.clientX) / backgroundSize.width * 100) * (1 / scale);
@@ -73,7 +71,7 @@ function elementDrag(e, elmnt, left, top, startX, startY, dotNetInstance, backgr
     }
 
     elmnt.onmousedown = function (e) {
-        dragMouseDown(e, elmnt, left, top, dotNetInstance, backgroundSize, scale);
+        dragMouseDown(e, elmnt, left, top, dotNetInstance, backgroundId, scale);
     };
 
     updateTransform(elmnt, left, top, dotNetInstance);
