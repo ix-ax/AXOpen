@@ -1,7 +1,7 @@
 USING AXOpen.Components.Abstractions.Drives;
 USING Siemens.Simatic.S71500.DistributedIO;
 
-NAMESPACE AXOpen.Components.Siemens.Identification
+NAMESPACE AXOpen.Components.SIEM.Identification
     {S7.extern=ReadWrite}
     CLASS Axo_IdentProfile 
         VAR
