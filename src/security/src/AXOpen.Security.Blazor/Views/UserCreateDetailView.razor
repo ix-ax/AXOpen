@@ -8,7 +8,7 @@
 @using Microsoft.AspNetCore.Components.Forms;
 @inject IRepositoryService _repositoryService
 @inject UserManager<User> _userManager
-@inject IAlertDialogService _alertDialogService
+@inject IAlertService _alertDialogService
 @inject NavigationManager _navigationManager
 
 <AuthorizeView Roles="Administrator">
@@ -80,11 +80,11 @@
         if (result.Succeeded)
         {
             _navigationManager.NavigateTo("");
-            _alertDialogService.AddAlertDialog(eAlertDialogType.Success, Localizer["Created!"], Localizer["User successfully created."], 10);
+            _alertDialogService.AddAlertDialog(eAlertType.Success, Localizer["Created!"], Localizer["User successfully created."], 10);
         }
         else
         {
-            _alertDialogService.AddAlertDialog(eAlertDialogType.Warning, Localizer["Not created!"], Localizer["User was not created."], 10);
+            _alertDialogService.AddAlertDialog(eAlertType.Warning, Localizer["Not created!"], Localizer["User was not created."], 10);
         }
     }
 

@@ -1,0 +1,40 @@
+﻿@namespace AXOpen.Core.Blazor.AxoDialogs
+@inherits AXOpen.Core.Blazor.Dialogs.AxoLocator;
+
+@if (_dialogProxyService?.DisplayedDialogs.Count() > 0)
+{
+    @if (DisplayInModalWindow)
+    {
+        @if (ShowBackdrop)
+        {
+            <div class="modal-backdrop fade show"></div>
+        }
+
+        <div class="modal modal-xl @ModalClass" tabindex="-1" role="dialog" style="display:@ModalDisplay; overflow-y: auto; ">
+            <div class="modal-dialog mw-100 w-75 modal-dialog-centered" style="align-items: flex-start;" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>@Localizer["Make a Choice"]</h4>
+                        <a href="Identity/Account/Login">@Localizer["Log in"]</a>
+
+                    </div>
+                    <div class="modal-body">
+                        @foreach (var dialogInstance in _dialogProxyService?.DisplayedDialogs)
+                        {
+                            <RenderableContentControl Context="@dialogInstance" Presentation="Dialog" />
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        @foreach (var dialogInstance in _dialogProxyService?.DisplayedDialogs)
+        {
+            <RenderableContentControl Context="@dialogInstance" Presentation="Dialog" />
+        }
+    }
+}
+
+
