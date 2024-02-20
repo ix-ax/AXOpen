@@ -69,7 +69,5 @@
 	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj" />
 	  <ProjectReference Include="..\..\..\utils\app\ix\utils_app.csproj" />
 	  <ProjectReference Include="..\..\..\utils\src\AXOpen.Utils\ix_ax_axopen_utils.csproj" />
-	  <ProjectReference Include="..\..\..\components.kuka.robotics\app\ix\app_axopen_components_kuka_robotics.csproj" />
-	  <ProjectReference Include="..\..\..\components.kuka.robotics\src\AXOpen.Components.Kuka.Robotics\ix_ax_axopen_components_kuka_robotics.csproj" />
 	</ItemGroup>
 </Project>

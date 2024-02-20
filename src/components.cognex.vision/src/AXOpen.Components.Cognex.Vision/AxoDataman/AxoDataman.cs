@@ -133,30 +133,45 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
 
 
 
-                    errorDescriptionDict.Add(700, "Parent has NULL reference in the Run method!");
-                    errorDescriptionDict.Add(701, "hwIdAcquisitionControl has invalid value in the Run method!");
-                    errorDescriptionDict.Add(702, "hwIdAcquisitionStatus has invalid value in the Run method!");
-                    errorDescriptionDict.Add(703, "hwIdResultsControl has invalid value in the Run method!");
-                    errorDescriptionDict.Add(704, "hwIdResultsStatus has invalid value in the Run method!");
-                    errorDescriptionDict.Add(705, "hwIdSoftEventControl has invalid value in the Run method!");
-                    errorDescriptionDict.Add(706, "hwIdResultData has invalid value in the Run method!");
-                    errorDescriptionDict.Add(707, "hwIdUserData has invalid value in the Run method!");
+                    errorDescriptionDict.Add(700, "Error: Parent has NULL reference!");
+                    errorDescriptionDict.Add(701, "Error: AcquisitionControl has NULL reference!");
+                    errorDescriptionDict.Add(702, "Error: AcquisitionStatus has NULL reference!");
+                    errorDescriptionDict.Add(703, "Error: ResultsControl has NULL reference!");
+                    errorDescriptionDict.Add(704, "Error: ResultsStatus has NULL reference!");
+                    errorDescriptionDict.Add(705, "Error: SoftEventControl  has NULL reference!");
+                    errorDescriptionDict.Add(706, "Error: SoftEventStatus has NULL reference!");
+                    errorDescriptionDict.Add(707, "Error: ResultData has NULL reference!");
+                    errorDescriptionDict.Add(708, "Error: UserData has NULL reference!");
+                    errorDescriptionDict.Add(709, "Error: ResultData has invalid size!");
+                    errorDescriptionDict.Add(710, "Error: ResultData-lower bound index is not zero!");
+                    errorDescriptionDict.Add(711, "Error: UserData has invalid size!");
+                    errorDescriptionDict.Add(712, "Error: UserData-lower bound index is not zero!");
+                    errorDescriptionDict.Add(713, "Error: The ResultData length exceeds the configured hardware structure's length!");
 
-                    errorDescriptionDict.Add(708, "Error reading the AcquisitionStatus in the UpdateInputs method!");
-                    errorDescriptionDict.Add(709, "Error reading the ResultsStatus in the UpdateInputs method!");
-                    errorDescriptionDict.Add(710, "Error reading the SoftEventControl in the UpdateInputs method!");
-                    errorDescriptionDict.Add(711, "Error reading the ResultData in the UpdateInputs method!");
-                    errorDescriptionDict.Add(712, "ResultData has invalid size!");
+                    // errorDescriptionDict.Add(700, "Parent has NULL reference in the Run method!");
+                    // errorDescriptionDict.Add(701, "hwIdAcquisitionControl has invalid value in the Run method!");
+                    // errorDescriptionDict.Add(702, "hwIdAcquisitionStatus has invalid value in the Run method!");
+                    // errorDescriptionDict.Add(703, "hwIdResultsControl has invalid value in the Run method!");
+                    // errorDescriptionDict.Add(704, "hwIdResultsStatus has invalid value in the Run method!");
+                    // errorDescriptionDict.Add(705, "hwIdSoftEventControl has invalid value in the Run method!");
+                    // errorDescriptionDict.Add(706, "hwIdResultData has invalid value in the Run method!");
+                    // errorDescriptionDict.Add(707, "hwIdUserData has invalid value in the Run method!");
 
-                    errorDescriptionDict.Add(713, "Error writing the AcquisitionControl in the UpdateOutputs method!");
-                    errorDescriptionDict.Add(714, "Error writing the ResultsControl in the UpdateOutputs method!");
-                    errorDescriptionDict.Add(715, "Error writing the SoftEventControl in the UpdateOutputs method!");
-                    errorDescriptionDict.Add(716, "UserData has invalid size!");
-                    errorDescriptionDict.Add(717, "Error writing the 16bytes of the UserData in the UpdateOutputs method!");
-                    errorDescriptionDict.Add(718, "Error writing the 32bytes of the UserData in the UpdateOutputs method!");
-                    errorDescriptionDict.Add(719, "Error writing the 64bytes of the UserData in the UpdateOutputs method!");
-                    errorDescriptionDict.Add(720, "Error writing the 1286bytes of the UserData in the UpdateOutputs method!");
-                    errorDescriptionDict.Add(721, "Error writing the 250bytes of the UserData in the UpdateOutputs method!");
+                    // errorDescriptionDict.Add(708, "Error reading the AcquisitionStatus in the UpdateInputs method!");
+                    // errorDescriptionDict.Add(709, "Error reading the ResultsStatus in the UpdateInputs method!");
+                    // errorDescriptionDict.Add(710, "Error reading the SoftEventControl in the UpdateInputs method!");
+                    // errorDescriptionDict.Add(711, "Error reading the ResultData in the UpdateInputs method!");
+                    // errorDescriptionDict.Add(712, "ResultData has invalid size!");
+
+                    // errorDescriptionDict.Add(713, "Error writing the AcquisitionControl in the UpdateOutputs method!");
+                    // errorDescriptionDict.Add(714, "Error writing the ResultsControl in the UpdateOutputs method!");
+                    // errorDescriptionDict.Add(715, "Error writing the SoftEventControl in the UpdateOutputs method!");
+                    // errorDescriptionDict.Add(716, "UserData has invalid size!");
+                    // errorDescriptionDict.Add(717, "Error writing the 16bytes of the UserData in the UpdateOutputs method!");
+                    // errorDescriptionDict.Add(718, "Error writing the 32bytes of the UserData in the UpdateOutputs method!");
+                    // errorDescriptionDict.Add(719, "Error writing the 64bytes of the UserData in the UpdateOutputs method!");
+                    // errorDescriptionDict.Add(720, "Error writing the 1286bytes of the UserData in the UpdateOutputs method!");
+                    // errorDescriptionDict.Add(721, "Error writing the 250bytes of the UserData in the UpdateOutputs method!");
 
 
                     errorDescriptionDict.Add(800, "Clearing of the result data finished with error!");
