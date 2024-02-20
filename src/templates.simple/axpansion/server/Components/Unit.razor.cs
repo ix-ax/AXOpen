@@ -13,7 +13,7 @@ namespace axosimple.server.Components
     public partial class Unit : RenderableComplexComponentBase<axosimple.IUnit>
     {
         [Inject]
-        public IAlertDialogService _alerts { set; get; }
+        public IAlertService _alerts { set; get; }
 
         private AxoMessageProvider messageProvider;
         private AxoMessageProvider MessageProvider

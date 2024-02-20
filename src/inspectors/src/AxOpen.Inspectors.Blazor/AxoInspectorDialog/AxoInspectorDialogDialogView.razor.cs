@@ -6,6 +6,7 @@ using Pocos.AXOpen.Inspectors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,24 +22,29 @@ namespace AXOpen.Inspectors
             _inspector = null;
             try
             {
-                var parent = Component.GetParent();
+                // _inspectorIndentity property is subscribed in the method base.AddToPolling()
+                var parent = Component.GetConnector().IdentityProvider.GetTwinByIdentity(Component._inspectorIndentity.Cyclic);
 
-                if (parent is AxoInspector i)
+                if (parent != null)
                 {
-                    _inspector = i;
+                    if (parent is AxoInspector i)
+                    {
+                        _inspector = i;
+                    }
                 }
             }
             catch (Exception)
             {
             }
 
-            if(base.Component._isOverInspected.Cyclic)
+            if (base.Component._isOverInspected.Cyclic)
                 RetryDisabled = true;
         }
 
         public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
-        {            
+        {
             base.AddToPolling(element, pollingInterval);
+            
         }
 
         public async Task Retry()
@@ -80,14 +86,14 @@ namespace AXOpen.Inspectors
         }
 
         private ITwinObject _inspector;
-        public ITwinObject Inspector 
+        public ITwinObject Inspector
         {
             get
             {
-               
+
                 return _inspector;
             }
-          
+
         }
 
         public override void Dispose()
@@ -96,5 +102,5 @@ namespace AXOpen.Inspectors
         }
 
     }
-        
- }
+
+}

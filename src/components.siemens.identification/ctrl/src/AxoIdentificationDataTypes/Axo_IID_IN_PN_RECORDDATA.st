@@ -1,4 +1,4 @@
-NAMESPACE AXOpen.Components.Siemens.Identification
+NAMESPACE AXOpen.Components.SIEM.Identification
     {S7.extern=ReadWrite}
     CLASS Axo_IID_IN_PN_RECORDDATA
         VAR PUBLIC

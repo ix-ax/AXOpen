@@ -1,0 +1,41 @@
+﻿@namespace axopencore
+@using AXOpen.Core;
+@using AXSharp.Connector;
+@using Microsoft.AspNetCore.Components.Authorization
+@inherits RenderableComplexComponentBase<AxoDialogExamples.Dialogs>
+@implements IDisposable;
+
+<div class="border border-1 rounded m-0">
+    <h4>@Component.Symbol</h4>
+
+    <div class="border border-2 m-1 rounded">
+        <div style="display: flex; justify-content: space-between;">
+            <div style="flex: 1;">
+                <RenderableContentControl Context="@Component._invokeRestoreAll" Presentation="Control" />
+            </div>
+
+            <div style="flex: 1;">
+                <RenderableContentControl Context="@Component._invokeCallAll" Presentation="Control" />
+            </div>
+
+            <div style="flex: 1;">
+                <RenderableContentControl Context="@Component._invokeSequnceAll" Presentation="Control" />
+            </div>
+        </div>
+    </div>
+
+    <div class="border border-2 m-1 rounded border-warning">
+        <div style="display: flex; justify-content: space-between;">
+            <div style="flex: 1;">
+                <axopencore.AxoDialogTestView Component="@Component.AA" />
+            </div>
+
+            <div style="flex: 1;">
+                <axopencore.AxoDialogTestView Component="@Component.BB" />
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

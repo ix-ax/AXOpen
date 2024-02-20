@@ -19,11 +19,12 @@ NAMESPACE axosimple.UnitTemplate
         VAR PRIVATE
             Objs : REF_TO axosimple.UnitTemplate.UnitObjects;
             Components : REF_TO axosimple.UnitTemplate.Components;
-            ProcessData : REF_TO axosimple.UnitTemplate.ProcessDataManager;
-            ProcessSettings : REF_TO axosimple.UnitTemplate.FragmentProcessDataManger;
-            TechnologySettings : REF_TO axosimple.UnitTemplate.TechnologyDataManager;
+
+            ProcessDataManager : REF_TO axosimple.UnitTemplate.ProcessDataManager;
+            ProcessSettingsManager : REF_TO axosimple.UnitTemplate.FragmentProcessDataManger;
+            TechnologySettingsManager : REF_TO axosimple.UnitTemplate.TechnologyDataManager;
             
-            PersistentSettings : REF_TO AxoDataPersistentExchange;
+            PersistentSettingsManager : REF_TO AxoDataPersistentExchange;
 
             _currentId : STRING;
 
@@ -40,10 +41,10 @@ NAMESPACE axosimple.UnitTemplate
                 Objs := _unitObjects;
                 
                 Components := Objs^.Components;
-                ProcessData := Objs^.ProcessData;
-                ProcessSettings := Objs^.ProcessSettings;
-                TechnologySettings := Objs^.TechnologySettings;
-                PersistentSettings := Objs^.Global^.PersistentData;
+                ProcessDataManager := Objs^.ProcessData;
+                ProcessSettingsManager := Objs^.ProcessSettings;
+                TechnologySettingsManager := Objs^.TechnologySettings;
+                PersistentSettingsManager := Objs^.Global^.PersistentData;
             END_IF;
 
             SUPER.Run(_parent);
@@ -65,9 +66,9 @@ NAMESPACE axosimple.UnitTemplate
             
             IF (Steps[0].Execute(THIS, TRUE, '<#RESTORE#>')) THEN
                 //------------------------------------------------------- 
-                    TechnologySettings^.Restore(); 
-                    ProcessSettings^.Restore(); 
-                    ProcessData^.Restore();
+                    TechnologySettingsManager^.Restore(); 
+                    ProcessSettingsManager^.Restore(); 
+                    ProcessDataManager^.Restore();
 
                     THIS.MoveNext();  
                 //-------------------------------------------------------
@@ -77,11 +78,11 @@ NAMESPACE axosimple.UnitTemplate
                 //------------------------------------------------------- 
                 CASE TO_INT( THIS.GetMicroStepValue()) OF
                     0 : 
-                        IF PersistentSettings^.InvokeRead(THIS,'UnitTemplate') THEN 
+                        IF PersistentSettingsManager^.InvokeRead(THIS,'UnitTemplate') THEN 
                             THIS.SetMicroStepValue(UINT#10);
                         END_IF;
                     10 : 
-                        IF PersistentSettings^.IsReadDone(THIS) THEN 
+                        IF PersistentSettingsManager^.IsReadDone(THIS) THEN 
                                 THIS.MoveNext(); 
                         END_IF;  
                     ELSE
@@ -113,7 +114,7 @@ NAMESPACE axosimple.UnitTemplate
                     end_if;
 
                 else
-                    IF(TechnologySettings^.Read( techSetttingsId ).IsDone()) THEN
+                    IF(TechnologySettingsManager^.Read( techSetttingsId ).IsDone()) THEN
                         THIS.MoveNext(); 
                     END_IF; 
                 END_IF;
@@ -132,8 +133,8 @@ NAMESPACE axosimple.UnitTemplate
                 //-------------------------------------------------------
                 CASE TO_INT( THIS.GetMicroStepValue()) OF
                     0 : 
-                        IF ProcessData^.Shared.Entity.DataEntityId <> '' THEN 
-                            _currentId := ProcessData^.Shared.Entity.DataEntityId;
+                        IF ProcessDataManager^.Shared.Entity.DataEntityId <> '' THEN 
+                            _currentId := ProcessDataManager^.Shared.Entity.DataEntityId;
                             THIS.SetMicroStepValue(UINT#10);
 
                         ELSE // FIST RUN OR WITHOUT DATA
@@ -141,8 +142,8 @@ NAMESPACE axosimple.UnitTemplate
                         END_IF;
 
                     10 : // update part as a corrupted a interrupted
-                        ProcessData^.Shared.Entity.WasReset := true;
-                        IF ProcessData^.Update(_currentId).IsDone() THEN 
+                        ProcessDataManager^.Shared.Entity.WasReset := true;
+                        IF ProcessDataManager^.Update(_currentId).IsDone() THEN 
                                 THIS.MoveNext(); 
                         END_IF;  
                     ELSE

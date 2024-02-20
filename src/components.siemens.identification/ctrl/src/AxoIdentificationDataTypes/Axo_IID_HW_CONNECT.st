@@ -1,4 +1,4 @@
-NAMESPACE AXOpen.Components.Siemens.Identification
+NAMESPACE AXOpen.Components.SIEM.Identification
 
 (* 
 +-----------+-------------------------------------------+------------------------------------------------------+---------------------+

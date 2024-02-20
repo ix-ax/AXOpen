@@ -3,47 +3,39 @@
 @inject NavigationManager _navigationManager
 @inherits AxoDialogBaseView<AxoDialog>
 @inject AuthenticationStateProvider _asp
-    
 
-<ModalDialog @ref="@base.ModalDialog" >
-    <HeaderTemplate>
-        <div class="text-center d-flex">
+<div class="border border-2 rounded">
+    <div class="d-flex align-items-center justify-content-center" title="@Component.Symbol">
         @RenderDialogIcon()
-        <h3 class="modal-title m-2 ">@Component._caption.Cyclic</h3>
-        
-        </div>
-        @if (IsYesNoCancelDialogType())
-        {
-            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" disabled="@ButtonDisabled()" @onclick="DialogAnswerCancel"> </button>
-        }
-       
-    </HeaderTemplate>
-    <BodyTemplate>
-    <p>@Component._text.Cyclic</p>
-    <div class="d-flex justify-content-center ">
+        <h3 class="title m-2">@PlcLocalizer[Component._caption.Cyclic]</h3>
+        @RenderDialogIcon()
+    </div>
 
+    <div class="d-flex justify-content-center ">
+        <h3 class="title m-2">@PlcLocalizer[@Component._text.Cyclic]</h3>
+    </div>
+
+    <div class="d-flex justify-content-center ">
 
         @if (IsOkDialogType())
         {
-                <button type="button" class="btn btn-primary m-2 w-50" disabled=@ButtonDisabled() @onclick="DialogAnswerOk">Ok</button>
+            <button type="button" class="btn btn-primary m-2 w-50" disabled=@ButtonDisabled() @onclick="DialogAnswerOk">@Localizer["Ok"]</button>
 
         }
         @if (IsYesNoDialogType() || IsYesNoCancelDialogType())
         {
-                <button type="button" class="btn btn-primary m-2 w-50" @onclick="DialogAnswerYes" disabled=@ButtonDisabled()>Yes</button>
-                <button type="button" class="btn btn-primary m-2 w-50" @onclick="DialogAnswerNo" disabled=@ButtonDisabled()>No</button>
+            <button type="button" class="btn btn-primary m-2 w-50" @onclick="DialogAnswerYes" disabled=@ButtonDisabled()>@Localizer["Yes"]</button>
+            <button type="button" class="btn btn-primary m-2 w-50" @onclick="DialogAnswerNo" disabled=@ButtonDisabled()>@Localizer["No"]</button>
         }
-     
-        
-    </div>
-    <div>
-        @if (!_asp.GetAuthenticationStateAsync().Result.User.Identity.IsAuthenticated)
+
+        @if (IsYesNoCancelDialogType())
         {
-            <p>You are not authorized, please <a href="Identity/Account/Login">Log In</a>.</p>
+            <button type="button" class="btn btn-primary m-2 w-50" @onclick="DialogAnswerCancel" disabled=@ButtonDisabled()>@Localizer["Cancel"]</button>
         }
+
     </div>
-    </BodyTemplate>
-</ModalDialog>
+
+</div>
 
 
 

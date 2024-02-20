@@ -50,7 +50,6 @@ dependencies:
   '@ix-ax/axopen.io': 0.0.0-dev.0
   probers-app: 0.0.0-dev.0
   '@ix-ax/axopen.probers': 0.0.0-dev.0
-  sandbox: 0.4.2-alpha.216
   simatic1500-app: 0.0.0-dev.0
   '@ix-ax/axopen.simatic1500': 0.0.0-dev.0
   app_apaxappname: 0.0.0-dev.0
