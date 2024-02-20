@@ -47,7 +47,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Data.Json", "..\data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Data.MongoDb", "..\data\src\repositories\MongoDb\AXOpen.Data.MongoDb.csproj", "{6600F42A-C561-41A5-BB6B-2C93613DB92E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AxOpen.Inspectors.Blazor", "..\inspectors\src\AXOpen.Inspectors.blazor\AxOpen.Inspectors.Blazor.csproj", "{286B0C9D-2B65-4C10-B7D2-19052C559ACC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Inspectors.Blazor", "..\inspectors\src\AXOpen.Inspectors.blazor\AXOpen.Inspectors.Blazor.csproj", "{286B0C9D-2B65-4C10-B7D2-19052C559ACC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_inspectors", "..\inspectors\src\AXOpen.Inspectors\ix_ax_axopen_inspectors.csproj", "{21BC94A1-E2EE-46A8-B062-45581DF36A3E}"
 EndProject
@@ -55,9 +55,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_io", "..\io\sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_ax_sdk", "..\sdk-ax\ctrl\ix\ix_ax_ax_sdk.csproj", "{8A767D14-0309-494B-BC9F-D48D65C7ACF7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security.Blazor", "..\Security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj", "{9E31DA60-74BA-484D-875F-A0429EB31EDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security.Blazor", "..\security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj", "{9E31DA60-74BA-484D-875F-A0429EB31EDF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security", "..\Security\src\AXOpen.Security\AXOpen.Security.csproj", "{85FDDFCA-D24E-4F3A-BA06-9F0369B44609}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security", "..\security\src\AXOpen.Security\AXOpen.Security.csproj", "{85FDDFCA-D24E-4F3A-BA06-9F0369B44609}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_simatic1500", "..\simatic1500\ctrl\ix\ix_ax_axopen_simatic1500.csproj", "{81B6C9F9-9762-4D72-863D-9FEC9DCC2A99}"
 EndProject
@@ -205,13 +205,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ctrl", "..\sdk-ax\ctrl", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sdk-ax", "..\sdk-ax", "{43F64FF5-AD56-4894-AA58-262B5F390E75}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security.Blazor", "..\Security\src\AXOpen.Security.Blazor", "{119FD137-5E60-4A1E-BFE8-55846B5EB162}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security.Blazor", "..\security\src\AXOpen.Security.Blazor", "{119FD137-5E60-4A1E-BFE8-55846B5EB162}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security", "..\Security\src\AXOpen.Security", "{BF810C4C-61B8-4021-8413-0DB2A86B90B9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security", "..\security\src\AXOpen.Security", "{BF810C4C-61B8-4021-8413-0DB2A86B90B9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\Security\src", "{7893F729-96F2-406E-A028-70DC28D95530}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\security\src", "{7893F729-96F2-406E-A028-70DC28D95530}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Security", "..\Security", "{1CAA7320-D822-4287-8318-8D2740F18BC8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "security", "..\security", "{1CAA7320-D822-4287-8318-8D2740F18BC8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix", "..\simatic1500\ctrl\ix", "{2B44526B-EB7F-4233-A6C9-8F89A294507E}"
 EndProject
