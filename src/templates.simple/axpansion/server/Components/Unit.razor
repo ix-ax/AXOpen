@@ -3,23 +3,13 @@
 @using AXOpen.VisualComposer;
 @inherits RenderableComplexComponentBase<axosimple.IUnit>
 
-
-<body>
-<div class="rotate-text" style=".rotate-text {
-                                            transform: rotate(45deg); /* Adjust the angle as needed */
-                                            /* Additional styling as needed */
-                                        }">
-    <h1>@Component.AttributeName</h1>
-</div>
 <div class="content-wrapper">
-    <div>
-        <VisualComposerContainer Objects="@AllVisualItems" Id="@Component.Symbol"></VisualComposerContainer>
-    </div>
+    @* <div> *@
+    @*     <VisualComposerContainer Objects="@AllVisualItems" Id="@Component.Symbol"></VisualComposerContainer> *@
+    @* </div> *@
     <UnitsSequences Component="@this.Component" ObjectCollection=AllVisualItems></UnitsSequences>
     <UnitsService ServiceTask="((dynamic)this.Component).ServiceMode" Components="AllVisualItems"></UnitsService>
 </div>
-</body>
-
 
 <!-- Modal data alarms -->
 <div class="modal fade" id="alarmsviewmodal" tabindex="-1" aria-labelledby="alarmsviewTitle" aria-hidden="true">

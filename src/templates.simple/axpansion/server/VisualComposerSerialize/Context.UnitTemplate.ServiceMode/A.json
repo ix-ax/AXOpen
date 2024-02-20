@@ -1,0 +1,44 @@
+{
+  "ImgSrc": "Images/VisualComposerSerialize/Context.UnitTemplate.ServiceMode/A.jpg",
+  "BackgroundWidth": 100,
+  "BackgroundHeight": 500,
+  "EmptyBackground": true,
+  "BackgroundColor": "#ffffff",
+  "Items": [
+    {
+      "Id": "f4604aad0a074ceddfcfb36ce1368c5b5f42abe96debd1b1111becd21a569fac",
+      "Left": 59.128580808999786,
+      "Top": 5.984482644235638,
+      "Transform": "TopCenter",
+      "Presentation": "Status-Display",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": "",
+      "PresentationTemplate": null,
+      "Background": false,
+      "BackgroundColor": "#FFFFFF"
+    },
+    {
+      "Id": "2305a4c6e91a5eccd40c8aab836514ce967ea4cba55d3fc417eef607be74599d",
+      "Left": 30.885580247304258,
+      "Top": 0.8516039373020607,
+      "Transform": "TopCenter",
+      "Presentation": "Status-Display",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": "",
+      "PresentationTemplate": null,
+      "Background": false,
+      "BackgroundColor": "#FFFFFF"
+    }
+  ],
+  "Theme": "text-dark",
+  "Scale": 1,
+  "TranslateX": 0,
+  "TranslateY": 0,
+  "AllowZoomingAndPanning": true
+}

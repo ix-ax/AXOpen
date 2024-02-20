@@ -1362,7 +1362,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     RobotStatus.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
-                    _progress := 300;
+                    _progress := 400;
                 END_IF;
                 
                 IF _progress = 400 THEN

@@ -1,0 +1,44 @@
+{
+  "ImgSrc": null,
+  "BackgroundWidth": 300,
+  "BackgroundHeight": 200,
+  "EmptyBackground": true,
+  "BackgroundColor": "#f7f7f7",
+  "Items": [
+    {
+      "Id": "8e729099b499008e6604e84d6b67169f01935c21fc69da20fcc0a0ec0dd770a0",
+      "Left": 14.35040638467051,
+      "Top": 1.6723366508552517,
+      "Transform": "TopCenter",
+      "Presentation": "Spot",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": "",
+      "PresentationTemplate": null,
+      "Background": false,
+      "BackgroundColor": "#FFFFFF"
+    },
+    {
+      "Id": "f122746ffacbbf3a0633a9695c646677467d58ed708ea07d46a16dea4f178979",
+      "Left": 63.86877472119027,
+      "Top": 1.6872428885274957,
+      "Transform": "TopCenter",
+      "Presentation": "Spot",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": "",
+      "PresentationTemplate": null,
+      "Background": false,
+      "BackgroundColor": "#FFFFFF"
+    }
+  ],
+  "Theme": "text-dark",
+  "Scale": 1,
+  "TranslateX": 0,
+  "TranslateY": 0,
+  "AllowZoomingAndPanning": true
+}
