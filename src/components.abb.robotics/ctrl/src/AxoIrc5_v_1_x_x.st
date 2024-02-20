@@ -1082,12 +1082,11 @@ NAMESPACE AXOpen.Components.Abb.Robotics
 
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
                         _progress := 663;
-                        StartMovementsTask.DoneWhen(TRUE);
                     END_IF;
                 END_IF;	
                 
                 IF _progress = 663 THEN
-                    _progress := 663;
+                    _progress := 0;
                     StartMovementsTask.DoneWhen(TRUE);
                 END_IF;	
 	            THIS.CallTimers(TRUE);
@@ -1239,7 +1238,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     END_IF;
                 END_IF;
                 
-                IF _progress = 381 THEN	
+                IF _progress = 382 THEN	
                     StopMotorsTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
                     _progress := 0;

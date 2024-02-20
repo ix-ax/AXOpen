@@ -57,6 +57,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
 
         IF(Steps[0].Execute(Sequencer, 'SFK RESTORE')) THEN
             //-------------------------------------    
+                ActivateManualControl := FALSE;
                 AxoSmartFunctionKit.Restore();
                 Sequencer.MoveNext();                
             //-------------------------------------

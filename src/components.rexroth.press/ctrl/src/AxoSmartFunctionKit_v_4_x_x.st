@@ -430,7 +430,6 @@ NAMESPACE AXOpen.Components.Rexroth.Press
 
                 IF _progress = 302 THEN  
                     TaskMessenger.ActivateOnCondition(ULINT#502, _infoTimer.output, eAxoMessageCategory#Warning);
-                    TaskMessenger.ActivateOnCondition(TO_ULINT(Inputs.Status), Inputs.Status>WORD#0, eAxoMessageCategory#Error);
                     
                     IF _infoTimer.output THEN
                         ComponentStatus.Error.Id := UINT#502;
@@ -472,6 +471,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
                 ComponentStatus.Action.Id :=  UINT#102;
                 _progress := 0;
             END_IF;
+            TaskMessenger.ActivateOnCondition(TO_ULINT(Inputs.Status), Inputs.Status>WORD#0, eAxoMessageCategory#Error);
             //*******************************************
             //*************GetResultsTask***************
             GetResultsTask.IsDisabled := Config.IpAddress = '';
