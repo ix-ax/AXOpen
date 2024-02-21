@@ -351,6 +351,9 @@ namespace AXOpen.VisualComposer
                 deserialize.AllowZoomingAndPanning = !deserialize.AllowZoomingAndPanning;
 
                 Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", deserialize);
+
+                if(CurrentView == fileName)
+                    AllowZoomingAndPanning = deserialize.AllowZoomingAndPanning;
             }
         }
 
