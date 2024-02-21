@@ -9,14 +9,7 @@
         <IAmHereIndicator />
     </div>
 
-    <div class="ms-auto">
-        <select class="form-control" @bind="Culture" @bind:event="oninput">
-            @foreach (var culture in supportedCultures)
-            {
-                <option data value="@culture">@culture.NativeName</option>
-            }
-        </select>
-    </div>
+    
     <div class="ms-5">
         <AxOpen.Security.Views.LoginDisplay />
     </div>
