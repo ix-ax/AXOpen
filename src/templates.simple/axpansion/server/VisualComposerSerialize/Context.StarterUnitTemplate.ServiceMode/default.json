@@ -1,0 +1,59 @@
+{
+  "ImgSrc": null,
+  "BackgroundWidth": 100,
+  "BackgroundHeight": 200,
+  "EmptyBackground": true,
+  "BackgroundColor": "#ebeaea",
+  "Items": [
+    {
+      "Id": "d4adaeecea3b6ffad114d37e94fbf37c2b27290f21f1c59554227a6ef3ea8ecd",
+      "Left": 10,
+      "Top": 10,
+      "Transform": "TopCenter",
+      "Presentation": "Status-Display",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": "",
+      "PresentationTemplate": null,
+      "Background": false,
+      "BackgroundColor": "#FFFFFF"
+    },
+    {
+      "Id": "3d80a6735bf45a502b9c1a397f2ad7e9938eb10031806b2a7e18c4884275fabe",
+      "Left": 78.43354430379746,
+      "Top": 1.6334661354581672,
+      "Transform": "TopCenter",
+      "Presentation": "Status-Display",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": "",
+      "PresentationTemplate": null,
+      "Background": false,
+      "BackgroundColor": "#FFFFFF"
+    },
+    {
+      "Id": "27c78cca5a92bc574d8fe5c2994d282d6533737d2821bc1f71f4ccef1e8542a5",
+      "Left": 43.54430379746835,
+      "Top": 0.6374501992031876,
+      "Transform": "TopCenter",
+      "Presentation": "Status-Display",
+      "Width": -1,
+      "Height": -1,
+      "ZIndex": 0,
+      "Scale": 1,
+      "Roles": "",
+      "PresentationTemplate": null,
+      "Background": false,
+      "BackgroundColor": "#FFFFFF"
+    }
+  ],
+  "Theme": "text-dark",
+  "Scale": 1,
+  "TranslateX": 0,
+  "TranslateY": 0,
+  "AllowZoomingAndPanning": true
+}
