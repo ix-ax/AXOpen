@@ -158,21 +158,25 @@
     <value>AUTOMAT</value>
     <comment>src\templates\starterunit\AutomatSequence.st,10</comment>
   </data>
+  <data name="DIALOG" xml:space="preserve">
+    <value>DIALOG</value>
+    <comment>src\templates\starterunit\GroundSequence.st,67</comment>
+  </data>
   <data name="RESTORE" xml:space="preserve">
     <value>RESTORE</value>
-    <comment>src\templates\starterunit\GroundSequence.st,67</comment>
+    <comment>src\templates\starterunit\GroundSequence.st,85</comment>
   </data>
   <data name="READ_PERSISTENT_SETTINGS" xml:space="preserve">
     <value>READ PERSISTENT SETTINGS</value>
-    <comment>src\templates\starterunit\GroundSequence.st,81</comment>
+    <comment>src\templates\starterunit\GroundSequence.st,100</comment>
   </data>
   <data name="READ_TECHNOLOGY_SETTINS" xml:space="preserve">
     <value>READ TECHNOLOGY SETTINS</value>
-    <comment>src\templates\starterunit\GroundSequence.st,127</comment>
+    <comment>src\templates\starterunit\GroundSequence.st,146</comment>
   </data>
   <data name="SAVE_DATA" xml:space="preserve">
     <value>SAVE DATA</value>
-    <comment>src\templates\starterunit\GroundSequence.st,169</comment>
+    <comment>src\templates\starterunit\GroundSequence.st,188</comment>
   </data>
   <data name="GROUND" xml:space="preserve">
     <value>GROUND</value>

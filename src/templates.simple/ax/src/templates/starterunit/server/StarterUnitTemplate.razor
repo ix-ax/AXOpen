@@ -44,12 +44,12 @@
       DataManger="Entry.Plc.Context.StarterUnitTemplateProcessData"
       Data="Entry.Plc.Context.StarterUnitTemplateProcessData.DataManger.Payload"
       DataHeader="Entry.Plc.Context.StarterUnitTemplateProcessData.Shared.Entity"
-      UnitComponents="Entry.Plc.Context.UnitTemplateComponents"
+      UnitComponents="Entry.Plc.Context.StarterUnitTemplateComponents"
       AditionalItems="new ITwinObject[] { Entry.Plc.Context.Safety.Zone_1, Entry.Plc.Context.Safety.Zone_2 }">
 </Unit>
  
 @code
 {
-    private axosimple.UnitTemplate.Unit Unit => Entry.Plc.Context.UnitTemplate;
+    private axosimple.StarterUnitTemplate.Unit Unit => Entry.Plc.Context.StarterUnitTemplate;
 }
     
