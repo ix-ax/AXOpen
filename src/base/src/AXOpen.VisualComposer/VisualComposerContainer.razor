@@ -383,126 +383,69 @@
                 </ZoomableContainer>
             </NotAuthorized>
         </AuthorizeView>
-
     </div>
-    <span class="@DetailsVisibility m-4">
-        <div class="card overflow-auto" style="height: 500px;">
-            <div class="card-header">
-                <div class="container-fluid m-0 p-0">
-                    <div class="row">
+    @if (!ModalDetailView)
+    {
+        <span class="@(DetailsVisibility ? null : "d-none") m-4">
+            <div class="card overflow-auto">
+                <div class="card-header">
+                    <div class="row align-items-center">
                         <div class="col-auto">
                             <button class="btn btn-close" @onclick="ToggleDetailsVisibility"></button>
                         </div>
                         <div class="col">
                             <AuthorizeView Roles="Administrator">
                                 <Authorized>
-                                    <div class="input-group mb-3">
-                                        <button type="button" class="btn btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <span class="visually-hidden">Toggle Dropdown</span>
-                                        </button>
+                                    <div class="input-group">
+                                        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Presentation</button>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" @onmouseleave="@SetCommandPresentationType">Command</a></li>
-                                            <li><a class="dropdown-item" @onmouseleave="@SetStatusPresentationType">Status</a></li>
-                                            <li><a class="dropdown-item" @onmouseleave="@SetControlPresentationType">Control</a></li>
-                                            <li><a class="dropdown-item" @onmouseleave="@SetDisplayPresentationType">Display</a></li>
+                                            <li><a class="dropdown-item" @onclick='() => DetailsPresentationType = "Command"'>Command</a></li>
+                                            <li><a class="dropdown-item" @onclick='() => DetailsPresentationType = "Status"'>Status</a></li>
+                                            <li><a class="dropdown-item" @onclick='() => DetailsPresentationType = "Control"'>Control</a></li>
+                                            <li><a class="dropdown-item" @onclick='() => DetailsPresentationType = "Display"'>Display</a></li>
                                         </ul>
-                                        <input type="text" class="form-control" @bind="@DetailsPresentationType" aria-label="Text input with segmented dropdown button">
+                                        <input type="text" class="form-control" @bind="@DetailsPresentationType">
                                     </div>
                                 </Authorized>
-                                <NotAuthorized>
-
-                                </NotAuthorized>
                             </AuthorizeView>
                         </div>
-
                     </div>
                 </div>
-                @* <div class="m-3"> *@
-                @*     <button class="btn btn-close" @onclick="ToggleDetailsVisibility"></button> *@
-                @*     <button class="btn btn-primary" @onclick="SetCommandPresentationType">Command</button> *@
-                @*     <button class="btn btn-primary" @onclick="SetControlPresentationType">Control</button> *@
-                @*     <button class="btn btn-primary" @onclick="SetStatusPresentationType">Status</button> *@
-                @*     <button class="btn btn-primary" @onclick="SetDisplayPresentationType">Display</button> *@
-                @*     <input type="text" class="form-control" placeholder="Presentation" @bind="DetailsPresentationType"> *@
-                @* </div> *@
+                <div class="card-body">
+                    <p class="card-deck overflow-auto">
+                        <RenderableContentControl @ref="detailsRcc" Presentation="Command-Control"></RenderableContentControl>
+                    </p>
+                </div>
             </div>
-            <div class="card-body" style="height: 250px;">
-                <p class="card-deck overflow-auto">
-                    <RenderableContentControl @ref="detailsRcc" Context="@DetailsObject" Presentation="Command-Control"></RenderableContentControl>
-                </p>
+        </span>
+    }
+    else
+    {
+        <div class="modal fade" id="ModalDetailView-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <AuthorizeView Roles="Administrator">
+                            <Authorized>
+                                <div class="input-group">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Presentation</button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" @onclick='() => DetailsPresentationType = "Command"'>Command</a></li>
+                                        <li><a class="dropdown-item" @onclick='() => DetailsPresentationType = "Status"'>Status</a></li>
+                                        <li><a class="dropdown-item" @onclick='() => DetailsPresentationType = "Control"'>Control</a></li>
+                                        <li><a class="dropdown-item" @onclick='() => DetailsPresentationType = "Display"'>Display</a></li>
+                                    </ul>
+                                    <input type="text" class="form-control" @bind="@DetailsPresentationType">
+                                </div>
+                            </Authorized>
+                        </AuthorizeView>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body justify-content-center">
+                        <RenderableContentControl @ref="detailsRcc" Presentation="Command-Control"></RenderableContentControl>
+                    </div>
+                </div>
             </div>
         </div>
-    </span>
+    }
 </div>
-@code
-{
-    private string detailsPresentationType;
-
-    private void SetCommandPresentationType()
-    {
-        DetailsPresentationType = "Command";
-    }
-
-    private void SetControlPresentationType()
-    {
-        DetailsPresentationType = "Control";
-    }
-
-    private void SetStatusPresentationType()
-    {
-        DetailsPresentationType = "Status";
-    }
-
-    private void SetDisplayPresentationType()
-    {
-        DetailsPresentationType = "Display";
-    }
-
-    private RenderableContentControl detailsRcc { get; set; }
-
-    private const string VISUALLY_HIDDEN = "visually-hidden";
-    private string DetailsVisibility { get; set; } = VISUALLY_HIDDEN;
-
-    public string DetailsPresentationType
-    {
-        get => detailsPresentationType;
-        set
-        {
-            detailsPresentationType = value;
-            detailsRcc.Presentation = value;
-            this.StateHasChanged();
-        }
-    }
-
-    private void ToggleDetailsVisibility()
-    {
-        this.DetailsVisibility = this.DetailsVisibility == VISUALLY_HIDDEN ? string.Empty : VISUALLY_HIDDEN;
-        if (DetailsVisibility == string.Empty)
-        {
-            detailsRcc.Presentation = "empty";
-            detailsRcc.ForceRender();
-            System.GC.Collect();
-        }
-        this.StateHasChanged();
-    }
-
-    public void UpdateDetails(ITwinElement element)
-    {
-        if (detailsRcc != null)
-        {
-            DetailsVisibility = string.Empty;
-            this.StateHasChanged();
-            detailsRcc.Context = element;
-            detailsRcc?.ForceRender();
-        }
-    }
-
-    private void ToggleInDesignMode()
-    {
-        InDesignMode = !InDesignMode;
-        ReDragElement();
-    }
-
-    private bool InDesignMode { get; set; }
-}

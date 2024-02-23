@@ -1,8 +1,10 @@
 ﻿using AXOpen.VisualComposer.Serializing;
 using AXSharp.Connector;
+using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.JSInterop;
 using Newtonsoft.Json.Linq;
 using System.Xml.Linq;
 
@@ -10,20 +12,22 @@ namespace AXOpen.VisualComposer
 {
     public partial class VisualComposerContainer
     {
-        /// <summary>
-        /// Gets or sets element for processing in a detailed view.
-        /// </summary>
-        public ITwinElement DetailsObject
-        {
-            get { return _detailsObject; }
-            set => _detailsObject = value;
-        }
-
         [Inject]
         NavigationManager NavigationManager { get; set; }
 
         [Parameter]
         public ITwinObject[] Objects { get; set; }
+
+        [Parameter]
+        public bool ModalDetailView { get; set; } = true;
+
+        private IJSRuntime _js;
+        [Inject]
+        protected IJSRuntime js
+        {
+            get => _js;
+            set => _js = value;
+        }
 
         public delegate void EmptyDelegate();
         public EmptyDelegate ReDragElementDelegate;
@@ -434,6 +438,70 @@ namespace AXOpen.VisualComposer
         internal void AddZoomableContainer(ZoomableContainer zoomableContainer)
         {
             _zoomableContainer = zoomableContainer;
+        }
+
+        private async Task ShowModal(string id)
+        {
+            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/VisualComposerContainer.razor.js");
+            await jsObject.InvokeVoidAsync("showModal", id);
+        }
+
+
+        private RenderableContentControl detailsRcc { get; set; }
+
+        private bool DetailsVisibility { get; set; } = false;
+
+        private string detailsPresentationType;
+
+        public string DetailsPresentationType
+        {
+            get => detailsPresentationType;
+            set
+            {
+                detailsPresentationType = value;
+                detailsRcc.Presentation = value;
+                this.StateHasChanged();
+            }
+        }
+
+        private void ToggleDetailsVisibility()
+        {
+            DetailsVisibility = !DetailsVisibility;
+
+            if (!DetailsVisibility)
+            {
+                detailsRcc.Presentation = "empty";
+                detailsRcc.ForceRender();
+                System.GC.Collect();
+            }
+            this.StateHasChanged();
+        }
+
+        public void UpdateDetails(ITwinElement element)
+        {
+            if (detailsRcc != null)
+            {
+                if (ModalDetailView)
+                {
+                    ShowModal("ModalDetailView-" + @Id.ModalIdHelper());
+                }
+                else
+                {
+                    DetailsVisibility = true;
+                }
+
+                this.StateHasChanged();
+                detailsRcc.Context = element;
+                detailsRcc?.ForceRender();
+            }
+        }
+
+        private bool InDesignMode { get; set; }
+
+        private void ToggleInDesignMode()
+        {
+            InDesignMode = !InDesignMode;
+            ReDragElement();
         }
     }
 }
