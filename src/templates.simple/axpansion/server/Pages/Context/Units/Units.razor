@@ -5,7 +5,7 @@
 @using AXOpen.Core.Blazor.AxoAlertDialog;
 @using AXOpen.Base.Dialogs
 @using axosimple.BaseUnit
-@inject IAlertDialogService _alerts
+@inject IAlertService _alerts
 
 <div class="container">
     <div class="row">
@@ -32,14 +32,14 @@
 {
     private async Task Automat()
     {
-        _alerts.AddAlertDialog(eAlertDialogType.Info, Localizer["Mode change"], $"{Localizer[$"Requesting automatic mode of selected units"]}.", 1);
+        _alerts.AddAlertDialog(eAlertType.Info, Localizer["Mode change"], $"{Localizer[$"Requesting automatic mode of selected units"]}.", 1);
 
         var notGroundedStations = ControlledUnits.Where(p => p.unit.GroundStatus != eAxoTaskState.Done);
         var ungroundedStationsList = string.Join(",", notGroundedStations.Select(p => p.unit.Component.AttributeName));
 
         if (notGroundedStations.Count() > 0)
         {
-            _alerts.AddAlertDialog(eAlertDialogType.Warning, Localizer["Mode change"], 
+            _alerts.AddAlertDialog(eAlertType.Warning, Localizer["Mode change"],
                 $"{Localizer[$"Cannot start automatic mode on unit(s)"]} `{ungroundedStationsList}`. Ground must be executed successfully first.", 5);
             return;
         }
@@ -49,12 +49,12 @@
             await a.unit.Automat.ExecuteAsync();
         }
 
-        _alerts.AddAlertDialog(eAlertDialogType.Success, Localizer["Mode change"], $"{Localizer[$"Automatic mode of selected units"]} has been started.", 3);
+        _alerts.AddAlertDialog(eAlertType.Success, Localizer["Mode change"], $"{Localizer[$"Automatic mode of selected units"]} has been started.", 3);
     }
 
     private async Task Ground()
     {
-        _alerts.AddAlertDialog(eAlertDialogType.Info, Localizer["Mode change"], $"{Localizer[$"Requesting ground mode of selected units"]}.", 1);
+        _alerts.AddAlertDialog(eAlertType.Info, Localizer["Mode change"], $"{Localizer[$"Requesting ground mode of selected units"]}.", 1);
         int expectedTimeToExecute = 20000;
         ControlledUnits.ToList().ForEach(async a => await a.unit.Ground.ExecuteAsync());
 
@@ -79,7 +79,7 @@
                 .Where(p => p.unit.GroundStatus != eAxoTaskState.Done)
                 .Select(p => p.unit.Component.AttributeName));
 
-            _alerts.AddAlertDialog(eAlertDialogType.Danger,
+            _alerts.AddAlertDialog(eAlertType.Danger,
                 Localizer["Mode change"],
                 $"{Localizer[$"Ground mode did not succeed on unit"]} " +
                 $"{pp}", 5);
@@ -87,7 +87,7 @@
             return;
         }
 
-        _alerts.AddAlertDialog(eAlertDialogType.Success, 
+        _alerts.AddAlertDialog(eAlertType.Success,
             Localizer["Mode change"], 
             $"{Localizer[$"Ground mode of selected unit(s)"]} was successfully executed.", 3);
 

@@ -23,6 +23,8 @@ dependencies:
   '@ix-ax/axopen.components.elements': 0.0.0-dev.0
   app_axopen.components.festo.drives: 0.0.0-dev.0
   '@ix-ax/axopen.components.festo.drives': 0.0.0-dev.0
+  app_axopen.components.kuka.robotics: 0.0.0-dev.0
+  '@ix-ax/axopen.components.kuka.robotics': 0.0.0-dev.0
   app_axopen.components.mitsubishi.robotics: 0.0.0-dev.0
   '@ix-ax/axopen.components.mitsubishi.robotics': 0.0.0-dev.0
   pneumaticcomponents: 0.0.0-dev.0
@@ -33,6 +35,8 @@ dependencies:
   '@ix-ax/axopen.components.rexroth.press': 0.0.0-dev.0
   app_axopen.components.robotics: 0.0.0-dev.0
   '@ix-ax/axopen.components.robotics': 0.0.0-dev.0
+  app_axopen.components.siemens.identification: 0.0.0-dev.0
+  '@ix-ax/axopen.components.siemens.identification': 0.0.0-dev.0
   app_axopen.components.ur.robotics: 0.0.0-dev.0
   '@ix-ax/axopen.components.ur.robotics': 0.0.0-dev.0
   ix_axopencore: 0.0.0-dev.0

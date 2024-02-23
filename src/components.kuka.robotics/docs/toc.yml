@@ -1,0 +1,22 @@
+      items:
+      - name: Introduction
+        href: index.md  
+      - name : Packages  
+        items :
+          - name: Controller
+            href: ../ctrl/README.md
+          - name: .NET TWIN
+            href: ../src/AXOpen.Components.Kuka.Robotics/README.md
+          - name: Blazor
+            href: ../src/AXOpen.Components.Kuka.Robotics.blazor/README.md    
+      - name: Components
+        href: README.md
+        items:
+          - name: Component 1
+            href: Component_1.md
+          - name: Component 2
+            href: Component_2.md
+      - name: Changes
+        href: CHANGELOG.md      
+      - name: Troubleshooting
+        href: TROUBLES.md

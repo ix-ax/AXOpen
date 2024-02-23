@@ -8,19 +8,16 @@ NAMESPACE AXOpen.Core
         VAR PUBLIC      
             _text : STRING;
             _caption : STRING;
-            _hasOK : BOOL;
-            _hasYes : BOOL;
-            _hasNo : BOOL;
-            _hasCancel : BOOL;
+            _buttons : eDialogButtons;
             _answer : eDialogAnswer;
             _dialogType : eDialogType;
-            _externalCloseReq : BOOL;
-            _closeSignal : BOOL;
-            _risingEdge : BOOL;            
         END_VAR
         
         VAR PRIVATE
+            _risingEdge : BOOL;  // not used in .net side          
             _lastCall : ULINT;
+            _createPlcCycleSpace :  BOOL;
+            _PlcCycleSpaceCounter : UINT;
         END_VAR    
 
         ///<summary>
@@ -31,85 +28,126 @@ NAMESPACE AXOpen.Core
                 _parent : IAxoObject;
             END_VAR    
 
-            VAR
+            VAR_TEMP
                 callCounter : ULINT;
             END_VAR   
 
+            Show := THIS;
+
+            IF(_parent = NULL) THEN RETURN; END_IF;
+
             THIS.Initialize(_parent);
-            //before task initialization, set _asnwer to #NoAnswer to avoid inconsitencies
-            IF (THIS.Status = eAxoTaskState#Ready) THEN
-                _answer := eDialogAnswer#NoAnswer;
+
+            IF NOT THIS.IsInitialized THEN // dialog is not observed/monitored by server
+                
+                IF (THIS.Status <> eAxoTaskState#Ready) THEN
+                    THIS.Restore(); 
+                end_if;
+                
+                _answer := eDialogAnswer#NoAnswer; // set default value
+                ErrorDetails := 'THE REMOTE TASK IS NOT INITIALIZED';
+                RETURN; // if it continue  .Execute() call ThrowWhen() and task go to ErrorState  
+            END_IF;
+
+            callCounter := THIS.GetParent().GetContext().OpenCycleCount();
+            if callCounter = _lastCall then //is called in the same cycle, suppose that is a new dialog
+                _answer := eDialogAnswer#NoAnswer; // must be reseted.
+                RETURN; 
+            END_IF;
+
+            IF _createPlcCycleSpace THEN // create cycle space AFTER RESPONSE
+                _answer := eDialogAnswer#NoAnswer; // must be set due to call for new dialog.
+                _PlcCycleSpaceCounter  := _PlcCycleSpaceCounter + UINT#1; 
+                IF _PlcCycleSpaceCounter > UINT#2 then // IT IS REDUNDAND
+                    _createPlcCycleSpace := FALSE;
+                END_IF;
+                RETURN; 
             END_IF;
             
-           // Restores when not called for 2+ consecutive cycles of the context.
-           callCounter := THIS.GetParent().GetContext().OpenCycleCount();
-           IF(callCounter > _lastCall + ULINT#1) THEN
-               THIS.Restore();
-           END_IF;                
-           _lastCall := callCounter;
+            // Restores when not called for 2+ consecutive cycles of the context.
+            IF(callCounter > _lastCall + ULINT#1) THEN
+                THIS.Restore();
+                _answer := eDialogAnswer#NoAnswer; 
+            END_IF;  
+            _lastCall := callCounter;
 
+            IF (THIS.Status = eAxoTaskState#Ready) THEN
+                _closeSignal := FALSE;
+            END_IF;
+            
             THIS.Invoke();
             SUPER.Execute();
-            _hasOK := false;
-            _hasYes := false;
-            _hasNo := false;
-            _hasCancel := false;
-            _text := '';
-            _caption := '';
-            _dialogType := eDialogType#Undefined;
 
-            Show := THIS;
+           
             //after task is done and some answer is provided, restore this task
             IF (THIS.Status = eAxoTaskState#Done && _answer <> eDialogAnswer#NoAnswer) THEN
-                
-                THIS.Restore();   
-                    
+                THIS.Restore();       
+                _createPlcCycleSpace := true;
             END_IF;
-            
-        END_METHOD
+         END_METHOD
 
 
-         ///<summary>
+        ///<summary>
         /// Show method with a possibility to close dialog externally by setting a signal.
         /// WARNING: This is experimental implementation of possibility to close dialogs externally. More testing need to be done.
         ///</summary>
-        METHOD PRIVATE ShowWithExternalClose : IAxoDialogFormat
+        METHOD PUBLIC ShowWithExternalClose : IAxoDialogFormat
             VAR_INPUT
                 _parent : IAxoObject;
                 inOkAnswerSignal : BOOL := FALSE;
                 inYesAnswerSignal : BOOL := FALSE;
                 inNoAnswerSignal : BOOL := FALSE;
                 inCancelAnswerSignal : BOOL := FALSE;
-            END_VAR    
+            END_VAR
+
             VAR_TEMP
+                callCounter : ULINT;
                 edgeDetected : BOOL;
             END_VAR
 
+            ShowWithExternalClose := THIS;
+
+            IF(_parent = NULL) THEN RETURN; END_IF;
+
             THIS.Initialize(_parent);
-            //before task initialization, set _asnwer to #NoAnswer to avoid inconsitencies
-            IF (THIS.Status = eAxoTaskState#Ready) THEN
-                _answer := eDialogAnswer#NoAnswer;
-                _closeSignal := FALSE;
+
+            IF NOT THIS.IsInitialized THEN // dialog is not observed/monitored by server
+                _answer := eDialogAnswer#NoAnswer; // set default value
+                ErrorDetails := 'THE REMOTE TASK IS NOT INITIALIZED';
+                RETURN; // if it continue  .Execute() call ThrowWhen() and task go to ErrorState  
             END_IF;
 
+            callCounter := THIS.GetParent().GetContext().OpenCycleCount();
+            if callCounter = _lastCall then //is called in the same cycle, suppose that is a new dialog
+                _answer := eDialogAnswer#NoAnswer; // must be reseted.
+                RETURN; 
+            END_IF;
+
+            IF _createPlcCycleSpace THEN // create cycle space AFTER RESPONSE
+                _answer := eDialogAnswer#NoAnswer; // must be set due to call for new dialog.
+                _PlcCycleSpaceCounter  := _PlcCycleSpaceCounter + UINT#1; 
+                IF _PlcCycleSpaceCounter > UINT#2 then // IT IS REDUNDAND
+                    _createPlcCycleSpace := FALSE;
+                    _PlcCycleSpaceCounter:=  UINT#0;
+                END_IF;
+                RETURN; 
+            END_IF;
+            
+            // Restores when not called for 2+ consecutive cycles of the context.
+            IF(callCounter > _lastCall + ULINT#1) THEN
+                THIS.Restore();
+                _answer := eDialogAnswer#NoAnswer; 
+            END_IF;  
+            _lastCall := callCounter;
+
+            IF (THIS.Status = eAxoTaskState#Ready) THEN
+                _closeSignal := FALSE;
+            END_IF;
+            
             THIS.Invoke();
             SUPER.Execute();
 
-
-            _hasOK := FALSE;
-            _hasYes := FALSE;
-            _hasNo := FALSE;
-            _hasCancel := FALSE;
-            _externalCloseReq := TRUE;
-            _text := '';
-            _caption := '';
-            _dialogType := eDialogType#Undefined;
-
-            ShowWithExternalClose := THIS;
             // watch close signals on rising edge
-            
-            //_risingEdge(signal := inOkAnswerSignal XOR inYesAnswerSignal XOR inNoAnswerSignal XOR inCancelAnswerSignal, detected => edgeDetected);
-
             edgeDetected := ((inOkAnswerSignal XOR inYesAnswerSignal XOR inNoAnswerSignal XOR inCancelAnswerSignal) AND NOT _risingEdge);
             _risingEdge := inOkAnswerSignal XOR inYesAnswerSignal XOR inNoAnswerSignal XOR inCancelAnswerSignal;
 
@@ -124,21 +162,31 @@ NAMESPACE AXOpen.Core
                 ELSIF	inCancelAnswerSignal THEN 
                     _answer := eDialogAnswer#Cancel;
                 END_IF;
-         
+
             END_IF;
 
             //after task is done and some answer is provided, restore this task
             IF (THIS.Status = eAxoTaskState#Done && _answer <> eDialogAnswer#NoAnswer) THEN
-                _externalCloseReq := FALSE;
-                //_closeSignal := FALSE;
                 THIS.Restore();       
+                _createPlcCycleSpace := true;
             END_IF;
-            
-        
             
         END_METHOD
 
-    
+        ///<summary>
+        /// Executes once when the task is restored.
+        ///</summary>
+        METHOD PROTECTED OVERRIDE OnRestore 
+            SUPER.OnRestore();
+            _buttons := eDialogButtons#NoButtons;
+            _text := '';
+            _caption := '';
+            _dialogType := eDialogType#Undefined;
+
+            _createPlcCycleSpace :=  FALSE;
+            _PlcCycleSpaceCounter:=  UINT#0;
+        END_METHOD
+
     METHOD PUBLIC WithCaption : IAxoDialogAnswer
         VAR_INPUT
             inCaption : STRING;
@@ -149,7 +197,7 @@ NAMESPACE AXOpen.Core
     END_METHOD
 
     METHOD PUBLIC WithOk : IAxoDialogAnswer
-        _hasOK := TRUE;
+        _buttons := eDialogButtons#Ok;
         WithOk := THIS;
     END_METHOD
 
@@ -172,15 +220,12 @@ NAMESPACE AXOpen.Core
     END_METHOD
 
     METHOD PUBLIC WithYesNo : IAxoDialogAnswer
-        _hasYes := TRUE;
-        _hasNo := TRUE;
+        _buttons := eDialogButtons#YesNo;
         WithYesNo := THIS;
     END_METHOD
 
     METHOD PUBLIC WithYesNoCancel : IAxoDialogAnswer
-        _hasYES := TRUE;
-        _hasNo := TRUE;
-        _hasCancel := TRUE;
+        _buttons := eDialogButtons#YesNoCancel;
         WithYesNoCancel := THIS;
     END_METHOD
 

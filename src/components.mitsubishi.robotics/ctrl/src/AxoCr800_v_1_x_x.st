@@ -933,6 +933,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                 END_IF;	
 
                 IF _progress = 354 THEN
+                    _progress := 0;
                     StartMovementsTask.DoneWhen(TRUE);
                 END_IF;	
 

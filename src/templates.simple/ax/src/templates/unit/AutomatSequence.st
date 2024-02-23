@@ -19,9 +19,15 @@ NAMESPACE axosimple.UnitTemplate
         VAR PRIVATE
             Objs : REF_TO axosimple.UnitTemplate.UnitObjects;
             Components : REF_TO axosimple.UnitTemplate.Components;
-            ProcessData : REF_TO axosimple.UnitTemplate.ProcessDataManager;
-            ProcessSettings : REF_TO axosimple.UnitTemplate.FragmentProcessDataManger;
-            TechnologySettings : REF_TO axosimple.UnitTemplate.TechnologyDataManager;
+            ProcessDataManager : REF_TO axosimple.UnitTemplate.ProcessDataManager;
+            ProcessSettingsManager : REF_TO axosimple.UnitTemplate.FragmentProcessDataManger;
+            TechnologySettingsManager : REF_TO axosimple.UnitTemplate.TechnologyDataManager;
+            
+            EntityHeader : REF_TO axosimple.EntityData;
+            ProcessData : REF_TO axosimple.UnitTemplate.ProcessData;
+            ProcessSettings : REF_TO axosimple.UnitTemplate.ProcessData;
+            TechnologySettings : REF_TO axosimple.UnitTemplate.TechnologyData;
+
             _currentId : STRING;
         END_VAR
 
@@ -35,9 +41,15 @@ NAMESPACE axosimple.UnitTemplate
                 Objs := _unitObjects;
                 
                 Components := Objs^.Components;
-                ProcessData := Objs^.ProcessData;
-                ProcessSettings := Objs^.ProcessSettings;
-                TechnologySettings := Objs^.TechnologySettings;
+                ProcessDataManager := Objs^.ProcessData;
+                ProcessSettingsManager := Objs^.ProcessSettings;
+                TechnologySettingsManager := Objs^.TechnologySettings;
+
+                EntityHeader := REF(ProcessDataManager^.Shared.Entity);
+                ProcessData :=  REF(ProcessDataManager^.DataManger.Payload);
+                ProcessSettings :=  REF(ProcessSettingsManager^.Payload);
+                TechnologySettings :=  REF(TechnologySettingsManager^.DataManger.Payload);
+
             END_IF;
 
             SUPER.Run(_parent);
@@ -47,7 +59,7 @@ NAMESPACE axosimple.UnitTemplate
         ///</summary>
 
         METHOD OVERRIDE Main
-            IF (Components = NULL OR ProcessData = NULL) THEN
+            IF (Components = NULL OR ProcessDataManager = NULL) THEN
                 RETURN;
             END_IF;
             
@@ -71,7 +83,7 @@ NAMESPACE axosimple.UnitTemplate
                 //     THIS.MoveNext(); 
                 // END_IF;    
 
-                IF (ProcessData^.CreateOrUpdate(_currentId).IsDone()) THEN 
+                IF (ProcessDataManager^.CreateOrUpdate(_currentId).IsDone()) THEN 
                     THIS.MoveNext(); 
                 END_IF;
                 //-------------------------------------------------------
@@ -80,7 +92,7 @@ NAMESPACE axosimple.UnitTemplate
             IF (Steps[20].Execute(THIS, TRUE, '<#DO SOMETHING#>')) THEN
                 //-------------------------------------------------------   
                 
-                IF(THIS.ProcessData^.DataManger.Payload.JigDataMatrixCode.Inspect(THIS, '').Done()) THEN
+                IF(THIS.ProcessDataManager^.DataManger.Payload.JigDataMatrixCode.Inspect(THIS, '').Done()) THEN
                     THIS.MoveNext();
                 END_IF;                                  
                 //-------------------------------------------------------
@@ -88,7 +100,7 @@ NAMESPACE axosimple.UnitTemplate
 
             IF (Steps[30].Execute(THIS, TRUE, '<#DO SOMETHING#>')) THEN
                 //-------------------------------------------------------                   
-                IF(THIS.ProcessData^.DataManger.Payload.PartPresence.Inspect(THIS, TRUE).Done()) THEN
+                IF(THIS.ProcessDataManager^.DataManger.Payload.PartPresence.Inspect(THIS, TRUE).Done()) THEN
                     THIS.MoveNext();
                 END_IF;                                  
                 //-------------------------------------------------------
@@ -96,7 +108,7 @@ NAMESPACE axosimple.UnitTemplate
 
             IF (Steps[4].Execute(THIS, TRUE, '<#DO SOMETHING#>')) THEN
                 //-------------------------------------------------------                   
-                IF(THIS.ProcessData^.DataManger.Payload.RivetingPreasure.Inspect(THIS, 1.5).Done()) THEN
+                IF(THIS.ProcessDataManager^.DataManger.Payload.RivetingPreasure.Inspect(THIS, 1.5).Done()) THEN
                     THIS.MoveNext();
                 END_IF;                                  
                 //-------------------------------------------------------
@@ -104,7 +116,7 @@ NAMESPACE axosimple.UnitTemplate
 
             IF (Steps[149].Execute(THIS, TRUE, '<#UPDATE DATA#>')) THEN
                 //-------------------------------------------------------
-                IF (ProcessData^.Update(_currentId).IsDone()) THEN 
+                IF (ProcessDataManager^.Update(_currentId).IsDone()) THEN 
                     THIS.MoveNext(); 
                 END_IF;
                 //-------------------------------------------------------

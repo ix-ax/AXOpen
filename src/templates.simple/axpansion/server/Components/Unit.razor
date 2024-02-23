@@ -134,7 +134,6 @@
     </button>
 </div>
 
-<AxoDialogLocator DialogId="@this.Component?.Symbol" ObservedObjects="new[] {this.Component}"></AxoDialogLocator>
-<AxoAlertDialogLocator ObservedObjects="new[] {this.Component}" />
-
+<AXOpen.Core.Blazor.AxoDialogs.AxoDialogLocator  LocatorPath="@this.Component?.Symbol" ObservedObjects="new[] {this.Component}"></AXOpen.Core.Blazor.AxoDialogs.AxoDialogLocator>
+<AXOpen.Core.Blazor.Dialogs.AxoAlertLocator ObservedObjects="new[] {this.Component}"></AXOpen.Core.Blazor.Dialogs.AxoAlertLocator>
 

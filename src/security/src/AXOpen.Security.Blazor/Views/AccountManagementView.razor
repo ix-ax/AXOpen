@@ -9,7 +9,7 @@
 @inject UserManager<User> _userManager
 @inject SignInManager<User> _signInManager
 @inject IRepositoryService _repositoryService
-@inject IAlertDialogService _alertDialogService
+@inject IAlertService _alertDialogService
 @inject AuthenticationStateProvider _authenticationStateProvider
 
 <AuthorizeView>
@@ -99,12 +99,12 @@
         if (result.Succeeded)
         {
             _signInManager.RefreshSignInAsync(_user);
-            _alertDialogService.AddAlertDialog(eAlertDialogType.Success, Localizer["Updated!"], Localizer["User succesfully updated."], 10);
+            _alertDialogService.AddAlertDialog(eAlertType.Success, Localizer["Updated!"], Localizer["User succesfully updated."], 10);
             //TcoAppDomain.Current.Logger.Information($"User '{_user.UserName}' has changed.{{payload}}", new { UserName = _user.UserName, Email = _user.Email, CanChangePassword = _user.CanUserChangePassword, Group = string.Join(",", _user.Roles) });
         }
         else
         {
-            _alertDialogService.AddAlertDialog(eAlertDialogType.Success, Localizer["Not updated!"], Localizer["User was not updated."], 10);
+            _alertDialogService.AddAlertDialog(eAlertType.Success, Localizer["Not updated!"], Localizer["User was not updated."], 10);
         }
     }
 
