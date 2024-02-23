@@ -54,12 +54,15 @@ namespace AXOpen.VisualComposer
         [JSInvokable]
         public Task SetDataAsync(double left, double top)
         {
-            Origin._left = left;
-            Origin._top = top;
+            if(Origin._left != left || Origin._top != top)
+            {
+                Origin._left = left;
+                Origin._top = top;
 
-            Origin.StateHasChangeModalDelegate?.Invoke();
+                Origin.StateHasChangeModalDelegate?.Invoke();
 
-            Parent?.Save();
+                Parent?.Save();
+            }
 
             return Task.CompletedTask;
         }
