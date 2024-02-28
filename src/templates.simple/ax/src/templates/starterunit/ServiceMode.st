@@ -35,9 +35,9 @@ NAMESPACE axosimple.StarterUnitTemplate
             END_VAR
             ;
             // HERE CALL LOGIC FOR MANUAL/SERICE OPERATIONS
-            // components.HorizontalCylinder.ActivateManualControl();
-            // components.VerticalCylinder.ActivateManualControl();
-            // components.GripperCylinder.ActivateManualControl();
+            components.HorizontalCylinder.ActivateManualControl();
+            components.VerticalCylinder.ActivateManualControl();
+            components.GripperCylinder.ActivateManualControl();
         END_METHOD
     END_CLASS
 END_NAMESPACE    

@@ -5,6 +5,8 @@
 @using AXOpen.VisualComposer;
 @using AXSharp.Connector;
 @using AXOpen.Core;
+@using axosimple.server.Units
+@using Context = axosimple.Context
 
 @inject IAlertService _alerts
 @inherits RenderableComplexComponentBase<axosimple.StarterUnitTemplate.Unit>
@@ -38,18 +40,13 @@
 </div>
 
  
-<Unit Component="Entry.Plc.Context.StarterUnitTemplate"
-      SharedTechnologySettings="Entry.Plc.Context.StarterUnitTemplateTechnologySettings.DataManger.Payload"
-      TechnologySettings="Entry.Plc.Context.StarterUnitTemplateTechnologySettings.Shared.Entity"
-      DataManger="Entry.Plc.Context.StarterUnitTemplateProcessData"
-      Data="Entry.Plc.Context.StarterUnitTemplateProcessData.DataManger.Payload"
-      DataHeader="Entry.Plc.Context.StarterUnitTemplateProcessData.Shared.Entity"
-      UnitComponents="Entry.Plc.Context.StarterUnitTemplateComponents"
-      AditionalItems="new ITwinObject[] { Entry.Plc.Context.Safety.Zone_1, Entry.Plc.Context.Safety.Zone_2 }">
-</Unit>
- 
+<Unit Component="@Services"/>
+
 @code
 {
-    private axosimple.StarterUnitTemplate.Unit Unit => Entry.Plc.Context.StarterUnitTemplate;
+    private StarterUnitTemplateServices Services => ContextService.Instance.StarterUnitTemplateServices;
+    private axosimple.StarterUnitTemplate.Unit? Unit {
+        get { return ContextService.Instance.StarterUnitTemplateServices.Unit as axosimple.StarterUnitTemplate.Unit; }
+    }
 }
     

@@ -1,4 +1,5 @@
 ﻿using AXOpen.Core;
+using axosimple.server.Units;
 using AXSharp.Connector;
 
 namespace axosimple.server
@@ -6,26 +7,26 @@ namespace axosimple.server
     public class StandardUnit
     {
 
-        public StandardUnit(ITwinObject component)
+        public StandardUnit(IUnitServices component)
         {
             Component = component;
         }
 
-        public ITwinObject Component { get; }
+        public IUnitServices Component { get; }
 
         public AxoTask Automat
         {
-            get { return this.Component?.GetType().GetProperty("AutomatSequence").GetValue(this?.Component) as AxoTask; }
+            get { return this.Component.Unit?.GetType().GetProperty("AutomatSequence").GetValue(this?.Component.Unit) as AxoTask; }
         }
 
         public AxoTask Ground
         {
-            get { return this.Component?.GetType().GetProperty("GroundSequence").GetValue(this?.Component) as AxoTask; }
+            get { return this.Component.Unit?.GetType().GetProperty("GroundSequence").GetValue(this?.Component.Unit) as AxoTask; }
         }
 
         public AxoTask Service
         {
-            get { return this.Component?.GetType().GetProperty("ServiceMode").GetValue(this?.Component) as AxoTask; }
+            get { return this.Component.Unit?.GetType().GetProperty("ServiceMode").GetValue(this?.Component.Unit) as AxoTask; }
         }
 
         public eAxoTaskState GroundStatus

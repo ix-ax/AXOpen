@@ -96,21 +96,18 @@ var UnitTemplate_ProcessData = Repository.Factory<Pocos.axosimple.UnitTemplate.P
 var persistentRepository = Repository.Factory<AXOpen.Data.PersistentRecord>("Persistent_Data");
 Entry.Plc.Context.PersistentData.InitializeRemoteDataExchange(Entry.Plc.Context, persistentRepository);
 
-var axoappContext = ContextService.Create();
-axoappContext.SetContextData(
+ContextService.Instance.SetContextData(
     technologyCommonRepository: TechnologyCommonRepository,
     entitySettingsRepository: EntitySettingsRepository,
     entityDataRepository: EntityDataRepository
     );
 
-var axoappContext_starterUnitTemplate = StarterUnitTemplateServices.Create(axoappContext);
-axoappContext_starterUnitTemplate.SetUnitsData(
+ContextService.Instance.StarterUnitTemplateServices.SetUnitsData(
     technologySettingsRepository: StarterUnitTemplate_TechSettings,
     processSettingsRepository: StarterUnitTemplate_ProcessSettings,
     processDataRepository: StarterUnitTemplate_ProcessData);
 
-var axoappContext_unitTemplate = UnitTemplateServices.Create(axoappContext);
-axoappContext_unitTemplate.SetUnitsData(
+ContextService.Instance.UnitTemplateServices.SetUnitsData(
     technologySettingsRepository: UnitTemplate_TechSettings,
     processSettingsRepository: UnitTemplate_ProcessSettings,
     processDataRepository: UnitTemplate_ProcessData);

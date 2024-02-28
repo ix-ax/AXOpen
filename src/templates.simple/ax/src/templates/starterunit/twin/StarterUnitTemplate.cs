@@ -1,16 +1,62 @@
-﻿using AXOpen.Base.Data;
+﻿using System.Runtime.CompilerServices;
+using AXOpen.Base.Data;
+using AXOpen.Messaging.Static;
 using axosimple;
+using AXSharp.Connector;
+
+
 
 namespace axosimple.server.Units
 {
-    public class StarterUnitTemplateServices    
+    public class StarterUnitTemplateServices : IUnitServices
     {
         private StarterUnitTemplateServices(ContextService contextService)
         {
             _contextService = contextService;
         }
+        
+        public AXOpen.Data.AxoDataEntity? Data { get; } = Entry.Plc.Context.StarterUnitTemplateProcessData.DataManger.Payload;
 
-        private StarterUnitTemplate.Unit Unit { get; } = Entry.Plc.Context.StarterUnitTemplate;
+        public AXOpen.Data.AxoDataEntity? DataHeader { get; } = Entry.Plc.Context.StarterUnitTemplateProcessData.Shared.Entity;
+
+        public AXOpen.Data.AxoDataExchangeBase? DataManger { get; } = Entry.Plc.Context.StarterUnitTemplateProcessData;
+
+        public AXOpen.Data.AxoDataEntity? TechnologySettings { get; } =
+            Entry.Plc.Context.StarterUnitTemplateTechnologySettings.Shared.Entity;
+
+        public AXOpen.Data.AxoDataEntity? SharedTechnologySettings { get; } =
+            Entry.Plc.Context.StarterUnitTemplateTechnologySettings.DataManger.Payload;
+
+        public AxoObject? UnitComponents => Entry.Plc.Context.StarterUnitTemplateComponents;
+        
+        public ITwinObject[] Associates => new ITwinObject[]
+        {
+            SharedTechnologySettings,
+            TechnologySettings,
+            DataManger,
+            Data,
+            DataHeader,
+            UnitComponents,
+            Entry.Plc.Context.Safety.Zone_1, 
+            Entry.Plc.Context.Safety.Zone_2
+        };
+
+        private AxoMessageProvider _messageProvider;
+        
+        public AxoMessageProvider MessageProvider
+        {
+            get
+            {
+                if (_messageProvider == null)
+                {
+                    _messageProvider = AxoMessageProvider.Create(Associates);
+                }
+
+                return _messageProvider;
+            }
+        }
+
+        public axosimple.BaseUnit.Unit Unit { get; } = Entry.Plc.Context.StarterUnitTemplate;
 
         // Technology Data manager of unit
         private StarterUnitTemplate.TechnologyDataManager StarterUnitTechnologyDataManager { get; } = 
@@ -41,10 +87,11 @@ namespace axosimple.server.Units
         public static StarterUnitTemplateServices Create(ContextService contextService)
         {
             var retVal = new StarterUnitTemplateServices(contextService);
+            retVal.Unit.UnitServices = retVal;
             return retVal;
         }
 
-        public void SetUnitsData(
+        public StarterUnitTemplateServices SetUnitsData(
             IRepository<Pocos.axosimple.StarterUnitTemplate.TechnologyData> technologySettingsRepository,
             IRepository<Pocos.axosimple.StarterUnitTemplate.ProcessData> processSettingsRepository,
             IRepository<Pocos.axosimple.StarterUnitTemplate.ProcessData> processDataRepository
@@ -68,7 +115,9 @@ namespace axosimple.server.Units
             StarterUnitTechnologyDataManager.Shared.InitializeRemoteDataExchange(_contextService.TechnologyCommonRepository);
             StarterUnitTechnologyDataManager.DataManger.InitializeRemoteDataExchange(TechnologySettingsRepository);
             StarterUnitTechnologyDataManager.InitializeRemoteDataExchange();
-            
+
+            return this;
+
         }
     }
 }

@@ -4,7 +4,7 @@
 @using AXOpen.Core.Blazor.Culture
 @using AXOpen.Messaging.Static
 @using AXOpen.ToolBox.Extensions
-@inherits RenderableComplexComponentBase<AXSharp.Connector.ITwinObject>
+@inherits RenderableComplexComponentBase<axosimple.BaseUnit.Unit>
 
 
 <div class="card" style="width: 18rem;">
@@ -112,9 +112,9 @@
         {
             if (this._unit == null && this.Component != null)
             {
-                this._unit = new StandardUnit(this.Component);
+                this._unit = new StandardUnit(this.Component.UnitServices);
             }
-
+    
             return this._unit;
         }
     }

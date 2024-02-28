@@ -5,6 +5,7 @@
 @using AXOpen.Core.Blazor.AxoAlertDialog;
 @using AXOpen.Base.Dialogs
 @using axosimple.BaseUnit
+@using axosimple.server.Units
 @inject IAlertService _alerts
 
 <div class="container">
@@ -35,7 +36,7 @@
         _alerts.AddAlertDialog(eAlertType.Info, Localizer["Mode change"], $"{Localizer[$"Requesting automatic mode of selected units"]}.", 1);
 
         var notGroundedStations = ControlledUnits.Where(p => p.unit.GroundStatus != eAxoTaskState.Done);
-        var ungroundedStationsList = string.Join(",", notGroundedStations.Select(p => p.unit.Component.AttributeName));
+        var ungroundedStationsList = string.Join(",", notGroundedStations.Select(p => p.unit.Component.Unit.AttributeName));
 
         if (notGroundedStations.Count() > 0)
         {
@@ -77,7 +78,7 @@
         {
             var pp = string.Join(",\n", ControlledUnits
                 .Where(p => p.unit.GroundStatus != eAxoTaskState.Done)
-                .Select(p => p.unit.Component.AttributeName));
+                .Select(p => p.unit.Component.Unit.AttributeName));
 
             _alerts.AddAlertDialog(eAlertType.Danger,
                 Localizer["Mode change"],
@@ -109,8 +110,8 @@
                 // (new StandardUnit(Entry.Plc.Context.Cu1),"Context/Units/Cu1", "logo-header.svg"),
                 // (new StandardUnit(Entry.Plc.Context.Cu2),"Context/Units/Cu2", "logo-header.svg"),
 
-                (new StandardUnit(Entry.Plc.Context.UnitTemplate),"Context/Units/UnitTemplate", "logo-header.svg"),
-                (new StandardUnit(Entry.Plc.Context.StarterUnitTemplate),"Context/Units/StarterUnitTemplate", "logo-axopen-no-background.svg"),
+                (new StandardUnit(ContextService.Instance.UnitTemplateServices),"Context/Units/UnitTemplate", "logo-header.svg"),
+                (new StandardUnit(ContextService.Instance.StarterUnitTemplateServices),"Context/Units/StarterUnitTemplate", "logo-axopen-no-background.svg"),
             };
         }
     }

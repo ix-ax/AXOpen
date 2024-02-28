@@ -162,6 +162,10 @@
     <value>DIALOG</value>
     <comment>src\templates\starterunit\GroundSequence.st,67</comment>
   </data>
+  <data name="DO_YOU_WANT_TO_RUN_THE_GROUND_MODE_SEQUENCE_QUESTIONMARK_" xml:space="preserve">
+    <value>DO YOU WANT TO RUN THE GROUND MODE SEQUENCE?</value>
+    <comment>src\templates\starterunit\GroundSequence.st,70</comment>
+  </data>
   <data name="RESTORE" xml:space="preserve">
     <value>RESTORE</value>
     <comment>src\templates\starterunit\GroundSequence.st,85</comment>

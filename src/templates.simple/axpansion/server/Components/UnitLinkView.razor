@@ -4,13 +4,14 @@
 @using AXOpen.Core.Blazor.Culture
 @using AXOpen.Messaging.Static
 @using AXOpen.ToolBox.Extensions
-@inherits RenderableComplexComponentBase<AXSharp.Connector.ITwinObject>
+@using axosimple.server.Units
+@inherits RenderableComponentBase
 
 
 <div class="card" style="width: 18rem;">
     <img src="@ImageLink" class="card-img-top p-3" alt="...">
     <div class="card-body">
-        <h5 class="card-title">@Component.GetAttributeName(CultureInfo.CurrentUICulture)</h5>
+        <h5 class="card-title">@Component.Unit.GetAttributeName(CultureInfo.CurrentUICulture)</h5>
         <p class="card-text">
             <span class="badge rounded-pill @Mode">@ModeDescription</span>
         </p>
@@ -28,6 +29,9 @@
 
 @code {
 
+    [Parameter]
+    public IUnitServices Component { get; set; }
+    
     [Parameter]
     public string Link { get; set; }
 
@@ -106,17 +110,10 @@
             PolledElements.Add(Unit.Automat.Status);
             PolledElements.Add(Unit.Service.Status);
         }
-
-        foreach (var axoMessenger in this.Messengers.SelectMany(p => new ITwinElement[] { p.MessengerState }))
-        {
-            axoMessenger.StartPolling(2500, this);
-            PolledElements.Add(axoMessenger);
-        }
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await UpdateMessages();
         await base.OnAfterRenderAsync(firstRender);
         this.StateHasChanged();
     }
@@ -133,28 +130,10 @@
             return this._unit;
         }
     }
-
-    private async Task UpdateMessages()
-    {
-        if (Messengers != null) MessagesCount = Messengers.Count(p => p.State > eAxoMessengerState.Idle);
-    }
-
+    
     public int MessagesCount { get; set; }
 
-    private AxoMessenger[] Messengers
-    {
-        get
-        {
-            var twinObject = this.Component;
-            if (twinObject != null) return twinObject.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>().ToArray();
-            return new AxoMessenger[] {};
-        }
-    }
-
-
     
-
-
     protected override void OnInitialized()
     {
         //base.OnInitialized();
@@ -162,12 +141,6 @@
         this.UpdateValuesOnChange(Unit.Ground.Status);
         this.UpdateValuesOnChange(Unit.Automat.Status);
         this.UpdateValuesOnChange(Unit.Service.Status);
-        
-
-        foreach (var axoMessenger in this.Messengers.SelectMany(p => new ITwinElement[] { p.MessengerState }))
-        {
-            this.UpdateValuesOnChange(axoMessenger);
-        }
     }
 
     private StandardUnit _unit;
