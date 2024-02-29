@@ -87,6 +87,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 Init               :    BOOL;                               // init-run
                 Cmdsel             :    UINT    :=  UINT#1;                 // selector for executive command
                 refHwConnect       :    REF_TO Axo_IID_HW_CONNECT;  
+                refCmd             :    REF_TO ARRAY[1..10] OF Axo_IID_CMD_STRUCT;   // command-buffer
                 refTx              :    REF_TO ARRAY[*] OF BYTE;            // send-buffer
                 refRx              :    REF_TO ARRAY[*] OF BYTE;            // receive-buffer
             END_VAR         
@@ -106,9 +107,6 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 Uin3               :   BOOL;                               // user-input 3 of the Ident-Unit
                 Trlen              :   DINT;                               // length of send/receive data
             END_VAR
-            VAR_IN_OUT
-                aCmdref             : ARRAY[1..10] OF Axo_IID_CMD_STRUCT;   // command-buffer
-            END_VAR	
 
             VAR_TEMP 
                 tempRaisedExecute   :   BOOL;                               // flag for rising edge of execute
@@ -174,6 +172,12 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             
             IF refRx = NULL THEN
                 nStatus := DWORD#16#FEFE0003; // TODO provide message
+                statErrorCounter := statErrorCounter + 1;
+                RETURN;
+            END_IF;
+
+            IF refCmd = NULL THEN
+                nStatus := DWORD#16#FEFE0004; // TODO provide message
                 statErrorCounter := statErrorCounter + 1;
                 RETURN;
             END_IF;
@@ -317,7 +321,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                             statChainedCounter := UINT#1;
                             statSqModified := FALSE;
                             statCmdSelCounter := Cmdsel;
-                            statCmd := aCmdref[statCmdSelCounter];
+                            statCmd := refCmd^[statCmdSelCounter];
                         
                     END_IF;
                     
@@ -914,7 +918,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                     IF statCmd.CHAINED AND statCmdSelCounter < UINT#100 AND NOT refHwConnect^.Static.STATUS_INITIALISATION THEN
                                         statCmdSelCounter := statCmdSelCounter + UINT#1;
                                         
-                                        statCmd := aCmdref[statCmdSelCounter];
+                                        statCmd := refCmd^[statCmdSelCounter];
                                         
                                         statChainedCounter := statChainedCounter + UINT#1;
                                         refHwConnect^.Static.state := STATE4;
@@ -941,7 +945,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                 END_IF;
                                 
                                 // copy over actual command  
-                                statCmd := aCmdref[ (statCmdSelCounter - statChainedCounter) + UINT#1];
+                                statCmd := refCmd^[ (statCmdSelCounter - statChainedCounter) + UINT#1];
                                 
                                 // got to next step => read answer 
                                 refHwConnect^.Static.state := STATE7;
