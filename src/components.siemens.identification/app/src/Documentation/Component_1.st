@@ -1,5 +1,5 @@
 USING AXOpen.Core;
-USING  AXOpen.Components.Siemens.Identification;
+USING  AXOpen.Components.SIEM.Identification;
 
 {S7.extern=ReadWrite}
 CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
