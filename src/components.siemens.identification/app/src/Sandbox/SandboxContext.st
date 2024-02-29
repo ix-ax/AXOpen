@@ -153,12 +153,12 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
                     SoftReset      := rf186_1_softReset,
                     Init           := rf186_1_init,
                     Cmdsel         := rf186_1_cmdsel,
+                    HwConnect      := REF( Connect_RF188C_CH01), 
                     Done           => rf186_1_done,
                     Busy           => rf186_1_busy,
                     Error          => rf186_1_error,
                     Warning        => rf186_1_warning,
                     Status         => rf186_1_status,
-                    stHwConnect    :=  Connect_RF188C_CH01, 
                     aCmdRef        :=  aCommands,
                     aTxRef         :=  aDataTx,
                     aRxRef         :=  aDataRx);

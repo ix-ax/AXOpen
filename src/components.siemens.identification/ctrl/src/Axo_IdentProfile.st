@@ -81,11 +81,12 @@ NAMESPACE AXOpen.Components.SIEM.Identification
         END_VAR
         METHOD PUBLIC Run
             VAR_INPUT
-                Execute            :   BOOL;                               // rising edge: start command
-                RepeatCommand      :   BOOL;                               // repeat command
-                SoftReset          :   BOOL;                               // soft reset
-                Init               :   BOOL;                               // init-run
-                Cmdsel             :   UINT    :=  UINT#1;                 // selector for executive command
+                Execute            :    BOOL;                               // rising edge: start command
+                RepeatCommand      :    BOOL;                               // repeat command
+                SoftReset          :    BOOL;                               // soft reset
+                Init               :    BOOL;                               // init-run
+                Cmdsel             :    UINT    :=  UINT#1;                 // selector for executive command
+                HwConnect          :    REF_TO Axo_IID_HW_CONNECT;  
             END_VAR         
             VAR_OUTPUT          
                 Done               :   BOOL;                               // command is done
@@ -104,7 +105,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 Trlen              :   DINT;                               // length of send/receive data
             END_VAR
             VAR_IN_OUT
-                stHwConnect         : Axo_IID_HW_CONNECT;  
+                // HwConnect^.         : Axo_IID_HW_CONNECT;  
                 aCmdref             : ARRAY[1..10] OF Axo_IID_CMD_STRUCT;   // command-buffer
                 aTxref              : ARRAY[*] OF BYTE;                     // send-buffer
                 aRxref              : ARRAY[*] OF BYTE;                     // receive-buffer
@@ -141,8 +142,9 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 rwr                 :   WORD;
                 rww                 :   WORD;
                 data                :   ARRAY[0..1] OF BYTE;
-                i                       :   UINT;
+                i                   :   UINT;
             END_VAR
+
 
             Done            :=  bDone;
             Busy            :=  bBusy;
@@ -159,7 +161,12 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             Uin3            :=  bUin3;
             Trlen           :=  nTrlen;
 
-            IF TRUE THEN //#stHwConnect <> NULL THEN
+            IF HwConnect = NULL THEN
+                nStatus := DWORD#16#FFFFFFFF; // TODO provide message
+                RETURN;
+            END_IF;
+            
+            IF TRUE THEN //#HwConnect^. <> NULL THEN
                 IF statPrevExecute <> Execute THEN
                     tempRaisedExecute := Execute;
                 END_IF;
@@ -176,7 +183,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 statPrevSReset := SoftReset;
                 
                 // reset outputs, if no init or execute or sreset is set 
-                IF (NOT Execute AND NOT Init AND NOT SoftReset) AND NOT stHwConnect.Static.STATUS_IN_WORK THEN
+                IF (NOT Execute AND NOT Init AND NOT SoftReset) AND NOT HwConnect^.Static.STATUS_IN_WORK THEN
                     bDone := false;
                     bBusy := false;
                     bError := false;
@@ -185,8 +192,8 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 
                 // start SRESET 
                 IF tempRaisedSreset THEN
-                    stHwConnect.Static.SRESET_cyc := true;
-                    stHwConnect.Static.STATUS_IN_WORK := true;
+                    HwConnect^.Static.SRESET_cyc := true;
+                    HwConnect^.Static.STATUS_IN_WORK := true;
                     // Set Outputs 
                     bDone := FALSE;
                     bBusy := TRUE;
@@ -196,7 +203,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 END_IF;
                 
                 // Init or  Execute is set; Init can start everytime. Execute (command) only if nothing is working 
-                IF (tempRaisedInit AND NOT stHwConnect.Static.STATUS_INITIALISATION) OR (tempRaisedExecute AND NOT stHwConnect.Static.STATUS_IN_WORK) THEN
+                IF (tempRaisedInit AND NOT HwConnect^.Static.STATUS_INITIALISATION) OR (tempRaisedExecute AND NOT HwConnect^.Static.STATUS_IN_WORK) THEN
                     // Set Outputs 
                     bDone := FALSE;
                     bBusy := TRUE;
@@ -208,7 +215,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                     statLastMoveError := INT#0;
                     
                     // reset flag for executed initialisation 
-                    stHwConnect.Static.STATUS_LAST_CMD_INIT := false;
+                    HwConnect^.Static.STATUS_LAST_CMD_INIT := false;
                     
                     // check send and receive buffer and save buffer length     
                     statLowerBoundTxref := LOWER_BOUND(aTxref, INT#1);
@@ -230,69 +237,69 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                         // steps for init procedure 
                         IF tempRaisedInit THEN
                             // set status-variables 
-                            stHwConnect.Static.STATUS_INITIALISATION := true;
-                            stHwConnect.Static.STATUS_IN_WORK := true;
+                            HwConnect^.Static.STATUS_INITIALISATION := true;
+                            HwConnect^.Static.STATUS_IN_WORK := true;
                             // set flag for executed initialisation 
-                            stHwConnect.Static.STATUS_LAST_CMD_INIT := true;
+                            HwConnect^.Static.STATUS_LAST_CMD_INIT := true;
                             // raise INIT in cyclic control word 
-                            stHwConnect.Static.INIT_cyc := tempRaisedInit;
+                            HwConnect^.Static.INIT_cyc := tempRaisedInit;
                             // INIT starts in step 0 
-                            stHwConnect.Static.state := STATE0;
+                            HwConnect^.Static.state := STATE0;
                             // reset index and instruction-set 
-                            stHwConnect.Static.instruction_set := false;
-                            stHwConnect.Static.index_set := true;
-                            stHwConnect.Static.config_value := BYTE#16#4;
+                            HwConnect^.Static.instruction_set := false;
+                            HwConnect^.Static.index_set := true;
+                            HwConnect^.Static.config_value := BYTE#16#4;
                             // reset chain infos
                             statChainedStatus := DWORD#16#0;
                             // drop SRESET 
-                            stHwConnect.Static.SRESET_active := FALSE;
-                            stHwConnect.Static.SRESET_cyc := FALSE;
+                            HwConnect^.Static.SRESET_active := FALSE;
+                            HwConnect^.Static.SRESET_cyc := FALSE;
                             // drop internal rpt 
-                            stHwConnect.Static.RPTCMD_cyc := FALSE;
+                            HwConnect^.Static.RPTCMD_cyc := FALSE;
                             //Reset RDREC and WRREC requests
                             statRDREC.request := FALSE;
                             statWRREC.request := FALSE;
                             
                             // calculate INDEX for old modules and RF68xR 
-                            IF stHwConnect.Static.index_set THEN
-                                stHwConnect.Static.index := TO_UINT(WORD#16#B050) - stHwConnect.CM_CHANNEL;
+                            IF HwConnect^.Static.index_set THEN
+                                HwConnect^.Static.index := TO_UINT(WORD#16#B050) - HwConnect^.CM_CHANNEL;
                             ELSE
-                                stHwConnect.Static.index := stHwConnect.CM_CHANNEL + UINT#100;
+                                HwConnect^.Static.index := HwConnect^.CM_CHANNEL + UINT#100;
                             END_IF;
                         END_IF;
                         // steps for command procedure 
-                        IF tempRaisedExecute AND NOT stHwConnect.Static.STATUS_IN_WORK THEN
+                        IF tempRaisedExecute AND NOT HwConnect^.Static.STATUS_IN_WORK THEN
                             // set status-variables 
-                            stHwConnect.Static.STATUS_INITIALISATION := false;
-                            stHwConnect.Static.STATUS_IN_WORK := TRUE;
+                            HwConnect^.Static.STATUS_INITIALISATION := false;
+                            HwConnect^.Static.STATUS_IN_WORK := TRUE;
                             
                             //Reset RDREC and WRREC requests
                             statRDREC.request := FALSE;
                             statWRREC.request := FALSE;
                             
                             // calculate INDEX for old modules and RF68xR 
-                            IF stHwConnect.Static.index_set THEN
-                                stHwConnect.Static.index := TO_UINT(WORD#16#B046) - stHwConnect.CM_CHANNEL;
+                            IF HwConnect^.Static.index_set THEN
+                                HwConnect^.Static.index := TO_UINT(WORD#16#B046) - HwConnect^.CM_CHANNEL;
                             ELSE
-                                stHwConnect.Static.index := stHwConnect.CM_CHANNEL + UINT#110;
+                                HwConnect^.Static.index := HwConnect^.CM_CHANNEL + UINT#110;
                             END_IF;
                         END_IF;
                         
                         // set variables for repeat command. only if rpt_active of reader is set 
-                        IF  (stHwConnect.Static.RPTCMD_cyc OR stHwConnect.Static.RPTCMD_active) AND NOT tempRaisedInit THEN
+                        IF  (HwConnect^.Static.RPTCMD_cyc OR HwConnect^.Static.RPTCMD_active) AND NOT tempRaisedInit THEN
                             // setup things to receive next acknowledgement sequence 
                             statAdb := UINT#0;
                             // reset timer 
                             statTimeout(signal := FALSE,
-                                         duration := stHwConnect.Static.timeout_repeat);
+                                         duration := HwConnect^.Static.timeout_repeat);
                             // start timer 
                             statTimeout(signal := TRUE,
-                                         duration := stHwConnect.Static.timeout_repeat);
+                                         duration := HwConnect^.Static.timeout_repeat);
                             // remind chained counter
                             statChainedCounter := statFixChainedCounter;
                             statSqModified := FALSE;
                             // jump to state 6 => wait for acknowledge and read result 
-                            stHwConnect.Static.state := STATE6;
+                            HwConnect^.Static.state := STATE6;
                         ELSE
                             // reset chained memory if no repeat is started 
                             statFixChainedCounter := UINT#1;
@@ -304,8 +311,8 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                         END_IF;
                         
                         // check index 
-                        IF stHwConnect.Static.index < UINT#101 OR stHwConnect.Static.index > UINT#118 OR stHwConnect.Static.index = UINT#109 OR stHwConnect.Static.index = UINT#110 THEN
-                            IF stHwConnect.Static.index > TO_UINT(WORD#16#B04F) OR stHwConnect.Static.index < TO_UINT(WORD#16#B03E) THEN
+                        IF HwConnect^.Static.index < UINT#101 OR HwConnect^.Static.index > UINT#118 OR HwConnect^.Static.index = UINT#109 OR HwConnect^.Static.index = UINT#110 THEN
+                            IF HwConnect^.Static.index > TO_UINT(WORD#16#B04F) OR HwConnect^.Static.index < TO_UINT(WORD#16#B03E) THEN
                                 tempIntError := true;
                                 statIntStatus := DWORD#16#E7FE0600;
                             END_IF;
@@ -319,8 +326,8 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 END_IF;
                 
                 // Read cyclic data
-                // rwr := DPRD_DAT(LADDR := TO_UINT (stHwConnect.HW_ID), RECORD => stHwConnect.Static.cyc_status);
-                rwr := Siemens.Simatic.S71500.DistributedIO.ReadData(stHwConnect.HW_ID , data);
+                // rwr := DPRD_DAT(LADDR := TO_UINT (HwConnect^.HW_ID), RECORD => HwConnect^.Static.cyc_status);
+                rwr := Siemens.Simatic.S71500.DistributedIO.ReadData(HwConnect^.HW_ID , data);
                 //TODO add messenger in case of reading error
                 // Messenger.ActivateOnCondition(ULINT#703,rwr > WORD#0, eAxoMessageCategory#ProgrammingError);
                 // IF returnValue > WORD#0 THEN
@@ -328,50 +335,50 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 //     RETURN;
                 // END_IF;
     
-                stHwConnect.Static.cyc_status.%B0   := data[1]; //TODO check order of bytes
-                stHwConnect.Static.cyc_status.%B1   := data[0];
+                HwConnect^.Static.cyc_status.%B0   := data[1]; //TODO check order of bytes
+                HwConnect^.Static.cyc_status.%B1   := data[0];
                 
                 // decode input word 
-                bUin0 := stHwConnect.Static.cyc_status.%X0;
-                bUin1 := stHwConnect.Static.cyc_status.%X1;
-                bUin2 := stHwConnect.Static.cyc_status.%X2;
-                bUin3 := stHwConnect.Static.cyc_status.%X3;
-                bErrIreq := stHwConnect.Static.cyc_status.%X4;
+                bUin0 := HwConnect^.Static.cyc_status.%X0;
+                bUin1 := HwConnect^.Static.cyc_status.%X1;
+                bUin2 := HwConnect^.Static.cyc_status.%X2;
+                bUin3 := HwConnect^.Static.cyc_status.%X3;
+                bErrIreq := HwConnect^.Static.cyc_status.%X4;
                 //busy                            := hw_connect.Static.cyc_status.%X5;  // optional, not used 
-                stHwConnect.Static.RPTCMD_active := stHwConnect.Static.cyc_status.%X6;
-                stHwConnect.Static.SRESET_active := stHwConnect.Static.cyc_status.%X7;
-                bTp := stHwConnect.Static.cyc_status.%X8;
-                stHwConnect.Static.presence := stHwConnect.Static.cyc_status.%X8;
-                bTpc := stHwConnect.Static.cyc_status.%X9;
+                HwConnect^.Static.RPTCMD_active := HwConnect^.Static.cyc_status.%X6;
+                HwConnect^.Static.SRESET_active := HwConnect^.Static.cyc_status.%X7;
+                bTp := HwConnect^.Static.cyc_status.%X8;
+                HwConnect^.Static.presence := HwConnect^.Static.cyc_status.%X8;
+                bTpc := HwConnect^.Static.cyc_status.%X9;
                 // bit 11 reserved                  := hw_connect.Static.cyc_status.%X10; 
-                stHwConnect.Static.CC_L := stHwConnect.Static.cyc_status.%X11;
-                stHwConnect.Static.CC_H := stHwConnect.Static.cyc_status.%X12;
-                stHwConnect.Static.AC_L := stHwConnect.Static.cyc_status.%X13;
-                stHwConnect.Static.AC_H := stHwConnect.Static.cyc_status.%X14;
-                stHwConnect.Static.init_active := stHwConnect.Static.cyc_status.%X15;
+                HwConnect^.Static.CC_L := HwConnect^.Static.cyc_status.%X11;
+                HwConnect^.Static.CC_H := HwConnect^.Static.cyc_status.%X12;
+                HwConnect^.Static.AC_L := HwConnect^.Static.cyc_status.%X13;
+                HwConnect^.Static.AC_H := HwConnect^.Static.cyc_status.%X14;
+                HwConnect^.Static.init_active := HwConnect^.Static.cyc_status.%X15;
                 
                 // set output for repeat 
-                bRepeatActive := stHwConnect.Static.RPTCMD_active;
+                bRepeatActive := HwConnect^.Static.RPTCMD_active;
                 
                 // map RPTCMD if Ident_FB is not in_work 
-                IF NOT stHwConnect.Static.STATUS_IN_WORK THEN
-                    stHwConnect.Static.RPTCMD_cyc := RepeatCommand;
+                IF NOT HwConnect^.Static.STATUS_IN_WORK THEN
+                    HwConnect^.Static.RPTCMD_cyc := RepeatCommand;
                 END_IF;
                 
                 // build cyclic control word 
-                stHwConnect.Static.cyc_control := WORD#16#0;
+                HwConnect^.Static.cyc_control := WORD#16#0;
                 // 4/5 reserved 
-                stHwConnect.Static.cyc_control.%X6 := stHwConnect.Static.RPTCMD_cyc;
-                stHwConnect.Static.cyc_control.%X7 := stHwConnect.Static.SRESET_cyc;
+                HwConnect^.Static.cyc_control.%X6 := HwConnect^.Static.RPTCMD_cyc;
+                HwConnect^.Static.cyc_control.%X7 := HwConnect^.Static.SRESET_cyc;
                 // 9-14 reserved 
-                stHwConnect.Static.cyc_control.%X15 := stHwConnect.Static.INIT_cyc;
+                HwConnect^.Static.cyc_control.%X15 := HwConnect^.Static.INIT_cyc;
                 
                 // Write cyclic data
-                // rww := DPWR_DAT(LADDR := TO_UINT( stHwConnect.HW_ID ) , RECORD := stHwConnect.Static.cyc_control);
-                data[0] := stHwConnect.Static.cyc_control.%B1;  //TODO check order of the bytes
-                data[1] := stHwConnect.Static.cyc_control.%B0;
+                // rww := DPWR_DAT(LADDR := TO_UINT( HwConnect^.HW_ID ) , RECORD := HwConnect^.Static.cyc_control);
+                data[0] := HwConnect^.Static.cyc_control.%B1;  //TODO check order of the bytes
+                data[1] := HwConnect^.Static.cyc_control.%B0;
                 
-                rww := Siemens.Simatic.S71500.DistributedIO.WriteData(stHwConnect.HW_ID,data);
+                rww := Siemens.Simatic.S71500.DistributedIO.WriteData(HwConnect^.HW_ID,data);
                 // TODO provide messaging in caso of error writing
                 // Messenger.ActivateOnCondition(ULINT#704,rww > WORD#0, eAxoMessageCategory#ProgrammingError);
                 // IF returnValue > WORD#0 THEN
@@ -380,23 +387,23 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 // END_IF;
                     
                 // SRESET is set 
-                IF stHwConnect.Static.SRESET_cyc THEN
+                IF HwConnect^.Static.SRESET_cyc THEN
                     // wait till acycl. communication is done 
                     IF statWRREC.BUSY THEN
                         statWRREC.request := FALSE;
-                        statWRREC(request := FALSE, record := stHwConnect.Static.pnConfigRecord.record.buf);
+                        statWRREC(request := FALSE, record := HwConnect^.Static.pnConfigRecord.record.buf);
                         RETURN;
                     END_IF;
                     IF statRDREC.BUSY THEN
                         statRDREC.request := FALSE;
-                        statRDREC(request := FALSE, record := stHwConnect.Static.pnConfigRecord.record.buf);
+                        statRDREC(request := FALSE, record := HwConnect^.Static.pnConfigRecord.record.buf);
                         RETURN;
                     END_IF;
                     
                     // if reader/CM has ack the SRESET with active-bit, reset cyclic SRESET and jump to step 8 
-                    IF stHwConnect.Static.SRESET_active THEN
-                        stHwConnect.Static.state := STATE8;
-                        stHwConnect.Static.SRESET_cyc := false;
+                    IF HwConnect^.Static.SRESET_active THEN
+                        HwConnect^.Static.state := STATE8;
+                        HwConnect^.Static.SRESET_cyc := false;
                     ELSE
                         // if reader/cm is not finished got out 
                         RETURN;
@@ -405,20 +412,20 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 
                 
                 // go in statemachine only if Ident_FB is in_work and have no error 
-                IF stHwConnect.Static.STATUS_IN_WORK AND NOT tempIntError THEN
+                IF HwConnect^.Static.STATUS_IN_WORK AND NOT tempIntError THEN
                     // The loop will only use to jump out at every place if an error occurs 
                     FOR tempTmp := UINT#1 TO UINT#1 DO
-                        CASE stHwConnect.Static.state OF
+                        CASE HwConnect^.Static.state OF
                             STATE0: //----------------------Initialisation 1----------------------------
                                 // wait if WRREC and RDREC are done 
                                 IF statWRREC.BUSY THEN
                                     statWRREC.request := FALSE;
-                                    statWRREC(request := FALSE, record := stHwConnect.Static.pnConfigRecord.record.buf);
+                                    statWRREC(request := FALSE, record := HwConnect^.Static.pnConfigRecord.record.buf);
                                     EXIT;
                                 END_IF;
                                 IF statRDREC.BUSY THEN
                                     statRDREC.request := FALSE;
-                                    statRDREC(request := FALSE, record := stHwConnect.Static.pnConfigRecord.record.buf);
+                                    statRDREC(request := FALSE, record := HwConnect^.Static.pnConfigRecord.record.buf);
                                     EXIT;
                                 END_IF;
                                 
@@ -435,89 +442,89 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                 END_IF;
                                 
                                 // reset sequence_number 
-                                stHwConnect.Static.sequence_number := UINT#0;
+                                HwConnect^.Static.sequence_number := UINT#0;
                                 
                                 // reset timer 
                                 statTimeout(signal := FALSE,
-                                             duration := stHwConnect.Static.timeout_reset);
+                                             duration := HwConnect^.Static.timeout_reset);
                                 // start timer 
                                 statTimeout(signal := TRUE,
-                                             duration := stHwConnect.Static.timeout_reset);
+                                             duration := HwConnect^.Static.timeout_reset);
                                 
                                 // set buflen of telegram 
-                                stHwConnect.Static.buf_max := UINT#240;
-                                stHwConnect.Static.buf_maxdata := stHwConnect.Static.buf_max - stHwConnect.Static.buf_header;
+                                HwConnect^.Static.buf_max := UINT#240;
+                                HwConnect^.Static.buf_maxdata := HwConnect^.Static.buf_max - HwConnect^.Static.buf_header;
                                 // first check PDU size 
                                 statPduDetection := TRUE;
                                 
                                 // go to next step 
-                                stHwConnect.Static.state := STATE1;
+                                HwConnect^.Static.state := STATE1;
                                 
                             STATE1: //------------Initialisation 2: wait for init_active of device--------------- 
-                                IF stHwConnect.Static.init_active = TRUE THEN
+                                IF HwConnect^.Static.init_active = TRUE THEN
                                     // initialize CC variables 
-                                    stHwConnect.Static.old_CC_H := FALSE;
-                                    stHwConnect.Static.old_CC_L := FALSE;
+                                    HwConnect^.Static.old_CC_H := FALSE;
+                                    HwConnect^.Static.old_CC_L := FALSE;
                                     
                                     // remember AC_H/AC_L 
-                                    stHwConnect.Static.old_AC_H := stHwConnect.Static.AC_H;
-                                    stHwConnect.Static.old_AC_L := stHwConnect.Static.AC_L;
+                                    HwConnect^.Static.old_AC_H := HwConnect^.Static.AC_H;
+                                    HwConnect^.Static.old_AC_L := HwConnect^.Static.AC_L;
                                     
                                     // drop INIT 
-                                    stHwConnect.Static.INIT_cyc := FALSE;
+                                    HwConnect^.Static.INIT_cyc := FALSE;
                                     
                                     // go to next step 
-                                    stHwConnect.Static.state := STATE2;
+                                    HwConnect^.Static.state := STATE2;
                                 END_IF;
                             STATE2: // --------------Initialisation 3: wait until init_active is dropped ----------
-                                IF stHwConnect.Static.init_active = FALSE THEN
+                                IF HwConnect^.Static.init_active = FALSE THEN
                                     // and start command processing 
-                                    IF  (stHwConnect.Static.old_CC_H <> stHwConnect.Static.CC_H OR stHwConnect.Static.old_CC_L <> stHwConnect.Static.CC_L) OR statPduRepeat THEN
+                                    IF  (HwConnect^.Static.old_CC_H <> HwConnect^.Static.CC_H OR HwConnect^.Static.old_CC_L <> HwConnect^.Static.CC_L) OR statPduRepeat THEN
                                         
                                         // remember command counter 
-                                        stHwConnect.Static.old_CC_H := stHwConnect.Static.CC_H;
-                                        stHwConnect.Static.old_CC_L := stHwConnect.Static.CC_L;
+                                        HwConnect^.Static.old_CC_H := HwConnect^.Static.CC_H;
+                                        HwConnect^.Static.old_CC_L := HwConnect^.Static.CC_L;
                                         
                                         // Built Telegram 
                                         // 0 - DBL/reserved 
-                                        stHwConnect.Static.pnConfigRecord.record.buf[0] := BYTE#0;
+                                        HwConnect^.Static.pnConfigRecord.record.buf[0] := BYTE#0;
                                         
                                         // 2/3 - SN
-                                        stHwConnect.Static.sequence_number := stHwConnect.Static.sequence_number + UINT#1;
+                                        HwConnect^.Static.sequence_number := HwConnect^.Static.sequence_number + UINT#1;
                                         
-                                        tempW := TO_WORD (stHwConnect.Static.sequence_number);
-                                        stHwConnect.Static.pnConfigRecord.record.buf[2] := tempW.%B1;
-                                        stHwConnect.Static.pnConfigRecord.record.buf[3] := tempW.%B0;
+                                        tempW := TO_WORD (HwConnect^.Static.sequence_number);
+                                        HwConnect^.Static.pnConfigRecord.record.buf[2] := tempW.%B1;
+                                        HwConnect^.Static.pnConfigRecord.record.buf[3] := tempW.%B0;
                                         
                                         
                                         // 4/5 - CC/CI 
-                                        stHwConnect.Static.pnConfigRecord.record.buf[4] := TO_BYTE(statCmd.CMD);
-                                        stHwConnect.Static.pnConfigRecord.record.buf[5] := BYTE#65; // A -> PIB to device 
+                                        HwConnect^.Static.pnConfigRecord.record.buf[4] := TO_BYTE(statCmd.CMD);
+                                        HwConnect^.Static.pnConfigRecord.record.buf[5] := BYTE#65; // A -> PIB to device 
                                         
                                         // 6/7 - ADB 
-                                        stHwConnect.Static.pnConfigRecord.record.buf[6] := BYTE#0;
-                                        stHwConnect.Static.pnConfigRecord.record.buf[7] := BYTE#1;
+                                        HwConnect^.Static.pnConfigRecord.record.buf[6] := BYTE#0;
+                                        HwConnect^.Static.pnConfigRecord.record.buf[7] := BYTE#1;
                                         
                                         // 8/9 - DBN 
-                                        stHwConnect.Static.pnConfigRecord.record.buf[8] := BYTE#0;
-                                        stHwConnect.Static.pnConfigRecord.record.buf[9] := BYTE#1;
+                                        HwConnect^.Static.pnConfigRecord.record.buf[8] := BYTE#0;
+                                        HwConnect^.Static.pnConfigRecord.record.buf[9] := BYTE#1;
                                         
                                         // 10 - DBL 
                                         // in PIB version > 1.20 the DBL value must be in Byte 1 and 10 at Config = 4 
-                                        stHwConnect.Static.pnConfigRecord.record.buf[10] := BYTE#35;
-                                        IF stHwConnect.Static.config_value = BYTE#4 THEN
-                                            stHwConnect.Static.pnConfigRecord.record.buf[1] := BYTE#35;
+                                        HwConnect^.Static.pnConfigRecord.record.buf[10] := BYTE#35;
+                                        IF HwConnect^.Static.config_value = BYTE#4 THEN
+                                            HwConnect^.Static.pnConfigRecord.record.buf[1] := BYTE#35;
                                         ELSE
-                                            stHwConnect.Static.pnConfigRecord.record.buf[1] := BYTE#0;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[1] := BYTE#0;
                                         END_IF;
                                         
                                         // 11 - Config 
-                                        stHwConnect.Static.pnConfigRecord.record.buf[11] := stHwConnect.Static.config_value;
+                                        HwConnect^.Static.pnConfigRecord.record.buf[11] := HwConnect^.Static.config_value;
                                         
                                         // zero out telegram buffer 
-                                        // FILL_BLK(IN := TO_BYTE(16#00),COUNT := 1022,OUT => stHwConnect.Static.pnConfigRecord.record.buf[12]);
+                                        // FILL_BLK(IN := TO_BYTE(16#00),COUNT := 1022,OUT => HwConnect^.Static.pnConfigRecord.record.buf[12]);
                                         FOR i := UINT#12 TO UINT#1034 DO
-                                            stHwConnect.Static.pnConfigRecord.record.buf[i] := BYTE#0;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[i] := BYTE#0;
                                         END_FOR;
                                         
                                         // set offsets for data-buffer 
@@ -529,12 +536,12 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                         nTrlen := DINT#0;
                                         
                                         // write packet to the client                                      
-                                        stHwConnect.Static.pnConfigRecord.record.nLen := TO_WORD(statBufLen);
-                                        stHwConnect.Static.pnConfigRecord.nRW := REC_WRITE;
+                                        HwConnect^.Static.pnConfigRecord.record.nLen := TO_WORD(statBufLen);
+                                        HwConnect^.Static.pnConfigRecord.nRW := REC_WRITE;
                                         statWRREC.request:= TRUE;
                                         
                                         // go to next step 
-                                        stHwConnect.Static.state := STATE5;
+                                        HwConnect^.Static.state := STATE5;
                                     END_IF;
                                 END_IF;
                                 
@@ -542,14 +549,14 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                 
                                 // check command-counter if is a long term telegram 
                                 IF statFurtherTelegram OR statChainedCounter > UINT#1 THEN
-                                    IF NOT  (stHwConnect.Static.old_CC_H <> stHwConnect.Static.CC_H OR stHwConnect.Static.old_CC_L <> stHwConnect.Static.CC_L) THEN
+                                    IF NOT  (HwConnect^.Static.old_CC_H <> HwConnect^.Static.CC_H OR HwConnect^.Static.old_CC_L <> HwConnect^.Static.CC_L) THEN
                                         EXIT;
                                     END_IF;
                                 END_IF;
                                 
                                 // remember command counter 
-                                stHwConnect.Static.old_CC_H := stHwConnect.Static.CC_H;
-                                stHwConnect.Static.old_CC_L := stHwConnect.Static.CC_L;
+                                HwConnect^.Static.old_CC_H := HwConnect^.Static.CC_H;
+                                HwConnect^.Static.old_CC_L := HwConnect^.Static.CC_L;
                                 
                                 // steps for first telegram 
                                 IF NOT statFurtherTelegram THEN
@@ -595,7 +602,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                 END_IF;
                                 
                                 // set length of eAxo_IID_COMMANDS#ebuffer for ext_uhf an normal command 
-                                IF stHwConnect.Static.instruction_set AND statCmd.CMD <> eAxo_IID_COMMANDS#eInventory AND statCmd.CMD <> eAxo_IID_COMMANDS#eReaderStatus
+                                IF HwConnect^.Static.instruction_set AND statCmd.CMD <> eAxo_IID_COMMANDS#eInventory AND statCmd.CMD <> eAxo_IID_COMMANDS#eReaderStatus
                                     AND statCmd.CMD <> eAxo_IID_COMMANDS#eWriteConfig AND statCmd.CMD <> eAxo_IID_COMMANDS#eReadConfig THEN
                                     // EXT_UHF 
                                     statCI := BYTE#16#55;
@@ -608,16 +615,16 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                 
                                 // build PIB-Header 
                                 // 0 - reserved 
-                                stHwConnect.Static.pnConfigRecord.record.buf[0] := BYTE#0;
+                                HwConnect^.Static.pnConfigRecord.record.buf[0] := BYTE#0;
                                 
                                 // 2/3 - SN 
                                 IF NOT statFurtherTelegram THEN
-                                    stHwConnect.Static.sequence_number := stHwConnect.Static.sequence_number + UINT#1;
+                                    HwConnect^.Static.sequence_number := HwConnect^.Static.sequence_number + UINT#1;
                                 END_IF;
                                 
-                                tempW := TO_WORD (stHwConnect.Static.sequence_number);
-                                stHwConnect.Static.pnConfigRecord.record.buf[2] := tempW.%B1;
-                                stHwConnect.Static.pnConfigRecord.record.buf[3] := tempW.%B0;
+                                tempW := TO_WORD (HwConnect^.Static.sequence_number);
+                                HwConnect^.Static.pnConfigRecord.record.buf[2] := tempW.%B1;
+                                HwConnect^.Static.pnConfigRecord.record.buf[3] := tempW.%B0;
                                 
                                 // 4/5 - CC/CI 
                                 // set CI for chained commands 
@@ -625,18 +632,18 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                     statCI := TO_BYTE(TO_UINT (statCI) + UINT#16#20);
                                 END_IF;
                                 
-                                stHwConnect.Static.pnConfigRecord.record.buf[4] := TO_BYTE(statCmd.CMD);
+                                HwConnect^.Static.pnConfigRecord.record.buf[4] := TO_BYTE(statCmd.CMD);
                                 
                                 // 
-                                stHwConnect.Static.pnConfigRecord.record.buf[5] := statCI;
+                                HwConnect^.Static.pnConfigRecord.record.buf[5] := statCI;
                                 
                                 // 6/7 - ADB 
                                 IF NOT statFurtherTelegram THEN
                                     statAdb := UINT#1;
-                                    IF statDataTodo >  (stHwConnect.Static.buf_maxdata - statSize) THEN
-                                        tempLi := statDataTodo -  (stHwConnect.Static.buf_maxdata - statSize);
-                                        statAdb := statAdb + TO_UINT (tempLi / stHwConnect.Static.buf_maxdata);
-                                        IF  (tempLi MOD stHwConnect.Static.buf_maxdata) <> UINT#0 THEN
+                                    IF statDataTodo >  (HwConnect^.Static.buf_maxdata - statSize) THEN
+                                        tempLi := statDataTodo -  (HwConnect^.Static.buf_maxdata - statSize);
+                                        statAdb := statAdb + TO_UINT (tempLi / HwConnect^.Static.buf_maxdata);
+                                        IF  (tempLi MOD HwConnect^.Static.buf_maxdata) <> UINT#0 THEN
                                             statAdb := statAdb + UINT#1;
                                         END_IF;
                                     END_IF;
@@ -645,8 +652,8 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                 END_IF;
                                 
                                 tempW := TO_WORD (statAdb);
-                                stHwConnect.Static.pnConfigRecord.record.buf[6] := tempW.%B1;
-                                stHwConnect.Static.pnConfigRecord.record.buf[7] := tempW.%B0;
+                                HwConnect^.Static.pnConfigRecord.record.buf[6] := tempW.%B1;
+                                HwConnect^.Static.pnConfigRecord.record.buf[7] := tempW.%B0;
                                 
                                 // 8/9 - DBN 
                                 IF NOT statFurtherTelegram THEN
@@ -655,41 +662,41 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                 statDbn := statDbn + UINT#1;
                                 
                                 tempW := TO_WORD (statDbn);
-                                stHwConnect.Static.pnConfigRecord.record.buf[8] := tempW.%B1;
-                                stHwConnect.Static.pnConfigRecord.record.buf[9] := tempW.%B0;
+                                HwConnect^.Static.pnConfigRecord.record.buf[8] := tempW.%B1;
+                                HwConnect^.Static.pnConfigRecord.record.buf[9] := tempW.%B0;
                                 
                                 // 10 - DBL 
-                                IF statDataTodo >  (stHwConnect.Static.buf_maxdata - statSize) THEN
-                                    tempI := stHwConnect.Static.buf_maxdata - statSize;
+                                IF statDataTodo >  (HwConnect^.Static.buf_maxdata - statSize) THEN
+                                    tempI := HwConnect^.Static.buf_maxdata - statSize;
                                 ELSE
                                     tempI := TO_UINT (statDataTodo);
                                 END_IF;
                                 statBufLen := tempI + statSize;
                                 // PIB-Spec > 1.20 dbl must be in byte 1 and 0 if pdu > 240 
-                                IF stHwConnect.Static.buf_max <= UINT#240 THEN
-                                    stHwConnect.Static.pnConfigRecord.record.buf[10] := TO_BYTE (statBufLen);
-                                    IF stHwConnect.Static.config_value = BYTE#4 THEN
-                                        stHwConnect.Static.pnConfigRecord.record.buf[1] := TO_BYTE (statBufLen);
+                                IF HwConnect^.Static.buf_max <= UINT#240 THEN
+                                    HwConnect^.Static.pnConfigRecord.record.buf[10] := TO_BYTE (statBufLen);
+                                    IF HwConnect^.Static.config_value = BYTE#4 THEN
+                                        HwConnect^.Static.pnConfigRecord.record.buf[1] := TO_BYTE (statBufLen);
                                     ELSE
-                                        stHwConnect.Static.pnConfigRecord.record.buf[1] := BYTE#0;
+                                        HwConnect^.Static.pnConfigRecord.record.buf[1] := BYTE#0;
                                     END_IF;
-                                ELSIF stHwConnect.Static.buf_max > UINT#240 THEN
+                                ELSIF HwConnect^.Static.buf_max > UINT#240 THEN
                                     tempWord := TO_WORD (statBufLen);
                                     
                                     tempW := TO_WORD (statBufLen);
-                                    stHwConnect.Static.pnConfigRecord.record.buf[0] := tempW.%B1;
-                                    stHwConnect.Static.pnConfigRecord.record.buf[1] := tempW.%B0;
+                                    HwConnect^.Static.pnConfigRecord.record.buf[0] := tempW.%B1;
+                                    HwConnect^.Static.pnConfigRecord.record.buf[1] := tempW.%B0;
                                     
-                                    stHwConnect.Static.pnConfigRecord.record.buf[10] := BYTE#0;
+                                    HwConnect^.Static.pnConfigRecord.record.buf[10] := BYTE#0;
                                 END_IF;
-                                statBufLen := statBufLen + stHwConnect.Static.buf_header;
+                                statBufLen := statBufLen + HwConnect^.Static.buf_header;
                                 
                                 // zero out telegram buffer 
                                 // FILL_BLK(IN := TO_BYTE(16#00),
                                 //          COUNT := statSize,
-                                //          OUT => stHwConnect.Static.pnConfigRecord.record.buf[11]);
+                                //          OUT => HwConnect^.Static.pnConfigRecord.record.buf[11]);
                                 FOR i := UINT#1 TO statSize DO
-                                    stHwConnect.Static.pnConfigRecord.record.buf[i + UINT#10] := BYTE#0;
+                                    HwConnect^.Static.pnConfigRecord.record.buf[i + UINT#10] := BYTE#0;
                                 END_FOR;
 
                                 // build CMD-Header in first telegram 
@@ -699,68 +706,68 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                     
                                     // 11 Config 
                                     IF statCmd.CMD = eAxo_IID_COMMANDS#eWriteConfig THEN
-                                        stHwConnect.Static.pnConfigRecord.record.buf[11] := statCmd.CONFIG;
+                                        HwConnect^.Static.pnConfigRecord.record.buf[11] := statCmd.CONFIG;
                                     END_IF;
                                     
                                     // parameters for ext_uhf 
-                                    IF stHwConnect.Static.instruction_set AND statCmd.CMD <> eAxo_IID_COMMANDS#eInventory AND statCmd.CMD <> eAxo_IID_COMMANDS#eReadConfig AND statCmd.CMD <> eAxo_IID_COMMANDS#eWriteConfig THEN
+                                    IF HwConnect^.Static.instruction_set AND statCmd.CMD <> eAxo_IID_COMMANDS#eInventory AND statCmd.CMD <> eAxo_IID_COMMANDS#eReadConfig AND statCmd.CMD <> eAxo_IID_COMMANDS#eWriteConfig THEN
                                         // 11 Mode 
                                         IF statCmd.CMD = eAxo_IID_COMMANDS#eEditBlacklist THEN
-                                            stHwConnect.Static.pnConfigRecord.record.buf[11] := statCmd.EXT_UHF.EDIT_BLACKLIST_MODE;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[11] := statCmd.EXT_UHF.EDIT_BLACKLIST_MODE;
                                         END_IF;
                                         
                                         // 12 Source 
                                         IF statCmd.CMD <> eAxo_IID_COMMANDS#eEditBlacklist AND statCmd.CMD <> eAxo_IID_COMMANDS#eGetBlacklist THEN
-                                            stHwConnect.Static.pnConfigRecord.record.buf[12] := TO_BYTE (stHwConnect.CM_CHANNEL);
+                                            HwConnect^.Static.pnConfigRecord.record.buf[12] := TO_BYTE (HwConnect^.CM_CHANNEL);
                                         END_IF;
                                         
                                         // 13 Bank 
                                         IF statCmd.CMD = eAxo_IID_COMMANDS#eRead OR statCmd.CMD = eAxo_IID_COMMANDS#eWrite THEN
-                                            stHwConnect.Static.pnConfigRecord.record.buf[13] := statCmd.EXT_UHF.MEM_BANK;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[13] := statCmd.EXT_UHF.MEM_BANK;
                                         END_IF;
                                         
                                         // 14-15 address 
                                         IF statCmd.CMD = eAxo_IID_COMMANDS#eRead OR statCmd.CMD = eAxo_IID_COMMANDS#eWrite THEN
                                             tempW := TO_WORD (statCmd.ADDR_TAG);
-                                            stHwConnect.Static.pnConfigRecord.record.buf[14] := tempW.%B1;
-                                            stHwConnect.Static.pnConfigRecord.record.buf[15] := tempW.%B0;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[14] := tempW.%B1;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[15] := tempW.%B0;
                                         END_IF;
                                         
                                         // 16#-17 Length 
                                         IF statCmd.CMD = eAxo_IID_COMMANDS#eWriteID OR statCmd.CMD = eAxo_IID_COMMANDS#eRead OR statCmd.CMD = eAxo_IID_COMMANDS#eWrite THEN
                                             tempW := statCmd.LEN_DATA;
-                                            stHwConnect.Static.pnConfigRecord.record.buf[16] := tempW.%B1;
-                                            stHwConnect.Static.pnConfigRecord.record.buf[17] := tempW.%B0;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[16] := tempW.%B1;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[17] := tempW.%B0;
                                         END_IF;
                                         
                                         // 18-19 pswd 
                                         IF statCmd.CMD = eAxo_IID_COMMANDS#eWriteID OR statCmd.CMD = eAxo_IID_COMMANDS#eKillTag OR statCmd.CMD = eAxo_IID_COMMANDS#eRead OR statCmd.CMD = eAxo_IID_COMMANDS#eWrite OR statCmd.CMD = eAxo_IID_COMMANDS#eLockTagBank THEN
-                                            stHwConnect.Static.pnConfigRecord.record.buf[18] := statCmd.EXT_UHF.PSWD.%B3;
-                                            stHwConnect.Static.pnConfigRecord.record.buf[19] := statCmd.EXT_UHF.PSWD.%B2;
-                                            stHwConnect.Static.pnConfigRecord.record.buf[20] := statCmd.EXT_UHF.PSWD.%B1;
-                                            stHwConnect.Static.pnConfigRecord.record.buf[21] := statCmd.EXT_UHF.PSWD.%B0;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[18] := statCmd.EXT_UHF.PSWD.%B3;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[19] := statCmd.EXT_UHF.PSWD.%B2;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[20] := statCmd.EXT_UHF.PSWD.%B1;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[21] := statCmd.EXT_UHF.PSWD.%B0;
                                         END_IF;
                                         
                                         // action & mask 
                                         IF statCmd.CMD = eAxo_IID_COMMANDS#eLockTagBank THEN
-                                            stHwConnect.Static.pnConfigRecord.record.buf[22] := statCmd.EXT_UHF.LOCK_TAG_BANK_ACTION.%B1;
-                                            stHwConnect.Static.pnConfigRecord.record.buf[23] := statCmd.EXT_UHF.LOCK_TAG_BANK_ACTION.%B0;
-                                            stHwConnect.Static.pnConfigRecord.record.buf[24] := statCmd.EXT_UHF.LOCK_TAG_BANK_MASK.%B1;
-                                            stHwConnect.Static.pnConfigRecord.record.buf[25] := statCmd.EXT_UHF.LOCK_TAG_BANK_MASK.%B0;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[22] := statCmd.EXT_UHF.LOCK_TAG_BANK_ACTION.%B1;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[23] := statCmd.EXT_UHF.LOCK_TAG_BANK_ACTION.%B0;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[24] := statCmd.EXT_UHF.LOCK_TAG_BANK_MASK.%B1;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[25] := statCmd.EXT_UHF.LOCK_TAG_BANK_MASK.%B0;
                                         END_IF;
                                         
                                         // 20 idlength 
                                         IF statCmd.CMD = eAxo_IID_COMMANDS#eWriteID OR statCmd.CMD = eAxo_IID_COMMANDS#eKillTag OR statCmd.CMD = eAxo_IID_COMMANDS#eRead OR statCmd.CMD = eAxo_IID_COMMANDS#eWrite OR statCmd.CMD = eAxo_IID_COMMANDS#eLockTagBank OR statCmd.CMD = eAxo_IID_COMMANDS#eEditBlacklist THEN
-                                            stHwConnect.Static.pnConfigRecord.record.buf[26] := statCmd.EXT_UHF.LEN_ID;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[26] := statCmd.EXT_UHF.LEN_ID;
                                         END_IF;
                                         
                                         // 21 - 83 EPC-ID 
                                         IF statCmd.CMD <> eAxo_IID_COMMANDS#eGetBlacklist AND statCmd.CMD <> eAxo_IID_COMMANDS#eReaderStatus THEN //T0300_04
                                             // MOVE_BLK(IN := statCmd.EPCID_UID[1],
                                             //          COUNT := TO_UDINT (statCmd.EXT_UHF.LEN_ID),
-                                            //          OUT => stHwConnect.Static.pnConfigRecord.record.buf[27]);
+                                            //          OUT => HwConnect^.Static.pnConfigRecord.record.buf[27]);
                                             FOR i := UINT#1 TO TO_UINT(statCmd.EXT_UHF.LEN_ID) DO
-                                                stHwConnect.Static.pnConfigRecord.record.buf[i + UINT#26] := statCmd.EPCID_UID[i];
+                                                HwConnect^.Static.pnConfigRecord.record.buf[i + UINT#26] := statCmd.EPCID_UID[i];
                                             END_FOR;
                                         END_IF;
                                     ELSE
@@ -768,39 +775,39 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                         IF statCmd.CMD = eAxo_IID_COMMANDS#eFormat OR statCmd.CMD = eAxo_IID_COMMANDS#eTagStatus OR statCmd.CMD = eAxo_IID_COMMANDS#eRead OR statCmd.CMD = eAxo_IID_COMMANDS#eWrite THEN
                                             // MOVE_BLK(IN := statCmd.EPCID_UID[1],
                                             //          COUNT := 8,
-                                            //          OUT => stHwConnect.Static.pnConfigRecord.record.buf[12]);
+                                            //          OUT => HwConnect^.Static.pnConfigRecord.record.buf[12]);
                                             FOR i := UINT#1 TO UINT#8 DO
-                                                stHwConnect.Static.pnConfigRecord.record.buf[i + UINT#11] := statCmd.EPCID_UID[i];
+                                                HwConnect^.Static.pnConfigRecord.record.buf[i + UINT#11] := statCmd.EPCID_UID[i];
                                             END_FOR;                                        
                                         END_IF;
                                         
                                         // 32-33 Length 
                                         IF  (statCmd.CMD = eAxo_IID_COMMANDS#ePut OR statCmd.CMD = eAxo_IID_COMMANDS#eFormat OR statCmd.CMD = eAxo_IID_COMMANDS#eRead OR statCmd.CMD = eAxo_IID_COMMANDS#eWrite OR statCmd.CMD = eAxo_IID_COMMANDS#eWriteConfig) THEN
-                                            stHwConnect.Static.pnConfigRecord.record.buf[32] := statCmd.LEN_DATA.%B1;
-                                            stHwConnect.Static.pnConfigRecord.record.buf[33] := statCmd.LEN_DATA.%B0;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[32] := statCmd.LEN_DATA.%B1;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[33] := statCmd.LEN_DATA.%B0;
                                         END_IF;
                                         
                                         // 34-37 StartAddress 
                                         IF  (statCmd.CMD = eAxo_IID_COMMANDS#eRead OR statCmd.CMD = eAxo_IID_COMMANDS#eWrite) THEN
-                                            stHwConnect.Static.pnConfigRecord.record.buf[34] := statCmd.ADDR_TAG.%B3;
-                                            stHwConnect.Static.pnConfigRecord.record.buf[35] := statCmd.ADDR_TAG.%B2;
-                                            stHwConnect.Static.pnConfigRecord.record.buf[36] := statCmd.ADDR_TAG.%B1;
-                                            stHwConnect.Static.pnConfigRecord.record.buf[37] := statCmd.ADDR_TAG.%B0;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[34] := statCmd.ADDR_TAG.%B3;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[35] := statCmd.ADDR_TAG.%B2;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[36] := statCmd.ADDR_TAG.%B1;
+                                            HwConnect^.Static.pnConfigRecord.record.buf[37] := statCmd.ADDR_TAG.%B0;
                                         END_IF;
                                     END_IF;
                                     
                                     // 38 Attributes 
                                     IF statCmd.CMD = eAxo_IID_COMMANDS#eInventory OR statCmd.CMD = eAxo_IID_COMMANDS#eTagStatus OR statCmd.CMD = eAxo_IID_COMMANDS#eReaderStatus THEN
-                                        stHwConnect.Static.pnConfigRecord.record.buf[38] := statCmd.ATTRIBUTES;
+                                        HwConnect^.Static.pnConfigRecord.record.buf[38] := statCmd.ATTRIBUTES;
                                     END_IF;
                                     
                                     // duration and unit 
-                                    IF statCmd.CMD = eAxo_IID_COMMANDS#eInventory AND stHwConnect.Static.instruction_set THEN
-                                        stHwConnect.Static.pnConfigRecord.record.buf[12] := TO_BYTE (stHwConnect.CM_CHANNEL);
-                                        stHwConnect.Static.pnConfigRecord.record.buf[40] := statCmd.EXT_UHF.INVENTORY_DURATION.%B1;
-                                        stHwConnect.Static.pnConfigRecord.record.buf[41] := statCmd.EXT_UHF.INVENTORY_DURATION.%B0;
-                                        stHwConnect.Static.pnConfigRecord.record.buf[42] := statCmd.EXT_UHF.INVENTORY_DUR_UNIT.%B1;
-                                        stHwConnect.Static.pnConfigRecord.record.buf[43] := statCmd.EXT_UHF.INVENTORY_DUR_UNIT.%B0;
+                                    IF statCmd.CMD = eAxo_IID_COMMANDS#eInventory AND HwConnect^.Static.instruction_set THEN
+                                        HwConnect^.Static.pnConfigRecord.record.buf[12] := TO_BYTE (HwConnect^.CM_CHANNEL);
+                                        HwConnect^.Static.pnConfigRecord.record.buf[40] := statCmd.EXT_UHF.INVENTORY_DURATION.%B1;
+                                        HwConnect^.Static.pnConfigRecord.record.buf[41] := statCmd.EXT_UHF.INVENTORY_DURATION.%B0;
+                                        HwConnect^.Static.pnConfigRecord.record.buf[42] := statCmd.EXT_UHF.INVENTORY_DUR_UNIT.%B1;
+                                        HwConnect^.Static.pnConfigRecord.record.buf[43] := statCmd.EXT_UHF.INVENTORY_DUR_UNIT.%B0;
                                     END_IF;
                                     
                                     nTrlen := 0;
@@ -808,16 +815,16 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                 
                                 // copy Data in buffer 
                                 IF statFurtherTelegram THEN
-                                    tempBufoffset := stHwConnect.Static.buf_header;
+                                    tempBufoffset := HwConnect^.Static.buf_header;
                                 ELSE
-                                    tempBufoffset := stHwConnect.Static.buf_header + statSize;
+                                    tempBufoffset := HwConnect^.Static.buf_header + statSize;
                                 END_IF;
                                 IF tempI <> UINT#0 THEN
                                     // MOVE_BLK(IN := aTxref[statLowerBoundTxref + TO_DINT (statDataOffset)],
                                     //          COUNT := TO_UDINT (tempI),
-                                    //          OUT => stHwConnect.Static.pnConfigRecord.record.buf[tempBufoffset]);
+                                    //          OUT => HwConnect^.Static.pnConfigRecord.record.buf[tempBufoffset]);
                                     FOR i := UINT#1 TO tempI DO
-                                        stHwConnect.Static.pnConfigRecord.record.buf[tempBufoffset + i - UINT#1] := aTxref[statLowerBoundTxref + TO_DINT (statDataOffset) + i - UINT#1];
+                                        HwConnect^.Static.pnConfigRecord.record.buf[tempBufoffset + i - UINT#1] := aTxref[statLowerBoundTxref + TO_DINT (statDataOffset) + i - UINT#1];
                                     END_FOR;
                                 END_IF;
                                 
@@ -827,18 +834,18 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                 nTrlen := nTrlen + tempI;
                                 
                                 statFurtherTelegram := false;
-                                stHwConnect.Static.acyc_active := true;
+                                HwConnect^.Static.acyc_active := true;
                                 // first call of wrrec 
                                 
-                                stHwConnect.Static.pnConfigRecord.record.nLen := TO_WORD(statBufLen);
-                                stHwConnect.Static.pnConfigRecord.nRW := REC_WRITE;
+                                HwConnect^.Static.pnConfigRecord.record.nLen := TO_WORD(statBufLen);
+                                HwConnect^.Static.pnConfigRecord.nRW := REC_WRITE;
                                 
                                 statWRREC.request := TRUE;
                                 
                                 statSaveWrRecError := statWRREC.ERROR;
                                 statIntStatus := statWRREC.STATUS;
                                 
-                                stHwConnect.Static.state := STATE5;
+                                HwConnect^.Static.state := STATE5;
                                 
                             STATE5: //------------------------------------finish WRREC--------------------------------------
                                 
@@ -847,7 +854,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                 
                                 // error at WRREC 
                                 IF statWRREC.ERROR OR statSaveWrRecError THEN
-                                    stHwConnect.Static.acyc_active := false;
+                                    HwConnect^.Static.acyc_active := false;
                                     IF NOT statSaveWrRecError THEN
                                         tempStatus := TO_WORD (statWRREC.STATUS);
                                     ELSE
@@ -856,10 +863,10 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                     
                                     // repeat if ressources are busy 
                                     IF tempStatus = ERRID_DEVICE_BUSY THEN
-                                        stHwConnect.Static.acyc_active := TRUE;
+                                        HwConnect^.Static.acyc_active := TRUE;
                                         
-                                        stHwConnect.Static.pnConfigRecord.record.nLen := TO_WORD(statBufLen);
-                                        stHwConnect.Static.pnConfigRecord.nRW := REC_WRITE;
+                                        HwConnect^.Static.pnConfigRecord.record.nLen := TO_WORD(statBufLen);
+                                        HwConnect^.Static.pnConfigRecord.nRW := REC_WRITE;
                                         
                                         statWRREC.request := TRUE;
                                         
@@ -868,11 +875,11 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                         
                                         EXIT;
                                     END_IF;
-                                    IF statPduDetection AND stHwConnect.Static.index_set THEN
+                                    IF statPduDetection AND HwConnect^.Static.index_set THEN
                                         // first pdu-detection with PROFINET-index was failed. try again with PROFIBUS-index 
-                                        stHwConnect.Static.state := STATE2;
-                                        stHwConnect.Static.index := stHwConnect.CM_CHANNEL + UINT#100;
-                                        stHwConnect.Static.index_set := false;
+                                        HwConnect^.Static.state := STATE2;
+                                        HwConnect^.Static.index := HwConnect^.CM_CHANNEL + UINT#100;
+                                        HwConnect^.Static.index_set := false;
                                         statPduRepeat := true;
                                         statSaveError := false;
                                     ELSE
@@ -887,38 +894,38 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                     END_IF;
                                     // WRREC was finished without errors 
                                 ELSIF NOT statWRREC.BUSY AND NOT statWRREC.ERROR THEN
-                                    stHwConnect.Static.acyc_active := false;
+                                    HwConnect^.Static.acyc_active := false;
                                     IF statDataTodo > UDINT#0 THEN
                                         // write next packet of command 
-                                        stHwConnect.Static.state := STATE4;
+                                        HwConnect^.Static.state := STATE4;
                                         statFurtherTelegram := true;
                                     ELSE
                                         // if chained comands => increase internal eAxo_IID_COMMANDS#eselektor and get next command  //MN++++
-                                        IF statCmd.CHAINED AND statCmdSelCounter < UINT#100 AND NOT stHwConnect.Static.STATUS_INITIALISATION THEN
+                                        IF statCmd.CHAINED AND statCmdSelCounter < UINT#100 AND NOT HwConnect^.Static.STATUS_INITIALISATION THEN
                                             statCmdSelCounter := statCmdSelCounter + UINT#1;
                                             
                                             statCmd := aCmdref[statCmdSelCounter];
                                             
                                             statChainedCounter := statChainedCounter + UINT#1;
-                                            stHwConnect.Static.state := STATE4;
+                                            HwConnect^.Static.state := STATE4;
                                             statFurtherTelegram := false;
                                         ELSE
                                             // setup things to receive acknowledgement 
                                             statAdb := UINT#0;
-                                            stHwConnect.Static.state := STATE6;
+                                            HwConnect^.Static.state := STATE6;
                                         END_IF;
                                     END_IF;
                                 END_IF;
                                 
                             STATE6://---------------------wait for acknowledgement (CommandCounter) and start RDREC---------------------------
-                                IF stHwConnect.Static.old_AC_H <> stHwConnect.Static.AC_H OR stHwConnect.Static.old_AC_L <> stHwConnect.Static.AC_L THEN
+                                IF HwConnect^.Static.old_AC_H <> HwConnect^.Static.AC_H OR HwConnect^.Static.old_AC_L <> HwConnect^.Static.AC_L THEN
                                     // remember acknowledge counter 
-                                    stHwConnect.Static.old_AC_H := stHwConnect.Static.AC_H;
-                                    stHwConnect.Static.old_AC_L := stHwConnect.Static.AC_L;
+                                    HwConnect^.Static.old_AC_H := HwConnect^.Static.AC_H;
+                                    HwConnect^.Static.old_AC_L := HwConnect^.Static.AC_L;
                                     // set sequence number for repeat command 
-                                    IF stHwConnect.Static.RPTCMD_active THEN
+                                    IF HwConnect^.Static.RPTCMD_active THEN
                                         IF  (statChainedCounter = statFixChainedCounter) AND NOT statSqModified THEN //T0300_04 go in only once
-                                            stHwConnect.Static.sequence_number := stHwConnect.Static.sequence_number + statFixChainedCounter;
+                                            HwConnect^.Static.sequence_number := HwConnect^.Static.sequence_number + statFixChainedCounter;
                                             statSqModified := true;
                                         END_IF;
                                     END_IF;
@@ -927,30 +934,30 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                     statCmd := aCmdref[ (statCmdSelCounter - statChainedCounter) + UINT#1];
                                     
                                     // got to next step => read answer 
-                                    stHwConnect.Static.state := STATE7;
+                                    HwConnect^.Static.state := STATE7;
                                     
                                     // first call of rdrec 
-                                    stHwConnect.Static.acyc_active := TRUE;
+                                    HwConnect^.Static.acyc_active := TRUE;
                                     
-                                    stHwConnect.Static.pnConfigRecord.record.nLen := TO_WORD (stHwConnect.Static.buf_max);
-                                    stHwConnect.Static.pnConfigRecord.nRW := REC_READ;
+                                    HwConnect^.Static.pnConfigRecord.record.nLen := TO_WORD (HwConnect^.Static.buf_max);
+                                    HwConnect^.Static.pnConfigRecord.nRW := REC_READ;
                                     
                                     statRDREC.request := TRUE;
                                     
                                     statSaveError := statRDREC.ERROR;
                                     statIntStatus := statRDREC.STATUS;
                                     
-                                ELSIF stHwConnect.Static.RPTCMD_cyc AND NOT stHwConnect.Static.RPTCMD_active THEN
+                                ELSIF HwConnect^.Static.RPTCMD_cyc AND NOT HwConnect^.Static.RPTCMD_active THEN
                                     // check timeout for repeat support
                                     // Change 03.00.02
                                     statTimeout(signal := false,
-                                                 duration := stHwConnect.Static.timeout_repeat);
+                                                 duration := HwConnect^.Static.timeout_repeat);
                                     
                                     statTimeout(signal := true,
-                                                 duration := stHwConnect.Static.timeout_repeat);
+                                                 duration := HwConnect^.Static.timeout_repeat);
                                     IF statTimeout.output = TRUE THEN
                                         // timeout of repeat 
-                                        stHwConnect.Static.state := STATE4;
+                                        HwConnect^.Static.state := STATE4;
                                         tempIntError := true;
                                         statIntStatus := DWORD#16#E7FE0900;
                                     END_IF;
@@ -966,7 +973,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                 // error at RDREC 
                                 IF statRDREC.ERROR OR statSaveRdRecError THEN
                                     
-                                    stHwConnect.Static.acyc_active := false;
+                                    HwConnect^.Static.acyc_active := false;
                                     
                                     IF NOT statSaveRdRecError THEN
                                         tempStatus := TO_WORD (statRDREC.STATUS);
@@ -976,10 +983,10 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                     
                                     // repeat if ressources are busy 
                                     IF tempStatus = ERRID_DEVICE_BUSY AND NOT statEmptyCycle THEN
-                                        stHwConnect.Static.acyc_active := TRUE;
+                                        HwConnect^.Static.acyc_active := TRUE;
                                         
-                                        stHwConnect.Static.pnConfigRecord.record.nLen := TO_WORD (stHwConnect.Static.buf_max);
-                                        stHwConnect.Static.pnConfigRecord.nRW := REC_READ;
+                                        HwConnect^.Static.pnConfigRecord.record.nLen := TO_WORD (HwConnect^.Static.buf_max);
+                                        HwConnect^.Static.pnConfigRecord.nRW := REC_READ;
                                         
                                         statRDREC.request := TRUE;
                                         
@@ -996,7 +1003,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                         // DO normal write-config 
                                         statPduDetection := FALSE;
                                         statPduRepeat := false;
-                                        stHwConnect.Static.state := STATE4;
+                                        HwConnect^.Static.state := STATE4;
                                         statSaveError := FALSE;
                                         statSaveWrRecError := FALSE;
                                         statSaveRdRecError := FALSE;
@@ -1014,29 +1021,29 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                     END_IF;
                                     // RDREC was finished without errors 
                                 ELSIF NOT statRDREC.BUSY AND NOT statRDREC.ERROR THEN
-                                    stHwConnect.Static.acyc_active := false;
+                                    HwConnect^.Static.acyc_active := false;
                                     
                                     // check error byte 
-                                    tempB := stHwConnect.Static.pnConfigRecord.record.buf[5];
+                                    tempB := HwConnect^.Static.pnConfigRecord.record.buf[5];
                                     
                                     // Read ADB to check at error MN++++
-                                    tempW := TO_WORD (stHwConnect.Static.pnConfigRecord.record.buf[7]);
-                                    tempW := tempW OR SHL(TO_WORD (stHwConnect.Static.pnConfigRecord.record.buf[6]), UINT#8);
+                                    tempW := TO_WORD (HwConnect^.Static.pnConfigRecord.record.buf[7]);
+                                    tempW := tempW OR SHL(TO_WORD (HwConnect^.Static.pnConfigRecord.record.buf[6]), UINT#8);
                                     tempAdb := TO_UINT (tempW);
                                     
                                     // Read DBN to check at error MN++++
-                                    tempW := TO_WORD (stHwConnect.Static.pnConfigRecord.record.buf[9]);
-                                    tempW := tempW OR SHL(TO_WORD (stHwConnect.Static.pnConfigRecord.record.buf[8]), UINT#8);
+                                    tempW := TO_WORD (HwConnect^.Static.pnConfigRecord.record.buf[9]);
+                                    tempW := tempW OR SHL(TO_WORD (HwConnect^.Static.pnConfigRecord.record.buf[8]), UINT#8);
                                     tempDbn := TO_UINT (tempW);
                                     
                                     IF tempB = BYTE#1 THEN
                                         // pib unit response with error 
                                         IF statPduDetection = TRUE THEN
-                                            IF stHwConnect.Static.config_value = BYTE#4 THEN
+                                            IF HwConnect^.Static.config_value = BYTE#4 THEN
                                                 // new index will suppport, but not config=4. try again with same index and config=0 
-                                                stHwConnect.Static.state := STATE0;
-                                                stHwConnect.Static.config_value := BYTE#0;
-                                                stHwConnect.Static.INIT_cyc := true;
+                                                HwConnect^.Static.state := STATE0;
+                                                HwConnect^.Static.config_value := BYTE#0;
+                                                HwConnect^.Static.INIT_cyc := true;
                                                 statPduRepeat := true;
                                                 EXIT;
                                             ELSE
@@ -1044,19 +1051,19 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                                 // DO normal write-config 
                                                 statPduDetection := FALSE;
                                                 statPduRepeat := false;
-                                                stHwConnect.Static.state := STATE4;
-                                                stHwConnect.Static.buf_max := UINT#240;
-                                                stHwConnect.Static.buf_maxdata := stHwConnect.Static.buf_max - stHwConnect.Static.buf_header;
+                                                HwConnect^.Static.state := STATE4;
+                                                HwConnect^.Static.buf_max := UINT#240;
+                                                HwConnect^.Static.buf_maxdata := HwConnect^.Static.buf_max - HwConnect^.Static.buf_header;
                                                 EXIT;
                                             END_IF;
                                         ELSE
                                             // any other error is occured => go to error_routine 
                                             tempIntError := true;
                                             // save PIB-Status 
-                                            statIntStatus.%B0 := stHwConnect.Static.pnConfigRecord.record.buf[14];
-                                            statIntStatus.%B1 := stHwConnect.Static.pnConfigRecord.record.buf[13];
-                                            statIntStatus.%B2 := stHwConnect.Static.pnConfigRecord.record.buf[12];
-                                            statIntStatus.%B3 := stHwConnect.Static.pnConfigRecord.record.buf[11];
+                                            statIntStatus.%B0 := HwConnect^.Static.pnConfigRecord.record.buf[14];
+                                            statIntStatus.%B1 := HwConnect^.Static.pnConfigRecord.record.buf[13];
+                                            statIntStatus.%B2 := HwConnect^.Static.pnConfigRecord.record.buf[12];
+                                            statIntStatus.%B3 := HwConnect^.Static.pnConfigRecord.record.buf[11];
                                             EXIT;
                                         END_IF;
                                     ELSE
@@ -1069,11 +1076,11 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                         END_IF;
                                         
                                         // check sequence number 
-                                        tempW := TO_WORD (stHwConnect.Static.pnConfigRecord.record.buf[3]);
-                                        tempW := tempW OR SHL(TO_WORD (stHwConnect.Static.pnConfigRecord.record.buf[2]), UINT#8);
+                                        tempW := TO_WORD (HwConnect^.Static.pnConfigRecord.record.buf[3]);
+                                        tempW := tempW OR SHL(TO_WORD (HwConnect^.Static.pnConfigRecord.record.buf[2]), UINT#8);
                                         tempI := TO_UINT (tempW);
                                         
-                                        IF tempI <> ( (stHwConnect.Static.sequence_number - statChainedCounter) + UINT#1) THEN
+                                        IF tempI <> ( (HwConnect^.Static.sequence_number - statChainedCounter) + UINT#1) THEN
                                             // sequence number don't match 
                                             tempIntError := true;
                                             statIntStatus := DWORD#16#E5FE0200;
@@ -1081,7 +1088,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                         END_IF;
                                         
                                         // check command codex 
-                                        IF stHwConnect.Static.pnConfigRecord.record.buf[4] <> TO_BYTE(statCmd.CMD) THEN
+                                        IF HwConnect^.Static.pnConfigRecord.record.buf[4] <> TO_BYTE(statCmd.CMD) THEN
                                             // command codex dont match 
                                             tempIntError := true;
                                             statIntStatus := DWORD#16#E5FE0A00;
@@ -1091,22 +1098,22 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                         // PDU-detection: first telegramm of write-config. 
                                         IF statPduDetection = TRUE THEN
                                             // look for supported PDU size 
-                                            IF TO_INT (stHwConnect.Static.pnConfigRecord.record.buf[10]) >= 1 AND TO_INT (stHwConnect.Static.pnConfigRecord.record.buf[10]) <= 3 THEN
+                                            IF TO_INT (HwConnect^.Static.pnConfigRecord.record.buf[10]) >= 1 AND TO_INT (HwConnect^.Static.pnConfigRecord.record.buf[10]) <= 3 THEN
                                                 
-                                                aRxref[statLowerBoundRxref + TO_DINT (statRecvOffset)] := stHwConnect.Static.pnConfigRecord.record.buf[11];
+                                                aRxref[statLowerBoundRxref + TO_DINT (statRecvOffset)] := HwConnect^.Static.pnConfigRecord.record.buf[11];
                                                 
                                                 // Config = 0 
-                                                IF stHwConnect.Static.config_value = BYTE#0 THEN
+                                                IF HwConnect^.Static.config_value = BYTE#0 THEN
                                                     nTrlen := 1;
-                                                    tempI := TO_UINT (stHwConnect.Static.pnConfigRecord.record.buf[11]);
+                                                    tempI := TO_UINT (HwConnect^.Static.pnConfigRecord.record.buf[11]);
                                                     tempMax := UINT#240;
                                                     // Config = 4 
-                                                ELSIF stHwConnect.Static.config_value = BYTE#4 THEN
-                                                    aRxref[statLowerBoundRxref + TO_DINT (statRecvOffset) + 1] := stHwConnect.Static.pnConfigRecord.record.buf[12]; //aufpassen++++
+                                                ELSIF HwConnect^.Static.config_value = BYTE#4 THEN
+                                                    aRxref[statLowerBoundRxref + TO_DINT (statRecvOffset) + 1] := HwConnect^.Static.pnConfigRecord.record.buf[12]; //aufpassen++++
                                                     
                                                     nTrlen := 2;
-                                                    tempI := TO_UINT (stHwConnect.Static.pnConfigRecord.record.buf[12]);
-                                                    tempI := TO_UINT(TO_WORD (tempI) OR SHL(TO_WORD (stHwConnect.Static.pnConfigRecord.record.buf[11]), UINT#8));
+                                                    tempI := TO_UINT (HwConnect^.Static.pnConfigRecord.record.buf[12]);
+                                                    tempI := TO_UINT(TO_WORD (tempI) OR SHL(TO_WORD (HwConnect^.Static.pnConfigRecord.record.buf[11]), UINT#8));
                                                     tempMax := UINT#1035;
                                                 END_IF;
                                                 // check if PDU-size is valid 
@@ -1116,38 +1123,38 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                                         statIntStatus := DWORD#16#E7FE0A00;
                                                         EXIT;
                                                     ELSE
-                                                        stHwConnect.Static.buf_max := UINT#240;
+                                                        HwConnect^.Static.buf_max := UINT#240;
                                                     END_IF;
                                                 ELSE
-                                                    stHwConnect.Static.buf_max := tempI;
+                                                    HwConnect^.Static.buf_max := tempI;
                                                 END_IF;
                                             END_IF;
                                             // set user data size 
-                                            stHwConnect.Static.buf_maxdata := stHwConnect.Static.buf_max - stHwConnect.Static.buf_header;
+                                            HwConnect^.Static.buf_maxdata := HwConnect^.Static.buf_max - HwConnect^.Static.buf_header;
                                             
                                             // instruction set detection 
-                                            // IF stHwConnect.Static.pnConfigRecord.record.buf[10] = BYTE#3 AND ( (stHwConnect.Static.pnConfigRecord.record.buf[13] AND 2#0000_0001) = BYTE#1) THEN
-                                            IF stHwConnect.Static.pnConfigRecord.record.buf[10] = BYTE#3 AND stHwConnect.Static.pnConfigRecord.record.buf[13].%X0 THEN
+                                            // IF HwConnect^.Static.pnConfigRecord.record.buf[10] = BYTE#3 AND ( (HwConnect^.Static.pnConfigRecord.record.buf[13] AND 2#0000_0001) = BYTE#1) THEN
+                                            IF HwConnect^.Static.pnConfigRecord.record.buf[10] = BYTE#3 AND HwConnect^.Static.pnConfigRecord.record.buf[13].%X0 THEN
                                                 // ext_uhf insrtuctions 
-                                                stHwConnect.Static.instruction_set := TRUE;
+                                                HwConnect^.Static.instruction_set := TRUE;
                                                 
-                                                aRxref[statLowerBoundRxref + TO_DINT (statRecvOffset) + 2] := stHwConnect.Static.pnConfigRecord.record.buf[13];
+                                                aRxref[statLowerBoundRxref + TO_DINT (statRecvOffset) + 2] := HwConnect^.Static.pnConfigRecord.record.buf[13];
                                                 
                                                 nTrlen := 3;
                                             ELSE
                                                 // normal instructions 
-                                                stHwConnect.Static.instruction_set := false;
+                                                HwConnect^.Static.instruction_set := false;
                                             END_IF;
                                             // do normal write-config 
                                             statDbn := UINT#0;
                                             statPduDetection := FALSE;
-                                            stHwConnect.Static.state := STATE4;
+                                            HwConnect^.Static.state := STATE4;
                                             EXIT;
                                         END_IF;
                                         
                                         // check/process adb 
-                                        tempW := TO_WORD (stHwConnect.Static.pnConfigRecord.record.buf[7]);
-                                        tempW := tempW OR SHL(TO_WORD (stHwConnect.Static.pnConfigRecord.record.buf[6]), UINT#8);
+                                        tempW := TO_WORD (HwConnect^.Static.pnConfigRecord.record.buf[7]);
+                                        tempW := tempW OR SHL(TO_WORD (HwConnect^.Static.pnConfigRecord.record.buf[6]), UINT#8);
                                         
                                         IF statAdb = UINT#0 THEN
                                             statAdb := TO_UINT (tempW);
@@ -1169,8 +1176,8 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                         END_IF;
                                         
                                         // check dbn, determining next state 
-                                        tempW := TO_WORD (stHwConnect.Static.pnConfigRecord.record.buf[9]);
-                                        tempW := tempW OR SHL(TO_WORD (stHwConnect.Static.pnConfigRecord.record.buf[8]), UINT#8);
+                                        tempW := TO_WORD (HwConnect^.Static.pnConfigRecord.record.buf[9]);
+                                        tempW := tempW OR SHL(TO_WORD (HwConnect^.Static.pnConfigRecord.record.buf[8]), UINT#8);
                                         statDbn := TO_UINT (tempW);
                                         
                                         IF statDbn < statAdb THEN
@@ -1219,13 +1226,13 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                         END_IF;
                                         
                                         // check dbl // if PDU > 240, length is only in byte 0 and 1 
-                                        IF stHwConnect.Static.buf_max > UINT#240 THEN
-                                            statSize := TO_UINT (stHwConnect.Static.pnConfigRecord.record.buf[1]);
-                                            statSize := TO_UINT(TO_WORD (statSize) OR SHL(TO_WORD (stHwConnect.Static.pnConfigRecord.record.buf[0]), UINT#8));
+                                        IF HwConnect^.Static.buf_max > UINT#240 THEN
+                                            statSize := TO_UINT (HwConnect^.Static.pnConfigRecord.record.buf[1]);
+                                            statSize := TO_UINT(TO_WORD (statSize) OR SHL(TO_WORD (HwConnect^.Static.pnConfigRecord.record.buf[0]), UINT#8));
                                         ELSE
-                                            statSize := TO_UINT (stHwConnect.Static.pnConfigRecord.record.buf[10]);
+                                            statSize := TO_UINT (HwConnect^.Static.pnConfigRecord.record.buf[10]);
                                         END_IF;
-                                        IF statSize > stHwConnect.Static.buf_maxdata THEN
+                                        IF statSize > HwConnect^.Static.buf_maxdata THEN
                                             // invalid data block length 
                                             tempIntError := true;
                                             statIntStatus := DWORD#16#E5FE0700;
@@ -1245,12 +1252,12 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                                 EXIT;
                                             ELSE
                                                 // anything ok, copy over data 
-                                                // MOVE_BLK(IN:=#stHwConnect.Static.pnConfigRecord.record.buf[stHwConnect.Static.buf_header],
+                                                // MOVE_BLK(IN:=#HwConnect^.Static.pnConfigRecord.record.buf[HwConnect^.Static.buf_header],
                                                 //          COUNT:=TO_UDINT (statSize),
                                                 //          OUT=>#aRxref[statLowerBoundRxref + TO_DINT (statRecvOffset)]);
 
                                                 FOR i := UINT#1 TO statSize DO
-                                                    aRxref[statLowerBoundRxref + TO_DINT (statRecvOffset) + i - INT#1] := stHwConnect.Static.pnConfigRecord.record.buf[stHwConnect.Static.buf_header + i - UINT#1];
+                                                    aRxref[statLowerBoundRxref + TO_DINT (statRecvOffset) + i - INT#1] := HwConnect^.Static.pnConfigRecord.record.buf[HwConnect^.Static.buf_header + i - UINT#1];
                                                 END_FOR;
                                                 
                                                 statRecvOffset := statRecvOffset + statSize;
@@ -1265,7 +1272,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                         
                                         // read next telegram 
                                         IF NOT tempFinished THEN
-                                            stHwConnect.Static.state := STATE6;
+                                            HwConnect^.Static.state := STATE6;
                                         ELSE
                                             // -command- complete 
                                             //Change 03.00.02
@@ -1273,14 +1280,14 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                             // if chained commands => decrease chained counter 
                                             IF statChainedCounter > UINT#1 THEN
                                                 statChainedCounter := statChainedCounter - UINT#1;
-                                                stHwConnect.Static.state := STATE6;
+                                                HwConnect^.Static.state := STATE6;
                                                 statAdb := UINT#0;
                                                 EXIT;
                                             ELSE
-                                                stHwConnect.Static.state := STATE4;
+                                                HwConnect^.Static.state := STATE4;
                                                 
                                                 // map input RPTCMD to RPTeAxo_IID_COMMANDS#ecyc 
-                                                stHwConnect.Static.RPTCMD_cyc := RepeatCommand;
+                                                HwConnect^.Static.RPTCMD_cyc := RepeatCommand;
                                                 
                                                 IF statChainedStatus <> DWORD#0 THEN
                                                     tempIntError := true;
@@ -1293,31 +1300,31 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                             bBusy := FALSE;
                                             bError := FALSE;
                                             // reset pib-status-variables 
-                                            stHwConnect.Static.STATUS_IN_WORK := false;
-                                            stHwConnect.Static.STATUS_INITIALISATION := false;
+                                            HwConnect^.Static.STATUS_IN_WORK := false;
+                                            HwConnect^.Static.STATUS_INITIALISATION := false;
                                         END_IF;
                                     END_IF;
                                 END_IF;
                             STATE8: //---------------------end of soft reset----------------------------
-                                IF NOT stHwConnect.Static.SRESET_active THEN
+                                IF NOT HwConnect^.Static.SRESET_active THEN
                                     // reset command counter 
-                                    stHwConnect.Static.old_CC_H := FALSE;
-                                    stHwConnect.Static.old_CC_L := FALSE;
+                                    HwConnect^.Static.old_CC_H := FALSE;
+                                    HwConnect^.Static.old_CC_L := FALSE;
                                     // remember acknowledge counter 
-                                    stHwConnect.Static.old_AC_H := stHwConnect.Static.AC_H;
-                                    stHwConnect.Static.old_AC_L := stHwConnect.Static.AC_L;
+                                    HwConnect^.Static.old_AC_H := HwConnect^.Static.AC_H;
+                                    HwConnect^.Static.old_AC_L := HwConnect^.Static.AC_L;
                                     // reset chained counter 
                                     statChainedCounter := UINT#1;
                                     statFixChainedCounter := UINT#1;
                                     
                                     // reset status-variables 
-                                    stHwConnect.Static.STATUS_IN_WORK := false;
-                                    stHwConnect.Static.STATUS_INITIALISATION := false;
+                                    HwConnect^.Static.STATUS_IN_WORK := false;
+                                    HwConnect^.Static.STATUS_INITIALISATION := false;
                                     // reset state-variable 
-                                    stHwConnect.Static.state := STATE4;
+                                    HwConnect^.Static.state := STATE4;
                                     
                                     // drop repeat 
-                                    stHwConnect.Static.RPTCMD_cyc := false;
+                                    HwConnect^.Static.RPTCMD_cyc := false;
                                     bRepeatActive := false;
                                     // set outputs 
                                     bDone := TRUE;
@@ -1336,7 +1343,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 // check for timeout of pdu_detection 
                 IF statPduDetection THEN
                     statTimeout(signal := true,
-                                 duration := stHwConnect.Static.timeout_reset);
+                                 duration := HwConnect^.Static.timeout_reset);
                     IF statTimeout.output = TRUE THEN
                         tempIntError := true;
                         statIntStatus := DWORD#16#E7FE0800;
@@ -1345,22 +1352,22 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 
                 
                 //set pn information 
-                stHwConnect.Static.pnConfigRecord.nApi := stHwConnect.API;
-                stHwConnect.Static.pnConfigRecord.nSlot := stHwConnect.SLOT;
-                stHwConnect.Static.pnConfigRecord.nSubslot := stHwConnect.SUB_SLOT;
-                stHwConnect.Static.pnConfigRecord.nNrAr := stHwConnect.AR_NUMBER;
-                stHwConnect.Static.pnConfigRecord.record.nIndex := TO_WORD (stHwConnect.Static.index);
+                HwConnect^.Static.pnConfigRecord.nApi := HwConnect^.API;
+                HwConnect^.Static.pnConfigRecord.nSlot := HwConnect^.SLOT;
+                HwConnect^.Static.pnConfigRecord.nSubslot := HwConnect^.SUB_SLOT;
+                HwConnect^.Static.pnConfigRecord.nNrAr := HwConnect^.AR_NUMBER;
+                HwConnect^.Static.pnConfigRecord.record.nIndex := TO_WORD (HwConnect^.Static.index);
                 
                 IF NOT statRDREC.busy THEN
-                    // statWRREC(ID := TO_UINT (stHwConnect.HW_ID),
-                    //            INDEX := stHwConnect.Static.index,
+                    // statWRREC(ID := TO_UINT (HwConnect^.HW_ID),
+                    //            INDEX := HwConnect^.Static.index,
                     //            LEN := statBufLen,
-                    //            RECORD := stHwConnect.Static.pnConfigRecord.record.buf);
+                    //            RECORD := HwConnect^.Static.pnConfigRecord.record.buf);
 
-                    statWRREC(  id := stHwConnect.HW_ID,
-                                index := stHwConnect.Static.index,
+                    statWRREC(  id := HwConnect^.HW_ID,
+                                index := HwConnect^.Static.index,
                                 length := statBufLen,
-                                record := stHwConnect.Static.pnConfigRecord.record.buf);
+                                record := HwConnect^.Static.pnConfigRecord.record.buf);
 
                     // save instantly rising errors for statemachine 
 
@@ -1370,15 +1377,15 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                     END_IF;
                 END_IF;
                 IF NOT statWRREC.busy THEN
-                    // statRDREC(ID := TO_UINT (stHwConnect.HW_ID),
-                    //            INDEX := stHwConnect.Static.index,
-                    //            MLEN := stHwConnect.Static.buf_max,
-                    //            RECORD := stHwConnect.Static.pnConfigRecord.record.buf);
+                    // statRDREC(ID := TO_UINT (HwConnect^.HW_ID),
+                    //            INDEX := HwConnect^.Static.index,
+                    //            MLEN := HwConnect^.Static.buf_max,
+                    //            RECORD := HwConnect^.Static.pnConfigRecord.record.buf);
 
-                    statRDREC( id := stHwConnect.HW_ID,
-                               index := stHwConnect.Static.index,
-                               maxLength := stHwConnect.Static.buf_max,
-                               record := stHwConnect.Static.pnConfigRecord.record.buf);
+                    statRDREC( id := HwConnect^.HW_ID,
+                               index := HwConnect^.Static.index,
+                               maxLength := HwConnect^.Static.buf_max,
+                               record := HwConnect^.Static.pnConfigRecord.record.buf);
                     
 
                     // save istantly rising errors for statemachine 
@@ -1392,9 +1399,9 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 // error handling 
                 IF tempIntError THEN
                     // if chain is not at the end don't finish the block 
-                    IF  (statChainedCounter > UINT#16#01) AND  (stHwConnect.Static.state > UINT#16#05) THEN
+                    IF  (statChainedCounter > UINT#16#01) AND  (HwConnect^.Static.state > UINT#16#05) THEN
                         statChainedCounter := statChainedCounter - UINT#1;
-                        stHwConnect.Static.state := STATE6;
+                        HwConnect^.Static.state := STATE6;
                         statAdb := UINT#0;
                         // save only first error-status in a chain 
                         IF statChainedStatus = DWORD#0 THEN
@@ -1405,10 +1412,10 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                         //    hw_connect.Static.state := STATE6;
                     ELSE
                         // reset pib-status-variables 
-                        stHwConnect.Static.STATUS_IN_WORK := false;
-                        stHwConnect.Static.STATUS_INITIALISATION := false;
+                        HwConnect^.Static.STATUS_IN_WORK := false;
+                        HwConnect^.Static.STATUS_INITIALISATION := false;
                         tempIntError := false;
-                        stHwConnect.Static.state := STATE4;
+                        HwConnect^.Static.state := STATE4;
                         statPduDetection := false;
                         
                         // if error occured at chain, put the first error-status out
