@@ -148,20 +148,20 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         rf186_1_execute_PV  :=  rf186_1_execute;
         rf186_1_init_PV :=  rf186_1_init;     
         
-        rf186_1.Run(Execute        := rf186_1_execute,
-                    RepeatCommand  := rf186_1_repeatCommand,
-                    SoftReset      := rf186_1_softReset,
-                    Init           := rf186_1_init,
-                    Cmdsel         := rf186_1_cmdsel,
-                    HwConnect      := REF( Connect_RF188C_CH01), 
-                    Done           => rf186_1_done,
-                    Busy           => rf186_1_busy,
-                    Error          => rf186_1_error,
-                    Warning        => rf186_1_warning,
-                    Status         => rf186_1_status,
-                    aCmdRef        :=  aCommands,
-                    aTxRef         :=  aDataTx,
-                    aRxRef         :=  aDataRx);
+        rf186_1.Run(Execute         :=  rf186_1_execute,
+                    RepeatCommand   :=  rf186_1_repeatCommand,
+                    SoftReset       :=  rf186_1_softReset,
+                    Init            :=  rf186_1_init,
+                    Cmdsel          :=  rf186_1_cmdsel,
+                    refHwConnect    :=  REF( Connect_RF188C_CH01), 
+                    refTx           :=  REF(aDataTx),
+                    refRx           :=  REF(aDataRx),
+                    Done            =>  rf186_1_done,
+                    Busy            =>  rf186_1_busy,
+                    Error           =>  rf186_1_error,
+                    Warning         =>  rf186_1_warning,
+                    Status          =>  rf186_1_status,
+                    aCmdRef         :=  aCommands);
              
     END_METHOD
 END_CLASS
