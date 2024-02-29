@@ -44,8 +44,12 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         //Define profinet parameters 
         //=====================================================================
         Connect_RF188C_CH01.HW_ID       := HwIdentifiers#rf186c_Reader_1;   //HW IO of the reader  !!! not the CM
+        // Connect_RF188C_CH01.CM_CHANNEL  := UINT#1;
+        // Connect_RF188C_CH01.API         := DWORD#16#5B00;
+        // Connect_RF188C_CH01.SLOT        := WORD#2;       //2-for channel 1, 3-channel 2
+        // Connect_RF188C_CH01.SUB_SLOT    := WORD#1;
         Connect_RF188C_CH01.CM_CHANNEL  := UINT#1;
-        Connect_RF188C_CH01.API         := DWORD#16#5B00;
+        Connect_RF188C_CH01.API         := DWORD#16#0;
         Connect_RF188C_CH01.SLOT        := WORD#2;       //2-for channel 1, 3-channel 2
         Connect_RF188C_CH01.SUB_SLOT    := WORD#1;
 
@@ -67,7 +71,7 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
 
         // Command 4 - Read 10 Byte 
         aCommands[4].CMD := eAxo_IID_COMMANDS#eRead;
-        // aCommands[4].LEN_DATA := WORD#16#A;
+        // aCommands[4].LEN_DATA := WORD#16#A0;
         aCommands[4].ADDR_TAG := DWORD#16#0;
         aCommands[4].OFFSETBUFFER := UINT#0; 
 
@@ -127,7 +131,7 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         IF rf186_1_cmdsel = UINT#4 THEN 	
             Deserialize(UINT#1, aDataRX, rf186_1_read);
             aCommands[4].LEN_DATA :=TO_WORD(LengthOf(rf186_1_write)+INT#1); // as the actual length of string needs to be read as well
-            IF aCommands[4].LEN_DATA = WORD#0 THEN aCommands[4].LEN_DATA := WORD#40; END_IF;
+            IF aCommands[4].LEN_DATA <= WORD#1 THEN aCommands[4].LEN_DATA := WORD#40; END_IF;
         END_IF;
 
         //===================================================================== 
@@ -135,7 +139,6 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         //=====================================================================
         IF rf186_1_cmdsel = UINT#5 THEN 	
             Serialize(UINT#1, rf186_1_write, aDataTX);
-            // aDataTX[1] := TO_BYTE(LengthOf(rf186_1_write));
             aCommands[5].LEN_DATA :=TO_WORD(LengthOf(rf186_1_write)+INT#1); // as the actual length of string needs to be sent as well
         END_IF;
 
