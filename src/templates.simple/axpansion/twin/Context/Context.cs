@@ -1,5 +1,6 @@
 ﻿using AXOpen.Base.Data;
 using axosimple.server.Units;
+using axosimple.StarterUnitTemplate;
 
 namespace axosimple
 {
@@ -12,16 +13,11 @@ namespace axosimple
         
         private ContextService()
         {
-            StarterUnitTemplateServices = StarterUnitTemplateServices.Create(this);
-            UnitTemplateServices = UnitTemplateServices.Create(this);
+        
         }
 
         private axosimple.Context Context { get; } = Entry.Plc.Context;
-
-        public StarterUnitTemplateServices StarterUnitTemplateServices { get; }
-
-        public UnitTemplateServices UnitTemplateServices { get; }
-
+        
         public axosimple.ProcessData ProcessData { get; } = Entry.Plc.Context.ProcessData.CreateBuilder<axosimple.ProcessData>();
         public axosimple.ProcessData ProcessSettings { get; } = Entry.Plc.Context.ProcessSettings.CreateBuilder<axosimple.ProcessData>();
         public axosimple.TechnologyData TechnologySettings { get; } = Entry.Plc.Context.TechnologySettings.CreateBuilder<axosimple.TechnologyData>();

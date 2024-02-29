@@ -1,12 +1,13 @@
 ﻿@page "/Context/Units/StarterUnitTemplate"
 @using AXOpen.Base.Dialogs;
 @using AXOpen.ToolBox.Extensions
-@using axosimple.server.Components;
 @using AXOpen.VisualComposer;
 @using AXSharp.Connector;
 @using AXOpen.Core;
 @using axosimple.server.Units
+@using axosimple.StarterUnitTemplate
 @using Context = axosimple.Context
+@using Unit = axosimple.server.Components.Unit
 
 @inject IAlertService _alerts
 @inherits RenderableComplexComponentBase<axosimple.StarterUnitTemplate.Unit>
@@ -40,13 +41,11 @@
 </div>
 
  
-<Unit Component="@Services"/>
+<axosimple.server.Components.Unit Component="@Unit"/>
 
 @code
 {
-    private StarterUnitTemplateServices Services => ContextService.Instance.StarterUnitTemplateServices;
-    private axosimple.StarterUnitTemplate.Unit? Unit {
-        get { return ContextService.Instance.StarterUnitTemplateServices.Unit as axosimple.StarterUnitTemplate.Unit; }
-    }
+    private StarterUnitTemplateServices Services => Entry.Plc.Context.StarterUnitTemplate.Services;
+    private axosimple.StarterUnitTemplate.Unit Unit => Entry.Plc.Context.StarterUnitTemplate;
 }
     

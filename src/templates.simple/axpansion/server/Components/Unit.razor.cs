@@ -15,80 +15,12 @@ namespace axosimple.server.Components
     {
         [Inject]
         public IAlertService _alerts { set; get; }
-
-        // private AxoMessageProvider messageProvider;
-        // private AxoMessageProvider MessageProvider
-        // {
-        //     get
-        //     {
-        //         if(messageProvider == null) messageProvider = AxoMessageProvider.Create(AllVisualItems);
-        //         return messageProvider;
-        //     }
-        //     
-        // }
-        
-        // [Parameter, BindRequired]
-        // public AXOpen.Data.AxoDataEntity? Data { get; set; }
-        //
-        // [Parameter]
-        // public AXOpen.Data.AxoDataEntity? DataHeader { get; set; }
-        //
-        // [Parameter]
-        // public AXOpen.Data.AxoDataExchangeBase? DataManger { get; set; }
-        //
-        // [Parameter]
-        // public AXOpen.Data.AxoDataEntity? TechnologySettings { get; set; }
-        //
-        // [Parameter]
-        // public AXOpen.Data.AxoDataEntity? SharedTechnologySettings { get; set; }
-        //
-        // [Parameter]
-        // public AxoObject? UnitComponents { get; set; }
-        //
-        // [Parameter]
-        // public IEnumerable<ITwinObject>? AditionalItems { get; set; } // Items that are passed into VisualComposer
-        //
-        // private ITwinObject[] _allVisualItems = null;
-        // private AxoMessageObserver observer;
-
-        // public ITwinObject[] AllVisualItems
-        // {
-        //     get
-        //     {
-        //         if (_allVisualItems == null)
-        //         {
-        //             var objList = new List<ITwinObject>()
-        //             {
-        //                 this.Data,
-        //                 this.DataManger,
-        //                 this.TechnologySettings,
-        //                 base.Component,
-        //                 this.UnitComponents
-        //             };
-        //
-        //             if (this.AditionalItems != null)
-        //             {
-        //                 foreach (var item in this.AditionalItems)
-        //                 {
-        //                     objList.Add(item);
-        //                 }
-        //             }
-        //
-        //             _allVisualItems = objList.ToArray();
-        //         }
-        //
-        //         return _allVisualItems;
-        //     }
-        // }
-
-        [Parameter]
-        public IUnitServices Component { get; set; }
         
         public bool EnableModalComponents { set; get; }
         public bool EnableModalProductionData { set; get; }
         public bool EnableModalProcessSettings { set; get; }
         public bool EnableModalTechnologySettings { set; get; }
-
+        
         private void ShowModalComponents()
         {
             EnableModalComponents = true;

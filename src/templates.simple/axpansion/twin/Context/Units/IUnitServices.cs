@@ -26,7 +26,11 @@ public interface IUnitServices
         
     public AxoMessageProvider MessageProvider { get; }
     
-    public axosimple.BaseUnit.Unit Unit { get; }
+    public axosimple.BaseUnit.UnitBase Unit { get; }
     
     ITwinObject[] Associates { get; }
+    
+    string Link { get; }
+    
+    string ImageLink { get; }
 }

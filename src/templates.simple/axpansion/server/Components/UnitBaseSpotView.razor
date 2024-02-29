@@ -3,38 +3,32 @@
 @using AXOpen.Core
 @using AXOpen.Core.Blazor.Culture
 @using AXOpen.Messaging.Static
+@using AXOpen.Messaging.Static.Blazor
 @using AXOpen.ToolBox.Extensions
-@using axosimple.server.Units
 @inherits RenderableComplexComponentBase<axosimple.BaseUnit.UnitBase>
 
-
- <div class="card" style="width: 18rem;">
-    <img src="@ImageLink" class="card-img-top p-3" alt="...">
+<div class="card" style="width: 18rem;">
+    <h3 class="m-3">@Component.AttributeName</h3>
+    <img src="@Component.UnitServices.ImageLink" class="card-img-top p-3" alt="...">
     <div class="card-body">
         <h5 class="card-title">@Component.GetAttributeName(CultureInfo.CurrentUICulture)</h5>
         <p class="card-text">
             <span class="badge rounded-pill @Mode">@ModeDescription</span>
         </p>
-        <a href="@Link" class="btn btn-primary position-relative">
-            @Localizer["OPEN"]
-            @if (MessagesCount > 0)
-            {
-                <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-                    <span class="visually-hidden">New alerts</span>
-                </span>
-            }
-        </a>
+         <a href="@Component.UnitServices.Link" class="btn btn-primary position-relative">
+                    @Localizer["OPEN"]
+                    @if (@Observer.Provider.ActiveMessagesCount > 0)
+                    {
+                        <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden">New alerts</span>
+                        </span>
+                    }
+                </a>
     </div>
 </div> 
 
 @code {
     
-    [Parameter]
-    public string Link { get; set; }
-
-    [Parameter]
-    public string ImageLink { get; set; }
-
     public string Mode
     {
         get
@@ -112,18 +106,36 @@
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await base.OnAfterRenderAsync(firstRender);
-        this.StateHasChanged();
     }
-    
-    public int MessagesCount { get; set; }
 
-    
+    private AxoMessageObserver observer;
+    private AxoMessageObserver? Observer
+    {
+        get
+        {
+            if (observer == null && Component.UnitServices.MessageProvider != null)
+                observer = AxoMessageObserver.Create(Component.UnitServices.MessageProvider, this);
+
+            return observer;
+        } 
+    }
+
+    protected override async Task<Task> OnInitializedAsync()
+    {
+        if (Observer != null) await Observer.InitializeUpdate();
+        await observer.InitializeUpdate();
+        return base.OnInitializedAsync();
+    }
+
     protected override void OnInitialized()
     {
-        //base.OnInitialized();
         
+        
+        //base.OnInitialized();
         this.UpdateValuesOnChange(Component.Ground.Status);
         this.UpdateValuesOnChange(Component.Automat.Status);
         this.UpdateValuesOnChange(Component.Service.Status);
     }
+
+   
 }

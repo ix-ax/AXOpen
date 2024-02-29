@@ -7,8 +7,8 @@
   "Items": [
     {
       "Id": "52d1d1f6cd1735d95593ce57bc469a286d48d55502c62cb52f65dc80875778cf",
-      "Left": 47.89556962025316,
-      "Top": 9.290337761874703,
+      "Left": 24.320179795644567,
+      "Top": 10.462820654283409,
       "Transform": "TopCenter",
       "Presentation": "Status-Display",
       "Width": -1,
@@ -52,8 +52,8 @@
     },
     {
       "Id": "9d4e0930db186250edf78d314b940f513029605aa3ea0234a1528bf77c26644e",
-      "Left": 57.78481012658228,
-      "Top": 17.32072624592411,
+      "Left": 61.740412446147474,
+      "Top": 31.92346772410527,
       "Transform": "TopCenter",
       "Presentation": "Status-Display",
       "Width": -1,
@@ -67,8 +67,8 @@
     },
     {
       "Id": "66bad7bd0d35cdce69082b42dcc83b3cf74f42e78143a8ec744b2098f7282f9d",
-      "Left": 51.77215189873418,
-      "Top": 28.003010461915416,
+      "Left": 52.1677121306907,
+      "Top": 32.639647354622575,
       "Transform": "TopCenter",
       "Presentation": "Status-Display",
       "Width": -1,

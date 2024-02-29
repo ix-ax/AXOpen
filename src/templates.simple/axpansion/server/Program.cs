@@ -14,6 +14,8 @@ using AXSharp.Connector;
 using AXSharp.Presentation.Blazor.Services;
 using Serilog;
 using System.Reflection;
+using axosimple.StarterUnitTemplate;
+using axosimple.UnitTemplate;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson.Serialization;
 
@@ -96,18 +98,22 @@ var UnitTemplate_ProcessData = Repository.Factory<Pocos.axosimple.UnitTemplate.P
 var persistentRepository = Repository.Factory<AXOpen.Data.PersistentRecord>("Persistent_Data");
 Entry.Plc.Context.PersistentData.InitializeRemoteDataExchange(Entry.Plc.Context, persistentRepository);
 
+Entry.Plc.Context.StarterUnitTemplate.Services = StarterUnitTemplateServices.Create(ContextService.Instance);
+Entry.Plc.Context.UnitTemplate.Services = UnitTemplateServices.Create(ContextService.Instance);
+
+
 ContextService.Instance.SetContextData(
     technologyCommonRepository: TechnologyCommonRepository,
     entitySettingsRepository: EntitySettingsRepository,
     entityDataRepository: EntityDataRepository
     );
 
-ContextService.Instance.StarterUnitTemplateServices.SetUnitsData(
+Entry.Plc.Context.StarterUnitTemplate.Services.SetUnitsData(
     technologySettingsRepository: StarterUnitTemplate_TechSettings,
     processSettingsRepository: StarterUnitTemplate_ProcessSettings,
     processDataRepository: StarterUnitTemplate_ProcessData);
 
-ContextService.Instance.UnitTemplateServices.SetUnitsData(
+Entry.Plc.Context.UnitTemplate.Services.SetUnitsData(
     technologySettingsRepository: UnitTemplate_TechSettings,
     processSettingsRepository: UnitTemplate_ProcessSettings,
     processDataRepository: UnitTemplate_ProcessData);

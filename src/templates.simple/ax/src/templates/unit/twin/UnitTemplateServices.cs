@@ -1,10 +1,17 @@
 ﻿using AXOpen.Base.Data;
 using AXOpen.Messaging.Static;
 using axosimple;
+using axosimple.server.Units;
+using axosimple.StarterUnitTemplate;
 using AXSharp.Connector;
 
-namespace axosimple.server.Units
+namespace axosimple.UnitTemplate
 {
+    public partial class Unit
+    {
+        public UnitTemplateServices Services { get; set; } 
+    }
+    
     public class UnitTemplateServices : IUnitServices     
     {
         private UnitTemplateServices(ContextService contextService)
@@ -54,7 +61,7 @@ namespace axosimple.server.Units
         }
 
         
-        public axosimple.BaseUnit.Unit Unit { get; } = Entry.Plc.Context.UnitTemplate;
+        public axosimple.BaseUnit.UnitBase Unit { get; } = Entry.Plc.Context.UnitTemplate;
 
         // Technology Data manager of unit
         private UnitTemplate.TechnologyDataManager UnitTechnologyDataManager { get; } = 
@@ -116,5 +123,9 @@ namespace axosimple.server.Units
 
             return this;
         }
+        
+        public string Link => "Context/Units/UnitTemplate";
+        
+        public string ImageLink => "logo-axopen-no-background.svg";
     }
 }
