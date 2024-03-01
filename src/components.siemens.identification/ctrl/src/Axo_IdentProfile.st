@@ -85,9 +85,8 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 RepeatCommand      :    BOOL;                               // repeat command
                 SoftReset          :    BOOL;                               // soft reset
                 Init               :    BOOL;                               // init-run
-                Cmdsel             :    UINT    :=  UINT#1;                 // selector for executive command
                 refHwConnect       :    REF_TO Axo_IID_HW_CONNECT;  
-                refCmd             :    REF_TO ARRAY[1..10] OF Axo_IID_CMD_STRUCT;   // command-buffer
+                refCmd             :    REF_TO Axo_IID_CMD_STRUCT;          // command
                 refTx              :    REF_TO ARRAY[*] OF BYTE;            // send-buffer
                 refRx              :    REF_TO ARRAY[*] OF BYTE;            // receive-buffer
             END_VAR         
@@ -242,12 +241,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 statTxbuflen := TO_UDINT (statUpperBoundTxref - statLowerBoundTxref + 1);
                 statRxbuflen := TO_UDINT (statUpperBoundRxref - statLowerBoundRxref + 1);
                 
-                // check eAxo_IID_COMMANDS#esel 
-                IF Cmdsel > UINT#10 OR Cmdsel < UINT#1 THEN
-                    tempIntError := true;
-                    statIntStatus := DWORD#16#E7FE0200;
-                END_IF;
-                
+               
                 IF NOT tempIntError THEN
                     // steps for init procedure 
                     IF tempRaisedInit THEN
@@ -320,8 +314,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                             statFixChainedCounter := UINT#1;
                             statChainedCounter := UINT#1;
                             statSqModified := FALSE;
-                            statCmdSelCounter := Cmdsel;
-                            statCmd := refCmd^[statCmdSelCounter];
+                            statCmd := refCmd^;
                         
                     END_IF;
                     
@@ -344,11 +337,10 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             // rwr := DPRD_DAT(LADDR := TO_UINT (HwConnect^.HW_ID), RECORD => HwConnect^.Static.cyc_status);
             rwr := Siemens.Simatic.S71500.DistributedIO.ReadData(refHwConnect^.HW_ID , data);
             //TODO add messenger in case of reading error
-            // Messenger.ActivateOnCondition(ULINT#703,rwr > WORD#0, eAxoMessageCategory#ProgrammingError);
-            // IF returnValue > WORD#0 THEN
-            //     Status.Error.Id := UINT#703;
-            //     RETURN;
-            // END_IF;
+            IF rwr > WORD#0 THEN
+                nStatus := DWORD#16#FEFE0005; 
+                RETURN;
+            END_IF;
 
             refHwConnect^.Static.cyc_status.%B0   := data[1]; //TODO check order of bytes
             refHwConnect^.Static.cyc_status.%B1   := data[0];
@@ -395,11 +387,10 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             
             rww := Siemens.Simatic.S71500.DistributedIO.WriteData(refHwConnect^.HW_ID,data);
             // TODO provide messaging in caso of error writing
-            // Messenger.ActivateOnCondition(ULINT#704,rww > WORD#0, eAxoMessageCategory#ProgrammingError);
-            // IF returnValue > WORD#0 THEN
-            //     Status.Error.Id := UINT#704;
-            //     RETURN;
-            // END_IF;
+            IF rww > WORD#0 THEN
+                nStatus := DWORD#16#FEFE0006; 
+                RETURN;
+            END_IF;
                 
             // SRESET is set 
             IF refHwConnect^.Static.SRESET_cyc THEN
@@ -448,7 +439,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                             statFurtherTelegram := FALSE;
                             
                             // check CMD validity and command codex 
-                            IF  (Cmdsel <> UINT#1) OR  (statCmd.CMD <> eAxo_IID_COMMANDS#eWriteConfig) THEN
+                            IF (statCmd.CMD <> eAxo_IID_COMMANDS#eWriteConfig) THEN
                                 // CMDSEL must be 1 as defined by the IEC standard 
                                 // only WRITE_CONFIG is here allowed 
                                 tempIntError := TRUE;
@@ -918,7 +909,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                     IF statCmd.CHAINED AND statCmdSelCounter < UINT#100 AND NOT refHwConnect^.Static.STATUS_INITIALISATION THEN
                                         statCmdSelCounter := statCmdSelCounter + UINT#1;
                                         
-                                        statCmd := refCmd^[statCmdSelCounter];
+                                        statCmd := refCmd^;
                                         
                                         statChainedCounter := statChainedCounter + UINT#1;
                                         refHwConnect^.Static.state := STATE4;
@@ -945,7 +936,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                 END_IF;
                                 
                                 // copy over actual command  
-                                statCmd := refCmd^[ (statCmdSelCounter - statChainedCounter) + UINT#1];
+                                statCmd := refCmd^;
                                 
                                 // got to next step => read answer 
                                 refHwConnect^.Static.state := STATE7;

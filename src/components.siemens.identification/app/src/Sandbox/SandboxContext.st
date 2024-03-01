@@ -6,24 +6,58 @@ USING System.Strings;
 {S7.extern=ReadWrite}
 CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
-        rf186_1_init            :   BOOL;
-        rf186_1_init_PV         :   BOOL;	
-        rf186_1_execute         :   BOOL;	
-        rf186_1_execute_PV      :   BOOL;	
-        rf186_1_repeatCommand   :   BOOL;
-        rf186_1_softReset       :   BOOL;
-        rf186_1_cmdsel          :   UINT;
-        rf186_1_done            :   BOOL;
-        rf186_1_busy            :   BOOL;
-        rf186_1_error           :   BOOL;
-        rf186_1_warning         :   BOOL;
-        rf186_1_status          :   DWORD;
-        rf186_1_write           :   STRING;
-        rf186_1_read            :   STRING;
+        run_1   :   BOOL;
+        run_2   :   BOOL;
+    END_VAR
+
+    VAR PUBLIC
+        _manualControl             :   BOOL;
+        {#ix-attr:[CompilerOmits()]}
+        _rf186_1_hardwareConfig: ARRAY[1..16] OF BYTE := [BYTE#16#04,BYTE#16#00,BYTE#16#00,BYTE#16#00,BYTE#16#00,BYTE#16#0A,BYTE#16#00,BYTE#16#00,BYTE#16#00,BYTE#16#25,BYTE#16#00,BYTE#16#00,BYTE#16#00,BYTE#16#01,BYTE#16#00,BYTE#16#01]; //default data for RF260R 
         
-        rf186_1 : AXOpen.Components.SIEM.Identification.Axo_IdentProfile;          
+        rf186_1 : AXOpen.Components.SIEM.Identification.Axo_IdentDevice;          
+    END_VAR
+
+    METHOD PROTECTED OVERRIDE Main
+        IF run_1 AND NOT run_2 THEN
+            rf186_1.Config.HardwareConfig := _rf186_1_hardwareConfig;
+
+            rf186_1.Run(parent      :=  THIS,
+                        HW_ID       :=  HwIdentifiers#rf186c_Reader_1,
+                        API         :=  DWORD#16#5B00,	
+                        SLOT 		:=  WORD#2,
+                        SUB_SLOT 	:=  WORD#1,
+                        CM_CHANNEL  :=  UINT#1);
+
+            IF(_manualControl) THEN
+                rf186_1.ActivateManualControl();
+            END_IF;   
+        END_IF;   
+
+        IF NOT run_1 and run_2 THEN
+            THIS.Main2();
+        END_IF;
+    END_METHOD
+
+    VAR PUBLIC
+        rf186_2_init            :   BOOL;
+        rf186_2_init_PV         :   BOOL;	
+        rf186_2_execute         :   BOOL;	
+        rf186_2_execute_PV      :   BOOL;	
+        rf186_2_repeatCommand   :   BOOL;
+        rf186_2_softReset       :   BOOL;
+        rf186_2_cmdsel          :   UINT;
+        rf186_2_done            :   BOOL;
+        rf186_2_busy            :   BOOL;
+        rf186_2_error           :   BOOL;
+        rf186_2_warning         :   BOOL;
+        rf186_2_status          :   DWORD;
+        rf186_2_write           :   STRING;
+        rf186_2_read            :   STRING;
+        
+        rf186_2 : AXOpen.Components.SIEM.Identification.Axo_IdentProfile;          
         Connect_RF188C_CH01: Axo_IID_HW_CONNECT;
-        // {#ix-attr:[CompilerOmits()]} 
+        {#ix-attr:[CompilerOmits()]} 
         aCommands: ARRAY[1..10] OF Axo_IID_CMD_STRUCT;
         {#ix-attr:[CompilerOmits()]} 
         aDataReset: ARRAY[1..16] OF BYTE;
@@ -31,28 +65,25 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         aDataRx: ARRAY[1..2000] OF BYTE;
         {#ix-attr:[CompilerOmits()]} 
         aDataTx: ARRAY[1..2000] OF BYTE;
+        Command: Axo_IID_CMD_STRUCT;
 
     END_VAR
 
-    METHOD PROTECTED OVERRIDE Main
+    METHOD PROTECTED Main2
 
         VAR       
             i                   : INT;
+            _data       :   ARRAY[0..255] OF BYTE;
         END_VAR
 
         //===================================================================== 
         //Define profinet parameters 
         //=====================================================================
         Connect_RF188C_CH01.HW_ID       := HwIdentifiers#rf186c_Reader_1;   //HW IO of the reader  !!! not the CM
-        // Connect_RF188C_CH01.CM_CHANNEL  := UINT#1;
-        // Connect_RF188C_CH01.API         := DWORD#16#5B00;
-        // Connect_RF188C_CH01.SLOT        := WORD#2;       //2-for channel 1, 3-channel 2
-        // Connect_RF188C_CH01.SUB_SLOT    := WORD#1;
         Connect_RF188C_CH01.CM_CHANNEL  := UINT#1;
-        Connect_RF188C_CH01.API         := DWORD#16#0;
+        Connect_RF188C_CH01.API         := DWORD#16#5B00;
         Connect_RF188C_CH01.SLOT        := WORD#2;       //2-for channel 1, 3-channel 2
         Connect_RF188C_CH01.SUB_SLOT    := WORD#1;
-
         //===================================================================== 
         //Define iid aCommands 
         //=====================================================================
@@ -110,7 +141,7 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         //===================================================================== 
         //copy reset data when a reset command is executed 
         //=====================================================================
-        IF (*rf186_1_init AND NOT	rf186_1_init_PV AND *) rf186_1_cmdsel = UINT#1 THEN 	
+        IF (*rf186_1_init AND NOT	rf186_1_init_PV AND *) rf186_2_cmdsel = UINT#1 THEN 	
             FOR i := 1 TO 16 DO
                 aDataTX[i] := aDataReset[i];
             END_FOR;
@@ -119,7 +150,7 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         //===================================================================== 
         //clear receiveData buffer before executing command) 
         //=====================================================================
-        IF rf186_1_execute AND NOT	rf186_1_execute_PV THEN 	
+        IF rf186_2_execute AND NOT	rf186_2_execute_PV THEN 	
             FOR i := 1 TO 2000 DO
                 aDataRX[i] := BYTE#0;
             END_FOR;
@@ -128,42 +159,56 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         //===================================================================== 
         //copy read data when a read command is selected 
         //=====================================================================
-        IF rf186_1_cmdsel = UINT#4 THEN 	
-            Deserialize(UINT#1, aDataRX, rf186_1_read);
-            aCommands[4].LEN_DATA :=TO_WORD(LengthOf(rf186_1_write)+INT#1); // as the actual length of string needs to be read as well
+        IF rf186_2_cmdsel = UINT#4 THEN 	
+            Deserialize(UINT#1, aDataRX, rf186_2_read);
+            aCommands[4].LEN_DATA :=TO_WORD(LengthOf(rf186_2_write)+INT#1); // as the actual length of string needs to be read as well
             IF aCommands[4].LEN_DATA <= WORD#1 THEN aCommands[4].LEN_DATA := WORD#40; END_IF;
+        END_IF;
+
+        //===================================================================== 
+        //copy UID data when a UID read command is selected 
+        //=====================================================================
+        IF rf186_2_cmdsel = UINT#6 THEN 	
+            _data[0] :=TO_BYTE(INT#8);
+            FOR i := INT#1 TO INT#8 DO
+                _data[i] := aDataRX[i];
+            END_FOR;
+            Deserialize(UINT#1, _data, rf186_2_read);
         END_IF;
 
         //===================================================================== 
         //copy write data when a write command is selected 
         //=====================================================================
-        IF rf186_1_cmdsel = UINT#5 THEN 	
-            Serialize(UINT#1, rf186_1_write, aDataTX);
-            aCommands[5].LEN_DATA :=TO_WORD(LengthOf(rf186_1_write)+INT#1); // as the actual length of string needs to be sent as well
+        IF rf186_2_cmdsel = UINT#5 THEN 	
+            Serialize(UINT#1, rf186_2_write, aDataTX);
+            aCommands[5].LEN_DATA :=TO_WORD(LengthOf(rf186_2_write)+INT#1); // as the actual length of string needs to be sent as well
         END_IF;
 
         //===================================================================== 
         //call Ident_Profile 
         //=====================================================================
-        rf186_1_execute_PV  :=  rf186_1_execute;
-        rf186_1_init_PV :=  rf186_1_init;     
+        rf186_2_execute_PV  :=  rf186_2_execute;
+        rf186_2_init_PV :=  rf186_2_init;     
+        IF rf186_2_cmdsel >= UINT#1 AND rf186_2_cmdsel <= UINT#10 THEN
+            Command :=  aCommands[rf186_2_cmdsel];
+        END_IF;
         
-        rf186_1.Run(Execute         :=  rf186_1_execute,
-                    RepeatCommand   :=  rf186_1_repeatCommand,
-                    SoftReset       :=  rf186_1_softReset,
-                    Init            :=  rf186_1_init,
-                    Cmdsel          :=  rf186_1_cmdsel,
+        rf186_2.Run(Execute         :=  rf186_2_execute,
+                    RepeatCommand   :=  rf186_2_repeatCommand,
+                    SoftReset       :=  rf186_2_softReset,
+                    Init            :=  rf186_2_init,
                     refHwConnect    :=  REF( Connect_RF188C_CH01), 
-                    refCmd          :=  REF(aCommands),   
+                    refCmd          :=  REF(Command),   
                     refTx           :=  REF(aDataTx),
                     refRx           :=  REF(aDataRx),
-                    Done            =>  rf186_1_done,
-                    Busy            =>  rf186_1_busy,
-                    Error           =>  rf186_1_error,
-                    Warning         =>  rf186_1_warning,
-                    Status          =>  rf186_1_status);
+                    Done            =>  rf186_2_done,
+                    Busy            =>  rf186_2_busy,
+                    Error           =>  rf186_2_error,
+                    Warning         =>  rf186_2_warning,
+                    Status          =>  rf186_2_status);
              
     END_METHOD
+
 END_CLASS
 
 

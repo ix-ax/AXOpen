@@ -16,16 +16,32 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             _blink                      :   AXOpen.Timers.AxoBlinker;
             _context                    :   IAxoContext;
             _someTaskIsActive           :   BOOL;
-            _hwID                       :   WORD;
 
-            _identProfile               :   Axo_IdentProfile;
+            // _identProfile               :   Axo_IdentProfile;
+            _identProfile_Execute       :   BOOL;        
+            _identProfile_RepeatCommand :   BOOL;  
+            _identProfile_SoftReset     :   BOOL;      
+            _identProfile_Init          :   BOOL;           
+            _identProfile_HwConnect     :   Axo_IID_HW_CONNECT;   
+            _identProfile_Cmd           :   Axo_IID_CMD_STRUCT;         
+            _identProfile_Tx            :   ARRAY[1..255] OF BYTE;          
+            _identProfile_Rx            :   ARRAY[1..255] OF BYTE;          
+            _identProfile_Done          :   BOOL;           
+            _identProfile_Busy          :   BOOL;           
+            _identProfile_Error         :   BOOL;          
+            _identProfile_Warning       :   BOOL;        
+            _identProfile_Status        :   DWORD;                     
 
 
-            _readAddress                :   WORD;
+            _readAddress                :   DWORD;
             _readNumberOfBytes          :   WORD;
+            _readBufferOffset           :   UINT;
+            _readData                   :   STRING;
             _writeAddress               :   WORD;
             _writeNumberOfBytes         :   WORD;
+            _writeBufferOffset          :   UINT;
             _writeData                  :   STRING;
+            
             _writeCharCharacter         :   BYTE;
             _writeCharAddress           :   WORD;
             _writeCharNumberOfBytes     :   WORD;
@@ -75,13 +91,23 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Number of bytes to read#>"}
             ReadNumberOfBytes   : WORD;
-   
+            {#ix-attr:[ComponentDetails("Tasks")]}            
+            {#ix-set:AttributeName = "<#Read buffer offset#>"}
+            ReadBufferOffset: UINT;
+            {#ix-attr:[ComponentDetails("Tasks")]}            
+            {#ix-set:AttributeName = "<#Data read#>"}
+            {#ix-attr:[ReadOnly()]}
+            ReadData    : STRING;
+
             {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Write#>"}
             WriteTask : AxoTask;
             {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Write address#>"}
             WriteAddress : WORD;
+            {#ix-attr:[ComponentDetails("Tasks")]}            
+            {#ix-set:AttributeName = "<#Write buffer offset#>"}
+            WriteBufferOffset: UINT;
             {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Data to write#>"}
             WriteData    : STRING;
@@ -122,6 +148,9 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             ReaderStatus        :   Axo_IdentDevice_Component_Status;
             Messenger           :   AXOpen.Messaging.Static.AxoMessenger;
             TaskMessenger       :   AXOpen.Messaging.Static.AxoMessenger;
+            {#ix-attr:[ComponentDetails("Status")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Progress#>"}
             _progress           :   INT := 0;
         END_VAR
 
@@ -145,6 +174,13 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             {#ix-attr:[ComponentDetails("Hardware diagnostics")]}
             {#ix-set:AttributeName = "<#Update diagnostics#>"}
             HardwareDiagnosticsTask :   AXOpen.Io.AxoHardwareDiagnostics;
+        END_VAR
+
+
+        VAR PUBLIC //DEBUG
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentDetails("Debug")]}
+            _identProfile               :   Axo_IdentProfile;
         END_VAR
 
         ///<summary>
@@ -174,7 +210,11 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 RETURN;
             END_IF;
 
-            _hwID            :=  HW_ID;
+            _identProfile_HwConnect.HW_ID        :=  HW_ID;
+            _identProfile_HwConnect.API 		    :=  API;
+            _identProfile_HwConnect.SLOT 	    :=  SLOT;
+            _identProfile_HwConnect.SUB_SLOT     :=  SUB_SLOT;
+            _identProfile_HwConnect.CM_CHANNEL   :=  CM_CHANNEL;
 
             THIS.Initialize(parent);
             THIS.Execute();
@@ -207,7 +247,11 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 RETURN;
             END_IF;
 
-            _hwID            :=  HW_ID;
+            _identProfile_HwConnect.HW_ID        :=  HW_ID;
+            _identProfile_HwConnect.API 		    :=  API;
+            _identProfile_HwConnect.SLOT 	    :=  SLOT;
+            _identProfile_HwConnect.SUB_SLOT     :=  SUB_SLOT;
+            _identProfile_HwConnect.CM_CHANNEL   :=  CM_CHANNEL;
 
             THIS.Initialize(parent);
             THIS.Execute();
@@ -216,64 +260,37 @@ NAMESPACE AXOpen.Components.SIEM.Identification
         METHOD PRIVATE Execute 
             VAR 
                 _dword          :   DWORD;
-                _data           :   ARRAY[0..9] OF BYTE; 
+                _data           :   ARRAY[0..255] OF BYTE; 
                 returnValue     :   WORD;
                 _tempString_8   :   STRING[8];
                 i               :   INT;
                 _index          :   INT;
+                _tempLength     :   INT;
             END_VAR
 
             THIS.Open();
 
-            //***********UPDATE**INPUTS******************
-            returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwId ,_data);
-            Messenger.ActivateOnCondition(ULINT#703,returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF returnValue > WORD#0 THEN
-                ReaderStatus.Error.Id := UINT#703;
-                RETURN;
-            END_IF;
-
-            Inputs.BitHeader1_CodeTagPresent    := _data[0].%X0;
-            Inputs.BitHeader1_JobAccepted       := _data[0].%X1;
-            Inputs.BitHeader1_JobEnd            := _data[0].%X2;
-            Inputs.BitHeader1_JobError          := _data[0].%X3;
-            Inputs.BitHeader1_Reserve0          := _data[0].%X4;
-            Inputs.BitHeader1_ToggleBit         := _data[0].%X5;
-            Inputs.BitHeader1_HeadFailure       := _data[0].%X6;
-            Inputs.BitHeader1_Power             := _data[0].%X7;
-
-            Inputs.Data[0]                      := _data[1];
-            Inputs.Data[1]                      := _data[2];
-            Inputs.Data[2]                      := _data[3];
-            Inputs.Data[3]                      := _data[4];
-            Inputs.Data[4]                      := _data[5];
-            Inputs.Data[5]                      := _data[6];
-            Inputs.Data[6]                      := _data[7];
-            Inputs.Data[7]                      := _data[8];
-
-            Inputs.BitHeader2_CodeTagPresent    := _data[9].%X0;
-            Inputs.BitHeader2_JobAccepted       := _data[9].%X1;
-            Inputs.BitHeader2_JobEnd            := _data[9].%X2;
-            Inputs.BitHeader2_JobError          := _data[9].%X3;
-            Inputs.BitHeader2_Reserve0          := _data[9].%X4;
-            Inputs.BitHeader2_ToggleBit         := _data[9].%X5;
-            Inputs.BitHeader2_HeadFailure       := _data[9].%X6;
-            Inputs.BitHeader2_Power             := _data[9].%X7;
-
-            IF Inputs.BitHeader2_CodeTagPresent AND NOT _codeTagPresent_PV THEN
-                _data[0]    :=  BYTE#8;
-                Deserialize(UINT#0,_data,ReaderStatus.UID);
-            ELSIF NOT Inputs.BitHeader2_CodeTagPresent AND _codeTagPresent_PV THEN
-                ReaderStatus.UID := '';
-            END_IF;
-            _codeTagPresent_PV  :=   Inputs.BitHeader2_CodeTagPresent;
+            _identProfile.Run(  Execute         :=  _identProfile_Execute,
+                                RepeatCommand   :=  _identProfile_RepeatCommand,
+                                SoftReset       :=  _identProfile_SoftReset,
+                                Init            :=  _identProfile_Init,
+                                refHwConnect    :=  REF(_identProfile_HwConnect), 
+                                refCmd          :=  REF(_identProfile_Cmd),
+                                refTx           :=  REF(_identProfile_Tx),
+                                refRx           :=  REF(_identProfile_Rx),
+                                Done            =>  _identProfile_Done,
+                                Busy            =>  _identProfile_Busy,
+                                Error           =>  _identProfile_Error,
+                                Warning         =>  _identProfile_Warning,
+                                Status          =>  _identProfile_Status);
             
-            IF Inputs.BitHeader2_Power AND NOT _power_PV THEN
-                ReaderStatus.VersionHighByte := Inputs.Data[0];
-                ReaderStatus.VersionLowByte := Inputs.Data[4];
-            END_IF;
-            _power_PV  :=   Inputs.BitHeader2_Power;
-        
+
+            Messenger.ActivateOnCondition(TO_ULINT(DWORD#16#FEFE0001),_identProfile_Status = DWORD#16#FEFE0001, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(TO_ULINT(DWORD#16#FEFE0002),_identProfile_Status = DWORD#16#FEFE0002, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(TO_ULINT(DWORD#16#FEFE0003),_identProfile_Status = DWORD#16#FEFE0003, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(TO_ULINT(DWORD#16#FEFE0004),_identProfile_Status = DWORD#16#FEFE0004, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(TO_ULINT(DWORD#16#FEFE0005),_identProfile_Status = DWORD#16#FEFE0005, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(TO_ULINT(DWORD#16#FEFE0006),_identProfile_Status = DWORD#16#FEFE0006, eAxoMessageCategory#ProgrammingError);
 
             //*******************************************
             _context := THIS.GetContext();
@@ -292,7 +309,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
 
             //****************************************
             //********************Diagnostics*********        
-            HardwareDiagnosticsTask.Run(_hwID);
+            HardwareDiagnosticsTask.Run(_identProfile_HwConnect.HW_ID);
             //****************************************
 
             //*************RESTORE********************
@@ -324,7 +341,18 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                         ReaderStatus.Error.Id := UINT#500;
                     END_IF;
 
-                    IF Inputs.BitHeader1_CodeTagPresent THEN
+                    _readData   := '';
+
+                    _identProfile_Cmd.CMD           :=  eAxo_IID_COMMANDS#eRead;
+                    _identProfile_Cmd.ADDR_TAG      :=  _readAddress;        
+                    _identProfile_Cmd.LEN_DATA      :=  _readNumberOfBytes;  
+                    _identProfile_Cmd.OFFSETBUFFER  :=  _readBufferOffset;   
+
+                    _identProfile_Execute           :=  FALSE;
+                    _identProfile_SoftReset         :=  FALSE;
+                    _identProfile_Init              :=  FALSE;
+
+                    IF NOT _identProfile_Busy THEN
                         THIS.CallTimers(FALSE);
                         _progress:=301;                    
                     END_IF;
@@ -332,146 +360,65 @@ NAMESPACE AXOpen.Components.SIEM.Identification
 
                 IF _progress = 301 THEN  
                     TaskMessenger.ActivateOnCondition(ULINT#501, _infoTimer.output AND Inputs.BitHeader1_JobAccepted, eAxoMessageCategory#Warning);
-                    TaskMessenger.ActivateOnCondition(ULINT#502, _infoTimer.output AND Inputs.BitHeader1_JobEnd, eAxoMessageCategory#Warning);
-                    TaskMessenger.ActivateOnCondition(ULINT#503, _infoTimer.output AND Inputs.BitHeader1_ToggleBit, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        IF Inputs.BitHeader1_JobAccepted THEN
-                            ReaderStatus.Error.Id := UINT#501;
-                        ELSIF Inputs.BitHeader1_JobEnd THEN
-                            ReaderStatus.Error.Id := UINT#502;
-                        ELSIF Inputs.BitHeader1_ToggleBit THEN
-                            ReaderStatus.Error.Id := UINT#503;
-                        END_IF;
+                        ReaderStatus.Error.Id := UINT#501;
                     END_IF;
-                    _CommandDesignator              :=  BYTE#16#0;
-                    _StartAddress                   :=  WORD#16#0;
-                    _NumberOfBytes                  :=  WORD#16#0;
-                    Outputs.BitHeader1_Job          :=  FALSE;
-                    Outputs.BitHeader1_ToggleBit    :=  FALSE;
-                    _LastTogleBitValue              :=  FALSE;		
-                    _ReadWriteData                  :=  '';
-            
 
-                    IF(NOT Inputs.BitHeader1_JobAccepted 
-                        AND NOT Inputs.BitHeader1_JobEnd
-                        AND NOT Inputs.BitHeader1_ToggleBit) THEN
+                    _identProfile_Execute :=  TRUE;
+
+                    IF( _identProfile_Busy) THEN
                         THIS.CallTimers(FALSE);
-                        _progress:=304;                           
-                         // ------- compute couts buffer to read	----
-                         _lenghtInLastReadedBuffer := TO_INT( _readNumberOfBytes) MOD INT#8;
-                         _buffersCountToRead :=  TO_INT( _readNumberOfBytes) / INT#8;
-                         _readedBuffersCount :=  INT#0 ;
-                         
-                         IF _lenghtInLastReadedBuffer <> INT#0 THEN
-                            _buffersCountToRead :=  _buffersCountToRead + INT#1;
-                         END_IF;
-                         //--------------------------------------
+                        _progress:=302;                           
                      END_IF;   
                 END_IF;
                 
+                IF _progress = 302 THEN  
+                    TaskMessenger.ActivateOnCondition(ULINT#502, _infoTimer.output AND Inputs.BitHeader1_JobAccepted, eAxoMessageCategory#Warning);
+                    IF _infoTimer.output THEN
+                        ReaderStatus.Error.Id := UINT#502;
+                    END_IF;
+
+                    IF(NOT _identProfile_Busy) THEN
+                        THIS.CallTimers(FALSE);
+                        _progress:=303;                           
+                     END_IF;   
+                END_IF;
+                
+                IF _progress = 303 THEN  
+                    TaskMessenger.ActivateOnCondition(ULINT#503, _infoTimer.output AND Inputs.BitHeader1_JobAccepted, eAxoMessageCategory#Warning);
+                    IF _infoTimer.output THEN
+                        ReaderStatus.Error.Id := UINT#503;
+                    END_IF;
+
+                    ReadTask.ThrowWhen(_identProfile_Error);
+
+                    IF(_identProfile_Done) THEN
+                        THIS.CallTimers(FALSE);
+                        _progress:=304;                           
+                     END_IF;   
+                END_IF;
+
                 IF _progress = 304 THEN  
                     TaskMessenger.ActivateOnCondition(ULINT#504, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         ReaderStatus.Error.Id := UINT#504;
                     END_IF;
+                    _data[0] := TO_BYTE(_readNumberOfBytes);
+                    FOR i := 1 TO TO_INT(_readNumberOfBytes) DO
+                        _data[i] := _identProfile_Rx[i];
+                    END_FOR;
 
-		            // Set job datas
-		            _sendingCommandHeader := TRUE; 
-		            _CommandDesignator := BYTE#16#01; //  16#00 -nothing, 16#01 - read, 16#02 - write				
-		            _StartAddress := _readAddress;
-		            _NumberOfBytes := _readNumberOfBytes;
-		            Outputs.BitHeader1_Job := TRUE; // set AV
-		            IF Inputs.BitHeader1_JobEnd THEN	
+                    Deserialize(UINT#0, _data , _readData);
+
+                    _identProfile_Execute           :=  FALSE;
+
+                    IF NOT  _identProfile_Done THEN
                         THIS.CallTimers(FALSE);
                         _progress:=305;                    
-                    END_IF;
+                    END_IF;             
                 END_IF;
                 
                 IF _progress = 305 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#505, _infoTimer.output, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#505;
-                    END_IF;
-
-                    IF Inputs.BitHeader1_JobAccepted THEN
-                        _LastTogleBitValue := Inputs.BitHeader1_ToggleBit;
-                        THIS.CallTimers(FALSE);
-                        _progress:=306;                    
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 306 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#506, _infoTimer.output, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#506;
-                    END_IF;
-                    _data[0] := BYTE#8;
-                    Deserialize(UINT#0, _data , _tempString_8);
-                    _ReadWriteData  :=	Concat(_ReadWriteData,_tempString_8);
-                    _readedBuffersCount := _readedBuffersCount + INT#1 ;
-                    _LastTogleBitValue :=Inputs.BitHeader1_ToggleBit;
-
-                    IF TRUE THEN
-                        THIS.CallTimers(FALSE);
-                        _progress:=307;                    
-                    END_IF;             
-                END_IF;
-                
-                IF _progress = 307 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#507, _infoTimer.output, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#507;
-                    END_IF;
-
-                    Outputs.BitHeader1_ToggleBit := NOT Outputs.BitHeader1_ToggleBit;
-          
-                    IF TRUE THEN
-                        THIS.CallTimers(FALSE);
-                        _progress:=308;                    
-                    END_IF;             
-
-                END_IF;
-                
-                IF _progress = 308 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#508, _infoTimer.output, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#508;
-                    END_IF;
-
-		
-                    IF(_LastTogleBitValue <> Inputs.BitHeader1_ToggleBit) THEN						
-                        _progress := 306;			
-                    END_IF;
-                    
-                    IF(_readedBuffersCount  >= _buffersCountToRead ) THEN	
-                        IF _lenghtInLastReadedBuffer <> INT#0 THEN
-                            //_ReadWriteData :=	StartOf(_ReadWriteData, _buffersCountToRead * INT#8 - INT#8 + _lenghtInLastReadedBuffer);
-                            _ReadWriteData :=	StartOf(_ReadWriteData, TO_INT(_readNumberOfBytes));
-                        END_IF;
-                        THIS.CallTimers(FALSE);
-                        _progress:=309; 
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 309 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#509, _infoTimer.output, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#509;
-                    END_IF;
-
-                    i := PositionOf(_ReadWriteData,_RestCharacter);
-                    IF i > INT#0 THEN
-                        _ReadWriteData :=	StartOf(_ReadWriteData, i);
-                    END_IF;
-
-                    IF TRUE THEN
-                        THIS.CallTimers(FALSE);
-                        _progress:=310;                    
-                    END_IF;             
-                  
-                END_IF;
-                
-                IF _progress = 310 THEN  
                     ReadTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
                     _progress := 0;
@@ -501,7 +448,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             //*******************************************
 
  
-            //***********WriteTask*******
+            //***********WriteTask***********************
             WriteTask.IsDisabled := FALSE;
             IF WriteTask.StartTriggered() THEN
                 ReaderStatus.Action.Id :=  UINT#120;
@@ -518,196 +465,89 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                     _progress := 320;
                 END_IF;
 
-                IF _progress = 0 THEN
-                    ReaderStatus.Error.Id :=  UINT#0;
-                    TaskMessenger.Restore();
-                    THIS.CallTimers(FALSE);
-                    _progress := 320;
-                END_IF;
-
                 IF _progress = 320 THEN 
                     TaskMessenger.ActivateOnCondition(ULINT#520, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         ReaderStatus.Error.Id := UINT#520;
                     END_IF;
 
-                    IF Inputs.BitHeader1_CodeTagPresent THEN
+                    Serialize(UINT#0,_writeData,_data);
+                    _tempLength := LengthOf(_writeData);
+                    
+                    FOR i := INT#1 TO _tempLength DO
+                        _identProfile_Tx[i] := _data[i];
+                    END_FOR;
+
+                    _identProfile_Cmd.CMD           :=  eAxo_IID_COMMANDS#eWrite;
+                    _identProfile_Cmd.LEN_DATA      :=  TO_WORD(_tempLength);
+                    _identProfile_Cmd.ADDR_TAG      :=  _writeAddress;   
+                    _identProfile_Cmd.OFFSETBUFFER  :=  _writeBufferOffset;   
+                    
+                    _identProfile_Execute           :=  FALSE;
+                    _identProfile_SoftReset         :=  FALSE;
+                    _identProfile_Init              :=  FALSE;
+
+                    IF NOT _identProfile_Busy THEN
                         THIS.CallTimers(FALSE);
                         _progress := 321;
                     END_IF;
                 END_IF;
 
-                IF _progress = 321 THEN	
+                IF _progress = 321 THEN 
                     TaskMessenger.ActivateOnCondition(ULINT#521, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         ReaderStatus.Error.Id := UINT#521;
                     END_IF;
-
-                    _DataToWrite := '';
-                    _DataToWrite := _writeData;
                     
-                    _index := LengthOf(_DataToWrite);
-                            
-                    FOR i := _index TO TO_INT(Config.RfidCodeSize) - 1 DO // add at the end rest characters...
-                        _DataToWrite := CONCAT(_DataToWrite, _RestCharacter);
-                    END_FOR; 
-            
-                        
-                    _index := LengthOf(_DataToWrite); // against computation of lenght..
-                    _writeNumberOfBytes := TO_WORD(_index);
+                    _identProfile_Execute := TRUE;
 
-                    Serialize(UINT#0,_DataToWrite,_DataToWriteArr);
-
-                    IF TRUE THEN
+                    IF _identProfile_Busy THEN
                         THIS.CallTimers(FALSE);
-                        _progress:=322;                    
-                    END_IF;             
-                END_IF;
-              
-                IF _progress = 322 THEN	
-                    TaskMessenger.ActivateOnCondition(ULINT#522, _infoTimer.output AND Inputs.BitHeader1_JobAccepted, eAxoMessageCategory#Warning);
-                    TaskMessenger.ActivateOnCondition(ULINT#523, _infoTimer.output AND Inputs.BitHeader1_JobEnd, eAxoMessageCategory#Warning);
-                    TaskMessenger.ActivateOnCondition(ULINT#524, _infoTimer.output AND Inputs.BitHeader1_ToggleBit, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        IF Inputs.BitHeader1_JobAccepted THEN
-                            ReaderStatus.Error.Id := UINT#522;
-                        ELSIF Inputs.BitHeader1_JobEnd THEN
-                            ReaderStatus.Error.Id := UINT#523;
-                        ELSIF Inputs.BitHeader1_ToggleBit THEN
-                            ReaderStatus.Error.Id := UINT#524;
-                        END_IF;
-                    END_IF;                    
-
-                    // Clean up
-                    _SendDataIndex := 1;
-                    _CommandDesignator := BYTE#16#0;
-                    _StartAddress := WORD#16#0;
-                    _NumberOfBytes := WORD#16#0;
-                    Outputs.BitHeader1_Job := FALSE;
-                    // Outputs.BitHeader1_ToggleBit := FALSE;
-                    
-                    IF(NOT Inputs.BitHeader1_JobAccepted 
-                        AND NOT Inputs.BitHeader1_JobEnd
-                        AND NOT Inputs.BitHeader1_ToggleBit) THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 325;
+                        _progress := 322;
                     END_IF;
+                END_IF;
+
+                IF _progress = 322 THEN  
+                    TaskMessenger.ActivateOnCondition(ULINT#522, _infoTimer.output AND Inputs.BitHeader1_JobAccepted, eAxoMessageCategory#Warning);
+                    IF _infoTimer.output THEN
+                        ReaderStatus.Error.Id := UINT#522;
+                    END_IF;
+
+                    IF(NOT _identProfile_Busy) THEN
+                        THIS.CallTimers(FALSE);
+                        _progress:=323;                           
+                     END_IF;   
+                END_IF;
+                
+                IF _progress = 323 THEN  
+                    TaskMessenger.ActivateOnCondition(ULINT#523, _infoTimer.output AND Inputs.BitHeader1_JobAccepted, eAxoMessageCategory#Warning);
+                    IF _infoTimer.output THEN
+                        ReaderStatus.Error.Id := UINT#523;
+                    END_IF;
+
+                    WriteTask.ThrowWhen(_identProfile_Error);
+
+                    IF(_identProfile_Done) THEN
+                        THIS.CallTimers(FALSE);
+                        _progress:=324;                           
+                     END_IF;   
+                END_IF;
+
+                IF _progress = 324 THEN	
+                    TaskMessenger.ActivateOnCondition(ULINT#524, _infoTimer.output AND Inputs.BitHeader1_JobAccepted, eAxoMessageCategory#Warning);
+                    IF _infoTimer.output THEN
+                        ReaderStatus.Error.Id := UINT#524;
+                    END_IF;
+
+                    _identProfile_Execute :=  FALSE;
+                    
+                    IF(NOT _identProfile_Done) THEN
+                        THIS.CallTimers(FALSE);
+                        _progress:=325;                           
+                     END_IF;   
                 END_IF;
 
                 IF _progress = 325 THEN	
-                    TaskMessenger.ActivateOnCondition(ULINT#525, _infoTimer.output, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#525;
-                    END_IF;
-
-                    // Set job datas
-		            _CommandDesignator := BYTE#16#02; //  16#00 -nothing, 16#01 - read, 16#02 - write		 
-                    _SendingCommandHeader := TRUE;
- 
-		            _StartAddress := _writeAddress;
-		
-		            _NumberOfBytes := _writeNumberOfBytes;
-
-                    IF TRUE THEN
-                        THIS.CallTimers(FALSE);
-                        _progress:=326;                    
-                    END_IF;             
-
-                END_IF;	
-
-                IF _progress = 326 THEN	
-                    TaskMessenger.ActivateOnCondition(ULINT#526, _infoTimer.output, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#526;
-                    END_IF;
-
-                    Outputs.BitHeader1_Job := TRUE;
-		
-                    IF(Inputs.BitHeader1_JobAccepted) THEN
-                        _CommandDesignator := BYTE#16#0;
-                        _SendingCommandHeader := FALSE;
-                        THIS.CallTimers(FALSE);
-                         _progress := 327;
-                    END_IF;
-                END_IF;	
-	
-                IF _progress = 327 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#527, _infoTimer.output, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#527;
-                    END_IF;
-	
-                    _singleLoopIndex := 0;
-                    _endIndex := _SendDataIndex + 7; 
-
-                    IF(_endIndex > TO_INT(_writeNumberOfBytes)) THEN
-                       _endIndex := TO_INT(_writeNumberOfBytes);
-                    END_IF;
-                    
-                    FOR i := _SendDataIndex TO _endIndex BY 1 DO
-                        Outputs.Data[_singleLoopIndex] := _DataToWriteArr[_SendDataIndex];
-                        _SendDataIndex := _SendDataIndex + 1; 
-                        _singleLoopIndex := _singleLoopIndex + 1;
-                    END_FOR; 
-
-                    _LastTogleBitValue := Inputs.BitHeader1_ToggleBit;
-
-                    IF TRUE THEN
-                        THIS.CallTimers(FALSE);
-                        _progress:=328;                    
-                    END_IF;             
-                END_IF;
-
-                IF _progress = 328 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#528, _infoTimer.output, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#528;
-                    END_IF;
-	
-                    Outputs.BitHeader1_ToggleBit := NOT Outputs.BitHeader1_ToggleBit;
-
-                    IF TRUE THEN
-                        THIS.CallTimers(FALSE);
-                        _progress:=329;                    
-                    END_IF;             
-                END_IF;
-
-                IF _progress = 329 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#529, _infoTimer.output, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#529;
-                    END_IF;
-	
-                    IF _LastTogleBitValue <> Inputs.BitHeader1_ToggleBit THEN
-                        _progress := 326;
-                    END_IF;
-                    
-                    IF(Inputs.BitHeader1_JobEnd) THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 330;
-                    END_IF;
-                END_IF;
-
-                IF _progress = 330 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#530, _infoTimer.output AND Inputs.BitHeader1_JobAccepted, eAxoMessageCategory#Warning);
-                    TaskMessenger.ActivateOnCondition(ULINT#531, _infoTimer.output AND Inputs.BitHeader1_JobError, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        IF Inputs.BitHeader1_JobAccepted THEN
-                            ReaderStatus.Error.Id := UINT#530;
-                        ELSIF Inputs.BitHeader1_JobError THEN
-                            ReaderStatus.Error.Id := UINT#531;
-                        END_IF;
-                    END_IF; 
-	
-                    Outputs.BitHeader1_Job := FALSE;
-                    
-                    IF(NOT Inputs.BitHeader1_JobAccepted AND NOT Inputs.BitHeader1_JobError) THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 332;
-                    END_IF;
-                END_IF;
-
-                IF _progress = 332 THEN	
                     WriteTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
                     _progress := 0;
@@ -736,7 +576,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             END_IF;   
             //*******************************************
                         
-            //****ResetCommunicationTask*****
+            //****ResetCommunicationTask*****************
             ResetCommunicationTask.IsDisabled := FALSE;
             IF ResetCommunicationTask.StartTriggered() THEN
                 ReaderStatus.Action.Id :=  UINT#140;
@@ -764,35 +604,73 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                     WriteCharToMemoryTask.Restore();
                     ResetReaderTask.Restore();
 
-                    IF TRUE THEN
+                    _identProfile_Execute           :=  FALSE;
+                    _identProfile_SoftReset         :=  FALSE;
+                    _identProfile_Init              :=  FALSE;
+
+                    IF NOT _identProfile_Busy THEN
                         THIS.CallTimers(FALSE);
                         _progress := 341;
                     END_IF;
                 END_IF;
 
-                IF _progress = 341 THEN	
+                
+                IF _progress = 341 THEN 
                     TaskMessenger.ActivateOnCondition(ULINT#541, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         ReaderStatus.Error.Id := UINT#541;
                     END_IF;
 
-                    Outputs.BitHeader1_Job := FALSE; // ResetSet AV 
-                    Outputs.BitHeader1_GroundState := FALSE; // ResetSet AV 
-                    Outputs.BitHeader1_HeadOnOff := FALSE; // ResetSet AV 
-                    Outputs.BitHeader1_ToggleBit := NOT Outputs.BitHeader1_ToggleBit; // ResetSet gogle bit 
-                    _CommandDesignator := BYTE#16#00; // 16#01 - read, 16#02 - write
-                    _SendingCommandHeader := FALSE; 
+                    _identProfile_SoftReset         :=  TRUE;
 
-                    // clear sent data
-                    FOR i:=0 TO 7 BY 1 DO 
-                        Outputs.Data[i] := BYTE#16#00;
-                    END_FOR;
-
-                    IF TRUE THEN
+                    IF _identProfile_Busy THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 0;
-                        ResetCommunicationTask.DoneWhen(TRUE);
+                        _progress := 342;
                     END_IF;
+                END_IF;
+
+                IF _progress = 342 THEN	
+                    TaskMessenger.ActivateOnCondition(ULINT#542, _infoTimer.output, eAxoMessageCategory#Warning);
+                    IF _infoTimer.output THEN
+                        ReaderStatus.Error.Id := UINT#542;
+                    END_IF;
+
+                    IF NOT _identProfile_Busy THEN
+                        THIS.CallTimers(FALSE);
+                        _progress := 343;
+                    END_IF;
+                END_IF;
+
+                IF _progress = 343 THEN	
+                    TaskMessenger.ActivateOnCondition(ULINT#543, _infoTimer.output, eAxoMessageCategory#Warning);
+                    IF _infoTimer.output THEN
+                        ReaderStatus.Error.Id := UINT#543;
+                    END_IF;
+
+                    IF _identProfile_Done THEN
+                        THIS.CallTimers(FALSE);
+                        _progress := 344;
+                    END_IF;
+                END_IF;
+
+                IF _progress = 344 THEN	
+                    TaskMessenger.ActivateOnCondition(ULINT#544, _infoTimer.output, eAxoMessageCategory#Warning);
+                    IF _infoTimer.output THEN
+                        ReaderStatus.Error.Id := UINT#544;
+                    END_IF;
+
+                    _identProfile_SoftReset         :=  FALSE;
+
+                    IF NOT _identProfile_Done THEN
+                        THIS.CallTimers(FALSE);
+                        _progress := 345;
+                    END_IF;
+                END_IF;
+
+                IF _progress = 345 THEN	
+                    THIS.CallTimers(FALSE);
+                    _progress := 0;
+                    ResetCommunicationTask.DoneWhen(TRUE);
                 END_IF;
                 
 	            THIS.CallTimers(TRUE);
@@ -844,54 +722,80 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                         ReaderStatus.Error.Id := UINT#550;
                     END_IF;
 
-                    Outputs.BitHeader1_GroundState := TRUE; // set GR
-                    // clear data
-                    _CommandDesignator := BYTE#16#00; //  16#00 -nothing, 16#01 - read, 16#02 - write
-                    _SendingCommandHeader := FALSE; 
-                    _StartAddress := WORD#0;
-                    _NumberOfBytes := WORD#0; 
-                    
-                    FOR	i := 0 TO 7 BY 1 DO 
-                        Outputs.Data[i] := BYTE#16#00;		
+                    FOR i := INT#1 TO INT#16 DO
+                        _identProfile_Tx[i] := Config.HardwareConfig[i];
                     END_FOR;
                     
-                    _ReadWriteData := '';
+                    _identProfile_Cmd.CMD           :=  eAxo_IID_COMMANDS#eWriteConfig;
+                    _identProfile_Cmd.CONFIG        := BYTE#16#03;       
+                    _identProfile_Cmd.LEN_DATA      := WORD#16#10;
+                    _identProfile_Cmd.OFFSETBUFFER  :=  _readBufferOffset;   
+                    
+                    _identProfile_Execute           :=  FALSE;
+                    _identProfile_SoftReset         :=  FALSE;
+                    _identProfile_Init              :=  FALSE;
 
-                    IF TRUE THEN
+                    IF NOT _identProfile_Busy THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 351;
+                        _progress:=351;                    
                     END_IF;
                 END_IF;
-
-                IF _progress = 351 THEN	
+                              
+                IF _progress = 351 THEN 
                     TaskMessenger.ActivateOnCondition(ULINT#551, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         ReaderStatus.Error.Id := UINT#551;
                     END_IF;
 
-                    Outputs.BitHeader1_GroundState := TRUE;
+                    _identProfile_Init              :=  TRUE;
 
-                    IF NOT Inputs.BitHeader1_Power THEN		//wait for delete BB - Power				
-                         THIS.CallTimers(FALSE);
-                        _progress := 352;
+                    IF _identProfile_Busy THEN
+                        THIS.CallTimers(FALSE);
+                        _progress:=352;                    
                     END_IF;
                 END_IF;
-              
-                IF _progress = 352 THEN	
-                    TaskMessenger.ActivateOnCondition(ULINT#552, _infoTimer.output, eAxoMessageCategory#Warning);
+
+                IF _progress = 352 THEN  
+                    TaskMessenger.ActivateOnCondition(ULINT#552, _infoTimer.output AND Inputs.BitHeader1_JobAccepted, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         ReaderStatus.Error.Id := UINT#552;
                     END_IF;
 
-                    Outputs.BitHeader1_GroundState := FALSE;
-
-                    IF Inputs.BitHeader1_Power THEN		//wait for delete BB - Power				
+                    IF(NOT _identProfile_Busy) THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 353;
-                    END_IF;
+                        _progress:=353;                           
+                     END_IF;   
                 END_IF;
-              
-                IF _progress = 353 THEN	
+                
+                IF _progress = 353 THEN  
+                    TaskMessenger.ActivateOnCondition(ULINT#553, _infoTimer.output AND Inputs.BitHeader1_JobAccepted, eAxoMessageCategory#Warning);
+                    IF _infoTimer.output THEN
+                        ReaderStatus.Error.Id := UINT#553;
+                    END_IF;
+
+                    ReadTask.ThrowWhen(_identProfile_Error);
+
+                    IF(_identProfile_Done) THEN
+                        THIS.CallTimers(FALSE);
+                        _progress:=354;                           
+                     END_IF;   
+                END_IF;
+
+                IF _progress = 354 THEN	
+                    TaskMessenger.ActivateOnCondition(ULINT#554, _infoTimer.output AND Inputs.BitHeader1_JobAccepted, eAxoMessageCategory#Warning);
+                    IF _infoTimer.output THEN
+                        ReaderStatus.Error.Id := UINT#554;
+                    END_IF;
+
+                    _identProfile_Init :=  FALSE;
+                    
+                    IF(NOT _identProfile_Done) THEN
+                        THIS.CallTimers(FALSE);
+                        _progress:=355;                           
+                     END_IF;   
+                END_IF;
+
+                IF _progress = 355 THEN	
                     ResetReaderTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
                     _progress := 0;
@@ -902,7 +806,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 ReaderStatus.Action.Id := TO_UINT(_progress);
             END_IF;
             IF ResetReaderTask.DoneReached() THEN
-                ReaderStatus.Action.Id :=  UINT#141;
+                ReaderStatus.Action.Id :=  UINT#151;
                 ReaderStatus.Error.Id :=  UINT#0;
             ELSIF ResetReaderTask.ErrorOccured() THEN
                 ReaderStatus.Action.Id :=  UINT#850;
@@ -1083,62 +987,16 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 _progress := 0;
             END_IF;  
             //*******************************************
-
-            //***********UPDATE**OUTPUTS*****************
-            _data[0].%X0	     := Outputs.BitHeader1_Job;     
-            _data[0].%X1	     := Outputs.BitHeader1_Reserve0;    
-            _data[0].%X2         := Outputs.BitHeader1_GroundState; 
-            _data[0].%X3         := Outputs.BitHeader1_Reserve1;
-            _data[0].%X4         := Outputs.BitHeader1_Reserve2;   
-            _data[0].%X5         := Outputs.BitHeader1_HeadOnOff; 
-            _data[0].%X6         := Outputs.BitHeader1_ToggleBit;    
-            _data[0].%X7	     := Outputs.BitHeader1_Reserve3;    
-
-            _data[1]             := Outputs.Data[0];    
-            _data[2]     	     := Outputs.Data[1];    
-            _data[3]    	     := Outputs.Data[2];    
-            _data[4]    	     := Outputs.Data[3];    
-            _data[5]    	     := Outputs.Data[4];    
-            _data[6]    	     := Outputs.Data[5];    
-            _data[7]     	     := Outputs.Data[6];    
-            _data[8]    	     := Outputs.Data[7];    
-
-            IF _sendingCommandHeader THEN
-                _data[1] := _CommandDesignator;
-            END_IF;
-            
-            IF _CommandDesignator = BYTE#16#01 OR _CommandDesignator = BYTE#16#02 OR _CommandDesignator = BYTE#16#32 THEN // read or write data...
-                _data[2] := _StartAddress.%B0;
-                _data[3] := _StartAddress.%B1;
-                _data[4] := _NumberOfBytes.%B0;
-                _data[5] := _NumberOfBytes.%B1;
-            ELSE
-                _data[2] := Outputs.Data[1];
-                _data[3] := Outputs.Data[2];
-                _data[4] := Outputs.Data[3];
-                _data[5] := Outputs.Data[4];
-            END_IF;
-
-            _data[6] :=  Outputs.Data[5];
-            _data[7] :=  Outputs.Data[6];
-            _data[8] :=  Outputs.Data[7];
- 
-            _data[9]            :=  _data[0];
-
-            returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwId,_data);
-            Messenger.ActivateOnCondition(ULINT#704,returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF returnValue > WORD#0 THEN
-                ReaderStatus.Error.Id := UINT#704;
-                RETURN;
-            END_IF;
-            //*******************************************
             THIS.Close();
         END_METHOD
 
         METHOD PROTECTED OVERRIDE ManualControl
             _readAddress                :=  ReadAddress;
             _readNumberOfBytes          :=  ReadNumberOfBytes;
+            _readBufferOffset           :=  ReadBufferOffset;
+            ReadData                    :=  _readData;
             _writeAddress               :=  WriteAddress;
+            _writeBufferOffset           :=  WriteBufferOffset;
             _writeData                  :=  WriteData;
             _writeCharCharacter         :=  WriteCharCharacter;
             _writeCharAddress           :=  WriteCharAddress;
@@ -1160,11 +1018,14 @@ NAMESPACE AXOpen.Components.SIEM.Identification
     
         METHOD PUBLIC Read : IAxoTaskState
             VAR_INPUT
-                Address         : WORD;
+                Address         : DWORD;
                 NumberOfBytes   : WORD;
+                BufferOffset    : UINT;
             END_VAR
-            // _readAddress       := Address; 
-            // _readNumberOfBytes := NumberOfBytes; 
+            _readAddress        :=  Address; 
+            _readNumberOfBytes  :=  NumberOfBytes; 
+            _readBufferOffset   :=  BufferOffset;
+
             Read := ReadTask.Invoke();
         END_METHOD
     
@@ -1172,10 +1033,11 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             VAR_INPUT
                 Address : WORD;
                 Data    : STRING;
+                BufferOffset    : UINT;
             END_VAR
-            // _writeAddress   := Address; 
-            // _writeData      := Data; 
-
+            _writeAddress       := Address; 
+            _writeData          := Data; 
+            _writeBufferOffset  := BufferOffset;
             Write := WriteTask.Invoke();
         END_METHOD
 
