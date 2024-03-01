@@ -36,11 +36,11 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             _readAddress                :   DWORD;
             _readNumberOfBytes          :   WORD;
             _readBufferOffset           :   UINT;
-            _readData                   :   STRING;
+            _readData                   :   AxoData256;
             _writeAddress               :   DWORD;
             _writeNumberOfBytes         :   WORD;
             _writeBufferOffset          :   UINT;
-            _writeData                  :   STRING;
+            _writeData                  :   AxoData256;
             
         END_VAR
 
@@ -69,7 +69,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Data read#>"}
             {#ix-attr:[ReadOnly()]}
-            ReadData    : STRING;
+            ReadData    : AxoData256;
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
@@ -90,7 +90,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Data to write#>"}
-            WriteData    : STRING;
+            WriteData    : AxoData256;
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
@@ -209,7 +209,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
         METHOD PRIVATE Execute 
             VAR 
                 _dword          :   DWORD;
-                _data           :   ARRAY[0..255] OF BYTE; 
+                // _data           :   ARRAY[0..255] OF BYTE; 
                 returnValue     :   WORD;
                 _tempString_8   :   STRING[8];
                 i               :   INT;
@@ -279,6 +279,10 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                     ReaderStatus.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
+                    FOR i := INT#0 TO INT#255 DO
+                        _readData.Data[i] := BYTE#0;
+                    END_FOR;
+                    _readData.ToggleDataChangedFlag();
                     _progress := 300;
                 END_IF;
                 
@@ -288,7 +292,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                         ReaderStatus.Error.Id := UINT#500;
                     END_IF;
 
-                    _readData   := '';
+
 
                     _identProfile_Cmd.CMD           :=  eAxo_IID_COMMANDS#eRead;
                     _identProfile_Cmd.ADDR_TAG      :=  _readAddress;        
@@ -350,12 +354,16 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                     IF _infoTimer.output THEN
                         ReaderStatus.Error.Id := UINT#504;
                     END_IF;
-                    _data[0] := TO_BYTE(_readNumberOfBytes);
-                    FOR i := 0 TO TO_INT(_readNumberOfBytes) - INT#1 DO
-                        _data[i + INT#1] := _identProfile_Rx[i];
-                    END_FOR;
+                    // _data[0] := TO_BYTE(_readNumberOfBytes);
+                    // FOR i := 0 TO TO_INT(_readNumberOfBytes) - INT#1 DO
+                    //     _data[i + INT#1] := _identProfile_Rx[i];
+                    // END_FOR;
 
-                    Deserialize(UINT#0, _data , _readData);
+                    // Deserialize(UINT#0, _data , _readData);
+
+                    FOR i := 0 TO TO_INT(_readNumberOfBytes) - INT#1 DO
+                        _readData.Data[i] := _identProfile_Rx[i];
+                    END_FOR;
 
                     _identProfile_Execute           :=  FALSE;
 
@@ -366,6 +374,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 END_IF;
                 
                 IF _progress = 305 THEN  
+                    _readData.ToggleDataChangedFlag();
                     ReadTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
                     _progress := 0;
@@ -418,11 +427,15 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                         ReaderStatus.Error.Id := UINT#520;
                     END_IF;
 
-                    Serialize(UINT#0,_writeData,_data);
-                    _tempLength := LengthOf(_writeData);
+                    // Serialize(UINT#0,_writeData,_data);
+                    // _tempLength := LengthOf(_writeData);
                     
-                    FOR i := INT#0 TO _tempLength - INT#1 DO
-                        _identProfile_Tx[i] := _data[i+INT#1];
+                    // FOR i := INT#0 TO _tempLength - INT#1 DO
+                    //     _identProfile_Tx[i] := _data[i+INT#1];
+                    // END_FOR;
+
+                    FOR i := INT#0 TO TO_INT(_writeNumberOfBytes) - INT#1 DO
+                        _identProfile_Tx[i] := _writeData.Data[i];
                     END_FOR;
 
                     _identProfile_Cmd.CMD           :=  eAxo_IID_COMMANDS#eWrite;
@@ -811,13 +824,14 @@ NAMESPACE AXOpen.Components.SIEM.Identification
     
         METHOD PUBLIC Write : IAxoTaskState
             VAR_INPUT
-                Data            : STRING;
+                Data            : REF_TO AxoData256;
                 Address         : DWORD;
                 NumberOfBytes   : WORD;
                 BufferOffset    : UINT;
             END_VAR
+            IF DATA = NULL THEN RETURN; END_IF;
             _writeAddress       := Address; 
-            _writeData          := Data; 
+            _writeData          := Data^; 
             _writeBufferOffset  := BufferOffset;
             Write := WriteTask.Invoke();
         END_METHOD

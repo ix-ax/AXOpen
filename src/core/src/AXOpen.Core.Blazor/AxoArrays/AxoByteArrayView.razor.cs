@@ -3,6 +3,7 @@ using AXSharp.Connector.ValueTypes;
 using System.Text;
 using System.Reflection;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
+using Microsoft.AspNetCore.Components;
 
 namespace AXOpen.Core
 {
@@ -11,6 +12,9 @@ namespace AXOpen.Core
     {
 
         private eDisplayFormat _currentDisplayFormat;
+
+        [Parameter]
+        public bool IsControllable { get; set; }
 
         public eDisplayFormat CurrentDisplayFormat
         {
@@ -119,6 +123,7 @@ namespace AXOpen.Core
     {
         public AxoByteArrayCommandView()
         {
+            IsControllable = true;
         }
     }
 
@@ -126,6 +131,7 @@ namespace AXOpen.Core
     {
         public AxoByteArrayStatusView()
         {
+            IsControllable = false;
         }
     }
 
@@ -133,12 +139,14 @@ namespace AXOpen.Core
     {
         public AxoByteArrayDisplayView()
         {
+            IsControllable = false;
         }
     }
     public class AxoByteArrayControlView : AxoByteArrayView
     {
         public AxoByteArrayControlView()
         {
+            IsControllable = true;
         }
     }
 }

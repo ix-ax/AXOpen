@@ -78,6 +78,7 @@ namespace AXOpen.Core
     {
         public AxoBoolArrayCommandView()
         {
+
         }
     }
 
