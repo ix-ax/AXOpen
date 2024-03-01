@@ -17,15 +17,15 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             _context                    :   IAxoContext;
             _someTaskIsActive           :   BOOL;
 
-            // _identProfile               :   Axo_IdentProfile;
+            _identProfile               :   Axo_IdentProfile;
             _identProfile_Execute       :   BOOL;        
             _identProfile_RepeatCommand :   BOOL;  
             _identProfile_SoftReset     :   BOOL;      
             _identProfile_Init          :   BOOL;           
             _identProfile_HwConnect     :   Axo_IID_HW_CONNECT;   
             _identProfile_Cmd           :   Axo_IID_CMD_STRUCT;         
-            _identProfile_Tx            :   ARRAY[1..255] OF BYTE;          
-            _identProfile_Rx            :   ARRAY[1..255] OF BYTE;          
+            _identProfile_Tx            :   ARRAY[0..255] OF BYTE;          
+            _identProfile_Rx            :   ARRAY[0..255] OF BYTE;          
             _identProfile_Done          :   BOOL;           
             _identProfile_Busy          :   BOOL;           
             _identProfile_Error         :   BOOL;          
@@ -37,38 +37,11 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             _readNumberOfBytes          :   WORD;
             _readBufferOffset           :   UINT;
             _readData                   :   STRING;
-            _writeAddress               :   WORD;
+            _writeAddress               :   DWORD;
             _writeNumberOfBytes         :   WORD;
             _writeBufferOffset          :   UINT;
             _writeData                  :   STRING;
             
-            _writeCharCharacter         :   BYTE;
-            _writeCharAddress           :   WORD;
-            _writeCharNumberOfBytes     :   WORD;
-            _CommandDesignator          :   BYTE;
-            _StartAddress               :   WORD;	
-
-            _NumberOfBytes              :   WORD;
-            _LastTogleBitValue          :   BOOL;
-            _ReadWriteData              :   STRING;
-
-            _buffersCountToRead         :   INT;		
-            _readedBuffersCount         :   INT;		
-            _lenghtInLastReadedBuffer   :   INT;		
-            _sendingCommandHeader       :   BOOL;     
-            
-            _RestCharacter              :   STRING[1]  := '$R';
-
-            _DataToWrite                :   STRING;
-            _DataToWriteArr             :   ARRAY[0..255] OF BYTE;
-            _SendDataIndex              :   INT;
-
-            _singleLoopIndex            :   INT;
-            _endIndex                   :   INT;
-
-            _codeTagPresent_PV          :   BOOL;   
-            _power_PV                   :   BOOL;   
-
         END_VAR
 
         VAR PUBLIC //HEADER
@@ -77,61 +50,59 @@ NAMESPACE AXOpen.Components.SIEM.Identification
 
         VAR PUBLIC //Tasks
             {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Tasks")]}            
-            {#ix-set:AttributeName = "<#Restore#>"}
-            RestoreTask : AxoTask;            
-
-            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Read#>"}
             ReadTask : AxoTask;     
             {#ix-attr:[ComponentDetails("Tasks")]}            
-            {#ix-set:AttributeName = "<#Read address#>"}
-            ReadAddress         : WORD;
-            {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Number of bytes to read#>"}
             ReadNumberOfBytes   : WORD;
             {#ix-attr:[ComponentDetails("Tasks")]}            
+            {#ix-set:AttributeName = "<#Read address#>"}
+            ReadAddress         : WORD;
+            {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Read buffer offset#>"}
             ReadBufferOffset: UINT;
+            {#ix-attr:[Container(Layout.Wrap)]}
+
+            {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Data read#>"}
             {#ix-attr:[ReadOnly()]}
             ReadData    : STRING;
 
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Write#>"}
             WriteTask : AxoTask;
+            {#ix-attr:[ComponentDetails("Tasks")]}            
+            {#ix-set:AttributeName = "<#Number of bytes to write#>"}
+            WriteNumberOfBytes   : WORD;
             {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Write address#>"}
             WriteAddress : WORD;
             {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Write buffer offset#>"}
             WriteBufferOffset: UINT;
+
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Data to write#>"}
             WriteData    : STRING;
 
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Reset communication#>"}
-            ResetCommunicationTask : AxoTask;
-
+            SoftReset : AxoTask;
             {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Reset reader#>"}
-            ResetReaderTask : AxoTask;     
-
+            ResetReaderTask : AxoTask;   
             {#ix-attr:[ComponentDetails("Tasks")]}            
-            {#ix-set:AttributeName = "<#Write char to memory#>"}
-            WriteCharToMemoryTask : AxoTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}            
-            {#ix-set:AttributeName = "<#Character to write to memory#>"}
-            WriteCharCharacter       : BYTE;
-            {#ix-attr:[ComponentDetails("Tasks")]}            
-            {#ix-set:AttributeName = "<#Address to write#>"}
-            WriteCharAddress         : WORD;
-            {#ix-attr:[ComponentDetails("Tasks")]}            
-            {#ix-set:AttributeName = "<#Number of bytes to write#>"}
-            WriteCharNumberOfBytes   : WORD;
+            {#ix-set:AttributeName = "<#Restore#>"}
+            RestoreTask : AxoTask;            
         END_VAR
         
         VAR PUBLIC //CONFIG
@@ -154,33 +125,11 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             _progress           :   INT := 0;
         END_VAR
 
-        VAR PUBLIC //Hardware signals
-            {#ix-attr:[ComponentDetails("Hardware signals")]}
-            {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[Group(GroupLayout.GroupBox)]}
-            {#ix-set:AttributeName = "<#Inputs#>"}
-            {#ix-attr:[ReadOnly()]}
-            Inputs              :   Axo_IdentDevice_State;
-            {#ix-attr:[ComponentDetails("Hardware signals")]}
-            {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[Group(GroupLayout.GroupBox)]}
-            {#ix-set:AttributeName = "<#Outputs#>"}
-            {#ix-attr:[ReadOnly()]}
-            Outputs              :   Axo_IdentDevice_Control;
-        END_VAR    
-
         VAR PUBLIC //HardwareDiagnostics
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Hardware diagnostics")]}
             {#ix-set:AttributeName = "<#Update diagnostics#>"}
             HardwareDiagnosticsTask :   AXOpen.Io.AxoHardwareDiagnostics;
-        END_VAR
-
-
-        VAR PUBLIC //DEBUG
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[ComponentDetails("Debug")]}
-            _identProfile               :   Axo_IdentProfile;
         END_VAR
 
         ///<summary>
@@ -210,11 +159,11 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 RETURN;
             END_IF;
 
-            _identProfile_HwConnect.HW_ID        :=  HW_ID;
-            _identProfile_HwConnect.API 		    :=  API;
+            _identProfile_HwConnect.HW_ID       :=  HW_ID;
+            _identProfile_HwConnect.API         :=  API;
             _identProfile_HwConnect.SLOT 	    :=  SLOT;
-            _identProfile_HwConnect.SUB_SLOT     :=  SUB_SLOT;
-            _identProfile_HwConnect.CM_CHANNEL   :=  CM_CHANNEL;
+            _identProfile_HwConnect.SUB_SLOT    :=  SUB_SLOT;
+            _identProfile_HwConnect.CM_CHANNEL  :=  CM_CHANNEL;
 
             THIS.Initialize(parent);
             THIS.Execute();
@@ -247,11 +196,11 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 RETURN;
             END_IF;
 
-            _identProfile_HwConnect.HW_ID        :=  HW_ID;
-            _identProfile_HwConnect.API 		    :=  API;
+            _identProfile_HwConnect.HW_ID       :=  HW_ID;
+            _identProfile_HwConnect.API         :=  API;
             _identProfile_HwConnect.SLOT 	    :=  SLOT;
-            _identProfile_HwConnect.SUB_SLOT     :=  SUB_SLOT;
-            _identProfile_HwConnect.CM_CHANNEL   :=  CM_CHANNEL;
+            _identProfile_HwConnect.SUB_SLOT    :=  SUB_SLOT;
+            _identProfile_HwConnect.CM_CHANNEL  :=  CM_CHANNEL;
 
             THIS.Initialize(parent);
             THIS.Execute();
@@ -284,7 +233,6 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                                 Warning         =>  _identProfile_Warning,
                                 Status          =>  _identProfile_Status);
             
-
             Messenger.ActivateOnCondition(TO_ULINT(DWORD#16#FEFE0001),_identProfile_Status = DWORD#16#FEFE0001, eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(TO_ULINT(DWORD#16#FEFE0002),_identProfile_Status = DWORD#16#FEFE0002, eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(TO_ULINT(DWORD#16#FEFE0003),_identProfile_Status = DWORD#16#FEFE0003, eAxoMessageCategory#ProgrammingError);
@@ -302,9 +250,8 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             RestoreTask.Initialize(THIS);
             ReadTask.Initialize(THIS);
             WriteTask.Initialize(THIS);
-            ResetCommunicationTask.Initialize(THIS);
+            SoftReset.Initialize(THIS);
             ResetReaderTask.Initialize(THIS);
-            WriteCharToMemoryTask.Initialize(THIS);
             HardwareDiagnosticsTask.Initialize(THIS);
 
             //****************************************
@@ -359,7 +306,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 END_IF;
 
                 IF _progress = 301 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#501, _infoTimer.output AND Inputs.BitHeader1_JobAccepted, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#501, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         ReaderStatus.Error.Id := UINT#501;
                     END_IF;
@@ -373,7 +320,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 END_IF;
                 
                 IF _progress = 302 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#502, _infoTimer.output AND Inputs.BitHeader1_JobAccepted, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#502, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         ReaderStatus.Error.Id := UINT#502;
                     END_IF;
@@ -385,7 +332,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 END_IF;
                 
                 IF _progress = 303 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#503, _infoTimer.output AND Inputs.BitHeader1_JobAccepted, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#503, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         ReaderStatus.Error.Id := UINT#503;
                     END_IF;
@@ -404,8 +351,8 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                         ReaderStatus.Error.Id := UINT#504;
                     END_IF;
                     _data[0] := TO_BYTE(_readNumberOfBytes);
-                    FOR i := 1 TO TO_INT(_readNumberOfBytes) DO
-                        _data[i] := _identProfile_Rx[i];
+                    FOR i := 0 TO TO_INT(_readNumberOfBytes) - INT#1 DO
+                        _data[i + INT#1] := _identProfile_Rx[i];
                     END_FOR;
 
                     Deserialize(UINT#0, _data , _readData);
@@ -474,8 +421,8 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                     Serialize(UINT#0,_writeData,_data);
                     _tempLength := LengthOf(_writeData);
                     
-                    FOR i := INT#1 TO _tempLength DO
-                        _identProfile_Tx[i] := _data[i];
+                    FOR i := INT#0 TO _tempLength - INT#1 DO
+                        _identProfile_Tx[i] := _data[i+INT#1];
                     END_FOR;
 
                     _identProfile_Cmd.CMD           :=  eAxo_IID_COMMANDS#eWrite;
@@ -508,7 +455,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 END_IF;
 
                 IF _progress = 322 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#522, _infoTimer.output AND Inputs.BitHeader1_JobAccepted, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#522, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         ReaderStatus.Error.Id := UINT#522;
                     END_IF;
@@ -520,7 +467,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 END_IF;
                 
                 IF _progress = 323 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#523, _infoTimer.output AND Inputs.BitHeader1_JobAccepted, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#523, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         ReaderStatus.Error.Id := UINT#523;
                     END_IF;
@@ -534,7 +481,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 END_IF;
 
                 IF _progress = 324 THEN	
-                    TaskMessenger.ActivateOnCondition(ULINT#524, _infoTimer.output AND Inputs.BitHeader1_JobAccepted, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#524, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         ReaderStatus.Error.Id := UINT#524;
                     END_IF;
@@ -576,14 +523,14 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             END_IF;   
             //*******************************************
                         
-            //****ResetCommunicationTask*****************
-            ResetCommunicationTask.IsDisabled := FALSE;
-            IF ResetCommunicationTask.StartTriggered() THEN
+            //****SoftReset*****************
+            SoftReset.IsDisabled := FALSE;
+            IF SoftReset.StartTriggered() THEN
                 ReaderStatus.Action.Id :=  UINT#140;
             END_IF;
-            Messenger.ActivateOnCondition(ULINT#140,ResetCommunicationTask.IsBusy(), eAxoMessageCategory#Info);
-            Messenger.ActivateOnCondition(ULINT#141,ResetCommunicationTask.IsDone(), eAxoMessageCategory#Info);
-            IF ResetCommunicationTask.Execute() THEN
+            Messenger.ActivateOnCondition(ULINT#140,SoftReset.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#141,SoftReset.IsDone(), eAxoMessageCategory#Info);
+            IF SoftReset.Execute() THEN
                 _blink.Blink(Context := _context, inOnTime:=T#500MS,inOffTime:=T#500MS);
 
                 IF _progress = 0 THEN
@@ -601,7 +548,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
 
                     WriteTask.Restore();
                     ReadTask.Restore();		
-                    WriteCharToMemoryTask.Restore();
+
                     ResetReaderTask.Restore();
 
                     _identProfile_Execute           :=  FALSE;
@@ -670,30 +617,30 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 IF _progress = 345 THEN	
                     THIS.CallTimers(FALSE);
                     _progress := 0;
-                    ResetCommunicationTask.DoneWhen(TRUE);
+                    SoftReset.DoneWhen(TRUE);
                 END_IF;
                 
 	            THIS.CallTimers(TRUE);
-                ResetCommunicationTask.ThrowWhen(_errorTimer.output);
+                SoftReset.ThrowWhen(_errorTimer.output);
                 ReaderStatus.Action.Id := TO_UINT(_progress);
             END_IF;
-            IF ResetCommunicationTask.IsFirstExecutionCycle() THEN
+            IF SoftReset.IsFirstExecutionCycle() THEN
                 ;
             END_IF;
-            IF ResetCommunicationTask.DoneReached() THEN
+            IF SoftReset.DoneReached() THEN
                 ReaderStatus.Action.Id :=  UINT#141;
                 ReaderStatus.Error.Id :=  UINT#0;
-            ELSIF ResetCommunicationTask.ErrorOccured() THEN
+            ELSIF SoftReset.ErrorOccured() THEN
                 ReaderStatus.Action.Id :=  UINT#840;
                 ReaderStatus.Error.Id  :=  UINT#840;
-            ELSIF ResetCommunicationTask.AbortTriggered() THEN
+            ELSIF SoftReset.AbortTriggered() THEN
                 ReaderStatus.Action.Id :=  UINT#841;
                 ReaderStatus.Error.Id  :=  UINT#841;
             END_IF; 
-            Messenger.ActivateOnCondition(ULINT#840,ResetCommunicationTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#841,ResetCommunicationTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#142,ResetCommunicationTask.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF ResetCommunicationTask.RestoreTriggered() AND _progress >= 340 AND _progress <= 349  THEN
+            Messenger.ActivateOnCondition(ULINT#840,SoftReset.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#841,SoftReset.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#142,SoftReset.RestoreTriggered() , eAxoMessageCategory#Error);
+            IF SoftReset.RestoreTriggered() AND _progress >= 340 AND _progress <= 349  THEN
                 ReaderStatus.Action.Id :=  UINT#142;
                 _progress := 0;
             END_IF;  
@@ -722,7 +669,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                         ReaderStatus.Error.Id := UINT#550;
                     END_IF;
 
-                    FOR i := INT#1 TO INT#16 DO
+                    FOR i := INT#0 TO INT#15 DO
                         _identProfile_Tx[i] := Config.HardwareConfig[i];
                     END_FOR;
                     
@@ -756,7 +703,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 END_IF;
 
                 IF _progress = 352 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#552, _infoTimer.output AND Inputs.BitHeader1_JobAccepted, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#552, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         ReaderStatus.Error.Id := UINT#552;
                     END_IF;
@@ -768,7 +715,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 END_IF;
                 
                 IF _progress = 353 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#553, _infoTimer.output AND Inputs.BitHeader1_JobAccepted, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#553, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         ReaderStatus.Error.Id := UINT#553;
                     END_IF;
@@ -782,7 +729,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 END_IF;
 
                 IF _progress = 354 THEN	
-                    TaskMessenger.ActivateOnCondition(ULINT#554, _infoTimer.output AND Inputs.BitHeader1_JobAccepted, eAxoMessageCategory#Warning);
+                    TaskMessenger.ActivateOnCondition(ULINT#554, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         ReaderStatus.Error.Id := UINT#554;
                     END_IF;
@@ -823,170 +770,6 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 _progress := 0;
             END_IF;  
             //*******************************************
-  
-            //***********WriteCharToMemoryTask**************
-            WriteCharToMemoryTask.IsDisabled := FALSE;
-            IF WriteCharToMemoryTask.StartTriggered() THEN
-                ReaderStatus.Action.Id :=  UINT#160;
-            END_IF;
-            Messenger.ActivateOnCondition(ULINT#160,WriteCharToMemoryTask.IsBusy(), eAxoMessageCategory#Info);
-            Messenger.ActivateOnCondition(ULINT#161,WriteCharToMemoryTask.IsDone(), eAxoMessageCategory#Info);
-            IF WriteCharToMemoryTask.Execute() THEN
-                IF _progress = 0 THEN
-                    ReaderStatus.Error.Id := UINT#0;
-                    TaskMessenger.Restore();
-                    THIS.CallTimers(FALSE);
-                    _progress := 360;
-                END_IF;
-                
-                IF _progress = 360 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#560, _infoTimer.output, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#560;
-                    END_IF;
-
-                    IF Inputs.BitHeader1_CodeTagPresent THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 361;
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 361 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#561, _infoTimer.output, eAxoMessageCategory#Warning);
-
-                    IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#561;
-                    END_IF;
-                    
-                    Outputs.BitHeader1_Job := TRUE; // set AV
-                    _CommandDesignator := BYTE#16#32; //  16#00 -nothing, 16#01 - read, 16#02 - write, 16#32 - fill memory by value
-                    _SendingCommandHeader := TRUE; 
-                    
-                    _StartAddress := _writeCharAddress;
-                    _NumberOfBytes := _writeCharNumberOfBytes; 
-                    
-                    Outputs.Data[5] := _writeCharCharacter; // clear the rest of Sending data
-                    Outputs.Data[6] := BYTE#16#00; // clear the rest of Sending data
-                    Outputs.Data[7] := BYTE#16#00; // clear the rest of Sending data
-
-                    IF TRUE THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 362;
-                    END_IF;
-                END_IF;
-
-                IF _progress = 362 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#562, _infoTimer.output, eAxoMessageCategory#Warning);
-
-                    IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#562;
-                    END_IF;
-                                        
-                    IF Inputs.BitHeader1_JobAccepted THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 363;
-                    END_IF;
-
-                    IF Inputs.BitHeader1_JobError THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 366;
-                    END_IF;
-                END_IF;
-
-                IF _progress = 363 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#563, _infoTimer.output, eAxoMessageCategory#Warning);
-
-                    IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#563;
-                    END_IF;
-                            
-                    IF Inputs.BitHeader1_JobEnd THEN
-                        Outputs.BitHeader1_Job := FALSE;
-                        THIS.CallTimers(FALSE);
-                        _progress := 364;
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 364 THEN
-                    _progress := 0;
-                    WriteCharToMemoryTask.DoneWhen(TRUE);
-                END_IF;		
-
-                IF _progress = 366 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#566, _infoTimer.output, eAxoMessageCategory#Warning);
-
-                    IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#566;
-                    END_IF;
-
-                    Outputs.BitHeader1_Job := FALSE; // ResetSet AV 
-                    _CommandDesignator := BYTE#16#00; // 16#01 - read, 16#02 - write
-                    _SendingCommandHeader := FALSE; 
-
-                    IF TRUE THEN
-                        THIS.CallTimers(FALSE);
-                        _progress:=367;
-                    END_IF;
-                END_IF;	
-                
-                IF _progress = 367 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#567, _infoTimer.output, eAxoMessageCategory#Warning);
-
-                    IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#567;
-                    END_IF;
-
-                    IF NOT Inputs.BitHeader1_JobAccepted THEN
-                        THIS.CallTimers(FALSE);
-                        _progress:=368;
-                    END_IF;
-                END_IF;	
-
-                IF _progress = 368 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#568, _infoTimer.output, eAxoMessageCategory#Warning);
-
-                    IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#568;
-                    END_IF;
-
-                    IF NOT Inputs.BitHeader1_JobError THEN
-                        THIS.CallTimers(FALSE);
-                        _progress:=369;
-                    END_IF;
-                END_IF;	
-
-                IF _progress = 369 THEN
-                    _progress := 0;
-                    WriteCharToMemoryTask.ThrowWhen(TRUE);
-                END_IF;	
-
-                THIS.CallTimers(TRUE);
-                
-                WriteCharToMemoryTask.ThrowWhen(_errorTimer.output);
-
-                ReaderStatus.Action.Id := TO_UINT(_progress);
-            END_IF;
-            IF WriteCharToMemoryTask.IsFirstExecutionCycle() THEN
-                ;
-            END_IF;
-            IF WriteCharToMemoryTask.DoneReached() THEN
-                ReaderStatus.Action.Id :=  UINT#161;
-                ReaderStatus.Error.Id :=  UINT#0;
-            ELSIF WriteCharToMemoryTask.ErrorOccured() THEN
-                ReaderStatus.Action.Id :=  UINT#860;
-                ReaderStatus.Error.Id  :=  UINT#860;
-            ELSIF WriteCharToMemoryTask.AbortTriggered() THEN
-                ReaderStatus.Action.Id :=  UINT#861;
-                ReaderStatus.Error.Id  :=  UINT#861;
-            END_IF;    
-            Messenger.ActivateOnCondition(ULINT#860,WriteCharToMemoryTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#861,WriteCharToMemoryTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#162,WriteCharToMemoryTask.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF WriteCharToMemoryTask.RestoreTriggered() AND _progress >= 360 AND _progress <= 369 THEN
-                ReaderStatus.Action.Id :=  UINT#162;
-                _progress := 0;
-            END_IF;  
-            //*******************************************
             THIS.Close();
         END_METHOD
 
@@ -995,12 +778,10 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             _readNumberOfBytes          :=  ReadNumberOfBytes;
             _readBufferOffset           :=  ReadBufferOffset;
             ReadData                    :=  _readData;
-            _writeAddress               :=  WriteAddress;
-            _writeBufferOffset           :=  WriteBufferOffset;
             _writeData                  :=  WriteData;
-            _writeCharCharacter         :=  WriteCharCharacter;
-            _writeCharAddress           :=  WriteCharAddress;
-            _writeCharNumberOfBytes     :=  WriteCharNumberOfBytes;
+            _writeAddress               :=  WriteAddress;
+            _writeNumberOfBytes         :=  WriteNumberOfBytes;
+            _writeBufferOffset          :=  WriteBufferOffset;
         END_METHOD
         
         ///<summary>
@@ -1009,9 +790,8 @@ NAMESPACE AXOpen.Components.SIEM.Identification
         METHOD PUBLIC OVERRIDE Restore
             ReadTask.Restore();      
             WriteTask.Restore();
-            ResetCommunicationTask.Restore();
+            SoftReset.Restore();
             ResetReaderTask.Restore();         
-            WriteCharToMemoryTask.Restore();
             ReaderStatus.Action.Id :=  UINT#50;
             RestoreTask.DoneWhen(TRUE);
         END_METHOD        
@@ -1031,8 +811,9 @@ NAMESPACE AXOpen.Components.SIEM.Identification
     
         METHOD PUBLIC Write : IAxoTaskState
             VAR_INPUT
-                Address : WORD;
-                Data    : STRING;
+                Data            : STRING;
+                Address         : DWORD;
+                NumberOfBytes   : WORD;
                 BufferOffset    : UINT;
             END_VAR
             _writeAddress       := Address; 
@@ -1042,27 +823,13 @@ NAMESPACE AXOpen.Components.SIEM.Identification
         END_METHOD
 
         METHOD PUBLIC ResetCommunication : IAxoTaskState
-            ResetCommunication := ResetCommunicationTask.Invoke();
+            ResetCommunication := SoftReset.Invoke();
         END_METHOD
     
         METHOD PUBLIC ResetReader : IAxoTaskState
             ResetReader := ResetReaderTask.Invoke();
         END_METHOD
     
-        METHOD PUBLIC WriteCharToMemory : IAxoTaskState
-            VAR_INPUT
-                character       : BYTE;
-                Address         : WORD;
-                NumberOfBytes   : WORD;
-            END_VAR
-
-            // _writeCharCharacter         :=  character;
-            // _writeCharAddress           :=  Address;       
-            // _writeCharNumberOfBytes     :=  NumberOfBytes; 
-
-            WriteCharToMemory := WriteCharToMemoryTask.Invoke();
-        END_METHOD
-
         METHOD PRIVATE CallTimers
             VAR_INPUT
                 signal : BOOL;

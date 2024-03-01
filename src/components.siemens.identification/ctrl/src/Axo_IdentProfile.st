@@ -158,25 +158,25 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             Trlen           :=  nTrlen;
 
             IF refHwConnect = NULL THEN
-                nStatus := DWORD#16#FEFE0001; // TODO provide message
+                nStatus := DWORD#16#FEFE0001;
                 statErrorCounter := statErrorCounter + 1;
                 RETURN;
             END_IF;
             
             IF refTx = NULL THEN
-                nStatus := DWORD#16#FEFE0002; // TODO provide message
+                nStatus := DWORD#16#FEFE0002;
                 statErrorCounter := statErrorCounter + 1;
                 RETURN;
             END_IF;
             
             IF refRx = NULL THEN
-                nStatus := DWORD#16#FEFE0003; // TODO provide message
+                nStatus := DWORD#16#FEFE0003;
                 statErrorCounter := statErrorCounter + 1;
                 RETURN;
             END_IF;
 
             IF refCmd = NULL THEN
-                nStatus := DWORD#16#FEFE0004; // TODO provide message
+                nStatus := DWORD#16#FEFE0004;
                 statErrorCounter := statErrorCounter + 1;
                 RETURN;
             END_IF;
@@ -336,7 +336,6 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             // Read cyclic data
             // rwr := DPRD_DAT(LADDR := TO_UINT (HwConnect^.HW_ID), RECORD => HwConnect^.Static.cyc_status);
             rwr := Siemens.Simatic.S71500.DistributedIO.ReadData(refHwConnect^.HW_ID , data);
-            //TODO add messenger in case of reading error
             IF rwr > WORD#0 THEN
                 nStatus := DWORD#16#FEFE0005; 
                 RETURN;
@@ -386,7 +385,6 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             data[1] := refHwConnect^.Static.cyc_control.%B0;
             
             rww := Siemens.Simatic.S71500.DistributedIO.WriteData(refHwConnect^.HW_ID,data);
-            // TODO provide messaging in caso of error writing
             IF rww > WORD#0 THEN
                 nStatus := DWORD#16#FEFE0006; 
                 RETURN;

@@ -13,7 +13,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             RfidCodeSize: WORD := WORD#50;
 //            {#ix-set:AttributeName = "<#Hardware config data#>"}
             {#ix-attr:[CompilerOmits()]}
-            HardwareConfig: ARRAY[1..16] OF BYTE := [BYTE#16#04,BYTE#16#00,BYTE#16#00,BYTE#16#00,BYTE#16#00,BYTE#16#0A,BYTE#16#00,BYTE#16#00,BYTE#16#00,BYTE#16#25,BYTE#16#00,BYTE#16#00,BYTE#16#00,BYTE#16#01,BYTE#16#00,BYTE#16#01]; //default data for RF260R 
+            HardwareConfig: ARRAY[0..15] OF BYTE := [BYTE#16#04,BYTE#16#00,BYTE#16#00,BYTE#16#00,BYTE#16#00,BYTE#16#0A,BYTE#16#00,BYTE#16#00,BYTE#16#00,BYTE#16#25,BYTE#16#00,BYTE#16#00,BYTE#16#00,BYTE#16#01,BYTE#16#00,BYTE#16#01]; //default data for RF260R 
         END_VAR 
     END_CLASS    
 END_NAMESPACE
