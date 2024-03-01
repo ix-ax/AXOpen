@@ -16,14 +16,14 @@
             <span class="badge rounded-pill @Mode">@ModeDescription</span>
         </p>
          <a href="@Component.UnitServices.Link" class="btn btn-primary position-relative">
-                    @Localizer["OPEN"]
-                    @if (@Observer.Provider.ActiveMessagesCount > 0)
-                    {
-                        <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-                            <span class="visually-hidden">New alerts</span>
-                        </span>
-                    }
-                </a>
+              @Localizer["OPEN"]
+              @if (Component.UnitServices.MessageProvider.ActiveMessagesCount > 0)
+              {
+                  <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                      <span class="visually-hidden">New alerts</span>
+                  </span>
+              }
+         </a>
     </div>
 </div> 
 
@@ -106,36 +106,13 @@
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await base.OnAfterRenderAsync(firstRender);
+        this.StateHasChanged();
     }
-
-    private AxoMessageObserver observer;
-    private AxoMessageObserver? Observer
-    {
-        get
-        {
-            if (observer == null && Component.UnitServices.MessageProvider != null)
-                observer = AxoMessageObserver.Create(Component.UnitServices.MessageProvider, this);
-
-            return observer;
-        } 
-    }
-
-    protected override async Task<Task> OnInitializedAsync()
-    {
-        if (Observer != null) await Observer.InitializeUpdate();
-        await observer.InitializeUpdate();
-        return base.OnInitializedAsync();
-    }
-
+    
     protected override void OnInitialized()
     {
-        
-        
-        //base.OnInitialized();
         this.UpdateValuesOnChange(Component.Ground.Status);
         this.UpdateValuesOnChange(Component.Automat.Status);
         this.UpdateValuesOnChange(Component.Service.Status);
     }
-
-   
 }

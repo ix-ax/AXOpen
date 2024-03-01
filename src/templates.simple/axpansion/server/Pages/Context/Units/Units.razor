@@ -12,7 +12,7 @@
         @foreach (var unit in ControlledUnits)
         {
             <div class="col">
-                <UnitLinkView Component="unit.unit" Link="@unit.link" ImageLink="@unit.imageLink" />
+                <UnitBaseSpotView Component="unit"/>
             </div>
         }
     </div>
@@ -34,8 +34,8 @@
     {
         _alerts.AddAlertDialog(eAlertType.Info, Localizer["Mode change"], $"{Localizer[$"Requesting automatic mode of selected units"]}.", 1);
 
-        var notGroundedStations = ControlledUnits.Where(p => p.unit.GroundStatus != eAxoTaskState.Done);
-        var ungroundedStationsList = string.Join(",", notGroundedStations.Select(p => p.unit.AttributeName));
+        var notGroundedStations = ControlledUnits.Where(p => p.GroundStatus != eAxoTaskState.Done);
+        var ungroundedStationsList = string.Join(",", notGroundedStations.Select(p => p.AttributeName));
 
         if (notGroundedStations.Count() > 0)
         {
@@ -46,7 +46,7 @@
 
         foreach (var a in ControlledUnits)
         {
-            await a.unit.Automat.ExecuteAsync();
+            await a.Automat.ExecuteAsync();
         }
 
         _alerts.AddAlertDialog(eAlertType.Success, Localizer["Mode change"], $"{Localizer[$"Automatic mode of selected units"]} has been started.", 3);
@@ -56,7 +56,7 @@
     {
         _alerts.AddAlertDialog(eAlertType.Info, Localizer["Mode change"], $"{Localizer[$"Requesting ground mode of selected units"]}.", 1);
         int expectedTimeToExecute = 20000;
-        ControlledUnits.ToList().ForEach(async a => await a.unit.Ground.ExecuteAsync());
+        ControlledUnits.ToList().ForEach(async a => await a.Ground.ExecuteAsync());
 
         var sw = new System.Diagnostics.Stopwatch();
         sw.Start();
@@ -64,7 +64,7 @@
         {
             foreach (var a in ControlledUnits)
             {
-                while (a.unit.GroundStatus != eAxoTaskState.Done 
+                while (a.GroundStatus != eAxoTaskState.Done 
                        && sw.ElapsedMilliseconds <= expectedTimeToExecute)
                 {
                     await Task.Delay(25);
@@ -76,8 +76,8 @@
         if (sw.ElapsedMilliseconds > expectedTimeToExecute)
         {
             var pp = string.Join(",\n", ControlledUnits
-                .Where(p => p.unit.GroundStatus != eAxoTaskState.Done)
-                .Select(p => p.unit.AttributeName));
+                .Where(p => p.GroundStatus != eAxoTaskState.Done)
+                .Select(p => p.AttributeName));
 
             _alerts.AddAlertDialog(eAlertType.Danger,
                 Localizer["Mode change"],
@@ -96,21 +96,18 @@
 
     private void Service()
     {
-        ControlledUnits.ToList().ForEach(async a => await a.unit.Service.ExecuteAsync());
+        ControlledUnits.ToList().ForEach(async a => await a.Service.ExecuteAsync());
         this.StateHasChanged();
     }
 
-    private IEnumerable<(UnitBase unit, string link, string imageLink)> ControlledUnits 
+    private UnitBase[] ControlledUnits 
     {
         get 
         {
-            return new (UnitBase, string, string)[]
+            return new UnitBase[]
             { 
-                // (new StandardUnit(Entry.Plc.Context.Cu1),"Context/Units/Cu1", "logo-header.svg"),
-                // (new StandardUnit(Entry.Plc.Context.Cu2),"Context/Units/Cu2", "logo-header.svg"),
-
-                (Entry.Plc.Context.UnitTemplate,"Context/Units/UnitTemplate", "logo-header.svg"),
-                (Entry.Plc.Context.StarterUnitTemplate,"Context/Units/StarterUnitTemplate", "logo-axopen-no-background.svg"),
+                Entry.Plc.Context.UnitTemplate,
+                Entry.Plc.Context.StarterUnitTemplate
             };
         }
     }
