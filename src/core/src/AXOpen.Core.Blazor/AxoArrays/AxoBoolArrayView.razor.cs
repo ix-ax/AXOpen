@@ -3,6 +3,7 @@ using AXSharp.Connector.ValueTypes;
 using System.Text;
 using System.Reflection;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
+using Microsoft.AspNetCore.Components;
 
 namespace AXOpen.Core
 {
@@ -11,6 +12,10 @@ namespace AXOpen.Core
         private bool initialized;
         private int length;
         private OnlinerBool[] _data;
+
+        [Parameter]
+        public bool IsControllable { get; set; }
+        public bool IsDisabled { get; set; }
 
         public IndexedData<bool>[] Data { get; private set; } 
         public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
@@ -78,7 +83,8 @@ namespace AXOpen.Core
     {
         public AxoBoolArrayCommandView()
         {
-
+            IsControllable = true;
+            IsDisabled = false;
         }
     }
 
@@ -86,6 +92,8 @@ namespace AXOpen.Core
     {
         public AxoBoolArrayStatusView()
         {
+            IsControllable = false;
+            IsDisabled = true;
         }
     }
 
@@ -93,12 +101,16 @@ namespace AXOpen.Core
     {
         public AxoBoolArrayDisplayView()
         {
+            IsControllable = false;
+            IsDisabled = true;
         }
     }
     public class AxoBoolArrayControlView : AxoBoolArrayView
     {
         public AxoBoolArrayControlView()
         {
+            IsControllable = true;
+            IsDisabled = false;
         }
     }
 }
