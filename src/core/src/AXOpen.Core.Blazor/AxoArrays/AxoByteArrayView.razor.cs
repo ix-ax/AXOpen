@@ -15,6 +15,7 @@ namespace AXOpen.Core
         private eDisplayFormat _currentDisplayFormat;
         private uint _maxLen = 3;
         private string _style = "width: 2.1em";
+        private bool _isReadOnly = false;
 
         [Parameter]
         public bool IsControllable { get; set; }
@@ -25,7 +26,6 @@ namespace AXOpen.Core
             set
             {
                 _currentDisplayFormat = value;
-                //UploadAndFormatData(null, null);
                 FormatData(null, null);
             }
         }
@@ -40,6 +40,11 @@ namespace AXOpen.Core
         {
             get => _style;
             private set { _style = value; }
+        }
+        public bool IsReadOnly
+        {
+            get => _isReadOnly;
+            private set { _isReadOnly = value; }
         }
 
 
@@ -81,12 +86,12 @@ namespace AXOpen.Core
                             if (Data == null)
                             {
                                 length = _data.Length;
-                                //Data = new IndexedData<OnlinerByte>[_data.Length];
                                 Data = new IndexedData<string>[_data.Length];
 
                                 if (Component.DisplayFormat != null)
                                 {
                                     string _displayFormat = Component.DisplayFormat.ToString().ToLower();
+                                    _isReadOnly = _data[0].ReadWriteAccess.Equals(ReadWriteAccess.Read);
                                     CurrentDisplayFormat = eDisplayFormat.Array_of_hexdecimals;
                                     if (_displayFormat.Equals("decimal")) CurrentDisplayFormat = eDisplayFormat.Array_of_decimals;
                                     if (_displayFormat.Equals("string")) CurrentDisplayFormat = eDisplayFormat.String;

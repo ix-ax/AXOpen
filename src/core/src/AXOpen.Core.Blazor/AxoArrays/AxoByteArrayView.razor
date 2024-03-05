@@ -8,7 +8,7 @@
     <div class="row ">
         <div class="col">
             @Component.AttributeName
-            @if (IsControllable)
+            @if (IsControllable & !IsReadOnly)
             {
                 <button class="btn btn-primary" type="button" @onclick="@Upload">
                     <span class="oi oi-data-transfer-upload" aria-hidden="true" />
