@@ -31,7 +31,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             statFixChainedCounter   :   UINT := UINT#1;                     // fix mem counter of chained commands (memory for repeat)
             statSqModified          :   BOOL;                               // sequenznumber modified for repeat command
             statWRREC               :   WriteRecord;                        // instance of WriteRecord
-            statRDREC               :   ReadRecord;                         // instance of WriteRecord
+            statRDREC               :   ReadRecord;                         // instance of ReadRecord
             statTimeout             :   System.Timer.OnDelay;               // instance of timer
             statCmd                 :   Axo_IID_CMD_STRUCT;                 // actual cmd
             statSaveAdsError        :   BOOL;

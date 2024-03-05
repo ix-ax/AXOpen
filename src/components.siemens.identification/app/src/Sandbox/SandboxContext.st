@@ -13,7 +13,7 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     END_VAR
 
     METHOD PROTECTED OVERRIDE Main
-        rf186_1.Config.HardwareConfig := _rf186_1_hardwareConfig;
+        rf186_1.Config.HardwareConfig.Data := _rf186_1_hardwareConfig;
 
         rf186_1.Run(parent      :=  THIS,
                     HW_ID       :=  HwIdentifiers#rf186c_Reader_1,

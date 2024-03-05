@@ -13,23 +13,36 @@ devDependencies:
 dependencies:
   "@ix-ax/axopen.core": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
+  "@ax/sdk": ^2311.0.1
 scripts:
+  delta:
+    - START=$(date +%s)
+    - apax build --ignore-scripts
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i
+      $AXTARGETPLATFORMINPUT --mode delta
+    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in
+      :" $(expr $(date +%s) - $START) "s"
+  download:
+    - START=$(date +%s)
+    - apax build --ignore-scripts
+    - dotnet ixc
+    - apax download_only
+    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in
+      :" $(expr $(date +%s) - $START) "s"
   ixc:
     - START=$(date +%s)
     - dotnet tool restore
     - dotnet ixc
     - echo "Built by ixc in :" $(expr $(date +%s) - $START) "s"
-  download:
-    - START=$(date +%s)
+  download_only:
     - apax sld load --accept-security-disclaimer -t $AXTARGET -i
       $AXTARGETPLATFORMINPUT -r
-    - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"
   check+download: |
     if [ $AXTARGET ]; then
       if [ $AXTARGETPLATFORMINPUT ]; then
         if ping -n 1 $AXTARGET &> /dev/null; then
           echo "Downloading from:" $AXTARGETPLATFORMINPUT "=>" $AXTARGET
-          apax download
+          apax download_only
         else
           echo "Target with IP address:" $AXTARGET "is not accessible. No download is going to be performed!!!"
         fi
@@ -39,38 +52,34 @@ scripts:
     else
       echo "Environment variable AXTARGET not defined!!!"
     fi
-  do-it-all:
-    - apax install
-    - apax build
-    - apax download
   postbuild:
     - apax ixc
   watch:
     - dotnet watch --project
       ..\\src\\AXOpen.Core.Blazor\\axopen_core_blazor.csproj
-  rr:
-    - apax build
-    - apax download
-    # - apax watch
   fr:
     - ..\\..\\integrations\\scripts\\StartPlcSimAdvCli.exe
-    - apax install
     - apax rr
-  da:
+  frw:
+    - apax fr
+    - apax watch
+  rr:
     - START=$(date +%s)
-    - apax do-it-all
+    - apax install
+    - apax download
     - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in
       :" $(expr $(date +%s) - $START) "s"
+  rrw:
+    - apax rr
+    - apax watch
   r:
     - apax plc-mode set stop -t $AXTARGET -y
     - apax plc-mode set run -t $AXTARGET -y
-
-  delta:
-    - START=$(date +%s)
-    - apax build --ignore-scripts
-    - apax sld load --accept-security-disclaimer -t $AXTARGET -i
-      $AXTARGETPLATFORMINPUT --mode delta
-    - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"
-
+  d:
+    - apax download
+  do:
+    - apax download_only
+  dd:
+    - apax delta
 installStrategy: strict
 apaxVersion: 3.1.0

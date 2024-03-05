@@ -64,7 +64,7 @@ namespace AXOpen.Components.SIEM.Identification
                 new KeyValuePair<ulong, AxoMessengerTextItem>(0xFEFE0003, new AxoMessengerTextItem("Input variable 'refRx' has NULL reference!",                                            "")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(0xFEFE0004, new AxoMessengerTextItem("Input variable 'refCmd' has NULL reference!",                                           "")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(0xFEFE0005, new AxoMessengerTextItem("Error reading input data from HW_ID!",                                                  "Check the value of the HW_ID and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(0xFEFE0005, new AxoMessengerTextItem("Error writing output data to HW_ID!",                                                   "Check the value of the HW_ID and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(0xFEFE0006, new AxoMessengerTextItem("Error writing output data to HW_ID!",                                                   "Check the value of the HW_ID and reacheability of the device!")),
 
 
         };

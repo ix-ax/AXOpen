@@ -58,7 +58,7 @@ namespace AXOpen.Components.SIEM.Identification
                     errorDescriptionDict.Add(0xFEFE0003, "Input variable 'refRx' has NULL reference!");             
                     errorDescriptionDict.Add(0xFEFE0004, "Input variable 'refCmd' has NULL reference!");            
                     errorDescriptionDict.Add(0xFEFE0005, "Error reading input data from HW_ID!");                   
-                    errorDescriptionDict.Add(0xFEFE0005, "Error writing output data to HW_ID!");                    
+                    errorDescriptionDict.Add(0xFEFE0006, "Error writing output data to HW_ID!");                    
 
                 }
                 string errorDescription = "   ";

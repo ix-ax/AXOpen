@@ -36,12 +36,12 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             _readAddress                :   DWORD;
             _readNumberOfBytes          :   WORD;
             _readBufferOffset           :   UINT;
-            _readData                   :   AxoData256;
+            _readData                   :   AxoByteArray256;
             _writeAddress               :   DWORD;
             _writeNumberOfBytes         :   WORD;
             _writeBufferOffset          :   UINT;
-            _writeData                  :   AxoData256;
-            
+            _writeData                  :   AxoByteArray256;
+           
         END_VAR
 
         VAR PUBLIC //HEADER
@@ -69,7 +69,8 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Data read#>"}
             {#ix-attr:[ReadOnly()]}
-            ReadData    : AxoData256;
+            {#ix-set:DisplayFormat = "string"}
+            ReadData    : AxoByteArray256;
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
@@ -90,7 +91,8 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Data to write#>"}
-            WriteData    : AxoData256;
+            {#ix-set:DisplayFormat = "string"}
+            WriteData    : AxoByteArray256;
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
@@ -209,7 +211,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
         METHOD PRIVATE Execute 
             VAR 
                 _dword          :   DWORD;
-                // _data           :   ARRAY[0..255] OF BYTE; 
+                _data           :   ARRAY[0..255] OF BYTE; 
                 returnValue     :   WORD;
                 _tempString_8   :   STRING[8];
                 i               :   INT;
@@ -218,6 +220,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             END_VAR
 
             THIS.Open();
+
 
             _identProfile.Run(  Execute         :=  _identProfile_Execute,
                                 RepeatCommand   :=  _identProfile_RepeatCommand,
@@ -536,7 +539,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             END_IF;   
             //*******************************************
                         
-            //****SoftReset*****************
+            //*****************SoftReset*****************
             SoftReset.IsDisabled := FALSE;
             IF SoftReset.StartTriggered() THEN
                 ReaderStatus.Action.Id :=  UINT#140;
@@ -683,7 +686,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                     END_IF;
 
                     FOR i := INT#0 TO INT#15 DO
-                        _identProfile_Tx[i] := Config.HardwareConfig[i];
+                        _identProfile_Tx[i] := Config.HardwareConfig.Data[i];
                     END_FOR;
                     
                     _identProfile_Cmd.CMD           :=  eAxo_IID_COMMANDS#eWriteConfig;
@@ -824,7 +827,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
     
         METHOD PUBLIC Write : IAxoTaskState
             VAR_INPUT
-                Data            : REF_TO AxoData256;
+                Data            : REF_TO AxoByteArray256;
                 Address         : DWORD;
                 NumberOfBytes   : WORD;
                 BufferOffset    : UINT;
