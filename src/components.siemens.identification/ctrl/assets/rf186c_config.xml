@@ -1,0 +1,1549 @@
+<?xml version="1.0" encoding="utf-8"?><conf:configuration xmlns:conf="urn:com:siemens:memphis:configuration:1" version="1.0" checksum="FF292CB2">
+  <root>
+    <node name="ReaderServiceHost" type="ReaderServiceHost">
+      <node name="ReaderServices" type="ReaderServices">
+        <node name="SIMATIC_RF186C" type="RF1xxCReaderService">
+          <prop name="AlternativeLEDCodes">
+            <val>false</val>
+          </prop>
+          <prop name="CurrentDataSelectorName">
+            <val>DefaultDataSelector</val>
+          </prop>
+          <prop name="CurrentSourceName">
+            <val>Source11</val>
+          </prop>
+          <prop name="DCPReadOnly">
+            <val>false</val>
+          </prop>
+          <prop name="Description">
+            <val></val>
+          </prop>
+          <prop name="HTTP">
+            <val>false</val>
+          </prop>
+          <prop name="HTTPS">
+            <val>true</val>
+          </prop>
+          <prop name="LEDOverride">
+            <val>0</val>
+          </prop>
+          <prop name="LLDP">
+            <val>ALL</val>
+          </prop>
+          <prop name="LocationDescription">
+            <val></val>
+          </prop>
+          <prop name="NTP">
+            <val>false</val>
+          </prop>
+          <prop name="NTPAcceptUnsyncServer">
+            <val>false</val>
+          </prop>
+          <prop name="NTPPollingInterval">
+            <val>3600</val>
+          </prop>
+          <prop name="NTPServers">
+            <val>1.1.1.1</val>
+          </prop>
+          <prop name="NetworkPorts">
+            <val>ALL</val>
+          </prop>
+          <prop name="NetworkPortsLimitation">
+            <val>NONE</val>
+          </prop>
+          <prop name="ResetStatistics">
+            <val>false</val>
+          </prop>
+          <prop name="Responsible">
+            <val></val>
+          </prop>
+          <prop name="SNMP">
+            <val>true</val>
+          </prop>
+          <prop name="SNMPAllowWriting">
+            <val>true</val>
+          </prop>
+          <prop name="SNMPCommunityStringReading">
+            <val>public</val>
+          </prop>
+          <prop name="SNMPCommunityStringWriting">
+            <val>private</val>
+          </prop>
+          <prop name="StartupStartReading">
+            <val>true</val>
+          </prop>
+          <prop name="Syslog">
+            <val>false</val>
+          </prop>
+          <prop name="SyslogPort">
+            <val>514</val>
+          </prop>
+          <prop name="SyslogServer">
+            <val>1.1.1.1</val>
+          </prop>
+          <prop name="UserVersion">
+            <val></val>
+          </prop>
+          <node name="AlarmChannels" type="AlarmChannels">
+            <node name="DefaultAlarmChannel" type="AlarmChannel">
+              <prop name="AdditionalDeviceAlarms">
+                <val>true</val>
+              </prop>
+              <prop name="Address">
+                <val>cmd://127.0.0.1?mode=connect?enabled=false?ackNack=NA?apiType=UserAPI?cmdChnName=DefaultCommandChannel</val>
+              </prop>
+              <prop name="DataSelectorName">
+                <val>DefaultRssiDataSelector</val>
+              </prop>
+              <prop name="FilterEvents">
+                <val>false</val>
+              </prop>
+              <prop name="IOEvents">
+                <val>true</val>
+              </prop>
+              <prop name="LogEvents">
+                <val>false</val>
+              </prop>
+              <prop name="Name">
+                <val>DefaultAlarmChannel</val>
+              </prop>
+              <prop name="PresenceEvents">
+                <val>true</val>
+              </prop>
+              <prop name="RssiEvents">
+                <val>false</val>
+              </prop>
+              <prop name="SourceNames">
+                <val></val>
+              </prop>
+              <prop name="TagDeliveredEvents">
+                <val>false</val>
+              </prop>
+            </node>
+            <node name="DiagAlarmChannel" type="AlarmChannel">
+              <prop name="AdditionalDeviceAlarms">
+                <val>true</val>
+              </prop>
+              <prop name="Address">
+                <val>cmd://127.0.0.1?mode=connect?enabled=true?ackNack=NA?apiType=UserDiagAPI?cmdChnName=DiagChannel</val>
+              </prop>
+              <prop name="DataSelectorName">
+                <val>DiagRssiDataSelector</val>
+              </prop>
+              <prop name="FilterEvents">
+                <val>false</val>
+              </prop>
+              <prop name="IOEvents">
+                <val>false</val>
+              </prop>
+              <prop name="LogEvents">
+                <val>false</val>
+              </prop>
+              <prop name="Name">
+                <val>DiagAlarmChannel</val>
+              </prop>
+              <prop name="PresenceEvents">
+                <val>false</val>
+              </prop>
+              <prop name="RssiEvents">
+                <val>false</val>
+              </prop>
+              <prop name="SourceNames">
+                <val>Source11</val>
+                <val>Source21</val>
+              </prop>
+              <prop name="TagDeliveredEvents">
+                <val>false</val>
+              </prop>
+            </node>
+            <node name="EipAlarmChannel" type="AlarmChannel">
+              <prop name="AdditionalDeviceAlarms">
+                <val>true</val>
+              </prop>
+              <prop name="Address">
+                <val>cmd://127.0.0.1?mode=connect?enabled=false?ackNack=NA?apiType=EipAPI?cmdChnName=EipChannel</val>
+              </prop>
+              <prop name="DataSelectorName">
+                <val>EipRssiDataSelector</val>
+              </prop>
+              <prop name="FilterEvents">
+                <val>false</val>
+              </prop>
+              <prop name="IOEvents">
+                <val>true</val>
+              </prop>
+              <prop name="LogEvents">
+                <val>false</val>
+              </prop>
+              <prop name="Name">
+                <val>EipAlarmChannel</val>
+              </prop>
+              <prop name="PresenceEvents">
+                <val>false</val>
+              </prop>
+              <prop name="RssiEvents">
+                <val>false</val>
+              </prop>
+              <prop name="SourceNames">
+                <val>Source11</val>
+                <val>Source21</val>
+              </prop>
+              <prop name="TagDeliveredEvents">
+                <val>false</val>
+              </prop>
+            </node>
+            <node name="OpcUaAlarmChannel" type="OpcUaAlarmChannel">
+              <prop name="AdditionalDeviceAlarms">
+                <val>true</val>
+              </prop>
+              <prop name="Address">
+                <val>cmd://127.0.0.1?mode=connect?enabled=false?ackNack=NA?apiType=OpcUaAPI?cmdChnName=OpcUaChannel</val>
+              </prop>
+              <prop name="DataSelectorName">
+                <val>OpcUaRssiDataSelector</val>
+              </prop>
+              <prop name="FilterEvents">
+                <val>false</val>
+              </prop>
+              <prop name="IOEvents">
+                <val>true</val>
+              </prop>
+              <prop name="LogEvents">
+                <val>false</val>
+              </prop>
+              <prop name="Name">
+                <val>OpcUaAlarmChannel</val>
+              </prop>
+              <prop name="PresenceEvents">
+                <val>true</val>
+              </prop>
+              <prop name="ReadpointsDeliverIOEvents">
+                <val>Source11</val>
+              </prop>
+              <prop name="ReadpointsDeliverLogEvents">
+                <val>Source11</val>
+              </prop>
+              <prop name="RssiEvents">
+                <val>false</val>
+              </prop>
+              <prop name="SourceNames">
+                <val>Source11</val>
+                <val>Source21</val>
+              </prop>
+              <prop name="TagDeliveredEvents">
+                <val>false</val>
+              </prop>
+            </node>
+            <node name="S7PBAlarmChannel" type="AlarmChannel">
+              <prop name="AdditionalDeviceAlarms">
+                <val>true</val>
+              </prop>
+              <prop name="Address">
+                <val>cmd://127.0.0.1?mode=connect?enabled=false?ackNack=NA?apiType=S7PBAPI?cmdChnName=S7PBChannel</val>
+              </prop>
+              <prop name="DataSelectorName">
+                <val>S7PBRssiDataSelector</val>
+              </prop>
+              <prop name="FilterEvents">
+                <val>false</val>
+              </prop>
+              <prop name="IOEvents">
+                <val>true</val>
+              </prop>
+              <prop name="LogEvents">
+                <val>false</val>
+              </prop>
+              <prop name="Name">
+                <val>S7PBAlarmChannel</val>
+              </prop>
+              <prop name="PresenceEvents">
+                <val>false</val>
+              </prop>
+              <prop name="RssiEvents">
+                <val>false</val>
+              </prop>
+              <prop name="SourceNames">
+                <val>Source11</val>
+                <val>Source21</val>
+              </prop>
+              <prop name="TagDeliveredEvents">
+                <val>false</val>
+              </prop>
+            </node>
+            <node name="S7PNAlarmChannel" type="AlarmChannel">
+              <prop name="AdditionalDeviceAlarms">
+                <val>true</val>
+              </prop>
+              <prop name="Address">
+                <val>cmd://127.0.0.1?mode=connect?enabled=true?ackNack=NA?apiType=S7PNAPI?cmdChnName=S7PNChannel</val>
+              </prop>
+              <prop name="DataSelectorName">
+                <val>S7PNRssiDataSelector</val>
+              </prop>
+              <prop name="FilterEvents">
+                <val>false</val>
+              </prop>
+              <prop name="IOEvents">
+                <val>true</val>
+              </prop>
+              <prop name="LogEvents">
+                <val>false</val>
+              </prop>
+              <prop name="Name">
+                <val>S7PNAlarmChannel</val>
+              </prop>
+              <prop name="PresenceEvents">
+                <val>false</val>
+              </prop>
+              <prop name="RssiEvents">
+                <val>false</val>
+              </prop>
+              <prop name="SourceNames">
+                <val>Source11</val>
+                <val>Source21</val>
+              </prop>
+              <prop name="TagDeliveredEvents">
+                <val>false</val>
+              </prop>
+            </node>
+            <node name="UserApi2AlarmChannel" type="AlarmChannel">
+              <prop name="AdditionalDeviceAlarms">
+                <val>true</val>
+              </prop>
+              <prop name="Address">
+                <val>cmd://127.0.0.1?mode=connect?enabled=false?ackNack=NA?apiType=UserAPI2?cmdChnName=UserApi2Channel</val>
+              </prop>
+              <prop name="DataSelectorName">
+                <val>DefaultRssiDataSelector</val>
+              </prop>
+              <prop name="FilterEvents">
+                <val>false</val>
+              </prop>
+              <prop name="IOEvents">
+                <val>true</val>
+              </prop>
+              <prop name="LogEvents">
+                <val>false</val>
+              </prop>
+              <prop name="Name">
+                <val>UserApi2AlarmChannel</val>
+              </prop>
+              <prop name="PresenceEvents">
+                <val>true</val>
+              </prop>
+              <prop name="RssiEvents">
+                <val>false</val>
+              </prop>
+              <prop name="SourceNames">
+                <val></val>
+              </prop>
+              <prop name="TagDeliveredEvents">
+                <val>false</val>
+              </prop>
+            </node>
+          </node>
+          <node name="CommandChannels" type="CommandChannels">
+            <node name="DefaultCommandChannel" type="CommandChannel">
+              <prop name="Enabled">
+                <val>false</val>
+              </prop>
+              <prop name="EnabledParallelWorking">
+                <val>false</val>
+              </prop>
+              <prop name="MessageBinding">
+                <val>XML</val>
+              </prop>
+              <prop name="Name">
+                <val>DefaultCommandChannel</val>
+              </prop>
+              <prop name="Port">
+                <val>10001</val>
+              </prop>
+              <prop name="TransactedTransfer">
+                <val>false</val>
+              </prop>
+              <prop name="WriteAccess">
+                <val>true</val>
+              </prop>
+            </node>
+            <node name="DiagChannel" type="CommandChannel">
+              <prop name="Enabled">
+                <val>true</val>
+              </prop>
+              <prop name="EnabledParallelWorking">
+                <val>true</val>
+              </prop>
+              <prop name="MessageBinding">
+                <val>XMLDIAG</val>
+              </prop>
+              <prop name="Name">
+                <val>DiagChannel</val>
+              </prop>
+              <prop name="Port">
+                <val>10005</val>
+              </prop>
+              <prop name="TransactedTransfer">
+                <val>false</val>
+              </prop>
+              <prop name="WriteAccess">
+                <val>true</val>
+              </prop>
+            </node>
+            <node name="EipChannel" type="CommandChannel">
+              <prop name="Enabled">
+                <val>false</val>
+              </prop>
+              <prop name="EnabledParallelWorking">
+                <val>false</val>
+              </prop>
+              <prop name="MessageBinding">
+                <val>EIP</val>
+              </prop>
+              <prop name="Name">
+                <val>EipChannel</val>
+              </prop>
+              <prop name="Port">
+                <val>44818</val>
+              </prop>
+              <prop name="TransactedTransfer">
+                <val>false</val>
+              </prop>
+              <prop name="WriteAccess">
+                <val>true</val>
+              </prop>
+            </node>
+            <node name="OpcUaChannel" type="OpcUaCommandChannel">
+              <prop name="AcceptExpiredCertificates">
+                <val>false</val>
+              </prop>
+              <prop name="AnonymousUser">
+                <val>false</val>
+              </prop>
+              <prop name="ApplicationName">
+                <val>SIMATIC_RF186C</val>
+              </prop>
+              <prop name="CertificateValidation">
+                <val>true</val>
+              </prop>
+              <prop name="Enabled">
+                <val>false</val>
+              </prop>
+              <prop name="EnabledParallelWorking">
+                <val>false</val>
+              </prop>
+              <prop name="MessageBinding">
+                <val>OPCUA</val>
+              </prop>
+              <prop name="MinSamplingInterval">
+                <val>50</val>
+              </prop>
+              <prop name="MinSupportedPublishingInterval">
+                <val>50</val>
+              </prop>
+              <prop name="Name">
+                <val>OpcUaChannel</val>
+              </prop>
+              <prop name="NoStrictCertificateValidation">
+                <val>false</val>
+              </prop>
+              <prop name="Policy_Aes128_Sha256_RsaOaep">
+                <val>false</val>
+              </prop>
+              <prop name="Policy_Aes128_Sha256_RsaOaep_Mode">
+                <val>SignAndCrypt</val>
+              </prop>
+              <prop name="Policy_Aes256_Sha256_RsaPss">
+                <val>true</val>
+              </prop>
+              <prop name="Policy_Aes256_Sha256_RsaPss_Mode">
+                <val>SignAndCrypt</val>
+              </prop>
+              <prop name="Policy_Basic128">
+                <val>false</val>
+              </prop>
+              <prop name="Policy_Basic128_Mode">
+                <val>SignAndCrypt</val>
+              </prop>
+              <prop name="Policy_Basic256">
+                <val>false</val>
+              </prop>
+              <prop name="Policy_Basic256_Mode">
+                <val>SignAndCrypt</val>
+              </prop>
+              <prop name="Policy_Basic256_SHA256">
+                <val>false</val>
+              </prop>
+              <prop name="Policy_Basic256_SHA256_Mode">
+                <val>SignAndCrypt</val>
+              </prop>
+              <prop name="Policy_None">
+                <val>false</val>
+              </prop>
+              <prop name="Port">
+                <val>4840</val>
+              </prop>
+              <prop name="TransactedTransfer">
+                <val>false</val>
+              </prop>
+              <prop name="WriteAccess">
+                <val>true</val>
+              </prop>
+            </node>
+            <node name="S7PBChannel" type="CommandChannel">
+              <prop name="Enabled">
+                <val>false</val>
+              </prop>
+              <prop name="EnabledParallelWorking">
+                <val>false</val>
+              </prop>
+              <prop name="MessageBinding">
+                <val>PROFIBUS</val>
+              </prop>
+              <prop name="Name">
+                <val>S7PBChannel</val>
+              </prop>
+              <prop name="Port">
+                <val>34964</val>
+              </prop>
+              <prop name="TransactedTransfer">
+                <val>false</val>
+              </prop>
+              <prop name="WriteAccess">
+                <val>true</val>
+              </prop>
+            </node>
+            <node name="S7PNChannel" type="CommandChannel">
+              <prop name="Enabled">
+                <val>true</val>
+              </prop>
+              <prop name="EnabledParallelWorking">
+                <val>false</val>
+              </prop>
+              <prop name="MessageBinding">
+                <val>PROFINET</val>
+              </prop>
+              <prop name="Name">
+                <val>S7PNChannel</val>
+              </prop>
+              <prop name="Port">
+                <val>34964</val>
+              </prop>
+              <prop name="TransactedTransfer">
+                <val>false</val>
+              </prop>
+              <prop name="WriteAccess">
+                <val>true</val>
+              </prop>
+            </node>
+            <node name="UserApi2Channel" type="CommandChannel">
+              <prop name="Enabled">
+                <val>false</val>
+              </prop>
+              <prop name="EnabledParallelWorking">
+                <val>false</val>
+              </prop>
+              <prop name="MessageBinding">
+                <val>XML</val>
+              </prop>
+              <prop name="Name">
+                <val>UserApi2Channel</val>
+              </prop>
+              <prop name="Port">
+                <val>10002</val>
+              </prop>
+              <prop name="TransactedTransfer">
+                <val>false</val>
+              </prop>
+              <prop name="WriteAccess">
+                <val>true</val>
+              </prop>
+            </node>
+          </node>
+          <node name="DataSelectors" type="DataSelectors">
+            <node name="DefaultDataSelector" type="DataSelector">
+              <prop name="EventFilters">
+                <val>LOST</val>
+                <val>OBSERVED</val>
+              </prop>
+              <prop name="FieldNames">
+                <val>EVENTTIME</val>
+                <val>EVENTTYPE</val>
+                <val>SOURCE</val>
+              </prop>
+              <prop name="FieldNamesLimitation">
+                <val>TAGEXTENDEDPC</val>
+                <val>PHASE</val>
+              </prop>
+              <prop name="Name">
+                <val>DefaultDataSelector</val>
+              </prop>
+              <prop name="TagFieldNames">
+                <val></val>
+              </prop>
+            </node>
+            <node name="DefaultRssiDataSelector" type="DataSelector">
+              <prop name="EventFilters">
+                <val>NONE</val>
+              </prop>
+              <prop name="FieldNames">
+                <val>EVENTTIME</val>
+                <val>SOURCE</val>
+              </prop>
+              <prop name="FieldNamesLimitation">
+                <val>EVENTTYPE</val>
+                <val>RSSIMIN</val>
+                <val>RSSIMAX</val>
+                <val>TAGEXTENDEDPC</val>
+                <val>AIRRETRY</val>
+                <val>COMMANDRETRY</val>
+                <val>FILTERDATAAVAILABLE</val>
+                <val>INVENTORIED</val>
+                <val>PHASE</val>
+              </prop>
+              <prop name="Name">
+                <val>DefaultRssiDataSelector</val>
+              </prop>
+              <prop name="TagFieldNames">
+                <val></val>
+              </prop>
+            </node>
+            <node name="DiagDataSelector" type="DataSelector">
+              <prop name="EventFilters">
+                <val>NONE</val>
+              </prop>
+              <prop name="FieldNames">
+                <val>ANTENNA</val>
+                <val>EVENTTIME</val>
+                <val>EVENTTYPE</val>
+                <val>SOURCE</val>
+              </prop>
+              <prop name="FieldNamesLimitation">
+                <val>TAGEXTENDEDPC</val>
+              </prop>
+              <prop name="Name">
+                <val>DiagDataSelector</val>
+              </prop>
+              <prop name="TagFieldNames">
+                <val></val>
+              </prop>
+            </node>
+            <node name="DiagRssiDataSelector" type="DataSelector">
+              <prop name="EventFilters">
+                <val>NONE</val>
+              </prop>
+              <prop name="FieldNames">
+                <val>ANTENNA</val>
+                <val>EVENTTIME</val>
+                <val>SOURCE</val>
+              </prop>
+              <prop name="FieldNamesLimitation">
+                <val>EVENTTYPE</val>
+                <val>RSSIMIN</val>
+                <val>RSSIMAX</val>
+                <val>TAGEXTENDEDPC</val>
+                <val>AIRRETRY</val>
+                <val>COMMANDRETRY</val>
+                <val>FILTERDATAAVAILABLE</val>
+                <val>INVENTORIED</val>
+              </prop>
+              <prop name="Name">
+                <val>DiagRssiDataSelector</val>
+              </prop>
+              <prop name="TagFieldNames">
+                <val></val>
+              </prop>
+            </node>
+            <node name="EipDataSelector" type="DataSelector">
+              <prop name="EventFilters">
+                <val>LOST</val>
+                <val>OBSERVED</val>
+              </prop>
+              <prop name="FieldNames">
+                <val>ANTENNA</val>
+                <val>EVENTTIME</val>
+                <val>EVENTTYPE</val>
+                <val>RSSI</val>
+                <val>RSSIMIN</val>
+                <val>RSSIMAX</val>
+                <val>SOURCE</val>
+              </prop>
+              <prop name="FieldNamesLimitation">
+                <val>TAGEXTENDEDPC</val>
+              </prop>
+              <prop name="Name">
+                <val>EipDataSelector</val>
+              </prop>
+              <prop name="TagFieldNames">
+                <val></val>
+              </prop>
+            </node>
+            <node name="EipRssiDataSelector" type="DataSelector">
+              <prop name="EventFilters">
+                <val>NONE</val>
+              </prop>
+              <prop name="FieldNames">
+                <val>ANTENNA</val>
+                <val>EVENTTIME</val>
+                <val>RSSI</val>
+                <val>SOURCE</val>
+              </prop>
+              <prop name="FieldNamesLimitation">
+                <val>EVENTTYPE</val>
+                <val>RSSIMIN</val>
+                <val>RSSIMAX</val>
+                <val>TAGEXTENDEDPC</val>
+                <val>AIRRETRY</val>
+                <val>COMMANDRETRY</val>
+                <val>FILTERDATAAVAILABLE</val>
+                <val>INVENTORIED</val>
+              </prop>
+              <prop name="Name">
+                <val>EipRssiDataSelector</val>
+              </prop>
+              <prop name="TagFieldNames">
+                <val></val>
+              </prop>
+            </node>
+            <node name="LogDataSelector" type="DataSelector">
+              <prop name="EventFilters">
+                <val>LOST</val>
+                <val>OBSERVED</val>
+              </prop>
+              <prop name="FieldNames">
+                <val>RSSI</val>
+                <val>POWER</val>
+                <val>TAGPC</val>
+                <val>SOURCE</val>
+              </prop>
+              <prop name="FieldNamesLimitation">
+                <val>TAGEXTENDEDPC</val>
+              </prop>
+              <prop name="Name">
+                <val>LogDataSelector</val>
+              </prop>
+              <prop name="TagFieldNames">
+                <val></val>
+              </prop>
+            </node>
+            <node name="OpcUaDataSelector" type="DataSelector">
+              <prop name="EventFilters">
+                <val>OBSERVED</val>
+              </prop>
+              <prop name="FieldNames">
+                <val>ANTENNA</val>
+                <val>EVENTTIME</val>
+                <val>EVENTTYPE</val>
+                <val>RSSI</val>
+                <val>RSSIMIN</val>
+                <val>RSSIMAX</val>
+                <val>SOURCE</val>
+              </prop>
+              <prop name="FieldNamesLimitation">
+                <val>TAGEXTENDEDPC</val>
+              </prop>
+              <prop name="Name">
+                <val>OpcUaDataSelector</val>
+              </prop>
+              <prop name="TagFieldNames">
+                <val></val>
+              </prop>
+            </node>
+            <node name="OpcUaRssiDataSelector" type="DataSelector">
+              <prop name="EventFilters">
+                <val>NONE</val>
+              </prop>
+              <prop name="FieldNames">
+                <val>ANTENNA</val>
+                <val>EVENTTIME</val>
+                <val>RSSI</val>
+                <val>SOURCE</val>
+              </prop>
+              <prop name="FieldNamesLimitation">
+                <val>EVENTTYPE</val>
+                <val>RSSIMIN</val>
+                <val>RSSIMAX</val>
+                <val>TAGEXTENDEDPC</val>
+                <val>AIRRETRY</val>
+                <val>COMMANDRETRY</val>
+                <val>FILTERDATAAVAILABLE</val>
+                <val>INVENTORIED</val>
+              </prop>
+              <prop name="Name">
+                <val>OpcUaRssiDataSelector</val>
+              </prop>
+              <prop name="TagFieldNames">
+                <val></val>
+              </prop>
+            </node>
+            <node name="S7PBDataSelector" type="DataSelector">
+              <prop name="EventFilters">
+                <val>LOST</val>
+                <val>OBSERVED</val>
+              </prop>
+              <prop name="FieldNames">
+                <val>ANTENNA</val>
+                <val>EVENTTIME</val>
+                <val>EVENTTYPE</val>
+                <val>RSSI</val>
+                <val>RSSIMIN</val>
+                <val>RSSIMAX</val>
+                <val>SOURCE</val>
+              </prop>
+              <prop name="FieldNamesLimitation">
+                <val>TAGEXTENDEDPC</val>
+              </prop>
+              <prop name="Name">
+                <val>S7PBDataSelector</val>
+              </prop>
+              <prop name="TagFieldNames">
+                <val></val>
+              </prop>
+            </node>
+            <node name="S7PBRssiDataSelector" type="DataSelector">
+              <prop name="EventFilters">
+                <val>NONE</val>
+              </prop>
+              <prop name="FieldNames">
+                <val>ANTENNA</val>
+                <val>EVENTTIME</val>
+                <val>RSSI</val>
+                <val>SOURCE</val>
+              </prop>
+              <prop name="FieldNamesLimitation">
+                <val>EVENTTYPE</val>
+                <val>RSSIMIN</val>
+                <val>RSSIMAX</val>
+                <val>TAGEXTENDEDPC</val>
+                <val>AIRRETRY</val>
+                <val>COMMANDRETRY</val>
+                <val>FILTERDATAAVAILABLE</val>
+                <val>INVENTORIED</val>
+              </prop>
+              <prop name="Name">
+                <val>S7PBRssiDataSelector</val>
+              </prop>
+              <prop name="TagFieldNames">
+                <val></val>
+              </prop>
+            </node>
+            <node name="S7PNDataSelector" type="DataSelector">
+              <prop name="EventFilters">
+                <val>LOST</val>
+                <val>OBSERVED</val>
+              </prop>
+              <prop name="FieldNames">
+                <val>ANTENNA</val>
+                <val>EVENTTIME</val>
+                <val>EVENTTYPE</val>
+                <val>RSSI</val>
+                <val>RSSIMIN</val>
+                <val>RSSIMAX</val>
+                <val>SOURCE</val>
+              </prop>
+              <prop name="FieldNamesLimitation">
+                <val>TAGEXTENDEDPC</val>
+              </prop>
+              <prop name="Name">
+                <val>S7PNDataSelector</val>
+              </prop>
+              <prop name="TagFieldNames">
+                <val></val>
+              </prop>
+            </node>
+            <node name="S7PNRssiDataSelector" type="DataSelector">
+              <prop name="EventFilters">
+                <val>NONE</val>
+              </prop>
+              <prop name="FieldNames">
+                <val>ANTENNA</val>
+                <val>EVENTTIME</val>
+                <val>RSSI</val>
+                <val>SOURCE</val>
+              </prop>
+              <prop name="FieldNamesLimitation">
+                <val>EVENTTYPE</val>
+                <val>RSSIMIN</val>
+                <val>RSSIMAX</val>
+                <val>TAGEXTENDEDPC</val>
+                <val>AIRRETRY</val>
+                <val>COMMANDRETRY</val>
+                <val>FILTERDATAAVAILABLE</val>
+                <val>INVENTORIED</val>
+              </prop>
+              <prop name="Name">
+                <val>S7PNRssiDataSelector</val>
+              </prop>
+              <prop name="TagFieldNames">
+                <val></val>
+              </prop>
+            </node>
+          </node>
+          <node name="DeviceAbstractions" type="DeviceAbstractions">
+            <node name="Device01" type="MobyDeviceAbstraction">
+              <prop name="Baudrate">
+                <val>19200</val>
+              </prop>
+              <prop name="ComPort">
+                <val>ttyO1</val>
+              </prop>
+              <prop name="Description">
+                <val></val>
+              </prop>
+              <prop name="DiagnosisMessages">
+                <val>NONE</val>
+              </prop>
+              <prop name="Name">
+                <val>Device01</val>
+              </prop>
+              <prop name="ReaderClass">
+                <val>MOBY</val>
+              </prop>
+              <prop name="ReaderModel">
+                <val>RF200</val>
+              </prop>
+              <prop name="Reserved1">
+                <val>0</val>
+              </prop>
+              <prop name="Reserved2">
+                <val>0</val>
+              </prop>
+              <prop name="SupressErrorLed">
+                <val>NONE</val>
+              </prop>
+              <prop name="UserMode">
+                <val>PIB</val>
+              </prop>
+              <prop name="distance_limiting">
+                <val>0</val>
+              </prop>
+              <prop name="field_on_control">
+                <val>0</val>
+              </prop>
+              <prop name="field_on_time">
+                <val>1</val>
+              </prop>
+              <prop name="multitag">
+                <val>1</val>
+              </prop>
+              <prop name="option_1">
+                <val>2</val>
+              </prop>
+              <prop name="param">
+                <val>25</val>
+              </prop>
+              <prop name="scanning_time">
+                <val>0</val>
+              </prop>
+            </node>
+            <node name="Device02" type="MobyDeviceAbstraction">
+              <prop name="Baudrate">
+                <val>115200</val>
+              </prop>
+              <prop name="ComPort">
+                <val>ttyO4</val>
+              </prop>
+              <prop name="Description">
+                <val></val>
+              </prop>
+              <prop name="DiagnosisMessages">
+                <val>NONE</val>
+              </prop>
+              <prop name="Name">
+                <val>Device02</val>
+              </prop>
+              <prop name="ReaderClass">
+                <val>Empty</val>
+              </prop>
+              <prop name="ReaderModel">
+                <val>Empty</val>
+              </prop>
+              <prop name="Reserved1">
+                <val>0</val>
+              </prop>
+              <prop name="Reserved2">
+                <val>0</val>
+              </prop>
+              <prop name="SupressErrorLed">
+                <val>NONE</val>
+              </prop>
+              <prop name="UserMode">
+                <val>PIB</val>
+              </prop>
+              <prop name="distance_limiting">
+                <val>0</val>
+              </prop>
+              <prop name="field_on_control">
+                <val>0</val>
+              </prop>
+              <prop name="field_on_time">
+                <val>0</val>
+              </prop>
+              <prop name="multitag">
+                <val>1</val>
+              </prop>
+              <prop name="option_1">
+                <val>2</val>
+              </prop>
+              <prop name="param">
+                <val>25</val>
+              </prop>
+              <prop name="scanning_time">
+                <val>0</val>
+              </prop>
+            </node>
+          </node>
+          <node name="Functions" type="Functions"></node>
+          <node name="IoPorts" type="IoPorts"></node>
+          <node name="Logs" type="Logs">
+            <node name="Log" type="Log">
+              <prop name="DataSelectorName">
+                <val>LogDataSelector</val>
+              </prop>
+              <prop name="LogCallParameter">
+                <val>true</val>
+              </prop>
+              <prop name="LogDiagInLog">
+                <val>false</val>
+              </prop>
+              <prop name="LogExtendedValues">
+                <val>false</val>
+              </prop>
+              <prop name="LogHeartbeat">
+                <val>false</val>
+              </prop>
+              <prop name="LogHeartbeatAndStatus">
+                <val>false</val>
+              </prop>
+              <prop name="LogLevels">
+                <val>ERROR</val>
+              </prop>
+              <prop name="LogLevelsDiag">
+                <val>ERRORS</val>
+                <val>COMMON</val>
+                <val>COMMANDS</val>
+              </prop>
+              <prop name="LogReturnValues">
+                <val>true</val>
+              </prop>
+              <prop name="LogWireshark">
+                <val>false</val>
+              </prop>
+              <prop name="Name">
+                <val>Log</val>
+              </prop>
+            </node>
+          </node>
+          <node name="NotificationChannels" type="NotificationChannels">
+            <node name="DefaultNotificationChannel" type="NotificationChannel">
+              <prop name="Address">
+                <val>cmd://127.0.0.1?mode=connect?enabled=false?ackNack=NA?apiType=UserAPI?cmdChnName=DefaultCommandChannel</val>
+              </prop>
+              <prop name="AdminStatus">
+                <val>UP</val>
+              </prop>
+              <prop name="DataSelectorName">
+                <val>DefaultDataSelector</val>
+              </prop>
+              <prop name="Name">
+                <val>DefaultNotificationChannel</val>
+              </prop>
+              <prop name="SourceNames">
+                <val></val>
+              </prop>
+            </node>
+            <node name="DiagNotificationChannel" type="NotificationChannel">
+              <prop name="Address">
+                <val>cmd://127.0.0.1?mode=connect?enabled=true?ackNack=NA?apiType=UserDiagAPI?cmdChnName=DiagChannel</val>
+              </prop>
+              <prop name="AdminStatus">
+                <val>UP</val>
+              </prop>
+              <prop name="DataSelectorName">
+                <val>DiagDataSelector</val>
+              </prop>
+              <prop name="Name">
+                <val>DiagNotificationChannel</val>
+              </prop>
+              <prop name="SourceNames">
+                <val>Source11</val>
+                <val>Source21</val>
+              </prop>
+            </node>
+            <node name="EipNotificationChannel" type="NotificationChannel">
+              <prop name="Address">
+                <val>cmd://127.0.0.1?mode=connect?enabled=false?ackNack=NA?apiType=EipAPI?cmdChnName=EipChannel</val>
+              </prop>
+              <prop name="AdminStatus">
+                <val>UP</val>
+              </prop>
+              <prop name="DataSelectorName">
+                <val>EipDataSelector</val>
+              </prop>
+              <prop name="Name">
+                <val>EipNotificationChannel</val>
+              </prop>
+              <prop name="SourceNames">
+                <val>Source11</val>
+                <val>Source21</val>
+              </prop>
+            </node>
+            <node name="OpcUaNotificationChannel" type="NotificationChannel">
+              <prop name="Address">
+                <val>cmd://127.0.0.1?mode=connect?enabled=false?ackNack=NA?apiType=OpcUaAPI?cmdChnName=OpcUaChannel</val>
+              </prop>
+              <prop name="AdminStatus">
+                <val>UP</val>
+              </prop>
+              <prop name="DataSelectorName">
+                <val>OpcUaDataSelector</val>
+              </prop>
+              <prop name="Name">
+                <val>OpcUaNotificationChannel</val>
+              </prop>
+              <prop name="SourceNames">
+                <val>Source11</val>
+                <val>Source21</val>
+              </prop>
+            </node>
+            <node name="S7PBNotificationChannel" type="NotificationChannel">
+              <prop name="Address">
+                <val>cmd://127.0.0.1?mode=connect?enabled=false?ackNack=NA?apiType=S7PBAPI?cmdChnName=S7PBChannel</val>
+              </prop>
+              <prop name="AdminStatus">
+                <val>UP</val>
+              </prop>
+              <prop name="DataSelectorName">
+                <val>S7PBDataSelector</val>
+              </prop>
+              <prop name="Name">
+                <val>S7PBNotificationChannel</val>
+              </prop>
+              <prop name="SourceNames">
+                <val>Source11</val>
+                <val>Source21</val>
+              </prop>
+            </node>
+            <node name="S7PNNotificationChannel" type="NotificationChannel">
+              <prop name="Address">
+                <val>cmd://127.0.0.1?mode=connect?enabled=true?ackNack=NA?apiType=S7PNAPI?cmdChnName=S7PNChannel</val>
+              </prop>
+              <prop name="AdminStatus">
+                <val>UP</val>
+              </prop>
+              <prop name="DataSelectorName">
+                <val>S7PNDataSelector</val>
+              </prop>
+              <prop name="Name">
+                <val>S7PNNotificationChannel</val>
+              </prop>
+              <prop name="SourceNames">
+                <val>Source11</val>
+                <val>Source21</val>
+              </prop>
+            </node>
+            <node name="UserApi2NotificationChannel" type="NotificationChannel">
+              <prop name="Address">
+                <val>cmd://127.0.0.1?mode=connect?enabled=false?ackNack=NA?apiType=UserAPI2?cmdChnName=UserApi2Channel</val>
+              </prop>
+              <prop name="AdminStatus">
+                <val>UP</val>
+              </prop>
+              <prop name="DataSelectorName">
+                <val>DefaultDataSelector</val>
+              </prop>
+              <prop name="Name">
+                <val>UserApi2NotificationChannel</val>
+              </prop>
+              <prop name="SourceNames">
+                <val></val>
+              </prop>
+            </node>
+          </node>
+          <node name="ReadPoints" type="ReadPoints">
+            <node name="Antenna11" type="MobyReadPoint">
+              <prop name="AdminStatus">
+                <val>UP</val>
+              </prop>
+              <prop name="Description">
+                <val>Antenna 11</val>
+              </prop>
+              <prop name="Name">
+                <val>Antenna11</val>
+              </prop>
+            </node>
+            <node name="Antenna21" type="MobyReadPoint">
+              <prop name="AdminStatus">
+                <val>UP</val>
+              </prop>
+              <prop name="Description">
+                <val>Antenna 21</val>
+              </prop>
+              <prop name="Name">
+                <val>Antenna21</val>
+              </prop>
+            </node>
+          </node>
+          <node name="Sources" type="Sources">
+            <node name="Source11" type="MobySource">
+              <prop name="AdminStatus">
+                <val>UP</val>
+              </prop>
+              <prop name="Description">
+                <val></val>
+              </prop>
+              <prop name="DeviceAbstractionName">
+                <val>Device01</val>
+              </prop>
+              <prop name="Location">
+                <val>mts</val>
+              </prop>
+              <prop name="LostThresholdCount">
+                <val>1</val>
+              </prop>
+              <prop name="Name">
+                <val>Readpoint_11</val>
+              </prop>
+              <prop name="ObservedThresholdCount">
+                <val>1</val>
+              </prop>
+              <prop name="ReadDuration">
+                <val>1</val>
+              </prop>
+              <prop name="ReadDurationCount">
+                <val>1</val>
+              </prop>
+              <prop name="ReadDurationUnit">
+                <val>COUNT</val>
+              </prop>
+              <prop name="ReadPointNames">
+                <val>Antenna11</val>
+              </prop>
+              <prop name="ReadTriggerNames">
+                <val></val>
+              </prop>
+              <prop name="TagSelectorNames">
+                <val></val>
+              </prop>
+            </node>
+            <node name="Source21" type="MobySource">
+              <prop name="AdminStatus">
+                <val>UP</val>
+              </prop>
+              <prop name="Description">
+                <val></val>
+              </prop>
+              <prop name="DeviceAbstractionName">
+                <val>Device02</val>
+              </prop>
+              <prop name="Location">
+                <val></val>
+              </prop>
+              <prop name="LostThresholdCount">
+                <val>1</val>
+              </prop>
+              <prop name="Name">
+                <val>Readpoint_21</val>
+              </prop>
+              <prop name="ObservedThresholdCount">
+                <val>1</val>
+              </prop>
+              <prop name="ReadDuration">
+                <val>1</val>
+              </prop>
+              <prop name="ReadDurationCount">
+                <val>1</val>
+              </prop>
+              <prop name="ReadDurationUnit">
+                <val>COUNT</val>
+              </prop>
+              <prop name="ReadPointNames">
+                <val>Antenna21</val>
+              </prop>
+              <prop name="ReadTriggerNames">
+                <val></val>
+              </prop>
+              <prop name="TagSelectorNames">
+                <val></val>
+              </prop>
+            </node>
+          </node>
+          <node name="TagFields" type="TagFields">
+            <node name="OTP_FF80_FF83" type="TagField">
+              <prop name="Length">
+                <val>32</val>
+              </prop>
+              <prop name="MemoryBank">
+                <val>0</val>
+              </prop>
+              <prop name="Name">
+                <val>OTP_FF80_FF83</val>
+              </prop>
+              <prop name="Offset">
+                <val>523264</val>
+              </prop>
+              <prop name="TagFieldName">
+                <val>OTP_FF80_FF83</val>
+              </prop>
+            </node>
+            <node name="OTP_FF84_FF87" type="TagField">
+              <prop name="Length">
+                <val>32</val>
+              </prop>
+              <prop name="MemoryBank">
+                <val>0</val>
+              </prop>
+              <prop name="Name">
+                <val>OTP_FF84_FF87</val>
+              </prop>
+              <prop name="Offset">
+                <val>523296</val>
+              </prop>
+              <prop name="TagFieldName">
+                <val>OTP_FF84_FF87</val>
+              </prop>
+            </node>
+            <node name="OTP_FF88_FF8B" type="TagField">
+              <prop name="Length">
+                <val>32</val>
+              </prop>
+              <prop name="MemoryBank">
+                <val>0</val>
+              </prop>
+              <prop name="Name">
+                <val>OTP_FF88_FF8B</val>
+              </prop>
+              <prop name="Offset">
+                <val>523328</val>
+              </prop>
+              <prop name="TagFieldName">
+                <val>OTP_FF88_FF8B</val>
+              </prop>
+            </node>
+            <node name="OTP_FF8C_FF8F" type="TagField">
+              <prop name="Length">
+                <val>32</val>
+              </prop>
+              <prop name="MemoryBank">
+                <val>0</val>
+              </prop>
+              <prop name="Name">
+                <val>OTP_FF8C_FF8F</val>
+              </prop>
+              <prop name="Offset">
+                <val>523360</val>
+              </prop>
+              <prop name="TagFieldName">
+                <val>OTP_FF8C_FF8F</val>
+              </prop>
+            </node>
+            <node name="OTP_FF90_FF93" type="TagField">
+              <prop name="Length">
+                <val>32</val>
+              </prop>
+              <prop name="MemoryBank">
+                <val>0</val>
+              </prop>
+              <prop name="Name">
+                <val>OTP_FF90_FF93</val>
+              </prop>
+              <prop name="Offset">
+                <val>523392</val>
+              </prop>
+              <prop name="TagFieldName">
+                <val>OTP_FF90_FF93</val>
+              </prop>
+            </node>
+            <node name="Tag field filter_1" type="TagField">
+              <prop name="Length">
+                <val>64</val>
+              </prop>
+              <prop name="MemoryBank">
+                <val>3</val>
+              </prop>
+              <prop name="Name">
+                <val>Tag field filter_1</val>
+              </prop>
+              <prop name="Offset">
+                <val>0</val>
+              </prop>
+              <prop name="TagFieldName">
+                <val>Tag field filter_1</val>
+              </prop>
+            </node>
+            <node name="UID" type="TagField">
+              <prop name="Length">
+                <val>64</val>
+              </prop>
+              <prop name="MemoryBank">
+                <val>0</val>
+              </prop>
+              <prop name="Name">
+                <val>UID</val>
+              </prop>
+              <prop name="Offset">
+                <val>524160</val>
+              </prop>
+              <prop name="TagFieldName">
+                <val>UID</val>
+              </prop>
+            </node>
+          </node>
+          <node name="TagSelectors" type="TagSelectors">
+            <node name="Dummy_Filter" type="TagSelector">
+              <prop name="AcceptUnreadableTag">
+                <val>false</val>
+              </prop>
+              <prop name="FieldName">
+                <val>Tag field filter_1</val>
+              </prop>
+              <prop name="InclusiveFlag">
+                <val>true</val>
+              </prop>
+              <prop name="Mask">
+                <val>FFFFFFFFFFFFFFFF</val>
+              </prop>
+              <prop name="Name">
+                <val>Dummy_Filter</val>
+              </prop>
+              <prop name="Value">
+                <val>0000000000000000</val>
+              </prop>
+            </node>
+            <node name="Tag selector_1" type="TagSelector">
+              <prop name="AcceptUnreadableTag">
+                <val>true</val>
+              </prop>
+              <prop name="FieldName">
+                <val>UID</val>
+              </prop>
+              <prop name="InclusiveFlag">
+                <val>true</val>
+              </prop>
+              <prop name="Mask">
+                <val>0</val>
+              </prop>
+              <prop name="Name">
+                <val>Tag selector_1</val>
+              </prop>
+              <prop name="Value">
+                <val>0</val>
+              </prop>
+            </node>
+            <node name="Tag selector_2" type="TagSelector">
+              <prop name="AcceptUnreadableTag">
+                <val>true</val>
+              </prop>
+              <prop name="FieldName">
+                <val>OTP_FF80_FF83</val>
+              </prop>
+              <prop name="InclusiveFlag">
+                <val>true</val>
+              </prop>
+              <prop name="Mask">
+                <val>0</val>
+              </prop>
+              <prop name="Name">
+                <val>Tag selector_2</val>
+              </prop>
+              <prop name="Value">
+                <val>0</val>
+              </prop>
+            </node>
+            <node name="Tag selector_3" type="TagSelector">
+              <prop name="AcceptUnreadableTag">
+                <val>true</val>
+              </prop>
+              <prop name="FieldName">
+                <val>OTP_FF84_FF87</val>
+              </prop>
+              <prop name="InclusiveFlag">
+                <val>true</val>
+              </prop>
+              <prop name="Mask">
+                <val>0</val>
+              </prop>
+              <prop name="Name">
+                <val>Tag selector_3</val>
+              </prop>
+              <prop name="Value">
+                <val>0</val>
+              </prop>
+            </node>
+            <node name="Tag selector_4" type="TagSelector">
+              <prop name="AcceptUnreadableTag">
+                <val>true</val>
+              </prop>
+              <prop name="FieldName">
+                <val>OTP_FF88_FF8B</val>
+              </prop>
+              <prop name="InclusiveFlag">
+                <val>true</val>
+              </prop>
+              <prop name="Mask">
+                <val>0</val>
+              </prop>
+              <prop name="Name">
+                <val>Tag selector_4</val>
+              </prop>
+              <prop name="Value">
+                <val>0</val>
+              </prop>
+            </node>
+            <node name="Tag selector_5" type="TagSelector">
+              <prop name="AcceptUnreadableTag">
+                <val>true</val>
+              </prop>
+              <prop name="FieldName">
+                <val>OTP_FF8C_FF8F</val>
+              </prop>
+              <prop name="InclusiveFlag">
+                <val>true</val>
+              </prop>
+              <prop name="Mask">
+                <val>0</val>
+              </prop>
+              <prop name="Name">
+                <val>Tag selector_5</val>
+              </prop>
+              <prop name="Value">
+                <val>0</val>
+              </prop>
+            </node>
+            <node name="Tag selector_6" type="TagSelector">
+              <prop name="AcceptUnreadableTag">
+                <val>true</val>
+              </prop>
+              <prop name="FieldName">
+                <val>OTP_FF90_FF93</val>
+              </prop>
+              <prop name="InclusiveFlag">
+                <val>true</val>
+              </prop>
+              <prop name="Mask">
+                <val>0</val>
+              </prop>
+              <prop name="Name">
+                <val>Tag selector_6</val>
+              </prop>
+              <prop name="Value">
+                <val>0</val>
+              </prop>
+            </node>
+          </node>
+          <node name="Triggers" type="Triggers"></node>
+        </node>
+      </node>
+    </node>
+    <node name="Versions" type="Versions">
+      <prop name="ConfigFileVersion">
+        <val>65D7557B</val>
+      </prop>
+      <prop name="ConfigFileVersionTime">
+        <val>22.02.2024 14:08:59</val>
+      </prop>
+      <prop name="DataVersion">
+        <val>V2.0.0</val>
+      </prop>
+    </node>
+  </root>
+</conf:configuration>
