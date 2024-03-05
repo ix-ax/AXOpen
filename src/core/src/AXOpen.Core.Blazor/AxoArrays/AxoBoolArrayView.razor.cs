@@ -14,7 +14,6 @@ namespace AXOpen.Core
         private OnlinerBool[] _data;
 
         [Parameter]
-        public bool IsControllable { get; set; }
         public bool IsDisabled { get; set; }
 
         public IndexedData<bool>[] Data { get; private set; } 
@@ -83,7 +82,6 @@ namespace AXOpen.Core
     {
         public AxoBoolArrayCommandView()
         {
-            IsControllable = true;
             IsDisabled = false;
         }
     }
@@ -92,7 +90,6 @@ namespace AXOpen.Core
     {
         public AxoBoolArrayStatusView()
         {
-            IsControllable = false;
             IsDisabled = true;
         }
     }
@@ -101,7 +98,6 @@ namespace AXOpen.Core
     {
         public AxoBoolArrayDisplayView()
         {
-            IsControllable = false;
             IsDisabled = true;
         }
     }
@@ -109,7 +105,6 @@ namespace AXOpen.Core
     {
         public AxoBoolArrayControlView()
         {
-            IsControllable = true;
             IsDisabled = false;
         }
     }

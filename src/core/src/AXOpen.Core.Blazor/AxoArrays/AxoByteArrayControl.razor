@@ -1,4 +1,4 @@
-﻿@namespace AXOpen.Core
+﻿@* @namespace AXOpen.Core
 @using AXSharp.Connector.ValueTypes
 @using AXSharp.Connector;
 @using AXSharp.Presentation.Blazor.Controls.Layouts.TabControlComponents;
@@ -8,24 +8,15 @@
     <div class="row ">
         <div class="col">
             @Component.AttributeName
-            @if (IsControllable)
-            {
-                <button class="btn btn-primary" type="button" @onclick="@Upload">
-                    <span class="oi oi-data-transfer-upload" aria-hidden="true" />
-                </button>
-                <button class="btn btn-primary" type="button" @onclick="@Download">
-                    <span class="oi oi-data-transfer-download" aria-hidden="true" />
-                </button>
-            }
-            else
-            {
-                <button class="btn btn-primary" type="button" @onclick="@Upload">
-                    <span class="oi oi-reload" aria-hidden="true" />
-                </button>
-            }
+            <button class="btn btn-primary" type="button" @onclick="@Upload">
+                <span class="oi oi-data-transfer-upload" aria-hidden="true" />
+            </button>
+            <button class="btn btn-primary" type="button" @onclick="@Download">
+                <span class="oi oi-data-transfer-download" aria-hidden="true" />
+            </button>
         </div>
     </div>
-    <div class="row ms-1 me-1 flex-nowrap" style="overflow-x: scroll;">
+    <div class="row ms-1 me-1 flex-nowrap" style="overflow-x: scroll; ">
         @if (this.Data != null)
         {
             @foreach (IndexedData<string> item in this.Data)
@@ -33,11 +24,9 @@
                 if (item != null && @item.Index != null && @item.Data != null)
                 {
                     <div class="col">
-                        <div>
-                            @item.Index
-                        </div>
-                        <div>
-                            @item.Data
+                        <label >@item.Index</label>
+                        <div >
+                            <input  type="text" @bind=item.Data maxlength="@MaxLen" style="@Style">
                         </div>
                     </div>
                 }
@@ -90,6 +79,7 @@
     private bool _showBackdrop = false;
     private eDisplayFormat previousDisplayFormat;
     private eDisplayFormat selectedFormatID;
+    // private uint _maxLen = 3 ;
 
     private eDisplayFormat SelectedFormatID
     {
@@ -153,3 +143,4 @@
     }
 
 }
+ *@
