@@ -33,11 +33,9 @@
                 if (item != null && @item.Index != null && @item.Data != null)
                 {
                     <div class="col">
+                        <label>@item.Index</label>
                         <div>
-                            @item.Index
-                        </div>
-                        <div>
-                            @item.Data
+                            <input type="text" @bind=item.Data maxlength="@MaxLen" style="@Style">
                         </div>
                     </div>
                 }
