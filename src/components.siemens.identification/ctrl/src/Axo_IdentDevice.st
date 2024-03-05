@@ -216,7 +216,6 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 _tempString_8   :   STRING[8];
                 i               :   INT;
                 _index          :   INT;
-                _tempLength     :   INT;
             END_VAR
 
             THIS.Open();
@@ -357,13 +356,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                     IF _infoTimer.output THEN
                         ReaderStatus.Error.Id := UINT#504;
                     END_IF;
-                    // _data[0] := TO_BYTE(_readNumberOfBytes);
-                    // FOR i := 0 TO TO_INT(_readNumberOfBytes) - INT#1 DO
-                    //     _data[i + INT#1] := _identProfile_Rx[i];
-                    // END_FOR;
-
-                    // Deserialize(UINT#0, _data , _readData);
-
+  
                     FOR i := 0 TO TO_INT(_readNumberOfBytes) - INT#1 DO
                         _readData.Data[i] := _identProfile_Rx[i];
                     END_FOR;
@@ -430,19 +423,12 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                         ReaderStatus.Error.Id := UINT#520;
                     END_IF;
 
-                    // Serialize(UINT#0,_writeData,_data);
-                    // _tempLength := LengthOf(_writeData);
-                    
-                    // FOR i := INT#0 TO _tempLength - INT#1 DO
-                    //     _identProfile_Tx[i] := _data[i+INT#1];
-                    // END_FOR;
-
                     FOR i := INT#0 TO TO_INT(_writeNumberOfBytes) - INT#1 DO
                         _identProfile_Tx[i] := _writeData.Data[i];
                     END_FOR;
 
                     _identProfile_Cmd.CMD           :=  eAxo_IID_COMMANDS#eWrite;
-                    _identProfile_Cmd.LEN_DATA      :=  TO_WORD(_tempLength);
+                    _identProfile_Cmd.LEN_DATA      :=  _writeNumberOfBytes;
                     _identProfile_Cmd.ADDR_TAG      :=  _writeAddress;   
                     _identProfile_Cmd.OFFSETBUFFER  :=  _writeBufferOffset;   
                     
@@ -832,10 +818,13 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 NumberOfBytes   : WORD;
                 BufferOffset    : UINT;
             END_VAR
-            IF DATA = NULL THEN RETURN; END_IF;
-            _writeAddress       := Address; 
+            IF Data = NULL THEN RETURN; END_IF;
             _writeData          := Data^; 
+
+            _writeAddress       := Address; 
+            _writeNumberOfBytes := NumberOfBytes; 
             _writeBufferOffset  := BufferOffset;
+
             Write := WriteTask.Invoke();
         END_METHOD
 
