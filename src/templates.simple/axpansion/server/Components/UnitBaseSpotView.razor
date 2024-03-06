@@ -17,12 +17,13 @@
         </p>
          <a href="@Component.UnitServices.Link" class="btn btn-primary position-relative">
               @Localizer["OPEN"]
-              @if (Component.UnitServices.MessageProvider.ActiveMessagesCount > 0)
-              {
-                  <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-                      <span class="visually-hidden">New alerts</span>
-                  </span>
-              }
+              <AlarmsIndicator MessageProvider="@this.Component.UnitServices.MessageProvider"></AlarmsIndicator>
+              @* @if (this.Component.UnitServices.MessageProvider.ActiveMessagesCount > 0) *@
+              @* { *@
+              @*     <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"> *@
+              @*         <span class="visually-hidden">New alerts</span> *@
+              @*     </span> *@
+              @* } *@
          </a>
     </div>
 </div> 
@@ -102,15 +103,22 @@
             PolledElements.Add(Component.Service.Status);
         }
     }
-
+    
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await base.OnAfterRenderAsync(firstRender);
         this.StateHasChanged();
     }
-    
+
+    // protected override async Task OnInitializedAsync()
+    // {
+    //     await AxoMessageObserver.CreateAndInitialize(Component.UnitServices.MessageProvider, this);
+    //     await base.OnInitializedAsync();
+    // }
+
     protected override void OnInitialized()
     {
+        
         this.UpdateValuesOnChange(Component.Ground.Status);
         this.UpdateValuesOnChange(Component.Automat.Status);
         this.UpdateValuesOnChange(Component.Service.Status);

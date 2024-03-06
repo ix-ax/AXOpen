@@ -7,19 +7,10 @@
 
 @if(MessageProvider?.ActiveMessagesCount > 0)
 {
-    <button type="button" class="btn btn-@Observer?.HighestSeverityColor position-relative" data-bs-toggle="modal" data-bs-target="#alarmsviewmodal">
-        @Localizer["Alarms"]
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            @MessageProvider?.ActiveMessagesCount
-                <span class="visually-hidden">unread messages</span>
-        </span>
-    </button>
-}
-else
-{
-    <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal" data-bs-target="#alarmsviewmodal">
-        @Localizer["Alarms"]
-    </button>
+    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-@Observer?.HighestSeverityColor">
+        @MessageProvider?.ActiveMessagesCount
+            <span class="visually-hidden">unread messages</span>
+    </span>
 }
         
 
