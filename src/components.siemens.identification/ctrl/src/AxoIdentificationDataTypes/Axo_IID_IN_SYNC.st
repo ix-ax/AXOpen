@@ -37,8 +37,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             timeout_reset               :   TIME    :=  T#1M;       //timeout for init
             state                       :   UINT    :=  UINT#0;     //variable for statemachine
             buf_maxdata                 :   UINT    :=  UINT#229;   //user data size
-            //buf:ARRAY[0..1034] OF BYTE;
-            pnConfigRecord : Axo_IID_IN_PN_CONFIGRECORD;
+            pnConfigRecord              :   Axo_IID_IN_PN_CONFIGRECORD;
         END_VAR
     END_CLASS
 END_NAMESPACE

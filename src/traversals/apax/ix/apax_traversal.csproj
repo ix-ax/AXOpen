@@ -71,6 +71,8 @@
 	  <ProjectReference Include="..\..\..\utils\src\AXOpen.Utils\ix_ax_axopen_utils.csproj" />
 	  <ProjectReference Include="..\..\..\components.kuka.robotics\app\ix\app_axopen_components_kuka_robotics.csproj" />
 	  <ProjectReference Include="..\..\..\components.kuka.robotics\src\AXOpen.Components.Kuka.Robotics\ix_ax_axopen_components_kuka_robotics.csproj" />
+	  <ProjectReference Include="..\..\..\components.balluff.identification\app\ix\app_axopen_components_balluff_identification.csproj" />
+	  <ProjectReference Include="..\..\..\components.balluff.identification\src\AXOpen.Components.Balluff.Identification\ix_ax_axopen_components_balluff_identification.csproj" />
 	  <ProjectReference Include="..\..\..\components.siemens.identification\app\ix\app_axopen_components_siemens_identification.csproj" />
 	  <ProjectReference Include="..\..\..\components.siemens.identification\src\AXOpen.Components.Siemens.Identification\ix_ax_axopen_components_siemens_identification.csproj" />
 	</ItemGroup>

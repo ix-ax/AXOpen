@@ -13,6 +13,8 @@ dependencies:
   '@ix-ax/axopen.components.abb.robotics': 0.0.0-dev.0
   components.abstractions-app: 0.0.0-dev.0
   '@ix-ax/axopen.components.abstractions': 0.0.0-dev.0
+  app_axopen.components.balluff.identification: 0.0.0-dev.0
+  '@ix-ax/axopen.components.balluff.identification': 0.0.0-dev.0
   app_axopen.components.cognex.vision: 0.0.0-dev.0
   '@ix-ax/axopen.components.cognex.vision': 0.0.0-dev.0
   app_axopen.components.desoutter.tightening: 0.0.0-dev.0

@@ -1,0 +1,2630 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+
+<!-- RF18xC -->
+<!-- 
+    16.03.2017:  First test version
+    
+    09.08.2017  NetworkComponentDiagnosisSupported entfernt  ( wg. Schaefer )
+                mobymode changeable  altsysteme test entfernt
+                
+    14.08.2017  modID in parameter
+                pullPlugalarm allowed
+    17.08.2017  upgrade to DeviceProfile V2.33
+                     NumberOfDeviceAccessAR="1" added
+                     ExtendedAddressAssignmentSupported obsolete
+                     SupportedMibs obsolete
+                     ProfileList obsolete
+                     BitOffset in some parametervalues removed 
+                     unreferenced text commented
+                FixedInSlots changed in UsedInSlots
+    29.09.2017  Tag:PNIO_Version auf V2.33
+                FB55 parameter removed
+	02.11.2017  UsedInSlots rechanged in FixedInSlots	-> Module are not removable 	
+    15.11.2017  channel for Configuration in slot 0 	
+	            Parameter for MV300, Freeport removed
+	04.12.2017  extra slot 1 for cm Communikation, other slots gets an offset of 1 	
+    15.12.2017  Slot 1 for CM config and digital IO
+                Slot 2 - 5 for Reader incl. digital IO with same ABI = 5b00	
+				some changes in text 				
+		        RequiredSchemaVersion="2.1" 		
+	15.12.2017	Text corrections	
+	20.12.2017  CI Varianten removed DAP 4 and 5 ( RF186CI RF188CI) removed 
+    08.01.2018  Alarmtext wire break and power supply changed	
+    15.01.2018  Modulname changed   new pictures
+    25.01.2018  FH alarmcodes removed
+                cm cfg changed in cm	
+	22.02.2018  All Parametersets with module ID
+	05.06.2018  UsedInSlots rechanged in FixedInSlots	-> Module are not removable  
+	22.10.2018  Changes for V1.1  -> CI Variants  added
+    29.10.2018  digital IO Link module without disable parametervalue 
+    07.05.2019  plugable modules-> V3 version DAP's ,   upgrade to GSDML V2.34 
+	22.07.2019  MaxMRP_Instances  added DAP10 
+	24.07.2019  DAP V3 changet to V1.3
+	29.07.2019  MaxMRP_Instances for all DAP's  
+	12.08.2019  empty module removed 
+	            module names same as profibus  ???????
+	14.08.2019  Parameterkorrektur in den Modulen ( G3 )
+    02.10.2019  Modul name rf300 fixrd	
+    20.10.2019  Freeport module   for DAPS V1.3 
+    05.11.2019  Baudrate for RF300 fast protocol visible but unchangable 
+    19.11.2019  Direkter Mode in Freeport umbenannt 
+	05.12.2019  Freeportparameter corrected 
+	08.01.2020  Baudrate text 921 now 921.6 
+	10.05.2020  OrderNumber of RF300R_G3 with * fill bytes 
+	06.04.2021  Upgrade to GSDML V2.41 - 
+               	no new Keywords  only no referenced ID's  and needless spaces removed 
+                BitOffset in some parametervalues removed 	
+    15.04.2021  New DAP's for V2.0  with PortDeactivationSupported="true", 	CheckMAUTypeSupported="true",  CheckMAUTypeDifferenceSupported="true"
+                AllowedInSlots for slot 1 removed for new DAPs
+				Text fixed 
+	
+	ShortPreamble100MBitSupported V2.3 ?	
+    SFPDiagnosisSupported  V2.4  nicht möglich	
+	SFPDiagnosisMonitoring V2.4  nicht möglich   
+	SupportedServiceProtocols V2.4  kein RSI  
+	SecurityClass  V2.41 ?
+	
+	NetworkComponentDiagnosisSupported  not possible due to PNIO Stack  
+	
+-->     
+
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-V2.41.xsd">
+  <!-- ProfileHeader Definition as defined in ISO15745-1. Please do not change the content. -->
+  <ProfileHeader>
+    <ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for PROFINET Devices</ProfileName>
+    <ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>4</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>GSDML</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity VendorID="0x002A" DeviceID="0x0C06">
+      <InfoText TextId="IDT_FamilyDescription"/>
+      <VendorName Value="SIEMENS"/>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Family MainFamily="Ident Systems" ProductFamily="SIMATIC RF18xC"/>
+    </DeviceFunction>
+    <ApplicationProcess>
+      <DeviceAccessPointList>          
+        <DeviceAccessPointItem ID="DAP 1" PhysicalSlots="0..2" ModuleIdentNumber="0x00000100" MinDeviceInterval="128" NameOfStationNotTransferable="true" SharedDeviceSupported="false" SharedInputSupported="false" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" WebServer="http://:80/" AutoConfigurationSupported="false" CIR_Supported="false" PrmBeginPrmEndSequenceSupported="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2" ImplementationType="software" DNS_CompatibleName="rf185c" AddressAssignment="DHCP;DCP" FixedInSlots="0" ObjectUUID_LocalIndex="1" MultipleWriteSupported="true" RemoteApplicationTimeout="3" IOXS_Required="true" RequiredSchemaVersion="V2.1" MaxSupportedRecordSize="4068" PNIO_Version="V2.33" CheckDeviceID_Allowed="true">    
+          <ModuleInfo CategoryRef="ID_RF18XC" SubCategory1Ref="ID_RF185C_SUB">
+            <Name TextId="IDT_MODULE_NAME_DAP1"/>
+            <InfoText TextId="IDT_InfoText_185C_10"/>
+            <VendorName Value="SIEMENS"/>
+            <OrderNumber Value="6GT2 002-0JE10"/>
+            <!-- <HardwareRelease Value="0.1" /> -->
+            <SoftwareRelease Value="V1.0"/> 
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="III"/>		  
+          <SubslotList>
+           <SubslotItem SubslotNumber="32768" TextId="IDT_Subslot_8000"/>
+           <SubslotItem SubslotNumber="32769" TextId="IDT_Subslot_8001"/>
+           <SubslotItem SubslotNumber="32770" TextId="IDT_Subslot_8002"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="12" MaxOutputLength="12" MaxDataLength="24" MaxApplicationInputLength="10" MaxApplicationOutputLength="10" MaxApplicationDataLength="20"/>
+          <UseableModules>   
+		    <ModuleItemRef ModuleItemTarget="ID_1WCFG" AllowedInSlots="1" FixedInSlots="1"/> 
+            <ModuleItemRef ModuleItemTarget="ID_1WUNI" AllowedInSlots="2" FixedInSlots="2"/>                    
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 1" SubmoduleIdentNumber="0x00010001" Writeable_IM_Records="1 2 3" Max_iParameterSize="35000" FixedInSubslots="1" MayIssueProcessAlarm="false">
+                <IOData/>             
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="24" TransferSequence="1">
+                  <Name TextId="IDT_GENERAL_PARAMETERS"/>
+                  <Const Data="0x18,0x00,0x00,0x00,0x00,0x03,0x01,0x00,0x00,0x00,0x01,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>
+                  <Ref ValueItemTarget="IDT_PARA_DEVAL" ByteOffset="12" DataType="Unsigned8" DefaultValue="1" AllowedValues="0 1" Changeable="true" Visible="true" TextId="IDT_PARA_ALDEVICE"/>  				  
+                </ParameterRecordDataItem>
+              </RecordDataList>  
+              <ModuleInfo>
+                 <Name TextId="IDT_SUBMODULE_NAME_DAP1"/>
+                 <InfoText TextId="IDT_SUBMODULE_NAME_DAP1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem> 			
+          </VirtualSubmoduleList>	
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_01I_01" SubslotNumber="32768" SubmoduleIdentNumber="0x00000101" TextId="IDT_INTERFACESUBMODULE_TEXT" SupportedRT_Class="Class1" SupportedRT_Classes="RT_CLASS_1" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" DCP_BoundarySupported="true" PTP_BoundarySupported="true">
+            <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" NumberOfAR="1" StartupMode="Advanced;Legacy" PullModuleAlarmSupported="true">
+              <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>             
+            </ApplicationRelations>
+            <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1"/> 
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_01P1_01" SubslotNumber="32769" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port1" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+            <PortSubmoduleItem ID="IDS_01P2_01" SubslotNumber="32770" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port2" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+          </SystemDefinedSubmoduleList>		 
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_RF185C"/>
+          </Graphics>	
+		  <SlotList>
+		     <SlotItem SlotNumber="1" TextId="IDT_slot_1"/>
+		     <SlotItem SlotNumber="2" TextId="IDT_slot_2"/>			
+		  </SlotList>
+          <!-- <SystemRedundancy DeviceType="S2" MaxSwitchOverTime="100"/> -->
+        </DeviceAccessPointItem>	 
+
+        <DeviceAccessPointItem ID="DAP 2" PhysicalSlots="0..3" ModuleIdentNumber="0x00000200" MinDeviceInterval="128" NameOfStationNotTransferable="true" SharedDeviceSupported="false" SharedInputSupported="false" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" WebServer="http://:80/" AutoConfigurationSupported="false" CIR_Supported="false" PrmBeginPrmEndSequenceSupported="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2" ImplementationType="software" DNS_CompatibleName="rf186c" AddressAssignment="DHCP;DCP" FixedInSlots="0" ObjectUUID_LocalIndex="1" MultipleWriteSupported="true" RemoteApplicationTimeout="3" IOXS_Required="true" RequiredSchemaVersion="V2.1" MaxSupportedRecordSize="4068" PNIO_Version="V2.33" CheckDeviceID_Allowed="true">    
+          <ModuleInfo CategoryRef="ID_RF18XC" SubCategory1Ref="ID_RF186C_SUB">
+            <Name TextId="IDT_MODULE_NAME_DAP2"/>
+            <InfoText TextId="IDT_InfoText_186C_10"/>
+            <VendorName Value="SIEMENS"/>
+            <OrderNumber Value="6GT2 002-0JE20"/>
+            <!-- <HardwareRelease Value="0.1" /> -->
+            <SoftwareRelease Value="V1.0"/> 
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="III"/>		
+          <SubslotList>
+           <SubslotItem SubslotNumber="32768" TextId="IDT_Subslot_8000"/>
+           <SubslotItem SubslotNumber="32769" TextId="IDT_Subslot_8001"/>
+           <SubslotItem SubslotNumber="32770" TextId="IDT_Subslot_8002"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="25" MaxOutputLength="25" MaxDataLength="50" MaxApplicationInputLength="20" MaxApplicationOutputLength="20" MaxApplicationDataLength="40"/>
+          <UseableModules>
+		    <ModuleItemRef ModuleItemTarget="ID_1WCFG" AllowedInSlots="1" FixedInSlots="1"/> 
+            <ModuleItemRef ModuleItemTarget="ID_1WUNI" AllowedInSlots="2..3" FixedInSlots="2..3"/>              
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 2" SubmoduleIdentNumber="0x00010001" Writeable_IM_Records="1 2 3" Max_iParameterSize="35000" FixedInSubslots="1" MayIssueProcessAlarm="false">
+                <IOData/>             
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="24" TransferSequence="1">
+                  <Name TextId="IDT_GENERAL_PARAMETERS"/>
+                  <Const Data="0x18,0x00,0x00,0x00,0x00,0x03,0x01,0x00,0x00,0x00,0x02,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>
+                  <Ref ValueItemTarget="IDT_PARA_DEVAL" ByteOffset="12" DataType="Unsigned8" DefaultValue="1" AllowedValues="0 1" Changeable="true" Visible="true" TextId="IDT_PARA_ALDEVICE"/>  				  
+                </ParameterRecordDataItem>
+              </RecordDataList>  
+              <ModuleInfo>
+                 <Name TextId="IDT_SUBMODULE_NAME_DAP2"/>
+                 <InfoText TextId="IDT_SUBMODULE_NAME_DAP2"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>              
+          </VirtualSubmoduleList>	
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_01I_02" SubslotNumber="32768" SubmoduleIdentNumber="0x00000101" TextId="IDT_INTERFACESUBMODULE_TEXT" SupportedRT_Class="Class1" SupportedRT_Classes="RT_CLASS_1" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" DCP_BoundarySupported="true" PTP_BoundarySupported="true">
+            <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" NumberOfAR="1" StartupMode="Advanced;Legacy" PullModuleAlarmSupported="true">
+              <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>             
+            </ApplicationRelations>
+            <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1"/> 
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_01P1_02" SubslotNumber="32769" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port1" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+            <PortSubmoduleItem ID="IDS_01P2_02" SubslotNumber="32770" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port2" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+          </SystemDefinedSubmoduleList>		 
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_RF186C"/>
+          </Graphics>	
+		  <SlotList>
+		     <SlotItem SlotNumber="1" TextId="IDT_slot_1"/>
+		     <SlotItem SlotNumber="2" TextId="IDT_slot_2"/>
+			 <SlotItem SlotNumber="3" TextId="IDT_slot_3"/>
+		  </SlotList>
+          <!-- <SystemRedundancy DeviceType="S2" MaxSwitchOverTime="100"/> -->
+        </DeviceAccessPointItem>	     
+
+        <DeviceAccessPointItem ID="DAP 3" PhysicalSlots="0..5" ModuleIdentNumber="0x00000300" MinDeviceInterval="128" NameOfStationNotTransferable="true" SharedDeviceSupported="false" SharedInputSupported="false" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" WebServer="http://:80/" AutoConfigurationSupported="false" CIR_Supported="false" PrmBeginPrmEndSequenceSupported="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2" ImplementationType="software" DNS_CompatibleName="rf188c" AddressAssignment="DHCP;DCP" FixedInSlots="0" ObjectUUID_LocalIndex="1" MultipleWriteSupported="true" RemoteApplicationTimeout="3" IOXS_Required="true" RequiredSchemaVersion="V2.1" MaxSupportedRecordSize="4068" PNIO_Version="V2.33" CheckDeviceID_Allowed="true">    
+          <ModuleInfo CategoryRef="ID_RF18XC" SubCategory1Ref="ID_RF188C_SUB">
+            <Name TextId="IDT_MODULE_NAME_DAP3"/>
+            <InfoText TextId="IDT_InfoText_188C_10"/>
+            <VendorName Value="SIEMENS"/>
+            <OrderNumber Value="6GT2 002-0JE40"/>
+            <!-- <HardwareRelease Value="0.1" /> -->
+            <SoftwareRelease Value="V1.0"/> 
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="III"/>		 
+          <SubslotList>
+           <SubslotItem SubslotNumber="32768" TextId="IDT_Subslot_8000"/>
+           <SubslotItem SubslotNumber="32769" TextId="IDT_Subslot_8001"/>
+           <SubslotItem SubslotNumber="32770" TextId="IDT_Subslot_8002"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="50" MaxOutputLength="50" MaxDataLength="100" MaxApplicationInputLength="40" MaxApplicationOutputLength="40" MaxApplicationDataLength="80"/>
+          <UseableModules>
+		    <ModuleItemRef ModuleItemTarget="ID_1WCFG" AllowedInSlots="1" FixedInSlots="1"/> 
+            <ModuleItemRef ModuleItemTarget="ID_1WUNI" AllowedInSlots="2..5" FixedInSlots="2..5"/>               
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 3" SubmoduleIdentNumber="0x00010001" Writeable_IM_Records="1 2 3" Max_iParameterSize="35000" FixedInSubslots="1" MayIssueProcessAlarm="false">
+              <IOData/>             
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="24" TransferSequence="1">
+                  <Name TextId="IDT_GENERAL_PARAMETERS"/>
+                  <Const Data="0x18,0x00,0x00,0x00,0x00,0x03,0x01,0x00,0x00,0x00,0x03,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>
+                  <Ref ValueItemTarget="IDT_PARA_DEVAL" ByteOffset="12" DataType="Unsigned8" DefaultValue="1" AllowedValues="0 1" Changeable="true" Visible="true" TextId="IDT_PARA_ALDEVICE"/>  				  
+                </ParameterRecordDataItem>
+              </RecordDataList>  
+              <ModuleInfo>
+                 <Name TextId="IDT_SUBMODULE_NAME_DAP3"/>
+                 <InfoText TextId="IDT_SUBMODULE_NAME_DAP3"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>              
+          </VirtualSubmoduleList>	
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_01I_03" SubslotNumber="32768" SubmoduleIdentNumber="0x00000101" TextId="IDT_INTERFACESUBMODULE_TEXT" SupportedRT_Class="Class1" SupportedRT_Classes="RT_CLASS_1" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" DCP_BoundarySupported="true" PTP_BoundarySupported="true">
+            <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" NumberOfAR="1" StartupMode="Advanced;Legacy" PullModuleAlarmSupported="true">
+              <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>             
+            </ApplicationRelations>
+            <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1"/> 
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_01P1_03" SubslotNumber="32769" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port1" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+            <PortSubmoduleItem ID="IDS_01P2_03" SubslotNumber="32770" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port2" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+          </SystemDefinedSubmoduleList>		 
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_RF188C"/>
+          </Graphics>	
+		  <SlotList>
+		     <SlotItem SlotNumber="1" TextId="IDT_slot_1"/>
+		     <SlotItem SlotNumber="2" TextId="IDT_slot_2"/>
+			 <SlotItem SlotNumber="3" TextId="IDT_slot_3"/>
+			 <SlotItem SlotNumber="4" TextId="IDT_slot_4"/>
+			 <SlotItem SlotNumber="5" TextId="IDT_slot_5"/>
+		  </SlotList>
+          <!-- <SystemRedundancy DeviceType="S2" MaxSwitchOverTime="100"/> -->
+        </DeviceAccessPointItem>	
+        <DeviceAccessPointItem ID="DAP 4" PhysicalSlots="0..3" ModuleIdentNumber="0x00000401" MinDeviceInterval="128" NameOfStationNotTransferable="true" SharedDeviceSupported="false" SharedInputSupported="false" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" WebServer="http://:80/" AutoConfigurationSupported="false" CIR_Supported="false" PrmBeginPrmEndSequenceSupported="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2" ImplementationType="software" DNS_CompatibleName="rf186ci" AddressAssignment="DHCP;DCP" FixedInSlots="0" ObjectUUID_LocalIndex="1" MultipleWriteSupported="true" RemoteApplicationTimeout="3" IOXS_Required="true" RequiredSchemaVersion="V2.1" MaxSupportedRecordSize="4068" PNIO_Version="V2.33" CheckDeviceID_Allowed="true">    
+          <ModuleInfo CategoryRef="ID_RF18XC" SubCategory1Ref="ID_RF186CI_SUB">
+            <Name TextId="IDT_MODULE_NAME_DAP4"/>
+            <InfoText TextId="IDT_InfoText_186CI_11"/>
+            <VendorName Value="SIEMENS"/>
+            <OrderNumber Value="6GT2 002-0JE50"/>
+            <!-- <HardwareRelease Value="0.1" /> -->
+            <SoftwareRelease Value="V1.1"/> 
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="III"/>		 
+          <SubslotList> 		  
+           <SubslotItem SubslotNumber="32768" TextId="IDT_Subslot_8000"/>
+           <SubslotItem SubslotNumber="32769" TextId="IDT_Subslot_8001"/>
+           <SubslotItem SubslotNumber="32770" TextId="IDT_Subslot_8002"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="25" MaxOutputLength="25" MaxDataLength="50" MaxApplicationInputLength="20" MaxApplicationOutputLength="20" MaxApplicationDataLength="40"/>
+          <UseableModules>
+		    <ModuleItemRef ModuleItemTarget="ID_1WCFG_IO" AllowedInSlots="1" FixedInSlots="1"/> 
+		    <ModuleItemRef ModuleItemTarget="ID_1WUNI" AllowedInSlots="2..3" UsedInSlots="2..3"/>			
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 4" SubmoduleIdentNumber="0x00010001" Writeable_IM_Records="1 2 3" Max_iParameterSize="35000" FixedInSubslots="1" MayIssueProcessAlarm="false">
+              <IOData/>               
+              <RecordDataList>
+                 <ParameterRecordDataItem Index="1" Length="24" TransferSequence="1">
+                  <Name TextId="IDT_GENERAL_PARAMETERS"/>
+                  <Const Data="0x18,0x00,0x00,0x00,0x00,0x03,0x01,0x00,0x00,0x00,0x04,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>
+                  <Ref ValueItemTarget="IDT_PARA_DEVAL" ByteOffset="12" DataType="Unsigned8" DefaultValue="1" AllowedValues="0 1" Changeable="true" Visible="true" TextId="IDT_PARA_ALDEVICE"/>  				  
+                </ParameterRecordDataItem>
+              </RecordDataList>  
+              <ModuleInfo>
+                 <Name TextId="IDT_SUBMODULE_NAME_DAP4"/>
+                 <InfoText TextId="IDT_SUBMODULE_NAME_DAP4"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>              
+          </VirtualSubmoduleList>	
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_01I_04" SubslotNumber="32768" SubmoduleIdentNumber="0x00000101" TextId="IDT_INTERFACESUBMODULE_TEXT" SupportedRT_Class="Class1" SupportedRT_Classes="RT_CLASS_1" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" DCP_BoundarySupported="true" PTP_BoundarySupported="true">
+            <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" NumberOfAR="1" StartupMode="Advanced;Legacy" PullModuleAlarmSupported="true">
+              <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>             
+            </ApplicationRelations>
+            <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1"/> 
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_01P1_04" SubslotNumber="32769" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port1" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+            <PortSubmoduleItem ID="IDS_01P2_04" SubslotNumber="32770" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port2" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+          </SystemDefinedSubmoduleList>		 
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_RF186CI"/>
+          </Graphics>	
+		  <SlotList>
+		     <SlotItem SlotNumber="1" TextId="IDT_slot_1"/>
+		     <SlotItem SlotNumber="2" TextId="IDT_slot_2"/>
+			 <SlotItem SlotNumber="3" TextId="IDT_slot_3"/>			
+		  </SlotList>
+          <!-- <SystemRedundancy DeviceType="S2" MaxSwitchOverTime="100"/> -->
+        </DeviceAccessPointItem>			
+        <DeviceAccessPointItem ID="DAP 5" PhysicalSlots="0..5" ModuleIdentNumber="0x00000501" MinDeviceInterval="128" NameOfStationNotTransferable="true" SharedDeviceSupported="false" SharedInputSupported="false" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" WebServer="http://:80/" AutoConfigurationSupported="false" CIR_Supported="false" PrmBeginPrmEndSequenceSupported="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2" ImplementationType="software" DNS_CompatibleName="rf188ci" AddressAssignment="DHCP;DCP" FixedInSlots="0" ObjectUUID_LocalIndex="1" MultipleWriteSupported="true" RemoteApplicationTimeout="3" IOXS_Required="true" RequiredSchemaVersion="V2.1" MaxSupportedRecordSize="4068" PNIO_Version="V2.33" CheckDeviceID_Allowed="true">    
+          <ModuleInfo CategoryRef="ID_RF18XC" SubCategory1Ref="ID_RF188CI_SUB">
+            <Name TextId="IDT_MODULE_NAME_DAP5"/>
+            <InfoText TextId="IDT_InfoText_188CI_11"/>
+            <VendorName Value="SIEMENS"/>
+            <OrderNumber Value="6GT2 002-0JE60"/>
+            <!-- <HardwareRelease Value="0.1" /> -->
+            <SoftwareRelease Value="V1.1"/> 
+          </ModuleInfo>	
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="III"/>		 
+          <SubslotList>  		  
+           <SubslotItem SubslotNumber="32768" TextId="IDT_Subslot_8000"/>
+           <SubslotItem SubslotNumber="32769" TextId="IDT_Subslot_8001"/>
+           <SubslotItem SubslotNumber="32770" TextId="IDT_Subslot_8002"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="50" MaxOutputLength="50" MaxDataLength="100" MaxApplicationInputLength="40" MaxApplicationOutputLength="40" MaxApplicationDataLength="80"/>
+          <UseableModules>	
+            <ModuleItemRef ModuleItemTarget="ID_1WCFG_IO" AllowedInSlots="1" FixedInSlots="1"/> 	  
+            <ModuleItemRef ModuleItemTarget="ID_1WUNI" AllowedInSlots="2..5" UsedInSlots="2..5"/>  			
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 5" SubmoduleIdentNumber="0x00010001" Writeable_IM_Records="1 2 3" Max_iParameterSize="35000" FixedInSubslots="1" MayIssueProcessAlarm="false">  
+                <IOData/>          
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="24" TransferSequence="1">
+                  <Name TextId="IDT_GENERAL_PARAMETERS"/>
+                  <Const Data="0x18,0x00,0x00,0x00,0x00,0x03,0x01,0x00,0x00,0x00,0x05,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>
+                  <Ref ValueItemTarget="IDT_PARA_DEVAL" ByteOffset="12" DataType="Unsigned8" DefaultValue="1" AllowedValues="0 1" Changeable="true" Visible="true" TextId="IDT_PARA_ALDEVICE"/>  				  
+                </ParameterRecordDataItem>
+              </RecordDataList>  
+              <ModuleInfo>
+                 <Name TextId="IDT_SUBMODULE_NAME_DAP5"/>
+                 <InfoText TextId="IDT_SUBMODULE_NAME_DAP5"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>            
+          </VirtualSubmoduleList>			
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_01I_05" SubslotNumber="32768" SubmoduleIdentNumber="0x00000101" TextId="IDT_INTERFACESUBMODULE_TEXT" SupportedRT_Class="Class1" SupportedRT_Classes="RT_CLASS_1" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" DCP_BoundarySupported="true" PTP_BoundarySupported="true">
+            <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" NumberOfAR="1" StartupMode="Advanced;Legacy" PullModuleAlarmSupported="true">
+              <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>             
+            </ApplicationRelations>
+            <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1"/> 
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_01P1_05" SubslotNumber="32769" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port1" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+            <PortSubmoduleItem ID="IDS_01P2_05" SubslotNumber="32770" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port2" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+          </SystemDefinedSubmoduleList>			 
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_RF188CI"/>
+          </Graphics>	
+          <!-- <SlotGroups>
+              <SlotGroup SlotList="1 2 3 4 5" >
+                  <Name TextId="IDT_SLOTGR1"/>
+                  <InfoText TextId="IDT_INFO_SLOTGR1"/>                 
+              </SlotGroup>
+          </SlotGroups> -->  
+		  <SlotList> 
+                 <SlotItem SlotNumber="1" TextId="IDT_slot_1"/>
+                 <SlotItem SlotNumber="2" TextId="IDT_slot_2"/>
+                 <SlotItem SlotNumber="3" TextId="IDT_slot_3"/>
+                 <SlotItem SlotNumber="4" TextId="IDT_slot_4"/>
+                 <SlotItem SlotNumber="5" TextId="IDT_slot_5"/>  
+          </SlotList>
+          <!-- <SystemRedundancy DeviceType="S2" MaxSwitchOverTime="100"/> -->
+        </DeviceAccessPointItem>  
+
+		 <!-- plugable modules   -->
+		<DeviceAccessPointItem ID="DAP 6" PhysicalSlots="0..2" ModuleIdentNumber="0x00000102" MinDeviceInterval="128" NameOfStationNotTransferable="true" SharedDeviceSupported="false" SharedInputSupported="false" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" WebServer="http://:80/" AutoConfigurationSupported="false" CIR_Supported="false" PrmBeginPrmEndSequenceSupported="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2" ImplementationType="software" DNS_CompatibleName="rf185c" AddressAssignment="DHCP;DCP" FixedInSlots="0" ObjectUUID_LocalIndex="1" MultipleWriteSupported="true" RemoteApplicationTimeout="3" IOXS_Required="true" RequiredSchemaVersion="V2.1" MaxSupportedRecordSize="4068" PNIO_Version="V2.34" CheckDeviceID_Allowed="true">    
+          <ModuleInfo CategoryRef="ID_RF18XC" SubCategory1Ref="ID_RF185C_SUB">
+            <Name TextId="IDT_MODULE_NAME_DAP6"/>
+            <InfoText TextId="IDT_InfoText_185C_13"/>
+            <VendorName Value="SIEMENS"/>
+            <OrderNumber Value="6GT2 002-0JE10"/>
+            <!-- <HardwareRelease Value="0.1" /> -->
+            <SoftwareRelease Value="V1.3"/> 
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="III"/>		  
+          <SubslotList>
+           <SubslotItem SubslotNumber="32768" TextId="IDT_Subslot_8000"/>
+           <SubslotItem SubslotNumber="32769" TextId="IDT_Subslot_8001"/>
+           <SubslotItem SubslotNumber="32770" TextId="IDT_Subslot_8002"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="12" MaxOutputLength="12" MaxDataLength="24" MaxApplicationInputLength="10" MaxApplicationOutputLength="10" MaxApplicationDataLength="20"/>
+          <UseableModules>   
+		    <ModuleItemRef ModuleItemTarget="ID_1WCFG" AllowedInSlots="1" FixedInSlots="1"/> 
+            <ModuleItemRef ModuleItemTarget="ID_1WUNI" AllowedInSlots="2"/>  
+            <ModuleItemRef ModuleItemTarget="ID_RF300R_G3" AllowedInSlots="2"/>  
+			<ModuleItemRef ModuleItemTarget="ID_FREEP" AllowedInSlots="2"/>  			
+             <!-- <ModuleItemRef ModuleItemTarget="ID_EMTY"   AllowedInSlots="2"/> -->			
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 6" SubmoduleIdentNumber="0x00010001" Writeable_IM_Records="1 2 3" Max_iParameterSize="35000" FixedInSubslots="1" MayIssueProcessAlarm="false">
+                <IOData/>             
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="24" TransferSequence="1">
+                  <Name TextId="IDT_GENERAL_PARAMETERS"/>
+                  <Const Data="0x18,0x00,0x00,0x00,0x00,0x03,0x01,0x00,0x00,0x00,0x01,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>
+                  <Ref ValueItemTarget="IDT_PARA_DEVAL" ByteOffset="12" DataType="Unsigned8" DefaultValue="1" AllowedValues="0 1" Changeable="true" Visible="true" TextId="IDT_PARA_ALDEVICE"/>  				  
+                </ParameterRecordDataItem>
+              </RecordDataList>  
+              <ModuleInfo>
+                 <Name TextId="IDT_SUBMODULE_NAME_DAP6"/>
+                 <InfoText TextId="IDT_SUBMODULE_NAME_DAP6"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem> 			
+          </VirtualSubmoduleList>	
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_01I_06" SubslotNumber="32768" SubmoduleIdentNumber="0x00000101" TextId="IDT_INTERFACESUBMODULE_TEXT" SupportedRT_Class="Class1" SupportedRT_Classes="RT_CLASS_1" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" DCP_BoundarySupported="true" PTP_BoundarySupported="true">
+            <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" NumberOfAR="1" StartupMode="Advanced;Legacy" PullModuleAlarmSupported="true">
+              <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>             
+            </ApplicationRelations>
+            <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1"/> 
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_01P1_06" SubslotNumber="32769" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port1" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+            <PortSubmoduleItem ID="IDS_01P2_06" SubslotNumber="32770" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port2" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+          </SystemDefinedSubmoduleList>		 
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_RF185C"/>
+          </Graphics>	
+		  <SlotList>
+		     <SlotItem SlotNumber="1" TextId="IDT_slot_1"/>
+		     <SlotItem SlotNumber="2" TextId="IDT_slot_2"/>			
+		  </SlotList>
+          <!-- <SystemRedundancy DeviceType="S2" MaxSwitchOverTime="100"/> -->
+        </DeviceAccessPointItem>	 
+
+        <DeviceAccessPointItem ID="DAP 7" PhysicalSlots="0..3" ModuleIdentNumber="0x00000202" MinDeviceInterval="128" NameOfStationNotTransferable="true" SharedDeviceSupported="false" SharedInputSupported="false" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" WebServer="http://:80/" AutoConfigurationSupported="false" CIR_Supported="false" PrmBeginPrmEndSequenceSupported="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2" ImplementationType="software" DNS_CompatibleName="rf186c" AddressAssignment="DHCP;DCP" FixedInSlots="0" ObjectUUID_LocalIndex="1" MultipleWriteSupported="true" RemoteApplicationTimeout="3" IOXS_Required="true" RequiredSchemaVersion="V2.1" MaxSupportedRecordSize="4068" PNIO_Version="V2.34" CheckDeviceID_Allowed="true">    
+          <ModuleInfo CategoryRef="ID_RF18XC" SubCategory1Ref="ID_RF186C_SUB">
+            <Name TextId="IDT_MODULE_NAME_DAP7"/>
+            <InfoText TextId="IDT_InfoText_186C_13"/>
+            <VendorName Value="SIEMENS"/>
+            <OrderNumber Value="6GT2 002-0JE20"/>
+            <!-- <HardwareRelease Value="0.1" /> -->
+            <SoftwareRelease Value="V1.3"/> 
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="III"/>		
+          <SubslotList>
+           <SubslotItem SubslotNumber="32768" TextId="IDT_Subslot_8000"/>
+           <SubslotItem SubslotNumber="32769" TextId="IDT_Subslot_8001"/>
+           <SubslotItem SubslotNumber="32770" TextId="IDT_Subslot_8002"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="25" MaxOutputLength="25" MaxDataLength="50" MaxApplicationInputLength="20" MaxApplicationOutputLength="20" MaxApplicationDataLength="40"/>
+          <UseableModules>
+		    <ModuleItemRef ModuleItemTarget="ID_1WCFG" AllowedInSlots="1" FixedInSlots="1"/> 
+            <ModuleItemRef ModuleItemTarget="ID_1WUNI" AllowedInSlots="2..3"/>              
+            <ModuleItemRef ModuleItemTarget="ID_RF300R_G3" AllowedInSlots="2..3"/>  
+			<ModuleItemRef ModuleItemTarget="ID_FREEP" AllowedInSlots="2..3"/>  	
+             <!-- <ModuleItemRef ModuleItemTarget="ID_EMTY"   AllowedInSlots="2..3"/>   -->          
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 7" SubmoduleIdentNumber="0x00010001" Writeable_IM_Records="1 2 3" Max_iParameterSize="35000" FixedInSubslots="1" MayIssueProcessAlarm="false">
+                <IOData/>             
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="24" TransferSequence="1">
+                  <Name TextId="IDT_GENERAL_PARAMETERS"/>
+                  <Const Data="0x18,0x00,0x00,0x00,0x00,0x03,0x01,0x00,0x00,0x00,0x02,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>
+                  <Ref ValueItemTarget="IDT_PARA_DEVAL" ByteOffset="12" DataType="Unsigned8" DefaultValue="1" AllowedValues="0 1" Changeable="true" Visible="true" TextId="IDT_PARA_ALDEVICE"/>  				  
+                </ParameterRecordDataItem>
+              </RecordDataList>  
+              <ModuleInfo>
+                 <Name TextId="IDT_SUBMODULE_NAME_DAP7"/>
+                 <InfoText TextId="IDT_SUBMODULE_NAME_DAP7"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>              
+          </VirtualSubmoduleList>	
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_01I_07" SubslotNumber="32768" SubmoduleIdentNumber="0x00000101" TextId="IDT_INTERFACESUBMODULE_TEXT" SupportedRT_Class="Class1" SupportedRT_Classes="RT_CLASS_1" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" DCP_BoundarySupported="true" PTP_BoundarySupported="true">
+            <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" NumberOfAR="1" StartupMode="Advanced;Legacy" PullModuleAlarmSupported="true">
+              <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>             
+            </ApplicationRelations>
+            <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1"/> 
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_01P1_07" SubslotNumber="32769" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port1" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+            <PortSubmoduleItem ID="IDS_01P2_07" SubslotNumber="32770" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port2" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+          </SystemDefinedSubmoduleList>		 
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_RF186C"/>
+          </Graphics>	
+		  <SlotList>
+		     <SlotItem SlotNumber="1" TextId="IDT_slot_1"/>
+		     <SlotItem SlotNumber="2" TextId="IDT_slot_2"/>
+			 <SlotItem SlotNumber="3" TextId="IDT_slot_3"/>
+		  </SlotList>
+          <!-- <SystemRedundancy DeviceType="S2" MaxSwitchOverTime="100"/> -->
+        </DeviceAccessPointItem>	     
+
+        <DeviceAccessPointItem ID="DAP 8" PhysicalSlots="0..5" ModuleIdentNumber="0x00000302" MinDeviceInterval="128" NameOfStationNotTransferable="true" SharedDeviceSupported="false" SharedInputSupported="false" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" WebServer="http://:80/" AutoConfigurationSupported="false" CIR_Supported="false" PrmBeginPrmEndSequenceSupported="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2" ImplementationType="software" DNS_CompatibleName="rf188c" AddressAssignment="DHCP;DCP" FixedInSlots="0" ObjectUUID_LocalIndex="1" MultipleWriteSupported="true" RemoteApplicationTimeout="3" IOXS_Required="true" RequiredSchemaVersion="V2.1" MaxSupportedRecordSize="4068" PNIO_Version="V2.34" CheckDeviceID_Allowed="true">    
+          <ModuleInfo CategoryRef="ID_RF18XC" SubCategory1Ref="ID_RF188C_SUB">
+            <Name TextId="IDT_MODULE_NAME_DAP8"/>
+            <InfoText TextId="IDT_InfoText_188C_13"/>
+            <VendorName Value="SIEMENS"/>
+            <OrderNumber Value="6GT2 002-0JE40"/>
+            <!-- <HardwareRelease Value="0.1" /> -->
+            <SoftwareRelease Value="V1.3"/> 
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="III"/>		 
+          <SubslotList>
+           <SubslotItem SubslotNumber="32768" TextId="IDT_Subslot_8000"/>
+           <SubslotItem SubslotNumber="32769" TextId="IDT_Subslot_8001"/>
+           <SubslotItem SubslotNumber="32770" TextId="IDT_Subslot_8002"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="50" MaxOutputLength="50" MaxDataLength="100" MaxApplicationInputLength="40" MaxApplicationOutputLength="40" MaxApplicationDataLength="80"/>
+          <UseableModules>
+		    <ModuleItemRef ModuleItemTarget="ID_1WCFG" AllowedInSlots="1" FixedInSlots="1"/> 
+           	<ModuleItemRef ModuleItemTarget="ID_1WUNI" AllowedInSlots="2..5"/>              
+            <ModuleItemRef ModuleItemTarget="ID_RF300R_G3" AllowedInSlots="2..5"/> 
+			<ModuleItemRef ModuleItemTarget="ID_FREEP" AllowedInSlots="2..5"/>  	
+             <!-- <ModuleItemRef ModuleItemTarget="ID_EMTY"   AllowedInSlots="2..5"/>  -->           
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 8" SubmoduleIdentNumber="0x00010001" Writeable_IM_Records="1 2 3" Max_iParameterSize="35000" FixedInSubslots="1" MayIssueProcessAlarm="false">
+              <IOData/>             
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="24" TransferSequence="1">
+                  <Name TextId="IDT_GENERAL_PARAMETERS"/>
+                  <Const Data="0x18,0x00,0x00,0x00,0x00,0x03,0x01,0x00,0x00,0x00,0x03,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>
+                  <Ref ValueItemTarget="IDT_PARA_DEVAL" ByteOffset="12" DataType="Unsigned8" DefaultValue="1" AllowedValues="0 1" Changeable="true" Visible="true" TextId="IDT_PARA_ALDEVICE"/>  				  
+                </ParameterRecordDataItem>
+              </RecordDataList>  
+              <ModuleInfo>
+                 <Name TextId="IDT_SUBMODULE_NAME_DAP8"/>
+                 <InfoText TextId="IDT_SUBMODULE_NAME_DAP8"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>              
+          </VirtualSubmoduleList>	
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_01I_08" SubslotNumber="32768" SubmoduleIdentNumber="0x00000101" TextId="IDT_INTERFACESUBMODULE_TEXT" SupportedRT_Class="Class1" SupportedRT_Classes="RT_CLASS_1" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" DCP_BoundarySupported="true" PTP_BoundarySupported="true">
+            <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" NumberOfAR="1" StartupMode="Advanced;Legacy" PullModuleAlarmSupported="true">
+              <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>             
+            </ApplicationRelations>
+            <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1"/> 
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_01P1_08" SubslotNumber="32769" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port1" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+            <PortSubmoduleItem ID="IDS_01P2_08" SubslotNumber="32770" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port2" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+          </SystemDefinedSubmoduleList>		 
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_RF188C"/>
+          </Graphics>	
+		  <SlotList>
+		     <SlotItem SlotNumber="1" TextId="IDT_slot_1"/>
+		     <SlotItem SlotNumber="2" TextId="IDT_slot_2"/>
+			 <SlotItem SlotNumber="3" TextId="IDT_slot_3"/>
+			 <SlotItem SlotNumber="4" TextId="IDT_slot_4"/>
+			 <SlotItem SlotNumber="5" TextId="IDT_slot_5"/>
+		  </SlotList>
+          <!-- <SystemRedundancy DeviceType="S2" MaxSwitchOverTime="100"/> -->
+        </DeviceAccessPointItem>
+		
+        <DeviceAccessPointItem ID="DAP 9" PhysicalSlots="0..3" ModuleIdentNumber="0x00000402" MinDeviceInterval="128" NameOfStationNotTransferable="true" SharedDeviceSupported="false" SharedInputSupported="false" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" WebServer="http://:80/" AutoConfigurationSupported="false" CIR_Supported="false" PrmBeginPrmEndSequenceSupported="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2" ImplementationType="software" DNS_CompatibleName="rf186ci" AddressAssignment="DHCP;DCP" FixedInSlots="0" ObjectUUID_LocalIndex="1" MultipleWriteSupported="true" RemoteApplicationTimeout="3" IOXS_Required="true" RequiredSchemaVersion="V2.1" MaxSupportedRecordSize="4068" PNIO_Version="V2.34" CheckDeviceID_Allowed="true">    
+          <ModuleInfo CategoryRef="ID_RF18XC" SubCategory1Ref="ID_RF186CI_SUB">
+            <Name TextId="IDT_MODULE_NAME_DAP9"/>
+            <InfoText TextId="IDT_InfoText_186CI_13"/>
+            <VendorName Value="SIEMENS"/>
+            <OrderNumber Value="6GT2 002-0JE50"/>
+            <!-- <HardwareRelease Value="0.1" /> -->
+            <SoftwareRelease Value="V1.3"/> 
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="III"/>		 
+          <SubslotList> 		  
+           <SubslotItem SubslotNumber="32768" TextId="IDT_Subslot_8000"/>
+           <SubslotItem SubslotNumber="32769" TextId="IDT_Subslot_8001"/>
+           <SubslotItem SubslotNumber="32770" TextId="IDT_Subslot_8002"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="25" MaxOutputLength="25" MaxDataLength="50" MaxApplicationInputLength="20" MaxApplicationOutputLength="20" MaxApplicationDataLength="40"/>
+          <UseableModules>
+		    <ModuleItemRef ModuleItemTarget="ID_1WCFG_IO" AllowedInSlots="1" FixedInSlots="1"/> 
+		   	<ModuleItemRef ModuleItemTarget="ID_1WUNI" AllowedInSlots="2..3"/>              
+            <ModuleItemRef ModuleItemTarget="ID_RF300R_G3" AllowedInSlots="2..3"/>  
+			<ModuleItemRef ModuleItemTarget="ID_FREEP" AllowedInSlots="2..3"/>  	
+             <!-- <ModuleItemRef ModuleItemTarget="ID_EMTY"   AllowedInSlots="2..3"/>  -->           
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 9" SubmoduleIdentNumber="0x00010001" Writeable_IM_Records="1 2 3" Max_iParameterSize="35000" FixedInSubslots="1" MayIssueProcessAlarm="false">
+              <IOData/>               
+              <RecordDataList>
+                 <ParameterRecordDataItem Index="1" Length="24" TransferSequence="1">
+                  <Name TextId="IDT_GENERAL_PARAMETERS"/>
+                  <Const Data="0x18,0x00,0x00,0x00,0x00,0x03,0x01,0x00,0x00,0x00,0x04,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>
+                  <Ref ValueItemTarget="IDT_PARA_DEVAL" ByteOffset="12" DataType="Unsigned8" DefaultValue="1" AllowedValues="0 1" Changeable="true" Visible="true" TextId="IDT_PARA_ALDEVICE"/>  				  
+                </ParameterRecordDataItem>
+              </RecordDataList>  
+              <ModuleInfo>
+                 <Name TextId="IDT_SUBMODULE_NAME_DAP9"/>
+                 <InfoText TextId="IDT_SUBMODULE_NAME_DAP9"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>              
+          </VirtualSubmoduleList>	
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_01I_09" SubslotNumber="32768" SubmoduleIdentNumber="0x00000101" TextId="IDT_INTERFACESUBMODULE_TEXT" SupportedRT_Class="Class1" SupportedRT_Classes="RT_CLASS_1" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" DCP_BoundarySupported="true" PTP_BoundarySupported="true">
+            <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" NumberOfAR="1" StartupMode="Advanced;Legacy" PullModuleAlarmSupported="true">
+              <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>             
+            </ApplicationRelations>
+            <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1"/> 
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_01P1_09" SubslotNumber="32769" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port1" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+            <PortSubmoduleItem ID="IDS_01P2_09" SubslotNumber="32770" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port2" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+          </SystemDefinedSubmoduleList>		 
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_RF186CI"/>
+          </Graphics>	
+		  <SlotList>
+		     <SlotItem SlotNumber="1" TextId="IDT_slot_1"/>
+		     <SlotItem SlotNumber="2" TextId="IDT_slot_2"/>
+			 <SlotItem SlotNumber="3" TextId="IDT_slot_3"/>			
+		  </SlotList>
+          <!-- <SystemRedundancy DeviceType="S2" MaxSwitchOverTime="100"/> -->
+        </DeviceAccessPointItem>	     
+        
+        <DeviceAccessPointItem ID="DAP 10" PhysicalSlots="0..5" ModuleIdentNumber="0x00000502" MinDeviceInterval="128" NameOfStationNotTransferable="true" SharedDeviceSupported="false" SharedInputSupported="false" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" WebServer="http://:80/" AutoConfigurationSupported="false" CIR_Supported="false" PrmBeginPrmEndSequenceSupported="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2" ImplementationType="software" DNS_CompatibleName="rf188ci" AddressAssignment="DHCP;DCP" FixedInSlots="0" ObjectUUID_LocalIndex="1" MultipleWriteSupported="true" RemoteApplicationTimeout="3" IOXS_Required="true" RequiredSchemaVersion="V2.1" MaxSupportedRecordSize="4068" PNIO_Version="V2.34" CheckDeviceID_Allowed="true">    
+          <ModuleInfo CategoryRef="ID_RF18XC" SubCategory1Ref="ID_RF188CI_SUB">
+            <Name TextId="IDT_MODULE_NAME_DAP10"/>
+            <InfoText TextId="IDT_InfoText_188CI_13"/>
+            <VendorName Value="SIEMENS"/>
+            <OrderNumber Value="6GT2 002-0JE60"/>
+            <!-- <HardwareRelease Value="0.1" /> -->
+            <SoftwareRelease Value="V1.3"/> 
+          </ModuleInfo>	
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="III"/>		 
+          <SubslotList>  		  
+           <SubslotItem SubslotNumber="32768" TextId="IDT_Subslot_8000"/>
+           <SubslotItem SubslotNumber="32769" TextId="IDT_Subslot_8001"/>
+           <SubslotItem SubslotNumber="32770" TextId="IDT_Subslot_8002"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="50" MaxOutputLength="50" MaxDataLength="100" MaxApplicationInputLength="40" MaxApplicationOutputLength="40" MaxApplicationDataLength="80"/>
+          <UseableModules>	
+            <ModuleItemRef ModuleItemTarget="ID_1WCFG_IO" AllowedInSlots="1" FixedInSlots="1"/> 	  
+           	<ModuleItemRef ModuleItemTarget="ID_1WUNI" AllowedInSlots="2..5"/>              
+            <ModuleItemRef ModuleItemTarget="ID_RF300R_G3" AllowedInSlots="2..5"/>  
+			<ModuleItemRef ModuleItemTarget="ID_FREEP" AllowedInSlots="2..5"/>  	
+            <!-- <ModuleItemRef ModuleItemTarget="ID_EMTY"   AllowedInSlots="2..5"/>     -->    
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 10" SubmoduleIdentNumber="0x00010001" Writeable_IM_Records="1 2 3" Max_iParameterSize="35000" FixedInSubslots="1" MayIssueProcessAlarm="false">  
+                <IOData/>          
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="24" TransferSequence="1">
+                  <Name TextId="IDT_GENERAL_PARAMETERS"/>
+                  <Const Data="0x18,0x00,0x00,0x00,0x00,0x03,0x01,0x00,0x00,0x00,0x05,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>
+                  <Ref ValueItemTarget="IDT_PARA_DEVAL" ByteOffset="12" DataType="Unsigned8" DefaultValue="1" AllowedValues="0 1" Changeable="true" Visible="true" TextId="IDT_PARA_ALDEVICE"/>  				  
+                </ParameterRecordDataItem>
+              </RecordDataList>  
+              <ModuleInfo>
+                 <Name TextId="IDT_SUBMODULE_NAME_DAP10"/>
+                 <InfoText TextId="IDT_SUBMODULE_NAME_DAP10"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>            
+          </VirtualSubmoduleList>			
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_01I_10" SubslotNumber="32768" SubmoduleIdentNumber="0x00000101" TextId="IDT_INTERFACESUBMODULE_TEXT" SupportedRT_Class="Class1" SupportedRT_Classes="RT_CLASS_1" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" DCP_BoundarySupported="true" PTP_BoundarySupported="true">
+            <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" NumberOfAR="1" StartupMode="Advanced;Legacy" PullModuleAlarmSupported="true">
+              <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>             
+            </ApplicationRelations>
+            <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1"/> 
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_01P1_10" SubslotNumber="32769" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port1" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+            <PortSubmoduleItem ID="IDS_01P2_10" SubslotNumber="32770" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port2" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+          </SystemDefinedSubmoduleList>			 
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_RF188CI"/>
+          </Graphics>	
+          <!-- <SlotGroups>
+              <SlotGroup SlotList="1 2 3 4 5" >
+                  <Name TextId="IDT_SLOTGR1"/>
+                  <InfoText TextId="IDT_INFO_SLOTGR1"/>                 
+              </SlotGroup>
+          </SlotGroups> -->  
+		  <SlotList> 
+                 <SlotItem SlotNumber="1" TextId="IDT_slot_1"/>
+                 <SlotItem SlotNumber="2" TextId="IDT_slot_2"/>
+                 <SlotItem SlotNumber="3" TextId="IDT_slot_3"/>
+                 <SlotItem SlotNumber="4" TextId="IDT_slot_4"/>
+                 <SlotItem SlotNumber="5" TextId="IDT_slot_5"/>  
+          </SlotList>
+          <!-- <SystemRedundancy DeviceType="S2" MaxSwitchOverTime="100"/> -->
+        </DeviceAccessPointItem>  		  
+  	
+	    <!-- FW 2.x ,  plugable modules  with  PortDeactivationSupported,     --> 
+		<DeviceAccessPointItem ID="DAP 11" PhysicalSlots="0..2" ModuleIdentNumber="0x00000103" MinDeviceInterval="128" NameOfStationNotTransferable="true" SharedDeviceSupported="false" SharedInputSupported="false" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" WebServer="http://:80/" AutoConfigurationSupported="false" CIR_Supported="false" PrmBeginPrmEndSequenceSupported="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2" ImplementationType="software" DNS_CompatibleName="rf185c" AddressAssignment="DHCP;DCP" FixedInSlots="0" ObjectUUID_LocalIndex="1" MultipleWriteSupported="true" RemoteApplicationTimeout="3" IOXS_Required="true" RequiredSchemaVersion="V2.1" MaxSupportedRecordSize="4068" PNIO_Version="V2.41" CheckDeviceID_Allowed="true">    
+          <ModuleInfo CategoryRef="ID_RF18XC" SubCategory1Ref="ID_RF185C_SUB">
+            <Name TextId="IDT_MODULE_NAME_DAP11"/>
+            <InfoText TextId="IDT_InfoText_185C_20"/>
+            <VendorName Value="SIEMENS"/>
+            <OrderNumber Value="6GT2 002-0JE10"/>
+            <!-- <HardwareRelease Value="0.1" /> -->
+            <SoftwareRelease Value="V2.x"/> 
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="III"/>		  
+          <SubslotList>
+           <SubslotItem SubslotNumber="32768" TextId="IDT_Subslot_8000"/>
+           <SubslotItem SubslotNumber="32769" TextId="IDT_Subslot_8001"/>
+           <SubslotItem SubslotNumber="32770" TextId="IDT_Subslot_8002"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="12" MaxOutputLength="12" MaxDataLength="24" MaxApplicationInputLength="10" MaxApplicationOutputLength="10" MaxApplicationDataLength="20"/>
+          <UseableModules>   
+		    <ModuleItemRef ModuleItemTarget="ID_1WCFG" FixedInSlots="1"/> 
+            <ModuleItemRef ModuleItemTarget="ID_1WUNI" AllowedInSlots="2"/>  
+            <ModuleItemRef ModuleItemTarget="ID_RF300R_G3" AllowedInSlots="2"/>  
+			<ModuleItemRef ModuleItemTarget="ID_FREEP" AllowedInSlots="2"/>  			
+             <!-- <ModuleItemRef ModuleItemTarget="ID_EMTY"   AllowedInSlots="2"/> -->			
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 11" SubmoduleIdentNumber="0x00010001" Writeable_IM_Records="1 2 3" Max_iParameterSize="35000" FixedInSubslots="1" MayIssueProcessAlarm="false">
+                <IOData/>             
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="24" TransferSequence="1">
+                  <Name TextId="IDT_GENERAL_PARAMETERS"/>
+                  <Const Data="0x18,0x00,0x00,0x00,0x00,0x03,0x01,0x00,0x00,0x00,0x01,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>
+                  <Ref ValueItemTarget="IDT_PARA_DEVAL" ByteOffset="12" DataType="Unsigned8" DefaultValue="1" AllowedValues="0 1" Changeable="true" Visible="true" TextId="IDT_PARA_ALDEVICE"/>  				  
+                </ParameterRecordDataItem>
+              </RecordDataList>  
+              <ModuleInfo>
+                 <Name TextId="IDT_SUBMODULE_NAME_DAP11"/>
+                 <InfoText TextId="IDT_SUBMODULE_NAME_DAP11"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem> 			
+          </VirtualSubmoduleList>	
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_01I_11" SubslotNumber="32768" SubmoduleIdentNumber="0x00000101" TextId="IDT_INTERFACESUBMODULE_TEXT" SupportedRT_Class="Class1" SupportedRT_Classes="RT_CLASS_1" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" DCP_BoundarySupported="true" PTP_BoundarySupported="true">
+            <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" NumberOfAR="1" StartupMode="Advanced;Legacy" PullModuleAlarmSupported="true">
+              <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>             
+            </ApplicationRelations>
+            <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1"/> 
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_01P1_11" SubslotNumber="32769" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port1" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+            <PortSubmoduleItem ID="IDS_01P2_11" SubslotNumber="32770" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port2" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+          </SystemDefinedSubmoduleList>		 
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_RF185C"/>
+          </Graphics>	
+		  <SlotList>
+		     <SlotItem SlotNumber="1" TextId="IDT_slot_1"/>
+		     <SlotItem SlotNumber="2" TextId="IDT_slot_2"/>			
+		  </SlotList>
+          <!-- <SystemRedundancy DeviceType="S2" MaxSwitchOverTime="100"/> -->
+        </DeviceAccessPointItem>	 
+
+        <DeviceAccessPointItem ID="DAP 12" PhysicalSlots="0..3" ModuleIdentNumber="0x00000203" MinDeviceInterval="128" NameOfStationNotTransferable="true" SharedDeviceSupported="false" SharedInputSupported="false" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" WebServer="http://:80/" AutoConfigurationSupported="false" CIR_Supported="false" PrmBeginPrmEndSequenceSupported="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2" ImplementationType="software" DNS_CompatibleName="rf186c" AddressAssignment="DHCP;DCP" FixedInSlots="0" ObjectUUID_LocalIndex="1" MultipleWriteSupported="true" RemoteApplicationTimeout="3" IOXS_Required="true" RequiredSchemaVersion="V2.1" MaxSupportedRecordSize="4068" PNIO_Version="V2.41" CheckDeviceID_Allowed="true">    
+          <ModuleInfo CategoryRef="ID_RF18XC" SubCategory1Ref="ID_RF186C_SUB">
+            <Name TextId="IDT_MODULE_NAME_DAP12"/>
+            <InfoText TextId="IDT_InfoText_186C_20"/>
+            <VendorName Value="SIEMENS"/>
+            <OrderNumber Value="6GT2 002-0JE20"/>
+            <!-- <HardwareRelease Value="0.1" /> -->
+            <SoftwareRelease Value="V2.x"/> 
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="III"/>		
+          <SubslotList>
+           <SubslotItem SubslotNumber="32768" TextId="IDT_Subslot_8000"/>
+           <SubslotItem SubslotNumber="32769" TextId="IDT_Subslot_8001"/>
+           <SubslotItem SubslotNumber="32770" TextId="IDT_Subslot_8002"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="25" MaxOutputLength="25" MaxDataLength="50" MaxApplicationInputLength="20" MaxApplicationOutputLength="20" MaxApplicationDataLength="40"/>
+          <UseableModules>
+		    <ModuleItemRef ModuleItemTarget="ID_1WCFG" FixedInSlots="1"/> 
+            <ModuleItemRef ModuleItemTarget="ID_1WUNI" AllowedInSlots="2..3"/>              
+            <ModuleItemRef ModuleItemTarget="ID_RF300R_G3" AllowedInSlots="2..3"/>  
+			<ModuleItemRef ModuleItemTarget="ID_FREEP" AllowedInSlots="2..3"/>  	
+             <!-- <ModuleItemRef ModuleItemTarget="ID_EMTY"   AllowedInSlots="2..3"/>   -->          
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 12" SubmoduleIdentNumber="0x00010001" Writeable_IM_Records="1 2 3" Max_iParameterSize="35000" FixedInSubslots="1" MayIssueProcessAlarm="false">
+                <IOData/>             
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="24" TransferSequence="1">
+                  <Name TextId="IDT_GENERAL_PARAMETERS"/>
+                  <Const Data="0x18,0x00,0x00,0x00,0x00,0x03,0x01,0x00,0x00,0x00,0x02,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>
+                  <Ref ValueItemTarget="IDT_PARA_DEVAL" ByteOffset="12" DataType="Unsigned8" DefaultValue="1" AllowedValues="0 1" Changeable="true" Visible="true" TextId="IDT_PARA_ALDEVICE"/>  				  
+                </ParameterRecordDataItem>
+              </RecordDataList>  
+              <ModuleInfo>
+                 <Name TextId="IDT_SUBMODULE_NAME_DAP12"/>
+                 <InfoText TextId="IDT_SUBMODULE_NAME_DAP12"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>              
+          </VirtualSubmoduleList>	
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_01I_12" SubslotNumber="32768" SubmoduleIdentNumber="0x00000101" TextId="IDT_INTERFACESUBMODULE_TEXT" SupportedRT_Class="Class1" SupportedRT_Classes="RT_CLASS_1" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" DCP_BoundarySupported="true" PTP_BoundarySupported="true">
+            <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" NumberOfAR="1" StartupMode="Advanced;Legacy" PullModuleAlarmSupported="true">
+              <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>             
+            </ApplicationRelations>
+            <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1"/> 
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_01P1_12" SubslotNumber="32769" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port1" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+            <PortSubmoduleItem ID="IDS_01P2_12" SubslotNumber="32770" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port2" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+          </SystemDefinedSubmoduleList>		 
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_RF186C"/>
+          </Graphics>	
+		  <SlotList>
+		     <SlotItem SlotNumber="1" TextId="IDT_slot_1"/>
+		     <SlotItem SlotNumber="2" TextId="IDT_slot_2"/>
+			 <SlotItem SlotNumber="3" TextId="IDT_slot_3"/>
+		  </SlotList>
+          <!-- <SystemRedundancy DeviceType="S2" MaxSwitchOverTime="100"/> -->
+        </DeviceAccessPointItem>	     
+
+        <DeviceAccessPointItem ID="DAP 13" PhysicalSlots="0..5" ModuleIdentNumber="0x00000303" MinDeviceInterval="128" NameOfStationNotTransferable="true" SharedDeviceSupported="false" SharedInputSupported="false" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" WebServer="http://:80/" AutoConfigurationSupported="false" CIR_Supported="false" PrmBeginPrmEndSequenceSupported="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2" ImplementationType="software" DNS_CompatibleName="rf188c" AddressAssignment="DHCP;DCP" FixedInSlots="0" ObjectUUID_LocalIndex="1" MultipleWriteSupported="true" RemoteApplicationTimeout="3" IOXS_Required="true" RequiredSchemaVersion="V2.1" MaxSupportedRecordSize="4068" PNIO_Version="V2.41" CheckDeviceID_Allowed="true">    
+          <ModuleInfo CategoryRef="ID_RF18XC" SubCategory1Ref="ID_RF188C_SUB">
+            <Name TextId="IDT_MODULE_NAME_DAP13"/>
+            <InfoText TextId="IDT_InfoText_188C_20"/>
+            <VendorName Value="SIEMENS"/>
+            <OrderNumber Value="6GT2 002-0JE40"/>
+            <!-- <HardwareRelease Value="0.1" /> -->
+            <SoftwareRelease Value="V2.x"/> 
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="III"/>		 
+          <SubslotList>
+           <SubslotItem SubslotNumber="32768" TextId="IDT_Subslot_8000"/>
+           <SubslotItem SubslotNumber="32769" TextId="IDT_Subslot_8001"/>
+           <SubslotItem SubslotNumber="32770" TextId="IDT_Subslot_8002"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="50" MaxOutputLength="50" MaxDataLength="100" MaxApplicationInputLength="40" MaxApplicationOutputLength="40" MaxApplicationDataLength="80"/>
+          <UseableModules>
+		    <ModuleItemRef ModuleItemTarget="ID_1WCFG" FixedInSlots="1"/> 
+           	<ModuleItemRef ModuleItemTarget="ID_1WUNI" AllowedInSlots="2..5"/>              
+            <ModuleItemRef ModuleItemTarget="ID_RF300R_G3" AllowedInSlots="2..5"/> 
+			<ModuleItemRef ModuleItemTarget="ID_FREEP" AllowedInSlots="2..5"/>  	
+             <!-- <ModuleItemRef ModuleItemTarget="ID_EMTY"   AllowedInSlots="2..5"/>  -->           
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 13" SubmoduleIdentNumber="0x00010001" Writeable_IM_Records="1 2 3" Max_iParameterSize="35000" FixedInSubslots="1" MayIssueProcessAlarm="false">
+              <IOData/>             
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="24" TransferSequence="1">
+                  <Name TextId="IDT_GENERAL_PARAMETERS"/>
+                  <Const Data="0x18,0x00,0x00,0x00,0x00,0x03,0x01,0x00,0x00,0x00,0x03,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>
+                  <Ref ValueItemTarget="IDT_PARA_DEVAL" ByteOffset="12" DataType="Unsigned8" DefaultValue="1" AllowedValues="0 1" Changeable="true" Visible="true" TextId="IDT_PARA_ALDEVICE"/>  				  
+                </ParameterRecordDataItem>
+              </RecordDataList>  
+              <ModuleInfo>
+                 <Name TextId="IDT_SUBMODULE_NAME_DAP13"/>
+                 <InfoText TextId="IDT_SUBMODULE_NAME_DAP13"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>              
+          </VirtualSubmoduleList>	
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_01I_13" SubslotNumber="32768" SubmoduleIdentNumber="0x00000101" TextId="IDT_INTERFACESUBMODULE_TEXT" SupportedRT_Class="Class1" SupportedRT_Classes="RT_CLASS_1" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" DCP_BoundarySupported="true" PTP_BoundarySupported="true">
+            <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" NumberOfAR="1" StartupMode="Advanced;Legacy" PullModuleAlarmSupported="true">
+              <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>             
+            </ApplicationRelations>
+            <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1"/> 
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_01P1_13" SubslotNumber="32769" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port1" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+            <PortSubmoduleItem ID="IDS_01P2_13" SubslotNumber="32770" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port2" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+          </SystemDefinedSubmoduleList>		 
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_RF188C"/>
+          </Graphics>	
+		  <SlotList>
+		     <SlotItem SlotNumber="1" TextId="IDT_slot_1"/>
+		     <SlotItem SlotNumber="2" TextId="IDT_slot_2"/>
+			 <SlotItem SlotNumber="3" TextId="IDT_slot_3"/>
+			 <SlotItem SlotNumber="4" TextId="IDT_slot_4"/>
+			 <SlotItem SlotNumber="5" TextId="IDT_slot_5"/>
+		  </SlotList>
+          <!-- <SystemRedundancy DeviceType="S2" MaxSwitchOverTime="100"/> -->
+        </DeviceAccessPointItem>
+		
+        <DeviceAccessPointItem ID="DAP 14" PhysicalSlots="0..3" ModuleIdentNumber="0x00000403" MinDeviceInterval="128" NameOfStationNotTransferable="true" SharedDeviceSupported="false" SharedInputSupported="false" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" WebServer="http://:80/" AutoConfigurationSupported="false" CIR_Supported="false" PrmBeginPrmEndSequenceSupported="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2" ImplementationType="software" DNS_CompatibleName="rf186ci" AddressAssignment="DHCP;DCP" FixedInSlots="0" ObjectUUID_LocalIndex="1" MultipleWriteSupported="true" RemoteApplicationTimeout="3" IOXS_Required="true" RequiredSchemaVersion="V2.1" MaxSupportedRecordSize="4068" PNIO_Version="V2.41" CheckDeviceID_Allowed="true">    
+          <ModuleInfo CategoryRef="ID_RF18XC" SubCategory1Ref="ID_RF186CI_SUB">
+            <Name TextId="IDT_MODULE_NAME_DAP14"/>
+            <InfoText TextId="IDT_InfoText_186CI_20"/>
+            <VendorName Value="SIEMENS"/>
+            <OrderNumber Value="6GT2 002-0JE50"/>
+            <!-- <HardwareRelease Value="0.1" /> -->
+            <SoftwareRelease Value="V2.x"/> 
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="III"/>		 
+          <SubslotList> 		  
+           <SubslotItem SubslotNumber="32768" TextId="IDT_Subslot_8000"/>
+           <SubslotItem SubslotNumber="32769" TextId="IDT_Subslot_8001"/>
+           <SubslotItem SubslotNumber="32770" TextId="IDT_Subslot_8002"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="25" MaxOutputLength="25" MaxDataLength="50" MaxApplicationInputLength="20" MaxApplicationOutputLength="20" MaxApplicationDataLength="40"/>
+          <UseableModules>
+		    <ModuleItemRef ModuleItemTarget="ID_1WCFG_IO" FixedInSlots="1"/> 
+		   	<ModuleItemRef ModuleItemTarget="ID_1WUNI" AllowedInSlots="2..3"/>              
+            <ModuleItemRef ModuleItemTarget="ID_RF300R_G3" AllowedInSlots="2..3"/>  
+			<ModuleItemRef ModuleItemTarget="ID_FREEP" AllowedInSlots="2..3"/>  	
+             <!-- <ModuleItemRef ModuleItemTarget="ID_EMTY"   AllowedInSlots="2..3"/>  -->           
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 14" SubmoduleIdentNumber="0x00010001" Writeable_IM_Records="1 2 3" Max_iParameterSize="35000" FixedInSubslots="1" MayIssueProcessAlarm="false">
+              <IOData/>               
+              <RecordDataList>
+                 <ParameterRecordDataItem Index="1" Length="24" TransferSequence="1">
+                  <Name TextId="IDT_GENERAL_PARAMETERS"/>
+                  <Const Data="0x18,0x00,0x00,0x00,0x00,0x03,0x01,0x00,0x00,0x00,0x04,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>
+                  <Ref ValueItemTarget="IDT_PARA_DEVAL" ByteOffset="12" DataType="Unsigned8" DefaultValue="1" AllowedValues="0 1" Changeable="true" Visible="true" TextId="IDT_PARA_ALDEVICE"/>  				  
+                </ParameterRecordDataItem>
+              </RecordDataList>  
+              <ModuleInfo>
+                 <Name TextId="IDT_SUBMODULE_NAME_DAP14"/>
+                 <InfoText TextId="IDT_SUBMODULE_NAME_DAP14"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>              
+          </VirtualSubmoduleList>	
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_01I_14" SubslotNumber="32768" SubmoduleIdentNumber="0x00000101" TextId="IDT_INTERFACESUBMODULE_TEXT" SupportedRT_Class="Class1" SupportedRT_Classes="RT_CLASS_1" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" DCP_BoundarySupported="true" PTP_BoundarySupported="true">
+            <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" NumberOfAR="1" StartupMode="Advanced;Legacy" PullModuleAlarmSupported="true">
+              <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>             
+            </ApplicationRelations>
+            <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1"/> 
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_01P1_14" SubslotNumber="32769" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port1" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+            <PortSubmoduleItem ID="IDS_01P2_14" SubslotNumber="32770" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port2" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+          </SystemDefinedSubmoduleList>		 
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_RF186CI"/>
+          </Graphics>	
+		  <SlotList>
+		     <SlotItem SlotNumber="1" TextId="IDT_slot_1"/>
+		     <SlotItem SlotNumber="2" TextId="IDT_slot_2"/>
+			 <SlotItem SlotNumber="3" TextId="IDT_slot_3"/>			
+		  </SlotList>
+          <!-- <SystemRedundancy DeviceType="S2" MaxSwitchOverTime="100"/> -->
+        </DeviceAccessPointItem>	     
+        
+        <DeviceAccessPointItem ID="DAP 15" PhysicalSlots="0..5" ModuleIdentNumber="0x00000503" MinDeviceInterval="128" NameOfStationNotTransferable="true" SharedDeviceSupported="false" SharedInputSupported="false" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" WebServer="http://:80/" AutoConfigurationSupported="false" CIR_Supported="false" PrmBeginPrmEndSequenceSupported="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2" ImplementationType="software" DNS_CompatibleName="rf188ci" AddressAssignment="DHCP;DCP" FixedInSlots="0" ObjectUUID_LocalIndex="1" MultipleWriteSupported="true" RemoteApplicationTimeout="3" IOXS_Required="true" RequiredSchemaVersion="V2.1" MaxSupportedRecordSize="4068" PNIO_Version="V2.41" CheckDeviceID_Allowed="true">    
+          <ModuleInfo CategoryRef="ID_RF18XC" SubCategory1Ref="ID_RF188CI_SUB">
+            <Name TextId="IDT_MODULE_NAME_DAP15"/>
+            <InfoText TextId="IDT_InfoText_188CI_20"/>
+            <VendorName Value="SIEMENS"/>
+            <OrderNumber Value="6GT2 002-0JE60"/>
+            <!-- <HardwareRelease Value="0.1" /> -->
+            <SoftwareRelease Value="V2.x"/>   
+          </ModuleInfo>	
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="III"/>		 
+          <SubslotList>  		  
+           <SubslotItem SubslotNumber="32768" TextId="IDT_Subslot_8000"/>
+           <SubslotItem SubslotNumber="32769" TextId="IDT_Subslot_8001"/>
+           <SubslotItem SubslotNumber="32770" TextId="IDT_Subslot_8002"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="50" MaxOutputLength="50" MaxDataLength="100" MaxApplicationInputLength="40" MaxApplicationOutputLength="40" MaxApplicationDataLength="80"/>
+          <UseableModules>	
+            <ModuleItemRef ModuleItemTarget="ID_1WCFG_IO" FixedInSlots="1"/> 	  
+           	<ModuleItemRef ModuleItemTarget="ID_1WUNI" AllowedInSlots="2..5"/>              
+            <ModuleItemRef ModuleItemTarget="ID_RF300R_G3" AllowedInSlots="2..5"/>  
+			<ModuleItemRef ModuleItemTarget="ID_FREEP" AllowedInSlots="2..5"/>  	
+            <!-- <ModuleItemRef ModuleItemTarget="ID_EMTY"   AllowedInSlots="2..5"/>     -->    
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 15" SubmoduleIdentNumber="0x00010001" Writeable_IM_Records="1 2 3" Max_iParameterSize="35000" FixedInSubslots="1" MayIssueProcessAlarm="false">  
+                <IOData/>          
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="24" TransferSequence="1">
+                  <Name TextId="IDT_GENERAL_PARAMETERS"/>
+                  <Const Data="0x18,0x00,0x00,0x00,0x00,0x03,0x01,0x00,0x00,0x00,0x05,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>
+                  <Ref ValueItemTarget="IDT_PARA_DEVAL" ByteOffset="12" DataType="Unsigned8" DefaultValue="1" AllowedValues="0 1" Changeable="true" Visible="true" TextId="IDT_PARA_ALDEVICE"/>  				  
+                </ParameterRecordDataItem>
+              </RecordDataList>  
+              <ModuleInfo>
+                 <Name TextId="IDT_SUBMODULE_NAME_DAP15"/>
+                 <InfoText TextId="IDT_SUBMODULE_NAME_DAP15"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>            
+          </VirtualSubmoduleList>			
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_01I_15" SubslotNumber="32768" SubmoduleIdentNumber="0x00000101" TextId="IDT_INTERFACESUBMODULE_TEXT" SupportedRT_Class="Class1" SupportedRT_Classes="RT_CLASS_1" IsochroneModeSupported="false" SupportedProtocols="SNMP;LLDP" DCP_BoundarySupported="true" PTP_BoundarySupported="true">
+            <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" NumberOfAR="1" StartupMode="Advanced;Legacy" PullModuleAlarmSupported="true">
+              <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>             
+            </ApplicationRelations>
+            <MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1"/> 
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_01P1_15" SubslotNumber="32769" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port1" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+            <PortSubmoduleItem ID="IDS_01P2_15" SubslotNumber="32770" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" MAUTypes="16" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" TextId="IDT_Port2" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="false" IsDefaultRingport="true">
+                <MAUTypeList>
+                  <MAUTypeItem Value="16" AdjustSupported="true"/>
+                </MAUTypeList>
+            </PortSubmoduleItem> 
+          </SystemDefinedSubmoduleList>			 
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_RF188CI"/>
+          </Graphics>	
+          <!-- <SlotGroups>
+              <SlotGroup SlotList="1 2 3 4 5" >
+                  <Name TextId="IDT_SLOTGR1"/>
+                  <InfoText TextId="IDT_INFO_SLOTGR1"/>                 
+              </SlotGroup>
+          </SlotGroups> -->  
+		  <SlotList> 
+                 <SlotItem SlotNumber="1" TextId="IDT_slot_1"/>
+                 <SlotItem SlotNumber="2" TextId="IDT_slot_2"/>
+                 <SlotItem SlotNumber="3" TextId="IDT_slot_3"/>
+                 <SlotItem SlotNumber="4" TextId="IDT_slot_4"/>
+                 <SlotItem SlotNumber="5" TextId="IDT_slot_5"/>  
+          </SlotList>
+          <!-- <SystemRedundancy DeviceType="S2" MaxSwitchOverTime="100"/> -->
+        </DeviceAccessPointItem>  		  
+      </DeviceAccessPointList>	  
+	  
+      <ModuleList>   	  
+	    <ModuleItem ID="ID_1WCFG" ModuleIdentNumber="0x20012002" RequiredSchemaVersion="V2.1">
+          <ModuleInfo>
+            <Name TextId="IDT_MODULE_1WCFG"/>
+            <InfoText TextId="IDT_INFO_1WCFG"/>
+          </ModuleInfo>
+		  <SubslotList>
+		   <SubslotItem SubslotNumber="1" TextId="IDT_Subslot_CMCFG"/>          
+          </SubslotList>
+          <VirtualSubmoduleList>
+	        <VirtualSubmoduleItem ID="ID_1WCFG" SubmoduleIdentNumber="0x00000001" API="23296" FixedInSubslots="1" MayIssueProcessAlarm="false">
+              <IOData>
+                <Input Consistency="Item consistency">
+                  <DataItem DataType="Unsigned16" TextId="IDT_MODULE_RFIDCOMM"/>                             
+                </Input>
+                <Output Consistency="Item consistency">
+                  <DataItem DataType="Unsigned16" TextId="IDT_MODULE_RFIDCOMM"/>                           
+                </Output>
+              </IOData>
+              <RecordDataList>
+		        <ParameterRecordDataItem Index="1" Length="32" TransferSequence="0">
+		          <Name TextId="IDT_PARAMETER_CM_CONFIG"/>                                                                     
+				  <Const Data="0x20,0x00,0x00,0x00,0x00,0x02,0x01,0x00,0x20,0x01,0x20,0x02,0x03,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>
+		          <Ref ValueItemTarget="IDT_PARA_USER_MODE" ByteOffset="12" DataType="Unsigned8" DefaultValue="3" AllowedValues="3" Changeable="false" Visible="true" TextId="IDT_PARA_USER_MODE"/> 		        
+		        </ParameterRecordDataItem>  
+	          </RecordDataList>
+              <ModuleInfo>
+                 <Name TextId="IDT_SUBMOD_1WCM"/>
+                 <InfoText TextId="IDT_INFO_1WCM"/>
+              </ModuleInfo>			  
+            </VirtualSubmoduleItem>  
+ 		  </VirtualSubmoduleList>
+        </ModuleItem>  	
+		<ModuleItem ID="ID_1WCFG_IO" ModuleIdentNumber="0x20012004" RequiredSchemaVersion="V2.1">
+          <ModuleInfo>
+            <Name TextId="IDT_MODULE_1WCFGIO"/>
+            <InfoText TextId="IDT_INFO_1WCFGIO"/>
+          </ModuleInfo>
+		  <SubslotList>
+		    <SubslotItem SubslotNumber="1" TextId="IDT_Subslot_CMCFG"/>   
+		    <SubslotItem SubslotNumber="2" TextId="IDT_Subslot_CMIO"/>  
+          </SubslotList>
+          <VirtualSubmoduleList>
+	        <VirtualSubmoduleItem ID="ID_1WCFG_IO" SubmoduleIdentNumber="0x00000001" API="23296" FixedInSubslots="1" MayIssueProcessAlarm="false">
+              <IOData>
+                <Input Consistency="Item consistency">
+                  <DataItem DataType="Unsigned16" TextId="IDT_MODULE_RFIDCOMM"/>                             
+                </Input>
+                <Output Consistency="Item consistency">
+                  <DataItem DataType="Unsigned16" TextId="IDT_MODULE_RFIDCOMM"/>                           
+                </Output>
+              </IOData>
+              <RecordDataList>
+		        <ParameterRecordDataItem Index="1" Length="32" TransferSequence="0">
+		          <Name TextId="IDT_PARAMETER_CM_CONFIG"/>                                                                     
+				  <Const Data="0x20,0x00,0x00,0x00,0x00,0x02,0x01,0x00,0x20,0x01,0x20,0x04,0x03,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>
+		          <Ref ValueItemTarget="IDT_PARA_USER_MODE" ByteOffset="12" DataType="Unsigned8" DefaultValue="3" AllowedValues="3" Changeable="false" Visible="true" TextId="IDT_PARA_USER_MODE"/> 		        
+		        </ParameterRecordDataItem>  				
+	          </RecordDataList>
+              <ModuleInfo>
+                 <Name TextId="IDT_SUBMOD_1WCM"/>
+                 <InfoText TextId="IDT_INFO_1WCM"/>
+              </ModuleInfo>			  
+            </VirtualSubmoduleItem>  			
+			<VirtualSubmoduleItem ID="IDS_1WIO" SubmoduleIdentNumber="0x00000002" API="23296" FixedInSubslots="2" MayIssueProcessAlarm="false">
+              <IOData>
+                <Input Consistency="Item consistency">
+                  <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_IO_CM"/>                 
+                </Input>
+                <Output Consistency="Item consistency">
+                  <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_IO_CM"/>                 
+                </Output>               
+              </IOData>
+			  <RecordDataList>			
+				 <ParameterRecordDataItem Index="1" Length="24" TransferSequence="0">
+                  <Name TextId="IDT_PARAMETER_CM_CONFIG"/>
+                  <Const Data="0x18,0x00,0x00,0x00,0x00,0x04,0x01,0x00,0x00,0x00,0x00,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>
+                  <Ref ValueItemTarget="IDT_PARA_DIIO" ByteOffset="12" DataType="Unsigned8" DefaultValue="2" AllowedValues="2 3 4" Changeable="true" Visible="true" TextId="IDT_PARA_DIIO_T"/>  				  
+                </ParameterRecordDataItem>				
+	          </RecordDataList>
+              <ModuleInfo>
+                   <Name TextId="IDT_SUBMMOD_DIDO"/>
+                   <InfoText TextId="IDT_INFO_DIDO_CM"/>
+              </ModuleInfo>			  
+            </VirtualSubmoduleItem>   			
+          </VirtualSubmoduleList>   		
+        </ModuleItem>  	  
+        <ModuleItem ID="ID_1WUNI" ModuleIdentNumber="0x20010002" RequiredSchemaVersion="V2.1">
+          <ModuleInfo>
+            <Name TextId="IDT_MODULE_1WUNI"/>
+            <InfoText TextId="IDT_INFO_1WUNI"/>
+          </ModuleInfo>
+		  <SubslotList>
+		   <SubslotItem SubslotNumber="1" TextId="IDT_Subslot_1"/>          
+          </SubslotList>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="ID_1WUNI" SubmoduleIdentNumber="0x00000001" API="23296" FixedInSubslots="1" MayIssueProcessAlarm="false">
+              <IOData>
+                <Input Consistency="Item consistency">
+                  <DataItem DataType="Unsigned16" TextId="IDT_MODULE_RFIDCOMM"/>                             
+                </Input>
+                <Output Consistency="Item consistency">
+                  <DataItem DataType="Unsigned16" TextId="IDT_MODULE_RFIDCOMM"/>                            
+                </Output>
+              </IOData>
+              <RecordDataList>
+		        <ParameterRecordDataItem Index="1" Length="32" TransferSequence="0">
+		          <Name TextId="IDT_PARAMETER_RFID_COMMUNICATION"/>
+                                                                 <!-- ModuleIdentNumber -->
+				  <Const Data="0x20,0x00,0x00,0x00,0x00,0x02,0x01,0x00,0x20,0x01,0x00,0x02,0x03,0x05,0x04,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>
+		          <Ref ValueItemTarget="IDT_PARA_USER_MODE" ByteOffset="12" DataType="Unsigned8" DefaultValue="3" AllowedValues="3 1" Changeable="true" Visible="true" TextId="IDT_PARA_USER_MODE"/>
+		          <!-- <Ref ValueItemTarget="IDT_PARA_MOBY_MODE" ByteOffset="13" DataType="Unsigned8" DefaultValue="5" AllowedValues="5 16 17 32 33" Changeable="true" Visible="true" TextId="IDT_PARA_MOBY_MODE"/> -->
+				  <Ref ValueItemTarget="IDT_PARA_MOBY_MODE" ByteOffset="13" DataType="Unsigned8" DefaultValue="5" AllowedValues="5" Changeable="true" Visible="true" TextId="IDT_PARA_MOBY_MODE"/>
+		          <Ref ValueItemTarget="IDT_PARA_BAUDRATE" ByteOffset="14" DataType="Unsigned8" DefaultValue="4" AllowedValues="1 3 4" Changeable="true" Visible="true" TextId="IDT_PARA_BAUDRATE"/>
+		          <Ref ValueItemTarget="IDT_PARA_DIAG" ByteOffset="15" DataType="Unsigned8" DefaultValue="1" AllowedValues="1 2 4" Changeable="true" Visible="true" TextId="IDT_PARA_DIAG"/>                              
+		        </ParameterRecordDataItem>  
+	          </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="IDT_MODULE_1WUNI"/>
+                  <InfoText TextId="IDT_INFO_1WUNI"/>
+              </ModuleInfo>	
+              <Graphics>
+                <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_1WUNI"/>
+              </Graphics>      		  
+            </VirtualSubmoduleItem>           
+          </VirtualSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_1WUNI"/>
+          </Graphics>          
+        </ModuleItem>       
+        <ModuleItem ID="ID_RF300R_G3" ModuleIdentNumber="0x20011002" RequiredSchemaVersion="V2.1">
+          <ModuleInfo>
+            <Name TextId="IDT_MODULE_RF300R_G3"/>
+            <InfoText TextId="IDT_INFO_RF300R_G3"/>
+            <OrderNumber Value="6GT2**********"/>
+            <!-- <HardwareRelease Value="0.1" /> -->
+            <SoftwareRelease Value="Vx.x"/> 
+          </ModuleInfo>
+		  <SubslotList>
+		   <SubslotItem SubslotNumber="1" TextId="IDT_Subslot_1"/>          
+          </SubslotList>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="ID_RF300R_G3" SubmoduleIdentNumber="0x00000001" API="23296" FixedInSubslots="1" MayIssueProcessAlarm="false">
+              <IOData>
+                <Input Consistency="Item consistency">
+                  <DataItem DataType="Unsigned16" TextId="IDT_MODULE_RFIDCOMM"/>                             
+                </Input>
+                <Output Consistency="Item consistency">
+                  <DataItem DataType="Unsigned16" TextId="IDT_MODULE_RFIDCOMM"/>                           
+                </Output>
+              </IOData>
+              <RecordDataList>
+		        <ParameterRecordDataItem Index="1" Length="32" TransferSequence="0">
+		          <Name TextId="IDT_PARAMETER_RFID_COMMUNICATION"/>
+				  <Const Data="0x20,0x00,0x00,0x00,0x00,0x02,0x01,0x00,0x20,0x01,0x10,0x02,0x03,0x21,0x0A,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>
+		          <Ref ValueItemTarget="IDT_PARA_USER_MODE" ByteOffset="12" DataType="Unsigned8" DefaultValue="3" AllowedValues="3" Changeable="false" Visible="true" TextId="IDT_PARA_USER_MODE"/>
+		          <!-- <Ref ValueItemTarget="IDT_PARA_MOBY_MODE" ByteOffset="13" DataType="Unsigned8" DefaultValue="33" AllowedValues="33" Changeable="false" Visible="true" TextId="IDT_PARA_MOBY_MODE"/> -->
+		          <Ref ValueItemTarget="IDT_PARA_BAUDRATE" ByteOffset="14" DataType="Unsigned8" DefaultValue="10" AllowedValues="10" Changeable="false" Visible="true" TextId="IDT_PARA_BAUDRATE"/>  
+		          <Ref ValueItemTarget="IDT_PARA_DIAG" ByteOffset="15" DataType="Unsigned8" DefaultValue="1" AllowedValues="1 2 4" Changeable="true" Visible="true" TextId="IDT_PARA_DIAG"/>                   
+		        </ParameterRecordDataItem>  
+	          </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="IDT_MODULE_RF300R_G3"/>
+                  <InfoText TextId="IDT_INFO_RF300R_G3"/>
+              </ModuleInfo>			  
+            </VirtualSubmoduleItem>           
+          </VirtualSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_READER_G3"/>
+          </Graphics>          
+        </ModuleItem> 
+		
+		<ModuleItem ID="ID_FREEP" ModuleIdentNumber="0x20008002" RequiredSchemaVersion="V2.1">
+          <ModuleInfo>
+            <Name TextId="IDT_MODULE_FREEP"/>
+            <InfoText TextId="IDT_INFO_FREEP"/>
+          </ModuleInfo>
+		  <SubslotList>
+		    <SubslotItem SubslotNumber="1" TextId="IDT_Subslot_1"/>          
+          </SubslotList>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="ID_FREEP" SubmoduleIdentNumber="0x00000001" API="23296" FixedInSubslots="1" MayIssueProcessAlarm="false">
+              <IOData>
+                <Input Consistency="Item consistency">
+                  <DataItem DataType="Unsigned16" TextId="IDT_MODULE_RFIDCOMM"/>                             
+                </Input>
+                <Output Consistency="Item consistency">
+                  <DataItem DataType="Unsigned16" TextId="IDT_MODULE_RFIDCOMM"/>                           
+                </Output>
+              </IOData>
+              <RecordDataList>
+		        <ParameterRecordDataItem Index="1" Length="32" TransferSequence="0">
+		          <Name TextId="IDT_GENERAL_PARAMETERS"/>
+				  <Const Data="0x20,0x00,0x00,0x00,0x00,0x02,0x01,0x00,0x20,0x00,0x80,0x02,0x03,0x11,0x04,0x01,0x00,0x10,0x01,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>  				               
+		          <Ref ValueItemTarget="IDT_PARA_USER_MODE" ByteOffset="12" DataType="Unsigned8" DefaultValue="3" AllowedValues="3 1" Changeable="true" Visible="true" TextId="IDT_PARA_USER_MODE"/>
+		          <Ref ValueItemTarget="IDT_PARA_MOBY_MODE" ByteOffset="13" DataType="Unsigned8" DefaultValue="17" AllowedValues="17" Changeable="false" Visible="true" TextId="IDT_PARA_MOBY_MODE"/>
+		          <Ref ValueItemTarget="IDT_PARA_BAUDRATE" ByteOffset="14" DataType="Unsigned8" DefaultValue="4" AllowedValues="1 3 4" Changeable="true" Visible="true" TextId="IDT_PARA_BAUDRATE"/>
+		          <Ref ValueItemTarget="IDT_PARA_DIAG" ByteOffset="15" DataType="Unsigned8" DefaultValue="1" AllowedValues="1 2 4" Changeable="true" Visible="true" TextId="IDT_PARA_DIAG"/>              
+
+                  <Ref ValueItemTarget="IDT_PARA_PARITY" DataType="BitArea" ByteOffset="18" BitOffset="0" BitLength="4" DefaultValue="0" AllowedValues="0 1 2 3 4" Changeable="true" Visible="true" TextId="IDT_PARA_PARITY"/>
+                  <Ref ValueItemTarget="IDT_PARA_DATABITS" DataType="BitArea" ByteOffset="18" BitOffset="4" BitLength="1" DefaultValue="1" AllowedValues="0 1" Changeable="true" Visible="true" TextId="IDT_PARA_DATABITS"/> 
+                  <Ref ValueItemTarget="IDT_PARA_STOPBITS" DataType="BitArea" ByteOffset="18" BitOffset="5" BitLength="2" DefaultValue="0" AllowedValues="0 1" Changeable="true" Visible="true" TextId="IDT_PARA_STOPBITS"/>
+                  <Ref ValueItemTarget="IDT_PARA_INTERFACE" DataType="BitArea" ByteOffset="18" BitOffset="7" BitLength="1" DefaultValue="0" AllowedValues="0 1" Changeable="true" Visible="true" TextId="IDT_PARA_INTERFACE"/>   
+                  <Ref ValueItemTarget="IDT_PARA_ENDDETECTION" DataType="BitArea" ByteOffset="19" BitOffset="0" BitLength="8" DefaultValue="1" AllowedValues="1 2 3" Changeable="true" Visible="true" TextId="IDT_PARA_ENDDETECTION"/>
+                  <Ref ValueItemTarget="IDT_PARA_NUMBEROFDELIMITER" DataType="BitArea" ByteOffset="20" BitOffset="0" BitLength="8" DefaultValue="1" AllowedValues="1 2" Changeable="true" Visible="true" TextId="IDT_PARA_NUMBEROFDELIMITER"/> 
+                  <Ref ValueItemTarget="IDT_PARA_1STENDDELIMITER" DataType="BitArea" ByteOffset="21" BitOffset="0" BitLength="8" DefaultValue="3" AllowedValues="0..255" Changeable="true" Visible="true" TextId="IDT_PARA_1STENDDELIMITER"/> 
+                  <Ref ValueItemTarget="IDT_PARA_2STENDDELIMITER" DataType="BitArea" ByteOffset="22" BitOffset="0" BitLength="8" DefaultValue="0" AllowedValues="0..255" Changeable="true" Visible="true" TextId="IDT_PARA_2STENDDELIMITER"/> 
+                  <Ref ValueItemTarget="IDT_PARA_DATALENGTH" DataType="Unsigned16" ByteOffset="23" DefaultValue="233" AllowedValues="1..233" Changeable="true" Visible="true" TextId="IDT_PARA_DATALENGTH"/>
+                  <Ref ValueItemTarget="IDT_PARA_DELAYTIME" DataType="Unsigned16" ByteOffset="25" DefaultValue="15" AllowedValues="0..65535" Changeable="true" Visible="true" TextId="IDT_PARA_DELAYTIME"/>                 
+		        </ParameterRecordDataItem>  
+	          </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="IDT_MODULE_FREEP"/>
+                  <InfoText TextId="IDT_INFO_FREEP"/>
+              </ModuleInfo>			  
+            </VirtualSubmoduleItem>           
+          </VirtualSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_FREEPORT"/>
+          </Graphics>          
+        </ModuleItem>    	
+		
+		<!-- <ModuleItem ID="ID_RF68XR" ModuleIdentNumber="0x2000500A" RequiredSchemaVersion="V2.1">
+          <ModuleInfo>
+            <Name TextId="IDT_MODULE_NAME_Module1??"/>
+            <InfoText TextId="IDT_INFO_Module1"/>
+			<OrderNumber Value="6GT2 xxx-xxxxx"/>
+            ?? <HardwareRelease Value="0.1" /> 
+            ??<SoftwareRelease Value="Vx.x"/> 
+          </ModuleInfo>
+		  <SubslotList>
+		    <SubslotItem SubslotNumber="1" TextId="IDT_Subslot_1"/>   ??       
+          </SubslotList>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="IDS_21???" SubmoduleIdentNumber="0x00000001" API="23296" FixedInSubslots="1" MayIssueProcessAlarm="false">
+              <IOData>
+                <Input Consistency="Item consistency">
+                  <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_COMM1??"/>
+                  <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_COMM2"/>
+                  <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_COMM3"/>
+                  <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_COMM4"/>
+                </Input>
+                <Output Consistency="Item consistency">
+                  <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_COMM1??"/>
+                  <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_COMM2"/>
+                  <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_COMM3"/>
+                  <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_COMM4"/>
+                </Output>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="IDT_MODULE_NAME_Module1??"/>
+                  <InfoText TextId="IDT_INFO_Module1??"/>
+              </ModuleInfo>			  
+            </VirtualSubmoduleItem>
+			<VirtualSubmoduleItem ID="IDS_1WIO" SubmoduleIdentNumber="0x00000002" API="23296" FixedInSubslots="2" MayIssueProcessAlarm="false">
+              <IOData>
+                <Input Consistency="Item consistency">
+                  <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_IO_CM"/>                 
+                </Input>
+                <Output Consistency="Item consistency">
+                  <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_IO_CM"/>                 
+                </Output>               
+              </IOData>
+			  <RecordDataList>			
+				 <ParameterRecordDataItem Index="1" Length="24" TransferSequence="0">
+                  <Name TextId="IDT_PARAMETER_CM_CONFIG"/>                        ???
+                  <Const Data="0x18,0x00,0x00,0x00,0x00,0x04,0x01,0x00,0x00,0x00,0x00,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>
+				  baudrate ausgegraut s rf300 fast protokoll 
+                  <Ref ValueItemTarget="IDT_PARA_DIIO" ByteOffset="12" DataType="Unsigned8" DefaultValue="2" AllowedValues="2 3 4" Changeable="true" Visible="true" TextId="IDT_PARA_DIIO_T"/>  				  
+                </ParameterRecordDataItem>				
+	          </RecordDataList>
+              <ModuleInfo>
+                   <Name TextId="IDT_SUBMMOD_DIDO"/>
+                   <InfoText TextId="IDT_INFO_DIDO_CM"/>
+              </ModuleInfo>			  
+            </VirtualSubmoduleItem>   			
+          </VirtualSubmoduleList>
+		  <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_READER_G3"/>??
+          </Graphics>         
+        </ModuleItem>  -->	
+		
+		<!-- <ModuleItem ID="ID_EMTY" ModuleIdentNumber="0x03000000" RequiredSchemaVersion="V2.1">
+          <ModuleInfo>
+            <Name TextId="IDT_MODULE_EMPTY"/>
+            <InfoText TextId="IDT_INFO_EMPTY"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="ID_EMTY" SubmoduleIdentNumber="0x00000001" FixedInSubslots="1" MayIssueProcessAlarm="false">
+              <IOData />  
+              <RecordDataList>
+		        <ParameterRecordDataItem Index="1" Length="32" TransferSequence="0">
+		          <Name TextId="IDT_GENERAL_PARAMETERS"/>
+				  <Const Data="0x20,0x81,0x00,0x00,0x00,0x02,0x01,0x00,0x03,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0"/>		                     
+		        </ParameterRecordDataItem>  
+	          </RecordDataList>
+              <ModuleInfo>
+                   <Name TextId="IDT_MODULE_EMPTY"/>
+                   <InfoText TextId="IDT_INFO_EMPTY"/>
+              </ModuleInfo>			  
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_EMPTY"/>
+          </Graphics>         
+        </ModuleItem>   -->         
+	  </ModuleList> 	
+      <ValueList>   
+        <ValueItem ID="IDT_PARA_DIIO">
+          <Assignments>
+            <!-- <Assign Content="1" TextId="IDT_DIDO_OFF"/>  -->
+            <Assign Content="2" TextId="IDT_DIDO_IN"/> 
+            <Assign Content="3" TextId="IDT_DIDO_OUT"/>
+            <Assign Content="4" TextId="IDT_DIDO_IOLINK"/>         
+          </Assignments>
+        </ValueItem>   	  
+        <ValueItem ID="IDT_PARA_DEVAL">
+          <Assignments>
+            <Assign Content="0" TextId="IDT_OFF"/>
+            <Assign Content="1" TextId="IDT_ON"/>             
+          </Assignments>
+        </ValueItem>   
+        
+        <ValueItem ID="IDT_PARA_USER_MODE">
+          <Assignments>
+            <Assign Content="3" TextId="IDT_PIB"/>
+            <Assign Content="1" TextId="IDT_FB45"/>
+            <!-- <Assign Content="4" TextId="IDT_FB55"/> -->
+            <!-- <Assign Content="5" TextId="IDT_FB56" />  -->             
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDT_PARA_MOBY_MODE">
+          <Assignments>
+            <Assign Content="5" TextId="IDT_MOBYU"/>  
+			<Assign Content="17" TextId="IDT_FREEPORT"/>
+			<!-- <Assign Content="33" TextId="IDT_RF300G3"/> -->
+            <!-- <Assign Content="16" TextId="IDT_MV3XX"/>         -->
+            <!-- <Assign Content="32" TextId="IDT_RF68xR"/>   -->         
+            <!--<Assign Content="1" TextId="IDT_MOBYI" />
+            <Assign Content="149" TextId="IDT_MOBY300_FH" /> 
+            <Assign Content="133" TextId="IDT_MOBYU_FH" />
+            <Assign Content="129" TextId="IDT_MOBYI_FH" /> -->
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDT_PARA_BAUDRATE">
+          <Assignments>
+            <Assign Content="1" TextId="IDT_19_2"/>
+            <Assign Content="3" TextId="IDT_57_6"/>
+            <Assign Content="4" TextId="IDT_115_2"/>
+			<Assign Content="10" TextId="IDT_921"/>		
+			<Assign Content="11" TextId="IDT_1M5"/>				
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDT_PARA_DIAG">
+          <Assignments>
+            <Assign Content="1" TextId="IDT_KEIN"/>
+            <Assign Content="2" TextId="IDT_HARD"/>
+            <Assign Content="4" TextId="IDT_HARD_SOFT"/>            
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDT_PARA_STARTLED">
+          <Assignments>
+            <Assign Content="0" TextId="IDT_KEINE_ST"/>
+            <Assign Content="1" TextId="IDT_KANAL_1"/>
+            <Assign Content="2" TextId="IDT_KANAL_2"/>            
+          </Assignments>
+        </ValueItem>
+        
+        <ValueItem ID="IDT_PARA_PARITY">
+          <Assignments>
+            <Assign Content="0" TextId="IDT_NO_PARITY"/>
+            <Assign Content="1" TextId="IDT_EVEN"/>
+            <Assign Content="2" TextId="IDT_ODD"/>
+            <Assign Content="3" TextId="IDT_FIX_1"/>
+            <Assign Content="4" TextId="IDT_FIX_0"/>
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDT_PARA_DATABITS">
+          <Assignments>
+            <Assign Content="0" TextId="IDT_DATABITS_7"/>
+            <Assign Content="1" TextId="IDT_DATABITS_8"/>
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDT_PARA_STOPBITS">
+          <Assignments>
+            <Assign Content="0" TextId="IDT_STOPB_1"/>
+            <Assign Content="1" TextId="IDT_STOPB_2"/>
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDT_PARA_INTERFACE">
+          <Assignments>
+            <Assign Content="0" TextId="IDT_INTERF_RS422"/>
+            <Assign Content="1" TextId="IDT_INTERF_RS232"/>
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDT_PARA_ENDDETECTION">
+          <Assignments>
+            <Assign Content="1" TextId="IDT_END_DELIMITER"/>
+            <Assign Content="2" TextId="IDT_END_DATALENGTH"/>
+            <Assign Content="3" TextId="IDT_END_DELAYTIME"/>
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDT_PARA_NUMBEROFDELIMITER">
+          <Assignments>
+            <Assign Content="1" TextId="IDT_NUMBOFDELIMITER_1"/>
+            <Assign Content="2" TextId="IDT_NUMBOFDELIMITER_2"/>
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDT_PARA_1STENDDELIMITER">
+           <Help TextId="IDT_HLP_END_DELIMITER"/>  
+        </ValueItem> 
+		<ValueItem ID="IDT_PARA_2STENDDELIMITER">
+           <Help TextId="IDT_HLP_END_DELIMITER"/>       
+        </ValueItem>  
+		<ValueItem ID="IDT_PARA_DATALENGTH">     
+           <Help TextId="IDT_HLP_DATALEN"/>  
+        </ValueItem>  
+		<ValueItem ID="IDT_PARA_DELAYTIME">   
+           <Help TextId="IDT_HLP_DELAY_TIME"/>  
+        </ValueItem>
+        
+        <!-- <ValueItem ID="IDT_DIAGNOSTIC_RF680R">
+          <Assignments>
+            <Assign Content="0" TextId="IDT_NOERROR" />
+            <Assign Content="3" TextId="IDT_COMMERROR" />
+            <Assign Content="20" TextId="IDT_FATAL" />
+            <Assign Content="32" TextId="IDT_HWERROR" />
+            <Assign Content="129" TextId="IDT_DOWNLOADACTIV" />
+            <Assign Content="130" TextId="IDT_DOWNLOADREADY" />
+            <Assign Content="133" TextId="IDT_DOWNLOADERROR" /> 
+          </Assignments>
+        </ValueItem> -->		
+      </ValueList>
+      <ChannelDiagList>
+                <ProfileChannelDiagItem API="23296" ErrorType="40435">
+                    <Name TextId="IDT_DIAG_ERR_1_1"/>
+                    <Help TextId="IDT_HLP_ERR_1_1"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40434">
+                    <Name TextId="IDT_DIAG_ERR_1_2"/>
+                    <Help TextId="IDT_HLP_ERR_1_2"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40433">
+                    <Name TextId="IDT_DIAG_ERR_1_3"/>
+                    <Help TextId="IDT_HLP_ERR_1_3"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40432">
+                    <Name TextId="IDT_DIAG_ERR_1_4"/>
+                    <Help TextId="IDT_HLP_ERR_1_4"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40431">
+                    <Name TextId="IDT_DIAG_ERR_1_5"/>
+                    <Help TextId="IDT_HLP_ERR_1_5"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40430">
+                    <Name TextId="IDT_DIAG_ERR_1_6"/>
+                    <Help TextId="IDT_HLP_ERR_1_6"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40429">
+                    <Name TextId="IDT_DIAG_ERR_1_7"/>
+                    <Help TextId="IDT_HLP_ERR_1_7"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40428">
+                    <Name TextId="IDT_DIAG_ERR_1_8"/>
+                    <Help TextId="IDT_HLP_ERR_1_8"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40427">
+                    <Name TextId="IDT_DIAG_ERR_1_9"/>
+                    <Help TextId="IDT_HLP_ERR_1_9"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40426">
+                    <Name TextId="IDT_DIAG_ERR_1_10"/>
+                    <Help TextId="IDT_HLP_ERR_1_1"/>
+                </ProfileChannelDiagItem>	
+      
+                <ProfileChannelDiagItem API="23296" ErrorType="40335">
+                    <Name TextId="IDT_DIAG_ERR_2_1"/>
+                    <Help TextId="IDT_HLP_ERR_2_1"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40334">
+                    <Name TextId="IDT_DIAG_ERR_2_2"/>
+                    <Help TextId="IDT_HLP_ERR_2_2"/>
+                </ProfileChannelDiagItem>	
+      
+               <!-- no filehander  support <ProfileChannelDiagItem API="23296" ErrorType="40235">
+                    <Name TextId="IDT_DIAG_ERR_3_1"/>
+                    <Help TextId="IDT_HLP_ERR_3_1"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40234">
+                    <Name TextId="IDT_DIAG_ERR_3_2"/>
+                    <Help TextId="IDT_HLP_ERR_3_2"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40233">
+                    <Name TextId="IDT_DIAG_ERR_3_3"/>
+                    <Help TextId="IDT_HLP_ERR_3_3"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40232">
+                    <Name TextId="IDT_DIAG_ERR_3_4"/>
+                    <Help TextId="IDT_HLP_ERR_3_4"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40231">
+                    <Name TextId="IDT_DIAG_ERR_3_5"/>
+                    <Help TextId="IDT_HLP_ERR_3_5"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40230">
+                    <Name TextId="IDT_DIAG_ERR_3_6"/>
+                    <Help TextId="IDT_HLP_ERR_3_6"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40229">
+                    <Name TextId="IDT_DIAG_ERR_3_7"/>
+                    <Help TextId="IDT_HLP_ERR_3_7"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40228">
+                    <Name TextId="IDT_DIAG_ERR_3_8"/>
+                    <Help TextId="IDT_HLP_ERR_3_8"/>
+                </ProfileChannelDiagItem>	  -->
+      
+                <ProfileChannelDiagItem API="23296" ErrorType="40135">
+                    <Name TextId="IDT_DIAG_ERR_4_1"/>
+                    <Help TextId="IDT_HLP_ERR_4_1"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40134">
+                    <Name TextId="IDT_DIAG_ERR_4_2"/>
+                    <Help TextId="IDT_HLP_ERR_4_2"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40133">
+                    <Name TextId="IDT_DIAG_ERR_4_3"/>
+                    <Help TextId="IDT_HLP_ERR_4_3"/>
+                </ProfileChannelDiagItem>		
+                <ProfileChannelDiagItem API="23296" ErrorType="40132">
+                    <Name TextId="IDT_DIAG_ERR_4_4"/>
+                    <Help TextId="IDT_HLP_ERR_4_4"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40131">
+                    <Name TextId="IDT_DIAG_ERR_4_5"/>
+                    <Help TextId="IDT_HLP_ERR_4_5"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40130">
+                    <Name TextId="IDT_DIAG_ERR_4_6"/>
+                    <Help TextId="IDT_HLP_ERR_4_6"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40129">
+                    <Name TextId="IDT_DIAG_ERR_4_7"/>
+                    <Help TextId="IDT_HLP_ERR_4_7"/>
+                </ProfileChannelDiagItem>	
+                  
+                <ProfileChannelDiagItem API="23296" ErrorType="40035">
+                    <Name TextId="IDT_DIAG_ERR_5_1"/>
+                    <Help TextId="IDT_HLP_ERR_5_1"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40032">
+                    <Name TextId="IDT_DIAG_ERR_5_4"/>
+                    <Help TextId="IDT_HLP_ERR_5_4"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40030">
+                    <Name TextId="IDT_DIAG_ERR_5_6"/>
+                    <Help TextId="IDT_HLP_ERR_5_6"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="40028">
+                    <Name TextId="IDT_DIAG_ERR_5_8"/>
+                    <Help TextId="IDT_HLP_ERR_5_8"/>
+                </ProfileChannelDiagItem>	
+                
+                <ProfileChannelDiagItem API="23296" ErrorType="39935">
+                    <Name TextId="IDT_DIAG_ERR_6_1"/>
+                    <Help TextId="IDT_HLP_ERR_6_1"/>
+                </ProfileChannelDiagItem>                  
+                <ProfileChannelDiagItem API="23296" ErrorType="39934">
+                    <Name TextId="IDT_DIAG_ERR_6_2"/>
+                    <Help TextId="IDT_HLP_ERR_6_2"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="39933">
+                    <Name TextId="IDT_DIAG_ERR_6_3"/>
+                    <Help TextId="IDT_HLP_ERR_6_3"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="39932">
+                    <Name TextId="IDT_DIAG_ERR_6_4"/>
+                    <Help TextId="IDT_HLP_ERR_6_4"/>
+                </ProfileChannelDiagItem>	
+                <ProfileChannelDiagItem API="23296" ErrorType="39931">
+                    <Name TextId="IDT_DIAG_ERR_6_5"/>
+                    <Help TextId="IDT_HLP_ERR_6_5"/>
+                </ProfileChannelDiagItem>	
+                
+                <ChannelDiagItem ErrorType="5537">
+                    <Name TextId="IDT_DIAG_ALRM_OVERFL"/>
+                    <Help TextId="IDT_HLP_ALRM_OVERFL"/>
+                </ChannelDiagItem>                       
+           
+                <ChannelDiagItem ErrorType="5532">
+                    <Name TextId="IDT_DIAG_ANT_4_WRGVERS"/>
+                    <Help TextId="IDT_HLP_ANT_4_WRGVERS"/>
+                </ChannelDiagItem>      
+                <ChannelDiagItem ErrorType="5531">
+                    <Name TextId="IDT_DIAG_ANT_3_WRGVERS"/>
+                    <Help TextId="IDT_HLP_ANT_3_WRGVERS"/>
+                </ChannelDiagItem>                       
+                <ChannelDiagItem ErrorType="5530">
+                    <Name TextId="IDT_DIAG_ANT_2_WRGVERS"/>
+                    <Help TextId="IDT_HLP_ANT_2_WRGVERS"/>
+                </ChannelDiagItem>                          
+                <ChannelDiagItem ErrorType="5529">
+                    <Name TextId="IDT_DIAG_ANT_1_WRGVERS"/>
+                    <Help TextId="IDT_HLP_ANT_1_WRGVERS"/>
+                </ChannelDiagItem>
+                        
+                <ChannelDiagItem ErrorType="5528">
+                    <Name TextId="IDT_DIAG_ANT_8_NOCON"/>
+                    <Help TextId="IDT_HLP_ANT_8_NOCON"/>
+                </ChannelDiagItem>
+                <ChannelDiagItem ErrorType="5527">
+                    <Name TextId="IDT_DIAG_ANT_7_NOCON"/>
+                    <Help TextId="IDT_HLP_ANT_7_NOCON"/>
+                </ChannelDiagItem>
+                <ChannelDiagItem ErrorType="5526">
+                    <Name TextId="IDT_DIAG_ANT_6_NOCON"/>
+                    <Help TextId="IDT_HLP_ANT_6_NOCON"/>
+                </ChannelDiagItem>
+                <ChannelDiagItem ErrorType="5525">
+                    <Name TextId="IDT_DIAG_ANT_5_NOCON"/>
+                    <Help TextId="IDT_HLP_ANT_5_NOCON"/>
+                </ChannelDiagItem>
+                <ChannelDiagItem ErrorType="5524">
+                    <Name TextId="IDT_DIAG_ANT_4_NOCON"/>
+                    <Help TextId="IDT_HLP_ANT_4_NOCON"/>
+                </ChannelDiagItem>
+                <ChannelDiagItem ErrorType="5523">
+                    <Name TextId="IDT_DIAG_ANT_3_NOCON"/>
+                    <Help TextId="IDT_HLP_ANT_3_NOCON"/>
+                </ChannelDiagItem>
+                <ChannelDiagItem ErrorType="5522">
+                    <Name TextId="IDT_DIAG_ANT_2_NOCON"/>
+                    <Help TextId="IDT_HLP_ANT_2_NOCON"/>
+                </ChannelDiagItem>
+                <ChannelDiagItem ErrorType="5521">
+                    <Name TextId="IDT_DIAG_ANT_1_NOCON"/>
+                    <Help TextId="IDT_HLP_ANT_1_NOCON"/>
+                </ChannelDiagItem>
+                
+                <ChannelDiagItem ErrorType="5483">
+                    <Name TextId="IDT_DIAG_ERR_6_139"/>
+                    <Help TextId="IDT_HLP_ERR_6_139"/>
+                </ChannelDiagItem>
+                <ChannelDiagItem ErrorType="5482">
+                    <Name TextId="IDT_DIAG_ERR_6_138"/>
+                    <Help TextId="IDT_HLP_ERR_6_138"/>
+                </ChannelDiagItem>
+                <ChannelDiagItem ErrorType="5481">
+                    <Name TextId="IDT_DIAG_ERR_6_137"/>
+                    <Help TextId="IDT_HLP_ERR_6_137"/>
+                </ChannelDiagItem>
+                <ChannelDiagItem ErrorType="5480">
+                    <Name TextId="IDT_DIAG_ERR_6_136"/>
+                    <Help TextId="IDT_HLP_ERR_6_136"/>
+                </ChannelDiagItem>
+                <ChannelDiagItem ErrorType="5479">
+                    <Name TextId="IDT_DIAG_ERR_6_135"/>
+                    <Help TextId="IDT_HLP_ERR_6_135"/>
+                </ChannelDiagItem>
+                <ChannelDiagItem ErrorType="5478">
+                    <Name TextId="IDT_DIAG_ERR_6_134"/>
+                    <Help TextId="IDT_HLP_ERR_6_134"/>
+                </ChannelDiagItem>                
+                
+                <ChannelDiagItem ErrorType="5454">
+                    <Name TextId="IDT_DIAG_ERR_4_142"/>
+                    <Help TextId="IDT_HLP_ERR_4_142"/>
+                </ChannelDiagItem>                  
+                <ChannelDiagItem ErrorType="5453">
+                    <Name TextId="IDT_DIAG_ERR_4_141"/>
+                    <Help TextId="IDT_HLP_ERR_4_141"/>
+                </ChannelDiagItem>	
+                <ChannelDiagItem ErrorType="5452">
+                    <Name TextId="IDT_DIAG_ERR_4_140"/>
+                    <Help TextId="IDT_HLP_ERR_4_140"/>
+                </ChannelDiagItem>	
+                <ChannelDiagItem ErrorType="5451">
+                    <Name TextId="IDT_DIAG_ERR_4_139"/>
+                    <Help TextId="IDT_HLP_ERR_4_139"/>
+                </ChannelDiagItem>	
+                <ChannelDiagItem ErrorType="5450">
+                    <Name TextId="IDT_DIAG_ERR_4_138"/>
+                    <Help TextId="IDT_HLP_ERR_4_138"/>
+                </ChannelDiagItem>
+                
+                <ChannelDiagItem ErrorType="5416">
+                    <Name TextId="IDT_DIAG_ERR_2_136"/>
+                    <Help TextId="IDT_HLP_ERR_2_136"/>
+                </ChannelDiagItem>
+                <ChannelDiagItem ErrorType="5415">
+                    <Name TextId="IDT_DIAG_ERR_2_135"/>
+                    <Help TextId="IDT_HLP_ERR_2_135"/>
+                </ChannelDiagItem>
+                <ChannelDiagItem ErrorType="5414">
+                    <Name TextId="IDT_DIAG_ERR_2_134"/>
+                    <Help TextId="IDT_HLP_ERR_2_134"/>
+                </ChannelDiagItem>
+                <ChannelDiagItem ErrorType="5413">
+                    <Name TextId="IDT_DIAG_ERR_2_133"/>
+                    <Help TextId="IDT_HLP_ERR_2_133"/>
+                </ChannelDiagItem>
+                <ChannelDiagItem ErrorType="5411">
+                    <Name TextId="IDT_DIAG_ERR_2_131"/>
+                    <Help TextId="IDT_HLP_ERR_2_131"/>
+                </ChannelDiagItem>
+                <ChannelDiagItem ErrorType="5410">
+                    <Name TextId="IDT_DIAG_ERR_2_130"/>
+                    <Help TextId="IDT_HLP_ERR_2_130"/>
+                </ChannelDiagItem>
+                <ChannelDiagItem ErrorType="5409">
+                    <Name TextId="IDT_DIAG_ERR_2_129"/>
+                    <Help TextId="IDT_HLP_ERR_2_129"/>
+                </ChannelDiagItem>
+
+                <ChannelDiagItem ErrorType="5397">
+                    <Name TextId="IDT_DIAG_ERR_1_133"/>
+                    <Help TextId="IDT_HLP_ERR_1_133"/>
+                </ChannelDiagItem>
+                <ChannelDiagItem ErrorType="5396">
+                    <Name TextId="IDT_DIAG_ERR_1_132"/>
+                    <Help TextId="IDT_HLP_ERR_1_132"/>
+                </ChannelDiagItem>
+                <ChannelDiagItem ErrorType="5395">
+                    <Name TextId="IDT_DIAG_ERR_1_131"/>
+                    <Help TextId="IDT_HLP_ERR_1_131"/>
+                </ChannelDiagItem>
+                <ChannelDiagItem ErrorType="5394">
+                    <Name TextId="IDT_DIAG_ERR_1_130"/>
+                    <Help TextId="IDT_HLP_ERR_1_130"/>
+                </ChannelDiagItem>
+                <ChannelDiagItem ErrorType="5393">
+                    <Name TextId="IDT_DIAG_ERR_1_129"/>
+                    <Help TextId="IDT_HLP_ERR_1_129"/>
+                </ChannelDiagItem>             
+      </ChannelDiagList>
+      <!-- <UnitDiagTypeList>
+        <UnitDiagTypeItem UserStructureIdentifier="385">
+          <Ref ValueItemTarget="IDT_DIAGNOSTIC_RF680R" ByteOffset="9" DataType="Unsigned8" DefaultValue="0"  TextId="IDT_Diagostics_RF600R" />
+        </UnitDiagTypeItem>
+      </UnitDiagTypeList>  --> 
+      <GraphicsList>
+           <GraphicItem ID="IDG_RF185C" GraphicFile="GSDML-002A-0C06-RF185C"/>	
+           <GraphicItem ID="IDG_RF186C" GraphicFile="GSDML-002A-0C06-RF186C"/>		  
+           <GraphicItem ID="IDG_RF188C" GraphicFile="GSDML-002A-0C06-RF188C"/>		  
+           <GraphicItem ID="IDG_RF186CI" GraphicFile="GSDML-002A-0C06-RF186CI"/>		  
+           <GraphicItem ID="IDG_RF188CI" GraphicFile="GSDML-002A-0C06-RF188CI"/>	
+		   <GraphicItem ID="IDG_1WUNI" GraphicFile="GSDML-002A-0C06-1WUNI"/>	
+           <GraphicItem ID="IDG_READER_G3" GraphicFile="GSDML-002A-0C06-READERG3"/>
+		   <GraphicItem ID="IDG_FREEPORT" GraphicFile="GSDML-002A-0C06-FREEPORT"/>	
+		   <GraphicItem ID="IDG_EMPTY" GraphicFile="GSDML-002A-0C06-EMPTY"/>
+			
+           <!-- <GraphicItem ID="IDG_READER" GraphicFile="GSDML-002A-0C06-READER"/>		
+           <GraphicItem ID="IDG_FREEPORT" GraphicFile="GSDML-002A-0C06-FREEPORT"/>	
+           <GraphicItem ID="IDG_DIDO" GraphicFile="GSDML-002A-0C06-DIDO"/>       -->
+      </GraphicsList>
+      <CategoryList>
+                <CategoryItem ID="ID_RF18XC" TextId="IDT_RF18XC">
+                    <InfoText TextId="IDT_InfoText_18xC_CAT"/>
+                </CategoryItem>	  
+                <CategoryItem ID="ID_RF185C_SUB" TextId="IDT_RF185C_MLFB">
+                    <InfoText TextId="IDT_InfoText_185C"/>
+                </CategoryItem>
+                <CategoryItem ID="ID_RF186C_SUB" TextId="IDT_RF186C_MLFB">
+                    <InfoText TextId="IDT_InfoText_186C"/>
+                </CategoryItem>
+                <CategoryItem ID="ID_RF188C_SUB" TextId="IDT_RF188C_MLFB">
+                    <InfoText TextId="IDT_InfoText_188C"/>
+                </CategoryItem>
+				<CategoryItem ID="ID_RF186CI_SUB" TextId="IDT_RF186CI_MLFB">
+                    <InfoText TextId="IDT_InfoText_186CI"/>
+                </CategoryItem>
+                <CategoryItem ID="ID_RF188CI_SUB" TextId="IDT_RF188CI_MLFB">
+                    <InfoText TextId="IDT_InfoText_188CI"/>
+                </CategoryItem>       
+      </CategoryList>	  
+      <ExternalTextList>
+        <PrimaryLanguage>                            
+          <Text TextId="IDT_FamilyDescription" Value="RFID communication modules with up to 4 reader connections "/>
+          <Text TextId="IDT_MODULE_NAME_DAP1" Value="RF185C   V1.0"/>
+          <Text TextId="IDT_MODULE_NAME_DAP2" Value="RF186C   V1.0"/>
+          <Text TextId="IDT_MODULE_NAME_DAP3" Value="RF188C   V1.0"/>
+		  <Text TextId="IDT_MODULE_NAME_DAP4" Value="RF186CI  V1.1"/>
+          <Text TextId="IDT_MODULE_NAME_DAP5" Value="RF188CI  V1.1"/>   
+		  <Text TextId="IDT_MODULE_NAME_DAP6" Value="RF185C   V1.3"/>
+          <Text TextId="IDT_MODULE_NAME_DAP7" Value="RF186C   V1.3"/>
+          <Text TextId="IDT_MODULE_NAME_DAP8" Value="RF188C   V1.3"/>
+		  <Text TextId="IDT_MODULE_NAME_DAP9" Value="RF186CI  V1.3"/>
+          <Text TextId="IDT_MODULE_NAME_DAP10" Value="RF188CI  V1.3"/>  
+		  <Text TextId="IDT_MODULE_NAME_DAP11" Value="RF185C   V2.x"/>
+          <Text TextId="IDT_MODULE_NAME_DAP12" Value="RF186C   V2.x"/>
+          <Text TextId="IDT_MODULE_NAME_DAP13" Value="RF188C   V2.x"/>
+		  <Text TextId="IDT_MODULE_NAME_DAP14" Value="RF186CI  V2.x"/>
+          <Text TextId="IDT_MODULE_NAME_DAP15" Value="RF188CI  V2.x"/>         
+    
+          <Text TextId="IDT_SUBMODULE_NAME_DAP1" Value="RF185C   V1.0"/>
+          <Text TextId="IDT_SUBMODULE_NAME_DAP2" Value="RF186C   V1.0"/>
+          <Text TextId="IDT_SUBMODULE_NAME_DAP3" Value="RF188C   V1.0"/> 		 
+          <Text TextId="IDT_SUBMODULE_NAME_DAP4" Value="RF186CI  V1.1"/>
+          <Text TextId="IDT_SUBMODULE_NAME_DAP5" Value="RF188CI  V1.1"/>
+		  <Text TextId="IDT_SUBMODULE_NAME_DAP6" Value="RF185C   V1.3"/>
+          <Text TextId="IDT_SUBMODULE_NAME_DAP7" Value="RF186C   V1.3"/>
+          <Text TextId="IDT_SUBMODULE_NAME_DAP8" Value="RF188C   V1.3"/> 		 
+          <Text TextId="IDT_SUBMODULE_NAME_DAP9" Value="RF186CI  V1.3"/>
+          <Text TextId="IDT_SUBMODULE_NAME_DAP10" Value="RF188CI  V1.3"/>
+		  <Text TextId="IDT_SUBMODULE_NAME_DAP11" Value="RF185C   V2.x"/>
+          <Text TextId="IDT_SUBMODULE_NAME_DAP12" Value="RF186C   V2.x"/>
+          <Text TextId="IDT_SUBMODULE_NAME_DAP13" Value="RF188C   V2.x"/> 		 
+          <Text TextId="IDT_SUBMODULE_NAME_DAP14" Value="RF186CI  V2.x"/>
+          <Text TextId="IDT_SUBMODULE_NAME_DAP15" Value="RF188CI  V2.x"/>
+		  <!-- ModuleInfo  -->	 		 		 
+          <Text TextId="IDT_MODULE_1WUNI" Value=" Reader "/>    
+		  <Text TextId="IDT_MODULE_1WCFG" Value=" CM  "/> 
+		  <Text TextId="IDT_MODULE_1WCFGIO" Value=" CM DI/DO "/> 
+		  <Text TextId="IDT_MODULE_RF300R_G3" Value=" RF300 fast protocol "/> 
+		  <Text TextId="IDT_MODULE_FREEP" Value="Freeport "/>
+		   
+		  <Text TextId="IDT_SUBMOD_1WCM" Value=" Communication "/> 
+		  <Text TextId="IDT_SUBMMOD_DIDO" Value=" Digital inputs/outputs "/>  		
+		  
+          <!-- <Text TextId="IDT_MODULE_RF300RUA" Value="RF200/300/600, MV4x0, MOBY U/D"/>
+          <Text TextId="IDT_MODULE_MV3xx" Value="MV3xx mobile"/>
+          <Text TextId="IDT_MODULE_RF68XR" Value="RF68XR"/>
+          <Text TextId="IDT_MODULE_2WKomp" Value="Communication reader1/2 old compatible"/>     -->  		 
+		  <Text TextId="IDT_INFO_1WCM" Value="Submodule with 1 word io for communication to communication module"/>
+          <Text TextId="IDT_INFO_1WUNI" Value="Module with 1 word io to connect one reader by serial interface with RF200/RF300, MV400/MV500 and older ident devices"/>   
+		  <Text TextId="IDT_INFO_1WCFG" Value="Module with 1 word io for communication to communication module "/>  
+		  <Text TextId="IDT_INFO_1WCFGIO" Value="Module with 1 word io for communication to communication module and 1 word digital io"/>  
+		  <Text TextId="IDT_INFO_RF300R_G3" Value="Module for communication with a reader by RF300 fast protocol"/>  
+		  <Text TextId="IDT_INFO_FREEP" Value="Module for freeport communication"/>
+		    
+          <!--  <Text TextId="IDT_INFO_RF300RUA" Value="Module to connect one reader of system RF200/300/600, MV4x0, MOBY U/D"/>         
+          <Text TextId="IDT_INFO_MV3xx" Value="Module to connect a mobile reader MV3xx"/>         
+          <Text TextId="IDT_INFO_RF68XR" Value="Module to connect one RF68xR reader with digital io"/>
+          <Text TextId="IDT_INFO_2WKomp" Value="Module to connect one reader on plug 1 and one reader on plug 2 for compatibility"/>   -->          
+                 
+          <Text TextId="IDT_MODULE_RFIDCOMM" Value="Communication"/> 		  
+          <!-- <Text TextId="IDT_INFO_RFIDCOMM_2W" Value="Communication signals of the reader1 and 2"/>
+          <Text TextId="IDT_INFO_RFIDCOMM" Value="Communication signals of the reader"/>  -->		
+		  <Text TextId="IDT_INFO_DIDO_CM" Value="Digital input/output signals by CM"/>               
+             
+          <!-- <Text TextId="IDT_DATAITEM_COMM1" Value="RFID communication channel 1"/>
+          <Text TextId="IDT_DATAITEM_COMM2" Value="RFID communication channel 2"/>
+          <Text TextId="IDT_DATAITEM_COMM3" Value="RFID communication channel 3"/>
+          <Text TextId="IDT_DATAITEM_COMM4" Value="RFID communication channel 4"/>
+          <Text TextId="IDT_DATAITEM_COMM1_2W" Value="RFID communication reader 1"/>
+          <Text TextId="IDT_DATAITEM_COMM2_2W" Value="RFID communication reader 2"/>          
+          <Text TextId="IDT_DATAITEM_IO_READER" Value="Digital inputs/outputs reader"/> -->           
+          <Text TextId="IDT_DATAITEM_IO_CM" Value="Digital inputs/outputs CM"/>
+          <Text TextId="IDT_GENERAL_PARAMETERS" Value="General parameters"/>
+		  <Text TextId="IDT_PARAMETER_RFID_COMMUNICATION" Value="General parameters"/>
+		  <Text TextId="IDT_PARAMETER_CM_CONFIG" Value="General parameters"/>
+		  
+          <Text TextId="IDT_INTERFACESUBMODULE_TEXT" Value="PN-IO"/>              
+                    
+          <!-- slot list  -->		  
+		  <Text TextId="IDT_slot_1" Value="CM "/>  
+		  <Text TextId="IDT_slot_2" Value="X21"/> 
+		  <Text TextId="IDT_slot_3" Value="X22"/> 
+		  <Text TextId="IDT_slot_4" Value="X23"/> 
+		  <Text TextId="IDT_slot_5" Value="X24"/> 
+		  <!-- SubslotList  -->	
+		  <Text TextId="IDT_Subslot_CMCFG" Value=" CM "/> 
+		  <Text TextId="IDT_Subslot_CMIO" Value=" X10 "/> 
+		  <Text TextId="IDT_Subslot_1" Value=" X2x "/> 		
+          <!--port name-->
+          <Text TextId="IDT_Subslot_8000" Value="X1"/>
+          <Text TextId="IDT_Subslot_8001" Value="X1 P1"/>
+          <Text TextId="IDT_Subslot_8002" Value="X1 P2"/>
+          <Text TextId="IDT_Port1" Value="Port 1"/>
+          <Text TextId="IDT_Port2" Value="Port 2"/>
+          <!--Category Text  -->
+          <Text TextId="IDT_RF18XC" Value="RF18xC"/>
+          <!-- <Text TextId="IDT_6GT2811-6AA10-0AA0" Value="6GT2 811-6AA10-0AA0"/>
+          <Text TextId="IDT_6GT2811-6AA10-1AA0" Value="6GT2 811-6AA10-1AA0"/>
+          <Text TextId="IDT_6GT2811-6AA10-2AA0" Value="6GT2 811-6AA10-2AA0"/>
+          <Text TextId="IDT_6GT2811-6CA10-0AA0" Value="6GT2 811-6CA10-0AA0"/>
+          <Text TextId="IDT_6GT2811-6CA10-1AA0" Value="6GT2 811-6CA10-1AA0"/>
+          <Text TextId="IDT_6GT2811-6CA10-2AA0" Value="6GT2 811-6CA10-2AA0"/>	  -->	  
+          
+          <Text TextId="IDT_RF185C_MLFB" Value="6GT2 002-0JE10"/>
+          <Text TextId="IDT_RF186C_MLFB" Value="6GT2 002-0JE20"/>
+          <Text TextId="IDT_RF188C_MLFB" Value="6GT2 002-0JE40"/>
+          <Text TextId="IDT_RF186CI_MLFB" Value="6GT2 002-0JE50"/> 
+          <Text TextId="IDT_RF188CI_MLFB" Value="6GT2 002-0JE60"/>           
+          <Text TextId="IDT_InfoText_18xC_CAT" Value="Communication module for ident systems with up to 4 reader connections"/>
+          
+          <Text TextId="IDT_InfoText_185C" Value="Communication module for ident systems with one reader connection"/>
+          <Text TextId="IDT_InfoText_186C" Value="Communication module for ident systems with 2 reader connections"/>
+          <Text TextId="IDT_InfoText_188C" Value="Communication module for ident systems with 4 reader connections"/>
+          <Text TextId="IDT_InfoText_186CI" Value="Communication module for ident systems with 2 reader connections, digital inputs/outputs"/>
+          <Text TextId="IDT_InfoText_188CI" Value="Communication module for ident systems with 4 reader connections, digital inputs/outputs"/>                          
+          
+          <Text TextId="IDT_InfoText_185C_10" Value="Communication module for ident systems with one reader connection,  V1.0"/>
+          <Text TextId="IDT_InfoText_186C_10" Value="Communication module for ident systems with 2 reader connections,  V1.0"/>
+          <Text TextId="IDT_InfoText_188C_10" Value="Communication module for ident systems with 4 reader connections,  V1.0"/>
+		  <Text TextId="IDT_InfoText_186CI_11" Value="Communication module for ident systems with 2 reader connections, digital inputs/outputs,  V1.1"/>
+          <Text TextId="IDT_InfoText_188CI_11" Value="Communication module for ident systems with 4 reader connections, digital inputs/outputs,  V1.1"/>
+		  <Text TextId="IDT_InfoText_185C_13" Value="Communication module for ident systems with one reader connection,  V1.3"/>
+          <Text TextId="IDT_InfoText_186C_13" Value="Communication module for ident systems with 2 reader connections,  V1.3 "/>
+          <Text TextId="IDT_InfoText_188C_13" Value="Communication module for ident systems with 4 reader connections,  V1.3 "/>
+		  <Text TextId="IDT_InfoText_186CI_13" Value="Communication module for ident systems with 2 reader connections, digital inputs/outputs,  V1.3 "/>
+          <Text TextId="IDT_InfoText_188CI_13" Value="Communication module for ident systems with 4 reader connections, digital inputs/outputs,  V1.3 "/>
+		  <Text TextId="IDT_InfoText_185C_20" Value="Communication module for ident systems with one reader connection,  V2.x"/>
+          <Text TextId="IDT_InfoText_186C_20" Value="Communication module for ident systems with 2 reader connections,  V2.x "/>
+          <Text TextId="IDT_InfoText_188C_20" Value="Communication module for ident systems with 4 reader connections,  V2.x "/>
+		  <Text TextId="IDT_InfoText_186CI_20" Value="Communication module for ident systems with 2 reader connections, digital inputs/outputs,  V2.x "/>
+          <Text TextId="IDT_InfoText_188CI_20" Value="Communication module for ident systems with 4 reader connections, digital inputs/outputs,  V2.x "/>
+                      
+          <Text TextId="IDT_PARA_ALDEVICE" Value="Diagnostic messages device"/>
+		  <Text TextId="IDT_PARA_DIIO_T" Value="IO mode"/>
+          
+          <Text TextId="IDT_PARA_USER_MODE" Value="User mode"/>
+          <Text TextId="IDT_PARA_MOBY_MODE" Value="MOBY mode"/>
+          <Text TextId="IDT_PARA_BAUDRATE" Value="Transmission speed"/>
+          <Text TextId="IDT_PARA_DIAG" Value="Diagnostic messages"/>
+          <!--   <Text TextId="IDT_PARA_STARTLED" Value="Suppression of error LED" />  -->
+          		
+		  
+		  <Text TextId="IDT_DIDO_IN" Value="Digital input"/>
+		  <Text TextId="IDT_DIDO_OUT" Value="Digital output"/>
+		  <Text TextId="IDT_DIDO_IOLINK" Value="IO-link"/>
+		  
+          <Text TextId="IDT_OFF" Value="Off"/>
+          <Text TextId="IDT_ON" Value="On"/>           
+          
+          <Text TextId="IDT_FB45" Value="FB 45"/>
+          
+          
+          <Text TextId="IDT_PIB" Value="Ident profile / RFID standard profile"/>
+          <!--  <Text TextId="IDT_MOBYI" Value="MOBY I/E normal addressing" />
+          <Text TextId="IDT_MOBYI_FH" Value="MOBY I file handler" /> -->           
+          <Text TextId="IDT_MOBYU" Value="RF200/RF300/RF600; MV400/MV500; MOBY U/D"/>
+		  <!-- <Text TextId="IDT_RF300G3" Value="RF300G3 "/> -->		  
+          <!--  <Text TextId="IDT_MOBYU_FH" Value="MOBY U file handler" />
+		  <Text TextId="IDT_MOBY300_FH" Value="RF300 file handler" /> -->		  
+          
+          
+          <Text TextId="IDT_FREEPORT" Value="Freeport"/>
+          <Text TextId="IDT_19_2" Value="19.2 kBd"/>
+          <Text TextId="IDT_57_6" Value="57.6 kBd"/>
+          <Text TextId="IDT_115_2" Value="115.2 kBd"/>
+		  <Text TextId="IDT_921" Value="921.6 kBd"/> 
+		  <Text TextId="IDT_1M5" Value=" 1.5 MBd"/> 
+          <Text TextId="IDT_KEIN" Value="None"/>
+          <Text TextId="IDT_HARD" Value="Hard errors"/>
+          <Text TextId="IDT_HARD_SOFT" Value="Hard/soft errors"/>
+          <Text TextId="IDT_KEINE_ST" Value="None"/>
+          <Text TextId="IDT_KANAL_1" Value="channel 1"/>
+          <Text TextId="IDT_KANAL_2" Value="channel 2"/>
+          
+          <Text TextId="IDT_PARA_PARITY" Value="Parity"/>
+          <Text TextId="IDT_PARA_DATABITS" Value="Data bits"/>
+          <Text TextId="IDT_PARA_STOPBITS" Value="Stop bits"/>
+          <Text TextId="IDT_PARA_INTERFACE" Value="Interface"/>
+          <Text TextId="IDT_PARA_ENDDETECTION" Value="End detection"/>
+          <Text TextId="IDT_PARA_NUMBEROFDELIMITER" Value="No. of end delimiter"/>
+          <Text TextId="IDT_PARA_1STENDDELIMITER" Value="1st end delimiter"/>
+          <Text TextId="IDT_PARA_2STENDDELIMITER" Value="2nd end delimiter"/>
+          <Text TextId="IDT_PARA_DATALENGTH" Value="Frame length"/>
+          <Text TextId="IDT_PARA_DELAYTIME" Value="Character delay time"/>   
+          
+          <Text TextId="IDT_NO_PARITY" Value="None"/>
+          <Text TextId="IDT_EVEN" Value="Even"/>
+          <Text TextId="IDT_ODD" Value="Odd"/>
+          <Text TextId="IDT_FIX_1" Value="Fixed value 1"/>
+          <Text TextId="IDT_FIX_0" Value="Fixed value 0"/>
+          <Text TextId="IDT_DATABITS_7" Value=" 7 "/>
+          <Text TextId="IDT_DATABITS_8" Value=" 8"/>
+          <Text TextId="IDT_STOPB_1" Value=" 1 "/>
+          <Text TextId="IDT_STOPB_2" Value=" 2 "/>
+          <Text TextId="IDT_INTERF_RS422" Value="RS422"/>
+          <Text TextId="IDT_INTERF_RS232" Value="RS232"/>
+          <Text TextId="IDT_END_DELIMITER" Value="Delimiter"/> 
+		  <Text TextId="IDT_END_DATALENGTH" Value="Data length"/> 
+		  <Text TextId="IDT_END_DELAYTIME" Value="After character delay time elapses"/> 
+		  <Text TextId="IDT_NUMBOFDELIMITER_1" Value="1"/> 
+		  <Text TextId="IDT_NUMBOFDELIMITER_2" Value="2"/> 
+
+          <Text TextId="IDT_HLP_END_DELIMITER" Value="Value of delimiter"/>
+          <Text TextId="IDT_HLP_DATALEN" Value="Value of data length"/>
+          <Text TextId="IDT_HLP_DELAY_TIME" Value="Value of delay time"/>
+                  
+                   
+          <!-- <Text TextId="IDT_Diagostics_RF600R" Value="Diagnostic RF600R: " />
+          <Text TextId="IDT_NOERROR" Value="No Error" />
+          <Text TextId="IDT_COMMERROR" Value="Connection error to antenna" />
+          <Text TextId="IDT_FATAL" Value="Fatal error" />
+          <Text TextId="IDT_HWERROR" Value="Hardware error" />
+          <Text TextId="IDT_DOWNLOADACTIV" Value="Download active" />
+          <Text TextId="IDT_DOWNLOADREADY" Value="Download finished" />
+          <Text TextId="IDT_DOWNLOADERROR" Value="Download error" /> -->
+          <Text TextId="IDT_DIAG_ERR_1_1" Value="Tag memory error "/>
+          <Text TextId="IDT_DIAG_ERR_1_2" Value="Tag presence error "/>
+          <Text TextId="IDT_DIAG_ERR_1_3" Value="Tag address or command does not fit the tag characteristics "/>
+          <Text TextId="IDT_DIAG_ERR_1_4" Value="Tag is defective "/>
+          <Text TextId="IDT_DIAG_ERR_1_5" Value="Tag memory overflow "/>
+          <Text TextId="IDT_DIAG_ERR_1_6" Value="Tag unformatted "/>
+          <Text TextId="IDT_DIAG_ERR_1_7" Value="Tag data structure inconsistent "/>
+          <Text TextId="IDT_DIAG_ERR_1_8" Value="Tag does not have the expected ID "/>
+          <Text TextId="IDT_DIAG_ERR_1_9" Value="Tag command not supported "/>
+          <Text TextId="IDT_DIAG_ERR_1_10" Value="Tag access violation "/>          
+          <Text TextId="IDT_DIAG_ERR_1_129" Value="Tag doesn't answer "/> 
+          <Text TextId="IDT_DIAG_ERR_1_130" Value="Tag access refused due to wrong password "/> 
+          <Text TextId="IDT_DIAG_ERR_1_131" Value="Tag data verification failed "/> 
+          <Text TextId="IDT_DIAG_ERR_1_132" Value="Tag reports an unspecific error "/> 
+          <Text TextId="IDT_DIAG_ERR_1_133" Value="Tag reports an unspecific error "/>           
+          <Text TextId="IDT_DIAG_ERR_2_1" Value="RF field communication disturbed "/>
+          <Text TextId="IDT_DIAG_ERR_2_2" Value="RF field with more tag's than allowed "/>          
+          <Text TextId="IDT_DIAG_ERR_2_129" Value="RF field with no tag "/>
+          <Text TextId="IDT_DIAG_ERR_2_130" Value="RF field has no requested data available "/>
+          <Text TextId="IDT_DIAG_ERR_2_131" Value="RF field has no requested data available "/>
+          <Text TextId="IDT_DIAG_ERR_2_133" Value="RF field has no frequency activated "/>
+          <Text TextId="IDT_DIAG_ERR_2_134" Value="RF field has no carrier activated "/>
+          <Text TextId="IDT_DIAG_ERR_2_135" Value="RF field with more than one tag "/>
+          <Text TextId="IDT_DIAG_ERR_2_136" Value="RF field with unspecific error on air protocol "/>          
+          <!-- no filehandler support <Text TextId="IDT_DIAG_ERR_3_1" Value="File name incorrect "/>
+          <Text TextId="IDT_DIAG_ERR_3_2" Value="File does not exist "/>
+          <Text TextId="IDT_DIAG_ERR_3_3" Value="File system not available on this Tag type "/>
+          <Text TextId="IDT_DIAG_ERR_3_4" Value="File entries exhausted "/>
+          <Text TextId="IDT_DIAG_ERR_3_5" Value="File already exists "/>
+          <Text TextId="IDT_DIAG_ERR_3_6" Value="File access right violation "/>
+          <Text TextId="IDT_DIAG_ERR_3_7" Value="File length overflow "/>
+          <Text TextId="IDT_DIAG_ERR_3_8" Value="File not accessible "/>  -->
+          <Text TextId="IDT_DIAG_ERR_4_1" Value="Device power supply out of range "/>
+          <Text TextId="IDT_DIAG_ERR_4_2" Value="Device hardware failure "/>
+          <Text TextId="IDT_DIAG_ERR_4_3" Value="Device wire break or antenna not activated "/>
+          <Text TextId="IDT_DIAG_ERR_4_4" Value="Device command buffer overflow "/>
+          <Text TextId="IDT_DIAG_ERR_4_5" Value="Device data buffer overflow "/>
+          <Text TextId="IDT_DIAG_ERR_4_6" Value="Device command in this mode not supported "/>
+          <Text TextId="IDT_DIAG_ERR_4_7" Value="Device error due to cyclic Status Word "/>
+          <Text TextId="IDT_DIAG_ERR_4_138" Value="Device error unknown "/>
+          <Text TextId="IDT_DIAG_ERR_4_139" Value="Device has wrong or no configuration data"/>
+          <Text TextId="IDT_DIAG_ERR_4_140" Value="Device communication error towards function block "/>
+          <Text TextId="IDT_DIAG_ERR_4_141" Value="Device internal firmware error "/>
+          <Text TextId="IDT_DIAG_ERR_4_142" Value="Device internal communication error "/>
+          <Text TextId="IDT_DIAG_ERR_5_1" Value="Communication with wrong sequence number "/>
+          <Text TextId="IDT_DIAG_ERR_5_4" Value="Communication with invalid data block number "/>
+          <Text TextId="IDT_DIAG_ERR_5_6" Value="Communication with invalid data block length "/>
+          <Text TextId="IDT_DIAG_ERR_5_8" Value="Communication during a command from another user being processed "/>
+          <Text TextId="IDT_DIAG_ERR_6_1" Value="Command invalid "/>
+          <Text TextId="IDT_DIAG_ERR_6_2" Value="Command index invalid "/>
+          <Text TextId="IDT_DIAG_ERR_6_3" Value="Command parameter invalid "/>
+          <Text TextId="IDT_DIAG_ERR_6_4" Value="Command with wrong synchronisation between application and Tag "/>
+          <Text TextId="IDT_DIAG_ERR_6_5" Value="Command in which only Write-Config is permissible in this state "/>            
+          <Text TextId="IDT_DIAG_ERR_6_134" Value="Command Inventory failed "/> 
+          <Text TextId="IDT_DIAG_ERR_6_135" Value="Command Read Tag failed "/>  
+          <Text TextId="IDT_DIAG_ERR_6_136" Value="Command Write Tag failed "/>  
+          <Text TextId="IDT_DIAG_ERR_6_137" Value="Command Write Tag Id failed "/>  
+          <Text TextId="IDT_DIAG_ERR_6_138" Value="Comand Lock Tag failed "/>  
+          <Text TextId="IDT_DIAG_ERR_6_139" Value="Comand Kill Tag failed "/>            
+          <Text TextId="IDT_DIAG_ANT_1_NOCON" Value="Antenna 1 not connected "/> 
+          <Text TextId="IDT_DIAG_ANT_2_NOCON" Value="Antenna 2 not connected "/> 
+          <Text TextId="IDT_DIAG_ANT_3_NOCON" Value="Antenna 3 not connected "/> 
+          <Text TextId="IDT_DIAG_ANT_4_NOCON" Value="Antenna 4 not connected "/> 
+          <Text TextId="IDT_DIAG_ANT_5_NOCON" Value="Antenna 5 not connected "/> 
+          <Text TextId="IDT_DIAG_ANT_6_NOCON" Value="Antenna 6 not connected "/> 
+          <Text TextId="IDT_DIAG_ANT_7_NOCON" Value="Antenna 7 not connected "/> 
+          <Text TextId="IDT_DIAG_ANT_8_NOCON" Value="Antenna 8 not connected "/>    
+          <Text TextId="IDT_DIAG_ANT_1_WRGVERS" Value="Antenna 1 wrong type or version "/> 
+          <Text TextId="IDT_DIAG_ANT_2_WRGVERS" Value="Antenna 2 wrong type or version "/> 
+          <Text TextId="IDT_DIAG_ANT_3_WRGVERS" Value="Antenna 3 wrong type or version "/> 
+          <Text TextId="IDT_DIAG_ANT_4_WRGVERS" Value="Antenna 4 wrong type or version "/> 
+          <Text TextId="IDT_DIAG_ALRM_OVERFL" Value="Alarmbuffer overflow"/>            
+          <Text TextId="IDT_HLP_ERR_1_1" Value="Retry, probably Tag must be substituted "/>
+          <Text TextId="IDT_HLP_ERR_1_2" Value="Check field parameter or slow down tag speed "/>
+          <Text TextId="IDT_HLP_ERR_1_3" Value="Change address or type of Tag "/>
+          <Text TextId="IDT_HLP_ERR_1_4" Value="Replace tag "/>
+          <Text TextId="IDT_HLP_ERR_1_5" Value="Change to Tag's with greater Memory "/>
+          <Text TextId="IDT_HLP_ERR_1_6" Value="initialise Tag "/>
+          <Text TextId="IDT_HLP_ERR_1_7" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_1_8" Value="Adjust ID in command or check tag order"/>
+          <Text TextId="IDT_HLP_ERR_1_9" Value="Use appropriate tag e.g. use writable tag"/>
+                    
+          <Text TextId="IDT_HLP_ERR_1_129" Value=" "/> 
+          <Text TextId="IDT_HLP_ERR_1_130" Value="Correct password in command "/> 
+          <Text TextId="IDT_HLP_ERR_1_131" Value=" "/> 
+          <Text TextId="IDT_HLP_ERR_1_132" Value=" "/> 
+          <Text TextId="IDT_HLP_ERR_1_133" Value=" "/>           
+          <Text TextId="IDT_HLP_ERR_2_1" Value="Change field parameter, adjust Antenna or Tag"/>
+          <Text TextId="IDT_HLP_ERR_2_2" Value="Reorganise Tag handling, increase Tag or Antenna distance or avoid field reflections respectively"/>          
+          <Text TextId="IDT_HLP_ERR_2_129" Value="Use inventory command to see when tag is in the field "/>
+          <Text TextId="IDT_HLP_ERR_2_130" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_2_131" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_2_133" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_2_134" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_2_135" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_2_136" Value=" "/>          
+          <!-- no filehandler support <Text TextId="IDT_HLP_ERR_3_1" Value="Use a correct file name "/>
+          <Text TextId="IDT_HLP_ERR_3_2" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_3_3" Value="Change mode or use an other Tag Type "/>
+          <Text TextId="IDT_HLP_ERR_3_4" Value="Change to Tag's with greater Memory "/>
+          <Text TextId="IDT_HLP_ERR_3_5" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_3_6" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_3_7" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_3_8" Value=" "/>  -->
+          <Text TextId="IDT_HLP_ERR_4_1" Value="Check power supply, wire and connectors "/>
+          <Text TextId="IDT_HLP_ERR_4_2" Value="Try Power cycle or change hardware "/>
+          <Text TextId="IDT_HLP_ERR_4_3" Value="Check reader connectors, power supply and wiring or switch on antenna "/>
+          <Text TextId="IDT_HLP_ERR_4_4" Value="Reduce number of chained commands "/>
+          <Text TextId="IDT_HLP_ERR_4_5" Value="Reduce the data in acknowledgements or fetch the acknowledgements faster "/>
+          <Text TextId="IDT_HLP_ERR_4_6" Value="Adjust the Reader mode or use an other comand "/>
+          <Text TextId="IDT_HLP_ERR_4_7" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_4_138" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_4_139" Value="Check configuration or transferred parameter value "/>
+          <Text TextId="IDT_HLP_ERR_4_140" Value="Check record communication, probably index is wrong "/>
+          <Text TextId="IDT_HLP_ERR_4_141" Value="Update to a newer reader FW version "/>
+          <Text TextId="IDT_HLP_ERR_4_142" Value="Update to a newer reader FW version "/>
+          <Text TextId="IDT_HLP_ERR_5_1" Value="Execute Write Config command with init "/>
+          <Text TextId="IDT_HLP_ERR_5_4" Value="Execute Write Config command with init "/>
+          <Text TextId="IDT_HLP_ERR_5_6" Value="Check the data length entry in PLC application "/>
+          <Text TextId="IDT_HLP_ERR_5_8" Value="Avoid that other users applications or web server activities on this reader are being made "/>
+          <Text TextId="IDT_HLP_ERR_6_1" Value="Use commands that are suitable to the Reader "/>
+          <Text TextId="IDT_HLP_ERR_6_2" Value="Use commands that are suitable to the Reader "/>
+          <Text TextId="IDT_HLP_ERR_6_3" Value="Adjust command parameter "/>
+          <Text TextId="IDT_HLP_ERR_6_4" Value="Check command or Tag order "/>
+          <Text TextId="IDT_HLP_ERR_6_5" Value="Execute Write Config command "/>           
+          <Text TextId="IDT_HLP_ERR_6_134" Value=" "/> 
+          <Text TextId="IDT_HLP_ERR_6_135" Value=" "/>  
+          <Text TextId="IDT_HLP_ERR_6_136" Value=" "/>  
+          <Text TextId="IDT_HLP_ERR_6_137" Value=" "/>  
+          <Text TextId="IDT_HLP_ERR_6_138" Value=" "/>  
+          <Text TextId="IDT_HLP_ERR_6_139" Value=" "/>            
+          <Text TextId="IDT_HLP_ANT_1_NOCON" Value=" "/> 
+          <Text TextId="IDT_HLP_ANT_2_NOCON" Value=" "/> 
+          <Text TextId="IDT_HLP_ANT_3_NOCON" Value=" "/> 
+          <Text TextId="IDT_HLP_ANT_4_NOCON" Value=" "/> 
+          <Text TextId="IDT_HLP_ANT_5_NOCON" Value=" "/> 
+          <Text TextId="IDT_HLP_ANT_6_NOCON" Value=" "/> 
+          <Text TextId="IDT_HLP_ANT_7_NOCON" Value=" "/> 
+          <Text TextId="IDT_HLP_ANT_8_NOCON" Value=" "/>   
+          <Text TextId="IDT_HLP_ANT_1_WRGVERS" Value=" "/>   
+          <Text TextId="IDT_HLP_ANT_2_WRGVERS" Value=" "/>   
+          <Text TextId="IDT_HLP_ANT_3_WRGVERS" Value=" "/>   
+          <Text TextId="IDT_HLP_ANT_4_WRGVERS" Value=" "/>            
+          <Text TextId="IDT_HLP_ALRM_OVERFL" Value=" "/>           
+        </PrimaryLanguage>
+        <Language xml:lang="de">
+          <Text TextId="IDT_FamilyDescription" Value="Kommunikationsmodule für Ident-Systeme zum Anschluss von bis zu 4 Readern "/>
+          <Text TextId="IDT_MODULE_NAME_DAP1" Value="RF185C   V1.0"/>
+          <Text TextId="IDT_MODULE_NAME_DAP2" Value="RF186C   V1.0"/>
+          <Text TextId="IDT_MODULE_NAME_DAP3" Value="RF188C   V1.0"/>
+		  <Text TextId="IDT_MODULE_NAME_DAP4" Value="RF186CI  V1.1"/>
+          <Text TextId="IDT_MODULE_NAME_DAP5" Value="RF188CI  V1.1"/>   
+		  <Text TextId="IDT_MODULE_NAME_DAP6" Value="RF185C   V1.3"/>
+          <Text TextId="IDT_MODULE_NAME_DAP7" Value="RF186C   V1.3"/>
+          <Text TextId="IDT_MODULE_NAME_DAP8" Value="RF188C   V1.3"/>
+		  <Text TextId="IDT_MODULE_NAME_DAP9" Value="RF186CI  V1.3"/>
+          <Text TextId="IDT_MODULE_NAME_DAP10" Value="RF188CI  V1.3"/> 
+		  <Text TextId="IDT_MODULE_NAME_DAP11" Value="RF185C   V2.x"/>
+          <Text TextId="IDT_MODULE_NAME_DAP12" Value="RF186C   V2.x"/>
+          <Text TextId="IDT_MODULE_NAME_DAP13" Value="RF188C   V2.x"/>
+		  <Text TextId="IDT_MODULE_NAME_DAP14" Value="RF186CI  V2.x"/>
+          <Text TextId="IDT_MODULE_NAME_DAP15" Value="RF188CI  V2.x"/>      
+    
+          <Text TextId="IDT_SUBMODULE_NAME_DAP1" Value="RF185C   V1.0"/>
+          <Text TextId="IDT_SUBMODULE_NAME_DAP2" Value="RF186C   V1.0"/>
+          <Text TextId="IDT_SUBMODULE_NAME_DAP3" Value="RF188C   V1.0"/> 		 
+          <Text TextId="IDT_SUBMODULE_NAME_DAP4" Value="RF186CI  V1.1"/>
+          <Text TextId="IDT_SUBMODULE_NAME_DAP5" Value="RF188CI  V1.1"/>
+		  <Text TextId="IDT_SUBMODULE_NAME_DAP6" Value="RF185C   V1.3"/>
+          <Text TextId="IDT_SUBMODULE_NAME_DAP7" Value="RF186C   V1.3"/>
+          <Text TextId="IDT_SUBMODULE_NAME_DAP8" Value="RF188C   V1.3"/> 		 
+          <Text TextId="IDT_SUBMODULE_NAME_DAP9" Value="RF186CI  V1.3"/>         
+		  <Text TextId="IDT_SUBMODULE_NAME_DAP10" Value="RF188CI  V1.3"/>
+		  <Text TextId="IDT_SUBMODULE_NAME_DAP11" Value="RF185C   V2.x"/>
+          <Text TextId="IDT_SUBMODULE_NAME_DAP12" Value="RF186C   V2.x"/>
+          <Text TextId="IDT_SUBMODULE_NAME_DAP13" Value="RF188C   V2.x"/> 		 
+          <Text TextId="IDT_SUBMODULE_NAME_DAP14" Value="RF186CI  V2.x"/>
+          <Text TextId="IDT_SUBMODULE_NAME_DAP15" Value="RF188CI  V2.x"/>
+		  <!-- ModuleInfo  -->  		 		 
+          <Text TextId="IDT_MODULE_1WUNI" Value=" Reader "/>   
+		  <Text TextId="IDT_MODULE_1WCFG" Value=" CM "/> 
+		  <Text TextId="IDT_MODULE_1WCFGIO" Value=" CM DI/DO "/> 
+		  <Text TextId="IDT_MODULE_RF300R_G3" Value=" RF300 fast protocol "/> 
+		  <Text TextId="IDT_MODULE_FREEP" Value="Freeport"/>
+		   
+		  <Text TextId="IDT_SUBMOD_1WCM" Value=" Kommunikation "/> 
+		  <Text TextId="IDT_SUBMMOD_DIDO" Value=" Digitaleingänge/-ausgänge "/>  		
+		  		  
+          <!--  <Text TextId="IDT_MODULE_RF300RUA" Value="RF200/300/600, MV4x0, MOBY U/D"/>
+          <Text TextId="IDT_MODULE_MV3xx" Value="MV3xx mobil"/>
+          <Text TextId="IDT_MODULE_FREEP" Value="Freeport"/>
+          <Text TextId="IDT_MODULE_RF68XR" Value="RF68XR"/>
+          <Text TextId="IDT_MODULE_2WKomp" Value="Kommunikation Reader1/2 altkompatibel"/>  
+          <Text TextId="IDT_MODULE_EMPTY" Value="Leermodul"/>  -->   		
+		  <Text TextId="IDT_INFO_1WCM" Value="Submodule mit 1 Word IO für Kommunikation mit Kommunkationsmodulen"/>
+          <Text TextId="IDT_INFO_1WUNI" Value="Modul mit 1 Word IO für die Reader-Kommunikation über serielle Schnittstellen mit RF200/RF300, MV400/MV500 und ältere Ident-Geräte"/>  
+		  <Text TextId="IDT_INFO_1WCFG" Value="Modul mit 1 Word IO für die Kommunikation mit Kommunikationsmodulen "/>  
+		  <Text TextId="IDT_INFO_1WCFGIO" Value="Modul mit 1 Word IO für die Kommunikation mit dem Kommunikationsmodul und 1 Word für Digitaleingänge/-ausgänge"/>  
+		  <Text TextId="IDT_INFO_RF300R_G3" Value="Modul für die Reader-Kommunikation mit RF300 fast protocol-Readern "/>  
+		  <Text TextId="IDT_INFO_FREEP" Value="Modul für die Reader-Kommunikation mit dem Freeport-Protokoll"/>
+		    
+          <!--   <Text TextId="IDT_INFO_RF300RUA" Value="Modul zum Anschluss eines Readers der Systeme RF200/300/600, MV4x0, MOBY U/D"/>         
+          <Text TextId="IDT_INFO_MV3xx" Value="Modul zum Anschluss eines mobilen Readers MV3xx"/>        
+          <Text TextId="IDT_INFO_RF68XR" Value="Modul zum Anschluss eines RF68xR Readers mit digitalen EA"/>
+          <Text TextId="IDT_INFO_2WKomp" Value="Modul für Reader 1 und Reader 2 zur Kompatibilität mit altem CM's"/>         -->          
+                  
+          <Text TextId="IDT_MODULE_RFIDCOMM" Value="Kommunikation"/>		 
+          <!--  <Text TextId="IDT_INFO_RFIDCOMM_2W" Value="Kommunikationssignale der Reader1 und Reader 2"/>
+          <Text TextId="IDT_INFO_RFIDCOMM" Value="Kommunikationssignale des Reader"/> -->		 
+		  <Text TextId="IDT_INFO_DIDO_CM" Value="Digitaleingänge/-ausgänge des CMs"/>              
+                          
+          <!-- <Text TextId="IDT_DATAITEM_COMM1" Value="RFID Kommunikationskanal 1"/> 
+          <Text TextId="IDT_DATAITEM_COMM2" Value="RFID Kommunikationskanal 2"/> 
+          <Text TextId="IDT_DATAITEM_COMM3" Value="RFID Kommunikationskanal 3"/> 
+          <Text TextId="IDT_DATAITEM_COMM4" Value="RFID Kommunikationskanal 4"/>
+          <Text TextId="IDT_DATAITEM_COMM1_2W" Value="RFID Kommunikationskanal Reader 1"/>
+          <Text TextId="IDT_DATAITEM_COMM2_2W" Value="RFID Kommunikationskanal Reader 2"/>
+          <Text TextId="IDT_DATAITEM_IO_READER" Value="Digitaleingaenge/-ausgaenge Reader"/> -->
+          <Text TextId="IDT_DATAITEM_IO_CM" Value="Digitaleingänge/-ausgänge des CMs"/>
+          <Text TextId="IDT_GENERAL_PARAMETERS" Value="Allgemeine Parameter"/>
+		  <Text TextId="IDT_PARAMETER_RFID_COMMUNICATION" Value="Allgemeine Parameter"/>  
+		  <Text TextId="IDT_PARAMETER_CM_CONFIG" Value="Allgemeine Parameter"/> 
+		  
+          <Text TextId="IDT_INTERFACESUBMODULE_TEXT" Value="PN-IO"/>                
+            
+		  <!-- slot list  -->	
+		  <Text TextId="IDT_slot_1" Value="CM "/>  
+		  <Text TextId="IDT_slot_2" Value="X21"/> 
+		  <Text TextId="IDT_slot_3" Value="X22"/> 
+		  <Text TextId="IDT_slot_4" Value="X23"/> 
+		  <Text TextId="IDT_slot_5" Value="X24"/> 	
+		  <!-- SubslotList  -->	
+		  <Text TextId="IDT_Subslot_CMCFG" Value=" CM "/> 
+		  <Text TextId="IDT_Subslot_CMIO" Value=" X10 "/> 
+		  <Text TextId="IDT_Subslot_1" Value=" X2x "/> 		
+          <!--port name-->
+          <Text TextId="IDT_Subslot_8000" Value="X1"/>
+          <Text TextId="IDT_Subslot_8001" Value="X1 P1"/>
+          <Text TextId="IDT_Subslot_8002" Value="X1 P2"/>
+          <Text TextId="IDT_Port1" Value="Port 1"/>
+          <Text TextId="IDT_Port2" Value="Port 2"/>
+          <!--Category Text  -->
+          <Text TextId="IDT_RF18XC" Value="RF18xC"/>
+          <!-- <Text TextId="IDT_6GT2811-6AA10-0AA0" Value="6GT2 811-6AA10-0AA0"/>
+          <Text TextId="IDT_6GT2811-6AA10-1AA0" Value="6GT2 811-6AA10-1AA0"/>
+          <Text TextId="IDT_6GT2811-6AA10-2AA0" Value="6GT2 811-6AA10-2AA0"/>
+          <Text TextId="IDT_6GT2811-6CA10-0AA0" Value="6GT2 811-6CA10-0AA0"/>
+          <Text TextId="IDT_6GT2811-6CA10-1AA0" Value="6GT2 811-6CA10-1AA0"/>
+          <Text TextId="IDT_6GT2811-6CA10-2AA0" Value="6GT2 811-6CA10-2AA0"/> -->		  
+          
+          <Text TextId="IDT_RF185C_MLFB" Value="6GT2 002-0JE10"/>
+          <Text TextId="IDT_RF186C_MLFB" Value="6GT2 002-0JE20"/>
+          <Text TextId="IDT_RF188C_MLFB" Value="6GT2 002-0JE40"/>
+          <Text TextId="IDT_RF186CI_MLFB" Value="6GT2 002-0JE50"/> 
+          <Text TextId="IDT_RF188CI_MLFB" Value="6GT2 002-0JE60"/>        
+          <Text TextId="IDT_InfoText_18xC_CAT" Value="Kommunikationsmodul für Ident-Systeme zum Anschluss von bis zu 4 Readern"/>
+          
+          <Text TextId="IDT_InfoText_185C" Value="Kommunikationsmodul für Ident-Systeme zum Anschluss von einem Reader"/>
+          <Text TextId="IDT_InfoText_186C" Value="Kommunikationsmodul für Ident-Systeme zum Anschluss von 2 Readern"/>
+          <Text TextId="IDT_InfoText_188C" Value="Kommunikationsmodul für Ident-Systeme zum Anschluss von 4 Readern"/>
+          <Text TextId="IDT_InfoText_186CI" Value="Kommunikationsmodul für Ident-Systeme zum Anschluss von 2 Readern, Digitaleingänge/-ausgänge"/>
+          <Text TextId="IDT_InfoText_188CI" Value="Kommunikationsmodul für Ident-Systeme zum Anschluss von 4 Readern, Digitaleingänge/-ausgänge"/>
+                   
+          <Text TextId="IDT_InfoText_185C_10" Value="Kommunikationsmodul für Ident-Systeme zum Anschluss von einem Reader,  V1.0"/>
+          <Text TextId="IDT_InfoText_186C_10" Value="Kommunikationsmodul für Ident-Systeme zum Anschluss von 2 Readern,  V1.0"/>
+          <Text TextId="IDT_InfoText_188C_10" Value="Kommunikationsmodul für Ident-Systeme zum Anschluss von 4 Readern,  V1.0"/>
+		  <Text TextId="IDT_InfoText_186CI_11" Value="Kommunikationsmodul für Ident-Systeme zum Anschluss von 2 Readern, Digitaleingänge/-ausgänge,  V1.1"/>
+          <Text TextId="IDT_InfoText_188CI_11" Value="Kommunikationsmodul für Ident-Systeme zum Anschluss von 4 Readern, Digitaleingänge/-ausgänge,  V1.1"/>
+		  <Text TextId="IDT_InfoText_185C_13" Value="Kommunikationsmodul für Ident-Systeme zum Anschluss von einem Reader,  V1.3 "/>
+          <Text TextId="IDT_InfoText_186C_13" Value="Kommunikationsmodul für Ident-Systeme zum Anschluss von 2 Readern,  V1.3 "/>
+          <Text TextId="IDT_InfoText_188C_13" Value="Kommunikationsmodul für Ident-Systeme zum Anschluss von 4 Readern,  V1.3 "/>
+		  <Text TextId="IDT_InfoText_186CI_13" Value="Kommunikationsmodul für Ident-Systeme zum Anschluss von 2 Readern, Digitaleingänge/-ausgänge,  V1.3 "/>
+          <Text TextId="IDT_InfoText_188CI_13" Value="Kommunikationsmodul für Ident-Systeme zum Anschluss von 4 Readern, Digitaleingänge/-ausgänge,  V1.3 "/>
+		  <Text TextId="IDT_InfoText_185C_20" Value="Kommunikationsmodul für Ident-Systeme zum Anschluss von einem Reader,  V2.x "/>
+          <Text TextId="IDT_InfoText_186C_20" Value="Kommunikationsmodul für Ident-Systeme zum Anschluss von 2 Readern,  V2.x "/>
+          <Text TextId="IDT_InfoText_188C_20" Value="Kommunikationsmodul für Ident-Systeme zum Anschluss von 4 Readern,  V2.x "/>
+		  <Text TextId="IDT_InfoText_186CI_20" Value="Kommunikationsmodul für Ident-Systeme zum Anschluss von 2 Readern, Digitaleingänge/-ausgänge,  V2.x "/>
+          <Text TextId="IDT_InfoText_188CI_20" Value="Kommunikationsmodul für Ident-Systeme zum Anschluss von 4 Readern, Digitaleingänge/-ausgänge,  V2.x "/>
+          
+          <Text TextId="IDT_PARA_ALDEVICE" Value="Diagnosealarm am Gerät"/>
+      	  <Text TextId="IDT_PARA_DIIO_T" Value="IO-Modus"/> 
+          
+          <Text TextId="IDT_PARA_USER_MODE" Value="User Mode"/>
+          <Text TextId="IDT_PARA_MOBY_MODE" Value="MOBY Mode"/>
+          <Text TextId="IDT_PARA_BAUDRATE" Value="Übertragungsgeschwindigkeit"/>
+          <Text TextId="IDT_PARA_DIAG" Value="Diagnosemeldungen"/>
+          <!--  <Text TextId="IDT_PARA_STARTLED" Value="Unterdrückung Error-LED" /> -->
+          
+		  
+		  <Text TextId="IDT_DIDO_IN" Value="Digitaleingang"/>
+		  <Text TextId="IDT_DIDO_OUT" Value="Digitalausgang"/>
+		  <Text TextId="IDT_DIDO_IOLINK" Value="IO-Link"/>
+		  
+          <Text TextId="IDT_OFF" Value="Aus"/>
+          <Text TextId="IDT_ON" Value="An"/>          
+          
+          <Text TextId="IDT_FB45" Value="FB 45"/>
+          
+          
+          <Text TextId="IDT_PIB" Value="Ident-Profil/RFID-Normprofil"/>
+          <!--  <Text TextId="IDT_MOBYI" Value="MOBY I/E-Normaladressierung" />
+          <Text TextId="IDT_MOBYI_FH" Value="MOBY I-Filehandler" />  -->
+          <Text TextId="IDT_MOBYU" Value="RF200/RF300/RF600; MV400/MV500; MOBY U/D"/>
+		  <!-- <Text TextId="IDT_RF300G3" Value="RF300 G3 "/>  --> 	
+          <!--  <Text TextId="IDT_MOBYU_FH" Value="MOBY U-Filehandler" />
+		  <Text TextId="IDT_MOBY300_FH" Value="RF300-Filehandler" /> -->
+          
+          
+          <Text TextId="IDT_FREEPORT" Value="Freeport "/>
+          <Text TextId="IDT_19_2" Value="19.2 kBd"/>
+          <Text TextId="IDT_57_6" Value="57.6 kBd"/>
+          <Text TextId="IDT_115_2" Value="115.2 kBd"/>
+		  <Text TextId="IDT_921" Value="921.6 kBd"/> 
+		  <Text TextId="IDT_1M5" Value=" 1.5 MBd"/> 
+          <Text TextId="IDT_KEIN" Value="Keine"/>
+          <Text TextId="IDT_HARD" Value="Hard Errors"/>
+          <Text TextId="IDT_HARD_SOFT" Value="Hard/Soft Errors"/>         
+          <Text TextId="IDT_KEINE_ST" Value="Keine"/>
+          <Text TextId="IDT_KANAL_1" Value="Kanal 1"/>
+          <Text TextId="IDT_KANAL_2" Value="Kanal 2"/>
+          
+          <Text TextId="IDT_PARA_PARITY" Value="Parität"/>
+          <Text TextId="IDT_PARA_DATABITS" Value="Datenbits"/>
+          <Text TextId="IDT_PARA_STOPBITS" Value="Stopbits"/>
+          <Text TextId="IDT_PARA_INTERFACE" Value="Schnittstelle"/>
+          <Text TextId="IDT_PARA_ENDDETECTION" Value="Endeerkennung"/>
+          <Text TextId="IDT_PARA_NUMBEROFDELIMITER" Value="Anzahl Endezeichen"/>
+          <Text TextId="IDT_PARA_1STENDDELIMITER" Value="1. Endezeichen"/>
+          <Text TextId="IDT_PARA_2STENDDELIMITER" Value="2. Endezeichen"/>        
+          <Text TextId="IDT_PARA_DATALENGTH" Value="Telegrammlänge"/>
+		  <Text TextId="IDT_PARA_DELAYTIME" Value="Zeichenverzugszeit"/>  
+
+          <Text TextId="IDT_NO_PARITY" Value="Keine"/>
+          <Text TextId="IDT_EVEN" Value="Gerade"/>
+          <Text TextId="IDT_ODD" Value="Ungerade"/>
+          <Text TextId="IDT_FIX_1" Value="Fixwert 1"/>
+          <Text TextId="IDT_FIX_0" Value="Fixwert 0"/>
+          <Text TextId="IDT_DATABITS_7" Value="7"/>
+          <Text TextId="IDT_DATABITS_8" Value="8"/>
+          <Text TextId="IDT_STOPB_1" Value="1"/>
+          <Text TextId="IDT_STOPB_2" Value="2"/>
+          <Text TextId="IDT_INTERF_RS422" Value="RS422"/>
+          <Text TextId="IDT_INTERF_RS232" Value="RS232"/>
+          <Text TextId="IDT_END_DELIMITER" Value="Endezeichen"/>  
+		  <Text TextId="IDT_END_DATALENGTH" Value="Datenlänge"/> 
+		  <Text TextId="IDT_END_DELAYTIME" Value="Nach Ablauf Zeichenverzugszeit"/> 
+		  <Text TextId="IDT_NUMBOFDELIMITER_1" Value="1"/> 
+		  <Text TextId="IDT_NUMBOFDELIMITER_2" Value="2"/> 
+
+          <Text TextId="IDT_HLP_END_DELIMITER" Value="Wert für Endezeichen"/>
+          <Text TextId="IDT_HLP_DATALEN" Value="Wert für Datenlänge"/>
+          <Text TextId="IDT_HLP_DELAY_TIME" Value="Wert für Pausenzeit"/>
+          
+          <!--<Text TextId="IDT_Diagostics_RF600R" Value="Diagnose RF600R: " />
+          <Text TextId="IDT_NOERROR" Value="Kein Fehler" />
+          <Text TextId="IDT_COMMERROR" Value="Verbindungsfehler zur Antenne" />
+          <Text TextId="IDT_FATAL" Value="Fataler Fehler" />
+          <Text TextId="IDT_HWERROR" Value="Hardware Fehler" />
+          <Text TextId="IDT_DOWNLOADACTIV" Value="Download aktiv" />
+          <Text TextId="IDT_DOWNLOADREADY" Value="Download fertig" />
+          <Text TextId="IDT_DOWNLOADERROR" Value="Download Fehler" />  -->
+          <Text TextId="IDT_DIAG_ERR_1_1" Value="Transponder-Speicherfehler"/>
+          <Text TextId="IDT_DIAG_ERR_1_2" Value="Transponder-Anwesenheitsfehler"/>
+          <Text TextId="IDT_DIAG_ERR_1_3" Value="Transponder-Adresse oder -Befehl für diesen Transponder-Typ nicht vorhanden"/>
+          <Text TextId="IDT_DIAG_ERR_1_4" Value="Transponder ist defekt"/>
+          <Text TextId="IDT_DIAG_ERR_1_5" Value="Transponder-Speicherüberlauf"/>
+          <Text TextId="IDT_DIAG_ERR_1_6" Value="Transponder ohne Formatierung"/>
+          <Text TextId="IDT_DIAG_ERR_1_7" Value="Transponder-Datenstruktur nicht konsistent"/>
+          <Text TextId="IDT_DIAG_ERR_1_8" Value="Transponder hat nicht die erwartete ID"/>
+          <Text TextId="IDT_DIAG_ERR_1_9" Value="Transponder-Kommando wird nicht unterstützt"/>
+          <Text TextId="IDT_DIAG_ERR_1_10" Value="Transponder-Zugriffsverletzung"/>          
+          <Text TextId="IDT_DIAG_ERR_1_129" Value="Transponder antwortet nicht"/> 
+          <Text TextId="IDT_DIAG_ERR_1_130" Value="Transponder-Zugriff wegen falschen Passwort fehlgeschlagen"/> 
+          <Text TextId="IDT_DIAG_ERR_1_131" Value="Transponder-Datenverifizierung fehlgeschlagen"/> 
+          <Text TextId="IDT_DIAG_ERR_1_132" Value="Transponder meldet unbekannten Fehler"/> 
+          <Text TextId="IDT_DIAG_ERR_1_133" Value="Transponder hat nicht ausreichend Energie"/>           
+          <Text TextId="IDT_DIAG_ERR_2_1" Value="HF-Feld-Kommunikation gestoert"/>
+          <Text TextId="IDT_DIAG_ERR_2_2" Value="HF-Feld mit mehr Transponder als zulässig"/>          
+          <Text TextId="IDT_DIAG_ERR_2_129" Value="HF-Feld ohne Transponder "/>
+          <Text TextId="IDT_DIAG_ERR_2_130" Value="HF-Feld: Die geforderten Daten stehen nicht zur Verfügung."/>
+          <Text TextId="IDT_DIAG_ERR_2_131" Value="HF-Feld: CRC-Fehler"/>
+          <Text TextId="IDT_DIAG_ERR_2_133" Value="HF-Feld ohne aktive Frequenz"/>
+          <Text TextId="IDT_DIAG_ERR_2_134" Value="HF-Feld ohne aktiven Träger"/>
+          <Text TextId="IDT_DIAG_ERR_2_135" Value="HF-Feld mit mehr als einem Transponder"/>
+          <Text TextId="IDT_DIAG_ERR_2_136" Value="HF-Feld mit unbekanntem Fehler im Funkprofil"/>          
+          <!-- no filehandler support  <Text TextId="IDT_DIAG_ERR_3_1" Value="Datei mit falschem Namen"/>
+          <Text TextId="IDT_DIAG_ERR_3_2" Value="Datei nicht vorhanden"/>
+          <Text TextId="IDT_DIAG_ERR_3_3" Value="Dateiverzeichnis für diesen Transponder-Typ nicht verfügbar"/>
+          <Text TextId="IDT_DIAG_ERR_3_4" Value="Dateieinträge ausgeschöpft"/>
+          <Text TextId="IDT_DIAG_ERR_3_5" Value="Datei ist bereits vorhanden."/>
+          <Text TextId="IDT_DIAG_ERR_3_6" Value="Dateizugriffsverletzung "/>
+          <Text TextId="IDT_DIAG_ERR_3_7" Value="Dateilängenüberlauf "/>
+          <Text TextId="IDT_DIAG_ERR_3_8" Value="Datei nicht zugänglich "/>  -->
+          <Text TextId="IDT_DIAG_ERR_4_1" Value="Gerät: Betriebsspannung auserhalb der Toleranz"/>
+          <Text TextId="IDT_DIAG_ERR_4_2" Value="Gerät-Hardwarefehler "/>
+          <Text TextId="IDT_DIAG_ERR_4_3" Value="Gerät: Drahtbruch oder Antenne nicht eingeschaltet "/>
+          <Text TextId="IDT_DIAG_ERR_4_4" Value="Gerät: Überlauf des Befehlspuffers "/>
+          <Text TextId="IDT_DIAG_ERR_4_5" Value="Gerät: Überlauf des Datenpuffers "/>
+          <Text TextId="IDT_DIAG_ERR_4_6" Value="Gerät: Befehl in diesem Stadium nicht möglich "/>
+          <Text TextId="IDT_DIAG_ERR_4_7" Value="Gerät: Fehler bezüglich zyklischen Statuswortes "/>
+          <Text TextId="IDT_DIAG_ERR_4_138" Value="Gerät mit unbekanntem Fehler "/>
+          <Text TextId="IDT_DIAG_ERR_4_139" Value="Gerät hat falsche oder fehlende Konfigurationsdaten "/>
+          <Text TextId="IDT_DIAG_ERR_4_140" Value="Gerät hat Kommunikationsfehler zum Funktionsbaustein "/>
+          <Text TextId="IDT_DIAG_ERR_4_141" Value="Gerät hat Firmware-Fehler "/>
+          <Text TextId="IDT_DIAG_ERR_4_142" Value="Gerät hat internen Kommunikationsfehler "/>
+          <Text TextId="IDT_DIAG_ERR_5_1" Value="Kommunikationsfehler: falsche Sequenznummer "/>
+          <Text TextId="IDT_DIAG_ERR_5_4" Value="Kommunikationsfehler: ungültige Datenblocknummer "/>
+          <Text TextId="IDT_DIAG_ERR_5_6" Value="Kommunikationsfehler: falsche Datenblocklänge "/>
+          <Text TextId="IDT_DIAG_ERR_5_8" Value="Kommunikationsfehler: Befehl von anderer Stelle wird ausgeführt. "/>
+          <Text TextId="IDT_DIAG_ERR_6_1" Value="Befehl ungültig "/>
+          <Text TextId="IDT_DIAG_ERR_6_2" Value="Befehlsindex ungültig "/>
+          <Text TextId="IDT_DIAG_ERR_6_3" Value="Befehlsparameter ungültig "/>
+          <Text TextId="IDT_DIAG_ERR_6_4" Value="Befehl mit falscher Synchronisierung zwischen Anwendung und Transponder "/>
+          <Text TextId="IDT_DIAG_ERR_6_5" Value="Befehl kann in diesem Stadium nur als WRITE-CONFIG ausgeführt werden. "/>                
+          <Text TextId="IDT_DIAG_ERR_6_134" Value="Inventory-Befehl fehlgeschlagen "/> 
+          <Text TextId="IDT_DIAG_ERR_6_135" Value="Read-Tag-Befehl fehlgeschlagen "/>  
+          <Text TextId="IDT_DIAG_ERR_6_136" Value="Write-Tag-Befehl fehlgeschlagen "/>  
+          <Text TextId="IDT_DIAG_ERR_6_137" Value="Write-TagID-Befehl fehlgeschlagen "/>  
+          <Text TextId="IDT_DIAG_ERR_6_138" Value="Lock-Tag-Befehl fehlgeschlagen "/>  
+          <Text TextId="IDT_DIAG_ERR_6_139" Value="Kill-Tag-Befehl fehlgeschlagen "/>          
+          <Text TextId="IDT_DIAG_ANT_1_NOCON" Value="Antenne 1 nicht verbunden "/> 
+          <Text TextId="IDT_DIAG_ANT_2_NOCON" Value="Antenne 2 nicht verbunden "/> 
+          <Text TextId="IDT_DIAG_ANT_3_NOCON" Value="Antenne 3 nicht verbunden "/> 
+          <Text TextId="IDT_DIAG_ANT_4_NOCON" Value="Antenne 4 nicht verbunden "/> 
+          <Text TextId="IDT_DIAG_ANT_5_NOCON" Value="Antenne 5 nicht verbunden "/> 
+          <Text TextId="IDT_DIAG_ANT_6_NOCON" Value="Antenne 6 nicht verbunden "/> 
+          <Text TextId="IDT_DIAG_ANT_7_NOCON" Value="Antenne 7 nicht verbunden "/> 
+          <Text TextId="IDT_DIAG_ANT_8_NOCON" Value="Antenne 8 nicht verbunden "/> 
+          <Text TextId="IDT_DIAG_ANT_1_WRGVERS" Value="Antenne 1: Antennentyp oder -version falsch"/> 
+          <Text TextId="IDT_DIAG_ANT_2_WRGVERS" Value="Antenne 2: Antennentyp oder -version falsch"/> 
+          <Text TextId="IDT_DIAG_ANT_3_WRGVERS" Value="Antenne 3: Antennentyp oder -version falsch"/> 
+          <Text TextId="IDT_DIAG_ANT_4_WRGVERS" Value="Antenne 4: Antennentyp oder -version falsch"/> 
+          <Text TextId="IDT_DIAG_ALRM_OVERFL" Value="Alarmpuffer-Überlauf "/>         
+          <Text TextId="IDT_HLP_ERR_1_1" Value="Befehl wiederholen, gegebenenfalls Transponder austauschen "/>
+          <Text TextId="IDT_HLP_ERR_1_2" Value="Antennenfeldeinstellungen ueberprüfen, bzw. Durchfahrgeschwindigkeit des Transponder reduzieren."/>
+          <Text TextId="IDT_HLP_ERR_1_3" Value="Adresse ändern oder anderen Transponder-Typ verwenden."/>
+          <Text TextId="IDT_HLP_ERR_1_4" Value="Transponder ersetzen."/>
+          <Text TextId="IDT_HLP_ERR_1_5" Value="Transponder mit grösserem Speicher verwenden."/>
+          <Text TextId="IDT_HLP_ERR_1_6" Value="Transponder initialisieren."/>
+          <Text TextId="IDT_HLP_ERR_1_7" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_1_8" Value="EPC-ID ändern oder Transponder-Folge korrigieren."/>
+          <Text TextId="IDT_HLP_ERR_1_9" Value="Entsprechenden Transponder verwenden z.B. beschreibbaren Transponder verwenden."/>
+                       
+          <Text TextId="IDT_HLP_ERR_1_129" Value=" "/> 
+          <Text TextId="IDT_HLP_ERR_1_130" Value="Passwort im Befehl korrigieren. "/> 
+          <Text TextId="IDT_HLP_ERR_1_131" Value=" "/> 
+          <Text TextId="IDT_HLP_ERR_1_132" Value=" "/> 
+          <Text TextId="IDT_HLP_ERR_1_133" Value=" "/>           
+          <Text TextId="IDT_HLP_ERR_2_1" Value="Antennenfeldeinstellungen korrigieren bzw. Antennenausrichtung und Transponder-Positionierung neu einstellen."/>
+          <Text TextId="IDT_HLP_ERR_2_2" Value="Handhabung der Transponder überprüfen, bzw. Abstand der Antennen oder der Transponder zueinander vergrössern. Feldreflektionen vermeiden."/>          
+          <Text TextId="IDT_HLP_ERR_2_129" Value="Inventory-Befehl benutzen um Transponder im Antennenfeld festzustellen "/>
+          <Text TextId="IDT_HLP_ERR_2_130" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_2_131" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_2_133" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_2_134" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_2_135" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_2_136" Value=" "/>          
+          <!-- no filehandler support  <Text TextId="IDT_HLP_ERR_3_1" Value="Korrekten Dateinamen verwenden."/>
+          <Text TextId="IDT_HLP_ERR_3_2" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_3_3" Value="Betriebsart wechseln oder anderen Transponder-Typ verwenden."/>
+          <Text TextId="IDT_HLP_ERR_3_4" Value="Transponder mit grösserem Speicher verwenden."/>
+          <Text TextId="IDT_HLP_ERR_3_5" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_3_6" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_3_7" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_3_8" Value=" "/> -->
+          <Text TextId="IDT_HLP_ERR_4_1" Value="Überprüfen der Spannungsversorgung, der Verdrahtung sowie der Stecker"/>
+          <Text TextId="IDT_HLP_ERR_4_2" Value="Spannung aus- und einschalten, gegebenenfalls Gerät tauschen."/>
+          <Text TextId="IDT_HLP_ERR_4_3" Value="Reader-Stecker, Spannungsversorgung bzw. Verdrahtung überprüfen. Prüfen ob Antenne eingeschalten werden muss."/>
+          <Text TextId="IDT_HLP_ERR_4_4" Value="Anzahl der hintereinander verketteten Befehle reduzieren."/>
+          <Text TextId="IDT_HLP_ERR_4_5" Value="Quittungen schneller vom Reader abholen. Befehle mit weniger Daten in der Quittung aufsetzen."/>
+          <Text TextId="IDT_HLP_ERR_4_6" Value="Reader-Einstellungen anpassen oder anderen Befehl verwenden."/>
+          <Text TextId="IDT_HLP_ERR_4_7" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_4_138" Value=" "/>
+          <Text TextId="IDT_HLP_ERR_4_139" Value="Konfiguration oder übertragene Parameter überprüfen."/>
+          <Text TextId="IDT_HLP_ERR_4_140" Value="Datensatzkommunikation überprüfen, möglicherweise ist der Index falsch."/>
+          <Text TextId="IDT_HLP_ERR_4_141" Value="Reader-Firmware aktualisieren"/>
+          <Text TextId="IDT_HLP_ERR_4_142" Value="Reader-Firmware aktualisieren"/>
+          <Text TextId="IDT_HLP_ERR_5_1" Value="WRITE-CONFIG-Befehl ausführen "/>
+          <Text TextId="IDT_HLP_ERR_5_4" Value="WRITE-CONFIG-Befehl ausführen "/>
+          <Text TextId="IDT_HLP_ERR_5_6" Value="Prüfen ob die Datenlänge des Befehls in der Applikation stimmt."/>
+          <Text TextId="IDT_HLP_ERR_5_8" Value="Gleichzeitiges Arbeiten mit dem Reader von anderen Stellen vermeiden."/>
+          <Text TextId="IDT_HLP_ERR_6_1" Value="Nur Befehle verwenden, die der Reader verarbeiten kann."/>
+          <Text TextId="IDT_HLP_ERR_6_2" Value="Nur Befehle verwenden, die der Reader verarbeiten kann."/>
+          <Text TextId="IDT_HLP_ERR_6_3" Value="Befehlsparameter berichtigen."/>
+          <Text TextId="IDT_HLP_ERR_6_4" Value="Befehls- oder Transponder-Folge überprüfen"/>
+          <Text TextId="IDT_HLP_ERR_6_5" Value="WRITE-CONFIG-Befehl ausführen."/>  
+          <Text TextId="IDT_HLP_ERR_6_134" Value=" "/> 
+          <Text TextId="IDT_HLP_ERR_6_135" Value=" "/>  
+          <Text TextId="IDT_HLP_ERR_6_136" Value=" "/>  
+          <Text TextId="IDT_HLP_ERR_6_137" Value=" "/>  
+          <Text TextId="IDT_HLP_ERR_6_138" Value=" "/>  
+          <Text TextId="IDT_HLP_ERR_6_139" Value=" "/>            
+          <Text TextId="IDT_HLP_ANT_1_NOCON" Value=" "/> 
+          <Text TextId="IDT_HLP_ANT_2_NOCON" Value=" "/> 
+          <Text TextId="IDT_HLP_ANT_3_NOCON" Value=" "/> 
+          <Text TextId="IDT_HLP_ANT_4_NOCON" Value=" "/> 
+          <Text TextId="IDT_HLP_ANT_5_NOCON" Value=" "/> 
+          <Text TextId="IDT_HLP_ANT_6_NOCON" Value=" "/> 
+          <Text TextId="IDT_HLP_ANT_7_NOCON" Value=" "/> 
+          <Text TextId="IDT_HLP_ANT_8_NOCON" Value=" "/>   
+          <Text TextId="IDT_HLP_ANT_1_WRGVERS" Value=" "/>   
+          <Text TextId="IDT_HLP_ANT_2_WRGVERS" Value=" "/>   
+          <Text TextId="IDT_HLP_ANT_3_WRGVERS" Value=" "/>   
+          <Text TextId="IDT_HLP_ANT_4_WRGVERS" Value=" "/>            
+          <Text TextId="IDT_HLP_ALRM_OVERFL" Value=" "/>           
+        </Language>        
+      </ExternalTextList>
+    </ApplicationProcess>
+  </ProfileBody>
+</ISO15745Profile>

@@ -24,8 +24,6 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             SLOT 				:   WORD    :=  WORD#16#02;  		//Slot number  
             SUB_SLOT 			:   WORD    :=  WORD#16#01; 		//Subslot number 
             CM_CHANNEL 			:   UINT    :=  UINT#1; 		    //channel of communication module	
-            STATUS_WORD         :   WORD; 					        //status word cyclic data -> link to input word of device
-            CONTROL_WORD        :   WORD; 					        //control word cyclic data -> link to output word of device
             Static              :   Axo_IID_IN_SYNC; 
         END_VAR
     END_CLASS
