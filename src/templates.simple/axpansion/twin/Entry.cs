@@ -1,4 +1,5 @@
-﻿// ixsharpblazor
+﻿#define WEBAPI_3_1
+// ixsharpblazor
 // Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
 // Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
@@ -28,8 +29,14 @@ namespace axosimple
         
         private const bool IgnoreSslErrors = true; // <- When you have your certificates in order set this to false.
 
+        // public static axosimpleTwinController Plc { get; } 
+        //     = new (ConnectorAdapterBuilder.Build()
+        //         .CreateWebApi(TargetIp, UserName, Pass, IgnoreSslErrors));
+        
+        
         public static axosimpleTwinController Plc { get; } 
             = new (ConnectorAdapterBuilder.Build()
-                .CreateWebApi(TargetIp, UserName, Pass, IgnoreSslErrors));
+                .CreateWebApi(TargetIp, "Anonymous", string.Empty, IgnoreSslErrors));
     }
+    
 }
