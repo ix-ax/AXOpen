@@ -1,4 +1,4 @@
-﻿@page "/Context/Units/StarterUnitTemplate"
+﻿@page "/Context/StarterUnitTemplate"
 @using AXOpen.Base.Dialogs;
 @using AXOpen.ToolBox.Extensions
 @using AXOpen.VisualComposer;
@@ -45,7 +45,7 @@
 
 @code
 {
-    private StarterUnitTemplateServices Services => Entry.Plc.Context.StarterUnitTemplate.Services;
+    private UnitServices Services => Entry.Plc.Context.StarterUnitTemplate.Services;
     private axosimple.StarterUnitTemplate.Unit Unit => Entry.Plc.Context.StarterUnitTemplate;
 }
     

@@ -1,7 +1,6 @@
-﻿using System.Runtime.CompilerServices;
-using AXOpen.Base.Data;
+﻿using AXOpen.Base.Data;
+using AXOpen.Data.MongoDb;
 using AXOpen.Messaging.Static;
-using axosimple;
 using axosimple.server.Units;
 using AXSharp.Connector;
 
@@ -10,12 +9,12 @@ namespace axosimple.StarterUnitTemplate
 {
     public partial class Unit
     {
-        public StarterUnitTemplateServices Services { get; set; } 
+        public UnitServices Services { get; set; } 
     }
     
-    public class StarterUnitTemplateServices : IUnitServices
+    public class UnitServices : IUnitServices
     {
-        private StarterUnitTemplateServices(ContextService contextService)
+        private UnitServices(ContextService contextService)
         {
             _contextService = contextService;
         }
@@ -76,36 +75,64 @@ namespace axosimple.StarterUnitTemplate
         /// <summary>
         /// repository - settings connected with technology not with procuction process
         /// </summary>
-        public IRepository<Pocos.axosimple.StarterUnitTemplate.TechnologyData> TechnologySettingsRepository { get; private set; }
+        public IRepository<Pocos.axosimple.StarterUnitTemplate.TechnologyData> TechnologySettingsRepository { get; } 
+            = AXOpen.Data.MongoDb.Repository.Factory<Pocos.axosimple.StarterUnitTemplate.TechnologyData>(
+                new MongoDbRepositorySettings<Pocos.axosimple.StarterUnitTemplate.TechnologyData>(
+                    ContextService.DataBaseConnectionString, ContextService.DataBaseName, "StarterUnitTemplate_TechnologySettings"));
 
         /// <summary>
         /// repository - settings connected with specific recepie
         /// </summary>
-        public IRepository<Pocos.axosimple.StarterUnitTemplate.ProcessData> ProcessSettingsRepository { get; private set; }
+        public IRepository<Pocos.axosimple.StarterUnitTemplate.ProcessData> ProcessSettingsRepository { get; } 
+            = AXOpen.Data.MongoDb.Repository.Factory<Pocos.axosimple.StarterUnitTemplate.ProcessData>(
+                new MongoDbRepositorySettings<Pocos.axosimple.StarterUnitTemplate.ProcessData>(ContextService.DataBaseConnectionString, ContextService.DataBaseName, "StarterUnitTemplate_ProcessSettings"));
 
         /// <summary>
         /// repository - data connected with specific part or piece in production/technology
         /// </summary>
-        public IRepository<Pocos.axosimple.StarterUnitTemplate.ProcessData> ProcessDataRepository { get; private set; }
-        
-        
-        public static StarterUnitTemplateServices Create(ContextService contextService)
+        public IRepository<Pocos.axosimple.StarterUnitTemplate.ProcessData> ProcessDataRepository { get; } 
+            = AXOpen.Data.MongoDb.Repository.Factory<Pocos.axosimple.StarterUnitTemplate.ProcessData>(new MongoDbRepositorySettings<Pocos.axosimple.StarterUnitTemplate.ProcessData>(ContextService.DataBaseConnectionString, ContextService.DataBaseName, "StarterUnitTemplate_ProcessData"));
+
+
+        public static UnitServices Create(ContextService contextService)
         {
-            var retVal = new StarterUnitTemplateServices(contextService);
+            var retVal = new UnitServices(contextService);
             retVal.Unit.UnitServices = retVal;
+            retVal.SetUnitsData();
             return retVal;
         }
 
-        public StarterUnitTemplateServices SetUnitsData(
-            IRepository<Pocos.axosimple.StarterUnitTemplate.TechnologyData> technologySettingsRepository,
-            IRepository<Pocos.axosimple.StarterUnitTemplate.ProcessData> processSettingsRepository,
-            IRepository<Pocos.axosimple.StarterUnitTemplate.ProcessData> processDataRepository
-            )
-        {
-            TechnologySettingsRepository    = technologySettingsRepository;
-            ProcessSettingsRepository       = processSettingsRepository;
-            ProcessDataRepository           = processDataRepository;
+        // public StarterUnitTemplateServices SetUnitsData(
+        //     IRepository<Pocos.axosimple.StarterUnitTemplate.TechnologyData> technologySettingsRepository,
+        //     IRepository<Pocos.axosimple.StarterUnitTemplate.ProcessData> processSettingsRepository,
+        //     IRepository<Pocos.axosimple.StarterUnitTemplate.ProcessData> processDataRepository
+        //     )
+        // {
+        //     TechnologySettingsRepository    = technologySettingsRepository;
+        //     ProcessSettingsRepository       = processSettingsRepository;
+        //     ProcessDataRepository           = processDataRepository;
+        //
+        //     // initialize partial repositories in global context
+        //     _contextService.TechnologySettings.StarterUnitTemplate.InitializeRemoteDataExchange(TechnologySettingsRepository);
+        //     _contextService.ProcessSettings.StarterUnitTemplate.InitializeRemoteDataExchange(ProcessSettingsRepository);
+        //     _contextService.ProcessData.StarterUnitTemplate.InitializeRemoteDataExchange(ProcessDataRepository);
+        //     
+        //     // initialize unit process data manager
+        //     StarterUnitProcessDataManager.Shared.InitializeRemoteDataExchange(_contextService.EntityDataRepository);
+        //     StarterUnitProcessDataManager.DataManger.InitializeRemoteDataExchange(ProcessDataRepository);
+        //     StarterUnitProcessDataManager.InitializeRemoteDataExchange();
+        //     
+        //     // initialize unit technology data manager
+        //     StarterUnitTechnologyDataManager.Shared.InitializeRemoteDataExchange(_contextService.TechnologyCommonRepository);
+        //     StarterUnitTechnologyDataManager.DataManger.InitializeRemoteDataExchange(TechnologySettingsRepository);
+        //     StarterUnitTechnologyDataManager.InitializeRemoteDataExchange();
+        //
+        //     return this;
+        //
+        // }
 
+        private UnitServices SetUnitsData()
+        {
             // initialize partial repositories in global context
             _contextService.TechnologySettings.StarterUnitTemplate.InitializeRemoteDataExchange(TechnologySettingsRepository);
             _contextService.ProcessSettings.StarterUnitTemplate.InitializeRemoteDataExchange(ProcessSettingsRepository);
@@ -124,8 +151,8 @@ namespace axosimple.StarterUnitTemplate
             return this;
 
         }
-
-        public string Link => "Context/Units/StarterUnitTemplate";
+        
+        public string Link => "Context/StarterUnitTemplate";
 
         public string ImageLink => "logo-header.svg";
     }

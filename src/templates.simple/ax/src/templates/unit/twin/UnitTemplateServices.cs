@@ -1,20 +1,19 @@
 ﻿using AXOpen.Base.Data;
+using AXOpen.Data.MongoDb;
 using AXOpen.Messaging.Static;
-using axosimple;
 using axosimple.server.Units;
-using axosimple.StarterUnitTemplate;
 using AXSharp.Connector;
 
 namespace axosimple.UnitTemplate
 {
     public partial class Unit
     {
-        public UnitTemplateServices Services { get; set; } 
+        public UnitServices Services { get; set; } 
     }
     
-    public class UnitTemplateServices : IUnitServices     
+    public class UnitServices : IUnitServices     
     {
-        private UnitTemplateServices(ContextService contextService)
+        private UnitServices(ContextService contextService)
         {
             _contextService = contextService;
         }
@@ -73,39 +72,38 @@ namespace axosimple.UnitTemplate
         
         private ContextService _contextService { get; }
 
-          /// <summary>
+        /// <summary>
         /// repository - settings connected with technology not with procuction process
         /// </summary>
-        public IRepository<Pocos.axosimple.UnitTemplate.TechnologyData> TechnologySettingsRepository { get; private set; }
+        public IRepository<Pocos.axosimple.UnitTemplate.TechnologyData> TechnologySettingsRepository { get; } 
+            = AXOpen.Data.MongoDb.Repository.Factory<Pocos.axosimple.UnitTemplate.TechnologyData>(
+                new MongoDbRepositorySettings<Pocos.axosimple.UnitTemplate.TechnologyData>(ContextService.DataBaseConnectionString, ContextService.DataBaseName, "UnitTemplate_TechnologySettings"));
 
         /// <summary>
         /// repository - settings connected with specific recepie
         /// </summary>
-        public IRepository<Pocos.axosimple.UnitTemplate.ProcessData> ProcessSettingsRepository { get; private set; }
+        public IRepository<Pocos.axosimple.UnitTemplate.ProcessData> ProcessSettingsRepository { get; } 
+            = AXOpen.Data.MongoDb.Repository.Factory<Pocos.axosimple.UnitTemplate.ProcessData>(
+                new MongoDbRepositorySettings<Pocos.axosimple.UnitTemplate.ProcessData>(ContextService.DataBaseConnectionString, ContextService.DataBaseName, "UnitTemplate_ProcessSettings"));
 
         /// <summary>
         /// repository - data connected with specific part or piece in production/technology
         /// </summary>
-        public IRepository<Pocos.axosimple.UnitTemplate.ProcessData> ProcessDataRepository { get; private set; }
+        public IRepository<Pocos.axosimple.UnitTemplate.ProcessData> ProcessDataRepository { get; } 
+            = AXOpen.Data.MongoDb.Repository.Factory<Pocos.axosimple.UnitTemplate.ProcessData>(
+                new MongoDbRepositorySettings<Pocos.axosimple.UnitTemplate.ProcessData>(ContextService.DataBaseConnectionString, ContextService.DataBaseName, "UnitTemplate_ProcessData"));
 
 
-        public static UnitTemplateServices Create(ContextService contextService)
+        public static UnitServices Create(ContextService contextService)
         {
-            var retVal = new UnitTemplateServices(contextService);
+            var retVal = new UnitServices(contextService);
             retVal.Unit.UnitServices = retVal;
+            retVal.SetUnitsData();
             return retVal;
         }
 
-        public UnitTemplateServices SetUnitsData(
-            IRepository<Pocos.axosimple.UnitTemplate.TechnologyData> technologySettingsRepository,
-            IRepository<Pocos.axosimple.UnitTemplate.ProcessData> processSettingsRepository,
-            IRepository<Pocos.axosimple.UnitTemplate.ProcessData> processDataRepository
-            )
+        private void SetUnitsData()
         {
-            TechnologySettingsRepository    = technologySettingsRepository;
-            ProcessSettingsRepository       = processSettingsRepository;
-            ProcessDataRepository           = processDataRepository;
-
             // initialize partial repositories in global context
             _contextService.TechnologySettings.UnitTemplate.InitializeRemoteDataExchange(TechnologySettingsRepository);
             _contextService.ProcessSettings.UnitTemplate.InitializeRemoteDataExchange(ProcessSettingsRepository);
@@ -120,11 +118,9 @@ namespace axosimple.UnitTemplate
             UnitTechnologyDataManager.Shared.InitializeRemoteDataExchange(_contextService.TechnologyCommonRepository);
             UnitTechnologyDataManager.DataManger.InitializeRemoteDataExchange(TechnologySettingsRepository);
             UnitTechnologyDataManager.InitializeRemoteDataExchange();
-
-            return this;
         }
         
-        public string Link => "Context/Units/UnitTemplate";
+        public string Link => "Context/UnitTemplate";
         
         public string ImageLink => "logo-axopen-no-background.svg";
     }
