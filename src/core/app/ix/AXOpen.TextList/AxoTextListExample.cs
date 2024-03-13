@@ -6,20 +6,20 @@ namespace AxoTextListExample
     public partial class AxoTextListExampleContext : AXOpen.Core.AxoContext
     {
         //<DeclarationOfTheDictionary>
-        Dictionary<uint, string> textList = new Dictionary<uint, string>();
+        Dictionary<ulong, string> textList = new Dictionary<ulong, string>();
         //</DeclarationOfTheDictionary>
         public string TextList
         {
             get
             {
                 //<FillingTheItemsOfTheDictionary>
-                if (textList == null) { textList = new Dictionary<uint, string>(); }
+                if (textList == null) { textList = new Dictionary<ulong, string>(); }
                 if (textList.Count == 0)
                 {
                     textList.Add(0, "   ");
                     for (int i = 1; i < 1000; i++)
                     {
-                        textList.Add((uint)i, "Text list item : " + i.ToString());
+                        textList.Add((ulong)i, "Text list item : " + i.ToString());
                     }
                 }
                 //</FillingTheItemsOfTheDictionary>
@@ -37,18 +37,18 @@ namespace AxoTextListExample
             }
         }
 
-        Dictionary<uint, string> differentTextList = new Dictionary<uint, string>();
+        Dictionary<ulong, string> differentTextList = new Dictionary<ulong, string>();
         public string DifferentTextList
         {
             get
             {
-                if (differentTextList == null) { differentTextList = new Dictionary<uint, string>(); }
+                if (differentTextList == null) { differentTextList = new Dictionary<ulong, string>(); }
                 if (differentTextList.Count == 0)
                 {
                     differentTextList.Add(0, "   ");
                     for (int i = 1; i < 1000; i++)
                     {
-                        differentTextList.Add((uint)i, "Item from the totally different text list : " + i.ToString());
+                        differentTextList.Add((ulong)i, "Item from the totally different text list : " + i.ToString());
                     }
 
                 }
