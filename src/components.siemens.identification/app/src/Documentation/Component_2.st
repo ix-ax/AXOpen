@@ -6,7 +6,7 @@ USING System.Strings;
 CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
     //<ComponentDeclaration>
     VAR PUBLIC                
-        ExampleReader : AXOpen.Components.SIEM.Identification.AxoIOLink_RF200Device;          
+        IOlinkReader : AXOpen.Components.SIEM.Identification.AxoIOLink_RF200Device;          
     END_VAR
     //</ComponentDeclaration>                          
 
@@ -25,12 +25,12 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
         THIS.Initialize(parent);
 
         IF ActivateManualControl THEN
-            ExampleReader.ActivateManualControl();
+            IOlinkReader.ActivateManualControl();
         END_IF;
 
         //<Initialization>        
 
-        ExampleReader.Run(  parent      :=  THIS,
+        IOlinkReader.Run(  parent      :=  THIS,
                             HW_ID       :=  HwIdentifiers#ET200SP_CM_4xIO_Link_V2_2_144I_128O_1, 
                             portAddr    :=  INT#0,
                             version     :=  USINT#11);
@@ -56,18 +56,18 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
         
         IF(Steps[0].Execute(Sequencer, 'Restore')) THEN
             ActivateManualControl := FALSE;
-            ExampleReader.Restore();
+            IOlinkReader.Restore();
             Sequencer.MoveNext();      
         END_IF;
 
         IF(Steps[1].Execute(Sequencer, 'Write Tag')) THEN
-            IF(ExampleReader.WriteTag(WriteData,WORD#0).IsDone()) THEN                
+            IF(IOlinkReader.WriteTag(WriteData,WORD#0).IsDone()) THEN                
                 Sequencer.MoveNext();                
             END_IF;    
         END_IF;       
 
         IF(Steps[2].Execute(Sequencer, 'Read Tag')) THEN
-            IF(ExampleReader.ReadTag(WORD#0,TO_WORD(LengthOf(WriteData)),ReadData).IsDone()) THEN                
+            IF(IOlinkReader.ReadTag(WORD#0,TO_WORD(LengthOf(WriteData)),ReadData).IsDone()) THEN                
                 Sequencer.MoveNext();                
             END_IF;    
         END_IF;       
@@ -80,7 +80,7 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
 
         IF(Steps[4].Execute(Sequencer, 'Restore')) THEN
             ActivateManualControl := FALSE;
-            ExampleReader.Restore();
+            IOlinkReader.Restore();
             Sequencer.MoveNext();      
         END_IF;
 

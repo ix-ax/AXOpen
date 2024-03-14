@@ -825,10 +825,10 @@ NAMESPACE AXOpen.Components.SIEM.Identification
         ///</summary>
         METHOD PUBLIC Read : IAxoTaskState
             VAR_INPUT
-                Data            :   REF_TO AxoByteArray256;
                 Address         :   DWORD;
                 NumberOfBytes   :   WORD;
                 BufferOffset    :   UINT;
+                Data            :   REF_TO AxoByteArray256;
             END_VAR
             VAR
                 _i              :   INT;

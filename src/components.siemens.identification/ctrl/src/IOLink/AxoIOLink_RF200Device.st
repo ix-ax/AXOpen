@@ -63,8 +63,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
         END_VAR
 
         VAR PUBLIC //HEADER
-            {#ix-attr:[ComponentHeader()]}
-            Debug   :   ULINT;
+
         END_VAR
 
         VAR PUBLIC //Tasks
