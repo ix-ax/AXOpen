@@ -14,11 +14,9 @@ using AXSharp.Connector;
 using AXSharp.Presentation.Blazor.Services;
 using Serilog;
 using System.Reflection;
-using axosimple.StarterUnitTemplate;
-using axosimple.UnitTemplate;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson.Serialization;
-using UnitServices = axosimple.UnitTemplate.UnitServices;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -58,9 +56,8 @@ AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfi
 
 Entry.Plc.ContextLogger.StartDequeuing(AxoApplication.Current.Logger, 250);
 
-
-Entry.Plc.Context.StarterUnitTemplate.Services = axosimple.StarterUnitTemplate.UnitServices.Create(ContextService.Instance);
-Entry.Plc.Context.UnitTemplate.Services = UnitServices.Create(ContextService.Instance);
+axosimple.StarterUnitTemplate.UnitServices.Create(ContextService.Instance);
+axosimple.UnitTemplate.UnitServices.Create(ContextService.Instance);
 
 // Clean Temp directory
 IAxoDataExchange.CleanUp();

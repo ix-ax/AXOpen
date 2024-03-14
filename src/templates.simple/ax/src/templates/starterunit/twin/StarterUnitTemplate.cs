@@ -9,7 +9,7 @@ namespace axosimple.StarterUnitTemplate
 {
     public partial class Unit
     {
-        public UnitServices Services { get; set; } 
+        public UnitServices Services { get; } 
     }
     
     public class UnitServices : IUnitServices
