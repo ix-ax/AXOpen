@@ -55,6 +55,8 @@ namespace AXOpen.Messaging.Static
         {
             base.OnInitialized();
             UpdateValuesOnChange(Component.MessengerState);
+            UpdateValuesOnChange(Component.MessageCode);
+            UpdateValuesOnChange(Component.Category);
         }
 
         public override void Dispose()
