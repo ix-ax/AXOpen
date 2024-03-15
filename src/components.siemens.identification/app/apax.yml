@@ -10,7 +10,8 @@ variables:
     - "--debug" # Generate debug information for target "1500"
 devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
-  "@ax/sld": 2.0.5
+  "@ax/hwc": ^0.12.217
+  "@ax/hwld": ^0.8.23
 dependencies:
   "@ix-ax/axopen.core": '0.0.0-dev.0'
   "@ix-ax/axopen.timers": '0.0.0-dev.0'
@@ -19,6 +20,7 @@ dependencies:
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
   "@ax/simatic-1500-clocks": ^6.0.37
   "@ax/system-serde": ^6.0.94
+  "@ax/plc-mode": ^1.0.0
 scripts:
   delta:
     - START=$(date +%s)
@@ -86,5 +88,18 @@ scripts:
     - apax download_only
   dd:
     - apax delta
+  gsd: |
+    if [ -d "../ctrl/assets" ]; then
+      echo "Directory "../ctrl/assets" exists!!!"
+      if ! [[ -d "../gsd/source" ]]; then
+        echo "Directory "../gsd/source" does not exist!!!"
+        mkdir -p "./gsd/source"
+      fi 
+    cp ../ctrl/assets/GSDML*.xml ./gsd/source
+    cp ../ctrl/assets/gsdml*.xml ./gsd/source
+    apax hwc install-gsd --input  ./gsd/source   
+    else
+      echo "Directory "../ctrl/assets" does not exist!!!"
+    fi    
 installStrategy: strict
 apaxVersion: 3.1.0
