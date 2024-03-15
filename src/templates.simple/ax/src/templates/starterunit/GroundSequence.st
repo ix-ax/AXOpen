@@ -54,6 +54,7 @@ NAMESPACE axosimple.StarterUnitTemplate
             VAR
                 taskState : AXOpen.Core.IAxoTaskState;
                 forIterator : INT;
+                _dialogAnswer : eDialogAnswer;    
             END_VAR;
             // IF (Components = NULL OR ProcessData = NULL) THEN
             //     RETURN;
@@ -64,9 +65,26 @@ NAMESPACE axosimple.StarterUnitTemplate
             // This sets the sequence to run once (top-botton) and stops with done after closing.
             THIS.SequenceMode := eAxoSequenceMode#RunOnce;
 
+            IF (Steps[0].Execute(THIS, TRUE, '<#DIALOG#>')) THEN
+                //-------------------------------------------------------                 
+
+                _dialogAnswer := Objs^._dialog.Show(THIS).WithCaption('<#DO YOU WANT TO RUN THE GROUND MODE SEQUENCE?#>').WithYesNo().WithType(eDialogType#Warning).Answer();
+
+                IF(_dialogAnswer <> eDialogAnswer#NoAnswer) THEN  
+                    IF(_dialogAnswer = eDialogAnswer#Yes) THEN
+                        THIS.MoveNext();                   
+                    END_IF;
+                    
+                    IF(_dialogAnswer = eDialogAnswer#No) THEN
+                        THIS.Restore();
+                    END_IF;
+                END_IF;    
+                //-------------------------------------------------------
+            END_IF;
+
             // This is more verbose but also more versatile way of executing step logic.
-            IF (Steps[0].Execute(THIS, TRUE, '<#RESTORE#>')) THEN
-                //------------------------------------------------------- 
+            IF (Steps[1].Execute(THIS, TRUE, '<#RESTORE#>')) THEN
+                //-------------------------------------------------------                 
                 TechnologySettingsManager^.Restore(); 
                 ProcessSettingsManager^.Restore(); 
                 ProcessDataManager^.Restore();
@@ -79,7 +97,8 @@ NAMESPACE axosimple.StarterUnitTemplate
                 //-------------------------------------------------------
             END_IF;
 
-            IF (Steps[1].Execute(THIS, TRUE, '<#READ PERSISTENT SETTINGS#>')) THEN
+                       
+            IF (Steps[2].Execute(THIS, TRUE, '<#READ PERSISTENT SETTINGS#>')) THEN
                 //------------------------------------------------------- 
                 IF CurrentStep.IsFirstEntryToStep() THEN 
                     ;// some special initialization 

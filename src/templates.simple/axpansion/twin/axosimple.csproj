@@ -48,7 +48,6 @@
 		<Content Include=".meta\**" />
 		<Compile Include="..\..\ax\src\templates\starterunit\twin\StarterUnitTemplate.cs" Link="Context\Units\StarterUnitTemplate.cs" />
 		<Compile Include="..\..\ax\src\templates\unit\twin\UnitTemplateServices.cs" Link="Context\Units\UnitTemplateServices.cs" />
-		<Folder Include="Context\Units\" />
 	</ItemGroup>
 
 	<ItemGroup>
