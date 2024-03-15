@@ -17,10 +17,11 @@ using System.Reflection;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson.Serialization;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.ConfigureAxBlazorSecurity(SetUpJSon(), Roles.CreateRoles());
+builder.Services.ConfigureAxBlazorSecurity(SetUpUserRepositories(), Roles.CreateRoles());
 builder.Services.AddLocalization();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
@@ -55,72 +56,8 @@ AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfi
 
 Entry.Plc.ContextLogger.StartDequeuing(AxoApplication.Current.Logger, 250);
 
-//var sharedDataRepository = new InMemoryRepositorySettings<Pocos.axosimple.SharedProductionData>().Factory();
-//var unitTemplateRepository = new InMemoryRepositorySettings<Pocos.axosimple.UnitTemplate.ProcessData>().Factory();
-//var starterUnitTemplateRepository = new InMemoryRepositorySettings<Pocos.axosimple.StarterUnitTemplate.ProcessData>().Factory();
-
-#region MongoDB repository
-
-//https://ix-ax.github.io/AXOpen/api/AXOpen.Data.MongoDb.MongoDbRepository-1.html
-
-var MongoConnectionString = "mongodb://localhost:27017";
-var MongoDatabaseName = "axosimple";
-
-// initialize factory - store connection and credentials
-Repository.InitializeFactory(MongoConnectionString, MongoDatabaseName, "user", "userpwd");
-
-//  repository - data connected with technology (not with production process)
-var TechnologyCommonRepository = Repository.Factory<Pocos.axosimple.TechnologyCommonData>("TechnologyCommon_Settings");
-
-// repository - settings connected with specific recepie
-var EntitySettingsRepository = Repository.Factory<Pocos.axosimple.EntityData>("Entity_Settings");
-
-//  repository - data connected with specific part or piece in production/technology
-var EntityDataRepository = Repository.Factory<Pocos.axosimple.EntityData>("Entity_Data");
-
-var StarterUnitTemplate_TechSettings = Repository.Factory<Pocos.axosimple.StarterUnitTemplate.TechnologyData>("StarterUnitTemplate_TechnologySettings");
-var StarterUnitTemplate_ProcessSettings = Repository.Factory<Pocos.axosimple.StarterUnitTemplate.ProcessData>("StarterUnitTemplate_ProcessSettings");
-var StarterUnitTemplate_ProcessData = Repository.Factory<Pocos.axosimple.StarterUnitTemplate.ProcessData>("StarterUnitTemplate_ProcessData");
-
-var UnitTemplate_TechSettings = Repository.Factory<Pocos.axosimple.UnitTemplate.TechnologyData>("UnitTemplate_TechnologySettings");
-var UnitTemplate_ProcessSettings = Repository.Factory<Pocos.axosimple.UnitTemplate.ProcessData>("UnitTemplate_ProcessSettings");
-var UnitTemplate_ProcessData = Repository.Factory<Pocos.axosimple.UnitTemplate.ProcessData>("UnitTemplate_ProcessData");
-
-//var Cu1_TechSettings    = Repository.Factory<Pocos.axosimple.Cu1.TechnologyData>("Cu1_TechnologySettings");
-//var Cu1_ProcessSettings = Repository.Factory<Pocos.axosimple.Cu1.ProcessData>("Cu1_ProcessSettings");
-//var Cu1_ProcessData     = Repository.Factory<Pocos.axosimple.Cu1.ProcessData>("Cu1_ProcessData");
-
-#endregion MongoDB repository
-
-
-var persistentRepository = Repository.Factory<AXOpen.Data.PersistentRecord>("Persistent_Data");
-Entry.Plc.Context.PersistentData.InitializeRemoteDataExchange(Entry.Plc.Context, persistentRepository);
-
-var axoappContext = ContextService.Create();
-axoappContext.SetContextData(
-    technologyCommonRepository: TechnologyCommonRepository,
-    entitySettingsRepository: EntitySettingsRepository,
-    entityDataRepository: EntityDataRepository
-    );
-
-var axoappContext_starterUnitTemplate = StarterUnitTemplateServices.Create(axoappContext);
-axoappContext_starterUnitTemplate.SetUnitsData(
-    technologySettingsRepository: StarterUnitTemplate_TechSettings,
-    processSettingsRepository: StarterUnitTemplate_ProcessSettings,
-    processDataRepository: StarterUnitTemplate_ProcessData);
-
-var axoappContext_unitTemplate = UnitTemplateServices.Create(axoappContext);
-axoappContext_unitTemplate.SetUnitsData(
-    technologySettingsRepository: UnitTemplate_TechSettings,
-    processSettingsRepository: UnitTemplate_ProcessSettings,
-    processDataRepository: UnitTemplate_ProcessData);
-
-//var axoappContext_Cu1 = axosimple.server.Units.Cu1Services.Create(axoappContext);
-//axoappContext_Cu1.SetUnitsData(
-//    technologySettingsRepository  : Cu1_TechSettings,
-//    processSettingsRepository     : Cu1_ProcessSettings,
-//    processDataRepository         : Cu1_ProcessData);
-
+axosimple.StarterUnitTemplate.UnitServices.Create(ContextService.Instance);
+axosimple.UnitTemplate.UnitServices.Create(ContextService.Instance);
 
 // Clean Temp directory
 IAxoDataExchange.CleanUp();
@@ -167,28 +104,15 @@ app.MapFallbackToPage("/_Host");
 
 app.Run();
 
-static (IRepository<User>, IRepository<Group>) SetUpJSon(string path = "..\\..\\..\\..\\..\\JSONREPOS\\")
-{
-    var executingAssemblyFile = new FileInfo(Assembly.GetExecutingAssembly().Location);
-    var repositoryDirectory = Path.GetFullPath($"{executingAssemblyFile.Directory}{path}");
-    if (!Directory.Exists(repositoryDirectory))
-    {
-        Directory.CreateDirectory(repositoryDirectory);
-    }
 
+
+static (IRepository<User>, IRepository<Group>) SetUpUserRepositories()
+{
     var MongoConnectionString = "mongodb://localhost:27017";
     var MongoDatabaseName = "axosimple";
 
-    // initialize factory - store connection and credentials
-    Repository.InitializeFactory(MongoConnectionString, MongoDatabaseName, "user", "userpwd");
-
-    IRepository<User> userRepo      = Repository.Factory<User>("Users", t => t.Id );
-
-    IRepository<Group> groupRepo    = Repository.Factory<Group>( "Groups");
-
-    //IRepository<User> userRepo = new AXOpen.Data.Json.JsonRepository<User>(new AXOpen.Data.Json.JsonRepositorySettings<User>(Path.Combine(repositoryDirectory, "Users")));
-    //IRepository<Group> groupRepo = new AXOpen.Data.Json.JsonRepository<Group>(new AXOpen.Data.Json.JsonRepositorySettings<Group>(Path.Combine(repositoryDirectory, "Groups")));
-
+    IRepository<User> userRepo      = Repository.Factory<User>(new MongoDbRepositorySettings<User>(MongoConnectionString, MongoDatabaseName, "Users", idExpression: t => t.Id));
+    IRepository<Group> groupRepo    = Repository.Factory<Group>(new MongoDbRepositorySettings<Group>(MongoConnectionString, MongoDatabaseName, "Groups"));
     return (userRepo, groupRepo);
 }
 

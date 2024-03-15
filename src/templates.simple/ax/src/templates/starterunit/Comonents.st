@@ -12,11 +12,11 @@ NAMESPACE axosimple.StarterUnitTemplate
         EXTENDS AXOpen.Core.AxoObject
         VAR PUBLIC
             // HERE DECLARE COMPONENTS USED BY THIS CONTROLLED UNIT
-            // HorizontalCylinder : AXOpen.Components.Pneumatics.AxoCylinder;
-            // VerticalCylinder : AXOpen.Components.Pneumatics.AxoCylinder;
-            // GripperCylinder : AXOpen.Components.Pneumatics.AxoCylinder;
-            // DMCReader : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman;
-            // PartPresenceSensor : AXOpen.Elements.AxoDi;
+            HorizontalCylinder : AXOpen.Components.Pneumatics.AxoCylinder;
+            VerticalCylinder : AXOpen.Components.Pneumatics.AxoCylinder;
+            GripperCylinder : AXOpen.Components.Pneumatics.AxoCylinder;
+            DMCReader : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman;
+            PartPresenceSensor : AXOpen.Elements.AxoDi;
         END_VAR
         
         METHOD PUBLIC Update
@@ -29,9 +29,9 @@ NAMESPACE axosimple.StarterUnitTemplate
             END_VAR
             THIS.Initialize(parent);
             // HERE INITIALIZE YOUR COMPONENTS
-            // HorizontalCylinder.Run(THIS, Inputs.B0[0], Inputs.B0[1], Outputs.B0[0], Outputs.B0[1]);
-            // VerticalCylinder.Run(THIS, Inputs.B0[2], Inputs.B0[3], Outputs.B0[2], Outputs.B0[3]);
-            // GripperCylinder.Run(THIS, Inputs.B0[4], Inputs.B0[5], Outputs.B0[4], Outputs.B0[5]);                        
+            HorizontalCylinder.Run(THIS, Inputs.P0[0], Inputs.P0[1], Outputs.P0[0], Outputs.P0[1]);
+            VerticalCylinder.Run(THIS, Inputs.P0[2], Inputs.P0[3], Outputs.P0[2], Outputs.P0[3]);
+            GripperCylinder.Run(THIS, Inputs.P0[4], Inputs.P0[5], Outputs.P0[4], Outputs.P0[5]);                        
         END_METHOD
     END_CLASS
 END_NAMESPACE    

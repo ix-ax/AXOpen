@@ -40,6 +40,21 @@ namespace AXOpen.Data.MongoDb
 
 
         /// <summary>
+        /// Creates new instance of <see cref="MongoDbRepositorySettings{T}"/> for a <see cref="MongoDbRepository{T}"/> with NON-SECURED access.
+        /// </summary>
+        /// <param name="connectionString">Database connection string</param>
+        /// <param name="databaseName">Database name</param>
+        /// <param name="collectionName">Collection name</param>
+        /// <param name="idExpression">Id expression</param>
+        public MongoDbRepositorySettings(string connectionString, string databaseName, string collectionName, Expression<Func<T, object>> idExpression)
+        {
+            SetupSerialisationAndMapping(idExpression);
+            Client = GetClient(connectionString);
+            Database = GetDatabase(databaseName);
+            Collection = GetCollection(collectionName);
+        }
+
+        /// <summary>
         /// Creates new instance of <see cref="MongoDbRepositorySettings{T}"/> for a <see cref="MongoDbRepository{T}"/> with secured access.
         /// </summary>
         /// <param name="connectionString">Database connection string</param>
@@ -54,6 +69,7 @@ namespace AXOpen.Data.MongoDb
             Database = GetDatabase(databaseName);
             Collection = GetCollection(collectionName);
         }
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MongoDbRepositorySettings{T}"/> class for a 

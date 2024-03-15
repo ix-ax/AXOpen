@@ -78,14 +78,15 @@ NAMESPACE axosimple.UnitTemplate
 
             IF (Steps[10].Execute(THIS, TRUE, '<#GET DATA#>')) THEN
                 //-------------------------------------------------------
-                // IF(ProcessSettings^.Read('MODEL_S').IsDone()) THEN
-                //     THIS.ProcessData^.DataManger.Payload := ProcessSettings^.Payload;
+                // IF(ProcessSettingsManager^.Read('MODEL_S').IsDone()) THEN
+                //     ProcessDataManager^.DataManger.Payload := ProcessSettingsManager^.Payload;
                 //     THIS.MoveNext(); 
                 // END_IF;    
 
                 IF (ProcessDataManager^.CreateOrUpdate(_currentId).IsDone()) THEN 
                     THIS.MoveNext(); 
                 END_IF;
+
                 //-------------------------------------------------------
             END_IF;
             

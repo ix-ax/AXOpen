@@ -9,7 +9,7 @@ NAMESPACE axosimple.StarterUnitTemplate
     ///</summary>
     {S7.extern=ReadWrite}
     CLASS Unit
-        EXTENDS axosimple.BaseUnit.Unit
+        EXTENDS axosimple.BaseUnit.UnitBase
         VAR PUBLIC
                         ///<summary>
             /// Provide access to unit objets, that are used into sequnces.
