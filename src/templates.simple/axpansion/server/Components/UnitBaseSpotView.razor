@@ -1,0 +1,126 @@
+﻿@namespace axosimple.BaseUnit
+@using AXSharp.Connector
+@using AXOpen.Core
+@using AXOpen.Core.Blazor.Culture
+@using AXOpen.Messaging.Static
+@using AXOpen.Messaging.Static.Blazor
+@using AXOpen.ToolBox.Extensions
+@inherits RenderableComplexComponentBase<axosimple.BaseUnit.UnitBase>
+
+<div class="card" style="width: 18rem;">
+    <h3 class="m-3">@Component.AttributeName</h3>
+    <img src="@Component.UnitServices.ImageLink" class="card-img-top p-3" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">@Component.GetAttributeName(CultureInfo.CurrentUICulture)</h5>
+        <p class="card-text">
+            <span class="badge rounded-pill @Mode">@ModeDescription</span>
+        </p>
+         <a href="@Component.UnitServices.Link" class="btn btn-primary position-relative">
+              @Localizer["OPEN"]
+              <AlarmsIndicator MessageProvider="@this.Component.UnitServices.MessageProvider"></AlarmsIndicator>
+              @* @if (this.Component.UnitServices.MessageProvider.ActiveMessagesCount > 0) *@
+              @* { *@
+              @*     <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"> *@
+              @*         <span class="visually-hidden">New alerts</span> *@
+              @*     </span> *@
+              @* } *@
+         </a>
+    </div>
+</div> 
+
+@code {
+    
+    public string Mode
+    {
+        get
+        {
+            if (Component.GroundStatus == eAxoTaskState.Done 
+                && Component.AutomatStatus != eAxoTaskState.Busy 
+                && Component.ServiceStatus != eAxoTaskState.Busy)
+            {
+                return "text-bg-secondary";
+            }
+
+            if (Component.GroundStatus == eAxoTaskState.Busy)
+            {
+                return "text-bg-warning";
+            }
+
+            if (Component.AutomatStatus == eAxoTaskState.Busy)
+            {
+                return "text-bg-primary";
+            }
+
+            if (Component.ServiceStatus == eAxoTaskState.Busy)
+            {
+                return "text-bg-warning";
+            }
+
+            return "text-bg-dark";
+        }
+    }
+
+    public string ModeDescription
+    {
+        get
+        {
+            if (Component.GroundStatus == eAxoTaskState.Done 
+                && Component.AutomatStatus != eAxoTaskState.Busy 
+                && Component.ServiceStatus != eAxoTaskState.Busy)
+            {
+                return Localizer["READY TO START"];
+            }
+
+            if (Component.GroundStatus == eAxoTaskState.Busy)
+            {
+                return Localizer["GROUNDING"];
+            }
+
+            if (Component.AutomatStatus == eAxoTaskState.Busy)
+            {
+                return Localizer["RUNNING"];
+            }
+
+            if (Component.ServiceStatus == eAxoTaskState.Busy)
+            {
+                return Localizer["IN SERVICE"];
+            }
+
+            return Localizer["IDLE"];
+        }
+    }
+
+    public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+    {
+        if (Component != null)
+        {
+            Component.Ground.Status.StartPolling(2500, this);
+            Component.Automat.Status.StartPolling(2500, this);
+            Component.Service.Status.StartPolling(2500, this);
+
+            PolledElements.Add(Component.Ground.Status);
+            PolledElements.Add(Component.Automat.Status);
+            PolledElements.Add(Component.Service.Status);
+        }
+    }
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+        this.StateHasChanged();
+    }
+
+    // protected override async Task OnInitializedAsync()
+    // {
+    //     await AxoMessageObserver.CreateAndInitialize(Component.UnitServices.MessageProvider, this);
+    //     await base.OnInitializedAsync();
+    // }
+
+    protected override void OnInitialized()
+    {
+        
+        this.UpdateValuesOnChange(Component.Ground.Status);
+        this.UpdateValuesOnChange(Component.Automat.Status);
+        this.UpdateValuesOnChange(Component.Service.Status);
+    }
+}

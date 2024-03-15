@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><conf:configuration xmlns:conf="urn:com:siemens:memphis:configuration:1" version="1.0" checksum="FF292CB2">
+<?xml version="1.0" encoding="utf-8"?><conf:configuration xmlns:conf="urn:com:siemens:memphis:configuration:1" version="1.0" checksum="54EDCF20">
   <root>
     <node name="ReaderServiceHost" type="ReaderServiceHost">
       <node name="ReaderServices" type="ReaderServices">
@@ -881,7 +881,7 @@
           <node name="DeviceAbstractions" type="DeviceAbstractions">
             <node name="Device01" type="MobyDeviceAbstraction">
               <prop name="Baudrate">
-                <val>19200</val>
+                <val>57600</val>
               </prop>
               <prop name="ComPort">
                 <val>ttyO1</val>
@@ -1536,10 +1536,10 @@
     </node>
     <node name="Versions" type="Versions">
       <prop name="ConfigFileVersion">
-        <val>65D7557B</val>
+        <val>628A44B2</val>
       </prop>
       <prop name="ConfigFileVersionTime">
-        <val>22.02.2024 14:08:59</val>
+        <val>22.05.2022 14:12:02</val>
       </prop>
       <prop name="DataVersion">
         <val>V2.0.0</val>

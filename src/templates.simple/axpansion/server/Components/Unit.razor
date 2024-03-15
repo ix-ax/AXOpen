@@ -1,19 +1,20 @@
 ﻿@using AXSharp.Connector
 @using AXOpen.Core
 @using AXOpen.VisualComposer;
-@inherits RenderableComplexComponentBase<axosimple.IUnit>
+@using axosimple.server.Pages.Settings
+@inherits RenderableComplexComponentBase<axosimple.BaseUnit.UnitBase>
 
 <div class="content-wrapper">
     @* <div> *@
     @*     <VisualComposerContainer Objects="@AllVisualItems" Id="@Component.Symbol"></VisualComposerContainer> *@
     @* </div> *@
-    <UnitsSequences Component="@this.Component" ObjectCollection=AllVisualItems></UnitsSequences>
-    <UnitsService ServiceTask="((dynamic)this.Component).ServiceMode" Components="AllVisualItems"></UnitsService>
+    <UnitsSequences Component="@this.Component" ObjectCollection="@this.Component.UnitServices.Associates"></UnitsSequences>
+    <UnitsService ServiceTask="((dynamic)this.Component).ServiceMode" Components="@this.Component.UnitServices.Associates"></UnitsService>
 </div>
 
 <!-- Modal data alarms -->
 <div class="modal fade" id="alarmsviewmodal" tabindex="-1" aria-labelledby="alarmsviewTitle" aria-hidden="true">
-    <AlarmsView MessageProvider="@MessageProvider"></AlarmsView>
+    <AlarmsView MessageProvider="@this.Component.UnitServices.MessageProvider"></AlarmsView>
 </div>
 
 
@@ -24,15 +25,15 @@
             <div class="modal-header">
                 <div class="container">
                     <div class="row">
-                        <h1 class="modal-title fs-5" id="technologysettingsviewmodalTitle">@Component?.HumanReadable</h1>
+                        <h1 class="modal-title fs-5" id="technologysettingsviewmodalTitle">@Component.HumanReadable</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="@HideModalTechnologySettings"></button>
                     </div>
                     <div class="row p-2">
                     </div>
                     <div class="row">
                         <button type="button" class="btn btn-primary"
-                                @onclick="async () => {await TechnologySettings.OnlineToShadowAsync();
-                                               await SharedTechnologySettings.OnlineToShadowAsync();
+                                @onclick="async () => {await Component.UnitServices.TechnologySettings.OnlineToShadowAsync();
+                                               await Component.UnitServices.SharedTechnologySettings.OnlineToShadowAsync();
                                     }">
                             Refresh
                         </button>
@@ -44,8 +45,8 @@
                     <div class="row">
                         @if (EnableModalTechnologySettings)
                         {
-                            <RenderableContentControl Context="@SharedTechnologySettings" Presentation="Display" />
-                            <RenderableContentControl Context="@TechnologySettings" Presentation="Display" />
+                            <RenderableContentControl Context="@Component.UnitServices.SharedTechnologySettings" Presentation="Display" />
+                            <RenderableContentControl Context="@Component.UnitServices.TechnologySettings" Presentation="Display" />
                         }
                     </div>
                 </div>
@@ -61,15 +62,15 @@
             <div class="modal-header">
                 <div class="container">
                     <div class="row">
-                        <h1 class="modal-title fs-5" id="dataviewmodalTitle">@Component?.HumanReadable</h1>
+                        <h1 class="modal-title fs-5" id="dataviewmodalTitle">@Component.HumanReadable</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="@HideModalProductionData"></button>
                     </div>
                     <div class="row p-2">
                     </div>
                     <div class="row">
                         <button type="button" class="btn btn-primary"
-                                @onclick="async () => {await DataHeader.OnlineToShadowAsync();
-                                               await Data.OnlineToShadowAsync();
+                                @onclick="async () => {await Component.UnitServices.DataHeader.OnlineToShadowAsync();
+                                               await Component.UnitServices.Data.OnlineToShadowAsync();
                                     }">
                             Refresh
                         </button>
@@ -81,8 +82,8 @@
                 {
                     <div class="container-fluid">
                         <div class="row">
-                            <RenderableContentControl Context="@DataHeader" Presentation="Status-Display" />
-                            <RenderableContentControl Context="@Data" Presentation="Status-Display" />
+                            <RenderableContentControl Context="@Component.UnitServices.DataHeader" Presentation="Status-Display" />
+                            <RenderableContentControl Context="@Component.UnitServices.Data" Presentation="Status-Display" />
                         </div>
                     </div>
                 }
@@ -109,7 +110,7 @@
                 {
                     <div class="container-fluid">
                         <div class="row">
-                            <RenderableContentControl Context="UnitComponents" Presentation="Command-Control" />
+                            <RenderableContentControl Context="Component.UnitServices.UnitComponents" Presentation="Command-Control" />
                         </div>
                     </div>
                 }
@@ -128,12 +129,12 @@
         Process Data
     </button>
 
-    <AlarmsButton Component="this.Component" MessageProvider="@MessageProvider"></AlarmsButton>
+    <AlarmsButton MessageProvider="@this.Component?.UnitServices.MessageProvider"></AlarmsButton>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#componentsviewmodal" onclick="@ShowModalComponents">
         Components
     </button>
 </div>
 
-<AXOpen.Core.Blazor.AxoDialogs.AxoDialogLocator  LocatorPath="@this.Component?.Symbol" ObservedObjects="new[] {this.Component}"></AXOpen.Core.Blazor.AxoDialogs.AxoDialogLocator>
-<AXOpen.Core.Blazor.Dialogs.AxoAlertLocator ObservedObjects="new[] {this.Component}"></AXOpen.Core.Blazor.Dialogs.AxoAlertLocator>
+<AXOpen.Core.Blazor.AxoDialogs.AxoDialogLocator LocatorPath="@this.Component.Symbol" ObservedObjects="new ITwinObject[] {this.Component}"></AXOpen.Core.Blazor.AxoDialogs.AxoDialogLocator>
+<AXOpen.Core.Blazor.Dialogs.AxoAlertLocator LocatorPath="@this.Component.Symbol" ObservedObjects="new ITwinObject[] {this.Component}"></AXOpen.Core.Blazor.Dialogs.AxoAlertLocator>
 

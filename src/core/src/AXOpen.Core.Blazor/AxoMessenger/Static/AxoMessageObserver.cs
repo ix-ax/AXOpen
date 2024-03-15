@@ -125,5 +125,11 @@ public class AxoMessageObserver
             }
         });
     }
-    
+
+    public static async Task<AxoMessageObserver> CreateAndInitialize(AxoMessageProvider provider, RenderableComponentBase unitBaseSpotView)
+    {
+        var observer = AxoMessageObserver.Create(provider, unitBaseSpotView);
+        await observer.InitializeUpdate();
+        return observer;
+    }
 }

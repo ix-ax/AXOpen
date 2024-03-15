@@ -8,7 +8,7 @@ NAMESPACE axosimple.BaseUnit
     /// Represents controlled units and high level task coordination.
     ///</summary>
     {S7.extern=ReadWrite}
-    CLASS PUBLIC Unit
+    CLASS PUBLIC UnitBase
         EXTENDS AXOpen.Core.AxoObject IMPLEMENTS axosimple.IUnit
         VAR PUBLIC
 

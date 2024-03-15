@@ -1,0 +1,48 @@
+﻿@namespace AXOpen.Core
+@using AXOpen.Messaging.Static
+@using AXOpen.Messaging.Static.Blazor
+@using AXSharp.Connector
+@inherits RenderableComplexComponentBase<AXSharp.Connector.ITwinObject>
+
+
+@if(MessageProvider?.ActiveMessagesCount > 0)
+{
+    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-@Observer?.HighestSeverityColor">
+        @MessageProvider?.ActiveMessagesCount
+            <span class="visually-hidden">unread messages</span>
+    </span>
+}
+        
+
+@code {
+    private AxoMessageObserver? observer;
+
+    [Parameter]
+    public AxoMessageProvider? MessageProvider { get; set; }
+
+    private AxoMessageObserver? Observer
+    {
+        get
+        {
+            if (observer == null && MessageProvider != null)
+                observer = AxoMessageObserver.Create(MessageProvider, this);
+
+            return observer;
+        } 
+    }
+    
+    private string Disabled => MessageProvider?.ActiveMessagesCount> 0 ? "false" : "true";
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+        this.StateHasChanged();
+    }
+    
+    protected override async Task OnInitializedAsync()
+    {
+        if (Observer != null) await Observer.InitializeUpdate();
+        await base.OnInitializedAsync();
+    }
+    
+}

@@ -7,8 +7,8 @@
   "Items": [
     {
       "Id": "f21502b7b86f1bdb2606b5aee9f26d9f8ae23c584aed42b78e371dfe7a0604b8",
-      "Left": 50.01572327044025,
-      "Top": 76.4804469273743,
+      "Left": 49.938563371982674,
+      "Top": 58.78480375933292,
       "Transform": "TopCenter",
       "Presentation": "Spot",
       "Width": -1,
@@ -22,8 +22,8 @@
     },
     {
       "Id": "357da12e47a3aa5214b0e4485d3906e1b9132f95e94a34dc18686e7190dcc789",
-      "Left": 29.103773584905664,
-      "Top": 17.541899441340785,
+      "Left": 18.224227902387774,
+      "Top": 12.603580417701327,
       "Transform": "TopCenter",
       "Presentation": "Spot",
       "Width": -1,
@@ -31,14 +31,14 @@
       "ZIndex": 0,
       "Scale": 1,
       "Roles": "",
-      "PresentationTemplate": null,
+      "PresentationTemplate": "",
       "Background": true,
       "BackgroundColor": "#FFFFFF"
     },
     {
       "Id": "789dbd3ceeadd5575187ca3fd6b38cc6f9090f709f8308ce40a99f84197dfa07",
-      "Left": 83.74213836477988,
-      "Top": 53.71508379888269,
+      "Left": 76.56626780822553,
+      "Top": 16.266164536283462,
       "Transform": "TopCenter",
       "Presentation": "Spot",
       "Width": -1,

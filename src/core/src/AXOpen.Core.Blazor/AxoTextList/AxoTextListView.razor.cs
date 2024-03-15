@@ -28,11 +28,17 @@ namespace AXOpen.Core
             }
         }
 
-      
+        public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+        {
+            base.AddToPolling(Component?.Id);
+            //base.AddToPolling(element, pollingInterval);
+        }
+
+
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            UpdateValuesOnChange(Component);            
+            UpdateValuesOnChange(Component.Id);            
         }
 
         // Attribute name contains interpolation from twin object.

@@ -47,9 +47,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Data.Json", "..\data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Data.MongoDb", "..\data\src\repositories\MongoDb\AXOpen.Data.MongoDb.csproj", "{6600F42A-C561-41A5-BB6B-2C93613DB92E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Inspectors.Blazor", "..\inspectors\src\AXOpen.Inspectors.blazor\AXOpen.Inspectors.Blazor.csproj", "{286B0C9D-2B65-4C10-B7D2-19052C559ACC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AxOpen.Inspectors.Blazor", "..\inspectors\src\AxOpen.Inspectors.Blazor\AxOpen.Inspectors.Blazor.csproj", "{286B0C9D-2B65-4C10-B7D2-19052C559ACC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_inspectors", "..\inspectors\src\AXOpen.Inspectors\ix_ax_axopen_inspectors.csproj", "{21BC94A1-E2EE-46A8-B062-45581DF36A3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_inspectors", "..\inspectors\src\AxOpen.Inspectors\ix_ax_axopen_inspectors.csproj", "{21BC94A1-E2EE-46A8-B062-45581DF36A3E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_io", "..\io\src\AXOpen.Io\ix_ax_axopen_io.csproj", "{3C46ABB6-689C-450A-9019-C727F9CA2EF8}"
 EndProject
@@ -185,9 +185,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\data\src", "{3D88
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "..\data", "{304A1345-06E0-403C-8FDD-07E4E82B69F5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Inspectors.blazor", "..\inspectors\src\AXOpen.Inspectors.blazor", "{6ABF1453-EE1B-43AD-9956-66FCDBC6428B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AxOpen.Inspectors.Blazor", "..\inspectors\src\AxOpen.Inspectors.Blazor", "{6ABF1453-EE1B-43AD-9956-66FCDBC6428B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Inspectors", "..\inspectors\src\AXOpen.Inspectors", "{4897CCA0-CFDA-41BB-9A85-407C24602406}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AxOpen.Inspectors", "..\inspectors\src\AxOpen.Inspectors", "{4897CCA0-CFDA-41BB-9A85-407C24602406}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\inspectors\src", "{5EE332D8-0C90-4411-82D2-015EAD1835AD}"
 EndProject
