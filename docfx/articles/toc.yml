@@ -13,6 +13,8 @@
     href: ~/clientchat/index.html
   - name: Embedding assets in nuget package
     href: ~/articles/notes/Assets_in_nuget_package.md  
+  - name: ToolTips and PopOvers
+    href: ~/articles/toolTipsAndPopOvers/README.md  
 - name: Dev guidelines        
   href: ~/articles/guidelines/README.md
   items:
