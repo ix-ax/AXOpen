@@ -2,6 +2,8 @@
 @using AXOpen.Core.Blazor.AxoAlertDialog
 @using AXOpen.Core.Blazor.Dialogs
 
+@inject IJSRuntime JSRuntime
+
 <PageTitle>ix-draft-blazor</PageTitle>
 
 <div class="page">
@@ -15,3 +17,11 @@
 
    <AxoAlertToast/>
 </div>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        var module = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "/js/addToolTipsAndPopOvers.js");
+        await module.InvokeVoidAsync("addToolTipsAndPopOvers");
+    }
+}
