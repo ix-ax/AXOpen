@@ -1,4 +1,4 @@
-﻿#define WEBAPI_3_1
+﻿//#define WEBAPI_3_1
 // ixsharpblazor
 // Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
 // Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
@@ -36,7 +36,7 @@ namespace axosimple
         
         public static axosimpleTwinController Plc { get; } 
             = new (ConnectorAdapterBuilder.Build()
-                .CreateWebApi(TargetIp, "Anonymous", string.Empty, IgnoreSslErrors));
+                .CreateWebApi(TargetIp, "Everybody", string.Empty, IgnoreSslErrors));
     }
     
 }
