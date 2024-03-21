@@ -8,6 +8,20 @@ targets:
 variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
+  AXTARGET: "10.10.10.120"
+  PC_MAC: "00:D8:61:F0:AB:7D"
+  PLC_MAC: "EC:1C:5D:92:3F:F4"
+  PLC_NAME: "plc_line"
+  PLC_IP: "10.10.10.120"
+  RF186_MAC: "EC:1C:5D:8C:9C:62"
+  RF186_NAME: "rf186c"
+  RF186_IP: "10.10.10.99"
+  ET201_MAC: "EC:1C:5D:B2:E1:59"
+  ET201_NAME: "et200sp"
+  ET201_IP: "10.10.10.98"
+
+  GATEWAY_IP: "10.10.10.1"
+
 devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
   "@ax/hwc": ^0.12.217
@@ -95,11 +109,76 @@ scripts:
         echo "Directory "../gsd/source" does not exist!!!"
         mkdir -p "./gsd/source"
       fi 
-    cp ../ctrl/assets/GSDML*.xml ./gsd/source
-    cp ../ctrl/assets/gsdml*.xml ./gsd/source
+    cp ../ctrl/assets/[gG][sS][dD][mM][lL]*.xml ./gsd/source
     apax hwc install-gsd --input  ./gsd/source   
     else
       echo "Directory "../ctrl/assets" does not exist!!!"
-    fi    
+    fi   
+
+  dcpli: apax dcp-utility list-interfaces -f JSON
+
+  dcpd: apax dcp-utility discover --source-mac $PC_MAC --timeout 10000
+
+  reset_plc: apax hwld -t $PLC_IP --resetPlc All --accept-security-disclaimer
+
+  set_IPs_and_Names:
+    - apax dcp-utility set-name --source-mac $PC_MAC --target-mac $PLC_MAC -n     $PLC_NAME --no-prompt
+    - apax dcp-utility set-ip   --source-mac $PC_MAC --target-mac $PLC_MAC --ip   $PLC_IP   --subnet-mask 255.255.255.0 --gateway $GATEWAY_IP  --no-prompt
+    - apax dcp-utility set-name --source-mac $PC_MAC --target-mac $RF186_MAC -n   $RF186_NAME --no-prompt
+    - apax dcp-utility set-ip   --source-mac $PC_MAC --target-mac $RF186_MAC --ip $RF186_IP   --subnet-mask 255.255.255.0 --gateway $GATEWAY_IP  --no-prompt
+    - apax dcp-utility set-name --source-mac $PC_MAC --target-mac $ET201_MAC -n   $ET201_NAME --no-prompt
+    - apax dcp-utility set-ip   --source-mac $PC_MAC --target-mac $ET201_MAC --ip $ET201_IP   --subnet-mask 255.255.255.0 --gateway $GATEWAY_IP  --no-prompt
+
+  ssc:  
+    - apax hwc setup-secure-communication -n $PLC_NAME -i "plc_line.hwl.json" -p $MY_VERY_STRONG_PASSWORD
+    - apax hwc import-certificate -n $PLC_NAME -i "plc_line.hwl.json" -C "./certs/$PLC_NAME/pkcs12ForCertificateImport.p12" -p $MY_VERY_STRONG_PASSWORD --purpose "TLS"
+    - apax hwc import-certificate -n $PLC_NAME -i "plc_line.hwl.json" -C "./certs/$PLC_NAME/pkcs12ForCertificateImport.p12" -p $MY_VERY_STRONG_PASSWORD --purpose "WebServer"
+    - apax hwc manage-users -n $PLC_NAME -i "plc_line.hwl.json" set-password -u "usr" -p $MY_VERY_STRONG_PASSWORD
+
+  hwfd:
+    - apax hwc compile -i plc_line.hwl.json -o bin/hwc/
+    - apax hwid
+    - apax hwld -i bin/hwc/$PLC_NAME -t $PLC_IP -M:$MY_VERY_STRONG_PASSWORD --accept-security-disclaimer -l Information
+    - apax plc-cert -t $PLC_IP -o ./certs/$PLC_NAME/$PLC_NAME.cer
+  hwu:
+    - apax hwc compile -i plc_line.hwl.json -o bin/hwc/
+    - apax hwid
+    - apax hwld -i bin/hwc/$PLC_NAME -t $PLC_IP -C ./certs/$PLC_NAME/$PLC_NAME.cer --nonInteractive --accept-security-disclaimer -l Information
+
+  hwid: |
+    output_dir=src/IO/$PLC_NAME
+    if ! [[ -d $output_dir ]]; then
+      echo "Directory $output_dir does not exist!!!"
+      mkdir -p $output_dir
+    fi 
+    output_file="$output_dir/HwIdentifiers.st"
+    input_file=SystemConstants/$PLC_NAME"_HwIdentifiers.st"   
+    lines_to_replace=("CONFIGURATION HardwareIDs" "VAR_GLOBAL CONSTANT" "END_VAR" "END_CONFIGURATION")
+    old_substrings=(": UINT := UINT" ";")
+    new_substrings=(":=	WORD" ",")
+    echo "TYPE" > "$output_file"
+    echo "    HwIdentifiers : WORD" >> "$output_file"
+    echo "    (" >> "$output_file"
+    while IFS= read -r line; do
+      copy_this_line=true
+      for line_to_replace in "${lines_to_replace[@]}"; do
+        if grep -qF "$line_to_replace" <<< "$line"; then
+          copy_this_line=false
+          break 
+        fi
+      done
+      if $copy_this_line; then
+        modified_line="$line"
+        for ((i=0; i<${#old_substrings[@]}; i++)); do
+          old_substring="${old_substrings[i]}"
+          new_substring="${new_substrings[i]}"
+          modified_line="${modified_line//$old_substring/$new_substring}"
+        done
+        echo "$modified_line" >> "$output_file"
+      fi
+    done < "$input_file"
+    echo "        NONE := WORD#0" >> "$output_file"
+    echo "    );" >> "$output_file"
+    echo "END_TYPE" >> "$output_file"
 installStrategy: strict
 apaxVersion: 3.1.0

@@ -406,3 +406,8 @@ apax-lock.json
 
 docs-test/
 src/.application/
+
+#AX HWC secrets
+certs
+#AX HWC installed gsdml
+import-cache

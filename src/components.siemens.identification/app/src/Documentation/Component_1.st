@@ -53,14 +53,14 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         //Chapter: 2.3.6.2 CM_CHANNEL, API, SLOT, SUB_SLOT
         //Page: 18
         IdentProfileReader.Run(parent      :=  THIS,
-                    HW_ID       :=  HwIdentifiers#rf186c_Reader_1,
+                    HW_ID       :=  HwIdentifiers#rf186c_Reader_1__Reader__HwID,
                     API         :=  DWORD#16#5B00,	
                     SLOT 		:=  WORD#2,
                     SUB_SLOT 	:=  WORD#1,
                     CM_CHANNEL  :=  UINT#1);
         
         //</Initialization>
-
+        
        THIS.UseInSequencer();
 
     END_METHOD

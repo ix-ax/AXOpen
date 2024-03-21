@@ -1,0 +1,68 @@
+{
+  "Version": 1,
+  "IoAddresses": [
+    {
+      "Ref": "et200sp/CM_4xIO-Link_V2_2_144I_128O_1",
+      "IoConfiguration": {
+        "InputAddress": [
+          {
+            "StartAddress": "0.0",
+            "EndAddress": "143.7",
+            "Length": 1152,
+            "Source": "AutoAssigned"
+          }
+        ],
+        "OutputAddress": [
+          {
+            "StartAddress": "0.0",
+            "EndAddress": "127.7",
+            "Length": 1024,
+            "Source": "AutoAssigned"
+          }
+        ]
+      }
+    },
+    {
+      "Ref": "rf186c/CM_1",
+      "IoConfiguration": {
+        "InputAddress": [
+          {
+            "StartAddress": "146.0",
+            "EndAddress": "147.7",
+            "Length": 16,
+            "Source": "AutoAssigned"
+          }
+        ],
+        "OutputAddress": [
+          {
+            "StartAddress": "130.0",
+            "EndAddress": "131.7",
+            "Length": 16,
+            "Source": "AutoAssigned"
+          }
+        ]
+      }
+    },
+    {
+      "Ref": "rf186c/Reader_1",
+      "IoConfiguration": {
+        "InputAddress": [
+          {
+            "StartAddress": "144.0",
+            "EndAddress": "145.7",
+            "Length": 16,
+            "Source": "AutoAssigned"
+          }
+        ],
+        "OutputAddress": [
+          {
+            "StartAddress": "128.0",
+            "EndAddress": "129.7",
+            "Length": 16,
+            "Source": "AutoAssigned"
+          }
+        ]
+      }
+    }
+  ]
+}

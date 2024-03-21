@@ -1,0 +1,161 @@
+{
+  "Devices": [
+    {
+      "Name": "plc_line",
+      "Modules": [
+        {
+          "Name": "plc_line",
+          "TypeIdentifier": {
+            "OrderNumber": "6ES7 516-3AP03-0AB0",
+            "Version": "V3.0"
+          },
+          "AccessProtection": {
+            "AccessLevel": "FullAccess"
+          },
+          "Services": [
+            {
+              "Type": "WebServer",
+              "Enabled": true,
+              "Parameters": {
+                "HttpsOnly": true
+              }
+            }
+          ],
+          "UserManagement": {
+            "Roles": [
+              {
+                "Name": "WebServerAccessRole",
+                "FunctionRights": [
+                  "ReadPlcVariables",
+                  "WritePlcVariables",
+                  "ReadFiles",
+                  "QueryDiagnostics",
+                  "FlashLed"
+                ]
+              }
+            ],
+            "Users": [
+              {
+                "Name": "usr",
+                "AssignedRoles": [
+                  "WebServerAccessRole"
+                ]
+              }
+            ]
+          },
+          "Ports": [
+            {
+              "Name": "Port1",
+              "Label": "X1 P1"
+            },
+            {
+              "Name": "Port2",
+              "Label": "X1 P2"
+            }
+          ],
+          "Interfaces": [
+            {
+              "Name": "profinet",
+              "Label": "X1",
+              "Addresses": {
+                "Configured": [
+                  { "IPv4": "10.10.10.120" },
+                  { "ProfinetDeviceName": "plc_line.profinet" }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "rf186c",
+      "Modules":[
+        {
+          "Name": "rf186c",
+          "TypeIdentifier": {
+            "GsdId": "DAP 12",
+            "FileName": "GSDML-V2.41-SIEMENS-RF18XC-20210415.XML"
+          },
+          "Interfaces": [
+            {
+              "Name": "profinet",
+              "Label": "X1",
+              "Addresses": {
+                "Configured": [
+                  { "IPv4": "10.10.10.99" },
+                  { "ProfinetDeviceName": "rf186c" }
+                ]
+              }
+            }
+          ] 
+        },
+        {
+          "Name": "CM_1",
+          "TypeIdentifier": {
+            "GsdId": "ID_1WCFG",
+            "FileName": "GSDML-V2.41-SIEMENS-RF18XC-20210415.XML"
+          }
+        },
+        {
+          "Name": "Reader_1",
+          "TypeIdentifier": {
+            "GsdId": "ID_1WUNI",
+            "FileName": "GSDML-V2.41-SIEMENS-RF18XC-20210415.XML"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "et200sp",
+      "Modules":[
+        {
+          "Name": "et200sp",
+          "TypeIdentifier": {
+            "GsdId": "DIM ST V4.2",
+            "FileName": "GSDML-V2.42-SIEMENS-ET200SP-20230812.XML"
+          },
+          "Interfaces": [
+            {
+              "Name": "profinet",
+              "Label": "X1",
+              "Addresses": {
+                "Configured": [
+                  { "IPv4": "10.10.10.98" },
+                  { "ProfinetDeviceName": "et200sp" }
+                ]
+              }
+            }
+          ] 
+        },
+        {
+          "Name": "CM_4xIO-Link_V2_2_144I_128O_1",
+          "TypeIdentifier": {
+            "GsdId": "CM 4xIO-Link V2.2 144I/128O",
+            "FileName": "GSDML-V2.42-Siemens-ET200SP-20230812.xml"
+          }
+        },
+        {
+          "Name": "Server_module_V1_1",
+          "TypeIdentifier": {
+            "GsdId": "Servermodule_without_io",
+            "FileName": "GSDML-V2.42-Siemens-ET200SP-20230812.xml"
+          }
+        }
+      ]
+    }
+  ]
+  ,
+  "IoSystems": [
+    {
+      "Name": "profinet_plc_line",
+      "ControllerInterfaces": [
+        { "Ref": "plc_line/plc_line/profinet" }
+      ],
+      "DeviceInterfaces": [
+        { "Ref":  "rf186c/rf186c/profinet" },
+        { "Ref":  "et200sp/et200sp/profinet" }
+      ]
+    }
+  ]
+}

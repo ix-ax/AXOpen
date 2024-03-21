@@ -23,7 +23,7 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         END_IF;
         IF Mode = UINT#1 THEN
                 IOlinkReader.Run(  parent      :=  THIS,
-                                    HW_ID       :=  HwIdentifiers#ET200SP_CM_4xIO_Link_V2_2_144I_128O_1, 
+                                    HW_ID       :=  HwIdentifiers#et200sp_CM_4xIO_Link_V2_2_144I_128O_1_CM_4xIO_Link_V2_2_144I_128O_HwID, 
                                     portAddr    :=  INT#0,
                                     version     :=  USINT#11);
 
@@ -32,7 +32,7 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
 
         IF Mode = UINT#2 THEN
             IdentProfileReader.Run(parent      :=  THIS,
-                                    HW_ID       :=  HwIdentifiers#rf186c_Reader_1,
+                                    HW_ID       :=  HwIdentifiers#rf186c_Reader_1__Reader__HwID,
                                     API         :=  DWORD#16#5B00,	
                                     SLOT 		:=  WORD#2,
                                     SUB_SLOT 	:=  WORD#1,
