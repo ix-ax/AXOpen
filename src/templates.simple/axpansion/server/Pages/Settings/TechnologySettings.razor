@@ -1,9 +1,0 @@
-﻿@page "/Settings/TechnologySettings"
-@using AXSharp.Connector
-@using AXOpen.Data;
-
-<AuthorizeView Roles="@Roles.can_access_process_settings">
-    <Authorized>
-        <RenderableContentControl Context="@Entry.Plc.Context.TechnologySettings" Presentation="Command"></RenderableContentControl>
-    </Authorized>
-</AuthorizeView>

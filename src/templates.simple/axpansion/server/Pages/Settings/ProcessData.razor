@@ -1,8 +1,0 @@
-﻿@page "/Settings/ProcessData"
-@using AXSharp.Connector
-@using AXOpen.Data;
-<AuthorizeView Roles="@Roles.can_access_process_data">
-    <Authorized>
-        <RenderableContentControl Context="@Entry.Plc.Context.ProcessData" Presentation="Command"></RenderableContentControl>
-    </Authorized>
-</AuthorizeView>

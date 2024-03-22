@@ -56,7 +56,6 @@ dependencies:
   '@ix-ax/axopen.simatic1500': 0.0.0-dev.0
   app_apaxappname: 0.0.0-dev.0
   '@ix-ax/apaxlibname': 0.0.0-dev.0
-  axosimple: 0.0.0-dev.0
   timers-app: 0.0.0-dev.0
   '@ix-ax/axopen.timers': 0.0.0-dev.0
   utils-app: 0.0.0-dev.0
