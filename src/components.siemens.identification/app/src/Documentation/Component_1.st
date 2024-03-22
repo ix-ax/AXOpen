@@ -52,12 +52,13 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         //Link: https://cache.industry.siemens.com/dl/files/653/109807653/att_1101693/v2/109807653_Simatic_Ident_Profinet_Beckhoff_DOC_V10_en.pdf
         //Chapter: 2.3.6.2 CM_CHANNEL, API, SLOT, SUB_SLOT
         //Page: 18
-        IdentProfileReader.Run(parent      :=  THIS,
-                    HW_ID       :=  HwIdentifiers#rf186c_Reader_1__Reader__HwID,
-                    API         :=  DWORD#16#5B00,	
-                    SLOT 		:=  WORD#2,
-                    SUB_SLOT 	:=  WORD#1,
-                    CM_CHANNEL  :=  UINT#1);
+        //  Commented out due to issue with downloading when RF186C is used and configered using HWC
+        // IdentProfileReader.Run(parent      :=  THIS,
+        //             HW_ID       :=  HwIdentifiers#rf186c_Reader_1__Reader__HwID,
+        //             API         :=  DWORD#16#5B00,	
+        //             SLOT 		:=  WORD#2,
+        //             SUB_SLOT 	:=  WORD#1,
+        //             CM_CHANNEL  :=  UINT#1);
         
         //</Initialization>
         

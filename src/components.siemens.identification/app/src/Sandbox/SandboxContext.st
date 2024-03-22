@@ -31,12 +31,13 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         END_IF;
 
         IF Mode = UINT#2 THEN
-            IdentProfileReader.Run(parent      :=  THIS,
-                                    HW_ID       :=  HwIdentifiers#rf186c_Reader_1__Reader__HwID,
-                                    API         :=  DWORD#16#5B00,	
-                                    SLOT 		:=  WORD#2,
-                                    SUB_SLOT 	:=  WORD#1,
-                                    CM_CHANNEL  :=  UINT#1);
+            //  Commented out due to issue with downloading when RF186C is used and configered using HWC
+            // IdentProfileReader.Run(parent      :=  THIS,
+            //                         HW_ID       :=  HwIdentifiers#rf186c_Reader_1__Reader__HwID,
+            //                         API         :=  DWORD#16#5B00,	
+            //                         SLOT 		:=  WORD#2,
+            //                         SUB_SLOT 	:=  WORD#1,
+            //                         CM_CHANNEL  :=  UINT#1);
 
             THIS.IdentProfileSequence();
         END_IF;

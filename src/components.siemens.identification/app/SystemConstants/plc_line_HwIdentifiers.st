@@ -27,15 +27,6 @@ CONFIGURATION HardwareIDs
         plc_line_plc_line_profinet_HwID : UINT := UINT#64;
         plc_line_plc_line_profinet_Port1_HwID : UINT := UINT#65;
         plc_line_plc_line_profinet_Port2_HwID : UINT := UINT#66;
-        rf186c_HwID : UINT := UINT#270;
-        rf186c_Rack_HwID : UINT := UINT#271;
-        rf186c_Reader_1__Reader__HwID : UINT := UINT#273;
-        rf186c_rf186c_HwID : UINT := UINT#272;
-        rf186c_rf186c_CM_1__Communication__HwID : UINT := UINT#274;
-        rf186c_rf186c_RF186C___V2_x_HwID : UINT := UINT#275;
-        rf186c_rf186c_profinet_HwID : UINT := UINT#267;
-        rf186c_rf186c_profinet_Port_1_HwID : UINT := UINT#268;
-        rf186c_rf186c_profinet_Port_2_HwID : UINT := UINT#269;
 
     END_VAR
 END_CONFIGURATION

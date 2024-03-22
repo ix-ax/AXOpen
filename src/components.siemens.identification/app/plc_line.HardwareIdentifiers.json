@@ -108,42 +108,6 @@
     {
       "Name": "plc_line~plc_line~profinet~Port2",
       "Value": 66
-    },
-    {
-      "Name": "rf186c",
-      "Value": 270
-    },
-    {
-      "Name": "rf186c~Rack",
-      "Value": 271
-    },
-    {
-      "Name": "rf186c~Reader_1~ Reader ",
-      "Value": 273
-    },
-    {
-      "Name": "rf186c~rf186c",
-      "Value": 272
-    },
-    {
-      "Name": "rf186c~rf186c~CM_1~ Communication ",
-      "Value": 274
-    },
-    {
-      "Name": "rf186c~rf186c~RF186C   V2.x",
-      "Value": 275
-    },
-    {
-      "Name": "rf186c~rf186c~profinet",
-      "Value": 267
-    },
-    {
-      "Name": "rf186c~rf186c~profinet~Port 1",
-      "Value": 268
-    },
-    {
-      "Name": "rf186c~rf186c~profinet~Port 2",
-      "Value": 269
     }
   ]
 }

@@ -34,10 +34,6 @@ CONFIGURATION IoAddresses
         et200sp_CM_4xIO_Link_V2_2_144I_128O_1_OutputAddress_13 AT %QL104: LWORD;
         et200sp_CM_4xIO_Link_V2_2_144I_128O_1_OutputAddress_14 AT %QL112: LWORD;
         et200sp_CM_4xIO_Link_V2_2_144I_128O_1_OutputAddress_15 AT %QL120: LWORD;
-        rf186c_CM_1_InputAddress AT %IW146: WORD;
-        rf186c_CM_1_OutputAddress AT %QW130: WORD;
-        rf186c_Reader_1_InputAddress AT %IW144: WORD;
-        rf186c_Reader_1_OutputAddress AT %QW128: WORD;
 
     END_VAR
 END_CONFIGURATION
