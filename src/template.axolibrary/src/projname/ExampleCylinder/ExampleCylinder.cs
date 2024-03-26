@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AXOpen.Components.Example
+namespace Template.Axolibrary
 {
-    public partial class ExampleCylinder
+    public partial class TemplateComponent
     {
         public async Task WriteTaskDurationToConsole()
         {

@@ -1,0 +1,113 @@
+{
+  "Version": 1,
+  "HardwareIdentifiers": [
+    {
+      "Name": "PROFINET IO-System",
+      "Value": 256
+    },
+    {
+      "Name": "et200sp",
+      "Value": 260
+    },
+    {
+      "Name": "et200sp~CM_4xIO-Link_V2_2_144I_128O_1~CM 4xIO-Link V2.2 144I/128O",
+      "Value": 264
+    },
+    {
+      "Name": "et200sp~Rack",
+      "Value": 261
+    },
+    {
+      "Name": "et200sp~Server_module_V1_1~Server module V1.1 (0 bytes)",
+      "Value": 263
+    },
+    {
+      "Name": "et200sp~et200sp",
+      "Value": 262
+    },
+    {
+      "Name": "et200sp~et200sp~IM 155-6 PN ST V4.2",
+      "Value": 265
+    },
+    {
+      "Name": "et200sp~et200sp~Port 1 (2xRJ45)",
+      "Value": 258
+    },
+    {
+      "Name": "et200sp~et200sp~Port 2 (2xRJ45)",
+      "Value": 259
+    },
+    {
+      "Name": "et200sp~et200sp~profinet",
+      "Value": 257
+    },
+    {
+      "Name": "plc_line",
+      "Value": 32
+    },
+    {
+      "Name": "plc_line~Rail_0",
+      "Value": 266
+    },
+    {
+      "Name": "plc_line~plc_line",
+      "Value": 48
+    },
+    {
+      "Name": "plc_line~plc_line~ plc_line",
+      "Value": 49
+    },
+    {
+      "Name": "plc_line~plc_line~CPU display_1",
+      "Value": 54
+    },
+    {
+      "Name": "plc_line~plc_line~CPU exec unit_1",
+      "Value": 52
+    },
+    {
+      "Name": "plc_line~plc_line~Card reader/writer_1",
+      "Value": 51
+    },
+    {
+      "Name": "plc_line~plc_line~DP interface_1",
+      "Value": 60
+    },
+    {
+      "Name": "plc_line~plc_line~LicenseManager_1",
+      "Value": 42
+    },
+    {
+      "Name": "plc_line~plc_line~OPC UA_1",
+      "Value": 117
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET interface_2",
+      "Value": 72
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET interface_2~Port_1",
+      "Value": 73
+    },
+    {
+      "Name": "plc_line~plc_line~Virtual communication interface",
+      "Value": 135
+    },
+    {
+      "Name": "plc_line~plc_line~plc_line",
+      "Value": 50
+    },
+    {
+      "Name": "plc_line~plc_line~profinet",
+      "Value": 64
+    },
+    {
+      "Name": "plc_line~plc_line~profinet~Port1",
+      "Value": 65
+    },
+    {
+      "Name": "plc_line~plc_line~profinet~Port2",
+      "Value": 66
+    }
+  ]
+}

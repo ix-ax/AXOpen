@@ -1,4 +1,4 @@
-USING AXOpen.Components.Example;
+USING Template.Axolibrary;
 USING AXOpen.Core;
 USING AXOpen.Rtc;
 USING AXOpen.Logging;
