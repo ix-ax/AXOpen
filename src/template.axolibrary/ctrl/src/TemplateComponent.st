@@ -84,7 +84,7 @@ NAMESPACE Template.Axolibrary
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
-            Status     :   TemplateComponent_ComponentStatus;
+            Status     :   TemplateComponent_Component_Status;
             Messenger           :   AXOpen.Messaging.Static.AxoMessenger;
             TaskMessenger       :   AXOpen.Messaging.Static.AxoMessenger;
         END_VAR    
@@ -457,7 +457,7 @@ NAMESPACE Template.Axolibrary
                     Outputs.Control.MoveWorkSignal := FALSE;
                     Outputs.Control.MoveHomeSignal := TRUE;
 
-                    IF Inputs.Status.HomeSensor THEN
+                    IF NOT Inputs.Status.WorkSensor THEN
                         _progress := 312;
                     END_IF;
                 END_IF;
@@ -468,7 +468,7 @@ NAMESPACE Template.Axolibrary
                         Status.Error.Id := UINT#512;
                     END_IF;
 
-                    IF TRUE THEN
+                    IF Inputs.Status.HomeSensor THEN
                         _progress := 313;
                     END_IF;
                 END_IF;
@@ -605,7 +605,7 @@ NAMESPACE Template.Axolibrary
                     Outputs.Control.MoveHomeSignal := FALSE;
                     Outputs.Control.MoveWorkSignal := TRUE;
 
-                    IF Inputs.Status.WorkSensor THEN
+                    IF NOT Inputs.Status.HomeSensor THEN
                         _progress := 322;
                     END_IF;
                 END_IF;
@@ -616,7 +616,7 @@ NAMESPACE Template.Axolibrary
                         Status.Error.Id := UINT#522;
                     END_IF;
 
-                    IF TRUE THEN
+                    IF Inputs.Status.WorkSensor THEN
                         _progress := 323;
                     END_IF;
                 END_IF;
@@ -2719,6 +2719,7 @@ NAMESPACE Template.Axolibrary
         /// Restores this component into intial state.        
         ///</summary>
         METHOD PUBLIC OVERRIDE Restore
+            Status.Action.Id :=  UINT#50;
             MoveToWorkTask.Restore();
             MoveToHomeTask.Restore();
             StopTask.Restore();

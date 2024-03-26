@@ -24,10 +24,15 @@ Remove-Item $FolderNameCtrl -r -force -ErrorAction Ignore
 
 dotnet new axolibrary -o $OutputDirectory -p $ProjectNamespace
 
-
 if (Test-Path $OutputDirectory) {
     Set-Location $OutputDirectory
 }
+
+#Remove source items
+$item = ".\app\ix\app_apaxappname.csproj"
+Remove-Item $item -r -force -ErrorAction Ignore
+$item = ".\src\"+ $ProjectNamespace + "\ix_ax_apaxlibname.csproj"
+Remove-Item $item -r -force -ErrorAction Ignore
 
 Set-Location app
 apax install
@@ -39,6 +44,13 @@ cd ..
 dotnet build this.proj
 dotnet slngen this.proj -o this.sln --folders true --launch false
 # & 'C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\devenv.exe' this.sln
+
+$dest = $OutputDirectory + ".code-workspace" 
+Copy-Item -Path "..\template.axolibrary\template.axolibrary.code-workspace"  -Destination $dest
+$dest = $OutputDirectory + ".sln" 
+Copy-Item -Path "this.sln"  -Destination $dest
+
+
 
 write-host "-----------------------------------------------------------" 
 write-host "Done" 

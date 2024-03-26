@@ -4,7 +4,7 @@ USING Template.Axolibrary;
 CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
         _manualControl : BOOL;
-        _testCyclinder : TemplateComponent;
+        _testCyclinder : Template.Axolibrary.TemplateComponent;
         _homeSensor : BOOL;
         _workSensor : BOOL;    
         _moveHomeSignal : BOOL;

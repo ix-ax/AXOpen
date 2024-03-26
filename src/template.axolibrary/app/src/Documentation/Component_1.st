@@ -5,7 +5,7 @@ USING Template.Axolibrary;
 CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
     //<ComponentDeclaration>
     VAR PUBLIC                
-        ExampleCylinder : TemplateComponent;             
+        ExampleCylinder : Template.Axolibrary.TemplateComponent;             
     END_VAR
     //</ComponentDeclaration>                          
 
