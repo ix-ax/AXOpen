@@ -187,7 +187,7 @@ public static class ApaxCmd
     {
         context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
         {
-            Arguments = $"login --registry https://npm.pkg.github.com--username { context.GitHubUser } --password { context.GitHubToken }",
+            Arguments = $"login --registry https://npm.pkg.github.com --username { context.GitHubUser } --password { context.GitHubToken }",
             WorkingDirectory = context.ArtifactsApax,
             RedirectStandardOutput = false,
             RedirectStandardError = false,
