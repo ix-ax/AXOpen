@@ -77,6 +77,14 @@
             "GsdId": "DAP 12",
             "FileName": "GSDML-V2.41-SIEMENS-RF18XC-20210415.XML"
           },
+          // "Parameters": {
+          //   "RecordDataList": [
+          //     {
+          //       "Index": 1,
+          //       "RawValue": "0x18 00 00 00 00 03 01 00 00 00 02 00 01 00 00 00 00 00 00 00 00 00 00 00"  
+          //     }
+          //   ]
+          // },
           "Interfaces": [
             {
               "Name": "profinet",
@@ -133,6 +141,61 @@
           "TypeIdentifier": {
             "GsdId": "CM 4xIO-Link V2.2 144I/128O",
             "FileName": "GSDML-V2.42-Siemens-ET200SP-20230812.xml"
+          },
+          "Parameters": {
+            "RecordDataList": [
+              {
+                "Index": 128,
+                "RawValue": "0x04 34 01 00 0E 04 01 01 21 20 03 00 2A 00 0C 02 09 00 02 1C 21 20 03 00 00 00 00 00 00 00 03 1C 21 20 03 00 00 00 00 00 00 00 04 1C 21 20 03 00 00 00 00 00 00 00"
+                //  link:
+                //  https://cache.industry.siemens.com/dl/files/527/67328527/att_830880/v1/et200sp_io_link_master_manual_en-US_en-US.pdf
+                //  Communication module IO-Link Master CM 4xIO-Link (6ES7137-6BD00-0BA0)
+                //  Equipment Manual, 04/2022, A5E03856846-AE
+                //  from page 34
+                // 00-04 // Major version. minor.version = 0.4
+                // 01-34 // length of the parameter data per module = 52
+                // 02-01 // block version high = 1
+                // 03-00 // block version low = 0
+                // 04-0E // Port configuration without S7-PCT activated, PQI activated, diagnostics no supply voltage L+ activated
+                // 05-04 // number of IO-Link ports = 4
+                // 06-01 // port number = 1
+                // 07-01 // Operating mode IO-Link Autostart, port diagnostics enabled
+                // 08-21 // Length of the input data with PQI = 33
+                // 09-20 // Length of the output data = 32
+                // 10-03 // inspection severity/data storage: Type compatible(V1.1)with Backup&Restore
+                // 11,12-002A //  VendorId = 42     SIEMENS AG      (https://io-link.com/share/Downloads/Vendor_ID_Table.xml)
+                // 13,14,15,16-000C0209 // DeviceId = 786953 (6GT2 821-4BC32)
+                // 17-00 // Port cycle time: as fast as possible
+                // 18-02 // port number = 2
+                // 19-1C // Operating mode: deactivated, port diagnostics disabled
+                // 20-21 // Length of the input data with PQI = 33
+                // 21-20 // Length of the output data = 32
+                // 22-03 // inspection severity/data storage: Type compatible(V1.1)with Backup&Restore
+                // 23,24-0000 //  VendorId = 0
+                // 25,26,27,28-00000000 // DeviceId = 0
+                // 29-00 // Port cycle time: as fast as possible
+                // 30-03 // port number = 3
+                // 31-1C // Operating mode: deactivated, port diagnostics disabled
+                // 32-21 // Length of the input data with PQI = 33
+                // 33-20 // Length of the output data = 32
+                // 34-03 // inspection severity/data storage: Type compatible(V1.1)with Backup&Restore
+                // 35,36-0000 //  VendorId = 0
+                // 37,38,39,40-00000000 // DeviceId = 0
+                // 41-00 // Port cycle time: as fast as possible
+                // 42-04 // port number = 4
+                // 43-1C // Operating mode: deactivated, port diagnostics disabled
+                // 44-21 // Length of the input data with PQI = 33
+                // 45-20 // Length of the output data = 32
+                // 46-03 // inspection severity/data storage: Type compatible(V1.1)with Backup&Restore
+                // 47,48-0000 //  VendorId = 0
+                // 49,50,51,52-00000000 // DeviceId = 0
+                // 53-00 // Port cycle time: as fast as possible
+              },
+              {
+                "Index": 243,
+                "RawValue": "0x01 00 00 00"  // New potencial unit
+              }
+            ]
           }
         },
         {
@@ -153,7 +216,7 @@
         { "Ref": "plc_line/plc_line/profinet" }
       ],
       "DeviceInterfaces": [
-        // { "Ref":  "rf186c/rf186c/profinet" },
+        // { "Ref":  "rf186c/rf186c/profinet" },  // Commented out due to fatal error when downloading
         { "Ref":  "et200sp/et200sp/profinet" }
       ]
     }

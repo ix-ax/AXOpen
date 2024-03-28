@@ -408,7 +408,9 @@ docs-test/
 src/.application/
 
 #secrets
-certs
+certs/
+*SecurityConfiguration.json
 
 #compiled gsd
-hwc\import-cache
+hwc/import-cache/
+import-cache/
