@@ -30,11 +30,11 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
         END_IF;  
 
         //<Initialization>        
-        AxoCmmtAs.Run(parent            :=  THIS,
-                        hwID                  :=  HwIdentifiers#cmmtas_PN_IO_Interface,
-                        hwIdTelegram111       :=  HwIdentifiers#cmmtas_DO_SERVO_1_Siemens_telegram_111_PZD_12_12,
-                        hwIdTelegram750       :=  HwIdentifiers#cmmtas_DO_SERVO_1_Siemens_telegram_750_PZD_4_1,
-                        MAP_HW_ID             :=  HwIdentifiers#cmmtas_DO_SERVO_1_Module_Access_Point,
+        AxoCmmtAs.Run(parent                  :=  THIS,
+                        hwID                  := HwIdentifiers#cmmtas_cmmtas_profinet_HwID,                  // HwIdentifiers#cmmtas_PN_IO_Interface,
+                        hwIdTelegram111       := HwIdentifiers#cmmtas_SiemensTelegram111_PZD_12_12_HwID,     //HwIdentifiers#cmmtas_DO_SERVO_1_Siemens_telegram_111_PZD_12_12,
+                        hwIdTelegram750       := HwIdentifiers#cmmtas_SiemensTelegram750_PZD_4_1_HwID,       //HwIdentifiers#cmmtas_DO_SERVO_1_Siemens_telegram_750_PZD_4_1,
+                        MAP_HW_ID             := HwIdentifiers#cmmtas_ModuleAcessPoint_HwID,                 //HwIdentifiers#cmmtas_DO_SERVO_1_Module_Access_Point,
                         Enable                := Enable,
                         EnablePositive        := EnablePositive,
                         EnableNegative        := EnableNegative);

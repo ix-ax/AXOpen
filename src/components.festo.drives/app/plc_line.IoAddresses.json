@@ -1,0 +1,38 @@
+{
+  "Version": 1,
+  "IoAddresses": [
+    {
+      "Ref": "cmmtas/DoServo",
+      "IoConfiguration": {
+        "InputAddress": [
+          {
+            "StartAddress": "0.0",
+            "EndAddress": "23.7",
+            "Length": 192,
+            "Source": "AutoAssigned"
+          },
+          {
+            "StartAddress": "24.0",
+            "EndAddress": "25.7",
+            "Length": 16,
+            "Source": "AutoAssigned"
+          }
+        ],
+        "OutputAddress": [
+          {
+            "StartAddress": "0.0",
+            "EndAddress": "23.7",
+            "Length": 192,
+            "Source": "AutoAssigned"
+          },
+          {
+            "StartAddress": "24.0",
+            "EndAddress": "31.7",
+            "Length": 64,
+            "Source": "AutoAssigned"
+          }
+        ]
+      }
+    }
+  ]
+}

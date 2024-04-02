@@ -1,0 +1,129 @@
+{
+  "Version": 1,
+  "HardwareIdentifiers": [
+    {
+      "Name": "PROFINET IO-System",
+      "Value": 256
+    },
+    {
+      "Name": "cmmtas",
+      "Value": 260
+    },
+    {
+      "Name": "cmmtas~EmptySubmodule_0",
+      "Value": 267
+    },
+    {
+      "Name": "cmmtas~EmptySubmodule_1",
+      "Value": 269
+    },
+    {
+      "Name": "cmmtas~ModuleAcessPoint",
+      "Value": 263
+    },
+    {
+      "Name": "cmmtas~Rack",
+      "Value": 261
+    },
+    {
+      "Name": "cmmtas~SiemensTelegram111-PZD-12-12",
+      "Value": 268
+    },
+    {
+      "Name": "cmmtas~SiemensTelegram750-PZD-4-1",
+      "Value": 270
+    },
+    {
+      "Name": "cmmtas~cmmtas",
+      "Value": 262
+    },
+    {
+      "Name": "cmmtas~cmmtas~CMMT-AS-...-MP",
+      "Value": 264
+    },
+    {
+      "Name": "cmmtas~cmmtas~DoServo",
+      "Value": 266
+    },
+    {
+      "Name": "cmmtas~cmmtas~profinet",
+      "Value": 257
+    },
+    {
+      "Name": "cmmtas~cmmtas~profinet~Port 1",
+      "Value": 258
+    },
+    {
+      "Name": "cmmtas~cmmtas~profinet~Port 2",
+      "Value": 259
+    },
+    {
+      "Name": "plc_line",
+      "Value": 32
+    },
+    {
+      "Name": "plc_line~Rail_0",
+      "Value": 265
+    },
+    {
+      "Name": "plc_line~plc_line",
+      "Value": 48
+    },
+    {
+      "Name": "plc_line~plc_line~ plc_line",
+      "Value": 49
+    },
+    {
+      "Name": "plc_line~plc_line~CPU display_1",
+      "Value": 54
+    },
+    {
+      "Name": "plc_line~plc_line~CPU exec unit_1",
+      "Value": 52
+    },
+    {
+      "Name": "plc_line~plc_line~Card reader/writer_1",
+      "Value": 51
+    },
+    {
+      "Name": "plc_line~plc_line~DP interface_1",
+      "Value": 60
+    },
+    {
+      "Name": "plc_line~plc_line~LicenseManager_1",
+      "Value": 42
+    },
+    {
+      "Name": "plc_line~plc_line~OPC UA_1",
+      "Value": 117
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET interface_2",
+      "Value": 72
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET interface_2~Port_1",
+      "Value": 73
+    },
+    {
+      "Name": "plc_line~plc_line~Virtual communication interface",
+      "Value": 135
+    },
+    {
+      "Name": "plc_line~plc_line~plc_line",
+      "Value": 50
+    },
+    {
+      "Name": "plc_line~plc_line~profinet",
+      "Value": 64
+    },
+    {
+      "Name": "plc_line~plc_line~profinet~Port1",
+      "Value": 65
+    },
+    {
+      "Name": "plc_line~plc_line~profinet~Port2",
+      "Value": 66
+    }
+  ]
+}

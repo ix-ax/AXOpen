@@ -411,4 +411,5 @@ src/.application/
 certs
 
 #compiled gsd
-hwc\import-cache
+hwc
+import-cache
