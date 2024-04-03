@@ -10,7 +10,6 @@ CONFIGURATION MyConfiguration
         {S7.extern=ReadWrite}
         _rtc : AXOpen.S71500.Rtc;
     END_VAR            
-
 END_CONFIGURATION
 
 

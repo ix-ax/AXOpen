@@ -30,8 +30,8 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
 
         //<Initialization>        
 
-        IOlinkReader.Run(  parent      :=  THIS,
-                            HW_ID       :=  HwIdentifiers#ET200SP_CM_4xIO_Link_V2_2_144I_128O_1, 
+        IOlinkReader.Run(   parent      :=  THIS,
+                            HW_ID       :=  HwIdentifiers#et200sp_CM_4xIO_Link_V2_2_144I_128O_1_CM_4xIO_Link_V2_2_144I_128O_HwID, 
                             portAddr    :=  INT#0,
                             version     :=  USINT#11);
         

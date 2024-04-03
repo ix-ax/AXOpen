@@ -406,3 +406,9 @@ apax-lock.json
 
 docs-test/
 src/.application/
+
+#secrets
+certs
+
+#compiled gsd
+hwc\import-cache

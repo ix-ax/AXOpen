@@ -1,9 +1,11 @@
 USING AXOpen.Core;
+USING Template.Axolibrary;
+
 {S7.extern=ReadWrite}
 CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
     //<ComponentDeclaration>
     VAR PUBLIC                
-        ExampleCylinder : AXOpen.Components.Example.ExampleCylinder;      
+        ExampleCylinder : Template.Axolibrary.TemplateComponent;      
     END_VAR
     //</ComponentDeclaration>                          
 
@@ -11,8 +13,10 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
     VAR PUBLIC         
         {#ix-set:AttributeName = "<#Activate manual control#>"}
         ActivateManualControl : BOOL;         
-        PlcInputs : REF_TO PlcInputs;
-        PlcOutputs : REF_TO PlcOutputs;                         
+        _homeSensor : BOOL;
+        _workSensor : BOOL;    
+        _moveHomeSignal : BOOL;
+        _moveWorkSignal : BOOL;
     END_VAR
     //</InitializationArgumentsDeclaration>            
 
@@ -29,10 +33,11 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
 
         //<Initialization>        
         ExampleCylinder.Run(THIS, 
-                            REF(PlcInputs^._homeSensor_2), 
-                            REF(PlcInputs^._workSensor_2), 
-                            REF(PlcOutputs^._moveHomeSignal_2), 
-                            REF(PlcOutputs^._moveWorkSignal_2));
+                            WORD#64,
+                            REF(_homeSensor), 
+                            REF(_workSensor), 
+                            REF(_moveHomeSignal), 
+                            REF(_moveWorkSignal));
         //</Initialization>
 
        THIS.UseInSequencer();
@@ -50,13 +55,13 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
         Sequencer.Open();
 
         IF(Steps[0].Execute(Sequencer, 'Move to home position')) THEN
-            IF(ExampleCylinder.MoveToHome.Invoke().IsDone()) THEN                
+            IF(ExampleCylinder.MoveToHome().IsDone()) THEN                
                 Sequencer.MoveNext();                
             END_IF;    
         END_IF;
 
         IF(Steps[1].Execute(Sequencer, 'Move to work position')) THEN
-            IF(ExampleCylinder.MoveToWork.Invoke().IsDone()) THEN                
+            IF(ExampleCylinder.MoveToWork().IsDone()) THEN                
                 Sequencer.MoveNext();                
             END_IF;    
         END_IF;       
