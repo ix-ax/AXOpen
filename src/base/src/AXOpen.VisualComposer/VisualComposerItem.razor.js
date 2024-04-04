@@ -43,7 +43,6 @@ export function dragElement(id, dotNetInstance, left, top, backgroundId, scale) 
 }
 
 function dragMouseDown(e, elmnt, left, top, dotNetInstance, backgroundId, scale) {
-    console.log("call");
     e = e || window.event;
     e.preventDefault();
 

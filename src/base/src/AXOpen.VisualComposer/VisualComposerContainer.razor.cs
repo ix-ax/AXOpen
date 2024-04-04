@@ -6,7 +6,10 @@ using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
 using Newtonsoft.Json.Linq;
+using System.Diagnostics;
 using System.Xml.Linq;
+using System.Drawing;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace AXOpen.VisualComposer
 {
@@ -32,12 +35,12 @@ namespace AXOpen.VisualComposer
         public delegate void EmptyDelegate();
         public EmptyDelegate ReDragElementDelegate;
 
-        public string? ImgSrc { get; set; }
-
         public int BackgroundWidth { get; set; } = 0;
         public int BackgroundHeight { get; set; } = 0;
+        public string? ImgSrc { get; set; }
         public string BackgroundColor { get; set; } = "#FFFFFF";
-        public bool EmptyBackground { get; set; } = false;
+        public bool EditSVG { get; set; } = false;
+        public string BackgroundSVGInput { get; set; } = "";
 
         public string? Theme { get; set; }
 
@@ -148,7 +151,7 @@ namespace AXOpen.VisualComposer
                 Directory.CreateDirectory("VisualComposerSerialize/" + Id.CorrectFilePath());
             }
 
-            Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", new SerializableObject(null, 0, 0, false, "#FFFFFF", new List<SerializableVisualComposerItem>(), "text-dark", 1, 0, 0, true));
+            Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", new SerializableObject(0, 0, null, "#FFFFFF", "", new List<SerializableVisualComposerItem>(), "text-dark", 1, 0, 0, true));
 
             Load(fileName);
         }
@@ -172,6 +175,8 @@ namespace AXOpen.VisualComposer
 
         public void Save()
         {
+            Console.WriteLine("Saving");
+
             List<SerializableVisualComposerItem> serializableChildren = new List<SerializableVisualComposerItem>();
             foreach (var child in _children)
             {
@@ -181,11 +186,11 @@ namespace AXOpen.VisualComposer
             Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" +
                                                                   Id.CorrectFilePath() + "/" +
                                                                   CurrentView.CorrectFilePath() + ".json",
-                                            new SerializableObject(ImgSrc,
-                                                BackgroundWidth,
+                                            new SerializableObject(BackgroundWidth,
                                                 BackgroundHeight,
-                                                EmptyBackground,
+                                                ImgSrc,
                                                 BackgroundColor,
+                                                BackgroundSVGInput,
                                                 serializableChildren,
                                                 Theme,
                                                 _zoomableContainer.Scale,
@@ -214,11 +219,11 @@ namespace AXOpen.VisualComposer
 
             if (deserialize != null)
             {
-                ImgSrc = deserialize.ImgSrc;
                 BackgroundWidth = deserialize.BackgroundWidth;
                 BackgroundHeight = deserialize.BackgroundHeight;
-                EmptyBackground = deserialize.EmptyBackground;
+                ImgSrc = deserialize.ImgSrc;
                 BackgroundColor = deserialize.BackgroundColor;
+                BackgroundSVGInput = deserialize.BackgroundSVGInput;
                 Theme = deserialize.Theme;
 
                 _children.Clear();
@@ -414,6 +419,10 @@ namespace AXOpen.VisualComposer
 
                 ImgSrc = "Images/VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + newName.CorrectFilePath();
 
+                var dimensions = await GetImageDimensions(ImgSrc);
+                BackgroundWidth = dimensions.Width;
+                BackgroundHeight = dimensions.Height;
+
                 isFileImported = true;
             }
             catch (Exception ex)
@@ -423,16 +432,23 @@ namespace AXOpen.VisualComposer
 
             isFileImporting = false;
 
-            EmptyBackground = false;
-
             Save();
         }
 
-        private void SetEmptyBackground()
+        private async Task<ImageDimensions> GetImageDimensions(string filePath)
         {
-            EmptyBackground = true;
+            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/VisualComposerContainer.razor.js");
+            var result = await jsObject.InvokeAsync<ImageDimensions>("getImageDimensions", filePath);
 
-            Save();
+            //var imageDimensions = Serializing.Serializing<ImageDimensions>.Deserialize(result.ToString());
+
+            return result;
+        }
+
+        public class ImageDimensions
+        {
+            public int Width { get; set; }
+            public int Height { get; set; }
         }
 
         internal void AddZoomableContainer(ZoomableContainer zoomableContainer)

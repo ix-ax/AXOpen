@@ -1,5 +1,11 @@
 ﻿@using AXSharp.Connector;
 @using Microsoft.AspNetCore.Components.Forms;
+@using KristofferStrube.Blazor.SVGEditor
+
+
+<link href="_content/BlazorColorPicker/colorpicker.css" rel="stylesheet" />
+<link href="_content/Blazor.ContextMenu/blazorContextMenu.min.css" rel="stylesheet" />
+<link href="_content/KristofferStrube.Blazor.SVGEditor/kristofferStrubeBlazorSVGEditor.css" rel="stylesheet" />
 
 <div class="container">
     <div class="row">
@@ -30,6 +36,8 @@
                                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createCopyModal-@Id.ModalIdHelper()">Create copy</a></li>
                                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#viewsModal-@Id.ModalIdHelper()">Views</a></li>
                                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#backgroundModal-@Id.ModalIdHelper()">Background</a></li>
+                                <li><a class="dropdown-item" @onclick="() => EditSVG = !EditSVG">Edit SVG</a></li>
+                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#backgroundSVGInputModal-@Id.ModalIdHelper()">Background SVG Input</a></li>
                                 <li><a class="dropdown-item" @onclick="() => ChangeTheme()">Change theme</a></li>
                             </ul>
                         </div>
@@ -48,30 +56,34 @@
                         </ul>
                     </div>
                 }
-                <ZoomableContainer Parent="this" Disable="!AllowZoomingAndPanning">
-                    <div onmousedown="event.preventDefault();">
-                        @if (EmptyBackground)
-                        {
-                            <div id="@_backgroundId" style="width: @(BackgroundWidth)%; height: @(BackgroundHeight)vh; background-color: @(BackgroundColor);"></div>
-                        }
-                        else
-                        {
-                            @if (ImgSrc != null)
-                            {
-                                <img id="@_backgroundId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
-                            }
-                        }
 
-                        <CascadingValue Value="@this" Name="Parent" IsFixed="true">
-                            <CascadingValue Value="@_backgroundId" Name="BackgroundId" IsFixed="true">
-                                @foreach (VisualComposerItemData child in _children)
-                                {
-                                    <VisualComposerItem InDesign="@InDesignMode" Origin="@child" />
-                                }
-                            </CascadingValue>
-                        </CascadingValue>
+                @if (EditSVG)
+                {
+                    <div id="@_backgroundId" style="width: 100%; height: 100%; background-color: @(BackgroundColor); background-image: url(@ImgSrc); background-position: center center; background-repeat: no-repeat; background-size: contain;">
+                        <div style="transform: none;">
+                            <SVGEditor ViewBox="@("0 0 " + BackgroundWidth + " " + BackgroundHeight)" BackgroundTransparent="true" Input=@BackgroundSVGInput InputUpdated="(string s) => { BackgroundSVGInput = s; Save(); }" DisableZoom="true" DisablePanning="true" DisableScaleLabel="true" Scale="_zoomableContainer.Scale" TranslateX="_zoomableContainer.TranslateX" TranslateY="_zoomableContainer.TranslateY" />
+                        </div>
                     </div>
-                </ZoomableContainer>
+                }
+                else
+                {
+                    <ZoomableContainer Parent="this" Disable="!AllowZoomingAndPanning">
+                        <div onmousedown="event.preventDefault();">
+                            <div id="@_backgroundId" style="width: 100%; height: 100%; background-color: @(BackgroundColor); background-image: url(@ImgSrc); background-position: center center; background-repeat: no-repeat; background-size: contain;">
+                                <svg width="100%" height="100%" viewBox="@("0 0 " + BackgroundWidth + " " + BackgroundHeight)">@(new MarkupString(BackgroundSVGInput))</svg>
+                            </div>
+
+                            <CascadingValue Value="@this" Name="Parent" IsFixed="true">
+                                <CascadingValue Value="@_backgroundId" Name="BackgroundId" IsFixed="true">
+                                    @foreach (VisualComposerItemData child in _children)
+                                    {
+                                        <VisualComposerItem InDesign="@InDesignMode" Origin="@child" />
+                                    }
+                                </CascadingValue>
+                            </CascadingValue>
+                        </div>
+                    </ZoomableContainer>
+                }
 
                 <CascadingValue Value="@this" Name="Parent" IsFixed="true">
                     @foreach (VisualComposerItemData child in _children)
@@ -301,9 +313,6 @@
                                                             <span class="visually-hidden">Loading...</span>
                                                         </div>
                                                     }
-                                                    <div class="d-flex justify-content-end">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -316,30 +325,50 @@
                                             <div id="setEmptyBackgroundcollapse" class="accordion-collapse collapse" aria-labelledby="setEmptyBackground" data-bs-parent="#backgroundAccordion">
                                                 <div class="accordion-body">
                                                     <div class="mb-1 row">
-                                                        <label class="col-sm-2 col-form-label">Width</label>
-                                                        <div class="col-sm-10">
-                                                            <input type="number" class="form-control" placeholder="Width" @bind="BackgroundWidth" step="1">
-                                                        </div>
-                                                    </div>
-                                                    <div class="mb-1 row">
-                                                        <label class="col-sm-2 col-form-label">Height</label>
-                                                        <div class="col-sm-10">
-                                                            <input type="number" class="form-control" placeholder="Height" @bind="BackgroundHeight" step="1">
-                                                        </div>
-                                                    </div>
-                                                    <div class="mb-1 row">
                                                         <label class="col-sm-2 col-form-label">Color</label>
                                                         <div class="col-sm-10">
                                                             <input type="color" class="form-control form-control-color" @bind="BackgroundColor" title="Choose color">
                                                         </div>
                                                     </div>
-                                                    <div class="d-flex justify-content-end">
-                                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="SetEmptyBackground">Save</button>
-                                                    </div>
+                                                    <button type="button" class="btn btn-secondary" disabled="@(ImgSrc == null || ImgSrc == "" ? "disabled" : null)" @onclick="() => { ImgSrc = null; Save(); }">Clear image (only background color)</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <div class="mb-1 row">
+                                                <label class="col-sm-2 col-form-label">Width</label>
+                                                <div class="col-sm-10">
+                                                    <input type="number" class="form-control" placeholder="Width" @bind="BackgroundWidth" step="1">
+                                                </div>
+                                            </div>
+                                            <div class="mb-1 row">
+                                                <label class="col-sm-2 col-form-label">Height</label>
+                                                <div class="col-sm-10">
+                                                    <input type="number" class="form-control" placeholder="Height" @bind="BackgroundHeight" step="1">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="backgroundSVGInputModal-@Id.ModalIdHelper()" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5">Background SVG Input</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body justify-content-center">
+                                    <textarea @bind="BackgroundSVGInput" @bind:event="oninput" style="width:100%;height:15vh;" />
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>
@@ -357,30 +386,30 @@
                         }
                     </ul>
                 </div>
-                <ZoomableContainer Parent="this" Disable="!AllowZoomingAndPanning">
-                    <div style="position: relative; width: 100%; height: 100%;">
-                        @if (EmptyBackground)
-                        {
-                            <div id="@_backgroundId" style="width: @(BackgroundWidth)%; height: @(BackgroundHeight)vh; background-color: @(BackgroundColor);"></div>
-                        }
-                        else
-                        {
-                            @if (ImgSrc != null)
-                            {
-                                <img id="@_backgroundId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
-                            }
-                        }
+                @* <ZoomableContainer Parent="this" Disable="!AllowZoomingAndPanning">
+                <div style="position: relative; width: 100%; height: 100%;">
+                @if (EmptyBackground)
+                {
+                <div id="@_backgroundId" style="width: @(BackgroundWidth)%; height: @(BackgroundHeight)vh; background-color: @(BackgroundColor);"></div>
+                }
+                else
+                {
+                @if (ImgSrc != null)
+                {
+                <img id="@_backgroundId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
+                }
+                }
 
-                        <CascadingValue Value="@this" Name="Parent" IsFixed="true">
-                            <CascadingValue Value="@_backgroundId" Name="BackgroundId" IsFixed="true">
-                                @foreach (VisualComposerItemData child in _children)
-                                {
-                                    <VisualComposerItem Origin="@child" />
-                                }
-                            </CascadingValue>
-                        </CascadingValue>
-                    </div>
-                </ZoomableContainer>
+                <CascadingValue Value="@this" Name="Parent" IsFixed="true">
+                <CascadingValue Value="@_backgroundId" Name="BackgroundId" IsFixed="true">
+                @foreach (VisualComposerItemData child in _children)
+                {
+                <VisualComposerItem Origin="@child" />
+                }
+                </CascadingValue>
+                </CascadingValue>
+                </div>
+                </ZoomableContainer> *@
             </NotAuthorized>
         </AuthorizeView>
     </div>
@@ -449,3 +478,5 @@
         </div>
     }
 </div>
+
+<script src="_content/Blazor.ContextMenu/blazorContextMenu.min.js"></script>

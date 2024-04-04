@@ -20,6 +20,10 @@
 		<PackageReference Include="AXSharp.Presentation.Blazor.Controls" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="C:\MTS\Blazor.SVGEditor\src\KristofferStrube.Blazor.SVGEditor\KristofferStrube.Blazor.SVGEditor.csproj" />
+	</ItemGroup>
+
 	<!--<ItemGroup>
 	  <ProjectReference Include="..\..\..\..\..\axsharp\src\AXSharp.abstractions\src\AXSharp.Abstractions\AXSharp.Abstractions.csproj" />
 	  <ProjectReference Include="..\..\..\..\..\axsharp\src\AXSharp.blazor\src\AXSharp.Presentation.Blazor.Controls\AXSharp.Presentation.Blazor.Controls.csproj" />

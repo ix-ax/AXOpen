@@ -2,6 +2,7 @@
 const elementContainer = document.getElementById('zoomAndMoveContainer');
 const elementItem = document.getElementById('zoomAndMoveItem');
 
+console.log('ZoomableContainer.razor.js loaded');
 enableZooming()
 
 let isDragging = false;
@@ -10,6 +11,7 @@ let scale;
 let dotNetComponentInstance;
 
 export function disableZooming() {
+    console.log('disableZooming');
     elementContainer.removeEventListener('wheel', zoom);
     elementContainer.removeEventListener('mousedown', startDrag);
     elementContainer.removeEventListener('mouseup', stopDrag);
@@ -18,6 +20,7 @@ export function disableZooming() {
 }
 
 export function enableZooming() {
+    console.log('enableZooming');
     elementContainer.addEventListener('wheel', zoom);
     elementContainer.addEventListener('mousedown', startDrag);
     elementContainer.addEventListener('mouseup', stopDrag);
@@ -27,6 +30,7 @@ export function enableZooming() {
 
 function zoom(event) {
     if (event.ctrlKey) {
+        console.log('zoom');
         event.preventDefault();
         scale += event.deltaY * -0.0001;
         scale = Math.min(Math.max(0.5, scale), 2);
@@ -58,12 +62,14 @@ function drag(event) {
 }
 
 function updateTransform() {
+    console.log('updateTransform', scale, left, top);
     elementItem.style.transform = `scale(${scale}) translate(${left}px, ${top}px)`;
 
     dotNetComponentInstance.invokeMethodAsync('SetDataAsync', scale, left, top);
 }
 
 export function setData(dotNetInstance, s, x, y) {
+    console.log('setData', s, x, y);
     dotNetComponentInstance = dotNetInstance;
     scale = s;
     left = x;

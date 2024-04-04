@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,7 +62,7 @@ namespace AXOpen.VisualComposer
         {
             if (firstRender)
             {
-                await SetDataInJS();
+                //await SetDataInJS();
             }
         }
 
@@ -93,6 +94,8 @@ namespace AXOpen.VisualComposer
                 TranslateY = translateY;
 
                 await _parent!.ReDragElement();
+
+                Parent?.Save();
             }
         }
 

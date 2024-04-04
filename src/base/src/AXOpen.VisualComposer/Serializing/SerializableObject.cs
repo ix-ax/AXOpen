@@ -2,13 +2,13 @@
 {
     internal class SerializableObject
     {
-        public SerializableObject(string? imgSrc, int backgroundWidth, int backgroundHeight, bool emptyBackground, string backgroundColor, List<SerializableVisualComposerItem> items, string theme, double scale, int translateX, int translateY, bool allowZoomingAndPanning)
+        public SerializableObject(int backgroundWidth, int backgroundHeight, string? imgSrc, string backgroundColor, string backgroundSVGInput, List<SerializableVisualComposerItem> items, string theme, double scale, int translateX, int translateY, bool allowZoomingAndPanning)
         {
-            ImgSrc = imgSrc;
             BackgroundWidth = backgroundWidth;
             BackgroundHeight = backgroundHeight;
-            EmptyBackground = emptyBackground;
+            ImgSrc = imgSrc;
             BackgroundColor = backgroundColor;
+            BackgroundSVGInput = backgroundSVGInput;
             Items = items;
             Theme = theme;
             Scale = scale;
@@ -17,11 +17,12 @@
             AllowZoomingAndPanning = allowZoomingAndPanning;
         }
 
-        public string? ImgSrc { get; set; }
         public int BackgroundWidth { get; set; }
         public int BackgroundHeight { get; set; }
-        public bool EmptyBackground { get; set; }
+        public string? ImgSrc { get; set; }
         public string BackgroundColor { get; set; } = "";
+
+        public string BackgroundSVGInput { get; set; } = "";
         public List<SerializableVisualComposerItem> Items { get; set; }
 
         public string Theme { get; set; }
