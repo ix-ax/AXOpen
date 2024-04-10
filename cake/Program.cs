@@ -166,42 +166,50 @@ public sealed class BuildTask : FrostingTask<BuildContext>
             context.ApaxBuild(new []{traversalProjectFolder});
             context.ApaxIxc(new []{traversalProjectFolder});
 
+            
+            if (context.BuildParameters.DoPack)
+            {
+                context.Libraries.ToList().ForEach(lib =>
+                {
+                    foreach (var apaxfile in context.GetApaxFiles(lib))
+                    {
+                        context.ApaxChangeBuildProperties(apaxfile, new string[] { "\"1500\"", "llvm", "plcsim" }, new[] { "bin" });
+                    }
+                });
 
-            // if (context.BuildParameters.DoPack)
-            // {
-            //     if (context.BuildParameters.Paralellize)
-            //     {
-            //         Parallel.ForEach(context.Libraries, lib => context.ApaxInstall(context.GetLibraryAxFolders(lib)));
-            //         Parallel.ForEach(context.Libraries, lib => context.ApaxBuild(context.GetLibraryAxFolders(lib)));
-            //         //context.Libraries.ToList().ForEach(lib => context.ApaxIxc(context.GetLibraryAxFolders(lib)));
-            //     }
-            //     else
-            //     {
-            //         context.Libraries.ToList().ForEach(lib =>
-            //         {
-            //             context.ApaxInstall(context.GetLibraryAxFolders(lib));
-            //             context.ApaxBuild(context.GetLibraryAxFolders(lib));
-            //             //context.ApaxIxc(context.GetLibraryAxFolders(lib));
-            //         });
-            //     }
-            //
-            //     if (context.BuildParameters.Paralellize)
-            //     {
-            //         Parallel.ForEach(context.Libraries,
-            //             lib => context.ApaxInstall(context.GetApplicationAxFolders(lib)));
-            //         Parallel.ForEach(context.Libraries, lib => context.ApaxBuild(context.GetApplicationAxFolders(lib)));
-            //         //context.Libraries.ToList().ForEach(lib => context.ApaxIxc(context.GetApplicationAxFolders(lib)));
-            //     }
-            //     else
-            //     {
-            //         context.Libraries.ToList().ForEach(lib =>
-            //         {
-            //             context.ApaxInstall(context.GetApplicationAxFolders(lib));
-            //             context.ApaxBuild(context.GetApplicationAxFolders(lib));
-            //             //context.ApaxIxc(context.GetApplicationAxFolders(lib));
-            //         });
-            //     }
-            // }
+                if (context.BuildParameters.Paralellize)
+                {
+                    Parallel.ForEach(context.Libraries, lib => context.ApaxInstall(context.GetLibraryAxFolders(lib)));
+                    Parallel.ForEach(context.Libraries, lib => context.ApaxBuild(context.GetLibraryAxFolders(lib)));
+                    //context.Libraries.ToList().ForEach(lib => context.ApaxIxc(context.GetLibraryAxFolders(lib)));
+                }
+                else
+                {
+                    context.Libraries.ToList().ForEach(lib =>
+                    {
+                        context.ApaxInstall(context.GetLibraryAxFolders(lib));
+                        context.ApaxBuild(context.GetLibraryAxFolders(lib));
+                        //context.ApaxIxc(context.GetLibraryAxFolders(lib));
+                    });
+                }
+
+                //if (context.BuildParameters.Paralellize)
+                //{
+                //    Parallel.ForEach(context.Libraries,
+                //        lib => context.ApaxInstall(context.GetApplicationAxFolders(lib)));
+                //    Parallel.ForEach(context.Libraries, lib => context.ApaxBuild(context.GetApplicationAxFolders(lib)));
+                //    //context.Libraries.ToList().ForEach(lib => context.ApaxIxc(context.GetApplicationAxFolders(lib)));
+                //}
+                //else
+                //{
+                //    context.Libraries.ToList().ForEach(lib =>
+                //    {
+                //        context.ApaxInstall(context.GetApplicationAxFolders(lib));
+                //        context.ApaxBuild(context.GetApplicationAxFolders(lib));
+                //        //context.ApaxIxc(context.GetApplicationAxFolders(lib));
+                //    });
+                //}
+            }
 
             context.DotNetBuild(Path.Combine(context.RootDir, "AXOpen.proj"), context.DotNetBuildSettings);
         }
