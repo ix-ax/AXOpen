@@ -11,21 +11,19 @@ namespace AXOpen.Core
     public enum eDisplayFormat { Array_of_hexdecimals , Array_of_decimals, String };
     public partial class AxoByteArrayView : RenderableComplexComponentBase<AxoByteArray>, IDisposable
     {
-
-        private eDisplayFormat _currentDisplayFormat;
+        private eDisplayFormat _displayFormat;
         private uint _maxLen = 3;
-        private string _style = "width: 2.1em";
         private bool _isReadOnly = false;
 
         [Parameter]
         public bool IsControllable { get; set; }
 
-        public eDisplayFormat CurrentDisplayFormat
+        public eDisplayFormat DisplayFormat
         {
-            get => _currentDisplayFormat;
+            get => _displayFormat;
             set
             {
-                _currentDisplayFormat = value;
+                _displayFormat = value;
                 FormatData(null, null);
             }
         }
@@ -36,11 +34,6 @@ namespace AXOpen.Core
             private set { _maxLen = value; }
         }
 
-        public string Style
-        {
-            get => _style;
-            private set { _style = value; }
-        }
         public bool IsReadOnly
         {
             get => _isReadOnly;
@@ -92,9 +85,9 @@ namespace AXOpen.Core
                                 {
                                     string _displayFormat = Component.DisplayFormat.ToString().ToLower();
                                     _isReadOnly = _data[0].ReadWriteAccess.Equals(ReadWriteAccess.Read);
-                                    CurrentDisplayFormat = eDisplayFormat.Array_of_hexdecimals;
-                                    if (_displayFormat.Equals("decimal")) CurrentDisplayFormat = eDisplayFormat.Array_of_decimals;
-                                    if (_displayFormat.Equals("string")) CurrentDisplayFormat = eDisplayFormat.String;
+                                    DisplayFormat = eDisplayFormat.Array_of_hexdecimals;
+                                    if (_displayFormat.Equals("decimal")) DisplayFormat = eDisplayFormat.Array_of_decimals;
+                                    if (_displayFormat.Equals("string")) DisplayFormat = eDisplayFormat.String;
                                 }
 
                                 initialized = true;
@@ -139,9 +132,9 @@ namespace AXOpen.Core
                                 if (Component.DisplayFormat != null)
                                 {
                                     string _displayFormat = Component.DisplayFormat.ToString().ToLower();
-                                    CurrentDisplayFormat = eDisplayFormat.Array_of_hexdecimals;
-                                    if (_displayFormat.Equals("decimal")) CurrentDisplayFormat = eDisplayFormat.Array_of_decimals;
-                                    if (_displayFormat.Equals("string")) CurrentDisplayFormat = eDisplayFormat.String;
+                                    DisplayFormat = eDisplayFormat.Array_of_hexdecimals;
+                                    if (_displayFormat.Equals("decimal")) DisplayFormat = eDisplayFormat.Array_of_decimals;
+                                    if (_displayFormat.Equals("string")) DisplayFormat = eDisplayFormat.String;
                                 }
 
                                 initialized = true;
@@ -156,23 +149,20 @@ namespace AXOpen.Core
                     for (int i = 0; i < length; i++)
                     {
                         byte _byte = _data[i] != null ? _data[i].Shadow : (byte)0;
-                        if (CurrentDisplayFormat == eDisplayFormat.Array_of_decimals)
+                        if (DisplayFormat == eDisplayFormat.Array_of_decimals)
                         {
                             Data[i] = new IndexedData<string>(i, _byte.ToString());
                             MaxLen = 3;
-                            Style = "width: 2.1em; border:hidden";
                         }
-                        else if (CurrentDisplayFormat == eDisplayFormat.Array_of_hexdecimals)
+                        else if (DisplayFormat == eDisplayFormat.Array_of_hexdecimals)
                         {
                             Data[i] = new IndexedData<string>(i, _byte.ToString("X"));
                             MaxLen = 2;
-                            Style = "width: 1.8em; border:hidden";
                         }
-                        else if (CurrentDisplayFormat == eDisplayFormat.String)
+                        else if (DisplayFormat == eDisplayFormat.String)
                         {
                             Data[i] = new IndexedData<string>(i, Encoding.UTF8.GetString(new byte[] { _byte }));
                             MaxLen = 1;
-                            Style = "width: 1.3em; border:hidden";
                         }
                     }
                 }
@@ -212,15 +202,15 @@ namespace AXOpen.Core
                     for (int i = 0; i < length; i++)
                     {
                         byte _byte = _data[i] != null ? _data[i].Shadow : (byte)0;
-                        if (CurrentDisplayFormat == eDisplayFormat.Array_of_decimals)
+                        if (DisplayFormat == eDisplayFormat.Array_of_decimals)
                         {
                             _data[i].Shadow = (byte)Decimal.Parse(Data[i].Data as string, NumberStyles.None);
                         }
-                        else if (CurrentDisplayFormat == eDisplayFormat.Array_of_hexdecimals)
+                        else if (DisplayFormat == eDisplayFormat.Array_of_hexdecimals)
                         {
                             _data[i].Shadow = (byte)Convert.ToInt32(Data[i].Data as string, 16);
                         }
-                        else if (CurrentDisplayFormat == eDisplayFormat.String)
+                        else if (DisplayFormat == eDisplayFormat.String)
                         {
                             if (Data[i].Data.Length == 1)
                             {

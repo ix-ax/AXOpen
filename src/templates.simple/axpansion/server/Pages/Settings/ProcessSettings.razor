@@ -1,9 +1,0 @@
-﻿@page "/Settings/ProcessSettings"
-@using AXSharp.Connector
-@using AXOpen.Data;
-
-<AuthorizeView Roles="@Roles.can_access_process_settings">
-    <Authorized>
-        <RenderableContentControl Context="@Entry.Plc.Context.ProcessSettings" Presentation="Command"></RenderableContentControl>
-    </Authorized>
-</AuthorizeView>

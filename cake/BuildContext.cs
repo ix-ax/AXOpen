@@ -174,7 +174,6 @@ public class BuildContext : FrostingContext
         ("components.siemens.identification", "axopen.components.siemens.identification", true),
         ("components.balluff.identification", "axopen.components.balluff.identification", true),
         ("integrations", "ix.integrations", false),
-        ("templates.simple", "templates.simple", false),
         ("template.axolibrary", "template.axolibrary", false)
     };
     #endregion

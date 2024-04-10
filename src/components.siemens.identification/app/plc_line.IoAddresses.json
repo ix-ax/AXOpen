@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "IoAddresses": [
+    {
+      "Ref": "et200sp/CM_4xIO-Link_V2_2_144I_128O_1",
+      "IoConfiguration": {
+        "InputAddress": [
+          {
+            "StartAddress": "0.0",
+            "EndAddress": "143.7",
+            "Length": 1152,
+            "Source": "AutoAssigned"
+          }
+        ],
+        "OutputAddress": [
+          {
+            "StartAddress": "0.0",
+            "EndAddress": "127.7",
+            "Length": 1024,
+            "Source": "AutoAssigned"
+          }
+        ]
+      }
+    }
+  ]
+}

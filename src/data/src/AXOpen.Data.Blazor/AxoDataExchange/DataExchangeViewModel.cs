@@ -125,7 +125,7 @@ namespace AXOpen.Data
         public Task FillObservableRecordsAsync()
         {
             //let another thread to load records, we need main thread to show loading symbol in blazor page
-            return Task.Run(async () =>
+            return Task.Run(() =>
             {
                 IsBusy = true;
                 UpdateObservableRecords();
@@ -218,6 +218,9 @@ namespace AXOpen.Data
             {
                 await FillObservableRecordsAsync();
                 CreateItemId = null;
+
+                if (StateHasChangedDelegate != null)
+                    StateHasChangedDelegate.Invoke();
             }
         }
 
@@ -238,8 +241,8 @@ namespace AXOpen.Data
                 UpdateObservableRecords();
             }
 
-            StateHasChangedDelegate.Invoke();
-
+            if (StateHasChangedDelegate != null)
+                StateHasChangedDelegate.Invoke();
         }
 
         public async Task Copy()
@@ -258,6 +261,9 @@ namespace AXOpen.Data
             {
                 UpdateObservableRecords();
                 CreateItemId = null;
+
+                if (StateHasChangedDelegate != null)
+                    StateHasChangedDelegate.Invoke();
             }
         }
 

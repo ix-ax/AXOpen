@@ -64,7 +64,6 @@
 	  <ProjectReference Include="..\..\..\simatic1500\ctrl\ix\ix_ax_axopen_simatic1500.csproj" />
 	  <ProjectReference Include="..\..\..\template.axolibrary\app\ix\app_apaxappname.csproj" />
 	  <ProjectReference Include="..\..\..\template.axolibrary\src\projname\ix_ax_apaxlibname.csproj" />
-	  <ProjectReference Include="..\..\..\templates.simple\axpansion\twin\axosimple.csproj" />
 	  <ProjectReference Include="..\..\..\timers\app\ix\timers_app.csproj" />
 	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj" />
 	  <ProjectReference Include="..\..\..\utils\app\ix\utils_app.csproj" />

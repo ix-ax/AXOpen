@@ -29,23 +29,6 @@
 {
     private IJSObjectReference? module;
     private AxoMessageObserver? observer; 
-    
-    ///<inheritdoc/>
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            try
-            {
-                module = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.Core.Blazor/AxoObject/AxoObjectSpotView.razor.js");
-                await module.InvokeVoidAsync("addToolTips");
-            }
-            catch (Exception e)
-            {
-                // ignored
-            }
-        }
-    }
 
     public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
     {

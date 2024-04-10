@@ -8,14 +8,14 @@ namespace AXOpen.Components.Balluff.Identification
 {
     public partial class Axo_BIS_M_4XX_045_Component_Status : AXOpen.Components.Abstractions.AxoComponent_Status
     {
-        Dictionary<uint, string> errorDescriptionDict = new Dictionary<uint, string>();
-        Dictionary<uint, string> actionDescriptionDict = new Dictionary<uint, string>();
+        Dictionary<ulong, string> errorDescriptionDict = new Dictionary<ulong, string>();
+        Dictionary<ulong, string> actionDescriptionDict = new Dictionary<ulong, string>();
 
         public string ErrorDescription
         {
             get
             {
-                if (errorDescriptionDict == null) { errorDescriptionDict = new Dictionary<uint, string>(); }
+                if (errorDescriptionDict == null) { errorDescriptionDict = new Dictionary<ulong, string>(); }
                 if (errorDescriptionDict.Count == 0)
                 {
                     errorDescriptionDict.Add(0, "   ");
@@ -81,7 +81,7 @@ namespace AXOpen.Components.Balluff.Identification
         {
             get
             {
-                if (actionDescriptionDict == null) { actionDescriptionDict = new Dictionary<uint, string>(); }
+                if (actionDescriptionDict == null) { actionDescriptionDict = new Dictionary<ulong, string>(); }
                 if (actionDescriptionDict.Count == 0)
                 {
                     actionDescriptionDict.Add(0, "   ");

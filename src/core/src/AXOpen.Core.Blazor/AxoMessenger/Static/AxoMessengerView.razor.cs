@@ -18,16 +18,6 @@ namespace AXOpen.Messaging.Static
         protected IJSRuntime js { get; set; }
         private IJSObjectReference? jsModule;
 
-
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            if (firstRender)
-            {
-                var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.Core.Blazor/AxoMessenger/Static/AxoMessengerView.razor.js");
-                await jsObject.InvokeVoidAsync("addPopovers");
-            }
-        }
-
         protected async Task<string?> GetCurrentUserName()
         {
             var authenticationState = await AuthenticationStateProvider?.GetAuthenticationStateAsync();
@@ -55,6 +45,8 @@ namespace AXOpen.Messaging.Static
         {
             base.OnInitialized();
             UpdateValuesOnChange(Component.MessengerState);
+            UpdateValuesOnChange(Component.MessageCode);
+            UpdateValuesOnChange(Component.Category);
         }
 
         public override void Dispose()

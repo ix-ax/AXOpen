@@ -17,6 +17,7 @@ using AXOpen.Data.InMemory;
 using AXOpen.Data.MongoDb;
 using AXOpen.Data.Json;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 var jsonRepositoryLocation = CreateJsonRepositoryDirectory();
@@ -58,11 +59,9 @@ IRepository<AXOpen.Data.PersistentRecord> persistentRepository;
 //persistentRepository = new JsonRepositorySettings<AXOpen.Data.PersistentRecord>(persistentLocation).Factory();
 
 // *** MONGO REPOSITORY ***
-AXOpen.Data.MongoDb.Repository.InitializeFactory(mongoConnectionString: "mongodb://localhost:27017",
-                                                  mongoDatabaseName: "AxOpenData",
-                                                  user: "user",
-                                                  userpw: "userpwd");
-persistentRepository = AXOpen.Data.MongoDb.Repository.Factory<AXOpen.Data.PersistentRecord>("PersistentData");
+
+
+persistentRepository = AXOpen.Data.MongoDb.Repository.Factory<AXOpen.Data.PersistentRecord>(new MongoDbRepositorySettings<AXOpen.Data.PersistentRecord>("mongodb://localhost:27017", "AxOpenData", "PersistentData"));
 
 
 Entry.Plc.AxoDataPersistentContext.DataManager.InitializeRemoteDataExchange( 
@@ -87,12 +86,9 @@ IRepository<Pocos.AxoDataFramentsExchangeExample.Station_1_Data> Station_1_DataR
 //Station_1_DataRepository = new JsonRepositorySettings<Pocos.AxoDataFramentsExchangeExample.Station_1_Data>(Station_1_Location).Factory();
 
 // *** MONGO REPOSITORY ***
-AXOpen.Data.MongoDb.Repository.InitializeFactory(mongoConnectionString: "mongodb://localhost:27017",
-                                                  mongoDatabaseName: "AxOpenData",
-                                                  user: "user",
-                                                  userpw: "userpwd");
-SharedDataHeaderDataRepository = AXOpen.Data.MongoDb.Repository.Factory<Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData>("SharedDataHeader");
-Station_1_DataRepository = AXOpen.Data.MongoDb.Repository.Factory<Pocos.AxoDataFramentsExchangeExample.Station_1_Data>("Station_1");
+
+SharedDataHeaderDataRepository = AXOpen.Data.MongoDb.Repository.Factory<Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData>(new MongoDbRepositorySettings<Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData>("mongodb://localhost:27017", "AxOpenData", "SharedDataHeader"));
+Station_1_DataRepository = AXOpen.Data.MongoDb.Repository.Factory<Pocos.AxoDataFramentsExchangeExample.Station_1_Data>(new MongoDbRepositorySettings<Pocos.AxoDataFramentsExchangeExample.Station_1_Data>("mongodb://localhost:27017", "AxOpenData", "Station_1"));
 
 var AxoProcessDataManager = Entry.Plc.AxoDataFragmentsExchangeContext.DataManager.CreateBuilder<AxoDataFramentsExchangeExample.AxoProcessDataManager>();
 
@@ -114,11 +110,9 @@ IRepository<Pocos.AxoDataExchangeExample.AxoProcessData> AxoProcessDataRepositor
 //AxoProcessDataRepository = new JsonRepositorySettings<Pocos.AxoDataExchangeExample.AxoProcessData>(ProcessDataLocation).Factory();
 
 // *** MONGO REPOSITORY ***
-AXOpen.Data.MongoDb.Repository.InitializeFactory(mongoConnectionString: "mongodb://localhost:27017",
-                                                  mongoDatabaseName: "AxOpenData",
-                                                  user: "user",
-                                                  userpw: "userpwd");
-AxoProcessDataRepository = AXOpen.Data.MongoDb.Repository.Factory<Pocos.AxoDataExchangeExample.AxoProcessData>("AxoDataExchangeExample");
+
+
+AxoProcessDataRepository = AXOpen.Data.MongoDb.Repository.Factory<Pocos.AxoDataExchangeExample.AxoProcessData>(new MongoDbRepositorySettings<Pocos.AxoDataExchangeExample.AxoProcessData>("mongodb://localhost:27017", "AxOpenData","AxoDataExchangeExample"));
 
 Entry.Plc.AxoDataExchangeContext.DataManager.InitializeRemoteDataExchange(AxoProcessDataRepository);
 //</SetUpAxoDataExchange>

@@ -133,7 +133,7 @@
         var ast = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         if (Observer?.Provider is {Messengers: not null })
         {
-            foreach (var messenger in Observer.Provider.Messengers)
+            foreach (var messenger in Observer.Provider.Messengers.Where(p =>p.State == eAxoMessengerState.NotActiveWaitingAckn))
             {
                 messenger.Acknowledge(ast.User.Identity);
             }
