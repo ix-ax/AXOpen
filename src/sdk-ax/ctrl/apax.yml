@@ -7,6 +7,9 @@ files:
   - apax.yml
 dependencies:
   "@ax/sdk": ^2311.0.1
+  "@ax/hwc": ^0.12.217
+  "@ax/hwld": ^0.8.23
+  "@ax/dcp-utility": ^1.1.1
   # "@ax/axunitst": 4.1.8
   # "@ax/mod": 1.0.4
   # "@ax/mon": 1.0.4
@@ -21,4 +24,4 @@ dependencies:
   # "@ax/target-mc7plus": 6.0.146
   # "@ax/simatic-pragma-stc-plugin": 2.0.12
 installStrategy: strict
-apaxVersion: 3.1.0
+apaxVersion: 3.1.1
