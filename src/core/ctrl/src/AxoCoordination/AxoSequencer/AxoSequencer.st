@@ -23,10 +23,8 @@ NAMESPACE AXOpen.Core
             _coordinatorState : AxoCoordinatorStates;
             _step : IAxoStep;
             _openCycleCounter : ULINT;    
-            _closeCycleCounter : ULINT;    
-            _refBeforeStep : REF_TO AxoStep;
-            _refCurrentStep : REF_TO AxoStep;
-            _refAfterStep : REF_TO AxoStep;
+            _closeCycleCounter : ULINT;  
+            _refStep :  REF_TO AxoStep;       
             _microStep : UINT;   
         END_VAR     
 
@@ -170,18 +168,18 @@ NAMESPACE AXOpen.Core
             END_IF;
 
             IF(THIS.CurrentOrder = step.GetStepOrder()) THEN
-                _refCurrentStep ?= step;
-                CurrentStep := _refCurrentStep^;
+                _refStep ?= step;
+                CurrentStep := _refStep^;                
             END_IF;   
 
             IF(THIS.CurrentOrder + ULINT#1 = step.GetStepOrder() OR (THIS.CurrentOrder = THIS.GetNumberOfConfiguredSteps() AND step.GetStepOrder() = UINT#1)) THEN
-                _refAfterStep ?= step;
-                AfterStep := _refAfterStep^;
+                _refStep ?= step;
+                AfterStep := _refStep^;
             END_IF;
 
             IF(THIS.CurrentOrder - ULINT#1 = step.GetStepOrder() OR (THIS.CurrentOrder = UINT#1 AND step.GetStepOrder() = THIS.GetNumberOfConfiguredSteps())) THEN
-                _refBeforeStep ?= step;
-                BeforeStep := _refBeforeStep^;
+                _refStep ?= step;
+                BeforeStep := _refStep^;
             END_IF; 
         END_METHOD
                 
