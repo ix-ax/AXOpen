@@ -5,6 +5,7 @@
 // https://github.com/ix-ax/ix/blob/master/LICENSE
 // Third party licenses: https://github.com/ix-ax/ix/blob/master/notices.md
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,6 +17,7 @@ using Cake.Core.Diagnostics;
 using Cake.Core.IO;
 using Microsoft.Win32;
 using Octokit;
+using YamlDotNet.RepresentationModel;
 using static NuGet.Packaging.PackagingConstants;
 using Path = System.IO.Path;
 
@@ -245,4 +247,71 @@ public static class ApaxCmd
 
         process.WaitForExit();
     }
+
+    public static void ApaxChangeBuildProperties(this BuildContext context, string yamlFilePath, IEnumerable<string> targets, IEnumerable<string> files)
+    {
+        // Load the YAML stream
+        var yaml = new YamlStream();
+        using (var reader = new StreamReader(yamlFilePath))
+        {
+            yaml.Load(reader);
+        }
+
+        // Assuming there's only one document in the YAML stream
+        var root = (YamlMappingNode)yaml.Documents[0].RootNode;
+
+        if (root.Children.TryGetValue(new YamlScalarNode("type"), out var typeNode) &&
+            ((YamlScalarNode)typeNode).Value == "lib")
+        {
+
+            // Modify 'targets'
+            var targetsNode = (YamlSequenceNode)root.Children[new YamlScalarNode("targets")];
+            targetsNode.Children.Clear(); // Clear existing targets
+
+            var quotedTargets = new List<string>();
+
+            foreach (var target in targets)
+            {
+                if (target.StartsWith("\"") && target.EndsWith("\""))
+                {
+                    quotedTargets.Add(target);
+                }
+                
+                targetsNode.Children.Add(new YamlScalarNode(target));
+            }
+
+            // Modify 'files'
+            var filesNode = (YamlSequenceNode)root.Children[new YamlScalarNode("files")];
+            filesNode.Children.Clear(); // Clear existing files
+
+            foreach (var file in files)
+            {
+                filesNode.Children.Add(new YamlScalarNode(file));
+            }
+
+            // Save the modified document
+            using (var writer = new StreamWriter(yamlFilePath))
+            {
+                yaml.Save(writer, assignAnchors: false);
+            }
+
+            // Assume 'yamlString' is your serialized YAML string
+            string yamlString = File.ReadAllText(yamlFilePath);
+
+
+            foreach (var target in quotedTargets)
+            {
+                yamlString = yamlString.Replace($"'{target}'", target);
+            }
+            
+           
+
+            // Save the manually adjusted YAML string to a file
+            File.WriteAllText(yamlFilePath, yamlString);
+
+
+            Console.WriteLine($"Apax '{yamlFilePath}' was modified for targets '{string.Join(",", targets)}' and files '{string.Join(",", files)}'");
+        }
+    }
+    
 }
