@@ -98,8 +98,8 @@ namespace AXOpen.Components.Rexroth.Drives
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(827, new AxoMessengerTextItem("Error reading the parameter channel data!",                                                     "Check the hardware configuration and hardware identifier.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(828, new AxoMessengerTextItem("Error reading the fieldbus input data!",                                                        "Check the hardware configuration and hardware identifier.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(827, new AxoMessengerTextItem("Error writing the parameter channel data!",                                                     "Check the hardware configuration and hardware identifier.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(828, new AxoMessengerTextItem("Error writing the fieldbus input data!",                                                        "Check the hardware configuration and hardware identifier.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(829, new AxoMessengerTextItem("Error writing the parameter channel data!",                                                     "Check the hardware configuration and hardware identifier.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(830, new AxoMessengerTextItem("Error writing the fieldbus input data!",                                                        "Check the hardware configuration and hardware identifier.")),
 
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(655360, new AxoMessengerTextItem("A0000:Communication phase 0","Check the troubleshooting manual MPx-16 to MPx-20 and PSB Diagnostic Messages, Reference Book R911326738")),
