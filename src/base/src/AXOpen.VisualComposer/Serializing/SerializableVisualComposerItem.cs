@@ -20,17 +20,17 @@
         }
 
         public string Id { get; set; }
-        public double Left { get; set; } = 10;
-        public double Top { get; set; } = 10;
-        public string Transform { get; set; } = "TopCenter";
-        public string Presentation { get; set; } = "Status-Display";
-        public double Width { get; set; } = -1;
-        public double Height { get; set; } = -1;
-        public int ZIndex { get; set; } = 0;
-        public double Scale { get; set; } = 1;
-        public string Roles { get; set; } = "";
-        public string PresentationTemplate { get; set; } = "";
-        public bool Background { get; set; } = false;
-        public string BackgroundColor { get; set; } = "";
+        public double Left { get; set; }
+        public double Top { get; set; }
+        public string Transform { get; set; }
+        public string Presentation { get; set; }
+        public double Width { get; set; }
+        public double Height { get; set; }
+        public int ZIndex { get; set; }
+        public double Scale { get; set; }
+        public string Roles { get; set; }
+        public string PresentationTemplate { get; set; }
+        public bool Background { get; set; }
+        public string BackgroundColor { get; set; }
     }
 }

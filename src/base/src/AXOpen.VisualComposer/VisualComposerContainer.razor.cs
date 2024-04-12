@@ -24,32 +24,37 @@ namespace AXOpen.VisualComposer
         [Parameter]
         public bool ModalDetailView { get; set; } = true;
 
-        private IJSRuntime _js;
-        [Inject]
-        protected IJSRuntime js
-        {
-            get => _js;
-            set => _js = value;
-        }
-
-        public delegate void EmptyDelegate();
-        public EmptyDelegate ReDragElementDelegate;
-
-        public int BackgroundWidth { get; set; } = 0;
-        public int BackgroundHeight { get; set; } = 0;
-        public string? ImgSrc { get; set; }
-        public string BackgroundColor { get; set; } = "#FFFFFF";
-        public bool EditSVG { get; set; } = false;
-        public string BackgroundSVGInput { get; set; } = "";
-
-        public string? Theme { get; set; }
-
         [Parameter, EditorRequired]
         public string? Id { get; set; }
 
+        [Inject]
+        protected IJSRuntime js { get; set; }
+
+        //SerializableObject
+        public double BackgroundWidth { get; set; } = 0;
+        public double BackgroundHeight { get; set; } = 0;
+        public string? ImgSrc { get; set; }
+        public string BackgroundColor { get; set; } = "#FFFFFF";
+
+        public string BackgroundSVGInput { get; set; } = "";
+
+        public string Theme { get; set; } = "";
+
+        public double Scale { get; set; } = 1;
+        public double TranslateX { get; set; } = 0;
+        public double TranslateY { get; set; } = 0;
+        public bool AllowZoomingAndPanning { get; set; } = false;
+
+        //SerializableConfiguration
+        public List<string> Views { get; set; } = new List<string>();
+
+        public string? DefaultView { get; set; }
+
+        public bool EditSVG { get; set; } = false;
+
         private Guid _backgroundId = Guid.NewGuid();
 
-        private List<VisualComposerItemData> _children = new();
+        private List<VisualComposerItemData> _children = new List<VisualComposerItemData>();
         private ITwinElement _detailsObject;
 
         public ZoomableContainer _zoomableContainer { get; set; }
@@ -58,13 +63,10 @@ namespace AXOpen.VisualComposer
 
         public string FileName { get; set; } = "";
 
-        public string CurrentView { get; set; }
+        public string CurrentView { get; set; } = "";
 
-        public List<string> BaseViews { get; set; } = new List<string>();
-
-        public bool AllowZoomingAndPanning { get; set; } = true;
-
-        public string? DefaultView { get; set; }
+        public Size ElementSize { get; set; } = new Size();
+        public Size WindowSize { get; set; } = new Size();
 
         protected override void OnInitialized()
         {
@@ -80,7 +82,7 @@ namespace AXOpen.VisualComposer
             }
         }
 
-        protected override void OnAfterRender(bool firstRender)
+        protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
             {
@@ -91,6 +93,28 @@ namespace AXOpen.VisualComposer
                 }
 
                 Load(null);
+
+                ElementSize = await GetElementSize(_backgroundId.ToString());
+                WindowSize = await GetWindowSize();
+
+                var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/VisualComposerContainer.razor.js");
+                await jsObject.InvokeVoidAsync("registerViewportChangeCallback", DotNetObjectReference.Create(this), "OnResize", _backgroundId.ToString());
+
+                StateHasChanged();
+            }
+        }
+
+        [JSInvokable]
+        public void OnResize(Size windowSize, Size elementSize)
+        {
+            if(WindowSize == null || ElementSize == null || WindowSize.Width != windowSize.Width || WindowSize.Height != windowSize.Height || ElementSize.Width != elementSize.Width || ElementSize.Height != elementSize.Height)
+            {
+                WindowSize.Width = Math.Round(windowSize.Width);
+                WindowSize.Height = Math.Round(windowSize.Height);
+
+                ElementSize.Width = Math.Round(elementSize.Width);
+                ElementSize.Height = Math.Round(elementSize.Height);
+
                 StateHasChanged();
             }
         }
@@ -124,12 +148,6 @@ namespace AXOpen.VisualComposer
             Save();
         }
 
-        public async Task ReDragElement()
-        {
-            if (ReDragElementDelegate != null)
-                ReDragElementDelegate();
-        }
-
         public void RemoveChildren(VisualComposerItemData item)
         {
             _children.Remove(item);
@@ -141,7 +159,7 @@ namespace AXOpen.VisualComposer
 
         public void CreateNew(string fileName)
         {
-            if(fileName == "" || fileName == null)
+            if (fileName == "" || fileName == null)
                 return;
 
             CurrentView = fileName;
@@ -193,9 +211,9 @@ namespace AXOpen.VisualComposer
                                                 BackgroundSVGInput,
                                                 serializableChildren,
                                                 Theme,
-                                                _zoomableContainer.Scale,
-                                                _zoomableContainer.TranslateX,
-                                                _zoomableContainer.TranslateY,
+                                                Scale,
+                                                TranslateX,
+                                                TranslateY,
                                                 AllowZoomingAndPanning));
         }
 
@@ -205,7 +223,7 @@ namespace AXOpen.VisualComposer
 
             if (deserializeConfiguration != null)
             {
-                BaseViews = deserializeConfiguration.Views;
+                Views = deserializeConfiguration.Views;
                 DefaultView = deserializeConfiguration.DefaultView;
             }
 
@@ -239,12 +257,10 @@ namespace AXOpen.VisualComposer
 
                 if (_zoomableContainer != null)
                 {
-                    _zoomableContainer.Scale = deserialize.Scale;
-                    _zoomableContainer.TranslateX = deserialize.TranslateX;
-                    _zoomableContainer.TranslateY = deserialize.TranslateY;
+                    Scale = deserialize.Scale;
+                    TranslateX = deserialize.TranslateX;
+                    TranslateY = deserialize.TranslateY;
                     AllowZoomingAndPanning = deserialize.AllowZoomingAndPanning;
-
-                    _zoomableContainer.SetDataInJS();
                 }
             }
 
@@ -260,15 +276,15 @@ namespace AXOpen.VisualComposer
                 File.Delete("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json");
             }
 
-            if (BaseViews.Contains(fileName) || DefaultView == fileName)
+            if (Views.Contains(fileName) || DefaultView == fileName)
             {
-                if (BaseViews.Contains(fileName))
-                    BaseViews.Remove(fileName);
+                if (Views.Contains(fileName))
+                    Views.Remove(fileName);
 
                 if (DefaultView == fileName)
                     DefaultView = null;
 
-                Serializing.Serializing<SerializableConfiguration>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(BaseViews, DefaultView));
+                Serializing.Serializing<SerializableConfiguration>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(Views, DefaultView));
             }
 
             if (CurrentView == fileName)
@@ -322,9 +338,9 @@ namespace AXOpen.VisualComposer
             return files;
         }
 
-        public List<(string file, double scale, int translateX, int translateY, bool allowZoomingAndPanning)> GetAllVisualComposerContainer()
+        public List<(string file, double scale, double translateX, double translateY, bool allowZoomingAndPanning)> GetAllVisualComposerContainer()
         {
-            List<(string, double, int, int, bool)> data = new();
+            List<(string, double, double, double, bool)> data = new();
             foreach (var file in GetAllFiles())
             {
                 SerializableObject? deserialize = Serializing.Serializing<SerializableObject>.Deserialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + file + ".json");
@@ -340,15 +356,15 @@ namespace AXOpen.VisualComposer
 
         public void ChangeBaseViews(string fileName)
         {
-            if (BaseViews == null)
-                BaseViews = new();
+            if (Views == null)
+                Views = new();
 
-            if (BaseViews.Contains(fileName))
-                BaseViews.Remove(fileName);
+            if (Views.Contains(fileName))
+                Views.Remove(fileName);
             else
-                BaseViews.Add(fileName);
+                Views.Add(fileName);
 
-            Serializing.Serializing<SerializableConfiguration>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(BaseViews, DefaultView));
+            Serializing.Serializing<SerializableConfiguration>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(Views, DefaultView));
         }
 
         public void ChangeAllowZoomingAndPanning(string fileName)
@@ -361,7 +377,7 @@ namespace AXOpen.VisualComposer
 
                 Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", deserialize);
 
-                if(CurrentView == fileName)
+                if (CurrentView == fileName)
                     AllowZoomingAndPanning = deserialize.AllowZoomingAndPanning;
             }
         }
@@ -370,7 +386,7 @@ namespace AXOpen.VisualComposer
         {
             DefaultView = fileName;
 
-            Serializing.Serializing<SerializableConfiguration>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(BaseViews, DefaultView));
+            Serializing.Serializing<SerializableConfiguration>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(Views, DefaultView));
         }
 
         public string? SearchValue { get; set; } = null;
@@ -435,20 +451,28 @@ namespace AXOpen.VisualComposer
             Save();
         }
 
-        private async Task<ImageDimensions> GetImageDimensions(string filePath)
+        private async Task<Size> GetImageDimensions(string filePath)
         {
             var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/VisualComposerContainer.razor.js");
-            var result = await jsObject.InvokeAsync<ImageDimensions>("getImageDimensions", filePath);
-
-            //var imageDimensions = Serializing.Serializing<ImageDimensions>.Deserialize(result.ToString());
-
-            return result;
+            return await jsObject.InvokeAsync<Size>("getImageDimensions", filePath);
         }
 
-        public class ImageDimensions
+        private async Task<Size> GetElementSize(string id)
         {
-            public int Width { get; set; }
-            public int Height { get; set; }
+            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/VisualComposerContainer.razor.js");
+            return await jsObject.InvokeAsync<Size>("getElementSize", id);
+        }
+
+        private async Task<Size> GetWindowSize()
+        {
+            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/VisualComposerContainer.razor.js");
+            return await jsObject.InvokeAsync<Size>("getWindowSize");
+        }
+
+        public class Size
+        {
+            public double Width { get; set; }
+            public double Height { get; set; }
         }
 
         internal void AddZoomableContainer(ZoomableContainer zoomableContainer)
@@ -517,7 +541,6 @@ namespace AXOpen.VisualComposer
         private void ToggleInDesignMode()
         {
             InDesignMode = !InDesignMode;
-            ReDragElement();
         }
     }
 }

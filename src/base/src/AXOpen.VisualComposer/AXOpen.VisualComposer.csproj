@@ -21,7 +21,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="C:\MTS\Blazor.SVGEditor\src\KristofferStrube.Blazor.SVGEditor\KristofferStrube.Blazor.SVGEditor.csproj" />
+	  <ProjectReference Include="C:\MTS\Blazor.SVGEditor\src\KristofferStrube.Blazor.SVGEditor\KristofferStrube.Blazor.SVGEditor.csproj">
+	    <!--<Private>True</Private>
+	    <PrivateAssets>All</PrivateAssets>-->
+	  </ProjectReference>
 	</ItemGroup>
 
 	<!--<ItemGroup>
