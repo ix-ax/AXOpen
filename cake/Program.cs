@@ -229,17 +229,15 @@ public sealed class TestsTask : FrostingTask<BuildContext>
             return;
         }
 
-        if (context.BuildParameters.Paralellize)
-        {
-            Parallel.ForEach(context.Libraries, context.ApaxTest);
-        }
-        else
-        {
-            context.Libraries.ToList().ForEach(context.ApaxTest);
-        }
-
         
-
+        context.Libraries.ToList().ForEach(lib =>
+        {
+            context.ApaxInstall(context.GetLibraryAxFolders(lib));
+            context.ApaxBuild(context.GetLibraryAxFolders(lib));
+            context.ApaxTest(lib);
+        });
+          
+                
         if (context.BuildParameters.TestLevel == 1)
         {
             context.DotNetTest(Path.Combine(context.RootDir, "AXOpen-L1-tests.proj"), context.DotNetTestSettings);

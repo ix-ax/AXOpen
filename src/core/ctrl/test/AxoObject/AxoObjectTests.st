@@ -32,6 +32,26 @@ NAMESPACE AXOpen.Core.AxoObject_Tests
             _initialize_object_with_context : TestObject;
         END_VAR    
 
+        {TestSetup}
+        METHOD PUBLIC TestSetup
+            ;
+        END_METHOD
+
+        {TestTearDown}
+        METHOD PUBLIC TestTearDown
+            ;
+        END_METHOD
+
+        {FixtureSetup}
+        METHOD PUBLIC FixtureSetup
+            ;
+        END_METHOD
+
+        {FixtureTearDown}
+        METHOD PUBLIC FixtureTearDown
+            ;
+        END_METHOD
+        
         {Test}
         METHOD PUBLIC should_assign_context_upon_initialization_call
             VAR

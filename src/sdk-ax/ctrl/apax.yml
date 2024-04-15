@@ -10,6 +10,7 @@ dependencies:
   "@ax/hwc": ^0.12.217
   "@ax/hwld": ^0.8.23
   "@ax/dcp-utility": ^1.1.1
+  "@ax/axunitst": ^4.1.8
   # "@ax/axunitst": 4.1.8
   # "@ax/mod": 1.0.4
   # "@ax/mon": 1.0.4

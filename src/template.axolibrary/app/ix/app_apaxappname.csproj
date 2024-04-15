@@ -23,6 +23,12 @@
   	</ItemGroup>
 
 	<ItemGroup>
+		<Folder Include=".g\Onliners\Documentation\" />
+		<Folder Include=".g\Onliners\IO\PLC_LINE\" />
+		<Folder Include=".g\Onliners\Sandbox\" />
+		<Folder Include=".g\POCO\Documentation\" />
+		<Folder Include=".g\POCO\IO\PLC_LINE\" />
+		<Folder Include=".g\POCO\Sandbox\" />
 		<Folder Include=".meta\" />
 		<Content Include=".meta\**" />
 	</ItemGroup>
