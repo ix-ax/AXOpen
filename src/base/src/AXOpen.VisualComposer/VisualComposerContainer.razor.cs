@@ -13,7 +13,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace AXOpen.VisualComposer
 {
-    public partial class VisualComposerContainer
+    public partial class VisualComposerContainer : IDisposable
     {
         [Inject]
         NavigationManager NavigationManager { get; set; }
@@ -30,6 +30,8 @@ namespace AXOpen.VisualComposer
         [Inject]
         protected IJSRuntime js { get; set; }
 
+        private FileWriterBuffer<SerializableObject> _fileWriterBuffer = new FileWriterBuffer<SerializableObject>();
+
         //SerializableObject
         public double BackgroundWidth { get; set; } = 0;
         public double BackgroundHeight { get; set; } = 0;
@@ -43,7 +45,6 @@ namespace AXOpen.VisualComposer
         public double Scale { get; set; } = 1;
         public double TranslateX { get; set; } = 0;
         public double TranslateY { get; set; } = 0;
-        public bool AllowZoomingAndPanning { get; set; } = false;
 
         //SerializableConfiguration
         public List<string> Views { get; set; } = new List<string>();
@@ -92,7 +93,7 @@ namespace AXOpen.VisualComposer
                     _childrenOfAxoObject = _childrenOfAxoObject.Concat(RetrieveKids(obj));
                 }
 
-                Load(null);
+                await LoadAsync(null);
 
                 ElementSize = await GetElementSize(_backgroundId.ToString());
                 WindowSize = await GetWindowSize();
@@ -107,7 +108,7 @@ namespace AXOpen.VisualComposer
         [JSInvokable]
         public void OnResize(Size windowSize, Size elementSize)
         {
-            if(WindowSize == null || ElementSize == null || WindowSize.Width != windowSize.Width || WindowSize.Height != windowSize.Height || ElementSize.Width != elementSize.Width || ElementSize.Height != elementSize.Height)
+            if (WindowSize == null || ElementSize == null || WindowSize.Width != windowSize.Width || WindowSize.Height != windowSize.Height || ElementSize.Width != elementSize.Width || ElementSize.Height != elementSize.Height)
             {
                 WindowSize.Width = Math.Round(windowSize.Width);
                 WindowSize.Height = Math.Round(windowSize.Height);
@@ -139,25 +140,25 @@ namespace AXOpen.VisualComposer
             return kids;
         }
 
-        public void AddChildren(ITwinElement item)
+        public async Task AddChildrenAsync(ITwinElement item)
         {
-            _children.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), EventCallback.Factory.Create(this, Save), item, item.Symbol.ModalIdHelper(), Guid.NewGuid()));
+            _children.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), EventCallback.Factory.Create(this, SaveAsync), item, item.Symbol.ModalIdHelper(), Guid.NewGuid()));
 
             StateHasChanged();
 
-            Save();
+            await SaveAsync();
         }
 
-        public void RemoveChildren(VisualComposerItemData item)
+        public async Task RemoveChildrenAsync(VisualComposerItemData item)
         {
             _children.Remove(item);
 
             StateHasChanged();
 
-            Save();
+            await SaveAsync();
         }
 
-        public void CreateNew(string fileName)
+        public async Task CreateNewAsync(string fileName)
         {
             if (fileName == "" || fileName == null)
                 return;
@@ -169,12 +170,12 @@ namespace AXOpen.VisualComposer
                 Directory.CreateDirectory("VisualComposerSerialize/" + Id.CorrectFilePath());
             }
 
-            Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", new SerializableObject(0, 0, null, "#FFFFFF", "", new List<SerializableVisualComposerItem>(), "text-dark", 1, 0, 0, true));
+            await Serializing.Serializing<SerializableObject>.SerializeAsync("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", new SerializableObject(0, 0, null, "#FFFFFF", "", new List<SerializableVisualComposerItem>(), "text-dark", 1, 0, 0));
 
-            Load(fileName);
+            await LoadAsync(fileName);
         }
 
-        public void CreateCopy(string fileName)
+        public async Task CreateCopyAsync(string fileName)
         {
             if (fileName == "" || fileName == null)
                 return;
@@ -186,40 +187,37 @@ namespace AXOpen.VisualComposer
                 Directory.CreateDirectory("VisualComposerSerialize/" + Id.CorrectFilePath());
             }
 
-            Save();
+            await SaveAsync();
 
-            Load(fileName);
+            await LoadAsync(fileName);
         }
 
-        public void Save()
+        public async Task SaveAsync()
         {
-            Console.WriteLine("Saving");
-
             List<SerializableVisualComposerItem> serializableChildren = new List<SerializableVisualComposerItem>();
             foreach (var child in _children)
             {
                 serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.Left, child.Top, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex, child.Scale, child.Roles, child.PresentationTemplate, child.Background, child.BackgroundColor));
             }
 
-            Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" +
-                                                                  Id.CorrectFilePath() + "/" +
-                                                                  CurrentView.CorrectFilePath() + ".json",
-                                            new SerializableObject(BackgroundWidth,
-                                                BackgroundHeight,
-                                                ImgSrc,
-                                                BackgroundColor,
-                                                BackgroundSVGInput,
-                                                serializableChildren,
-                                                Theme,
-                                                Scale,
-                                                TranslateX,
-                                                TranslateY,
-                                                AllowZoomingAndPanning));
+            await _fileWriterBuffer.AddToBufferAsync("VisualComposerSerialize/" +
+                                                        Id.CorrectFilePath() + "/" +
+                                                        CurrentView.CorrectFilePath() + ".json",
+                                                     new SerializableObject(BackgroundWidth,
+                                                        BackgroundHeight,
+                                                        ImgSrc,
+                                                        BackgroundColor,
+                                                        BackgroundSVGInput,
+                                                        serializableChildren,
+                                                        Theme,
+                                                        Scale,
+                                                        TranslateX,
+                                                        TranslateY));
         }
 
-        public void Load(string? fileName)
+        public async Task LoadAsync(string? fileName)
         {
-            SerializableConfiguration? deserializeConfiguration = Serializing.Serializing<SerializableConfiguration>.Deserialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json");
+            SerializableConfiguration? deserializeConfiguration = await Serializing.Serializing<SerializableConfiguration>.DeserializeAsync("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json");
 
             if (deserializeConfiguration != null)
             {
@@ -233,7 +231,7 @@ namespace AXOpen.VisualComposer
             if (fileName is null || fileName == "")
                 return;
 
-            SerializableObject? deserialize = Serializing.Serializing<SerializableObject>.Deserialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json");
+            SerializableObject? deserialize = await Serializing.Serializing<SerializableObject>.DeserializeAsync("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json");
 
             if (deserialize != null)
             {
@@ -251,7 +249,7 @@ namespace AXOpen.VisualComposer
                     var childObject = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper().ComputeSha256Hash() == item.Id);
                     if (childObject != null)
                     {
-                        _children.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), EventCallback.Factory.Create(this, Save), childObject, childObject.Symbol.ModalIdHelper(), Guid.NewGuid(), item.Left, item.Top, Types.TransformType.FromString(item.Transform), item.Presentation, false, item.Width, item.Height, item.ZIndex, item.Scale, item.Roles, item.PresentationTemplate, item.Background, item.BackgroundColor));
+                        _children.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), EventCallback.Factory.Create(this, SaveAsync), childObject, childObject.Symbol.ModalIdHelper(), Guid.NewGuid(), item.Left, item.Top, Types.TransformType.FromString(item.Transform), item.Presentation, false, item.Width, item.Height, item.ZIndex, item.Scale, item.Roles, item.PresentationTemplate, item.Background, item.BackgroundColor));
                     }
                 }
 
@@ -260,7 +258,6 @@ namespace AXOpen.VisualComposer
                     Scale = deserialize.Scale;
                     TranslateX = deserialize.TranslateX;
                     TranslateY = deserialize.TranslateY;
-                    AllowZoomingAndPanning = deserialize.AllowZoomingAndPanning;
                 }
             }
 
@@ -269,7 +266,7 @@ namespace AXOpen.VisualComposer
             StateHasChanged();
         }
 
-        public void Remove(string fileName)
+        public async Task RemoveAsync(string fileName)
         {
             if (File.Exists("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json"))
             {
@@ -284,28 +281,28 @@ namespace AXOpen.VisualComposer
                 if (DefaultView == fileName)
                     DefaultView = null;
 
-                Serializing.Serializing<SerializableConfiguration>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(Views, DefaultView));
+                await Serializing.Serializing<SerializableConfiguration>.SerializeAsync("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(Views, DefaultView));
             }
 
             if (CurrentView == fileName)
                 CurrentView = DefaultView;
 
-            Load(CurrentView);
+            await LoadAsync(CurrentView);
         }
 
-        public void ChangeTheme()
+        public async Task ChangeThemeAsync()
         {
             if (Theme == "text-dark")
                 Theme = "text-light";
             else
                 Theme = "text-dark";
 
-            Save();
+            await SaveAsync();
         }
 
-        public void ClearScaleAndTranslate(string fileName)
+        public async Task ClearScaleAndTranslateAsync(string fileName)
         {
-            SerializableObject? deserialize = Serializing.Serializing<SerializableObject>.Deserialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json");
+            SerializableObject? deserialize = await Serializing.Serializing<SerializableObject>.DeserializeAsync("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json");
 
             if (deserialize != null)
             {
@@ -313,7 +310,7 @@ namespace AXOpen.VisualComposer
                 deserialize.TranslateX = 0;
                 deserialize.TranslateY = 0;
 
-                Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", deserialize);
+                await Serializing.Serializing<SerializableObject>.SerializeAsync("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", deserialize);
             }
 
             NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
@@ -338,23 +335,23 @@ namespace AXOpen.VisualComposer
             return files;
         }
 
-        public List<(string file, double scale, double translateX, double translateY, bool allowZoomingAndPanning)> GetAllVisualComposerContainer()
+        public List<(string file, double scale, double translateX, double translateY)> GetAllVisualComposerContainer()
         {
-            List<(string, double, double, double, bool)> data = new();
+            List<(string, double, double, double)> data = new();
             foreach (var file in GetAllFiles())
             {
                 SerializableObject? deserialize = Serializing.Serializing<SerializableObject>.Deserialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + file + ".json");
 
                 if (deserialize != null)
                 {
-                    data.Add((file, deserialize.Scale, deserialize.TranslateX, deserialize.TranslateY, deserialize.AllowZoomingAndPanning));
+                    data.Add((file, deserialize.Scale, deserialize.TranslateX, deserialize.TranslateY));
                 }
             }
 
             return data;
         }
 
-        public void ChangeBaseViews(string fileName)
+        public async Task ChangeBaseViewsAsync(string fileName)
         {
             if (Views == null)
                 Views = new();
@@ -364,29 +361,14 @@ namespace AXOpen.VisualComposer
             else
                 Views.Add(fileName);
 
-            Serializing.Serializing<SerializableConfiguration>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(Views, DefaultView));
+            await Serializing.Serializing<SerializableConfiguration>.SerializeAsync("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(Views, DefaultView));
         }
 
-        public void ChangeAllowZoomingAndPanning(string fileName)
-        {
-            SerializableObject? deserialize = Serializing.Serializing<SerializableObject>.Deserialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json");
-
-            if (deserialize != null)
-            {
-                deserialize.AllowZoomingAndPanning = !deserialize.AllowZoomingAndPanning;
-
-                Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", deserialize);
-
-                if (CurrentView == fileName)
-                    AllowZoomingAndPanning = deserialize.AllowZoomingAndPanning;
-            }
-        }
-
-        public void ChangeDefaultView(string fileName)
+        public async Task ChangeDefaultViewAsync(string fileName)
         {
             DefaultView = fileName;
 
-            Serializing.Serializing<SerializableConfiguration>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(Views, DefaultView));
+            await Serializing.Serializing<SerializableConfiguration>.SerializeAsync("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(Views, DefaultView));
         }
 
         public string? SearchValue { get; set; } = null;
@@ -448,7 +430,7 @@ namespace AXOpen.VisualComposer
 
             isFileImporting = false;
 
-            Save();
+            await SaveAsync();
         }
 
         private async Task<Size> GetImageDimensions(string filePath)
@@ -541,6 +523,11 @@ namespace AXOpen.VisualComposer
         private void ToggleInDesignMode()
         {
             InDesignMode = !InDesignMode;
+        }
+
+        public void Dispose()
+        {
+            _fileWriterBuffer.Dispose();
         }
     }
 }

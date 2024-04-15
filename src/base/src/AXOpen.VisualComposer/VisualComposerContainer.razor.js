@@ -33,31 +33,6 @@ export function getWindowSize() {
     };
 };
 
-
-//export function getElementSize(id) {
-//    return new Promise((resolve, reject) => {
-//        const element = document.getElementById(id).parentElement;
-
-//        if (element) {
-//            if (element.width && element.height) {
-//                resolve({
-//                    width: element.width,
-//                    height: element.height
-//                });
-//            } else {
-//                var computedStyle = window.getComputedStyle(element);
-//                console.log("computedStyle", computedStyle.width, computedStyle.height);
-//                resolve({
-//                    width: parseFloat(computedStyle.width),
-//                    height: parseFloat(computedStyle.height)
-//                });
-//            }
-//        } else {
-//            reject(new Error("Element not found"));
-//        }
-//    });
-//};
-
 export function getElementSize(id) {
     const element = document.getElementById(id).parentElement;
 

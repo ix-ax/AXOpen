@@ -31,25 +31,13 @@ namespace AXOpen.VisualComposer
             }
         }
 
-        private bool _disable = false;
-        [Parameter]
-        public bool Disable
-        {
-            get => _disable;
-            set
-            {
-                if (_disable != value)
-                    _disable = value;
-            }
-        }
-
         private bool _isDragging = false;
         private double _startX = 0;
         private double _startY = 0;
 
-        private void Move(PointerEventArgs eventArgs)
+        private async Task MoveAsync(PointerEventArgs eventArgs)
         {
-            if (_isDragging && !Disable && eventArgs.CtrlKey)
+            if (_isDragging && eventArgs.CtrlKey)
             {
                 double offsetX = ((eventArgs.ClientX - _startX) / Parent.ElementSize.Width * 100);
                 double offsetY = ((eventArgs.ClientY - _startY) / ((Parent!.BackgroundHeight / Parent!.BackgroundWidth) * Parent!.ElementSize.Width) * 100);
@@ -60,7 +48,7 @@ namespace AXOpen.VisualComposer
                 _startX = eventArgs.ClientX;
                 _startY = eventArgs.ClientY;
 
-                Parent.Save();
+                await Parent.SaveAsync();
             }
         }
 
@@ -83,7 +71,7 @@ namespace AXOpen.VisualComposer
 
         private void Wheel(WheelEventArgs eventArgs)
         {
-            if (!Disable && eventArgs.CtrlKey)
+            if (eventArgs.CtrlKey)
                 Parent!.Scale = Math.Min(Math.Max(0.5, Parent!.Scale + eventArgs.DeltaY * -0.0001), 2);
         }
     }

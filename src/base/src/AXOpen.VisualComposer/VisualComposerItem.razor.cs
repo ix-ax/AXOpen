@@ -27,7 +27,7 @@ namespace AXOpen.VisualComposer
         private double _startX = 0;
         private double _startY = 0;
 
-        private void Move(PointerEventArgs eventArgs)
+        private async Task MoveAsync(PointerEventArgs eventArgs)
         {
             if (_isDragging)
             {
@@ -40,7 +40,7 @@ namespace AXOpen.VisualComposer
                 _startX = eventArgs.ClientX;
                 _startY = eventArgs.ClientY;
 
-                Parent.Save();
+                await Parent.SaveAsync();
             }
         }
 
