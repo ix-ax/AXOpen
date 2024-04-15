@@ -126,7 +126,7 @@ library/
 ## APAX Package Versions
 
 > [!IMPORTANT]
-> All apax packages on the default branch (dev) have a fixed version '0.0.0-dev.0'. This version must not be changed by any commit. 
+> All apax packages on the default branch (dev) have a fixed version '0.1.0'. This version must not be changed by any commit. 
 > The version is assigned at build time in the CI/CD pipeline.
 
 
