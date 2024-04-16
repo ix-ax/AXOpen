@@ -127,6 +127,7 @@ public static class ApaxCmd
         }
     }
 
+
     public static void ApaxTest(this BuildContext context, (string folder, string name, bool pack) lib)
     {
         foreach (var folder in context.GetAxFolders(lib))
@@ -134,6 +135,7 @@ public static class ApaxCmd
             if(!Directory.Exists(Path.Combine(folder, "test")))
             {
                 context.Log.Warning($"skipping apax test for '{lib.folder} : {lib.name}' [{folder}] no 'test' folder present in the directory.");
+                continue;
             }
 
             context.Log.Information($"apax test started for '{lib.folder} : {lib.name}' [{folder}]");
@@ -152,6 +154,48 @@ public static class ApaxCmd
             context.Log.Information($"apax test exited with '{exitcode}'");
 
             if (exitcode != 0)
+            {
+                throw new TestFailedException();
+            }
+        }
+    }
+
+    public static void ApaxTestLibrary(this BuildContext context, (string folder, string name, bool pack) lib)
+    {
+        foreach (var folder in context.GetLibraryAxFolders(lib))
+        {
+            if (!Directory.Exists(Path.Combine(folder, "test")))
+            {
+                context.Log.Warning($"skipping apax test for '{lib.folder} : {lib.name}' [{folder}] no 'test' folder present in the directory.");
+                continue;
+            }
+
+            context.Log.Information($"apax test started for '{lib.folder} : {lib.name}' [{folder}]");
+            var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+            {
+                Arguments = "test",
+                WorkingDirectory = folder,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                Silent = false
+            });
+
+            process.WaitForExit();
+            var passed = false;
+            foreach (var o in process.GetStandardOutput())
+            {
+                if (o.Trim().Replace(" ", "").ToUpper() == "OVERALLRESULT[PASSED]")
+                {
+                    passed = true;
+                }
+                context.Log.Information(o);
+            }
+
+            var exitcode = process.GetExitCode();
+            context.Log.Information($"apax test exited with '{exitcode}'");
+
+            
+            if (exitcode != 0 || !passed)
             {
                 throw new TestFailedException();
             }

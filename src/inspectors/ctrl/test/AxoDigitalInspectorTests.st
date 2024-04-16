@@ -21,6 +21,41 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             _comprehensiveResult: AxoComprehensiveResult;
         END_VAR  
 
+        
+        VAR
+            _contextBlank : TestContext;
+            _digitalInspectorBlank    : AxoDigitalInspector;            
+            _sequencerBlank  : AxoSequencer;                                                
+        END_VAR  
+
+
+        {TestSetup}
+        METHOD PUBLIC TestSetup
+        // Will be called before MyTest_A AND before Test_B are executed
+            _context := _contextBlank;
+            _digitalInspector := _digitalInspectorBlank;
+            _sequencer := _sequencerBlank;
+        END_METHOD
+    
+        {TestTearDown}
+        METHOD PUBLIC TestTearDown
+        // Will be called after MyTest_A AND before Test_B where executed
+            ;
+        END_METHOD
+    
+        {FixtureSetup}
+        METHOD PUBLIC FixtureSetup
+        // Will be called once before the Tests are executed
+            ;
+        END_METHOD
+    
+        {FixtureTearDown}
+        METHOD PUBLIC FixtureTearDown
+        // Will be called after the Tests where executed
+            ;
+        END_METHOD
+
+
         METHOD PRIVATE Initialize
             _context.InjectRtc(_rtcMock);
 

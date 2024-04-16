@@ -229,13 +229,41 @@ public sealed class TestsTask : FrostingTask<BuildContext>
             return;
         }
 
-        
-        context.Libraries.ToList().ForEach(lib =>
+
+        if (context.BuildParameters.Paralellize)
         {
-            context.ApaxInstall(context.GetLibraryAxFolders(lib));
-            context.ApaxBuild(context.GetLibraryAxFolders(lib));
-            context.ApaxTest(lib);
-        });
+            if (!context.BuildParameters.DoPack)
+            {
+                Parallel.ForEach(context.Libraries, lib => context.ApaxInstall(context.GetLibraryAxFolders(lib)));
+                //Parallel.ForEach(context.Libraries, lib => context.ApaxBuild(context.GetLibraryAxFolders(lib)));
+            }
+
+            context.Libraries.ToList().ForEach(lib =>
+            {
+                if (!context.BuildParameters.DoPack)
+                {
+                    context.ApaxBuild(context.GetLibraryAxFolders(lib));
+                }
+                
+                context.ApaxTestLibrary(lib);
+            });
+
+        }
+        else
+        {
+            context.Libraries.ToList().ForEach(lib =>
+            {
+                if (!context.BuildParameters.DoPack)
+                {
+                    context.ApaxInstall(context.GetLibraryAxFolders(lib));
+                    context.ApaxBuild(context.GetLibraryAxFolders(lib));
+                }
+
+                context.ApaxTestLibrary(lib);
+            });
+        }
+
+        
           
                 
         if (context.BuildParameters.TestLevel == 1)

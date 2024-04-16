@@ -91,6 +91,38 @@ NAMESPACE Cylinder.Tests
             _done : BOOL;
         END_VAR    
         
+        VAR
+            contextBlank : TestContext;
+            cylinderBlank : AxoCylinder;
+            cylinderParentBlank : AXOpen.Core.AxoObject;            
+        END_VAR    
+
+        {TestSetup}
+        METHOD PUBLIC TestSetup
+        // Will be called before MyTest_A AND before Test_B are executed
+            context := contextBlank;
+            cylinder := cylinderBlank;
+            cylinderParent := cylinderParentBlank;
+        END_METHOD
+    
+        {TestTearDown}
+        METHOD PUBLIC TestTearDown
+        // Will be called after MyTest_A AND before Test_B where executed
+            ;
+        END_METHOD
+    
+        {FixtureSetup}
+        METHOD PUBLIC FixtureSetup
+        // Will be called once before the Tests are executed
+            ;
+        END_METHOD
+    
+        {FixtureTearDown}
+        METHOD PUBLIC FixtureTearDown
+        // Will be called after the Tests where executed
+            ;
+        END_METHOD
+
         METHOD PRIVATE Init
             VAR_INPUT
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2012-01-12-15:58:12.123;
