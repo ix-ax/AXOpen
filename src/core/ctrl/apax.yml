@@ -3,6 +3,8 @@ version: '0.1.0'
 type: lib
 targets:
   - llvm
+variables:
+  APAX_BUILD_ARGS: [ -d ]
 files:
   - src
   - axsharp.companion.json

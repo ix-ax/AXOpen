@@ -17,6 +17,30 @@ NAMESPACE AXOpen.Core.AxoContext_Tests
             _context : TestContext;
         END_VAR    
 
+        VAR
+            _contextClean : TestContext;
+        END_VAR    
+    
+        {TestSetup}
+        METHOD PUBLIC TestSetup
+            _context := _contextClean;
+        END_METHOD
+
+        {TestTearDown}
+        METHOD PUBLIC TestTearDown
+            ;
+        END_METHOD
+
+        {FixtureSetup}
+        METHOD PUBLIC FixtureSetup
+            ;
+        END_METHOD
+
+        {FixtureTearDown}
+        METHOD PUBLIC FixtureTearDown
+            ;
+        END_METHOD
+        
         {Test}
         METHOD PUBLIC should_increment_counters_on_execute
             Assert.Equal(actual := ULINT#0, expected := _context.OpenCycleCount());

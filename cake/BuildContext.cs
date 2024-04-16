@@ -217,6 +217,16 @@ public class BuildContext : FrostingContext
         return paths.Where(p => File.Exists(Path.Combine(p, "apax.yml")));
     }
 
+    public IEnumerable<string> GetLibraryWithTestAxFolders((string folder, string name, bool pack) library)
+    {
+        var paths = new string[]
+        {
+            Path.Combine(Path.Combine(RootDir, library.folder), "ctrl")
+        };
+
+        return paths.Where(p => File.Exists(Path.Combine(p, "apax.yml")) && Directory.Exists(Path.Combine(p, "tests"))).ToList();
+    }
+
     public string GetLibFolder((string folder, string name, bool pack) library)
     {
         return Path.Combine(Path.Combine(RootDir, library.folder), "ctrl");

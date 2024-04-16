@@ -90,6 +90,41 @@ NAMESPACE AXOpen.Data
                 caller_2 : AxoObject;
             END_VAR    
         
+
+            VAR
+                _contextBlank : TestContext;                
+                _dataExchangeBlank : AxoDataPersistentExchange;
+                caller_1Blank : AxoObject;
+                caller_2Blank : AxoObject;          
+            END_VAR    
+    
+            {TestSetup}
+            METHOD PUBLIC TestSetup
+            // Will be called before MyTest_A AND before Test_B are executed
+                _context := _contextBlank;
+                _dataExchange := _dataExchangeBlank;
+                caller_1 := caller_1Blank;
+                caller_2 := caller_2Blank;
+            END_METHOD
+        
+            {TestTearDown}
+            METHOD PUBLIC TestTearDown
+            // Will be called after MyTest_A AND before Test_B where executed
+                ;
+            END_METHOD
+        
+            {FixtureSetup}
+            METHOD PUBLIC FixtureSetup
+            // Will be called once before the Tests are executed
+                ;
+            END_METHOD
+        
+            {FixtureTearDown}
+            METHOD PUBLIC FixtureTearDown
+            // Will be called after the Tests where executed
+                ;
+            END_METHOD
+
             METHOD PUBLIC RunContextMultipleltipleTimes
                 VAR_INPUT
                     cycleCount : INT;
@@ -132,7 +167,7 @@ NAMESPACE AXOpen.Data
 
                 AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.IsReady());
                 ResultCaller_1 := _dataExchange.InvokeRead(caller_1, IdentifierCaller_1); 
-                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, '');
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.DataEntityIdentifier = '');
                 AxUnit.Assert.Equal(ResultCaller_1,FALSE);
 
                 _context.Close();
@@ -143,7 +178,7 @@ NAMESPACE AXOpen.Data
 
                 AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.IsReady());
                 ResultCaller_1 := _dataExchange.InvokeRead(caller_1, IdentifierCaller_1); 
-                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, '');
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.DataEntityIdentifier = '');
                 AxUnit.Assert.Equal(ResultCaller_1,FALSE);
 
                 _context.Close();
@@ -154,7 +189,7 @@ NAMESPACE AXOpen.Data
 
                 AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.IsReady());
                 ResultCaller_1 := _dataExchange.InvokeRead(caller_1, IdentifierCaller_1); 
-                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, '');
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.DataEntityIdentifier = '');
                 AxUnit.Assert.Equal(ResultCaller_1,FALSE);
 
                 _context.Close();
@@ -187,7 +222,7 @@ NAMESPACE AXOpen.Data
 
                 AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.IsReady());
                 ResultCaller_1 := _dataExchange.InvokeRead(caller_1, IdentifierCaller_1); 
-                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, '');
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.DataEntityIdentifier = '');
                 AxUnit.Assert.Equal(ResultCaller_1,FALSE);
 
                 _context.Close();
@@ -202,7 +237,7 @@ NAMESPACE AXOpen.Data
 
                 AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.IsReady());
                 ResultCaller_1 := _dataExchange.InvokeRead(caller_1, IdentifierCaller_1); // kicking
-                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, IdentifierCaller_1);
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.DataEntityIdentifier = IdentifierCaller_1);
                 AxUnit.Assert.Equal(ResultCaller_1,FALSE);
 
                 _context.Close();
@@ -213,7 +248,7 @@ NAMESPACE AXOpen.Data
 
                 AxUnit.Assert.Equal(FALSE, _dataExchange.Operation.IsReady());
                 ResultCaller_1 := _dataExchange.InvokeRead(caller_1, IdentifierCaller_1); // BUSY => INVOKED
-                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, IdentifierCaller_1);
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.DataEntityIdentifier = IdentifierCaller_1);
                 AxUnit.Assert.Equal(ResultCaller_1,TRUE);
   
                 _context.Close();
@@ -248,7 +283,7 @@ NAMESPACE AXOpen.Data
 
                 AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.IsReady());
                 ResultCaller_1 := _dataExchange.InvokeRead(caller_1, IdentifierCaller_1); 
-                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, '');
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.DataEntityIdentifier = '');
                 AxUnit.Assert.Equal(ResultCaller_1,FALSE);
 
                 _context.Close();
@@ -259,7 +294,7 @@ NAMESPACE AXOpen.Data
 
                 AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.IsReady());
                 ResultCaller_1 := _dataExchange.InvokeRead(caller_1, IdentifierCaller_1); 
-                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, '');
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.DataEntityIdentifier = '');
                 AxUnit.Assert.Equal(ResultCaller_1,FALSE);
 
                 _context.Close();
@@ -270,7 +305,7 @@ NAMESPACE AXOpen.Data
 
                 AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.IsReady());
                 ResultCaller_1 := _dataExchange.InvokeRead(caller_1, IdentifierCaller_1); 
-                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, '');
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.DataEntityIdentifier = '');
                 AxUnit.Assert.Equal(ResultCaller_1,FALSE);
 
                 _context.Close();
@@ -304,7 +339,7 @@ NAMESPACE AXOpen.Data
 
                 AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.IsReady());
                 ResultCaller_1 := _dataExchange.InvokeRead(caller_1, IdentifierCaller_1); // kicking
-                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, IdentifierCaller_1);
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.DataEntityIdentifier = IdentifierCaller_1);
                 AxUnit.Assert.Equal(ResultCaller_1,FALSE);
 
                 _context.Close();
@@ -315,7 +350,7 @@ NAMESPACE AXOpen.Data
 
                 AxUnit.Assert.Equal(FALSE, _dataExchange.Operation.IsReady());
                 ResultCaller_1 := _dataExchange.InvokeRead(caller_1, IdentifierCaller_1); // BUSY => INVOKED
-                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, IdentifierCaller_1);
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.DataEntityIdentifier = IdentifierCaller_1);
                 AxUnit.Assert.Equal(ResultCaller_1,TRUE);
 
                 _context.Close();
@@ -362,7 +397,7 @@ NAMESPACE AXOpen.Data
 
                 ResultCaller_2 := _dataExchange.InvokeUpdate(caller_2, IdentifierCaller_2); // WAITING
 
-                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, IdentifierCaller_1);
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.DataEntityIdentifier = IdentifierCaller_1);
                 AxUnit.Assert.Equal(ResultCaller_1,FALSE);
                 AxUnit.Assert.Equal(ResultCaller_2,FALSE);
 
@@ -377,7 +412,7 @@ NAMESPACE AXOpen.Data
                 ResultCaller_1 := _dataExchange.InvokeUpdate(caller_1, IdentifierCaller_1); // BUSY - OK
                 ResultCaller_2 := _dataExchange.InvokeUpdate(caller_2, IdentifierCaller_2); // WAITING
 
-                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, IdentifierCaller_1);
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.DataEntityIdentifier = IdentifierCaller_1);
                 AxUnit.Assert.Equal(ResultCaller_1,TRUE);
                 AxUnit.Assert.Equal(ResultCaller_2,FALSE);
 
@@ -394,7 +429,7 @@ NAMESPACE AXOpen.Data
                 ResultCaller_1 := _dataExchange.IsUpdateDone(caller_1); // is DONE
                 ResultCaller_2 := _dataExchange.InvokeUpdate(caller_2, IdentifierCaller_2); // still WAITING
 
-                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, IdentifierCaller_1);
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.DataEntityIdentifier = IdentifierCaller_1);
                 AxUnit.Assert.Equal(ResultCaller_1,TRUE);
                 AxUnit.Assert.Equal(ResultCaller_2,FALSE);
                 _context.Close();
@@ -424,7 +459,7 @@ NAMESPACE AXOpen.Data
                 ResultCaller_1 := _dataExchange.InvokeUpdate(caller_1, IdentifierCaller_1); // will wait 
                 ResultCaller_2 := _dataExchange.InvokeUpdate(caller_2, IdentifierCaller_2); // invoke success
 
-                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, IdentifierCaller_2);
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.DataEntityIdentifier = IdentifierCaller_2);
                 AxUnit.Assert.Equal(FALSE, ResultCaller_1);
                 AxUnit.Assert.Equal(TRUE, ResultCaller_2);
 
@@ -436,7 +471,7 @@ NAMESPACE AXOpen.Data
                 ResultCaller_1 := _dataExchange.InvokeUpdate(caller_1, IdentifierCaller_1); // will wait 
                 ResultCaller_2 := _dataExchange.IsUpdateDone(caller_2); 
 
-                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, IdentifierCaller_2);
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.DataEntityIdentifier = IdentifierCaller_2);
                 AxUnit.Assert.Equal(FALSE, ResultCaller_1);
                 AxUnit.Assert.Equal(TRUE, ResultCaller_2);
 
@@ -484,7 +519,7 @@ NAMESPACE AXOpen.Data
 
                 ResultCaller_2 := _dataExchange.InvokeRead(caller_2, IdentifierCaller_2); // WAITING
 
-                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, IdentifierCaller_1);
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.DataEntityIdentifier = IdentifierCaller_1);
                 AxUnit.Assert.Equal(ResultCaller_1,FALSE);
                 AxUnit.Assert.Equal(ResultCaller_2,FALSE);
 
@@ -499,7 +534,7 @@ NAMESPACE AXOpen.Data
                 ResultCaller_1 := _dataExchange.InvokeRead(caller_1, IdentifierCaller_1); // BUSY - OK
                 ResultCaller_2 := _dataExchange.InvokeRead(caller_2, IdentifierCaller_2); // WAITING
 
-                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, IdentifierCaller_1);
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.DataEntityIdentifier = IdentifierCaller_1);
                 AxUnit.Assert.Equal(ResultCaller_1,TRUE);
                 AxUnit.Assert.Equal(ResultCaller_2,FALSE);
 
@@ -516,7 +551,7 @@ NAMESPACE AXOpen.Data
                 ResultCaller_1 := _dataExchange.IsReadDone(caller_1); // is DONE
                 ResultCaller_2 := _dataExchange.InvokeRead(caller_2, IdentifierCaller_2); // still WAITING
 
-                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, IdentifierCaller_1);
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.DataEntityIdentifier = IdentifierCaller_1);
                 AxUnit.Assert.Equal(ResultCaller_1,TRUE);
                 AxUnit.Assert.Equal(ResultCaller_2,FALSE);
                 _context.Close();
@@ -546,7 +581,7 @@ NAMESPACE AXOpen.Data
                 ResultCaller_1 := _dataExchange.InvokeRead(caller_1, IdentifierCaller_1); // will wait 
                 ResultCaller_2 := _dataExchange.InvokeRead(caller_2, IdentifierCaller_2); // invoke success
 
-                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, IdentifierCaller_2);
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.DataEntityIdentifier = IdentifierCaller_2);
                 AxUnit.Assert.Equal(FALSE, ResultCaller_1);
                 AxUnit.Assert.Equal(TRUE, ResultCaller_2);
 
@@ -558,7 +593,7 @@ NAMESPACE AXOpen.Data
                 ResultCaller_1 := _dataExchange.InvokeRead(caller_1, IdentifierCaller_1); // will wait 
                 ResultCaller_2 := _dataExchange.IsReadDone(caller_2); 
 
-                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, IdentifierCaller_2);
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.DataEntityIdentifier = IdentifierCaller_2);
                 AxUnit.Assert.Equal(FALSE, ResultCaller_1);
                 AxUnit.Assert.Equal(TRUE, ResultCaller_2);
 
