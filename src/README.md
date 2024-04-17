@@ -152,7 +152,7 @@ dotnet slngen [traversal-project-name].proj -o [output-solution-file].sln --fold
 > Re-create your solution whenever the repository changes to refresh newly added, removed, or modified projects.
 
 You can then open the solution file in Visual Studio as needed.
-
+<!--
 ## Creating a New Library from Template
 
 ### Use script
@@ -199,5 +199,5 @@ dotnet new axolibrary -o components.elements -p AXOpen.Components.Elements
 > [!IMPORTANT]
 > The `-p ProjectName` parameter must contain ONLY alphanumeric characters and dots. Otherwise, inconsistencies may occur.
 
-
+-->
 
