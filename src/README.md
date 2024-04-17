@@ -2,9 +2,9 @@
 
 ## Pre-requisites
 
-- APAX 2.0.0
+- APAX 3.1.1
 - AXCODE 
-- DOTNET 6.0, 7.0
+- DOTNET 7.0.8.0
 - VSCODE or VS2022
 
 ### Add package source
