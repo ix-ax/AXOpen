@@ -23,7 +23,7 @@ items:
   source:
     remote:
       path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Example.ExampleCylinder
     path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
@@ -39,7 +39,7 @@ items:
   - plc.AXOpen.Core.AxoObject.Identity
   - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
   - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
-  - plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  - plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivatedInlined()
   - plc.AXOpen.Core.AxoComponent.Open()
   - plc.AXOpen.Core.AxoComponent.Run()
   - plc.AXOpen.Core.AxoComponent.Close()
@@ -47,6 +47,7 @@ items:
   - plc.AXOpen.Core.AxoComponent.ManualControl()
   - plc.AXOpen.Core.AxoObject.GetIdentity()
   - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
   - plc.AXOpen.Core.AxoObject.GetParent()
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
@@ -62,11 +63,11 @@ items:
   source:
     remote:
       path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Example.ExampleCylinder.MoveToWork
     path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-    startLine: 8
+    startLine: 9
   namespace: plc.AXOpen.Components.Example
   syntax:
     content: 'MoveToWork : AXOpen.Core.AxoTask'
@@ -82,11 +83,11 @@ items:
   source:
     remote:
       path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Example.ExampleCylinder.MoveToHome
     path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-    startLine: 11
+    startLine: 12
   namespace: plc.AXOpen.Components.Example
   syntax:
     content: 'MoveToHome : AXOpen.Core.AxoTask'
@@ -102,11 +103,11 @@ items:
   source:
     remote:
       path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Example.ExampleCylinder.Stop
     path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-    startLine: 14
+    startLine: 15
   namespace: plc.AXOpen.Components.Example
   syntax:
     content: 'Stop : AXOpen.Core.AxoTask'
@@ -122,11 +123,11 @@ items:
   source:
     remote:
       path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Example.ExampleCylinder._HomeSensor
     path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-    startLine: 17
+    startLine: 18
   namespace: plc.AXOpen.Components.Example
   syntax:
     content: '_HomeSensor : BOOL'
@@ -142,11 +143,11 @@ items:
   source:
     remote:
       path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Example.ExampleCylinder._WorkSensor
     path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-    startLine: 23
+    startLine: 24
   namespace: plc.AXOpen.Components.Example
   syntax:
     content: '_WorkSensor : BOOL'
@@ -162,11 +163,11 @@ items:
   source:
     remote:
       path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Example.ExampleCylinder._MoveHomeSignal
     path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-    startLine: 27
+    startLine: 28
   namespace: plc.AXOpen.Components.Example
   syntax:
     content: '_MoveHomeSignal : BOOL'
@@ -182,11 +183,11 @@ items:
   source:
     remote:
       path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Example.ExampleCylinder._MoveWorkSignal
     path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-    startLine: 32
+    startLine: 33
   namespace: plc.AXOpen.Components.Example
   syntax:
     content: '_MoveWorkSignal : BOOL'
@@ -202,11 +203,11 @@ items:
   source:
     remote:
       path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Example.ExampleCylinder._MoveToWorkNotReached
     path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-    startLine: 36
+    startLine: 38
   namespace: plc.AXOpen.Components.Example
   syntax:
     content: '_MoveToWorkNotReached : AXOpen.Messaging.Static.AxoMessenger'
@@ -222,11 +223,11 @@ items:
   source:
     remote:
       path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Example.ExampleCylinder._MoveToHomeNotReached
     path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-    startLine: 41
+    startLine: 42
   namespace: plc.AXOpen.Components.Example
   syntax:
     content: '_MoveToHomeNotReached : AXOpen.Messaging.Static.AxoMessenger'
@@ -242,11 +243,11 @@ items:
   source:
     remote:
       path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Example.ExampleCylinder.Run
     path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-    startLine: 52
+    startLine: 53
   namespace: plc.AXOpen.Components.Example
   summary: Runs tasks and logic of this component.>[!IMPORTANT] This method must or one of its overloads be called cyclically.
   syntax:
@@ -270,11 +271,11 @@ items:
   source:
     remote:
       path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Example.ExampleCylinder.Run
     path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-    startLine: 72
+    startLine: 73
   namespace: plc.AXOpen.Components.Example
   summary: Runs tasks and logic of this component.>[!IMPORTANT] This method must or one of its overloads be called cyclically.
   syntax:
@@ -298,11 +299,11 @@ items:
   source:
     remote:
       path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Example.ExampleCylinder.ManualControl
     path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-    startLine: 131
+    startLine: 132
   namespace: plc.AXOpen.Components.Example
   syntax:
     content: Protected VOID ManualControl()
@@ -319,11 +320,11 @@ items:
   source:
     remote:
       path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Example.ExampleCylinder.Restore
     path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
-    startLine: 138
+    startLine: 140
   namespace: plc.AXOpen.Components.Example
   summary: Restores this component into intial state.
   syntax:
@@ -356,12 +357,12 @@ references:
   nameWithType: IsManuallyControllable()
   fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
   parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
-- uid: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
-  commentId: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
-  name: CheckIfManualControlIsActivated()
-  nameWithType: CheckIfManualControlIsActivated()
-  fullName: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
-  parent: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+- uid: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivatedInlined()
+  commentId: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivatedInlined()
+  name: CheckIfManualControlIsActivatedInlined()
+  nameWithType: CheckIfManualControlIsActivatedInlined()
+  fullName: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivatedInlined()
+  parent: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivatedInlined()
 - uid: plc.AXOpen.Core.AxoComponent.Open()
   commentId: plc.AXOpen.Core.AxoComponent.Open()
   name: Open()
@@ -404,6 +405,12 @@ references:
   nameWithType: GetContext()
   fullName: plc.AXOpen.Core.AxoObject.GetContext()
   parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
 - uid: plc.AXOpen.Core.AxoObject.GetParent()
   commentId: plc.AXOpen.Core.AxoObject.GetParent()
   name: GetParent()

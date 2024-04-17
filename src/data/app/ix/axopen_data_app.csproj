@@ -23,5 +23,8 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
 	  <ProjectReference Include="..\..\src\AXOpen.Data\ix_ax_axopen_data.csproj" />
+	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj" />
+	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj" />
+	  <ProjectReference Include="..\..\..\simatic1500\ctrl\ix\ix_ax_axopen_simatic1500.csproj" />
 	</ItemGroup>
 </Project>

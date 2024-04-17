@@ -5,6 +5,9 @@
 // https://github.com/ix-ax/ix/blob/master/LICENSE
 // Third party licenses: https://github.com/ix-ax/ix/blob/master/notices.md
 
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -14,18 +17,19 @@ using Cake.Core.Diagnostics;
 using Cake.Core.IO;
 using Microsoft.Win32;
 using Octokit;
+using YamlDotNet.RepresentationModel;
 using static NuGet.Packaging.PackagingConstants;
 using Path = System.IO.Path;
 
 public static class ApaxCmd
 {
-    public static void ApaxInstall(this BuildContext context, (string folder, string name, bool pack) lib)
+    public static void ApaxInstall(this BuildContext context, IEnumerable<string> folders)
     {
-        foreach (var folder in context.GetAxFolders(lib))
+        foreach (var folder in folders)
         {
             var apaxArguments = context.BuildParameters.DoApaxInstallReDownload ? "install -r" : "install";
 
-            context.Log.Information($"apax install started for '{lib.folder} : {lib.name}'");
+            context.Log.Information($"apax install started in '{folder}'");
             context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
             {
                 Arguments = apaxArguments,
@@ -56,12 +60,11 @@ public static class ApaxCmd
         }
     }
 
-
-    public static void ApaxBuild(this BuildContext context, (string folder, string name, bool pack) lib)
+    public static void ApaxBuild(this BuildContext context, IEnumerable<string> folders)
     {
-        foreach (var folder in context.GetAxFolders(lib))
+        foreach (var folder in folders)
         {
-            context.Log.Information($"apax build started for '{lib.folder} : {lib.name}'");
+            context.Log.Information($"apax build started for in '{folder}'");
             var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
             {
                 Arguments = "build --ignore-scripts",
@@ -81,10 +84,6 @@ public static class ApaxCmd
             }
         }
     }
-
-   
-
- 
 
     public static void ApaxUpdate(this BuildContext context, (string folder, string name, bool pack) lib)
     {
@@ -111,8 +110,6 @@ public static class ApaxCmd
         }
     }
 
-  
-
     public static void ApaxPack(this BuildContext context, (string folder, string name, bool pack) lib)
     {
 
@@ -130,10 +127,17 @@ public static class ApaxCmd
         }
     }
 
+
     public static void ApaxTest(this BuildContext context, (string folder, string name, bool pack) lib)
     {
         foreach (var folder in context.GetAxFolders(lib))
         {
+            if(!Directory.Exists(Path.Combine(folder, "test")))
+            {
+                context.Log.Warning($"skipping apax test for '{lib.folder} : {lib.name}' [{folder}] no 'test' folder present in the directory.");
+                continue;
+            }
+
             context.Log.Information($"apax test started for '{lib.folder} : {lib.name}' [{folder}]");
             var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
             {
@@ -156,9 +160,51 @@ public static class ApaxCmd
         }
     }
 
-    public static void ApaxIxc(this BuildContext context, (string folder, string name, bool pack) lib)
+    public static void ApaxTestLibrary(this BuildContext context, (string folder, string name, bool pack) lib)
     {
-        foreach (var folder in context.GetAxFolders(lib))
+        foreach (var folder in context.GetLibraryAxFolders(lib))
+        {
+            if (!Directory.Exists(Path.Combine(folder, "test")))
+            {
+                context.Log.Warning($"skipping apax test for '{lib.folder} : {lib.name}' [{folder}] no 'test' folder present in the directory.");
+                continue;
+            }
+
+            context.Log.Information($"apax test started for '{lib.folder} : {lib.name}' [{folder}]");
+            var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+            {
+                Arguments = "test",
+                WorkingDirectory = folder,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                Silent = false
+            });
+
+            process.WaitForExit();
+            var passed = false;
+            foreach (var o in process.GetStandardOutput())
+            {
+                if (o.Trim().Replace(" ", "").ToUpper() == "OVERALLRESULT[PASSED]")
+                {
+                    passed = true;
+                }
+                context.Log.Information(o);
+            }
+
+            var exitcode = process.GetExitCode();
+            context.Log.Information($"apax test exited with '{exitcode}'");
+
+            
+            if (exitcode != 0 || !passed)
+            {
+                throw new TestFailedException();
+            }
+        }
+    }
+
+    public static void ApaxIxc(this BuildContext context, IEnumerable<string> folders)
+    {
+        foreach (var folder in folders)
         {
             context.ProcessRunner.Start(Helpers.GetDotNetCommand(), new ProcessSettings()
             {
@@ -187,7 +233,7 @@ public static class ApaxCmd
     {
         context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
         {
-            Arguments = $"login --registry https://npm.pkg.github.com--username { context.GitHubUser } --password { context.GitHubToken }",
+            Arguments = $"login --registry https://npm.pkg.github.com --username { context.GitHubUser } --password { context.GitHubToken }",
             WorkingDirectory = context.ArtifactsApax,
             RedirectStandardOutput = false,
             RedirectStandardError = false,
@@ -245,4 +291,71 @@ public static class ApaxCmd
 
         process.WaitForExit();
     }
+
+    public static void ApaxChangeBuildProperties(this BuildContext context, string yamlFilePath, IEnumerable<string> targets, IEnumerable<string> files)
+    {
+        // Load the YAML stream
+        var yaml = new YamlStream();
+        using (var reader = new StreamReader(yamlFilePath))
+        {
+            yaml.Load(reader);
+        }
+
+        // Assuming there's only one document in the YAML stream
+        var root = (YamlMappingNode)yaml.Documents[0].RootNode;
+
+        if (root.Children.TryGetValue(new YamlScalarNode("type"), out var typeNode) &&
+            ((YamlScalarNode)typeNode).Value == "lib")
+        {
+
+            // Modify 'targets'
+            var targetsNode = (YamlSequenceNode)root.Children[new YamlScalarNode("targets")];
+            targetsNode.Children.Clear(); // Clear existing targets
+
+            var quotedTargets = new List<string>();
+
+            foreach (var target in targets)
+            {
+                if (target.StartsWith("\"") && target.EndsWith("\""))
+                {
+                    quotedTargets.Add(target);
+                }
+                
+                targetsNode.Children.Add(new YamlScalarNode(target));
+            }
+
+            // Modify 'files'
+            var filesNode = (YamlSequenceNode)root.Children[new YamlScalarNode("files")];
+            filesNode.Children.Clear(); // Clear existing files
+
+            foreach (var file in files)
+            {
+                filesNode.Children.Add(new YamlScalarNode(file));
+            }
+
+            // Save the modified document
+            using (var writer = new StreamWriter(yamlFilePath))
+            {
+                yaml.Save(writer, assignAnchors: false);
+            }
+
+            // Assume 'yamlString' is your serialized YAML string
+            string yamlString = File.ReadAllText(yamlFilePath);
+
+
+            foreach (var target in quotedTargets)
+            {
+                yamlString = yamlString.Replace($"'{target}'", target);
+            }
+            
+           
+
+            // Save the manually adjusted YAML string to a file
+            File.WriteAllText(yamlFilePath, yamlString);
+
+
+            Console.WriteLine($"Apax '{yamlFilePath}' was modified for targets '{string.Join(",", targets)}' and files '{string.Join(",", files)}'");
+        }
+    }
+    
 }

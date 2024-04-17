@@ -64,6 +64,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\components.drives\src\AXOpen.Components.Drives.blazor\AXOpen.Components.Drives.blazor.csproj" />
     <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
+    <ProjectReference Include="..\..\..\io\src\AXOpen.Io.blazor\AXOpen.Io.blazor.csproj" />
     <ProjectReference Include="..\AXOpen.Components.Rexroth.Drives\ix_ax_axopen_components_rexroth_drives.csproj" />
   </ItemGroup>
 </Project>

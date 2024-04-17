@@ -4,7 +4,7 @@ USING AXOpen.Core;
 NAMESPACE AXOpen.Messaging.Static    
 
     TYPE
-        eAxoMessengerState : (Idle, ActiveNoAck, ActiveAckn, NotActiveWatingAckn);
+        eAxoMessengerState : (Idle, ActiveNoAck, ActiveAckn, NotActiveWaitingAckn);
     END_TYPE
 
     {#ix-prop: public string MessageText }
@@ -82,7 +82,7 @@ NAMESPACE AXOpen.Messaging.Static
             END_IF;
 
             IF(THIS.WaitingForAcknowledge) THEN
-                THIS.MessengerState := eAxoMessengerState#NotActiveWatingAckn;  
+                THIS.MessengerState := eAxoMessengerState#NotActiveWaitingAckn;  
             END_IF;                     
             
         END_METHOD
@@ -125,7 +125,7 @@ NAMESPACE AXOpen.Messaging.Static
             END_IF;
 
             IF(THIS.WaitingForAcknowledge) THEN
-                THIS.MessengerState := eAxoMessengerState#NotActiveWatingAckn;  
+                THIS.MessengerState := eAxoMessengerState#NotActiveWaitingAckn;  
             END_IF; 
             
         END_METHOD

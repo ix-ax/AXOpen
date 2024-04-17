@@ -14,7 +14,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IOnFail.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IOnFail
     path: .\src\inspectors\ctrl\src\interfaces\IOnFail.st
@@ -33,7 +33,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IOnFail.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IOnFail.CarryOn
     path: .\src\inspectors\ctrl\src\interfaces\IOnFail.st
@@ -54,7 +54,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IOnFail.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IOnFail.RetryWithStep
     path: .\src\inspectors\ctrl\src\interfaces\IOnFail.st
@@ -77,7 +77,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IOnFail.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IOnFail.Dialog
     path: .\src\inspectors\ctrl\src\interfaces\IOnFail.st
@@ -102,11 +102,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IOnFail.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IOnFail.TerminateWithStep
     path: .\src\inspectors\ctrl\src\interfaces\IOnFail.st
-    startLine: 24
+    startLine: 29
   namespace: plc.AXOpen.Inspectors
   syntax:
     content: Public BOOL TerminateWithStep(in plc.AXOpen.Core.IAxoStep inTerminateStep)

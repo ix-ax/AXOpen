@@ -4,7 +4,7 @@ namespace AXOpen.VisualComposer.Serializing
 {
     internal static class Serializing<T>
     {
-        internal static void Serialize(string filePath, List<T> serialize)
+        internal static void Serialize(string filePath, T serialize)
         {
             try
             {
@@ -19,17 +19,17 @@ namespace AXOpen.VisualComposer.Serializing
             }
         }
 
-        internal static List<T>? Deserialize(string filePath)
+        internal static T? Deserialize(string filePath)
         {
             if (!File.Exists(filePath))
-                return null;
+                return default;
 
-            List<T>? deserialize = null;
+            T? deserialize = default;
             try
             {
                 using (FileStream fs = File.OpenRead(filePath))
                 {
-                    deserialize = JsonSerializer.Deserialize<List<T>>(fs);
+                    deserialize = JsonSerializer.Deserialize<T>(fs);
                 }
             }
             catch (Exception ex)

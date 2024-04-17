@@ -97,7 +97,7 @@ NAMESPACE AXOpen.Elements
     END_METHOD
 
     
-    METHOD PROTECTED OVERRIDE Restore : IAxoTask
+    METHOD PUBLIC OVERRIDE Restore 
         ;
     END_METHOD
 

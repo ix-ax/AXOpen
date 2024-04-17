@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAoConfig
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
@@ -38,11 +38,11 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAoConfig.RawLow
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
-    startLine: 13
+    startLine: 14
   namespace: plc.AXOpen.Elements
   syntax:
     content: 'RawLow : DINT'
@@ -58,11 +58,11 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAoConfig.RawHigh
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
-    startLine: 18
+    startLine: 19
   namespace: plc.AXOpen.Elements
   syntax:
     content: 'RawHigh : DINT'
@@ -78,11 +78,11 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAoConfig.RealLow
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
-    startLine: 25
+    startLine: 26
   namespace: plc.AXOpen.Elements
   syntax:
     content: 'RealLow : REAL'
@@ -98,11 +98,11 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAoConfig.RealHigh
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
-    startLine: 31
+    startLine: 32
   namespace: plc.AXOpen.Elements
   syntax:
     content: 'RealHigh : REAL'
@@ -118,11 +118,11 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAoConfig.Gain
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
-    startLine: 36
+    startLine: 37
   namespace: plc.AXOpen.Elements
   syntax:
     content: 'Gain : REAL'
@@ -138,11 +138,11 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAoConfig.Offset
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
-    startLine: 41
+    startLine: 42
   namespace: plc.AXOpen.Elements
   syntax:
     content: 'Offset : REAL'

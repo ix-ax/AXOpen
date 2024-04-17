@@ -2,6 +2,8 @@ NAMESPACE AXOpen.Components.Drives
     TYPE PUBLIC
         eAxoMotionTaskId :
         (		
+            Axo_None,
+            Axo_Done,
             Axo_Power,
             Axo_Home,
             Axo_Stop,
@@ -21,8 +23,10 @@ NAMESPACE AXOpen.Components.Drives
             Axo_SetPosition,
             Axo_SetOverride,
             Axo_ReadParameter,
+            Axo_ReadRealParameter,
             Axo_ReadBoolParameter,
             Axo_WriteParameter,
+            Axo_WriteRealParameter,
             Axo_WriteBoolParameter,
             Axo_ReadDigitalInput,
             Axo_ReadDigitalOutput,

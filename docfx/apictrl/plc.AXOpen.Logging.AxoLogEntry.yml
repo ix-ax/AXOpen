@@ -14,7 +14,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogEntry
     path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
@@ -36,11 +36,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogEntry.Message
     path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
-    startLine: 9
+    startLine: 10
   namespace: plc.AXOpen.Logging
   summary: The message of the log entry. The maximum length of the message is 80 characters.
   syntax:
@@ -57,11 +57,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogEntry.Level
     path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
-    startLine: 16
+    startLine: 17
   namespace: plc.AXOpen.Logging
   summary: The severity level of the log entry.
   syntax:
@@ -78,11 +78,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogEntry.Sender
     path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
-    startLine: 21
+    startLine: 22
   namespace: plc.AXOpen.Logging
   summary: The identifier of the sender of the log entry.
   syntax:
@@ -99,11 +99,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogEntry.ToDequeue
     path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
-    startLine: 25
+    startLine: 26
   namespace: plc.AXOpen.Logging
   summary: Indicates whether the log entry is ready to be dequeued.
   syntax:

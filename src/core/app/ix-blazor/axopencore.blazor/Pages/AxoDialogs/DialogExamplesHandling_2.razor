@@ -1,0 +1,10 @@
+﻿@page "/DialogExamplesHandling_2"
+@using axopencore
+@using AXOpen.Core
+@using AXOpen.Core.Blazor.AxoDialogs
+
+<h3>Dialog Examples Handling 1 and 2</h3>
+
+<AxoDialogLocator LocatorPath="dialog2" DisplayInModalWindow="false" ObservedObjects="new [] { Entry.Plc.D_222, Entry.Plc.D_111}"></AxoDialogLocator>
+
+<AXOpen.Core.Blazor.Dialogs.AxoAlertLocator ObservedObjects="new [] { Entry.Plc.D_222}"></AXOpen.Core.Blazor.Dialogs.AxoAlertLocator>

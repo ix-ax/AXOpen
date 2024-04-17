@@ -10,10 +10,14 @@
         public static PresentationType CommandControl { get { return new PresentationType("Command-Control"); } }
         public static PresentationType StatusDisplay { get { return new PresentationType("Status-Display"); } }
 
+        public static PresentationType Spot { get { return new PresentationType("Spot"); } }
+
         public static PresentationType[] AllTypes { get; } = new PresentationType[]
         {
             CommandControl,
-            StatusDisplay
+            StatusDisplay,
+            Spot
+
         };
 
         public override string ToString()

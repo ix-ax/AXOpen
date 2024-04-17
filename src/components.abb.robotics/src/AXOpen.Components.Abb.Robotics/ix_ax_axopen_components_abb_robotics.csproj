@@ -1,0 +1,90 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+    
+		<RootNamespace>AXOpen.Components.Abb.Robotics</RootNamespace>
+
+		<!--NuGet Specific part-->
+		<Description>This library is part of AXOpen framework</Description>
+		<PackageId>AXOpen.Components.Abb.Robotics</PackageId>
+		<Title>AXOpen - AXOpen.Components.Abb.Robotics</Title>
+
+		<!-- NuGet Common part-->
+		<PackageProjectUrl>https://github.com/ix-ax/</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/ix-ax/AXOpen</RepositoryUrl>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<Authors>ix-ax</Authors>
+		<Copyright>(c) Peter Kurhajec and Contributors</Copyright>
+		<PackageTags>simatix-ax, PLC, industrial automation, SCADA, HMI, AX#r</PackageTags>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<PackageIcon>icon_128_128.png</PackageIcon>
+		<RepositoryType>git</RepositoryType>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageReleaseNotes>
+			Release notes are published here:
+			https://github.com/ix-ax/AXOpen/releases
+		</PackageReleaseNotes>
+		<PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+	<ItemGroup>
+    	<Compile Include=".g\**" />
+  	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include=".meta\" />
+		<Content Include=".meta\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AXSharp.Abstractions" />
+		<PackageReference Include="AXSharp.Connector" />
+		<PackageReference Include="GitVersion.MsBuild">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Resources\PlcStringResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>PlcStringResources.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\PlcStringResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>PlcStringResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Resources\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\..\..\..\assets\icons\icon_128_128.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="..\..\..\NUGET-README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
+	  <ProjectReference Include="..\..\..\components.abstractions\src\AXOpen.Components.Abstractions\ix_ax_axopen_components_abstractions.csproj" />
+	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj" />
+	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj" />
+	  <ProjectReference Include="..\..\..\components.robotics\src\AXOpen.Components.Robotics\ix_ax_axopen_components_robotics.csproj" />
+	  <ProjectReference Include="..\..\..\io\src\AXOpen.Io\ix_ax_axopen_io.csproj" />
+	</ItemGroup>
+</Project>

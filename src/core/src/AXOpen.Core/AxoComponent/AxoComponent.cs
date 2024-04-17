@@ -37,4 +37,17 @@ namespace AXOpen.Core
 
         public string TabName { get; }
     }
+    public class DisplayRoleAttribute : Attribute
+    {
+        public DisplayRoleAttribute()
+        {
+        }
+
+        public DisplayRoleAttribute(string roleName)
+        {
+            RoleName = roleName;
+        }
+
+        public string RoleName { get; }
+    }
 }

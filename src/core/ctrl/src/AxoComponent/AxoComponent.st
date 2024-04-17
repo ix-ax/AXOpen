@@ -39,7 +39,7 @@ NAMESPACE AXOpen.Core
         ///<summary>
 		/// Restores this instance. This method must be implemented in derived class.
         ///</summary>   
-        METHOD PROTECTED ABSTRACT Restore: IAxoTask 
+        METHOD PUBLIC ABSTRACT Restore 
         END_METHOD
 
         ///<summary>

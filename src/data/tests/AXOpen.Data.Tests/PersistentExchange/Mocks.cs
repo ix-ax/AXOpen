@@ -148,6 +148,11 @@ namespace AxoDataPersistentExchangeExample
             await this.PlainToShadowAsync((dynamic)plain);
         }
 
+        public Task<bool> AnyChangeAsync<T>(T plain)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.AxoDataPersistentExchangeExample.PersistentRootObject plain)
         {
             NotPersistentVariable.Shadow = plain.NotPersistentVariable;
@@ -355,6 +360,11 @@ namespace AxoDataPersistentExchangeExample
         public async virtual Task PlainToShadow<T>(T plain)
         {
             await this.PlainToShadowAsync((dynamic)plain);
+        }
+
+        public Task<bool> AnyChangeAsync<T>(T plain)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.AxoDataPersistentExchangeExample.ObjectWithPersistentMember plain)
@@ -808,6 +818,11 @@ namespace AxoDataPersistentExchangeExample
         public async virtual Task PlainToShadow<T>(T plain)
         {
             await this.PlainToShadowAsync((dynamic)plain);
+        }
+
+        public Task<bool> AnyChangeAsync<T>(T plain)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(Pocos.AxoDataPersistentExchangeExample.InitializedPrimitives plain)

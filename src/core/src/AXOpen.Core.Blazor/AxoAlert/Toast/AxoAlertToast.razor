@@ -1,0 +1,64 @@
+﻿@namespace AXOpen.Core.Blazor.AxoAlertDialog
+@using AXOpen.Base.Dialogs;
+
+
+@if (DialogService.GetAlertDialogs() != null && DialogService.GetAlertDialogs().Count > 0)
+{
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
+        @foreach (AlertToast toast in DialogService.GetAlertDialogs().ToList())
+        {
+            var bg = "";
+            var icon = "";
+            switch (toast.Type)
+            {
+                case eAlertType.Info:
+                    bg = "bg-primary text-white";
+                    icon = "oi oi-info";
+                    break;
+                case eAlertType.Success:
+                    bg = "bg-success text-white";
+                    icon = "oi oi-circle-check";
+                    break;
+                case eAlertType.Danger:
+                    bg = "bg-danger text-white";
+                    icon = "oi oi-circle-x";
+                    break;
+                case eAlertType.Warning:
+                    bg = "bg-warning text-dark";
+                    icon = "oi oi-warning";
+                    break;
+
+                default:
+                    bg = "bg-primary text-white";
+                    icon = "oi oi-info";
+                    break;
+
+            }
+
+            <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header @bg">
+                    <span class="@icon me-2" aria-hidden="true"></span>
+                    <strong class="me-auto">@toast.Title</strong>
+                    <small>@GetTime(toast.Posted)</small>
+                    @if (DialogService.GetAlertDialogs().Count > 2)
+                    {
+                        <div class="dropup">
+                            <button type="button" class="btn-close" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" @onclick="() => DialogService.RemoveAllAlertDialogs()">@Localizer["Close all"]</a></li>
+                                <li><a class="dropdown-item" @onclick="() => DialogService.RemoveAlertDialog(toast)">@Localizer["Close"]</a></li>
+                            </ul>
+                        </div>
+                    }
+                    else
+                    {
+                        <button type="button" class="btn-close" @onclick="() => DialogService.RemoveAlertDialog(toast)"></button>
+                    }
+                </div>
+                <div class="toast-body">
+                    @toast.Message
+                </div>
+            </div>
+        }
+    </div>
+}

@@ -8,8 +8,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>		
-		<PackageReference Include="AXSharp.Connector"/>
-		<PackageReference Include="AXSharp.Connector.S71500.WebAPI"/>
+		<PackageReference Include="AXSharp.Connector" />
+		<PackageReference Include="AXSharp.Connector.S71500.WebAPI" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -24,5 +24,6 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj" />
 	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
+	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj" />
 	</ItemGroup>
 </Project>

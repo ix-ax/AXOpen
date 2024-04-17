@@ -4,29 +4,31 @@
 @using AXSharp.Presentation.Blazor.Controls.Layouts.TabControlComponents;
 @inherits RenderableComplexComponentBase<AxoBoolArray>;
 
-<div >
-    <div class="row ">
-        <div class="col">
-            @Component.AttributeName
-            <button class="btn btn-primary" type="button" @onclick="@Refresh">
+<div>
+    <div class="row justify-content-between">
+        <div class="col-auto d-flex align-items-center">
+            <p class="mb-0">@Component.AttributeName</p>
+        </div>
+        <div class="col-auto d-flex justify-content-end">
+            <button class="btn btn-primary" type="button" @onclick="() => UpdateData(null, null)">
                 <span class="oi oi-reload" aria-hidden="true" />
             </button>
         </div>
     </div>
-    <div class="row flex-nowrap">
+    <div class="row mx-1 flex-nowrap gx-0" style="overflow-x: auto; width: 70vw;">
         @if (this.Data != null)
         {
             @foreach (IndexedData<bool> item in this.Data)
             {
                 if (item != null && @item.Index != null && @item.Data != null)
                 {
-                    <div class="col">
+                    <div class="col-auto mx-1">
                         <div>
                             @item.Index
                         </div>
                         <div>
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" @bind="item.Data" disabled>
+                                <input class="form-check-input" type="checkbox" @bind="item.Data" disabled="@IsDisabled">
                             </div>
                         </div>
                     </div>
@@ -34,13 +36,4 @@
             }
         }
     </div>
-
 </div>
-
-@code {
-
-    private async Task Refresh()
-    {
-        UpdateData(null, null);
-    }
-}

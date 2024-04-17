@@ -12,7 +12,7 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoExecutionMode.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode
     path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoExecutionMode.st
@@ -30,7 +30,7 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoExecutionMode.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode.Immediately
     path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoExecutionMode.st
@@ -46,7 +46,7 @@ items:
   source:
     remote:
       path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoExecutionMode.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode.Queued
     path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoExecutionMode.st

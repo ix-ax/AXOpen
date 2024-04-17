@@ -12,7 +12,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoTaskInt
     path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
@@ -31,7 +31,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoTaskInt.SetIsDisabled
     path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
@@ -54,7 +54,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoTaskInt.GetIsDisabled
     path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st

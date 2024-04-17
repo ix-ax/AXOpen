@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
@@ -36,11 +36,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.TrainCodeAcknowledge
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
-    startLine: 4
+    startLine: 5
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'TrainCodeAcknowledge : BOOL'
@@ -56,11 +56,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.TrainMatchStringAcknowledge
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
-    startLine: 6
+    startLine: 7
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'TrainMatchStringAcknowledge : BOOL'
@@ -76,11 +76,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.TrainFocusAcknowledge
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
-    startLine: 8
+    startLine: 9
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'TrainFocusAcknowledge : BOOL'
@@ -96,11 +96,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.TrainBrightnessAcknowledge
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
-    startLine: 10
+    startLine: 11
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'TrainBrightnessAcknowledge : BOOL'
@@ -116,11 +116,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.UntrainAcknowledge
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
-    startLine: 12
+    startLine: 13
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'UntrainAcknowledge : BOOL'
@@ -136,11 +136,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.ExecuteDMCCAcknowledge
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
-    startLine: 14
+    startLine: 15
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'ExecuteDMCCAcknowledge : BOOL'
@@ -156,11 +156,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.Reserved06
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
-    startLine: 17
+    startLine: 18
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'Reserved06 : BOOL'
@@ -176,11 +176,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.SetMatchStringAcknowledge
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
-    startLine: 18
+    startLine: 19
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'SetMatchStringAcknowledge : BOOL'

@@ -6,10 +6,10 @@ The AlertDialog class provides a notification mechanism in application in form o
 
 ## In-app usage
 
-Alerts dialogs can be simply called anywhere from application by injecting `IAlertDialogService` and calling `AddAlertDialog(type, title, message, time)` method.
+Alerts dialogs can be simply called anywhere from application by injecting `IAlertService` and calling `AddAlertDialog(type, title, message, time)` method.
 
 > [!NOTE]
-> `IAlertDialogService` is a scoped service, therefore alerts are unique to each client and are not synchronized.
+> `IAlertService` is a scoped service, therefore alerts are unique to each client and are not synchronized.
 
 1. Make sure your Blazor application references `axopen_core_blazor` project and AxoCore services are added to builder in `Program.cs` file. 
 ```C#
@@ -33,10 +33,10 @@ builder.Services.AddAxoCoreServices();
 
 </div>
 ```
-2. Inject `IAlertDialogService` into you Blazor component
+2. Inject `IAlertService` into you Blazor component
 
 ```C#
-@inject IAlertDialogService _alerts
+@inject IAlertService _alerts
 ```
 
 3. Invoke notification toast from your Blazor view

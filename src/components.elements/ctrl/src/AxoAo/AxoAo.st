@@ -121,7 +121,7 @@ NAMESPACE AXOpen.Elements
             inoSignal := _signal;
         END_METHOD
     
-    METHOD PROTECTED OVERRIDE Restore : IAxoTask
+        METHOD PUBLIC OVERRIDE Restore 
         ;
     END_METHOD
 

@@ -1,0 +1,14 @@
+﻿@namespace AXOpen.Io
+@using AXSharp.Connector;
+@using Microsoft.AspNetCore.Components.Authorization
+@inherits RenderableComplexComponentBase<AxoHardwareDiagnostics>
+@implements IDisposable;
+
+<div class="d-flex align-end me-2 mt-2 mb-2">
+    <AXOpen.Core.AxoTaskView Component="Component" />
+    <RenderableContentControl Presentation="Control" Context="this.Component.hardwareID"                Class="bg-light rounded-3 shadow" LayoutClass="align-items-end" />
+    <RenderableContentControl Presentation="Control" Context="this.Component.GetDiagnosticsReturnCode"  Class="bg-light rounded-3 shadow" LayoutClass="align-items-end" />
+</div>
+<div class="d-flex align-end me-2 mt-2 mb-2">
+    <RenderableContentControl Presentation="Control" Context="this.Component.diagnosticDetails" Class="bg-light rounded-3 shadow" LayoutClass="align-items-end" />
+</div>

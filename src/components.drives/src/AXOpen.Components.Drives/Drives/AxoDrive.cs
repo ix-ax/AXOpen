@@ -75,14 +75,14 @@ namespace AXOpen.Components.Drives
 
     public partial class AxoDrive_Status : AxoComponent_Status
     {
-        Dictionary<uint, string> errorDescriptionDict = new Dictionary<uint, string>();
-        Dictionary<uint, string> actionDescriptionDict = new Dictionary<uint, string>();
+        Dictionary<ulong, string> errorDescriptionDict = new Dictionary<ulong, string>();
+        Dictionary<ulong, string> actionDescriptionDict = new Dictionary<ulong, string>();
 
         public string ErrorDescription
         {
             get
             {
-                if (errorDescriptionDict == null) { errorDescriptionDict = new Dictionary<uint, string>(); }
+                if (errorDescriptionDict == null) { errorDescriptionDict = new Dictionary<ulong, string>(); }
                 if (errorDescriptionDict.Count == 0)
                 {
                     errorDescriptionDict.Add(0, "   ");
@@ -131,7 +131,7 @@ namespace AXOpen.Components.Drives
         {
             get
             {
-                if (actionDescriptionDict == null) { actionDescriptionDict = new Dictionary<uint, string>(); }
+                if (actionDescriptionDict == null) { actionDescriptionDict = new Dictionary<ulong, string>(); }
                 if (actionDescriptionDict.Count == 0)
                 {
                     actionDescriptionDict.Add(0, "   ");

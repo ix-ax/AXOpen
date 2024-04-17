@@ -1,0 +1,26 @@
+﻿@page "/Component_1"
+@using AXOpen.Core;
+
+
+
+<!-- <GenericComponentStatusView> -->
+<AxoComponentStatusView Component="@Entry.Plc.documentation.componentOne.ExampleRobot"/>
+<!-- </GenericComponentStatusView> -->
+
+<!-- <GenericComponentCommandView> -->
+<AxoComponentCommandView Component="@Entry.Plc.documentation.componentOne.ExampleRobot" />
+<!-- </GenericComponentCommandView> -->
+
+<!-- <RccComponentStatusView> -->
+<!-- This will render anything found on parameter assigned to Context  -->
+<RenderableContentControl Context="@Entry.Plc.documentation.componentOne" Presentation="Status-Display" />
+<!-- </RccComponentStatusView> -->
+
+
+<!-- <RccComponentCommandView> -->
+<!-- This will render anything found on parameter assigned to Context  -->
+<RenderableContentControl Context="@Entry.Plc.documentation.componentOne" Presentation="Command-Control" />
+<!-- </RccComponentCommandView> -->
+
+
+

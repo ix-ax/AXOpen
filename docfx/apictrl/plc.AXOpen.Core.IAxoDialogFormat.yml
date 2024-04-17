@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoDialogFormat
     path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
@@ -35,7 +35,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoDialogFormat.WithCaption
     path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
@@ -58,7 +58,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoDialogFormat.WithOk
     path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
@@ -79,7 +79,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoDialogFormat.WithText
     path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
@@ -102,7 +102,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoDialogFormat.WithType
     path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
@@ -125,7 +125,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoDialogFormat.WithYesNo
     path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
@@ -146,7 +146,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoDialogFormat.WithYesNoCancel
     path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st

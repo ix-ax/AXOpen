@@ -5,12 +5,14 @@ items:
   children:
   - plc.AXOpen.Data.AxoDataCrudTask
   - plc.AXOpen.Data.eCrudOperation
+  - plc.AXOpen.Data.IAxoEntityExistTaskState
   - plc.AXOpen.Data.AxoDataEntity
   - plc.AXOpen.Data.AxoDataExchange
   - plc.AXOpen.Data.AxoDataExchangeBase
-  - plc.AXOpen.Data.AxoDataExchangeTask
-  - plc.AXOpen.Data.IAxoEntityExistTaskState
   - plc.AXOpen.Data.AxoDataFragmentExchange
+  - plc.AXOpen.Data.AxoDataPersistentCurdTask
+  - plc.AXOpen.Data.ePersistentOperation
+  - plc.AXOpen.Data.AxoDataPersistentExchange
   - plc.AXOpen.Data.IAxoDataEntity
   - plc.AXOpen.Data.IAxoDataExchange
   name: plc.AXOpen.Data
@@ -19,7 +21,7 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\AxoDataCrudTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data
     path: .\src\data\ctrl\src\AxoDataCrudTask.st
@@ -34,6 +36,10 @@ references:
   name: eCrudOperation
   nameWithType: eCrudOperation
   fullName: AXOpen.Data.eCrudOperation
+- uid: plc.AXOpen.Data.IAxoEntityExistTaskState
+  name: IAxoEntityExistTaskState
+  nameWithType: IAxoEntityExistTaskState
+  fullName: AXOpen.Data.IAxoEntityExistTaskState
 - uid: plc.AXOpen.Data.AxoDataEntity
   name: AxoDataEntity
   nameWithType: AxoDataEntity
@@ -46,18 +52,22 @@ references:
   name: AxoDataExchangeBase
   nameWithType: AxoDataExchangeBase
   fullName: AXOpen.Data.AxoDataExchangeBase
-- uid: plc.AXOpen.Data.AxoDataExchangeTask
-  name: AxoDataExchangeTask
-  nameWithType: AxoDataExchangeTask
-  fullName: AXOpen.Data.AxoDataExchangeTask
-- uid: plc.AXOpen.Data.IAxoEntityExistTaskState
-  name: IAxoEntityExistTaskState
-  nameWithType: IAxoEntityExistTaskState
-  fullName: AXOpen.Data.IAxoEntityExistTaskState
 - uid: plc.AXOpen.Data.AxoDataFragmentExchange
   name: AxoDataFragmentExchange
   nameWithType: AxoDataFragmentExchange
   fullName: AXOpen.Data.AxoDataFragmentExchange
+- uid: plc.AXOpen.Data.AxoDataPersistentCurdTask
+  name: AxoDataPersistentCurdTask
+  nameWithType: AxoDataPersistentCurdTask
+  fullName: AXOpen.Data.AxoDataPersistentCurdTask
+- uid: plc.AXOpen.Data.ePersistentOperation
+  name: ePersistentOperation
+  nameWithType: ePersistentOperation
+  fullName: AXOpen.Data.ePersistentOperation
+- uid: plc.AXOpen.Data.AxoDataPersistentExchange
+  name: AxoDataPersistentExchange
+  nameWithType: AxoDataPersistentExchange
+  fullName: AXOpen.Data.AxoDataPersistentExchange
 - uid: plc.AXOpen.Data.IAxoDataEntity
   name: IAxoDataEntity
   nameWithType: IAxoDataEntity

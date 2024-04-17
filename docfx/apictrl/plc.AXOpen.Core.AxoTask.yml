@@ -14,10 +14,21 @@ items:
   - plc.AXOpen.Core.AxoTask.Duration
   - plc.AXOpen.Core.AxoTask.StartTimeStamp
   - plc.AXOpen.Core.AxoTask.ErrorDetails
-  - plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
   - plc.AXOpen.Core.AxoTask._openCycleCountInvoke
   - plc.AXOpen.Core.AxoTask._openCycleCountExecute
   - plc.AXOpen.Core.AxoTask._taskTimer
+  - plc.AXOpen.Core.AxoTask._isFirstExecutionCycle
+  - plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
+  - plc.AXOpen.Core.AxoTask._MultipleExecuteIsCalled
+  - plc.AXOpen.Core.AxoTask._SuspendMultipleExecuteCallCheck
+  - plc.AXOpen.Core.AxoTask._RemoteRestoreEnabled
+  - plc.AXOpen.Core.AxoTask._RemoteAbortEnabled
+  - plc.AXOpen.Core.AxoTask._restoreCycleCount
+  - plc.AXOpen.Core.AxoTask._doneCycleCount
+  - plc.AXOpen.Core.AxoTask._startCycleCount
+  - plc.AXOpen.Core.AxoTask._errorCycleCount
+  - plc.AXOpen.Core.AxoTask._abortCycleCount
+  - plc.AXOpen.Core.AxoTask._resumeCycleCount
   - plc.AXOpen.Core.AxoTask.GetState()
   - plc.AXOpen.Core.AxoTask.GetErrorDetails()
   - plc.AXOpen.Core.AxoTask.IsReady()
@@ -25,10 +36,10 @@ items:
   - plc.AXOpen.Core.AxoTask.IsBusy()
   - plc.AXOpen.Core.AxoTask.IsAborted()
   - plc.AXOpen.Core.AxoTask.HasError()
-  - plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+  - plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
+  - plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  - plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
   - plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
-  - plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-  - plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
   - plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
   - plc.AXOpen.Core.AxoTask.IsExecuteCalledInThisPlcCycle()
   - plc.AXOpen.Core.AxoTask.WasExecuteCalledInPreviousPlcCycle()
@@ -44,6 +55,10 @@ items:
   - plc.AXOpen.Core.AxoTask.GetIsDisabled()
   - plc.AXOpen.Core.AxoTask.Abort()
   - plc.AXOpen.Core.AxoTask.Resume()
+  - plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  - plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  - plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  - plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
   - plc.AXOpen.Core.AxoTask.OnAbort()
   - plc.AXOpen.Core.AxoTask.OnResume()
   - plc.AXOpen.Core.AxoTask.OnDone()
@@ -51,13 +66,19 @@ items:
   - plc.AXOpen.Core.AxoTask.OnRestore()
   - plc.AXOpen.Core.AxoTask.OnStart()
   - plc.AXOpen.Core.AxoTask.WhileError()
+  - plc.AXOpen.Core.AxoTask.AbortTriggered()
+  - plc.AXOpen.Core.AxoTask.ResumeTriggered()
+  - plc.AXOpen.Core.AxoTask.DoneReached()
+  - plc.AXOpen.Core.AxoTask.ErrorOccured()
+  - plc.AXOpen.Core.AxoTask.RestoreTriggered()
+  - plc.AXOpen.Core.AxoTask.StartTriggered()
   name: AxoTask
   fullName: AxoTask
   type: Class
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
@@ -71,6 +92,7 @@ items:
   - plc.AXOpen.Core.AxoObject.Identity
   - plc.AXOpen.Core.AxoObject.GetIdentity()
   - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
   - plc.AXOpen.Core.AxoObject.GetParent()
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
@@ -87,11 +109,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.Status
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 14
+    startLine: 15
   namespace: plc.AXOpen.Core
   summary: Gets the state of this task.
   syntax:
@@ -108,11 +130,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.IsDisabled
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 23
+    startLine: 25
   namespace: plc.AXOpen.Core
   summary: Gets or sets whether this task is disabled for execution.
   syntax:
@@ -129,11 +151,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.RemoteInvoke
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 30
+    startLine: 31
   namespace: plc.AXOpen.Core
   summary: Remote requests for invoke of this task.When 'TRUE' this task will be invoked.
   syntax:
@@ -150,11 +172,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.RemoteRestore
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 36
+    startLine: 37
   namespace: plc.AXOpen.Core
   summary: Remote requests for restore of this task.When 'TRUE' this task will be restored.
   syntax:
@@ -171,11 +193,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.RemoteAbort
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 42
+    startLine: 43
   namespace: plc.AXOpen.Core
   summary: Remote requests for abort of this task.When 'TRUE' this task will be aborted.
   syntax:
@@ -192,11 +214,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.RemoteResume
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 48
+    startLine: 49
   namespace: plc.AXOpen.Core
   summary: Remote requests for resume of this task.When 'TRUE' this task will be resumed.
   syntax:
@@ -213,11 +235,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.StartSignature
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 53
+    startLine: 54
   namespace: plc.AXOpen.Core
   summary: Contains contex cycle number when this task started.
   syntax:
@@ -234,11 +256,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.Duration
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 59
+    startLine: 60
   namespace: plc.AXOpen.Core
   summary: Gets elapsed time of last task execution.
   syntax:
@@ -255,11 +277,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.StartTimeStamp
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 65
+    startLine: 66
   namespace: plc.AXOpen.Core
   summary: Gets date and time when the task started.
   syntax:
@@ -276,38 +298,17 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.ErrorDetails
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 70
+    startLine: 73
   namespace: plc.AXOpen.Core
   summary: Contains details about the error.
   syntax:
     content: 'ErrorDetails : STRING[254]'
     return:
       type: STRING[254]
-- uid: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
-  id: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
-  parent: AXOpen.Core
-  children: []
-  name: _CyclicExecuteIsNotCalled
-  fullName: _CyclicExecuteIsNotCalled
-  type: Property
-  source:
-    remote:
-      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
-      repo: https://github.com/ix-ax/AXOpen.git
-    id: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
-    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 73
-  namespace: plc.AXOpen.Core
-  summary: Enable error message when task is not calling cyclically .
-  syntax:
-    content: '_CyclicExecuteIsNotCalled : AXOpen.Messaging.Static.AxoMessenger'
-    return:
-      type: AXOpen.Messaging.Static.AxoMessenger
 - uid: plc.AXOpen.Core.AxoTask._openCycleCountInvoke
   id: plc.AXOpen.Core.AxoTask._openCycleCountInvoke
   parent: AXOpen.Core
@@ -318,11 +319,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask._openCycleCountInvoke
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 83
+    startLine: 74
   namespace: plc.AXOpen.Core
   syntax:
     content: '_openCycleCountInvoke : ULINT'
@@ -338,11 +339,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask._openCycleCountExecute
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 85
+    startLine: 75
   namespace: plc.AXOpen.Core
   syntax:
     content: '_openCycleCountExecute : ULINT'
@@ -358,16 +359,258 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask._taskTimer
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 86
+    startLine: 77
   namespace: plc.AXOpen.Core
   syntax:
     content: '_taskTimer : UNDEFINED'
     return:
       type: UNDEFINED
+- uid: plc.AXOpen.Core.AxoTask._isFirstExecutionCycle
+  id: plc.AXOpen.Core.AxoTask._isFirstExecutionCycle
+  parent: AXOpen.Core
+  children: []
+  name: _isFirstExecutionCycle
+  fullName: _isFirstExecutionCycle
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask._isFirstExecutionCycle
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 78
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_isFirstExecutionCycle : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
+  id: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
+  parent: AXOpen.Core
+  children: []
+  name: _CyclicExecuteIsNotCalled
+  fullName: _CyclicExecuteIsNotCalled
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 81
+  namespace: plc.AXOpen.Core
+  summary: Enable error message when task is not calling cyclically .
+  syntax:
+    content: '_CyclicExecuteIsNotCalled : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Core.AxoTask._MultipleExecuteIsCalled
+  id: plc.AXOpen.Core.AxoTask._MultipleExecuteIsCalled
+  parent: AXOpen.Core
+  children: []
+  name: _MultipleExecuteIsCalled
+  fullName: _MultipleExecuteIsCalled
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask._MultipleExecuteIsCalled
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 86
+  namespace: plc.AXOpen.Core
+  summary: Enable error message when the `Execute()` method is called more then once inside one PLC cycle.
+  syntax:
+    content: '_MultipleExecuteIsCalled : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Core.AxoTask._SuspendMultipleExecuteCallCheck
+  id: plc.AXOpen.Core.AxoTask._SuspendMultipleExecuteCallCheck
+  parent: AXOpen.Core
+  children: []
+  name: _SuspendMultipleExecuteCallCheck
+  fullName: _SuspendMultipleExecuteCallCheck
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask._SuspendMultipleExecuteCallCheck
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 92
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_SuspendMultipleExecuteCallCheck : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoTask._RemoteRestoreEnabled
+  id: plc.AXOpen.Core.AxoTask._RemoteRestoreEnabled
+  parent: AXOpen.Core
+  children: []
+  name: _RemoteRestoreEnabled
+  fullName: _RemoteRestoreEnabled
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask._RemoteRestoreEnabled
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 94
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_RemoteRestoreEnabled : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoTask._RemoteAbortEnabled
+  id: plc.AXOpen.Core.AxoTask._RemoteAbortEnabled
+  parent: AXOpen.Core
+  children: []
+  name: _RemoteAbortEnabled
+  fullName: _RemoteAbortEnabled
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask._RemoteAbortEnabled
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 95
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_RemoteAbortEnabled : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoTask._restoreCycleCount
+  id: plc.AXOpen.Core.AxoTask._restoreCycleCount
+  parent: AXOpen.Core
+  children: []
+  name: _restoreCycleCount
+  fullName: _restoreCycleCount
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask._restoreCycleCount
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 96
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_restoreCycleCount : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Core.AxoTask._doneCycleCount
+  id: plc.AXOpen.Core.AxoTask._doneCycleCount
+  parent: AXOpen.Core
+  children: []
+  name: _doneCycleCount
+  fullName: _doneCycleCount
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask._doneCycleCount
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 97
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_doneCycleCount : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Core.AxoTask._startCycleCount
+  id: plc.AXOpen.Core.AxoTask._startCycleCount
+  parent: AXOpen.Core
+  children: []
+  name: _startCycleCount
+  fullName: _startCycleCount
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask._startCycleCount
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 101
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_startCycleCount : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Core.AxoTask._errorCycleCount
+  id: plc.AXOpen.Core.AxoTask._errorCycleCount
+  parent: AXOpen.Core
+  children: []
+  name: _errorCycleCount
+  fullName: _errorCycleCount
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask._errorCycleCount
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 102
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_errorCycleCount : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Core.AxoTask._abortCycleCount
+  id: plc.AXOpen.Core.AxoTask._abortCycleCount
+  parent: AXOpen.Core
+  children: []
+  name: _abortCycleCount
+  fullName: _abortCycleCount
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask._abortCycleCount
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 104
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_abortCycleCount : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Core.AxoTask._resumeCycleCount
+  id: plc.AXOpen.Core.AxoTask._resumeCycleCount
+  parent: AXOpen.Core
+  children: []
+  name: _resumeCycleCount
+  fullName: _resumeCycleCount
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask._resumeCycleCount
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 104
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_resumeCycleCount : ULINT'
+    return:
+      type: ULINT
 - uid: plc.AXOpen.Core.AxoTask.GetState()
   id: plc.AXOpen.Core.AxoTask.GetState()
   parent: AXOpen.Core.AxoTask
@@ -378,11 +621,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.GetState
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 92
+    startLine: 108
   namespace: plc.AXOpen.Core
   summary: Gets the actual state of this task.
   syntax:
@@ -400,11 +643,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.GetErrorDetails
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 97
+    startLine: 125
   namespace: plc.AXOpen.Core
   syntax:
     content: Public STRING[254] GetErrorDetails()
@@ -421,11 +664,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.IsReady
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 105
+    startLine: 132
   namespace: plc.AXOpen.Core
   summary: Gets true when the task is ready.
   syntax:
@@ -443,11 +686,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.IsDone
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 113
+    startLine: 151
   namespace: plc.AXOpen.Core
   summary: Gets true when the task is done.
   syntax:
@@ -465,11 +708,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.IsBusy
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 123
+    startLine: 171
   namespace: plc.AXOpen.Core
   summary: Gets true when the task is busy/executing.
   syntax:
@@ -487,11 +730,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.IsAborted
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 131
+    startLine: 191
   namespace: plc.AXOpen.Core
   summary: Gets true when the task is aborted.
   syntax:
@@ -509,11 +752,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.HasError
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 138
+    startLine: 211
   namespace: plc.AXOpen.Core
   summary: Gets true when the task has error.
   syntax:
@@ -521,28 +764,80 @@ items:
     parameters: *o0
     return:
       type: plc.BOOL
-- uid: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
-  id: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+- uid: plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
+  id: plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
   parent: AXOpen.Core.AxoTask
   children: []
-  name: IsInvokeCalled
-  fullName: IsInvokeCalled
+  name: IsFirstExecutionCycle
+  fullName: IsFirstExecutionCycle
   type: Method
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
-    id: plc.AXOpen.Core.AxoTask.IsInvokeCalled
+    id: plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 146
+    startLine: 235
   namespace: plc.AXOpen.Core
-  summary: Returns true when the `Invoke() method of the task is called in this PLC cycleor was called in the previous-one.
+  summary: Checks if the current execution cycle is the first cycle.
+  remarks: This method provides information about whether the current execution cycle is the initial cycle.It returns TRUE if the code is being executed for the first time in the cycle.It returns FALSE if the code is not in the first execution cycle.
   syntax:
-    content: Public BOOL IsInvokeCalled()
+    content: Public BOOL IsFirstExecutionCycle()
     parameters: *o0
     return:
       type: plc.BOOL
+      description: A boolean value indicating whether the current execution cycle is the first cycle (TRUE) or not (FALSE).
+- uid: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  id: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: SetSuspendMultipleExecuteCallCheck
+  fullName: SetSuspendMultipleExecuteCallCheck
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 250
+  namespace: plc.AXOpen.Core
+  summary: Sets the flag to suspend or resume multiple execute check operations.
+  remarks: This method allows dynamic control over the multiple execute check operations.When suspended (TRUE), the system stops processing multiple execute check operations.When resumed (FALSE), the system resumes processing multiple execute check operations.
+  syntax:
+    content: Public VOID SetSuspendMultipleExecuteCallCheck(in plc.BOOL Suspend)
+    parameters:
+    - id: Suspend
+      type: plc.BOOL
+      description: A boolean value indicating whether multiple execute check operations should be suspended (TRUE) or resumed (FALSE).
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
+  id: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: GetSuspendMultipleExecuteCallCheckState
+  fullName: GetSuspendMultipleExecuteCallCheckState
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 267
+  namespace: plc.AXOpen.Core
+  summary: Retrieves the current state of the flag indicating whether multiple execute check operations are suspended or resumed.
+  remarks: This method provides the current state of the flag controlling multiple execute check operations.It returns TRUE if multiple execute check operations are suspended, indicating that processing is halted.It returns FALSE if multiple execute check operations are resumed, allowing normal processing to occur.
+  syntax:
+    content: Public BOOL GetSuspendMultipleExecuteCallCheckState()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+      description: A boolean value indicating whether multiple execute check operations are suspended (TRUE) or resumed (FALSE).
 - uid: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
   id: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
   parent: AXOpen.Core.AxoTask
@@ -553,56 +848,14 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.IsNewInvokeCall
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 150
+    startLine: 282
   namespace: plc.AXOpen.Core
   syntax:
     content: Private BOOL IsNewInvokeCall()
-    parameters: *o0
-    return:
-      type: plc.BOOL
-- uid: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-  id: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-  parent: AXOpen.Core.AxoTask
-  children: []
-  name: IsInvokeCalledInThisPlcCycle
-  fullName: IsInvokeCalledInThisPlcCycle
-  type: Method
-  source:
-    remote:
-      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
-      repo: https://github.com/ix-ax/AXOpen.git
-    id: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle
-    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 157
-  namespace: plc.AXOpen.Core
-  syntax:
-    content: Private BOOL IsInvokeCalledInThisPlcCycle()
-    parameters: *o0
-    return:
-      type: plc.BOOL
-- uid: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
-  id: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
-  parent: AXOpen.Core.AxoTask
-  children: []
-  name: WasInvokeCalledInPreviousPlcCycle
-  fullName: WasInvokeCalledInPreviousPlcCycle
-  type: Method
-  source:
-    remote:
-      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
-      repo: https://github.com/ix-ax/AXOpen.git
-    id: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle
-    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 165
-  namespace: plc.AXOpen.Core
-  syntax:
-    content: Private BOOL WasInvokeCalledInPreviousPlcCycle()
     parameters: *o0
     return:
       type: plc.BOOL
@@ -616,11 +869,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.IsNewExecuteCall
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 176
+    startLine: 309
   namespace: plc.AXOpen.Core
   syntax:
     content: Private BOOL IsNewExecuteCall()
@@ -637,11 +890,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.IsExecuteCalledInThisPlcCycle
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 184
+    startLine: 314
   namespace: plc.AXOpen.Core
   syntax:
     content: Private BOOL IsExecuteCalledInThisPlcCycle()
@@ -658,11 +911,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.WasExecuteCalledInPreviousPlcCycle
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 192
+    startLine: 323
   namespace: plc.AXOpen.Core
   syntax:
     content: Private BOOL WasExecuteCalledInPreviousPlcCycle()
@@ -679,11 +932,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.UpdateState
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 203
+    startLine: 333
   namespace: plc.AXOpen.Core
   syntax:
     content: Private VOID UpdateState()
@@ -700,11 +953,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.Invoke
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 220
+    startLine: 361
   namespace: plc.AXOpen.Core
   summary: Invokes this task.
   syntax:
@@ -722,11 +975,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.Restore
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 256
+    startLine: 408
   namespace: plc.AXOpen.Core
   summary: Restores this task.
   syntax:
@@ -744,11 +997,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.DoneWhen
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 274
+    startLine: 437
   namespace: plc.AXOpen.Core
   summary: Makes this task to transition in `Done` statewhen `Condition` argument is `TRUE`.
   syntax:
@@ -768,11 +1021,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.Execute
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 283
+    startLine: 452
   namespace: plc.AXOpen.Core
   summary: Returns `TRUE` if the task is Busy, otherwise false.This method needs to be called cyclically.
   syntax:
@@ -790,11 +1043,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.LogTask
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 331
+    startLine: 546
   namespace: plc.AXOpen.Core
   syntax:
     content: Private VOID LogTask(in plc.STRING[80] _message,in plc.AXOpen.Logging.eLogLevel _level,in plc.AXOpen.Core.IAxoObject _sender)
@@ -817,11 +1070,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.ThrowWhen
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 353
+    startLine: 566
   namespace: plc.AXOpen.Core
   summary: Makes this task enter into `Error` state, when `HasErrorState` argument is `TRUE`task in error state stops its execution.
   syntax:
@@ -841,11 +1094,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.ThrowWhen
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 373
+    startLine: 588
   namespace: plc.AXOpen.Core
   summary: Makes this task enter into `Error` state, when `HasErrorState` argument is `TRUE`task in error state stops its execution.
   syntax:
@@ -867,11 +1120,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.SetIsDisabled
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 390
+    startLine: 603
   namespace: plc.AXOpen.Core
   summary: Sets the value of the `IsDisabled` variable
   syntax:
@@ -891,11 +1144,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.GetIsDisabled
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 397
+    startLine: 609
   namespace: plc.AXOpen.Core
   summary: Returns the value of the `IsDisabled` variable
   syntax:
@@ -913,11 +1166,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.Abort
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 408
+    startLine: 612
   namespace: plc.AXOpen.Core
   summary: Aborts the execution of the task if running and sets its state to aborted.
   syntax:
@@ -935,11 +1188,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.Resume
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 422
+    startLine: 619
   namespace: plc.AXOpen.Core
   summary: Resume the execution of the task if aborted and sets its state to busy.
   syntax:
@@ -947,6 +1200,106 @@ items:
     parameters: *o0
     return:
       type: VOID
+- uid: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  id: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: SetRemoteRestoreEnabled
+  fullName: SetRemoteRestoreEnabled
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 637
+  namespace: plc.AXOpen.Core
+  summary: Sets the remote restore functionality based on the provided input.Enables or disables remote restoration based on the value of the 'Enable' parameter.
+  remarks: This method allows dynamic control over the ability to perform remote restoration tasks.When enabled, remote restoration functionality is activated, allowing tasks to be restored remotely.When disabled, remote restoration functionality is deactivated, preventing tasks from being restored remotely.
+  syntax:
+    content: Public VOID SetRemoteRestoreEnabled(in plc.BOOL Enable)
+    parameters:
+    - id: Enable
+      type: plc.BOOL
+      description: A boolean value indicating whether remote restore functionality should be enabled (TRUE) or disabled (FALSE).
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  id: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: GetRemoteRestoreEnabled
+  fullName: GetRemoteRestoreEnabled
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 654
+  namespace: plc.AXOpen.Core
+  summary: Retrieves the current status of remote restore functionality.
+  remarks: This method provides the current status of remote restore functionality.It returns TRUE if remote restoration is enabled, allowing tasks to be restored remotely.It returns FALSE if remote restoration is disabled, preventing tasks from being restored remotely.
+  syntax:
+    content: Public BOOL GetRemoteRestoreEnabled()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+      description: A boolean value indicating whether remote restore functionality is enabled (TRUE) or disabled (FALSE).
+- uid: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  id: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: SetRemoteAbortEnabled
+  fullName: SetRemoteAbortEnabled
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 675
+  namespace: plc.AXOpen.Core
+  summary: Sets the remote abort functionality based on the provided input.Enables or disables remote abort based on the value of the 'Enable' parameter.
+  remarks: This method allows dynamic control over the ability to perform remote abort tasks.When enabled, remote abort functionality is activated, allowing tasks to be aborted remotely.When disabled, remote abort functionality is deactivated, preventing tasks from being aborted remotely.
+  syntax:
+    content: Public VOID SetRemoteAbortEnabled(in plc.BOOL Enable)
+    parameters:
+    - id: Enable
+      type: plc.BOOL
+      description: A boolean value indicating whether remote abort functionality should be enabled (TRUE) or disabled (FALSE).
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
+  id: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: GetRemoteAbortEnabled
+  fullName: GetRemoteAbortEnabled
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 708
+  namespace: plc.AXOpen.Core
+  summary: Retrieves the current status of remote abort functionality.
+  remarks: This method provides the current status of remote abort functionality.It returns TRUE if remote abort is enabled, allowing tasks to be aborted remotely.It returns FALSE if remote abort is disabled, preventing tasks from being aborted remotely.
+  syntax:
+    content: Public BOOL GetRemoteAbortEnabled()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+      description: A boolean value indicating whether remote abort functionality is enabled (TRUE) or disabled (FALSE).
 - uid: plc.AXOpen.Core.AxoTask.OnAbort()
   id: plc.AXOpen.Core.AxoTask.OnAbort()
   parent: AXOpen.Core.AxoTask
@@ -957,11 +1310,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.OnAbort
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 435
+    startLine: 717
   namespace: plc.AXOpen.Core
   summary: Executes once when the task is aborted.
   syntax:
@@ -979,11 +1332,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.OnResume
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 441
+    startLine: 722
   namespace: plc.AXOpen.Core
   summary: Executes once when the task is resumed.
   syntax:
@@ -1001,11 +1354,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.OnDone
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 446
+    startLine: 725
   namespace: plc.AXOpen.Core
   summary: Executes once when the task reaches the `Done` state.
   syntax:
@@ -1023,11 +1376,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.OnError
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 449
+    startLine: 731
   namespace: plc.AXOpen.Core
   summary: Executes once when the task reaches the `Error` state.
   syntax:
@@ -1045,11 +1398,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.OnRestore
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 449
+    startLine: 736
   namespace: plc.AXOpen.Core
   summary: Executes once when the task is restored.
   syntax:
@@ -1067,11 +1420,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.OnStart
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 449
+    startLine: 741
   namespace: plc.AXOpen.Core
   summary: Executes once when the task starts (at the moment of transition from the `Kicking` state into the `Busy` state).
   syntax:
@@ -1089,11 +1442,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoTask.WhileError
     path: .\src\core\ctrl\src\AxoTask\AxoTask.st
-    startLine: 449
+    startLine: 746
   namespace: plc.AXOpen.Core
   summary: Executes repeatedly while the task is in `Error` state (and `Execute()` method is called).
   syntax:
@@ -1101,6 +1454,138 @@ items:
     parameters: *o0
     return:
       type: VOID
+- uid: plc.AXOpen.Core.AxoTask.AbortTriggered()
+  id: plc.AXOpen.Core.AxoTask.AbortTriggered()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: AbortTriggered
+  fullName: AbortTriggered
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.AbortTriggered
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 752
+  namespace: plc.AXOpen.Core
+  summary: Returns `TRUE` when the task has been aborted in this or previous PLC cycle.
+  syntax:
+    content: Public BOOL AbortTriggered()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTask.ResumeTriggered()
+  id: plc.AXOpen.Core.AxoTask.ResumeTriggered()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: ResumeTriggered
+  fullName: ResumeTriggered
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.ResumeTriggered
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 758
+  namespace: plc.AXOpen.Core
+  summary: Returns `TRUE` when the task has been resumed in this or previous PLC cycle.
+  syntax:
+    content: Public BOOL ResumeTriggered()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTask.DoneReached()
+  id: plc.AXOpen.Core.AxoTask.DoneReached()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: DoneReached
+  fullName: DoneReached
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.DoneReached
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 758
+  namespace: plc.AXOpen.Core
+  summary: Returns `TRUE` when the task has reached the `Done` state in this or previous PLC cycle.
+  syntax:
+    content: Public BOOL DoneReached()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTask.ErrorOccured()
+  id: plc.AXOpen.Core.AxoTask.ErrorOccured()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: ErrorOccured
+  fullName: ErrorOccured
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.ErrorOccured
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 758
+  namespace: plc.AXOpen.Core
+  summary: Returns `TRUE` when the task has reached the `Error` state in this or previous PLC cycle.
+  syntax:
+    content: Public BOOL ErrorOccured()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTask.RestoreTriggered()
+  id: plc.AXOpen.Core.AxoTask.RestoreTriggered()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: RestoreTriggered
+  fullName: RestoreTriggered
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.RestoreTriggered
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 758
+  namespace: plc.AXOpen.Core
+  summary: Returns `TRUE` when the task has been restored in this or previous PLC cycle.
+  syntax:
+    content: Public BOOL RestoreTriggered()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTask.StartTriggered()
+  id: plc.AXOpen.Core.AxoTask.StartTriggered()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: StartTriggered
+  fullName: StartTriggered
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.StartTriggered
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 758
+  namespace: plc.AXOpen.Core
+  summary: Returns `TRUE` when the task has been started in this or previous PLC cycle.
+  syntax:
+    content: Public BOOL StartTriggered()
+    parameters: *o0
+    return:
+      type: plc.BOOL
 references:
 - uid: plc.AXOpen.Core.AxoObject.Identity
   commentId: plc.AXOpen.Core.AxoObject.Identity
@@ -1120,6 +1605,12 @@ references:
   nameWithType: GetContext()
   fullName: plc.AXOpen.Core.AxoObject.GetContext()
   parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
 - uid: plc.AXOpen.Core.AxoObject.GetParent()
   commentId: plc.AXOpen.Core.AxoObject.GetParent()
   name: GetParent()
@@ -1174,14 +1665,14 @@ references:
   name: STRING[254]
   nameWithType: STRING[254]
   fullName: STRING[254]
-- uid: plc.AXOpen.Messaging.Static.AxoMessenger
-  name: AxoMessenger
-  nameWithType: AxoMessenger
-  fullName: AXOpen.Messaging.Static.AxoMessenger
 - uid: plc.UNDEFINED
   name: UNDEFINED
   nameWithType: UNDEFINED
   fullName: UNDEFINED
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
 - uid: plc.STRING[80]
   name: STRING[80]
   nameWithType: STRING[80]

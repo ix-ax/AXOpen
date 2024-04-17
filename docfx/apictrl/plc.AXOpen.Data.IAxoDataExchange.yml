@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataExchange.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataExchange
     path: .\src\data\ctrl\src\IAxoDataExchange.st
@@ -39,7 +39,7 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataExchange.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataExchange.Create
     path: .\src\data\ctrl\src\IAxoDataExchange.st
@@ -62,7 +62,7 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataExchange.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataExchange.Read
     path: .\src\data\ctrl\src\IAxoDataExchange.st
@@ -85,7 +85,7 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataExchange.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataExchange.Update
     path: .\src\data\ctrl\src\IAxoDataExchange.st
@@ -108,7 +108,7 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataExchange.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataExchange.Delete
     path: .\src\data\ctrl\src\IAxoDataExchange.st
@@ -131,7 +131,7 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataExchange.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataExchange.EntityExist
     path: .\src\data\ctrl\src\IAxoDataExchange.st
@@ -154,7 +154,7 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataExchange.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataExchange.CreateOrUpdate
     path: .\src\data\ctrl\src\IAxoDataExchange.st
@@ -177,7 +177,7 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataExchange.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataExchange.Restore
     path: .\src\data\ctrl\src\IAxoDataExchange.st
@@ -198,7 +198,7 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataExchange.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataExchange.Run
     path: .\src\data\ctrl\src\IAxoDataExchange.st
@@ -221,7 +221,7 @@ items:
   source:
     remote:
       path: .\src\data\ctrl\src\IAxoDataExchange.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Data.IAxoDataExchange.Run
     path: .\src\data\ctrl\src\IAxoDataExchange.st

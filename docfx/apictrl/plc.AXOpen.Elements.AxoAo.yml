@@ -23,7 +23,7 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAo
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
@@ -40,7 +40,7 @@ items:
   - plc.AXOpen.Core.AxoObject.Identity
   - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
   - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
-  - plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  - plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivatedInlined()
   - plc.AXOpen.Core.AxoComponent.Open()
   - plc.AXOpen.Core.AxoComponent.Run()
   - plc.AXOpen.Core.AxoComponent.Close()
@@ -48,6 +48,7 @@ items:
   - plc.AXOpen.Core.AxoComponent.ManualControl()
   - plc.AXOpen.Core.AxoObject.GetIdentity()
   - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
   - plc.AXOpen.Core.AxoObject.GetParent()
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
@@ -63,11 +64,11 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAo._requiredValue
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-    startLine: 11
+    startLine: 12
   namespace: plc.AXOpen.Elements
   syntax:
     content: '_requiredValue : REAL'
@@ -83,11 +84,11 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAo._config
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-    startLine: 17
+    startLine: 19
   namespace: plc.AXOpen.Elements
   syntax:
     content: '_config : AXOpen.Elements.AxoAoConfig'
@@ -103,11 +104,11 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAo._status
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-    startLine: 23
+    startLine: 24
   namespace: plc.AXOpen.Elements
   syntax:
     content: '_status : AXOpen.Elements.AxoAoStatus'
@@ -123,11 +124,11 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAo._rawRange
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-    startLine: 32
+    startLine: 33
   namespace: plc.AXOpen.Elements
   syntax:
     content: '_rawRange : REAL'
@@ -143,11 +144,11 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAo._realRange
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-    startLine: 35
+    startLine: 36
   namespace: plc.AXOpen.Elements
   syntax:
     content: '_realRange : REAL'
@@ -163,11 +164,11 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAo._unscaled
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-    startLine: 35
+    startLine: 36
   namespace: plc.AXOpen.Elements
   syntax:
     content: '_unscaled : REAL'
@@ -183,11 +184,11 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAo._messengerDivisionByZero
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-    startLine: 35
+    startLine: 36
   namespace: plc.AXOpen.Elements
   syntax:
     content: '_messengerDivisionByZero : AXOpen.Messaging.Static.AxoMessenger'
@@ -203,11 +204,11 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAo._messengerGainNotDefined
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-    startLine: 39
+    startLine: 40
   namespace: plc.AXOpen.Elements
   syntax:
     content: '_messengerGainNotDefined : AXOpen.Messaging.Static.AxoMessenger'
@@ -223,11 +224,11 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAo._messengerOutOfBoundaries
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-    startLine: 41
+    startLine: 42
   namespace: plc.AXOpen.Elements
   syntax:
     content: '_messengerOutOfBoundaries : AXOpen.Messaging.Static.AxoMessenger'
@@ -243,11 +244,11 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAo._signal
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-    startLine: 52
+    startLine: 53
   namespace: plc.AXOpen.Elements
   syntax:
     content: '_signal : DINT'
@@ -263,11 +264,11 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAo.Run
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-    startLine: 60
+    startLine: 61
   namespace: plc.AXOpen.Elements
   summary: Method, which unscales input signal based on configuration and writes it to output
   syntax:
@@ -287,11 +288,11 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAo.Restore
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-    startLine: 126
+    startLine: 133
   namespace: plc.AXOpen.Elements
   syntax:
     content: Protected AXOpen.Core.IAxoTask Restore()
@@ -308,11 +309,11 @@ items:
   source:
     remote:
       path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Elements.AxoAo.ManualControl
     path: .\src\components.elements\ctrl\src\AxoAo\AxoAo.st
-    startLine: 126
+    startLine: 133
   namespace: plc.AXOpen.Elements
   syntax:
     content: Protected VOID ManualControl()
@@ -344,12 +345,12 @@ references:
   nameWithType: IsManuallyControllable()
   fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
   parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
-- uid: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
-  commentId: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
-  name: CheckIfManualControlIsActivated()
-  nameWithType: CheckIfManualControlIsActivated()
-  fullName: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
-  parent: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+- uid: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivatedInlined()
+  commentId: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivatedInlined()
+  name: CheckIfManualControlIsActivatedInlined()
+  nameWithType: CheckIfManualControlIsActivatedInlined()
+  fullName: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivatedInlined()
+  parent: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivatedInlined()
 - uid: plc.AXOpen.Core.AxoComponent.Open()
   commentId: plc.AXOpen.Core.AxoComponent.Open()
   name: Open()
@@ -392,6 +393,12 @@ references:
   nameWithType: GetContext()
   fullName: plc.AXOpen.Core.AxoObject.GetContext()
   parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
 - uid: plc.AXOpen.Core.AxoObject.GetParent()
   commentId: plc.AXOpen.Core.AxoObject.GetParent()
   name: GetParent()

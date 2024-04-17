@@ -15,7 +15,7 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
@@ -33,11 +33,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.TriggerReady
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
-    startLine: 4
+    startLine: 5
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'TriggerReady : BOOL'
@@ -53,11 +53,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.TriggerAcknowledge
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
-    startLine: 6
+    startLine: 7
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'TriggerAcknowledge : BOOL'
@@ -73,11 +73,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.Acquiring
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
-    startLine: 8
+    startLine: 9
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'Acquiring : BOOL'
@@ -93,11 +93,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.MissedAcquisition
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
-    startLine: 10
+    startLine: 11
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'MissedAcquisition : BOOL'
@@ -113,11 +113,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.TriggerID
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
-    startLine: 12
+    startLine: 13
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'TriggerID : UINT'

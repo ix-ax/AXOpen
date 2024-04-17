@@ -22,7 +22,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             NULL_RTC : _NULL_RTC;
            
             _rtc : IAxoRtc;
-         END_VAR
+         END_VAR       
 
         METHOD PUBLIC Open : ULINT
             _openCounter := _openCounter + ULINT#1;
@@ -122,6 +122,32 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _sute : TestContextE;
             _rtc : AxoRtcMock;
         END_VAR
+
+        VAR
+            _sutiClean : TestContextI;
+            _suteClean : TestContextE;            
+        END_VAR    
+    
+        {TestSetup}
+        METHOD PUBLIC TestSetup
+            _suti := _sutiClean;
+            _sute := _suteClean;     
+        END_METHOD
+
+        {TestTearDown}
+        METHOD PUBLIC TestTearDown
+            ;
+        END_METHOD
+
+        {FixtureSetup}
+        METHOD PUBLIC FixtureSetup
+            ;
+        END_METHOD
+
+        {FixtureTearDown}
+        METHOD PUBLIC FixtureTearDown
+            ;
+        END_METHOD
 
         METHOD AreEqual : BOOL
             VAR_INPUT

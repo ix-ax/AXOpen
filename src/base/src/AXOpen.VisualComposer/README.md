@@ -5,53 +5,50 @@ VisualComposer library is for creating draggable elements in AXOpen applications
 ## Usage
 
 ~~~ HTML
-<VisualComposerContainer ImgSrc="logo-header.svg" Id="@Entry.Plc.Context.PneumaticManipulator.HumanReadable">
-    @foreach (var axoObject in Entry.Plc.Context.PneumaticManipulator.GetChildren().Flatten(p => p.GetChildren()).OfType<AXOpen.Core.AxoObject>())
-    {
-        <VisualComposerItem AxoObject="axoObject" />
-    }
-</VisualComposerContainer>
+<VisualComposerContainer Objects="@(new[] {Entry.Plc.Context.UnitTemplate})" Id="@Component.Symbol" />
 ~~~
 
 ## VisualComposerContainer
 
-The `VisualComposerContainer` component is a container for `VisualComposerItem`. It is used to define the area where the items can be dragged.
+The `VisualComposerContainer` is default component that is used to generate customizable view.
 
 ### Attributes
 
-ImgSrc - The path to the image that will be used as the background of the container.
-Id - The id of the container. It is used to identify the container for saving current state into json.
+- `Objects` - The list of ITwinObjects that will be available for display.
+- `Id` - The id of the container. If not specified, the id is generated automatically.
 
-## VisualComposerItem
+## Customizing
 
-The `VisualComposerItem` component is a draggable item. It is used to define the draggable items.
+All option that is bellow is only available with role Administrator.
 
-It can be used with or without a child component. If it is used without a child component, the default presentation will be used:
+## Adding items
 
-~~~ HTML
-<VisualComposerItem AxoObject="axoObject" />
-~~~
+- `Controller objects` - show all objects, that can be added to the view.
 
-or with a child component, where you must define presentation:
+## Views options
 
-~~~ HTML
-<VisualComposerItem AxoObject="axoObject">
-    <RenderableContentControl Context="AxoObject" Presentation="Command" />
-</VisualComposerItem>
-~~~
+- `Used objects` - show all object, that is used in view. Provide simple access to customizable or remove item
+- `Create new` - create new view
+- `Create copy` - create new view as copy of current selected view
+- `Views` - show all views with clear zoom and pan, remove, add/remove from base views, enable/disable zooming and panning and set as default view
+- `Background` - set background of view. You can choose from image or simple color
+- `Change theme` - change color of icon for customizable item (black/white)
+- after every change is view automatically saved into json
 
-### Attributes
+## Customizable options
 
-AxoObject - The axo object that will be used as the draggable item. It will be show in `RenderableContentControl`.
+With drag-and-drop you can move every item on view.
 
-## Customizable option
+You can every item customizing with these options:
 
-If you have role Administrator you can every `VisualComposerItem` customizing with these options:
-
-- position - can be moved on site
-- show - show or hide
-- Transform (combination of left, center, right, top, center, bottom)
-- Presentation (Status-Display or Command-Control)
-- Width - double value in rem, or -1 for auto
-- Height - double value in rem, or -1 for auto
-- ZIndex - int value, default is 0
+- `Top` - the top position of the object
+- `Left` - the left position of the object
+- `Presentation` - Command-Control, Status-Display or Spot. Can be checked `Custom` and write your own name of presentation
+- `Transform` - the location from which the position will be calculated (combination of left, center, right and top, center, bottom)
+- `Width` - width of element (double value in rem, or -1 for auto)
+- `Height` - height of element (double value in rem, or -1 for auto)
+- `ZIndex` - the layer in which the object should be located (int value, default is 0)
+- `Scale` - zoom of item
+- `Roles` - list of roles, that can see this item (`process_settings_access` or `process_settings_access, process_traceability_access`)
+- `Template` - specifies the way the item is formatted and presented
+- `Background` - item background

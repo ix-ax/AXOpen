@@ -14,7 +14,7 @@
     {
       "modifiers": [
         {
-          "exclude": [".vs/**", ".cr/**", "app/.apax/**", "ctrl/.apax/**", ".apax/**", "**/bin/**", "**/obj/**" ]
+          "exclude": [".vs/**", ".cr/**", "app/.apax/**", "ctrl/.apax/**", ".apax/**", "**/bin/**", "**/obj/**" , "*.sln"  , "*.code-workspace" ]
         }
       ]
     }
@@ -28,7 +28,7 @@
       "defaultValue": "projname",
       "replaces": "projname",
       "fileRename" : "projname"
-    },     
+    },    
     "axlibname":{
       "type": "generated",
       "generator": "casing",
@@ -38,7 +38,15 @@
       },
       "defaultValue": "axolib",
       "replaces": "axolib"
-    },   
+    },
+    "namespace": {
+      "type": "derived",
+      "valueSource": "projname",
+      "valueTransform": "notTransform",
+      "datatype": "text",
+      "defaultValue": "Template.Axolibrary",
+      "replaces": "Template.Axolibrary"
+    }, 
     "name": {
       "type": "derived",
       "valueSource": "axlibname",
@@ -50,22 +58,18 @@
       "description": "A value derived from the 'axlibname' prop, used to rename librarytemplate"
     }, 
     "apaxlibname": {
-      "type": "generated",
-      "generator": "casing",
-      "parameters": {
-        "source":"projname",
-        "toLower": true
-      },
+      "type": "derived",
+      "valueSource": "projname",
+      "valueTransform": "ConvertToLowerAndReplaceTheDots",
+      "datatype": "text",
       "defaultValue": "apaxlibname",
       "replaces": "apaxlibname"
     },   
     "apaxappname": {
-      "type": "generated",
-      "generator": "casing",
-      "parameters": {
-        "source":"projname",
-        "toLower": true
-      },
+      "type": "derived",
+      "valueSource": "projname",
+      "valueTransform": "ConvertToLowerAndReplaceTheDots",
+      "datatype": "text",
       "defaultValue": "apaxappname",
       "replaces": "apaxappname"
     },  
@@ -125,8 +129,24 @@
       "identifier": "replace",
       "pattern": "\\.",        
       "replacement": ""  
+    },
+    "notTransform":{    
+    },
+    "ReplaceDots": {
+      "identifier": "replace",
+      "pattern": "\\.",        
+      "replacement": "_"  
+    },
+    "ConvertToLower": {
+      "identifier": "lowerCase"
+    },
+    "ConvertToLowerAndReplaceTheDots": {
+      "identifier": "chain",
+      "steps": [
+        "ConvertToLower",
+        "ReplaceDots"
+      ]
     }
+
   } 
 }
-
-  

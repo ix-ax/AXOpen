@@ -58,8 +58,8 @@ namespace AXOpen.Data
         public bool IsFileExported { get; set; } = false;
         public List<ValueChangeItem> Changes { get; set; } = new List<ValueChangeItem>();
 
-        private IAlertDialogService _alertDialogService;
-        public IAlertDialogService AlertDialogService
+        private IAlertService _alertDialogService;
+        public IAlertService AlertDialogService
         {
             get
             {
@@ -125,7 +125,7 @@ namespace AXOpen.Data
         public Task FillObservableRecordsAsync()
         {
             //let another thread to load records, we need main thread to show loading symbol in blazor page
-            return Task.Run(async () =>
+            return Task.Run(() =>
             {
                 IsBusy = true;
                 UpdateObservableRecords();
@@ -202,22 +202,25 @@ namespace AXOpen.Data
             {
                 if (string.IsNullOrEmpty(CreateItemId))
                 {
-                    AlertDialogService?.AddAlertDialog(eAlertDialogType.Danger, "Cannot create!", "New entry name cannot be empty. Please provide an ID", 10);
+                    AlertDialogService?.AddAlertDialog(eAlertType.Danger, "Cannot create!", "New entry name cannot be empty. Please provide an ID", 10);
                     return;
                 }
 
                 await DataExchange.CreateNewAsync(CreateItemId);
                 AxoApplication.Current.Logger.Information($"Create {CreateItemId} in {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
-                AlertDialogService?.AddAlertDialog(eAlertDialogType.Success, "Created!", "Item was successfully created!", 10);
+                AlertDialogService?.AddAlertDialog(eAlertType.Success, "Created!", "Item was successfully created!", 10);
             }
             catch (Exception e)
             {
-                AlertDialogService?.AddAlertDialog(eAlertDialogType.Danger, "Failed to create new record!", e.Message, 10);
+                AlertDialogService?.AddAlertDialog(eAlertType.Danger, "Failed to create new record!", e.Message, 10);
             }
             finally
             {
                 await FillObservableRecordsAsync();
                 CreateItemId = null;
+
+                if (StateHasChangedDelegate != null)
+                    StateHasChangedDelegate.Invoke();
             }
         }
 
@@ -227,19 +230,19 @@ namespace AXOpen.Data
             {
                 await DataExchange.Delete(SelectedRecord.DataEntityId);
                 AxoApplication.Current.Logger.Information($"Delete {SelectedRecord.DataEntityId} in {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
-                AlertDialogService?.AddAlertDialog(eAlertDialogType.Success, "Deleted!", "Item was successfully deleted!", 10);
+                AlertDialogService?.AddAlertDialog(eAlertType.Success, "Deleted!", "Item was successfully deleted!", 10);
             }
             catch (Exception e)
             {
-                AlertDialogService?.AddAlertDialog(eAlertDialogType.Danger, "Failed to delete", e.Message, 10);
+                AlertDialogService?.AddAlertDialog(eAlertType.Danger, "Failed to delete", e.Message, 10);
             }
             finally
             {
                 UpdateObservableRecords();
             }
 
-            StateHasChangedDelegate.Invoke();
-
+            if (StateHasChangedDelegate != null)
+                StateHasChangedDelegate.Invoke();
         }
 
         public async Task Copy()
@@ -248,16 +251,19 @@ namespace AXOpen.Data
             {
                 await DataExchange.CreateCopyCurrentShadowsAsync(CreateItemId);
                 AxoApplication.Current.Logger.Information($"Copy {CreateItemId} in {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
-                AlertDialogService.AddAlertDialog(eAlertDialogType.Success, "Copied!", "Item was successfully copied!", 10);
+                AlertDialogService.AddAlertDialog(eAlertType.Success, "Copied!", "Item was successfully copied!", 10);
             }
             catch (Exception e)
             {
-                AlertDialogService?.AddAlertDialog(eAlertDialogType.Danger, "Failed to copy!", e.Message, 10);
+                AlertDialogService?.AddAlertDialog(eAlertType.Danger, "Failed to copy!", e.Message, 10);
             }
             finally
             {
                 UpdateObservableRecords();
                 CreateItemId = null;
+
+                if (StateHasChangedDelegate != null)
+                    StateHasChangedDelegate.Invoke();
             }
         }
 
@@ -266,14 +272,14 @@ namespace AXOpen.Data
         public async Task Edit()
         {
             await DataExchange.UpdateFromShadowsAsync();
-            AlertDialogService?.AddAlertDialog(eAlertDialogType.Success, "Edited!", "Item was successfully edited!", 10);
+            AlertDialogService?.AddAlertDialog(eAlertType.Success, "Edited!", "Item was successfully edited!", 10);
             UpdateObservableRecords();
         }
 
         public async Task SendToPlc()
         {
             await DataExchange.FromRepositoryToControllerAsync(SelectedRecord);
-            AlertDialogService?.AddAlertDialog(eAlertDialogType.Success, "Sended to PLC!", "Item was successfully sended to PLC!", 10);
+            AlertDialogService?.AddAlertDialog(eAlertType.Success, "Sended to PLC!", "Item was successfully sended to PLC!", 10);
         }
 
         public async Task LoadFromPlc()
@@ -281,11 +287,11 @@ namespace AXOpen.Data
             try
             {
                 await DataExchange.CreateDataFromControllerAsync(CreateItemId);
-                AlertDialogService?.AddAlertDialog(eAlertDialogType.Success, "Loaded from PLC!", "Item was successfully loaded from PLC!", 10);
+                AlertDialogService?.AddAlertDialog(eAlertType.Success, "Loaded from PLC!", "Item was successfully loaded from PLC!", 10);
             }
             catch (Exception e)
             {
-                AlertDialogService?.AddAlertDialog(eAlertDialogType.Danger, "Failed to create new record from the controller", e.Message, 10);
+                AlertDialogService?.AddAlertDialog(eAlertType.Danger, "Failed to create new record from the controller", e.Message, 10);
             }
             finally
             {
@@ -308,11 +314,11 @@ namespace AXOpen.Data
 
                     IsFileExported = true;
 
-                    AlertDialogService?.AddAlertDialog(eAlertDialogType.Success, "Exported!", "Data was successfully exported!", 10);
+                    AlertDialogService?.AddAlertDialog(eAlertType.Success, "Exported!", "Data was successfully exported!", 10);
                 }
                 catch (Exception e)
                 {
-                    AlertDialogService?.AddAlertDialog(eAlertDialogType.Danger, "Error!", e.Message, 10);
+                    AlertDialogService?.AddAlertDialog(eAlertType.Danger, "Error!", e.Message, 10);
                 }
             });
         }
@@ -327,11 +333,11 @@ namespace AXOpen.Data
 
                     this.UpdateObservableRecords();
 
-                    AlertDialogService?.AddAlertDialog(eAlertDialogType.Success, "Imported!", "Data was successfully imported!", 10);
+                    AlertDialogService?.AddAlertDialog(eAlertType.Success, "Imported!", "Data was successfully imported!", 10);
                 }
                 catch (Exception e)
                 {
-                    AlertDialogService?.AddAlertDialog(eAlertDialogType.Danger, "Error!", e.Message, 10);
+                    AlertDialogService?.AddAlertDialog(eAlertType.Danger, "Error!", e.Message, 10);
                 }
             });
         }

@@ -15,7 +15,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.eDialogType
     path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
@@ -33,7 +33,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.eDialogType.Undefined
     path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
@@ -49,7 +49,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.eDialogType.Info
     path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
@@ -65,7 +65,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.eDialogType.Success
     path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
@@ -81,7 +81,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.eDialogType.Danger
     path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
@@ -97,7 +97,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.eDialogType.Warning
     path: .\src\core\ctrl\src\AxoDialog\eDialogType.st

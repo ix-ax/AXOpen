@@ -1,0 +1,75 @@
+﻿@namespace AXOpen.Core
+@inherits RenderableComplexComponentBase<AxoObject>
+@using System.Timers
+@using AXOpen.Messaging.Static.Blazor
+@using AXSharp.Connector
+@using Microsoft.JSInterop
+@implements IAsyncDisposable;
+@inject IJSRuntime JSRuntime
+
+
+<button type="button" class="btn btn-primary"
+        data-bs-toggle="tooltip" 
+        data-bs-placement="top"
+        data-bs-custom-class="custom-tooltip"
+        data-bs-title="@Component.HumanReadable"
+        @onclick="SetCurrentObject">
+    @Component.AttributeName
+    <a>
+       @if (observer?.Provider?.RelevantMessagesCount > 0)
+       {
+           <span class="position-absolute top-0 start-100 translate-middle p-2 bg-@observer?.HighestSeverityColor border border-light rounded-circle">
+               <span class="visually-hidden">New alerts</span>
+           </span>
+       }
+    </a>
+</button>
+
+@code
+{
+    private IJSObjectReference? module;
+    private AxoMessageObserver? observer; 
+
+    public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+    {
+        
+    }
+
+    /// <summary>
+    /// This method is called when a component is changed.
+    /// It creates a new instance of AxoMessageObserver using the changed component and assigns it to the observer variable.
+    /// </summary>
+    public override void OnComponentChanged()
+    {
+        observer = AxoMessageObserver.Create(new[] { this.Component }, this);
+        
+        updateTimer.Interval = this.PollingInterval;
+        updateTimer.Enabled = true;
+        updateTimer.Elapsed += (sender, args) =>
+        {
+            InvokeAsync(this.StateHasChanged);
+
+        };
+        updateTimer.Start();
+        
+    }
+
+    private readonly Timer updateTimer = new Timer();
+    
+    
+    ///<inheritdoc/>
+    public async ValueTask DisposeAsync()
+    {
+        if (module != null) await module.DisposeAsync();
+    }
+    
+    ///<inheritdoc/>
+    protected override async Task OnInitializedAsync()
+    {
+        if (observer != null) await observer.InitializeUpdate();
+        await base.OnInitializedAsync();
+    }
+}
+
+
+

@@ -1,5 +1,5 @@
 USING System.Strings;
-USING System.SerDe;
+USING System.Serialization;
 
 NAMESPACE AXOpen.Utils
     FUNCTION PUBLIC AxoCRC_16 : WORD
@@ -36,7 +36,7 @@ NAMESPACE AXOpen.Utils
 
 		maxIndex := UINT#0;
 
-		maxIndex := Serialize(UINT#0, In, serialized,System.SerDe.Endianness#Little) - UINT#1;
+		maxIndex := Serialize(UINT#0, In, serialized,System.Serialization.Endianness#Little) - UINT#1;
 
 		IF maxIndex < UINT#1 THEN
 			RETURN;

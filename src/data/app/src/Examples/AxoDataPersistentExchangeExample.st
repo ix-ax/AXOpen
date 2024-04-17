@@ -92,7 +92,7 @@ NAMESPACE AxoDataPersistentExchangeExample
             END_IF;
         END_METHOD        
     END_CLASS
-    //</Usage>
+    //</ConcurrentUsage>
 
     //<PersistentAttribute>
     {S7.extern=ReadWrite}

@@ -46,6 +46,10 @@ CONFIGURATION MyConfiguration
         AxoBoolArrayExampleContext : AxoBoolArrayExample.AxoBoolArrayExampleContext;       
         {S7.extern=ReadWrite}
         AxoLoggers : AxoLoggerExamples.Loggers;
+        {S7.extern=ReadWrite}
+        D_111 : AxoDialogExamples.Dialogs;              
+        {S7.extern=ReadWrite}
+        D_222 : AxoDialogExamples.Dialogs;   
         // Issues
         {S7.extern=ReadWrite}
         gh_ptku_8 : Layouts.Tabbed.weather;        

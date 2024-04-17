@@ -30,7 +30,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoToggleTask
     path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
@@ -45,6 +45,7 @@ items:
   - plc.AXOpen.Core.AxoObject.Identity
   - plc.AXOpen.Core.AxoObject.GetIdentity()
   - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
   - plc.AXOpen.Core.AxoObject.GetParent()
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
@@ -60,11 +61,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoToggleTask.State
     path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-    startLine: 13
+    startLine: 14
   namespace: plc.AXOpen.Core
   syntax:
     content: 'State : BOOL'
@@ -80,11 +81,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoToggleTask.RemoteToggle
     path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-    startLine: 20
+    startLine: 21
   namespace: plc.AXOpen.Core
   summary: Remote request to toggle the state of this task.
   syntax:
@@ -101,11 +102,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoToggleTask.IsDisabled
     path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-    startLine: 24
+    startLine: 25
   namespace: plc.AXOpen.Core
   summary: Gets or sets whether this task is disabled for any manipulations.
   syntax:
@@ -122,11 +123,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoToggleTask._openCycleCount
     path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-    startLine: 37
+    startLine: 39
   namespace: plc.AXOpen.Core
   syntax:
     content: '_openCycleCount : ULINT'
@@ -142,11 +143,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoToggleTask.GetState
     path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-    startLine: 42
+    startLine: 43
   namespace: plc.AXOpen.Core
   summary: Gets the actual state of this task.
   syntax:
@@ -164,11 +165,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoToggleTask.IsRunCalledInThisPlcCycle
     path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-    startLine: 45
+    startLine: 47
   namespace: plc.AXOpen.Core
   syntax:
     content: Private BOOL IsRunCalledInThisPlcCycle()
@@ -185,11 +186,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoToggleTask.WasRunCalledInPreviousPlcCycle
     path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-    startLine: 53
+    startLine: 55
   namespace: plc.AXOpen.Core
   syntax:
     content: Private BOOL WasRunCalledInPreviousPlcCycle()
@@ -206,11 +207,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoToggleTask.Run
     path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-    startLine: 66
+    startLine: 68
   namespace: plc.AXOpen.Core
   summary: This method needs to be called cyclically.
   syntax:
@@ -228,11 +229,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoToggleTask.SetIsDisabled
     path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-    startLine: 95
+    startLine: 96
   namespace: plc.AXOpen.Core
   summary: Sets the value of the `IsDisabled` variable
   syntax:
@@ -252,11 +253,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoToggleTask.GetIsDisabled
     path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-    startLine: 104
+    startLine: 105
   namespace: plc.AXOpen.Core
   summary: Returns the value of the `IsDisabled` variable
   syntax:
@@ -274,11 +275,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoToggleTask.IsSwitchedOn
     path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-    startLine: 111
+    startLine: 112
   namespace: plc.AXOpen.Core
   summary: Returns `TRUE` if task is switched on
   syntax:
@@ -296,11 +297,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoToggleTask.IsSwitchedOff
     path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-    startLine: 118
+    startLine: 119
   namespace: plc.AXOpen.Core
   summary: Returns `TRUE` if task is switched off
   syntax:
@@ -318,11 +319,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoToggleTask.Toggle
     path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-    startLine: 122
+    startLine: 124
   namespace: plc.AXOpen.Core
   summary: Use to toggle the state of the '''AxoToggleTask'''.
   syntax:
@@ -340,11 +341,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoToggleTask.SwitchOff
     path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-    startLine: 155
+    startLine: 156
   namespace: plc.AXOpen.Core
   summary: Use to set the state of the '''AxoToggleTask''' to the value '''FALSE'''.
   syntax:
@@ -362,11 +363,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoToggleTask.SwitchOn
     path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-    startLine: 178
+    startLine: 179
   namespace: plc.AXOpen.Core
   syntax:
     content: Public BOOL SwitchOn()
@@ -383,11 +384,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoToggleTask.OnSwitchedOn
     path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-    startLine: 208
+    startLine: 209
   namespace: plc.AXOpen.Core
   summary: Executes ones when toggle task changes its state from '''FALSE''' to '''TRUE'''.
   syntax:
@@ -405,11 +406,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoToggleTask.OnSwitchedOff
     path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-    startLine: 214
+    startLine: 215
   namespace: plc.AXOpen.Core
   summary: Executes ones when toggle task changes its state from '''TRUE''' to '''FALSE'''.
   syntax:
@@ -427,11 +428,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoToggleTask.OnStateChanged
     path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-    startLine: 219
+    startLine: 221
   namespace: plc.AXOpen.Core
   summary: Executes ones when toggle task changes its state.
   syntax:
@@ -449,11 +450,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoToggleTask.SwitchedOn
     path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-    startLine: 219
+    startLine: 221
   namespace: plc.AXOpen.Core
   summary: Executes while the task is in `On` state.
   syntax:
@@ -471,11 +472,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoToggleTask.SwitchedOff
     path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
-    startLine: 219
+    startLine: 221
   namespace: plc.AXOpen.Core
   summary: Executes while the task is in `Off` state.
   syntax:
@@ -502,6 +503,12 @@ references:
   nameWithType: GetContext()
   fullName: plc.AXOpen.Core.AxoObject.GetContext()
   parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
 - uid: plc.AXOpen.Core.AxoObject.GetParent()
   commentId: plc.AXOpen.Core.AxoObject.GetParent()
   name: GetParent()

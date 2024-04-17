@@ -23,7 +23,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.eAxoMessageCategory
     path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
@@ -42,7 +42,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.eAxoMessageCategory.All
     path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
@@ -58,7 +58,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.eAxoMessageCategory.Trace
     path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
@@ -75,7 +75,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.eAxoMessageCategory.Debug
     path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
@@ -92,7 +92,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.eAxoMessageCategory.Info
     path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
@@ -109,7 +109,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.eAxoMessageCategory.TimedOut
     path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
@@ -126,7 +126,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.eAxoMessageCategory.Notification
     path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
@@ -143,7 +143,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.eAxoMessageCategory.Warning
     path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
@@ -160,7 +160,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.eAxoMessageCategory.Error
     path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
@@ -177,7 +177,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.eAxoMessageCategory.ProgrammingError
     path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
@@ -194,7 +194,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.eAxoMessageCategory.Critical
     path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
@@ -211,7 +211,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.eAxoMessageCategory.Fatal
     path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
@@ -228,7 +228,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.eAxoMessageCategory.Catastrophic
     path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
@@ -245,11 +245,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.eAxoMessageCategory.None
     path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
-    startLine: 84
+    startLine: 85
   namespace: plc.AXOpen.Messaging
 references:
 - uid: plc.INT

@@ -12,11 +12,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core._NULL_RTC
     path: .\src\core\ctrl\src\abstractions\NULLs.st
-    startLine: 41
+    startLine: 48
   namespace: plc.AXOpen.Core
   summary: Provides an empty RTC object for uninitialized RTC.
   syntax:
@@ -35,11 +35,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core._NULL_RTC._null_time
     path: .\src\core\ctrl\src\abstractions\NULLs.st
-    startLine: 42
+    startLine: 50
   namespace: plc.AXOpen.Core
   syntax:
     content: '_null_time : LDATE_AND_TIME'
@@ -55,11 +55,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core._NULL_RTC.NowUTC
     path: .\src\core\ctrl\src\abstractions\NULLs.st
-    startLine: 45
+    startLine: 53
   namespace: plc.AXOpen.Core
   syntax:
     content: Public LDATE_AND_TIME NowUTC()

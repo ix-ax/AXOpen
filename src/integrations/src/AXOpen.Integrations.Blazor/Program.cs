@@ -27,7 +27,7 @@ namespace axopen_integrations_blazor
             builder.Services.AddIxBlazorServices();
             builder.Services.AddLocalization();
 
-            //builder.Services.AddScoped<IAlertDialogService, ToasterService>();
+            //builder.Services.AddScoped<IAlertService, ToasterService>();
 
             //builder.Services.AddTcoCoreExtensions();
 

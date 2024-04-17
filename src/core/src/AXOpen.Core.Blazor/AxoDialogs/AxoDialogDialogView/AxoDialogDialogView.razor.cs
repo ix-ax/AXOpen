@@ -5,33 +5,49 @@ namespace AXOpen.Core
 {
     public partial class AxoDialogDialogView : AxoDialogBaseView<AxoDialog>, IDisposable
     {
-       
 
-        private bool IsOkDialogType() => Component._hasOK.Cyclic;
-        
 
-        private bool IsYesNoDialogType() => Component._hasYes.Cyclic && Component._hasNo.Cyclic;
-        
+        private bool IsOkDialogType() => (Component._buttons.Cyclic == (short)eDialogButtons.Ok);
 
-        private bool IsYesNoCancelDialogType() => Component._hasYes.Cyclic && Component._hasNo.Cyclic && Component._hasCancel.Cyclic;
+
+        private bool IsYesNoDialogType() => (Component._buttons.Cyclic == (short)eDialogButtons.YesNo);
+
+
+        private bool IsYesNoCancelDialogType() => (Component._buttons.Cyclic == (short)eDialogButtons.YesNoCancel);
 
 
         protected override void OnInitialized()
         {
-            Component._closeSignal.ValueChangeEvent += OnCloseSignal;
-            base.OnInitialized();
+            base.OnInitialized(); // call always "base"
         }
 
-        // experimental stuff for external closings
-        private async void OnCloseSignal(object sender, EventArgs e) 
+
+        public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
         {
-            if (Component._closeSignal.Cyclic)
+            base.AddToPolling(element, pollingInterval); // call always "base"
+
+            var dialog = (AxoDialog)element;
+
+            if (dialog != null)
             {
-                //this is probably reduntant (normal Close should enough, however some wierdness is occuring
-                await CloseDialogsWithSignalR();
+                var selecedToPool = new List<ITwinElement>();
+
+                selecedToPool.Add(dialog._dialogType);
+                selecedToPool.Add(dialog._buttons);
+                selecedToPool.Add(dialog._caption);
+                selecedToPool.Add(dialog._text); // can be changed
+
+                foreach (var item in selecedToPool)
+                {
+                    item.StartPolling(pollingInterval, this);
+                    PolledElements.Add(item);
+                }
             }
+
         }
-        public async Task DialogAnswerOk()  
+
+
+        public async Task DialogAnswerOk()
         {
             Component._answer.Edit = (short)eDialogAnswer.OK;
             await CloseDialogsWithSignalR();
@@ -52,12 +68,11 @@ namespace AXOpen.Core
             await CloseDialogsWithSignalR();
         }
 
-        
+
 
         public override void Dispose()
         {
             base.Dispose();
-            Component._answer.ValueChangeEvent -= OnCloseSignal;
         }
     }
 }

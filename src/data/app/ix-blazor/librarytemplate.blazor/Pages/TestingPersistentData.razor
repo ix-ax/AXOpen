@@ -3,7 +3,7 @@
 @using AXOpen.Data;
 @using librarytemplate
 @inject AuthenticationStateProvider _authenticationProvider
-@inject IAlertDialogService _alertDialogService
+@inject IAlertService _alertDialogService
 
 <PageTitle>TestingPersistentData</PageTitle>
 
@@ -39,5 +39,7 @@
         <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.PersistentRootObject" Presentation="Control" />
     </div>
 </div>
+
+
 
 

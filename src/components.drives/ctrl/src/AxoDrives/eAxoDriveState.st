@@ -9,7 +9,7 @@ NAMESPACE AXOpen.Components.Drives
             Stopping,
             DiscreteMotion,
             SynchronizedMotion,
-            ContinousMotion
+            ContinuousMotion
         );
     END_TYPE
 END_NAMESPACE

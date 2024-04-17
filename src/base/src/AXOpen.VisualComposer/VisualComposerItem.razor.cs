@@ -4,103 +4,67 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using AXSharp.Connector;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel;
+using AXSharp.Connector.Localizations;
+using System.Xml.Linq;
 
 namespace AXOpen.VisualComposer
 {
     public partial class VisualComposerItem
     {
-        private VisualComposerContainer? _parent;
 
         [CascadingParameter(Name = "Parent")]
-        protected VisualComposerContainer? Parent
-        {
-            get => _parent;
-            set
-            {
-                _parent = value;
+        public VisualComposerContainer? Parent { get; set; }
 
-                if (value != null)
-                    value.AddChildren(this);
-            }
-        }
-
-        [CascadingParameter(Name = "ImgId")]
-        private Guid _imgId { get; set; }
+        [CascadingParameter(Name = "BackgroundId")]
+        private Guid _backgroundId { get; set; }
 
         [Parameter]
-        public VisualComposerItem? Origin
-        {
-            set
-            {
-                UniqueGuid = value.UniqueGuid;
-                TwinElement = value.TwinElement;
-                ratioImgX = value.ratioImgX;
-                ratioImgY = value.ratioImgY;
-                Transform = value.Transform;
-                Presentation = value.Presentation;
-                Width = value.Width;
-                Height = value.Height;
-                ZIndex = value.ZIndex;
+        public VisualComposerItemData? Origin { get; set; }
 
-                Id = value.TwinElement.HumanReadable.Replace(".", "_").Replace(" ", "_");
-            }
-        }
-
+        private IJSRuntime _js;
         [Inject]
-        protected IJSRuntime js { get; set; }
-        private IJSObjectReference? jsModule;
-
-        public ITwinElement? TwinElement { get; set; }
-        public string Id { get; set; }
-        public Guid? UniqueGuid { get; set; } = null;
-
-        private double startX;
-        private double startY;
-
-        public double ratioImgX = 10;
-        public double ratioImgY = 10;
-
-        public TransformType Transform { get; set; } = TransformType.TopCenter;
-        private string _presentation = PresentationType.StatusDisplay.Value;
-        public string Presentation
+        protected IJSRuntime js
         {
-            get => _presentation;
-            set
+            get => _js;
+            set => _js = value;
+        }
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            await DragElement();
+
+            Parent.ReDragElementDelegate += async () =>
             {
-                _presentation = value;
-                CustomPresentation = !PresentationType.IsEnumValue(value);
-            }
-        }
-        public bool CustomPresentation { get; set; } = false;
+                await DragElement();
+            };
 
-        public double Width = -1;
-        public double Height = -1;
-        public int ZIndex = 0;
-
-        private void OnDragStart(DragEventArgs args)
-        {
-            startX = args.ClientX;
-            startY = args.ClientY;
+            Origin.DragElementDelegate += async () =>
+            {
+                await DragElement();
+            };
         }
 
-        private async void OnDragEnd(DragEventArgs args)
+        public async Task DragElement()
         {
             var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/VisualComposerItem.razor.js");
-            //var windowSize = await jsObject.InvokeAsync<WindowSize>("getWindowSize");
-            var imageSize = await jsObject.InvokeAsync<WindowSize>("getImageSize", _imgId);
-
-            double offsetX = startX - (ratioImgX / 100 * imageSize.Width);
-            double offsetY = startY - (ratioImgY / 100 * imageSize.Height);
-
-            ratioImgX = ((args.ClientX - offsetX) / imageSize.Width * 100);
-            ratioImgY = ((args.ClientY - offsetY) / imageSize.Height * 100);
-
-            StateHasChanged();
+            await jsObject.InvokeVoidAsync("dragElement", Origin.Id.Replace('.', '_') + "-" + Origin.UniqueGuid, DotNetObjectReference.Create(this), Origin.Left, Origin.Top, _backgroundId, Parent._zoomableContainer.Scale);
         }
 
-        public void Remove()
+        [JSInvokable]
+        public Task SetDataAsync(double left, double top)
         {
-            Parent.RemoveChildren(this);
+            if(Origin._left != left || Origin._top != top)
+            {
+                Origin._left = left;
+                Origin._top = top;
+
+                Origin.StateHasChangeModalDelegate?.Invoke();
+
+                Parent?.Save();
+            }
+
+            return Task.CompletedTask;
         }
     }
 }

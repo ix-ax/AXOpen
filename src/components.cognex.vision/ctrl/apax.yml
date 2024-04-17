@@ -1,21 +1,24 @@
 name: "@ix-ax/axopen.components.cognex.vision"
-version: '0.0.0-dev.0'
+version: '0.1.0'
 type: lib
 targets:
-  - axunit-llvm
+  - llvm
 files:
   - src
   - axsharp.companion.json
 devDependencies:
-  "@ax/sdk": 4.0.12
+  "@ix-ax/ax-sdk": '0.1.0'
 scripts:
-  # prebuild:
-  #   - dotnet ixc
   postbuild:
     - dotnet ixc
 dependencies:
-  "@ix-ax/axopen.components.abstractions": '0.0.0-dev.0'
-  "@ix-ax/axopen.core": '0.0.0-dev.0'
-  "@ix-ax/axopen.utils": '0.0.0-dev.0'
+  "@ix-ax/axopen.components.abstractions": '0.1.0'
+  "@ix-ax/axopen.utils": '0.1.0'
+  "@ax/system-serde": ^6.0.94
+  # "@ax/system-strings": ^6.0.94
+  "@ix-ax/axopen.io": '0.1.0'
+  "@ax/simatic-1500-distributedio": ^6.0.3
 publicKeys:
-  "@ix-ax" :  30c06ef7830b4dfd8f16e003508da1ac2d187714d0e1f38279a9332cbe4e4e17  
+  "@ix-ax": 30c06ef7830b4dfd8f16e003508da1ac2d187714d0e1f38279a9332cbe4e4e17
+installStrategy: strict
+apaxVersion: 3.1.1

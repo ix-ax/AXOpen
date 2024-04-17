@@ -125,6 +125,34 @@ NAMESPACE AXOpen.Core.AxoToggleTask_Tests
             _context.Close();            
         END_METHOD
 
+        VAR PRIVATE
+            _contextClean   : TestContext;
+            myTaskClean     : MyTask;
+            initValueClean  : ULINT;
+        END_VAR  
+
+        {TestSetup}
+        METHOD PUBLIC TestSetup
+            _context    :=  _contextClean;  
+            myTask      :=  myTaskClean;      
+            initValue   :=  initValueClean;
+        END_METHOD
+
+        {TestTearDown}
+        METHOD PUBLIC TestTearDown
+            ;
+        END_METHOD
+
+        {FixtureSetup}
+        METHOD PUBLIC FixtureSetup
+            ;
+        END_METHOD
+
+        {FixtureTearDown}
+        METHOD PUBLIC FixtureTearDown
+            ;
+        END_METHOD
+
         {Test}
         METHOD PUBLIC initial_state_should_be_switched_off
             // Arrange

@@ -13,7 +13,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspectorData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoDataInspectorData
     path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspectorData.st
@@ -44,11 +44,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspectorData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoDataInspectorData.RequiredStatus
     path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspectorData.st
-    startLine: 9
+    startLine: 10
   namespace: plc.AXOpen.Inspectors
   syntax:
     content: 'RequiredStatus : STRING'
@@ -64,11 +64,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspectorData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoDataInspectorData.DetectedStatus
     path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspectorData.st
-    startLine: 13
+    startLine: 14
   namespace: plc.AXOpen.Inspectors
   syntax:
     content: 'DetectedStatus : STRING'
@@ -84,11 +84,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspectorData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.AxoDataInspectorData.StarNotationEnabled
     path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspectorData.st
-    startLine: 16
+    startLine: 17
   namespace: plc.AXOpen.Inspectors
   syntax:
     content: 'StarNotationEnabled : BOOL'

@@ -14,7 +14,6 @@ using Serilog;
 using AXOpen;
 using AXOpen.Logging;
 using projname;
-using Castle.Components.DictionaryAdapter.Xml;
 
 var builder = WebApplication.CreateBuilder(args);
 

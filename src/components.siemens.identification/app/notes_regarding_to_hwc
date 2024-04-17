@@ -1,0 +1,252 @@
+apax hwc install-gsd --input ..\ctrl\assets
+
+apax hwc install-gsd --input ..\ctrl\assets\GSDML-V2.41-SIEMENS-RF18xC-20210415.xml
+
+apax hwc install-gsd --input .\assets\GSDML-V2.41-SIEMENS-RF18xC-20210415.xml
+
+//***************************************
+
+1.)
+apax add --dev @ax/hwc
+apax add --dev @ax/hwld
+apax add --dev @ax/dcp-utility
+apax add @ax/plc-mode
+
+2.)
+apax hwc install-gsd --input .\assets\GSDML-V2.41-SIEMENS-RF18xC-20210415.xml
+
+3.)
+apax dcp-utility discover --source-mac 00-D8-61-F0-AB-7D
+
+4.)
+apax hwc get-supported-devices
+
+5.)
+apax hwc get-supported-device-properties -o '6ES7 516-3AP03-0AB0' -v V3.0
+
+6.)
+apax hwc get-supported-device-properties -f GSDML-V2.41-SIEMENS-RF18XC-20210415.XML -g "DAP 12"
+
+7.)
+Create file plc_line.hwl.json and insert the following content:
+{
+  "Devices": [
+    {
+      "Name": "plc_line",
+      "Modules": [
+        {
+          "Name": "plc_line",
+          "TypeIdentifier": {
+            "OrderNumber": "6ES7 516-3AP03-0AB0",
+            "Version": "V3.0"
+          },
+          "AccessProtection": {
+            "AccessLevel": "FullAccess"
+          },
+          "Services": [
+            {
+              "Type": "WebServer",
+              "Enabled": true,
+              "Parameters": {
+                "HttpsOnly": true
+              }
+            }
+          ],
+          "UserManagement": {
+            "Roles": [
+              {
+                "Name": "WebServerAccessRole",
+                "FunctionRights": [
+                  "ReadPlcVariables",
+                  "WritePlcVariables",
+                  "ReadFiles",
+                  "QueryDiagnostics",
+                  "FlashLed"
+                ]
+              }
+            ],
+            "Users": [
+              {
+                "Name": "usr",
+                "AssignedRoles": [
+                  "WebServerAccessRole"
+                ]
+              }
+            ]
+          },
+          "Ports": [
+            {
+              "Name": "Port1",
+              "Label": "X1 P1"
+            },
+            {
+              "Name": "Port2",
+              "Label": "X1 P2"
+            }
+          ],
+          "Interfaces": [
+            {
+              "Name": "profinet",
+              "Label": "X1",
+              "Addresses": {
+                "Configured": [
+                  { "IPv4": "10.10.10.120" },
+                  { "ProfinetDeviceName": "plc_line.profinet" }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "rf186c",
+      "Modules":[
+        {
+          "Name": "rf186c",
+          "TypeIdentifier": {
+            "GsdId": "DAP 12",
+            "FileName": "GSDML-V2.41-SIEMENS-RF18XC-20210415.XML"
+          },
+          "Interfaces": [
+            {
+              "Name": "profinet",
+              "Label": "X1",
+              "Addresses": {
+                "Configured": [
+                  { "IPv4": "10.10.10.99" },
+                  { "ProfinetDeviceName": "rf186c" }
+                ]
+              }
+            }
+          ] 
+        },
+        {
+          "Name": "CM_1",
+          "TypeIdentifier": {
+            "GsdId": "ID_1WCFG",
+            "FileName": "GSDML-V2.41-SIEMENS-RF18XC-20210415.XML"
+          }
+        },
+        {
+          "Name": "Reader_1",
+          "TypeIdentifier": {
+            "GsdId": "ID_1WUNI",
+            "FileName": "GSDML-V2.41-SIEMENS-RF18XC-20210415.XML"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "et200sp",
+      "Modules":[
+        {
+          "Name": "et200sp",
+          "TypeIdentifier": {
+            "GsdId": "DIM ST V4.2",
+            "FileName": "GSDML-V2.42-SIEMENS-ET200SP-20230812.XML"
+          },
+          "Interfaces": [
+            {
+              "Name": "profinet",
+              "Label": "X1",
+              "Addresses": {
+                "Configured": [
+                  { "IPv4": "10.10.10.98" },
+                  { "ProfinetDeviceName": "et200sp" }
+                ]
+              }
+            }
+          ] 
+        },
+        {
+          "Name": "CM_4xIO-Link_V2_2_144I_128O_1",
+          "TypeIdentifier": {
+            "GsdId": "CM 4xIO-Link V2.2 144I/128O",
+            "FileName": "GSDML-V2.42-Siemens-ET200SP-20230812.xml"
+          }
+        },
+        {
+          "Name": "Server_module_V1_1",
+          "TypeIdentifier": {
+            "GsdId": "Servermodule_without_io",
+            "FileName": "GSDML-V2.42-Siemens-ET200SP-20230812.xml"
+          }
+        }
+      ]
+    }
+  ]
+  ,
+  "IoSystems": [
+    {
+      "Name": "profinet_plc_line",
+      "ControllerInterfaces": [
+        { "Ref": "plc_line/plc_line/profinet" }
+      ],
+      "DeviceInterfaces": [
+        // { "Ref":  "rf186c/rf186c/profinet" },
+        { "Ref":  "et200sp/et200sp/profinet" }
+      ]
+    }
+  ]
+}
+
+9.)
+apax hwc setup-secure-communication --name "PLC_LINE" --input "PLC_LINE.hwl.json" --password <ENTER_YOUR_VERY_STRONG_PASSWORD>
+
+10.)
+create certs folder
+ 
+11.) 
+inside the cert folder create the 'server_cert_ext.cnf' file and insert th following content:
+basicConstraints = CA:FALSE
+
+12.)
+inside the cert folder create the 'createCertificateViaOpenSSL.bat' file and insert th following content:
+echo off
+
+echo Step1 of PKCS12 file creation STARTED: generating private key
+openssl genrsa -out privateKey.pem 2048
+echo Step1 of PKCS12 file creation COMPLETED: privateKey.pem is generated
+
+echo Step2 of PKCS12 file creation STARTED: generating certificate request
+openssl req -new -key privateKey.pem -out server.csr -subj "/C=XX/ST=StateName/L=CityName/O=CompanyName/OU=CompanySectionName/CN=CommonNameOrHostname"
+echo Step2 of PKCS12 file creation COMPLETED : server.csr is generated
+
+echo Step3 of PKCS12 file creation STARTED: generating end-entity certificate
+openssl x509 -req -in server.csr -signkey privateKey.pem -out server.cert.pem -days 365 -sha256 -extfile server_cert_ext.cnf
+echo Step3 of PKCS12 file creation COMPLETED: generating end-entity certificate
+
+echo Step4 of PKCS12 file creation STARTED: export certificate in pkcs12 format
+openssl pkcs12 -export -in server.cert.pem -inkey privateKey.pem -out pkcs12ForCertificateImport.p12
+echo Step4 of PKCS12 file creation COMPLETED: export certificate in pkcs12 format
+
+
+echo Certificate with public key creation STARTED
+openssl pkcs12 -in pkcs12ForCertificateImport.p12 -out certificateForConnection.crt -nokeys
+echo Certificate with public key creation COMPLETED
+
+13.)
+run git bash inside the cert folder and start the 'createCertificateViaOpenSSL.bat', when promted enter the <ENTER_YOUR_VERY_STRONG_PASSWORD>
+
+14.)
+apax hwc import-certificate --name "PLC_LINE" --input "PLC_LINE.hwl.json" --certificate "./cert/pkcs12ForCertificateImport.p12" --purpose "TLS" --password <ENTER_YOUR_VERY_STRONG_PASSWORD>
+apax hwc import-certificate --name "PLC_LINE" --input "PLC_LINE.hwl.json" --certificate "./cert/pkcs12ForCertificateImport.p12" --purpose "WebServer" --password <ENTER_YOUR_VERY_STRONG_PASSWORD>
+
+15.)
+apax hwc manage-users --moduleName "PLC_LINE" --input "PLC_LINE.hwl.json" set-password --userName "usr" --password <ENTER_YOUR_VERY_STRONG_PASSWORD>
+
+16.)
+apax hwc compile --input "PLC_LINE.hwl.json" --output "bin/hwcOutput/"
+
+17.)
+apax hwld --input "bin/hwcOutput/PLC_LINE" --targetIP "10.10.10.120"  -M:<ENTER_YOUR_VERY_STRONG_PASSWORD> --accept-security-disclaimer
+
+
+ 
+ 
+apax hwc get-supported-devices
+
+apax hwc get-supported-device-properties -o '6ES7 516-3AP03-0AB0' -v V3.0
+
+

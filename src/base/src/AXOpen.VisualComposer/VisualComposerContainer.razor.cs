@@ -1,161 +1,375 @@
-﻿using AXOpen.Core;
-using AXOpen.VisualComposer.Serializing;
+﻿using AXOpen.VisualComposer.Serializing;
 using AXSharp.Connector;
+using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Components.Web;
+using Microsoft.JSInterop;
+using Newtonsoft.Json.Linq;
 using System.Xml.Linq;
-using AXOpen.ToolBox.Extensions;
 
 namespace AXOpen.VisualComposer
 {
     public partial class VisualComposerContainer
     {
-        [Parameter]
-        public AxoObject AxoObject { get; set; }
+        [Inject]
+        NavigationManager NavigationManager { get; set; }
 
         [Parameter]
+        public ITwinObject[] Objects { get; set; }
+
+        [Parameter]
+        public bool ModalDetailView { get; set; } = true;
+
+        private IJSRuntime _js;
+        [Inject]
+        protected IJSRuntime js
+        {
+            get => _js;
+            set => _js = value;
+        }
+
+        public delegate void EmptyDelegate();
+        public EmptyDelegate ReDragElementDelegate;
+
         public string? ImgSrc { get; set; }
 
-        public string Id { get; set; }
+        public int BackgroundWidth { get; set; } = 0;
+        public int BackgroundHeight { get; set; } = 0;
+        public string BackgroundColor { get; set; } = "#FFFFFF";
+        public bool EmptyBackground { get; set; } = false;
 
-        private Guid _imgId = Guid.NewGuid();
+        public string? Theme { get; set; }
 
-        private List<VisualComposerItem> _children = new();
+        [Parameter, EditorRequired]
+        public string? Id { get; set; }
+
+        private Guid _backgroundId = Guid.NewGuid();
+
+        private List<VisualComposerItemData> _children = new();
+        private ITwinElement _detailsObject;
+
+        public ZoomableContainer _zoomableContainer { get; set; }
 
         private IEnumerable<ITwinElement> _childrenOfAxoObject { get; set; }
 
         public string FileName { get; set; } = "";
 
+        public string CurrentView { get; set; }
+
+        public List<string> BaseViews { get; set; } = new List<string>();
+
+        public bool AllowZoomingAndPanning { get; set; } = true;
+
+        public string? DefaultView { get; set; }
+
         protected override void OnInitialized()
         {
-            Id = AxoObject.HumanReadable.Replace(".", "_").Replace(" ", "_");
+            if (Id is null || Id == "")
+            {
+                Id = "";
+                foreach (ITwinObject obj in Objects)
+                {
+                    Id += obj.Symbol;
+                }
+
+                Id = Id.ComputeSha256Hash();
+            }
         }
 
         protected override void OnAfterRender(bool firstRender)
         {
             if (firstRender)
             {
-                _childrenOfAxoObject = AxoObject.GetChildren().Flatten(p => p.GetChildren()).ToList();
-                _childrenOfAxoObject = _childrenOfAxoObject.Concat(AxoObject.RetrievePrimitives());
+                _childrenOfAxoObject = Enumerable.Empty<ITwinElement>();
+                foreach (ITwinObject obj in Objects)
+                {
+                    _childrenOfAxoObject = _childrenOfAxoObject.Concat(RetrieveKids(obj));
+                }
 
-                Load();
+                Load(null);
+                StateHasChanged();
             }
+        }
+
+        private List<ITwinElement> RetrieveKids(ITwinObject parent)
+        {
+            List<ITwinElement> kids = new List<ITwinElement>();
+            kids.Add(parent);
+
+            foreach (var kid in parent.GetKids())
+            {
+                if (kid is ITwinObject tobj)
+                {
+                    kids.AddRange(RetrieveKids(tobj));
+                }
+                if (kid is ITwinPrimitive prim)
+                {
+                    kids.Add(prim);
+                }
+            }
+
+            return kids;
         }
 
         public void AddChildren(ITwinElement item)
         {
-            _children.Add(new VisualComposerItem()
-            {
-                UniqueGuid = Guid.NewGuid(),
-                TwinElement = item
-            });
+            _children.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), EventCallback.Factory.Create(this, Save), item, item.Symbol.ModalIdHelper(), Guid.NewGuid()));
 
             StateHasChanged();
+
+            Save();
         }
 
-        public void AddChildren(VisualComposerItem item)
+        public async Task ReDragElement()
         {
-            if (!_children.Contains(item))
-            {
-                VisualComposerItem? find = _children.Find(p => p.UniqueGuid == item.UniqueGuid);
-                if (find != null)
-                    _children.Remove(find);
-
-                _children.Add(item);
-            }
+            if (ReDragElementDelegate != null)
+                ReDragElementDelegate();
         }
 
-        public void RemoveChildren(VisualComposerItem item)
+        public void RemoveChildren(VisualComposerItemData item)
         {
-            _children.Remove(_children.Find(p => p.UniqueGuid == item.UniqueGuid));
+            _children.Remove(item);
 
             StateHasChanged();
+
+            Save();
         }
 
-        public void Save(string fileName = "Default")
+        public void CreateNew(string fileName)
         {
-            foreach (char c in Path.GetInvalidFileNameChars().Concat(Path.GetInvalidPathChars()))
+            if(fileName == "" || fileName == null)
+                return;
+
+            CurrentView = fileName;
+
+            if (!Directory.Exists("VisualComposerSerialize/" + Id.CorrectFilePath()))
             {
-                fileName = fileName.Replace(c, '_');
+                Directory.CreateDirectory("VisualComposerSerialize/" + Id.CorrectFilePath());
             }
 
+            Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", new SerializableObject(null, 0, 0, false, "#FFFFFF", new List<SerializableVisualComposerItem>(), "text-dark", 1, 0, 0, true));
+
+            Load(fileName);
+        }
+
+        public void CreateCopy(string fileName)
+        {
+            if (fileName == "" || fileName == null)
+                return;
+
+            CurrentView = fileName;
+
+            if (!Directory.Exists("VisualComposerSerialize/" + Id.CorrectFilePath()))
+            {
+                Directory.CreateDirectory("VisualComposerSerialize/" + Id.CorrectFilePath());
+            }
+
+            Save();
+
+            Load(fileName);
+        }
+
+        public void Save()
+        {
             List<SerializableVisualComposerItem> serializableChildren = new List<SerializableVisualComposerItem>();
             foreach (var child in _children)
             {
-                serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.ratioImgX, child.ratioImgY, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex));
+                serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.Left, child.Top, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex, child.Scale, child.Roles, child.PresentationTemplate, child.Background, child.BackgroundColor));
             }
 
-            if (!Directory.Exists("VisualComposerSerialize/" + Id))
-            {
-                Directory.CreateDirectory("VisualComposerSerialize/" + Id);
-            }
-
-            Serializing.Serializing<SerializableVisualComposerItem>.Serialize("VisualComposerSerialize/" + Id + "/" + fileName + ".json", serializableChildren);
+            Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" +
+                                                                  Id.CorrectFilePath() + "/" +
+                                                                  CurrentView.CorrectFilePath() + ".json",
+                                            new SerializableObject(ImgSrc,
+                                                BackgroundWidth,
+                                                BackgroundHeight,
+                                                EmptyBackground,
+                                                BackgroundColor,
+                                                serializableChildren,
+                                                Theme,
+                                                _zoomableContainer.Scale,
+                                                _zoomableContainer.TranslateX,
+                                                _zoomableContainer.TranslateY,
+                                                AllowZoomingAndPanning));
         }
 
-        public void Load(string? fileName = "Default")
+        public void Load(string? fileName)
         {
-            List<SerializableVisualComposerItem>? deserialize = Serializing.Serializing<SerializableVisualComposerItem>.Deserialize("VisualComposerSerialize/" + Id + "/" + fileName + ".json");
+            SerializableConfiguration? deserializeConfiguration = Serializing.Serializing<SerializableConfiguration>.Deserialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json");
+
+            if (deserializeConfiguration != null)
+            {
+                BaseViews = deserializeConfiguration.Views;
+                DefaultView = deserializeConfiguration.DefaultView;
+            }
+
+            if ((fileName is null || fileName == "") && (DefaultView != null && DefaultView != ""))
+                fileName = DefaultView;
+
+            if (fileName is null || fileName == "")
+                return;
+
+            SerializableObject? deserialize = Serializing.Serializing<SerializableObject>.Deserialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json");
 
             if (deserialize != null)
             {
+                ImgSrc = deserialize.ImgSrc;
+                BackgroundWidth = deserialize.BackgroundWidth;
+                BackgroundHeight = deserialize.BackgroundHeight;
+                EmptyBackground = deserialize.EmptyBackground;
+                BackgroundColor = deserialize.BackgroundColor;
+                Theme = deserialize.Theme;
+
                 _children.Clear();
 
-                foreach (var item in deserialize)
+                foreach (var item in deserialize.Items)
                 {
-                    var a = _childrenOfAxoObject.FirstOrDefault(p => p.HumanReadable.Replace(".", "_").Replace(" ", "_") == item.Id);
-                    _children.Add(new VisualComposerItem()
+                    var childObject = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper().ComputeSha256Hash() == item.Id);
+                    if (childObject != null)
                     {
-                        UniqueGuid = Guid.NewGuid(),
-                        TwinElement = _childrenOfAxoObject.FirstOrDefault(p => p.HumanReadable.Replace(".", "_").Replace(" ", "_") == item.Id),
-                        ratioImgX = item.RatioImgX,
-                        ratioImgY = item.RatioImgY,
-                        Transform = Types.TransformType.FromString(item.Transform),
-                        Presentation = item.Presentation,
-                        Width = item.Width,
-                        Height = item.Height,
-                        ZIndex = item.ZIndex
-                    });
+                        _children.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), EventCallback.Factory.Create(this, Save), childObject, childObject.Symbol.ModalIdHelper(), Guid.NewGuid(), item.Left, item.Top, Types.TransformType.FromString(item.Transform), item.Presentation, false, item.Width, item.Height, item.ZIndex, item.Scale, item.Roles, item.PresentationTemplate, item.Background, item.BackgroundColor));
+                    }
+                }
+
+                if (_zoomableContainer != null)
+                {
+                    _zoomableContainer.Scale = deserialize.Scale;
+                    _zoomableContainer.TranslateX = deserialize.TranslateX;
+                    _zoomableContainer.TranslateY = deserialize.TranslateY;
+                    AllowZoomingAndPanning = deserialize.AllowZoomingAndPanning;
+
+                    _zoomableContainer.SetDataInJS();
                 }
             }
+
+            CurrentView = fileName;
+
             StateHasChanged();
         }
 
         public void Remove(string fileName)
         {
-            if (File.Exists("VisualComposerSerialize/" + Id + "/" + fileName + ".json"))
+            if (File.Exists("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json"))
             {
-                File.Delete("VisualComposerSerialize/" + Id + "/" + fileName + ".json");
+                File.Delete("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json");
             }
+
+            if (BaseViews.Contains(fileName) || DefaultView == fileName)
+            {
+                if (BaseViews.Contains(fileName))
+                    BaseViews.Remove(fileName);
+
+                if (DefaultView == fileName)
+                    DefaultView = null;
+
+                Serializing.Serializing<SerializableConfiguration>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(BaseViews, DefaultView));
+            }
+
+            if (CurrentView == fileName)
+                CurrentView = DefaultView;
+
+            Load(CurrentView);
+        }
+
+        public void ChangeTheme()
+        {
+            if (Theme == "text-dark")
+                Theme = "text-light";
+            else
+                Theme = "text-dark";
+
+            Save();
+        }
+
+        public void ClearScaleAndTranslate(string fileName)
+        {
+            SerializableObject? deserialize = Serializing.Serializing<SerializableObject>.Deserialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json");
+
+            if (deserialize != null)
+            {
+                deserialize.Scale = 1;
+                deserialize.TranslateX = 0;
+                deserialize.TranslateY = 0;
+
+                Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", deserialize);
+            }
+
+            NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
         }
 
         public List<string> GetAllFiles()
         {
             List<string> files = new();
 
-            if (!Directory.Exists("VisualComposerSerialize/" + Id))
+            if (!Directory.Exists("VisualComposerSerialize/" + Id.CorrectFilePath()))
                 return files;
 
             try
             {
-                Directory.GetFiles("VisualComposerSerialize/" + Id + "/", "*.json").ToList().ForEach(p => files.Add(Path.GetFileNameWithoutExtension(p)));
+                Directory.GetFiles("VisualComposerSerialize/" + Id.CorrectFilePath() + "/", "*.json").ToList().ForEach(p => files.Add(Path.GetFileNameWithoutExtension(p)));
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error: {ex.Message}");
             }
 
-            if (files.Contains("Default"))
-            {
-                // Move "Default" to the first position
-                files.Remove("Default");
-                files.Insert(0, "Default");
-            }
-
             return files;
         }
 
+        public List<(string file, double scale, int translateX, int translateY, bool allowZoomingAndPanning)> GetAllVisualComposerContainer()
+        {
+            List<(string, double, int, int, bool)> data = new();
+            foreach (var file in GetAllFiles())
+            {
+                SerializableObject? deserialize = Serializing.Serializing<SerializableObject>.Deserialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + file + ".json");
+
+                if (deserialize != null)
+                {
+                    data.Add((file, deserialize.Scale, deserialize.TranslateX, deserialize.TranslateY, deserialize.AllowZoomingAndPanning));
+                }
+            }
+
+            return data;
+        }
+
+        public void ChangeBaseViews(string fileName)
+        {
+            if (BaseViews == null)
+                BaseViews = new();
+
+            if (BaseViews.Contains(fileName))
+                BaseViews.Remove(fileName);
+            else
+                BaseViews.Add(fileName);
+
+            Serializing.Serializing<SerializableConfiguration>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(BaseViews, DefaultView));
+        }
+
+        public void ChangeAllowZoomingAndPanning(string fileName)
+        {
+            SerializableObject? deserialize = Serializing.Serializing<SerializableObject>.Deserialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json");
+
+            if (deserialize != null)
+            {
+                deserialize.AllowZoomingAndPanning = !deserialize.AllowZoomingAndPanning;
+
+                Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", deserialize);
+
+                if(CurrentView == fileName)
+                    AllowZoomingAndPanning = deserialize.AllowZoomingAndPanning;
+            }
+        }
+
+        public void ChangeDefaultView(string fileName)
+        {
+            DefaultView = fileName;
+
+            Serializing.Serializing<SerializableConfiguration>.Serialize("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(BaseViews, DefaultView));
+        }
+
         public string? SearchValue { get; set; } = null;
-        public List<ITwinObject>? SearchResult { get; set; } = null;
+        public List<ITwinElement>? SearchResult { get; set; } = null;
         public void Search()
         {
             if (SearchValue is null || SearchValue == "")
@@ -164,22 +378,130 @@ namespace AXOpen.VisualComposer
             }
             else
             {
-                SearchResult = AxoObject.GetChildren().Flatten(p => p.GetChildren()).ToList().FindAll(p => p.HumanReadable.Contains(SearchValue, StringComparison.OrdinalIgnoreCase));
+                if (SearchResult == null)
+                    SearchResult = new();
+                else
+                    SearchResult.Clear();
+
+                foreach (ITwinObject obj in Objects)
+                {
+                    SearchResult.AddRange(obj.GetChildren().Flatten(p => p.GetChildren()).ToList().FindAll(p => p.Symbol.Contains(SearchValue, StringComparison.OrdinalIgnoreCase)));
+                    SearchResult.AddRange(obj.RetrievePrimitives().ToList().FindAll(p => p.Symbol.Contains(SearchValue, StringComparison.OrdinalIgnoreCase)));
+                }
             }
         }
 
-        public string? SearchValuePrimitive { get; set; } = null;
-        public List<ITwinPrimitive>? SearchResultPrimitive { get; set; } = null;
-        public void SearchPrimitive()
+        private bool isFileImported { get; set; } = false;
+        private bool isFileImporting { get; set; } = false;
+
+        private async Task UploadFile(InputFileChangeEventArgs e)
         {
-            if (SearchValuePrimitive is null || SearchValuePrimitive == "")
+            isFileImported = false;
+            isFileImporting = true;
+
+            try
             {
-                SearchResult = null;
+                if (!Directory.Exists("wwwroot/Images/"))
+                    Directory.CreateDirectory("wwwroot/Images/");
+
+                string newName = CurrentView + Path.GetExtension(e.File.Name);
+
+                if (!Directory.Exists("wwwroot/Images/VisualComposerSerialize/" + Id.CorrectFilePath()))
+                    Directory.CreateDirectory("wwwroot/Images/VisualComposerSerialize/" + Id.CorrectFilePath());
+
+                await using FileStream fs = new("wwwroot/Images/VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + newName.CorrectFilePath(), FileMode.Create);
+                await e.File.OpenReadStream().CopyToAsync(fs);
+
+                ImgSrc = "Images/VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + newName.CorrectFilePath();
+
+                isFileImported = true;
             }
-            else
+            catch (Exception ex)
             {
-                SearchResultPrimitive = AxoObject.RetrievePrimitives().ToList().FindAll(p => p.HumanReadable.Contains(SearchValuePrimitive));
+                ImgSrc = null;
             }
+
+            isFileImporting = false;
+
+            EmptyBackground = false;
+
+            Save();
+        }
+
+        private void SetEmptyBackground()
+        {
+            EmptyBackground = true;
+
+            Save();
+        }
+
+        internal void AddZoomableContainer(ZoomableContainer zoomableContainer)
+        {
+            _zoomableContainer = zoomableContainer;
+        }
+
+        private async Task ShowModal(string id)
+        {
+            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/VisualComposerContainer.razor.js");
+            await jsObject.InvokeVoidAsync("showModal", id);
+        }
+
+
+        private RenderableContentControl detailsRcc { get; set; }
+
+        private bool DetailsVisibility { get; set; } = false;
+
+        private string detailsPresentationType;
+
+        public string DetailsPresentationType
+        {
+            get => detailsPresentationType;
+            set
+            {
+                detailsPresentationType = value;
+                detailsRcc.Presentation = value;
+                this.StateHasChanged();
+            }
+        }
+
+        private void ToggleDetailsVisibility()
+        {
+            DetailsVisibility = !DetailsVisibility;
+
+            if (!DetailsVisibility)
+            {
+                detailsRcc.Presentation = "empty";
+                detailsRcc.ForceRender();
+                System.GC.Collect();
+            }
+            this.StateHasChanged();
+        }
+
+        public void UpdateDetails(ITwinElement element)
+        {
+            if (detailsRcc != null)
+            {
+                if (ModalDetailView)
+                {
+                    ShowModal("ModalDetailView-" + @Id.ModalIdHelper());
+                }
+                else
+                {
+                    DetailsVisibility = true;
+                }
+
+                this.StateHasChanged();
+                detailsRcc.Context = element;
+                detailsRcc?.ForceRender();
+            }
+        }
+
+        private bool InDesignMode { get; set; }
+
+        private void ToggleInDesignMode()
+        {
+            InDesignMode = !InDesignMode;
+            ReDragElement();
         }
     }
 }

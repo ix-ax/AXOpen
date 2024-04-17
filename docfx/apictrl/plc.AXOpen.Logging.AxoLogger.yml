@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogger
     path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
@@ -39,11 +39,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogger.Carret
     path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
-    startLine: 14
+    startLine: 15
   namespace: plc.AXOpen.Logging
   summary: The current position in the log entries array.
   syntax:
@@ -60,11 +60,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogger.MinimumLevel
     path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
-    startLine: 19
+    startLine: 21
   namespace: plc.AXOpen.Logging
   summary: The minimum logging level to be captured by this logger.
   syntax:
@@ -81,11 +81,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogger.LogEntries
     path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
-    startLine: 24
+    startLine: 25
   namespace: plc.AXOpen.Logging
   summary: The array containing log entries.
   syntax:
@@ -102,11 +102,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogger.Log
     path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
-    startLine: 34
+    startLine: 35
   namespace: plc.AXOpen.Logging
   summary: Log method that captures a message, logging level, and the sender of the log.
   syntax:
@@ -133,11 +133,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogger.Log
     path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
-    startLine: 65
+    startLine: 66
   namespace: plc.AXOpen.Logging
   summary: Log method that captures a message and logging level.
   syntax:
@@ -161,11 +161,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Logging.AxoLogger.SetMinimumLevel
     path: .\src\core\ctrl\src\AxoLogger\AxoLogger.st
-    startLine: 90
+    startLine: 91
   namespace: plc.AXOpen.Logging
   summary: Sets the minimum logging level to be captured by this logger.
   syntax:

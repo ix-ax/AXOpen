@@ -187,23 +187,24 @@ NAMESPACE AxoDriveTests.Tests
         METHOD PUBLIC OVERRIDE MC_TorqueControl
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-                Execute         :   BOOL;                       
-                ContinuousUpdate:   BOOL;                       
-                Torque          :   LREAL;                      
-                TorqueRamp      :   LREAL;                      
-                Velocity        :   LREAL;                      
-                Acceleration    :   LREAL;                      
-                Deceleration    :   LREAL;                      
-                Jerk            :   LREAL;                      
-                Direction       :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;        
+                Execute         :   BOOL;                       //  Start the motion at rising edge
+                ContinuousUpdate:   BOOL;                       //  Activate ‘ContinuousUpdate’ - target parameters should be changed during movement
+                Torque          :   LREAL;                      //  Value of the torque (Torque or force in technical unit [u])
+                TorqueRamp      :   LREAL;                      //  The maximum time derivative of the set value of the torque or force (in technical unit per sec. [u/s]) 
+                PositionLimit   :   LREAL;                      //  Position limit.
+                Velocity        :   LREAL;                      //  Absolute value of the maximum velocity.
+                Acceleration    :   LREAL;                      //  Value of the maximum acceleration (acceleration is applicable with same sign of torque and velocity)
+                Deceleration    :   LREAL;                      //  Value of the maximum deceleration (deceleration is applicable with opposite signs of torque and velocity)
+                Jerk            :   LREAL;                      //  Value of the maximum jerk
+                Direction       :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;         //  Enum type (1 of 2 values: PositiveDirection, NegativeDirection or CurrentDirection). Specifies the direction of the torque. (Note: Torque input can be signed value).            
             END_VAR
             VAR_OUTPUT
-                InTorque        :   BOOL;                       
-                Busy            :   BOOL;                       
-                Active          :   BOOL;                       
-                CommandAborted  :   BOOL;                       
-                Error           :   BOOL;                       
-                ErrorID         :   WORD;                       
+                InTorque        :   BOOL;                       //  Setpoint value of torque or force equals the commandedvalue
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
+                Active          :   BOOL;                       //  Indicates that the method has control on the axis
+                CommandAborted  :   BOOL;                       //  ‘Command’ is aborted by another command
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
+                ErrorID         :   WORD;                       //  Error identification             
             END_VAR
             ;
         END_METHOD
@@ -245,15 +246,15 @@ NAMESPACE AxoDriveTests.Tests
         METHOD PUBLIC OVERRIDE MC_ReadParameter
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-                Enable          :   BOOL;                       
-                ParameterNumber :   DINT;                        
+                Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
+                ParameterNumber :   DINT;                       //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
             END_VAR
             VAR_OUTPUT
-                Valid           :   BOOL;                       
-                Busy            :   BOOL;                       
-                Error           :   BOOL;                       
-                ErrorID         :   WORD;                       
-                Value           :   DINT;                       
+                Valid           :   BOOL;                       //  A valid output is available at the method
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
+                ErrorID         :   WORD;                       //  Error identification
+                Value           :   LINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
             ;
         END_METHOD
@@ -293,16 +294,16 @@ NAMESPACE AxoDriveTests.Tests
         METHOD PUBLIC OVERRIDE MC_WriteParameter
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-                Execute         :   BOOL;                      
-                ParameterNumber :   DINT;                       
-                Value           :   DINT;                      
-                ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                       
+                Execute         :   BOOL;                       //  Write the value of the parameter at rising edge
+                ParameterNumber :   DINT;                       //  Number of the parameter (correspondence between number andparameter is specified in the table above)
+                Value           :   LINT;                       //  New value of the specified parameter
+                ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
             VAR_OUTPUT
-                Done            :   BOOL;                       
-                Busy            :   BOOL;                       
-                Error           :   BOOL;                       
-                ErrorID         :   WORD;                       
+                Done            :   BOOL;                       //  Parameter successfully written
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
+                ErrorID         :   WORD;                       //  Error identification
             END_VAR
             ;
         END_METHOD
@@ -528,5 +529,7 @@ NAMESPACE AxoDriveTests.Tests
             END_VAR
             ;
         END_METHOD
-    END_CLASS  
+    
+    
+END_CLASS  
 END_NAMESPACE

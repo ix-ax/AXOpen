@@ -14,18 +14,18 @@ NAMESPACE AXOpen.Inspectors
             _dialogueRetry : BOOL;	
             _dialogueTerminate : BOOL;	
             _dialogueOverride : BOOL;
+            _inspectorIndentity : ULINT; //try display inspector inside dialog.
         END_VAR
 
         VAR PRIVATE
             _lastCall : ULINT;
-        END_VAR    
+            _createPlcCycleSpace : BOOL;
+        END_VAR
 
         VAR
-            
             _isActive : BOOL;
-            _dialogIsClosed : BOOL;
+            //_dialogIsClosed : BOOL;
             _isAnswerProvided : BOOL;
-            
         END_VAR
 
      
@@ -42,27 +42,40 @@ NAMESPACE AXOpen.Inspectors
                 callCounter : ULINT;
             END_VAR   
 
-         
-           //Restores when not called for 2+ consecutive cycles of the context.
-           callCounter := THIS.GetParent().GetContext().OpenCycleCount();
-           IF(callCounter > _lastCall + ULINT#1) THEN
-               THIS.Restore();
-           END_IF;                
-           _lastCall := callCounter;
-
-         
             IF(_parentInspectorRef = NULL) THEN
                 RETURN;
             END_IF;
 
+            THIS.Initialize(_parentInspectorRef^);
+  
+            IF _createPlcCycleSpace THEN // create cycle space AFTER RESPONSE
+                _createPlcCycleSpace := FALSE;
+                RETURN; 
+            END_IF;
+
+            //Restores when not called for 2+ consecutive cycles of the context.
+            callCounter := THIS.GetParent().GetContext().OpenCycleCount();
+
+            if callCounter = _lastCall then //is called in the same cycle, suppose that is a new dialog
+                RETURN; 
+            END_IF;
+
+            IF(callCounter > _lastCall + ULINT#1) THEN
+                THIS.Restore();
+            END_IF;                
+            _lastCall := callCounter;
             
             _isOverInspected := _parentInspectorRef^.CheckOverInspection();
-
 
             IF(_parentInspectorRef^.Done()) THEN	
 
                 IF(_parentInspectorRef^.Result() = eInspectorResult#Failed) THEN
-                    THIS.Initialize(_parentInspectorRef^);
+                    
+                    IF (THIS.Status = eAxoTaskState#Ready) THEN
+                        _closeSignal := FALSE;
+                    END_IF;
+
+                    _inspectorIndentity := _parentInspectorRef^.GetIdentity();
                     THIS.Invoke();
                     SUPER.Execute();
 
@@ -99,6 +112,7 @@ NAMESPACE AXOpen.Inspectors
                     THIS.Restore();  
                     _parentInspectorRef^.RestoreInspectorTask();
                     _isAnswerProvided := FALSE;
+                    _createPlcCycleSpace := TRUE;
                 END_IF;
    
 
@@ -114,8 +128,6 @@ NAMESPACE AXOpen.Inspectors
             _dialogueRetry := FALSE;	
             _dialogueTerminate := FALSE;	
             _dialogueOverride := FALSE;
-            _dialogIsClosed := FALSE;
-
         END_METHOD
 
       

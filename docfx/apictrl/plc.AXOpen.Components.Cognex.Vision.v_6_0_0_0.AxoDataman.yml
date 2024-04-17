@@ -27,7 +27,6 @@ items:
   - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.UpdateOutputs(REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE)
   - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.IsValidReferences(REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
   - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ContinuousReading(REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Status,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results,REF_TO ARRAY [*] OF BYTE)
-  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Open()
   - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Run(IAxoObject,REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
   - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Run(IAxoContext,REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
   - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Execute(REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
@@ -40,7 +39,7 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
@@ -56,7 +55,7 @@ items:
   - plc.AXOpen.Core.AxoObject.Identity
   - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
   - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
-  - plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  - plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivatedInlined()
   - plc.AXOpen.Core.AxoComponent.Open()
   - plc.AXOpen.Core.AxoComponent.Run()
   - plc.AXOpen.Core.AxoComponent.Close()
@@ -64,6 +63,7 @@ items:
   - plc.AXOpen.Core.AxoComponent.ManualControl()
   - plc.AXOpen.Core.AxoObject.GetIdentity()
   - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
   - plc.AXOpen.Core.AxoObject.GetParent()
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
@@ -80,11 +80,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ReadTask
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 9
+    startLine: 10
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'ReadTask : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanRead'
@@ -100,11 +100,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultData
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 13
+    startLine: 14
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'ResultData : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultData'
@@ -120,11 +120,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.RestoreTask
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 20
+    startLine: 21
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'RestoreTask : AXOpen.Core.AxoTask'
@@ -140,11 +140,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ClearResultDataTask
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 24
+    startLine: 25
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'ClearResultDataTask : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData'
@@ -160,11 +160,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Config
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 28
+    startLine: 29
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'Config : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config'
@@ -180,11 +180,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Status
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 32
+    startLine: 33
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'Status : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Status'
@@ -200,11 +200,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Results
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 37
+    startLine: 38
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'Results : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results'
@@ -220,11 +220,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.AcquisitionControl
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 44
+    startLine: 45
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'AcquisitionControl : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionControl'
@@ -240,11 +240,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.AcquisitionStatus
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 52
+    startLine: 53
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'AcquisitionStatus : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus'
@@ -260,11 +260,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultsControl
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 59
+    startLine: 60
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'ResultsControl : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsControl'
@@ -280,11 +280,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultsStatus
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 66
+    startLine: 67
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'ResultsStatus : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus'
@@ -300,11 +300,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.SoftEventControl
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 74
+    startLine: 75
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'SoftEventControl : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventControl'
@@ -320,11 +320,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.SoftEventStatus
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 81
+    startLine: 82
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'SoftEventStatus : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus'
@@ -340,11 +340,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.User
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 88
+    startLine: 89
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'User : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_User'
@@ -360,11 +360,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.UserData
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 96
+    startLine: 97
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'UserData : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_UserData'
@@ -380,11 +380,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._Messenger
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 101
+    startLine: 102
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: '_Messenger : AXOpen.Messaging.Static.AxoMessenger'
@@ -400,11 +400,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._TaskMessenger
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 103
+    startLine: 104
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: '_TaskMessenger : AXOpen.Messaging.Static.AxoMessenger'
@@ -420,11 +420,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Restore
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 109
+    startLine: 110
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   summary: Restores this instance to its initial state.
   syntax:
@@ -442,11 +442,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ManualControl
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 164
+    startLine: 165
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   summary: Custom logic for the manual control.
   syntax:
@@ -464,11 +464,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.UpdateInputs
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 166
+    startLine: 167
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: Private BOOL UpdateInputs(in plc.REF_TO ARRAY [0..2] OF BYTE refAcquisitionStatus,in plc.REF_TO BYTE refResultsStatus,in plc.REF_TO BYTE refSoftEventStatus,in plc.REF_TO ARRAY [*] OF BYTE refResultData)
@@ -493,11 +493,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.UpdateOutputs
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 240
+    startLine: 241
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: Private BOOL UpdateOutputs(in plc.REF_TO BYTE refAcquisitionControl,in plc.REF_TO BYTE refResultsControl,in plc.REF_TO BYTE refSoftEventControl,in plc.REF_TO ARRAY [*] OF BYTE refUserData)
@@ -522,11 +522,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.IsValidReferences
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 303
+    startLine: 304
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: Private BOOL IsValidReferences(in plc.REF_TO BYTE refAcquisitionControl,in plc.REF_TO ARRAY [0..2] OF BYTE refAcquisitionStatus,in plc.REF_TO BYTE refResultsControl,in plc.REF_TO BYTE refResultsStatus,in plc.REF_TO BYTE refSoftEventControl,in plc.REF_TO BYTE refSoftEventStatus,in plc.REF_TO ARRAY [*] OF BYTE refResultData,in plc.REF_TO ARRAY [*] OF BYTE refUserData)
@@ -559,11 +559,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ContinuousReading
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 345
+    startLine: 346
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: Private VOID ContinuousReading(in plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Status refStatus,in plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results refResults,in plc.REF_TO ARRAY [*] OF BYTE refResultData)
@@ -576,28 +576,6 @@ items:
       type: plc.REF_TO ARRAY [*] OF BYTE
     return:
       type: VOID
-- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Open()
-  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Open()
-  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
-  children: []
-  name: Open
-  fullName: Open
-  type: Method
-  source:
-    remote:
-      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
-      repo: https://github.com/ix-ax/AXOpen.git
-    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Open
-    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 383
-  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
-  summary: Custom component logic running before any other component logic.
-  syntax:
-    content: Protected VOID Open()
-    parameters: *o0
-    return:
-      type: VOID
 - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Run(IAxoObject,REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
   id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Run(IAxoObject,REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
   parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
@@ -608,11 +586,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Run
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 391
+    startLine: 382
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   summary: Runs tasks and logic of this component.>[!IMPORTANT] This method or one of its overloads must be called cyclically.
   syntax:
@@ -648,11 +626,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Run
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 424
+    startLine: 423
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   summary: Runs tasks and logic of this component.>[!IMPORTANT] This method or one of its overloads must be called cyclically.
   syntax:
@@ -688,11 +666,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Execute
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 456
+    startLine: 464
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: Private VOID Execute(in plc.REF_TO BYTE refAcquisitionControl,in plc.REF_TO ARRAY [0..2] OF BYTE refAcquisitionStatus,in plc.REF_TO BYTE refResultsControl,in plc.REF_TO BYTE refResultsStatus,in plc.REF_TO BYTE refSoftEventControl,in plc.REF_TO BYTE refSoftEventStatus,in plc.REF_TO ARRAY [*] OF BYTE refResultData,in plc.REF_TO ARRAY [*] OF BYTE refUserData)
@@ -725,11 +703,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Close
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 511
+    startLine: 516
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   summary: Custom component logic running after any other component logic.
   syntax:
@@ -747,11 +725,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ClearResultData
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 511
+    startLine: 516
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   summary: Clears the result data.
   syntax:
@@ -769,11 +747,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Read
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
-    startLine: 511
+    startLine: 516
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   summary: Triggers the reading sequence and waits for results.
   syntax:
@@ -806,12 +784,12 @@ references:
   nameWithType: IsManuallyControllable()
   fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
   parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
-- uid: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
-  commentId: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
-  name: CheckIfManualControlIsActivated()
-  nameWithType: CheckIfManualControlIsActivated()
-  fullName: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
-  parent: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+- uid: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivatedInlined()
+  commentId: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivatedInlined()
+  name: CheckIfManualControlIsActivatedInlined()
+  nameWithType: CheckIfManualControlIsActivatedInlined()
+  fullName: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivatedInlined()
+  parent: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivatedInlined()
 - uid: plc.AXOpen.Core.AxoComponent.Open()
   commentId: plc.AXOpen.Core.AxoComponent.Open()
   name: Open()
@@ -854,6 +832,12 @@ references:
   nameWithType: GetContext()
   fullName: plc.AXOpen.Core.AxoObject.GetContext()
   parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
 - uid: plc.AXOpen.Core.AxoObject.GetParent()
   commentId: plc.AXOpen.Core.AxoObject.GetParent()
   name: GetParent()

@@ -11,13 +11,14 @@ items:
   - plc.AXOpen.Core.IAxoStep.GetIsActive()
   - plc.AXOpen.Core.IAxoStep.SetIsEnabled(BOOL)
   - plc.AXOpen.Core.IAxoStep.GetIsEnabled()
+  - plc.AXOpen.Core.IAxoStep.IsFirstEntryToStep()
   name: IAxoStep
   fullName: IAxoStep
   type: Interface
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoStep
     path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
@@ -36,7 +37,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoStep.GetStepOrder
     path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
@@ -57,7 +58,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoStep.SetStepOrder
     path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
@@ -82,7 +83,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoStep.IsCalledJustOnceInThisPlcCycle
     path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
@@ -103,7 +104,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoStep.SetIsActive
     path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
@@ -126,7 +127,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoStep.GetIsActive
     path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
@@ -147,7 +148,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoStep.SetIsEnabled
     path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
@@ -170,7 +171,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoStep.GetIsEnabled
     path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
@@ -178,6 +179,27 @@ items:
   namespace: plc.AXOpen.Core
   syntax:
     content: Public BOOL GetIsEnabled()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.IAxoStep.IsFirstEntryToStep()
+  id: plc.AXOpen.Core.IAxoStep.IsFirstEntryToStep
+  parent: IAxoStep
+  children: []
+  name: IsFirstEntryToStep
+  fullName: IsFirstEntryToStep
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoStep.IsFirstEntryToStep
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
+    startLine: 9
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL IsFirstEntryToStep()
     parameters: *o0
     return:
       type: plc.BOOL

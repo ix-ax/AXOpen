@@ -7,6 +7,10 @@ dotnet ixd `
 .\src\components.cognex.vision\ctrl `
 .\src\components.pneumatics\ctrl `
 .\src\components.elements\ctrl `
+.\src\components.rexroth.drives\ctrl `
+.\src\components.festo.drives\ctrl `
+.\src\components.kuka.robotics\ctrl `
+.\src\components.mitsubishi.robotics\ctrl `
 .\src\template.axolibrary\ctrl `
 -o .\docfx\apictrl\
 

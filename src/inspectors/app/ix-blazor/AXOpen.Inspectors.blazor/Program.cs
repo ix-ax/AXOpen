@@ -62,7 +62,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.MapBlazorHub();
-app.MapHub<DialogHub>("/dialoghub");
+app.MapHub<SignalRDialogHub>("/dialoghub");
 app.MapFallbackToPage("/_Host");
 
 app.Run();

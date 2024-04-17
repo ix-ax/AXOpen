@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Logging.eLogLevel
     path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
@@ -35,7 +35,7 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Logging.eLogLevel.NoCat
     path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
@@ -52,7 +52,7 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Logging.eLogLevel.Verbose
     path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
@@ -69,7 +69,7 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Logging.eLogLevel.Debug
     path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
@@ -86,7 +86,7 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Logging.eLogLevel.Information
     path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
@@ -103,7 +103,7 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Logging.eLogLevel.Warning
     path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
@@ -120,7 +120,7 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Logging.eLogLevel.Error
     path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
@@ -137,7 +137,7 @@ items:
   source:
     remote:
       path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Logging.eLogLevel.Fatal
     path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st

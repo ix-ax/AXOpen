@@ -4,10 +4,10 @@ using AXSharp.Connector;
 
 namespace AXOpen.Core
 {
-    public partial class AxoAlertDialog : IsAlertDialogType
+    public partial class AxoAlert : IAlert
     {
         /// <inheritdoc/>
-        public string DialogId { get; set; }
+        public string DialogLocatorId { get; set; }
 
         /// <inheritdoc/>
         public new void Initialize(Action dialogAction)

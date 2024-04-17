@@ -13,7 +13,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.IAxoMessageProperties
     path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
@@ -32,7 +32,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.IAxoMessageProperties.RequireAcknowledgement
     path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
@@ -53,7 +53,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.IAxoMessageProperties.DoNotRequireAcknowledgement
     path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
@@ -74,7 +74,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.IAxoMessageProperties.IsAcknowledgementRequired
     path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st

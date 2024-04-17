@@ -36,7 +36,7 @@ NAMESPACE AXOpen.Elements
         END_VAR
        
 
-        METHOD PROTECTED OVERRIDE Restore : IAxoTask
+        METHOD PUBLIC OVERRIDE Restore 
             _isFalseTask.Restore();
             _isTrueTask.Restore();
         END_METHOD

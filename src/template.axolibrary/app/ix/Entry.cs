@@ -1,4 +1,6 @@
-﻿using AXSharp.Connector;
+﻿#define appconnectorname
+
+using AXSharp.Connector;
 using System;
 using System.Collections.Generic;
 using System.Linq;

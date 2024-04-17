@@ -38,13 +38,13 @@ app.MapHub<DialogHub>("/dialoghub");
 
 2. Go to your page, where you wish to have dialogs and include `AxoDialogLocator` component at the end of that page.
 
-Provide list of `ObservedObjects`, on which you want to observe dialogs. You can also provide `DialogId`, which serves for synchronization of dialogs between multiple clients. If `DialogId` is not provided, the current *URI* is used as an id.
+Provide list of `ObservedObjects`, on which you want to observe dialogs. You can also provide `DialogLocatorPath`, which serves for synchronization of dialogs between multiple clients. If `DialogLocatorPath` is not provided, the current *URI* is used as an id.
 
 > [!IMPORTANT]
-> Make sure, that each page has only one instance of `AxoDialogLocator` and that provided `DialogId` is unique across the application! If you wish to observe multiple objects, add them into `ObservedObjects` list.
+> Make sure, that each page has only one instance of `AxoDialogLocator` and that provided `DialogLocatorPath` is unique across the application! If you wish to observe multiple objects, add them into `ObservedObjects` list.
 
 ```HTML
-<AxoDialogLocator DialogId="custation001" ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator}"/>
+<AxoDialogLocator DialogLocatorPath="custation001" ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator}"/>
 ```
 
 Now, when dialog is invoked in PLC, it will show on all clients and pages, where `AxoDialogLocator` is present with corresponding observed objects. The answers are synchronized across multiple clients.
@@ -128,11 +128,84 @@ END_IF;
 For example, when Dialog plc type is `MyCustomModal`, the view must by named `MyCustomModalDialogView`, because implementation is using `Dialog` presentation type.
 
     The Blazor view must inherits from `@AxoDialogBaseView<MyCustomModal>`, where correct generic type of dialog from PLC must be passed. The opening/closing of dialog is managed in base class by virtual methods, which can be overridden if needed.
+  
 
-    It is recommended to use provided `ModalDialog` Blazor component, which can be customized by user needs and is fully compatible with closing/opening synchronization approach provided in base class. Otherwise, the open/close virtual methods from base class must be overridden and accordingly adapted.
-<!-- 
-Example implementation of basic dialog can be found in [AxoDialogDialogView.razor](../app/ix-blazor/axopencore.blazor/AxoDialogs/AxoDialogDialogView/AxoDialogDialogView.razor). -->
+## .Net integration UML
 
+
+```mermaid
+classDiagram
+    class AxoDialogLocator {
+      -AxoDialogLocatorService _dialogProxyService
+      -string ModalDisplay
+      -string ModalClass
+      -bool ShowBackdrop
+      -SignalRDialogClient SignalRClient
+      -IEnumerable<ITwinObject> ObservedObjects
+      -string DialogLocatorPath
+      -Guid DialogLocatorGuid
+      -int DialogOpenDelay
+      -bool IsAnyDialogActive
+      +InitializeSignalR(string uri) Task
+      +OnAfterRenderAsync(bool firstRender) Task
+      +InitializedDialogHandling() Task
+      +Refresh() Task
+      +Open() void
+      +Close() void
+      +Dispose() void
+    }
+    
+    class SignalRDialogClient {
+      -string _hubUrl
+      -HubConnection _hubConnection
+      +StartAsync() Task
+      +SendToAllClients_OpenDialog(string SymbolOfDialogInstance) Task
+      +SendToAllClients_CloseDialog(string SymbolOfDialogInstance) Task
+      +StopAsync() Task
+      +DisposeAsync() ValueTask
+    }
+
+    class AxoDialogContainer {
+      -SignalRDialogClient _singalRDialogClient
+      -HashSet<string> ObservedObjectsAlerts
+      -Dictionary<string, AxoDialogMonitoring> MonitoredDialogs
+      -Dictionary<string, AxoDialogLocatorService> DialogLocatorServicesDictionary
+      -Dictionary<string, AxoAlertDialogProxyService> AlertDialogProxyServicesDictionary
+      +InitializeSignalR(string uri) Task
+      +SendToAllClients_CloseDialog(string dialogInstanceSymbol) Task
+      +CollectDialogsOnObjects(IEnumerable<ITwinObject> _observedObject) Dictionary
+      +DisposeAsync() ValueTask
+    }
+
+    class AxoDialogLocatorService {
+      -AxoDialogContainer _dialogContainer
+      -IEnumerable<ITwinObject> _observedObject
+      -Dictionary<string, AxoDialogMonitoring> _observedDialogs
+      -string LocatorPath
+      -List<Guid> _subscribers
+      -List<IsDialogType> DisplayedDialogs
+      +StartObservingDialogues(Guid dialogLocatorGuid) void
+      +StopObservingDialogues(Guid dialogLocatorGuid) void
+      +Dispose() void
+    }
+
+    class AxoDialogMonitoring {
+      -AxoDialogBase Dialog
+      -List<string> _subscribers
+      +StartDialogMonitoring(string locatorId) void
+      +StopDialogMonitoring(string locatorId) void
+      +Dispose() void
+    }
+
+    AxoDialogLocator "1" -- "1" AxoDialogLocatorService : uses 
+    AxoDialogLocator "1" -- "1" SignalRDialogClient : uses
+    AxoDialogLocatorService "1" -- "1" AxoDialogContainer : uses
+    AxoDialogContainer "1" -- "*" AxoDialogMonitoring : contains
+    AxoDialogLocatorService "1" -- "*" AxoDialogMonitoring : contains
+    AxoDialogContainer "1" -- "*" AxoDialogLocatorService : contains
+    AxoDialogContainer "1" -- "1" SignalRDialogClient : uses
+
+```
 
 
 

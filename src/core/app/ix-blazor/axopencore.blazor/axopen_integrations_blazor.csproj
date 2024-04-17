@@ -16,7 +16,7 @@
 
 
 	<ItemGroup>		
-		<PackageReference Include="AXSharp.Presentation.Blazor.Controls"/>
+		<PackageReference Include="AXSharp.Presentation.Blazor.Controls" />
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\..\base\src\AXOpen.Base.Abstractions\AXOpen.Base.Abstractions.csproj" />

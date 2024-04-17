@@ -147,6 +147,7 @@ public class BuildContext : FrostingContext
     #region Libraries
     public IEnumerable<(string folder, string name, bool pack)> Libraries { get; } = new[]
     {
+        ("sdk-ax", "ax-sdk", true),
         ("abstractions", "axopen.abstractions", true),
         ("timers", "axopen.timers", true),
         ("simatic1500", "axopen.simatic1500", true),
@@ -155,14 +156,24 @@ public class BuildContext : FrostingContext
         ("data", "axopen.data", true),
         ("probers", "axopen.probers", true),
         ("inspectors", "axopen.inspectors", true),
-        ("components.elements", "axopen.components.elements", true),
         ("components.abstractions", "axopen.components.abstractions", true),
+        ("components.elements", "axopen.components.elements", true),
+        ("io", "axopen.io", true),
         ("components.cognex.vision", "axopen.components.cognex.vision", true),
         ("components.pneumatics", "axopen.components.pneumatics", true),
         ("components.drives", "axopen.components.drives", true),
         ("components.rexroth.drives", "axopen.components.rexroth.drives", true),
+        ("components.rexroth.press", "axopen.components.rexroth.press", true),
+        ("components.festo.drives", "axopen.components.festo.drives", true),
+        ("components.desoutter.tightening", "axopen.components.desoutter.tightening", true),
+        ("components.robotics", "axopen.components.robotics", true),
+        ("components.abb.robotics", "axopen.components.abb.robotics", true),
+        ("components.mitsubishi.robotics", "axopen.components.mitsubishi.robotics", true),
+        ("components.ur.robotics", "axopen.components.ur.robotics", true),
+        ("components.kuka.robotics", "axopen.components.kuka.robotics", true),
+        ("components.siemens.identification", "axopen.components.siemens.identification", true),
+        ("components.balluff.identification", "axopen.components.balluff.identification", true),
         ("integrations", "ix.integrations", false),
-        ("templates.simple", "templates.simple", false),
         ("template.axolibrary", "template.axolibrary", false)
     };
     #endregion
@@ -194,6 +205,26 @@ public class BuildContext : FrostingContext
         };
 
         return paths.Where(p => File.Exists(Path.Combine(p, "apax.yml")));
+    }
+
+    public IEnumerable<string> GetLibraryAxFolders((string folder, string name, bool pack) library)
+    {
+        var paths = new string[]
+        {
+            Path.Combine(Path.Combine(RootDir, library.folder), "ctrl")
+        };
+
+        return paths.Where(p => File.Exists(Path.Combine(p, "apax.yml")));
+    }
+
+    public IEnumerable<string> GetLibraryWithTestAxFolders((string folder, string name, bool pack) library)
+    {
+        var paths = new string[]
+        {
+            Path.Combine(Path.Combine(RootDir, library.folder), "ctrl")
+        };
+
+        return paths.Where(p => File.Exists(Path.Combine(p, "apax.yml")) && Directory.Exists(Path.Combine(p, "tests"))).ToList();
     }
 
     public string GetLibFolder((string folder, string name, bool pack) library)

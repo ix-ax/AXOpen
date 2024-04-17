@@ -12,7 +12,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoComponent\IAxoManuallyControllable.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoManuallyControllable
     path: .\src\core\ctrl\src\abstractions\AxoComponent\IAxoManuallyControllable.st
@@ -31,7 +31,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoComponent\IAxoManuallyControllable.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoManuallyControllable.ActivateManualControl
     path: .\src\core\ctrl\src\abstractions\AxoComponent\IAxoManuallyControllable.st
@@ -52,7 +52,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\AxoComponent\IAxoManuallyControllable.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.IAxoManuallyControllable.IsManuallyControllable
     path: .\src\core\ctrl\src\abstractions\AxoComponent\IAxoManuallyControllable.st

@@ -19,7 +19,10 @@ PROGRAM MyProgram
         AxoTextListExampleContext : AxoTextListExample.AxoTextListExampleContext;                
         AxoByteArrayExampleContext : AxoByteArrayExample.AxoByteArrayExampleContext;
         AxoBoolArrayExampleContext : AxoBoolArrayExample.AxoBoolArrayExampleContext;
-        AxoLoggers : AxoLoggerExamples.Loggers;                
+        AxoLoggers : AxoLoggerExamples.Loggers;  
+        D_111 : AxoDialogExamples.Dialogs;              
+        D_222 : AxoDialogExamples.Dialogs;               
+        //Dialogs : AxoDialogExamples.Dialogs;              
         AxoRtc : AxoRtc.AxoS71500Rtc;
 
     END_VAR    
@@ -48,5 +51,11 @@ PROGRAM MyProgram
     AxoBoolArrayExampleContext.Run();
 
     AxoLoggers.InjectRtc(AxoRtc);
-    AxoLoggers.Run();     	
+    AxoLoggers.Run();    
+    
+    D_111.InjectRtc(AxoRtc);
+    D_111.Run();  
+
+    D_222.InjectRtc(AxoRtc);
+    D_222.Run();  
 END_PROGRAM

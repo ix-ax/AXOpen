@@ -1,0 +1,95 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Messaging.Static.eAxoMessengerState
+  id: plc.AXOpen.Messaging.Static.eAxoMessengerState
+  parent: plc.AXOpen.Messaging.Static
+  children:
+  - plc.AXOpen.Messaging.Static.eAxoMessengerState.Idle
+  - plc.AXOpen.Messaging.Static.eAxoMessengerState.ActiveNoAck
+  - plc.AXOpen.Messaging.Static.eAxoMessengerState.ActiveAckn
+  - plc.AXOpen.Messaging.Static.eAxoMessengerState.NotActiveWatingAckn
+  name: eAxoMessengerState
+  fullName: eAxoMessengerState
+  type: Enum
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.eAxoMessengerState
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 6
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: eAxoMessengerState
+- uid: plc.AXOpen.Messaging.Static.eAxoMessengerState.Idle
+  id: plc.AXOpen.Messaging.Static.eAxoMessengerState.Idle
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: Idle
+  fullName: Idle
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.eAxoMessengerState.Idle
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 6
+  namespace: plc.AXOpen.Messaging.Static
+- uid: plc.AXOpen.Messaging.Static.eAxoMessengerState.ActiveNoAck
+  id: plc.AXOpen.Messaging.Static.eAxoMessengerState.ActiveNoAck
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: ActiveNoAck
+  fullName: ActiveNoAck
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.eAxoMessengerState.ActiveNoAck
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 6
+  namespace: plc.AXOpen.Messaging.Static
+- uid: plc.AXOpen.Messaging.Static.eAxoMessengerState.ActiveAckn
+  id: plc.AXOpen.Messaging.Static.eAxoMessengerState.ActiveAckn
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: ActiveAckn
+  fullName: ActiveAckn
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.eAxoMessengerState.ActiveAckn
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 6
+  namespace: plc.AXOpen.Messaging.Static
+- uid: plc.AXOpen.Messaging.Static.eAxoMessengerState.NotActiveWatingAckn
+  id: plc.AXOpen.Messaging.Static.eAxoMessengerState.NotActiveWatingAckn
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: NotActiveWatingAckn
+  fullName: NotActiveWatingAckn
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.eAxoMessengerState.NotActiveWatingAckn
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 6
+  namespace: plc.AXOpen.Messaging.Static
+references:
+- uid: plc.AXOpen.Messaging.Static.eAxoMessengerState
+  name: eAxoMessengerState
+  nameWithType: eAxoMessengerState
+  fullName: AXOpen.Messaging.Static.eAxoMessengerState
+
+

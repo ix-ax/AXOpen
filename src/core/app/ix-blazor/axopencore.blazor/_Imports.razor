@@ -11,3 +11,11 @@
 @using AXSharp.Presentation.Blazor.Controls.RenderableContent
 @using axopencore
 @using AXOpen.Core;
+@using Microsoft.Extensions.Localization
+@using System.Globalization
+
+
+@inject IStringLocalizer<AXOpen.Core.Blazor.Resources.StringResources> Localizer
+@inject IStringLocalizer<AXOpen.Core.Resources.PlcStringResources> PlcLocalizer
+
+

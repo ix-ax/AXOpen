@@ -137,4 +137,48 @@ public partial class AxoMessenger
 
         return FindParentOfType<T>(node.GetParent());
     }
+    
+     /// <summary>
+        /// Retrieves the message text based on the message code.
+        /// </summary>
+        /// <returns>The message text string.</returns>
+        public string GetMessageText()
+        {
+            ulong messageCode = this.MessageCode.LastValue;
+            string retVal = "";
+
+            //Just one static text defined inside the `MessageText` attribute in the PLC code is used
+            if (messageCode == 0)
+                retVal = string.IsNullOrEmpty(this.MessageText) || this.MessageText == this.GetSymbolTail() ? "Message text not defined!" : this.MessageText;
+            else
+            {
+                try
+                {
+                    //Several static texts defined inside the `PlcTextsList` attribute in the PLC code are used
+                    if (this.PlcMessengerTextList != null && this.PlcMessengerTextList.Count > 0)
+                    {
+                        string _messageText = (from item in this.PlcMessengerTextList where item.Key == messageCode select item.Value.MessageText.ToString()).FirstOrDefault();
+                        retVal = string.IsNullOrEmpty(_messageText) ? "Message text not defined for the message code: " + messageCode.ToString() + " !" : _messageText;
+                    }
+                    //Message texts are written in .NET and passed into the component
+                    else if (this.DotNetMessengerTextList != null && this.DotNetMessengerTextList.Count > 0)
+                    {
+                        string _messageText = (from item in this.DotNetMessengerTextList where item.Key == messageCode select item.Value.MessageText.ToString()).FirstOrDefault();
+                        retVal = string.IsNullOrEmpty(_messageText) ? "Message text not defined for the message code: " + messageCode.ToString() + " !" : _messageText;
+                    }
+                    else
+                    {
+                        retVal = "Message text not defined for the message code: " + messageCode.ToString() + " !";
+                    }
+                }
+                catch (Exception)
+                {
+                    retVal = "Message text not defined for the message code: " + messageCode.ToString() + " !";
+                    return retVal;
+                    throw;
+                }
+            }
+            return retVal;
+        }
+
 }

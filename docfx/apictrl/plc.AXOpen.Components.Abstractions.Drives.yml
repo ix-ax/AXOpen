@@ -3,6 +3,7 @@ items:
 - uid: plc.AXOpen.Components.Abstractions.Drives
   id: plc.AXOpen.Components.Abstractions.Drives
   children:
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoAxisReference
   - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive
   - plc.AXOpen.Components.Abstractions.Drives.IAxo_Power
   name: plc.AXOpen.Components.Abstractions.Drives
@@ -10,14 +11,18 @@ items:
   type: Namespace
   source:
     remote:
-      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoAxisReference.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Abstractions.Drives
-    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoAxisReference.st
     startLine: 1
   namespace: plc.AXOpen.Components.Abstractions.Drives
 references:
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoAxisReference
+  name: IAxoAxisReference
+  nameWithType: IAxoAxisReference
+  fullName: AXOpen.Components.Abstractions.Drives.IAxoAxisReference
 - uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive
   name: IAxoDrive
   nameWithType: IAxoDrive

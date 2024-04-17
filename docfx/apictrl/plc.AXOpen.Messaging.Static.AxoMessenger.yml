@@ -14,6 +14,7 @@ items:
   - plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgeRequest
   - plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgedBeforeFallen
   - plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledged
+  - plc.AXOpen.Messaging.Static.AxoMessenger.MessengerState
   - plc.AXOpen.Messaging.Static.AxoMessenger.ActiveContextCount
   - plc.AXOpen.Messaging.Static.AxoMessenger.Context
   - plc.AXOpen.Messaging.Static.AxoMessenger.Serve(IAxoContext)
@@ -37,11 +38,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 4
+    startLine: 9
   namespace: plc.AXOpen.Messaging.Static
   syntax:
     content: CLASS AxoMessenger
@@ -51,6 +52,7 @@ items:
   - plc.AXOpen.Core.AxoObject.Identity
   - plc.AXOpen.Core.AxoObject.GetIdentity()
   - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
   - plc.AXOpen.Core.AxoObject.GetParent()
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
@@ -67,11 +69,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.IsActive
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 9
+    startLine: 16
   namespace: plc.AXOpen.Messaging.Static
   syntax:
     content: 'IsActive : BOOL'
@@ -87,11 +89,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Category
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 11
+    startLine: 19
   namespace: plc.AXOpen.Messaging.Static
   syntax:
     content: 'Category : AXOpen.Messaging.eAxoMessageCategory'
@@ -107,11 +109,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.MessageCode
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 14
+    startLine: 21
   namespace: plc.AXOpen.Messaging.Static
   syntax:
     content: 'MessageCode : ULINT'
@@ -127,11 +129,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Risen
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 16
+    startLine: 23
   namespace: plc.AXOpen.Messaging.Static
   syntax:
     content: 'Risen : LDATE_AND_TIME'
@@ -147,11 +149,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Fallen
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 18
+    startLine: 25
   namespace: plc.AXOpen.Messaging.Static
   syntax:
     content: 'Fallen : LDATE_AND_TIME'
@@ -167,11 +169,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.WaitingForAcknowledge
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 20
+    startLine: 27
   namespace: plc.AXOpen.Messaging.Static
   syntax:
     content: 'WaitingForAcknowledge : BOOL'
@@ -187,11 +189,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgementRequired
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 22
+    startLine: 30
   namespace: plc.AXOpen.Messaging.Static
   syntax:
     content: 'AcknowledgementRequired : BOOL'
@@ -207,11 +209,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgeRequest
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 24
+    startLine: 34
   namespace: plc.AXOpen.Messaging.Static
   syntax:
     content: 'AcknowledgeRequest : BOOL'
@@ -227,11 +229,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgedBeforeFallen
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 25
+    startLine: 34
   namespace: plc.AXOpen.Messaging.Static
   syntax:
     content: 'AcknowledgedBeforeFallen : BOOL'
@@ -247,16 +249,36 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledged
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 27
+    startLine: 37
   namespace: plc.AXOpen.Messaging.Static
   syntax:
     content: 'Acknowledged : LDATE_AND_TIME'
     return:
       type: LDATE_AND_TIME
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.MessengerState
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.MessengerState
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: MessengerState
+  fullName: MessengerState
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.MessengerState
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 39
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'MessengerState : AXOpen.Messaging.Static.eAxoMessengerState'
+    return:
+      type: AXOpen.Messaging.Static.eAxoMessengerState
 - uid: plc.AXOpen.Messaging.Static.AxoMessenger.ActiveContextCount
   id: plc.AXOpen.Messaging.Static.AxoMessenger.ActiveContextCount
   parent: AXOpen.Messaging.Static
@@ -267,11 +289,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.ActiveContextCount
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 32
+    startLine: 44
   namespace: plc.AXOpen.Messaging.Static
   syntax:
     content: 'ActiveContextCount : ULINT'
@@ -287,11 +309,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Context
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 35
+    startLine: 47
   namespace: plc.AXOpen.Messaging.Static
   syntax:
     content: 'Context : AXOpen.Core.IAxoContext'
@@ -307,11 +329,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Serve
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 40
+    startLine: 52
   namespace: plc.AXOpen.Messaging.Static
   summary: Ensures the inicialization of the instance, so as the deactivation of the message. Must be called cyclically.
   syntax:
@@ -331,11 +353,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Serve
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 71
+    startLine: 98
   namespace: plc.AXOpen.Messaging.Static
   summary: Ensures the inicialization of the instance, so as the deactivation of the message. Must be called cyclically.
   syntax:
@@ -355,11 +377,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Activate
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 88
+    startLine: 144
   namespace: plc.AXOpen.Messaging.Static
   summary: Activates the message of the entered category immediatelly.
   syntax:
@@ -379,11 +401,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Activate
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 122
+    startLine: 179
   namespace: plc.AXOpen.Messaging.Static
   syntax:
     content: Private AXOpen.Messaging.Static.IAxoMessageProperties Activate(in plc.ULINT _messageCode,in plc.AXOpen.Messaging.eAxoMessageCategory _category)
@@ -404,11 +426,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 158
+    startLine: 212
   namespace: plc.AXOpen.Messaging.Static
   summary: Activates the message of the entered category on the rising edge of the condition.
   syntax:
@@ -430,11 +452,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 177
+    startLine: 231
   namespace: plc.AXOpen.Messaging.Static
   summary: Activates the message of the entered category by using the text list on the rising edge of the condition.
   syntax:
@@ -458,11 +480,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 204
+    startLine: 258
   namespace: plc.AXOpen.Messaging.Static
   syntax:
     content: Private VOID Deactivate(in plc.ULINT _messageCode)
@@ -481,11 +503,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 224
+    startLine: 280
   namespace: plc.AXOpen.Messaging.Static
   syntax:
     content: Private VOID Deactivate()
@@ -502,11 +524,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 246
+    startLine: 305
   namespace: plc.AXOpen.Messaging.Static
   syntax:
     content: Private VOID Acknowledge(in plc.ULINT _messageCode)
@@ -525,11 +547,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 270
+    startLine: 331
   namespace: plc.AXOpen.Messaging.Static
   syntax:
     content: Private VOID Acknowledge()
@@ -546,11 +568,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.Restore
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 290
+    startLine: 350
   namespace: plc.AXOpen.Messaging.Static
   summary: Restores all members of this instance to their initial states.
   syntax:
@@ -568,11 +590,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.ToLogLevel
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 308
+    startLine: 366
   namespace: plc.AXOpen.Messaging.Static
   syntax:
     content: Private AXOpen.Logging.eLogLevel ToLogLevel(in plc.AXOpen.Messaging.eAxoMessageCategory _messageCategory)
@@ -591,11 +613,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.RequireAcknowledgement
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 344
+    startLine: 402
   namespace: plc.AXOpen.Messaging.Static
   summary: Forces to require the message acknowledgement, even if the message category does not require it by default.
   syntax:
@@ -613,11 +635,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.DoNotRequireAcknowledgement
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 350
+    startLine: 407
   namespace: plc.AXOpen.Messaging.Static
   summary: Forces to not require the message acknowledgement, even if the message category requires it by default.
   syntax:
@@ -635,11 +657,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static.AxoMessenger.IsAcknowledgementRequired
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-    startLine: 350
+    startLine: 407
   namespace: plc.AXOpen.Messaging.Static
   summary: Returns TRUE if requires the message acknowledgement.
   syntax:
@@ -666,6 +688,12 @@ references:
   nameWithType: GetContext()
   fullName: plc.AXOpen.Core.AxoObject.GetContext()
   parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
 - uid: plc.AXOpen.Core.AxoObject.GetParent()
   commentId: plc.AXOpen.Core.AxoObject.GetParent()
   name: GetParent()
@@ -712,6 +740,10 @@ references:
   name: LDATE_AND_TIME
   nameWithType: LDATE_AND_TIME
   fullName: LDATE_AND_TIME
+- uid: plc.AXOpen.Messaging.Static.eAxoMessengerState
+  name: eAxoMessengerState
+  nameWithType: eAxoMessengerState
+  fullName: AXOpen.Messaging.Static.eAxoMessengerState
 - uid: plc.AXOpen.Core.IAxoContext
   name: IAxoContext
   nameWithType: IAxoContext

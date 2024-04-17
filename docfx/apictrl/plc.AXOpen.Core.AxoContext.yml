@@ -29,7 +29,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoContext
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
@@ -52,11 +52,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoContext._openCounter
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-    startLine: 12
+    startLine: 13
   namespace: plc.AXOpen.Core
   syntax:
     content: '_openCounter : ULINT'
@@ -72,11 +72,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoContext._closeCounter
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-    startLine: 13
+    startLine: 14
   namespace: plc.AXOpen.Core
   syntax:
     content: '_closeCounter : ULINT'
@@ -92,11 +92,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoContext._identityCounter
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-    startLine: 13
+    startLine: 14
   namespace: plc.AXOpen.Core
   syntax:
     content: '_identityCounter : ULINT'
@@ -112,11 +112,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.NULL_RTC
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-    startLine: 67
+    startLine: 68
   namespace: plc.AXOpen.Core
   syntax:
     content: 'NULL_RTC : AXOpen.Core._NULL_RTC'
@@ -132,11 +132,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoContext._rtc
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-    startLine: 68
+    startLine: 69
   namespace: plc.AXOpen.Core
   syntax:
     content: '_rtc : AXOpen.Rtc.IAxoRtc'
@@ -152,11 +152,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.NULL_LOGGER
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-    startLine: 87
+    startLine: 88
   namespace: plc.AXOpen.Core
   syntax:
     content: 'NULL_LOGGER : AXOpen.Core._NULL_LOGGER'
@@ -172,11 +172,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoContext._contextLogger
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-    startLine: 88
+    startLine: 89
   namespace: plc.AXOpen.Core
   syntax:
     content: '_contextLogger : AXOpen.Logging.IAxoLogger'
@@ -192,11 +192,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.Open
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-    startLine: 25
+    startLine: 26
   namespace: plc.AXOpen.Core
   syntax:
     content: Private ULINT Open()
@@ -213,11 +213,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.Close
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-    startLine: 29
+    startLine: 30
   namespace: plc.AXOpen.Core
   syntax:
     content: Private ULINT Close()
@@ -234,11 +234,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.Run
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-    startLine: 38
+    startLine: 39
   namespace: plc.AXOpen.Core
   summary: Runs the cycle of this context. This method must be called cyclically in a PLC task.
   syntax:
@@ -256,11 +256,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.OpenCycleCount
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-    startLine: 45
+    startLine: 47
   namespace: plc.AXOpen.Core
   summary: Gets the value of current context cycle counter.
   syntax:
@@ -278,11 +278,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.ClosedCycleCount
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-    startLine: 50
+    startLine: 51
   namespace: plc.AXOpen.Core
   syntax:
     content: Public ULINT ClosedCycleCount()
@@ -299,11 +299,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.CreateIdentity
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-    startLine: 53
+    startLine: 54
   namespace: plc.AXOpen.Core
   syntax:
     content: Public ULINT CreateIdentity()
@@ -320,11 +320,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.PeekIdentity
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-    startLine: 61
+    startLine: 62
   namespace: plc.AXOpen.Core
   syntax:
     content: Public ULINT PeekIdentity()
@@ -341,11 +341,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.GetRtc
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-    startLine: 70
+    startLine: 71
   namespace: plc.AXOpen.Core
   syntax:
     content: Public AXOpen.Rtc.IAxoRtc GetRtc()
@@ -362,11 +362,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.InjectRtc
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-    startLine: 81
+    startLine: 82
   namespace: plc.AXOpen.Core
   syntax:
     content: Public VOID InjectRtc(in plc.AXOpen.Rtc.IAxoRtc Rtc)
@@ -385,11 +385,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.GetLogger
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-    startLine: 90
+    startLine: 91
   namespace: plc.AXOpen.Core
   syntax:
     content: Public AXOpen.Logging.IAxoLogger GetLogger()
@@ -406,11 +406,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.InjectLogger
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-    startLine: 100
+    startLine: 101
   namespace: plc.AXOpen.Core
   syntax:
     content: Public VOID InjectLogger(in plc.AXOpen.Logging.IAxoLogger _logger)
@@ -429,11 +429,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoContext.Main
     path: .\src\core\ctrl\src\AxoContext\AxoContext.st
-    startLine: 22
+    startLine: 23
   namespace: plc.AXOpen.Core
   summary: The entry point for the context. The call tree of the context start here and all the logic of given contextmust be placed here.This method must be overridden in derived class.
   syntax:

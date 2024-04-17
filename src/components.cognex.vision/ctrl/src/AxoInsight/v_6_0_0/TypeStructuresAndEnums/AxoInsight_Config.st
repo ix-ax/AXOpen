@@ -10,6 +10,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             ErrorTime : LTIME := LT#5S;
             {#ix-set:AttributeName = "<#Max job number#>"}
             MaxJobNumber : UINT := UINT#999;
+            {#ix-set:AttributeName = "<#Result data size#>"}
+            ResultDataSize : eAxoInsight_ResultDataSize := eAxoInsight_ResultDataSize#RESULT_DATA_SIZE_INVALID;
+            {#ix-set:AttributeName = "<#User data size#>"}
+            UserDataSize : eAxoInsight_UserDataSize := eAxoInsight_UserDataSize#USER_DATA_SIZE_INVALID;
         END_STRUCT;
     END_TYPE 
 END_NAMESPACE

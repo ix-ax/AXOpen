@@ -13,11 +13,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core._NULL_LOGGER
     path: .\src\core\ctrl\src\abstractions\NULLs.st
-    startLine: 53
+    startLine: 60
   namespace: plc.AXOpen.Core
   summary: Provides an empty logger object for uninitialized context logger.
   syntax:
@@ -36,11 +36,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core._NULL_LOGGER.Log
     path: .\src\core\ctrl\src\abstractions\NULLs.st
-    startLine: 55
+    startLine: 64
   namespace: plc.AXOpen.Core
   syntax:
     content: Public VOID Log(in plc.STRING[80] _message,in plc.AXOpen.Logging.eLogLevel _level,in plc.AXOpen.Core.IAxoObject _sender)
@@ -63,11 +63,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core._NULL_LOGGER.Log
     path: .\src\core\ctrl\src\abstractions\NULLs.st
-    startLine: 64
+    startLine: 73
   namespace: plc.AXOpen.Core
   syntax:
     content: Public VOID Log(in plc.STRING[80] _message,in plc.AXOpen.Logging.eLogLevel _level)
@@ -88,11 +88,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\abstractions\NULLs.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core._NULL_LOGGER.SetMinimumLevel
     path: .\src\core\ctrl\src\abstractions\NULLs.st
-    startLine: 73
+    startLine: 82
   namespace: plc.AXOpen.Core
   syntax:
     content: Public AXOpen.Logging.IAxoLoggerConfig SetMinimumLevel(in plc.AXOpen.Logging.eLogLevel _level)

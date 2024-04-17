@@ -29,7 +29,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
@@ -44,6 +44,7 @@ items:
   - plc.AXOpen.Core.AxoObject.Identity
   - plc.AXOpen.Core.AxoObject.GetIdentity()
   - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
   - plc.AXOpen.Core.AxoObject.GetParent()
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
@@ -59,11 +60,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.State
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-    startLine: 13
+    startLine: 14
   namespace: plc.AXOpen.Core
   syntax:
     content: 'State : BOOL'
@@ -79,11 +80,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.RemoteSwitchOn
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-    startLine: 20
+    startLine: 21
   namespace: plc.AXOpen.Core
   summary: Remote request to set the state of this task to '''TRUE'''.
   syntax:
@@ -100,11 +101,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.IsDisabled
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-    startLine: 24
+    startLine: 25
   namespace: plc.AXOpen.Core
   summary: Gets or sets whether this task is disabled for any manipulations.
   syntax:
@@ -121,11 +122,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask._openCycleCount
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-    startLine: 37
+    startLine: 39
   namespace: plc.AXOpen.Core
   syntax:
     content: '_openCycleCount : ULINT'
@@ -141,11 +142,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.GetState
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-    startLine: 42
+    startLine: 43
   namespace: plc.AXOpen.Core
   summary: Gets the actual state of this task.
   syntax:
@@ -163,11 +164,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.IsRunCalledInThisPlcCycle
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-    startLine: 45
+    startLine: 47
   namespace: plc.AXOpen.Core
   syntax:
     content: Private BOOL IsRunCalledInThisPlcCycle()
@@ -184,11 +185,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.WasRunCalledInPreviousPlcCycle
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-    startLine: 53
+    startLine: 55
   namespace: plc.AXOpen.Core
   syntax:
     content: Private BOOL WasRunCalledInPreviousPlcCycle()
@@ -205,11 +206,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.Run
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-    startLine: 66
+    startLine: 68
   namespace: plc.AXOpen.Core
   summary: This method needs to be called cyclically.
   syntax:
@@ -227,11 +228,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.SetIsDisabled
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-    startLine: 91
+    startLine: 93
   namespace: plc.AXOpen.Core
   summary: Sets the value of the `IsDisabled` variable
   syntax:
@@ -251,11 +252,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.GetIsDisabled
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-    startLine: 106
+    startLine: 107
   namespace: plc.AXOpen.Core
   summary: Returns the value of the `IsDisabled` variable
   syntax:
@@ -273,11 +274,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.IsSwitchedOn
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-    startLine: 113
+    startLine: 114
   namespace: plc.AXOpen.Core
   summary: Returns `TRUE` if task is switched on
   syntax:
@@ -295,11 +296,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.IsSwitchedOff
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-    startLine: 119
+    startLine: 120
   namespace: plc.AXOpen.Core
   summary: Returns `TRUE` if task is switched off
   syntax:
@@ -317,11 +318,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.SwitchOff
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-    startLine: 121
+    startLine: 123
   namespace: plc.AXOpen.Core
   syntax:
     content: Private VOID SwitchOff()
@@ -338,11 +339,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.SwitchOn
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-    startLine: 136
+    startLine: 137
   namespace: plc.AXOpen.Core
   syntax:
     content: Private VOID SwitchOn()
@@ -359,11 +360,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.OnSwitchedOn
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-    startLine: 159
+    startLine: 160
   namespace: plc.AXOpen.Core
   summary: Executes ones when momentary task changes its state from '''FALSE''' to '''TRUE'''.
   syntax:
@@ -381,11 +382,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.OnSwitchedOff
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-    startLine: 165
+    startLine: 166
   namespace: plc.AXOpen.Core
   summary: Executes ones when momentary task changes its state from '''TRUE''' to '''FALSE'''.
   syntax:
@@ -403,11 +404,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.OnStateChanged
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-    startLine: 172
+    startLine: 173
   namespace: plc.AXOpen.Core
   summary: Executes ones when momentary task changes its state.
   syntax:
@@ -425,11 +426,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.SwitchedOn
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-    startLine: 174
+    startLine: 176
   namespace: plc.AXOpen.Core
   summary: Executes while the task is in `On` state.
   syntax:
@@ -447,11 +448,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoMomentaryTask.SwitchedOff
     path: .\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st
-    startLine: 174
+    startLine: 176
   namespace: plc.AXOpen.Core
   summary: Executes while the task is in `Off` state.
   syntax:
@@ -478,6 +479,12 @@ references:
   nameWithType: GetContext()
   fullName: plc.AXOpen.Core.AxoObject.GetContext()
   parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
 - uid: plc.AXOpen.Core.AxoObject.GetParent()
   commentId: plc.AXOpen.Core.AxoObject.GetParent()
   name: GetParent()

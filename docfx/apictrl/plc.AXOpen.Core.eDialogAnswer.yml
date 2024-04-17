@@ -15,7 +15,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.eDialogAnswer
     path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
@@ -33,7 +33,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.eDialogAnswer.NoAnswer
     path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
@@ -49,7 +49,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.eDialogAnswer.OK
     path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
@@ -65,7 +65,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.eDialogAnswer.Yes
     path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
@@ -81,7 +81,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.eDialogAnswer.No
     path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
@@ -97,7 +97,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.eDialogAnswer.Cancel
     path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
