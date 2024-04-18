@@ -25,8 +25,8 @@ variables:
 
 devDependencies:
   "@ix-ax/ax-sdk": '0.1.0'
-  "@ax/hwc": ^0.12.217
-  "@ax/hwld": ^0.8.23
+  "@ax/hwc": ^0.13.375
+  "@ax/hwld": ^0.9.479
   "@ax/dcp-utility": ^1.1.1
 dependencies:
   "@ix-ax/axopen.core": '0.1.0'
