@@ -7,8 +7,8 @@ files:
   - apax.yml
 dependencies:
   "@ax/sdk": ^2311.0.1
-  "@ax/hwc": ^0.12.217
-  "@ax/hwld": ^0.8.23
+  "@ax/hwc": ^0.13.375
+  "@ax/hwld": ^0.9.479
   "@ax/dcp-utility": ^1.1.1
   "@ax/axunitst": ^4.1.8
   # "@ax/axunitst": 4.1.8
