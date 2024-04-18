@@ -1,5 +1,5 @@
 name: "utils-app"
-version        : '0.1.0'
+version: '0.1.0'
 type: app
 targets:
   - plcsim
@@ -8,12 +8,12 @@ variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
 devDependencies:
-  "@ix-ax/ax-sdk"        : '0.1.0'
+  "@ix-ax/ax-sdk": '0.1.0'
 dependencies:
-  "@ix-ax/axopen.timers"        : '0.1.0'
-  "@ix-ax/axopen.utils"        : '0.1.0'
-  "@ix-ax/axopen.core"        : '0.1.0'
-  "@ix-ax/axopen.abstractions"        : '0.1.0'
+  "@ix-ax/axopen.timers": '0.1.0'
+  "@ix-ax/axopen.utils": '0.1.0'
+  "@ix-ax/axopen.core": '0.1.0'
+  "@ix-ax/axopen.abstractions": '0.1.0'
   "@ax/system-serde": ^6.0.94
   "@ax/system-strings": ^6.0.94
 scripts:
@@ -23,4 +23,4 @@ scripts:
     - apax sld load --accept-security-disclaimer -t $AXTARGET -i
       $AXTARGETPLATFORMINPUT -r
 installStrategy: strict
-apaxVersion: 3.1.0
+apaxVersion: 3.1.1
