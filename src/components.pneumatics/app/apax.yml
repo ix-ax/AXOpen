@@ -1,14 +1,14 @@
 name: "pneumaticcomponents"
-version        : '0.1.0'
+version: '0.1.0'
 type: app
 targets:
   - llvm
   - plcsim
 devDependencies:
-  "@ix-ax/ax-sdk"        : '0.1.0'
+  "@ix-ax/ax-sdk": '0.1.0'
 dependencies:
-  "@ix-ax/axopen.components.pneumatics"        : '0.1.0'
-  "@ix-ax/axopen.simatic1500"        : '0.1.0'
+  "@ix-ax/axopen.components.pneumatics": '0.1.0'
+  "@ix-ax/axopen.simatic1500": '0.1.0'
 variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
@@ -60,4 +60,4 @@ scripts:
     - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in
       :" $(expr $(date +%s) - $START) "s"
 installStrategy: strict
-apaxVersion: 3.1.0
+apaxVersion: 3.1.1
