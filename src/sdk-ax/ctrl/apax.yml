@@ -1,5 +1,5 @@
 name: "@ix-ax/ax-sdk"
-version: '0.1.0'
+version: '0.0.0-dev.0'
 type: generic
 # targets:
 #   - '1500'
@@ -10,7 +10,7 @@ dependencies:
   "@ax/hwc": ^0.13.375
   "@ax/hwld": ^0.9.479
   "@ax/dcp-utility": ^1.1.1
-  "@ax/axunitst": ^4.1.8
+  "@ax/axunitst": ^4.2.4
   # "@ax/axunitst": 4.1.8
   # "@ax/mod": 1.0.4
   # "@ax/mon": 1.0.4
