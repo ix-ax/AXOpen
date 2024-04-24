@@ -241,8 +241,8 @@ public sealed class TestsTask : FrostingTask<BuildContext>
                 }
                 else
                 {
-                    throw new Exception($"No app or ax folder found for {package.folder}");
-                }
+                    throw new Exception($"No app or ax folder found for {package.folder}");    
+                    }
 
                 context.DotNetTest(Path.Combine(context.RootDir, package.folder, "tmp_L3_.proj"), context.DotNetTestSettings);
             }

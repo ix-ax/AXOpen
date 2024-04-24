@@ -2,11 +2,9 @@ name: "@ix-ax/axopen.probers"
 version: '0.0.0-dev.0'
 type: lib
 targets:
-- "1500"
 - llvm
-- plcsim
 files:
-- bin
+- src
 - axsharp.companion.json
 dependencies:
   "@ix-ax/axopen.core": '0.0.0-dev.0'

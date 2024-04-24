@@ -2,11 +2,9 @@ name: "@ix-ax/axopen.components.robotics"
 version: '0.0.0-dev.0'
 type: lib
 targets:
-- "1500"
 - llvm
-- plcsim
 files:
-- bin
+- src
 - axsharp.companion.json
 devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
