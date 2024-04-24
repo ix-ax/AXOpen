@@ -10,8 +10,7 @@ devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
 dependencies:
   "@ix-ax/axopen.core": '0.0.0-dev.0'
-  "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
-  "@ax/sdk": ^2311.0.1
+  "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'  
 scripts:
   delta:
     - START=$(date +%s)
