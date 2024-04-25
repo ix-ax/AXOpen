@@ -16,7 +16,5 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         _testRobot.Run( parent              := THIS,
                         hwID                := HwIdentifiers#TZ535_PN_HwID,
                         hwIdInOut_64_byte   := HwIdentifiers#TZ535_PN_In_Out_64_byte_1_In_Out__64_byte_HwID);     
-                        // hwID                := HwIdentifiers#TZ535_PN,
-                        // hwIdInOut_64_byte   := HwIdentifiers#TZ535_PN_In_Out_64_byte_1);     
 END_METHOD
 END_CLASS

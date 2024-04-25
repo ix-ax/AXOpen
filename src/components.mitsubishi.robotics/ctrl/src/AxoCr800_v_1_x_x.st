@@ -618,8 +618,6 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
             Messenger.ActivateOnCondition(ULINT#121,StopMovementsTask.IsDone(), eAxoMessageCategory#Info);
             IF StopMovementsTask.Execute() THEN
                 IF _power_progress = 0 THEN
-                    StartMovementsTask.Restore();
-                    _movement_progress := 0;
                     RobotStatus.Error.Id := UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
