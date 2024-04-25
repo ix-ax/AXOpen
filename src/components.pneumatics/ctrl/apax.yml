@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.components.pneumatics"
-version: '0.1.0'
+version: '0.0.0-dev.0'
 type: lib
 targets:
   - llvm
@@ -8,20 +8,20 @@ files:
   - axsharp.companion.json
 variables:
   APAX_BUILD_ARGS:
-    - "--debug"
+  - "--debug"
   AXUNIT_TARGET_IP: "172.20.30.110"
   SIM_ENABLED: "true"
 devDependencies:
-  "@ix-ax/ax-sdk": '0.1.0'
+  "@ix-ax/ax-sdk": '0.0.0-dev.0'
 dependencies:
-  "@ix-ax/axopen.components.abstractions": '0.1.0'
+  "@ix-ax/axopen.components.abstractions": '0.0.0-dev.0'
 scripts:
   download:
-    - START=$(date +%s)
-    - apax sld load --accept-security-disclaimer -t $AXTARGET -i
-      $AXTARGETPLATFORMINPUT -r
-    - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"
+  - START=$(date +%s)
+  - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
+  - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"
 publicKeys:
   "@ix-ax": 30c06ef7830b4dfd8f16e003508da1ac2d187714d0e1f38279a9332cbe4e4e17
 installStrategy: strict
 apaxVersion: 3.1.1
+...
