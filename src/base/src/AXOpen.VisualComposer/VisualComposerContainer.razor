@@ -60,7 +60,7 @@
                 {
                     <div style="position: relative; overflow: hidden;" class="m-0 p-0">
                         <div id="@_backgroundId" style="width: 100%; height: @((BackgroundHeight / BackgroundWidth) * ElementSize.Width)px;">
-                            <SVGEditor BackgroundTransparent="true" ViewBox="@("0 0 " + BackgroundWidth + " " + BackgroundHeight)" Input=@BackgroundSVGInput InputUpdated="(string s) => { BackgroundSVGInput = s; SaveAsync(); }" DisableZoom="true" DisablePanning="true" DisableScaleLabel="true" BackgroundWidth="BackgroundWidth" BackgroundHeight="BackgroundHeight" ElemetnWidth="ElementSize.Width" ElementHeight="ElementSize.Height" />
+                            <SVGEditor BackgroundTransparent="true" ViewBox="@("0 0 " + BackgroundWidth + " " + BackgroundHeight)" Input=@BackgroundSVGInput InputUpdated="(string s) => { BackgroundSVGInput = s; SaveAsync(); }" DisableZoom="true" DisablePanning="true" DisableScaleLabel="true" BackgroundWidth="BackgroundWidth" BackgroundHeight="BackgroundHeight" ElementWidth="ElementSize.Width" ElementHeight="(BackgroundHeight / BackgroundWidth) * ElementSize.Width" />
                         </div>
 
                         <CascadingValue Value="@this" Name="Parent" IsFixed="true">
