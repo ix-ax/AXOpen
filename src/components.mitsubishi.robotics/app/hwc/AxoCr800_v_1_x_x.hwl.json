@@ -1,0 +1,50 @@
+{
+  "Templates":{
+    "Modules":[
+      {
+        "Name": "AxoCr800_v_1_x_x",
+       
+        "Placeholders":[
+          { "Name": "DeviceName" },
+          { "Name": "IpAddress" }
+        ],
+        "Content":{
+          "Name": "${DeviceName}",
+          "TypeIdentifier":{
+            "GsdId": "DAP V2.0",
+            "FileName": "GSDML-V2.3-MITSUBISHI-TZ535_PN-20140619.XML"
+          },
+          "Interfaces":[
+            {
+              "Name": "profinet",
+              "Label": "X1",
+              "Addresses":{
+                "Configured":[
+                  { "IPv4": "${IpAddress}" },
+                  { "ProfinetDeviceName": "${DeviceName}" }
+                ]
+              }
+            }
+          ] 
+        }
+      },
+      {
+        "Name": "In_Out_64_byte",
+        "Placeholders": [
+          {
+            "Name": "ModuleName",
+            "Value": "In_Out_64_byte"
+          }
+        ],
+        "Content": {
+          "Name": "${ModuleName}",        
+          "TypeIdentifier": {
+            "GsdId": "ID_MODULE_IN_OUT64B",
+            "FileName": "GSDML-V2.3-MITSUBISHI-TZ535_PN-20140619.XML"
+          }                   
+        }
+      }
+    ]
+  }
+}
+   

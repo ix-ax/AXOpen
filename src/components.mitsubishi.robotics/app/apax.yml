@@ -79,6 +79,18 @@ scripts:
       echo "Directory "../ctrl/assets" does not exist!!!"
     fi   
 
+  hwl: | # copy and compile all templates from library
+    if [ -d "../ctrl/assets" ]; then
+      echo "Directory "../ctrl/assets" exists!!!"
+      if ! [[ -d "./hwc" ]]; then
+        echo "Directory "./hwc" does not exist!!!"
+        mkdir -p "./hwc"
+      fi 
+    cp ../ctrl/assets/*.hwl.json ./hwc
+    else
+      echo "Directory "../ctrl/assets" does not exist!!!"
+    fi   
+
   dcpli: apax dcp-utility list-interfaces -f JSON # list all interfaces, used to discover MAC address of the adapter connected to PLC and set the PC_MAC value accordingly
 
   dcpd: apax dcp-utility discover --source-mac $PC_MAC --timeout 10000 # discover all accesible devices connected to adapter with MAC address equal to PC_MAC, used to discover MAC-addresses of the slaves and setting the PLC_MAC,RF186_MAC and ET201_MAC variables
@@ -88,27 +100,23 @@ scripts:
   clear_plc: apax hwld -t $AXTARGET --resetPlc keepOnlyIP --accept-security-disclaimer #total reset of the PLC excluding IP 
 
   ssc: | # setup secure communication, import certificates, setup password for 'usr'
-    seconfile=".\hwc.gen\\${PLC_NAME}.SecurityConfiguration.json"
+    seconfile=".\hwc\hwc.gen\\${PLC_NAME}.SecurityConfiguration.json"
     if [ -e "$seconfile" ]; then
       rm "$seconfile" 
     fi
-    apax hwc setup-secure-communication -n $PLC_NAME -i "plc_line.hwl.json" -p $MY_VERY_STRONG_PASSWORD
-    apax hwc import-certificate -n $PLC_NAME -i "plc_line.hwl.json" -C "./certs/$PLC_NAME/pkcs12ForCertificateImport.p12" -p $MY_VERY_STRONG_PASSWORD --purpose "TLS"
-    apax hwc import-certificate -n $PLC_NAME -i "plc_line.hwl.json" -C "./certs/$PLC_NAME/pkcs12ForCertificateImport.p12" -p $MY_VERY_STRONG_PASSWORD --purpose "WebServer"
-    apax hwc manage-users -n $PLC_NAME -i "plc_line.hwl.json" set-password -u "usr" -p $MY_VERY_STRONG_PASSWORD
-
-  hwo: | #compile, copy the HdIds
-    apax hwc compile -i plc_line.hwl.json -o bin/hwc/
-    apax hwid
+    apax hwc setup-secure-communication -n $PLC_NAME -i ".\hwc" -p $MY_VERY_STRONG_PASSWORD
+    apax hwc import-certificate -n $PLC_NAME -i ".\hwc" -C "./certs/$PLC_NAME/pkcs12ForCertificateImport.p12" -p $MY_VERY_STRONG_PASSWORD --purpose "TLS"
+    apax hwc import-certificate -n $PLC_NAME -i ".\hwc" -C "./certs/$PLC_NAME/pkcs12ForCertificateImport.p12" -p $MY_VERY_STRONG_PASSWORD --purpose "WebServer"
+    apax hwc manage-users -n $PLC_NAME -i ".\hwc" set-password -u "usr" -p $MY_VERY_STRONG_PASSWORD
 
   hwfd: | #compile, copy the HdIds, first download HW using password and upload certificate
-    apax hwc compile -i plc_line.hwl.json -o bin/hwc/
+    apax hwc compile -i ".\hwc" -o bin/hwc/
     apax hwid
     apax hwld -i bin/hwc/$PLC_NAME -t $AXTARGET -M:$MY_VERY_STRONG_PASSWORD --accept-security-disclaimer -l Information 
     apax plc-cert -t $AXTARGET -o ./certs/$PLC_NAME/$PLC_NAME.cer
 
   hwu: | #compile, copy the HdIds, download HW using certificate
-    apax hwc compile -i plc_line.hwl.json -o bin/hwc/
+    apax hwc compile -i ".\hwc" -o bin/hwc/
     apax hwid
     apax hwld -i bin/hwc/$PLC_NAME -t $AXTARGET -C ./certs/$PLC_NAME/$PLC_NAME.cer --nonInteractive --accept-security-disclaimer -l Information 
 
@@ -153,7 +161,6 @@ scripts:
 
   swfd: | #software build and full download
     START=$(date +%s)
-    apax install
     apax build --ignore-scripts
     dotnet ixc
     apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r -C ./certs/$PLC_NAME/$PLC_NAME.cer
@@ -161,7 +168,6 @@ scripts:
 
   swdd: | #software build and delta download
     START=$(date +%s)
-    # apax install
     apax build --ignore-scripts
     dotnet ixc
     apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r -C ./certs/$PLC_NAME/$PLC_NAME.cer --mode delta
@@ -169,7 +175,10 @@ scripts:
 
   all: |
     START=$(date +%s)
+    apax clean
+    apax install
     apax gsd
+    apax hwl
     apax hwu
     apax swfd
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"

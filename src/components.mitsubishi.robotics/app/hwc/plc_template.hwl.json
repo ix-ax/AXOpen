@@ -1,10 +1,18 @@
 {
-  "Devices": [
-    {
-      "Name": "plc_line",
-      "Modules": [
-        {
-          "Name": "plc_line",
+  "Templates":{
+    "Modules":[
+      {
+        "Name": "PLC_1516_v3_0",
+       
+        "Placeholders":[
+          {
+            "Name": "PLCName",
+            "Value": "plc_line"
+          },
+          { "Name": "IpAddress" }
+        ],
+    "Content":{
+      "Name": "${PLCName}",
           "TypeIdentifier": {
             "OrderNumber": "6ES7 516-3AP03-0AB0",
             "Version": "V3.0"
@@ -59,56 +67,14 @@
               "Label": "X1",
               "Addresses": {
                 "Configured": [
-                  { "IPv4": "10.10.10.120/24" },
+                  { "IPv4": "${IpAddress}" },
                   { "ProfinetDeviceName": "plc_line.profinet" }
                 ]
               }
             }
           ]
         }
-      ]
-    },
-    {
-      "Name": "TZ535-PN",
-      "Modules":[
-        {
-          "Name": "TZ535-PN",
-          "TypeIdentifier": {
-            "GsdId": "DAP V2.0",
-            "FileName": "GSDML-V2.3-MITSUBISHI-TZ535_PN-20140619.XML"
-          },
-          "Interfaces": [
-            {
-              "Name": "profinet",
-              "Label": "X1",
-              "Addresses": {
-                "Configured": [
-                  { "IPv4": "10.10.10.55/24" },
-                  { "ProfinetDeviceName": "TZ535-PN" }
-                ]
-              }
-            }
-          ] 
-        },
-        {
-          "Name": "In_Out_64_byte_1",
-          "TypeIdentifier": {
-            "GsdId": "ID_MODULE_IN_OUT64B",
-            "FileName": "GSDML-V2.3-MITSUBISHI-TZ535_PN-20140619.XML"
-          }
-        }
-      ]
-    }
-  ],
-  "IoSystems": [
-    {
-      "Name": "profinet_plc_line",
-      "ControllerInterfaces": [
-        { "Ref": "plc_line/plc_line/profinet_x1" }
-      ],
-      "DeviceInterfaces": [
-        { "Ref":  "TZ535-PN/TZ535-PN/profinet"}
-      ]
-    }
-  ]
+      }
+    ]
+  }
 }

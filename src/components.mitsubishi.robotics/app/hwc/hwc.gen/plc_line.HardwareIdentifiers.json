@@ -10,8 +10,8 @@
       "Value": 260
     },
     {
-      "Name": "TZ535-PN~In_Out_64_byte_1~In/Out  64 byte",
-      "Value": 263
+      "Name": "TZ535-PN~In_Out_64_byte~In/Out  64 byte",
+      "Value": 265
     },
     {
       "Name": "TZ535-PN~Rack",
@@ -23,7 +23,7 @@
     },
     {
       "Name": "TZ535-PN~TZ535-PN~2D-TZ535-PN(PROFINET IO)",
-      "Value": 264
+      "Value": 263
     },
     {
       "Name": "TZ535-PN~TZ535-PN~profinet",
@@ -43,7 +43,7 @@
     },
     {
       "Name": "plc_line~Rail_0",
-      "Value": 265
+      "Value": 264
     },
     {
       "Name": "plc_line~plc_line",
