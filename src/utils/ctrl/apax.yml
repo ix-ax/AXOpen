@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.utils"
-version: '0.1.0'
+version: '0.0.0-dev.0'
 type: lib
 targets:
   - llvm
@@ -7,10 +7,10 @@ files:
   - src
   - axsharp.companion.json
 devDependencies:
-  "@ix-ax/ax-sdk": '0.1.0'
+  "@ix-ax/ax-sdk": '0.0.0-dev.0'
 scripts:
   postbuild:
-  - dotnet ixc
+    - dotnet ixc
 dependencies:
   "@ax/system-serde": ^6.0.94
   "@ax/system-strings": ^6.0.94
@@ -19,4 +19,3 @@ publicKeys:
 installStrategy: strict
 apaxVersion: 3.1.1
 ...
-
