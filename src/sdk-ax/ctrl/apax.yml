@@ -22,4 +22,3 @@ dependencies:
   "@ax/simatic-pragma-stc-plugin": ^2.0.12
 installStrategy: strict
 apaxVersion: 3.1.1
-

@@ -10,19 +10,21 @@ devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
 scripts:
   download:
-  - apax install
-  - apax build
-  - dotnet ixc
-  - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
+    - apax install
+    - apax build
+    - dotnet ixc
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i
+      $AXTARGETPLATFORMINPUT -r
   ixc:
-  - START=$(date +%s)
-  - dotnet tool restore
-  - dotnet ixc
-  - echo "Built by ixc in :" $(expr $(date +%s) - $START) "s"
+    - START=$(date +%s)
+    - dotnet tool restore
+    - dotnet ixc
+    - echo "Built by ixc in :" $(expr $(date +%s) - $START) "s"
   download_only:
-  - START=$(date +%s)
-  - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
-  - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"
+    - START=$(date +%s)
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i
+      $AXTARGETPLATFORMINPUT -r
+    - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"
   check+download: |
     if [ $AXTARGET ]; then
       if [ $AXTARGETPLATFORMINPUT ]; then
@@ -39,28 +41,29 @@ scripts:
       echo "Environment variable AXTARGET not defined!!!"
     fi
   postbuild:
-  - apax ixc
+    - apax ixc
   watch:
-  - dotnet watch --project ..\\app\\ix-blazor\\AXOpen.Io.blazorapp.csproj
+    - dotnet watch --project ..\\app\\ix-blazor\\AXOpen.Io.blazorapp.csproj
   fr:
-  - ..\\..\\integrations\\scripts\\StartPlcSimAdvCli.exe
-  - apax rr
+    - ..\\..\\integrations\\scripts\\StartPlcSimAdvCli.exe
+    - apax rr
   frw:
-  - apax fr
-  - apax watch
+    - apax fr
+    - apax watch
   rr:
-  - START=$(date +%s)
-  - apax install
-  - apax build
-  - apax ixc
-  - apax download_only
-  - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
+    - START=$(date +%s)
+    - apax install
+    - apax build
+    - apax ixc
+    - apax download_only
+    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in
+      :" $(expr $(date +%s) - $START) "s"
   rrw:
-  - apax rr
-  - apax watch
+    - apax rr
+    - apax watch
   r:
-  - apax plc-mode set stop -t $AXTARGET -y
-  - apax plc-mode set run -t $AXTARGET -y
+    - apax plc-mode set stop -t $AXTARGET -y
+    - apax plc-mode set run -t $AXTARGET -y
 dependencies:
   "@ix-ax/axopen.components.abstractions": '0.0.0-dev.0'
   "@ix-ax/axopen.components.drives": '0.0.0-dev.0'
@@ -73,4 +76,3 @@ dependencies:
 installStrategy: strict
 apaxVersion: 3.1.1
 ...
-
