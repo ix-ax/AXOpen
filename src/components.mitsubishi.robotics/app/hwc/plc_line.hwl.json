@@ -1,0 +1,51 @@
+{
+  "Devices": [
+    {
+      "Name": "plc_line",
+      "Modules": [
+        {
+          "Apply": {
+            "TemplateName": "PLC_1516_v3_0",
+            "Arguments": {
+              "PLCName": "plc_line",
+              "IpAddress": "10.10.10.120/24"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "TZ535-PN",
+      "Modules": [
+        {
+          "Apply": {
+            "TemplateName": "AxoCr800_v_1_x_x",
+            "Arguments": {
+              "DeviceName": "TZ535-PN",
+              "IpAddress": "10.10.10.55/24"
+            }
+          }
+        },
+        {
+          "Apply": {
+            "TemplateName": "In_Out_64_byte",
+            "Arguments": {
+              "ModuleName": "In_Out_64_byte"
+            }
+          }
+        }      
+      ]
+    }
+  ],
+  "IoSystems": [
+    {
+      "Name": "profinet_plc_line",
+      "ControllerInterfaces": [
+        { "Ref": "plc_line/plc_line/profinet_x1" }
+      ],
+      "DeviceInterfaces": [
+        { "Ref":  "TZ535-PN/TZ535-PN/profinet"}
+      ]
+    }
+  ]
+}

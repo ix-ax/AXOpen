@@ -2,7 +2,7 @@
   "Version": 1,
   "IoAddresses": [
     {
-      "Ref": "TZ535-PN/In_Out_64_byte_1",
+      "Ref": "TZ535-PN/In_Out_64_byte",
       "IoConfiguration": {
         "InputAddress": [
           {
