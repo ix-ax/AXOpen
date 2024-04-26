@@ -31,19 +31,32 @@ namespace AXOpen.VisualComposer
             }
         }
 
+        private bool _disable = false;
+        [Parameter]
+        public bool Disable
+        {
+            get => _disable;
+            set
+            {
+                if (_disable != value)
+                    _disable = value;
+            }
+        }
+
+        public bool CanDragging { get; set; } = true;
         private bool _isDragging = false;
         private double _startX = 0;
         private double _startY = 0;
 
         private async Task MoveAsync(PointerEventArgs eventArgs)
         {
-            if (_isDragging && eventArgs.CtrlKey)
+            if (_isDragging && !Disable && CanDragging)
             {
-                double offsetX = ((eventArgs.ClientX - _startX) / Parent.ElementSize.Width * 100);
-                double offsetY = ((eventArgs.ClientY - _startY) / ((Parent!.BackgroundHeight / Parent!.BackgroundWidth) * Parent!.ElementSize.Width) * 100);
+                double offsetX = ((eventArgs.ClientX - _startX) / Parent.ElementSize.Width * 100) * (1 / Parent.Scale);
+                double offsetY = ((eventArgs.ClientY - _startY) / ((Parent!.BackgroundHeight / Parent!.BackgroundWidth) * Parent!.ElementSize.Width) * 100) * (1 / Parent.Scale);
 
-                Parent.TranslateX += offsetX;
-                Parent.TranslateY += offsetY;
+                Parent!.TranslateX += offsetX;
+                Parent!.TranslateY += offsetY;
 
                 _startX = eventArgs.ClientX;
                 _startY = eventArgs.ClientY;
@@ -69,10 +82,13 @@ namespace AXOpen.VisualComposer
             _isDragging = false;
         }
 
-        private void Wheel(WheelEventArgs eventArgs)
+        private async Task WheelAsync(WheelEventArgs eventArgs)
         {
-            if (eventArgs.CtrlKey)
+            if (!Disable && CanDragging)
+            {
                 Parent!.Scale = Math.Min(Math.Max(0.5, Parent!.Scale + eventArgs.DeltaY * -0.0001), 2);
+                await Parent.SaveAsync();
+            }
         }
     }
 }

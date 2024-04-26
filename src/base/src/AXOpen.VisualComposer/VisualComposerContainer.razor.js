@@ -34,16 +34,17 @@ export function getWindowSize() {
 };
 
 export function getElementSize(id) {
-    const element = document.getElementById(id).parentElement;
-
+    const element = document.getElementById(id);
     if (element) {
-        if (element.width && element.height) {
+        const parent = element.parentElement;
+
+        if (parent.width && parent.height) {
             return ({
-                width: element.width,
-                height: element.height
+                width: parent.width,
+                height: parent.height
             });
         } else {
-            var computedStyle = window.getComputedStyle(element);
+            var computedStyle = window.getComputedStyle(parent);
             return ({
                 width: parseFloat(computedStyle.width),
                 height: parseFloat(computedStyle.height)

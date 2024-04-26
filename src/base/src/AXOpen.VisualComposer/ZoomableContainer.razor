@@ -8,8 +8,10 @@
          @onpointerdown="Down"
          @onpointerup="Up"
          @onpointerout="Out"
-         @onwheel="Wheel"
-         style="position: relative; overflow: hidden;">
-        @ChildContent
+         @onwheel="WheelAsync"
+         style="overflow: hidden; background-color: @(Parent.BackgroundColor);">
+        <div style="position: relative; transform: scale(@(Parent!.Scale)) translate(@(Parent!.TranslateX.ToString().Replace(',', '.'))%, @(Parent!.TranslateY.ToString().Replace(',', '.'))%);">
+            @ChildContent
+         </div>
     </div>
 </div>

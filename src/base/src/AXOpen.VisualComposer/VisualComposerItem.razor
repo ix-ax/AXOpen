@@ -12,7 +12,7 @@
                      @onpointerup="Up"
                      @onpointerleave="Out"
                      @onwheel="Wheel"
-                     style="position: absolute; left: calc(@(Origin.Left.ToString().Replace(',', '.'))% + @(Parent.TranslateX.ToString().Replace(',', '.'))%); top: calc(@(Origin.Top.ToString().Replace(',', '.'))% + @(Parent.TranslateY.ToString().Replace(',', '.'))%); transform: scale(@(Origin.Scale * Parent.Scale)); translate: @(Origin.Transform.X)% @(Origin.Transform.Y)%; width: @(Origin.Width != -1 ? Origin.Width + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height + "rem" : "max-content"); z-index: @Origin.ZIndex;">
+                     style="position: absolute; left: @(Origin.Left.ToString().Replace(',', '.'))%; top: @(Origin.Top.ToString().Replace(',', '.'))%; transform: scale(@(Origin.Scale)); translate: @(Origin.Transform.X)% @(Origin.Transform.Y)%; width: @(Origin.Width != -1 ? Origin.Width + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height + "rem" : "max-content"); z-index: @Origin.ZIndex;">
                     <div class="@(Origin.Background ? "card border border-3 p-2 rounded-3" : null)" style="@(Origin.Background ? "background-color: " + @Origin.BackgroundColor + "; border-color: " + @Origin.BackgroundColor + " !important;" : null)">
                         <RenderableContentControl @ref="renderableContentControlRcc"
                                                   Context="@Origin.TwinElement"
@@ -29,7 +29,7 @@
         }
         else
         {
-            <div style="position: absolute; left: calc(@(Origin.Left.ToString().Replace(',', '.'))% + @(Parent.TranslateX.ToString().Replace(',', '.'))%); top: calc(@(Origin.Top.ToString().Replace(',', '.'))% + @(Parent.TranslateY.ToString().Replace(',', '.'))%); transform: scale(@(Origin.Scale * Parent.Scale)); translate: @(Origin.Transform.X)% @(Origin.Transform.Y)%; width: @(Origin.Width != -1 ? Origin.Width + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height + "rem" : "max-content"); z-index: @Origin.ZIndex;">
+            <div style="position: absolute; left: @(Origin.Left.ToString().Replace(',', '.'))%; top: @(Origin.Top.ToString().Replace(',', '.'))%; transform: scale(@(Origin.Scale)); translate: @(Origin.Transform.X)% @(Origin.Transform.Y)%; width: @(Origin.Width != -1 ? Origin.Width + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height + "rem" : "max-content"); z-index: @Origin.ZIndex;">
                 <div class="@(Origin.Background ? "card border border-3 p-2 rounded-3" : null)" style="@(Origin.Background ? "background-color: " + @Origin.BackgroundColor + "; border-color: " + @Origin.BackgroundColor + " !important;" : null)">
                     <RenderableContentControl Context="@Origin.TwinElement"
                                               Presentation="@Origin.Presentation.ToString()"
@@ -43,7 +43,7 @@
         @if (Origin.Roles != null && Origin.Roles != "")
         {
             <AuthorizeView Roles="@Origin.Roles" Context="SecondAuthorizeView">
-                <div style="position: absolute; left: calc(@(Origin.Left.ToString().Replace(',', '.'))% + @(Parent.TranslateX.ToString().Replace(',', '.'))%); top: calc(@(Origin.Top.ToString().Replace(',', '.'))% + @(Parent.TranslateY.ToString().Replace(',', '.'))%); transform: scale(@(Origin.Scale * Parent.Scale)); translate: @(Origin.Transform.X)% @(Origin.Transform.Y)%; width: @(Origin.Width != -1 ? Origin.Width + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height + "rem" : "max-content"); z-index: @Origin.ZIndex;">
+                <div style="position: absolute; left: @(Origin.Left.ToString().Replace(',', '.'))%; top: @(Origin.Top.ToString().Replace(',', '.'))%; transform: scale(@(Origin.Scale)); translate: @(Origin.Transform.X)% @(Origin.Transform.Y)%; width: @(Origin.Width != -1 ? Origin.Width + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height + "rem" : "max-content"); z-index: @Origin.ZIndex;">
                     <div class="@(Origin.Background ? "card border border-3 p-2 rounded-3" : null)" style="@(Origin.Background ? "background-color: " + @Origin.BackgroundColor + "; border-color: " + @Origin.BackgroundColor + " !important;" : null)">
                         <RenderableContentControl Context="@Origin.TwinElement"
                                                   Presentation="@Origin.Presentation.ToString()"
@@ -55,7 +55,7 @@
         }
         else
         {
-            <div style="position: absolute; left: calc(@(Origin.Left.ToString().Replace(',', '.'))% + @(Parent.TranslateX.ToString().Replace(',', '.'))%); top: calc(@(Origin.Top.ToString().Replace(',', '.'))% + @(Parent.TranslateY.ToString().Replace(',', '.'))%); transform: scale(@(Origin.Scale * Parent.Scale)); translate: @(Origin.Transform.X)% @(Origin.Transform.Y)%; width: @(Origin.Width != -1 ? Origin.Width + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height + "rem" : "max-content"); z-index: @Origin.ZIndex;">
+            <div style="position: absolute; left: @(Origin.Left.ToString().Replace(',', '.'))%; top: @(Origin.Top.ToString().Replace(',', '.'))%; transform: scale(@(Origin.Scale)); translate: @(Origin.Transform.X)% @(Origin.Transform.Y)%; width: @(Origin.Width != -1 ? Origin.Width + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height + "rem" : "max-content"); z-index: @Origin.ZIndex;">
                 <div class="@(Origin.Background ? "card border border-3 p-2 rounded-3" : null)" style="@(Origin.Background ? "background-color: " + @Origin.BackgroundColor + "; border-color: " + @Origin.BackgroundColor + " !important;" : null)">
                     <RenderableContentControl Context="@Origin.TwinElement"
                                               Presentation="@Origin.Presentation.ToString()"
