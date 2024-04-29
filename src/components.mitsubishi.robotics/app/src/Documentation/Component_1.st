@@ -28,7 +28,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         //<Initialization>        
         ExampleRobot.Run(   parent      := THIS,
                         hwID                := HwIdentifiers#TZ535_PN_HwID,
-                        hwIdInOut_64_byte   := HwIdentifiers#TZ535_PN_In_Out_64_byte_1_In_Out__64_byte_HwID);     
+                        hwIdInOut_64_byte   := HwIdentifiers#TZ535_PN_In_Out_64_byte_In_Out__64_byte_HwID);     
         //</Initialization>
 
        THIS.UseInSequencer();
