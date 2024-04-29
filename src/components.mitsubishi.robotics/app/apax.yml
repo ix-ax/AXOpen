@@ -8,12 +8,14 @@ variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
   PLC_NAME: "plc_line"
+  PC_MAC: "00:D8:61:F0:AB:7D"
 devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
   "@ax/hwc": ^0.13.375
   "@ax/hwld": ^0.9.479
-  "@ax/dcp-utility": ^1.1.1
-  "@ax/hardware-diagnostics": ^0.0.0-dev.0
+  "@ax/dcp-utility": ^1.1.2
+  "@ax/hardware-diagnostics": ^0.1.0
+  "@ax/certificate-management": ^1.1.1
 dependencies:
   "@ix-ax/axopen.core": '0.0.0-dev.0'
   "@ix-ax/axopen.timers": '0.0.0-dev.0'
@@ -23,6 +25,7 @@ dependencies:
   "@ax/simatic-1500-clocks": ^6.0.37
   "@ax/plc-mode": ^1.0.0
   "@ax/simatic-1500-distributedio": ^6.0.3
+  "@ax/plc-info": ^2.3.0
 scripts:
   delta:
     - START=$(date +%s)
@@ -79,7 +82,7 @@ scripts:
       echo "Directory "../ctrl/assets" does not exist!!!"
     fi   
 
-  hwl: | # copy and compile all templates from library
+  hwl: | # copy all templates from library
     if [ -d "../ctrl/assets" ]; then
       echo "Directory "../ctrl/assets" exists!!!"
       if ! [[ -d "./hwc" ]]; then
@@ -99,7 +102,7 @@ scripts:
 
   clear_plc: apax hwld -t $AXTARGET --resetPlc keepOnlyIP --accept-security-disclaimer #total reset of the PLC excluding IP 
 
-  ssc: | # setup secure communication, import certificates, setup password for 'usr'
+  ssc: | # setup secure communication, import certificates, setup password for AX_USERNAME
     seconfile=".\hwc\hwc.gen\\${PLC_NAME}.SecurityConfiguration.json"
     if [ -e "$seconfile" ]; then
       rm "$seconfile" 
@@ -107,15 +110,19 @@ scripts:
     apax hwc setup-secure-communication -n $PLC_NAME -i ".\hwc" -p $MY_VERY_STRONG_PASSWORD
     apax hwc import-certificate -n $PLC_NAME -i ".\hwc" -C "./certs/$PLC_NAME/pkcs12ForCertificateImport.p12" -p $MY_VERY_STRONG_PASSWORD --purpose "TLS"
     apax hwc import-certificate -n $PLC_NAME -i ".\hwc" -C "./certs/$PLC_NAME/pkcs12ForCertificateImport.p12" -p $MY_VERY_STRONG_PASSWORD --purpose "WebServer"
-    apax hwc manage-users -n $PLC_NAME -i ".\hwc" set-password -u "usr" -p $MY_VERY_STRONG_PASSWORD
+    apax hwc manage-users -n $PLC_NAME -i ".\hwc" set-password -u $AX_USERNAME -p $MY_VERY_STRONG_PASSWORD
 
   hwfd: | #compile, copy the HdIds, first download HW using password and upload certificate
+    apax gsd
+    apax hwl
     apax hwc compile -i ".\hwc" -o bin/hwc/
     apax hwid
     apax hwld -i bin/hwc/$PLC_NAME -t $AXTARGET -M:$MY_VERY_STRONG_PASSWORD --accept-security-disclaimer -l Information 
     apax plc-cert -t $AXTARGET -o ./certs/$PLC_NAME/$PLC_NAME.cer
 
   hwu: | #compile, copy the HdIds, download HW using certificate
+    apax gsd
+    apax hwl
     apax hwc compile -i ".\hwc" -o bin/hwc/
     apax hwid
     apax hwld -i bin/hwc/$PLC_NAME -t $AXTARGET -C ./certs/$PLC_NAME/$PLC_NAME.cer --nonInteractive --accept-security-disclaimer -l Information 
@@ -173,12 +180,20 @@ scripts:
     apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r -C ./certs/$PLC_NAME/$PLC_NAME.cer --mode delta
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
 
+  alf: | #clear plc except ip and name and provide all actions for installal, build and initial download
+    START=$(date +%s)
+    apax clear_plc
+    apax clean
+    apax install
+    apax ssc
+    apax hwfd
+    apax swfd
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
+
   all: |
     START=$(date +%s)
     apax clean
     apax install
-    apax gsd
-    apax hwl
     apax hwu
     apax swfd
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"

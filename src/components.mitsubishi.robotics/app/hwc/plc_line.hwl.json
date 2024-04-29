@@ -5,7 +5,7 @@
       "Modules": [
         {
           "Apply": {
-            "TemplateName": "PLC_1516_v3_0",
+            "TemplateName": "PLC_1516_v3_1",
             "Arguments": {
               "PLCName": "plc_line",
               "IpAddress": "10.10.10.120/24"
