@@ -9,4 +9,17 @@ using System;
 
 public class TestFailedException : Exception
 {
+    public TestFailedException()
+    {
+        
+    }
+    
+    public TestFailedException(string message) : base(message)
+    {
+        var lastColor = Console.ForegroundColor;
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine(message);
+        Console.ForegroundColor = lastColor;
+    }
+    
 }

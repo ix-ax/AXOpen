@@ -103,7 +103,7 @@ public static class ApaxTraversal
         }
         
         var yamlContent = serializer.Serialize(new { name = "apax.traversal", 
-                                                                version = "0.0.0", 
+                                                                version = "0.1.0", 
                                                                 type = "app",
                                                                 targets = new string[] {"plcsim", "llvm"},
                                                                 devDependencies = new Dictionary<string, string>() { {"@ix-ax/ax-sdk", dependencies.First(p => p.Name == "@ix-ax/ax-sdk").Version} }, 

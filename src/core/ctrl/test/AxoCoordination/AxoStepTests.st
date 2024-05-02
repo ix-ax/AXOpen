@@ -64,7 +64,7 @@ NAMESPACE AXOpen.Core.AxoStep_Tests
     {S7.extern=ReadWrite}
     CLASS StepTests
         VAR PROTECTED
-            _context : TestContext;
+            _context    : TestContext;
             _stepOne    : AxoStep;
             _stepTwo    : AxoStep;
             _stepThree  : AxoStep;
@@ -83,6 +83,38 @@ NAMESPACE AXOpen.Core.AxoStep_Tests
             END_VAR
             Equal := expected = actual;
         END_METHOD 
+
+        VAR PRIVATE
+            _contextClean   : TestContext;
+            _stepOneClean   : AxoStep;
+            _stepTwoClean   : AxoStep;
+            _stepThreeClean : AxoStep;
+            _sequencerClean : AxoSequencer;
+        END_VAR  
+
+        {TestSetup}
+        METHOD PUBLIC TestSetup
+            _context    :=  _contextClean;
+            _stepOne    :=  _stepOneClean;
+            _stepTwo    :=  _stepTwoClean;
+            _stepThree  :=  _stepThreeClean;
+            _sequencer  :=  _sequencerClean;
+        END_METHOD
+
+        {TestTearDown}
+        METHOD PUBLIC TestTearDown
+            ;
+        END_METHOD
+
+        {FixtureSetup}
+        METHOD PUBLIC FixtureSetup
+            ;
+        END_METHOD
+
+        {FixtureTearDown}
+        METHOD PUBLIC FixtureTearDown
+            ;
+        END_METHOD
 
         {Test}        
         METHOD PUBLIC Execute_should_set_the_order_from_coordinator_when_in_config_mode

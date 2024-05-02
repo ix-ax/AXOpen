@@ -17,7 +17,7 @@ namespace AxOpen.Security.Services
     {
         public static void ConfigureAxBlazorSecurity(this IServiceCollection services,
             (IRepository<User> userRepo, IRepository<Group> groupRepo) repos,
-            List<Role>? roles = null)
+            List<Role>? roles = null, bool addAllRolesToAdminGroup = false)
         {
             services.AddTransient<IUserStore<User>, UserStore>();
             services.AddTransient<IRoleStore<Role>, RoleStore>();
@@ -36,9 +36,20 @@ namespace AxOpen.Security.Services
 
             
             RoleGroupManager roleGroupManager = new RoleGroupManager(repos.groupRepo);
-            if (roles != null)
+            if (roles != null )
             {
                 roleGroupManager.CreateRoles(roles);
+                if (addAllRolesToAdminGroup)
+                {
+                    List<string> currentAdminRoles = roleGroupManager.GetRolesFromGroup("AdminGroup").Where(c => ! c.Equals("Administrator")).ToList();
+                    List<string?>? requiredAdminRoles = roles.Select(c => c.Name).ToList();
+                    List<string?>? adminRolesToAdd = requiredAdminRoles?.Where(p => currentAdminRoles.All(p2 => p2 != p)).ToList();
+                    List<string>? adminRolesToRemove = currentAdminRoles?.Where(p => requiredAdminRoles.All(p2 => p2 != p)).ToList();
+
+                    roleGroupManager.AddRolesToGroup("AdminGroup", adminRolesToAdd);
+                    roleGroupManager.RemoveRolesFromGroup("AdminGroup", adminRolesToRemove);
+
+                }
             }
 
             services.AddScoped<IRepositoryService, RepositoryService>(provider => new RepositoryService(repos.userRepo, roleGroupManager));

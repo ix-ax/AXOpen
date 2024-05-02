@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "IoAddresses": [
+    {
+      "Ref": "TZ535-PN/In_Out_64_byte",
+      "IoConfiguration": {
+        "InputAddress": [
+          {
+            "StartAddress": "0.0",
+            "EndAddress": "63.7",
+            "Length": 512,
+            "Source": "AutoAssigned"
+          }
+        ],
+        "OutputAddress": [
+          {
+            "StartAddress": "0.0",
+            "EndAddress": "63.7",
+            "Length": 512,
+            "Source": "AutoAssigned"
+          }
+        ]
+      }
+    }
+  ]
+}

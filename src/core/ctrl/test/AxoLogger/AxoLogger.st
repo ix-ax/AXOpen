@@ -10,6 +10,32 @@ NAMESPACE AXOpen.MessagingTests
             _sender : AXOpen.Core.AxoObject;
         END_VAR    
 
+        VAR PRIVATE
+            _sutClean   : AxoLogger;
+            _senderClean: AXOpen.Core.AxoObject;
+        END_VAR    
+
+        {TestSetup}
+        METHOD PUBLIC TestSetup
+            _sut    :=  _sutClean;  
+            _sender :=  _senderClean;      
+        END_METHOD
+
+        {TestTearDown}
+        METHOD PUBLIC TestTearDown
+            ;
+        END_METHOD
+
+        {FixtureSetup}
+        METHOD PUBLIC FixtureSetup
+            ;
+        END_METHOD
+
+        {FixtureTearDown}
+        METHOD PUBLIC FixtureTearDown
+            ;
+        END_METHOD
+
         {Test}
         METHOD PUBLIC Log_should_log_info_message           
             _sut.SetMinimumLevel(eLogLevel#Information);                     

@@ -70,7 +70,6 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
         END_METHOD
     END_CLASS
 
-
     {TestFixture}
     {S7.extern=ReadWrite}
     CLASS SequencerTests
@@ -173,6 +172,44 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _context.Close();
         END_METHOD
        
+        VAR PROTECTED        
+            _contextClean       :   TestContext;
+            _sequencerClean     :   MySequencer;
+            _step_1Clean        :   AxoStep;
+            _step_2Clean        :   AxoStep;
+            _step_3Clean        :   AxoStep;
+            _orderCounterClean  :   ULINT;
+            _stepStateClean     :   eAxoTaskState;
+            _counterClean       :   ULINT;
+        END_VAR    
+
+        {TestSetup}
+        METHOD PUBLIC TestSetup
+            _context        :=  _contextClean;
+            _sequencer      :=  _sequencerClean;
+            _step_1         :=  _step_1Clean;
+            _step_2         :=  _step_2Clean;
+            _step_3         :=  _step_3Clean;
+            _orderCounter   :=  _orderCounterClean;
+            _stepState      :=  _stepStateClean;
+            _counter        :=  _counterClean;
+        END_METHOD
+
+        {TestTearDown}
+        METHOD PUBLIC TestTearDown
+            ;
+        END_METHOD
+
+        {FixtureSetup}
+        METHOD PUBLIC FixtureSetup
+            ;
+        END_METHOD
+
+        {FixtureTearDown}
+        METHOD PUBLIC FixtureTearDown
+            ;
+        END_METHOD
+                
         {Test}
         METHOD PUBLIC should_be_in_idle
             Assert.Equal(TRUE, THIS.EqualAxoCoordinatorStates(AxoCoordinatorStates#Idle , _sequencer.GetCoordinatorState()));

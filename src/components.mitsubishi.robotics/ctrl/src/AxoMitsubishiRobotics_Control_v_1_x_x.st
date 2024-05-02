@@ -62,7 +62,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
             {#ix-set:AttributeName = "<#In position#>"}
             InPosition : BYTE;
             {#ix-set:AttributeName = "<#Action number#>"}
-            ActionNo : BYTE; 
+            ActionNo : BYTE := BYTE#255; 
             {#ix-set:AttributeName = "<#Global robot speed#>"}
             GlobalSpeed : BYTE; 
             {#ix-set:AttributeName = "<#Tool number#>"}

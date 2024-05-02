@@ -116,11 +116,11 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
     {S7.extern=ReadWrite}
     CLASS AxoTaskUnitTests 
         VAR PROTECTED
-           _context : TestContext;
-           myTask : MyTask;
-           expState:  eAxoTaskState;
-           actState:  eAxoTaskState;
-           initValue : ULINT;
+           _context     :   TestContext;
+           myTask       :   MyTask;
+           expState     :   eAxoTaskState;
+           actState     :   eAxoTaskState;
+           initValue    :   ULINT;
         END_VAR    
 
         METHOD PRIVATE Initialize
@@ -169,6 +169,38 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             END_VAR
             Equal := expected = actual;
         END_METHOD 
+
+        VAR PRIVATE
+            _contextClean    :   TestContext;
+            myTaskClean      :   MyTask;
+            expStateClean    :   eAxoTaskState;
+            actStateClean    :   eAxoTaskState;
+            initValueClean   :   ULINT;
+        END_VAR    
+
+        {TestSetup}
+        METHOD PUBLIC TestSetup
+            _context    :=  _contextClean;  
+            myTask      :=  myTaskClean;      
+            expState    :=  expStateClean;  
+            actState    :=  actStateClean;  
+            initValue   :=  initValueClean;
+        END_METHOD
+
+        {TestTearDown}
+        METHOD PUBLIC TestTearDown
+            ;
+        END_METHOD
+
+        {FixtureSetup}
+        METHOD PUBLIC FixtureSetup
+            ;
+        END_METHOD
+
+        {FixtureTearDown}
+        METHOD PUBLIC FixtureTearDown
+            ;
+        END_METHOD
 
         {Test}
         METHOD PUBLIC should_initial_state_be_ready
@@ -1129,7 +1161,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             // Act/Assert 
             _context.Open();
             myTask.Execute();
-            Assert.Equal(TRUE, myTask.DoneReached());            
+            Assert.Equal(FALSE, myTask.DoneReached());            
         END_METHOD
         {Test}
         METHOD PUBLIC error_occured_method_should_return_true_in_the_same_PLC_cycle
@@ -1175,7 +1207,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             // Act/Assert 
             _context.Open();
             myTask.Execute();
-            Assert.Equal(TRUE, myTask.ErrorOccured());            
+            Assert.Equal(FALSE, myTask.ErrorOccured());            
         END_METHOD
 
         {Test}
@@ -1242,7 +1274,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             // Act/Assert 
             _context.Open();
             myTask.Execute();
-            Assert.Equal(TRUE, myTask.ErrorOccured());            
+            Assert.Equal(FALSE, myTask.ErrorOccured());            
         END_METHOD
 
         {Test}

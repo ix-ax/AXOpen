@@ -106,6 +106,32 @@ NAMESPACE AXOpen.Core.AxoMomentaryTask_Tests
         METHOD PRIVATE Initialize
             myTask.Initialize(_context);
         END_METHOD
+        
+        VAR
+            _contextClean : TestContext;
+            myTaskClean : MyTask;
+        END_VAR    
+    
+        {TestSetup}
+        METHOD PUBLIC TestSetup
+            _context := _contextClean;
+            myTask := myTaskClean;
+        END_METHOD
+
+        {TestTearDown}
+        METHOD PUBLIC TestTearDown
+            ;
+        END_METHOD
+
+        {FixtureSetup}
+        METHOD PUBLIC FixtureSetup
+            ;
+        END_METHOD
+
+        {FixtureTearDown}
+        METHOD PUBLIC FixtureTearDown
+            ;
+        END_METHOD
 
         {Test}
         METHOD PUBLIC initial_state_should_be_switched_off
