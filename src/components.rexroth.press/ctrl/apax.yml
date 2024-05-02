@@ -18,11 +18,10 @@ dependencies:
   "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
   "@ix-ax/axopen.io": '0.0.0-dev.0'
   "@ax/system-serde": ^6.0.94
-  # "@ax/system-bitaccess": ^6.0.94
-  # "@ax/system-math": ^6.0.94
-  # "@ax/system-strings": ^6.0.94
   "@ax/simatic-1500-distributedio": ^6.0.3
+  "@ax/simatic-1500-diagnostics-hardware": ^6.0.1
 publicKeys:
   "@ix-ax": 30c06ef7830b4dfd8f16e003508da1ac2d187714d0e1f38279a9332cbe4e4e17
 installStrategy: strict
-apaxVersion: 3.1.0
+apaxVersion: 3.1.1
+...

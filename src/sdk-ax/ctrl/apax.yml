@@ -6,19 +6,19 @@ type: generic
 files:
   - apax.yml
 dependencies:
-  "@ax/sdk": ^2311.0.1
-  # "@ax/axunitst": 4.1.8
-  # "@ax/mod": 1.0.4
-  # "@ax/mon": 1.0.4
-  # "@ax/sdb": 1.0.4
-  # "@ax/sld": 2.1.46
-  # #<- "@ax/st": 4.0.12
-  # "@ax/stc": 6.0.146
-  # #"@ax/stc": 5.4.98
-  # "@ax/apax-build": 0.7.0
-  # #-> "@ax/st": 4.0.12
-  # "@ax/target-llvm": 6.0.146
-  # "@ax/target-mc7plus": 6.0.146
-  # "@ax/simatic-pragma-stc-plugin": 2.0.12
+  #"@ax/sdk": ^2311.0.1
+  "@ax/hwc": ^0.13.375
+  "@ax/hwld": ^0.9.479
+  "@ax/dcp-utility": ^1.1.1
+  "@ax/axunitst": ^4.2.4
+  "@ax/mod": ^1.1.2
+  "@ax/mon": ^1.1.2
+  "@ax/sdb": ^1.1.2
+  "@ax/sld": ^2.1.48
+  "@ax/stc": ^6.1.59
+  "@ax/apax-build": ^0.8.0
+  "@ax/target-llvm": ^6.1.59
+  "@ax/target-mc7plus": ^6.1.59
+  "@ax/simatic-pragma-stc-plugin": ^2.0.12
 installStrategy: strict
-apaxVersion: 3.1.0
+apaxVersion: 3.1.1

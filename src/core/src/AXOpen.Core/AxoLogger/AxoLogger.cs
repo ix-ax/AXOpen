@@ -54,11 +54,6 @@ namespace AXOpen.Logging
                     var message = string.Empty;
                     var level = (eLogLevel)entry.Level.LastValue;
 
-                    if (sender == null)
-                    {
-                        continue;
-                    }
-                    
                     switch (sender)
                     {
                         case AxoMessenger messenger:

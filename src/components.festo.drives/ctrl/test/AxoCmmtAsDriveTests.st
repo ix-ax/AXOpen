@@ -56,7 +56,7 @@ NAMESPACE AxoCmmtAsDriveTests.Tests
     CLASS AxoCmmtAsDriveTests
         VAR 
             context : TestContext;
-            drive   : AXOpen.Components.Festo.Drives.AxoCmmtAsPtP;
+            drive   : AXOpen.Components.Festo.Drives.AxoCmmtAs;
             _AxisIn          :   ARRAY[0..10] OF BYTE;       //  Input data of the axis
             _AxisOut         :   ARRAY[0..10] OF BYTE;       //  Output data of the axis
             _Enable          :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.

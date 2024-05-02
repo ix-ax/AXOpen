@@ -1,6 +1,6 @@
 USING AxUnit;
 USING AXOpen.Utils;
-USING System.SerDe;
+USING System.Serialization;
 
 NAMESPACE AXOpen.Utils.Unit_Tests
     {TestFixture}

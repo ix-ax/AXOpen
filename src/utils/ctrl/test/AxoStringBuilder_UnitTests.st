@@ -19,6 +19,7 @@ NAMESPACE AXOpen.Utils.Unit_Tests
                 expected : STRING;
                 wordToAppend : STRING;
                 i : INT;
+                emptyString : STRING[254];
             END_VAR
             //arrange
             _sb.Clear();
@@ -31,9 +32,9 @@ NAMESPACE AXOpen.Utils.Unit_Tests
             END_FOR;
 
             //assert
-            Assert.NotEqual(_sb.AsString(),'');
-            Assert.NotEqual(expected,'');
-            Assert.Equal(expected, _sb.AsString());
+            Assert.Equal(FALSE, _sb.AsString() = emptyString);
+            Assert.Equal(FALSE, expected = emptyString);
+            Assert.Equal(TRUE, expected = _sb.AsString());
         END_METHOD
 
         {Test}
@@ -42,8 +43,8 @@ NAMESPACE AXOpen.Utils.Unit_Tests
             _sb.Clear().Append(1).Append(2).Append(3).Append(4).Clear().Append(1).Append(2).Append(3).Append(4);
  
             //assert
-            Assert.NotEqual(_sb.AsString(),'');
-            Assert.Equal('1234', _sb.AsString());
+            Assert.Equal(FALSE, _sb.AsString() = '');
+            Assert.Equal(TRUE, '1234' = _sb.AsString());
         END_METHOD
 
         {Test}
@@ -52,10 +53,10 @@ NAMESPACE AXOpen.Utils.Unit_Tests
             _sb.Clear();
             //act
             _sb.Append(1).Append(2).Append(3).Append(4);
-            Assert.Equal('1234', _sb.AsString());
+            Assert.Equal(TRUE, '1234' = _sb.AsString());
             _sb.Clear();
             //assert
-            Assert.Equal(_sb.AsString(),'');
+            Assert.Equal(TRUE, _sb.AsString() = '');
         END_METHOD
 
         {Test}
@@ -65,8 +66,8 @@ NAMESPACE AXOpen.Utils.Unit_Tests
             //act
             _sb.Append('One').Clear().Append('Two').Append('Three');
            //assert
-           Assert.NotEqual(_sb.AsString(),'');
-           Assert.Equal('TwoThree', _sb.AsString());
+           Assert.Equal(FALSE, _sb.AsString() ='');
+           Assert.Equal(TRUE, 'TwoThree' = _sb.AsString());
        END_METHOD
 
     END_CLASS

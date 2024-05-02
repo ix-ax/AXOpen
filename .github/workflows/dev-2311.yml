@@ -31,4 +31,3 @@ jobs:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}
           GH_USER : ${{ secrets.GH_USER }}
       run: dotnet run --project cake/Build.csproj --do-pack --do-publish --do-publish-release
-

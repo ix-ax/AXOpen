@@ -257,31 +257,6 @@ namespace AXOpen.Components.Mitsubishi.Robotics
                     actionDescriptionDict.Add(121, "Stop movements finished succesfully.");
                     actionDescriptionDict.Add(122, "Stop movements restored.");
 
-                    
-                    actionDescriptionDict.Add(120, "Start motors program and movements started.");
-                    actionDescriptionDict.Add(320, "Start motors program and movements running.");
-                    actionDescriptionDict.Add(321, "Start motors program and movements running.");
-                    actionDescriptionDict.Add(322, "Start motors program and movements running.");
-                    actionDescriptionDict.Add(323, "Start motors program and movements running.");
-                    actionDescriptionDict.Add(324, "Start motors program and movements running.");
-                    actionDescriptionDict.Add(325, "Start motors program and movements running.");
-                    actionDescriptionDict.Add(326, "Start motors program and movements running.");
-                    actionDescriptionDict.Add(327, "Start motors program and movements running.");
-                    actionDescriptionDict.Add(328, "Start motors program and movements running.");
-                    actionDescriptionDict.Add(329, "Start motors program and movements running.");
-                    actionDescriptionDict.Add(330, "Start motors program and movements running.");
-                    actionDescriptionDict.Add(331, "Start motors program and movements running.");
-                    actionDescriptionDict.Add(332, "Start motors program and movements running.");
-                    actionDescriptionDict.Add(333, "Start motors program and movements running.");
-                    actionDescriptionDict.Add(334, "Start motors program and movements running.");
-                    actionDescriptionDict.Add(335, "Start motors program and movements running.");
-                    actionDescriptionDict.Add(336, "Start motors program and movements running.");
-                    actionDescriptionDict.Add(337, "Start motors program and movements running.");
-                    actionDescriptionDict.Add(338, "Start motors program and movements running.");
-                    actionDescriptionDict.Add(339, "Start motors program and movements running.");
-                    actionDescriptionDict.Add(121, "Start motors program and movements finished succesfully.");
-                    actionDescriptionDict.Add(122, "Start motors program and movements restored.");
-
                     actionDescriptionDict.Add(130, "Stop movements and program started.");
                     actionDescriptionDict.Add(330, "Stop movements and program running.");
                     actionDescriptionDict.Add(331, "Stop movements and program running.");
