@@ -11,7 +11,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             _infoTimer              :   AXOpen.Timers.OnDelayTimer;
             _infoTime               :   LTIME := LT#2S;
             _errorTimer             :   AXOpen.Timers.OnDelayTimer;
-            _errorTime              :   LTIME := LT#5S;
+            _errorTime              :   LTIME := LT#0S;
             _blink                  :   AXOpen.Timers.AxoBlinker;
             _context                :   IAxoContext;
             _stopTasksAreActive     :   BOOL;
@@ -102,9 +102,20 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
             RobotStatus         :   AxoUrRobotics_Component_Status_v_1_x_x;
+            // {#ix-attr:[ComponentDetails("Status")]}
+            // {#ix-attr:[ReadOnly()]}
+            // {#ix-set:AttributeName = "<#Power progress#>"}
+            // _power_progress     :   INT := 0;
+            // {#ix-attr:[ComponentDetails("Status")]}
+            // {#ix-attr:[ReadOnly()]}
+            // {#ix-set:AttributeName = "<#Movement progress#>"}
+            // _movement_progress  :   INT := 0;
+            {#ix-attr:[ComponentDetails("Status")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Progress#>"}
+            _progress  :   INT := 0;
             Messenger           :   AXOpen.Messaging.Static.AxoMessenger;
             TaskMessenger       :   AXOpen.Messaging.Static.AxoMessenger;
-            _progress           :   INT := 0;
         END_VAR
 
         VAR PUBLIC //Hardware signals
@@ -127,6 +138,9 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             {#ix-attr:[ComponentDetails("Hardware diagnostics")]}
             {#ix-set:AttributeName = "<#Update diagnostics#>"}
             HardwareDiagnosticsTask :   AXOpen.Io.AxoHardwareDiagnostics;
+            {#ix-attr:[ComponentDetails("Hardware diagnostics")]}            
+            {#ix-set:AttributeName = "<#Reboot controller#>"}
+            RebootControllerTask : AxoRemoteTask ;            
         END_VAR
 
         ///<summary>
@@ -323,6 +337,42 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             END_VAR
 
             THIS.Open();
+            //*******************************************
+            _context := THIS.GetContext();
+
+            _infoTime := Config.InfoTime;
+            _errorTime := Config.ErrorTime;
+
+            //*************INITIALIZATION*************
+            RestoreTask.Initialize(THIS);
+            PowerOnTask.Initialize(THIS);
+            StopMovementsTask.Initialize(THIS);
+            StopMovementsAndProgramTask.Initialize(THIS);
+            StopProgramTask.Initialize(THIS);
+            // StopMotorsTask.Initialize(THIS);
+            StartAtMainTask.Initialize(THIS);
+            StartMotorsAndProgramTask.Initialize(THIS);
+            StartProgramTask.Initialize(THIS);
+            StartMotorsTask.Initialize(THIS);
+            StartMovementsTask.Initialize(THIS);
+            StartMotorsProgramAndMovementsTask.Initialize(THIS);
+            HardwareDiagnosticsTask.Initialize(THIS);
+            RebootControllerTask.Initialize(THIS);
+
+            _stopTasksAreActive := StopMovementsTask.IsBusy() OR StopMovementsAndProgramTask.IsBusy() OR StopProgramTask.IsBusy();// OR StopMotorsTask.IsBusy();
+            //****************************************
+            //********************Diagnostics*********        
+            HardwareDiagnosticsTask.Run(_hwID);
+            RebootControllerTask.Execute();
+            //****************************************
+
+            //*************RESTORE********************
+            RestoreTask.IsDisabled := FALSE;
+            IF RestoreTask.Execute() THEN
+                THIS.Restore();
+            END_IF;
+            //****************************************
+
             //***********UPDATE**INPUTS******************
             //Inputs Low level
             //INPUTS T2O STATE ROBOT => st_URO_CB3_T2OInfoData
@@ -1221,39 +1271,39 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             Inputs.Coordinates.Ry                                   := Inputs.Inputs.Floats.Register_6;
             Inputs.Coordinates.Rz                                   := Inputs.Inputs.Floats.Register_7;
 
-            //*******************************************
-            _context := THIS.GetContext();
+            // //*******************************************
+            // _context := THIS.GetContext();
 
-            _infoTime := Config.InfoTime;
-            _errorTime := Config.ErrorTime;
+            // _infoTime := Config.InfoTime;
+            // _errorTime := Config.ErrorTime;
 
-            //*************INITIALIZATION*************
-            RestoreTask.Initialize(THIS);
-            PowerOnTask.Initialize(THIS);
-            StopMovementsTask.Initialize(THIS);
-            StopMovementsAndProgramTask.Initialize(THIS);
-            StopProgramTask.Initialize(THIS);
-            // StopMotorsTask.Initialize(THIS);
-            StartAtMainTask.Initialize(THIS);
-            StartMotorsAndProgramTask.Initialize(THIS);
-            StartProgramTask.Initialize(THIS);
-            StartMotorsTask.Initialize(THIS);
-            StartMovementsTask.Initialize(THIS);
-            StartMotorsProgramAndMovementsTask.Initialize(THIS);
-            HardwareDiagnosticsTask.Initialize(THIS);
+            // //*************INITIALIZATION*************
+            // RestoreTask.Initialize(THIS);
+            // PowerOnTask.Initialize(THIS);
+            // StopMovementsTask.Initialize(THIS);
+            // StopMovementsAndProgramTask.Initialize(THIS);
+            // StopProgramTask.Initialize(THIS);
+            // // StopMotorsTask.Initialize(THIS);
+            // StartAtMainTask.Initialize(THIS);
+            // StartMotorsAndProgramTask.Initialize(THIS);
+            // StartProgramTask.Initialize(THIS);
+            // StartMotorsTask.Initialize(THIS);
+            // StartMovementsTask.Initialize(THIS);
+            // StartMotorsProgramAndMovementsTask.Initialize(THIS);
+            // HardwareDiagnosticsTask.Initialize(THIS);
 
-            _stopTasksAreActive := StopMovementsTask.IsBusy() OR StopMovementsAndProgramTask.IsBusy() OR StopProgramTask.IsBusy();// OR StopMotorsTask.IsBusy();
-            //****************************************
-            //********************Diagnostics*********        
-            HardwareDiagnosticsTask.Run(_hwID);
-            //****************************************
+            // _stopTasksAreActive := StopMovementsTask.IsBusy() OR StopMovementsAndProgramTask.IsBusy() OR StopProgramTask.IsBusy();// OR StopMotorsTask.IsBusy();
+            // //****************************************
+            // //********************Diagnostics*********        
+            // HardwareDiagnosticsTask.Run(_hwID);
+            // //****************************************
 
-            //*************RESTORE********************
-            RestoreTask.IsDisabled := FALSE;
-            IF RestoreTask.Execute() THEN
-                THIS.Restore();
-            END_IF;
-            //****************************************
+            // //*************RESTORE********************
+            // RestoreTask.IsDisabled := FALSE;
+            // IF RestoreTask.Execute() THEN
+            //     THIS.Restore();
+            // END_IF;
+            // //****************************************
 
             //*************StartAtMainTask***************
             StartAtMainTask.IsDisabled := _stopTasksAreActive;
@@ -3015,8 +3065,8 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 signal : BOOL;
             END_VAR
             
-            _infoTimer.OnDelay(THIS, signal , _infoTime);
-            _errorTimer.OnDelay(THIS, signal , _errorTime );
+            _infoTimer.OnDelay(THIS, signal AND _infoTime > LT#0s , _infoTime);
+            _errorTimer.OnDelay(THIS, signal AND _errorTime > LT#0s , _errorTime );
         END_METHOD
 
         METHOD PRIVATE GetRobotModeDescription : eAxoUrRoboticsRobotMode

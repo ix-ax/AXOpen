@@ -8,6 +8,7 @@ files:
   - axsharp.companion.json
 devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
+  "@ax/diagnostic-buffer": ^1.3.0
 scripts:
   postbuild:
     - dotnet ixc
