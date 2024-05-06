@@ -1,0 +1,77 @@
+{
+  "Version": 1,
+  "HardwareIdentifiers": [
+    {
+      "Name": "PROFINET IO-System",
+      "Value": 256
+    },
+    {
+      "Name": "plc_line",
+      "Value": 32
+    },
+    {
+      "Name": "plc_line~Rail_0",
+      "Value": 257
+    },
+    {
+      "Name": "plc_line~plc_line",
+      "Value": 48
+    },
+    {
+      "Name": "plc_line~plc_line~ plc_line",
+      "Value": 49
+    },
+    {
+      "Name": "plc_line~plc_line~CPU display_1",
+      "Value": 54
+    },
+    {
+      "Name": "plc_line~plc_line~CPU exec unit_1",
+      "Value": 52
+    },
+    {
+      "Name": "plc_line~plc_line~Card reader/writer_1",
+      "Value": 51
+    },
+    {
+      "Name": "plc_line~plc_line~DP interface_1",
+      "Value": 60
+    },
+    {
+      "Name": "plc_line~plc_line~LicenseManager_1",
+      "Value": 42
+    },
+    {
+      "Name": "plc_line~plc_line~OPC UA_1",
+      "Value": 117
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET interface_2",
+      "Value": 72
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET interface_2~Port_1",
+      "Value": 73
+    },
+    {
+      "Name": "plc_line~plc_line~Virtual communication interface",
+      "Value": 135
+    },
+    {
+      "Name": "plc_line~plc_line~plc_line",
+      "Value": 50
+    },
+    {
+      "Name": "plc_line~plc_line~profinet_x1",
+      "Value": 64
+    },
+    {
+      "Name": "plc_line~plc_line~profinet_x1~Port1",
+      "Value": 65
+    },
+    {
+      "Name": "plc_line~plc_line~profinet_x1~Port2",
+      "Value": 66
+    }
+  ]
+}
