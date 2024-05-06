@@ -1271,40 +1271,6 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             Inputs.Coordinates.Ry                                   := Inputs.Inputs.Floats.Register_6;
             Inputs.Coordinates.Rz                                   := Inputs.Inputs.Floats.Register_7;
 
-            // //*******************************************
-            // _context := THIS.GetContext();
-
-            // _infoTime := Config.InfoTime;
-            // _errorTime := Config.ErrorTime;
-
-            // //*************INITIALIZATION*************
-            // RestoreTask.Initialize(THIS);
-            // PowerOnTask.Initialize(THIS);
-            // StopMovementsTask.Initialize(THIS);
-            // StopMovementsAndProgramTask.Initialize(THIS);
-            // StopProgramTask.Initialize(THIS);
-            // // StopMotorsTask.Initialize(THIS);
-            // StartAtMainTask.Initialize(THIS);
-            // StartMotorsAndProgramTask.Initialize(THIS);
-            // StartProgramTask.Initialize(THIS);
-            // StartMotorsTask.Initialize(THIS);
-            // StartMovementsTask.Initialize(THIS);
-            // StartMotorsProgramAndMovementsTask.Initialize(THIS);
-            // HardwareDiagnosticsTask.Initialize(THIS);
-
-            // _stopTasksAreActive := StopMovementsTask.IsBusy() OR StopMovementsAndProgramTask.IsBusy() OR StopProgramTask.IsBusy();// OR StopMotorsTask.IsBusy();
-            // //****************************************
-            // //********************Diagnostics*********        
-            // HardwareDiagnosticsTask.Run(_hwID);
-            // //****************************************
-
-            // //*************RESTORE********************
-            // RestoreTask.IsDisabled := FALSE;
-            // IF RestoreTask.Execute() THEN
-            //     THIS.Restore();
-            // END_IF;
-            // //****************************************
-
             //*************StartAtMainTask***************
             StartAtMainTask.IsDisabled := _stopTasksAreActive;
             IF StartAtMainTask.StartTriggered() THEN
@@ -2999,6 +2965,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             StartMovementsTask.Restore();
             StartMotorsProgramAndMovementsTask.Restore();
             RestoreTask.DoneWhen(TRUE);
+            _progress := 0;
         END_METHOD        
     
         METHOD PUBLIC StartAtMain : IAxoTaskState
