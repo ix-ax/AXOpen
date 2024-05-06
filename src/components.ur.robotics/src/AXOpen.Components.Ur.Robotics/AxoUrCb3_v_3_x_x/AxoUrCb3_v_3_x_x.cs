@@ -331,7 +331,7 @@ namespace AXOpen.Components.Ur.Robotics
 
                     errorDescriptionDict.Add(600, "Waiting for the signal `Inputs.Inputs.Safety.NO_IsNormalMode` to be set!");                                                                
                     errorDescriptionDict.Add(601, "Waiting for the signal `Inputs.Inputs.Safety.RD_IsReducedMode` to be set!");                                                               
-                    errorDescriptionDict.Add(602, "Waiting for the signal `Inputs.Inputs.Robot.PW_IsPowerOn` to be set!");                                                                    
+                    errorDescriptionDict.Add(602, "Waiting for the signal `Inputs.Inputs.Robot.PR_IsProgramRunning` to be set!");                                                                    
 
                     errorDescriptionDict.Add(610, "Waiting for the signal `Inputs.Inputs.Safety.NO_IsNormalMode` to be set!");                                                                
                     errorDescriptionDict.Add(611, "Waiting for the signal `Inputs.Inputs.Safety.RD_IsReducedMode` to be set!");                                                               

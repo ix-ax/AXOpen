@@ -9,6 +9,9 @@ variables:
     - "--debug" # Generate debug information for target "1500"
   PLC_NAME: "plc_line"
   PC_MAC: "00:D8:61:F0:AB:7D"
+  plc_line_IPADDRESS: 10.10.10.120
+  plc_line_CERT: "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tDQpNSUlEeURDQ0FyQ2dBd0lCQWdJVVViTFI3MGJtUW5mRFVRK2JROGI4Si9Ca2l1SXdEUVlKS29aSWh2Y05BUUVMQlFBd2dZWXhDekFKDQpCZ05WQkFZVEFsaFlNUkl3RUFZRFZRUUlEQWxUZEdGMFpVNWhiV1V4RVRBUEJnTlZCQWNNQ0VOcGRIbE9ZVzFsTVJRd0VnWURWUVFLDQpEQXREYjIxd1lXNTVUbUZ0WlRFYk1Ca0dBMVVFQ3d3U1EyOXRjR0Z1ZVZObFkzUnBiMjVPWVcxbE1SMHdHd1lEVlFRRERCUkRiMjF0DQpiMjVPWVcxbFQzSkliM04wYm1GdFpUQWVGdzB5TkRBME1ESXdOekUyTlRoYUZ3MHlOVEEwTURJd056RTJOVGhhTUlHR01Rc3dDUVlEDQpWUVFHRXdKWVdERVNNQkFHQTFVRUNBd0pVM1JoZEdWT1lXMWxNUkV3RHdZRFZRUUhEQWhEYVhSNVRtRnRaVEVVTUJJR0ExVUVDZ3dMDQpRMjl0Y0dGdWVVNWhiV1V4R3pBWkJnTlZCQXNNRWtOdmJYQmhibmxUWldOMGFXOXVUbUZ0WlRFZE1Cc0dBMVVFQXd3VVEyOXRiVzl1DQpUbUZ0WlU5eVNHOXpkRzVoYldVd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUJEd0F3Z2dFS0FvSUJBUUROSTJuKzdoSng3MHlEDQphQ1FESzh3M1VmMWZGckFERjF3QnE5V2FuT25IY3FQQVNTbWNZRUtvTlJwRmNMWWlpNFZ6Rjlzb2g1MUlYZGxzQnVOVWlNYllHNWlKDQpvNzdSY1cyZkxKdUQ2Q0l3YS9kZVJrK0FuU1E3WFZtc3BXb2FWUEV2ZVh1c2M3aFhpMFRkUlJnU2VGOVZWZ1VRT1huQmZ6QnNCSG5pDQpCb3d4VmJXTTJoSGE0ME5uT0FIVWpsczRWTXpQM3NmNDd1bzRsMUEyaTdoUW0wY0RuekZzajFMNHplVXZCeGIxUnlzbkpIaW96RnBkDQpFZmJ3anp0V0o5OVU1bDdpa3F0T0pZVWJ3Y01mY0gxT3gwWkRLT0RLb0JnRElMSjNhS1BnQXhmZnRVeVpMVE10UGNPaWRIdFpudWo0DQpjRThNbHlOY01wQXVUQ1FhQzZ4K1U4VVJBZ01CQUFHakxEQXFNQWtHQTFVZEV3UUNNQUF3SFFZRFZSME9CQllFRkIvZC9XNnVzR0NJDQpWZC82YXVVdmRzMUtJeDF6TUEwR0NTcUdTSWIzRFFFQkN3VUFBNElCQVFBTU5yMFA5WXFlTEFFRk05R2lhakN4cEk5SlFRN0ZEWE9yDQp6b1daU0h3UDRlMUczaEZRK09BSG14K0lrcnNGTG9Uckc4cUczU0hIRjRwalpOM0pmNDV6WXdNb2x5ckFjcEZnTTBLak5MQmhBVlJKDQp0dmVMZDNUR2ZYY0R1c3VyemR1anpYa0xkc0FOTWFsQ2RMZzV0WnhrYmFHQ3dUdGwyTGZJRy9zcFRCSGVwVzNpNTJ0blczK28zUk4zDQo3V0dsWUtHKzNGSVREcXJpck5Bc1hxQzZ4VURLL3RiR1lUNEVIMlNJQ3I4TEM5YjhkM2k5NlhaODAzSzFDYW83LzdBazgyaVJ6MCtsDQpnZXg0U2xwTmxxcUlxUktla1hERGtpWDhVTmJYL0RJVi96RlVLMjVlcGlOM2pjZWxOMlhWV3NlS0JMazBvZWhTblEzdUJ3Um5PSmVqDQp0QSs5DQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tDQo="
+  plc_line_PLCINFO: "6ES7 516-3AP03-0AB0,VV3.1,S7 1516,project=AX,plc_line"
 devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
   "@ax/hwc": ^0.13.375
@@ -46,9 +49,8 @@ scripts:
     - dotnet tool restore
     - dotnet ixc
     - echo "Built by ixc in :" $(expr $(date +%s) - $START) "s"
-  download_only:
-    - apax sld load --accept-security-disclaimer -t $AXTARGET -i
-      $AXTARGETPLATFORMINPUT -r
+  download_only: |
+    apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r -C ./certs/$PLC_NAME/$PLC_NAME.cer
   check+download: |
     if [ $AXTARGET ]; then
       if [ $AXTARGETPLATFORMINPUT ]; then
@@ -86,8 +88,8 @@ scripts:
     - apax rr
     - apax watch
   r:
-    - apax plc-mode set stop -t $AXTARGET -y
-    - apax plc-mode set run -t $AXTARGET -y
+    - apax plc-mode set STOP -t $AXTARGET -y -C ./certs/$PLC_NAME/$PLC_NAME.cer
+    - apax plc-mode set RUN -t $AXTARGET -y -C ./certs/$PLC_NAME/$PLC_NAME.cer
   d:
     - apax download
   do:
@@ -205,22 +207,23 @@ scripts:
     apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r -C ./certs/$PLC_NAME/$PLC_NAME.cer --mode delta
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
 
-  alf: | #clear plc except ip and name and provide all actions for installal, build and initial download
+  alf: | #clear plc except ip and name and provide all actions for install all, build and initial download
     START=$(date +%s)
-    apax clean
-    apax install
+    apax ci
     apax clean_plc
     apax ssc
     apax hwfd
     apax swfd
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
 
-  all: |
+  all: | #build and download hardware and software
     START=$(date +%s)
-    apax clean
-    apax install
+    apax ci
     apax hwu
     apax swfd
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
+  ci: | #clear an install
+    apax clean
+    apax install
 installStrategy: strict
 apaxVersion: 3.1.1

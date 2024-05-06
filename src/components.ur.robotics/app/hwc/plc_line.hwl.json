@@ -22,7 +22,12 @@
         { "Ref": "plc_line/plc_line/profinet_x1" }
       ],
       "DeviceInterfaces": [
-        { "Ref":  "ureol2l/ureol2l/profinet"}
+        { 
+          "Ref":  "ureol2l/ureol2l/profinet",
+          "Parameters": {
+            "PnWatchdogFactor": 4
+          }
+        }
       ]
     }
   ]

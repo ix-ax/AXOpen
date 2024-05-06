@@ -66,9 +66,9 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             {#ix-set:AttributeName = "<#Coordinates#>"}     
             Coordinates : AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates; 		
 
-            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
-            {#ix-set:AttributeName = "<UR Specific#>"}
+            {#ix-set:AttributeName = "<#UR Specific#>"}
             Outputs : AxoUrRoboticsOutputData_v_1_x_x;
         END_VAR
     END_CLASS
