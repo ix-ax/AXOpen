@@ -419,3 +419,8 @@ certs
 #AX HWC installed gsdml
 import-cache
 >>>>>>> ab40b399003037d3c0dfc805f1b456a4790a6437
+#Local Connection Configuration
+.ax
+.ax/plcs
+.ax/certificates
+

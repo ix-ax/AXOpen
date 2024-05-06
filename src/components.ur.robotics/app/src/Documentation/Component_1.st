@@ -15,10 +15,21 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         {#ix-set:AttributeName = "<#Power on impulse#>"}
         PowerOnImpulse : BOOL;         
         movementParams : AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams;
-
     END_VAR
     //</InitializationArgumentsDeclaration>            
 
+    VAR PUBLIC              
+        {#ix-set:AttributeName = "<#Setup date and time#>"}
+        SetupDateTime : LDATE_AND_TIME;
+        {#ix-set:AttributeName = "<#Click to set the date and time#>"}
+        SetUTC : AxoTask;
+    END_VAR
+    VAR PRIVATE
+        retval : WORD;
+        _rtc : AXOpen.S71500.Rtc;
+
+    END_VAR
+    
     METHOD PUBLIC Run
         VAR_INPUT
             parent : IAxoContext;
@@ -29,6 +40,15 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         IF ActivateManualControl THEN
             ExampleRobot.ActivateManualControl();
         END_IF;
+
+        SetUTC.Initialize(THIS);
+
+        IF(SetUTC.Execute()) THEN
+            retval := _rtc.SetUTC(SetupDateTime);
+            SetUTC.ThrowWhen(retval>WORD#0);
+            SetUTC.DoneWhen(retval=WORD#0);
+        END_IF;
+
 
         //<Initialization>        
         ExampleRobot.Run(   parent                                                  := THIS,
