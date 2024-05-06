@@ -9,7 +9,7 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     END_VAR
 
     METHOD PROTECTED OVERRIDE Main
-        return;
+        RETURN;
         _testRobot.Run(     parent                                                  := THIS,
                             hwID                                                    := HwIdentifiers#ureol2l_HwID,
                             hwIdAxoUrRobotics_T2O_State                             := HwIdentifiers#ureol2l_1_T2O_State_1_T2O_State_HwID,

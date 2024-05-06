@@ -18,18 +18,6 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
     END_VAR
     //</InitializationArgumentsDeclaration>            
 
-    VAR PUBLIC              
-        {#ix-set:AttributeName = "<#Setup date and time#>"}
-        SetupDateTime : LDATE_AND_TIME;
-        {#ix-set:AttributeName = "<#Click to set the date and time#>"}
-        SetUTC : AxoTask;
-    END_VAR
-    VAR PRIVATE
-        retval : WORD;
-        _rtc : AXOpen.S71500.Rtc;
-
-    END_VAR
-    
     METHOD PUBLIC Run
         VAR_INPUT
             parent : IAxoContext;
@@ -40,15 +28,6 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         IF ActivateManualControl THEN
             ExampleRobot.ActivateManualControl();
         END_IF;
-
-        SetUTC.Initialize(THIS);
-
-        IF(SetUTC.Execute()) THEN
-            retval := _rtc.SetUTC(SetupDateTime);
-            SetUTC.ThrowWhen(retval>WORD#0);
-            SetUTC.DoneWhen(retval=WORD#0);
-        END_IF;
-
 
         //<Initialization>        
         ExampleRobot.Run(   parent                                                  := THIS,
@@ -70,35 +49,103 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
        THIS.UseInSequencer();
     END_METHOD
 
-    //<Usage>    
-    VAR PUBLIC                       
-        Sequencer : AxoSequencer;       
-        Steps : ARRAY[0..3] OF AXOpen.Core.AxoStep;
-    END_VAR
+   //<Usage>    
+   VAR PUBLIC                       
+    Sequencer : AxoSequencer;       
+    Steps : ARRAY[0..10] OF AXOpen.Core.AxoStep;
+END_VAR
 
-    METHOD PRIVATE UseInSequencer   
+METHOD PRIVATE UseInSequencer   
+    Sequencer.Initialize(THIS);
+    Sequencer.Open();
+    Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
+    // Sequencer.SteppingMode := eAxoSteppingMode#Continous;
 
-        Sequencer.Initialize(THIS);
-        Sequencer.Open();
+    IF(Steps[0].Execute(Sequencer, 'Restore')) THEN
+        ActivateManualControl := FALSE;
+        ExampleRobot.Restore();              
+        Sequencer.MoveNext();                
+    END_IF;
 
-        IF(Steps[0].Execute(Sequencer, 'Start at main')) THEN
-            IF(ExampleRobot.StartAtMain().IsDone()) THEN                
-                Sequencer.MoveNext();                
-            END_IF;    
-        END_IF;
+    IF(Steps[1].Execute(Sequencer, 'Start motors and program')) THEN
+        IF(ExampleRobot.StartMotorsAndProgram().IsDone()) THEN                
+            Sequencer.MoveNext();                
+        END_IF;    
+    END_IF;
 
-        IF(Steps[1].Execute(Sequencer, 'Move to position')) THEN
-            IF(ExampleRobot.StartMovements(movementParams).IsDone()) THEN                
-                Sequencer.MoveNext();                
-            END_IF;    
-        END_IF;       
+    IF(Steps[2].Execute(Sequencer, 'Start motors and program')) THEN
+        IF(ExampleRobot.StartMotorsAndProgram().IsDone()) THEN                
+            Sequencer.MoveNext();                
+        END_IF;    
+    END_IF;
 
-        IF(Steps[1].Execute(Sequencer, 'Stop')) THEN
-            IF(ExampleRobot.StopMovements().IsDone()) THEN                
-                Sequencer.CompleteSequence();                
-            END_IF;    
-        END_IF;       
-    END_METHOD
-    
-    //</Usage>
+    IF(Steps[3].Execute(Sequencer, 'Move to position 100')) THEN
+        movementParams.ActionNo         :=  BYTE#100;  
+        movementParams.GlobalSpeed      :=  BYTE#5; 
+        movementParams.ToolNo           :=  BYTE#10;  
+        movementParams.WorkobjectNo     :=  BYTE#15; 
+        movementParams.PointNo          :=  BYTE#20;  
+        movementParams.UserSpecSpeed1   :=  INT#25;  
+        movementParams.UserSpecSpeed2   :=  INT#30;  
+        movementParams.Coordinates.X    :=  REAL#1.2;
+        movementParams.Coordinates.Y    :=  REAL#2.3;
+        movementParams.Coordinates.Z    :=  REAL#3.4;
+        movementParams.Coordinates.Rx   :=  REAL#4.5;
+        movementParams.Coordinates.Ry   :=  REAL#5.6;
+        movementParams.Coordinates.Rz   :=  REAL#6.7;
+
+        IF(ExampleRobot.StartMovements(movementParams).IsDone()) THEN                
+            ExampleRobot.StartMovementsTask.Restore();           
+            Sequencer.MoveNext();     
+        END_IF;    
+    END_IF;       
+
+    IF(Steps[4].Execute(Sequencer, 'Move to position 1')) THEN
+        movementParams.ActionNo         :=  BYTE#1;  
+
+        IF(ExampleRobot.StartMovements(movementParams).IsDone()) THEN                
+            ExampleRobot.StartMovementsTask.Restore();           
+            Sequencer.MoveNext();                
+        END_IF;    
+    END_IF;       
+
+    IF(Steps[5].Execute(Sequencer, 'Move to position 100')) THEN
+        movementParams.ActionNo         :=  BYTE#100;  
+
+        IF(ExampleRobot.StartMovements(movementParams).IsBusy() AND Sequencer.CurrentStep.Duration >= T#500ms) THEN   
+            Sequencer.MoveNext();                
+        END_IF;    
+    END_IF;       
+
+    IF(Steps[6].Execute(Sequencer, 'Stop during movement')) THEN
+        IF(ExampleRobot.StopMovements().IsDone()) THEN                
+            Sequencer.MoveNext();                
+        END_IF;    
+    END_IF;       
+
+    IF(Steps[7].Execute(Sequencer, 'Start motors and program')) THEN
+        IF(ExampleRobot.StartMotorsAndProgram().IsDone()) THEN                
+            Sequencer.MoveNext();                
+        END_IF;    
+    END_IF;
+
+    IF(Steps[8].Execute(Sequencer, 'Continue to position 100')) THEN
+        IF(ExampleRobot.StartMovementsTask.IsDone()) THEN                
+            ExampleRobot.StartMovementsTask.Restore();           
+            Sequencer.MoveNext();                
+        END_IF;    
+    END_IF;       
+
+    IF(Steps[9].Execute(Sequencer, 'Stop movement and program')) THEN
+        IF(ExampleRobot.StopMovementsAndProgram().IsDone()) THEN                
+            Sequencer.MoveNext();                
+        END_IF;    
+    END_IF;       
+    IF(Steps[10].Execute(Sequencer, 'Restore')) THEN
+        ExampleRobot.Restore();              
+        Sequencer.CompleteSequence();                
+    END_IF;       
+END_METHOD
+
+//</Usage>
 END_CLASS
