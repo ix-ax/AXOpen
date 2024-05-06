@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 	<PropertyGroup>
-		
+
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<PackageId>AXOpen.VisualComposer</PackageId>
@@ -18,14 +18,16 @@
 		<PackageReference Include="AXSharp.Connector" />
 		<PackageReference Include="AXSharp.Presentation.Blazor" />
 		<PackageReference Include="AXSharp.Presentation.Blazor.Controls" />
+		<PackageReference Include="AXOpen.KristofferStrube.Blazor.SVGEditor" />
 	</ItemGroup>
 
-	<!--<ItemGroup>
-	  <ProjectReference Include="..\..\..\..\..\axsharp\src\AXSharp.abstractions\src\AXSharp.Abstractions\AXSharp.Abstractions.csproj" />
-	  <ProjectReference Include="..\..\..\..\..\axsharp\src\AXSharp.blazor\src\AXSharp.Presentation.Blazor.Controls\AXSharp.Presentation.Blazor.Controls.csproj" />
-	  <ProjectReference Include="..\..\..\..\..\axsharp\src\AXSharp.blazor\src\AXSharp.Presentation.Blazor\AXSharp.Presentation.Blazor.csproj" />
-	  <ProjectReference Include="..\..\..\..\..\axsharp\src\AXSharp.connectors\src\AXSharp.Connector.S71500.WebAPI\AXSharp.Connector.S71500.WebAPI.csproj" />
-	  <ProjectReference Include="..\..\..\..\..\axsharp\src\AXSharp.connectors\src\AXSharp.Connector\AXSharp.Connector.csproj" />
-	</ItemGroup>-->
+	<ItemGroup>
+		<!--<ProjectReference Include="C:\MTS\ix\axsharp\src\AXSharp.abstractions\src\AXSharp.Abstractions\AXSharp.Abstractions.csproj" />
+		<ProjectReference Include="C:\MTS\ix\axsharp\src\AXSharp.connectors\src\AXSharp.Connector\AXSharp.Connector.csproj" />
+		<ProjectReference Include="C:\MTS\ix\axsharp\src\AXSharp.blazor\src\AXSharp.Presentation.Blazor\AXSharp.Presentation.Blazor.csproj" />
+		<ProjectReference Include="C:\MTS\ix\axsharp\src\AXSharp.blazor\src\AXSharp.Presentation.Blazor.Controls\AXSharp.Presentation.Blazor.Controls.csproj" />-->
 
+		<!--<ProjectReference Include="C:\MTS\Blazor.SVGEditor\src\KristofferStrube.Blazor.SVGEditor\KristofferStrube.Blazor.SVGEditor.csproj" />-->
+	</ItemGroup>
+	  
 </Project>

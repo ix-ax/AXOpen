@@ -7,6 +7,9 @@ using Newtonsoft.Json.Linq;
 using System.ComponentModel;
 using AXSharp.Connector.Localizations;
 using System.Xml.Linq;
+using KristofferStrube.Blazor.SVGEditor;
+using static System.Formats.Asn1.AsnWriter;
+using AngleSharp.Dom.Events;
 
 namespace AXOpen.VisualComposer
 {
@@ -16,55 +19,54 @@ namespace AXOpen.VisualComposer
         [CascadingParameter(Name = "Parent")]
         public VisualComposerContainer? Parent { get; set; }
 
-        [CascadingParameter(Name = "BackgroundId")]
-        private Guid _backgroundId { get; set; }
-
         [Parameter]
         public VisualComposerItemData? Origin { get; set; }
 
-        private IJSRuntime _js;
-        [Inject]
-        protected IJSRuntime js
-        {
-            get => _js;
-            set => _js = value;
-        }
 
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            await DragElement();
+        private bool _isDragging = false;
+        private double _startX = 0;
+        private double _startY = 0;
 
-            Parent.ReDragElementDelegate += async () =>
+        private async Task MoveAsync(PointerEventArgs eventArgs)
+        {
+            if (_isDragging)
             {
-                await DragElement();
-            };
+                double offsetX = ((eventArgs.ClientX - _startX) / Parent!.ElementSize.Width * 100) * (1 / Parent.Scale);
+                double offsetY = ((eventArgs.ClientY - _startY) / ((Parent!.BackgroundHeight / Parent!.BackgroundWidth) * Parent!.ElementSize.Width) * 100) * (1 / Parent.Scale);
 
-            Origin.DragElementDelegate += async () =>
-            {
-                await DragElement();
-            };
-        }
+                Origin._left += offsetX;
+                Origin._top += offsetY;
 
-        public async Task DragElement()
-        {
-            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/VisualComposerItem.razor.js");
-            await jsObject.InvokeVoidAsync("dragElement", Origin.Id.Replace('.', '_') + "-" + Origin.UniqueGuid, DotNetObjectReference.Create(this), Origin.Left, Origin.Top, _backgroundId, Parent._zoomableContainer.Scale);
-        }
+                _startX = eventArgs.ClientX;
+                _startY = eventArgs.ClientY;
 
-        [JSInvokable]
-        public Task SetDataAsync(double left, double top)
-        {
-            if(Origin._left != left || Origin._top != top)
-            {
-                Origin._left = left;
-                Origin._top = top;
-
-                Origin.StateHasChangeModalDelegate?.Invoke();
-
-                Parent?.Save();
+                await Parent.SaveAsync();
             }
+        }
 
-            return Task.CompletedTask;
+        private void Down(PointerEventArgs eventArgs)
+        {
+            Parent._zoomableContainer.CanDragging = false;
+            _isDragging = true;
+            _startX = eventArgs.ClientX;
+            _startY = eventArgs.ClientY;
+        }
+
+        private void Up(PointerEventArgs eventArgs)
+        {
+            Parent._zoomableContainer.CanDragging = true;
+            _isDragging = false;
+        }
+
+        private void Out(PointerEventArgs eventArgs)
+        {
+            Parent._zoomableContainer.CanDragging = true;
+            _isDragging = false;
+        }
+
+        private void Wheel(WheelEventArgs eventArgs)
+        {
+
         }
     }
 }

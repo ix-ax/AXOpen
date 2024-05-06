@@ -164,7 +164,7 @@ namespace AXOpen.VisualComposer
             }
         }
 
-        internal int _zIndex = 0;
+        internal int _zIndex = 10;
         public int ZIndex
         {
             get => _zIndex;

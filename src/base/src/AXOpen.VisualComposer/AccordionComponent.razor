@@ -4,37 +4,40 @@
     <div class="accordion-header">
         <div class="input-group flex-nowrap">
             <span class="bi bi-boxes align-self-center mx-2" aria-hidden="true" />
-            <button class="accordion-button collapsed py-2" type="button" data-bs-toggle="collapse" data-bs-target="#@SourceTwinElement.Symbol.ModalIdHelper()" aria-expanded="false" aria-controls="@SourceTwinElement.Symbol.ModalIdHelper()">
+            <button class="accordion-button collapsed py-2 text-truncate" type="button" data-bs-toggle="collapse" data-bs-target="#@SourceTwinElement.Symbol.ModalIdHelper()" aria-expanded="false" aria-controls="@SourceTwinElement.Symbol.ModalIdHelper()" @onclick="() => IsExpanded = true">
                 @SourceTwinElement.Symbol
             </button>
-            <a class="text-decoration-none text-black p-2 align-self-center" style="cursor: pointer;" @onclick="() => Parent.AddChildren(SourceTwinElement)"><span class="bi bi-plus-lg" aria-hidden="true"/></a>
+            <a class="text-decoration-none text-black p-2 align-self-center" style="cursor: pointer;" @onclick="() => Parent.AddChildrenAsync(SourceTwinElement)"><span class="bi bi-plus-lg" aria-hidden="true" /></a>
         </div>
     </div>
-    <div id="@SourceTwinElement.Symbol.ModalIdHelper()" class="accordion-collapse collapse">
-        <div class="accordion-body">
-            <ul class="list-group">
-                
-                @if (SourceTwinElement is ITwinObject primary)
-                {
-                    @foreach (var kid in primary.GetKids())
-                    {
-                        if (kid is ITwinObject tobj)
-                        {
-                            <AccordionComponent SourceTwinElement="tobj" Parent="@Parent"/>    
-                        }
 
-                        if (kid is ITwinPrimitive prim)
+    <div id="@SourceTwinElement.Symbol.ModalIdHelper()" class="accordion-collapse collapse">
+        @if (IsExpanded)
+        {
+            <div class="accordion-body">
+                <ul class="list-group">
+                    @if (SourceTwinElement is ITwinObject primary)
+                    {
+                        @foreach (var kid in primary.GetKids())
                         {
-                            <li class="list-group-item d-flex">
-                                <span class="bi bi-card-text me-2" aria-hidden="true" />
-                                <p class="mb-0">@prim.Symbol</p>
-                                <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => Parent.AddChildren(prim)"><span class="bi bi-plus-lg" aria-hidden="true"/></a>
-                            </li> 
+                            if (kid is ITwinObject tobj)
+                            {
+                                <AccordionComponent SourceTwinElement="tobj" Parent="@Parent" />
+                            }
+
+                            if (kid is ITwinPrimitive prim)
+                            {
+                                <li class="list-group-item d-flex">
+                                    <span class="bi bi-card-text me-2" aria-hidden="true" />
+                                    <p class="mb-0 text-truncate">@prim.Symbol</p>
+                                    <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => Parent.AddChildrenAsync(prim)"><span class="bi bi-plus-lg" aria-hidden="true" /></a>
+                                </li>
+                            }
                         }
                     }
-                }
-            </ul>
-        </div>
+                </ul>
+            </div>
+        }
     </div>
 </div>
 
@@ -45,4 +48,6 @@
 
     [Parameter]
     public VisualComposerContainer Parent { get; set; }
+
+    private bool IsExpanded { get; set; } = false;
 }
