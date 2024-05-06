@@ -2,18 +2,29 @@
     <Authorized>
         @if (InDesign)
         {
-            <div id="@Origin.Id.Replace('.', '_')-@Origin.UniqueGuid" style="position: absolute; left: @(Origin.Left.ToString().Replace(',', '.'))%; top: @(Origin.Top.ToString().Replace(',', '.'))%; transform: scale(@(Origin.Scale)); translate: @(Origin.Transform.X)% @(Origin.Transform.Y)%; width: @(Origin.Width != -1 ? Origin.Width + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height + "rem" : "max-content"); z-index: @Origin.ZIndex;">
-                <div class="@(Origin.Background ? "card border border-3 p-2 rounded-3" : null)" style="@(Origin.Background ? "background-color: " + @Origin.BackgroundColor + "; border-color: " + @Origin.BackgroundColor + " !important;" : null)">
-                    <RenderableContentControl @ref="renderableContentControlRcc"
-                                              Context="@Origin.TwinElement"
-                                              Presentation="@Origin.Presentation.ToString()"
-                                              ParentContainer="@this"
-                                              PresentationTemplate="@Origin.PresentationTemplate" />
+            <div onpointermove="event.preventDefault()"
+                 onpointerdown="event.preventDefault()"
+                 onpointerup="event.preventDefault()"
+                 onpointerleave="event.preventDefault()"
+                 onwheel="event.preventDefault()">
+                <div @onpointermove="MoveAsync"
+                     @onpointerdown="Down"
+                     @onpointerup="Up"
+                     @onpointerleave="Out"
+                     @onwheel="Wheel"
+                     style="position: absolute; left: @(Origin.Left.ToString().Replace(',', '.'))%; top: @(Origin.Top.ToString().Replace(',', '.'))%; transform: scale(@(Origin.Scale)); translate: @(Origin.Transform.X)% @(Origin.Transform.Y)%; width: @(Origin.Width != -1 ? Origin.Width + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height + "rem" : "max-content"); z-index: @Origin.ZIndex;">
+                    <div class="@(Origin.Background ? "card border border-3 p-2 rounded-3" : null)" style="@(Origin.Background ? "background-color: " + @Origin.BackgroundColor + "; border-color: " + @Origin.BackgroundColor + " !important;" : null)">
+                        <RenderableContentControl @ref="renderableContentControlRcc"
+                                                  Context="@Origin.TwinElement"
+                                                  Presentation="@Origin.Presentation.ToString()"
+                                                  ParentContainer="@this"
+                                                  PresentationTemplate="@Origin.PresentationTemplate" />
+                    </div>
+                    <a class="position-absolute text-decoration-none text-black" style="left: 97%; top: 0%; translate: -100% -50%; cursor: pointer;" data-bs-toggle="modal"
+                       data-bs-target="#settings-@Origin.Id.Replace('.', '_')-@Origin.UniqueGuid">
+                        <span class="bi bi-pencil-square fs-4 @(Parent?.Theme)" aria-hidden="true" />
+                    </a>
                 </div>
-                <a class="position-absolute text-decoration-none text-black" style="left: 97%; top: 0%; translate: -100% -50%; cursor: pointer;" data-bs-toggle="modal"
-                   data-bs-target="#settings-@Origin.Id.Replace('.', '_')-@Origin.UniqueGuid">
-                    <span class="bi bi-pencil-square fs-4 @(Parent?.Theme)" aria-hidden="true" />
-                </a>
             </div>
         }
         else
