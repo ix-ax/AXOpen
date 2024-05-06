@@ -4,13 +4,13 @@ namespace AXOpen.VisualComposer.Serializing
 {
     internal static class Serializing<T>
     {
-        internal static void Serialize(string filePath, T serialize)
+        internal static async Task SerializeAsync(string filePath, T serialize)
         {
             try
             {
                 using (FileStream fs = File.Create(filePath))
                 {
-                    JsonSerializer.Serialize(fs, serialize, new JsonSerializerOptions{ WriteIndented = true });
+                    await JsonSerializer.SerializeAsync(fs, serialize, new JsonSerializerOptions{ WriteIndented = true });
                 }
             }
             catch (Exception ex)
@@ -30,6 +30,27 @@ namespace AXOpen.VisualComposer.Serializing
                 using (FileStream fs = File.OpenRead(filePath))
                 {
                     deserialize = JsonSerializer.Deserialize<T>(fs);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+            return deserialize;
+        }
+
+        internal static async Task<T?> DeserializeAsync(string filePath)
+        {
+            if (!File.Exists(filePath))
+                return default;
+
+            T? deserialize = default;
+            try
+            {
+                using (FileStream fs = File.OpenRead(filePath))
+                {
+                    deserialize = await JsonSerializer.DeserializeAsync<T>(fs);
                 }
             }
             catch (Exception ex)

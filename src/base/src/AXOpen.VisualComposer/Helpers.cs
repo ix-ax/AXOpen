@@ -1,4 +1,6 @@
-﻿using System;
+﻿using KristofferStrube.Blazor.SVGEditor.Extensions;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -16,6 +18,9 @@ namespace AXOpen.VisualComposer
 
         public static string CorrectFilePath(this string path)
         {
+            if (path == null)
+                return "";
+
             foreach (char c in Path.GetInvalidFileNameChars().Concat(Path.GetInvalidPathChars()))
             {
                 path = path.Replace(c, '_');
@@ -39,6 +44,11 @@ namespace AXOpen.VisualComposer
                 }
                 return builder.ToString();
             }
+        }
+
+        public static IServiceCollection AddVisualComposerService(this IServiceCollection services)
+        {
+            return services.AddSVGEditor();
         }
     }
 }

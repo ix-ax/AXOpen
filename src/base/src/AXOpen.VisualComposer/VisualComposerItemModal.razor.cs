@@ -19,9 +19,9 @@ namespace AXOpen.VisualComposer
             Origin.StateHasChangeModalDelegate += StateHasChanged;
         }
 
-        public void Remove()
+        public async Task RemoveAsync()
         {
-            _parent.RemoveChildren(Origin);
+            await _parent.RemoveChildrenAsync(Origin);
         }
     }
 }

@@ -1,5 +1,17 @@
-﻿<div id="zoomAndMoveContainer" style="overflow: hidden;">
-    <div id="zoomAndMoveItem" style="position: relative; transform: scale(1) translate(0px, 0px)">
-        @ChildContent
+﻿<div onpointermove="event.preventDefault()"
+     onpointerdown="event.preventDefault()"
+     onpointerup="event.preventDefault()"
+     onpointerout="event.preventDefault()"
+     onwheel="event.preventDefault()"
+     class="m-0 p-0">
+    <div @onpointermove="MoveAsync"
+         @onpointerdown="Down"
+         @onpointerup="Up"
+         @onpointerout="Out"
+         @onwheel="WheelAsync"
+         style="overflow: hidden; background-color: @(Parent.BackgroundColor);">
+        <div style="position: relative; transform: scale(@(Parent!.Scale)) translate(@(Parent!.TranslateX.ToString().Replace(',', '.'))%, @(Parent!.TranslateY.ToString().Replace(',', '.'))%);">
+            @ChildContent
+         </div>
     </div>
 </div>

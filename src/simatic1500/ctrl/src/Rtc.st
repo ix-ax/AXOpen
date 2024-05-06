@@ -8,5 +8,12 @@ NAMESPACE AXOpen.S71500
             END_VAR    
             GetSystemDateTime(value => NowUTC);             
         END_METHOD
+
+        METHOD PUBLIC SetUTC : WORD
+            VAR_INPUT
+                Value : LDATE_AND_TIME;
+            END_VAR    
+            SetUTC := SetSystemDateTime(value := Value);
+        END_METHOD
     END_CLASS
 END_NAMESPACE
