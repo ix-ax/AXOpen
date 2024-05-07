@@ -47,7 +47,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             {#ix-set:AttributeName = "<#In position#>"}
             InPosition : DINT;
             {#ix-set:AttributeName = "<#Action number#>"}
-            ActionNo : DINT; 
+            ActionNo : DINT :=  DINT#255;
             {#ix-set:AttributeName = "<#Global robot speed#>"}
             GlobalSpeed : DINT; 
             {#ix-set:AttributeName = "<#Tool number#>"}

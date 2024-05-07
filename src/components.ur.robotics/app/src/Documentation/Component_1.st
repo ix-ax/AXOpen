@@ -67,8 +67,8 @@ METHOD PRIVATE UseInSequencer
         Sequencer.MoveNext();                
     END_IF;
 
-    IF(Steps[1].Execute(Sequencer, 'Start motors and program')) THEN
-        IF(ExampleRobot.StartMotorsAndProgram().IsDone()) THEN                
+    IF(Steps[1].Execute(Sequencer, 'Stop movements and program')) THEN
+        IF(ExampleRobot.StopMovementsAndProgram().IsDone()) THEN                
             Sequencer.MoveNext();                
         END_IF;    
     END_IF;
@@ -140,7 +140,8 @@ METHOD PRIVATE UseInSequencer
         IF(ExampleRobot.StopMovementsAndProgram().IsDone()) THEN                
             Sequencer.MoveNext();                
         END_IF;    
-    END_IF;       
+    END_IF;   
+
     IF(Steps[10].Execute(Sequencer, 'Restore')) THEN
         ExampleRobot.Restore();              
         Sequencer.CompleteSequence();                

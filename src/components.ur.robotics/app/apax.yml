@@ -111,9 +111,9 @@ scripts:
   rrw:
     - apax rr
     - apax watch
-  r:
-    - apax plc-mode set STOP -t $AXTARGET -y -C ./certs/$PLC_NAME/$PLC_NAME.cer
-    - apax plc-mode set RUN -t $AXTARGET -y -C ./certs/$PLC_NAME/$PLC_NAME.cer
+  r: | #restart PLC
+      apax plc-info set-mode STOP -t $AXTARGET -y -C ./certs/$PLC_NAME/$PLC_NAME.cer 
+      apax plc-info set-mode RUN -t $AXTARGET -y -C ./certs/$PLC_NAME/$PLC_NAME.cer 
   d:
     - apax download
   do:

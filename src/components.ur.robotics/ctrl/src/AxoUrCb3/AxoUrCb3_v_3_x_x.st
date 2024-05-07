@@ -1675,7 +1675,6 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 RobotStatus.Action.Id :=  UINT#182;
                 _movement_progress := 0;
             END_IF;
-
             //*******************************************
 
             //***********StopMovementsAndProgramTask*****
@@ -1727,7 +1726,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 END_IF;                    
 
                 IF _power_progress = 413 THEN
-                    Outputs.Pause := FALSE ;
+                    Outputs.Stop := FALSE ;
                     StopMovementsAndProgramTask.DoneWhen(TRUE);
                     _power_progress := 0;
                 END_IF;		
@@ -1789,6 +1788,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _power_progress:=422;                    
                     END_IF;
                 END_IF;
+
                 IF _power_progress = 422 THEN
                     TaskMessenger.ActivateOnCondition(ULINT#622, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
@@ -2343,6 +2343,24 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             StartMovementsTask.Restore();
 	        RebootControllerTask.Restore();
             RestoreTask.DoneWhen(TRUE);
+            Outputs.ActionNo:=255;
+            Outputs.GlobalSpeed:=0;
+            Outputs.ToolNo:=0;
+            Outputs.WorkobjectNo:=0;
+            Outputs.PointNo:=0;
+            Outputs.UserSpecSpeed1:=0;
+            Outputs.UserSpecSpeed2:=0;
+            Outputs.Coordinates.X:=0;
+            Outputs.Coordinates.Y:=0;
+            Outputs.Coordinates.Z:=0;
+            Outputs.Coordinates.Rx:=0;
+            Outputs.Coordinates.Ry:=0;
+            Outputs.Coordinates.Rz:=0;
+            Outputs.Start :=FALSE;
+            Outputs.Stop:=FALSE;
+            Outputs.Pause:=FALSE;
+            Outputs.RunAction:=FALSE;
+            Outputs.MotorOn:=FALSE;
             _power_progress := 0;
             _movement_progress := 0;
         END_METHOD        
