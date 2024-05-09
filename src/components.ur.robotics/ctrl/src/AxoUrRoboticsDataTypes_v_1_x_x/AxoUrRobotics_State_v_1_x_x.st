@@ -72,10 +72,12 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
-            {attribute  addProperty Name "<#Coordinates#>"}     
+            {#ix-set:AttributeName = "<#Coordinates#>"}
             Coordinates : AXOpen.Components.Abstractions.Robotics.AxoRoboticsCoordinates; 	
             
-            {attribute  addProperty Name "<#UR Specific#>"}     
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]}
+            {#ix-set:AttributeName = "<#UR Specific#>"}
             Inputs:AxoUrRoboticsInputData_v_1_x_x ;
         END_VAR
     END_CLASS
