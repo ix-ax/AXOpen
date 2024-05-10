@@ -12,12 +12,6 @@ variables:
   PC_MAC: "00:D8:61:F0:AB:7D"
 devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
-  "@ax/hwc": ^0.13.375
-  "@ax/hwld": ^0.9.479
-  "@ax/dcp-utility": ^1.1.2
-  "@ax/hardware-diagnostics": ^0.1.0
-  "@ax/certificate-management": ^1.1.1
-  "@ax/plc-info": ^2.3.0
 dependencies:
   "@ax/simatic-1500-clocks": ^6.0.37
   "@ax/system-serde": ^6.0.94

@@ -9,16 +9,20 @@ dependencies:
   #"@ax/sdk": ^2311.0.1
   "@ax/hwc": ^0.13.375
   "@ax/hwld": ^0.9.479
-  "@ax/dcp-utility": ^1.1.1
+  "@ax/dcp-utility": ^1.1.2
   "@ax/axunitst": ^4.2.4
   "@ax/mod": ^1.1.2
   "@ax/mon": ^1.1.2
   "@ax/sdb": ^1.1.2
-  "@ax/sld": ^2.1.48
+  # "@ax/sld": ^2.1.48
+  "@ax/sld": ^2.5.5
   "@ax/stc": ^6.1.59
   "@ax/apax-build": ^0.8.0
   "@ax/target-llvm": ^6.1.59
   "@ax/target-mc7plus": ^6.1.59
   "@ax/simatic-pragma-stc-plugin": ^2.0.12
+  "@ax/hardware-diagnostics": ^0.1.0
+  "@ax/certificate-management": ^1.1.1
+  "@ax/plc-info": ^2.3.0
 installStrategy: strict
 apaxVersion: 3.1.1
