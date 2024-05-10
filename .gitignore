@@ -412,6 +412,7 @@ hwc\import-cache
 
 #AX HWC secrets
 certs
+
 #AX HWC installed gsdml
 import-cache
 
@@ -420,3 +421,5 @@ import-cache
 .ax/plcs
 .ax/certificates
 
+#AX HWC compiled
+hwc.gen/
