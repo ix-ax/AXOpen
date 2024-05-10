@@ -1,0 +1,59 @@
+ Program
+   Robot Program
+     pTarget≔p[0,0,0,0,0,0]
+     nKlipNo≔1
+     'bInHome≔ False '
+     Script: loop.script
+     bTest≔ False 
+     'ipLastPos≔get_actual_tcp_pose()'
+     'Call Ground'
+     main()
+   Pozicie
+     MoveJ
+       pBefHome
+       'Waypoint_46'
+       pHomePose
+     MoveJ
+       pKlip1
+       pKlip3
+       pKlip4
+       pKlip6
+       pKlip7
+       pKlip9
+       'Waypoint_36'
+       pKlip11
+       pKlip12
+       pKlip14
+       pKlip16
+       pKlip18
+       pKlip19
+     MoveJ
+       pKlip2
+       pKlip5
+       pKlip8
+       pKlip10
+       pKlip13
+       pKlip15
+       pKlip17
+       pKlip20
+   Ground
+     Wait: 2.0
+     MoveJ
+       Waypoint_2
+   Klip
+     MoveJ
+       Waypoint_1
+     MoveJ
+       Waypoint_3
+     Wait: 1.0
+     MoveJ
+       Waypoint_1
+     MoveJ
+       Waypoint_4
+     MoveJ
+       Waypoint_5
+     MoveJ
+       Waypoint_4
+   Thread_1
+     sync()
+     jointPos≔get_actual_joint_positions()
