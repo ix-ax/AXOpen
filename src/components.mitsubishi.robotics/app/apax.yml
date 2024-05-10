@@ -24,9 +24,7 @@ dependencies:
   "@ix-ax/axopen.components.mitsubishi.robotics": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
   "@ax/simatic-1500-clocks": ^6.0.37
-  "@ax/plc-mode": ^1.0.0
   "@ax/simatic-1500-distributedio": ^6.0.3
-  "@ax/plc-info": ^2.3.0
 scripts:
   # Obsolete scripts, could be  removed at some point ====>
   delta:

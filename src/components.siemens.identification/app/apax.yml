@@ -25,7 +25,6 @@ dependencies:
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
   "@ax/simatic-1500-clocks": ^6.0.37
   "@ax/system-serde": ^6.0.94
-  "@ax/plc-mode": ^1.0.0
 scripts:
   # Obsolete scripts, could be  removed at some point ====>
   delta:

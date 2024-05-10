@@ -56,8 +56,6 @@ scripts:
     - apax install
     - apax build
     - apax download
-  postbuild:
-    - apax ixc
   watch:
     - dotnet watch --project
       ..\\src\\AXOpen.Integrations.Blazor\\axopen_integrations_blazor.csproj
