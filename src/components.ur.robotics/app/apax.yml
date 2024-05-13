@@ -9,40 +9,8 @@ variables:
     - "--debug" # Generate debug information for target "1500"
   PLC_NAME: "plc_line"
   PC_MAC: "00:D8:61:F0:AB:7D"
-  plc_line_IPADDRESS: 10.10.10.120
-  plc_line_CERT: "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tDQpNSUlEeURDQ0FyQ2dBd0lCQWd\
-    JVVViTFI3MGJtUW5mRFVRK2JROGI4Si9Ca2l1SXdEUVlKS29aSWh2Y05BUUVMQlFBd2dZWXhDek\
-    FKDQpCZ05WQkFZVEFsaFlNUkl3RUFZRFZRUUlEQWxUZEdGMFpVNWhiV1V4RVRBUEJnTlZCQWNNQ\
-    0VOcGRIbE9ZVzFsTVJRd0VnWURWUVFLDQpEQXREYjIxd1lXNTVUbUZ0WlRFYk1Ca0dBMVVFQ3d3\
-    U1EyOXRjR0Z1ZVZObFkzUnBiMjVPWVcxbE1SMHdHd1lEVlFRRERCUkRiMjF0DQpiMjVPWVcxbFQ\
-    zSkliM04wYm1GdFpUQWVGdzB5TkRBME1ESXdOekUyTlRoYUZ3MHlOVEEwTURJd056RTJOVGhhTU\
-    lHR01Rc3dDUVlEDQpWUVFHRXdKWVdERVNNQkFHQTFVRUNBd0pVM1JoZEdWT1lXMWxNUkV3RHdZR\
-    FZRUUhEQWhEYVhSNVRtRnRaVEVVTUJJR0ExVUVDZ3dMDQpRMjl0Y0dGdWVVNWhiV1V4R3pBWkJn\
-    TlZCQXNNRWtOdmJYQmhibmxUWldOMGFXOXVUbUZ0WlRFZE1Cc0dBMVVFQXd3VVEyOXRiVzl1DQp\
-    UbUZ0WlU5eVNHOXpkRzVoYldVd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUJEd0F3Z2dFS0\
-    FvSUJBUUROSTJuKzdoSng3MHlEDQphQ1FESzh3M1VmMWZGckFERjF3QnE5V2FuT25IY3FQQVNTb\
-    WNZRUtvTlJwRmNMWWlpNFZ6Rjlzb2g1MUlYZGxzQnVOVWlNYllHNWlKDQpvNzdSY1cyZkxKdUQ2\
-    Q0l3YS9kZVJrK0FuU1E3WFZtc3BXb2FWUEV2ZVh1c2M3aFhpMFRkUlJnU2VGOVZWZ1VRT1huQmZ\
-    6QnNCSG5pDQpCb3d4VmJXTTJoSGE0ME5uT0FIVWpsczRWTXpQM3NmNDd1bzRsMUEyaTdoUW0wY0\
-    RuekZzajFMNHplVXZCeGIxUnlzbkpIaW96RnBkDQpFZmJ3anp0V0o5OVU1bDdpa3F0T0pZVWJ3Y\
-    01mY0gxT3gwWkRLT0RLb0JnRElMSjNhS1BnQXhmZnRVeVpMVE10UGNPaWRIdFpudWo0DQpjRThN\
-    bHlOY01wQXVUQ1FhQzZ4K1U4VVJBZ01CQUFHakxEQXFNQWtHQTFVZEV3UUNNQUF3SFFZRFZSME9\
-    CQllFRkIvZC9XNnVzR0NJDQpWZC82YXVVdmRzMUtJeDF6TUEwR0NTcUdTSWIzRFFFQkN3VUFBNE\
-    lCQVFBTU5yMFA5WXFlTEFFRk05R2lhakN4cEk5SlFRN0ZEWE9yDQp6b1daU0h3UDRlMUczaEZRK\
-    09BSG14K0lrcnNGTG9Uckc4cUczU0hIRjRwalpOM0pmNDV6WXdNb2x5ckFjcEZnTTBLak5MQmhB\
-    VlJKDQp0dmVMZDNUR2ZYY0R1c3VyemR1anpYa0xkc0FOTWFsQ2RMZzV0WnhrYmFHQ3dUdGwyTGZ\
-    JRy9zcFRCSGVwVzNpNTJ0blczK28zUk4zDQo3V0dsWUtHKzNGSVREcXJpck5Bc1hxQzZ4VURLL3\
-    RiR1lUNEVIMlNJQ3I4TEM5YjhkM2k5NlhaODAzSzFDYW83LzdBazgyaVJ6MCtsDQpnZXg0U2xwT\
-    mxxcUlxUktla1hERGtpWDhVTmJYL0RJVi96RlVLMjVlcGlOM2pjZWxOMlhWV3NlS0JMazBvZWhT\
-    blEzdUJ3Um5PSmVqDQp0QSs5DQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tDQo="
-  plc_line_PLCINFO: "6ES7 516-3AP03-0AB0,VV3.1,S7 1516,project=AX,plc_line"
 devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
-  "@ax/hwc": ^0.13.375
-  "@ax/hwld": ^0.9.479
-  "@ax/dcp-utility": ^1.1.2
-  "@ax/hardware-diagnostics": ^0.1.0
-  "@ax/certificate-management": ^1.1.1
 dependencies:
   "@ix-ax/axopen.core": '0.0.0-dev.0'
   "@ix-ax/axopen.timers": '0.0.0-dev.0'
@@ -50,10 +18,9 @@ dependencies:
   "@ix-ax/axopen.components.ur.robotics": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
   "@ax/simatic-1500-clocks": ^6.0.37
-  "@ax/plc-mode": ^1.0.0
   "@ax/simatic-1500-distributedio": ^6.0.3
-  "@ax/plc-info": ^2.3.0
 scripts:
+  # Obsolete scripts, could be  removed at some point ====>
   delta:
     - START=$(date +%s)
     - apax build --ignore-scripts
@@ -68,11 +35,6 @@ scripts:
     - apax download_only
     - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in
       :" $(expr $(date +%s) - $START) "s"
-  ixc:
-    - START=$(date +%s)
-    - dotnet tool restore
-    - dotnet ixc
-    - echo "Built by ixc in :" $(expr $(date +%s) - $START) "s"
   download_only: |
     apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r -C ./certs/$PLC_NAME/$PLC_NAME.cer
   check+download: |
@@ -90,8 +52,6 @@ scripts:
     else
       echo "Environment variable AXTARGET not defined!!!"
     fi
-  postbuild:
-    - apax ixc
   watch:
     - dotnet watch --project
       ..\\app\\ix-blazor\\AXOpen.Components.Ur.Robotics.blazorapp.csproj
@@ -111,27 +71,72 @@ scripts:
   rrw:
     - apax rr
     - apax watch
-  r: | #restart PLC
-      apax plc-info set-mode STOP -t $AXTARGET -y -C ./certs/$PLC_NAME/$PLC_NAME.cer 
-      apax plc-info set-mode RUN -t $AXTARGET -y -C ./certs/$PLC_NAME/$PLC_NAME.cer 
   d:
     - apax download
   do:
     - apax download_only
   dd:
     - apax delta
+  # <==== Obsolete scripts, could be  removed at some point
+  plcsim: ..\\..\\integrations\\scripts\\StartPlcSimAdvCli.exe #start PLCSIM
+
+  r: | #restart PLC
+    apax plc-info set-mode STOP -t $AXTARGET -y -C ./certs/$PLC_NAME/$PLC_NAME.cer
+    apax plc-info set-mode RUN -t $AXTARGET -y -C ./certs/$PLC_NAME/$PLC_NAME.cer
+
+  ixc: | # run ix builder
+    START=$(date +%s)
+    dotnet tool restore
+    dotnet ixc
+    echo "Built by ixc in :" $(expr $(date +%s) - $START) "s"
+
+  postbuild: apax ixc # run after build
+
+  dcpli: apax dcp-utility list-interfaces -f JSON # list all interfaces, used to discover MAC address of the adapter connected to PLC and set the PC_MAC value accordingly
+
+  dcpd: apax dcp-utility discover --source-mac $PC_MAC --timeout 10000 # discover all accesible devices connected to adapter with MAC address equal to PC_MAC, used to discover MAC-addresses of the slaves and setting the PLC_MAC,RF186_MAC and ET201_MAC variables
+
+  list_hw: apax hw-diag list -t $AXTARGET -C ./certs/$PLC_NAME/$PLC_NAME.cer #List configured harware and its state
+
+  ci: | #clear an install
+    apax clean
+    apax install
+
+  reset_plc: apax hwld -t $AXTARGET --resetPlc All --accept-security-disclaimer #total reset of the PLC including IP and name
+
+  clean_plc: apax hwld -t $AXTARGET --resetPlc keepOnlyIP --accept-security-disclaimer #total reset of the PLC excluding IP
+
+  ssc: | # setup secure communication, import certificates, setup password for AX_USERNAME
+    if ! [[ -d "./hwc" ]]; then
+      echo "Directory ".\hwc" does not exist!!!"
+      exit
+    fi
+    hwcfile=".\hwc\\${PLC_NAME}.hwl.json"
+    if ! [[ -e "$hwcfile" ]]; then
+      echo "Hardware configuration file $hwcfile does not exist!!!"
+      exit
+    fi
+    seconfile=".\hwc\hwc.gen\\${PLC_NAME}.SecurityConfiguration.json"
+    if [ -e "$seconfile" ]; then
+      rm "$seconfile"
+    fi
+    apax hwc setup-secure-communication -n $PLC_NAME -i ".\hwc" -p $MY_VERY_STRONG_PASSWORD
+    apax hwc import-certificate -n $PLC_NAME -i ".\hwc" -C "./certs/$PLC_NAME/pkcs12ForCertificateImport.p12" -p $MY_VERY_STRONG_PASSWORD --purpose "TLS"
+    apax hwc import-certificate -n $PLC_NAME -i ".\hwc" -C "./certs/$PLC_NAME/pkcs12ForCertificateImport.p12" -p $MY_VERY_STRONG_PASSWORD --purpose "WebServer"
+    apax hwc manage-users -n $PLC_NAME -i ".\hwc" set-password -u $AX_USERNAME -p $MY_VERY_STRONG_PASSWORD
+
   gsd: | # copy and install all gsdml files from library
     if [ -d "../ctrl/assets" ]; then
       echo "Directory "../ctrl/assets" exists!!!"
       if ! [[ -d "./gsd/source" ]]; then
         echo "Directory "./gsd/source" does not exist!!!"
         mkdir -p "./gsd/source"
-      fi 
+      fi
     cp ../ctrl/assets/[gG][sS][dD][mM][lL]*.xml ./gsd/source
-    apax hwc install-gsd --input  ./gsd/source   
+    apax hwc install-gsd --input  ./gsd/source
     else
       echo "Directory "../ctrl/assets" does not exist!!!"
-    fi   
+    fi
 
   hwl: | # copy all templates from library
     if [ -d "../ctrl/assets" ]; then
@@ -139,56 +144,28 @@ scripts:
       if ! [[ -d "./hwc" ]]; then
         echo "Directory "./hwc" does not exist!!!"
         mkdir -p "./hwc"
-      fi 
+      fi
     cp ../ctrl/assets/*.hwl.json ./hwc
     else
       echo "Directory "../ctrl/assets" does not exist!!!"
-    fi   
-
-  dcpli: apax dcp-utility list-interfaces -f JSON # list all interfaces, used to discover MAC address of the adapter connected to PLC and set the PC_MAC value accordingly
-
-  dcpd: apax dcp-utility discover --source-mac $PC_MAC --timeout 10000 # discover all accesible devices connected to adapter with MAC address equal to PC_MAC, used to discover MAC-addresses of the slaves and setting the PLC_MAC,RF186_MAC and ET201_MAC variables
-
-  reset_plc: apax hwld -t $AXTARGET --resetPlc All --accept-security-disclaimer #total reset of the PLC including IP and name
-
-  clean_plc: apax hwld -t $AXTARGET --resetPlc keepOnlyIP --accept-security-disclaimer #total reset of the PLC excluding IP 
-
-  ssc: | # setup secure communication, import certificates, setup password for AX_USERNAME
-    seconfile=".\hwc\hwc.gen\\${PLC_NAME}.SecurityConfiguration.json"
-    if [ -e "$seconfile" ]; then
-      rm "$seconfile" 
     fi
-    apax hwc setup-secure-communication -n $PLC_NAME -i ".\hwc" -p $MY_VERY_STRONG_PASSWORD
-    apax hwc import-certificate -n $PLC_NAME -i ".\hwc" -C "./certs/$PLC_NAME/pkcs12ForCertificateImport.p12" -p $MY_VERY_STRONG_PASSWORD --purpose "TLS"
-    apax hwc import-certificate -n $PLC_NAME -i ".\hwc" -C "./certs/$PLC_NAME/pkcs12ForCertificateImport.p12" -p $MY_VERY_STRONG_PASSWORD --purpose "WebServer"
-    apax hwc manage-users -n $PLC_NAME -i ".\hwc" set-password -u $AX_USERNAME -p $MY_VERY_STRONG_PASSWORD
-
-  hwfd: | #compile, copy the HdIds, first download HW using password and upload certificate
-    apax gsd
-    apax hwl
-    apax hwc compile -i ".\hwc" -o bin/hwc/
-    apax hwid
-    apax hwld -i bin/hwc/$PLC_NAME -t $AXTARGET -M:$MY_VERY_STRONG_PASSWORD --accept-security-disclaimer -l Information 
-    apax plc-cert -t $AXTARGET -o ./certs/$PLC_NAME/$PLC_NAME.cer
-
-  hwu: | #compile, copy the HdIds, download HW using certificate
-    apax gsd
-    apax hwl
-    apax hwc compile -i ".\hwc" -o bin/hwc/
-    apax hwid
-    apax hwld -i bin/hwc/$PLC_NAME -t $AXTARGET -C ./certs/$PLC_NAME/$PLC_NAME.cer --nonInteractive --accept-security-disclaimer -l Information 
-
-  list_hw: |
-    apax hw-diag list -t $AXTARGET -C ./certs/$PLC_NAME/$PLC_NAME.cer
 
   hwid: | # copy the generated HwIds from global constants into the type definition, matching the format as the TIA2AX tool creates
+    if ! [[ -d "./hwc" ]]; then
+      echo "Directory ".\hwc" does not exist!!!"
+      exit
+    fi
+    input_file=SystemConstants/$PLC_NAME"_HwIdentifiers.st"
+    if ! [[ -e $input_file ]]; then
+      echo "File $input_file does not exist!!!"
+      exit
+    fi
     output_dir=src/IO/$PLC_NAME
     if ! [[ -d $output_dir ]]; then
       echo "Directory $output_dir does not exist!!!"
       mkdir -p $output_dir
-    fi 
+    fi
     output_file="$output_dir/HwIdentifiers.st"
-    input_file=SystemConstants/$PLC_NAME"_HwIdentifiers.st"   
     lines_to_replace=("CONFIGURATION HardwareIDs" "VAR_GLOBAL CONSTANT" "END_VAR" "END_CONFIGURATION")
     old_substrings=(": UINT := UINT" ";")
     new_substrings=(":=	WORD" ",")
@@ -200,7 +177,7 @@ scripts:
       for line_to_replace in "${lines_to_replace[@]}"; do
         if grep -qF "$line_to_replace" <<< "$line"; then
           copy_this_line=false
-          break 
+          break
         fi
       done
       if $copy_this_line; then
@@ -217,18 +194,66 @@ scripts:
     echo "    );" >> "$output_file"
     echo "END_TYPE" >> "$output_file"
 
+  hwfd: | #compile, copy the HdIds, first download HW using password and upload certificate
+    apax gsd
+    apax hwl
+    if ! [[ -d "./hwc" ]]; then
+      echo "Directory ".\hwc" does not exist!!!"
+      exit
+    fi
+    hwcfile=".\hwc\\${PLC_NAME}.hwl.json"
+    if ! [[ -e "$hwcfile" ]]; then
+      echo "Hardware configuration file $hwcfile does not exist!!!"
+      exit
+    fi    
+    apax hwc compile -i ".\hwc" -o bin/hwc/
+    apax hwid
+    apax hwld -i bin/hwc/$PLC_NAME -t $AXTARGET -M:$MY_VERY_STRONG_PASSWORD --accept-security-disclaimer -l Information
+    apax plc-cert -t $AXTARGET -o ./certs/$PLC_NAME/$PLC_NAME.cer
+
+  hwu: | #compile, copy the HdIds, download HW using certificate
+    apax gsd
+    apax hwl
+    if ! [[ -d "./hwc" ]]; then
+      echo "Directory ".\hwc" does not exist!!!"
+      exit
+    fi
+    hwcfile=".\hwc\\${PLC_NAME}.hwl.json"
+    if ! [[ -e "$hwcfile" ]]; then
+      echo "Hardware configuration file $hwcfile does not exist!!!"
+      exit
+    fi   
+    certfile="./certs/$PLC_NAME/$PLC_NAME.cer"
+    if ! [[ -e "$certfile" ]]; then
+      echo "Certification file $certfile does not exist!!!"
+      exit
+    fi        
+    apax hwc compile -i ".\hwc" -o bin/hwc/
+    apax hwid
+    apax hwld -i bin/hwc/$PLC_NAME -t $AXTARGET -C ./certs/$PLC_NAME/$PLC_NAME.cer --nonInteractive --accept-security-disclaimer -l Information
+
   swfd: | #software build and full download
     START=$(date +%s)
     apax build --ignore-scripts
     dotnet ixc
-    apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r -C ./certs/$PLC_NAME/$PLC_NAME.cer
+    certfile="./certs/$PLC_NAME/$PLC_NAME.cer"
+    if ! [[ -e "$certfile" ]]; then
+      echo "Certification file $certfile does not exist!!!"
+      exit
+    fi   
+    apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r -C $certfile
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
 
   swdd: | #software build and delta download
     START=$(date +%s)
     apax build --ignore-scripts
     dotnet ixc
-    apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r -C ./certs/$PLC_NAME/$PLC_NAME.cer --mode delta
+    certfile="./certs/$PLC_NAME/$PLC_NAME.cer"
+    if ! [[ -e "$certfile" ]]; then
+      echo "Certification file $certfile does not exist!!!"
+      exit
+    fi
+    apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r -C $certfile --mode delta
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
 
   alf: | #clear plc except ip and name and provide all actions for install all, build and initial download
@@ -246,8 +271,5 @@ scripts:
     apax hwu
     apax swfd
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
-  ci: | #clear an install
-    apax clean
-    apax install
 installStrategy: strict
 apaxVersion: 3.1.1
