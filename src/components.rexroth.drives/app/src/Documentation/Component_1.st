@@ -21,8 +21,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         VAR_INPUT
             parent : IAxoContext;
         END_VAR    
-
-        RETURN;
+        
         THIS.Initialize(parent);
 
         IF(manualControl) THEN            
@@ -30,10 +29,10 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         END_IF;   
         //<Initialization>        
         IndraDrive.Run(parent               :=  THIS,
-                        hwID                :=  HwIdentifiers#ST3_indradrive,
-                        hwIdParamCh_IDN     :=  HwIdentifiers#ST3_indradrive_ParamCh_IDN_1,
-                        hwIdInput_9_Words   :=  HwIdentifiers#ST3_indradrive_Input_9_Words_1,
-                        hwIdOutput_13_Words :=  HwIdentifiers#ST3_indradrive_Output_13_Words_1,
+                        hwID                :=  HwIdentifiers#ST3_indradrive_HwID,
+                        hwIdParamCh_IDN     :=  HwIdentifiers#ST3_indradrive_ParamCh_IDN_ID_PaCh_5Words_HwID,
+                        hwIdInput_9_Words   :=  HwIdentifiers#ST3_indradrive_Input_9_Words_ID_InMod_9Words_HwID,
+                        hwIdOutput_13_Words :=  HwIdentifiers#ST3_indradrive_Output_13_Words_ID_OutMod_13Words_HwID,
                         Enable              :=  Enable,
                         EnablePositive      :=  EnablePositive,
                         EnableNegative      :=  EnableNegative);
