@@ -116,22 +116,6 @@ namespace AXOpen.VisualComposer
             }
         }
 
-        private bool _customPresentation = false;
-        public bool CustomPresentation
-        {
-            get => _customPresentation;
-            set
-            {
-                _customPresentation = value;
-
-                if (EventCallbackStateHasChanged.HasDelegate)
-                    EventCallbackStateHasChanged.InvokeAsync();
-
-                if (EventCallbackSave.HasDelegate)
-                    EventCallbackSave.InvokeAsync();
-            }
-        }
-
         internal double _width = -1;
         public double Width
         {
@@ -269,7 +253,7 @@ namespace AXOpen.VisualComposer
 
         public EmptyDelegate DragElementDelegate;
 
-        public VisualComposerItemData(EventCallback eventCallbackStateHasChanged, EventCallback eventCallbackSave, ITwinElement? twinElement, string? id, Guid? uniqueGuid, double left, double top, TransformType transform, string presentation, bool customPresentation, double width, double height, int zIndex, double scale, string roles, string? presentationTemplate, bool background, string backgroundColor)
+        public VisualComposerItemData(EventCallback eventCallbackStateHasChanged, EventCallback eventCallbackSave, ITwinElement? twinElement, string? id, Guid? uniqueGuid, double left, double top, TransformType transform, string presentation, double width, double height, int zIndex, double scale, string roles, string? presentationTemplate, bool background, string backgroundColor)
         {
             EventCallbackStateHasChanged = eventCallbackStateHasChanged;
             EventCallbackSave = eventCallbackSave;
@@ -280,7 +264,6 @@ namespace AXOpen.VisualComposer
             _top = top;
             _transform = transform;
             _presentation = presentation;
-            _customPresentation = customPresentation;
             _width = width;
             _height = height;
             _zIndex = zIndex;

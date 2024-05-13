@@ -1,4 +1,5 @@
-﻿@if (Origin.IdPlain != null)
+﻿@using AXSharp.Presentation.Blazor.Services
+@if (Origin.IdPlain != null)
 {
     <AuthorizeView Roles="Administrator">
         <Authorized>
@@ -26,7 +27,7 @@
                             <div class="mb-1 row">
                                 <label class="col-sm-2 col-form-label">Presentation</label>
                                 <div class="col-sm-6">
-                                    @if (Origin.CustomPresentation)
+                                    @if (_customPresentation)
                                     {
                                         <input type="text" class="form-control" placeholder="Presentation" @bind="Origin.Presentation">
                                     }
@@ -42,7 +43,7 @@
                                 </div>
                                 <div class="col-sm-4 d-flex align-items-center">
                                     <label class="col-form-label ms-auto">Custom</label>
-                                    <input class="form-check-input ms-2 mt-0" type="checkbox" checked="@(Origin.CustomPresentation ? "checked" : null)" @onclick="() => Origin.CustomPresentation = !Origin.CustomPresentation">
+                                    <input class="form-check-input ms-2 mt-0" type="checkbox" checked="@((_customPresentation) ? "checked" : null)" @onclick="() => _customPresentation = !_customPresentation">
                                 </div>
                             </div>
                             <div class="mb-1 row">
@@ -88,8 +89,25 @@
                             </div>
                             <div class="mb-1 row">
                                 <label class="col-sm-2 col-form-label">Template</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="AXOpen.Core.AxoObject" @bind="Origin.PresentationTemplate">
+                                <div class="col-sm-6">
+                                    @if (_customPresentationTemplate)
+                                    {
+                                        <input type="text" class="form-control" placeholder="Template" @bind="Origin.PresentationTemplate">
+                                    }
+                                    else
+                                    {
+                                        <select class="form-select" @bind="Origin.PresentationTemplate">
+                                            <option data value="">None</option>
+                                            @foreach (var component in Components.Where(x => x.type != null && x.type.Equals(Origin.TwinElement.GetType().FullName)))
+                                            {
+                                                <option data value="@component.key">@component.key</option>
+                                            }
+                                        </select>
+                                    }
+                                </div>
+                                <div class="col-sm-4 d-flex align-items-center">
+                                    <label class="col-form-label ms-auto">Custom</label>
+                                    <input class="form-check-input ms-2 mt-0" type="checkbox" checked="@((_customPresentationTemplate) ? "checked" : null)" @onclick="() => _customPresentationTemplate = !_customPresentationTemplate">
                                 </div>
                             </div>
                             <div class="mb-1 row">
@@ -99,6 +117,16 @@
                                     <input type="color" class="form-control form-control-color ms-4" @bind="Origin.BackgroundColor" title="Choose color">
                                 </div>
                             </div>
+
+                            @* <p>@Origin.TwinElement.GetType().FullName</p>
+
+                            <select class="form-select" @bind="Origin.PresentationTemplate">
+                                <option data value=""></option>
+                                @foreach (var component in Components)
+                                {
+                                    <option value="@component.key">@component.key | @component.type</option>
+                                }
+                            </select> *@
                         </div>
                     </div>
                 </div>
