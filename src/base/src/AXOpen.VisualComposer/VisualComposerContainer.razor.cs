@@ -15,9 +15,6 @@ namespace AXOpen.VisualComposer
 {
     public partial class VisualComposerContainer : IDisposable
     {
-        [Inject]
-        NavigationManager NavigationManager { get; set; }
-
         [Parameter]
         public ITwinObject[] Objects { get; set; }
 
@@ -257,7 +254,7 @@ namespace AXOpen.VisualComposer
                     var childObject = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper().ComputeSha256Hash() == item.Id);
                     if (childObject != null)
                     {
-                        _children.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), EventCallback.Factory.Create(this, SaveAsync), childObject, childObject.Symbol.ModalIdHelper(), Guid.NewGuid(), item.Left, item.Top, Types.TransformType.FromString(item.Transform), item.Presentation, false, item.Width, item.Height, item.ZIndex, item.Scale, item.Roles, item.PresentationTemplate, item.Background, item.BackgroundColor));
+                        _children.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), EventCallback.Factory.Create(this, SaveAsync), childObject, childObject.Symbol.ModalIdHelper(), Guid.NewGuid(), item.Left, item.Top, Types.TransformType.FromString(item.Transform), item.Presentation, item.Width, item.Height, item.ZIndex, item.Scale, item.Roles, item.PresentationTemplate, item.Background, item.BackgroundColor));
                     }
                 }
 
@@ -386,6 +383,9 @@ namespace AXOpen.VisualComposer
         public async Task ChangeDefaultViewAsync(string fileName)
         {
             DefaultView = fileName;
+
+            if (!Views.Contains(fileName))
+                Views.Add(fileName);
 
             await Serializing.Serializing<SerializableConfiguration>.SerializeAsync("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", new SerializableConfiguration(Views, DefaultView));
         }
