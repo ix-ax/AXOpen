@@ -8,6 +8,12 @@ VisualComposer library is for creating draggable elements in AXOpen applications
 <VisualComposerContainer Objects="@(new[] {Entry.Plc.Context.UnitTemplate})" Id="@Component.Symbol" />
 ~~~
 
+For proper functioning of the SVG editor is necessary to add service in your `Program.cs` file. Add this line of code:
+
+~~~ C#
+builder.Services.AddVisualComposerService();
+~~~
+
 ## VisualComposerContainer
 
 The `VisualComposerContainer` is default component that is used to generate customizable view.
@@ -15,6 +21,7 @@ The `VisualComposerContainer` is default component that is used to generate cust
 ### Attributes
 
 - `Objects` - The list of ITwinObjects that will be available for display.
+- 'ModalDetailView' - The modal detail view.
 - `Id` - The id of the container. If not specified, the id is generated automatically.
 
 ## Customizing
@@ -23,7 +30,7 @@ All option that is bellow is only available with role Administrator.
 
 ## Adding items
 
-- `Controller objects` - show all objects, that can be added to the view.
+- `Controller objects` - show all objects, that can be added to the view
 
 ## Views options
 
@@ -32,8 +39,19 @@ All option that is bellow is only available with role Administrator.
 - `Create copy` - create new view as copy of current selected view
 - `Views` - show all views with clear zoom and pan, remove, add/remove from base views, enable/disable zooming and panning and set as default view
 - `Background` - set background of view. You can choose from image or simple color
+- `Toggle Edit SVG` - show/hide SVG editor
 - `Change theme` - change color of icon for customizable item (black/white)
 - after every change is view automatically saved into json
+
+### Views option
+
+In Views modal you can see all views, that are created and you can:
+
+- `clear` - clear zoom and pan
+- `remove` - remove view
+- `add/remove from base views` - add or remove view from base views (base views is views, that is available in non edit mode)
+- `enable/disable zooming and panning` - enable or disable zooming and panning
+- `set as default view` - set view as default view, that is open when you open a site. When you set view as default, the previous default view is automatically unset and is added to base views
 
 ## Customizable options
 
@@ -47,8 +65,16 @@ You can every item customizing with these options:
 - `Transform` - the location from which the position will be calculated (combination of left, center, right and top, center, bottom)
 - `Width` - width of element (double value in rem, or -1 for auto)
 - `Height` - height of element (double value in rem, or -1 for auto)
-- `ZIndex` - the layer in which the object should be located (int value, default is 0)
+- `ZIndex` - the layer in which the object should be located (int value, default is 10)
 - `Scale` - zoom of item
 - `Roles` - list of roles, that can see this item (`process_settings_access` or `process_settings_access, process_traceability_access`)
-- `Template` - specifies the way the item is formatted and presented
+- `Template` - specifies the way the item is formatted and presented. Can be checked `Custom` and write your own name of template
 - `Background` - item background
+
+## SVG editor
+
+In SVG Editor you can easily create and edit SVG.
+
+When you are in SVG editor, in options is revealed `Background SVG Input` option where you can check and edit SVG code.
+
+SVG editor is always in 100% zoom and it has disabled zooming and panning.

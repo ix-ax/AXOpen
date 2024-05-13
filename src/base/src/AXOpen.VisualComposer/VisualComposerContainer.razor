@@ -35,8 +35,11 @@
                                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createCopyModal-@Id.ModalIdHelper()">Create copy</a></li>
                                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#viewsModal-@Id.ModalIdHelper()">Views</a></li>
                                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#backgroundModal-@Id.ModalIdHelper()">Background</a></li>
-                                <li><a class="dropdown-item" @onclick="() => EditSVG = !EditSVG">Edit SVG</a></li>
-                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#backgroundSVGInputModal-@Id.ModalIdHelper()">Background SVG Input</a></li>
+                                <li><a class="dropdown-item" @onclick="() => EditSVG = !EditSVG">Toggle Edit SVG</a></li>
+                                @if (EditSVG)
+                                {
+                                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#backgroundSVGInputModal-@Id.ModalIdHelper()">Background SVG Input</a></li>
+                                }
                                 <li><a class="dropdown-item" @onclick="() => ChangeThemeAsync()">Change theme</a></li>
                             </ul>
                         </div>
@@ -442,5 +445,7 @@
         </div>
     }
 </div>
+
+@* <script src="_content/AXOpen.VisualComposer/VisualComposerContainer.razor.js"></script> *@
 
 <script src="_content/Blazor.ContextMenu/blazorContextMenu.min.js"></script>
