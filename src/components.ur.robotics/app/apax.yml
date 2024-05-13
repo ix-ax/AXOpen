@@ -77,7 +77,7 @@ scripts:
     - apax download_only
   dd:
     - apax delta
-    # <==== Obsolete scripts, could be  removed at some point
+  # <==== Obsolete scripts, could be  removed at some point
   plcsim: ..\\..\\integrations\\scripts\\StartPlcSimAdvCli.exe #start PLCSIM
 
   r: | #restart PLC
