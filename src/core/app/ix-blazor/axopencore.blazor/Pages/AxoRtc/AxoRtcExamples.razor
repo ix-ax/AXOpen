@@ -1,0 +1,17 @@
+﻿@page "/AxoRtcExamples"
+@using axopencore
+@using AXOpen.Core;
+
+<h3>AxoRtcExamples</h3>
+
+<div class="container">
+    <div class="h4 pb-2 mb-4 text-primary border-bottom border-primary">
+        AxoRtcExamples
+    </div>
+    <div class="container text-left">
+        <div class="h4 pb-2 mb-4 text-primary border-bottom border-primary">
+            <RenderableContentControl Context="@Entry.Plc.AxoS71500Rtc" Presentation="Command-Control" />
+        </div>
+    </div>
+</div>
+

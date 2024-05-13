@@ -53,5 +53,9 @@ CONFIGURATION MyConfiguration
         // Issues
         {S7.extern=ReadWrite}
         gh_ptku_8 : Layouts.Tabbed.weather;        
+
+        {S7.extern=ReadWrite}
+        AxoS71500Rtc : AxoS71500RtcContext;
+
     END_VAR   
 END_CONFIGURATION

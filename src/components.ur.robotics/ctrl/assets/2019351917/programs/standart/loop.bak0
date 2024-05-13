@@ -1,0 +1,61 @@
+def main():
+SetMovementsExtParams()
+while (True):
+    global niActionNo = read_input_integer_register(2)
+    sync()
+	if (0 == niActionNo):
+		sync()
+	elif (1 == niActionNo):
+		if (read_output_integer_register(2)==255):
+                                      Klip()
+	                  end
+	elif (100 == niActionNo):
+		if (read_output_integer_register(2)==255):
+		Ground()
+		end
+	elif (254 == niActionNo):
+		if (read_output_integer_register(2)==255):
+		SetMovementsExtParams ()
+		WriteMovementsExtParams ()
+		end
+	elif (255 == niActionNo):
+		sync()
+	else:
+		popup("nespravne cislo", "Message", False, True, blocking=False)
+		halt
+	end
+	global qActionNumber = niActionNo
+	WriteMovementsExtParams ()
+                  sync()
+end
+end
+def SetMovementsExtParams():
+    global qActionNumber = read_input_integer_register(2)
+    global ActGlobalSpeed=read_input_integer_register(3)
+    global ActualToolNmbr=read_input_integer_register(4)
+    global ActualWobjNmbr=read_input_integer_register(5)
+    global ActualPointNmbr=read_input_integer_register(6)
+    global ActUsrSpecSpd1=read_input_float_register(0)
+    global ActUsrSpecSpd2=read_input_float_register(1)
+    global ActCoordX=read_input_float_register(2)
+    global ActCoordY=read_input_float_register(3)
+    global ActCoordZ=read_input_float_register(4)
+    global ActCoordRx=read_input_float_register(5)
+    global ActCoordRy=read_input_float_register(6)
+    global ActCoordRz=read_input_float_register(7)
+end
+def WriteMovementsExtParams():
+    write_output_integer_register(2, qActionNumber)
+    write_output_integer_register(3, ActGlobalSpeed)
+    write_output_integer_register(4, ActualToolNmbr)
+    write_output_integer_register(5, ActualWobjNmbr)
+    write_output_integer_register(6, ActualPointNmbr)
+    write_output_float_register(0, ActUsrSpecSpd1)
+    write_output_float_register(1, ActUsrSpecSpd2)
+    write_output_float_register(2, ActCoordX)
+    write_output_float_register(3, ActCoordY)
+    write_output_float_register(4, ActCoordZ)
+    write_output_float_register(5, ActCoordRx)
+    write_output_float_register(6, ActCoordRy)
+    write_output_float_register(7, ActCoordRz)
+end

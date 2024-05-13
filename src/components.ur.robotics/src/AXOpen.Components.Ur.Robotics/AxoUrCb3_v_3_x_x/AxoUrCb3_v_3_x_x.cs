@@ -1,8 +1,11 @@
 ﻿using AXOpen.Messaging.Static;
 using AXSharp.Connector;
+using AXSharp.Connector.ValueTypes;
+using Renci.SshNet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,6 +20,7 @@ namespace AXOpen.Components.Ur.Robotics
             {
                 InitializeMessenger();
                 InitializeTaskMessenger();
+                this.RebootControllerTask.Initialize(async ()=>await RebootController());
             }
             catch (Exception)
             {
@@ -216,6 +220,30 @@ namespace AXOpen.Components.Ur.Robotics
 
             TaskMessenger.DotNetMessengerTextList = messengerTextList;
         }
+        
+        private async Task RebootController()
+        {
+            try
+            {
+                string ipAddress = await Config.IpAddress.GetAsync();
+                if (!string.IsNullOrEmpty(ipAddress))
+                {
+                    using (var client = new SshClient(ipAddress, "root", "easybot"))
+                    {
+                        client.Connect();
+                        client.RunCommand("reboot");
+                        client.Disconnect();
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+
+        }
     }
     public partial class AxoUrRobotics_Component_Status_v_1_x_x : AXOpen.Components.Robotics.AxoRobot_Status
     {
@@ -303,7 +331,7 @@ namespace AXOpen.Components.Ur.Robotics
 
                     errorDescriptionDict.Add(600, "Waiting for the signal `Inputs.Inputs.Safety.NO_IsNormalMode` to be set!");                                                                
                     errorDescriptionDict.Add(601, "Waiting for the signal `Inputs.Inputs.Safety.RD_IsReducedMode` to be set!");                                                               
-                    errorDescriptionDict.Add(602, "Waiting for the signal `Inputs.Inputs.Robot.PW_IsPowerOn` to be set!");                                                                    
+                    errorDescriptionDict.Add(602, "Waiting for the signal `Inputs.Inputs.Robot.PR_IsProgramRunning` to be set!");                                                                    
 
                     errorDescriptionDict.Add(610, "Waiting for the signal `Inputs.Inputs.Safety.NO_IsNormalMode` to be set!");                                                                
                     errorDescriptionDict.Add(611, "Waiting for the signal `Inputs.Inputs.Safety.RD_IsReducedMode` to be set!");                                                               

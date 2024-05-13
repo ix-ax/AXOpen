@@ -1,0 +1,34 @@
+{
+  "Devices": [
+    {
+      "Name": "plc_line",
+      "Modules": [
+        {
+          "Apply": {
+            "TemplateName": "PLC_1516_v3_1",
+            "Arguments": {
+              "PLCName": "plc_line",
+              "IpAddress": "10.10.10.120/24"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "IoSystems": [
+    {
+      "Name": "profinet_plc_line",
+      "ControllerInterfaces": [
+        { "Ref": "plc_line/plc_line/profinet_x1" }
+      ],
+      "DeviceInterfaces": [
+        { 
+          "Ref":  "ureol2l/ureol2l/profinet",
+          "Parameters": {
+            "PnWatchdogFactor": 4
+          }
+        }
+      ]
+    }
+  ]
+}

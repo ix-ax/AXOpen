@@ -24,7 +24,7 @@ PROGRAM MyProgram
         D_222 : AxoDialogExamples.Dialogs;               
         //Dialogs : AxoDialogExamples.Dialogs;              
         AxoRtc : AxoRtc.AxoS71500Rtc;
-
+        AxoS71500Rtc : AxoS71500RtcContext;
     END_VAR    
     
     I_am_alive := I_am_alive + ULINT#1;
@@ -58,4 +58,6 @@ PROGRAM MyProgram
 
     D_222.InjectRtc(AxoRtc);
     D_222.Run();  
+
+    AxoS71500Rtc.Run();
 END_PROGRAM

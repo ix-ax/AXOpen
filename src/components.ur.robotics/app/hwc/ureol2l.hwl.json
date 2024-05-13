@@ -1,0 +1,98 @@
+{
+  "Devices": [
+    {
+      "Name": "ureol2l",
+      "Modules":[
+        {
+          "Name": "ureol2l",
+          "TypeIdentifier": {
+            "GsdId": "DAP 1",
+            "FileName": "GSDML-V2.31-UR-UR-20160505.XML"
+          },
+          "Interfaces": [
+            {
+              "Name": "profinet",
+              "Label": "X1",
+              "Addresses": {
+                "Configured": [
+                  { "IPv4": "10.10.10.61/24" },
+                  { "ProfinetDeviceName": "ureol2l" }
+                ]
+              }
+            }
+          ] 
+        },
+        {
+          "Name": "1_T2O_State",
+          "TypeIdentifier": {
+            "GsdId": "ID_Mod_11",
+            "FileName": "GSDML-V2.31-UR-UR-20160505.XML"
+          }
+        },
+        {
+          "Name": "2_T2O_IO",
+          "TypeIdentifier": {
+            "GsdId": "ID_Mod_12",
+            "FileName": "GSDML-V2.31-UR-UR-20160505.XML"
+          }
+        },
+        {
+          "Name": "3_T2O_Joints",
+          "TypeIdentifier": {
+            "GsdId": "ID_Mod_13",
+            "FileName": "GSDML-V2.31-UR-UR-20160505.XML"
+          }
+        },
+        {
+          "Name": "4_T2O_TCP",
+          "TypeIdentifier": {
+            "GsdId": "ID_Mod_14",
+            "FileName": "GSDML-V2.31-UR-UR-20160505.XML"
+          }
+        },
+        {
+          "Name": "5_T2O_General_Purpose_Bit_Registers",
+          "TypeIdentifier": {
+            "GsdId": "ID_Mod_15",
+            "FileName": "GSDML-V2.31-UR-UR-20160505.XML"
+          }
+        },
+        {
+          "Name": "6_T2O_General_Purpose_Int_Registers",
+          "TypeIdentifier": {
+            "GsdId": "ID_Mod_16",
+            "FileName": "GSDML-V2.31-UR-UR-20160505.XML"
+          }
+        },
+        {
+          "Name": "7_T2O_General_Purpose_Float_Registers",
+          "TypeIdentifier": {
+            "GsdId": "ID_Mod_17",
+            "FileName": "GSDML-V2.31-UR-UR-20160505.XML"
+          }
+        },
+        {
+          "Name": "8_O2T_Robot_IO",
+          "TypeIdentifier": {
+            "GsdId": "ID_Mod_18",
+            "FileName": "GSDML-V2.31-UR-UR-20160505.XML"
+          }
+        },
+        {
+          "Name": "9_O2T_General_Purpose_Registers_1",
+          "TypeIdentifier": {
+            "GsdId": "ID_Mod_19",
+            "FileName": "GSDML-V2.31-UR-UR-20160505.XML"
+          }
+        },
+        {
+          "Name": "10_O2T_General_Purpose_Registers_2",
+          "TypeIdentifier": {
+            "GsdId": "ID_Mod_20",
+            "FileName": "GSDML-V2.31-UR-UR-20160505.XML"
+          }
+        }
+      ]
+    }
+  ]
+}
