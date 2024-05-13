@@ -1,0 +1,61 @@
+{
+  "Devices": [
+    {
+      "Name": "ST3_indradrive",
+      "Modules":[
+        {
+          "Name": "ST3_indradrive",
+          "TypeIdentifier": {
+            "GsdId": "DAP_IndraDrive",
+            "FileName": "GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML"
+          },
+          "Interfaces": [
+            {
+              "Name": "profinet",
+              "Label": "X1",
+              "Addresses": {
+                "Configured": [
+                  { "IPv4": "10.10.10.40/24" },
+                  { "ProfinetDeviceName": "ST3_indradrive" }
+                ]
+              }
+            }
+          ] 
+        },
+        {
+          "Name": "ParamCh_IDN",
+          "TypeIdentifier": {
+            "GsdId": "ID_PaCh_5Words",
+            "FileName": "GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML"
+          },
+          "Slot" : 1
+        },
+        {
+          "Name": "F-Modul_not_used",
+          "TypeIdentifier": {
+            "GsdId": "ID_FMod_NotUsed",
+            "FileName": "GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML"
+          },
+          "Slot" : 2
+        },
+        {
+          "Name": "Input_9_Words",
+          "TypeIdentifier": {
+            "GsdId": "ID_InMod_9Words",
+            "FileName": "GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML"
+          },
+          "Slot" : 3
+        },
+        {
+          "Name": "Output_13_Words",
+          "TypeIdentifier": {
+            "GsdId": "ID_OutMod_13Words",
+            "FileName": "GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML"
+          },
+          "Slot" : 4
+        }
+
+      ]
+    }
+  ]
+}
