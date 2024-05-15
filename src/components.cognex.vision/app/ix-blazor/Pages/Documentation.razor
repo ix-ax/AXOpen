@@ -1,8 +1,20 @@
 ﻿@page "/Documentation"
 @using AXOpen.Core;
-
+@using AXSharp.Presentation.Blazor.Controls.Layouts.TabControlComponents;
+@* 
 <Component_1></Component_1>
 <Component_2></Component_2>
 <Component_3></Component_3>
+ *@
 
-
+<TabControl>
+    <TabPage Text="Component_1 - Insight_7600">
+        <Component_1></Component_1>
+    </TabPage>
+    <TabPage Text="Component_2 - Dataman_280">
+        <Component_2></Component_2>
+    </TabPage>
+    <TabPage Text="Component_3 - Dataman_300">
+        <Component_3></Component_3>
+    </TabPage>
+</TabControl>
