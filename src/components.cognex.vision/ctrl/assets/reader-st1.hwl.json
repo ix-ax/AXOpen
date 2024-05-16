@@ -1,0 +1,84 @@
+{
+    "Devices": [
+        {
+            "Name": "reader-st1",
+            "Modules":[
+              {
+                "Name": "reader-st1",
+                "TypeIdentifier": {
+                  "GsdId": "DAP46",
+                  "FileName": "GSDML-V2.42-COGNEX-DATAMANCLASSB-20220124.XML"
+                },
+                "Interfaces": [
+                  {
+                    "Name": "profinet",
+                    "Label": "X1",
+                    "Addresses": {
+                      "Configured": [
+                        { "IPv4": "10.10.10.13/24" },
+                        { "ProfinetDeviceName": "reader-st1" }
+                      ]
+                    }
+                  }
+                ] 
+              },
+              {
+                "Name": "Acquisition_Control",
+                "TypeIdentifier": {
+                  "GsdId": "101",
+                  "FileName": "GSDML-V2.42-COGNEX-DATAMANCLASSB-20220124.XML"
+                },
+                "Slot": 1
+              },
+              {
+                "Name": "Acquisition_Status",
+                "TypeIdentifier": {
+                  "GsdId": "201",
+                  "FileName": "GSDML-V2.42-COGNEX-DATAMANCLASSB-20220124.XML"
+                },
+                "Slot": 2
+              },
+              {
+                "Name": "Results_Control",
+                "TypeIdentifier": {
+                  "GsdId": "102",
+                  "FileName": "GSDML-V2.42-COGNEX-DATAMANCLASSB-20220124.XML"
+                },
+                "Slot": 3
+              },
+              {
+                "Name": "Results_Status",
+                "TypeIdentifier": {
+                  "GsdId": "202",
+                  "FileName": "GSDML-V2.42-COGNEX-DATAMANCLASSB-20220124.XML"
+                },
+                "Slot": 4
+              },
+              {
+                "Name": "Soft_Event_Control",
+                "TypeIdentifier": {
+                  "GsdId": "105",
+                  "FileName": "GSDML-V2.42-COGNEX-DATAMANCLASSB-20220124.XML"
+                },
+                "Slot": 5
+              },
+              {
+                "Name": "User_Data-128_bytes",
+                "TypeIdentifier": {
+                  "GsdId": "304",
+                  "FileName": "GSDML-V2.42-COGNEX-DATAMANCLASSB-20220124.XML"
+                },
+                "Slot": 6
+              },
+              {
+                "Name": "Result_Data-128_bytes",
+                "TypeIdentifier": {
+                  "GsdId": "404",
+                  "FileName": "GSDML-V2.42-COGNEX-DATAMANCLASSB-20220124.XML"
+                },
+                "Slot": 7
+              }
+            ]
+          }
+    ]
+}

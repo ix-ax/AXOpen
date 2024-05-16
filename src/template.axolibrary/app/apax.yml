@@ -201,6 +201,8 @@ scripts:
     START=$(date +%s)
     apax ci
     apax clean_plc
+    apax gsd
+    apax hwl
     apax ssc
     apax hwfd
     apax swfd

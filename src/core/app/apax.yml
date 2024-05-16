@@ -255,6 +255,8 @@ scripts:
     START=$(date +%s)
     apax ci
     apax clean_plc
+    apax gsd
+    apax hwl
     apax ssc
     apax hwfd
     apax swfd
@@ -268,3 +270,4 @@ scripts:
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
 installStrategy: strict
 apaxVersion: 3.1.1
+
