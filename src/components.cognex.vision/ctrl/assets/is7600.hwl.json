@@ -1,0 +1,92 @@
+{
+    "Devices": [
+        {
+            "Name": "is7600",
+            "Modules":[
+              {
+                "Name": "is7600",
+                "TypeIdentifier": {
+                  "GsdId": "DAP20",
+                  "FileName": "GSDML-V2.34-COGNEX-INSIGHTCLASSB-20200327.XML"
+                },
+                "Interfaces": [
+                  {
+                    "Name": "profinet",
+                    "Label": "X1",
+                    "Addresses": {
+                      "Configured": [
+                        { "IPv4": "10.10.10.22/24" },
+                        { "ProfinetDeviceName": "is7600" }
+                      ]
+                    }
+                  }
+                ] 
+              },
+              {
+                "Name": "Acquisition_Control",
+                "TypeIdentifier": {
+                  "GsdId": "101",
+                  "FileName": "GSDML-V2.34-COGNEX-INSIGHTCLASSB-20200327.XML"
+                },
+                "Slot": 1
+              },
+              {
+                "Name": "Acquisition_Status",
+                "TypeIdentifier": {
+                  "GsdId": "201",
+                  "FileName": "GSDML-V2.34-COGNEX-INSIGHTCLASSB-20200327.XML"
+                },
+                "Slot": 2
+              },
+              {
+                "Name": "Inspection_Control",
+                "TypeIdentifier": {
+                  "GsdId": "102",
+                  "FileName": "GSDML-V2.34-COGNEX-INSIGHTCLASSB-20200327.XML"
+                },
+                "Slot": 3
+              },
+              {
+                "Name": "Inspection_Status",
+                "TypeIdentifier": {
+                  "GsdId": "203",
+                  "FileName": "GSDML-V2.34-COGNEX-INSIGHTCLASSB-20200327.XML"
+                },
+                "Slot": 4
+              },
+              {
+                "Name": "Command_Control",
+                "TypeIdentifier": {
+                  "GsdId": "107",
+                  "FileName": "GSDML-V2.34-COGNEX-INSIGHTCLASSB-20200327.XML"
+                },
+                "Slot": 5
+              },
+              {
+                "Name": "SoftEvent_Control",
+                "TypeIdentifier": {
+                  "GsdId": "106",
+                  "FileName": "GSDML-V2.34-COGNEX-INSIGHTCLASSB-20200327.XML"
+                },
+                "Slot": 6
+              },
+              {
+                "Name": "User_Data-64_bytes",
+                "TypeIdentifier": {
+                  "GsdId": "303",
+                  "FileName": "GSDML-V2.34-COGNEX-INSIGHTCLASSB-20200327.XML"
+                },
+                "Slot": 7
+              },
+              {
+                "Name": "Result_Data-64_bytes",
+                "TypeIdentifier": {
+                  "GsdId": "403",
+                  "FileName": "GSDML-V2.34-COGNEX-INSIGHTCLASSB-20200327.XML"
+                },
+                "Slot": 8
+              }
+            ]
+          }        
+    ]
+}
