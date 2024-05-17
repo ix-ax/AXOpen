@@ -13,8 +13,7 @@ scripts:
     - apax install
     - apax build
     - dotnet ixc
-    - apax sld load --accept-security-disclaimer -t $AXTARGET -i
-      $AXTARGETPLATFORMINPUT -r
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
   ixc:
     - START=$(date +%s)
     - dotnet tool restore
@@ -22,8 +21,7 @@ scripts:
     - echo "Built by ixc in :" $(expr $(date +%s) - $START) "s"
   download_only:
     - START=$(date +%s)
-    - apax sld load --accept-security-disclaimer -t $AXTARGET -i
-      $AXTARGETPLATFORMINPUT -r
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
     - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"
   check+download: |
     if [ $AXTARGET ]; then
@@ -56,8 +54,7 @@ scripts:
     - apax build
     - apax ixc
     - apax download_only
-    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in
-      :" $(expr $(date +%s) - $START) "s"
+    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
   rrw:
     - apax rr
     - apax watch
