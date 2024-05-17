@@ -423,3 +423,6 @@ import-cache
 
 #AX HWC compiled
 hwc.gen/
+
+#DCP export 
+dcp_export/
