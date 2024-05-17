@@ -1,13 +1,13 @@
 ﻿<div onpointermove="event.preventDefault()"
      onpointerdown="event.preventDefault()"
      onpointerup="event.preventDefault()"
-     onpointerout="event.preventDefault()"
+     onpointerleave="event.preventDefault()"
      onwheel="event.preventDefault()"
      class="m-0 p-0">
     <div @onpointermove="MoveAsync"
          @onpointerdown="Down"
          @onpointerup="Up"
-         @onpointerout="Out"
+         @onpointerleave="Leave"
          @onwheel="WheelAsync"
          style="overflow: hidden; background-color: @(Parent.BackgroundColor);">
         <div style="position: relative; transform: scale(@(Parent!.Scale)) translate(@(Parent!.TranslateX.ToString().Replace(',', '.'))%, @(Parent!.TranslateY.ToString().Replace(',', '.'))%);">

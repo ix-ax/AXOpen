@@ -563,5 +563,23 @@ namespace AXOpen.VisualComposer
         {
             _fileWriterBuffer.Dispose();
         }
+
+        private void Move(PointerEventArgs eventArgs)
+        {
+            foreach (var child in _children)
+            {
+                if(child.MoveEvent != null)
+                    child.MoveEvent.Invoke(this, eventArgs);
+            }
+        }
+
+        private void Leave(PointerEventArgs eventArgs)
+        {
+            foreach (var child in _children)
+            {
+                if(child.LeaveEvent != null)
+                    child.LeaveEvent.Invoke(this, eventArgs);
+            }
+        }
     }
 }

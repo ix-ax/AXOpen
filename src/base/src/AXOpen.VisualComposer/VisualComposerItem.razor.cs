@@ -27,6 +27,12 @@ namespace AXOpen.VisualComposer
         private double _startX = 0;
         private double _startY = 0;
 
+        protected override void OnAfterRender(bool firstRender)
+        {
+            Origin!.MoveEvent = new EventHandler((sender, e) => MoveAsync((PointerEventArgs)e));
+            Origin!.LeaveEvent = new EventHandler((sender, e) => Leave((PointerEventArgs)e));
+        }
+
         private async Task MoveAsync(PointerEventArgs eventArgs)
         {
             if (_isDragging)
@@ -58,7 +64,7 @@ namespace AXOpen.VisualComposer
             _isDragging = false;
         }
 
-        private void Out(PointerEventArgs eventArgs)
+        private void Leave(PointerEventArgs eventArgs)
         {
             Parent._zoomableContainer.CanDragging = true;
             _isDragging = false;
