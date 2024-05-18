@@ -14,6 +14,11 @@ namespace AXOpen.VisualComposer
         public EventCallback EventCallbackStateHasChanged { get; set; }
         public EventCallback EventCallbackSave { get; set; }
 
+
+        public EventHandler MoveEvent { get; set; }
+        public EventHandler LeaveEvent { get; set; }
+
+
         private ITwinElement? _twinElement;
         public ITwinElement? TwinElement
         {

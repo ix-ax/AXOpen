@@ -77,7 +77,7 @@ namespace AXOpen.VisualComposer
             _isDragging = false;
         }
 
-        private void Out(PointerEventArgs eventArgs)
+        private void Leave(PointerEventArgs eventArgs)
         {
             _isDragging = false;
         }
