@@ -1,0 +1,40 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0/win-x64",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {},
+    ".NETCoreApp,Version=v6.0/win-x64": {
+      "StartPlcSimAdvCli/1.0.0": {
+        "dependencies": {
+          "Siemens.Simatic.Simulation.Runtime.Api.x64": "50.35.3.0"
+        },
+        "runtime": {
+          "StartPlcSimAdvCli.dll": {}
+        }
+      },
+      "Siemens.Simatic.Simulation.Runtime.Api.x64/50.35.3.0": {
+        "runtime": {
+          "Siemens.Simatic.Simulation.Runtime.Api.x64.dll": {
+            "assemblyVersion": "50.35.3.0",
+            "fileVersion": "50.35.3.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "StartPlcSimAdvCli/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Siemens.Simatic.Simulation.Runtime.Api.x64/50.35.3.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
