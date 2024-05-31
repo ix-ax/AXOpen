@@ -30,13 +30,13 @@ namespace AXOpen.Data
             switch (exportMode)
             {
                 case eExportMode.First:
-                    exportables = dataRepository.Queryable.Where(expression).OrderByDescending(e => e.RecordId).Take(firstNumber);
+                    exportables = dataRepository.Queryable.Where(expression).Skip((int)dataRepository.Count - firstNumber).Take(firstNumber).OrderByDescending(e => e.RecordId);
                     break;
                 case eExportMode.Last:
-                    exportables = dataRepository.Queryable.Where(expression).Take(firstNumber);
+                    exportables = dataRepository.Queryable.Where(expression).Take(firstNumber).OrderByDescending(e => e.RecordId);
                     break;
                 case eExportMode.Exact:
-                    exportables = dataRepository.Queryable.Where(expression).Skip(firstNumber - 1).Take(secondNumber - firstNumber + 1);
+                    exportables = dataRepository.Queryable.Where(expression).Skip(firstNumber - 1).Take(secondNumber - firstNumber + 1).OrderByDescending(e => e.RecordId);
                     break;
             }
 
