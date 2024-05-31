@@ -22,7 +22,7 @@ else
                 <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "LoadFromPLC"'>@Localizer["Load from PLC"]</button>
                 @if (CanExport)
                 {
-                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='async () => { Vm.IsFileExported = false; await Vm.ExportDataAsync("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); await LoadCustomExportDataAsync(); }'>@Localizer["Export"]</button>
+                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='async () => { Vm.IsFileExported = false; await LoadCustomExportDataAsync(); await Vm.ExportDataAsync("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); }'>@Localizer["Export"]</button>
                     <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#importModal-@ViewGuid" @onclick="async () => { isFileImported = false; await LoadCustomExportDataAsync(); }">@Localizer["Import"]</button>
                 }
             }
