@@ -186,7 +186,7 @@ namespace AXOpen.Data
         /// <param name="searchMode">Set the search mode fot his query. <seealso cref="eSearchMode"/></param>
         /// <returns>Records from the associated repository meeting criteria.</returns>
         IEnumerable<IBrowsableDataObject> GetRecords(string identifier, int limit, int skip,
-            eSearchMode searchMode);
+            eSearchMode searchMode, string sortExpresion, bool sortAscending);
 
         /// <summary>
         /// Gets record meeting criteria from the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/> where the data entity id matches exactly the argument.

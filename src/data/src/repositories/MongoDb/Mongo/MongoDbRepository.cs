@@ -110,7 +110,7 @@ namespace AXOpen.Data.MongoDb
 #pragma warning restore CS0618 
 
 
-        protected override IEnumerable<T> GetRecordsNvi(string identifier, int limit, int skip, eSearchMode searchMode)
+        protected override IEnumerable<T> GetRecordsNvi(string identifier, int limit, int skip, eSearchMode searchMode, string sortExpresion, bool sortAscending)
         {
             var filetered = new List<T>();
             FilterDefinition<T> filter;
@@ -131,24 +131,43 @@ namespace AXOpen.Data.MongoDb
                     break;
             }
 
+            SortDefinition<T> sortBuilder;
+            if (sortExpresion == null || string.IsNullOrWhiteSpace(sortExpresion) || sortExpresion.Equals("Default"))
+            {
+                if (sortAscending)
+                    sortBuilder = new SortDefinitionBuilder<T>().Ascending("$natural");
+                else
+                    sortBuilder = new SortDefinitionBuilder<T>().Descending("$natural");
+            }
+            else
+            {
+                if (sortAscending)
+                    sortBuilder = new SortDefinitionBuilder<T>().Ascending(sortExpresion);
+                else
+                    sortBuilder = new SortDefinitionBuilder<T>().Descending(sortExpresion);
+            }
+
             
             if (identifier == "*" || string.IsNullOrWhiteSpace(identifier))
             {
-                return collection
+                filetered = collection
                     .Find(new BsonDocument())
-                    .Sort(new SortDefinitionBuilder<T>().Descending("$natural"))
+                    .Sort(sortBuilder)
                     .Limit(limit)
                     .Skip(skip)
                     .ToList();
             }
             else
             {
-                return collection
+                filetered = collection
                     .Find(filter)
+                    .Sort(sortBuilder)
                     .Limit(limit)
                     .Skip(skip)
                     .ToList();
             }
+
+            return filetered;
         }
 
         /// <summary>

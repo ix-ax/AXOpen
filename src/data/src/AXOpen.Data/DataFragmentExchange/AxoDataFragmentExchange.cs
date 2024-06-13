@@ -378,9 +378,9 @@ public partial class AxoDataFragmentExchange
         return true;
     }
 
-    public IEnumerable<IBrowsableDataObject> GetRecords(string identifier, int limit, int skip, eSearchMode searchMode)
+    public IEnumerable<IBrowsableDataObject> GetRecords(string identifier, int limit, int skip, eSearchMode searchMode, string sortExpresion, bool sortAscending)
     {
-        return ((dynamic)Repository)?.GetRecords(identifier, limit, skip, searchMode);
+        return ((dynamic)Repository)?.GetRecords(identifier, limit, skip, searchMode, sortExpresion, sortAscending);
     }
 
     public IEnumerable<IBrowsableDataObject> GetRecords(string identifier)

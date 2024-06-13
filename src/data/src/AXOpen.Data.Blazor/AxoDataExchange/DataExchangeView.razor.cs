@@ -39,7 +39,11 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     [Parameter] public bool CanExport { get; set; } = false;
 
+    [Parameter] public bool EnableSorting { get; set; } = false;
+
     [Parameter] public RenderFragment ChildContent { get; set; }
+
+    [Parameter] public string[] SortElements { get; set; }
 
     [Inject]
     private IAlertService _alertDialogService { get; set; }
@@ -84,6 +88,20 @@ public partial class DataExchangeView : ComponentBase, IDisposable
     private async Task setSearchModeAsync(eSearchMode searchMode)
     {
         Vm.SearchMode = searchMode;
+
+        await Vm.FillObservableRecordsAsync();
+    }
+
+    private async Task setSortExpresionAsync(string sortExpresion)
+    {
+        Vm.SortExpresion = sortExpresion;
+
+        await Vm.FillObservableRecordsAsync();
+    }
+
+    private async Task setSortAscendingAsync()
+    {
+        Vm.SortAscending = !Vm.SortAscending;
 
         await Vm.FillObservableRecordsAsync();
     }

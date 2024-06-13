@@ -170,9 +170,9 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
     /// <inheritdoc />
     public IEnumerable<IBrowsableDataObject> GetRecords(string identifier, int limit, int skip,
-        eSearchMode searchMode)
+        eSearchMode searchMode, string sortExpresion, bool sortAscending)
     {
-        return DataRepository.GetRecords(identifier, limit, skip, searchMode).Cast<IBrowsableDataObject>();
+        return DataRepository.GetRecords(identifier, limit, skip, searchMode, sortExpresion, sortAscending).Cast<IBrowsableDataObject>();
     }
 
     /// <inheritdoc />
