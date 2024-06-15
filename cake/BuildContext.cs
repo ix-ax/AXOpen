@@ -148,7 +148,7 @@ public class BuildContext : FrostingContext
     public IEnumerable<(string folder, string name, bool pack)> Libraries { get; } = new[]
     {
         ("ax.axopen.min", "ax.axopen.min", true),
-        ("ax.axopen.hwlib", "ax.axopen.hwlib", true),
+        ("ax.axopen.hwlibrary", "ax.axopen.hwlibrary", true),
         ("ax.axopen.app", "ax.axopen.app", true),
         ("sdk-ax", "ax-sdk", true),
         ("abstractions", "axopen.abstractions", true),
