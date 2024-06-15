@@ -16,7 +16,7 @@ dependencies:
   "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
   "@ix-ax/axopen.components.desoutter.tightening": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
-  "@ax/simatic-1500-clocks": ^6.0.37
+  "@ix-ax/ax.axopen.app": '0.0.0-dev.0'  
 scripts:
   # Obsolete scripts, could be  removed at some point ====>
   delta:

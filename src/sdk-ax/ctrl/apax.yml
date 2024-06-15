@@ -6,34 +6,6 @@ type: generic
 files:
   - apax.yml
 dependencies:
-  #"@ax/sdk": ^2311.0.1
-  "@ax/hwc": ^1.0.225 # new version available, old-one removed
-  "@ax/hwld": ^1.0.75 # new version available, old-one removed
-  "@ax/dcp-utility": ^1.1.2 # still available, nothing new
-  "@ax/axunitst": ^4.2.4 # still available
-  # "@ax/axunitst": ^5.0.74                       # new version available
-  "@ax/mod": ^1.1.2 # still available
-  # "@ax/mod": ^1.2.2                             # new version available
-  "@ax/mon": ^1.1.2 # still available
-  # "@ax/mon": ^1.2.2                             # new version available
-  "@ax/sdb": ^1.1.2 # still available
-  # "@ax/sdb": ^1.2.2                             # new version available
-  "@ax/sld": ^2.5.5 # still available
-  # "@ax/sld": ^2.5.6                             # new version available
-  "@ax/stc": ^6.1.59 # still available
-  # "@ax/stc": ^7.0.52                            # new version available
-  "@ax/apax-build": ^0.8.0 # still available
-  # "@ax/apax-build": ^1.0.0                      # new version available
-  "@ax/target-llvm": ^6.1.59 # still available
-  # "@ax/target-llvm": ^7.0.52                    # new version available
-  "@ax/target-mc7plus": ^6.1.59 # still available
-  # "@ax/target-mc7plus": ^7.0.52                 # new version available
-  "@ax/simatic-pragma-stc-plugin": ^2.0.12 # still available
-  # "@ax/simatic-pragma-stc-plugin": ^4.0.18      # new version available
-  "@ax/hardware-diagnostics": ^0.1.0 # still available, nothing new
-  "@ax/certificate-management": ^1.1.1 # still available
-  # "@ax/certificate-management": ^1.1.2          # new version available
-  "@ax/plc-info": ^2.3.0 # still available
-  # "@ax/plc-info": ^2.4.0                        # new version available
+  "@ax/sdk": ^2405.0.0  
 installStrategy: strict
 apaxVersion: 3.1.1
