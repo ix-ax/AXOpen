@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using AXOpen.Base;
 using AXOpen.Base.Data;
 using Raven.Client.Documents;
 using Raven.Client.Documents.Operations;
@@ -127,43 +129,52 @@ namespace AXOpen.Data.RavenDb
 
         protected override long CountNvi => _store.Maintenance.Send(new GetStatisticsOperation()).CountOfDocuments;
 
-        protected override IEnumerable<T> GetRecordsNvi(string identifier, int limit, int skip, eSearchMode searchMode)
+        protected override IEnumerable<T> GetRecordsNvi(string identifier, int limit, int skip, eSearchMode searchMode, string sortExpresion, bool sortAscending)
         {           
             using (var session = _store.OpenSession())
             {
+                IQueryable<T> query;
+
                 if (string.IsNullOrEmpty(identifier) || string.IsNullOrWhiteSpace(identifier) || identifier == "*")
                 {
-                    return session.Query<T>()
-                        .Skip(skip)
-                        .Take(limit)
-                        .ToArray();
+                    query = session.Query<T>();
                 }
                 else
                 {
-
                     switch (searchMode)
-                    {                        
+                    {
                         case eSearchMode.StartsWith:
-                            return session.Query<T>()                             
-                                 .Where(x => x.DataEntityId.StartsWith(identifier))
-                                 .Skip(skip)
-                                 .Take(limit)
-                                 .ToArray();
-                        case eSearchMode.Contains:                           
-                            return session.Query<T>()                            
-                                .Search(x => x.DataEntityId, $"*{identifier}*")
-                                .Skip(skip)
-                                .Take(limit)
-                                .ToArray();
+                            query = session.Query<T>()
+                                           .Where(x => x.DataEntityId.StartsWith(identifier));
+                            break;
+                        case eSearchMode.Contains:
+                            query = session.Query<T>()
+                                           .Search(x => x.DataEntityId, $"*{identifier}*");
+                            break;
                         case eSearchMode.Exact:
                         default:
-                            return session.Query<T>()                               
-                                   .Where(x => x.DataEntityId == identifier)
-                                   .Skip(skip)
-                                   .Take(limit)
-                                   .ToArray();
-                    }                                   
+                            query = session.Query<T>()
+                                           .Where(x => x.DataEntityId == identifier);
+                            break;
+                    }
                 }
+
+                if (sortExpresion == null || string.IsNullOrWhiteSpace(sortExpresion) || sortExpresion.Equals("Default"))
+                {
+                    if (!sortAscending)
+                        query = query.Reverse();
+                }
+                else
+                {
+                    if (sortAscending)
+                        query = query.OrderBy(x => PropertyHelper.GetPropertyValue(x, sortExpresion));
+                    else
+                        query = query.OrderByDescending(x => PropertyHelper.GetPropertyValue(x, sortExpresion));
+                }
+
+                return query.Skip(skip)
+                            .Take(limit)
+                            .ToArray();
             }
         }
 

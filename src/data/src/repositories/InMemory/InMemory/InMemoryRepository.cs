@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using AXOpen.Base;
 using AXOpen.Base.Data;
 
 namespace AXOpen.Data.InMemory
@@ -97,42 +99,45 @@ namespace AXOpen.Data.InMemory
             get { return this._repository.Count; }
         }
 
-        protected override IEnumerable<T> GetRecordsNvi(string identifier, int limit, int skip, eSearchMode searchMode)
+        protected override IEnumerable<T> GetRecordsNvi(string identifier, int limit, int skip, eSearchMode searchMode, string sortExpresion, bool sortAscending)
         {
-            var filetered = new List<T>();
+            IEnumerable<KeyValuePair<string, T>> enumerable;
 
             if (string.IsNullOrEmpty(identifier) || string.IsNullOrWhiteSpace(identifier) || identifier == "*")
             {
-                foreach (var item in this.Records.Skip(skip).Take(limit))
-                {
-                    filetered.Add(item.Value);
-                }
+                enumerable = this.Records;
             }
             else
             {
-                IEnumerable<KeyValuePair<string, T>> files;
-
                 switch (searchMode)
                 {
                     case eSearchMode.StartsWith:
-                        files = this.Records.Where(p => p.Key.StartsWith(identifier));
+                        enumerable = this.Records.Where(p => p.Key.StartsWith(identifier));
                         break;
                     case eSearchMode.Contains:
-                        files = this.Records.Where(p =>p.Key.Contains(identifier));
+                        enumerable = this.Records.Where(p =>p.Key.Contains(identifier));
                         break;
                     case eSearchMode.Exact:
                     default:
-                        files = this.Records.Where(p => p.Key == identifier);
+                        enumerable = this.Records.Where(p => p.Key == identifier);
                         break;
-                }
-
-                foreach (var item in files.Skip(skip).Take(limit))
-                {
-                    filetered.Add(item.Value);
                 }
             }
 
-            return filetered;
+            if (sortExpresion == null || string.IsNullOrWhiteSpace(sortExpresion) || sortExpresion.Equals("Default"))
+            {
+                if (!sortAscending)
+                    enumerable = enumerable.Reverse();
+            }
+            else
+            {
+                if (sortAscending)
+                    enumerable = enumerable.OrderBy(x => PropertyHelper.GetPropertyValue(x, sortExpresion));
+                else
+                    enumerable = enumerable.OrderByDescending(x => PropertyHelper.GetPropertyValue(x, sortExpresion));
+            }
+
+            return enumerable.Skip(skip).Take(limit).Select(x => x.Value);
         }
 
         protected override long FilteredCountNvi(string id, eSearchMode searchMode)

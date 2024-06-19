@@ -115,9 +115,29 @@ namespace AXOpen.Data.Json
 
         protected override IEnumerable<T> GetRecordsNvi(string identifier, int limit, int skip, eSearchMode searchMode, string sortExpresion, bool sortAscending)
         {
-            var filetered = new List<T>();
+            IEnumerable<string> enumerable;
 
-            IEnumerable<string> enumerable = Directory.EnumerateFiles(this.Location);
+            if (string.IsNullOrEmpty(identifier) || string.IsNullOrWhiteSpace(identifier) || identifier == "*")
+            {
+                enumerable = Directory.EnumerateFiles(this.Location);
+            }
+            else
+            {
+                switch (searchMode)
+                {
+                    case eSearchMode.StartsWith:
+                        enumerable = Directory.EnumerateFiles(this.Location).Where(p => new FileInfo(p).Name.StartsWith(identifier));
+                        break;
+                    case eSearchMode.Contains:
+                        enumerable = Directory.EnumerateFiles(this.Location).Where(p => new FileInfo(p).Name.Contains(identifier));
+                        break;
+                    case eSearchMode.Exact:
+                    default:
+                        enumerable = Directory.EnumerateFiles(this.Location).Select(p => new FileInfo(p)).Where(p => p.Name == identifier).Select(p => p.FullName);
+                        break;
+                }
+            }
+
             if (sortExpresion == null || string.IsNullOrWhiteSpace(sortExpresion) || sortExpresion.Equals("Default"))
             {
                 if (!sortAscending)
@@ -131,38 +151,7 @@ namespace AXOpen.Data.Json
                     enumerable = enumerable.OrderByDescending(x => PropertyHelper.GetPropertyValue(x, sortExpresion));
             }
 
-            if (string.IsNullOrEmpty(identifier) || string.IsNullOrWhiteSpace(identifier) || identifier == "*")
-            {
-                foreach (var item in enumerable.Skip(skip).Take(limit))
-                {
-                    filetered.Add(this.Load(new FileInfo(item).Name, typeof(T)));
-                }
-            }
-            else
-            {
-                IEnumerable<string> files;
-
-                switch (searchMode)
-                {
-                    case eSearchMode.StartsWith:
-                        files = enumerable.Where(p => new FileInfo(p).Name.StartsWith(identifier));
-                        break;
-                    case eSearchMode.Contains:
-                        files = enumerable.Where(p => new FileInfo(p).Name.Contains(identifier));
-                        break;
-                    case eSearchMode.Exact:
-                    default:
-                        files = enumerable.Select(p => new FileInfo(p)).Where(p => p.Name == identifier).Select(p => p.FullName);
-                        break;
-                }
-
-                foreach (var item in files.Order().Skip(skip).Take(limit))
-                {
-                    filetered.Add(this.Load(new FileInfo(item).Name, typeof(T)));
-                }
-            }
-
-            return filetered;
+            return enumerable.Skip(skip).Take(limit).Select(x => this.Load(new FileInfo(x).Name, typeof(T)));
         }
 
         protected override long FilteredCountNvi(string id, eSearchMode searchMode)
