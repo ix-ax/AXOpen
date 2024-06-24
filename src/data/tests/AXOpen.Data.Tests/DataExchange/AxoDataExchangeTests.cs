@@ -413,7 +413,7 @@ namespace AXOpen.Data.Tests
                 repo.Create($"{i}Record", new SharedProductionData() { ComesFrom = (short)(i + 1), GoesTo = (short)(i * 7) });
             }
 
-            var actual = sut.GetRecords("Rec", 3, 0, eSearchMode.Contains);
+            var actual = sut.GetRecords("Rec", 3, 0, eSearchMode.Contains, "Default", true);
 
             Assert.Equal(3, actual.Count());
         }
