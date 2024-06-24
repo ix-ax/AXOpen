@@ -8,8 +8,8 @@ NAMESPACE AXOpen.Utils
 		END_VAR
 		VAR
 			crc : DWORD := DWORD#16#FFFFFFFF;
-			i : UINT;
-			maxIndex : UINT;
+			i : UDINT;
+			maxIndex : UDINT;
 			serialized : ARRAY[0..255] OF BYTE;
 		END_VAR
 		VAR 
@@ -42,7 +42,7 @@ NAMESPACE AXOpen.Utils
 			RETURN;
 		END_IF;
 
-		FOR i := UINT#1 TO maxIndex BY UINT#1 DO
+		FOR i := UDINT#1 TO maxIndex BY UDINT#1 DO
 			crc := SHL(crc, UINT#8) XOR CRC_TABLE[TO_INT(SHR(crc, UINT#24) XOR serialized[i])];
 		END_FOR;
 

@@ -184,7 +184,7 @@ public static class ApaxCmd
             var passed = false;
             foreach (var o in process.GetStandardOutput())
             {
-                if (o.Trim().Replace(" ", "").ToUpper() == "OVERALLRESULT[PASSED]")
+                if (o.Trim().Replace(" ", "").ToUpper() == "FAILED:0")
                 {
                     passed = true;
                 }

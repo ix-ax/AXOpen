@@ -199,6 +199,12 @@ public sealed class TestsTask : FrostingTask<BuildContext>
                 context.ApaxInstall(context.GetLibraryAxFolders(lib));
                 context.ApaxBuild(context.GetLibraryAxFolders(lib));
                 context.ApaxTestLibrary(lib);
+                if (context.BuildParameters.DoPack)
+                {
+                    context.ApaxPack(lib);
+                    context.ApaxCopyArtifacts(lib);
+                }
+                context.ApaxClean(lib);
             });
 
         }
@@ -209,6 +215,12 @@ public sealed class TestsTask : FrostingTask<BuildContext>
                 context.ApaxInstall(context.GetLibraryAxFolders(lib));
                 context.ApaxBuild(context.GetLibraryAxFolders(lib));
                 context.ApaxTestLibrary(lib);
+                if (context.BuildParameters.DoPack)
+                {
+                    context.ApaxPack(lib);
+                    context.ApaxCopyArtifacts(lib);
+                }
+                context.ApaxClean(lib);
             });
         }
 
@@ -242,7 +254,7 @@ public sealed class TestsTask : FrostingTask<BuildContext>
                 else
                 {
                     throw new Exception($"No app or ax folder found for {package.folder}");    
-                    }
+                }
 
                 context.DotNetTest(Path.Combine(context.RootDir, package.folder, "tmp_L3_.proj"), context.DotNetTestSettings);
             }
@@ -260,13 +272,13 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
     {
         if (context.BuildParameters.DoPack)
         {
-            context.Libraries.ToList().ForEach(lib =>
-            {
-                foreach (var apaxfile in context.GetApaxFiles(lib))
-                {
-                    context.ApaxChangeBuildProperties(apaxfile, new string[] { "\"1500\"", "llvm", "plcsim" }, new[] { "bin", "axsharp.companion.json" });
-                }
-            });
+            //context.Libraries.ToList().ForEach(lib =>
+            //{
+            //    foreach (var apaxfile in context.GetApaxFiles(lib))
+            //    {
+            //        context.ApaxChangeBuildProperties(apaxfile, new string[] { "\"1500\"", "llvm", "plcsim" }, new[] { "bin", "axsharp.companion.json" });
+            //    }
+            //});
         }
         
         if (!context.BuildParameters.DoPack)
@@ -275,7 +287,7 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
             return;
         }
 
-        PackApax(context);
+        //PackApax(context);
         PackNugets(context);
     }
 
