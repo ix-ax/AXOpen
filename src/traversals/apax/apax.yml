@@ -9,6 +9,9 @@ devDependencies:
 dependencies:
   abstractions-app: 0.0.0-dev.0
   '@ix-ax/axopen.abstractions': 0.0.0-dev.0
+  '@ix-ax/ax.axopen.app': 0.0.0-dev.0
+  '@ix-ax/ax.axopen.hwlibrary': 0.0.0-dev.0
+  '@ix-ax/ax.axopen.min': 0.0.0-dev.0
   app_axopen.components.abb.robotics: 0.0.0-dev.0
   '@ix-ax/axopen.components.abb.robotics': 0.0.0-dev.0
   components.abstractions-app: 0.0.0-dev.0

@@ -16,11 +16,7 @@ dependencies:
   "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
   "@ix-ax/axopen.components.balluff.identification": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
-  "@ax/simatic-1500-clocks": ^6.0.37
-  "@ax/system-strings": ^6.0.94
-  "@ax/system-bitaccess": ^6.0.94
-  "@ax/system-math": ^6.0.94
-  "@ax/system-serde": ^6.0.94
+  "@ix-ax/ax.axopen.app": '0.0.0-dev.0'  
 scripts:
   # Obsolete scripts, could be  removed at some point ====>
   delta:
