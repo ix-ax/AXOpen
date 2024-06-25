@@ -40,7 +40,7 @@ namespace AXOpen.Base.Data
         void Delete(string identifier);
         bool Exists(string identifier);
         long FilteredCount(string id, eSearchMode searchMode = eSearchMode.Exact);
-        IEnumerable<T> GetRecords(string identifier = "*", int limit = 100, int skip = 0, eSearchMode searchMode = eSearchMode.Exact);
+        IEnumerable<T> GetRecords(string identifier = "*", int limit = 100, int skip = 0, eSearchMode searchMode = eSearchMode.Exact, string sortExpresion = "Default", bool sortAscending = false);
         T Read(string identifier);
         void Update(string identifier, T data);
         OnCreateDelegate<T> OnCreate { get; set; }
