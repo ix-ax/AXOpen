@@ -24,6 +24,7 @@ using Microsoft.AspNetCore.Components.Forms;
 using AXOpen.Data.Interfaces;
 using AXOpen.Core;
 using AXOpen.Data;
+using System.Data.Common;
 
 namespace AXOpen.Data;
 
@@ -43,7 +44,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     [Parameter] public RenderFragment ChildContent { get; set; }
 
-    [Parameter] public string[] SortElements { get; set; }
+    [Parameter] public List<string> SortElements { get; set; } = new();
 
     [Inject]
     private IAlertService _alertDialogService { get; set; }
@@ -63,10 +64,12 @@ public partial class DataExchangeView : ComponentBase, IDisposable
     public void AddLine(ColumnData line)
     {
         if (!Columns.Contains(line))
-        {
             Columns.Add(line);
-            StateHasChanged();
-        }
+
+        if (!SortElements.Contains(line.BindingValue))
+            SortElements.Add(line.BindingValue);
+
+        StateHasChanged();
     }
 
     public void RemoveLine(ColumnData line)
@@ -127,7 +130,6 @@ public partial class DataExchangeView : ComponentBase, IDisposable
     {
         await Vm.FillObservableRecordsAsync();
         Vm.StateHasChangedDelegate = StateHasChanged;
-
     }
 
     private string _inputFileId = Guid.NewGuid().ToString();

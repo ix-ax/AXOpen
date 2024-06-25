@@ -41,7 +41,7 @@ else
                             }
                         </ul>
                     </div>
-                    <button class="btn btn-outline-secondary" type="button" name="sort" aria-label="Sort" title="Sort" @onclick="() => setSortAscendingAsync()">
+                    <button class="btn btn-outline-secondary" type="button" name="sort" aria-label="@(Vm.SortAscending ? "Sort ascending" : "Sort descending")" title="@(Vm.SortAscending ? "Sort ascending" : "Sort descending")" @onclick="() => setSortAscendingAsync()">
                         <i class="bi bi-filter @(Vm.SortAscending ? "rotate" : "")"></i>
                     </button>
                 }
