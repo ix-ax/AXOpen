@@ -2,7 +2,6 @@ name: "simatic1500-app"
 version: '0.0.0-dev.0'
 type: app
 targets:
-  - plcsim
   - llvm
   - "1500"
 variables:

@@ -2,7 +2,6 @@ name: "app_axopen.io"
 version: '0.0.0-dev.0'
 type: app
 targets:
-  - plcsim
   - "1500"
 variables:
   APAX_BUILD_ARGS:

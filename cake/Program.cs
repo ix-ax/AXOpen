@@ -156,7 +156,7 @@ public sealed class BuildTask : FrostingTask<BuildContext>
             {
                 foreach (var apaxfile in context.GetApaxFiles(lib))
                 {
-                    context.ApaxChangeBuildProperties(apaxfile, new string[] { "\"1500\"", "llvm", "plcsim" }, new[] { "src", "axsharp.companion.json" });
+                    context.ApaxChangeBuildProperties(apaxfile, new string[] { "\"1500\"", "llvm" }, new[] { "src", "axsharp.companion.json" });
                 }
             });
         }
