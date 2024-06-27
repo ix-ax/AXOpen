@@ -1,15 +1,39 @@
   items:
+    - name: Abb Robotics
+      href: ../components.abb.robotics/docs/index.html
     - name: Abstractions
       href: ../components.abstractions/docs/index.html
-    - name: Elements
-      href: ../components.elements/docs/index.html
-    - name: Pneumatics
-      href: ../components.pneumatics/docs/index.html
+    - name: Balluff Identification
+      href: ../components.balluff.identification/docs/index.html  
     - name: Cognex Vision
       href: ../components.cognex.vision/docs/index.html
+    - name: Desoutter Tightening
+      href: ../components.desoutter.tightening/docs/index.html
+    - name: Drives
+      href: ../components.drives/docs/index.html
+    - name: Elements
+      href: ../components.elements/docs/index.html
+    - name: Festo Drives
+      href: ../components.festo.drives/docs/index.html
+    - name: Kuka Robotics
+      href: ../components.kuka.robotics/docs/index.html
+    - name: Kuka Robotics
+      href: ../components.kuka.robotics/docs/index.html
+    - name: Kuka Robotics
+      href: ../components.kuka.robotics/docs/index.html
+    - name: Mitsubishi Robotics
+      href: ../components.mitsubishi.robotics/docs/index.html
+    - name: Pneumatics
+      href: ../components.pneumatics/docs/index.html
     - name: Rexroth Drives
       href: ../components.rexroth.drives/docs/index.html  
-    - name: Festo Drives
-      href: ../components.rexroth.drives/docs/index.html    
+    - name: Rexroth Press
+      href: ../components.rexroth.press/docs/index.html  
+    - name: Robotics
+      href: ../components.robotics/docs/index.html
+    - name: Siemens Identification
+      href: ../components.siemens.identification/docs/index.html
+    - name: Ur Robotics
+      href: ../components.ur.robotics/docs/index.html
     - name: Library template
       href: ../template.axolibrary/docs/index.html
