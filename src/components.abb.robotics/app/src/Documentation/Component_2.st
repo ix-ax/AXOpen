@@ -4,7 +4,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
     CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
-            ExampleRobot : AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x;  
+            AxoOmnicore_v_1_x_x : AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x;  
         END_VAR
         //</ComponentDeclaration>                          
 
@@ -23,11 +23,11 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             THIS.Initialize(parent);
 
             IF(manualControl) THEN            
-                ExampleRobot.ActivateManualControl();
+                AxoOmnicore_v_1_x_x.ActivateManualControl();
             END_IF;
 
             //<Initialization>        
-            ExampleRobot.Run(   parent      := THIS,
+            AxoOmnicore_v_1_x_x.Run(   parent      := THIS,
                                 hwID        := HwIdentifiers#OmniCore_HwID,
                                 hwIdDI_64_bytes := HwIdentifiers#OmniCore_DI_64_bytes_DI_64_bytes_HwID,      
                                 hwIdDO_64_bytes := HwIdentifiers#OmniCore_DO_64_bytes_DO_64_bytes_HwID);        
@@ -48,19 +48,19 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             Sequencer.Open();
 
             IF(Steps[0].Execute(Sequencer, 'Start at main')) THEN
-                IF(ExampleRobot.StartAtMain().IsDone()) THEN                
+                IF(AxoOmnicore_v_1_x_x.StartAtMain().IsDone()) THEN                
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;
 
             IF(Steps[1].Execute(Sequencer, 'Move to position')) THEN
-                IF(ExampleRobot.StartMovements(movementParams).IsDone()) THEN                
+                IF(AxoOmnicore_v_1_x_x.StartMovements(movementParams).IsDone()) THEN                
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;       
 
             IF(Steps[1].Execute(Sequencer, 'Stop')) THEN
-                IF(ExampleRobot.StopMovements().IsDone()) THEN                
+                IF(AxoOmnicore_v_1_x_x.StopMovements().IsDone()) THEN                
                     Sequencer.CompleteSequence();                
                 END_IF;    
             END_IF;       
