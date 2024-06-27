@@ -34,6 +34,8 @@ if [ -z $PASSWORD ]; then
     exit 1
 fi
 
+echo "This command will prompt during execution, so do not leave your PC. You can enjoy your coffee afterward."
+
 #apax run ci                                  # clean and install dependencies
 apax clean
 apax install
