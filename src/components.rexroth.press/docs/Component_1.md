@@ -1,4 +1,4 @@
-# Component_1
+# AxoSmartFunctionKit_v_4_x_x
 
 # [CONTROLLER](#tab/controller)
 
