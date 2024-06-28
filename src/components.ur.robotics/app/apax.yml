@@ -15,23 +15,20 @@ dependencies:
   "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
   "@ix-ax/axopen.components.ur.robotics": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
-  "@ix-ax/ax.axopen.app": '0.0.0-dev.0'  
+  "@ix-ax/ax.axopen.app": '0.0.0-dev.0'
 scripts:
   # Obsolete scripts, could be  removed at some point ====>
   delta:
     - START=$(date +%s)
     - apax build --ignore-scripts
-    - apax sld load --accept-security-disclaimer -t $AXTARGET -i
-      $AXTARGETPLATFORMINPUT --mode delta
-    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in
-      :" $(expr $(date +%s) - $START) "s"
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT --mode delta
+    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
   download:
     - START=$(date +%s)
     - apax build --ignore-scripts
     - dotnet ixc
     - apax download_only
-    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in
-      :" $(expr $(date +%s) - $START) "s"
+    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
   download_only: |
     apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r -C ./certs/$PLC_NAME/$PLC_NAME.cer
   check+download: |
@@ -50,8 +47,7 @@ scripts:
       echo "Environment variable AXTARGET not defined!!!"
     fi
   watch:
-    - dotnet watch --project
-      ..\\app\\ix-blazor\\AXOpen.Components.Ur.Robotics.blazorapp.csproj
+    - dotnet watch --project ..\\app\\ix-blazor\\AXOpen.Components.Ur.Robotics.blazorapp.csproj
   fr:
     - ..\\..\\integrations\\scripts\\StartPlcSimAdvCli.exe
     - apax rr
@@ -63,8 +59,7 @@ scripts:
     - apax clean
     - apax install
     - apax download
-    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in
-      :" $(expr $(date +%s) - $START) "s"
+    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
   rrw:
     - apax rr
     - apax watch
@@ -75,7 +70,7 @@ scripts:
   dd:
     - apax delta
   # <==== Obsolete scripts, could be  removed at some point
-    
+
   # For proper execution of these scripts, the following variables need to be defined as environment variables or local variables.
   # Local variables can override environment variables.
   # It is highly recommended NOT to store secrets such as 'AX_USERNAME' and 'MY_VERY_STRONG_PASSWORD' in local variables.
