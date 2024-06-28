@@ -220,7 +220,6 @@ namespace AXOpen.Components.Desoutter.Tightening
                     actionDescriptionDict.Add(317, "Set screwing program running.");
                     actionDescriptionDict.Add(318, "Set screwing program running.");
                     actionDescriptionDict.Add(319, "Set screwing program running.");
-                    actionDescriptionDict.Add(110, "Set screwing program started.");
                     actionDescriptionDict.Add(111, "Set screwing program finished succesfully.");
                     actionDescriptionDict.Add(112, "Set screwing program restored.");
 

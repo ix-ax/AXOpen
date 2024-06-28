@@ -34,9 +34,14 @@ if [ -z $PASSWORD ]; then
     exit 1
 fi
 
+export GREEN='\033[0;32m'
+export RED='\033[0;31m'
+
 certfile="./certs/$PLC_NAME/$PLC_NAME.cer" 
 if [ -e "$certfile" ]; then
-	echo "Certification file $certfile exists."
+	printf "${GREEN}Certification file $certfile exists.\r\n"
+	printf "${GREEN}No prompt will popup during execution, so you could leave your PC and enjoy your coffee now.\r\n"
+
 	#apax run ci                                  # clean and install dependencies
 	apax clean
 	apax install
@@ -50,7 +55,7 @@ if [ -e "$certfile" ]; then
 	$sw_build_and_download_full $PLC_NAME $PLC_IP_ADDRESS $PLATFORM
   
 else
-	echo "Certification file $certfile does not exist."
+	printf "${RED}Certification file $certfile does not exist.\r\n"
 	#alf 										#clear plc except ip and name and provide all actions for install all, build and initial download hw so as sw
 	alf=$( dirname ${BASH_SOURCE[0]})"\\all_first.sh"
 	$alf $PLC_NAME $PLC_IP_ADDRESS $PLATFORM $USERNAME $PASSWORD
