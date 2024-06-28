@@ -1,159 +1,151 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "this", "this.proj", "{6F373565-083C-41A5-A2A7-F621ABE1924C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "this", "this.proj", "{019064C8-1D4D-4264-BD04-DDDFC4308D6D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_abstractions", "..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj", "{1C0BE953-2452-4CE5-9CCE-03CB98698B55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_abstractions", "..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj", "{95651310-B9A5-4DC2-8E43-EC640FCBCE44}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Base.Abstractions", "..\base\src\AXOpen.Base.Abstractions\AXOpen.Base.Abstractions.csproj", "{8456D426-D0D2-42F2-A9A3-C635F915853E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Base.Abstractions", "..\base\src\AXOpen.Base.Abstractions\AXOpen.Base.Abstractions.csproj", "{01341864-3B18-4E60-931F-98EAC24EEAE7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Logging.Serilog", "..\base\src\AXOpen.Logging\AXOpen.Logging.Serilog.csproj", "{E110EE61-A1E5-49FC-B01E-AD778E1EA490}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Logging.Serilog", "..\base\src\AXOpen.Logging\AXOpen.Logging.Serilog.csproj", "{DE253056-26FE-4BAE-851B-B6E94A77D22E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.VisualComposer", "..\base\src\AXOpen.VisualComposer\AXOpen.VisualComposer.csproj", "{DA26F83D-099C-49A9-9EB5-8C6570541D9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.VisualComposer", "..\base\src\AXOpen.VisualComposer\AXOpen.VisualComposer.csproj", "{F27DDB5D-75F6-40B7-95E1-ED7B2EB36E8A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_components_abstractions", "..\components.abstractions\src\AXOpen.Components.Abstractions\ix_ax_axopen_components_abstractions.csproj", "{BA0C7897-B8F0-4059-819E-FFF4F0A0D1BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_components_abstractions", "..\components.abstractions\src\AXOpen.Components.Abstractions\ix_ax_axopen_components_abstractions.csproj", "{E0C297A1-ECC4-48EA-85AB-7BF58D196CDE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_components_drives", "..\components.drives\src\AXOpen.Components.Drives\ix_ax_axopen_components_drives.csproj", "{C8FEF829-0FF2-48D4-A019-94A939986843}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_components_drives", "..\components.drives\src\AXOpen.Components.Drives\ix_ax_axopen_components_drives.csproj", "{69E7F2A5-1F5D-4F81-B776-3EA3ACF0AA6A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Components.Festo.Drives.blazorapp", "app\ix-blazor\AXOpen.Components.Festo.Drives.blazorapp.csproj", "{68243D05-F061-46FA-B2F4-D601AD16F881}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Components.Festo.Drives.blazorapp", "app\ix-blazor\AXOpen.Components.Festo.Drives.blazorapp.csproj", "{907CE722-62D1-47FE-8FC8-35A4D8F80F4F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "app_axopen_components_festo_drives", "app\ix\app_axopen_components_festo_drives.csproj", "{13241E2D-2376-4226-B4EC-B7E1C0860915}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "app_axopen_components_festo_drives", "app\ix\app_axopen_components_festo_drives.csproj", "{B5E83C17-E527-416F-A55D-7344663794B6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Components.Festo.Drives.blazor", "src\AXOpen.Components.Festo.Drives.blazor\AXOpen.Components.Festo.Drives.blazor.csproj", "{41773111-3151-4DA7-8C6C-10C6732A589B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Components.Festo.Drives.blazor", "src\AXOpen.Components.Festo.Drives.blazor\AXOpen.Components.Festo.Drives.blazor.csproj", "{A9A46B5A-E39F-4B67-809C-273EE0DC8EF2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_components_festo_drives", "src\AXOpen.Components.Festo.Drives\ix_ax_axopen_components_festo_drives.csproj", "{2D128607-C941-4E11-9C19-B726432C5306}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_components_festo_drives", "src\AXOpen.Components.Festo.Drives\ix_ax_axopen_components_festo_drives.csproj", "{DC79C4F3-B6BF-4F3C-A946-A44D7E4567DC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Components.Festo.Drives_tests", "tests\AXOpen.Components.Festo.Drives.Tests\AXOpen.Components.Festo.Drives_tests.csproj", "{6D46A0DD-A923-4601-9F40-D0D872B73A21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Components.Festo.Drives_tests", "tests\AXOpen.Components.Festo.Drives.Tests\AXOpen.Components.Festo.Drives_tests.csproj", "{2D76DED4-9C5E-40B4-B0F1-24E2D58C7041}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_components_rexroth_drives", "..\components.rexroth.drives\src\AXOpen.Components.Rexroth.Drives\ix_ax_axopen_components_rexroth_drives.csproj", "{FDFBC6F9-983F-4909-AE75-8E622BA4FDB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_core_blazor", "..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj", "{B4B94C0C-89AA-4001-8D60-3B2908AC6CA6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_core_blazor", "..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj", "{4593D16B-2644-4270-9BEF-FA4C91F45053}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_core", "..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj", "{2B450256-7867-4D61-B085-1E62FE41C89C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_core", "..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj", "{5E9E4706-25C7-47B0-A269-A07E3C78E2B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Data.Json", "..\data\src\repositories\Json\AXOpen.Data.Json.csproj", "{4CC01CFB-F8CA-47B3-A8E8-E9829FC9A773}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Data.Json", "..\data\src\repositories\Json\AXOpen.Data.Json.csproj", "{856FBFED-C4B0-43D9-B911-C60A7391458C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Io.blazor", "..\io\src\AXOpen.Io.blazor\AXOpen.Io.blazor.csproj", "{1ABE1403-917A-4A15-886B-28255241C646}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Io.blazor", "..\io\src\AXOpen.Io.blazor\AXOpen.Io.blazor.csproj", "{55FFA94A-F50E-415A-813B-6F177D3AFFFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_io", "..\io\src\AXOpen.Io\ix_ax_axopen_io.csproj", "{03E434BE-A707-4EBF-8504-AB076AFACCB6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_io", "..\io\src\AXOpen.Io\ix_ax_axopen_io.csproj", "{7F8C2294-A578-453C-9E59-5126B9BCBFCC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_ax_sdk", "..\sdk-ax\ctrl\ix\ix_ax_ax_sdk.csproj", "{DB21F84E-C1E5-4453-8FBA-A2232D2AD0DA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_ax_sdk", "..\sdk-ax\ctrl\ix\ix_ax_ax_sdk.csproj", "{D1BC991A-EB16-4AEA-8822-33641AC68243}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security.Blazor", "..\Security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj", "{04FA926D-CA6F-4628-839A-106FB3ED6291}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security.Blazor", "..\Security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj", "{F7675C07-E853-4FCC-943F-A4CC7F7B25DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security", "..\Security\src\AXOpen.Security\AXOpen.Security.csproj", "{98820E4B-60E0-47A2-B753-97B0264E787A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security", "..\Security\src\AXOpen.Security\AXOpen.Security.csproj", "{82F4164E-B0D5-4AD4-8DF9-81E7DC0E08F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_simatic1500", "..\simatic1500\ctrl\ix\ix_ax_axopen_simatic1500.csproj", "{1A3CA764-788E-4738-A253-EF11E85F26A5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_simatic1500", "..\simatic1500\ctrl\ix\ix_ax_axopen_simatic1500.csproj", "{F381F378-B43A-497C-80B2-69F19A322B0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_timers", "..\timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj", "{7D0CD912-8F18-4E10-9AE7-C41BC6D33EBD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_timers", "..\timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj", "{F2DAD4D4-C036-4CE4-86B5-E0B628E5D043}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.ToolBox", "..\toolbox\src\AXOpen.ToolBox\AXOpen.ToolBox.csproj", "{1250981A-A533-44B5-8853-5844A8B94163}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.ToolBox", "..\toolbox\src\AXOpen.ToolBox\AXOpen.ToolBox.csproj", "{521DE221-7C59-4FB1-BD53-ED5BEFD49A20}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Abstractions", "..\abstractions\src\AXOpen.Abstractions", "{3956B79E-24C0-4C62-B0B4-3F26AB5416A5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Abstractions", "..\abstractions\src\AXOpen.Abstractions", "{0CCA1236-F6B7-43FA-BEE1-82281557542F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\abstractions\src", "{F05C6C29-15DF-40DF-B985-47F1F659A2B3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\abstractions\src", "{A223A002-E658-43A0-B86C-9E815475BE06}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "abstractions", "..\abstractions", "{C0CE9147-2DA1-49AC-806A-C4E7B1A1F8A3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "abstractions", "..\abstractions", "{C2EFEE5B-D605-40BC-AA6A-501009F91BC2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Base.Abstractions", "..\base\src\AXOpen.Base.Abstractions", "{17EEA354-B6D1-4E39-BBF8-1176460F4DF8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Base.Abstractions", "..\base\src\AXOpen.Base.Abstractions", "{A958DE53-88C2-46F4-8D38-B026A8D3854F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Logging", "..\base\src\AXOpen.Logging", "{026CEA7F-6046-46BC-AC65-D52FC0D8823B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Logging", "..\base\src\AXOpen.Logging", "{33B8B7C4-E6B6-475E-88F4-61E833D73205}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.VisualComposer", "..\base\src\AXOpen.VisualComposer", "{38429A87-485D-4C4A-8842-799533627C07}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.VisualComposer", "..\base\src\AXOpen.VisualComposer", "{31736B94-EBFC-4FE8-A422-F575679102AF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\base\src", "{823917FB-A772-41A0-8165-53FDB5631002}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\base\src", "{9E85C4B5-0E3F-4AF6-8011-366C54A9F831}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "base", "..\base", "{D88EDBB6-1E75-44FD-A0B0-13B254DE18AC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "base", "..\base", "{AE8ECE05-94B8-4CE6-A2EF-97ADEDCCA6FF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Components.Abstractions", "..\components.abstractions\src\AXOpen.Components.Abstractions", "{08A50F48-8C29-44C9-ACA5-F2C1B293B1A6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Components.Abstractions", "..\components.abstractions\src\AXOpen.Components.Abstractions", "{F95AFAAF-5513-4E7E-A9AC-764E955A134D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\components.abstractions\src", "{ED9488B3-925A-4AD9-B69F-94925DE42FB3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\components.abstractions\src", "{12CB1B7D-6E23-4903-9CDF-6A229DC63CCF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components.abstractions", "..\components.abstractions", "{4D1E7E70-94A5-4F1C-87E1-2C7C6159572B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components.abstractions", "..\components.abstractions", "{EB8A5EC1-DA88-43D6-AE3A-252BBD512726}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Components.Drives", "..\components.drives\src\AXOpen.Components.Drives", "{9EEB1196-9525-424F-9D24-06C791B2723D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Components.Drives", "..\components.drives\src\AXOpen.Components.Drives", "{46F74084-45B3-4A73-9917-676EE36704CD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\components.drives\src", "{4DB67FD6-8972-402A-B97D-28497764367E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\components.drives\src", "{97D5C462-94C9-4B20-8C24-1EB41169E7B7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components.drives", "..\components.drives", "{C1BB194D-4BE6-445B-8856-2BE47354911C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components.drives", "..\components.drives", "{67D99348-0E90-47DB-9E00-67E59833C361}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix-blazor", "app\ix-blazor", "{AC0BC2A2-E758-440E-97B2-13FB60A1B52B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix-blazor", "app\ix-blazor", "{0FC00F20-6031-4249-BCDB-F13F92885DD8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix", "app\ix", "{E6A2BD83-A2A7-43AB-81F2-95F77A1F52DA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix", "app\ix", "{4939674F-ED96-49E1-A594-7C18F32D3251}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{B4D341AD-ED05-4D3A-B77F-440792E7F6DA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{A5F80AA2-5752-423A-9F65-2A77F1A89403}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Components.Festo.Drives.blazor", "src\AXOpen.Components.Festo.Drives.blazor", "{29097211-CA0C-4914-AB2F-BA70CB486C46}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Components.Festo.Drives.blazor", "src\AXOpen.Components.Festo.Drives.blazor", "{464F38B3-1681-4EB3-A472-77360CF13A4E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Components.Festo.Drives", "src\AXOpen.Components.Festo.Drives", "{FC80409E-28D4-479E-BC39-CB00ABCABC45}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Components.Festo.Drives", "src\AXOpen.Components.Festo.Drives", "{6F3ECFF7-94D3-4485-8C09-D2339CB38FA0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{91172136-EBF9-476A-9AD0-767862206D87}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{876D47C0-353D-41CC-8AA6-F9872EBD40E5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Components.Festo.Drives.Tests", "tests\AXOpen.Components.Festo.Drives.Tests", "{2C2C7248-79D0-4983-A331-8FEEDBC900E4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Components.Festo.Drives.Tests", "tests\AXOpen.Components.Festo.Drives.Tests", "{2713888F-C06D-41D7-9974-5922FA2FF8D9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7546452B-30DA-4A1A-A69C-B866133E1BF6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{CDB4991D-0265-49E1-9B69-0F9FA01F0536}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components.festo.drives", "..\components.festo.drives", "{4CF427B8-81D0-48B0-B9F4-6E2629DAE963}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components.festo.drives", "..\components.festo.drives", "{DFE28D2C-8816-4B06-995D-EB18DD1FAFBA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Core.Blazor", "..\core\src\AXOpen.Core.Blazor", "{F62482CB-0D61-4640-8166-315DB252A5F2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Components.Rexroth.Drives", "..\components.rexroth.drives\src\AXOpen.Components.Rexroth.Drives", "{2D6DBE59-1B11-403C-A5E7-C100C1BE85C6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Core", "..\core\src\AXOpen.Core", "{0ABB5959-1AF4-4289-B1A9-B3301126B86A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\components.rexroth.drives\src", "{74E5DA7A-ED1C-4BE2-A0FB-A55930000192}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\core\src", "{7444B7DD-5747-4DF2-8A2C-01B3651A6C8F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components.rexroth.drives", "..\components.rexroth.drives", "{72E65A2C-EA15-4975-B1DA-47365100AC5B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "..\core", "{24DE9E19-E550-4AB4-B79F-1D71C5D9C579}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Core.Blazor", "..\core\src\AXOpen.Core.Blazor", "{CF84C74E-EA26-461F-BB50-0CC8A1A5EAC1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Json", "..\data\src\repositories\Json", "{E9FD5853-B939-49DD-BE98-93AA03CBF345}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Core", "..\core\src\AXOpen.Core", "{0A70D216-A6F1-4AF9-99CF-7C86E6386EDB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repositories", "..\data\src\repositories", "{4984B4BF-EFED-4B22-B38E-D83E8EA5C361}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\core\src", "{C7EFD88F-01ED-4536-9CF0-E7D9DDC7E4A9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\data\src", "{CC039A30-6AA5-4305-80A3-16AA7044A986}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "..\core", "{56A3A861-D203-4735-8FF2-FA5E7E03FAE4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "..\data", "{896998BB-B249-451F-A3A9-3A62D3D77A7E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Json", "..\data\src\repositories\Json", "{13390AF1-5347-4F06-A398-0F9FC74F6E02}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Io.blazor", "..\io\src\AXOpen.Io.blazor", "{4F71F957-0CA1-4D88-BC9A-689936F71C6E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repositories", "..\data\src\repositories", "{8E5ABE9B-0493-4C50-A38E-57B5AF562578}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Io", "..\io\src\AXOpen.Io", "{A373AE85-0BD9-43D8-BA03-3487A7A4465C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\data\src", "{67B8E95C-32AC-45D5-B79F-41BF4AE67296}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\io\src", "{F13D8A4C-E5BF-4C01-B504-66E43F82D177}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "..\data", "{61D513DA-93CA-4D8C-951E-51BA678F8B51}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "io", "..\io", "{982551A1-9CF3-46D5-BEC1-95BE94C48DB4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Io.blazor", "..\io\src\AXOpen.Io.blazor", "{6DF996D7-B405-4076-B835-7C2858911014}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix", "..\sdk-ax\ctrl\ix", "{906F3D81-03A9-49A0-BD78-FF94B36B9EC8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Io", "..\io\src\AXOpen.Io", "{ED02243E-070A-4055-A62E-E915B9CFD4BA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ctrl", "..\sdk-ax\ctrl", "{F11C5886-F059-4821-B814-D80AAC92F980}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\io\src", "{E3517C5C-2629-480F-BC4B-31064F2103A9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sdk-ax", "..\sdk-ax", "{6B100CFB-B1D9-4EC6-95CD-38718D3879E7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "io", "..\io", "{555FEBE0-BDD7-45B8-92B4-EA9DEDFB15F8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security.Blazor", "..\Security\src\AXOpen.Security.Blazor", "{62EF1534-28F2-46A2-A798-E6202045B98E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix", "..\sdk-ax\ctrl\ix", "{90508BED-77E9-4F02-B559-882916B5FABB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security", "..\Security\src\AXOpen.Security", "{49AFF210-5E12-4F9C-A0B9-D97B2C7579B7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ctrl", "..\sdk-ax\ctrl", "{E9C355B8-EC9E-496E-A6D9-F791DE3B0F98}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\Security\src", "{3C9EFEC2-724E-462F-B0B5-F23B6C29BDE3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sdk-ax", "..\sdk-ax", "{0F58C548-AE04-4F0D-8CE3-02BB9BC2C7C4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Security", "..\Security", "{B0E6D9FF-878A-451C-B41C-9A1374AB1295}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security.Blazor", "..\Security\src\AXOpen.Security.Blazor", "{46C53154-54F4-4EB5-8F1C-DD74314FF8BE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix", "..\simatic1500\ctrl\ix", "{FE35C140-921C-4D04-86BA-251762F2A7FB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security", "..\Security\src\AXOpen.Security", "{931A2FE7-D9C3-4A46-8D8A-84DA530408BB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ctrl", "..\simatic1500\ctrl", "{86A9F9A6-8A64-4F75-8A6C-892455A8E538}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\Security\src", "{F33BAEF2-8EB7-43EB-8045-2FEDD021B4ED}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "simatic1500", "..\simatic1500", "{321ABF68-D92F-438C-9FF0-A81C3E2663C0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Security", "..\Security", "{7B700054-CBBA-4870-A0BC-D70CF58A05C5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Timers", "..\timers\src\AXOpen.Timers", "{4D2E0F64-C9DC-466E-8ABF-0FFFC6C057E3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix", "..\simatic1500\ctrl\ix", "{5C3637C9-3D0D-48A4-BAEE-CB594022C1AD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\timers\src", "{B4EB2666-113B-4842-AFF2-914325BC23AE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ctrl", "..\simatic1500\ctrl", "{E61BEEB8-3446-4293-B426-57F356AE9B7D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "timers", "..\timers", "{E3262DA4-637B-4037-9121-344F87CF7ED5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "simatic1500", "..\simatic1500", "{2748F5D8-81C8-4568-9873-E1FA97B19C2C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.ToolBox", "..\toolbox\src\AXOpen.ToolBox", "{50E63130-CE6E-4196-95B7-1184F88C1DA4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Timers", "..\timers\src\AXOpen.Timers", "{E1C7013D-BC57-48E6-AABC-06DE6A2B4879}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\toolbox\src", "{4BEEC294-B043-42B3-A1A1-909BF070F7F2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\timers\src", "{2BB5CE1C-FFD9-40B6-B93F-1A1574783E9D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "timers", "..\timers", "{6B3B8AB1-AA66-4444-BCF4-54DB44E22DE2}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.ToolBox", "..\toolbox\src\AXOpen.ToolBox", "{29E889CC-422C-413D-A072-6A3B352DED2B}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\toolbox\src", "{51815725-3627-46AC-821C-E92AD325C4B4}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "toolbox", "..\toolbox", "{26DEEECA-592E-41FA-A387-549FDE50375D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "toolbox", "..\toolbox", "{FE85BB14-CF5C-4073-BEAD-391ADBD4A5B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -161,172 +153,165 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6F373565-083C-41A5-A2A7-F621ABE1924C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F373565-083C-41A5-A2A7-F621ABE1924C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F373565-083C-41A5-A2A7-F621ABE1924C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F373565-083C-41A5-A2A7-F621ABE1924C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1C0BE953-2452-4CE5-9CCE-03CB98698B55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C0BE953-2452-4CE5-9CCE-03CB98698B55}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1C0BE953-2452-4CE5-9CCE-03CB98698B55}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1C0BE953-2452-4CE5-9CCE-03CB98698B55}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8456D426-D0D2-42F2-A9A3-C635F915853E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8456D426-D0D2-42F2-A9A3-C635F915853E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8456D426-D0D2-42F2-A9A3-C635F915853E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8456D426-D0D2-42F2-A9A3-C635F915853E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E110EE61-A1E5-49FC-B01E-AD778E1EA490}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E110EE61-A1E5-49FC-B01E-AD778E1EA490}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E110EE61-A1E5-49FC-B01E-AD778E1EA490}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E110EE61-A1E5-49FC-B01E-AD778E1EA490}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DA26F83D-099C-49A9-9EB5-8C6570541D9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA26F83D-099C-49A9-9EB5-8C6570541D9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA26F83D-099C-49A9-9EB5-8C6570541D9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA26F83D-099C-49A9-9EB5-8C6570541D9D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BA0C7897-B8F0-4059-819E-FFF4F0A0D1BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BA0C7897-B8F0-4059-819E-FFF4F0A0D1BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BA0C7897-B8F0-4059-819E-FFF4F0A0D1BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BA0C7897-B8F0-4059-819E-FFF4F0A0D1BB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C8FEF829-0FF2-48D4-A019-94A939986843}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8FEF829-0FF2-48D4-A019-94A939986843}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C8FEF829-0FF2-48D4-A019-94A939986843}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C8FEF829-0FF2-48D4-A019-94A939986843}.Release|Any CPU.Build.0 = Release|Any CPU
-		{68243D05-F061-46FA-B2F4-D601AD16F881}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{68243D05-F061-46FA-B2F4-D601AD16F881}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{68243D05-F061-46FA-B2F4-D601AD16F881}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{68243D05-F061-46FA-B2F4-D601AD16F881}.Release|Any CPU.Build.0 = Release|Any CPU
-		{13241E2D-2376-4226-B4EC-B7E1C0860915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{13241E2D-2376-4226-B4EC-B7E1C0860915}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{13241E2D-2376-4226-B4EC-B7E1C0860915}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{13241E2D-2376-4226-B4EC-B7E1C0860915}.Release|Any CPU.Build.0 = Release|Any CPU
-		{41773111-3151-4DA7-8C6C-10C6732A589B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{41773111-3151-4DA7-8C6C-10C6732A589B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{41773111-3151-4DA7-8C6C-10C6732A589B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{41773111-3151-4DA7-8C6C-10C6732A589B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2D128607-C941-4E11-9C19-B726432C5306}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2D128607-C941-4E11-9C19-B726432C5306}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2D128607-C941-4E11-9C19-B726432C5306}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2D128607-C941-4E11-9C19-B726432C5306}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6D46A0DD-A923-4601-9F40-D0D872B73A21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6D46A0DD-A923-4601-9F40-D0D872B73A21}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6D46A0DD-A923-4601-9F40-D0D872B73A21}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6D46A0DD-A923-4601-9F40-D0D872B73A21}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FDFBC6F9-983F-4909-AE75-8E622BA4FDB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FDFBC6F9-983F-4909-AE75-8E622BA4FDB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FDFBC6F9-983F-4909-AE75-8E622BA4FDB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FDFBC6F9-983F-4909-AE75-8E622BA4FDB3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4593D16B-2644-4270-9BEF-FA4C91F45053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4593D16B-2644-4270-9BEF-FA4C91F45053}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4593D16B-2644-4270-9BEF-FA4C91F45053}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4593D16B-2644-4270-9BEF-FA4C91F45053}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5E9E4706-25C7-47B0-A269-A07E3C78E2B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E9E4706-25C7-47B0-A269-A07E3C78E2B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E9E4706-25C7-47B0-A269-A07E3C78E2B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E9E4706-25C7-47B0-A269-A07E3C78E2B7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{856FBFED-C4B0-43D9-B911-C60A7391458C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{856FBFED-C4B0-43D9-B911-C60A7391458C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{856FBFED-C4B0-43D9-B911-C60A7391458C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{856FBFED-C4B0-43D9-B911-C60A7391458C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{55FFA94A-F50E-415A-813B-6F177D3AFFFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{55FFA94A-F50E-415A-813B-6F177D3AFFFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{55FFA94A-F50E-415A-813B-6F177D3AFFFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{55FFA94A-F50E-415A-813B-6F177D3AFFFB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7F8C2294-A578-453C-9E59-5126B9BCBFCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7F8C2294-A578-453C-9E59-5126B9BCBFCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7F8C2294-A578-453C-9E59-5126B9BCBFCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7F8C2294-A578-453C-9E59-5126B9BCBFCC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D1BC991A-EB16-4AEA-8822-33641AC68243}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D1BC991A-EB16-4AEA-8822-33641AC68243}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D1BC991A-EB16-4AEA-8822-33641AC68243}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D1BC991A-EB16-4AEA-8822-33641AC68243}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F7675C07-E853-4FCC-943F-A4CC7F7B25DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F7675C07-E853-4FCC-943F-A4CC7F7B25DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F7675C07-E853-4FCC-943F-A4CC7F7B25DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F7675C07-E853-4FCC-943F-A4CC7F7B25DD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{82F4164E-B0D5-4AD4-8DF9-81E7DC0E08F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{82F4164E-B0D5-4AD4-8DF9-81E7DC0E08F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{82F4164E-B0D5-4AD4-8DF9-81E7DC0E08F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{82F4164E-B0D5-4AD4-8DF9-81E7DC0E08F3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F381F378-B43A-497C-80B2-69F19A322B0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F381F378-B43A-497C-80B2-69F19A322B0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F381F378-B43A-497C-80B2-69F19A322B0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F381F378-B43A-497C-80B2-69F19A322B0D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F2DAD4D4-C036-4CE4-86B5-E0B628E5D043}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F2DAD4D4-C036-4CE4-86B5-E0B628E5D043}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F2DAD4D4-C036-4CE4-86B5-E0B628E5D043}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F2DAD4D4-C036-4CE4-86B5-E0B628E5D043}.Release|Any CPU.Build.0 = Release|Any CPU
-		{521DE221-7C59-4FB1-BD53-ED5BEFD49A20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{521DE221-7C59-4FB1-BD53-ED5BEFD49A20}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{521DE221-7C59-4FB1-BD53-ED5BEFD49A20}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{521DE221-7C59-4FB1-BD53-ED5BEFD49A20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{019064C8-1D4D-4264-BD04-DDDFC4308D6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{019064C8-1D4D-4264-BD04-DDDFC4308D6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{019064C8-1D4D-4264-BD04-DDDFC4308D6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{019064C8-1D4D-4264-BD04-DDDFC4308D6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95651310-B9A5-4DC2-8E43-EC640FCBCE44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95651310-B9A5-4DC2-8E43-EC640FCBCE44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95651310-B9A5-4DC2-8E43-EC640FCBCE44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95651310-B9A5-4DC2-8E43-EC640FCBCE44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01341864-3B18-4E60-931F-98EAC24EEAE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01341864-3B18-4E60-931F-98EAC24EEAE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01341864-3B18-4E60-931F-98EAC24EEAE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01341864-3B18-4E60-931F-98EAC24EEAE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE253056-26FE-4BAE-851B-B6E94A77D22E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE253056-26FE-4BAE-851B-B6E94A77D22E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE253056-26FE-4BAE-851B-B6E94A77D22E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE253056-26FE-4BAE-851B-B6E94A77D22E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F27DDB5D-75F6-40B7-95E1-ED7B2EB36E8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F27DDB5D-75F6-40B7-95E1-ED7B2EB36E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F27DDB5D-75F6-40B7-95E1-ED7B2EB36E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F27DDB5D-75F6-40B7-95E1-ED7B2EB36E8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0C297A1-ECC4-48EA-85AB-7BF58D196CDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0C297A1-ECC4-48EA-85AB-7BF58D196CDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0C297A1-ECC4-48EA-85AB-7BF58D196CDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0C297A1-ECC4-48EA-85AB-7BF58D196CDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69E7F2A5-1F5D-4F81-B776-3EA3ACF0AA6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69E7F2A5-1F5D-4F81-B776-3EA3ACF0AA6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69E7F2A5-1F5D-4F81-B776-3EA3ACF0AA6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69E7F2A5-1F5D-4F81-B776-3EA3ACF0AA6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{907CE722-62D1-47FE-8FC8-35A4D8F80F4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{907CE722-62D1-47FE-8FC8-35A4D8F80F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{907CE722-62D1-47FE-8FC8-35A4D8F80F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{907CE722-62D1-47FE-8FC8-35A4D8F80F4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5E83C17-E527-416F-A55D-7344663794B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5E83C17-E527-416F-A55D-7344663794B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5E83C17-E527-416F-A55D-7344663794B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5E83C17-E527-416F-A55D-7344663794B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9A46B5A-E39F-4B67-809C-273EE0DC8EF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9A46B5A-E39F-4B67-809C-273EE0DC8EF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9A46B5A-E39F-4B67-809C-273EE0DC8EF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9A46B5A-E39F-4B67-809C-273EE0DC8EF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC79C4F3-B6BF-4F3C-A946-A44D7E4567DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC79C4F3-B6BF-4F3C-A946-A44D7E4567DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC79C4F3-B6BF-4F3C-A946-A44D7E4567DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC79C4F3-B6BF-4F3C-A946-A44D7E4567DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D76DED4-9C5E-40B4-B0F1-24E2D58C7041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D76DED4-9C5E-40B4-B0F1-24E2D58C7041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D76DED4-9C5E-40B4-B0F1-24E2D58C7041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D76DED4-9C5E-40B4-B0F1-24E2D58C7041}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4B94C0C-89AA-4001-8D60-3B2908AC6CA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4B94C0C-89AA-4001-8D60-3B2908AC6CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4B94C0C-89AA-4001-8D60-3B2908AC6CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4B94C0C-89AA-4001-8D60-3B2908AC6CA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B450256-7867-4D61-B085-1E62FE41C89C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B450256-7867-4D61-B085-1E62FE41C89C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B450256-7867-4D61-B085-1E62FE41C89C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B450256-7867-4D61-B085-1E62FE41C89C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CC01CFB-F8CA-47B3-A8E8-E9829FC9A773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CC01CFB-F8CA-47B3-A8E8-E9829FC9A773}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CC01CFB-F8CA-47B3-A8E8-E9829FC9A773}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CC01CFB-F8CA-47B3-A8E8-E9829FC9A773}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ABE1403-917A-4A15-886B-28255241C646}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ABE1403-917A-4A15-886B-28255241C646}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ABE1403-917A-4A15-886B-28255241C646}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ABE1403-917A-4A15-886B-28255241C646}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03E434BE-A707-4EBF-8504-AB076AFACCB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03E434BE-A707-4EBF-8504-AB076AFACCB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03E434BE-A707-4EBF-8504-AB076AFACCB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03E434BE-A707-4EBF-8504-AB076AFACCB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB21F84E-C1E5-4453-8FBA-A2232D2AD0DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB21F84E-C1E5-4453-8FBA-A2232D2AD0DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB21F84E-C1E5-4453-8FBA-A2232D2AD0DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB21F84E-C1E5-4453-8FBA-A2232D2AD0DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04FA926D-CA6F-4628-839A-106FB3ED6291}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04FA926D-CA6F-4628-839A-106FB3ED6291}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04FA926D-CA6F-4628-839A-106FB3ED6291}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04FA926D-CA6F-4628-839A-106FB3ED6291}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98820E4B-60E0-47A2-B753-97B0264E787A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98820E4B-60E0-47A2-B753-97B0264E787A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98820E4B-60E0-47A2-B753-97B0264E787A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98820E4B-60E0-47A2-B753-97B0264E787A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A3CA764-788E-4738-A253-EF11E85F26A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A3CA764-788E-4738-A253-EF11E85F26A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A3CA764-788E-4738-A253-EF11E85F26A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A3CA764-788E-4738-A253-EF11E85F26A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D0CD912-8F18-4E10-9AE7-C41BC6D33EBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D0CD912-8F18-4E10-9AE7-C41BC6D33EBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D0CD912-8F18-4E10-9AE7-C41BC6D33EBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D0CD912-8F18-4E10-9AE7-C41BC6D33EBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1250981A-A533-44B5-8853-5844A8B94163}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1250981A-A533-44B5-8853-5844A8B94163}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1250981A-A533-44B5-8853-5844A8B94163}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1250981A-A533-44B5-8853-5844A8B94163}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{1C0BE953-2452-4CE5-9CCE-03CB98698B55} = {0CCA1236-F6B7-43FA-BEE1-82281557542F}
-		{0CCA1236-F6B7-43FA-BEE1-82281557542F} = {A223A002-E658-43A0-B86C-9E815475BE06}
-		{A223A002-E658-43A0-B86C-9E815475BE06} = {C2EFEE5B-D605-40BC-AA6A-501009F91BC2}
-		{8456D426-D0D2-42F2-A9A3-C635F915853E} = {A958DE53-88C2-46F4-8D38-B026A8D3854F}
-		{A958DE53-88C2-46F4-8D38-B026A8D3854F} = {9E85C4B5-0E3F-4AF6-8011-366C54A9F831}
-		{E110EE61-A1E5-49FC-B01E-AD778E1EA490} = {33B8B7C4-E6B6-475E-88F4-61E833D73205}
-		{33B8B7C4-E6B6-475E-88F4-61E833D73205} = {9E85C4B5-0E3F-4AF6-8011-366C54A9F831}
-		{DA26F83D-099C-49A9-9EB5-8C6570541D9D} = {31736B94-EBFC-4FE8-A422-F575679102AF}
-		{31736B94-EBFC-4FE8-A422-F575679102AF} = {9E85C4B5-0E3F-4AF6-8011-366C54A9F831}
-		{9E85C4B5-0E3F-4AF6-8011-366C54A9F831} = {AE8ECE05-94B8-4CE6-A2EF-97ADEDCCA6FF}
-		{BA0C7897-B8F0-4059-819E-FFF4F0A0D1BB} = {F95AFAAF-5513-4E7E-A9AC-764E955A134D}
-		{F95AFAAF-5513-4E7E-A9AC-764E955A134D} = {12CB1B7D-6E23-4903-9CDF-6A229DC63CCF}
-		{12CB1B7D-6E23-4903-9CDF-6A229DC63CCF} = {EB8A5EC1-DA88-43D6-AE3A-252BBD512726}
-		{C8FEF829-0FF2-48D4-A019-94A939986843} = {46F74084-45B3-4A73-9917-676EE36704CD}
-		{46F74084-45B3-4A73-9917-676EE36704CD} = {97D5C462-94C9-4B20-8C24-1EB41169E7B7}
-		{97D5C462-94C9-4B20-8C24-1EB41169E7B7} = {67D99348-0E90-47DB-9E00-67E59833C361}
-		{68243D05-F061-46FA-B2F4-D601AD16F881} = {0FC00F20-6031-4249-BCDB-F13F92885DD8}
-		{0FC00F20-6031-4249-BCDB-F13F92885DD8} = {A5F80AA2-5752-423A-9F65-2A77F1A89403}
-		{13241E2D-2376-4226-B4EC-B7E1C0860915} = {4939674F-ED96-49E1-A594-7C18F32D3251}
-		{4939674F-ED96-49E1-A594-7C18F32D3251} = {A5F80AA2-5752-423A-9F65-2A77F1A89403}
-		{A5F80AA2-5752-423A-9F65-2A77F1A89403} = {DFE28D2C-8816-4B06-995D-EB18DD1FAFBA}
-		{41773111-3151-4DA7-8C6C-10C6732A589B} = {464F38B3-1681-4EB3-A472-77360CF13A4E}
-		{464F38B3-1681-4EB3-A472-77360CF13A4E} = {876D47C0-353D-41CC-8AA6-F9872EBD40E5}
-		{2D128607-C941-4E11-9C19-B726432C5306} = {6F3ECFF7-94D3-4485-8C09-D2339CB38FA0}
-		{6F3ECFF7-94D3-4485-8C09-D2339CB38FA0} = {876D47C0-353D-41CC-8AA6-F9872EBD40E5}
-		{876D47C0-353D-41CC-8AA6-F9872EBD40E5} = {DFE28D2C-8816-4B06-995D-EB18DD1FAFBA}
-		{6D46A0DD-A923-4601-9F40-D0D872B73A21} = {2713888F-C06D-41D7-9974-5922FA2FF8D9}
-		{2713888F-C06D-41D7-9974-5922FA2FF8D9} = {CDB4991D-0265-49E1-9B69-0F9FA01F0536}
-		{CDB4991D-0265-49E1-9B69-0F9FA01F0536} = {DFE28D2C-8816-4B06-995D-EB18DD1FAFBA}
-		{FDFBC6F9-983F-4909-AE75-8E622BA4FDB3} = {2D6DBE59-1B11-403C-A5E7-C100C1BE85C6}
-		{2D6DBE59-1B11-403C-A5E7-C100C1BE85C6} = {74E5DA7A-ED1C-4BE2-A0FB-A55930000192}
-		{74E5DA7A-ED1C-4BE2-A0FB-A55930000192} = {72E65A2C-EA15-4975-B1DA-47365100AC5B}
-		{4593D16B-2644-4270-9BEF-FA4C91F45053} = {CF84C74E-EA26-461F-BB50-0CC8A1A5EAC1}
-		{CF84C74E-EA26-461F-BB50-0CC8A1A5EAC1} = {C7EFD88F-01ED-4536-9CF0-E7D9DDC7E4A9}
-		{5E9E4706-25C7-47B0-A269-A07E3C78E2B7} = {0A70D216-A6F1-4AF9-99CF-7C86E6386EDB}
-		{0A70D216-A6F1-4AF9-99CF-7C86E6386EDB} = {C7EFD88F-01ED-4536-9CF0-E7D9DDC7E4A9}
-		{C7EFD88F-01ED-4536-9CF0-E7D9DDC7E4A9} = {56A3A861-D203-4735-8FF2-FA5E7E03FAE4}
-		{856FBFED-C4B0-43D9-B911-C60A7391458C} = {13390AF1-5347-4F06-A398-0F9FC74F6E02}
-		{13390AF1-5347-4F06-A398-0F9FC74F6E02} = {8E5ABE9B-0493-4C50-A38E-57B5AF562578}
-		{8E5ABE9B-0493-4C50-A38E-57B5AF562578} = {67B8E95C-32AC-45D5-B79F-41BF4AE67296}
-		{67B8E95C-32AC-45D5-B79F-41BF4AE67296} = {61D513DA-93CA-4D8C-951E-51BA678F8B51}
-		{55FFA94A-F50E-415A-813B-6F177D3AFFFB} = {6DF996D7-B405-4076-B835-7C2858911014}
-		{6DF996D7-B405-4076-B835-7C2858911014} = {E3517C5C-2629-480F-BC4B-31064F2103A9}
-		{7F8C2294-A578-453C-9E59-5126B9BCBFCC} = {ED02243E-070A-4055-A62E-E915B9CFD4BA}
-		{ED02243E-070A-4055-A62E-E915B9CFD4BA} = {E3517C5C-2629-480F-BC4B-31064F2103A9}
-		{E3517C5C-2629-480F-BC4B-31064F2103A9} = {555FEBE0-BDD7-45B8-92B4-EA9DEDFB15F8}
-		{D1BC991A-EB16-4AEA-8822-33641AC68243} = {90508BED-77E9-4F02-B559-882916B5FABB}
-		{90508BED-77E9-4F02-B559-882916B5FABB} = {E9C355B8-EC9E-496E-A6D9-F791DE3B0F98}
-		{E9C355B8-EC9E-496E-A6D9-F791DE3B0F98} = {0F58C548-AE04-4F0D-8CE3-02BB9BC2C7C4}
-		{F7675C07-E853-4FCC-943F-A4CC7F7B25DD} = {46C53154-54F4-4EB5-8F1C-DD74314FF8BE}
-		{46C53154-54F4-4EB5-8F1C-DD74314FF8BE} = {F33BAEF2-8EB7-43EB-8045-2FEDD021B4ED}
-		{82F4164E-B0D5-4AD4-8DF9-81E7DC0E08F3} = {931A2FE7-D9C3-4A46-8D8A-84DA530408BB}
-		{931A2FE7-D9C3-4A46-8D8A-84DA530408BB} = {F33BAEF2-8EB7-43EB-8045-2FEDD021B4ED}
-		{F33BAEF2-8EB7-43EB-8045-2FEDD021B4ED} = {7B700054-CBBA-4870-A0BC-D70CF58A05C5}
-		{F381F378-B43A-497C-80B2-69F19A322B0D} = {5C3637C9-3D0D-48A4-BAEE-CB594022C1AD}
-		{5C3637C9-3D0D-48A4-BAEE-CB594022C1AD} = {E61BEEB8-3446-4293-B426-57F356AE9B7D}
-		{E61BEEB8-3446-4293-B426-57F356AE9B7D} = {2748F5D8-81C8-4568-9873-E1FA97B19C2C}
-		{F2DAD4D4-C036-4CE4-86B5-E0B628E5D043} = {E1C7013D-BC57-48E6-AABC-06DE6A2B4879}
-		{E1C7013D-BC57-48E6-AABC-06DE6A2B4879} = {2BB5CE1C-FFD9-40B6-B93F-1A1574783E9D}
-		{2BB5CE1C-FFD9-40B6-B93F-1A1574783E9D} = {6B3B8AB1-AA66-4444-BCF4-54DB44E22DE2}
-		{521DE221-7C59-4FB1-BD53-ED5BEFD49A20} = {29E889CC-422C-413D-A072-6A3B352DED2B}
-		{29E889CC-422C-413D-A072-6A3B352DED2B} = {51815725-3627-46AC-821C-E92AD325C4B4}
-		{51815725-3627-46AC-821C-E92AD325C4B4} = {26DEEECA-592E-41FA-A387-549FDE50375D}
+		{95651310-B9A5-4DC2-8E43-EC640FCBCE44} = {3956B79E-24C0-4C62-B0B4-3F26AB5416A5}
+		{3956B79E-24C0-4C62-B0B4-3F26AB5416A5} = {F05C6C29-15DF-40DF-B985-47F1F659A2B3}
+		{F05C6C29-15DF-40DF-B985-47F1F659A2B3} = {C0CE9147-2DA1-49AC-806A-C4E7B1A1F8A3}
+		{01341864-3B18-4E60-931F-98EAC24EEAE7} = {17EEA354-B6D1-4E39-BBF8-1176460F4DF8}
+		{17EEA354-B6D1-4E39-BBF8-1176460F4DF8} = {823917FB-A772-41A0-8165-53FDB5631002}
+		{DE253056-26FE-4BAE-851B-B6E94A77D22E} = {026CEA7F-6046-46BC-AC65-D52FC0D8823B}
+		{026CEA7F-6046-46BC-AC65-D52FC0D8823B} = {823917FB-A772-41A0-8165-53FDB5631002}
+		{F27DDB5D-75F6-40B7-95E1-ED7B2EB36E8A} = {38429A87-485D-4C4A-8842-799533627C07}
+		{38429A87-485D-4C4A-8842-799533627C07} = {823917FB-A772-41A0-8165-53FDB5631002}
+		{823917FB-A772-41A0-8165-53FDB5631002} = {D88EDBB6-1E75-44FD-A0B0-13B254DE18AC}
+		{E0C297A1-ECC4-48EA-85AB-7BF58D196CDE} = {08A50F48-8C29-44C9-ACA5-F2C1B293B1A6}
+		{08A50F48-8C29-44C9-ACA5-F2C1B293B1A6} = {ED9488B3-925A-4AD9-B69F-94925DE42FB3}
+		{ED9488B3-925A-4AD9-B69F-94925DE42FB3} = {4D1E7E70-94A5-4F1C-87E1-2C7C6159572B}
+		{69E7F2A5-1F5D-4F81-B776-3EA3ACF0AA6A} = {9EEB1196-9525-424F-9D24-06C791B2723D}
+		{9EEB1196-9525-424F-9D24-06C791B2723D} = {4DB67FD6-8972-402A-B97D-28497764367E}
+		{4DB67FD6-8972-402A-B97D-28497764367E} = {C1BB194D-4BE6-445B-8856-2BE47354911C}
+		{907CE722-62D1-47FE-8FC8-35A4D8F80F4F} = {AC0BC2A2-E758-440E-97B2-13FB60A1B52B}
+		{AC0BC2A2-E758-440E-97B2-13FB60A1B52B} = {B4D341AD-ED05-4D3A-B77F-440792E7F6DA}
+		{B5E83C17-E527-416F-A55D-7344663794B6} = {E6A2BD83-A2A7-43AB-81F2-95F77A1F52DA}
+		{E6A2BD83-A2A7-43AB-81F2-95F77A1F52DA} = {B4D341AD-ED05-4D3A-B77F-440792E7F6DA}
+		{B4D341AD-ED05-4D3A-B77F-440792E7F6DA} = {4CF427B8-81D0-48B0-B9F4-6E2629DAE963}
+		{A9A46B5A-E39F-4B67-809C-273EE0DC8EF2} = {29097211-CA0C-4914-AB2F-BA70CB486C46}
+		{29097211-CA0C-4914-AB2F-BA70CB486C46} = {91172136-EBF9-476A-9AD0-767862206D87}
+		{DC79C4F3-B6BF-4F3C-A946-A44D7E4567DC} = {FC80409E-28D4-479E-BC39-CB00ABCABC45}
+		{FC80409E-28D4-479E-BC39-CB00ABCABC45} = {91172136-EBF9-476A-9AD0-767862206D87}
+		{91172136-EBF9-476A-9AD0-767862206D87} = {4CF427B8-81D0-48B0-B9F4-6E2629DAE963}
+		{2D76DED4-9C5E-40B4-B0F1-24E2D58C7041} = {2C2C7248-79D0-4983-A331-8FEEDBC900E4}
+		{2C2C7248-79D0-4983-A331-8FEEDBC900E4} = {7546452B-30DA-4A1A-A69C-B866133E1BF6}
+		{7546452B-30DA-4A1A-A69C-B866133E1BF6} = {4CF427B8-81D0-48B0-B9F4-6E2629DAE963}
+		{B4B94C0C-89AA-4001-8D60-3B2908AC6CA6} = {F62482CB-0D61-4640-8166-315DB252A5F2}
+		{F62482CB-0D61-4640-8166-315DB252A5F2} = {7444B7DD-5747-4DF2-8A2C-01B3651A6C8F}
+		{2B450256-7867-4D61-B085-1E62FE41C89C} = {0ABB5959-1AF4-4289-B1A9-B3301126B86A}
+		{0ABB5959-1AF4-4289-B1A9-B3301126B86A} = {7444B7DD-5747-4DF2-8A2C-01B3651A6C8F}
+		{7444B7DD-5747-4DF2-8A2C-01B3651A6C8F} = {24DE9E19-E550-4AB4-B79F-1D71C5D9C579}
+		{4CC01CFB-F8CA-47B3-A8E8-E9829FC9A773} = {E9FD5853-B939-49DD-BE98-93AA03CBF345}
+		{E9FD5853-B939-49DD-BE98-93AA03CBF345} = {4984B4BF-EFED-4B22-B38E-D83E8EA5C361}
+		{4984B4BF-EFED-4B22-B38E-D83E8EA5C361} = {CC039A30-6AA5-4305-80A3-16AA7044A986}
+		{CC039A30-6AA5-4305-80A3-16AA7044A986} = {896998BB-B249-451F-A3A9-3A62D3D77A7E}
+		{1ABE1403-917A-4A15-886B-28255241C646} = {4F71F957-0CA1-4D88-BC9A-689936F71C6E}
+		{4F71F957-0CA1-4D88-BC9A-689936F71C6E} = {F13D8A4C-E5BF-4C01-B504-66E43F82D177}
+		{03E434BE-A707-4EBF-8504-AB076AFACCB6} = {A373AE85-0BD9-43D8-BA03-3487A7A4465C}
+		{A373AE85-0BD9-43D8-BA03-3487A7A4465C} = {F13D8A4C-E5BF-4C01-B504-66E43F82D177}
+		{F13D8A4C-E5BF-4C01-B504-66E43F82D177} = {982551A1-9CF3-46D5-BEC1-95BE94C48DB4}
+		{DB21F84E-C1E5-4453-8FBA-A2232D2AD0DA} = {906F3D81-03A9-49A0-BD78-FF94B36B9EC8}
+		{906F3D81-03A9-49A0-BD78-FF94B36B9EC8} = {F11C5886-F059-4821-B814-D80AAC92F980}
+		{F11C5886-F059-4821-B814-D80AAC92F980} = {6B100CFB-B1D9-4EC6-95CD-38718D3879E7}
+		{04FA926D-CA6F-4628-839A-106FB3ED6291} = {62EF1534-28F2-46A2-A798-E6202045B98E}
+		{62EF1534-28F2-46A2-A798-E6202045B98E} = {3C9EFEC2-724E-462F-B0B5-F23B6C29BDE3}
+		{98820E4B-60E0-47A2-B753-97B0264E787A} = {49AFF210-5E12-4F9C-A0B9-D97B2C7579B7}
+		{49AFF210-5E12-4F9C-A0B9-D97B2C7579B7} = {3C9EFEC2-724E-462F-B0B5-F23B6C29BDE3}
+		{3C9EFEC2-724E-462F-B0B5-F23B6C29BDE3} = {B0E6D9FF-878A-451C-B41C-9A1374AB1295}
+		{1A3CA764-788E-4738-A253-EF11E85F26A5} = {FE35C140-921C-4D04-86BA-251762F2A7FB}
+		{FE35C140-921C-4D04-86BA-251762F2A7FB} = {86A9F9A6-8A64-4F75-8A6C-892455A8E538}
+		{86A9F9A6-8A64-4F75-8A6C-892455A8E538} = {321ABF68-D92F-438C-9FF0-A81C3E2663C0}
+		{7D0CD912-8F18-4E10-9AE7-C41BC6D33EBD} = {4D2E0F64-C9DC-466E-8ABF-0FFFC6C057E3}
+		{4D2E0F64-C9DC-466E-8ABF-0FFFC6C057E3} = {B4EB2666-113B-4842-AFF2-914325BC23AE}
+		{B4EB2666-113B-4842-AFF2-914325BC23AE} = {E3262DA4-637B-4037-9121-344F87CF7ED5}
+		{1250981A-A533-44B5-8853-5844A8B94163} = {50E63130-CE6E-4196-95B7-1184F88C1DA4}
+		{50E63130-CE6E-4196-95B7-1184F88C1DA4} = {4BEEC294-B043-42B3-A1A1-909BF070F7F2}
+		{4BEEC294-B043-42B3-A1A1-909BF070F7F2} = {FE85BB14-CF5C-4073-BEAD-391ADBD4A5B0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F84DBA45-CBB1-44F3-B28E-A5A7602D977C}
+		SolutionGuid = {044A0481-AE12-4FDC-ABF0-C1C314EF6E88}
 	EndGlobalSection
 EndGlobal

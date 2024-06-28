@@ -12,7 +12,7 @@
       - name: Components
         href: README.md
         items:
-          - name: AxoCmmtAsPtP
+          - name: AxoCmmtAs
             href: Component_1.md
           # - name: Component 2
           #   href: Component_2.md

@@ -1,6 +1,6 @@
 USING AxUnit;
 
-NAMESPACE MyTest
+NAMESPACE AXOpen.Components.Festo.Drives.Tests
 
     {TestFixture}
     CLASS MyTestFixture
