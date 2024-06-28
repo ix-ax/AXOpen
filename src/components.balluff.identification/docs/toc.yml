@@ -12,7 +12,7 @@
       - name: Components
         href: README.md
         items:
-          - name: BIS-M
+          - name: Axo_BIS_M_4XX_045
             href: Component_1.md
           # - name: Component 2
           #   href: Component_2.md
