@@ -1,3 +1,5 @@
+USING AXOpen.Components.Pneumatics;
+
 PROGRAM MyProgram
     VAR_EXTERNAL
         sandbox : SandboContext;
