@@ -19,10 +19,9 @@ scripts:
     - apax install
     - apax build
     - dotnet ixc
-    - apax sld load --accept-security-disclaimer -t $AXTARGET -i
-      $AXTARGETPLATFORMINPUT -r
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
   # <==== Obsolete scripts, could be  removed at some point
-    
+
   # For proper execution of these scripts, the following variables need to be defined as environment variables or local variables.
   # Local variables can override environment variables.
   # It is highly recommended NOT to store secrets such as 'AX_USERNAME' and 'MY_VERY_STRONG_PASSWORD' in local variables.
