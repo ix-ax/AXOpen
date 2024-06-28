@@ -1,3 +1,6 @@
+USING AXOpen.Components.SIEM.Identification;
+
+
 PROGRAM MyProgram
     VAR_EXTERNAL
         sandbox : SandboxContext;

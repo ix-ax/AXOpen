@@ -1,4 +1,4 @@
-# Component_1
+# Axo_IdentDevice
 
 # [CONTROLLER](#tab/controller)
 
