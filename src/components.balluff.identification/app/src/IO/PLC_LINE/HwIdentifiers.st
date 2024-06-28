@@ -1,26 +1,36 @@
 TYPE
-	HwIdentifiers : WORD
-	(
-		PLC_LINE_Rail_0 :=	WORD#256,
-		PLC_LINE :=	WORD#48,
-		PLC_LINE_Card_reader_writer_1 :=	WORD#51,
-		PLC_LINE_CPU_display_1 :=	WORD#54,
-		PLC_LINE_OPC_UA_1 :=	WORD#117,
-		PLC_LINE_PROFINET_interface_1 :=	WORD#64,
-		PLC_LINE_PROFINET_interface_1_Port_1 :=	WORD#65,
-		PLC_LINE_PROFINET_interface_1_Port_2 :=	WORD#66,
-		PLC_LINE_PROFINET_interface_2 :=	WORD#72,
-		PLC_LINE_PROFINET_interface_2_Port_1 :=	WORD#73,
-		PLC_LINE_DP_interface_1 :=	WORD#60,
-		PLC_LINE_PROFINET_interface_GBIT_3 :=	WORD#120,
-		PLC_LINE_PROFINET_interface_GBIT_3_Port_1 :=	WORD#121,
-		BNIPNT507005Z040_Rack :=	WORD#265,
-		BNIPNT507005Z040 :=	WORD#258,
-		BNIPNT507005Z040_PN_IO :=	WORD#259,
-		BNIPNT507005Z040_PN_IO_port_1_M12 :=	WORD#260,
-		BNIPNT507005Z040_PN_IO_port_2_M12 :=	WORD#261,
-		BNIPNT507005Z040_BNI_PNT_507_005_Z040 :=	WORD#262,
-		BNIPNT507005Z040_BIS_M_4XX_045_1 :=	WORD#264,
-		NONE:= WORD#0
-	);
+    HwIdentifiers : WORD
+    (
+        BNIPNT507005Z040_HwID :=	WORD#260,
+        BNIPNT507005Z040_BIS_M_4XX_045_1_BIS_M_4XX_045_HwID :=	WORD#263,
+        BNIPNT507005Z040_BNIPNT507005Z040_HwID :=	WORD#262,
+        BNIPNT507005Z040_BNIPNT507005Z040_BNI_PNT_507_005_Z040_HwID :=	WORD#267,
+        BNIPNT507005Z040_BNIPNT507005Z040_profinet_HwID :=	WORD#257,
+        BNIPNT507005Z040_BNIPNT507005Z040_profinet_port_1___M12_HwID :=	WORD#258,
+        BNIPNT507005Z040_BNIPNT507005Z040_profinet_port_2___M12_HwID :=	WORD#259,
+        BNIPNT507005Z040_Rack_HwID :=	WORD#261,
+        BNIPNT507005Z040_Standard_I_O_2_Standard_I_O_HwID :=	WORD#266,
+        BNIPNT507005Z040_Standard_I_O_3_Standard_I_O_HwID :=	WORD#265,
+        BNIPNT507005Z040_Standard_I_O_4_Standard_I_O_HwID :=	WORD#264,
+        PROFINET_IO_System_HwID :=	WORD#256,
+        plc_line_HwID :=	WORD#32,
+        plc_line_Rail_0_HwID :=	WORD#268,
+        plc_line_plc_line_HwID :=	WORD#48,
+        plc_line_plc_line__plc_line_HwID :=	WORD#49,
+        plc_line_plc_line_CPU_display_1_HwID :=	WORD#54,
+        plc_line_plc_line_CPU_exec_unit_1_HwID :=	WORD#52,
+        plc_line_plc_line_Card_reader_writer_1_HwID :=	WORD#51,
+        plc_line_plc_line_DP_interface_1_HwID :=	WORD#60,
+        plc_line_plc_line_LicenseManager_1_HwID :=	WORD#42,
+        plc_line_plc_line_OPC_UA_1_HwID :=	WORD#117,
+        plc_line_plc_line_PROFINET_interface_2_HwID :=	WORD#72,
+        plc_line_plc_line_PROFINET_interface_2_Port_1_HwID :=	WORD#73,
+        plc_line_plc_line_Virtual_communication_interface_HwID :=	WORD#135,
+        plc_line_plc_line_plc_line_HwID :=	WORD#50,
+        plc_line_plc_line_profinet_x1_HwID :=	WORD#64,
+        plc_line_plc_line_profinet_x1_Port1_HwID :=	WORD#65,
+        plc_line_plc_line_profinet_x1_Port2_HwID :=	WORD#66,
+
+        NONE := WORD#0
+    );
 END_TYPE

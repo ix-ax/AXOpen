@@ -33,8 +33,10 @@ if [ -z $PASSWORD ]; then
     echo "The PASSWORD could not be an empty string."
     exit 1
 fi
+export GREEN='\033[0;32m'
+export RED='\033[0;31m'
 
-echo "This command will prompt during execution, so do not leave your PC. You can enjoy your coffee afterward."
+printf "${RED}This command will prompt during execution, so do not leave your PC. You can enjoy your coffee afterward."
 
 #apax run ci                                  # clean and install dependencies
 apax clean
