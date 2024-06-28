@@ -1,4 +1,4 @@
-# Component_1
+# AxoCr800_v_1_x_x
 
 # [CONTROLLER](#tab/controller)
 
