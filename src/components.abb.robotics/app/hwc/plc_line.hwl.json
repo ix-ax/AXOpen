@@ -22,7 +22,8 @@
         { "Ref": "plc_line/plc_line/profinet_x1" }
       ],
       "DeviceInterfaces": [
-
+        { "Ref":  "RobotBasicIO/RobotBasicIO/profinet"},        
+        { "Ref":  "OmniCore/OmniCore/profinet"}                
       ]
     }
   ]

@@ -17,8 +17,7 @@ scripts:
   # Obsolete scripts, could be  removed at some point ====>
   download:
     - START=$(date +%s)
-    - apax sld load --accept-security-disclaimer -t $AXTARGET -i
-      $AXTARGETPLATFORMINPUT -r
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
     - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"
   check+download: |
     if [ $AXTARGET ]; then
@@ -40,8 +39,7 @@ scripts:
     - apax build
     - apax download
   watch:
-    - dotnet watch --project
-      ..\\app_src\\AXOpen.Components.Cognex.Vision.Integrations.Blazor\\axopen_components_cognex_vision_integrations_blazor.csproj
+    - dotnet watch --project ..\\app_src\\AXOpen.Components.Cognex.Vision.Integrations.Blazor\\axopen_components_cognex_vision_integrations_blazor.csproj
   rr:
     - apax build
     - apax download
@@ -51,10 +49,9 @@ scripts:
   da:
     - START=$(date +%s)
     - apax do-it-all
-    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in
-      :" $(expr $(date +%s) - $START) "s"
+    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
   # <==== Obsolete scripts, could be  removed at some point
-    
+
   # For proper execution of these scripts, the following variables need to be defined as environment variables or local variables.
   # Local variables can override environment variables.
   # It is highly recommended NOT to store secrets such as 'AX_USERNAME' and 'MY_VERY_STRONG_PASSWORD' in local variables.
@@ -126,7 +123,7 @@ scripts:
 
   all: | #build and download hardware and software
     START=$(date +%s)
-    ..\\..\\scripts\\all.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT
+    ..\\..\\scripts\\all.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $MY_VERY_STRONG_PASSWORD
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"    
 
 installStrategy: strict

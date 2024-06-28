@@ -12,7 +12,7 @@ devDependencies:
 dependencies:
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
   "@ix-ax/axopen.components.rexroth.drives": '0.0.0-dev.0'
-  "@ix-ax/ax.axopen.app": '0.0.0-dev.0'  
+  "@ix-ax/ax.axopen.app": '0.0.0-dev.0'
 scripts:
   # Obsolete scripts, could be  removed at some point ====>
   delta:
@@ -67,7 +67,7 @@ scripts:
   dd:
     - apax delta
   # <==== Obsolete scripts, could be  removed at some point
-    
+
   # For proper execution of these scripts, the following variables need to be defined as environment variables or local variables.
   # Local variables can override environment variables.
   # It is highly recommended NOT to store secrets such as 'AX_USERNAME' and 'MY_VERY_STRONG_PASSWORD' in local variables.
@@ -139,7 +139,7 @@ scripts:
 
   all: | #build and download hardware and software
     START=$(date +%s)
-    ..\\..\\scripts\\all.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT
+    ..\\..\\scripts\\all.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $MY_VERY_STRONG_PASSWORD
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"    
 
 installStrategy: strict

@@ -1,4 +1,4 @@
-# Component_2
+# AxoIOLink_RF200Device
 
 # [CONTROLLER](#tab/controller)
 

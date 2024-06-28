@@ -1,3 +1,5 @@
+USING  AXOpen.Components.Balluff.Identification;
+
 PROGRAM MyProgram
     VAR_EXTERNAL
         sandbox : SandboxContext;

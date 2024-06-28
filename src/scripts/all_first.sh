@@ -34,6 +34,11 @@ if [ -z $PASSWORD ]; then
     exit 1
 fi
 
+export GREEN='\033[0;32m'
+export RED='\033[0;31m'
+
+printf "${RED}This command will prompt during execution, so do not leave your PC. You can enjoy your coffee afterward.\r\n"
+
 #apax run ci                                  # clean and install dependencies
 apax clean
 apax install

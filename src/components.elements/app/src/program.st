@@ -1,3 +1,4 @@
+USING AXOpen.Elements;
 PROGRAM MyProgram
     VAR_EXTERNAL
         sandbox : SandboContext;

@@ -1,5 +1,5 @@
-if [ "$#" -ne 3 ]; then
-    echo "Usage: $0 <PLC_NAME> <PLC_IP_ADDRESS> <PLATFORM>"
+if [ "$#" -ne 5 ]; then
+    echo "Usage: $0 <PLC_NAME> <PLC_IP_ADDRESS> <PLATFORM> <USERNAME> <PASSWORD>"
     exit 1
 fi
 
@@ -22,14 +22,43 @@ if [ -z $PLATFORM ]; then
     exit 1
 fi
 
-#apax run ci                                  # clean and install dependencies
-apax clean
-apax install
+USERNAME=$4
+if [ -z $USERNAME ]; then
+    echo "The USERNAME could not be an empty string."
+    exit 1
+fi
 
-#hw_update                                    # copy and install gsd, copy templates, compile, copy the HwIds, download HW using certificate
-hw_update=$( dirname ${BASH_SOURCE[0]})"\\hw_update.sh"
-$hw_update $PLC_NAME $PLC_IP_ADDRESS 
+PASSWORD=$5
+if [ -z $PASSWORD ]; then
+    echo "The PASSWORD could not be an empty string."
+    exit 1
+fi
 
-#sw_build_and_download_full                   # software build and full download
-sw_build_and_download_full=$( dirname ${BASH_SOURCE[0]})"\\sw_build_and_download_full.sh"
-$sw_build_and_download_full $PLC_NAME $PLC_IP_ADDRESS $PLATFORM
+export GREEN='\033[0;32m'
+export RED='\033[0;31m'
+
+certfile="./certs/$PLC_NAME/$PLC_NAME.cer" 
+if [ -e "$certfile" ]; then
+	printf "${GREEN}Certification file $certfile exists.\r\n"
+	printf "${GREEN}No prompt will popup during execution, so you could leave your PC and enjoy your coffee now.\r\n"
+
+	#apax run ci                                  # clean and install dependencies
+	apax clean
+	apax install
+
+	#hw_update                                    # copy and install gsd, copy templates, compile, copy the HwIds, download HW using certificate
+	hw_update=$( dirname ${BASH_SOURCE[0]})"\\hw_update.sh"
+	$hw_update $PLC_NAME $PLC_IP_ADDRESS 
+
+	#sw_build_and_download_full                   # software build and full download
+	sw_build_and_download_full=$( dirname ${BASH_SOURCE[0]})"\\sw_build_and_download_full.sh"
+	$sw_build_and_download_full $PLC_NAME $PLC_IP_ADDRESS $PLATFORM
+  
+else
+	printf "${RED}Certification file $certfile does not exist.\r\n"
+	#alf 										#clear plc except ip and name and provide all actions for install all, build and initial download hw so as sw
+	alf=$( dirname ${BASH_SOURCE[0]})"\\all_first.sh"
+	$alf $PLC_NAME $PLC_IP_ADDRESS $PLATFORM $USERNAME $PASSWORD
+fi 
+
+

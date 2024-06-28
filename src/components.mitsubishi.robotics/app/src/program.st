@@ -1,3 +1,5 @@
+USING AXOpen.Components.Mitsubishi.Robotics;
+
 PROGRAM MyProgram
     VAR_EXTERNAL
         sandbox : SandboxContext;

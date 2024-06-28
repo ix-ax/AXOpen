@@ -1,4 +1,4 @@
-# Component_1
+# AxoDrive
 
 # [CONTROLLER](#tab/controller)
 

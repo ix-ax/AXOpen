@@ -1,6 +1,6 @@
 USING AxUnit;
 
-NAMESPACE MyTest
+NAMESPACE AXOpen.Components.Abb.Robotics.Tests
 
     {TestFixture}
     {S7.extern=ReadWrite}

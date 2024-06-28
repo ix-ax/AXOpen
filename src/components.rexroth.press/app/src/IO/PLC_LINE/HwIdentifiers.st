@@ -1,29 +1,36 @@
 TYPE
-	HwIdentifiers : WORD
-	(
-		PLC_LINE_Rail_0 :=	WORD#256,
-		PLC_LINE :=	WORD#48,
-		PLC_LINE_Card_reader_writer_1 :=	WORD#51,
-		PLC_LINE_CPU_display_1 :=	WORD#54,
-		PLC_LINE_OPC_UA_1 :=	WORD#117,
-		PLC_LINE_PROFINET_interface_1 :=	WORD#64,
-		PLC_LINE_PROFINET_interface_1_Port_1 :=	WORD#65,
-		PLC_LINE_PROFINET_interface_1_Port_2 :=	WORD#66,
-		PLC_LINE_PROFINET_interface_2 :=	WORD#72,
-		PLC_LINE_PROFINET_interface_2_Port_1 :=	WORD#73,
-		PLC_LINE_DP_interface_1 :=	WORD#60,
-		PLC_LINE_PROFINET_interface_GBIT_3 :=	WORD#120,
-		PLC_LINE_PROFINET_interface_GBIT_3_Port_1 :=	WORD#121,
-		SFK4P_1_Baugruppentrager :=	WORD#265,
-		SFK4P_1 :=	WORD#264,
-		SFK4P_1_PN_IO :=	WORD#269,
-		SFK4P_1_PN_IO_Port_1_RJ45 :=	WORD#260,
-		SFK4P_1_PN_IO_Port_2_RJ45 :=	WORD#261,
-		SFK4P_1_DAP_1 :=	WORD#271,
-		SFK4P_1_F_Modul_not_used :=	WORD#266,
-		SFK4P_1_ParamCh_IDN :=	WORD#267,
-		SFK4P_1_Input_24_Words :=	WORD#268,
-		SFK4P_1_Output_21_Words :=	WORD#270,
-		NONE:= WORD#0
-	);
+    HwIdentifiers : WORD
+    (
+        PROFINET_IO_System_HwID :=	WORD#256,
+        SFK_HwID :=	WORD#260,
+        SFK_F_Modul_not_used_1_ID_FMod_NotUsed_HwID :=	WORD#266,
+        SFK_Input_24_Words_ID_InMod_24Words_HwID :=	WORD#264,
+        SFK_Output_21_Words_ID_OutMod_21Words_HwID :=	WORD#263,
+        SFK_ParamCh_IDN_1_ID_PaCh_5Words_HwID :=	WORD#265,
+        SFK_Rack_HwID :=	WORD#261,
+        SFK_SFK_HwID :=	WORD#262,
+        SFK_SFK_DAP_1_HwID :=	WORD#267,
+        SFK_SFK_profinet_HwID :=	WORD#257,
+        SFK_SFK_profinet_Port_1___RJ45_HwID :=	WORD#258,
+        SFK_SFK_profinet_Port_2___RJ45_HwID :=	WORD#259,
+        plc_line_HwID :=	WORD#32,
+        plc_line_Rail_0_HwID :=	WORD#268,
+        plc_line_plc_line_HwID :=	WORD#48,
+        plc_line_plc_line__plc_line_HwID :=	WORD#49,
+        plc_line_plc_line_CPU_display_1_HwID :=	WORD#54,
+        plc_line_plc_line_CPU_exec_unit_1_HwID :=	WORD#52,
+        plc_line_plc_line_Card_reader_writer_1_HwID :=	WORD#51,
+        plc_line_plc_line_DP_interface_1_HwID :=	WORD#60,
+        plc_line_plc_line_LicenseManager_1_HwID :=	WORD#42,
+        plc_line_plc_line_OPC_UA_1_HwID :=	WORD#117,
+        plc_line_plc_line_PROFINET_interface_2_HwID :=	WORD#72,
+        plc_line_plc_line_PROFINET_interface_2_Port_1_HwID :=	WORD#73,
+        plc_line_plc_line_Virtual_communication_interface_HwID :=	WORD#135,
+        plc_line_plc_line_plc_line_HwID :=	WORD#50,
+        plc_line_plc_line_profinet_x1_HwID :=	WORD#64,
+        plc_line_plc_line_profinet_x1_Port1_HwID :=	WORD#65,
+        plc_line_plc_line_profinet_x1_Port2_HwID :=	WORD#66,
+
+        NONE := WORD#0
+    );
 END_TYPE

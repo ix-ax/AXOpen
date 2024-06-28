@@ -1,3 +1,4 @@
+USING AXOpen.Elements;
 CONFIGURATION MyConfiguration
     TASK Main(Interval := T#1000ms, Priority := 1);
     PROGRAM P1 WITH Main: MyProgram;

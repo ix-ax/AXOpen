@@ -1,3 +1,4 @@
+USING AXOpen.Components.Festo.Drives;
 PROGRAM MyProgram
     VAR_EXTERNAL
         sandbox : SandboxContext;

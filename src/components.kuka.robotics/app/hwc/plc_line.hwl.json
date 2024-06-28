@@ -22,7 +22,7 @@
         { "Ref": "plc_line/plc_line/profinet_x1" }
       ],
       "DeviceInterfaces": [
-
+        { "Ref":  "KRC4/KRC4/profinet"}
       ]
     }
   ]

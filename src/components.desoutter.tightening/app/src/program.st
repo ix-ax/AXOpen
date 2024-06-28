@@ -1,3 +1,4 @@
+USING AXOpen.Components.Desoutter.Tightening;
 PROGRAM MyProgram
     VAR_EXTERNAL
         sandbox : SandboxContext;

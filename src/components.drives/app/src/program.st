@@ -1,4 +1,5 @@
-PROGRAM MyProgram
+USING AXOpen.Components.Drives;
+    PROGRAM MyProgram
     VAR_EXTERNAL
         sandbox : SandboxContext;
         documentation : DocumentationContext;
