@@ -1,4 +1,4 @@
-# Component_2
+# AxoDataman v6.0.0
 
 # [CONTROLLER](#tab/controller)
 

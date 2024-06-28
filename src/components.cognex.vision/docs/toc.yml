@@ -12,9 +12,9 @@
       - name: Components
         href: README.md
         items:
-          - name: Component 1
+          - name: AxoInsight v6.0.0
             href: Component_1.md
-          - name: Component 2
+          - name: AxoDataman v6.0.0
             href: Component_2.md
       - name: Changes
         href: CHANGELOG.md      

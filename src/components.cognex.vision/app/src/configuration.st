@@ -1,3 +1,5 @@
+USING AXOpen.Components.Cognex.Vision.v_6_0_0_0;
+
 CONFIGURATION MyConfiguration
     TASK Main(Interval := T#10ms, Priority := 1);
     PROGRAM P1 WITH Main: MyProgram;
