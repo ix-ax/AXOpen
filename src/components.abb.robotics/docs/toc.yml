@@ -12,9 +12,9 @@
       - name: Components
         href: README.md
         items:
-          - name: Irc5 v1.x.x
+          - name: AxoIrc5_v_1_x_x
             href: Component_1.md
-          - name: Omnicore v1.x.x
+          - name: AxoOmnicore_v_1_x_x
             href: Component_2.md
       - name: Changes
         href: CHANGELOG.md      

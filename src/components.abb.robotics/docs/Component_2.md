@@ -1,4 +1,4 @@
-# Component_2
+# AxoOmnicore_v_1_x_x
 
 # [CONTROLLER](#tab/controller)
 
