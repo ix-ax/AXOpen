@@ -104,18 +104,25 @@
 <section id="tabpanel_1_controller" role="tabpanel" data-tab="controller">
 <h2 id="declare-component">Declare component</h2>
 <pre><code class="lang-pascal">VAR PUBLIC                
-    ExampleCylinder : AXOpen.Components.Example.ExampleCylinder;             
+    ExampleCylinder : Template.Axolibrary.TemplateComponent;             
 END_VAR
 </code></pre><h2 id="declare-initialization-variables">Declare initialization variables</h2>
 <p><em>Most of the initialization variable will come from the I/O system. This example is only for demostrational puproses.</em></p>
-<pre><code class="lang-pascal">VAR PUBLIC                
+<pre><code class="lang-pascal">VAR PUBLIC              
+    {#ix-set:AttributeName = &quot;&lt;#Activate manual control#&gt;&quot;}
+    ActivateManualControl : BOOL;         
     _homeSensor : BOOL;
-    _workSensor : BOOL;
+    _workSensor : BOOL;    
     _moveHomeSignal : BOOL;
-    _moveWorkSignal : BOOL;        
+    _moveWorkSignal : BOOL;
 END_VAR
 </code></pre><h2 id="initialize--run">Initialize &amp; Run</h2>
-<pre><code class="lang-pascal">ExampleCylinder.Run(THIS, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);        
+<pre><code class="lang-pascal">ExampleCylinder.Run(THIS, 
+                    WORD#64,
+                    REF(_homeSensor), 
+                    REF(_workSensor), 
+                    REF(_moveHomeSignal), 
+                    REF(_moveWorkSignal));
 </code></pre><div class="IMPORTANT">
 <h5>Important</h5>
 <p>This component requires cyclic data updates, which are typically sourced from the I/O system. Before using the component, make sure you invoke the <code>Run</code> method. Additionally, it's crucial to ensure that the <code>Run</code> method is positioned within a call tree that operates cyclically. Failing to initiate the <code>Run</code> method or not guaranteeing its cyclic execution can lead to malfunctions and unpredictable component behavior. In extreme circumstances, this could cause erratic controller behavior, potentially leading to equipment damage.</p>
@@ -132,13 +139,13 @@ METHOD PRIVATE UseInSequencer
     Sequencer.Open();
 
     IF(Steps[0].Execute(Sequencer, 'Move to home position')) THEN
-        IF(ExampleCylinder.MoveToHome.Invoke().IsDone()) THEN                
+        IF(ExampleCylinder.MoveToHome().IsDone()) THEN                
             Sequencer.MoveNext();                
         END_IF;    
     END_IF;
 
     IF(Steps[1].Execute(Sequencer, 'Move to work position')) THEN
-        IF(ExampleCylinder.MoveToWork.Invoke().IsDone()) THEN                
+        IF(ExampleCylinder.MoveToWork().IsDone()) THEN                
             Sequencer.MoveNext();                
         END_IF;    
     END_IF;       
@@ -148,20 +155,20 @@ END_METHOD
 <section id="tabpanel_1_twin" role="tabpanel" data-tab="twin" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-csharp">private async Task WriteTaskTimesToConsole()
 {
-    await Entry.Plc.documentation.compnentOne.ExampleCylinder.WriteTaskDurationToConsole();
+    await Entry.Plc.documentation.componentOne.ExampleCylinder.WriteTaskDurationToConsole();
 }
 </code></pre></section>
 <section id="tabpanel_1_blazor" role="tabpanel" data-tab="blazor" aria-hidden="true" hidden="hidden">
 <h2 id="generic-read-only-view">Generic Read-Only view</h2>
-<pre><code class="lang-html">&lt;AxoComponentStatusView Component=&quot;@Entry.Plc.documentation.compnentOne.ExampleCylinder&quot;/&gt;
+<pre><code class="lang-html">&lt;AxoComponentStatusView Component=&quot;@Entry.Plc.documentation.componentOne.ExampleCylinder&quot;/&gt;
 </code></pre><h2 id="generic-control-view">Generic control view</h2>
-<pre><code class="lang-html">&lt;AxoComponentCommandView Component=&quot;@Entry.Plc.documentation.compnentOne.ExampleCylinder&quot; /&gt;
+<pre><code class="lang-html">&lt;AxoComponentCommandView Component=&quot;@Entry.Plc.documentation.componentOne.ExampleCylinder&quot; /&gt;
 </code></pre><h2 id="type-agnostic-using-renderablecontentcontrol-status-read-only-view">Type agnostic using RenderableContentControl status (Read-Only) view</h2>
 <pre><code class="lang-html">&lt;!-- This will render anything found on parameter assigned to Context  --&gt;
-&lt;RenderableContentControl Context=&quot;@Entry.Plc.documentation.compnentOne&quot; Presentation=&quot;Status-Display&quot; /&gt;
+&lt;RenderableContentControl Context=&quot;@Entry.Plc.documentation.componentOne&quot; Presentation=&quot;Status-Display&quot; /&gt;
 </code></pre><h2 id="type-agnostic-using-renderablecontentcontrol-control-view">Type agnostic using RenderableContentControl control view</h2>
 <pre><code class="lang-html">&lt;!-- This will render anything found on parameter assigned to Context  --&gt;
-&lt;RenderableContentControl Context=&quot;@Entry.Plc.documentation.compnentOne&quot; Presentation=&quot;Command-Control&quot; /&gt;
+&lt;RenderableContentControl Context=&quot;@Entry.Plc.documentation.componentOne&quot; Presentation=&quot;Command-Control&quot; /&gt;
 </code></pre></section>
 </div>
 </article>

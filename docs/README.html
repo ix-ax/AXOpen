@@ -91,9 +91,9 @@
 
 <h2 id="pre-requisites">Pre-requisites</h2>
 <ul>
-<li>APAX 2.0.0</li>
+<li>APAX 3.1.1</li>
 <li>AXCODE</li>
-<li>DOTNET 6.0, 7.0</li>
+<li>DOTNET 7.0.8.0</li>
 <li>VSCODE or VS2022</li>
 </ul>
 <h3 id="add-package-source">Add package source</h3>
@@ -184,7 +184,7 @@ Replace PAT with your Personal Access Token (<a href="https://docs.github.com/en
 <h2 id="apax-package-versions">APAX Package Versions</h2>
 <div class="IMPORTANT">
 <h5>Important</h5>
-<p>All apax packages on the default branch (dev) have a fixed version '0.1.0'. This version must not be changed by any commit.
+<p>All apax packages on the default branch (dev) have a fixed version '0.0.0-dev.0'. This version must not be changed by any commit.
 The version is assigned at build time in the CI/CD pipeline.</p>
 </div>
 <h2 id="central-package-management-system">Central Package Management System</h2>
@@ -201,72 +201,54 @@ The version is assigned at build time in the CI/CD pipeline.</p>
 <p>Re-create your solution whenever the repository changes to refresh newly added, removed, or modified projects.</p>
 </div>
 <p>You can then open the solution file in Visual Studio as needed.</p>
-<h2 id="creating-a-new-library-from-template">Creating a New Library from Template</h2>
-<h3 id="use-script">Use script</h3>
-<p>Run the following script from the repository root folder:</p>
-<pre><code class="lang-PowerShell">.\scripts\create_template_library.ps1 -OutputDirectory OutputFolder -ProjectNamespace Project.Namespace
-</code></pre>
-<p>For example:</p>
-<pre><code class="lang-PowerShell">.\scripts\create_template_library.ps1 -OutputDirectory components.elements -ProjectNamespace AXOpen.Components.Elements
-</code></pre>
-<h3 id="manual-create">Manual create</h3>
-<ol>
-<li>Navigate to the <code>src/</code> folder of this repository.</li>
-<li>Run the following command to update the library template:</li>
-</ol>
-<pre><code class="lang-PowerShell">dotnet new install .\template.axolibrary\ --force
-</code></pre>
-<ol start="3">
-<li>Create a library template using:</li>
-</ol>
-<pre><code class="lang-PowerShell">dotnet new axolibrary -o OutputFolder -p ProjectName
-</code></pre>
-<p>For example:</p>
-<pre><code class="lang-PowerShell">dotnet new axolibrary -o components.elements -p AXOpen.Components.Elements
-</code></pre>
-<div class="NOTE">
-<h5>Note</h5>
-<p>Make sure you run <code>apax install -L</code> and <code>apax build</code> after new library is created.</p>
-</div>
-<div class="IMPORTANT">
-<h5>Important</h5>
-<p>Ensure you run all commands from the <code>src</code> folder of the repository. The <code>-o OutputFolder</code> parameter must be within the <code>src</code> folder.</p>
-</div>
-<div class="IMPORTANT">
-<h5>Important</h5>
-<p>The <code>-p ProjectName</code> parameter must contain ONLY alphanumeric characters and dots. Otherwise, inconsistencies may occur.</p>
-</div>
-<hr>
-<h2 id="creating-an-axopen-application">Creating an AXOpen Application</h2>
-<h3 id="scaffolding-the-application-in-axopen-repository">Scaffolding the application in AXOpen repository</h3>
-<h3 id="introduction">Introduction</h3>
-<p>When developing new applications using the AXOpen framework, there are multiple avenues developers can consider. The script described here provides path to one of the methods, and it's a preferred choice for AXOpen contributors. This technique grants developers the privilege of working directly with the AXOpen framework's source code. Leveraging this script ensures a streamlined process of scaffolding new applications, integrating them with the AXOpen Source Repository, and maintaining them in a dedicated directory.</p>
-<p>It's important to recognize, however, that directly interacting with the source repository can lead to slower compile and build times due to the overhead associated with managing the complete framework's source code.</p>
-<h3 id="leveraging-the-axopen-source-repository">Leveraging the AXOpen Source Repository</h3>
-<p>It's noteworthy that the <code>.application</code> directory is deliberately excluded from the source control of the primary repository. This design choice allows developers the flexibility to initiate their own repositories within this space, ensuring direct access and reference to the AXOpen library's source code.</p>
-<h4 id="scaffolding-your-application">Scaffolding Your Application</h4>
-<p>To begin scaffolding your application, you should run the <code>scripts/create_application.ps1</code> command.</p>
-<div class="NOTE">
-<h5>Note</h5>
-<p>While this script assists in setting up your application in the <code>src/.application</code> folder, it doesn't handle the initialization of source control for this directory. This step must be managed independently.</p>
-</div>
-<div class="NOTE">
-<h5>Note</h5>
-<p>Ensure that the <code>src/.application</code> directory is vacant before executing the script to prevent potential issues.</p>
-</div>
-<pre><code class="lang-powershell">.\scripts\create_application.ps1 -ProjectName MyNewProject
-</code></pre>
-<p>When prompted</p>
-<pre><code>Template is configured to run the following action:
-Actual command: install.cmd
-Do you want to run this action [Y(yes)|N(no)]?
-</code></pre>
-<p>Answer <code>Yes</code> or revise the script and run it manually later from the target folder.</p>
-<div class="WARNING">
-<h5>Warning</h5>
-<p>Please ensure you understand the implications of running scripts on your system.</p>
-</div>
-<p>Follow the instruction in the README.md file.</p>
+<!--
+## Creating a New Library from Template
+
+### Use script
+
+Run the following script from the repository root folder:
+
+```PowerShell
+.\scripts\create_template_library.ps1 -OutputDirectory OutputFolder -ProjectNamespace Project.Namespace
+```
+
+For example:
+
+```PowerShell
+.\scripts\create_template_library.ps1 -OutputDirectory components.elements -ProjectNamespace AXOpen.Components.Elements
+```
+
+### Manual create
+
+1. Navigate to the `src/` folder of this repository.
+2. Run the following command to update the library template:
+
+```PowerShell
+dotnet new install .\template.axolibrary\ --force
+```
+
+3. Create a library template using:
+
+```PowerShell
+dotnet new axolibrary -o OutputFolder -p ProjectName
+```
+
+For example:
+
+```PowerShell
+dotnet new axolibrary -o components.elements -p AXOpen.Components.Elements
+```
+
+> [!NOTE]
+> Make sure you run `apax install` and `apax build` after new library is created.
+
+> [!IMPORTANT]
+> Ensure you run all commands from the `src` folder of the repository. The `-o OutputFolder` parameter must be within the `src` folder.
+
+> [!IMPORTANT]
+> The `-p ProjectName` parameter must contain ONLY alphanumeric characters and dots. Otherwise, inconsistencies may occur.
+
+-->
 </article>
 
         <div class="contribution d-print-none">

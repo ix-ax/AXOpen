@@ -91,7 +91,8 @@
 
 <p>AxoToggleTask provides basic switching on and off functions. AxoToggleTask needs to be initialized to set the proper AxoContext.</p>
 <p><strong>AxoToggleTask initialization within a AxoContext</strong></p>
-<pre><code class="lang-smalltalk">CLASS AxoToggleTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS AxoToggleTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;&lt;#Toggle task example#&gt;&quot;}
         {#ix-set:AttributeStateOnDesc = &quot;&lt;#SwitchedOn#&gt;&quot;}
@@ -105,7 +106,6 @@
         // It does not need to be called cyclically, just once
         _myToggleTask.Initialize(THIS);
     END_METHOD
-END_CLASS  
 </code></pre>
 <p>There are three key methods for managing the AxoToggleTask:</p>
 <ul>
@@ -155,7 +155,8 @@ These methods are:</p>
 <li><code>SwitchedOff()</code> - executes repeatedly while the task is in <code>FALSE</code> state.</li>
 </ul>
 <p>Example of implementing &quot;event-like&quot; methods:</p>
-<pre><code class="lang-smalltalk">CLASS MyToogleTaskExample Extends AxoToggleTask
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS MyToogleTaskExample Extends AxoToggleTask
     VAR
         OnSwitchedOnCounter : ULINT;
         OnSwitchedOffCounter : ULINT;

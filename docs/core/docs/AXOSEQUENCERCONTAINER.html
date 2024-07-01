@@ -93,14 +93,14 @@
 <p>In the extended class <code>MAIN()</code> method needs to be created and all sequencer logic needs to be placed there. Then the sequencer is called via <code>Run(IAxoObject)</code> or <code>Run(IAxoContext)</code> methods, that ensure initialization of the sequencer with <code>AxoObject</code> or with <code>AxoContext</code>. Moreover the <code>Run()</code> method also ensures calling the <code>Open()</code> method, so it is not neccessary to call it explicitelly in comparison with <code>AxoSequencer</code>.</p>
 <h3 id="example-of-using-axosequencercontainer">Example of using AxoSequencerContainer</h3>
 <h4 id="example-of-the-declaration-of-the-user-defined-class-that-extends-from-axosequencercontainer">Example of the declaration of the user-defined class that extends from AxoSequencerContainer</h4>
-<pre><code class="lang-smalltalk">CLASS AxoSequencerContainerDocuExample EXTENDS  AXOpen.Core.AxoSequencerContainer
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS AxoSequencerContainerDocuExample EXTENDS  AXOpen.Core.AxoSequencerContainer
     VAR PUBLIC
         _step_1 : AxoStep;
         _step_2 : AxoStep;
         _step_3 : AxoStep;
         _myCounter : ULINT;
-    END_VAR
-END_CLASS
+    //&lt;/MAIN&gt;
 </code></pre><h4 id="example-of-implementation-main-method-inside-the-user-defined-class-that-extends-from-axosequencercontainer">Example of implementation MAIN method inside the user-defined class that extends from AxoSequencerContainer</h4>
 <p>All the custom logic of the sequencer needs to be placed here.</p>
 <pre><code class="lang-smalltalk">METHOD PROTECTED OVERRIDE MAIN 

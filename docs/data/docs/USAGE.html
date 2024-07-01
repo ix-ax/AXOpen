@@ -90,16 +90,17 @@
 <h1 id="usage">Usage</h1>
 
 <p>Now we can freely shuffle the data between PLC and the local folder.</p>
-<pre><code class="lang-smalltalk">CLASS UseManager
-    VAR
-        _create : BOOL;
-        _read : BOOL;
-        _update : BOOL;
-        _delete : BOOL;
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC ManagerUsage
+    VAR PUBLIC
         _id : STRING;
+        _create : BOOL;
+        _update : BOOL;
+        _read : BOOL;
+        _delete : BOOL;
     END_VAR   
 
-    METHOD Use
+    METHOD PUBLIC Use
         VAR_IN_OUT
             DataManager : AxoProcessDataManager;
         END_VAR    

@@ -105,8 +105,9 @@ All members are added in the order in which they are defined, taking into accoun
 <p>Example of the implementation very simple <code>AxoComponent</code> with members placed only inside the Header.</p>
 <pre><code class="lang-smalltalk">{#ix-attr:[Container(Layout.Stack)]}
 {#ix-set:AttributeName = &quot;AxoComponent with header only example&quot;}
+{S7.extern=ReadWrite}
 CLASS PUBLIC AxoComponentHeaderOnlyExample EXTENDS AXOpen.Core.AxoComponent 
-    METHOD PROTECTED OVERRIDE Restore: IAxoTask 
+    METHOD PUBLIC OVERRIDE Restore
         // Some logic for Restore could be placed here. For Example:
         valueReal := REAL#1.0;
         valueDint := DINT#0;
@@ -156,7 +157,8 @@ END_CLASS
 </code></pre>
 <p><strong>How to use <code>AxoComponent</code></strong></p>
 <p>The instance of the extended <code>AxoComponent</code> must be defined inside the <code>AxoContext</code>.</p>
-<pre><code class="lang-smalltalk">CLASS ComponentHeaderOnlyExampleContext EXTENDS AxoContext
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS ComponentHeaderOnlyExampleContext EXTENDS AxoContext
      VAR PUBLIC
          {#ix-set:AttributeName = &quot;Very simple component example with header only defined&quot;}
          MyComponentWithHeaderOnly : AxoComponentHeaderOnlyExample;  
@@ -200,8 +202,9 @@ The <code>Run()</code> method with the respective input and output variables mus
 Example of the implementation more complex <code>AxoComponent</code> with members placed also in several tabs inside the expandable part (Details).</p>
 <pre><code class="lang-smalltalk">{#ix-attr:[Container(Layout.Stack)]}
 {#ix-set:AttributeName = &quot;AxoComponent example name&quot;}
+{S7.extern=ReadWrite}
 CLASS PUBLIC AxoComponentExample EXTENDS AXOpen.Core.AxoComponent  
-    METHOD PROTECTED OVERRIDE Restore: IAxoTask 
+    METHOD PUBLIC OVERRIDE Restore
         ;
     END_METHOD
     METHOD PROTECTED OVERRIDE ManualControl
@@ -301,7 +304,8 @@ CLASS PUBLIC AxoComponentExample EXTENDS AXOpen.Core.AxoComponent
 END_CLASS
 </code></pre>
 <p>For the complex types of the <code>AxoComponent</code> it is also recomended to organize partial groups of the members into the classes as it is in this example.</p>
-<pre><code class="lang-smalltalk">CLASS PUBLIC Header_ComponentExample
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC Header_ComponentExample
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;Start&quot;}
         Start : AxoTask;
@@ -314,6 +318,7 @@ END_CLASS
 
 {#ix-attr:[Container(Layout.Stack)]}
 {#ix-attr:[ComponentDetails(&quot;Tasks&quot;)]}
+{S7.extern=ReadWrite}
 CLASS PUBLIC Tasks_ComponentExample
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;Some status value 1&quot;}
@@ -333,6 +338,7 @@ END_CLASS
 
 {#ix-attr:[Container(Layout.Stack)]}
 {#ix-attr:[ComponentDetails(&quot;Status&quot;)]}
+{S7.extern=ReadWrite}
 CLASS PUBLIC Status_ComponentExample
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;Some status value 1&quot;}
@@ -346,6 +352,7 @@ END_CLASS
 
 {#ix-attr:[ComponentDetails(&quot;Settings&quot;)]}
 {#ix-attr:[Container(Layout.Stack)]}
+{S7.extern=ReadWrite}
 CLASS PUBLIC Settings_ComponentExample
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;Some setting value 1&quot;}
@@ -359,6 +366,7 @@ END_CLASS
 
 {#ix-attr:[ComponentDetails(&quot;Diagnostics&quot;)]}
 {#ix-attr:[Container(Layout.Stack)]}
+{S7.extern=ReadWrite}
 CLASS PUBLIC Diagnostics_ComponentExample
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;Some diagnostic message&quot;}
@@ -368,6 +376,7 @@ END_CLASS
 
 {#ix-attr:[ComponentDetails(&quot;Help&quot;)]}
 {#ix-attr:[Container(Layout.Stack)]}
+{S7.extern=ReadWrite}
 CLASS PUBLIC Help_ComponentExample
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;Some help&quot;}
@@ -376,7 +385,8 @@ CLASS PUBLIC Help_ComponentExample
 END_CLASS
 </code></pre>
 <p>Instantiate and call the <code>AxoComponent</code> instance.</p>
-<pre><code class="lang-smalltalk">CLASS ComponentExampleContext EXTENDS AxoContext
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS ComponentExampleContext EXTENDS AxoContext
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;Component example name&quot;}
         MyComponent : AxoComponentExample;  

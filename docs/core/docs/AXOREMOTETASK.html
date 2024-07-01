@@ -127,7 +127,9 @@
 <li><code>IsAborted</code> indicates that the execution of the AxoRemoteTask has been aborted. It should continue by calling the method <code>Resume()</code>.</li>
 </ul>
 <h2 id="task-initialization-in-net">Task initialization in .NET</h2>
-<pre><code class="lang-csharp">Entry.Plc.AxoRemoteTasks._remoteTask.Initialize(() =&gt; Console.WriteLine($&quot;Remote task executed PLC sent this string: '{Entry.Plc.AxoRemoteTasks._remoteTask.Message.GetAsync().Result}'&quot;));
+<pre><code class="lang-csharp">
+Entry.Plc.AxoRemoteTasks._remoteTask.Initialize(() =&gt; Console.WriteLine($&quot;Remote task executed PLC sent this string: '{Entry.Plc.AxoRemoteTasks._remoteTask.Message.GetAsync().Result}'&quot;));
+
 </code></pre>
 <p>In this example, when the PLC invokes this task it will write a message into console. You can use arbitrary code in place of the labmda expression.</p>
 <p><img src="assets/remote_exect.gif" alt="Alt text"></p>

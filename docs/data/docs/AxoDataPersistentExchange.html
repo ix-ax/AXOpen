@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>AxoDataPersistentExchange | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="AxoDataPersistentExchange | System.Dynamic.ExpandoObject ">
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/data/docs/AxoDataPersistentExchange.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../public/main.js'
+    import { init } from './../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="axodatapersistentexchange">AxoDataPersistentExchange</h1>
+
+<p>Persistent data exchange allows the grouping of multiple primitive variables or properties assigned by an attribute into tag lists, on which repository operations can be performed.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>The main goal is to store the values of selected variables that are not on the same level in the program structure. It is important to retain them in case of a program restart. Therefore, this storage is suitable for scenarios such as remembering &quot;only the Identifier&quot; of process data settings or technology data, which can be loaded from another repository or source at startup.</p>
+</div>
+<h2 id="getting-started">Getting started</h2>
+<h3 id="label-the-requested-variable-as-persistent">Label the requested variable as Persistent</h3>
+<p>Anywhere in the structured code, use the persistent attribute <code>AXOpen.Data.PersistentAttribute(&quot;PersistentGroupName&quot;)</code> to mark a variable as persistent.</p>
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC PersistentRootObject
+    VAR PUBLIC 
+        NotPersistentVariable : BOOL; 
+        
+        {#ix-attr:[Persistent()]}
+        {#ix-set:AttributeName = &quot;PersistentVariable_1 (in default pg.))&quot;} 
+        PersistentVariable_1 : INT; // will be saved to 'default' persistent group
+        
+        {#ix-attr:[Persistent(&quot;default&quot;,&quot;1&quot;)]} // will be saved to 'default' and '1' persistent group
+        {#ix-set:AttributeName = &quot;PersistentVariable_2 (in default &amp; 1 pg.)&quot;} 
+        PersistentVariable_2 : INT;
+        
+        {#ix-attr:[Container(Layout.Stack)]}
+        {#ix-attr:[Group(GroupLayout.GroupBox)]}
+        {#ix-set:AttributeName = &quot;PropertyWithPersistentMember&quot;} 
+        PropertyWithPersistentMember : ObjectWithPersistentMember;
+    END_VAR
+END_CLASS
+    
+{S7.extern=ReadWrite}
+CLASS PUBLIC ObjectWithPersistentMember
+    VAR PUBLIC 
+        NotPersistentVariable : INT; 
+        
+        {#ix-attr:[Persistent(&quot;2&quot;)]}
+        {#ix-attr:[Container(Layout.Stack)]}
+        {#ix-attr:[Group(GroupLayout.GroupBox)]}
+        {#ix-set:AttributeName = &quot;InitializedPrimitives (in 2 pg.)&quot;} 
+        InitializedPrimitives : InitializedPrimitives; 
+    END_VAR
+END_CLASS
+
+{S7.extern=ReadWrite}
+CLASS PUBLIC InitializedPrimitives
+    VAR PUBLIC
+        myBOOL          :       BOOL	      := true;
+        myBYTE          :       BYTE	      := BYTE#255;
+        myWORD          :       WORD	      := WORD#60000;
+        myDWORD         :       DWORD	      := DWORD#16#ABCD_EF01;
+        myLWORD	        :       LWORD	      := LWORD#18446744073709551615;
+        mySINTMin       :       SINT	      := SINT#-128;
+        mySINTMax       :       SINT	      := SINT#127;
+        myINT	        :       INT           := INT#32767;
+        myDINT	        :       DINT	      := DINT#2147483647;
+        myLINT	        :       LINT	      := LINT#9223372036854775807;
+        myUSINT	        :       USINT	      := USINT#255;
+        myUINT	        :       UINT	      := UINT#65535;
+        myUDINT	        :       UDINT	      := UDINT#4294967295;
+        myULINT	        :       ULINT	      := ULINT#18446744073709551615;
+        myREAL	        :       REAL	      := REAL#+3.402823e+38;
+        myLREAL	        :       LREAL	      := LREAL#1.79769313486231e+308;
+        myTIME	        :       TIME	      := TIME#2147483647ms;
+        myLTIME	        :       LTIME	      := LTIME#100000d2h4m8s16ms32ns;
+        myDATE	        :       DATE	      := DATE#2262-04-11;
+        myLDATE	        :       LDATE	      := LDATE#2262-04-11;
+        myTIME_OF_DAY	:       TIME_OF_DAY   := TIME_OF_DAY#23:59:59.999999999;
+        myLTIME_OF_DAY	:       LTIME_OF_DAY  := LTIME_OF_DAY#23:59:59.999999999;
+        myDATE_AND_TIME :      DATE_AND_TIME  := DATE_AND_TIME#2262-04-11-23:47:16.854775807;
+        myLDATE_AND_TIME :      LDATE_AND_TIME := LDATE_AND_TIME#2262-04-11-23:47:16.854775807;
+        myCHAR	        :       CHAR	      := CHAR#255;
+        myWCHAR	        :       WCHAR	      := WCHAR#65535;
+        mySTRING        :       STRING	      := 'o\zxcvbnm,./asdfghjkl;\\qwertyuiop[]1234567890-~!@#^&amp;*()_+';
+        myWSTRING       :       WSTRING	      := WSTRING#&quot;o\zxcvbnm,./asdfghjkl;'\qwertyuiop[]1234567890-~!@#^&amp;*()_+&quot;;
+    END_VAR    
+END_CLASS
+</code></pre><h3 id="ax-snippet-for-attribute">AX Snippet for attribute</h3>
+<pre><code> &quot;attritubePersistentProperty&quot;:
+    {
+        &quot;prefix&quot;: [&quot;attPersistent&quot;,&quot;persistent&quot;],
+        &quot;scope&quot;: &quot;st&quot;,
+        &quot;body&quot;:[
+        &quot;{#ix-attr:[AXOpen.Data.PersistentAttribute(\&quot;\&quot;)]}&quot;,
+        &quot;$0&quot;
+        ],
+    &quot;description&quot;: &quot;The variable will be flagged as persistent, and the persistent data exchange will handle CRUD operations.&quot;
+    }
+</code></pre>
+<h3 id="create-an-instance-of-the-exchange-manager">Create an instance of the exchange manager</h3>
+<p>Create an instance of the manager and call it in the Context.</p>
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
+    VAR PUBLIC
+        //persistent manager instance
+        DataManager : AXOpen.Data.AxoDataPersistentExchange;
+        //Testing usage of the manager
+        ManagerUsage : ManagerUsage; 
+        // Object that propertie will be tracked by persistent manager
+        PersistentRootObject : PersistentRootObject; 
+    END_VAR
+    
+    METHOD OVERRIDE Main
+        DataManager.Run(THIS);
+        ManagerUsage.Use(DataManager);
+    END_METHOD
+END_CLASS
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Note that you can use multiple instances of the persistent manager, which can operate on different root objects that are initialized on the .NET side.</p>
+</div>
+<h3 id="usage-in-the-controller">Usage in the controller</h3>
+<p>In the case of saving variables to a repository, call the <code>InvokeUpdate()</code> method, which returns <code>true</code> if the invocation is successful. To monitor the completion status, use the <code>IsUpdateDone()</code> method.</p>
+<p>Other operations like <code>InvokeRead</code>, <code>InvokeUpdateAll</code>, <code>InvokeReadAll</code>, and <code>InvokeEntityExist</code> follow the same principle. These methods accept an <code>IAxoObject</code>, which uses the identity of the object to prevent concurrent calls. The object executing the first call is prioritized, and subsequent calls with a different caller will wait until the first caller has finished.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>If the record does not exist, the loading task will end with an error. Therefore, it is necessary to ensure that the record exists, either by manual saving or by generating a new record.</p>
+</div>
+<pre><code class="lang-smalltalk"></code></pre><h3 id="data-exchange-initialization-in-net">Data exchange initialization in .NET</h3>
+<p>At this point, we have everything ready in the PLC.</p>
+<p>An instance of the Persistent Manager requires additional parameters for initialization. It needs to set up a repository where the data will be saved. The next parameter is the root object of the PLC tree from which it begins collecting persistent variables.</p>
+<pre><code class="lang-csharp">IRepository&lt;AXOpen.Data.PersistentRecord&gt; persistentRepository;
+
+// *** IN MEMORY REPOSITORY ***
+//persistentRepository = new InMemoryRepositorySettings&lt;AXOpen.Data.PersistentRecord&gt;().Factory();
+
+//***JSON REPOSITORY***
+//var persistentLocation = Path.Combine(jsonRepositoryLocation, &quot;PersistentData&quot;);
+//persistentRepository = new JsonRepositorySettings&lt;AXOpen.Data.PersistentRecord&gt;(persistentLocation).Factory();
+
+// *** MONGO REPOSITORY ***
+
+
+persistentRepository = AXOpen.Data.MongoDb.Repository.Factory&lt;AXOpen.Data.PersistentRecord&gt;(new MongoDbRepositorySettings&lt;AXOpen.Data.PersistentRecord&gt;(&quot;mongodb://localhost:27017&quot;, &quot;AxOpenData&quot;, &quot;PersistentData&quot;));
+
+
+Entry.Plc.AxoDataPersistentContext.DataManager.InitializeRemoteDataExchange( 
+        Entry.Plc.AxoDataPersistentContext.PersistentRootObject, 
+        persistentRepository
+        );
+</code></pre></article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/docs/AxoDataPersistentExchange.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
