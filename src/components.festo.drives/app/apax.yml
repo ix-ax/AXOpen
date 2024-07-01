@@ -14,69 +14,16 @@ dependencies:
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
   "@ix-ax/ax.axopen.app": '0.0.0-dev.0'
 scripts:
-  # Obsolete scripts, could be  removed at some point ====>
-  delta:
-    - START=$(date +%s)
-    - apax build --ignore-scripts
-    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT --mode delta
-    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
-  download:
-    - START=$(date +%s)
-    - apax build --ignore-scripts
-    - dotnet ixc
-    - apax download_only
-    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
-  download_only:
-    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
-  check+download: |
-    if [ $AXTARGET ]; then
-      if [ $AXTARGETPLATFORMINPUT ]; then
-        if ping -n 1 $AXTARGET &> /dev/null; then
-          echo "Downloading from:" $AXTARGETPLATFORMINPUT "=>" $AXTARGET
-          apax download_only
-        else
-          echo "Target with IP address:" $AXTARGET "is not accessible. No download is going to be performed!!!"
-        fi
-      else
-        echo "Environment variable AXTARGETPLATFORMINPUT not defined!!!"
-      fi
-    else
-      echo "Environment variable AXTARGET not defined!!!"
-    fi
-  watch:
-    - dotnet watch --project ..\\app\\ix-blazor\\AXOpen.Components.Rexroth.Drives.blazorapp.csproj
-  fr:
-    - ..\\..\\integrations\\scripts\\StartPlcSimAdvCli.exe
-    - apax rr
-  frw:
-    - apax fr
-    - apax watch
-  rr:
-    - START=$(date +%s)
-    - apax clean
-    - apax install
-    - apax download
-    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
-  rrw:
-    - apax rr
-    - apax watch
-  d:
-    - apax download
-  do:
-    - apax download_only
-  dd:
-    - apax delta
-  # <==== Obsolete scripts, could be  removed at some point
-
   # For proper execution of these scripts, the following variables need to be defined as environment variables or local variables.
   # Local variables can override environment variables.
   # It is highly recommended NOT to store secrets such as 'AX_USERNAME' and 'MY_VERY_STRONG_PASSWORD' in local variables.
   # PLC_NAME: Name of the PLC (also equal to the PLC Profinet name)
   # AX_USERNAME: Name of the PLC user used for WebAPI and HMI
   # AXTARGET: IP address of the PLC
-  # AXTARGETPLATFORMINPUT: Folder of the compiled software to be downloaded to the PLC. Use the value ".\bin\plcsim\" in case PLCSIM is used. For an S7-1500 controller, use ".\bin\1500\"
+  # AXTARGETPLATFORMINPUT: Folder of the compiled software to be downloaded to the PLC. Use the value ".\bin\1500\" for the S7-1500 controller, even if running inside PLCSIM
   # AXTARGETPLCSIMINSTANCE: Name of the PLCSIM instance to start. The instance must already exist.
   # MY_VERY_STRONG_PASSWORD: Password for 'AX_USERNAME'
+  # AXUSEPLCSIM with value of "true" will automatically trigger PLCSIM when calling apax alf or apax all
   # PNIO_MAC: MAC address of the network adapter connected to the Profinet network  
   plcsim: ..\\..\\scripts\\StartPlcSimAdvCli.exe #start PLCSIM
 
@@ -141,6 +88,5 @@ scripts:
     START=$(date +%s)
     ..\\..\\scripts\\all.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $MY_VERY_STRONG_PASSWORD
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"    
-
 installStrategy: strict
 apaxVersion: 3.1.1
