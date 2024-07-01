@@ -93,13 +93,14 @@
 <h2 id="getting-started">Getting started</h2>
 <h3 id="data-fragment-exchange-manager">Data fragment exchange manager</h3>
 <p>Data exchange object must be extended by <code>AxoDataFragmentExchange</code>.</p>
-<pre><code class="lang-smalltalk">CLASS AxoProcessDataManager
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC AxoProcessDataManager
     EXTENDS AXOpen.Data.AxoDataFragmentExchange
     VAR PUBLIC                    
         {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
-        SharedHeader : SharedDataHeaderManger;            
+        SharedHeader : SharedDataHeaderManager;            
         {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
-        Station_1 : Station_1_ProcessDataManger;
+        Station_1 : Station_1_ProcessDataManager;
     END_VAR
 END_CLASS
 </code></pre>
@@ -115,51 +116,95 @@ END_CLASS
 </div>
 <h3 id="initialization-and-handling-in-the-controller">Initialization and handling in the controller</h3>
 <p>We will now need to create an instance of <code>AxoDataFragmentExchange</code> in a context object (<code>AxoContext</code>) (or as a member of another class that derives from <code>AxoObject</code>). We will also need to call <code>AxoDataFragmentExchangeContext</code> in the Main method of appropriate context.</p>
-<pre><code class="lang-smalltalk">CLASS Context EXTENDS AXOpen.Core.AxoContext
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
-        DataManager : AxoProcessDataManager;           
+        //Controlled unit that needs to manipulate with data
+        ControlledUnit : ControlledUnit;
+        //DataManager instance
+        DataManager  : AxoProcessDataManager;
+
+        //Testing usage of the manager
+        ManagerUsage : ManagerUsage;
     END_VAR
     
-    METHOD PROTECTED OVERRIDE Main
-        DataManager.Run(THIS);
+    METHOD OVERRIDE Main
+        
+        // DataManager.Run(THIS); - is called iside of controlle unit
+        ControlledUnit.ProcessData := REF(DataManager);//Set REF to DataManager (reason depth of data structure)
+        ControlledUnit.Run(THIS);// run logic of controlled unit 
+
+        ManagerUsage.Use(DataManager);
     END_METHOD
 END_CLASS
 </code></pre>
 <p>Execute run method in CU</p>
-<pre><code class="lang-smalltalk">CLASS CU EXTENDS AXOpen.Core.AxoObject
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC ControlledUnit EXTENDS AXOpen.Core.AxoObject
     VAR PUBLIC
+        //Reference to ProcessDataManager
         ProcessData : REF_TO AxoProcessDataManager;
+        //Automatic sequence. Contains logic for automatic operations of this unit.
+        AutomatSequence : AutomatSequence;
     END_VAR
 
+    METHOD PUBLIC Run
+        VAR_INPUT
+            _parent : IAxoContext;
+        END_VAR
+        THIS.Initialize(_parent);
+        THIS.Execute();
+    END_METHOD
+
     METHOD PRIVATE Execute
-        ProcessData^.Run(THIS);
+        ProcessData^.Run(THIS); // cyclic call of AxoProcessDataManager
+        AutomatSequence.Run(THIS, ProcessData);
     END_METHOD
 END_CLASS
 </code></pre>
 <p>Use in Automat Sequence</p>
-<pre><code class="lang-smalltalk">CLASS PUBLIC AutomatSequence EXTENDS AXOpen.Core.AxoSequencerContainer
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC AutomatSequence EXTENDS AXOpen.Core.AxoSequencerContainer
     VAR PRIVATE
+        // private reference is used in Main()
         ProcessData : REF_TO AxoProcessDataManager;
     END_VAR
 
     METHOD INTERNAL Run
         VAR_INPUT
+            _parent : IAxoObject;
             _processData : REF_TO AxoProcessDataManager;
         END_VAR
+
         ProcessData := _processData;
     END_METHOD
 
     METHOD OVERRIDE Main
-        ;
+        ;//cyclic logic
     END_METHOD
 END_CLASS
 </code></pre><h3 id="data-exchange-initialization-in-net">Data exchange initialization in .NET</h3>
 <p>At this point, we have everything ready in the PLC.</p>
 <p>If the nested data exchange object does not have the repository set previously, we will need to tell the to fragment manager wich repositories we be used by in data exchange. We will work with data stored in files in JSON format.</p>
-<pre><code class="lang-csharp">var SharedDataHeaderDataRepository = new InMemoryRepositorySettings&lt;Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData&gt;().Factory();
-var Station_1_DataRepository = new InMemoryRepositorySettings&lt;Pocos.AxoDataFramentsExchangeExample.Station_1_Data&gt;().Factory();
+<pre><code class="lang-csharp">IRepository&lt;Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData&gt; SharedDataHeaderDataRepository;
+IRepository&lt;Pocos.AxoDataFramentsExchangeExample.Station_1_Data&gt; Station_1_DataRepository;
 
-var AxoProcessDataManager = Entry.Plc.AxoDataFramentsExchangeManager.CreateBuilder&lt;AxoDataFramentsExchangeExample.AxoProcessDataManager&gt;();
+// *** IN MEMORY REPOSITORY ***
+//SharedDataHeaderDataRepository = new InMemoryRepositorySettings&lt;Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData&gt;().Factory();
+//Station_1_DataRepository = new InMemoryRepositorySettings&lt;Pocos.AxoDataFramentsExchangeExample.Station_1_Data&gt;().Factory();
+
+// *** JSON REPOSITORY ***
+//var SharedHeaderLocation = Path.Combine(jsonRepositoryLocation, &quot;SharedDataHeader&quot;);
+//var Station_1_Location = Path.Combine(jsonRepositoryLocation, &quot;Station_1&quot;);
+//SharedDataHeaderDataRepository = new JsonRepositorySettings&lt;Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData&gt;(SharedHeaderLocation).Factory();
+//Station_1_DataRepository = new JsonRepositorySettings&lt;Pocos.AxoDataFramentsExchangeExample.Station_1_Data&gt;(Station_1_Location).Factory();
+
+// *** MONGO REPOSITORY ***
+
+SharedDataHeaderDataRepository = AXOpen.Data.MongoDb.Repository.Factory&lt;Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData&gt;(new MongoDbRepositorySettings&lt;Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData&gt;(&quot;mongodb://localhost:27017&quot;, &quot;AxOpenData&quot;, &quot;SharedDataHeader&quot;));
+Station_1_DataRepository = AXOpen.Data.MongoDb.Repository.Factory&lt;Pocos.AxoDataFramentsExchangeExample.Station_1_Data&gt;(new MongoDbRepositorySettings&lt;Pocos.AxoDataFramentsExchangeExample.Station_1_Data&gt;(&quot;mongodb://localhost:27017&quot;, &quot;AxOpenData&quot;, &quot;Station_1&quot;));
+
+var AxoProcessDataManager = Entry.Plc.AxoDataFragmentsExchangeContext.DataManager.CreateBuilder&lt;AxoDataFramentsExchangeExample.AxoProcessDataManager&gt;();
 
 AxoProcessDataManager.SharedHeader.SetRepository(SharedDataHeaderDataRepository);
 AxoProcessDataManager.Station_1.SetRepository(Station_1_DataRepository);

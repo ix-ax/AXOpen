@@ -92,7 +92,8 @@
 <h2 id="getting-started">Getting started</h2>
 <h3 id="data-exchange-manager">Data exchange manager</h3>
 <p>Data exchange object must be extended by <code>AxoDataExchange</code>.</p>
-<pre><code class="lang-smalltalk">CLASS AxoProcessDataManager EXTENDS AXOpen.Data.AxoDataExchange
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC AxoProcessDataManager EXTENDS AXOpen.Data.AxoDataExchange
     VAR PUBLIC
         {#ix-generic:TOnline}
         {#ix-generic:TPlain as POCO}
@@ -116,7 +117,8 @@ An exception is thrown when <code>AxoDataEntityAttribute</code> is missing or mu
 <h5>Note</h5>
 <p>The 'Data' variable must be of a type that extends <code>AxoDataEntity</code>.</p>
 </div>
-<pre><code class="lang-smalltalk">CLASS AxoProcessData EXTENDS AXOpen.Data.AxoDataEntity
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC AxoProcessData EXTENDS AXOpen.Data.AxoDataEntity
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;Some string&quot;}
         SomeString : STRING;
@@ -126,51 +128,93 @@ An exception is thrown when <code>AxoDataEntityAttribute</code> is missing or mu
 END_CLASS
 </code></pre><h3 id="data-exchange-initialization-in-plc">Data exchange initialization in PLC</h3>
 <p>As mentioned earlier, we use remote calls to execute the CRUD operations. These calls are a variant of <code>AxoTask</code>, which allows for invoking a C# code. We will now need to create an instance of <code>AxoProcessDataManager</code> in a context object (<code>AxoContext</code>) (or as a member of another class that derives from <code>AxoObject</code>). We will also need to call <code>DataManager</code> in the Main method of appropriate context.</p>
-<pre><code class="lang-smalltalk">CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
-        DataManager : AxoProcessDataManager;
+        //Controlled unit that needs to manipulate with data
+        ControlledUnit : ControlledUnit;
+        //DataManager instance
+        DataManager  : AxoProcessDataManager;
+
+        //Testing usage of the manager
+        ManagerUsage : ManagerUsage;
     END_VAR
     
     METHOD OVERRIDE Main
-        DataManager.Run(THIS);
+        
+        // DataManager.Run(THIS); - is called iside of controlle unit
+        ControlledUnit.ProcessData := REF(DataManager);//Set REF to DataManager (reason depth of data structure)
+        ControlledUnit.Run(THIS);// run logic of controlled unit 
+
+        ManagerUsage.Use(DataManager);
     END_METHOD
 END_CLASS
 </code></pre>
 <p>Execute run method in CU</p>
-<pre><code class="lang-smalltalk">CLASS CU EXTENDS AXOpen.Core.AxoObject
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC ControlledUnit EXTENDS AXOpen.Core.AxoObject
     VAR PUBLIC
+        //Reference to ProcessDataManager
         ProcessData : REF_TO AxoProcessDataManager;
+        //Automatic sequence. Contains logic for automatic operations of this unit.
+        AutomatSequence : AutomatSequence;
     END_VAR
 
+    METHOD PUBLIC Run
+        VAR_INPUT
+            _parent : IAxoContext;
+        END_VAR
+        THIS.Initialize(_parent);
+        THIS.Execute();
+    END_METHOD
+
     METHOD PRIVATE Execute
-        ProcessData^.Run(THIS);
+        ProcessData^.Run(THIS); // cyclic call of AxoProcessDataManager
+        AutomatSequence.Run(THIS, ProcessData);
     END_METHOD
 END_CLASS
 </code></pre>
 <p>Use in Automat Sequence</p>
-<pre><code class="lang-smalltalk">CLASS PUBLIC AutomatSequence EXTENDS AXOpen.Core.AxoSequencerContainer
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC AutomatSequence EXTENDS AXOpen.Core.AxoSequencerContainer
     VAR PRIVATE
+        // private reference is used in Main()
         ProcessData : REF_TO AxoProcessDataManager;
     END_VAR
 
     METHOD INTERNAL Run
         VAR_INPUT
+            _parent : IAxoObject;
             _processData : REF_TO AxoProcessDataManager;
         END_VAR
+
         ProcessData := _processData;
     END_METHOD
 
     METHOD OVERRIDE Main
-        ;
+        ;//cyclic logic
     END_METHOD
 END_CLASS
 </code></pre><h3 id="data-exchange-initialization-in-net">Data exchange initialization in .NET</h3>
 <p>At this point, we have everything ready in the PLC.</p>
 <p>We must now tell the <code>DataManager</code> what repository to use. As a example, data repository is set as JSON files.</p>
 <p>Let's create a configuration for the repository and initialize remote data exchange:</p>
-<pre><code class="lang-csharp">var AxoProcessDataRepository = new InMemoryRepositorySettings&lt;Pocos.AxoDataExchangeExample.AxoProcessData&gt;().Factory();
+<pre><code class="lang-csharp">IRepository&lt;Pocos.AxoDataExchangeExample.AxoProcessData&gt; AxoProcessDataRepository;
 
-Entry.Plc.AxoDataExchangeManager.InitializeRemoteDataExchange(AxoProcessDataRepository);
+// *** IN MEMORY REPOSITORY ***
+//AxoProcessDataRepository = new InMemoryRepositorySettings&lt;Pocos.AxoDataExchangeExample.AxoProcessData&gt;().Factory();
+//Entry.Plc.AxoDataExchangeContext.DataManager.InitializeRemoteDataExchange(AxoProcessDataRepository);
+
+// *** JSON REPOSITORY ***
+//var ProcessDataLocation = Path.Combine(jsonRepositoryLocation, &quot;ProcessData&quot;);
+//AxoProcessDataRepository = new JsonRepositorySettings&lt;Pocos.AxoDataExchangeExample.AxoProcessData&gt;(ProcessDataLocation).Factory();
+
+// *** MONGO REPOSITORY ***
+
+
+AxoProcessDataRepository = AXOpen.Data.MongoDb.Repository.Factory&lt;Pocos.AxoDataExchangeExample.AxoProcessData&gt;(new MongoDbRepositorySettings&lt;Pocos.AxoDataExchangeExample.AxoProcessData&gt;(&quot;mongodb://localhost:27017&quot;, &quot;AxOpenData&quot;,&quot;AxoDataExchangeExample&quot;));
+
+Entry.Plc.AxoDataExchangeContext.DataManager.InitializeRemoteDataExchange(AxoProcessDataRepository);
 </code></pre>
 <div class="NOTE">
 <h5>Note</h5>

@@ -91,7 +91,8 @@
 
 <p>AxoMomentaryTask provides basic  momentary function. It is mainly designed for some manual operations from the UI side. AxoMomentaryTask needs to be initialized to set the proper AxoContext.</p>
 <p><strong>AxoMomentaryTask initialization within a AxoContext</strong></p>
-<pre><code class="lang-smalltalk">CLASS AxoMomentaryTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS AxoMomentaryTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;&lt;#Momentary task example#&gt;&quot;}
         {#ix-set:AttributeStateOnDesc = &quot;&lt;#Currently On#&gt;&quot;}
@@ -104,7 +105,6 @@
         // It does not need to be called cyclically, just once
         _myMomentaryTask.Initialize(THIS);
     END_METHOD
-END_CLASS  
 </code></pre>
 <p>To check the state of the task there are two methods:</p>
 <ul>
@@ -132,7 +132,8 @@ These methods are:</p>
 <li><code>SwitchedOff()</code> - executes repeatedly while the task is in <code>FALSE</code> state.</li>
 </ul>
 <p>Example of implementing &quot;event-like&quot; methods:</p>
-<pre><code class="lang-smalltalk">CLASS MyMomentaryTaskExample Extends AxoMomentaryTask
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS MyMomentaryTaskExample Extends AxoMomentaryTask
     VAR
         OnSwitchedOnCounter : ULINT;
         OnSwitchedOffCounter : ULINT;

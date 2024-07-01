@@ -91,7 +91,8 @@
 
 <p>AxoTask provides basic task execution. AxoTask needs to be initialized to set the proper AxoContext.</p>
 <p><strong>AxoTask initialization within a AxoContext</strong></p>
-<pre><code class="lang-smalltalk">CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;&lt;#Task name#&gt;&quot;}
         _myTask : AxoTask;
@@ -103,8 +104,7 @@
         // It does not need to be called cyclically, just once
         _myTask.Initialize(THIS);
     END_METHOD
-
-END_CLASS  
+    END_METHOD
 </code></pre>
 <p>There are two key methods for managing the AxoTask:</p>
 <ul>
@@ -185,7 +185,8 @@ END_CLASS
     end
 </code></pre>
 <p>Example of using AxoTask:</p>
-<pre><code class="lang-smalltalk">CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;&lt;#Task name#&gt;&quot;}
         _myTask : AxoTask;
@@ -209,7 +210,6 @@ END_CLASS
             _myCounter := ULINT#0;
         END_IF;
     END_METHOD
-END_CLASS  
 </code></pre>
 <p>The AxoTask executes upon the <code>Invoke</code> method call. <code>Invoke</code> fires the execution of <code>Execute</code> logic upon the first call, and it does not need cyclical calling.</p>
 <pre><code class="lang-smalltalk">_myTask.Invoke();
@@ -260,7 +260,8 @@ These methods are:</p>
 <li><code>WhileError()</code> - executes repeatedly while the task is in <code>Error</code> state (and <code>Execute()</code> method is called).</li>
 </ul>
 <p>Example of implementing &quot;event-like&quot; methods:</p>
-<pre><code class="lang-smalltalk">CLASS MyTaskExample EXTENDS AXOpen.Core.AxoTask
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS MyTaskExample EXTENDS AXOpen.Core.AxoTask
     VAR
         OnAbortCounter : ULINT;
         OnResumeCounter : ULINT;
