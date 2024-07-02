@@ -1,3 +1,5 @@
+USING AXOpen.Components.Cognex.Vision.v_6_0_0_0;
+
 PROGRAM MyProgram
     VAR_EXTERNAL
         sandbox : SandboxContext;

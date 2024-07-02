@@ -118,11 +118,13 @@ To accomplish this, call the <code>Run</code> method cyclically with the proper 
 <pre><code class="lang-smalltalk">VAR PUBLIC        
     PlcInputs : REF_TO PlcInputs;
     PlcOutputs : REF_TO PlcOutputs;          
+    CylinderParent : AXOpen.Core.AxoObject;
     myAxoCylinder : AXOpen.Components.Pneumatics.AxoCylinder;        
 END_VAR
 </code></pre><h4 id="initialize--run">Initialize &amp; Run</h4>
 <pre><code class="lang-smalltalk">METHOD PROTECTED OVERRIDE Main        
-    myAxoCylinder.Run(  THIS, 
+    CylinderParent.Initialize(THIS);
+    myAxoCylinder.Run(  CylinderParent, 
                     PlcInputs^.ET200SP_DI_8x24VDC_ST_V1_1_1.%X0, 
                     PlcInputs^.ET200SP_DI_8x24VDC_ST_V1_1_1.%X1, 
                     PlcOutputs^.ET200SP_DQ_8x24VDC_0_5A_ST_V1_1_1.%X0, 

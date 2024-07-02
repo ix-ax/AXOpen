@@ -147,7 +147,8 @@ END_METHOD
 </code></pre><h2 id="logging-from-nested-objects">Logging from nested objects</h2>
 <p>This class demonstrates how to fetch and log messages using a logger from a parent context from within a nested object.</p>
 <p>The <code>Foo</code> method retrieves the context's logger using <code>THIS.GetContext().GetLogger()</code> and logs an <code>Error</code> level message. This shows how to access and use the logger of a containing context, enabling nested objects to utilize the same logging functionalities as their parent.</p>
-<pre><code class="lang-smalltalk">CLASS ContextLoggerInNestedObject EXTENDS AxoObject        
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS ContextLoggerInNestedObject EXTENDS AxoObject        
     METHOD PUBLIC Foo
         THIS.GetContext().GetLogger().Log('Loggin on context logger', eLogLevel#Error, THIS);
     END_METHOD    

@@ -1,3 +1,5 @@
+USING AXOpen.Components.Rexroth.Press;
+
 PROGRAM MyProgram
     VAR_EXTERNAL
         sandbox : SandboxContext;

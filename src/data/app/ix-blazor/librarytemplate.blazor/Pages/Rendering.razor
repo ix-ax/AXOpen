@@ -72,6 +72,21 @@
     </div>
 </div>
 
+<div class="card">
+    <div class="card-header">
+        <h2>Sorting</h2>
+    </div>
+    <div class="card-body">
+        //<Sorting>
+            <DataExchangeView Vm="@_vm_columndata" Presentation="Command" EnableSorting="true" SortElements='new() {"SomeData"}'>
+            <ColumnData HeaderName="Some data" BindingValue="SomeData" Clickable="false" />
+            <ColumnData HeaderName="A number" BindingValue="SomeNumber" Clickable="false" />
+            <ColumnData HeaderName="Yes/No" BindingValue="SomeBool" Clickable="false" />
+        </DataExchangeView>
+        //</Sorting>
+    </div>
+</div>
+
 
 
 //<CustomColumnsCode>

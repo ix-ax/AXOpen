@@ -114,7 +114,8 @@
 <h2 id="how-to-use-axocontext">How to use AxoContext</h2>
 <p>Base class for the AxoContext is <code>AXOpen.Core.AxoContext</code>. The entry point of call execution of the AxoContext is <code>Main</code> method. Notice that the <code>AxoContext</code> class is abstract and cannot be instantiated if not extended. <code>Main</code> method must be overridden in derived class notice the use of override keyword and also that the method is <code>protected</code> which means the it is visible only from within the <code>AxoContext</code> and derived classes.</p>
 <p><strong>How to extend AxoContext class</strong></p>
-<pre><code class="lang-smalltalk">CLASS PUBLIC AxoContextExample EXTENDS  AXOpen.Core.AxoContext
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC AxoContextExample EXTENDS  AXOpen.Core.AxoContext
     METHOD PROTECTED OVERRIDE Main 
         // Here goes all your logic for given AxoContext.
         ;

@@ -1,0 +1,161 @@
+{
+  "Templates":{
+    "Modules":[
+      {
+        "Name": "PLC_1516_v3_0",
+       
+        "Placeholders":[
+          {
+            "Name": "PLCName",
+            "Value": "plc_line"
+          },
+          { "Name": "IpAddress" }
+        ],
+    "Content":{
+      "Name": "${PLCName}",
+          "TypeIdentifier": {
+            "OrderNumber": "6ES7 516-3AP03-0AB0",
+            "Version": "V3.0"
+          },
+          "AccessProtection": {
+            "AccessLevel": "FullAccess"
+          },
+          "Services": [
+            {
+              "Type": "WebServer",
+              "Enabled": true,
+              "Parameters": {
+                "HttpsOnly": true
+              }
+            }
+          ],
+          "UserManagement": {
+            "Roles": [
+              {
+                "Name": "WebServerAccessRole",
+                "FunctionRights": [
+                  "ReadPlcVariables",
+                  "WritePlcVariables",
+                  "ReadFiles",
+                  "QueryDiagnostics",
+                  "FlashLed"
+                ]
+              }
+            ],
+            "Users": [
+              {
+                "Name": "usr",
+                "AssignedRoles": [
+                  "WebServerAccessRole"
+                ]
+              }
+            ]
+          },
+          "Ports": [
+            {
+              "Name": "Port1",
+              "Label": "X1 P1"
+            },
+            {
+              "Name": "Port2",
+              "Label": "X1 P2"
+            }
+          ],
+          "Interfaces": [
+            {
+              "Name": "profinet_x1",
+              "Label": "X1",
+              "Addresses": {
+                "Configured": [
+                  { "IPv4": "${IpAddress}" },
+                  { "ProfinetDeviceName": "plc_line.profinet" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Name": "PLC_1516_v3_1",
+       
+        "Placeholders":[
+          {
+            "Name": "PLCName",
+            "Value": "plc_line"
+          },
+          { "Name": "IpAddress" }
+        ],
+    "Content":{
+      "Name": "${PLCName}",
+          "TypeIdentifier": {
+            "OrderNumber": "6ES7 516-3AP03-0AB0",
+            "Version": "V3.1"
+          },
+          "AccessProtection": {
+            "AccessLevel": "FullAccess"
+          },
+          "Services": [
+            {
+              "Type": "WebServer",
+              "Enabled": true,
+              "Parameters": {
+                "HttpsOnly": true
+              }
+            }
+          ],
+          "UserManagement": {
+            "Roles": [
+              {
+                "Name": "WebServerAccessRole",
+                "FunctionRights": [
+                  "ReadPlcVariables",
+                  "WritePlcVariables",
+                  "ReadFiles",
+                  "QueryDiagnostics",
+                  "FlashLed"
+                ]
+              },
+              {
+                "Name": "FullAccessRole",
+                "FunctionRights": [
+                  "AccessProtectionFullAccess"
+                ]
+              }
+            ],
+            "Users": [
+              {
+                "Name": "adm",
+                "AssignedRoles": [
+                  "FullAccessRole",
+                  "WebServerAccessRole"
+                ]
+              }
+            ]
+          },
+          "Ports": [
+            {
+              "Name": "Port1",
+              "Label": "X1 P1"
+            },
+            {
+              "Name": "Port2",
+              "Label": "X1 P2"
+            }
+          ],
+          "Interfaces": [
+            {
+              "Name": "profinet_x1",
+              "Label": "X1",
+              "Addresses": {
+                "Configured": [
+                  { "IPv4": "${IpAddress}" },
+                  { "ProfinetDeviceName": "plc_line.profinet" }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

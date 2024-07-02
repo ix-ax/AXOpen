@@ -22,7 +22,8 @@
         { "Ref": "plc_line/plc_line/profinet_x1" }
       ],
       "DeviceInterfaces": [
-
+        { "Ref":  "rf186c/rf186c/profinet" },
+        { "Ref":  "et200sp_CM_4xIO_Link_RF200/et200sp_CM_4xIO_Link_RF200/profinet" }
       ]
     }
   ]

@@ -258,7 +258,7 @@ namespace AXOpen.Base.Data
         /// <param name="limit">Limit of documents to retrieve.</param>
         /// <param name="skip">Number of documents to be skipped.</param>
         /// <returns></returns>
-        protected abstract IEnumerable<T> GetRecordsNvi(string identifierContent, int limit, int skip, eSearchMode searchMode);
+        protected abstract IEnumerable<T> GetRecordsNvi(string identifierContent, int limit, int skip, eSearchMode searchMode, string sortExpresion, bool sortAscending);
 
         /// <summary>
         /// Counts records that contain given string in the id. (Concrete implementation of given repository type)
@@ -416,11 +416,11 @@ namespace AXOpen.Base.Data
         /// <summary>
         /// Gets <see cref="IEnumerable{T}"/> of repository entries that match the identifier.
         /// </summary>
-        public IEnumerable<T> GetRecords(string identifier, int limit = 10, int skip = 0, eSearchMode searchMode = eSearchMode.Exact)
+        public IEnumerable<T> GetRecords(string identifier, int limit = 10, int skip = 0, eSearchMode searchMode = eSearchMode.Exact, string sortExpresion = "Default", bool sortAscending = false)
         {
             try
             {
-                return GetRecordsNvi(identifier, limit, skip, searchMode);
+                return GetRecordsNvi(identifier, limit, skip, searchMode, sortExpresion, sortAscending);
             }
             catch (Exception e)
             {

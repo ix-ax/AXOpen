@@ -310,7 +310,7 @@ namespace AXOpen.Data.Fragments.Tests
                 await sut.CreateNewAsync($"{i}Record");
             }
 
-            var actual = sut.GetRecords("Rec", 3, 0, eSearchMode.Contains);
+            var actual = sut.GetRecords("Rec", 3, 0, eSearchMode.Contains, "Default", true);
 
             Assert.Equal(3, actual.Count());
         }

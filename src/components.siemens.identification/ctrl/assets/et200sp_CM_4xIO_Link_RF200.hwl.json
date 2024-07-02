@@ -1,0 +1,54 @@
+{
+    "Devices": [
+        {
+            "Name": "et200sp_CM_4xIO_Link_RF200",
+            "Modules":[
+              {
+                "Name": "et200sp_CM_4xIO_Link_RF200",
+                "TypeIdentifier": {
+                  "GsdId": "DIM ST V4.2",
+                  "FileName": "gsdml-v2.43-siemens-et200sp-20240209.xml"
+                },
+                "Interfaces": [
+                  {
+                    "Name": "profinet",
+                    "Label": "X1",
+                    "Addresses": {
+                      "Configured": [
+                        { "IPv4": "10.10.10.98/24" },
+                        { "ProfinetDeviceName": "et200sp_CM_4xIO_Link_RF200" }
+                      ]
+                    }
+                  }
+                ] 
+              },
+              {
+                "Name": "CM_4xIO-Link_V2_2_144I_128O_1",
+                "TypeIdentifier": {
+                  "GsdId": "CM 4xIO-Link V2.2 144I/128O",
+                  "FileName": "gsdml-v2.43-siemens-et200sp-20240209.xml"
+                },
+                "Parameters": {
+                  "RecordDataList": [
+                    {
+                      "Index": 128,
+                      "RawValue": "0x04 34 01 00 0E 04 01 01 21 20 03 00 2A 00 0C 02 09 00 02 1C 21 20 03 00 00 00 00 00 00 00 03 1C 21 20 03 00 00 00 00 00 00 00 04 1C 21 20 03 00 00 00 00 00 00 00"
+                    },
+                    {
+                      "Index": 243,
+                      "RawValue": "0x01 00 00 00" 
+                    }
+                  ]
+                }
+              },
+              {
+                "Name": "Server_module_V1_1",
+                "TypeIdentifier": {
+                  "GsdId": "Servermodule_without_io",
+                  "FileName": "gsdml-v2.43-siemens-et200sp-20240209.xml"
+                }
+              }
+            ]
+          }
+    ]
+}

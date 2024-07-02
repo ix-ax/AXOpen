@@ -1,3 +1,5 @@
+USING AXOpen.Components.Abb.Robotics;
+
 PROGRAM MyProgram
     VAR_EXTERNAL
         sandbox : SandboxContext;

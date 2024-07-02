@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using AXOpen.Base;
 using AXOpen.Base.Data;
 using AXOpen.Data;
 
@@ -110,43 +113,45 @@ namespace AXOpen.Data.Json
             get { return Directory.EnumerateFiles(Location).Count(); }
         }
 
-        protected override IEnumerable<T> GetRecordsNvi(string identifier, int limit, int skip, eSearchMode searchMode)
+        protected override IEnumerable<T> GetRecordsNvi(string identifier, int limit, int skip, eSearchMode searchMode, string sortExpresion, bool sortAscending)
         {
-            var filetered = new List<T>();
+            IEnumerable<string> enumerable;
 
             if (string.IsNullOrEmpty(identifier) || string.IsNullOrWhiteSpace(identifier) || identifier == "*")
             {
-                foreach (var item in Directory.EnumerateFiles(this.Location).Skip(skip).Take(limit))
-                {
-                    filetered.Add(this.Load(new FileInfo(item).Name, typeof(T)));
-                }
+                enumerable = Directory.EnumerateFiles(this.Location);
             }
             else
             {
-                IEnumerable<string> files;
-
                 switch (searchMode)
-                {                   
+                {
                     case eSearchMode.StartsWith:
-                        files = Directory.EnumerateFiles(this.Location).Where(p => new FileInfo(p).Name.StartsWith(identifier));
+                        enumerable = Directory.EnumerateFiles(this.Location).Where(p => new FileInfo(p).Name.StartsWith(identifier));
                         break;
                     case eSearchMode.Contains:
-                        files = Directory.EnumerateFiles(this.Location).Where(p => new FileInfo(p).Name.Contains(identifier));
+                        enumerable = Directory.EnumerateFiles(this.Location).Where(p => new FileInfo(p).Name.Contains(identifier));
                         break;
                     case eSearchMode.Exact:
                     default:
-                        files = Directory.EnumerateFiles(this.Location).Select(p => new FileInfo(p)).Where(p => p.Name == identifier).Select(p => p.FullName);
+                        enumerable = Directory.EnumerateFiles(this.Location).Select(p => new FileInfo(p)).Where(p => p.Name == identifier).Select(p => p.FullName);
                         break;
-                }
-                
-                foreach (var item in files.Skip(skip).Take(limit))
-                {
-                    filetered.Add(this.Load(new FileInfo(item).Name, typeof(T)));
                 }
             }
 
-            return filetered;
+            if (sortExpresion == null || string.IsNullOrWhiteSpace(sortExpresion) || sortExpresion.Equals("Default"))
+            {
+                if (!sortAscending)
+                    enumerable = enumerable.Reverse();
+            }
+            else
+            {
+                if (sortAscending)
+                    enumerable = enumerable.OrderBy(x => PropertyHelper.GetPropertyValue(x, sortExpresion));
+                else
+                    enumerable = enumerable.OrderByDescending(x => PropertyHelper.GetPropertyValue(x, sortExpresion));
+            }
 
+            return enumerable.Skip(skip).Take(limit).Select(x => this.Load(new FileInfo(x).Name, typeof(T)));
         }
 
         protected override long FilteredCountNvi(string id, eSearchMode searchMode)

@@ -9,7 +9,7 @@ files:
 devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
 dependencies:
-  "@ax/system-strings": ^6.0.94
+  "@ix-ax/ax.axopen.min": '0.0.0-dev.0'
 scripts:
   postbuild:
     - dotnet ixc

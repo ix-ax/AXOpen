@@ -1,6 +1,7 @@
 USING AxUnit;
+USING AXOpen.Components.Rexroth.Drives;
 
-NAMESPACE MyTest
+NAMESPACE AXOpen.Components.Rexroth.Drives.Tests
 
     {TestFixture}
     {S7.extern=ReadWrite}
@@ -9,8 +10,6 @@ NAMESPACE MyTest
             sandbox : SandboxContext;
             documentation : DocumentationContext;
             _rtc : AXOpen.S71500.Rtc;
-            PlcInputs : PlcInputs;
-            PlcOutputs : PlcOutputs;
         END_VAR
         {Test}
         METHOD PUBLIC MyTestMethod

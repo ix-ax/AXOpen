@@ -133,11 +133,11 @@ namespace AXOpen.Data
             });
         }
 
-        public IEnumerable<IBrowsableDataObject> Filter(string identifier, int limit = 10, int skip = 0, eSearchMode searchMode = eSearchMode.Exact)
+        public IEnumerable<IBrowsableDataObject> Filter(string identifier, int limit = 10, int skip = 0, eSearchMode searchMode = eSearchMode.Exact, string sortExpresion = "Default", bool sortAscending = false)
         {
             Records.Clear();
 
-            foreach (var item in this.DataExchange.GetRecords(identifier, limit: limit, skip: skip, searchMode))
+            foreach (var item in this.DataExchange.GetRecords(identifier, limit: limit, skip: skip, searchMode, sortExpresion, sortAscending))
             {
                 this.Records.Add(item);
             }
@@ -154,7 +154,7 @@ namespace AXOpen.Data
 
         public void UpdateObservableRecords()
         {
-            Filter(FilterById, Limit, Page * Limit, SearchMode).ToList();
+            Filter(FilterById, Limit, Page * Limit, SearchMode, SortExpresion, SortAscending).ToList();
         }
 
         public async Task Filter()
@@ -346,6 +346,8 @@ namespace AXOpen.Data
         public int Limit { get; set; } = 10;
         public string FilterById { get; set; } = "";
         public eSearchMode SearchMode { get; set; } = eSearchMode.Exact;
+        public string SortExpresion { get; set; } = "Default";
+        public bool SortAscending { get; set; } = false;
         public long FilteredCount { get; set; }
         public int Page { get; set; } = 0;
         public string CreateItemId { get; set; }

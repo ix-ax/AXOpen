@@ -1,4 +1,5 @@
 ﻿@namespace AXOpen.Data
+@using AXOpen.Base
 @using AXOpen.Data;
 @using AXSharp.Connector;
 @using CommunityToolkit.Mvvm.ComponentModel;
@@ -26,7 +27,24 @@ else
                     <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#importModal-@ViewGuid" @onclick="async () => { isFileImported = false; await LoadCustomExportDataAsync(); }">@Localizer["Import"]</button>
                 }
             }
+
             <div class="btn-group ms-auto" role="group">
+                @if (EnableSorting)
+                {
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.SortExpresion.ToString()</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item @(Vm.SortExpresion == "Default" ? "active" : "")" @onclick='() => setSortExpresionAsync("Default")'>Default</a></li>
+                            @foreach (var element in SortElements)
+                            {
+                                <li><a class="dropdown-item @(Vm.SortExpresion == element ? "active" : "")" @onclick='() => setSortExpresionAsync(element)'>@element</a></li>
+                            }
+                        </ul>
+                    </div>
+                    <button class="btn btn-outline-secondary" type="button" name="sort" aria-label="@(Vm.SortAscending ? "Sort ascending" : "Sort descending")" title="@(Vm.SortAscending ? "Sort ascending" : "Sort descending")" @onclick="() => setSortAscendingAsync()">
+                        <i class="bi bi-filter @(Vm.SortAscending ? "rotate" : "")"></i>
+                    </button>
+                }
                 <div class="btn-group" role="group">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Localizer[Vm.SearchMode.ToString()]</button>
                     <ul class="dropdown-menu">
@@ -54,9 +72,9 @@ else
                     <th scope="col">DataEntityId</th>
 
                     <CascadingValue Value="this" IsFixed>
-                    @ChildContent
-                </CascadingValue>
-                @foreach (ColumnData column in Columns)
+                        @ChildContent
+                    </CascadingValue>
+                    @foreach (ColumnData column in Columns)
                     {
                         if (column.HeaderName is null || column.HeaderName == "")
                         {
@@ -109,11 +127,11 @@ else
                                 {
                                     if (column.Clickable)
                                     {
-                                        <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@(item.GetType().GetProperty(column.BindingValue)?.GetValue(item))</td>
+                                        <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@(PropertyHelper.GetPropertyValue(item, column.BindingValue))</td>
                                     }
                                     else
                                     {
-                                        <td>@(item.GetType().GetProperty(column.BindingValue)?.GetValue(item))</td>
+                                        <td>@(PropertyHelper.GetPropertyValue(item, column.BindingValue))</td>
                                     }
                                 }
                             }
@@ -125,11 +143,11 @@ else
                                 {
                                     if (column.Clickable)
                                     {
-                                        <td style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@(item.GetType().GetProperty(column.BindingValue)?.GetValue(item))</td>
+                                        <td style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@(PropertyHelper.GetPropertyValue(item, column.BindingValue))</td>
                                     }
                                     else
                                     {
-                                        <td>@(item.GetType().GetProperty(column.BindingValue)?.GetValue(item))</td>
+                                        <td>@(PropertyHelper.GetPropertyValue(item, column.BindingValue))</td>
                                     }
                                 }
                             }
@@ -560,7 +578,7 @@ else
                                                 {
                                                     <AXOpen.Data.Blazor.AxoDataExchange.DataExchangeAccordionComponent AccordionContent="item" Vm="Vm" Fragment="fragment" Parent="_data" ViewGuid="ViewGuid" />
                                                 }
-                                            }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+                                            }
                                         </ul>
                                     </div>
                                 </div>
@@ -610,7 +628,7 @@ else
                             <span class="oi oi-warning" aria-hidden="true" b-p1s6lcmqsx=""></span>
                             <div>
                                 @Localizer["This file may not be able to be imported!"]
-         
+
                             </div>
                         </div>
                     }

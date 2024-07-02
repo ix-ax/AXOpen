@@ -1,69 +1,72 @@
 USING AXOpen.Core;
-{S7.extern=ReadWrite}
-CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
-    //<ComponentDeclaration>
-    VAR PUBLIC                
-        ExampleRobot : AXOpen.Components.Kuka.Robotics.AxoKrc4_v_5_x_x;      
-    END_VAR
-    //</ComponentDeclaration>                          
 
-    //<InitializationArgumentsDeclaration>
-    VAR PUBLIC     
-        movementParams : AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams;
-        {#ix-set:AttributeName = "<#Activate manual control#>"}
-        ActivateManualControl : BOOL;         
-    END_VAR
-    //</InitializationArgumentsDeclaration>            
+NAMESPACE AXOpen.Components.Kuka.Robotics
+    {S7.extern=ReadWrite}
+    CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
+        //<ComponentDeclaration>
+        VAR PUBLIC                
+            ExampleRobot : AXOpen.Components.Kuka.Robotics.AxoKrc4_v_5_x_x;      
+        END_VAR
+        //</ComponentDeclaration>                          
 
-    METHOD PUBLIC Run
-        VAR_INPUT
-            parent : IAxoContext;
-        END_VAR    
+        //<InitializationArgumentsDeclaration>
+        VAR PUBLIC     
+            movementParams : AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams;
+            {#ix-set:AttributeName = "<#Activate manual control#>"}
+            ActivateManualControl : BOOL;         
+        END_VAR
+        //</InitializationArgumentsDeclaration>            
 
-        THIS.Initialize(parent);
+        METHOD PUBLIC Run
+            VAR_INPUT
+                parent : IAxoContext;
+            END_VAR    
 
-        IF ActivateManualControl THEN
-            ExampleRobot.ActivateManualControl();
-        END_IF;
+            THIS.Initialize(parent);
 
-        //<Initialization>        
-        ExampleRobot.Run(THIS,
-                            HwIdentifiers#KRC4,
-                            HwIdentifiers#KRC4_512_digital_in_and_outputs_1);
-        //</Initialization>
+            IF ActivateManualControl THEN
+                ExampleRobot.ActivateManualControl();
+            END_IF;
 
-       THIS.UseInSequencer();
-    END_METHOD
+            //<Initialization>        
+            ExampleRobot.Run(THIS,
+                                HwIdentifiers#KRC4_HwID,
+                                HwIdentifiers#KRC4_512_digital_in_and_outputs_1_512_digital_in__and_outputs_HwID);
+            //</Initialization>
 
-    //<Usage>    
-    VAR PUBLIC                       
-        Sequencer : AxoSequencer;       
-        Steps : ARRAY[0..3] OF AXOpen.Core.AxoStep;
-    END_VAR
+        THIS.UseInSequencer();
+        END_METHOD
 
-    METHOD PRIVATE UseInSequencer   
+        //<Usage>    
+        VAR PUBLIC                       
+            Sequencer : AxoSequencer;       
+            Steps : ARRAY[0..3] OF AXOpen.Core.AxoStep;
+        END_VAR
 
-        Sequencer.Initialize(THIS);
-        Sequencer.Open();
+        METHOD PRIVATE UseInSequencer   
 
-        IF(Steps[0].Execute(Sequencer, 'Start at main')) THEN
-            IF(ExampleRobot.StartAtMain().IsDone()) THEN                
-                Sequencer.MoveNext();                
-            END_IF;    
-        END_IF;
+            Sequencer.Initialize(THIS);
+            Sequencer.Open();
 
-        IF(Steps[1].Execute(Sequencer, 'Move to position')) THEN
-            IF(ExampleRobot.StartMovements(movementParams).IsDone()) THEN                
-                Sequencer.MoveNext();                
-            END_IF;    
-        END_IF;       
+            IF(Steps[0].Execute(Sequencer, 'Start at main')) THEN
+                IF(ExampleRobot.StartAtMain().IsDone()) THEN                
+                    Sequencer.MoveNext();                
+                END_IF;    
+            END_IF;
 
-        IF(Steps[1].Execute(Sequencer, 'Stop')) THEN
-            IF(ExampleRobot.StopMovements().IsDone()) THEN                
-                Sequencer.CompleteSequence();                
-            END_IF;    
-        END_IF;       
-    END_METHOD
-    
-    //</Usage>
-END_CLASS
+            IF(Steps[1].Execute(Sequencer, 'Move to position')) THEN
+                IF(ExampleRobot.StartMovements(movementParams).IsDone()) THEN                
+                    Sequencer.MoveNext();                
+                END_IF;    
+            END_IF;       
+
+            IF(Steps[1].Execute(Sequencer, 'Stop')) THEN
+                IF(ExampleRobot.StopMovements().IsDone()) THEN                
+                    Sequencer.CompleteSequence();                
+                END_IF;    
+            END_IF;       
+        END_METHOD
+        
+        //</Usage>
+    END_CLASS
+END_NAMESPACE

@@ -1,4 +1,4 @@
-# Component_1
+# AxoInsight v6.0.0
 
 # [CONTROLLER](#tab/controller)
 

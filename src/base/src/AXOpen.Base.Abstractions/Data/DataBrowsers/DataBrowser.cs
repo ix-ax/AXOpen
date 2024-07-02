@@ -24,11 +24,11 @@ namespace AXOpen.Base.Data
 
         protected IRepository<T> Repository { get; set; }        
 
-        public void Filter(string identifier, int limit = 10, int skip = 0, eSearchMode searchMode = eSearchMode.Exact)
+        public void Filter(string identifier, int limit = 10, int skip = 0, eSearchMode searchMode = eSearchMode.Exact, string sortExpresion = "Default", bool sortAscending = false)
         {
             Records.Clear();
 
-            foreach (var item in this.Repository.GetRecords(identifier, limit: limit, skip: skip, searchMode))
+            foreach (var item in this.Repository.GetRecords(identifier, limit: limit, skip: skip, searchMode, sortExpresion, sortAscending))
             {
                 this.Records.Add(item);
             }
@@ -374,7 +374,7 @@ namespace AXOpen.Base.Data
     public interface IDataBrowser
     {
         IList<object> Records { get; }
-        void Filter(string identifier, int limit, int skip, eSearchMode searchMode);
+        void Filter(string identifier, int limit, int skip, eSearchMode searchMode, string SortExpresion, bool sortAscending);
         object FindById(string id);
         IEnumerable<object> FindByCreatedRange(DateTime start, DateTime end);
         IEnumerable<object> FindByModifiedRange(DateTime start, DateTime end);

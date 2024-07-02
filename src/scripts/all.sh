@@ -1,5 +1,5 @@
-if [ "$#" -ne 3 ]; then
-    echo "Usage: $0 <PLC_NAME> <PLC_IP_ADDRESS> <PLATFORM>"
+if [ "$#" -ne 5 ]; then
+    echo "Usage: $0 <PLC_NAME> <PLC_IP_ADDRESS> <PLATFORM> <USERNAME> <PASSWORD>"
     exit 1
 fi
 
@@ -22,14 +22,65 @@ if [ -z $PLATFORM ]; then
     exit 1
 fi
 
-#apax run ci                                  # clean and install dependencies
-apax clean
-apax install
+USERNAME=$4
+if [ -z $USERNAME ]; then
+    echo "The USERNAME could not be an empty string."
+    exit 1
+fi
 
-#hw_update                                    # copy and install gsd, copy templates, compile, copy the HwIds, download HW using certificate
-hw_update=$( dirname ${BASH_SOURCE[0]})"\\hw_update.sh"
-$hw_update $PLC_NAME $PLC_IP_ADDRESS 
+PASSWORD=$5
+if [ -z $PASSWORD ]; then
+    echo "The PASSWORD could not be an empty string."
+    exit 1
+fi
 
-#sw_build_and_download_full                   # software build and full download
-sw_build_and_download_full=$( dirname ${BASH_SOURCE[0]})"\\sw_build_and_download_full.sh"
-$sw_build_and_download_full $PLC_NAME $PLC_IP_ADDRESS $PLATFORM
+export GREEN='\033[0;32m'
+export RED='\033[0;31m'
+
+certfile="./certs/$PLC_NAME/$PLC_NAME.cer" 
+if ! [[ -e "$certfile" ]]; then
+	printf "${RED}Certification file $certfile does not exist.\r\n"
+	#alf 										#clear plc except ip and name and provide all actions for install all, build and initial download hw so as sw
+	alf=$( dirname ${BASH_SOURCE[0]})"\\all_first.sh"
+	$alf $PLC_NAME $PLC_IP_ADDRESS $PLATFORM $USERNAME $PASSWORD
+else
+	is_cert_hash_sha1_equal_script=$( dirname ${BASH_SOURCE[0]})"\\is_cert_hash_sha1_equal.sh"
+	if ! $is_cert_hash_sha1_equal_script "$PLC_NAME" "$PLC_IP_ADDRESS"; then
+		printf "${RED}Certification file $certfile exists, but its sha1 hash is different to the PLC's one.\r\n"
+		printf "${RED}It has to be regenerated again.\r\n"
+		#alf										  #clear plc except ip and name and provide all actions for install all, build and initial download hw so as sw
+		alf=$( dirname ${BASH_SOURCE[0]})"\\all_first.sh"
+		$alf $PLC_NAME $PLC_IP_ADDRESS $PLATFORM $USERNAME $PASSWORD
+	else
+		use_plcsim=AXUSEPLCSIM
+		use_plcsim_value=$(printenv "$use_plcsim")
+
+		if [ -z "$use_plcsim_value" ]; then
+			echo "Environment variable '$use_plcsim' is not set."
+		else
+			echo "The value of '$use_plcsim' is: $use_plcsim_value"
+
+			if [ "$(echo 'true' | tr '[:upper:]' '[:lower:]')" == "$(echo "$use_plcsim_value" | tr '[:upper:]' '[:lower:]')" ]; then
+				plcsimscript=$( dirname ${BASH_SOURCE[0]})"\\StartPlcSimAdvCli.exe"
+				$plcsimscript
+			fi
+		fi
+	
+		printf "${GREEN}Certification file $certfile exists and its sha1 hash is equal to the PLC's one.\r\n"
+		printf "${GREEN}No prompt will popup during execution, so you could leave your PC and enjoy your coffee now.\r\n"
+
+		#apax run ci                                  # clean and install dependencies
+		apax clean
+		apax install
+
+		#hw_update                                    # copy and install gsd, copy templates, compile, copy the HwIds, download HW using certificate
+		hw_update=$( dirname ${BASH_SOURCE[0]})"\\hw_update.sh"
+		$hw_update $PLC_NAME $PLC_IP_ADDRESS 
+
+		#sw_build_and_download_full                   # software build and full download
+		sw_build_and_download_full=$( dirname ${BASH_SOURCE[0]})"\\sw_build_and_download_full.sh"
+		$sw_build_and_download_full $PLC_NAME $PLC_IP_ADDRESS $PLATFORM
+	fi
+fi 
+
+

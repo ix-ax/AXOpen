@@ -64,9 +64,9 @@ public class AxoCompoundRepository : IRepository
         }
     }
 
-    public IEnumerable<IBrowsableDataObject> GetRecords(string identifier, int limit, int skip, eSearchMode searchMode)
+    public IEnumerable<IBrowsableDataObject> GetRecords(string identifier, int limit, int skip, eSearchMode searchMode, string sortExpresion, bool sortAscending)
     {
-        return ((dynamic)DataFragments.First().Repository).GetRecords(identifier, limit, skip, searchMode);
+        return ((dynamic)DataFragments.First().Repository).GetRecords(identifier, limit, skip, searchMode, sortExpresion, sortAscending);
     }
 
     public IEnumerable<IBrowsableDataObject> GetRecords(string identifier)

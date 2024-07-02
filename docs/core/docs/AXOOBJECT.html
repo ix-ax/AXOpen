@@ -97,7 +97,8 @@
     }     
 </code></pre>
 <p><strong>AxoObject initialization within a AxoContext</strong></p>
-<pre><code class="lang-smalltalk">CLASS PUBLIC MyContext EXTENDS  AXOpen.Core.AxoContext
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC MyContext EXTENDS  AXOpen.Core.AxoContext
     VAR
         _myObject : AxoObject;
     END_VAR
@@ -107,7 +108,8 @@
 END_CLASS
 </code></pre>
 <p><strong>AxoObject initialization within another AxoObject</strong></p>
-<pre><code class="lang-smalltalk">CLASS PUBLIC MyParentObject  EXTENDS AxoContext
+<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+CLASS PUBLIC MyParentObject  EXTENDS AxoContext
     VAR
         _myChildObject  : AxoObject;
     END_VAR

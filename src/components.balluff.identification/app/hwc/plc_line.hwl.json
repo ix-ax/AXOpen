@@ -22,7 +22,7 @@
         { "Ref": "plc_line/plc_line/profinet_x1" }
       ],
       "DeviceInterfaces": [
-
+        { "Ref":  "BNIPNT507005Z040/BNIPNT507005Z040/profinet"}
       ]
     }
   ]

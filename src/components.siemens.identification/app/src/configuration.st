@@ -1,3 +1,5 @@
+USING AXOpen.Components.SIEM.Identification;
+
 CONFIGURATION MyConfiguration
     TASK Main(Interval := T#1ms, Priority := 1);
     PROGRAM P1 WITH Main: MyProgram;
