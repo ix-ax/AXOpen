@@ -4,17 +4,17 @@
   href: ~/articles/notes/README.md
   items:
   - name: Template themes
-    href: ~/articles/themes/README.md
+    href: ~/articles/notes/Themes.md
   - name: Template localization
-    href: ~/articles/localization/README.md
+    href: ~/articles/notes/Localization.md
   - name: Server configuration
-    href: ~/articles/configuration/README.md
+    href: ~/articles/notes/Configuration.md
   - name: Client Identification
-    href: ~/clientchat/index.html
+    href: ~/clientchat/src/index.html
   - name: Embedding assets in nuget package
     href: ~/articles/notes/Assets_in_nuget_package.md  
   - name: ToolTips and PopOvers
-    href: ~/articles/toolTipsAndPopOvers/README.md  
+    href: ~/articles/notes/ToolTipsAndPopOvers.md  
 - name: Dev guidelines        
   href: ~/articles/guidelines/README.md
   items:
