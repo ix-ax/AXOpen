@@ -44,6 +44,13 @@ if ! [[ -e "$certfile" ]]; then
 	alf=$( dirname ${BASH_SOURCE[0]})"\\all_first.sh"
 	$alf $PLC_NAME $PLC_IP_ADDRESS $PLATFORM $USERNAME $PASSWORD
 else
+	plcsim_script=$( dirname ${BASH_SOURCE[0]})"\\plcsim.sh"
+	$plcsim_script
+
+	#apax run ci                                  # clean and install dependencies
+	apax clean
+	apax install
+
 	is_cert_hash_sha1_equal_script=$( dirname ${BASH_SOURCE[0]})"\\is_cert_hash_sha1_equal.sh"
 	if ! $is_cert_hash_sha1_equal_script "$PLC_NAME" "$PLC_IP_ADDRESS"; then
 		printf "${RED}Certification file $certfile exists, but its sha1 hash is different to the PLC's one.\r\n"
@@ -52,26 +59,10 @@ else
 		alf=$( dirname ${BASH_SOURCE[0]})"\\all_first.sh"
 		$alf $PLC_NAME $PLC_IP_ADDRESS $PLATFORM $USERNAME $PASSWORD
 	else
-		use_plcsim=AXUSEPLCSIM
-		use_plcsim_value=$(printenv "$use_plcsim")
-
-		if [ -z "$use_plcsim_value" ]; then
-			echo "Environment variable '$use_plcsim' is not set."
-		else
-			echo "The value of '$use_plcsim' is: $use_plcsim_value"
-
-			if [ "$(echo 'true' | tr '[:upper:]' '[:lower:]')" == "$(echo "$use_plcsim_value" | tr '[:upper:]' '[:lower:]')" ]; then
-				plcsimscript=$( dirname ${BASH_SOURCE[0]})"\\StartPlcSimAdvCli.exe"
-				$plcsimscript
-			fi
-		fi
 	
 		printf "${GREEN}Certification file $certfile exists and its sha1 hash is equal to the PLC's one.\r\n"
 		printf "${GREEN}No prompt will popup during execution, so you could leave your PC and enjoy your coffee now.\r\n"
 
-		#apax run ci                                  # clean and install dependencies
-		apax clean
-		apax install
 
 		#hw_update                                    # copy and install gsd, copy templates, compile, copy the HwIds, download HW using certificate
 		hw_update=$( dirname ${BASH_SOURCE[0]})"\\hw_update.sh"
