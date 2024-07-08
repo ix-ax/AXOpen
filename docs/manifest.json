@@ -4328,16 +4328,6 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "articles/configuration/README.md",
-      "output": {
-        ".html": {
-          "relative_path": "articles/configuration/README.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
       "source_relative_path": "articles/guidelines/Conventions.md",
       "output": {
         ".html": {
@@ -4387,19 +4377,6 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
-      "type": "Conceptual",
-      "source_relative_path": "articles/localization/README.md",
-      "output": {
-        ".html": {
-          "relative_path": "articles/localization/README.html"
-        }
-      },
-      "version": ""
-    },
-    {
       "type": "Conceptual",
       "source_relative_path": "articles/notes/APAX_PACAKGE_GENERAL.md",
       "output": {
@@ -4431,10 +4408,33 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/notes/Configuration.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/notes/Configuration.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/notes/LIBRARYHEADER.md",
       "output": {
         ".html": {
           "relative_path": "articles/notes/LIBRARYHEADER.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "articles/notes/Localization.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/notes/Localization.html"
         }
       },
       "version": ""
@@ -4470,6 +4470,29 @@
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "articles/notes/Themes.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/notes/Themes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/notes/ToolTipsAndPopOvers.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/notes/ToolTipsAndPopOvers.html"
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "articles/rendering/intro.md",
       "output": {
@@ -4498,29 +4521,6 @@
       "output": {
         ".html": {
           "relative_path": "articles/security/README.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
-      "type": "Conceptual",
-      "source_relative_path": "articles/themes/README.md",
-      "output": {
-        ".html": {
-          "relative_path": "articles/themes/README.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "articles/toolTipsAndPopOvers/README.md",
-      "output": {
-        ".html": {
-          "relative_path": "articles/toolTipsAndPopOvers/README.html"
         }
       },
       "version": ""

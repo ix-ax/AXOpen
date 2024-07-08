@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>For proper function, make sure you have included these files: | System.Dynamic.ExpandoObject </title>
+      <title>How to configure Blazor server for Siemens panel | System.Dynamic.ExpandoObject </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="For proper function, make sure you have included these files: | System.Dynamic.ExpandoObject ">
+      <meta name="title" content="How to configure Blazor server for Siemens panel | System.Dynamic.ExpandoObject ">
       
       <link rel="icon" href="../../images/favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/notes/README.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/notes/Configuration.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,22 +87,51 @@
         </div>
 
         <article data-uid="">
-<h3 id="for-proper-function-make-sure-you-have-included-these-files">For proper function, make sure you have included these files:</h3>
+<h1 id="how-to-configure-blazor-server-for-siemens-panel">How to configure Blazor server for Siemens panel</h1>
 
-<h2 id="1-bootstrap-css">1. Bootstrap CSS</h2>
-<p>In your <code>_Host.cshtml</code> file, include the bootstrap css:</p>
-<pre><code class="lang-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;~/css/bootstrap/bootstrap.min.css&quot; /&gt;
+<p>To configure Blazor Server, you need to follow these two steps:</p>
+<h2 id="1-change-the-default-ip-address">1. Change the default IP Address</h2>
+<p>To modify the IP address of the website, you have two options:</p>
+<ol>
+<li><p>In Program.cs
+Inside the Program.cs file, add the following lines to specify the URLs:</p>
+<pre><code class="lang-C#">builder.WebHost.UseUrls(&quot;http://10.10.10.198:5262;https://10.10.10.198:7292&quot;);
 </code></pre>
-<h2 id="2-bootstrap-js">2. Bootstrap JS</h2>
-<p>In your <code>_Host.cshtml</code> file, on the end include the bootstrap js:</p>
-<pre><code class="lang-html">&lt;script src=&quot;~/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+<p>or</p>
+<pre><code class="lang-C#">builder.WebHost.UseUrls(&quot;http://*:5262;https://*:7292&quot;);
 </code></pre>
-<h2 id="3-tooltips-and-popovers">3. ToolTips and Popovers</h2>
-<p><a href="ToolTipsAndPopOvers.html">ToolTips and Popovers</a></p>
+</li>
+<li><p>In launchSettings.json
+Open the launchSettings.json file and modify the 'applicationUrl' under the profiles section. For example:</p>
+</li>
+</ol>
+<pre><code class="lang-JSON">&quot;applicationUrl&quot;: &quot;http://10.10.10.198:5262;https://10.10.10.198:7292&quot;
+</code></pre>
+<p>Please note that the IP address corresponds to the IP address of your network adapter.</p>
+<h2 id="2-add-rules-to-the-firewall">2. Add rules to the firewall</h2>
+<p>Follow these steps to add rules for the desired ports in the Windows Defender Firewall:</p>
+<ol>
+<li><p>Go to Control Panel &gt; Windows Defender Firewall &gt; Advanced Settings</p>
+</li>
+<li><p>In the Inbound Rules section, add the rules for the ports you wish to use.</p>
+</li>
+</ol>
+<p>If you are using Eset, you should perform the following steps:</p>
+<ol>
+<li><p>Navigate to Eset &gt; Setup &gt; Network &gt; Click on settings next to Firewall &gt; Configure.</p>
+</li>
+<li><p>Check the option `Also evaluate rules from Windows Firewall`` or add the rule directly in Eset.
+If you using Eset you need to: Eset &gt; Setup &gt; Network &gt; click on settings next to Firewall &gt; Configure</p>
+</li>
+</ol>
+<h3 id="warning">Warning</h3>
+<p>If you intend to use HTTPS with a self-signed SSL certificate, make sure to adjust the <code>DeveloperSettings.BypassSSLCertificate</code> attribute in <code>Program.cs</code> to <code>true</code>, before start your application. Here's an example of how to do it:</p>
+<pre><code class="lang-C#">DeveloperSettings.BypassSSLCertificate = false;
+</code></pre>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/notes/README.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/notes/Configuration.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>For proper function, make sure you have included these files: | System.Dynamic.ExpandoObject </title>
+      <title>Utilizing ToolTips and PopOvers | System.Dynamic.ExpandoObject </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="For proper function, make sure you have included these files: | System.Dynamic.ExpandoObject ">
+      <meta name="title" content="Utilizing ToolTips and PopOvers | System.Dynamic.ExpandoObject ">
       
       <link rel="icon" href="../../images/favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/notes/README.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/notes/ToolTipsAndPopOvers.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,22 +87,39 @@
         </div>
 
         <article data-uid="">
-<h3 id="for-proper-function-make-sure-you-have-included-these-files">For proper function, make sure you have included these files:</h3>
+<h1 id="utilizing-tooltips-and-popovers">Utilizing ToolTips and PopOvers</h1>
 
-<h2 id="1-bootstrap-css">1. Bootstrap CSS</h2>
-<p>In your <code>_Host.cshtml</code> file, include the bootstrap css:</p>
-<pre><code class="lang-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;~/css/bootstrap/bootstrap.min.css&quot; /&gt;
+<p>To incorporate ToolTips and PopOvers into your Blazor Server application, you need to initialize these components. You can achieve this by adding a JavaScript file and invoking it within MainLayout.razor, as demonstrated below.</p>
+<h2 id="adding-the-javascript-file">Adding the JavaScript file</h2>
+<p>Start by creating a new JavaScript file named 'addToolTipsAndPopOvers.js' within the 'wwwroot/js' folder. In this file, insert the following method:</p>
+<pre><code class="lang-JS">export function addToolTipsAndPopOvers() {
+    // Initialize tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle=&quot;tooltip&quot;]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+
+    // Initialize popovers
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle=&quot;popover&quot;]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl);
+    });
+}
 </code></pre>
-<h2 id="2-bootstrap-js">2. Bootstrap JS</h2>
-<p>In your <code>_Host.cshtml</code> file, on the end include the bootstrap js:</p>
-<pre><code class="lang-html">&lt;script src=&quot;~/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+<h2 id="adding-the-onafterrenderasync-method-in-mainlayoutrazor">Adding the OnAfterRenderAsync method in MainLayout.razor</h2>
+<p>In your 'MainLayout.razor', include the 'OnAfterRenderAsync' method, which call the JavaScript function.</p>
+<pre><code class="lang-C">@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        var module = await JSRuntime.InvokeAsync&lt;IJSObjectReference&gt;(&quot;import&quot;, &quot;/js/addToolTipsAndPopOvers.js&quot;);
+        await module.InvokeVoidAsync(&quot;addToolTipsAndPopOvers&quot;);
+    }
+}
 </code></pre>
-<h2 id="3-tooltips-and-popovers">3. ToolTips and Popovers</h2>
-<p><a href="ToolTipsAndPopOvers.html">ToolTips and Popovers</a></p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/notes/README.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/notes/ToolTipsAndPopOvers.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
