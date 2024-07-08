@@ -36,23 +36,22 @@ fi
 
 export GREEN='\033[0;32m'
 export RED='\033[0;31m'
+export NC='\033[0m' # No Color
 
-printf "${RED}This command will prompt during execution, so do not leave your PC. You can enjoy your coffee afterward.\r\n"
+printf "${RED}This command will prompt during execution, so do not leave your PC. You can enjoy your coffee afterward.\r\n${NC}"
 
-use_plcsim=AXUSEPLCSIM
-use_plcsim_value=$(printenv "$use_plcsim")
-
-if [ -z "$use_plcsim_value" ]; then
-	echo "Environment variable '$use_plcsim' is not set."
-else
-	echo "The value of '$use_plcsim' is: $use_plcsim_value"
-
-	if [ "$(echo 'true' | tr '[:upper:]' '[:lower:]')" == "$(echo "$use_plcsim_value" | tr '[:upper:]' '[:lower:]')" ]; then
-		plcsimscript=$( dirname ${BASH_SOURCE[0]})"\\StartPlcSimAdvCli.exe"
-		$plcsimscript
-	fi
+check_requisites_apax_script=$( dirname ${BASH_SOURCE[0]})"\\check_requisites_apax.sh"
+if ! $check_requisites_apax_script ; then
+	exit 1
 fi
 
+check_requisites_nuget_script=$( dirname ${BASH_SOURCE[0]})"\\check_requisites_nuget.sh"
+if ! $check_requisites_nuget_script ; then
+	exit 1
+fi
+
+plcsim_script=$( dirname ${BASH_SOURCE[0]})"\\plcsim.sh"
+$plcsim_script
 
 #apax run ci                                  # clean and install dependencies
 apax clean
