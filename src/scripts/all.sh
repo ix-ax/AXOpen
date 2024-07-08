@@ -36,14 +36,26 @@ fi
 
 export GREEN='\033[0;32m'
 export RED='\033[0;31m'
+export NC='\033[0m' # No Color
+
 
 certfile="./certs/$PLC_NAME/$PLC_NAME.cer" 
 if ! [[ -e "$certfile" ]]; then
-	printf "${RED}Certification file $certfile does not exist.\r\n"
+	printf "${RED}Certification file $certfile does not exist.\r\n${NC}"
 	#alf 										#clear plc except ip and name and provide all actions for install all, build and initial download hw so as sw
 	alf=$( dirname ${BASH_SOURCE[0]})"\\all_first.sh"
 	$alf $PLC_NAME $PLC_IP_ADDRESS $PLATFORM $USERNAME $PASSWORD
 else
+	check_requisites_apax_script=$( dirname ${BASH_SOURCE[0]})"\\check_requisites_apax.sh"
+	if ! $check_requisites_apax_script ; then
+		exit 1
+	fi
+
+	check_requisites_nuget_script=$( dirname ${BASH_SOURCE[0]})"\\check_requisites_nuget.sh"
+	if ! $check_requisites_nuget_script ; then
+		exit 1
+	fi
+
 	plcsim_script=$( dirname ${BASH_SOURCE[0]})"\\plcsim.sh"
 	$plcsim_script
 
@@ -54,14 +66,14 @@ else
 	is_cert_hash_sha1_equal_script=$( dirname ${BASH_SOURCE[0]})"\\is_cert_hash_sha1_equal.sh"
 	if ! $is_cert_hash_sha1_equal_script "$PLC_NAME" "$PLC_IP_ADDRESS"; then
 		printf "${RED}Certification file $certfile exists, but its sha1 hash is different to the PLC's one.\r\n"
-		printf "${RED}It has to be regenerated again.\r\n"
+		printf "${RED}It has to be regenerated again.\r\n${NC}"
 		#alf										  #clear plc except ip and name and provide all actions for install all, build and initial download hw so as sw
 		alf=$( dirname ${BASH_SOURCE[0]})"\\all_first.sh"
 		$alf $PLC_NAME $PLC_IP_ADDRESS $PLATFORM $USERNAME $PASSWORD
 	else
 	
 		printf "${GREEN}Certification file $certfile exists and its sha1 hash is equal to the PLC's one.\r\n"
-		printf "${GREEN}No prompt will popup during execution, so you could leave your PC and enjoy your coffee now.\r\n"
+		printf "${GREEN}No prompt will popup during execution, so you could leave your PC and enjoy your coffee now.\r\n${NC}"
 
 
 		#hw_update                                    # copy and install gsd, copy templates, compile, copy the HwIds, download HW using certificate

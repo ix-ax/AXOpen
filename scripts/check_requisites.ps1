@@ -69,6 +69,46 @@ try {
 }
 
 
+$apaxUrl = "https://console.simatic-ax.siemens.io/"
+$accessToApax = $false;
+if($isApaxInstalled){
+    try {
+        # Just check the access by trying to get the feed
+        $response = Invoke-RestMethod -Uri $apaxUrl -Method Get
+        Write-Host "Feed: $apaxUrl accessible by means of network." -ForegroundColor Green
+        $accessToApax = $true;
+    }
+    catch {
+        Write-Host "Failed to access feed: $apaxUrl. Error: $($_.Exception.Message)" -ForegroundColor Red
+        Write-Host "Try to access it manually, check your connection, firewall setttings, etc. " -ForegroundColor Red
+    }
+}
+
+
+# Check for apax
+$isApaxAccessible = $false
+try {
+    $errorOutput =""
+    $output =""
+    $command = "apax info --ax-scopes"
+    $resp = $(Invoke-Expression "$command" -OutVariable output -ErrorVariable errorOutput )
+    Write-Host "output $output"  -ForegroundColor Red    
+    Write-Host "errorOutput $errorOutput"  -ForegroundColor Red    
+    Write-Host "resp $resp"  -ForegroundColor Red    
+    if($errorOutput[1].ToString().Contains("No access to the Simatic-AX registry"))
+    {         
+        Write-Host "Unable to access apax packages. Check your connections, firewall, credentials etc."  -ForegroundColor Red    
+        Write-Host "$errorOutput"  -ForegroundColor Red    
+    }
+    else
+    {
+        Write-Host "Apax packages are accessible." -ForegroundColor Green   
+        $isApaxAccessible = $true; 
+    } 
+} catch {
+    Write-Host "Error: Unable to access apax packages. Check your connections, firewall, credentials etc. : $($_.Exception.Message)" -ForegroundColor Red
+}
+
 # Define the command to get the version
 $command = "axcode --version"
 
@@ -86,10 +126,9 @@ try {
         Write-Host "The AXCode version does not match the expected version: $expectedVersion" -ForegroundColor Red
     }
 } catch {
-    Write-Host "Error: Unable to determine the AXCode version. Ensure AXCode is correctly installed and accessible from the command line."
+    Write-Host "Error: Unable to determine the AXCode version. Ensure AXCode is correctly installed and accessible from the command line." -ForegroundColor Red
 }
 
-$feedUrl = "https://nuget.pkg.github.com/ix-ax/index.json"
 
 $headers = @{
     "Authorization" = "Bearer $userToken"
@@ -97,16 +136,60 @@ $headers = @{
     "Accept"        = "application/vnd.github.package-preview+json"
 }
 
-$hasFeedAccess = $false;
+$feedUrl = "https://nuget.pkg.github.com/ix-ax/index.json"
+
+# Check if the feed is added
+$isFeedAlreadyAdded = $false;
 try {
-    # Just check the access by trying to get the feed
-    $response = Invoke-RestMethod -Uri $feedUrl -Headers $headers -Method Get
-    Write-Host "Successfully accessed feed: $feedUrl" -ForegroundColor Green
-    $hasFeedAccess = $true;
+    $feeds=$(dotnet nuget list source)
+
+    $isFeedAlreadyAdded = $feeds | Select-String -Pattern $feedUrl
+
+    if ($isFeedAlreadyAdded) {
+        Write-Host "The NuGet feed with URL $feedUrl is already added."
+    } else {
+        Write-Host "The NuGet feed with URL $feedUrl is not added." -ForegroundColor Red
+        Write-Host "You will need to add $feedUrl to your nuget sources manually (more information in src/README.md)." -ForegroundColor Red
+    }
 }
 catch {
-    Write-Host "Failed to access feed: $feedUrl. Error: $($_.Exception.Message)" -ForegroundColor Red
-    Write-Host "You will need to add $feed to your nuget sources manually (more information in src/README.md)." -ForegroundColor Red
+        Write-Host "Check if the NuGet feed with URL $feedUrl is properly added to your nuget sources." -ForegroundColor Red
+}
+
+# Check if the feed is accessible by means of network
+$hasFeedAccess = $false;
+if($isFeedAlreadyAdded){
+    try {
+        # Just check the access by trying to get the feed
+        $response = Invoke-RestMethod -Uri $feedUrl -Headers $headers -Method Get
+        Write-Host "Feed: $feedUrl accessible by means of network." -ForegroundColor Green
+        $hasFeedAccess = $true;
+    }
+    catch {
+        Write-Host "Failed to access feed: $feedUrl. Error: $($_.Exception.Message)" -ForegroundColor Red
+        Write-Host "Try to access it manually, check your connection, firewall setttings, etc. " -ForegroundColor Red
+    }
+}
+
+$hasFeedAutorization = $false;
+if($hasFeedAccess){
+    try {     
+
+        $response = dotnet tool update axsharp.ixc --prerelease
+        $status = $?
+        if($status -match "^(?i)true$")
+        {         
+            write-host "Authentification passed successfully while accessing feed $feedurl."  -foregroundcolor green   
+            $hasfeedautorization = $true; 
+        }
+        else
+        {
+            Write-Host "Authentification error when trying to access the feed $feedUrl. "  -ForegroundColor Red    
+        } 
+    } 
+    catch {     
+		    Write-Host "Authentification error when trying to access the feed  $feedUrl : $($_.Exception.Message)"   -ForegroundColor Red    
+    }
 }
 
 # Define a function to prompt and download
@@ -151,7 +234,7 @@ To download Apax:
     Write-Host "Apax is not installed or not found in PATH. You need to have a valid SIMATIC-AX license." $apaxGuide -ForegroundColor Yellow
 }
 
-if(-not $hasFeedAccess)
+if(-not ($isFeedAlreadyAdded  -and $hasFeedAccess -and $hasFeedAutorization))
 {
 $nugetGuide = @"
 To manually add the GitHub NuGet feed to your sources:
