@@ -92,9 +92,9 @@ try {
     $output =""
     $command = "apax info --ax-scopes"
     $resp = $(Invoke-Expression "$command" -OutVariable output -ErrorVariable errorOutput )
-    Write-Host "output $output"  -ForegroundColor Red    
-    Write-Host "errorOutput $errorOutput"  -ForegroundColor Red    
-    Write-Host "resp $resp"  -ForegroundColor Red    
+    #Write-Host "output $output"  -ForegroundColor Red    
+    #Write-Host "errorOutput $errorOutput"  -ForegroundColor Red    
+    #Write-Host "resp $resp"  -ForegroundColor Red    
     if($errorOutput[1].ToString().Contains("No access to the Simatic-AX registry"))
     {         
         Write-Host "Unable to access apax packages. Check your connections, firewall, credentials etc."  -ForegroundColor Red    
