@@ -13,5 +13,6 @@ dependencies:
   "@ax/system-timer": ^7.0.17
   "@ax/system-serde": ^7.0.17
   "@ax/system-bitaccess": ^7.0.17
+  # "@ax/hwc": ^1.1.154
 installStrategy: strict
 apaxVersion: 3.1.1
