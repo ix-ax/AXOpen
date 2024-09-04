@@ -18,8 +18,6 @@ scripts:
     - apax install -L
     - apax build
     - dotnet ixc
-    - apax sld -i $AXTARGETPLATFORMINPUT -t $AXTARGET
-      --accept-security-disclaimer --default-server-interface -r
+    - apax sld -i $AXTARGETPLATFORMINPUT -t $AXTARGET --accept-security-disclaimer --default-server-interface -r
 installStrategy: strict
 apaxVersion: 3.3.1
-

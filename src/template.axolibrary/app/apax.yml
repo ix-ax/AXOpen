@@ -15,7 +15,7 @@ dependencies:
   "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
   "@ix-ax/apaxlibname": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
-  "@ix-ax/ax.axopen.app": '0.0.0-dev.0'  
+  "@ix-ax/ax.axopen.app": '0.0.0-dev.0'
 scripts:
   # For proper execution of these scripts, the following variables need to be defined as environment variables or local variables.
   # Local variables can override environment variables.
