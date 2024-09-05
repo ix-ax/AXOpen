@@ -196,6 +196,7 @@ public sealed class TestsTask : FrostingTask<BuildContext>
         {
             context.Libraries.ToList().ForEach(lib =>
             {
+                context.ApaxClean(lib);
                 context.ApaxInstall(context.GetLibraryAxFolders(lib));
                 context.ApaxBuild(context.GetLibraryAxFolders(lib));
                 context.ApaxTestLibrary(lib);
@@ -204,7 +205,7 @@ public sealed class TestsTask : FrostingTask<BuildContext>
                     context.ApaxPack(lib);
                     context.ApaxCopyArtifacts(lib);
                 }
-                context.ApaxClean(lib);
+                //context.ApaxClean(lib);
             });
 
         }
