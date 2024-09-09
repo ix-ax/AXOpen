@@ -5,6 +5,8 @@ type: generic
 #   - '1500'
 files:
   - apax.yml
+catalogs:
+  "@ax/simatic-ax": ^2405.0.0
 dependencies:
   "@ax/sdk": ^2405.0.0
 installStrategy: strict

@@ -5,6 +5,8 @@ files:
   - apax.yml
 devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
+catalogs:
+  "@ax/simatic-ax": ^2405.0.0  
 dependencies:
   "@ix-ax/ax.axopen.min": '0.0.0-dev.0'
   "@ax/simatic-1500-distributedio": ^7.0.1
@@ -13,6 +15,5 @@ dependencies:
   "@ax/system-timer": ^7.0.17
   "@ax/system-serde": ^7.0.17
   "@ax/system-bitaccess": ^7.0.17
-  # "@ax/hwc": ^1.1.154
 installStrategy: strict
 apaxVersion: 3.3.1

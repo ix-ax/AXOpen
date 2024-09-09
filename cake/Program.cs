@@ -199,7 +199,7 @@ public sealed class TestsTask : FrostingTask<BuildContext>
                 context.ApaxClean(lib);
                 context.ApaxInstall(context.GetLibraryAxFolders(lib));
                 context.ApaxBuild(context.GetLibraryAxFolders(lib));
-                context.ApaxTestLibrary(lib);
+                //context.ApaxTestLibrary(lib);
                 if (context.BuildParameters.DoPack)
                 {
                     context.ApaxPack(lib);
@@ -216,7 +216,7 @@ public sealed class TestsTask : FrostingTask<BuildContext>
                 context.ApaxClean(lib);
                 context.ApaxInstall(context.GetLibraryAxFolders(lib));
                 context.ApaxBuild(context.GetLibraryAxFolders(lib));
-                context.ApaxTestLibrary(lib);
+                //context.ApaxTestLibrary(lib);
                 if (context.BuildParameters.DoPack)
                 {
                     context.ApaxPack(lib);

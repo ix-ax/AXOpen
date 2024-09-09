@@ -10,11 +10,11 @@ devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
 dependencies:
   "@ix-ax/axopen.components.abstractions": '0.0.0-dev.0'
+installStrategy: strict
+apaxVersion: 3.3.1
 scripts:
   download:
     - apax install -L
     - apax build
     - dotnet ixc
     - apax sld -i $AXTARGETPLATFORMINPUT -t $AXTARGET --accept-security-disclaimer --default-server-interface -r
-installStrategy: strict
-apaxVersion: 3.3.1

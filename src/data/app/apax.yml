@@ -13,6 +13,8 @@ dependencies:
   "@ix-ax/axopen.data": '0.0.0-dev.0'
   "@ix-ax/ax.axopen.app": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
+installStrategy: strict
+apaxVersion: 3.3.1
 scripts:
   # For proper execution of these scripts, the following variables need to be defined as environment variables or local variables.
   # Local variables can override environment variables.
@@ -88,5 +90,3 @@ scripts:
     START=$(date +%s)
     ..\\..\\scripts\\all.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $MY_VERY_STRONG_PASSWORD
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"    
-installStrategy: strict
-apaxVersion: 3.3.1
