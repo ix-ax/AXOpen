@@ -135,8 +135,28 @@ public sealed class ApaxUpdateTask : FrostingTask<BuildContext>
     }
 }
 
-[TaskName("Build")]
+
+[TaskName("CatalogInstall")]
 [IsDependentOn(typeof(ApaxUpdateTask))]
+public sealed class CatalogInstallTask : FrostingTask<BuildContext>
+{
+    public override void Run(BuildContext context)
+    {
+
+        context.Libraries.ToList().ForEach(lib =>
+        {
+            foreach (var apaxfile in context.GetApaxFiles(lib))
+            {
+                context.ApaxCatalogInstall(apaxfile);
+            }
+        });
+
+
+    }
+}
+
+[TaskName("Build")]
+[IsDependentOn(typeof(CatalogInstallTask))]
 public sealed class BuildTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
