@@ -8,6 +8,6 @@ devDependencies:
 catalogs:
   "@ax/simatic-ax": ^2405.0.0
 dependencies:
-  "@ax/system-strings": ^7.0.17
+  "@ax/system-strings": 7.0.17
 installStrategy: strict
 apaxVersion: 3.3.1

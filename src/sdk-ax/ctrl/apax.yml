@@ -6,6 +6,6 @@ files:
 catalogs:
   "@ax/simatic-ax": ^2405.0.0
 dependencies:
-  "@ax/sdk": ^2405.0.0
+  "@ax/sdk": 2405.0.0
 installStrategy: strict
 apaxVersion: 3.3.1
