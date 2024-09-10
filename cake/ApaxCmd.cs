@@ -320,7 +320,7 @@ public static class ApaxCmd
                 {
                     quotedTargets.Add(target);
                 }
-                
+
                 targetsNode.Children.Add(new YamlScalarNode(target));
             }
 
@@ -347,8 +347,8 @@ public static class ApaxCmd
             {
                 yamlString = yamlString.Replace($"'{target}'", target);
             }
-            
-           
+
+
 
             // Save the manually adjusted YAML string to a file
             File.WriteAllText(yamlFilePath, yamlString);
@@ -357,5 +357,35 @@ public static class ApaxCmd
             Console.WriteLine($"Apax '{yamlFilePath}' was modified for targets '{string.Join(",", targets)}' and files '{string.Join(",", files)}'");
         }
     }
-    
+
+    public static void ApaxCatalogInstall(this BuildContext context, string yamlFilePath)
+    {
+        // Load the YAML stream
+        var yaml = new YamlStream();
+        using (var reader = new StreamReader(yamlFilePath))
+        {
+            yaml.Load(reader);
+        }
+
+        // Assuming there's only one document in the YAML stream
+        var root = (YamlMappingNode)yaml.Documents[0].RootNode;
+
+        if(root.Children.TryGetValue(new YamlScalarNode("type"), out var typeNode) && typeNode is YamlScalarNode scalarNode && (scalarNode.Value == "generic" || scalarNode.Value == "lib"))
+        {
+            if (root.Children.TryGetValue(new YamlScalarNode("catalogs"), out var catalogNode))
+            {
+                var apaxArguments = "install --catalog";
+                var folder = Path.GetDirectoryName(yamlFilePath);
+                context.Log.Information($"apax install --catalog started in '{folder}'");
+                context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+                {
+                    Arguments = apaxArguments,
+                    WorkingDirectory = folder,
+                    RedirectStandardOutput = false,
+                    RedirectStandardError = false,
+                    Silent = false
+                }).WaitForExit();
+            }
+        }
+    }
 }

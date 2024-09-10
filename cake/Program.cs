@@ -135,8 +135,28 @@ public sealed class ApaxUpdateTask : FrostingTask<BuildContext>
     }
 }
 
-[TaskName("Build")]
+
+[TaskName("CatalogInstall")]
 [IsDependentOn(typeof(ApaxUpdateTask))]
+public sealed class CatalogInstallTask : FrostingTask<BuildContext>
+{
+    public override void Run(BuildContext context)
+    {
+
+        context.Libraries.ToList().ForEach(lib =>
+        {
+            foreach (var apaxfile in context.GetApaxFiles(lib))
+            {
+                context.ApaxCatalogInstall(apaxfile);
+            }
+        });
+
+
+    }
+}
+
+[TaskName("Build")]
+[IsDependentOn(typeof(CatalogInstallTask))]
 public sealed class BuildTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
@@ -196,6 +216,7 @@ public sealed class TestsTask : FrostingTask<BuildContext>
         {
             context.Libraries.ToList().ForEach(lib =>
             {
+                context.ApaxClean(lib);
                 context.ApaxInstall(context.GetLibraryAxFolders(lib));
                 context.ApaxBuild(context.GetLibraryAxFolders(lib));
                 context.ApaxTestLibrary(lib);
@@ -212,6 +233,7 @@ public sealed class TestsTask : FrostingTask<BuildContext>
         {
             context.Libraries.ToList().ForEach(lib =>
             {
+                context.ApaxClean(lib);
                 context.ApaxInstall(context.GetLibraryAxFolders(lib));
                 context.ApaxBuild(context.GetLibraryAxFolders(lib));
                 context.ApaxTestLibrary(lib);
