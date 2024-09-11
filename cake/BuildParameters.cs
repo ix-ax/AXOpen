@@ -25,7 +25,7 @@ public class BuildParameters
     [Option('c', "configuration", Required = false, Default = "Release", HelpText = "Configuration")]
     public string Configuration { get; set; }
 
-    [Option('v', "verbosity", Required = false, Default = DotNetVerbosity.Quiet, HelpText = "Verbosity (default Quiet)")]
+    [Option('v', "verbosity", Required = false, Default = DotNetVerbosity.Minimal, HelpText = "Verbosity (default Quiet)")]
     public DotNetVerbosity Verbosity { get; set; }
 
     [Option('l', "test-level", Required = false, Default = 1, HelpText = "Test level 1 - 3")]

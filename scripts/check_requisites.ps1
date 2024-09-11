@@ -55,13 +55,14 @@ if (Test-Path $vsWhere) {
 
 # Check for apax
 $isApaxInstalled = $false
+$requiredApaxVersion = "3.4.0"
 try {
     $apaxVersion = (apax --version).Trim()
-    if ($apaxVersion -eq "3.3.1") {
-        Write-Host "Apax 3.3.1 detected." -ForegroundColor Green
+    if ($apaxVersion -eq $requiredApaxVersion) {
+        Write-Host "Apax 3.4.0 detected." -ForegroundColor Green
         $isApaxInstalled = $true;
     } else {
-        Write-Host "Apax version mismatch. Expected 3.3.1 but found $apaxVersion." -ForegroundColor Red
+        Write-Host "Apax version mismatch. Expected $requiredApaxVersion but found $apaxVersion." -ForegroundColor Red
         Write-Host "Run apax self-update $apaxVersion." -ForegroundColor Red
     }
 } catch {
