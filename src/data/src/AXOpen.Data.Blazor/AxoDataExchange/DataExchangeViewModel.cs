@@ -137,7 +137,10 @@ namespace AXOpen.Data
         {
             Records.Clear();
 
-            foreach (var item in this.DataExchange.GetRecords(identifier, limit: limit, skip: skip, searchMode, sortExpresion, sortAscending))
+            var records = this.DataExchange.GetRecords(identifier, limit: limit, skip: skip, searchMode, sortExpresion,
+                sortAscending);
+
+            foreach (var item in records)
             {
                 this.Records.Add(item);
             }

@@ -5,32 +5,29 @@
 // https://github.com/ix-ax/axsharp/blob/dev/LICENSE
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/dev/notices.md
 
-using System.Collections.Generic;
 using System.IO.Compression;
-using System.Linq.Expressions;
-using System.Numerics;
 using System.Reflection;
 using System.Security.Principal;
 using AXOpen.Base.Data;
 using AXSharp.Connector;
-using AXSharp.Connector.ValueTypes.Online;
 using Microsoft.AspNetCore.Components.Authorization;
 
 namespace AXOpen.Data;
 
 public partial class AxoDataFragmentExchange
 {
+    private IRepository? _repository;
     protected IAxoDataExchange[] DataFragments { get; private set; }
 
-    public T? CreateBuilder<T>() where T : AxoDataFragmentExchange
+    public T? CreateDataFragments<T>() where T : AxoDataFragmentExchange
     {
-        return CreateBuilder() as T;
+        return CreateDataFragments() as T;
     }
 
     
     public bool VerifyHash { get; set; } = false;
 
-    public object CreateBuilder()
+    public object CreateDataFragments()
     {
         DataFragments = GetDataSetProperty<AxoDataFragmentAttribute, IAxoDataExchange>().ToArray();
         RefUIData = new AxoFragmentedDataCompound(this, DataFragments.Select(p => p.RefUIData).Cast<ITwinElement>().ToList());
@@ -95,7 +92,11 @@ public partial class AxoDataFragmentExchange
         }
     }
 
-    public IRepository? Repository { get; private set; }
+    public IRepository? Repository
+    {
+        get => _repository ?? throw new RepositoryNotInitializedException(this.Symbol);
+        private set => _repository = value;
+    }
 
     public ITwinObject RefUIData { get; private set; }
 
