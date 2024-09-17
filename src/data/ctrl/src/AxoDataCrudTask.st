@@ -19,6 +19,10 @@ NAMESPACE AXOpen.Data
             _exist : BOOL;            
         END_VAR
 
+        VAR PRIVATE
+            _LastCrudOperation : eCrudOperation;
+            _LastDataEntityIdentifier : STRING[254];
+        END_VAR
         ///<summary>
         /// Invokes this task.
         /// </summary>
@@ -29,8 +33,22 @@ NAMESPACE AXOpen.Data
                 identifier : STRING[254];
                 operation : eCrudOperation;
             END_VAR
-            CrudOperation := operation;
-            DataEntityIdentifier := identifier;
+
+            IF SUPER.IsDone() THEN
+                IF (_LastDataEntityIdentifier   <> identifier OR 
+                    _LastCrudOperation          <> operation ) THEN
+                    SUPER.Restore();
+                END_IF;
+            END_IF;
+
+            IF SUPER.IsReady() THEN
+                DataEntityIdentifier := identifier;
+                CrudOperation := operation;
+            END_IF;
+
+            _LastDataEntityIdentifier   := DataEntityIdentifier;
+            _LastCrudOperation          := CrudOperation;
+
             Invoke := SUPER.Invoke();
         END_METHOD
       
