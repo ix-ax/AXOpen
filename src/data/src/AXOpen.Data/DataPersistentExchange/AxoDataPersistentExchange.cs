@@ -141,7 +141,6 @@ namespace AXOpen.Data
             }
         }
 
-
         /// <summary>
         /// Updates a persistent group of tags to the repository after reading from the PLC.
         /// </summary>
@@ -155,7 +154,6 @@ namespace AXOpen.Data
 
         private bool UpdateReadedTagsToRepository(string persistentGroupName)
         {
-
             var primitivesTagsInGroup = tagsInGroups[persistentGroupName];
 
             if (primitivesTagsInGroup == null)
@@ -223,7 +221,6 @@ namespace AXOpen.Data
             return true;
         }
 
-
         /// <summary>
         /// Updates a persistent group of tags to the repository after reading from the PLC.
         /// </summary>
@@ -240,7 +237,6 @@ namespace AXOpen.Data
 
             return true;
         }
-
 
         #endregion Main Handling Method - Read Write
 
@@ -292,6 +288,13 @@ namespace AXOpen.Data
             switch (operation)
             {
                 case ePersistentOperation.Read:
+
+                    // if  not exist => create it
+                    if (!Repository.Exists(identifier))
+                    {
+                        await UpdatePersistentGroupFromPlcToRepository(identifier);
+                    }
+
                     await this.WritePersistentGroupFromRepository(identifier);
                     break;
 
@@ -301,9 +304,13 @@ namespace AXOpen.Data
 
                 case ePersistentOperation.ReadAll:
 
-                    if (!Repository.Exists(DEFAULT_IDENTIFIER)) // repo is empty
+                    // if any group not exist => create it
+                    foreach (var persitGroupName in this.CollectedGroups)
                     {
-                        await this.UpdateAllPersistentGroupsToRepository(); // create records from online
+                        if (!Repository.Exists(persitGroupName))
+                        {
+                            await UpdatePersistentGroupFromPlcToRepository(persitGroupName);
+                        }
                     }
 
                     await this.WriteAllPersistentGroupsFromRepositoryToPlc();
