@@ -55,3 +55,11 @@ At this point, we have everything ready in the PLC.
 An instance of the Persistent Manager requires additional parameters for initialization. It needs to set up a repository where the data will be saved. The next parameter is the root object of the PLC tree from which it begins collecting persistent variables.
 
 [!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=SetUpAxoDataPersistentExchange)]
+
+### Data view 
+DataExchange view is connected with instance. Therefore you need to pass instance through property Context.
+
+Example of usage: 
+```
+<AxoDataPersistentExchangeView Context="@Entry.Plc.Context.Glob.Persits"></AxoDataPersistentExchangeView>
+```
