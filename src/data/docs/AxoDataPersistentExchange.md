@@ -57,9 +57,9 @@ An instance of the Persistent Manager requires additional parameters for initial
 [!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=SetUpAxoDataPersistentExchange)]
 
 ### Data view 
-DataExchange view is connected with instance. Therefore you need to pass instance through property Context.
+The DataExchange view is connected to an instance. Therefore, you need to pass the instance through the Context property.
 
-Example of usage: 
+Usage: 
 ```
 <AxoDataPersistentExchangeView Context="@Entry.Plc.Context.Glob.Persits"></AxoDataPersistentExchangeView>
 ```
