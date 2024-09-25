@@ -203,7 +203,7 @@ namespace AXOpen.Data.MongoDb
                 var record = collection.Find(p => p.DataEntityId == identifier).FirstOrDefault();
                 if (record == null)
                 {
-                    throw new UnableToLocateRecordId($"Unable to locate record with ID: {identifier} in {location}.",
+                    throw new UnableToLocateRecordId($"Unable to locate record with ID: '{identifier}' in '{location}'.",
                                                      null);
                 }
 
@@ -221,7 +221,7 @@ namespace AXOpen.Data.MongoDb
             {
                 if (!RecordExists(identifier))
                 {
-                    throw new UnableToLocateRecordId($"Unable to locate record with ID: {identifier} in {location}.",
+                    throw new UnableToLocateRecordId($"Unable to locate record with ID: '{identifier}' in '{location}'.",
                                                      null);
                 }
 

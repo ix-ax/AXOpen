@@ -1,6 +1,7 @@
 USING AXOpen.Messaging;
 USING AXOpen.Rtc;
 USING AXOpen.Logging;
+USING AXOpen.Rtm;
 
 NAMESPACE AXOpen.Core
     ///<summary>
@@ -79,6 +80,27 @@ NAMESPACE AXOpen.Core
             END_VAR
             _rtc := Rtc;
         END_METHOD      
+
+
+        VAR PRIVATE            
+            NULL_RTM : _NULL_RTM;
+            _rtm : IAxoRtm;
+        END_VAR
+
+        METHOD PUBLIC InjectRtm
+            VAR_INPUT
+                inRtm : IAxoRtm;
+            END_VAR
+            _rtm := inRtm;
+        END_METHOD
+
+        METHOD PUBLIC GetRtm : IAxoRtm
+            IF(_rtc <> NULL) THEN
+                GetRtm := _rtm;
+            ELSE
+                GetRtm := NULL_RTM;    
+            END_IF;    
+        END_METHOD
 
         VAR PRIVATE            
             NULL_LOGGER : _NULL_LOGGER;

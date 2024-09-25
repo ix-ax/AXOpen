@@ -4,6 +4,7 @@ USING AXOpen.Rtc;
 USING AXOpen.Logging;
 USING AXOpen.Core;
 USING AXOpen.Rtc;
+USING AXOpen.Rtm;
 
 NAMESPACE AXOpen.Timers_tests
 
@@ -36,20 +37,20 @@ NAMESPACE AXOpen.Timers_tests
     END_CLASS    
 
     {S7.extern=ReadWrite}
-    CLASS INTERNAL AxoRtcMock IMPLEMENTS IAxoRtc
+    CLASS INTERNAL AxoRtmMock IMPLEMENTS IAxoRtm
         VAR PRIVATE 
-            _NowUTC : LDATE_AND_TIME;
+            _elapsed : LTIME;
         END_VAR
 
-        METHOD INTERNAL SetNowUTC : LDATE_AND_TIME
+        METHOD INTERNAL SetElapsed : LDATE_AND_TIME
             VAR_INPUT
-                Set :  LDATE_AND_TIME;
+                Set :  LTIME;
             END_VAR;
-            _NowUTC := Set;
+            _elapsed := Set;
         END_METHOD
 
-        METHOD PUBLIC NowUTC : LDATE_AND_TIME
-            NowUTC := _NowUTC;
+        METHOD PUBLIC Elapsed : LTIME
+            Elapsed := _elapsed;
         END_METHOD        
     END_CLASS
 
@@ -60,6 +61,7 @@ NAMESPACE AXOpen.Timers_tests
             _closeCounter : ULINT;
             _identityCounter : ULINT;
             _rtc :  IAxoRtc;
+            _rtm :  IAxoRtm;
          END_VAR       
         METHOD PUBLIC Open : ULINT
             _openCounter := _openCounter + ULINT#1;
@@ -99,5 +101,8 @@ NAMESPACE AXOpen.Timers_tests
         METHOD PUBLIC GetLogger : AXOpen.Logging.IAxoLogger GetLogger := NULL_LOGGER; END_METHOD
         METHOD PUBLIC InjectLogger VAR_INPUT _logger : AXOpen.Logging.IAxoLogger; END_VAR ; END_METHOD
 
+    
+        METHOD PUBLIC GetRtm : IAxoRtm GetRtm := _rtm; END_METHOD
+        METHOD PUBLIC InjectRtm VAR_INPUT inRtm : IAxoRtm; END_VAR _rtm := inRtm; END_METHOD
     END_CLASS      
 END_NAMESPACE

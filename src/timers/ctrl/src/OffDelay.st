@@ -14,7 +14,7 @@ NAMESPACE AXOpen.Timers
         END_VAR    
 
         VAR PRIVATE           
-          _startTime : LDATE_AND_TIME;
+          _startTime : LTIME;
           _previousSignalStatus : BOOL;  
           _currentTimeDiff : LTIME;
           _isCounting : BOOL;
@@ -81,14 +81,14 @@ NAMESPACE AXOpen.Timers
            // FALLING EDGE  detected start timer counting
            // start computing on falling edge (if actual signal is false, but previous was true)
             IF(NOT inSignal AND THIS._previousSignalStatus) THEN
-                THIS._startTime := Context.GetRtc().NowUTC();
+                THIS._startTime := Context.GetRtm().Elapsed();
                 _isCounting := TRUE;
             END_IF;    
 
 
             // if timer is counting, compute difference and watch for end of timer
             IF(THIS._isCounting) THEN
-                _currentTimeDiff := Context.GetRtc().NowUTC() - THIS._startTime ;
+                _currentTimeDiff := Context.GetRtm().Elapsed() - THIS._startTime ;
                 // if timer passed, set output to false
                 OffDelay := NOT (_currentTimeDiff >= TimeDelay);
                 output := OffDelay;
@@ -113,7 +113,7 @@ NAMESPACE AXOpen.Timers
             _isCounting := FALSE;
             _previousSignalStatus := FALSE;
             _currentTimeDiff := LTIME#0s;
-            _startTime := LDATE_AND_TIME#1970-01-01-00:00:00.000;
+            _startTime := LTIME#00H00M00S0MS0NS;
         END_METHOD   
       
     END_CLASS

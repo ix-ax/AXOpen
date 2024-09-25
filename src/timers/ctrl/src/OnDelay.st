@@ -14,7 +14,7 @@ NAMESPACE AXOpen.Timers
         END_VAR    
 
         VAR PRIVATE           
-          _startTime : LDATE_AND_TIME;
+          _startTime : LTIME;
           _previousSignalStatus : BOOL;  
           _currentTimeDiff : LTIME;
           
@@ -65,7 +65,7 @@ NAMESPACE AXOpen.Timers
             // start counting on RISING edge
             // start counting when inputSignal is true and previous signal was not set
             IF(inSignal AND NOT THIS._previousSignalStatus) THEN
-                THIS._startTime := Context.GetRtc().NowUTC();
+                THIS._startTime := Context.GetRtm().Elapsed();
             END_IF;    
 
             // FALLING edge detected
@@ -82,7 +82,7 @@ NAMESPACE AXOpen.Timers
             END_IF;    
 
 
-            _currentTimeDiff := Context.GetRtc().NowUTC() - THIS._startTime ;
+            _currentTimeDiff := Context.GetRtm().Elapsed() - THIS._startTime ;
             OnDelay := _currentTimeDiff >= TimeDelay;
             output := OnDelay;
             elapsedTime :=  _currentTimeDiff;

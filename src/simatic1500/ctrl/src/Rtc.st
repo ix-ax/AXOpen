@@ -14,6 +14,6 @@ NAMESPACE AXOpen.S71500
                 Value : LDATE_AND_TIME;
             END_VAR    
             SetUTC := SetSystemDateTime(value := Value);
-        END_METHOD
+        END_METHOD                             
     END_CLASS
 END_NAMESPACE
