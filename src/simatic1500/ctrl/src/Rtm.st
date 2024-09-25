@@ -1,15 +1,14 @@
 USING Siemens.Simatic.S71500.Clocks;
+USING System.Timer;
 NAMESPACE AXOpen.S71500
     {S7.extern=ReadWrite}
     CLASS Rtm IMPLEMENTS AXOpen.Rtm.IAxoRtm
-        VAR
-            _rtm : RuntimeMeasurement;
+        VAR            
+            _timer : OnDelay;
         END_VAR                    
-        METHOD PUBLIC Elapsed : LTIME
-            IF(NOT _rtm.GetIsRunning()) THEN
-                _rtm.Start();
-            END_IF;    
-            Elapsed := _rtm.GetElapsed();
+        METHOD PUBLIC Elapsed : LTIME          
+            _timer(signal := TRUE, duration := LTIME#100000d2h4m8s16ms32ns);
+            Elapsed := _timer.elapsedTime;
         END_METHOD
     END_CLASS
 END_NAMESPACE
