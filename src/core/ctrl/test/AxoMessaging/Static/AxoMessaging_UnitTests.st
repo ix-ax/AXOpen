@@ -65,10 +65,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
         END_VAR    
         METHOD PUBLIC GetLogger : IAxoLogger GetLogger := NULL_LOGGER; END_METHOD
         METHOD PUBLIC InjectLogger VAR_INPUT _logger : IAxoLogger; END_VAR ; END_METHOD     
+
+        VAR PRIVATE
+            NULL_RTM : _NULL_RTM;
+        END_VAR    
+        METHOD PUBLIC GetRtm : AXOpen.Rtm.IAxoRtm GetRtm := NULL_RTM; END_METHOD
+        METHOD PUBLIC InjectRtm VAR_INPUT inRtm : AXOpen.Rtm.IAxoRtm; END_VAR ; END_METHOD    
     END_CLASS  
 
     {S7.extern=ReadWrite}
-    CLASS TestContextE EXTENDS MockAxoContext
+    CLASS TestContextE EXTENDS Dummies.MockAxoContext
   
         METHOD PROTECTED OVERRIDE Main
             ;

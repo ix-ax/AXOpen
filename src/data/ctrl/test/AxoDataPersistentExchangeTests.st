@@ -5,57 +5,10 @@ USING AxUnit;
 NAMESPACE AXOpen.Data 
     NAMESPACE AxoDataPersistentExchangeTests
         {S7.extern=ReadWrite}
-        CLASS TestContext IMPLEMENTS IAxoContext         
-            VAR PROTECTED                        
-                _openCounter : ULINT;
-                _closeCounter : ULINT;
-                _identityCounter : ULINT;
-             END_VAR     
-             
-             VAR PRIVATE            
-                NULL_LOGGER : _NULL_LOGGER;
-                NULL_RTC : _NULL_RTC;
-                _rtc : IAxoRtc;
-             END_VAR
-
-            METHOD PUBLIC Open : ULINT
-                _openCounter := _openCounter + ULINT#1;
-            END_METHOD    
-    
-            METHOD PUBLIC Close : ULINT
-                _closeCounter := _closeCounter + ULINT#1;
-            END_METHOD
-    
-            METHOD PUBLIC OpenCycleCount : ULINT
-                OpenCycleCount := _openCounter;
-            END_METHOD
-                    
-            METHOD PUBLIC ClosedCycleCount : ULINT
-                ClosedCycleCount := _closeCounter;
-            END_METHOD
-    
-            METHOD PUBLIC CreateIdentity : ULINT            
-                _identityCounter := _identityCounter + ULINT#1;
-                CreateIdentity := _identityCounter;
-            END_METHOD               
-        
-            METHOD PUBLIC GetRtc : IAxoRtc
-                IF(_rtc <> NULL) THEN
-                    GetRtc := _rtc;
-                ELSE
-                    GetRtc := NULL_RTC;    
-                END_IF;    
-            END_METHOD
-    
-            METHOD PUBLIC InjectRtc
-                VAR_INPUT
-                    Rtc : IAxoRtc;
-                END_VAR
-                _rtc := Rtc;
-            END_METHOD
-  
-            METHOD PUBLIC GetLogger : AXOpen.Logging.IAxoLogger GetLogger := NULL_LOGGER; END_METHOD
-            METHOD PUBLIC InjectLogger VAR_INPUT _logger : AXOpen.Logging.IAxoLogger; END_VAR ; END_METHOD                        
+        CLASS TestContext EXTENDS Dummies.MockAxoContext                    
+            METHOD PROTECTED OVERRIDE Main
+                ;
+            END_METHOD                 
         END_CLASS
 
         {S7.extern=ReadWrite}

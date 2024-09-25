@@ -12,7 +12,7 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             _inspectedInt : DINT;
             _sequencer  : AxoSequencer;
             _rtcMock :  AxoRtcMock;  
-
+            _rtmMock : AxoRtmMock;
             _testBool : BOOL;
 
             _testTimer: AXOpen.Timers.OnDelayTimer;
@@ -53,7 +53,7 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
 
         METHOD PRIVATE Initialize
             _context.InjectRtc(_rtcMock);
-
+            _context.InjectRtm(_rtmMock);
             _sequencer.Initialize(_context);          
             
             _analogueInspector.Data()^.FailTime := T#10s;
@@ -68,6 +68,7 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             //Arrange
             _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:30.0);
+            _rtmMock.SetElapsed(LT#30S);
             _inspectedINT := 10;
             _analogueInspector.Data()^.RequiredMin := 0;
             _analogueInspector.Data()^.RequiredMax := 15;
@@ -78,12 +79,14 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             //+1s
             _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:31.0);
+            _rtmMock.SetElapsed(LT#31S);
             _analogueInspector.Inspect(_sequencer,_inspectedINT);
             Assert.Equal(eInspectorResult#Running, _analogueInspector.Result());
             _context.Close();
             //+3s.
             _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:33.0);
+            _rtmMock.SetElapsed(LT#33S);
             _analogueInspector.Inspect(_sequencer,_inspectedINT);
             Assert.Equal(eInspectorResult#Passed, _analogueInspector.Result());
             
@@ -97,6 +100,7 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             //Arrange
             _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:30.0);
+            _rtmMock.SetElapsed(LT#30S);
             _inspectedINT := 20;
             _analogueInspector.Data()^.RequiredMin := 0;
             _analogueInspector.Data()^.RequiredMax := 15;
@@ -107,12 +111,14 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             //+1s
             _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:31.0);
+            _rtmMock.SetElapsed(LT#31S);
             _analogueInspector.Inspect(_sequencer,_inspectedINT);
             Assert.Equal(eInspectorResult#Running, _analogueInspector.Result());
             _context.Close();
             //+11s
             _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:41.0);
+            _rtmMock.SetElapsed(LT#41S);
             _analogueInspector.Inspect(_sequencer,_inspectedINT);
             Assert.Equal(eInspectorResult#Failed, _analogueInspector.Result());
             
