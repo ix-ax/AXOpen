@@ -262,6 +262,19 @@ NAMESPACE AXOpen.Core
         END_METHOD
 
 
+        VAR PRIVATE
+            _suspendExecuteCallAnalisis : BOOL;
+        END_VAR    
+
+        //<summary>
+        /// Sets the flag to suspend execute call analisis to prevent false positives in tasks where the cyclic execution is not required or mutliple execute calls are allowed.
+        ///</summary>       
+        METHOD PUBLIC SuspendExecuteAnalisis
+            _suspendExecuteCallAnalisis := TRUE;
+            _SuspendMultipleExecuteCallCheck := TRUE;
+        END_METHOD    
+
+
         ///<summary>
         /// Returns true when the `Invoke() method of the task is called in this PLC cycle
         /// or was called in the previous-one.
@@ -377,7 +390,7 @@ NAMESPACE AXOpen.Core
                     Status := eAxoTaskState#Kicking;      
                     _context_.GetLogger().Log('Task invoked', eLogLevel#Verbose, THIS);
                   ELSE                                         
-                    _CyclicExecuteIsNotCalled.Activate(eAxoMessageCategory#ProgrammingError);                     
+                    IF(NOT _suspendExecuteCallAnalisis) THEN _CyclicExecuteIsNotCalled.Activate(eAxoMessageCategory#ProgrammingError); END_IF;                     
                  END_IF;     
             END_IF;     
 
