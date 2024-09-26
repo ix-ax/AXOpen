@@ -15,7 +15,7 @@ NAMESPACE AXOpen.Timers_tests
         VAR PROTECTED
             _context : TestContext;
             _inspectedBool : BOOL;
-            _rtcMock :  AxoRtcMock;  
+            _rtcMock :  AxoRtmMock;  
             _signal : BOOL;
             _testTimerOnDelay: AXOpen.Timers.OnDelayTimer;
             _testTimerOffDelay: AXOpen.Timers.OffDelayTimer;
@@ -23,7 +23,7 @@ NAMESPACE AXOpen.Timers_tests
         END_VAR  
 
         METHOD PRIVATE Initialize
-            _context.InjectRtc(_rtcMock);        
+            _context.InjectRtm(_rtcMock);        
         END_METHOD
 
 
@@ -65,25 +65,29 @@ NAMESPACE AXOpen.Timers_tests
 
             _context.Open();
 
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:33.123456);
+            //_rtcMock.SetElapsed(LT#1980-01-23-13:14:33.123456);
+            _rtcMock.SetElapsed(LT#0S);
             _signal := TRUE;
             _testTimerOffDelay.OffDelay(_context, _signal, _testTimeDelay);
             Assert.Equal(TRUE, _testTimerOffDelay.output);
             
             //move 6 seconds in future, timer stil don't count, true is output
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:39.123456);
+            //_rtcMock.SetNowUTC(LDT#1980-01-23-13:14:39.123456);
+            _rtcMock.SetElapsed(LT#6S);
             _testTimerOffDelay.OffDelay(_context, _signal, _testTimeDelay);
             Assert.Equal(TRUE, _testTimerOffDelay.output);
 
             //here, timer starts count
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:41.123456);
+            //_rtcMock.SetNowUTC(LDT#1980-01-23-13:14:41.123456);
+            _rtcMock.SetElapsed(LT#9S);
             _signal := FALSE;
             _testTimerOffDelay.OffDelay(_context, _signal, _testTimeDelay);
             Assert.Equal(TRUE, _testTimerOffDelay.output);
 
 
             //here, timer should hit delay and turn off signal
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:46.123456);
+            //_rtcMock.SetNowUTC(LDT#1980-01-23-13:14:46.123456);
+            _rtcMock.SetElapsed(LT#14S);
             _testTimerOffDelay.OffDelay(_context, _signal, _testTimeDelay);
             Assert.Equal(FALSE, _testTimerOffDelay.output);
 
@@ -101,44 +105,51 @@ NAMESPACE AXOpen.Timers_tests
             _context.Open();
 
             //all turn off, previous signal was false, input is false, output should be false
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:30.0);
+            //_rtcMock.SetNowUTC(LDT#1980-01-23-13:14:30.0);
+            _rtcMock.SetElapsed(LT#10S);
             _signal := FALSE;
             _testTimerOffDelay.OffDelay(_context, _signal, _testTimeDelay);
             Assert.Equal(FALSE, _testTimerOffDelay.output);
 
             //after 1 second, turn on signal, output should be on
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:31.0);
+            //_rtcMock.SetNowUTC(LDT#1980-01-23-13:14:31.0);
+            _rtcMock.SetElapsed(LT#11S);
             _signal := TRUE;
             _testTimerOffDelay.OffDelay(_context, _signal, _testTimeDelay);
             Assert.Equal(TRUE, _testTimerOffDelay.output);
 
             //after 2 second, turn off signal, FALLING EDGE detected, output should be on, timer should start counting
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:32.0);
+            //_rtcMock.SetNowUTC(LDT#1980-01-23-13:14:32.0);
+            _rtcMock.SetElapsed(LT#12S);
             _signal := FALSE;
             _testTimerOffDelay.OffDelay(_context, _signal, _testTimeDelay);
             Assert.Equal(TRUE, _testTimerOffDelay.output);
 
 
             //after 7 second, timer count passed delay, output should be false
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:35.0);
+            //_rtcMock.SetNowUTC(LDT#1980-01-23-13:14:35.0);
+            _rtcMock.SetElapsed(LT#15S);
             _testTimerOffDelay.OffDelay(_context, _signal, _testTimeDelay);
             Assert.Equal(FALSE, _testTimerOffDelay.output);
         
             
             //after 10 second, rising edge was detected, timer is reseted and output should be true
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:40.0);
+            //_rtcMock.SetNowUTC(LDT#1980-01-23-13:14:40.0);
+            _rtcMock.SetElapsed(LT#20S);
             _signal := TRUE;
             _testTimerOffDelay.OffDelay(_context, _signal, _testTimeDelay);
             Assert.Equal(TRUE, _testTimerOffDelay.output);
 
             //after 11 second, falling edge was detected, timer should start count again
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:41.0);
+            //_rtcMock.SetNowUTC(LDT#1980-01-23-13:14:41.0);
+            _rtcMock.SetElapsed(LT#21S);
             _signal := FALSE;
            _testTimerOffDelay.OffDelay(_context, _signal, _testTimeDelay);
             Assert.Equal(TRUE, _testTimerOffDelay.output);
 
             //after 13 second, rising edge was detected, timer is reseted, output is still true
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:43.0);
+            //_rtcMock.SetNowUTC(LDT#1980-01-23-13:14:43.0);
+            _rtcMock.SetElapsed(LT#23S);
             _signal := TRUE;
             _testTimerOffDelay.OffDelay(_context, _signal, _testTimeDelay);
             Assert.Equal(TRUE, _testTimerOffDelay.output);
@@ -160,25 +171,29 @@ NAMESPACE AXOpen.Timers_tests
 
             _context.Open();
 
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:33.123456);
+            //_rtcMock.SetNowUTC(LDT#1980-01-23-13:14:33.123456);
+            _rtcMock.SetElapsed(LT#33S);
             _signal := TRUE;
             _methodOutput := _testTimerOffDelay.OffDelay(_context, _signal, _testTimeDelay);
             Assert.Equal(TRUE, _methodOutput);
             
             //move 6 seconds in future, timer stil don't count, true is output
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:39.123456);
+            //_rtcMock.SetNowUTC(LDT#1980-01-23-13:14:39.123456);
+            _rtcMock.SetElapsed(LT#39S);
             _methodOutput := _testTimerOffDelay.OffDelay(_context, _signal, _testTimeDelay);
             Assert.Equal(TRUE, _methodOutput);
 
             //here, timer starts count
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:41.123456);
+            //_rtcMock.SetNowUTC(LDT#1980-01-23-13:14:41.123456);
+            _rtcMock.SetElapsed(LT#41S);
             _signal := FALSE;
             _methodOutput := _testTimerOffDelay.OffDelay(_context, _signal, _testTimeDelay);
             Assert.Equal(TRUE, _methodOutput);
 
 
             //here, timer should hit delay and turn off signal
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:46.123456);
+            //_rtcMock.SetNowUTC(LDT#1980-01-23-13:14:46.123456);
+            _rtcMock.SetElapsed(LT#46S);
             _methodOutput := _testTimerOffDelay.OffDelay(_context, _signal, _testTimeDelay);
             Assert.Equal(FALSE, _methodOutput);
 
@@ -195,13 +210,15 @@ NAMESPACE AXOpen.Timers_tests
 
             _context.Open();
 
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:33.123456);
+            //_rtcMock.SetNowUTC(LDT#1980-01-23-13:14:33.123456);
+            _rtcMock.SetElapsed(LT#33S);
             _signal := TRUE;
             _methodOutput := _testTimerOffDelay.OffDelay(_context, _signal, _testTimeDelay);
             Assert.Equal(TRUE, _methodOutput);
             
             //move 3 seconds in future
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:36.123456);
+            //_rtcMock.SetNowUTC(LDT#1980-01-23-13:14:36.123456);
+            _rtcMock.SetElapsed(LT#36S);
             _methodOutput := _testTimerOffDelay.OffDelay(_context, _signal, _testTimeDelay);
             Assert.Equal(TRUE, _methodOutput);
 
@@ -221,7 +238,8 @@ NAMESPACE AXOpen.Timers_tests
             //arange
             _context.Open();
             _testTimeDelay := LT#0s;
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:33.123456);
+            //_rtcMock.SetNowUTC(LDT#1980-01-23-13:14:33.123456);
+            _rtcMock.SetElapsed(LT#33S);
             _signal := TRUE;
             
             //act/assert
@@ -241,7 +259,8 @@ NAMESPACE AXOpen.Timers_tests
             //arange
             _context.Open();
     
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:33.123456);
+            //_rtcMock.SetNowUTC(LDT#1980-01-23-13:14:33.123456);
+            _rtcMock.SetElapsed(LT#33S);
             _signal := FALSE;
             
             //act/assert

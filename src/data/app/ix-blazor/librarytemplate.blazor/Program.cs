@@ -90,7 +90,7 @@ IRepository<Pocos.AxoDataFramentsExchangeExample.Station_1_Data> Station_1_DataR
 SharedDataHeaderDataRepository = AXOpen.Data.MongoDb.Repository.Factory<Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData>(new MongoDbRepositorySettings<Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData>("mongodb://localhost:27017", "AxOpenData", "SharedDataHeader"));
 Station_1_DataRepository = AXOpen.Data.MongoDb.Repository.Factory<Pocos.AxoDataFramentsExchangeExample.Station_1_Data>(new MongoDbRepositorySettings<Pocos.AxoDataFramentsExchangeExample.Station_1_Data>("mongodb://localhost:27017", "AxOpenData", "Station_1"));
 
-var AxoProcessDataManager = Entry.Plc.AxoDataFragmentsExchangeContext.DataManager.CreateBuilder<AxoDataFramentsExchangeExample.AxoProcessDataManager>();
+var AxoProcessDataManager = Entry.Plc.AxoDataFragmentsExchangeContext.DataManager.CreateDataFragments<AxoDataFramentsExchangeExample.AxoProcessDataManager>();
 
 AxoProcessDataManager.SharedHeader.SetRepository(SharedDataHeaderDataRepository);
 AxoProcessDataManager.Station_1.SetRepository(Station_1_DataRepository);

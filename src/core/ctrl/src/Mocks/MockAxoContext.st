@@ -1,8 +1,11 @@
-USING AXOpen.Rtc;
+
 USING AXOpen.Messaging;
 USING AXOpen.Logging;
+USING AXOpen.Core;
+USING AXOpen.Rtm;
+USING AXOpen.Rtc;
 
-NAMESPACE AXOpen.Core
+NAMESPACE AXOpen.Core.Dummies
     ///<summary>
     /// Provides base for contextualized entry of `AXOpen` application.
     /// This class is abstract and must be inherited.
@@ -24,11 +27,11 @@ NAMESPACE AXOpen.Core
         METHOD PROTECTED ABSTRACT Main END_METHOD
         
             
-        METHOD PRIVATE Open : ULINT
+        METHOD PUBLIC Open : ULINT
             _openCounter := _openCounter + ULINT#1;
         END_METHOD    
 
-        METHOD PRIVATE Close : ULINT
+        METHOD PUBLIC Close : ULINT
             _closeCounter := _closeCounter + ULINT#1;
         END_METHOD
            
@@ -85,6 +88,13 @@ NAMESPACE AXOpen.Core
             NULL_LOGGER : _NULL_LOGGER;
         END_VAR    
         METHOD PUBLIC GetLogger : IAxoLogger GetLogger := NULL_LOGGER; END_METHOD
-        METHOD PUBLIC InjectLogger VAR_INPUT _logger : IAxoLogger; END_VAR ; END_METHOD     
+        METHOD PUBLIC InjectLogger VAR_INPUT _logger : IAxoLogger; END_VAR ; END_METHOD    
+            
+        VAR PRIVATE
+            NULL_RTM : _NULL_RTM;
+            _rtm : IAxoRtm;
+        END_VAR    
+        METHOD PUBLIC GetRtm : AXOpen.Rtm.IAxoRtm IF(_rtm = NULL) THEN GetRtm := NULL_RTM; ELSE GetRtm := _rtm; END_IF; END_METHOD
+        METHOD PUBLIC InjectRtm VAR_INPUT inRtm : AXOpen.Rtm.IAxoRtm; END_VAR _rtm := inRtm; END_METHOD            
     END_CLASS          
 END_NAMESPACE

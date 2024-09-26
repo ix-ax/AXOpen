@@ -71,7 +71,7 @@ namespace AXOpen.Data.Json
             {
                 if (!RecordExists(identifier))
                 {
-                    throw new UnableToLocateRecordId($"Unable to locate record with ID: {identifier} in {Location}.", null);
+                    throw new UnableToLocateRecordId($"Unable to locate record with ID: '{identifier}' in '{Location}'.", null);
                 }
 
                 return this.Load(identifier, typeof(T));
@@ -89,7 +89,7 @@ namespace AXOpen.Data.Json
             {
                 if (!RecordExists(identifier))
                 {
-                    throw new UnableToLocateRecordId($"Unable to locate record with ID: {identifier} in {Location}.", null);
+                    throw new UnableToLocateRecordId($"Unable to locate record with ID: '{identifier}' in '{Location}'.", null);
                 }
 
                 Save(identifier.ToString(), data);

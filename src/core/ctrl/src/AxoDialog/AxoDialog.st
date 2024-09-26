@@ -25,18 +25,21 @@ NAMESPACE AXOpen.Core
         ///</summary>
         METHOD PUBLIC Show : IAxoDialogFormat
             VAR_INPUT
-                _parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
 
             VAR_TEMP
                 callCounter : ULINT;
             END_VAR   
 
+
+            SUPER.SuspendExecuteAnalisis();       
+
             Show := THIS;
 
-            IF(_parent = NULL) THEN RETURN; END_IF;
+            IF(inParent = NULL) THEN RETURN; END_IF;
 
-            THIS.Initialize(_parent);
+            THIS.Initialize(inParent);
 
             IF NOT THIS.IsInitialized THEN // dialog is not observed/monitored by server
                 
@@ -74,6 +77,8 @@ NAMESPACE AXOpen.Core
             IF (THIS.Status = eAxoTaskState#Ready) THEN
                 _closeSignal := FALSE;
             END_IF;
+
+                 
             
             THIS.Invoke();
             SUPER.Execute();

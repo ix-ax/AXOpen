@@ -15,14 +15,14 @@ NAMESPACE AXOpen.Timers_tests
         VAR PROTECTED
             _context : TestContext;
             _inspectedBool : BOOL;
-            _rtcMock :  AxoRtcMock;  
+            _rtmMock :  AxoRtmMock;  
             _signal : BOOL;
             _testTimerPulse: AXOpen.Timers.PulseTimer;
             _pulseLength: LTIME := LTIME#5s;
         END_VAR  
 
         METHOD PRIVATE Initialize
-            _context.InjectRtc(_rtcMock);      
+            _context.InjectRtm(_rtmMock);      
         END_METHOD
 
 
@@ -34,35 +34,41 @@ NAMESPACE AXOpen.Timers_tests
             _context.Open();
 
             //all turn off, previous signal was false, input is false, output should be false
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:30.0);
+            //_rtmMock.SetNowUTC(LDT#1980-01-23-13:14:30.0);
+            _rtmMock.SetElapsed(LT#30S);
             _signal := FALSE;
             _testTimerPulse.Pulse(_context, _signal, _pulseLength);
             Assert.Equal(FALSE, _testTimerPulse.output);
 
             //after 1 second, turn on signal, RISING EDGE detected, counter should start counting, output is still false
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:31.0);
+            //_rtmMock.SetNowUTC(LDT#1980-01-23-13:14:31.0);
+            _rtmMock.SetElapsed(LT#31S);
             _signal := TRUE;
             _testTimerPulse.Pulse(_context, _signal, _pulseLength);
             Assert.Equal(TRUE, _testTimerPulse.output);
 
             //after 2 second, counting continues, output is still true
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:32.0);
+            //_rtmMock.SetNowUTC(LDT#1980-01-23-13:14:32.0);
+            _rtmMock.SetElapsed(LT#32S);
             _testTimerPulse.Pulse(_context, _signal, _pulseLength);
             Assert.Equal(TRUE, _testTimerPulse.output);
 
             //after 6 second, pulse length is counted, output will turn off
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:36.0);
+            //_rtmMock.SetNowUTC(LDT#1980-01-23-13:14:36.0);
+            _rtmMock.SetElapsed(LT#36S);
             _testTimerPulse.Pulse(_context, _signal, _pulseLength);
             Assert.Equal(FALSE, _testTimerPulse.output);
 
             //after 7 second, nothing changed, output should be off
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:37.0);
+            //_rtmMock.SetNowUTC(LDT#1980-01-23-13:14:37.0);
+            _rtmMock.SetElapsed(LT#37S);
             _testTimerPulse.Pulse(_context, _signal, _pulseLength);
             Assert.Equal(FALSE, _testTimerPulse.output);
 
 
             //after 8 second, FALLING edge was detected, and timer is counted, therefore is reseted, output is false
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:38.0);
+            //_rtmMock.SetNowUTC(LDT#1980-01-23-13:14:38.0);
+            _rtmMock.SetElapsed(LT#38S);
             _signal := FALSE;
             _testTimerPulse.Pulse(_context, _signal, _pulseLength);
             Assert.Equal(FALSE, _testTimerPulse.output);

@@ -14,7 +14,7 @@ NAMESPACE AXOpen.Timers
         END_VAR    
 
         VAR PRIVATE           
-          _startTime : LDATE_AND_TIME;
+          _startTime : LTIME;
           _previousSignalStatus : BOOL;  
           _currentTimeDiff : LTIME;
           
@@ -60,11 +60,11 @@ NAMESPACE AXOpen.Timers
             // start counting on RISING edge
             // output is true during counting period
             IF(inSignal AND NOT THIS._previousSignalStatus) THEN
-                THIS._startTime := Context.GetRtc().NowUTC();
+                THIS._startTime := Context.GetRtm().Elapsed();
             END_IF;    
 
             
-            _currentTimeDiff := Context.GetRtc().NowUTC() - THIS._startTime ;
+            _currentTimeDiff := Context.GetRtm().Elapsed() - THIS._startTime ;
 
             // output is true, if counting is in progress and time diff is smaller then pulse length
             Pulse := _currentTimeDiff < PulseLenght;
@@ -80,7 +80,7 @@ NAMESPACE AXOpen.Timers
         METHOD PUBLIC Restore
             _previousSignalStatus := FALSE;
             _currentTimeDiff := LTIME#0s;
-            _startTime := LDATE_AND_TIME#1970-01-01-00:00:00.000;
+            _startTime := LTIME#00H00M00S000MS0NS;
         END_METHOD 
 
  

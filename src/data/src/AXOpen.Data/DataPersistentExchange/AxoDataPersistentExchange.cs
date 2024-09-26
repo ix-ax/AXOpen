@@ -36,7 +36,18 @@ namespace AXOpen.Data
         /// <summary>
         /// repository that stored tag values
         /// </summary>
-        private IRepository<PersistentRecord> Repository;
+        private IRepository<PersistentRecord> _Repository;
+        public IRepository<PersistentRecord> Repository
+        {
+            private set
+            {
+                _Repository = value;
+            }
+            get
+            {
+                return _Repository;
+            }
+        }
 
         #region ReadWrite to/from controller/PLC
 
@@ -81,7 +92,7 @@ namespace AXOpen.Data
         /// <returns>Returns true if the write operation is successful; otherwise, false.</returns>
         public async Task<bool> WritePersistentGroupFromRepository(string group)
         {
-            var recordFromRepo = Repository.Read(group);
+            var recordFromRepo = _Repository.Read(group);
 
             List<ITwinPrimitive> tagsToWrite = new List<ITwinPrimitive>();
 
@@ -95,9 +106,9 @@ namespace AXOpen.Data
 
                 if (ConnectedTag == null) continue;
 
-                #pragma warning disable CS0612
+#pragma warning disable CS0612
                 ConnectedTag.SetTagCyclicValueUsingLethargicWrite(tagFromRepo);
-                #pragma warning restore CS0612
+#pragma warning restore CS0612
 
                 tagsToWrite.Add(ConnectedTag);
             }
@@ -116,7 +127,7 @@ namespace AXOpen.Data
             List<ITwinPrimitive> tagsToWrite = new List<ITwinPrimitive>();
             foreach (var groupName in this.CollectedGroups)
             {
-                var recordFromRepo = Repository.Read(groupName);
+                var recordFromRepo = _Repository.Read(groupName);
                 AddTagsFromRecordToWrittenList(tagsToWrite, recordFromRepo);
             }
             await WriteTags(tagsToWrite);
@@ -141,7 +152,6 @@ namespace AXOpen.Data
             }
         }
 
-
         /// <summary>
         /// Updates a persistent group of tags to the repository after reading from the PLC.
         /// </summary>
@@ -150,12 +160,12 @@ namespace AXOpen.Data
         public async Task<bool> UpdatePersistentGroupFromPlcToRepository(string persistentGroupName)
         {
             await ReadTagsFromPlc(persistentGroupName);
+
             return UpdateReadedTagsToRepository(persistentGroupName);
         }
 
         private bool UpdateReadedTagsToRepository(string persistentGroupName)
         {
-
             var primitivesTagsInGroup = tagsInGroups[persistentGroupName];
 
             if (primitivesTagsInGroup == null)
@@ -170,11 +180,11 @@ namespace AXOpen.Data
                 NewTagValues.Add(t);
             }
 
-            bool exist = Repository.Exists(persistentGroupName);
+            bool exist = _Repository.Exists(persistentGroupName);
 
             if (exist)
             {
-                var recordFromRepository = Repository.Read(persistentGroupName);
+                var recordFromRepository = _Repository.Read(persistentGroupName);
 
                 foreach (var newtagValue in NewTagValues)
                 {
@@ -210,19 +220,21 @@ namespace AXOpen.Data
                     }
                 }
 
-                Repository.Update(persistentGroupName, recordFromRepository);
+                recordFromRepository._Modified = DateTime.Now;
+                _Repository.Update(persistentGroupName, recordFromRepository);
             }
             else
             {
-                Repository.Create(persistentGroupName, new PersistentRecord()
+                _Repository.Create(persistentGroupName, new PersistentRecord()
                 {
                     DataEntityId = persistentGroupName,
-                    Tags = NewTagValues
+                    Tags = NewTagValues,
+                    _Modified = DateTime.Now,
+                    _Created = DateTime.Now,
                 });
             }
             return true;
         }
-
 
         /// <summary>
         /// Updates a persistent group of tags to the repository after reading from the PLC.
@@ -241,7 +253,6 @@ namespace AXOpen.Data
             return true;
         }
 
-
         #endregion Main Handling Method - Read Write
 
         #region Data Exchange Implementation
@@ -254,7 +265,7 @@ namespace AXOpen.Data
         public async Task InitializeRemoteDataExchange(ITwinObject persistetnRootObject, IRepository<PersistentRecord> repository)
         {
             this._root = persistetnRootObject;
-            Repository = repository;
+            _Repository = repository;
 
             this.CollectPersistentTags(this._root);
 
@@ -292,6 +303,13 @@ namespace AXOpen.Data
             switch (operation)
             {
                 case ePersistentOperation.Read:
+
+                    // if  not exist => create it
+                    if (!_Repository.Exists(identifier))
+                    {
+                        await UpdatePersistentGroupFromPlcToRepository(identifier);
+                    }
+
                     await this.WritePersistentGroupFromRepository(identifier);
                     break;
 
@@ -301,9 +319,13 @@ namespace AXOpen.Data
 
                 case ePersistentOperation.ReadAll:
 
-                    if (!Repository.Exists(DEFAULT_IDENTIFIER)) // repo is empty
+                    // if any group not exist => create it
+                    foreach (var persitGroupName in this.CollectedGroups)
                     {
-                        await this.UpdateAllPersistentGroupsToRepository(); // create records from online
+                        if (!_Repository.Exists(persitGroupName))
+                        {
+                            await UpdatePersistentGroupFromPlcToRepository(persitGroupName);
+                        }
                     }
 
                     await this.WriteAllPersistentGroupsFromRepositoryToPlc();
@@ -329,7 +351,7 @@ namespace AXOpen.Data
         {
             try
             {
-                var record = Repository.Read(identifier);
+                var record = _Repository.Read(identifier);
                 this.WritePersistentGroupFromRepository(identifier);
 
                 return true;
@@ -343,7 +365,7 @@ namespace AXOpen.Data
         /// <inheritdoc />
         public async Task<bool> RemoteEntityExist(string identifier)
         {
-            return Repository.Exists(identifier);
+            return _Repository.Exists(identifier);
         }
 
         #endregion Data Exchange Implementation

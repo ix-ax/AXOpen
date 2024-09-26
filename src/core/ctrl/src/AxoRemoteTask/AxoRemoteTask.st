@@ -48,7 +48,13 @@ NAMESPACE AXOpen.Core
 
             TaskHasRemoteException.ActivateOnCondition(HasRemoteException, AXOpen.Messaging.eAxoMessageCategory#Error).RequireAcknowledgement();        
         END_METHOD  
-                               
+                      
+        
+        METHOD PUBLIC OVERRIDE Restore : IAxoTaskState
+            SUPER.Restore();
+            HasRemoteException := FALSE;
+        END_METHOD    
+
         // Internal use only!
         METHOD INTERNAL GetStartSignature : ULINT
             GetStartSignature := StartSignature;    

@@ -132,7 +132,7 @@ namespace integrations.data.fragments
             this.SetRepository = new InMemoryRepository<Pocos.IntegrationAxoDataFramentsExchange.SharedProductionData>();
             this.ManipRepository = new InMemoryRepository<Pocos.IntegrationAxoDataFramentsExchange.FragmentProcessData>();
 
-            testContext.PD.CreateBuilder<IntegrationAxoDataFramentsExchange.ProcessData>();
+            testContext.PD.CreateDataFragments<IntegrationAxoDataFramentsExchange.ProcessData>();
 
             testContext.PD.Set.SetRepository(this.SetRepository);
             testContext.PD.Manip.SetRepository(this.ManipRepository);
@@ -164,7 +164,7 @@ namespace integrations.data.fragments
                 this.ManipRepository.Delete(manipRecords[i].DataEntityId);
             }
 
-            testContext.PD.CreateBuilder<IntegrationAxoDataFramentsExchange.ProcessData>();
+            testContext.PD.CreateDataFragments<IntegrationAxoDataFramentsExchange.ProcessData>();
 
             testContext.PD.Set.SetRepository(this.SetRepository);
             testContext.PD.Manip.SetRepository(this.ManipRepository);
@@ -188,7 +188,7 @@ namespace integrations.data.fragments
                 Directory.Delete(outputFolder, true);
             }
 
-            testContext.PD.CreateBuilder<IntegrationAxoDataFramentsExchange.ProcessData>();
+            testContext.PD.CreateDataFragments<IntegrationAxoDataFramentsExchange.ProcessData>();
 
             this.SetRepository = new JsonRepository<Pocos.IntegrationAxoDataFramentsExchange.SharedProductionData>(new(Path.Combine(assemblyFile.Directory.FullName, "storage", "set")));
             this.ManipRepository = new JsonRepository<Pocos.IntegrationAxoDataFramentsExchange.FragmentProcessData>(new(Path.Combine(assemblyFile.Directory.FullName, "storage", "manip")));

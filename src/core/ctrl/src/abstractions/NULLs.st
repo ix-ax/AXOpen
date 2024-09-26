@@ -1,6 +1,8 @@
 USING AXOpen.Messaging;
 USING AXOpen.Logging;
 USING AXOpen.Rtc;
+USING AXOpen.Rtm;
+
 NAMESPACE AXOpen.Core
     ///<summary>
     /// Provides an empty context for uninitialized objects.
@@ -11,6 +13,8 @@ NAMESPACE AXOpen.Core
             NULL_RTC : _NULL_RTC;
             {S7.extern=Hidden}
             NULL_LOGGER : _NULL_LOGGER;
+            {S7.extern=Hidden}
+            NULL_RTM : _NULL_RTM;
         END_VAR
 
         METHOD PUBLIC CreateIdentity : ULINT CreateIdentity := ULINT#0; END_METHOD
@@ -19,6 +23,10 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IAxoRtc; END_VAR ; END_METHOD  
         METHOD PUBLIC GetLogger : IAxoLogger GetLogger :=  NULL_LOGGER; END_METHOD
         METHOD PUBLIC InjectLogger VAR_INPUT _logger : IAxoLogger; END_VAR ; END_METHOD           
+        METHOD PUBLIC GetRtm : IAxoRtm GetRtm :=  NULL_RTM; END_METHOD
+        METHOD PUBLIC InjectRtm VAR_INPUT rtm : IAxoRtm; END_VAR ; END_METHOD           
+                
+      
     END_CLASS    
 
     ///<summary>
@@ -80,6 +88,21 @@ NAMESPACE AXOpen.Core
                 _level : eLogLevel;  
             END_VAR 
             ;           
+        END_METHOD
+    END_CLASS    
+
+
+    ///<summary>
+    /// Provides an empty RTC object for uninitialized RTC.
+    ///</summary>
+    {S7.extern=ReadWrite}
+    CLASS PUBLIC _NULL_RTM IMPLEMENTS IAxoRtm
+        VAR PRIVATE
+            _null_time : LTIME;
+        END_VAR
+           
+        METHOD PUBLIC Elapsed : LTIME
+            Elapsed := _null_time;
         END_METHOD
     END_CLASS    
 END_NAMESPACE

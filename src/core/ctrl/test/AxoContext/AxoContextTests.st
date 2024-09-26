@@ -1,5 +1,6 @@
 USING AxUnit;
 USING AXOpen.Core;
+USING AXOpen.Rtm;
 
 NAMESPACE AXOpen.Core.AxoContext_Tests
 
@@ -60,6 +61,8 @@ NAMESPACE AXOpen.Core.AxoContext_Tests
             actual := _context.CreateIdentity();
             Assert.Equal(expected, actual);
         END_METHOD
+               
     END_CLASS
 
+    
 END_NAMESPACE

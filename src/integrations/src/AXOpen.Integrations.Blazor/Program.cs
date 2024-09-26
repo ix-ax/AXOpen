@@ -74,7 +74,7 @@ namespace axopen_integrations_blazor
                             (new AXOpen.Data.Json.JsonRepositorySettings<Pocos.IntegrationLightDirect.DataSet>(Path.Combine(Environment.CurrentDirectory, "data", "processdata1"))));
 
             var pdfBuilder =
-                Entry.Plc.Integrations.DataFragmentContext.PD.CreateBuilder<IntegrationAxoDataFramentsExchange.ProcessData>();
+                Entry.Plc.Integrations.DataFragmentContext.PD.CreateDataFragments<IntegrationAxoDataFramentsExchange.ProcessData>();
 
             pdfBuilder.Set.SetRepository(new JsonRepository<Pocos.IntegrationAxoDataFramentsExchange.SharedProductionData>(
                 new AXOpen.Data.Json.JsonRepositorySettings<Pocos.IntegrationAxoDataFramentsExchange.SharedProductionData>(Path.Combine(Environment.CurrentDirectory, "bin", "data-framents", "set"))));
@@ -97,7 +97,7 @@ namespace axopen_integrations_blazor
             //<AxoDataFragmentedExampleDocuIntialization>
 
             var scatteredDataBuilder =
-                Entry.Plc.AxoDataFragmentExchangeContext.ProcessData.CreateBuilder<AxoDataFramentsExchangeDocuExample.ProcessDataManager>();
+                Entry.Plc.AxoDataFragmentExchangeContext.ProcessData.CreateDataFragments<AxoDataFramentsExchangeDocuExample.ProcessDataManager>();
 
             // Setting up repositories
             scatteredDataBuilder.SharedHeader.SetRepository(new JsonRepository<Pocos.AxoDataFramentsExchangeDocuExample.SharedDataHeaderData>(

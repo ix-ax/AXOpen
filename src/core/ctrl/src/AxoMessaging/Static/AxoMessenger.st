@@ -79,6 +79,10 @@ NAMESPACE AXOpen.Messaging.Static
                 IF AcknowledgeRequest THEN
                     THIS.Acknowledge();                    
                 END_IF;
+            ELSE
+                IF AcknowledgeRequest THEN
+                    THIS.Acknowledge(MessageCode);                    
+                END_IF;
             END_IF;
 
             IF(THIS.WaitingForAcknowledge) THEN
