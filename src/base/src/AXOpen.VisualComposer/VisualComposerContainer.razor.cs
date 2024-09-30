@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Xml.Linq;
 using System.Drawing;
 using static System.Net.Mime.MediaTypeNames;
+using AXOpen.VisualComposer.Types;
 
 namespace AXOpen.VisualComposer
 {
@@ -151,6 +152,12 @@ namespace AXOpen.VisualComposer
             StateHasChanged();
 
             await SaveAsync();
+        }
+
+        public void AddChildren(ITwinElement item, double left, double top, TransformType transform, string presentation, double width, double height, int zIndex, double scale, string roles, string? presentationTemplate, bool background, string backgroundColor)
+        {
+            _children.Add(new VisualComposerItemData(   EventCallback.Factory.Create(this, StateHasChanged),EventCallback.Factory.Create(this, SaveAsync), item, item.Symbol.ModalIdHelper(), 
+                                                        Guid.NewGuid(), left, top, transform, presentation, width, height, zIndex, scale, roles,  presentationTemplate, background, backgroundColor));
         }
 
         public async Task RemoveChildrenAsync(VisualComposerItemData item)
