@@ -239,6 +239,9 @@ public sealed class TestsTask : FrostingTask<BuildContext>
         {
             context.Libraries.ToList().ForEach(lib =>
             {
+                context.Log.Information($"---------------------------------");
+                context.Log.Information($"Testing {lib.folder}");
+                context.Log.Information($"---------------------------------");
                 context.ApaxClean(lib);
                 context.ApaxInstall(context.GetLibraryAxFolders(lib));
                 context.ApaxBuild(context.GetLibraryAxFolders(lib));
