@@ -1,5 +1,5 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen", "AXOpen.proj", "{51D303B0-6291-4BAB-939B-8C378F619298}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AXOpen", "AXOpen.proj", "{51D303B0-6291-4BAB-939B-8C378F619298}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "librarytemplate.blazor", "abstractions\app\ix-blazor\librarytemplate.blazor\librarytemplate.blazor.csproj", "{CDA29D58-7DD5-46C8-946C-CD4B04F5EB49}"
 EndProject
@@ -835,8 +835,7 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{51D303B0-6291-4BAB-939B-8C378F619298}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{51D303B0-6291-4BAB-939B-8C378F619298}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{51D303B0-6291-4BAB-939B-8C378F619298}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{51D303B0-6291-4BAB-939B-8C378F619298}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51D303B0-6291-4BAB-939B-8C378F619298}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{CDA29D58-7DD5-46C8-946C-CD4B04F5EB49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CDA29D58-7DD5-46C8-946C-CD4B04F5EB49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDA29D58-7DD5-46C8-946C-CD4B04F5EB49}.Release|Any CPU.ActiveCfg = Release|Any CPU

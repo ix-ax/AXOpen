@@ -239,9 +239,9 @@ To manually add the GitHub NuGet feed to your sources:
 1. Generate a Personal Access Token on GitHub with 'read:packages', 'write:packages', and 'delete:packages' (if needed) permissions.
 2. Open a command prompt or terminal.
 3. Use the following command to add the feed to your NuGet sources:
-   nuget sources Add -Name "GitHub" -Source "$feedUrl" -Username [YOUR_GITHUB_USERNAME] -Password [YOUR_PERSONAL_ACCESS_TOKEN]
-
-Replace [YOUR_GITHUB_USERNAME] with your actual GitHub username and [YOUR_PERSONAL_ACCESS_TOKEN] with the token you generated.
+   dotnet nuget add source --username [YOUR_GITHUB_USERNAME] --password [YOUR_PERSONAL_ACCESS_TOKEN]  --store-password-in-clear-text --name gh-packages-ix-ax "https://nuget.pkg.github.com/ix-ax/index.json"
+   
+   Replace [YOUR_GITHUB_USERNAME] with your actual GitHub username and [YOUR_PERSONAL_ACCESS_TOKEN] with the token you generated.
 
 Note: Treat your personal access token like a password. Keep it secure and do not share it.
 "@    

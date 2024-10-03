@@ -42,10 +42,10 @@
 	<ItemGroup>
 		<PackageReference Include="AXSharp.Abstractions" />
 		<PackageReference Include="AXSharp.Connector" />
-		<PackageReference Include="GitVersion.MsBuild">
+		<!-- <PackageReference Include="GitVersion.MsBuild">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
+		</PackageReference> -->
 	</ItemGroup>
 
 	<ItemGroup>
