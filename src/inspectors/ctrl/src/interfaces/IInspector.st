@@ -26,11 +26,7 @@ NAMESPACE AXOpen.Inspectors
                 inRetryStep: IAxoStep;
                 inTerminateStep: IAxoStep;
             END_VAR
-
-            VAR_IN_OUT
-                inoDialog : AxoInspectorDialog;
-            END_VAR
-            
+          
         END_METHOD
 
         METHOD  RestoreInspectorTask : BOOL

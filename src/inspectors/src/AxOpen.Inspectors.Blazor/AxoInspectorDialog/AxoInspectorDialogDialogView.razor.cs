@@ -23,7 +23,7 @@ namespace AXOpen.Inspectors
             try
             {
                 // _inspectorIndentity property is subscribed in the method base.AddToPolling()
-                var parent = Component.GetConnector().IdentityProvider.GetTwinByIdentity(Component._inspectorIndentity.Cyclic);
+                var parent = Component.GetParent();
 
                 if (parent != null)
                 {
