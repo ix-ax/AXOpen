@@ -6,11 +6,11 @@ files:
 devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
 catalogs:
-  "@ax/simatic-ax": ^2405.0.0
+  "@ax/simatic-ax": 2405.1.0
 dependencies:
   "@ax/simatic-1500-clocks": 7.0.4
-  "@ax/system-bitaccess": 7.0.17
-  "@ax/system-math": 7.0.17
-  "@ax/system-serde": 7.0.17
+  "@ax/system-bitaccess": 7.1.47
+  "@ax/system-math": 7.1.47
+  "@ax/system-serde": 7.1.47
 installStrategy: strict
 apaxVersion: 3.3.1

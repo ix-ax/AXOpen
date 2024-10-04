@@ -2,7 +2,7 @@ name: apax.traversal
 version: 0.0.0-dev.0
 type: app
 targets:
-- llvm
+  - llvm
 devDependencies:
   '@ix-ax/ax-sdk': 0.0.0-dev.0
 dependencies:
@@ -62,3 +62,4 @@ dependencies:
   '@ix-ax/axopen.timers': 0.0.0-dev.0
   utils-app: 0.0.0-dev.0
   '@ix-ax/axopen.utils': 0.0.0-dev.0
+installStrategy: overridable

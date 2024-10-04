@@ -106,8 +106,10 @@ public static class ApaxTraversal
                                                                 version = "0.0.0-dev.0", 
                                                                 type = "app",
                                                                 targets = new string[] {"llvm"},
-                                                                devDependencies = new Dictionary<string, string>() { {"@ix-ax/ax-sdk", dependencies.First(p => p.Name == "@ix-ax/ax-sdk").Version} }, 
-                                                                dependencies = dependenciesDictionary});
+                                                                devDependencies = new Dictionary<string, string>() 
+                                                                    { {"@ix-ax/ax-sdk", dependencies.First(p => p.Name == "@ix-ax/ax-sdk").Version} },
+                                                                dependencies = dependenciesDictionary,
+                                                                installStrategy = "overridable"});
 
         File.WriteAllText(filePath, yamlContent);
     }
