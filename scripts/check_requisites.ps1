@@ -239,11 +239,81 @@ To manually add the GitHub NuGet feed to your sources:
 1. Generate a Personal Access Token on GitHub with 'read:packages', 'write:packages', and 'delete:packages' (if needed) permissions.
 2. Open a command prompt or terminal.
 3. Use the following command to add the feed to your NuGet sources:
-   nuget sources Add -Name "GitHub" -Source "$feedUrl" -Username [YOUR_GITHUB_USERNAME] -Password [YOUR_PERSONAL_ACCESS_TOKEN]
-
-Replace [YOUR_GITHUB_USERNAME] with your actual GitHub username and [YOUR_PERSONAL_ACCESS_TOKEN] with the token you generated.
+   dotnet nuget add source --username [YOUR_GITHUB_USERNAME] --password [YOUR_PERSONAL_ACCESS_TOKEN]  --store-password-in-clear-text --name gh-packages-ix-ax "https://nuget.pkg.github.com/ix-ax/index.json"
+   
+   Replace [YOUR_GITHUB_USERNAME] with your actual GitHub username and [YOUR_PERSONAL_ACCESS_TOKEN] with the token you generated.
 
 Note: Treat your personal access token like a password. Keep it secure and do not share it.
 "@    
     Write-Host "You need to add the GitHub NuGet feed to your sources manually." $nugetGuide
+}
+
+# Function to download VS Build Tools
+function Download-VSBuildTools {
+    $url = "https://aka.ms/vs/16/release/vs_buildtools.exe"
+    $output = "vs_buildtools.exe"
+    
+    Write-Host "Downloading Visual Studio Build Tools..."
+    Invoke-WebRequest -Uri $url -OutFile $output
+    
+    if (Test-Path $output) {
+        Write-Host "Visual Studio Build Tools downloaded successfully."
+    } else {
+        Write-Host "Failed to download Visual Studio Build Tools."
+        exit 1
+    }
+}
+
+# Function to install VS Build Tools
+function Install-VSBuildTools {
+    Write-Host "Installing Visual Studio Build Tools..."
+    
+    #Start-Process -FilePath ".\vs_buildtools.exe --wait --norestart --nocache --passive --add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows10SDK --add Microsoft.VisualStudio.Component.Windows10SDK.18362" -Wait
+    .\vs_buildtools.exe --wait --norestart --nocache --passive --add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows10SDK --add Microsoft.VisualStudio.Component.Windows10SDK.18362
+    Write-Host "Visual Studio Build Tools installation completed."
+}
+
+# Expected path from the environment variable
+$expectedVCToolsInstallDir = "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Tools\MSVC\14.29.30133"
+
+# Check if the environment variable exists
+$vctoolsDir = [System.Environment]::GetEnvironmentVariable("VCToolsInstallDir", [System.EnvironmentVariableTarget]::Machine)
+
+if ($vctoolsDir -and (Test-Path $vctoolsDir)) {
+    # If the environment variable exists and the path is valid
+    Write-Host "VCToolsInstallDir is set and the path exists: $vctoolsDir" -foregroundcolor green
+} else {
+    # If the environment variable doesn't exist or the path is invalid
+    Write-Host "VCToolsInstallDir is not set correctly or the path does not exist." -foregroundcolor red
+
+    # Prompt the user to confirm installation
+    $userResponse = Read-Host "Would you like to download and install Visual Studio Build Tools? (Y/N)"
+    
+    if ($userResponse -eq 'Y' -or $userResponse -eq 'y') {
+        # If the user confirms, download and install Visual Studio Build Tools
+        Download-VSBuildTools
+        Install-VSBuildTools
+
+        try
+        {
+            # Set the environment variable after installation
+            [System.Environment]::SetEnvironmentVariable("VCToolsInstallDir", $expectedVCToolsInstallDir, [System.EnvironmentVariableTarget]::Machine)
+        }
+        catch
+        {
+            Write-Host "Failed to set VCToolsInstallDir environment variable or path. You will need to set it manually." -foregroundcolor red
+            Write-Host "VCToolsInstallDir = $expectedVCToolsInstallDir" -foregroundcolor red
+        }
+        # Verify that the environment variable and path are now correct
+        $finalVCToolsInstallDir = [System.Environment]::GetEnvironmentVariable("VCToolsInstallDir", [System.EnvironmentVariableTarget]::Machine)
+        
+        if ($finalVCToolsInstallDir -eq $expectedVCToolsInstallDir -and (Test-Path $finalVCToolsInstallDir)) {
+            Write-Host "VCToolsInstallDir is now set correctly: $finalVCToolsInstallDir"
+        } else {
+            Write-Host "Failed to set VCToolsInstallDir environment variable or path."
+        }
+    } else {
+        # If the user declines installation
+        Write-Host "Installation aborted by the user."
+    }
 }

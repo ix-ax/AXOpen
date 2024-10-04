@@ -425,3 +425,5 @@ hwc.gen/
 
 #DCP export 
 dcp_export/
+
+*.apax.tgz
