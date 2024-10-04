@@ -4,46 +4,29 @@
 @inherits AxoDialogBaseView<AxoInspectorDialog>
 @inject AuthenticationStateProvider _asp
 
-
-<div class="border border-2 rounded">
-   
+<div class="border border-2 rounded p-3">
     <h3>Inspection failed, you will need to decide what's next...</h3>
-    <p>@Component.Symbol</p>
 
-    <div class="d-flex justify-content-center ">
-
+    <div class="d-flex flex-column align-items-center">
         <div>
-
-            <h5>@Description</h5>
-            @if (Inspector != null)
-            {
-                <RenderableContentControl Context="Inspector" Presentation="Status" />
-            }
-            else
-            {
-                <p>Loading inspector... if it's taking long, something is wrong</p>
-            }
-
-        </div>
-        <div class="d-flex justify-content-center ">
-            <button type="button" class="btn btn-secondary m-2 w-50" disabled="@RetryDisabled" @onclick="Retry">Retry</button>
-
-            <button type="button" class="btn btn-secondary m-2 w-50" @onclick="Terminate">Terminate</button>
-
-            <button type="button" class="btn btn-secondary m-2 w-50" @onclick="Override">Override</button>
+            <!-- Renderable content control at the top -->
+            <RenderableContentControl Context="Component.GetParent()" Presentation="Status"/>
         </div>
 
+        <div class="mt-3" style="width: 100%;">
+            <!-- Buttons in a row, centered horizontally -->
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-secondary m-2 w-50" disabled="@RetryDisabled" @onclick="Retry">Retry</button>
+                <button type="button" class="btn btn-secondary m-2 w-50" @onclick="Terminate">Terminate</button>
+                <button type="button" class="btn btn-secondary m-2 w-50" @onclick="Override">Override</button>
+            </div>
+        </div>
     </div>
-    <div>
 
+    <div class="mt-4">
         @if (!_asp.GetAuthenticationStateAsync().Result.User.Identity.IsAuthenticated)
         {
-            <p>You are not authorized, please <a href="Identity/Account/Login">Log In</a>.</p>
+        <p>You are not authorized, please <a href="Identity/Account/Login">Log In</a>.</p>
         }
-
     </div>
 </div>
-
-
-
-

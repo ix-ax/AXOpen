@@ -17,11 +17,7 @@ NAMESPACE AXOpen.Inspectors
             VAR_INPUT
                 inRetryStep: AXOpen.Core.IAxoStep;
                 inTerminateStep: AXOpen.Core.IAxoStep;
-            END_VAR
-            
-            VAR_IN_OUT
-                inoDialog : AxoInspectorDialog;
-            END_VAR
+            END_VAR                        
         END_METHOD
 
 

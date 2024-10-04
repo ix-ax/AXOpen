@@ -14,9 +14,12 @@ NAMESPACE AXOpen.Inspectors
             _isOverInspected: BOOL;
             _busy : BOOL;
             _commonData: REF_TO AxoInspectorData;
-            _originalOverallResult : IAxoComprehensiveResult;   
+            _originalOverallResult : IAxoComprehensiveResult;              
         END_VAR
     
+        VAR PUBLIC
+            _DL :  AXOpen.Inspectors.AxoInspectorDialog;
+        END_VAR    
       
         /// <summary>
         /// Check, if data are overinspected (attempts of inspections is larger than maximum number of allowed retries)
@@ -80,13 +83,9 @@ NAMESPACE AXOpen.Inspectors
                 inRetryStep: IAxoStep;
                 inTerminateStep: IAxoStep;
             END_VAR
-            
-            VAR_IN_OUT
-                inoDialog : AxoInspectorDialog;
-            END_VAR
-
+                                  
             // here if is coordinator missing, it should provide message to call it with WithCoordinator method
-            inoDialog.Show(REF(THIS), inRetryStep, inTerminateStep);
+            _DL.Show(REF(THIS), inRetryStep, inTerminateStep);
 
         END_METHOD
 
