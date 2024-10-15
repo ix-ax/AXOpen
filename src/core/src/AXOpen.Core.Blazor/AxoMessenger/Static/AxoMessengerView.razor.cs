@@ -47,6 +47,9 @@ namespace AXOpen.Messaging.Static
             UpdateValuesOnChange(Component.MessengerState);
             UpdateValuesOnChange(Component.MessageCode);
             UpdateValuesOnChange(Component.Category);
+            UpdateValuesOnChange(Component.Risen);
+            UpdateValuesOnChange(Component.Fallen);
+            UpdateValuesOnChange(Component.Acknowledged);
         }
 
         public override void Dispose()
@@ -67,8 +70,7 @@ namespace AXOpen.Messaging.Static
                 return retval;
             }
         }
-
-
+        
         private string AckBtnBackgroundColor
         {
             get

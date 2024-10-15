@@ -9,6 +9,7 @@ NAMESPACE AXOpen.Inspectors
     {S7.extern=ReadWrite}
     CLASS AxoInspector EXTENDS AXOpen.Core.AxoObject IMPLEMENTS IInspector, IOnFail
         VAR PROTECTED
+            {#ix-attr:[CompilerOmits("POCO")]} //-"No params" Will skip the emission for all output types                        
             _inspectorTask: AxoInspectorTask;
             _coordinator: IAxoCoordinator;
             _isOverInspected: BOOL;
@@ -18,6 +19,7 @@ NAMESPACE AXOpen.Inspectors
         END_VAR
     
         VAR PUBLIC
+            {#ix-attr:[CompilerOmits("POCO")]} //-"No params" Will skip the emission for all output types                        
             _DL :  AXOpen.Inspectors.AxoInspectorDialog;
         END_VAR    
       
