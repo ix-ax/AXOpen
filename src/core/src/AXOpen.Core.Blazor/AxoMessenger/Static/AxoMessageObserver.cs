@@ -5,10 +5,9 @@
 // https://github.com/PTKu/ix/blob/master/LICENSE
 // Third party licenses: https://github.com/PTKu/ix/blob/master/notices.md
 
-using System.Collections;
 using AXSharp.Connector;
-using AXSharp.Connector.ValueTypes;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
+using AxoObject = AXOpen.Core.AxoObject;
 
 namespace AXOpen.Messaging.Static.Blazor;
 
@@ -125,11 +124,14 @@ public class AxoMessageObserver
             }
         });
     }
-
-    public static async Task<AxoMessageObserver> CreateAndInitialize(AxoMessageProvider provider, RenderableComponentBase unitBaseSpotView)
+    
+    public async Task InitializeLightUpdate()
     {
-        var observer = AxoMessageObserver.Create(provider, unitBaseSpotView);
-        await observer.InitializeUpdate();
-        return observer;
+        await Task.Run(() => {
+            foreach (var axoObject in this.Provider.ObservedObjects.Where(p => p is AxoObject).Select(p => p as AxoObject))
+            {
+                Component.UpdateValuesOnChange(axoObject.MsgCnt, 2500);
+            }
+        });
     }
 }

@@ -66,7 +66,7 @@
     ///<inheritdoc/>
     protected override async Task OnInitializedAsync()
     {
-        if (observer != null) await observer.InitializeUpdate();
+        if (observer != null) await observer.InitializeLightUpdate();
         await base.OnInitializedAsync();
     }
 }

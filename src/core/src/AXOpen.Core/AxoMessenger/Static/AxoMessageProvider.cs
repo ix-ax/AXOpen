@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AXSharp.Connector;
 using AXOpen.ToolBox.Extensions;
+
 namespace AXOpen.Messaging.Static
 {
     /// <summary>
@@ -18,7 +19,7 @@ namespace AXOpen.Messaging.Static
             this.ObservedObjects = observedObjects;
         }
 
-        private IEnumerable<ITwinObject> ObservedObjects { get; }
+        public IEnumerable<ITwinObject> ObservedObjects { get; }
 
         /// <summary>
         /// Gets the number of active messages.
@@ -31,7 +32,19 @@ namespace AXOpen.Messaging.Static
         {
             get
             {
-                return this.Messengers?.Count(p => p.State > eAxoMessengerState.Idle && p.State != eAxoMessengerState.NotActiveWaitingAckn);
+                try
+                {
+                    return ObservedObjects
+                        .OfType<AXOpen.Core.AxoObject>()
+                        .Select(p => Convert.ToInt32(p.MsgCnt.LastValue)) // Convert to appropriate numeric type
+                        .Sum();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+                
+                return 0;
             }
         }
 
@@ -48,7 +61,19 @@ namespace AXOpen.Messaging.Static
         {
             get
             {
-                return this.Messengers?.Count(p => p.State > eAxoMessengerState.Idle);
+                try
+                {
+                    return ObservedObjects
+                        .OfType<AXOpen.Core.AxoObject>()
+                        .Select(p => Convert.ToInt32(p.MsgCnt.LastValue)) // Convert to appropriate numeric type
+                        .Sum();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+
+                return 0;
             }
         }
         

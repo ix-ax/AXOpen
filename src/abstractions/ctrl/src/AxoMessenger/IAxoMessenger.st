@@ -1,0 +1,5 @@
+NAMESPACE AXOpen.Core
+    INTERFACE PUBLIC IAxoMessenger
+        
+    END_INTERFACE    
+END_NAMESPACE    
