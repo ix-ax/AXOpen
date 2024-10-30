@@ -5,10 +5,10 @@
       "Modules": [
         {
           "Apply": {
-            "TemplateName": "PLC_1516_v3_1",
+            "TemplateName": "6ES7516-3AP03-0AB0_1516_v3_0",
             "Arguments": {
               "PLCName": "plc_line",
-              "IpAddress": "10.10.10.120/24"
+              "IpAddress_X1": "10.10.10.120/24"
             }
           }
         }
@@ -19,7 +19,7 @@
     {
       "Name": "profinet_plc_line",
       "ControllerInterfaces": [
-        { "Ref": "plc_line/plc_line/profinet_x1" }
+        { "Ref": "plc_line/plc_line/PROFINET_interface_X1" }
       ],
       "DeviceInterfaces": [
         { "Ref":  "RobotBasicIO/RobotBasicIO/profinet"},        
