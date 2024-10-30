@@ -1,3 +1,4 @@
+---
 Templates:
   Modules:
   - Name: 6ES7516-3AP03-0AB0_1516_v3_0
@@ -5,17 +6,24 @@ Templates:
     - Name: PLCName
       Value: plc_line
     - Name: IpAddress_X1
-      Value: 10.10.10.120/24
+      Value: 10.222.6.1/24
     - Name: IpAddress_X2
-      Value: 10.10.11.120/24
+      Value: 10.222.7.1/24
     Content:
-      Name: "${PLCName}"
+      Name: ${PLCName}
       TypeIdentifier:
         OrderNumber: 6ES7 516-3AP03-0AB0
         Version: V3.0
-      AccessProtection:
-        AccessLevel: FullAccess
       Services:
+      - Type: Syslog
+        Enabled: false
+        Parameters:
+          Address: 0.0.0.0
+          Port: 65535
+          TransportProtocolType: TLSServerAndClientAuthentication
+          AutoAcceptServer: false
+          TrustedServerCertificates:
+          - TrustedSyslogServer.cer
       - Type: OpcUaServer
         Enabled: false
         Parameters:
@@ -28,25 +36,25 @@ Templates:
         Parameters:
           HttpsOnly: true
       Interfaces:
-      - Name: PROFINET_interface_X1
+      - Name: PROFINET_interface_1
         Label: X1
         Addresses:
           Configured:
-          - IPv4: "${IpAddress_X1}"
-          - ProfinetDeviceName: "${PLCName}"
+          - IPv4: ${IpAddress_X1}
+          - ProfinetDeviceName: ${PLCName}.profinet_interface_1
         Parameters:
-          UseWebServerForInterface: true
+          UseWebServerForInterface: false
           IsIoDevice: false
           TimeSynchronizationNtp: false
           IECV22LLDPMode: false
           OverwriteDeviceNames: false
           PnSendClock: 1000000
-      - Name: PROFINET_interface_X2
+      - Name: PROFINET_interface_2
         Label: X2
         Addresses:
           Configured:
-          - IPv4: "${IpAddress_X2}"
-          - ProfinetDeviceName: "${PLCName}"
+          - IPv4: ${IpAddress_X2}
+          - ProfinetDeviceName: ${PLCName}.profinet_interface_2
         Parameters:
           UseWebServerForInterface: false
           IsIoDevice: false
@@ -58,7 +66,7 @@ Templates:
         Addresses:
           Configured:
           - IPv4: 0.0.0.0/0
-          - ProfinetDeviceName: "${PLCName}"
+          - ProfinetDeviceName: ${PLCName}.virtual_communication_interface
       Ports:
       - Name: Port_1
         Label: X1 P1
@@ -104,7 +112,27 @@ Templates:
         TimeSynchronizationNtpV2: 0
         HostAndDomainnameActive: false
       UserManagement:
+        Users:
+        - Name: Admin
+          AssignedRoles:
+          - AdminRole
+        - Name: usr
+          AssignedRoles:
+          - WebServerAccessRole
         Roles:
+        - Name: AdminRole
+          FunctionRights:
+          - ReadPlcVariables
+          - WritePlcVariables
+          - ReadFiles
+          - QueryDiagnostics
+          - FlashLed
+          - AccessProtectionFailsafeAccess
+          - AccessProtectionFullAccess
+          - AccessProtectionHMIAccess
+          - AccessProtectionReadAccess
+          - OpcUAServerAccess
+          - OpcUAManageCertificates
         - Name: WebServerAccessRole
           FunctionRights:
           - ReadPlcVariables
@@ -112,7 +140,3 @@ Templates:
           - ReadFiles
           - QueryDiagnostics
           - FlashLed
-        Users:
-        - Name: adm
-          AssignedRoles:
-          - WebServerAccessRole
