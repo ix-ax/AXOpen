@@ -1,0 +1,117 @@
+Devices:
+- Name: KRC4
+  Modules:
+  - Name: KRC4
+    TypeIdentifier:
+      FileName: GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml
+      GsdId: DIM 1
+    Interfaces:
+    - Name: profinet
+      Label: X1
+      Addresses:
+        Configured:
+          - IPv4: 10.10.10.53/24
+          - ProfinetDeviceName: krc4
+      Parameters:
+        IECV22LLDPMode: False
+        # TsnDomainName: 
+    Ports:
+    - Name: Port_1
+      Label: X1 P1
+  - TypeIdentifier: NotAssigned
+    Slot: 1
+  # - Name: FDIO64
+  #   TypeIdentifier:
+  #     GsdId: '1'
+  #     FileName: GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml
+  #   Slot: 1
+  # - Name: FDIO64_iPar
+  #   TypeIdentifier:
+  #     GsdId: '2'
+  #     FileName: GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml
+  #   Slot: 1
+  # - Name: FDIO64_2_61
+  #   TypeIdentifier:
+  #     GsdId: '3'
+  #     FileName: GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml
+  #   Slot: 1
+  # - Name: FDIO64_2_61_iPar
+  #   TypeIdentifier:
+  #     GsdId: '4'
+  #     FileName: GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml
+  #   Slot: 1
+  # - Name: DIO8
+  #   TypeIdentifier:
+  #     GsdId: '5'
+  #     FileName: GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml
+  #   Slot: 2
+  # - Name: DIO16
+  #   TypeIdentifier:
+  #     GsdId: '6'
+  #     FileName: GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml
+  #   Slot: 2
+  # - Name: DIO32
+  #   TypeIdentifier:
+  #     GsdId: '7'
+  #     FileName: GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml
+  #   Slot: 2
+  # - Name: DIO64
+  #   TypeIdentifier:
+  #     GsdId: '8'
+  #     FileName: GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml
+  #   Slot: 2
+  # - Name: DIO128
+  #   TypeIdentifier:
+  #     GsdId: '9'
+  #     FileName: GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml
+  #   Slot: 2
+  # - Name: DIO192
+  #   TypeIdentifier:
+  #     GsdId: '10'
+  #     FileName: GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml
+  #   Slot: 2
+  # - Name: DIO256
+  #   TypeIdentifier:
+  #     GsdId: '11'
+  #     FileName: GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml
+  #   Slot: 2
+  # - Name: DIO320
+  #   TypeIdentifier:
+  #     GsdId: '12'
+  #     FileName: GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml
+  #   Slot: 2
+  # - Name: DIO384
+  #   TypeIdentifier:
+  #     GsdId: '13'
+  #     FileName: GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml
+  #   Slot: 2
+  # - Name: DIO448
+  #   TypeIdentifier:
+  #     GsdId: '14'
+  #     FileName: GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml
+  #   Slot: 2
+  - Name: DIO512
+    TypeIdentifier:
+      GsdId: '15'
+      FileName: GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml
+    Slot: 2
+  # - Name: DIO768
+  #   TypeIdentifier:
+  #     GsdId: '16'
+  #     FileName: GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml
+  #   Slot: 2
+  # - Name: DIO1024
+  #   TypeIdentifier:
+  #     GsdId: '17'
+  #     FileName: GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml
+  #   Slot: 2
+  # - Name: DIO1536
+  #   TypeIdentifier:
+  #     GsdId: '18'
+  #     FileName: GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml
+  #   Slot: 2
+  # - Name: DIO2032
+  #   TypeIdentifier:
+  #     GsdId: '19'
+  #     FileName: GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml
+  #   Slot: 2
