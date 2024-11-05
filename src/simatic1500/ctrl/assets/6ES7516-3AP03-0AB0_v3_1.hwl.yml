@@ -1,31 +1,34 @@
----
 Templates:
   Modules:
-  - Name: 6ES7516-3AP03-0AB0_1516_v3_0
+  - Name: 6ES7516-3AP03-0AB0_v3_1
     Placeholders:
     - Name: PLCName
-      Value: plc_line
+      Value: PLCName
     - Name: IpAddress_X1
       Value: 10.222.6.1/24
+    - Name: ProfinetDeviceName_X1
+      Value: plcname_profinet_interface_x1
     - Name: IpAddress_X2
       Value: 10.222.7.1/24
+    - Name: ProfinetDeviceName_X2
+      Value: plcname_profinet_interface_x2
     Content:
-      Name: ${PLCName}
+      Name: "${PLCName}"
       TypeIdentifier:
         OrderNumber: 6ES7 516-3AP03-0AB0
-        Version: V3.0
+        Version: V3.1
       Services:
       - Type: Syslog
-        Enabled: false
+        Enabled: False
         Parameters:
           Address: 0.0.0.0
           Port: 65535
           TransportProtocolType: TLSServerAndClientAuthentication
-          AutoAcceptServer: false
+          AutoAcceptServer: False
           TrustedServerCertificates:
           - TrustedSyslogServer.cer
       - Type: OpcUaServer
-        Enabled: false
+        Enabled: False
         Parameters:
           SecurityPolicies:
           - NoSecurity
@@ -36,37 +39,37 @@ Templates:
         Parameters:
           HttpsOnly: true
       Interfaces:
-      - Name: PROFINET_interface_1
+      - Name: profinet_x1
         Label: X1
         Addresses:
           Configured:
-          - IPv4: ${IpAddress_X1}
-          - ProfinetDeviceName: ${PLCName}.profinet_interface_1
+          - IPv4: "${IpAddress_X1}"
+          - ProfinetDeviceName:  "${ProfinetDeviceName_X1}"
         Parameters:
-          UseWebServerForInterface: false
+          UseWebServerForInterface: true
           IsIoDevice: false
           TimeSynchronizationNtp: false
           IECV22LLDPMode: false
           OverwriteDeviceNames: false
           PnSendClock: 1000000
-      - Name: PROFINET_interface_2
+      - Name: profinet_x2
         Label: X2
         Addresses:
           Configured:
-          - IPv4: ${IpAddress_X2}
-          - ProfinetDeviceName: ${PLCName}.profinet_interface_2
+          - IPv4: "${IpAddress_X2}"
+          - ProfinetDeviceName:  "${ProfinetDeviceName_X2}"
         Parameters:
           UseWebServerForInterface: false
           IsIoDevice: false
           IECV22LLDPMode: false
           OverwriteDeviceNames: false
           PnSendClock: 1000000
-      - Name: Virtual_communication_interface
+      - Name: virtual_communication_interface
         Label: W1
         Addresses:
           Configured:
           - IPv4: 0.0.0.0/0
-          - ProfinetDeviceName: ${PLCName}.virtual_communication_interface
+          - ProfinetDeviceName: "${PLCName}"
       Ports:
       - Name: Port_1
         Label: X1 P1
@@ -75,25 +78,28 @@ Templates:
       - Name: Port_3
         Label: X2 P1
       Parameters:
-        PnDnsConfigNameResolve: Disabled
+        PnDnsConfigNameResolve: 0
         AdditionalInformation: ''
-        ClockMemoryByte: false
-        CycleCommunicationLoad: 20
-        CycleEnableMinimumCycleTime: true
+        ClockMemoryByteAddress: 0
+        ClockMemoryByte: False
+        CycleCommunicationLoad: 50
+        CycleEnableMinimumCycleTime: True
         CycleMaximumCycleTime: 150
         CycleMinimumCycleTime: 1
-        ConfigurationControl: false
+        ConfigurationControl: False
         LocationIdentifier: ''
         PlantDesignation: ''
+        # ProtectionEnablePutGetCommunication: False    # Read Only
         ProtectionIntervalForSummarizeOfSecurityEvents: 20
-        ProtectionSummarizeSecurityEventsOnHighLoad: true
+        ProtectionSummarizeSecurityEventsOnHighLoad: True
         ProtectionUnitForSummarizeOfSecurityEvents: 2
         StartupActionAfterPowerOn: 3
         StartupComparisonPresetToActualModule: 2
         StartupConfigurationTimeout: 60000
-        SystemMemoryByte: false
+        # SystemMemoryByteAddress: 1    # Read Only
+        SystemMemoryByte: False
         SystemPowerSupplyExternal: 1
-        TimeOfDayActivateDaylightSavingTime: true
+        TimeOfDayActivateDaylightSavingTime: True
         TimeOfDayDaylightSavingTimeOffset: 60
         TimeOfDayDaylightSavingTimeStartHour: 1
         TimeOfDayDaylightSavingTimeStartMonth: 3
@@ -104,21 +110,29 @@ Templates:
         TimeOfDayStandardTimeStartMonth: 10
         TimeOfDayStandardTimeStartWeek: 5
         TimeOfDayStandardTimeStartWeekday: 1
-        CentralAlarmManagement: true
+        # TimeSynchronizationServer1: ''    # Read Only
+        # TimeSynchronizationServer2: ''    # Read Only
+        # TimeSynchronizationServer3: ''    # Read Only
+        # TimeSynchronizationServer4: ''    # Read Only
+        # TimeSynchronizationUpdateInterval: 10   # Read Only
+        CentralAlarmManagement: True
         ProDiagUsedLicenses: 0
         EnergySuitePurchasedLicense10: 0
         EnergySuitePurchasedLicense5: 0
-        IPv4ForwardingActive: false
+        IPv4ForwardingActive: False
+        # MacRtLicensePurchased: 0    # Read Only
         TimeSynchronizationNtpV2: 0
-        HostAndDomainnameActive: false
+        # DomainConfiguration: 3    # Read Only
+        HostAndDomainnameActive: False
+        # Hostname: ''    # Read Only
+        # HostnameConfiguration: 3    # Read Only
+        # HostnameIdenticalToDeviceNameActive: False    # Read Only
+        # Domain: ''    # Read Only
       UserManagement:
         Users:
-        - Name: Admin
+        - Name: adm
           AssignedRoles:
           - AdminRole
-        - Name: usr
-          AssignedRoles:
-          - WebServerAccessRole
         Roles:
         - Name: AdminRole
           FunctionRights:
@@ -127,10 +141,10 @@ Templates:
           - ReadFiles
           - QueryDiagnostics
           - FlashLed
-          - AccessProtectionFailsafeAccess
-          - AccessProtectionFullAccess
-          - AccessProtectionHMIAccess
-          - AccessProtectionReadAccess
+          # - AccessProtectionFailsafeAccess
+          # - AccessProtectionFullAccess
+          # - AccessProtectionHMIAccess
+          # - AccessProtectionReadAccess
           - OpcUAServerAccess
           - OpcUAManageCertificates
         - Name: WebServerAccessRole

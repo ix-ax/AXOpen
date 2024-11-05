@@ -8,7 +8,6 @@ CONFIGURATION HardwareIDs
         OmniCore_OmniCore_profinet_HwID : UINT := UINT#257;
         OmniCore_OmniCore_profinet_Network_Port_1_HwID : UINT := UINT#258;
         OmniCore_Rack_HwID : UINT := UINT#260;
-        PROFINET_IO_System_HwID : UINT := UINT#256;
         RobotBasicIO_HwID : UINT := UINT#267;
         RobotBasicIO_DI_64_bytes_DI_64_bytes_HwID : UINT := UINT#271;
         RobotBasicIO_DO_64_bytes_DO_64_bytes_HwID : UINT := UINT#270;
@@ -24,13 +23,13 @@ CONFIGURATION HardwareIDs
         plc_line_plc_line_Card_reader_writer_1_HwID : UINT := UINT#51;
         plc_line_plc_line_DP_interface_1_HwID : UINT := UINT#60;
         plc_line_plc_line_OPC_UA_1_HwID : UINT := UINT#117;
-        plc_line_plc_line_PROFINET_interface_X1_HwID : UINT := UINT#64;
-        plc_line_plc_line_PROFINET_interface_X1_Port_1_HwID : UINT := UINT#65;
-        plc_line_plc_line_PROFINET_interface_X1_Port_2_HwID : UINT := UINT#66;
-        plc_line_plc_line_PROFINET_interface_X2_HwID : UINT := UINT#72;
-        plc_line_plc_line_PROFINET_interface_X2_Port_3_HwID : UINT := UINT#73;
-        plc_line_plc_line_Virtual_communication_interface_HwID : UINT := UINT#135;
-        plc_line_plc_line_plc_line_HwID : UINT := UINT#50;
+        plc_line_plc_line_profinet_x1_HwID : UINT := UINT#64;
+        plc_line_plc_line_profinet_x1_Port_1_HwID : UINT := UINT#65;
+        plc_line_plc_line_profinet_x1_Port_2_HwID : UINT := UINT#66;
+        plc_line_plc_line_profinet_x2_HwID : UINT := UINT#72;
+        plc_line_plc_line_profinet_x2_Port_3_HwID : UINT := UINT#73;
+        plc_line_plc_line_virtual_communication_interface_HwID : UINT := UINT#135;
+        profinet_plc_line_HwID : UINT := UINT#256;
 
     END_VAR
 END_CONFIGURATION

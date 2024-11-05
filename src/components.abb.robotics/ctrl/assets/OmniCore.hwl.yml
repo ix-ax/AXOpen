@@ -1,0 +1,23 @@
+---
+Devices:
+- Name: OmniCore
+  Modules:
+  - Name: OmniCore
+    TypeIdentifier:
+      GsdId: DIM IO
+      FileName: GSDML-V2.43-ABB-Robotics-OmniCore-20230327.XML
+    Interfaces:
+    - Name: profinet
+      Label: X1
+      Addresses:
+        Configured:
+        - IPv4: 10.10.10.2/24
+        - ProfinetDeviceName: OmniCore
+  - Name: DI_64_bytes
+    TypeIdentifier:
+      GsdId: '1'
+      FileName: GSDML-V2.43-ABB-Robotics-OmniCore-20230327.XML
+  - Name: DO_64_bytes
+    TypeIdentifier:
+      GsdId: '2'
+      FileName: GSDML-V2.43-ABB-Robotics-OmniCore-20230327.XML

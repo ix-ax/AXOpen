@@ -9,7 +9,6 @@ TYPE
         OmniCore_OmniCore_profinet_HwID :=	WORD#257,
         OmniCore_OmniCore_profinet_Network_Port_1_HwID :=	WORD#258,
         OmniCore_Rack_HwID :=	WORD#260,
-        PROFINET_IO_System_HwID :=	WORD#256,
         RobotBasicIO_HwID :=	WORD#267,
         RobotBasicIO_DI_64_bytes_DI_64_bytes_HwID :=	WORD#271,
         RobotBasicIO_DO_64_bytes_DO_64_bytes_HwID :=	WORD#270,
@@ -25,13 +24,13 @@ TYPE
         plc_line_plc_line_Card_reader_writer_1_HwID :=	WORD#51,
         plc_line_plc_line_DP_interface_1_HwID :=	WORD#60,
         plc_line_plc_line_OPC_UA_1_HwID :=	WORD#117,
-        plc_line_plc_line_PROFINET_interface_X1_HwID :=	WORD#64,
-        plc_line_plc_line_PROFINET_interface_X1_Port_1_HwID :=	WORD#65,
-        plc_line_plc_line_PROFINET_interface_X1_Port_2_HwID :=	WORD#66,
-        plc_line_plc_line_PROFINET_interface_X2_HwID :=	WORD#72,
-        plc_line_plc_line_PROFINET_interface_X2_Port_3_HwID :=	WORD#73,
-        plc_line_plc_line_Virtual_communication_interface_HwID :=	WORD#135,
-        plc_line_plc_line_plc_line_HwID :=	WORD#50,
+        plc_line_plc_line_profinet_x1_HwID :=	WORD#64,
+        plc_line_plc_line_profinet_x1_Port_1_HwID :=	WORD#65,
+        plc_line_plc_line_profinet_x1_Port_2_HwID :=	WORD#66,
+        plc_line_plc_line_profinet_x2_HwID :=	WORD#72,
+        plc_line_plc_line_profinet_x2_Port_3_HwID :=	WORD#73,
+        plc_line_plc_line_virtual_communication_interface_HwID :=	WORD#135,
+        profinet_plc_line_HwID :=	WORD#256,
 
         NONE := WORD#0
     );
