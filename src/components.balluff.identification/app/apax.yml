@@ -13,7 +13,14 @@ dependencies:
   "@ix-ax/axopen.components.balluff.identification": '0.0.0-dev.0'
   "@ix-ax/ax.axopen.app": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
-installStrategy: strict
+  # this is just temporary to test yml
+  # "@ax/hwc": ^1.2.23
+  # installStrategy: strict
+  "@ax/hwc": ^2.0.0-alpha1.268
+  "@ax/hw-s7-1500": ^2.0.0-alpha1.268
+  "@ax/hwld": ^2.0.20
+  "@ax/sld": ^3.0.6-alpha
+installStrategy: overridable
 apaxVersion: 3.3.1
 scripts:
   # For proper execution of these scripts, the following variables need to be defined as environment variables or local variables.
