@@ -1,6 +1,6 @@
 Templates:
   Modules:
-  - Name: 6ES7516-3AP03-0AB0_v3_1
+  - Name: 6ES7518-4AP00-0AB0_v3_1
     Placeholders:
     - Name: PLCName
       Value: PLCName
@@ -12,10 +12,14 @@ Templates:
       Value: 10.222.7.1/24
     - Name: ProfinetDeviceName_X2
       Value: plcname_profinet_interface_x2
+    - Name: IpAddress_X3
+      Value: 10.222.8.1/24
+    - Name: ProfinetDeviceName_X3
+      Value: plcname_profinet_interface_x3
     Content:
       Name: "${PLCName}"
       TypeIdentifier:
-        OrderNumber: 6ES7 516-3AP03-0AB0
+        OrderNumber: 6ES7 518-4AP00-0AB0
         Version: V3.1
       AccessProtection:
         AccessLevel: FullAccess
@@ -37,9 +41,9 @@ Templates:
           - Basic256Sha256Sign
           - Basic256Sha256SignEncrypt
       - Type: WebServer
-        Enabled: true
+        Enabled: True
         Parameters:
-          HttpsOnly: true
+          HttpsOnly: True
       Interfaces:
       - Name: profinet_x1
         Label: X1
@@ -48,12 +52,10 @@ Templates:
           - IPv4: "${IpAddress_X1}"
           - ProfinetDeviceName:  "${ProfinetDeviceName_X1}"
         Parameters:
-          UseWebServerForInterface: true
-          IsIoDevice: false
-          TimeSynchronizationNtp: false
-          IECV22LLDPMode: false
-          OverwriteDeviceNames: false
+          OverwriteDeviceNames: False
           PnSendClock: 1000000
+          UseWebServerForInterface: True
+          IECV22LLDPMode: False
       - Name: profinet_x2
         Label: X2
         Addresses:
@@ -61,11 +63,16 @@ Templates:
           - IPv4: "${IpAddress_X2}"
           - ProfinetDeviceName:  "${ProfinetDeviceName_X2}"
         Parameters:
-          UseWebServerForInterface: false
-          IsIoDevice: false
-          IECV22LLDPMode: false
-          OverwriteDeviceNames: false
+          OverwriteDeviceNames: False
           PnSendClock: 1000000
+          UseWebServerForInterface: False
+          IECV22LLDPMode: False
+      - Name: profinet_x3
+        Label: X3
+        Addresses:
+          Configured:
+          - IPv4: "${IpAddress_X3}"
+          - ProfinetDeviceName:  "${ProfinetDeviceName_X3}"
       - Name: virtual_communication_interface
         Label: W1
         Addresses:
@@ -79,6 +86,8 @@ Templates:
         Label: X1 P2
       - Name: Port_3
         Label: X2 P1
+      - Name: Port_4
+        Label: X3 P1
       Parameters:
         PnDnsConfigNameResolve: 0
         AdditionalInformation: ''

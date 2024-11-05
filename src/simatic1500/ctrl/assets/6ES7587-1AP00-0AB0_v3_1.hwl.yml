@@ -1,6 +1,6 @@
 Templates:
   Modules:
-  - Name: 6ES7516-3AP03-0AB0_v3_1
+  - Name: 6ES7587-1AP00-0AB0_v3_1
     Placeholders:
     - Name: PLCName
       Value: PLCName
@@ -15,7 +15,7 @@ Templates:
     Content:
       Name: "${PLCName}"
       TypeIdentifier:
-        OrderNumber: 6ES7 516-3AP03-0AB0
+        OrderNumber: 6ES7 587-1AP00-0AB0
         Version: V3.1
       AccessProtection:
         AccessLevel: FullAccess
@@ -37,9 +37,9 @@ Templates:
           - Basic256Sha256Sign
           - Basic256Sha256SignEncrypt
       - Type: WebServer
-        Enabled: true
+        Enabled: True
         Parameters:
-          HttpsOnly: true
+          # HttpsOnly: True  #  ReadOnly
       Interfaces:
       - Name: profinet_x1
         Label: X1
@@ -48,37 +48,13 @@ Templates:
           - IPv4: "${IpAddress_X1}"
           - ProfinetDeviceName:  "${ProfinetDeviceName_X1}"
         Parameters:
-          UseWebServerForInterface: true
-          IsIoDevice: false
-          TimeSynchronizationNtp: false
-          IECV22LLDPMode: false
-          OverwriteDeviceNames: false
+          OverwriteDeviceNames: False
           PnSendClock: 1000000
-      - Name: profinet_x2
-        Label: X2
-        Addresses:
-          Configured:
-          - IPv4: "${IpAddress_X2}"
-          - ProfinetDeviceName:  "${ProfinetDeviceName_X2}"
-        Parameters:
-          UseWebServerForInterface: false
-          IsIoDevice: false
-          IECV22LLDPMode: false
-          OverwriteDeviceNames: false
-          PnSendClock: 1000000
-      - Name: virtual_communication_interface
-        Label: W1
-        Addresses:
-          Configured:
-          - IPv4: 0.0.0.0/0
-          - ProfinetDeviceName: "${PLCName}"
+          UseWebServerForInterface: True
+          IECV22LLDPMode: False
       Ports:
       - Name: Port_1
         Label: X1 P1
-      - Name: Port_2
-        Label: X1 P2
-      - Name: Port_3
-        Label: X2 P1
       Parameters:
         PnDnsConfigNameResolve: 0
         AdditionalInformation: ''

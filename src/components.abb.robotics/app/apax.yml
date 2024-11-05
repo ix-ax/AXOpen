@@ -1,0 +1,99 @@
+name: "app_axopen.components.abb.robotics"
+version: '0.0.0-dev.0'
+type: app
+targets:
+  - "1500"
+variables:
+  APAX_BUILD_ARGS:
+    - "--debug" # Generate debug information for target "1500"
+  PLC_NAME: "plc_line"
+devDependencies:
+  "@ix-ax/ax-sdk": '0.0.0-dev.0'
+dependencies:
+  "@ix-ax/axopen.components.abb.robotics": '0.0.0-dev.0'
+  "@ix-ax/ax.axopen.app": '0.0.0-dev.0'
+  "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
+  # this is just temporary to test yml
+  # "@ax/hwc": ^1.2.23
+  # installStrategy: strict
+  "@ax/hwc": ^2.0.0-alpha1.268
+  "@ax/hw-s7-1500": ^2.0.0-alpha1.268
+  "@ax/hwld": ^2.0.20
+  "@ax/sld": ^3.0.6-alpha
+installStrategy: overridable
+apaxVersion: 3.3.1
+scripts:
+  # For proper execution of these scripts, the following variables need to be defined as environment variables or local variables.
+  # Local variables can override environment variables.
+  # It is highly recommended NOT to store secrets such as 'AX_USERNAME' and 'MY_VERY_STRONG_PASSWORD' in local variables.
+  # PLC_NAME: Name of the PLC (also equal to the PLC Profinet name)
+  # AX_USERNAME: Name of the PLC user used for WebAPI and HMI
+  # AXTARGET: IP address of the PLC
+  # AXTARGETPLATFORMINPUT: Folder of the compiled software to be downloaded to the PLC. Use the value ".\bin\1500\" for the S7-1500 controller, even if running inside PLCSIM
+  # AXTARGETPLCSIMINSTANCE: Name of the PLCSIM instance to start. The instance must already exist.
+  # MY_VERY_STRONG_PASSWORD: Password for 'AX_USERNAME'
+  # AXUSEPLCSIM with value of "true" will automatically trigger PLCSIM when calling apax alf or apax all
+  # PNIO_MAC: MAC address of the network adapter connected to the Profinet network  
+  plcsim: ..\\..\\scripts\\StartPlcSimAdvCli.exe #start PLCSIM
+
+  r: | #restart PLC
+    ..\\..\\scripts\\restart_PLC.sh $AXTARGET $PLC_NAME
+
+  ixc: | # run ix builder
+    dotnet tool restore
+    dotnet ixc
+
+  postbuild: apax run ixc # run after build
+
+  dcpli: | # list all interfaces, used to discover MAC address of the adapter connected to PLC 
+    ..\\..\\scripts\\dcp_utility_list_interfaces.sh 
+
+  dcpd: | # discover all accesible devices connected to adapter with MAC address equal to entered MAC, used to discover MAC-addresses of the slaves
+    ..\\..\\scripts\\dcp_utility_discover.sh $PNIO_MAC
+
+  hdl: | #List configured harware and its state
+    ..\\..\\scripts\\hw_diag_list.sh $AXTARGET $PLC_NAME
+
+  ci: | #clean and install dependencies
+    apax clean
+    apax install
+
+  reset_plc: | #total reset of the PLC including IP and name
+    ..\\..\\scripts\\reset_plc.sh $AXTARGET
+
+  clean_plc: | #total reset of the PLC excluding IP and name
+    ..\\..\\scripts\\clean_plc.sh $AXTARGET
+
+  ssc: | # setup secure communication, create and import certificates, setup password for AX_USERNAME 
+    ..\\..\\scripts\\setup_secure_communication.sh $PLC_NAME $AX_USERNAME $MY_VERY_STRONG_PASSWORD
+
+  gsd: | # copy and install all gsdml files from library
+    ..\\..\\scripts\\copy_and_install_gsd.sh 
+
+  hwl: | # copy all templates from library
+    ..\\..\\scripts\\copy_hwl_templates.sh 
+
+  hwid: | # copy the generated HwIds from global constants into the type definition, matching the format as the TIA2AX tool creates
+    ..\\..\\scripts\\copy_hardware_ids.sh 
+
+  hwfd: | # copy and install gsd, copy templates,compile, copy the HwIds, first download HW using password and upload certificate
+    ..\\..\\scripts\\hw_first_download.sh $PLC_NAME $AXTARGET $MY_VERY_STRONG_PASSWORD
+
+  hwu: | # copy and install gsd, copy templates, compile, copy the HwIds, download HW using certificate
+    ..\\..\\scripts\\hw_update.sh $PLC_NAME $AXTARGET
+
+  swfd: | # software build and full download
+    ..\\..\\scripts\\sw_build_and_download_full.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT
+
+  swdd: | # software build and delta download
+    ..\\..\\scripts\\sw_build_and_download_delta.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT
+
+  alf: | #clear plc except ip and name and provide all actions for install all, build and initial download hw so as sw
+    START=$(date +%s)
+    ..\\..\\scripts\\all_first.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $MY_VERY_STRONG_PASSWORD
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"    
+
+  all: | #build and download hardware and software
+    START=$(date +%s)
+    ..\\..\\scripts\\all.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $MY_VERY_STRONG_PASSWORD
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"    
