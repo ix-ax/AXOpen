@@ -22,16 +22,16 @@ CONFIGURATION IoAddresses
         ST3_indradrive_Output_13_Words_OutputAddress_10 AT %QW20: WORD;
         ST3_indradrive_Output_13_Words_OutputAddress_11 AT %QW22: WORD;
         ST3_indradrive_Output_13_Words_OutputAddress_12 AT %QW24: WORD;
-        ST3_indradrive_ParamCh_IDN_InputAddress_0 AT %IW18: WORD;
-        ST3_indradrive_ParamCh_IDN_InputAddress_1 AT %IW20: WORD;
-        ST3_indradrive_ParamCh_IDN_InputAddress_2 AT %IW22: WORD;
-        ST3_indradrive_ParamCh_IDN_InputAddress_3 AT %IW24: WORD;
-        ST3_indradrive_ParamCh_IDN_InputAddress_4 AT %IW26: WORD;
-        ST3_indradrive_ParamCh_IDN_OutputAddress_0 AT %QW26: WORD;
-        ST3_indradrive_ParamCh_IDN_OutputAddress_1 AT %QW28: WORD;
-        ST3_indradrive_ParamCh_IDN_OutputAddress_2 AT %QW30: WORD;
-        ST3_indradrive_ParamCh_IDN_OutputAddress_3 AT %QW32: WORD;
-        ST3_indradrive_ParamCh_IDN_OutputAddress_4 AT %QW34: WORD;
+        ST3_indradrive_ParamCh_5Words_InputAddress_0 AT %IW18: WORD;
+        ST3_indradrive_ParamCh_5Words_InputAddress_1 AT %IW20: WORD;
+        ST3_indradrive_ParamCh_5Words_InputAddress_2 AT %IW22: WORD;
+        ST3_indradrive_ParamCh_5Words_InputAddress_3 AT %IW24: WORD;
+        ST3_indradrive_ParamCh_5Words_InputAddress_4 AT %IW26: WORD;
+        ST3_indradrive_ParamCh_5Words_OutputAddress_0 AT %QW26: WORD;
+        ST3_indradrive_ParamCh_5Words_OutputAddress_1 AT %QW28: WORD;
+        ST3_indradrive_ParamCh_5Words_OutputAddress_2 AT %QW30: WORD;
+        ST3_indradrive_ParamCh_5Words_OutputAddress_3 AT %QW32: WORD;
+        ST3_indradrive_ParamCh_5Words_OutputAddress_4 AT %QW34: WORD;
 
     END_VAR
 END_CONFIGURATION
