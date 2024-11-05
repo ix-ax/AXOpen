@@ -17,7 +17,74 @@ Devices:
     TypeIdentifier:
       GsdId: '1'
       FileName: gsdml-v2.33-abb-robotics-robot-device-20180814.XML
+    Slot: 1
   - Name: DO_64_bytes
     TypeIdentifier:
       GsdId: '2'
       FileName: gsdml-v2.33-abb-robotics-robot-device-20180814.XML
+    Slot: 2
+  # - Name: DI_32_bytes
+  #   TypeIdentifier:
+  #     GsdId: '3'
+  #     FileName: gsdml-v2.33-abb-robotics-robot-device-20180814.XML
+  #   Slot: 1
+  # - Name: DO_32_bytes
+  #   TypeIdentifier:
+  #     GsdId: '4'
+  #     FileName: gsdml-v2.33-abb-robotics-robot-device-20180814.XML
+  #   Slot: 2
+  # - Name: DI_16_bytes
+  #   TypeIdentifier:
+  #     GsdId: '5'
+  #     FileName: gsdml-v2.33-abb-robotics-robot-device-20180814.XML
+  #   Slot: 1
+  # - Name: DO_16_bytes
+  #   TypeIdentifier:
+  #     GsdId: '6'
+  #     FileName: gsdml-v2.33-abb-robotics-robot-device-20180814.XML
+  #   Slot: 2
+  # - Name: DI_8_bytes
+  #   TypeIdentifier:
+  #     GsdId: '7'
+  #     FileName: gsdml-v2.33-abb-robotics-robot-device-20180814.XML
+  #   Slot: 1
+  # - Name: DO_8_bytes
+  #   TypeIdentifier:
+  #     GsdId: '8'
+  #     FileName: gsdml-v2.33-abb-robotics-robot-device-20180814.XML
+  #   Slot: 2
+  # - Name: DI_128_bytes
+  #   TypeIdentifier:
+  #     GsdId: '9'
+  #     FileName: gsdml-v2.33-abb-robotics-robot-device-20180814.XML
+  #   Slot: 1
+  # - Name: DO_128_bytes
+  #   TypeIdentifier:
+  #     GsdId: '10'
+  #     FileName: gsdml-v2.33-abb-robotics-robot-device-20180814.XML
+  #   Slot: 2
+  # - Name: DI_256_bytes
+  #   TypeIdentifier:
+  #     GsdId: '11'
+  #     FileName: gsdml-v2.33-abb-robotics-robot-device-20180814.XML
+  #   Slot: 1
+  # - Name: DO_256_bytes
+  #   TypeIdentifier:
+  #     GsdId: '12'
+  #     FileName: gsdml-v2.33-abb-robotics-robot-device-20180814.XML
+  #   Slot: 2
+  # - Name: SDI 8 bytes
+  #   TypeIdentifier:
+  #     GsdId: '17'
+  #     FileName: gsdml-v2.33-abb-robotics-robot-device-20180814.XML
+  #   Slot: 3
+  # - Name: SDO 8 bytes
+  #   TypeIdentifier:
+  #     GsdId: '18'
+  #     FileName: gsdml-v2.33-abb-robotics-robot-device-20180814.XML
+  #   Slot: 4
+  # - Name: SD-IO 8 bytes
+  #   TypeIdentifier:
+  #     GsdId: '19'
+  #     FileName: gsdml-v2.33-abb-robotics-robot-device-20180814.XML
+  #   Slot: 3
