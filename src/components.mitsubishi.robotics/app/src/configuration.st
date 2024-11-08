@@ -11,8 +11,10 @@ CONFIGURATION MyConfiguration
         documentation : DocumentationContext;
         {S7.extern=ReadWrite}
         _rtc : AXOpen.S71500.Rtc;
-   
+        {S7.extern=ReadWrite}
+        _rtm : AXOpen.S71500.Rtm;
     END_VAR            
+
 END_CONFIGURATION
 
 
