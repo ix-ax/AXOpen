@@ -129,6 +129,12 @@ public partial class AxoMessenger
         }
     }
 
+    public async Task ReadDetails()
+    {
+        var r = new ITwinPrimitive[] {this.MessageCode, Category, MessageCode, AcknowledgedBeforeFallen, MessengerState};
+        await this.GetConnector()?.ReadBatchAsync(r)!;
+    }
+    
     static T? FindParentOfType<T>(ITwinElement node) where T : ITwinObject
     {
         if (node == null || node is AXSharp.Connector.Connector) return default(T);

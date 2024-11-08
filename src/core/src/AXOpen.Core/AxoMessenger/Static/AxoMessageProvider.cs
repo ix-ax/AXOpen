@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using AXOpen.Core;
 using AXSharp.Connector;
 using AXOpen.ToolBox.Extensions;
 
@@ -11,6 +12,7 @@ namespace AXOpen.Messaging.Static
 {
     /// <summary>
     /// Represents a provider for AxoMessages.
+    /// This provider only provides access the messages, polling / reading of the messages must be activated in an 'observer'
     /// </summary>
     public class AxoMessageProvider
     {
@@ -130,6 +132,61 @@ namespace AXOpen.Messaging.Static
         public static AxoMessageProvider Create(IEnumerable<ITwinObject> observedObjects)
         {
             return new AxoMessageProvider(observedObjects); 
+        }
+        
+        
+        public async Task InitializeLightUpdate(Action<ITwinElement, int> update)
+        {
+            await Task.Run(() => {
+                foreach (var axoObject in this.ObservedObjects.Where(p => p is AxoObject).Select(p => p as AxoObject))
+                {
+                    update(axoObject.MsgCnt, 2500);
+                }
+            });
+        }
+        
+        /// <summary>
+        /// Initializes the update process by adding messengers to polling and updating the values.
+        /// </summary>
+        /// <returns>A Task representing the asynchronous operation.</returns>
+        public async Task InitializeUpdate(Action<ITwinElement, int> update)
+        {
+            await Task.Run(() => {
+                foreach (var axoMessenger in this.Messengers?
+                             .SelectMany(p => new ITwinElement[] { p.MessengerState, 
+                                 p.Category, 
+                                 p.MessageCode,
+                                 p.AcknowledgedBeforeFallen
+                             })!)
+                {
+                    update(axoMessenger, 2500);
+                }
+            });
+        }
+        
+        public async Task ReadDetails()
+        {
+            var r = Messengers?.Where(p => p.State > eAxoMessengerState.Idle)
+                .SelectMany(p => new ITwinPrimitive[]
+                {
+                    p.MessengerState,
+                    p.Category,
+                    p.MessageCode,
+                    p.AcknowledgedBeforeFallen
+                });
+
+            await Messengers?.First()?.GetConnector()?.ReadBatchAsync(r)!;
+        }
+        
+        public async Task ReadMessageState()
+        {
+            var r = Messengers?
+                .SelectMany(p => new ITwinPrimitive[]
+                {
+                    p.MessengerState,
+                });
+
+            await Messengers?.First()?.GetConnector()?.ReadBatchAsync(r)!;
         }
     }
 }

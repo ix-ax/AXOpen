@@ -3,19 +3,17 @@
 @using AXOpen.Core
 @using AXOpen.Messaging.Static
 @using System.Runtime.CompilerServices
-@using AXOpen.Messaging.Static.Blazor
 @using AXSharp.Connector
 @using Microsoft.JSInterop
 @implements IAsyncDisposable;
 @inject IJSRuntime JSRuntime
 @using AXOpen.Messaging.Static
-@using AXOpen.Messaging.Static.Blazor
 @using AXSharp.Connector
 @inject AuthenticationStateProvider AuthenticationStateProvider;
 
  
 <div class="container-fluid">
-    @if (Observer?.Provider.RelevantMessagesCount > 0)
+    @if (MessageProvider.ActiveMessagesCount > 0)
     {
         <div class="row p-3">
             <button type="button" class="btn btn-primary m-3" @onclick="AcknowledgeAll">ACKN</button>
@@ -32,14 +30,16 @@
              </tr>
            </thead>
            <tbody>
-                 @if (Observer.Provider != null)
+                 @if (MessageProvider != null)
                  {
-                     if (Observer.Provider.Messengers != null)
+                     _ = MessageProvider.ReadMessageState();
+                     if (MessageProvider.Messengers != null)
                      {
-                         foreach (var message in Observer.Provider.Messengers)
+                         foreach (var message in MessageProvider.Messengers)
                          {
                              if (message.State > eAxoMessengerState.Idle)
                              {
+                                 _ = message.ReadDetails();
                                  <AxoMessengerView Component="message"></AxoMessengerView>
                              }
                          }
@@ -73,11 +73,8 @@
         set
         {
             provider = value;
-            Observer = AxoMessageObserver.Create(provider, this);
         } 
     }
-
-    private AxoMessageObserver? Observer { get; set; }
 
     [Parameter]
     public IEnumerable<ITwinObject> ObservedObjects
@@ -89,52 +86,39 @@
             this.OnComponentChanged();
         } 
     }
-    
-    /// <summary>
-    /// This method is called when a component is changed.
-    /// It creates a new instance of AxoMessageObserver using the changed component and assigns it to the observer variable.
-    /// </summary>
+
     public override void OnComponentChanged()
     {
-        if (this.Component != null)
-        {
-            Observer = AxoMessageObserver.Create(new ITwinObject[]{this.Component}, this);
-        }
-
-        if (ObservedObjects.Any())
-        {
-            var twinObject = this.Component;
-            if (twinObject != null)
-            {
-                Observer = AxoMessageObserver.Create(ObservedObjects.Concat(new ITwinObject[] { twinObject }), this);
-            }
-            else
-            {
-                Observer = AxoMessageObserver.Create(ObservedObjects, this);
-            }
-        }
+        MessageProvider = AxoMessageProvider.Create(ObservedObjects);
+        base.OnComponentChanged();
     }
-    
+
     ///<inheritdoc/>
     public async ValueTask DisposeAsync()
     {
         if (module != null) await module.DisposeAsync();
     }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
     
     ///<inheritdoc/>
     protected override async Task OnInitializedAsync()
     {
-        if (Observer != null) await Observer.InitializeUpdate();
         await base.OnInitializedAsync();
+        _ = MessageProvider.InitializeLightUpdate(this.UpdateValuesOnChange);
     }
     
     private async Task AcknowledgeAll()
     {
         var ast = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        if (Observer?.Provider is {Messengers: not null })
+        if (MessageProvider is {Messengers: not null })
         {
             foreach (var messenger in 
-                     Observer.Provider.Messengers
+                     MessageProvider.Messengers
                          .Where(p =>p.State == eAxoMessengerState.ActiveNoAck || 
                                                 p.State == eAxoMessengerState.NotActiveWaitingAckn))
             {

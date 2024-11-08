@@ -1,5 +1,4 @@
-﻿using AXOpen.Messaging.Static.Blazor;
-using AXOpen.VisualComposer;
+﻿using AXOpen.VisualComposer;
 using AXSharp.Connector;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 
