@@ -2,10 +2,11 @@ USING AXOpen.Components.Pneumatics;
 
 PROGRAM MyProgram
     VAR_EXTERNAL
-        sandbox : SandboContext;
+        sandbox : SandboxContext;
         documentation : DocumentationContext;
-        AxoRtc : AxoRtc.AxoS71500Rtc;
-		PlcInputs : PlcInputs;
+        _rtc : AXOpen.S71500.Rtc;
+        _rtm : AXOpen.S71500.Rtm;
+        PlcInputs : PlcInputs;
 		PlcOutputs : PlcOutputs;
     END_VAR
 
@@ -21,12 +22,14 @@ PROGRAM MyProgram
     sandbox.PlcInputs := REF(PlcInputs);
     sandbox.PlcOutputs := REF(PlcOutputs);
     sandbox.Run();    
-    sandbox.InjectRtc(AxoRtc);
-
+    sandbox.InjectRtc(_rtc);
+    sandbox.InjectRtm(_rtm);
+    
     documentation.PlcInputs := REF(PlcInputs);
     documentation.PlcOutputs := REF(PlcOutputs);
     documentation.Run();    
-    documentation.InjectRtc(AxoRtc);
-
+    documentation.InjectRtc(_rtc);
+    documentation.InjectRtm(_rtm);
+    
     CopyOutputs();  
 END_PROGRAM

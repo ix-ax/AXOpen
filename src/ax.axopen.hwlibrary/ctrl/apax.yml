@@ -6,7 +6,7 @@ files:
 devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
 catalogs:
-  "@ax/simatic-ax": 2405.1.0
+  "@ax/simatic-ax": ^2405.2.0
 dependencies:
   "@ix-ax/ax.axopen.min": '0.0.0-dev.0'
   "@ax/simatic-1500-distributedio": 7.0.1
@@ -15,5 +15,7 @@ dependencies:
   "@ax/system-timer": 7.1.47
   "@ax/system-serde": 7.1.47
   "@ax/system-bitaccess": 7.1.47
+overrideDependencies:
+  "@ax/hwc": '2.0.0-alpha1.268'
 installStrategy: strict
 apaxVersion: 3.3.1

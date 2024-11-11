@@ -10,8 +10,10 @@ CONFIGURATION MyConfiguration
         {S7.extern=ReadWrite}
         documentation : DocumentationContext;
         {S7.extern=ReadWrite}
-        AxoRtc : AxoRtc.AxoS71500Rtc;
+        _rtc : AXOpen.S71500.Rtc;
         {S7.extern=ReadWrite}
+        _rtm : AXOpen.S71500.Rtm;
+            {S7.extern=ReadWrite}
 		HwInputs AT %IB0 : HwInputs;
         {S7.extern=ReadWrite}
 		HwOutputs AT %QB0 : HwOutputs;
@@ -21,6 +23,3 @@ CONFIGURATION MyConfiguration
 		PlcOutputs : PlcOutputs;
 	END_VAR
 END_CONFIGURATION
-
-
-

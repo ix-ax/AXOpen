@@ -36,9 +36,9 @@ CONFIGURATION IoAddresses
         is7600_User_Data_64_bytes_OutputAddress_6 AT %QL48: LWORD;
         is7600_User_Data_64_bytes_OutputAddress_7 AT %QL56: LWORD;
         reader_st1_Acquisition_Control_OutputAddress AT %QB274: BYTE;
-        reader_st1_Acquisition_Status_InputAddress_0 AT %IB293: BYTE;
-        reader_st1_Acquisition_Status_InputAddress_1 AT %IB294: BYTE;
-        reader_st1_Acquisition_Status_InputAddress_2 AT %IB295: BYTE;
+        reader_st1_Acquisition_Status_InputAddress_0 AT %IB292: BYTE;
+        reader_st1_Acquisition_Status_InputAddress_1 AT %IB293: BYTE;
+        reader_st1_Acquisition_Status_InputAddress_2 AT %IB294: BYTE;
         reader_st1_Result_Data_128_bytes_InputAddress_0 AT %IL155: LWORD;
         reader_st1_Result_Data_128_bytes_InputAddress_1 AT %IL163: LWORD;
         reader_st1_Result_Data_128_bytes_InputAddress_2 AT %IL171: LWORD;
@@ -57,8 +57,8 @@ CONFIGURATION IoAddresses
         reader_st1_Result_Data_128_bytes_InputAddress_15 AT %IL275: LWORD;
         reader_st1_Result_Data_128_bytes_InputAddress_16 AT %IL283: LWORD;
         reader_st1_Results_Control_OutputAddress AT %QB273: BYTE;
-        reader_st1_Results_Status_InputAddress AT %IB292: BYTE;
-        reader_st1_Soft_Event_Control_InputAddress AT %IB291: BYTE;
+        reader_st1_Results_Status_InputAddress AT %IB291: BYTE;
+        reader_st1_Soft_Event_Control_InputAddress AT %IB295: BYTE;
         reader_st1_Soft_Event_Control_OutputAddress AT %QB272: BYTE;
         reader_st1_User_Data_128_bytes_OutputAddress_0 AT %QD140: DWORD;
         reader_st1_User_Data_128_bytes_OutputAddress_1 AT %QD144: DWORD;
@@ -94,9 +94,9 @@ CONFIGURATION IoAddresses
         reader_st1_User_Data_128_bytes_OutputAddress_31 AT %QD264: DWORD;
         reader_st1_User_Data_128_bytes_OutputAddress_32 AT %QD268: DWORD;
         reader_st2_Acquisition_Control_OutputAddress AT %QB139: BYTE;
-        reader_st2_Acquisition_Status_InputAddress_0 AT %IB152: BYTE;
-        reader_st2_Acquisition_Status_InputAddress_1 AT %IB153: BYTE;
-        reader_st2_Acquisition_Status_InputAddress_2 AT %IB154: BYTE;
+        reader_st2_Acquisition_Status_InputAddress_0 AT %IB151: BYTE;
+        reader_st2_Acquisition_Status_InputAddress_1 AT %IB152: BYTE;
+        reader_st2_Acquisition_Status_InputAddress_2 AT %IB153: BYTE;
         reader_st2_Result_Data_64_bytes_InputAddress_0 AT %IL78: LWORD;
         reader_st2_Result_Data_64_bytes_InputAddress_1 AT %IL86: LWORD;
         reader_st2_Result_Data_64_bytes_InputAddress_2 AT %IL94: LWORD;
@@ -107,8 +107,8 @@ CONFIGURATION IoAddresses
         reader_st2_Result_Data_64_bytes_InputAddress_7 AT %IL134: LWORD;
         reader_st2_Result_Data_64_bytes_InputAddress_8 AT %IL142: LWORD;
         reader_st2_Results_Control_OutputAddress AT %QB138: BYTE;
-        reader_st2_Results_Status_InputAddress AT %IB151: BYTE;
-        reader_st2_Soft_Event_Control_InputAddress AT %IB150: BYTE;
+        reader_st2_Results_Status_InputAddress AT %IB150: BYTE;
+        reader_st2_Soft_Event_Control_InputAddress AT %IB154: BYTE;
         reader_st2_Soft_Event_Control_OutputAddress AT %QB137: BYTE;
         reader_st2_User_Data_64_bytes_OutputAddress_0 AT %QD69: DWORD;
         reader_st2_User_Data_64_bytes_OutputAddress_1 AT %QD73: DWORD;

@@ -1,39 +1,35 @@
 CONFIGURATION HardwareIDs
     VAR_GLOBAL CONSTANT
-        PROFINET_IO_System_HwID : UINT := UINT#256;
         plc_line_HwID : UINT := UINT#32;
-        plc_line_Rail_0_HwID : UINT := UINT#264;
+        plc_line_Rail_0_HwID : UINT := UINT#273;
         plc_line_plc_line_HwID : UINT := UINT#48;
-        plc_line_plc_line__plc_line_HwID : UINT := UINT#49;
         plc_line_plc_line_CPU_display_1_HwID : UINT := UINT#54;
-        plc_line_plc_line_CPU_exec_unit_1_HwID : UINT := UINT#52;
         plc_line_plc_line_Card_reader_writer_1_HwID : UINT := UINT#51;
         plc_line_plc_line_DP_interface_1_HwID : UINT := UINT#60;
-        plc_line_plc_line_LicenseManager_1_HwID : UINT := UINT#42;
         plc_line_plc_line_OPC_UA_1_HwID : UINT := UINT#117;
-        plc_line_plc_line_PROFINET_interface_2_HwID : UINT := UINT#72;
-        plc_line_plc_line_PROFINET_interface_2_Port_1_HwID : UINT := UINT#73;
-        plc_line_plc_line_Virtual_communication_interface_HwID : UINT := UINT#135;
-        plc_line_plc_line_plc_line_HwID : UINT := UINT#50;
         plc_line_plc_line_profinet_x1_HwID : UINT := UINT#64;
-        plc_line_plc_line_profinet_x1_Port1_HwID : UINT := UINT#65;
-        plc_line_plc_line_profinet_x1_Port2_HwID : UINT := UINT#66;
+        plc_line_plc_line_profinet_x1_Port_1_HwID : UINT := UINT#65;
+        plc_line_plc_line_profinet_x1_Port_2_HwID : UINT := UINT#66;
+        plc_line_plc_line_profinet_x2_HwID : UINT := UINT#72;
+        plc_line_plc_line_profinet_x2_Port_3_HwID : UINT := UINT#73;
+        plc_line_plc_line_virtual_communication_interface_HwID : UINT := UINT#135;
+        profinet_plc_line_HwID : UINT := UINT#256;
         ureol2l_HwID : UINT := UINT#259;
         ureol2l_10_O2T_General_Purpose_Registers_2_10_O2T_General_Purpose_Registers_2_HwID : UINT := UINT#262;
-        ureol2l_1_T2O_State_1_T2O_State_HwID : UINT := UINT#272;
-        ureol2l_2_T2O_IO_2_T2O_IO_HwID : UINT := UINT#271;
-        ureol2l_3_T2O_Joints_3_T2O_Joints_HwID : UINT := UINT#270;
-        ureol2l_4_T2O_TCP_4_T2O_TCP_HwID : UINT := UINT#269;
-        ureol2l_5_T2O_General_Purpose_Bit_Registers_5_T2O_General_Purpose_Bit_Registers_HwID : UINT := UINT#268;
-        ureol2l_6_T2O_General_Purpose_Int_Registers_6_T2O_General_Purpose_Int_Registers_HwID : UINT := UINT#267;
-        ureol2l_7_T2O_General_Purpose_Float_Registers_7_T2O_General_Purpose_Float_Registers_HwID : UINT := UINT#266;
-        ureol2l_8_O2T_Robot_IO_8_O2T_Robot_IO_HwID : UINT := UINT#265;
+        ureol2l_1_T2O_State_1_T2O_State_HwID : UINT := UINT#271;
+        ureol2l_2_T2O_IO_2_T2O_IO_HwID : UINT := UINT#270;
+        ureol2l_3_T2O_Joints_3_T2O_Joints_HwID : UINT := UINT#269;
+        ureol2l_4_T2O_TCP_4_T2O_TCP_HwID : UINT := UINT#268;
+        ureol2l_5_T2O_General_Purpose_Bit_Registers_5_T2O_General_Purpose_Bit_Registers_HwID : UINT := UINT#267;
+        ureol2l_6_T2O_General_Purpose_Int_Registers_6_T2O_General_Purpose_Int_Registers_HwID : UINT := UINT#266;
+        ureol2l_7_T2O_General_Purpose_Float_Registers_7_T2O_General_Purpose_Float_Registers_HwID : UINT := UINT#265;
+        ureol2l_8_O2T_Robot_IO_8_O2T_Robot_IO_HwID : UINT := UINT#264;
         ureol2l_9_O2T_General_Purpose_Registers_1_9_O2T_General_Purpose_Registers_1_HwID : UINT := UINT#263;
         ureol2l_Rack_HwID : UINT := UINT#260;
         ureol2l_ureol2l_HwID : UINT := UINT#261;
-        ureol2l_ureol2l_V1_0_HwID : UINT := UINT#273;
+        ureol2l_ureol2l_V1_0_HwID : UINT := UINT#272;
         ureol2l_ureol2l_profinet_HwID : UINT := UINT#257;
-        ureol2l_ureol2l_profinet_RJ45_10_100_MBit_s_HwID : UINT := UINT#258;
+        ureol2l_ureol2l_profinet_Port_1_HwID : UINT := UINT#258;
 
     END_VAR
 END_CONFIGURATION

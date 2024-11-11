@@ -1,6 +1,6 @@
 #!/bin/bash
 apaxUrl="https://console.simatic-ax.siemens.io/"
-expectedApaxVersion="3.2.1"
+expectedApaxVersion="3.4.1"
 
 export GREEN='\033[0;32m'
 export RED='\033[0;31m'

@@ -59,7 +59,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 END_IF;    
             END_IF;       
 
-            IF(Steps[1].Execute(Sequencer, 'Stop')) THEN
+            IF(Steps[2].Execute(Sequencer, 'Stop')) THEN
                 IF(AxoIrc5_v_1_x_x.StopMovements().IsDone()) THEN                
                     Sequencer.CompleteSequence();                
                 END_IF;    
