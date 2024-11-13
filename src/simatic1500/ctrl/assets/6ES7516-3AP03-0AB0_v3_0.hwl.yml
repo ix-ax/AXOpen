@@ -21,12 +21,16 @@ Templates:
         AccessLevel: FullAccess
       Services:
       - Type: OpcUaServer
-        Enabled: false
+        Enabled: False
         Parameters:
-          SecurityPolicies:
-          - NoSecurity
-          - Basic256Sha256Sign
-          - Basic256Sha256SignEncrypt
+          GuestAuthentication: True
+          # The parameters listed below are currently commented out because the OpcUaServer service is disabled by default. This is due to the Enabled parameter being set to false in the default configuration.
+          # SecurityPolicies:
+          # - NoSecurity
+          # - Basic256Sha256Sign
+          # - Basic256Sha256SignEncrypt
+          AlarmsAndConditionsAcknowledgeActive: False
+          AlarmsAndConditionsEnable: False
       - Type: WebServer
         Enabled: true
         Parameters:
@@ -39,12 +43,10 @@ Templates:
           - IPv4: "${IpAddress_X1}"
           - ProfinetDeviceName:  "${ProfinetDeviceName_X1}"
         Parameters:
-          UseWebServerForInterface: true
-          IsIoDevice: false
-          TimeSynchronizationNtp: false
-          IECV22LLDPMode: false
-          OverwriteDeviceNames: false
+          OverwriteDeviceNames: False
           PnSendClock: 1000000
+          UseWebServerForInterface: True
+          IECV22LLDPMode: False
       - Name: profinet_x2
         Label: X2
         Addresses:
@@ -52,11 +54,11 @@ Templates:
           - IPv4: "${IpAddress_X2}"
           - ProfinetDeviceName:  "${ProfinetDeviceName_X2}"
         Parameters:
-          UseWebServerForInterface: false
-          IsIoDevice: false
-          IECV22LLDPMode: false
-          OverwriteDeviceNames: false
+          OverwriteDeviceNames: False
           PnSendClock: 1000000
+          UseWebServerForInterface: False
+          # TimeSynchronizationNtpV2: 0
+          IECV22LLDPMode: False
       - Name: virtual_communication_interface
         Label: W1
         Addresses:
@@ -72,24 +74,27 @@ Templates:
         Label: X2 P1
       Parameters:
         PnDnsConfigNameResolve: 0
+        SNMPActive: False
+        SNMPReadOnlyCommunityName: public
+        SNMPReadWriteCommunityName: private
         AdditionalInformation: ''
-        # ClockMemoryByteAddress: 0   # Read Only
+        # ClockMemoryByteAddress: 0
         ClockMemoryByte: False
-        CycleCommunicationLoad: 50
+        CycleCommunicationLoad: 20
         CycleEnableMinimumCycleTime: True
         CycleMaximumCycleTime: 150
         CycleMinimumCycleTime: 1
         ConfigurationControl: False
         LocationIdentifier: ''
         PlantDesignation: ''
-        # ProtectionEnablePutGetCommunication: False    # Read Only
+        # ProtectionEnablePutGetCommunication: False
         ProtectionIntervalForSummarizeOfSecurityEvents: 20
         ProtectionSummarizeSecurityEventsOnHighLoad: True
         ProtectionUnitForSummarizeOfSecurityEvents: 2
         StartupActionAfterPowerOn: 3
         StartupComparisonPresetToActualModule: 2
         StartupConfigurationTimeout: 60000
-        # SystemMemoryByteAddress: 1    # Read Only
+        # SystemMemoryByteAddress: 1
         SystemMemoryByte: False
         SystemPowerSupplyExternal: 1
         TimeOfDayActivateDaylightSavingTime: True
@@ -103,24 +108,24 @@ Templates:
         TimeOfDayStandardTimeStartMonth: 10
         TimeOfDayStandardTimeStartWeek: 5
         TimeOfDayStandardTimeStartWeekday: 1
-        # TimeSynchronizationServer1: ''    # Read Only
-        # TimeSynchronizationServer2: ''    # Read Only
-        # TimeSynchronizationServer3: ''    # Read Only
-        # TimeSynchronizationServer4: ''    # Read Only
-        # TimeSynchronizationUpdateInterval: 10   # Read Only
+        # TimeSynchronizationServer1: ''
+        # TimeSynchronizationServer2: ''
+        # TimeSynchronizationServer3: ''
+        # TimeSynchronizationServer4: ''
+        # TimeSynchronizationUpdateInterval: 10
         CentralAlarmManagement: True
         ProDiagUsedLicenses: 0
         EnergySuitePurchasedLicense10: 0
         EnergySuitePurchasedLicense5: 0
         IPv4ForwardingActive: False
-        # MacRtLicensePurchased: 0    # Read Only
-        TimeSynchronizationNtpV2: 0
-        # DomainConfiguration: 3    # Read Only
+        # MacRtLicensePurchased: 0
+        # TimeSynchronizationNtpV2: 0
+        # DomainConfiguration: 3
         HostAndDomainnameActive: False
-        # Hostname: ''    # Read Only
-        # HostnameConfiguration: 3    # Read Only
-        # HostnameIdenticalToDeviceNameActive: False    # Read Only
-        # Domain: ''    # Read Only
+        # Hostname: ''
+        # HostnameConfiguration: 3
+        # HostnameIdenticalToDeviceNameActive: False
+        # Domain: ''
       UserManagement:
         Users:
         - Name: adm
