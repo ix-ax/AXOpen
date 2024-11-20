@@ -27,16 +27,16 @@ CONFIGURATION IoAddresses
         SFK_Output_21_Words_OutputAddress_18 AT %QW36: WORD;
         SFK_Output_21_Words_OutputAddress_19 AT %QW38: WORD;
         SFK_Output_21_Words_OutputAddress_20 AT %QW40: WORD;
-        SFK_ParamCh_IDN_1_InputAddress_0 AT %IW48: WORD;
-        SFK_ParamCh_IDN_1_InputAddress_1 AT %IW50: WORD;
-        SFK_ParamCh_IDN_1_InputAddress_2 AT %IW52: WORD;
-        SFK_ParamCh_IDN_1_InputAddress_3 AT %IW54: WORD;
-        SFK_ParamCh_IDN_1_InputAddress_4 AT %IW56: WORD;
-        SFK_ParamCh_IDN_1_OutputAddress_0 AT %QW42: WORD;
-        SFK_ParamCh_IDN_1_OutputAddress_1 AT %QW44: WORD;
-        SFK_ParamCh_IDN_1_OutputAddress_2 AT %QW46: WORD;
-        SFK_ParamCh_IDN_1_OutputAddress_3 AT %QW48: WORD;
-        SFK_ParamCh_IDN_1_OutputAddress_4 AT %QW50: WORD;
+        SFK_ParamCh_5Words_InputAddress_0 AT %IW48: WORD;
+        SFK_ParamCh_5Words_InputAddress_1 AT %IW50: WORD;
+        SFK_ParamCh_5Words_InputAddress_2 AT %IW52: WORD;
+        SFK_ParamCh_5Words_InputAddress_3 AT %IW54: WORD;
+        SFK_ParamCh_5Words_InputAddress_4 AT %IW56: WORD;
+        SFK_ParamCh_5Words_OutputAddress_0 AT %QW42: WORD;
+        SFK_ParamCh_5Words_OutputAddress_1 AT %QW44: WORD;
+        SFK_ParamCh_5Words_OutputAddress_2 AT %QW46: WORD;
+        SFK_ParamCh_5Words_OutputAddress_3 AT %QW48: WORD;
+        SFK_ParamCh_5Words_OutputAddress_4 AT %QW50: WORD;
 
     END_VAR
 END_CONFIGURATION

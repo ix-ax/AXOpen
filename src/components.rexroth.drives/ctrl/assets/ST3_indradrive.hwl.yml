@@ -1,0 +1,292 @@
+Devices:
+- Name: ST3_indradrive
+  Modules:
+  - Name: ST3_indradrive
+    TypeIdentifier:
+      FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+      GsdId: DAP_IndraDrive
+    Interfaces:
+    - Name: profinet
+      Label: X1
+      Addresses:
+        Configured:
+        - IPv4: "10.10.10.40/24"
+        - ProfinetDeviceName: ST3_indradrive
+      # Parameters:
+      #   IECV22LLDPMode: True
+        # TsnDomainName: 
+    Ports:
+      - Name: Port_1
+        Label: X1 P1
+      - Name: Port_2
+        Label: X1 P2
+  # - Name: ParamCh_NotUsed
+  #   TypeIdentifier:
+  #     GsdId: ID_PaCh_NotUsed
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 1
+  - Name: ParamCh_5Words
+    TypeIdentifier:
+      GsdId: ID_PaCh_5Words
+      FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+    Slot: 1
+  # - Name: ParamCh_6Words
+  #   TypeIdentifier:
+  #     GsdId: ID_PaCh_6Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 1
+  - Name: F-Modul_not_used
+    TypeIdentifier:
+      GsdId: ID_FMod_NotUsed
+      FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+    Slot: 2
+  # - Name: In_Modul_not_used
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_NotUsed
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Input_1_Word
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_1Word
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Input_2_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_2Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Input_3_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_3Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Input_4_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_4Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Input_5_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_5Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Input_6_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_6Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Input_7_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_7Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Input_8_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_8Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  - Name: Input_9_Words
+    TypeIdentifier:
+      GsdId: ID_InMod_9Words
+      FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+    Slot: 3
+  # - Name: Input_10_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_10Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Input_11_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_11Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Input_12_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_12Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Input_13_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_13Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Input_14_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_14Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Input_15_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_15Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Input_16_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_16Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Input_17_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_17Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Input_18_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_18Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Input_19_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_19Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Input_20_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_20Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Input_21_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_21Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Input_22_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_22Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Input_23_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_23Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Input_24_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_InMod_24Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 3
+  # - Name: Out_Modul_not_used
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_NotUsed
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  # - Name: Output_1_Word
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_1Word
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  # - Name: Output_2_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_2Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  # - Name: Output_3_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_3Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  # - Name: Output_4_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_4Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  # - Name: Output_5_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_5Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  # - Name: Output_6_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_6Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  # - Name: Output_7_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_7Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  # - Name: Output_8_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_8Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  # - Name: Output_9_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_9Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  # - Name: Output_10_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_10Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  # - Name: Output_11_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_11Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  # - Name: Output_12_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_12Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  - Name: Output_13_Words
+    TypeIdentifier:
+      GsdId: ID_OutMod_13Words
+      FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+    Slot: 4
+  # - Name: Output_14_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_14Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  # - Name: Output_15_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_15Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  # - Name: Output_16_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_16Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  # - Name: Output_17_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_17Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  # - Name: Output_18_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_18Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  # - Name: Output_19_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_19Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  # - Name: Output_20_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_20Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  # - Name: Output_21_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_21Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  # - Name: Output_22_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_22Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  # - Name: Output_23_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_23Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4
+  # - Name: Output_24_Words
+  #   TypeIdentifier:
+  #     GsdId: ID_OutMod_24Words
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_01V01-20110705.XML
+  #   Slot: 4

@@ -26,7 +26,7 @@ if ! [[ -d "./hwc" ]]; then
   exit 1
 fi
 
-hwcfile=".\hwc\\${PLC_NAME}.hwl.json"
+hwcfile=".\hwc\\${PLC_NAME}.hwl.yml"
 if [ ! -e $hwcfile ]; then
   echo "Hardware configuration file $hwcfile does not exist!!!"
   exit 1

@@ -2,7 +2,7 @@ USING AXOpen.Core;
 USING AXOpen;
 NAMESPACE AXOpen.Elements
     {S7.extern=ReadWrite}
-    CLASS SandboContext EXTENDS AXOpen.Core.AxoContext
+    CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             Cu : SandboxControllUnit;
         END_VAR

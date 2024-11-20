@@ -6,6 +6,7 @@
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/dev/notices.md
 
 using System.Globalization;
+using AXSharp.Abstractions.Presentation;
 using AXSharp.Connector;
 using AXSharp.Connector.Localizations;
 
