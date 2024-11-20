@@ -33,6 +33,11 @@ while IFS= read -r line; do
       old_substring="${old_substrings[i]}"
       new_substring="${new_substrings[i]}"
       modified_line="${modified_line//$old_substring/$new_substring}"
+	  # Check if the variable starts with a letter
+	  if [[ ! "$modified_line" =~ ^[a-zA-Z] ]]; then
+	  	# If it doesn't, prefix it with an underscore
+	  	modified_line="_$modified_line"
+	  fi
     done
     echo "$modified_line" >> "$output_file"
   fi
