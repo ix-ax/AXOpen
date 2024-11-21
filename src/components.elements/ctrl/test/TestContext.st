@@ -9,6 +9,13 @@ NAMESPACE AxoIO.Tests
         VAR PUBLIC
             SignalParent : AxoObject;
         END_VAR
+
+        
+            METHOD PUBLIC OVERRIDE Open : ULINT
+                SUPER.Open();
+                SignalParent.Initialize(THIS);
+            END_METHOD
+
         METHOD PROTECTED OVERRIDE Main
                ;
         END_METHOD               
