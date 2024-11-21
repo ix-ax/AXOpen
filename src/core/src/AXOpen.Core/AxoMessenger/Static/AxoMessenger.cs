@@ -129,7 +129,7 @@ public partial class AxoMessenger
         }
     }
 
-    public async Task ReadDetails()
+    public async Task ReadDetailsAsync()
     {
         var r = new ITwinPrimitive[] {this.MessageCode, Category, MessageCode, AcknowledgedBeforeFallen, MessengerState};
         await this.GetConnector()?.ReadBatchAsync(r)!;

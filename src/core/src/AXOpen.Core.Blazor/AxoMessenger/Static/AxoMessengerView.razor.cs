@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
 using System.Security.Principal;
+using AXOpen.Core;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 
@@ -36,6 +37,15 @@ namespace AXOpen.Messaging.Static
             AxoApplication.Current.Logger.Information($"Message '{this.MessageText}' acknowledged.", this.Component, await GetCurrentUserIdentity());
         }
 
+        private async void RestoreTask()
+        {
+            if (this.Component.GetParent() is AxoTask t)
+            {
+                   t.Restore();
+                   AxoApplication.Current.Logger.Information($"Task '{this.Component.GetParent().Symbol}' has been restored using alarm view.", this.Component, await GetCurrentUserIdentity());
+            }
+        }
+        
         public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
         {
             base.AddToPolling(element);
@@ -156,6 +166,8 @@ namespace AXOpen.Messaging.Static
         private bool AcknowledgementDoesNotRequired => !AcknowledgementRequired;
         private bool WaitingForAcknowledge => Component.State >= eAxoMessengerState.NotActiveWaitingAckn;
         private bool HideAckowledgeButton => !AcknowledgementRequired || AcknowledgedBeforeFallen || (!IsActive && !WaitingForAcknowledge);
+        
+        private bool HideRepairButton =>(!IsActive || this.Component.GetParent() is not AxoTask);
 
        
         private string GetHelpText()

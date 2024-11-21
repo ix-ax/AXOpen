@@ -13,7 +13,7 @@
 
  
 <div class="container-fluid">
-    @if (MessageProvider.ActiveMessagesCount > 0)
+    @if (MessageProvider.ActiveMessagesCount >= 0)
     {
         <div class="row p-3">
             <button type="button" class="btn btn-primary m-3" @onclick="AcknowledgeAll">ACKN</button>
@@ -26,26 +26,22 @@
                <th scope="col">@Localizer["Description"]</th>
                <th scope="col">@Localizer["Risen"]</th>
                <th scope="col">@Localizer["Fallen"]</th>
-               <th scope="col">@Localizer["Acknowledged"]</th>
+               <th scope="col">@Localizer["Ackn"]</th>
+               <th scope="col">@Localizer[""]</th>
              </tr>
            </thead>
            <tbody>
-                 @if (MessageProvider != null)
-                 {
-                     _ = MessageProvider.ReadMessageState();
-                     if (MessageProvider.Messengers != null)
-                     {
-                         foreach (var message in MessageProvider.Messengers)
-                         {
-                             if (message.State > eAxoMessengerState.Idle)
-                             {
-                                 _ = message.ReadDetails();
-                                 <AxoMessengerView Component="message"></AxoMessengerView>
-                             }
-                         }
-                     }
-                 }
-             </tbody>
+           @{
+            foreach (var message in MessageProvider.Messengers)
+            {
+                if (message.State > eAxoMessengerState.Idle)
+                {
+                    <AxoMessengerView Component="message"></AxoMessengerView>
+                }
+            }
+        }
+
+        </tbody>
         </table>
     }
     else
@@ -65,7 +61,7 @@
     private IJSObjectReference? module;
     private IEnumerable<ITwinObject> observedObjects = new List<ITwinObject>();
     private AxoMessageProvider provider;
-
+    
     [Parameter]
     public AxoMessageProvider MessageProvider
     {
@@ -75,7 +71,8 @@
             provider = value;
         } 
     }
-
+    
+    
     [Parameter]
     public IEnumerable<ITwinObject> ObservedObjects
     {
@@ -87,10 +84,17 @@
         } 
     }
 
-    public override void OnComponentChanged()
+    public override async void OnComponentChanged()
     {
-        MessageProvider = AxoMessageProvider.Create(ObservedObjects);
+        if (observedObjects.Count() == 0 
+            || !observedObjects.First().Equals(this.Component))
+        {
+            observedObjects = new[] { this.Component };
+        }
+        MessageProvider = AxoMessageProvider.Create(observedObjects);
+        await LoadMessages();
         base.OnComponentChanged();
+        this.StateHasChanged();
     }
 
     ///<inheritdoc/>
@@ -110,6 +114,11 @@
     {
         await base.OnInitializedAsync();
         _ = MessageProvider.InitializeLightUpdate(this.UpdateValuesOnChange);
+        
+        await LoadMessages();
+
+        // Notify Blazor to refresh the UI
+        StateHasChanged();
     }
     
     private async Task AcknowledgeAll()
@@ -125,6 +134,8 @@
                 messenger.Acknowledge(ast.User.Identity);
             }
         }
+        
+        await LoadMessages();
     }
 }
 

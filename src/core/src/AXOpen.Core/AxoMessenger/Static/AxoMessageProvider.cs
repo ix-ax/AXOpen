@@ -178,7 +178,7 @@ namespace AXOpen.Messaging.Static
             await Messengers?.First()?.GetConnector()?.ReadBatchAsync(r)!;
         }
         
-        public async Task ReadMessageState()
+        public async Task ReadMessageStateAsync()
         {
             var r = Messengers?
                 .SelectMany(p => new ITwinPrimitive[]

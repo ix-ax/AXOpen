@@ -32,7 +32,10 @@
 
     public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
     {
-        
+        if (element is AxoObject o)
+        {
+            base.AddToPolling(o.MsgCnt,2500);
+        }
     }
 
     /// <summary>
