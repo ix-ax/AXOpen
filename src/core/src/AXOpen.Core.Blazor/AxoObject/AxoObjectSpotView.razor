@@ -1,7 +1,7 @@
 ﻿@namespace AXOpen.Core
 @inherits RenderableComplexComponentBase<AxoObject>
 @using System.Timers
-@using AXOpen.Messaging.Static.Blazor
+@using AXOpen.Messaging.Static
 @using AXSharp.Connector
 @using Microsoft.JSInterop
 @implements IAsyncDisposable;
@@ -16,9 +16,9 @@
         @onclick="SetCurrentObject">
     @Component.AttributeName
     <a>
-       @if (observer?.Provider?.RelevantMessagesCount > 0)
+       @if (observer.ActiveMessagesCount > 0)
        {
-           <span class="position-absolute top-0 start-100 translate-middle p-2 bg-@observer?.HighestSeverityColor border border-light rounded-circle">
+           <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
                <span class="visually-hidden">New alerts</span>
            </span>
        }
@@ -28,11 +28,14 @@
 @code
 {
     private IJSObjectReference? module;
-    private AxoMessageObserver? observer; 
+    private AxoMessageProvider? observer; 
 
     public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
     {
-        
+        if (element is AxoObject o)
+        {
+            base.AddToPolling(o.MsgCnt,2500);
+        }
     }
 
     /// <summary>
@@ -41,7 +44,7 @@
     /// </summary>
     public override void OnComponentChanged()
     {
-        observer = AxoMessageObserver.Create(new[] { this.Component }, this);
+        observer = AxoMessageProvider.Create(new[] { this.Component });
         
         updateTimer.Interval = this.PollingInterval;
         updateTimer.Enabled = true;
@@ -66,7 +69,7 @@
     ///<inheritdoc/>
     protected override async Task OnInitializedAsync()
     {
-        if (observer != null) await observer.InitializeUpdate();
+        if (observer != null) await observer.InitializeLightUpdate(this.UpdateValuesOnChange);
         await base.OnInitializedAsync();
     }
 }

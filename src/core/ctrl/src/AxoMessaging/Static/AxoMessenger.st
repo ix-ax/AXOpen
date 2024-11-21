@@ -11,7 +11,7 @@ NAMESPACE AXOpen.Messaging.Static
     {#ix-prop: public string Help }
     {#ix-prop: public string PlcTextList }
     {S7.extern=ReadWrite}
-    CLASS AxoMessenger EXTENDS AxoObject IMPLEMENTS AXOpen.Messaging.Static.IAxoMessageProperties        
+    CLASS AxoMessenger EXTENDS AxoObject IMPLEMENTS AXOpen.Messaging.Static.IAxoMessageProperties, AXOpen.Core.IAxoMessenger
         VAR PUBLIC
             {#ix-attr:[ReadOnly()]}
             {#ix-attr:[CompilerOmits()]} 
@@ -43,7 +43,7 @@ NAMESPACE AXOpen.Messaging.Static
             ActiveContextCount : ULINT;
             Context : IAxoContext;         
         END_VAR
- 
+       
         ///<summary>
         /// Ensures the inicialization of the instance, so as the deactivation of the message. Must be called cyclically.
         ///</summary>
@@ -88,7 +88,13 @@ NAMESPACE AXOpen.Messaging.Static
             IF(THIS.WaitingForAcknowledge) THEN
                 THIS.MessengerState := eAxoMessengerState#NotActiveWaitingAckn;  
             END_IF;                     
-            
+
+            IF(THIS.MessengerState <> eAxoMessengerState#Idle && THIS.Category >= eAxoMessageCategory#Error) THEN
+                THIS.AggregateMessage(LINT#1); 
+            ELSE
+                THIS.AggregateMessage(LINT#0); 
+            END_IF;    
+
         END_METHOD
         
         ///<summary>
@@ -131,7 +137,13 @@ NAMESPACE AXOpen.Messaging.Static
             IF(THIS.WaitingForAcknowledge) THEN
                 THIS.MessengerState := eAxoMessengerState#NotActiveWaitingAckn;  
             END_IF; 
-            
+                        
+            IF(THIS.MessengerState <> eAxoMessengerState#Idle && THIS.Category >= eAxoMessageCategory#Error) THEN
+                THIS.AggregateMessage(LINT#1); 
+            ELSE
+                THIS.AggregateMessage(LINT#0); 
+            END_IF;    
+ 
         END_METHOD
 
         ///<summary>

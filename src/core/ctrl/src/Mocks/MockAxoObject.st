@@ -11,6 +11,11 @@ NAMESPACE AXOpen.Core
             {#ix-attr:[ReadOnly()]}
             {#ix-attr:[RenderIgnore()]}
             Identity   : ULINT := ULINT#0;
+
+            {#ix-attr:[CompilerOmits("POCO")]}     
+            {#ix-attr:[IgnoreOnPocoOperation()]}  
+            {#ix-attr:[RenderIgnore()]}
+            MsgCnt   : LINT := LINT#0;
         END_VAR    
 
         VAR PRIVATE           
@@ -67,7 +72,7 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 parent : IAxoObject;
             END_VAR   
-
+           
             IF(Identity = ULINT#0 AND parent <> NULL) THEN
                 _context    := parent.GetContext();  
                 Identity   := _context.CreateIdentity(); 
@@ -86,12 +91,41 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 context : IAxoContext;
             END_VAR   
-
+            
             IF(Identity = ULINT#0 AND context <> NULL) THEN
                 _context    := context;  
                 Identity   := _context.CreateIdentity();                 
             END_IF;
 
-        END_METHOD        
+        END_METHOD
+                
+        VAR
+            _lastMessageAggregationCycle : ULINT;
+        END_VAR  
+
+         METHOD PUBLIC AggregateMessage
+            VAR_INPUT
+                inCount : LINT;
+            END_VAR         
+
+            IF(_lastMessageAggregationCycle <> _context.OpenCycleCount()) THEN
+                THIS.MsgCnt := LINT#0;
+            END_IF;    
+
+            IF(inCount = 0) THEN
+                IF(_parent <> NULL) THEN
+                    THIS._parent.AggregateMessage(inCount);
+                END_IF;    
+                RETURN;
+            END_IF;    
+
+            THIS.MsgCnt := inCount + THIS.MsgCnt;    
+                      
+            IF(_parent <> NULL) THEN
+                THIS._parent.AggregateMessage(inCount);
+            END_IF;    
+
+            _lastMessageAggregationCycle := _context.OpenCycleCount();  
+        END_METHOD    
     END_CLASS    
 END_NAMESPACE    

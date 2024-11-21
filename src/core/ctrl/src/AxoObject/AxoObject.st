@@ -1,3 +1,4 @@
+USING AXOpen.Messaging.Static;
 USING AXOpen.Rtc;
 
 NAMESPACE AXOpen.Core      
@@ -10,7 +11,12 @@ NAMESPACE AXOpen.Core
             {#ix-attr:[CompilerOmits("POCO")]}     
             {#ix-attr:[IgnoreOnPocoOperation()]}  
             {#ix-attr:[RenderIgnore()]}
-            Identity   : ULINT := ULINT#0;                                            
+            Identity   : ULINT := ULINT#0;    
+            
+            {#ix-attr:[CompilerOmits("POCO")]}     
+            {#ix-attr:[IgnoreOnPocoOperation()]}  
+            {#ix-attr:[RenderIgnore()]}
+            MsgCnt   : LINT := LINT#0;    
         END_VAR    
 
         VAR PROTECTED           
@@ -72,7 +78,9 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 parent : IAxoObject;
             END_VAR                           
-            // CHANGE: Identity is now provided by the higher level application.
+
+           
+            
             IF(parent <> NULL) THEN
                 _context_    := parent.GetContext();                 
                 _parent     := parent;
@@ -89,10 +97,43 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 context : IAxoContext;
             END_VAR   
-            // CHANGE: Identity is now provided by the higher level application.
+         
+            
             IF(context <> NULL) THEN
                 _context_    := context;                 
             END_IF;
-        END_METHOD       
+        END_METHOD   
+        
+        VAR
+            _lastMessageAggregationCycle : ULINT;
+        END_VAR    
+        
+        ///<summary>
+        /// Aggregates message count for this object and all parent objects in the generation of this object.
+        ///</summary>
+        METHOD PUBLIC AggregateMessage
+            VAR_INPUT
+                inCount : LINT;
+            END_VAR         
+
+            IF(_lastMessageAggregationCycle <> _context_.OpenCycleCount()) THEN
+                THIS.MsgCnt := LINT#0;
+            END_IF;    
+
+            IF(inCount = 0) THEN
+                IF(_parent <> NULL) THEN
+                    THIS._parent.AggregateMessage(inCount);
+                END_IF;    
+                RETURN;
+            END_IF;    
+
+            THIS.MsgCnt := inCount + THIS.MsgCnt;    
+                      
+            IF(_parent <> NULL) THEN
+                THIS._parent.AggregateMessage(inCount);
+            END_IF;    
+
+            _lastMessageAggregationCycle := _context_.OpenCycleCount();  
+        END_METHOD    
     END_CLASS    
 END_NAMESPACE    
