@@ -16,7 +16,8 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _identityCounter : ULINT;           
         END_VAR       
         VAR PUBLIC       
-            _object : TestObject;                 
+            _object : TestObject;     
+            _nested : NestedObject_L1;            
         END_VAR      
         VAR PRIVATE            
             NULL_RTC : _NULL_RTC;
@@ -83,6 +84,26 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
 
     {S7.extern=ReadWrite}
     CLASS TestObject EXTENDS MockAxoObject
+        VAR PUBLIC 
+            _messenger : AxoMessenger;
+        END_VAR
+    END_CLASS
+
+    CLASS NestedObject_L1 EXTENDS MockAxoObject
+        VAR PUBLIC 
+            _nestedObject_L2 : NestedObject_L2;
+            _messenger : AxoMessenger;
+        END_VAR
+    END_CLASS    
+
+    CLASS NestedObject_L2 EXTENDS MockAxoObject
+        VAR PUBLIC 
+            _nestedObject_L3 : NestedObject_L3;
+            _messenger : AxoMessenger;
+        END_VAR
+    END_CLASS    
+
+    CLASS NestedObject_L3 EXTENDS MockAxoObject
         VAR PUBLIC 
             _messenger : AxoMessenger;
         END_VAR
@@ -198,9 +219,53 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti._object._messenger.Activate();
             _suti.Close();
 
-            //--Assert
+            //--Assert            
             Assert.Equal(TRUE, _suti._object._messenger.IsActive);
+                           
         END_METHOD
+
+
+      
+        
+        {Test}
+        METHOD PUBLIC isactive_nested_should_count_messages
+            VAR
+                i : INT;
+            END_VAR    
+            //--Act
+            FOR i := 0 TO 2 DO
+                _suti.Open();
+                _suti._nested.Initialize(_suti);
+                _suti._nested._nestedObject_L2.Initialize(_suti._nested);
+                _suti._nested._nestedObject_L2._nestedObject_L3.Initialize(_suti._nested._nestedObject_L2);            
+    
+                _suti._nested._messenger.Serve(_suti._nested);
+                _suti._nested._messenger.Activate(eAxoMessageCategory#Error);
+                                       
+                _suti._nested._nestedObject_L2._messenger.Serve(_suti._nested._nestedObject_L2);
+                _suti._nested._nestedObject_L2._messenger.Activate(eAxoMessageCategory#Error);
+                
+                _suti._nested._nestedObject_L2._nestedObject_L3._messenger.Serve(_suti._nested._nestedObject_L2._nestedObject_L3);
+                _suti._nested._nestedObject_L2._nestedObject_L3._messenger.Activate(eAxoMessageCategory#Error);
+                
+    
+                // _suti._nested._messenger.Serve(_suti._nested);
+                // _suti._nested._nestedObject_L2._messenger.Serve(_suti._nested._nestedObject_L2);
+                // _suti._nested._nestedObject_L2._nestedObject_L3._messenger.Serve(_suti._nested._nestedObject_L2._nestedObject_L3);
+               
+                _suti.Close();    
+            END_FOR;
+            
+
+            //--Assert            
+           
+            
+                             
+            Assert.Equal(_suti._nested._nestedObject_L2._nestedObject_L3.MsgCnt, LINT#1);       
+            Assert.Equal(_suti._nested._nestedObject_L2.MsgCnt, LINT#2);       
+            Assert.Equal(_suti._nested.MsgCnt, LINT#3);
+        END_METHOD
+
 
         {Test}
         METHOD PUBLIC isactive_should_be_true_in_the_next_PLC_cycle_in_case_of_activate_method_is_called_before_serve_method

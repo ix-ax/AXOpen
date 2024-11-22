@@ -8,30 +8,81 @@
     <div class="btn-group">
         @if (IsTaskRunning)
         {
-            <button class="btn @ButtonClass" type="button" disabled="@IsDisabled" @onclick="@AbortTask">
-                <span class="oi oi-media-pause text-white ms-1 mt-0 me-0 mb-0 p-0" />
-                <span>@Description</span>
-                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" />
+            <button class="btn @ButtonClass" type="button" disabled="@IsDisabled">
+                @if (ShowAbortButton)
+                {
+                    <button class="btn @ButtonClass m-0 p-0" type="button" disabled="@IsDisabled" @onclick="@AbortTask">
+                        <span class="oi oi-media-pause text-white ms-1 mt-0 me-0 mb-0 p-0"></span>
+                    </button>
+                }
+                @if (ShowIcon && !string.IsNullOrEmpty(IconClass))
+                {
+                    <i class="@IconClass ms-2 me-2"></i>
+                }
+                @if (ShowText)
+                {
+                    <span>@Description</span>
+                }
+
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             </button>
         }
         else if (IsTaskAborted)
         {
             <button class="btn @ButtonClass" type="button" disabled="@IsDisabled" @onclick="@ResumeTask">
-                <span class="oi oi-media-play text-white ms-1 mt-0 me-0 mb-0 p-0" />
-                <span>@Description</span>
-                <span class="spinner-border spinner-border-sm invisible" role="status" aria-hidden="true"/>
+                <span class="oi oi-media-play text-white ms-1 mt-0 me-0 mb-0 p-0"></span>
+                @if (ShowIcon && !string.IsNullOrEmpty(IconClass))
+                {
+                    <i class="@IconClass ms-5 me-5"></i> 
+                }
+                @if (ShowText)
+                {
+                    <span>@Description</span>
+                }
+                <span class="spinner-border spinner-border-sm invisible" role="status" aria-hidden="true"></span>
             </button>
         }
         else
         {
             <button class="btn @ButtonClass" type="button" disabled="@IsDisabled" @onclick="@InvokeTask">
                 <span class="oi oi-media-play text-white ms-1 mt-0 me-0 mb-0 p-0 invisible" />
-                <span>@Description</span>
+                @if (ShowIcon && !string.IsNullOrEmpty(IconClass))
+                {
+                    <i class="@IconClass ms-2 me-2"></i>
+                }
+                
+                @if (ShowText)
+                {
+                    <span>@Description</span>
+                }
+                
                 <span class="spinner-border spinner-border-sm invisible" role="status" aria-hidden="true"/>
             </button>
         }
-        <button class="btn @ButtonClass" type="button" disabled="@IsDisabled" @onclick="@RestoreTask" hidden="@HideRestoreButton">
-            <span class="oi oi-reload" aria-hidden="true"/>
-        </button>
+        @if (ShowRestoreButton)
+        {
+            <button class="btn @ButtonClass" type="button" disabled="@IsDisabled" @onclick="@RestoreTask" hidden="@HideRestoreButton">
+                <span class="oi oi-reload" aria-hidden="true"/>
+            </button>
+        }
     </div>
 </div>
+
+@code
+{
+
+    [Parameter] 
+    public bool ShowAbortButton { get; set; } = false;
+    
+    [Parameter] 
+    public bool ShowRestoreButton { get; set; } = true;
+    
+    [Parameter]
+    public bool ShowIcon { get; set; } = false;
+
+    [Parameter]
+    public bool ShowText { get; set; } = true;
+    
+    [Parameter]
+    public string IconClass { get; set; } = "fas fa-star"; // Default icon class
+}

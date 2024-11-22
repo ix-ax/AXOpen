@@ -45,7 +45,28 @@ NAMESPACE AXOpen.Core
         END_METHOD
         METHOD PUBLIC GetContextUnsafe : IAxoContext            
             GetContextUnsafe := NULL_CONTEXT;            
-    END_METHOD
+        END_METHOD
+        METHOD PUBLIC AggregateMessage
+            VAR_INPUT
+                Message : AXOpen.Core.IAxoMessenger;
+            END_VAR    
+            ;
+        END_METHOD
+
+        METHOD PUBLIC AggregateMessage
+            VAR_INPUT
+                inCount : ULINT;
+            END_VAR                
+            ;
+        END_METHOD    
+    
+        METHOD PUBLIC AggregateMessage
+            VAR_INPUT
+                inCount : LINT;
+            END_VAR
+
+            ;
+        END_METHOD
     END_CLASS    
 
     ///<summary>
@@ -104,6 +125,8 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC Elapsed : LTIME
             Elapsed := _null_time;
         END_METHOD
-    END_CLASS    
+    END_CLASS 
+    
+    
 END_NAMESPACE
     
