@@ -36,6 +36,8 @@ fi
 apax hwc compile -i ".\hwc" -o bin/hwc/
 hwid=$( dirname ${BASH_SOURCE[0]})"\\copy_hardware_ids.sh"
 $hwid
+hwadr=$( dirname ${BASH_SOURCE[0]})"\\copy_io_addresses.sh"
+$hwadr
 apax hwld -i bin/hwc/$PLC_NAME -t $PLC_IP_ADDRESS -M:$PASSWORD --accept-security-disclaimer -l Information
 certfile="./certs/$PLC_NAME/$PLC_NAME.cer" 
 apax plc-cert -t $PLC_IP_ADDRESS -o $certfile

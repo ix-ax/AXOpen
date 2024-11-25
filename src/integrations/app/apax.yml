@@ -20,7 +20,6 @@ dependencies:
 installStrategy: strict
 apaxVersion: 3.3.1
 scripts:
-  # For proper execution of these scripts, the following variables need to be defined as environment variables or local variables.
   # Local variables can override environment variables.
   # It is highly recommended NOT to store secrets such as 'AX_USERNAME' and 'MY_VERY_STRONG_PASSWORD' in local variables.
   # PLC_NAME: Name of the PLC (also equal to the PLC Profinet name)
@@ -73,10 +72,13 @@ scripts:
   hwid: | # copy the generated HwIds from global constants into the type definition, matching the format as the TIA2AX tool creates
     ..\\..\\scripts\\copy_hardware_ids.sh 
 
-  hwfd: | # copy and install gsd, copy templates,compile, copy the HwIds, first download HW using password and upload certificate
+  hwadr: | # copy the generated IoAddresses
+    ..\\..\\scripts\\copy_io_addresses.sh 
+
+  hwfd: | # copy and install gsd, copy templates,compile, copy the HwIds, copy the IoAddresses, first download HW using password and upload certificate
     ..\\..\\scripts\\hw_first_download.sh $PLC_NAME $AXTARGET $MY_VERY_STRONG_PASSWORD
 
-  hwu: | # copy and install gsd, copy templates, compile, copy the HwIds, download HW using certificate
+  hwu: | # copy and install gsd, copy templates, compile, copy the HwIds, copy the IoAddresses, download HW using certificate
     ..\\..\\scripts\\hw_update.sh $PLC_NAME $AXTARGET
 
   swfd: | # software build and full download
