@@ -59,8 +59,8 @@ NAMESPACE AXOpen.Elements
                 parent : Axopen.Core.IAxoObject;
             END_VAR
 
-            VAR_IN_OUT
-                inoSignal: DINT;
+            VAR_OUTPUT
+                oSignal: DINT;
             END_VAR
     
             IF (parent = NULL) THEN RETURN; END_IF;
@@ -73,7 +73,6 @@ NAMESPACE AXOpen.Elements
             _messengerGainNotDefined.Serve(THIS); 
             _messengerOutOfBoundaries.Serve(THIS);
     
-            _signal := inoSignal;
             //unscaling
             _rawRange  := TO_REAL(_config.RawHigh - _config.RawLow);
             _realRange := _config.RealHigh - _config.RealLow;
@@ -118,7 +117,7 @@ NAMESPACE AXOpen.Elements
             _status.RealRange := _realRange;
             _status.Unscaled  := _unscaled;
     
-            inoSignal := _signal;
+            oSignal := _signal;
         END_METHOD
     
         METHOD PUBLIC OVERRIDE Restore 
