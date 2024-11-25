@@ -16,6 +16,7 @@ dependencies:
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
 installStrategy: strict
 apaxVersion: 3.3.1
+scripts:
   # Local variables can override environment variables.
   # It is highly recommended NOT to store secrets such as 'AX_USERNAME' and 'MY_VERY_STRONG_PASSWORD' in local variables.
   # PLC_NAME: Name of the PLC (also equal to the PLC Profinet name)
