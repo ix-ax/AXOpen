@@ -1,34 +1,40 @@
-if [ "$#" -ne 5 ]; then
-    echo "Usage: $0 <PLC_NAME> <PLC_IP_ADDRESS> <PLATFORM> <USERNAME> <PASSWORD>"
+if [ "$#" -ne 6 ]; then
+    echo "Usage: $0 <NAMESPACE> <PLC_NAME> <PLC_IP_ADDRESS> <PLATFORM> <USERNAME> <PASSWORD>"
     exit 1
 fi
 
-PLC_NAME=$1
+NAMESPACE=$1
+if [ -z $NAMESPACE ]; then
+    echo "The NAMESPACE could not be an empty string."
+    exit 1
+fi
+
+PLC_NAME=$2
 if [ -z $PLC_NAME ]; then
     echo "The PLC_NAME could not be an empty string."
     exit 1
 fi
 
-PLC_IP_ADDRESS=$2
+PLC_IP_ADDRESS=$3
 validate_script=$( dirname ${BASH_SOURCE[0]})"\\validate_ip.sh"
 if ! $validate_script "$PLC_IP_ADDRESS"; then
     echo "The PLC_IP_ADDRESS '$PLC_IP_ADDRESS' is not a valid IP address."
     exit 1
 fi
 
-PLATFORM=$3
+PLATFORM=$4
 if [ -z $PLATFORM ]; then
     echo "The PLATFORM could not be an empty string."
     exit 1
 fi
 
-USERNAME=$4
+USERNAME=$5
 if [ -z $USERNAME ]; then
     echo "The USERNAME could not be an empty string."
     exit 1
 fi
 
-PASSWORD=$5
+PASSWORD=$6
 if [ -z $PASSWORD ]; then
     echo "The PASSWORD could not be an empty string."
     exit 1
@@ -44,7 +50,7 @@ if ! [[ -e "$certfile" ]]; then
 	printf "${RED}Certification file $certfile does not exist.\r\n${NC}"
 	#alf 										#clear plc except ip and name and provide all actions for install all, build and initial download hw so as sw
 	alf=$( dirname ${BASH_SOURCE[0]})"\\all_first.sh"
-	$alf $PLC_NAME $PLC_IP_ADDRESS $PLATFORM $USERNAME $PASSWORD
+	$alf $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS $PLATFORM $USERNAME $PASSWORD
 else
 	check_requisites_apax_script=$( dirname ${BASH_SOURCE[0]})"\\check_requisites_apax.sh"
 	if ! $check_requisites_apax_script ; then
@@ -69,7 +75,7 @@ else
 		printf "${RED}It has to be regenerated again.\r\n${NC}"
 		#alf										  #clear plc except ip and name and provide all actions for install all, build and initial download hw so as sw
 		alf=$( dirname ${BASH_SOURCE[0]})"\\all_first.sh"
-		$alf $PLC_NAME $PLC_IP_ADDRESS $PLATFORM $USERNAME $PASSWORD
+		$alf $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS $PLATFORM $USERNAME $PASSWORD
 	else
 	
 		printf "${GREEN}Certification file $certfile exists and its sha1 hash is equal to the PLC's one.\r\n"
@@ -78,7 +84,7 @@ else
 
 		#hw_update                                    # copy and install gsd, copy templates, compile, copy the HwIds, download HW using certificate
 		hw_update=$( dirname ${BASH_SOURCE[0]})"\\hw_update.sh"
-		$hw_update $PLC_NAME $PLC_IP_ADDRESS 
+		$hw_update $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS 
 
 		#sw_build_and_download_full                   # software build and full download
 		sw_build_and_download_full=$( dirname ${BASH_SOURCE[0]})"\\sw_build_and_download_full.sh"

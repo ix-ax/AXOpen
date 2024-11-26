@@ -1,3 +1,17 @@
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 <NAMESPACE> <PLC_NAME>"
+    exit 1
+fi
+NAMESPACE=$1
+if [ -z $NAMESPACE ]; then
+    echo "The NAMESPACE could not be an empty string."
+    exit 1
+fi
+PLC_NAME=$2
+if [ -z $PLC_NAME ]; then
+    echo "The PLC_NAME could not be an empty string."
+    exit 1
+fi
 if ! [[ -d "./hwc" ]]; then
   echo "Directory ".\hwc" does not exist!!!"
   exit 1
@@ -16,9 +30,10 @@ output_file="$output_dir/HwIdentifiers.st"
 lines_to_replace=("CONFIGURATION HardwareIDs" "VAR_GLOBAL CONSTANT" "END_VAR" "END_CONFIGURATION")
 old_substrings=(": UINT := UINT" ";")
 new_substrings=(":=	WORD" ",")
-echo "TYPE" > "$output_file"
-echo "    HwIdentifiers : WORD" >> "$output_file"
-echo "    (" >> "$output_file"
+echo "NAMESPACE ${NAMESPACE}" > "$output_file"
+echo "    TYPE" >> "$output_file"
+echo "        HwIdentifiers : WORD" >> "$output_file"
+echo "        (" >> "$output_file"
 while IFS= read -r line; do
   copy_this_line=true
   for line_to_replace in "${lines_to_replace[@]}"; do
@@ -55,9 +70,10 @@ while IFS= read -r line; do
 	  	fi
 	  fi
     done
-    echo "$modified_line" >> "$output_file"
+    echo "    $modified_line" >> "$output_file"
   fi
 done < "$input_file"
-echo "        NONE := WORD#0" >> "$output_file"
-echo "    );" >> "$output_file"
-echo "END_TYPE" >> "$output_file"
+echo "            NONE := WORD#0" >> "$output_file"
+echo "        );" >> "$output_file"
+echo "    END_TYPE" >> "$output_file"
+echo "END_NAMESPACE" >> "$output_file"

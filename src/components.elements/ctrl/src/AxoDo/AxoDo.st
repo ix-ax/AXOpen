@@ -52,8 +52,8 @@ NAMESPACE AXOpen.Elements
                 parent : Axopen.Core.IAxoObject;
             END_VAR
 
-            VAR_IN_OUT
-                inoSignal: BOOL;
+            VAR_OUTPUT
+                oSignal: BOOL;
             END_VAR
 
             IF (parent = NULL) THEN RETURN; END_IF;
@@ -67,7 +67,7 @@ NAMESPACE AXOpen.Elements
             _messengerInfoPositive.Serve(THIS); 
             _messengerInfoNegative.Serve(THIS); 
 
-            inoSignal := _signal;		
+            oSignal := _signal;		
 
             IF(_setTask.Execute())THEN
                 _setTask.DoneWhen(THIS.Set());

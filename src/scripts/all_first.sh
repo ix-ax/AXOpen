@@ -1,38 +1,45 @@
-if [ "$#" -ne 5 ]; then
-    echo "Usage: $0 <PLC_NAME> <PLC_IP_ADDRESS> <PLATFORM> <USERNAME> <PASSWORD>"
+if [ "$#" -ne 6 ]; then
+    echo "Usage: $0 <NAMESPACE> <PLC_NAME> <PLC_IP_ADDRESS> <PLATFORM> <USERNAME> <PASSWORD>"
     exit 1
 fi
 
-PLC_NAME=$1
+NAMESPACE=$1
+if [ -z $NAMESPACE ]; then
+    echo "The NAMESPACE could not be an empty string."
+    exit 1
+fi
+
+PLC_NAME=$2
 if [ -z $PLC_NAME ]; then
     echo "The PLC_NAME could not be an empty string."
     exit 1
 fi
 
-PLC_IP_ADDRESS=$2
+PLC_IP_ADDRESS=$3
 validate_script=$( dirname ${BASH_SOURCE[0]})"\\validate_ip.sh"
 if ! $validate_script "$PLC_IP_ADDRESS"; then
     echo "The PLC_IP_ADDRESS '$PLC_IP_ADDRESS' is not a valid IP address."
     exit 1
 fi
 
-PLATFORM=$3
+PLATFORM=$4
 if [ -z $PLATFORM ]; then
     echo "The PLATFORM could not be an empty string."
     exit 1
 fi
 
-USERNAME=$4
+USERNAME=$5
 if [ -z $USERNAME ]; then
     echo "The USERNAME could not be an empty string."
     exit 1
 fi
 
-PASSWORD=$5
+PASSWORD=$6
 if [ -z $PASSWORD ]; then
     echo "The PASSWORD could not be an empty string."
     exit 1
 fi
+
 
 export GREEN='\033[0;32m'
 export RED='\033[0;31m'
@@ -59,7 +66,7 @@ apax install
 
 #clean_plc                                    # total reset of the PLC excluding IP and name
 clean_plc=$( dirname ${BASH_SOURCE[0]})"\\clean_plc.sh"
-$clean_plc
+$clean_plc $PLC_IP_ADDRESS
 
 #copy_and_install_gsd                         # copy and install all gsdml files from library           
 copy_and_install_gsd=$( dirname ${BASH_SOURCE[0]})"\\copy_and_install_gsd.sh"
@@ -75,7 +82,7 @@ $setup_secure_communication $PLC_NAME $USERNAME $PASSWORD
 
 #hw_first_compile_and_first_download          # compile, copy the HwIds, first download HW using password and upload certificate       
 hw_first_compile_and_first_download=$( dirname ${BASH_SOURCE[0]})"\\hw_first_compile_and_first_download.sh"
-$hw_first_compile_and_first_download $PLC_NAME $PLC_IP_ADDRESS $PASSWORD
+$hw_first_compile_and_first_download $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS $PASSWORD
 
 #sw_build_and_download_full                   # software build and full download
 sw_build_and_download_full=$( dirname ${BASH_SOURCE[0]})"\\sw_build_and_download_full.sh"
