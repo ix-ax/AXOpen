@@ -172,7 +172,7 @@ $hasFeedAutorization = $false;
 if($hasFeedAccess){
     try {     
 
-        $response = dotnet tool update axsharp.ixc --prerelease
+        # $response = dotnet tool update axsharp.ixc --prerelease
         $status = $?
         if($status -match "^(?i)true$")
         {         
