@@ -258,7 +258,7 @@ namespace AXOpen.VisualComposer
 
                 foreach (var item in deserialize.Items)
                 {
-                    var childObject = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper().ComputeSha256Hash() == item.Id);
+                    var childObject = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper() == item.Id);
                     if (childObject != null)
                     {
                         _children.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), EventCallback.Factory.Create(this, SaveAsync), childObject, childObject.Symbol.ModalIdHelper(), Guid.NewGuid(), item.Left, item.Top, Types.TransformType.FromString(item.Transform), item.Presentation, item.Width, item.Height, item.ZIndex, item.Scale, item.Roles, item.PresentationTemplate, item.Background, item.BackgroundColor));
