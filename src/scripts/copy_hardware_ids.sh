@@ -21,7 +21,7 @@ if ! [[ -e $input_file ]]; then
   echo "File $input_file does not exist!!!"
   exit 1
 fi
-output_dir=src/IO/$PLC_NAME
+output_dir=src/IO
 if ! [[ -d $output_dir ]]; then
   echo "Directory $output_dir does not exist!!!"
   mkdir -p $output_dir

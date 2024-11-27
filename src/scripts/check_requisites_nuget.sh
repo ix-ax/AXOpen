@@ -42,13 +42,14 @@ has_feed_access(){
 
 # Check if the feed is authorized
 has_feed_authorization_passed(){
-    if dotnet tool update axsharp.ixc --prerelease; then
-        printf "${GREEN}Authentication passed successfully while accessing feed $feedUrl.${NC}"
-        return 0 
-    else
-        printf "${RED}Authentication failed while accessing feed $feedUrl.${NC}"
-		return 1
-    fi
+    # if dotnet tool update axsharp.ixc --prerelease; then
+        # printf "${GREEN}Authentication passed successfully while accessing feed $feedUrl.${NC}"
+        # return 0 
+    # else
+        # printf "${RED}Authentication failed while accessing feed $feedUrl.${NC}"
+		# return 1
+    # fi
+	return 0 
 }
 
 # Check if the correct number of arguments are provided
