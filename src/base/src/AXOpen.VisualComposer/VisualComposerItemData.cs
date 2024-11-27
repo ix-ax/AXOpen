@@ -34,7 +34,7 @@ namespace AXOpen.VisualComposer
 
         public string? Id
         {
-            get => _id?.ComputeSha256Hash();
+            get => _id;
         }
 
         private Guid? _uniqueGuid = null;
