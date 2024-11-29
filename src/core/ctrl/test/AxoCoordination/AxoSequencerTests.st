@@ -594,7 +594,8 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             THIS.MAIN_122();
             _context.Close();
             Assert.Equal(ULINT#3, _orderCounter - StepOrderLastValue);
-            Assert.Equal(TRUE, THIS.EqualAxoCoordinatorStates(AxoCoordinatorStates#Idle , _sequencer.GetCoordinatorState()));
+            Assert.Equal(THIS.EqualAxoCoordinatorStates(AxoCoordinatorStates#Idle , _sequencer.GetCoordinatorState()),TRUE);
+            Assert.Equal(THIS.EqualeAxoTaskState(eAxoTaskState#Error , _sequencer.Status ),TRUE);
         END_METHOD
 
         {Test}
