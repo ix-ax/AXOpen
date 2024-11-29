@@ -528,7 +528,9 @@ NAMESPACE AXOpen.Core
             
             _taskTimer.OnDelay(THIS,  Execute, LT#99999D);
 
-            IF(Execute) THEN Duration := _taskTimer.ElapsedTime;  END_IF;             
+            IF(Execute) THEN Duration := _taskTimer.ElapsedTime;  END_IF;  
+                
+                
         END_METHOD    
 
         // METHOD PRIVATE LogTask 
