@@ -14,14 +14,10 @@ dependencies:
   "@ix-ax/axopen.components.abb.robotics": '0.0.0-dev.0'
   "@ix-ax/ax.axopen.app": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
-  # this is just temporary to test yml
+  # this is just temporary to test new features
   # upto the moment of releasing new catalog 
-  # "@ax/hwc": ^1.2.23
   # installStrategy: strict
-  "@ax/hwc": ^2.0.49
-  "@ax/hw-s7-1500": ^2.0.49
-  "@ax/hwld": ^2.0.20
-  "@ax/sld": ^3.0.6-alpha
+  "@ix-ax/ax.latest.packages": '0.0.0-dev.0'
 installStrategy: overridable
 apaxVersion: 3.3.1
 scripts:
