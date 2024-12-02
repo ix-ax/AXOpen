@@ -68,14 +68,16 @@ while IFS= read -r line; do
     # Check if the modified_line contains the substring "_InputAddress"
     if [[ $modified_line == *"_InputAddress"* ]]; then
 		# Extract the first word without "_InputAddress"
-		variable_name=$(echo "$line" | awk '{print $1}' | sed 's/_InputAddress//')
+		variable_name=$(echo "$modified_line" | awk '{print $1}' | sed 's/_InputAddress//')
 		
 		# Extract the number from the substring after % and before :
-		address_offset=$(echo "$line" | awk -F'%' '{print $2}' | awk -F':' '{print $1}' | grep -o '[0-9]\+')
+		address_offset=$(echo "$modified_line" | awk -F'%' '{print $2}' | awk -F':' '{print $1}' | grep -o '[0-9]\+')
 		
 		# Extract the substring from : to ;, excluding : and ;
-		variable_type=$(echo "$line" | awk -F':' '{print $2}' | awk -F';' '{print $1}')
-		noInputsFoundInTheHwConfig = 0
+		variable_type=$(echo "$modified_line" | awk -F':' '{print $2}' | awk -F';' '{print $1}')
+		
+		noInputsFoundInTheHwConfig=0
+
 		# Output the variables
 		echo "            ${variable_name} AT %B${address_offset}: ${variable_type};" >> "$output_file_inputs"
 	fi
@@ -83,14 +85,16 @@ while IFS= read -r line; do
     # Check if the modified_line contains the substring "_OutputAddress"
     if [[ $modified_line == *"_OutputAddress"* ]]; then
 		# Extract the first word without "_OutputAddress"
-		variable_name=$(echo "$line" | awk '{print $1}' | sed 's/_OutputAddress//')
+		variable_name=$(echo "$modified_line" | awk '{print $1}' | sed 's/_OutputAddress//')
 		
 		# Extract the number from the substring after % and before :
-		address_offset=$(echo "$line" | awk -F'%' '{print $2}' | awk -F':' '{print $1}' | grep -o '[0-9]\+')
+		address_offset=$(echo "$modified_line" | awk -F'%' '{print $2}' | awk -F':' '{print $1}' | grep -o '[0-9]\+')
 		
 		# Extract the substring from : to ;, excluding : and ;
-		variable_type=$(echo "$line" | awk -F':' '{print $2}' | awk -F';' '{print $1}')
-		noOutputsFoundInTheHwConfig = 0
+		variable_type=$(echo "$modified_line" | awk -F':' '{print $2}' | awk -F';' '{print $1}')
+		
+		noOutputsFoundInTheHwConfig=0
+		
 		# Output the variables
 		echo "            ${variable_name} AT %B${address_offset}: ${variable_type};" >> "$output_file_outputs"
 	fi

@@ -161,7 +161,12 @@ NAMESPACE AXOpen.Core
                     END_IF;
                 END_IF;
 
-                Execute := step.Execute();    
+                Execute := step.Execute();
+                IF step.HasError() THEN
+                    _coordinatorState := AxoCoordinatorStates#Idle;
+                    SUPER.ThrowWhen(step.HasError(), '<#Error occured inside the sequence!!!#>');
+                END_IF;
+                
                 IF step.IsFirstEntryToStep() THEN
                     _microStep := UINT#0;
                 END_IF;
