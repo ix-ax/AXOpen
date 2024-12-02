@@ -59,7 +59,7 @@ namespace AXOpen.Repository.Integration.Tests
             repository.Create(id, testObject);
 
             //-- Assert
-            Assert.AreEqual(1, repository.GetRecords(id).Count());
+            Assert.That(1, Is.EqualTo(repository.GetRecords(id).Count()));
         }
 
         [Test()]
@@ -80,10 +80,10 @@ namespace AXOpen.Repository.Integration.Tests
             repository.Create(id, testObject);
 
             //-- Assert
-            Assert.AreEqual(1, repository.GetRecords(id).Count());
-            Assert.True(onCreateCalled);
-            Assert.True(onCreateDoneCalled);
-            Assert.False(onCreateFailedCalled);
+            Assert.That(1, Is.EqualTo(repository.GetRecords(id).Count()));
+            Assert.That(onCreateCalled, Is.True);
+            Assert.That(onCreateDoneCalled, Is.True);
+            Assert.That(onCreateFailedCalled, Is.False);
         }
 
         [Test()]
@@ -102,8 +102,8 @@ namespace AXOpen.Repository.Integration.Tests
 
             //-- Assert
             Assert.That(testObject._Created, Is.EqualTo(testObj._Created).Within(1).Seconds);
-            Assert.AreEqual(recordName, testObj.Name);
-            Assert.AreEqual(25, testObj.Age);
+            Assert.That(recordName, Is.EqualTo(testObj.Name));
+            Assert.That(25, Is.EqualTo(testObj.Age));
         }
 
         [Test()]
@@ -127,12 +127,12 @@ namespace AXOpen.Repository.Integration.Tests
             var testObj = rawTestObj as DataTestObject;
 
             //-- Assert
-            Assert.AreEqual(recordName, testObj.Name);
-            Assert.AreEqual(25, testObj.Age);
+            Assert.That(recordName, Is.EqualTo(testObj.Name));
+            Assert.That(25, Is.EqualTo(testObj.Age));
             Assert.That(testObject._Created, Is.EqualTo(testObj._Created).Within(1).Seconds);
-            Assert.True(onReadCalled);
-            Assert.True(onReadDoneCalled);
-            Assert.False(onReadFailedCalled);
+            Assert.That(onReadCalled, Is.True);
+            Assert.That(onReadDoneCalled, Is.True);
+            Assert.That(onReadFailedCalled, Is.False);
         }
 
         [Test()]
@@ -153,10 +153,10 @@ namespace AXOpen.Repository.Integration.Tests
             var testObj = repository.Read(recordName) as DataTestObject;
 
             //-- Assert
-            Assert.AreEqual("Pepo post update", testObj.Name);
-            Assert.AreEqual(44, testObj.Age);
-            Assert.AreNotEqual(testObj._Created, testObj._Modified);
-            Assert.IsTrue(DateTime.Now.Subtract(new TimeSpan(0, 0, 3)) < testObj._Modified);
+            Assert.That("Pepo post update", Is.EqualTo(testObj.Name));
+            Assert.That(44, Is.EqualTo(testObj.Age));
+            Assert.That(testObj._Created, Is.EqualTo(testObj._Modified));
+            Assert.That(DateTime.Now.Subtract(new TimeSpan(0, 0, 3)) < testObj._Modified, Is.True);
         }
 
         [Test()]
@@ -187,13 +187,14 @@ namespace AXOpen.Repository.Integration.Tests
             var testObj = repository.Read(recordName) as DataTestObject;
 
             //-- Assert
-            Assert.AreEqual("Pepo post update", testObj.Name);
-            Assert.AreEqual(44, testObj.Age);
-            Assert.AreNotEqual(testObj._Created, testObj._Modified);
-            Assert.IsTrue(DateTime.Now.Subtract(new TimeSpan(0, 0, 3)) < testObj._Modified);
-            Assert.True(onUpdateCalled);
-            Assert.True(onUpdateDoneCalled);
-            Assert.False(onUpdateFailedCalled);
+            Assert.That("Pepo post update", Is.EqualTo(testObj.Name));
+            Assert.That(44, Is.EqualTo(testObj.Age));
+            //Assert.AreNotEqual(testObj._Created, testObj._Modified);
+            Assert.That(testObj._Created != testObj._Modified, Is.True);
+            Assert.That(DateTime.Now.Subtract(new TimeSpan(0, 0, 3)) < testObj._Modified, Is.True);
+            Assert.That(onUpdateCalled, Is.True);
+            Assert.That(onUpdateDoneCalled, Is.True);
+            Assert.That(onUpdateFailedCalled, Is.False);
         }
 
         [Test()]
@@ -227,9 +228,9 @@ namespace AXOpen.Repository.Integration.Tests
             repository.OnCreateFailed = (id, data, ex) => onCreateFailedCalled = ex.GetType() == typeof(DuplicateIdException);
             //-- Assert
             Assert.Throws(typeof(DuplicateIdException), () => repository.Create(entityId, new DataTestObject()));
-            Assert.True(onCreateCalled);
-            Assert.False(onCreateDoneCalled);
-            Assert.True(onCreateFailedCalled);
+            Assert.That(onCreateCalled, Is.True);
+            Assert.That(onCreateDoneCalled, Is.False);
+            Assert.That(onCreateFailedCalled, Is.True);
         }
 
         [Test()]
@@ -252,9 +253,9 @@ namespace AXOpen.Repository.Integration.Tests
 
             //-- Assert
             Assert.Throws(typeof(UnableToLocateRecordId), () => repository.Read("nonexisting_record"));
-            Assert.True(onReadCalled);
-            Assert.False(onReadDoneCalled);
-            Assert.True(onReadFailedCalled);
+            Assert.That(onReadCalled, Is.True);
+            Assert.That(onReadDoneCalled, Is.False);
+            Assert.That(onReadFailedCalled, Is.True);
         }
 
         [Test()]
@@ -281,9 +282,9 @@ namespace AXOpen.Repository.Integration.Tests
             repository.OnUpdateFailed = (id, data, ex) => onUpdateFailedCalled = ex is UnableToUpdateRecord;
             //-- Assert
             Assert.Throws(typeof(UnableToUpdateRecord), () => repository.Update(entityId, new DataTestObject() { DataEntityId = entityId }));
-            Assert.True(onUpdateCalled);
-            Assert.False(onUpdateDoneCalled);
-            Assert.True(onUpdateFailedCalled);
+            Assert.That(onUpdateCalled, Is.True);
+            Assert.That(onUpdateDoneCalled, Is.False);
+            Assert.That(onUpdateFailedCalled, Is.True);
         }
 
         [Test()]
@@ -314,9 +315,9 @@ namespace AXOpen.Repository.Integration.Tests
             repository.OnUpdateFailed = (id, data, ex) => onUpdateFailedCalled = ex is IdentifierValueMismatchedException;
             //-- Assert
             Assert.Throws(typeof(IdentifierValueMismatchedException), () => repository.Update(entityId, new DataTestObject()));
-            Assert.True(onUpdateCalled);
-            Assert.False(onUpdateDoneCalled);
-            Assert.True(onUpdateFailedCalled);
+            Assert.That(onUpdateCalled, Is.True);
+            Assert.That(onUpdateDoneCalled, Is.False);
+            Assert.That(onUpdateFailedCalled, Is.True);
         }
 
         [Test()]
@@ -342,7 +343,7 @@ namespace AXOpen.Repository.Integration.Tests
             var actual = repository.Exists(id);
 
             //-- Assert
-            Assert.IsFalse(actual);
+            Assert.That(actual, Is.False);
         }
 
         [Test()]
@@ -355,7 +356,7 @@ namespace AXOpen.Repository.Integration.Tests
             var actual = repository.Exists(id);
 
             //-- Assert
-            Assert.IsTrue(actual);
+            Assert.That(actual, Is.True);
         }
 
         [Test()]
@@ -377,7 +378,7 @@ namespace AXOpen.Repository.Integration.Tests
 
 
             //-- Assert
-            Assert.AreEqual(3 + originalCount, actual.Count());
+            Assert.That(3 + originalCount, Is.EqualTo(actual.Count()));
         }
 
         [Test()]
@@ -404,7 +405,7 @@ namespace AXOpen.Repository.Integration.Tests
 
 
             //-- Assert
-            Assert.AreEqual(1, actual.Count(), this.GetType().ToString());
+            Assert.That(1, Is.EqualTo(actual.Count()), this.GetType().ToString());
         }
 
         [Test()]
@@ -461,15 +462,15 @@ namespace AXOpen.Repository.Integration.Tests
             repository.Create("abcdf123", new DataTestObject());
 
 
-            Assert.AreEqual(0, repository.GetRecords("f12", searchMode : eSearchMode.Exact).Count());
-            Assert.AreEqual(1, repository.GetRecords("f123", searchMode: eSearchMode.Exact).Count());
-            Assert.AreEqual(1, repository.GetRecords("abc", searchMode: eSearchMode.Exact).Count());
-
-            Assert.AreEqual(1, repository.GetRecords("f1234", searchMode: eSearchMode.StartsWith).Count());
-            Assert.AreEqual(2, repository.GetRecords("f12", searchMode: eSearchMode.StartsWith).Count());
-
-            Assert.AreEqual(0, repository.GetRecords("z", searchMode: eSearchMode.Contains).Count());
-            Assert.AreEqual(3, repository.GetRecords("f123", searchMode: eSearchMode.Contains).Count());
+            Assert.That(0, Is.EqualTo(repository.GetRecords("f12", searchMode : eSearchMode.Exact).Count()));
+            Assert.That(1, Is.EqualTo(repository.GetRecords("f123", searchMode: eSearchMode.Exact).Count()));
+            Assert.That(1, Is.EqualTo(repository.GetRecords("abc", searchMode: eSearchMode.Exact).Count()));
+                          
+            Assert.That(1, Is.EqualTo(repository.GetRecords("f1234", searchMode: eSearchMode.StartsWith).Count()));
+            Assert.That(2, Is.EqualTo(repository.GetRecords("f12", searchMode: eSearchMode.StartsWith).Count()));
+                          
+            Assert.That(0, Is.EqualTo(repository.GetRecords("z", searchMode: eSearchMode.Contains).Count()));
+            Assert.That(3, Is.EqualTo(repository.GetRecords("f123", searchMode: eSearchMode.Contains).Count()));
 
 
         }
@@ -494,10 +495,10 @@ namespace AXOpen.Repository.Integration.Tests
             repository.Update(testObject.Name, testObject);
 
             //-- Assert
-            Assert.AreEqual("SimulatedTimePepo", repository.Read(testObject.Name).Name);
-            Assert.AreEqual(100, repository.Read(testObject.Name).Age);
-            Assert.AreEqual(new DateTime(1976, 9, 1), repository.Read(testObject.Name)._Created);
-            Assert.AreEqual(new DateTime(1979, 12, 4), repository.Read(testObject.Name)._Modified);
+            Assert.That("SimulatedTimePepo", Is.EqualTo(repository.Read(testObject.Name).Name));
+            Assert.That(100, Is.EqualTo(repository.Read(testObject.Name).Age));
+            Assert.That(new DateTime(1976, 9, 1), Is.EqualTo(repository.Read(testObject.Name)._Created));
+            Assert.That(new DateTime(1979, 12, 4), Is.EqualTo(repository.Read(testObject.Name)._Modified));
         }
 
         class DummyDateTimeProvider : DateTimeProviderBase

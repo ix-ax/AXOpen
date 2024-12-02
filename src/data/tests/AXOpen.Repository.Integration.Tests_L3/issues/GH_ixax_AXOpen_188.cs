@@ -16,19 +16,19 @@ namespace AXOpen.Repository.Integration.Tests
         public void MongoDbRepositoryCRUDTest()
         {
             repository.Create("a", new TestStruct { DataEntityId = "a" });
-            Assert.AreEqual(1, repository.Count);
+            Assert.That(1, Is.EqualTo(repository.Count));
 
             var read = repository.Read("a");
-            Assert.AreEqual(new DateOnly(1, 1, 1), read.DateOnly);
+            Assert.That(new DateOnly(1, 1, 1), Is.EqualTo(read.DateOnly));
 
             read.DateOnly = new DateOnly(2010, 10, 10);
             read.Changes.Add(new ValueChangeItem { DateTime = DateTime.Now, UserName = "a", ValueTag = new ValueItemDescriptor { HumanReadable = "DateOnly", Symbol = "DateOnly" }, OldValue = new DateOnly(1, 1, 1), NewValue = new DateOnly(2010, 10, 10) });
 
             repository.Update("a", read);
-            Assert.AreEqual(1, repository.Count);
+            Assert.That(1, Is.EqualTo(repository.Count));
 
             read = repository.Read("a");
-            Assert.AreEqual(new DateOnly(2010, 10, 10), read.DateOnly);
+            Assert.That(new DateOnly(2010, 10, 10), Is.EqualTo(read.DateOnly));
 
             repository.Delete("a");
         }
