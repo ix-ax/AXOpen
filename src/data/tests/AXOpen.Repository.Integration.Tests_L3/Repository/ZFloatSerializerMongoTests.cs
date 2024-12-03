@@ -76,14 +76,14 @@ namespace AXOpen.Repository.Integration.Tests
             }
 
             //-- Assert
-            Assert.True(repository.GetRecords().Count() == toCreate.Count);
+            Assert.That(repository.GetRecords().Count() == toCreate.Count, Is.True);
         }
 
         [Test, Order(2)]
         public void ReadTest()
         {
             var x = repository.GetRecords().ToList();
-            Assert.AreEqual(x.First().Floats, Floats);
+            Assert.That(x.First().Floats, Is.EqualTo(Floats));
             //try to alter the values in robo3t and see if it reads again.
         }
 

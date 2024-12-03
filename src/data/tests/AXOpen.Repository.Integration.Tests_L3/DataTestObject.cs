@@ -145,7 +145,7 @@ namespace AXOpen.Repository.Integration.Tests
         {
             foreach (var property in this.GetType().GetProperties())
             {
-                Assert.AreEqual(property.GetValue(this), property.GetValue(c));
+                Assert.That(property.GetValue(this), Is.EqualTo(property.GetValue(c)));
             }
         }
     }
