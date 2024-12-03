@@ -1,35 +1,39 @@
+export GREEN='\033[0;32m'
+export RED='\033[0;31m'
+export YELLOW='\033[0;33m'
+export NC='\033[0m\r\n' # No Color+CRLF
 if [ "$#" -ne 3 ]; then
-    echo "Usage: $0 <PLC_NAME> <USERNAME> <PASSWORD>"
+	printf "${RED}Usage: $0 <PLC_NAME> <USERNAME> <PASSWORD>.${NC}"
     exit 1
 fi
 
 PLC_NAME=$1
 if [ -z $PLC_NAME ]; then
-    echo "The PLC_NAME could not be an empty string."
+	printf "${RED}The PLC_NAME could not be an empty string.${NC}"
     exit 1
 fi
 
 USERNAME=$2
 if [ -z $USERNAME ]; then
-    echo "The USERNAME could not be an empty string."
+	printf "${RED}The USERNAME could not be an empty string.${NC}"
     exit 1
 fi
 
 PASSWORD=$3
 if [ -z $PASSWORD ]; then
-    echo "The PASSWORD could not be an empty string."
+	printf "${RED}The PASSWORD could not be an empty string.${NC}"
     exit 1
 fi
 
 if ! [[ -d "./hwc" ]]; then
-  echo "Directory ".\hwc" does not exist!!!"
-  exit 1
+	printf "${RED}Directory ".\hwc" does not exist!!!${NC}"
+	exit 1
 fi
 
 hwcfile=".\hwc\\${PLC_NAME}.hwl.yml"
 if [ ! -e $hwcfile ]; then
-  echo "Hardware configuration file $hwcfile does not exist!!!"
-  exit 1
+	printf "${RED}Hardware configuration file $hwcfile does not exist!!!${NC}"
+	exit 1
 fi
 
 certificesExist=1

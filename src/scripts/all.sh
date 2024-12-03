@@ -1,49 +1,48 @@
+export GREEN='\033[0;32m'
+export RED='\033[0;31m'
+export YELLOW='\033[0;33m'
+export NC='\033[0m\r\n' # No Color+CRLF
 if [ "$#" -ne 6 ]; then
-    echo "Usage: $0 <NAMESPACE> <PLC_NAME> <PLC_IP_ADDRESS> <PLATFORM> <USERNAME> <PASSWORD>"
+    printf "${RED}Usage: $0 <NAMESPACE> <PLC_NAME> <PLC_IP_ADDRESS> <PLATFORM> <USERNAME> <PASSWORD>\r\n${NC}"
     exit 1
 fi
 
 NAMESPACE=$1
 if [ -z $NAMESPACE ]; then
-    echo "The NAMESPACE could not be an empty string."
+    printf "${RED}The NAMESPACE could not be an empty string.\r\n${NC}"
     exit 1
 fi
 
 PLC_NAME=$2
 if [ -z $PLC_NAME ]; then
-    echo "The PLC_NAME could not be an empty string."
+    printf "${RED}The PLC_NAME could not be an empty string.\r\n${NC}"
     exit 1
 fi
 
 PLC_IP_ADDRESS=$3
 validate_script=$( dirname ${BASH_SOURCE[0]})"\\validate_ip.sh"
 if ! $validate_script "$PLC_IP_ADDRESS"; then
-    echo "The PLC_IP_ADDRESS '$PLC_IP_ADDRESS' is not a valid IP address."
+    printf "${RED}The PLC_IP_ADDRESS '$PLC_IP_ADDRESS' is not a valid IP address.\r\n${NC}"
     exit 1
 fi
 
 PLATFORM=$4
 if [ -z $PLATFORM ]; then
-    echo "The PLATFORM could not be an empty string."
+    printf "${RED}The PLATFORM could not be an empty string.\r\n${NC}"
     exit 1
 fi
 
 USERNAME=$5
 if [ -z $USERNAME ]; then
-    echo "The USERNAME could not be an empty string."
+    printf "${RED}The USERNAME could not be an empty string.\r\n${NC}"
     exit 1
 fi
 
 PASSWORD=$6
 if [ -z $PASSWORD ]; then
-    echo "The PASSWORD could not be an empty string."
+    printf "${RED}The PASSWORD could not be an empty string.\r\n${NC}"
     exit 1
 fi
-
-export GREEN='\033[0;32m'
-export RED='\033[0;31m'
-export NC='\033[0m' # No Color
-
 
 certfile="./certs/$PLC_NAME/$PLC_NAME.cer" 
 if ! [[ -e "$certfile" ]]; then
@@ -85,10 +84,24 @@ else
 		#hw_update                                    # copy and install gsd, copy templates, compile, copy the HwIds, download HW using certificate
 		hw_update=$( dirname ${BASH_SOURCE[0]})"\\hw_update.sh"
 		$hw_update $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS 
+		if [[ $? -eq 0 ]]; then
+			printf "${GREEN}Hardware configuration has been succesfully compiled and downloaded.${NC}"
+		else
+			printf "${RED}Compilation of the hardware configuration or its downloaded finished with an error!${NC}\n"
+			printf "${RED}Please check the details above.${NC}\n"
+			exit 1
+		fi
 
 		#sw_build_and_download_full                   # software build and full download
 		sw_build_and_download_full=$( dirname ${BASH_SOURCE[0]})"\\sw_build_and_download_full.sh"
 		$sw_build_and_download_full $PLC_NAME $PLC_IP_ADDRESS $PLATFORM
+		if [[ $? -eq 0 ]]; then
+			printf "${GREEN}Software has been succesfully compiled and downloaded.${NC}"
+		else
+			printf "${RED}Compilation of the software or its downloaded finished with an error!${NC}\n"
+			printf "${RED}Please check the details above.${NC}\n"
+			exit 1
+		fi
 	fi
 fi 
 

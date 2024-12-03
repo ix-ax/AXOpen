@@ -1,5 +1,7 @@
-#!/bin/bash
-
+export GREEN='\033[0;32m'
+export RED='\033[0;31m'
+export YELLOW='\033[0;33m'
+export NC='\033[0m\r\n' # No Color+CRLF
 # Function to validate IP address
 validate_ip() {
     local ip=$1
@@ -25,12 +27,12 @@ validate_ip() {
 
 # Check if the correct number of arguments are provided
 if [ "$#" -ne 1 ]; then
-    echo "Usage: $0 <IP_address>"
+	printf "${RED}Usage: $0 <IP_address>.${NC}"
     exit 1
 fi
 
 # Validate the input parameter
 if ! validate_ip "$1"; then
-    echo "The input parameter '$1' is not a valid IP address."
+	printf "${RED}The input parameter '$1' is not a valid IP address.${NC}"
     exit 1
 fi
