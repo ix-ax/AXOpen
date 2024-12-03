@@ -96,7 +96,17 @@ NAMESPACE AXOpen.Elements
         _status.Scaled    := _scaled;
     END_METHOD
 
-    
+       /// <summary>
+    /// Method, which scales input signal based on configuration
+    /// </summary>
+    METHOD PUBLIC Run 
+        VAR_INPUT
+            parent : Axopen.Core.IAxoObject;
+            inSignal: WORD;
+        END_VAR
+        THIS.Run(parent,TO_DINT(inSignal));
+    END_METHOD
+
     METHOD PUBLIC OVERRIDE Restore 
         ;
     END_METHOD
