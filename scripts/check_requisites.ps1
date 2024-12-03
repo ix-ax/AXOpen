@@ -2,38 +2,19 @@
 
 # List all installed .NET SDKs
 $dotnetSDKs = (dotnet --list-sdks 2>$null)
-$dotnet6Installed = $false
-$dotnet7Installed = $false
-$dotnet8Installed = $false
+$dotnet9Installed = $false
 
 foreach ($sdk in $dotnetSDKs) {
-    if ($sdk -like "6.*") {
-        $dotnet6Installed = $true
-    }
-    if ($sdk -like "7.0.404*") {
-        $dotnet7Installed = $true
-    }
-    if ($sdk -like "8.0.100*") {
-        $dotnet8Installed = $true
+    if ($sdk -like "9.0.100*") {
+        $dotnet9Installed = $true
     }
 }
 
-if (-not $dotnet6Installed) {
-    Write-Host ".NET 6.0 SDK is not installed." -ForegroundColor Red
-} else {
-    Write-Host ".NET 6.0 SDK detected." -ForegroundColor Green
-}
 
-if (-not $dotnet7Installed) {
-    Write-Host ".NET 7.0.404 SDK is not installed." -ForegroundColor Red
+if (-not $dotnet9Installed) {
+    Write-Host ".NET 9.0.100 SDK is not installed." -ForegroundColor Red
 } else {
-    Write-Host ".NET 7.0.404 SDK detected." -ForegroundColor Green
-}
-
-if (-not $dotnet8Installed) {
-    Write-Host ".NET 8.0.100 SDK is not installed." -ForegroundColor Red
-} else {
-    Write-Host ".NET 8.0.100 SDK detected." -ForegroundColor Green
+    Write-Host ".NET 9.0.100 SDK detected." -ForegroundColor Green
 }
 
 # Check for Visual Studio 2022
