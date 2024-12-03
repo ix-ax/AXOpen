@@ -1,3 +1,7 @@
+export GREEN='\033[0;32m'
+export RED='\033[0;31m'
+export YELLOW='\033[0;33m'
+export NC='\033[0m\r\n' # No Color+CRLF
 if [ -d "./.apax" ]; then
   echo "Directory "./.apax" exists!!!"
   if ! [[ -d "./gsd/source" ]]; then
@@ -21,7 +25,12 @@ if [ -d "./.apax" ]; then
       files=($destinationDirectory/$fileMask)
       if [ ${#files[@]} -gt 0 ] && [ "${files[0]}" != "$destinationDirectory/$fileMask" ]; then
         echo " ${#files[@]} files is going to be installed."
-        apax hwc install-gsd --input  $destinationDirectory
+		hwci=$(apax hwc install-gsd --input ${destinationDirectory})
+		if [[ $? -eq 1 ]]; then
+			printf "${RED}The installation of the gsdml files finished with an error!${NC}\n"
+			printf "${RED}Please check the details above.${NC}\n"
+			exit 1
+		fi
         echo " ${#files[@]} files installed"
       else
           echo "No files matching the pattern '$fileMask' were found in '$destinationDirectory'."

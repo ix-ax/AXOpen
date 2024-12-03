@@ -68,6 +68,9 @@ scripts:
   hwl: | # copy all templates from library
     ..\\..\\scripts\\copy_hwl_templates.sh 
 
+  hwcc: | # compile hardware configuration
+    ..\\..\\scripts\\hw_compile.sh
+
   hwid: | # copy the generated HwIds from global constants into the type definition, matching the format as the TIA2AX tool creates
     ..\\..\\scripts\\copy_hardware_ids.sh $DEFAULT_NAMESPACE $PLC_NAME
 

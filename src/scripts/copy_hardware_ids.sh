@@ -1,25 +1,30 @@
+export GREEN='\033[0;32m'
+export RED='\033[0;31m'
+export YELLOW='\033[0;33m'
+export NC='\033[0m\r\n' # No Color+CRLF
+
 if [ "$#" -ne 2 ]; then
-    echo "Usage: $0 <NAMESPACE> <PLC_NAME>"
+	printf "${RED}Usage: $0 <NAMESPACE> <PLC_NAME>"
     exit 1
 fi
 NAMESPACE=$1
 if [ -z $NAMESPACE ]; then
-    echo "The NAMESPACE could not be an empty string."
+	printf "${RED}The NAMESPACE could not be an empty string.${NC}"
     exit 1
 fi
 PLC_NAME=$2
 if [ -z $PLC_NAME ]; then
-    echo "The PLC_NAME could not be an empty string."
+	printf "${RED}The PLC_NAME could not be an empty string.${NC}"
     exit 1
 fi
 if ! [[ -d "./hwc" ]]; then
-  echo "Directory ".\hwc" does not exist!!!"
-  exit 1
+	printf "${RED}Directory ".\hwc" does not exist!!!${NC}"
+	exit 1
 fi
 input_file=SystemConstants/$PLC_NAME"_HwIdentifiers.st"
 if ! [[ -e $input_file ]]; then
-  echo "File $input_file does not exist!!!"
-  exit 1
+	printf "${RED}File $input_file does not exist!!!${NC}"
+	exit 1
 fi
 output_dir=src/IO
 if ! [[ -d $output_dir ]]; then
