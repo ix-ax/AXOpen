@@ -12,8 +12,7 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk"/>
     <PackageReference Include="RavenDB.Embedded"/>
     <PackageReference Include="Siemens.Simatic.S7.Webserver.API"/>
-    <PackageReference Include="xunit"/>
-	  <PackageReference Include="RavenDB.Embedded"/>	    
+    <PackageReference Include="xunit"/>	  
     <PackageReference Include="xunit.runner.visualstudio">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
