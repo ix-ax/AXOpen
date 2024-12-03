@@ -184,15 +184,11 @@ function PromptAndDownload {
 }
 
 # Check .NET SDKs
-if (-not $dotnet6Installed) {
-    PromptAndDownload ".NET 6.0 SDK is not installed." "https://dotnet.microsoft.com/download/dotnet/6.0"
-}
-if (-not $dotnet7Installed) {
-    PromptAndDownload ".NET 7.0 SDK is not installed." "https://dotnet.microsoft.com/download/dotnet/7.0"
-}
-
-if (-not $dotnet8Installed) {
-    PromptAndDownload ".NET 8.0 SDK is not installed." "https://dotnet.microsoft.com/download/dotnet/8.0"
+if (-not $dotnet9Installed) {
+    $response = Read-Host ".NET 9.0 SDK is not installed. Would you like to install it now? (Y/N)"
+    if ($response -eq 'Y' -or $response -eq 'y') {        
+        winget install Microsoft.DotNet.SDK.9    
+    }
 }
 
 # Check for Visual Studio 2022
