@@ -1,9 +1,0 @@
-{
-  "profiles": {
-    "plcsimstart": {
-      "commandName": "Project",
-      "workingDirectory": "",
-      "commandLineArgs": "startplcsim -x abcd -n test_plc -t 10.10.10.1"
-    }
-  }
-}
