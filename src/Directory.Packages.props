@@ -51,5 +51,6 @@
     <PackageVersion Include="xunit.runner.visualstudio" Version="2.8.2" />
     <PackageVersion Include="xunit" Version="2.9.2" />
     <PackageVersion Include="coverlet.collector" Version="6.0.2" />
+    <PackageVersion Include="Cocona" Version="2.2.0" />
   </ItemGroup>
 </Project>

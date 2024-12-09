@@ -2,8 +2,8 @@ export GREEN='\033[0;32m'
 export RED='\033[0;31m'
 export YELLOW='\033[0;33m'
 export NC='\033[0m\r\n' # No Color+CRLF
-if [ "$#" -ne 6 ]; then
-    printf "${RED}Usage: $0 <NAMESPACE> <PLC_NAME> <PLC_IP_ADDRESS> <PLATFORM> <USERNAME> <PASSWORD>\r\n${NC}"
+if [ "$#" -ne 7 ]; then
+    printf "${RED}Usage: $0 <NAMESPACE> <PLC_NAME> <PLC_IP_ADDRESS> <PLATFORM> <USERNAME> <PASSWORD> <USE_PLC_SIM_ADVANCED>\r\n${NC}"
     exit 1
 fi
 
@@ -44,6 +44,27 @@ if [ -z $PASSWORD ]; then
     exit 1
 fi
 
+USE_PLC_SIM_ADVANCED=$7
+if [ -z $USE_PLC_SIM_ADVANCED ]; then
+    printf "${RED}The USE_PLC_SIM_ADVANCED could not be an empty string.\r\n${NC}"
+    exit 1
+fi
+
+PLCSIM=0
+case "$(echo "$USE_PLC_SIM_ADVANCED" | tr '[:upper:]' '[:lower:]')" in
+    "true")
+        PLCSIM=1
+        printf "${YELLOW} USE_PLC_SIM_ADVANCED is true. ${NC}"
+        ;;
+    "false")
+        PLCSIM=0
+        printf "${YELLOW} USE_PLC_SIM_ADVANCED is false. ${NC}"
+        ;;
+    *)
+         printf "${RED}USE_PLC_SIM_ADVANCED has an invalid or undefined value: '$USE_PLC_SIM_ADVANCED'.${NC}"
+        ;;
+esac
+
 certfile="./certs/$PLC_NAME/$PLC_NAME.cer" 
 if ! [[ -e "$certfile" ]]; then
 	printf "${RED}Certification file $certfile does not exist.\r\n${NC}"
@@ -61,8 +82,10 @@ else
 		exit 1
 	fi
 
-	plcsim_script=$( dirname ${BASH_SOURCE[0]})"\\plcsim.sh"
-	$plcsim_script
+	if [ "$PLCSIM" -eq 1 ]; then
+		plcsim_script=$( dirname ${BASH_SOURCE[0]})"\\plcsimadvanced.sh"
+		$plcsim_script $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS
+	fi
 
 	#apax run ci                                  # clean and install dependencies
 	apax clean
