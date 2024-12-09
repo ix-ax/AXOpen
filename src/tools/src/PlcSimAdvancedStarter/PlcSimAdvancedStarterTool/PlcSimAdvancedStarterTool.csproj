@@ -8,11 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cocona"/>
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\PlcSimAdvancedStarter\PlcSimAdvancedStarter.csproj" />
+    <PackageReference Include="Cocona" />
   </ItemGroup>
 
 </Project>
