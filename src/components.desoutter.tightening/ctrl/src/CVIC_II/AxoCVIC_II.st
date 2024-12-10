@@ -151,6 +151,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 hwId_Output_1_byte_2    :   WORD;
             END_VAR
 
+            THIS.Initialize(parent);
             Messenger.Serve(THIS);
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(ULINT#701,hwId_Input_1_byte_1 = WORD#0, eAxoMessageCategory#ProgrammingError);
@@ -200,7 +201,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             _hwId_Input_1_word_2    :=  hwId_Input_1_word_2;
             _hwId_Output_1_byte_1   :=  hwId_Output_1_byte_1;
             _hwId_Output_1_byte_2   :=  hwId_Output_1_byte_2;
-            THIS.Initialize(parent);
+
             THIS.Execute();
                 
         END_METHOD   
@@ -223,6 +224,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 hwId_Output_1_byte_2    :   WORD;
             END_VAR
 
+            THIS.Initialize(parent);
             Messenger.Serve(THIS);
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(ULINT#701,hwId_Input_1_byte_1 = WORD#0, eAxoMessageCategory#ProgrammingError);
@@ -272,7 +274,6 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             _hwId_Input_1_word_2    :=  hwId_Input_1_word_2;
             _hwId_Output_1_byte_1   :=  hwId_Output_1_byte_1;
             _hwId_Output_1_byte_2   :=  hwId_Output_1_byte_2;
-            THIS.Initialize(parent);
             THIS.Execute();
         END_METHOD
 
