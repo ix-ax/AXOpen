@@ -178,8 +178,18 @@ public static class Roles
             new Role(can_skip_steps_in_sequence),
         };
 
+       
+        foreach (var item in  typeof(AXOpen.Data.DataExchangeRoleNames).
+            GetFields(BindingFlags.Public | BindingFlags.Static).
+            Where(f => f.FieldType == typeof(string)))
+        {
+            roles.Add(new Role(item.Name));
+        }
+
         return roles;
     }
+
+    
 
     public const string can_run_ground_mode = nameof(can_run_ground_mode);
     public const string can_run_automat_mode = nameof(can_run_automat_mode);
