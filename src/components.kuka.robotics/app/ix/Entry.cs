@@ -10,41 +10,47 @@ using AXSharp.Connector.S71500.WebApi;
 using Siemens.Simatic.S7.Webserver.API.Services;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
+using System.Reflection;
 
 namespace AXOpen.Components.Kuka.Robotics
 {
+    public class ConnectionConfig
+    {
+        public string TargetIp { get; set; } = string.Empty;
+        public string UserName { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+        public Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>? CertificateValidationCallback { get; set; }
+        public bool IgnoreSslErrors { get; set; } = true;
+    }
+
+    public class TwinConnectorSelector
+    {
+        public static string TargetIp { get; } = "10.10.10.120";//Environment.GetEnvironmentVariable("AXTARGET"); // <- replace by your IP 
+        private static string Pass => @"123ABCDabcd$#!"; //Environment.GetEnvironmentVariable("AX_TARGET_PWD");       //Environment.GetEnvironmentVariable("AX_TARGET_PWD"); // <- Pass in the password that you have set up for the user. NOT AS PLAIN TEXT! Use user secrets instead.
+        private static string UserName = "adm"; //Environment.GetEnvironmentVariable("AX_USERNAME"); //<- replace by user name you have set up in your WebAPI settings        
+        private const bool IgnoreSslErrors = true; // <- When you have your certificates in order set this to false.
+        private static string CertificatePath = "certs\\plc_line\\plc_line.cer";
+
+        static string GetCertPath()
+        {
+            var fp = new FileInfo(Path.Combine(Assembly.GetExecutingAssembly().Location));
+            return Path.Combine(fp.DirectoryName, CertificatePath);
+        }
+
+        static readonly X509Certificate2 Certificate = new X509Certificate2(GetCertPath());
+
+        private static bool CertificateValidation(HttpRequestMessage requestMessage, X509Certificate2 certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        {
+            return certificate.Thumbprint == Certificate.Thumbprint;
+        }
+
+        public static app_axopen_components_kuka_roboticsTwinController SecurePlc { get; }
+            = new(ConnectorAdapterBuilder.Build()
+            .CreateWebApi(TargetIp, UserName, Pass, CertificateValidation, IgnoreSslErrors));
+    }
 
     public static class Entry
     {
-        static Entry()
-        {
-            if (IgnoreSslErrors)
-            {
-                ServerCertificateCallback.CertificateCallback =
-                    (sender, cert, chain, sslPolicyErrors) => true;
-            }
-
-            Plc = new(ConnectorAdapterBuilder.Build()
-                .CreateWebApi(TargetIp, UserName, Pass, CertificateValidation));
-        }
-
-        // Load your custom certificate (example from a file)
-        static X509Certificate2 customCertificate = new X509Certificate2("..\\certs\\plc_line\\plc_line.cer");
-
-        // Implement the delegate
-        private static bool CertificateValidation(HttpRequestMessage requestMessage, X509Certificate2 certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
-        {
-            return certificate.Thumbprint == customCertificate.Thumbprint;
-        }
-
-        private static readonly string TargetIp = Environment.GetEnvironmentVariable("AXTARGET"); // <- replace by your IP 
-        private static string UserName = Environment.GetEnvironmentVariable("AX_USERNAME"); //<- replace by user name you have set up in your WebAPI settings
-        private static string Pass = Environment.GetEnvironmentVariable("MY_VERY_STRONG_PASSWORD"); // <- Pass in the password that you have set up for the user. NOT AS PLAIN TEXT! Use user secrets instead.
-        private const bool IgnoreSslErrors = true; // <- When you have your certificates in order set this to false.
-
-        public static app_axopen_components_kuka_roboticsTwinController Plc { get; }
-        //= new(ConnectorAdapterBuilder.Build()
-        //    .CreateWebApi(TargetIp, UserName, Pass, IgnoreSslErrors));
+        public static app_axopen_components_kuka_roboticsTwinController Plc { get; } = TwinConnectorSelector.SecurePlc;
     }
-
 }

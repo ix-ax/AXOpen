@@ -1,11 +1,11 @@
 CONFIGURATION HardwareIDs
     VAR_GLOBAL CONSTANT
-        KRC4_HwID : UINT := UINT#259;
+        KRC4_HwID : UINT := UINT#258;
         KRC4_DIO512_512_digital_in__and_outputs_HwID : UINT := UINT#262;
         KRC4_KRC4_HwID : UINT := UINT#261;
         KRC4_KRC4_KRC4_ProfiNet_5_0_HwID : UINT := UINT#263;
         KRC4_KRC4_profinet_HwID : UINT := UINT#257;
-        KRC4_KRC4_profinet_Port_1_HwID : UINT := UINT#258;
+        KRC4_KRC4_profinet_Port_1_HwID : UINT := UINT#259;
         KRC4_Rack_HwID : UINT := UINT#260;
         plc_line_HwID : UINT := UINT#32;
         plc_line_Rail_0_HwID : UINT := UINT#264;

@@ -127,6 +127,8 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 hwId_512_DI_DO  :   WORD;   //  Hardware Id of the input data of the robot
             END_VAR
 
+            THIS.Initialize(parent);
+
             Messenger.Serve(THIS);
 
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
@@ -143,7 +145,6 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
             _hwID            :=  hwID           ;
             _hwId_512_DI_DO  :=  hwId_512_DI_DO;
 
-            THIS.Initialize(parent);
             THIS.Execute();
         END_METHOD
 
@@ -158,6 +159,8 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 hwId_512_DI_DO  :   WORD;   //  Hardware Id of the input data of the robot
             END_VAR
 
+            THIS.Initialize(parent);
+
             Messenger.Serve(THIS);
 
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
@@ -174,7 +177,6 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
             _hwID            :=  hwID           ;
             _hwId_512_DI_DO  :=  hwId_512_DI_DO;
 
-            THIS.Initialize(parent);
             THIS.Execute();
         END_METHOD
 
