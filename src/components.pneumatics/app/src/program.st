@@ -19,17 +19,17 @@ PROGRAM MyProgram
     END_VAR
     CopyInputs();
 
+    sandbox.InjectRtc(_rtc);
+    sandbox.InjectRtm(_rtm);
     sandbox.PlcInputs := REF(PlcInputs);
     sandbox.PlcOutputs := REF(PlcOutputs);
     sandbox.Run();    
-    sandbox.InjectRtc(_rtc);
-    sandbox.InjectRtm(_rtm);
     
+    documentation.InjectRtc(_rtc);
+    documentation.InjectRtm(_rtm);
     documentation.PlcInputs := REF(PlcInputs);
     documentation.PlcOutputs := REF(PlcOutputs);
     documentation.Run();    
-    documentation.InjectRtc(_rtc);
-    documentation.InjectRtm(_rtm);
     
     CopyOutputs();  
 END_PROGRAM
