@@ -56,12 +56,30 @@ namespace PlcSimAdvancedStarterTool.PlcSim
                 {
                     foreach (var instanceInfo in instanceInfos)
                     {
+                        // Get name of the existing instance
                         string instanceName = instanceInfo.GetType().GetField("Name", BindingFlags.Public | BindingFlags.Instance).GetValue(instanceInfo)?.ToString();
+
+                        var createInterfaceMethod = simulationRuntimeManager.GetMethod("CreateInterface", BindingFlags.Static | BindingFlags.Public, null, new Type[] { typeof(string) }, null);
+                        plcSimInstance = createInterfaceMethod.Invoke(null, new object[] { instanceName });
+
+                        // Get IPs of the existing instance
+                        string[] controllerIPs = plcSimInstance.GetType().GetProperty("ControllerIP").GetValue(plcSimInstance) as string[];
+
+                        foreach (string controllerIp in controllerIPs)
+                        {
+                            // Power off the instance, if its IP address conflicts 
+                            if (controllerIp.Equals(PlcIpAddress) && !instanceName.Equals(PlcSimInstanceName))
+                            {
+                                var powerOffMethod = plcSimInstance.GetType().GetMethod("PowerOff", BindingFlags.Public | BindingFlags.Instance, null, new Type[] { typeof(uint) }, null);
+                                uint timeout = 6000;
+                                powerOffMethod.Invoke(plcSimInstance, new object[] { timeout });
+                                Console.WriteLine($"Instance {plcSimInstance} powered off, as its IP address {PlcIpAddress} has a conflict with IP address of the instance {PlcSimInstanceName}.");
+                            }
+                        }
 
                         if (instanceName.Equals(PlcSimInstanceName))
                         {
                             Console.WriteLine($"Instance {PlcSimInstanceName} already registered.");
-                            var createInterfaceMethod = simulationRuntimeManager.GetMethod("CreateInterface", BindingFlags.Static | BindingFlags.Public, null, new Type[] { typeof(string) }, null);
                             plcSimInstance = createInterfaceMethod.Invoke(null, new object[] { PlcSimInstanceName });
                             instanceAlreadyRegistered = true;
                             break;

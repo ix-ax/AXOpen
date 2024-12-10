@@ -3,7 +3,7 @@
     "startplcsim": {
       "commandName": "Project",
       "workingDirectory": "",
-      "commandLineArgs": "startplcsim -x abcd.efgh -n test_plc -t 10.10.20.1"
+      "commandLineArgs": "startplcsim -x abcd.efgh -n test_plc -t 10.10.10.120"
     }
   }
 }
