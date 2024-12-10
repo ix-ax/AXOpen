@@ -210,7 +210,7 @@ namespace AXOpen.Data
                 }
 
                 await DataExchange.CreateNewAsync(CreateItemId);
-                AxoApplication.Current.Logger.Information($"Create {CreateItemId} in {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
+                AxoApplication.Current.Logger.Information($"Created {CreateItemId} in {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
                 AlertDialogService?.AddAlertDialog(eAlertType.Success, "Created!", "Item was successfully created!", 10);
             }
             catch (Exception e)
@@ -232,7 +232,7 @@ namespace AXOpen.Data
             try
             {
                 await DataExchange.Delete(SelectedRecord.DataEntityId);
-                AxoApplication.Current.Logger.Information($"Delete {SelectedRecord.DataEntityId} in {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
+                AxoApplication.Current.Logger.Information($"Deleted {SelectedRecord.DataEntityId} from {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
                 AlertDialogService?.AddAlertDialog(eAlertType.Success, "Deleted!", "Item was successfully deleted!", 10);
             }
             catch (Exception e)
@@ -253,7 +253,7 @@ namespace AXOpen.Data
             try
             {
                 await DataExchange.CreateCopyCurrentShadowsAsync(CreateItemId);
-                AxoApplication.Current.Logger.Information($"Copy {CreateItemId} in {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
+                AxoApplication.Current.Logger.Information($"Copied {CreateItemId} into {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
                 AlertDialogService.AddAlertDialog(eAlertType.Success, "Copied!", "Item was successfully copied!", 10);
             }
             catch (Exception e)
@@ -282,6 +282,7 @@ namespace AXOpen.Data
         public async Task SendToPlc()
         {
             await DataExchange.FromRepositoryToControllerAsync(SelectedRecord);
+            AxoApplication.Current.Logger.Information($"Sended to Plc {SelectedRecord.DataEntityId} in {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
             AlertDialogService?.AddAlertDialog(eAlertType.Success, "Sended to PLC!", "Item was successfully sended to PLC!", 10);
         }
 
@@ -291,6 +292,8 @@ namespace AXOpen.Data
             {
                 await DataExchange.CreateDataFromControllerAsync(CreateItemId);
                 AlertDialogService?.AddAlertDialog(eAlertType.Success, "Loaded from PLC!", "Item was successfully loaded from PLC!", 10);
+                AxoApplication.Current.Logger.Information($"Loaded from Plc {CreateItemId} into {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
+
             }
             catch (Exception e)
             {
@@ -318,6 +321,9 @@ namespace AXOpen.Data
                     IsFileExported = true;
 
                     AlertDialogService?.AddAlertDialog(eAlertType.Success, "Exported!", "Data was successfully exported!", 10);
+
+                    AxoApplication.Current.Logger.Information($"Exported data from {DataExchange} to path {path} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
+
                 }
                 catch (Exception e)
                 {
@@ -337,6 +343,8 @@ namespace AXOpen.Data
                     this.UpdateObservableRecords();
 
                     AlertDialogService?.AddAlertDialog(eAlertType.Success, "Imported!", "Data was successfully imported!", 10);
+                    AxoApplication.Current.Logger.Information($"Imported data into {DataExchange} from path {path} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
+
                 }
                 catch (Exception e)
                 {
