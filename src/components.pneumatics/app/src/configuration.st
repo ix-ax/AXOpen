@@ -6,7 +6,7 @@ CONFIGURATION MyConfiguration
 
     VAR_GLOBAL
         {S7.extern=ReadWrite}
-        sandbox : SandboContext;
+        sandbox : SandboxContext;
         {S7.extern=ReadWrite}
         documentation : DocumentationContext;
         {S7.extern=ReadWrite}
