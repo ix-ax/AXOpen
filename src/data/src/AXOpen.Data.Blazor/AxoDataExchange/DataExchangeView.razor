@@ -247,7 +247,10 @@ else
                 <div class="d-flex justify-content-end mt-3">
                     <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => { Create = "Copy"; Vm.Locked();}'>@Localizer["Copy"]</button>
                     <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#editModal-@ViewGuid" @onclick="() => { Vm.Locked(); }">@Localizer["Edit"]</button>
-                    <button type="button" class="btn btn-primary mx-1" data-bs-dismiss="modal" @onclick="() => Vm.SendToPlc()">@Localizer["Send to PLC"]</button>
+
+                    <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#AckSendToPlcModal-@ViewGuid">@Localizer["Send to PLC"]</button>
+
+
                     <button type="button" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#deleteModal-@ViewGuid" @onclick="() => { Vm.Locked(); }">@Localizer["Delete"]</button>
                 </div>
             }
@@ -335,7 +338,9 @@ else
                         <button type="button" class="btn btn-danger me-auto" data-bs-toggle="modal" data-bs-target="#deleteModal-@ViewGuid" @onclick="() => { Vm.Locked(); }">@Localizer["Delete"]</button>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => { Create = "Copy"; Vm.Locked(); }'>@Localizer["Copy"]</button>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal-@ViewGuid" @onclick="() => { Vm.Locked(); }">@Localizer["Edit"]</button>
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.SendToPlc()">@Localizer["Send to PLC"]</button>
+
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AckSendToPlcModal-@ViewGuid">@Localizer["Send to PLC"]</button>
+
                     }
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changesModal-@ViewGuid">@Localizer["Changes"]</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Close"]</button>
@@ -470,6 +475,23 @@ else
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="AckSendToPlcModal-@ViewGuid" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">@Localizer["Send data to PLC"] : "@Vm.SelectedRecord?.DataEntityId" ?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @onclick="() => { Vm.SendToPlc(); StateHasChanged(); }">@Localizer["Send data to PLC"]</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Close"]</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <div class="modal fade" id="exportModal-@ViewGuid" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
