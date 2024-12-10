@@ -1,6 +1,6 @@
 CONFIGURATION HardwareIDs
     VAR_GLOBAL CONSTANT
-        is7600_HwID : UINT := UINT#259;
+        is7600_HwID : UINT := UINT#258;
         is7600_Acquisition_Control_Acquisition_Control_HwID : UINT := UINT#269;
         is7600_Acquisition_Status_Acquisition_Status_HwID : UINT := UINT#265;
         is7600_Command_Control_Command_Control_HwID : UINT := UINT#266;
@@ -13,7 +13,7 @@ CONFIGURATION HardwareIDs
         is7600_is7600_HwID : UINT := UINT#261;
         is7600_is7600_In_Sight_IS79XX_IS75XX_CC_B_HwID : UINT := UINT#270;
         is7600_is7600_profinet_HwID : UINT := UINT#257;
-        is7600_is7600_profinet_Port_1_HwID : UINT := UINT#258;
+        is7600_is7600_profinet_Port_1_HwID : UINT := UINT#259;
         plc_line_HwID : UINT := UINT#32;
         plc_line_Rail_0_HwID : UINT := UINT#297;
         plc_line_plc_line_HwID : UINT := UINT#48;
@@ -28,7 +28,7 @@ CONFIGURATION HardwareIDs
         plc_line_plc_line_profinet_x2_Port_3_HwID : UINT := UINT#73;
         plc_line_plc_line_virtual_communication_interface_HwID : UINT := UINT#135;
         profinet_plc_line_HwID : UINT := UINT#256;
-        reader_st1_HwID : UINT := UINT#286;
+        reader_st1_HwID : UINT := UINT#285;
         reader_st1_Acquisition_Control_Acquisition_Control_HwID : UINT := UINT#295;
         reader_st1_Acquisition_Status_Acquisition_Status_HwID : UINT := UINT#292;
         reader_st1_Rack_HwID : UINT := UINT#287;
@@ -40,8 +40,8 @@ CONFIGURATION HardwareIDs
         reader_st1_reader_st1_HwID : UINT := UINT#288;
         reader_st1_reader_st1_DataMan_280_CC_B_HwID : UINT := UINT#296;
         reader_st1_reader_st1_profinet_HwID : UINT := UINT#284;
-        reader_st1_reader_st1_profinet_Port_1_HwID : UINT := UINT#285;
-        reader_st2_HwID : UINT := UINT#273;
+        reader_st1_reader_st1_profinet_Port_1_HwID : UINT := UINT#286;
+        reader_st2_HwID : UINT := UINT#272;
         reader_st2_Acquisition_Control_Acquisition_Control_HwID : UINT := UINT#282;
         reader_st2_Acquisition_Status_Acquisition_Status_HwID : UINT := UINT#279;
         reader_st2_Rack_HwID : UINT := UINT#274;
@@ -53,7 +53,7 @@ CONFIGURATION HardwareIDs
         reader_st2_reader_st2_HwID : UINT := UINT#275;
         reader_st2_reader_st2_DataMan_300_HwID : UINT := UINT#283;
         reader_st2_reader_st2_profinet_HwID : UINT := UINT#271;
-        reader_st2_reader_st2_profinet_Port_1_HwID : UINT := UINT#272;
+        reader_st2_reader_st2_profinet_Port_1_HwID : UINT := UINT#273;
 
     END_VAR
 END_CONFIGURATION
