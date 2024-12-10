@@ -8,6 +8,11 @@ variables:
     - "--debug" # Generate debug information for target "1500"
   PLC_NAME: "plc_line"
   DEFAULT_NAMESPACE: "AXOpen.Components.Kuka.Robotics"
+  AXTARGET: 10.10.10.120
+  AXTARGETPLATFORMINPUT: .\bin\1500\
+  AX_USERNAME: "adm"
+  AX_TARGET_PWD: "123ABCDabcd$#!"
+  USE_PLC_SIM_ADVANCED: "true"
 devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
 dependencies:
