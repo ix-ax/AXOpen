@@ -152,6 +152,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 CM_CHANNEL 			:   UINT    :=  UINT#1; 		    //channel of communication module	
             END_VAR
 
+            THIS.Initialize(parent);
             Messenger.Serve(THIS);
             TaskMessenger.Serve(THIS);
             IdentProfileMessenger.Serve(THIS);
@@ -173,7 +174,6 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             _identProfile_HwConnect.SUB_SLOT    :=  SUB_SLOT;
             _identProfile_HwConnect.CM_CHANNEL  :=  CM_CHANNEL;
 
-            THIS.Initialize(parent);
             THIS.Execute();
         END_METHOD
 
@@ -190,6 +190,7 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 SUB_SLOT 			:   WORD    :=  WORD#16#01; 		//Subslot number 
                 CM_CHANNEL 			:   UINT    :=  UINT#1; 		    //channel of communication module	
             END_VAR
+            THIS.Initialize(parent);
 
             Messenger.Serve(THIS);
             TaskMessenger.Serve(THIS);
@@ -213,7 +214,6 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             _identProfile_HwConnect.SUB_SLOT    :=  SUB_SLOT;
             _identProfile_HwConnect.CM_CHANNEL  :=  CM_CHANNEL;
 
-            THIS.Initialize(parent);
             THIS.Execute();
         END_METHOD
 

@@ -149,6 +149,8 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 version     :	USINT   :=  USINT#11;       //	IO-Link version of the reader; 11: IO-Link V1.1, 10: IO-Link V1.0
             END_VAR
 
+            THIS.Initialize(parent);
+
             Messenger.Serve(THIS);
 
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
@@ -166,7 +168,6 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             _portAddr   :=  portAddr;
             _version    :=  version;
 
-            THIS.Initialize(parent);
             THIS.Execute();
         END_METHOD
 
@@ -182,6 +183,8 @@ NAMESPACE AXOpen.Components.SIEM.Identification
                 version     :	USINT   :=  USINT#11;       //	IO-Link version of the reader; 11: IO-Link V1.1, 10: IO-Link V1.0
             END_VAR
 
+            THIS.Initialize(parent);
+
             Messenger.Serve(THIS);
 
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
@@ -199,7 +202,6 @@ NAMESPACE AXOpen.Components.SIEM.Identification
             _portAddr   :=  portAddr;
             _version    :=  version;
 
-            THIS.Initialize(parent);
             THIS.Execute();
         END_METHOD
 

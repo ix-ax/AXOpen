@@ -1,13 +1,13 @@
 CONFIGURATION HardwareIDs
     VAR_GLOBAL CONSTANT
-        et200sp_CM_4xIO_Link_RF200_HwID : UINT := UINT#260;
+        et200sp_CM_4xIO_Link_RF200_HwID : UINT := UINT#258;
         et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_CM_4xIO_Link_V2_2_144I_128O_HwID : UINT := UINT#264;
         et200sp_CM_4xIO_Link_RF200_Rack_HwID : UINT := UINT#261;
         et200sp_CM_4xIO_Link_RF200_Server_module_V1_1_Server_module_V1_1_0_bytes_HwID : UINT := UINT#263;
         et200sp_CM_4xIO_Link_RF200_et200sp_CM_4xIO_Link_RF200_HwID : UINT := UINT#262;
         et200sp_CM_4xIO_Link_RF200_et200sp_CM_4xIO_Link_RF200_IM_155_6_PN_ST_V4_2_HwID : UINT := UINT#265;
-        et200sp_CM_4xIO_Link_RF200_et200sp_CM_4xIO_Link_RF200_Port_1_HwID : UINT := UINT#258;
-        et200sp_CM_4xIO_Link_RF200_et200sp_CM_4xIO_Link_RF200_Port_2_HwID : UINT := UINT#259;
+        et200sp_CM_4xIO_Link_RF200_et200sp_CM_4xIO_Link_RF200_Port_1_HwID : UINT := UINT#259;
+        et200sp_CM_4xIO_Link_RF200_et200sp_CM_4xIO_Link_RF200_Port_2_HwID : UINT := UINT#260;
         et200sp_CM_4xIO_Link_RF200_et200sp_CM_4xIO_Link_RF200_profinet_HwID : UINT := UINT#257;
         plc_line_HwID : UINT := UINT#32;
         plc_line_Rail_0_HwID : UINT := UINT#275;
@@ -23,15 +23,15 @@ CONFIGURATION HardwareIDs
         plc_line_plc_line_profinet_x2_Port_3_HwID : UINT := UINT#73;
         plc_line_plc_line_virtual_communication_interface_HwID : UINT := UINT#135;
         profinet_plc_line_HwID : UINT := UINT#256;
-        rf186c_HwID : UINT := UINT#269;
+        rf186c_HwID : UINT := UINT#267;
         rf186c_Rack_HwID : UINT := UINT#270;
         rf186c_Reader_1__Reader__HwID : UINT := UINT#272;
         rf186c_rf186c_HwID : UINT := UINT#271;
         rf186c_rf186c_CM_1__Communication__HwID : UINT := UINT#273;
         rf186c_rf186c_RF186C___V2_x_HwID : UINT := UINT#274;
         rf186c_rf186c_profinet_HwID : UINT := UINT#266;
-        rf186c_rf186c_profinet_Port_1_HwID : UINT := UINT#267;
-        rf186c_rf186c_profinet_Port_2_HwID : UINT := UINT#268;
+        rf186c_rf186c_profinet_Port_1_HwID : UINT := UINT#268;
+        rf186c_rf186c_profinet_Port_2_HwID : UINT := UINT#269;
 
     END_VAR
 END_CONFIGURATION
