@@ -53,7 +53,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 EnableNegative      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
             END_VAR
 
-                
+            THIS.Initialize(parent);
+
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(ULINT#703,hwID = WORD#0, eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(ULINT#704,hwIdParamCh_IDN = WORD#0, eAxoMessageCategory#ProgrammingError);
@@ -77,8 +78,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 RETURN;
             END_IF;
     
-            THIS.Initialize(parent);
-
             _AxisRefExt.Data.hwID                := hwID;
             _AxisRefExt.Data.hwIdParamCh_IDN     := hwIdParamCh_IDN;
             _AxisRefExt.Data.hwIdInput_9_Words   := hwIdInput_9_Words;
@@ -110,7 +109,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 EnableNegative      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
             END_VAR
 
-                
+            THIS.Initialize(parent);
+               
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(ULINT#703,hwID = WORD#0, eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(ULINT#704,hwIdParamCh_IDN = WORD#0, eAxoMessageCategory#ProgrammingError);
@@ -134,8 +134,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 RETURN;
             END_IF;
     
-            THIS.Initialize(parent);
-
             _AxisRefExt.Data.hwID                := hwID;
             _AxisRefExt.Data.hwIdParamCh_IDN     := hwIdParamCh_IDN;
             _AxisRefExt.Data.hwIdInput_9_Words   := hwIdInput_9_Words;
