@@ -1,4 +1,5 @@
-﻿using AXOpen.Logging;
+﻿using System.Security.Principal;
+using AXOpen.Logging;
 
 namespace AXOpen
 {
@@ -39,5 +40,7 @@ namespace AXOpen
         /// Get currently running application.
         /// </summary>
         public static IAxoApplication Current => _current;
+
+        public IIdentity ControllerIdentity { get; } = new ControllerIdentity();
     }
 }
