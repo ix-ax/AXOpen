@@ -1,6 +1,4 @@
-﻿#define appconnectorname
-
-using AXSharp.Connector;
+﻿using AXSharp.Connector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +9,7 @@ using System.Net.Security;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 
-namespace projname
+namespace AXOpen.Simatic1500
 {
     public class ConnectionConfig
     {
@@ -43,22 +41,13 @@ namespace projname
             return certificate.Thumbprint == Certificate.Thumbprint;
         }
 
-#if !appconnectorname
-        public static app_appconnectornameTwinController SecurePlc { get; }
-#else
-        public static app_apaxappnameTwinController SecurePlc { get; }
-#endif
+        public static simatic1500_appTwinController SecurePlc { get; }
             = new(ConnectorAdapterBuilder.Build()
             .CreateWebApi(TargetIp, UserName, Pass, CertificateValidation, IgnoreSslErrors));
     }
+
     public static class Entry
     {
-
-#if !appconnectorname
-        public static app_appconnectornameTwinController Plc { get; } = TwinConnectorSelector.SecurePlc;
-#else
-        public static app_apaxappnameTwinController Plc { get; } = TwinConnectorSelector.SecurePlc;
-#endif
+        public static simatic1500_appTwinController Plc { get; } = TwinConnectorSelector.SecurePlc;
     }
-
 }
