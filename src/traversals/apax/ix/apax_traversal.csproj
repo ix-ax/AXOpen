@@ -74,5 +74,7 @@
 	  <ProjectReference Include="..\..\..\components.balluff.identification\src\AXOpen.Components.Balluff.Identification\ix_ax_axopen_components_balluff_identification.csproj" />
 	  <ProjectReference Include="..\..\..\components.siemens.identification\app\ix\app_axopen_components_siemens_identification.csproj" />
 	  <ProjectReference Include="..\..\..\components.siemens.identification\src\AXOpen.Components.Siemens.Identification\ix_ax_axopen_components_siemens_identification.csproj" />
+	  <ProjectReference Include="..\..\..\components.siem.identification\app\ix\app_axopen_components_siem_identification.csproj" />
+	  <ProjectReference Include="..\..\..\components.siem.identification\src\AXOpen.Components.Siem.Identification\ix_ax_axopen_components_siem_identification.csproj" />
 	</ItemGroup>
 </Project>

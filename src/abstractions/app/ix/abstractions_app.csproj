@@ -20,11 +20,11 @@
     <Content Include=".meta\**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="..\certs\plc_line\plc_line.cer" Link="certs\plc_line\plc_line.cer">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+  <!-- <ItemGroup> -->
+    <!-- <None Include="..\certs\plc_line\plc_line.cer" Link="certs\plc_line\plc_line.cer"> -->
+      <!-- <CopyToOutputDirectory>Always</CopyToOutputDirectory> -->
+    <!-- </None> -->
+  <!-- </ItemGroup> -->
 
 
   <ItemGroup>

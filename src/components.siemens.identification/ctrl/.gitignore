@@ -1,8 +1,0 @@
-.apax
-.env
-bin
-
-obj
-testresult
-
-*.apax.tgz
