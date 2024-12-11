@@ -37,6 +37,7 @@ namespace librarytemplate
             = new(ConnectorAdapterBuilder.Build()
             .CreateWebApi(TargetIp, UserName, Pass, CertificateValidation, IgnoreSslErrors));
 
+
     }
 
 }
