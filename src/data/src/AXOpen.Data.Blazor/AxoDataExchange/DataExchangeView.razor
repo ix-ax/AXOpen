@@ -491,7 +491,7 @@ else
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">@Vm.SelectedRecord?.DataEntityId</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="() => { Vm.UnLocked(); ReloadRecordAfterEditedWithoudModal(); }"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="() => { Vm.UnLocked(); ReloadRecordAfterEditWithoutModal(); }"></button>
                 </div>
                 <div class="modal-body">
                     @if (Vm.IsLockedByMeOrNull())
@@ -525,7 +525,7 @@ else
                     @* <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" data-bs-dismiss="modal" @onclick="async () => { await Vm.Edit(); Vm.UnLocked(); }">@Localizer["Save"]</button> *@
                     <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#AckEditUpdateModal-@ViewGuid">@Localizer["Update"]</button>
 
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="() => { Vm.UnLocked(); ReloadRecordAfterEditedWithoudModal(); }">@Localizer["Close"]</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="() => { Vm.UnLocked(); ReloadRecordAfterEditWithoutModal(); }">@Localizer["Close"]</button>
                 </div>
             </div>
         </div>
@@ -585,13 +585,13 @@ else
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">@Localizer["Update"] record : "@Vm.SelectedRecord?.DataEntityId"?</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="() => { Vm.UnLocked();ReloadRecordAfterEditedWithoudModal(); }"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="() => { Vm.UnLocked();ReloadRecordAfterEditWithoutModal(); }"></button>
                 </div>
                 <div class="modal-footer">
 
                     <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" data-bs-dismiss="modal" @onclick="async () => { await Vm.Edit(); Vm.UnLocked(); }">@Localizer["Update"]</button>
 
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="() => { Vm.UnLocked(); ReloadRecordAfterEditedWithoudModal(); }">@Localizer["Close"]</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="() => { Vm.UnLocked(); ReloadRecordAfterEditWithoutModal(); }">@Localizer["Close"]</button>
                 </div>
             </div>
         </div>
