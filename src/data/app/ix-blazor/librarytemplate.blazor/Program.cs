@@ -1,22 +1,17 @@
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
-using System.Data;
-using AXOpen.Core;
-using AxOpen.Security.Services;
-using AXSharp.Presentation.Blazor.Services;
-using AXSharp.Connector;
-using AXOpen.Base.Data;
-using AxOpen.Security.Entities;
-using System.Reflection;
 using AxOpen.Security;
-using Serilog;
+using AxOpen.Security.Entities;
+using AxOpen.Security.Services;
 using AXOpen;
-using AXOpen.Logging;
-using librarytemplate;
-using AXOpen.Data.InMemory;
-using AXOpen.Data.MongoDb;
+using AXOpen.Base.Data;
 using AXOpen.Data.Json;
-
+using AXOpen.Data.MongoDb;
+using AXOpen.Logging;
+using AXSharp.Connector;
+using AXSharp.Presentation.Blazor.Services;
+using librarytemplate;
+using Serilog;
+using System.Data;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,12 +36,12 @@ Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()
         fileSizeLimitBytes: 100000)
     .MinimumLevel.Debug()
     .CreateLogger());
+
 await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
 
 AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
     .WriteTo.Console().MinimumLevel.Verbose()
     .CreateLogger()));
-
 
 //<SetUpAxoDataPersistentExchange>
 IRepository<AXOpen.Data.PersistentRecord> persistentRepository;
@@ -60,16 +55,13 @@ IRepository<AXOpen.Data.PersistentRecord> persistentRepository;
 
 // *** MONGO REPOSITORY ***
 
-
 persistentRepository = AXOpen.Data.MongoDb.Repository.Factory<AXOpen.Data.PersistentRecord>(new MongoDbRepositorySettings<AXOpen.Data.PersistentRecord>("mongodb://localhost:27017", "AxOpenData", "PersistentData"));
 
-
-Entry.Plc.AxoDataPersistentContext.DataManager.InitializeRemoteDataExchange( 
-        Entry.Plc.AxoDataPersistentContext.PersistentRootObject, 
+Entry.Plc.AxoDataPersistentContext.DataManager.InitializeRemoteDataExchange(
+        Entry.Plc.AxoDataPersistentContext.PersistentRootObject,
         persistentRepository
         );
 //</SetUpAxoDataPersistentExchange>
-
 
 //<SetUpAxoDataFragmentExchange>
 IRepository<Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData> SharedDataHeaderDataRepository;
@@ -97,7 +89,6 @@ AxoProcessDataManager.Station_1.SetRepository(Station_1_DataRepository);
 AxoProcessDataManager.InitializeRemoteDataExchange();
 //</SetUpAxoDataFragmentExchange>
 
-
 //<SetUpAxoDataExchange>
 IRepository<Pocos.AxoDataExchangeExample.AxoProcessData> AxoProcessDataRepository;
 
@@ -111,8 +102,7 @@ IRepository<Pocos.AxoDataExchangeExample.AxoProcessData> AxoProcessDataRepositor
 
 // *** MONGO REPOSITORY ***
 
-
-AxoProcessDataRepository = AXOpen.Data.MongoDb.Repository.Factory<Pocos.AxoDataExchangeExample.AxoProcessData>(new MongoDbRepositorySettings<Pocos.AxoDataExchangeExample.AxoProcessData>("mongodb://localhost:27017", "AxOpenData","AxoDataExchangeExample"));
+AxoProcessDataRepository = AXOpen.Data.MongoDb.Repository.Factory<Pocos.AxoDataExchangeExample.AxoProcessData>(new MongoDbRepositorySettings<Pocos.AxoDataExchangeExample.AxoProcessData>("mongodb://localhost:27017", "AxOpenData", "AxoDataExchangeExample"));
 
 Entry.Plc.AxoDataExchangeContext.DataManager.InitializeRemoteDataExchange(AxoProcessDataRepository);
 //</SetUpAxoDataExchange>
@@ -143,7 +133,6 @@ app.MapFallbackToPage("/_Host");
 
 app.Run();
 
-
 static string CreateJsonRepositoryDirectory(string path = "..\\..\\..\\..\\..\\JSONREPOS\\")
 {
     var executingAssemblyFile = new FileInfo(Assembly.GetExecutingAssembly().Location);
@@ -157,7 +146,6 @@ static string CreateJsonRepositoryDirectory(string path = "..\\..\\..\\..\\..\\J
 
 static (IRepository<User>, IRepository<Group>) SetUpJsonSecurityRepository(string repositoryDirectory)
 {
-
     IRepository<User> userRepo = new JsonRepository<User>(new JsonRepositorySettings<User>(Path.Combine(repositoryDirectory, "Users")));
     IRepository<Group> groupRepo = new JsonRepository<Group>(new JsonRepositorySettings<Group>(Path.Combine(repositoryDirectory, "Groups")));
 
@@ -177,6 +165,16 @@ public static class Roles
             new Role(can_run_service_mode),
             new Role(can_skip_steps_in_sequence),
         };
+
+        //roles.Add(new Role(AXOpen.Data.DataExchangeRoleNames.can_data_item_create));
+        // ...
+
+        foreach (var item in typeof(AXOpen.Data.DataExchangeRoleNames).
+           GetFields(BindingFlags.Public | BindingFlags.Static).
+           Where(f => f.FieldType == typeof(string)))
+        {
+            roles.Add(new Role(item.Name));
+        }
 
         return roles;
     }

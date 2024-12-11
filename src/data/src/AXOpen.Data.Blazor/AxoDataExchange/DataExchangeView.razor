@@ -4,6 +4,7 @@
 @using AXSharp.Connector;
 @using CommunityToolkit.Mvvm.ComponentModel;
 @using CommunityToolkit.Mvvm.Messaging;
+@using Microsoft.AspNetCore.Components.Authorization
 @using Microsoft.AspNetCore.Components.Forms;
 @using AXOpen.Data.Interfaces;
 @using AXOpen.Core;
@@ -19,12 +20,34 @@ else
         <div class="d-flex">
             @if (Presentation.Equals("Command"))
             {
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "Create"'>@Localizer["Create"]</button>
-                <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "LoadFromPLC"'>@Localizer["Load from PLC"]</button>
+
+                <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_create">
+                    <Authorized>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "Create"'>@Localizer["Create"]</button>
+                    </Authorized>
+                </AuthorizeView>
+
+
+                <AuthorizeView Roles="@DataExchangeRoleNames.can_data_load_from_plc">
+                    <Authorized>
+                        <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "LoadFromPLC"'>@Localizer["Load from PLC"]</button>
+                    </Authorized>
+                </AuthorizeView>
+
+
                 @if (CanExport)
                 {
-                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='async () => { Vm.IsFileExported = false; await LoadCustomExportDataAsync(); await Vm.ExportDataAsync("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); }'>@Localizer["Export"]</button>
-                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#importModal-@ViewGuid" @onclick="async () => { isFileImported = false; await LoadCustomExportDataAsync(); }">@Localizer["Import"]</button>
+                    <AuthorizeView Roles="@DataExchangeRoleNames.can_data_export">
+                        <Authorized>
+                            <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='async () => { Vm.IsFileExported = false; await LoadCustomExportDataAsync(); await Vm.ExportDataAsync("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); }'>@Localizer["Export"]</button>
+                        </Authorized>
+                    </AuthorizeView>
+
+                    <AuthorizeView Roles="@DataExchangeRoleNames.can_data_import">
+                        <Authorized>
+                            <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#importModal-@ViewGuid" @onclick="async () => { isFileImported = false; await LoadCustomExportDataAsync(); }">@Localizer["Import"]</button>
+                        </Authorized>
+                    </AuthorizeView>
                 }
             }
 
@@ -155,20 +178,36 @@ else
                             @if (Presentation.Equals("Command"))
                             {
                                 <td>
-                                    <button type="button" class="btn btn-primary px-3 py-0" title="Copy" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => { Vm.SelectedRecord = item; Create = "Copy"; Vm.Locked(); }'>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-files" viewBox="0 0 16 16">
-                                            <path d="M13 0H6a2 2 0 0 0-2 2 2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 13V4a2 2 0 0 0-2-2H5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1zM3 4a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z" />
-                                        </svg>
-                                    </button>
-                                    <button type="button" class="btn btn-primary px-3 py-0" data-bs-toggle="modal" title="Edit" data-bs-target="#editModal-@ViewGuid" @onclick="() => { Vm.SelectedRecord = item; Vm.Locked(); }">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                                        </svg>
-                                    </button>
-                                    <button type="button" class="btn btn-danger px-3 py-0" data-bs-toggle="modal" title="Delete" data-bs-target="#deleteModal-@ViewGuid" @onclick="() => { Vm.SelectedRecord = item; Vm.Locked(); }">
-                                        <i class="oi oi-trash"></i>
-                                    </button>
+                                    <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_copy">
+                                        <Authorized>
+                                            <button type="button" class="btn btn-primary px-3 py-0" title="Copy" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => { Vm.SelectedRecord = item; Create = "Copy"; Vm.Locked(); }'>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-files" viewBox="0 0 16 16">
+                                                    <path d="M13 0H6a2 2 0 0 0-2 2 2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 13V4a2 2 0 0 0-2-2H5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1zM3 4a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z" />
+                                                </svg>
+                                            </button>
+                                        </Authorized>
+                                    </AuthorizeView>
+
+
+                                    <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_edit">
+                                        <Authorized>
+                                            <button type="button" class="btn btn-primary px-3 py-0" data-bs-toggle="modal" title="Edit" data-bs-target="#editModal-@ViewGuid" @onclick="() => { Vm.SelectedRecord = item; Vm.Locked(); }">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                                </svg>
+                                            </button>
+                                        </Authorized>
+                                    </AuthorizeView>
+
+                                    <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_delete">
+                                        <Authorized>
+                                            <button type="button" class="btn btn-danger px-3 py-0" data-bs-toggle="modal" title="Delete" data-bs-target="#deleteModal-@ViewGuid" @onclick="() => { Vm.SelectedRecord = item; Vm.Locked(); }">
+                                                <i class="oi oi-trash"></i>
+                                            </button>
+                                        </Authorized>
+                                    </AuthorizeView>
+
                                 </td>
                             }
                         </tr>
@@ -245,10 +284,32 @@ else
             @if (Presentation.Equals("Command"))
             {
                 <div class="d-flex justify-content-end mt-3">
-                    <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => { Create = "Copy"; Vm.Locked();}'>@Localizer["Copy"]</button>
-                    <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#editModal-@ViewGuid" @onclick="() => { Vm.Locked(); }">@Localizer["Edit"]</button>
-                    <button type="button" class="btn btn-primary mx-1" data-bs-dismiss="modal" @onclick="() => Vm.SendToPlc()">@Localizer["Send to PLC"]</button>
-                    <button type="button" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#deleteModal-@ViewGuid" @onclick="() => { Vm.Locked(); }">@Localizer["Delete"]</button>
+
+                    <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_copy">
+                        <Authorized>
+                            <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => { Create = "Copy"; Vm.Locked();}'>@Localizer["Copy"]</button>
+                        </Authorized>
+                    </AuthorizeView>
+
+
+                    <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_edit">
+                        <Authorized>
+                            <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#editModal-@ViewGuid" @onclick="() => { Vm.Locked(); }">@Localizer["Edit"]</button>
+                        </Authorized>
+                    </AuthorizeView>
+
+
+                    <AuthorizeView Roles="@DataExchangeRoleNames.can_data_send_to_plc">
+                        <Authorized>
+                            <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#AckSendToPlcModal-@ViewGuid">@Localizer["Send to PLC"]</button>
+                        </Authorized>
+                    </AuthorizeView>
+
+                    <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_delete">
+                        <Authorized>
+                            <button type="button" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#deleteModal-@ViewGuid" @onclick="() => { Vm.Locked(); }">@Localizer["Delete"]</button>
+                        </Authorized>
+                    </AuthorizeView>
                 </div>
             }
         </div>
@@ -332,10 +393,40 @@ else
                 <div class="modal-footer">
                     @if (Presentation.Equals("Command"))
                     {
-                        <button type="button" class="btn btn-danger me-auto" data-bs-toggle="modal" data-bs-target="#deleteModal-@ViewGuid" @onclick="() => { Vm.Locked(); }">@Localizer["Delete"]</button>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => { Create = "Copy"; Vm.Locked(); }'>@Localizer["Copy"]</button>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal-@ViewGuid" @onclick="() => { Vm.Locked(); }">@Localizer["Edit"]</button>
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.SendToPlc()">@Localizer["Send to PLC"]</button>
+                        <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_delete">
+                            <Authorized>
+                                <button type="button" class="btn btn-danger me-auto" data-bs-toggle="modal" data-bs-target="#deleteModal-@ViewGuid" @onclick="() => { Vm.Locked(); }">@Localizer["Delete"]</button>
+                            </Authorized>
+                        </AuthorizeView>
+
+                        <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_copy">
+                            <Authorized>
+
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => { Create = "Copy"; Vm.Locked(); }'>@Localizer["Copy"]</button>
+                            </Authorized>
+                        </AuthorizeView>
+
+                        <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_edit">
+                            <Authorized>
+
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal-@ViewGuid" @onclick="() => { Vm.Locked(); }">@Localizer["Edit"]</button>
+                            </Authorized>
+                        </AuthorizeView>
+
+                        <AuthorizeView Roles="@DataExchangeRoleNames.can_data_send_to_plc">
+                            <Authorized>
+
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AckSendToPlcModal-@ViewGuid">@Localizer["Send to PLC"]</button>
+                            </Authorized>
+                        </AuthorizeView>
+
+                        <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_delete">
+                            <Authorized>
+
+                            </Authorized>
+                        </AuthorizeView>
+
+
                     }
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changesModal-@ViewGuid">@Localizer["Changes"]</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Close"]</button>
@@ -400,7 +491,7 @@ else
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">@Vm.SelectedRecord?.DataEntityId</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="() => { Vm.UnLocked(); }"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="() => { Vm.UnLocked(); ReloadRecordAfterEditWithoutModal(); }"></button>
                 </div>
                 <div class="modal-body">
                     @if (Vm.IsLockedByMeOrNull())
@@ -431,8 +522,10 @@ else
                             </div>
                         </div>
                     }
-                    <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" data-bs-dismiss="modal" @onclick="async () => { await Vm.Edit(); Vm.UnLocked(); }">@Localizer["Save"]</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="() => { Vm.UnLocked(); }">@Localizer["Close"]</button>
+                    @* <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" data-bs-dismiss="modal" @onclick="async () => { await Vm.Edit(); Vm.UnLocked(); }">@Localizer["Save"]</button> *@
+                    <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#AckEditUpdateModal-@ViewGuid">@Localizer["Update"]</button>
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="() => { Vm.UnLocked(); ReloadRecordAfterEditWithoutModal(); }">@Localizer["Close"]</button>
                 </div>
             </div>
         </div>
@@ -470,6 +563,40 @@ else
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="AckSendToPlcModal-@ViewGuid" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">@Localizer["Send data to PLC"] : "@Vm.SelectedRecord?.DataEntityId" ?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => { Vm.SendToPlc(); StateHasChanged(); }">@Localizer["Send data to PLC"]</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Close"]</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="AckEditUpdateModal-@ViewGuid" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">@Localizer["Update"] record : "@Vm.SelectedRecord?.DataEntityId"?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="() => { Vm.UnLocked();ReloadRecordAfterEditWithoutModal(); }"></button>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" data-bs-dismiss="modal" @onclick="async () => { await Vm.Edit(); Vm.UnLocked(); }">@Localizer["Update"]</button>
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="() => { Vm.UnLocked(); ReloadRecordAfterEditWithoutModal(); }">@Localizer["Close"]</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <div class="modal fade" id="exportModal-@ViewGuid" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
