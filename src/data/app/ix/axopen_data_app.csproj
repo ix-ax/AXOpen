@@ -23,6 +23,13 @@
 	<ItemGroup>
 		<Folder Include=".meta\" />
 		<Content Include=".meta\**" />
+		<Folder Include="certs\plc_line\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\certs\plc_line\plc_line.cer" Link="certs\plc_line\plc_line.cer">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 
 	<ItemGroup>
