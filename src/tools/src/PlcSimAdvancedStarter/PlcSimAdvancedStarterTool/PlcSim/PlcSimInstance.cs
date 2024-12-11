@@ -52,6 +52,9 @@ namespace PlcSimAdvancedStarterTool.PlcSim
 
                 var registeredInstanceInfoProperty = simulationRuntimeManager.GetProperty("RegisteredInstanceInfo", BindingFlags.Static | BindingFlags.Public);
                 var instanceInfos = registeredInstanceInfoProperty.GetValue(null) as Array;
+                var eOperatingStateType = plcSimAdvancedApiDll.GetType("Siemens.Simatic.Simulation.Runtime.EOperatingState");
+                string operatingStateTypeOffValue = Enum.Parse(eOperatingStateType, "Off").ToString();
+                string operatingStateValue = "";
                 if (instanceInfos != null)
                 {
                     foreach (var instanceInfo in instanceInfos)
@@ -71,9 +74,14 @@ namespace PlcSimAdvancedStarterTool.PlcSim
                             if (controllerIp.Equals(PlcIpAddress) && !instanceName.Equals(PlcSimInstanceName))
                             {
                                 var powerOffMethod = plcSimInstance.GetType().GetMethod("PowerOff", BindingFlags.Public | BindingFlags.Instance, null, new Type[] { typeof(uint) }, null);
-                                uint timeout = 6000;
-                                powerOffMethod.Invoke(plcSimInstance, new object[] { timeout });
-                                Console.WriteLine($"Instance {plcSimInstance} powered off, as its IP address {PlcIpAddress} has a conflict with IP address of the instance {PlcSimInstanceName}.");
+                                operatingStateValue = plcSimInstance.GetType().GetRuntimeProperty("OperatingState").GetValue(plcSimInstance).ToString();
+                                if(operatingStateValue != operatingStateTypeOffValue)
+                                {
+                                    uint timeout = 6000;
+                                    powerOffMethod.Invoke(plcSimInstance, new object[] { timeout });
+                                    Console.WriteLine($"Instance {plcSimInstance} powered off, as its IP address {PlcIpAddress} has a conflict with IP address of the instance {PlcSimInstanceName}.");
+                                }
+                                break;
                             }
                         }
 
@@ -97,9 +105,7 @@ namespace PlcSimAdvancedStarterTool.PlcSim
                 }
 
                 // Power On 
-                var eOperatingStateType = plcSimAdvancedApiDll.GetType("Siemens.Simatic.Simulation.Runtime.EOperatingState");
-                string operatingStateTypeOffValue = Enum.Parse(eOperatingStateType, "Off").ToString();
-                string operatingStateValue = plcSimInstance.GetType().GetRuntimeProperty("OperatingState").GetValue(plcSimInstance).ToString();
+                operatingStateValue = plcSimInstance.GetType().GetRuntimeProperty("OperatingState").GetValue(plcSimInstance).ToString();
 
                 if (operatingStateValue.Equals(operatingStateTypeOffValue))
                 {
