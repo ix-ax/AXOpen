@@ -6,6 +6,7 @@
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/dev/notices.md
 
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO.Compression;
 using System.Linq;
 using System.Linq.Expressions;
@@ -181,16 +182,18 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         return DataRepository.GetRecords(identifier).Cast<IBrowsableDataObject>();
     }
 
+    private Stopwatch sw = new Stopwatch();
+    
     /// <inheritdoc />
     public async Task<bool> RemoteCreate(string identifier)
     {
+        sw.Restart();
         await Operation.ReadAsync();
         await DataEntity.DataEntityId.SetAsync(identifier);
-
-        var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>();
-
+        var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>();        
         Repository.Create(identifier, cloned);
-
+        sw.Stop();
+        AxoApplication.Current.Logger.Information($"Record '{identifier}' created in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
         return true;
     }
 
@@ -199,9 +202,12 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     {
         try
         {
+            sw.Restart();
             await Operation.ReadAsync();
             var record = Repository.Read(identifier);
             await ((ITwinObject)DataEntity).PlainToOnline(record);
+            sw.Stop();
+            AxoApplication.Current.Logger.Information($"Record '{identifier}' read from '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
             return true;
         }
         catch (Exception exception)
@@ -213,6 +219,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <inheritdoc />
     public async Task<bool> RemoteUpdate(string identifier)
     {
+        sw.Restart();
         await Operation.ReadAsync();
         await DataEntity.DataEntityId.SetAsync(identifier);
         
@@ -220,29 +227,39 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
         cloned.Hash = HashHelper.CreateHash(cloned);
         Repository.Update(identifier, cloned);
+        sw.Stop();
+        AxoApplication.Current.Logger.Information($"Record '{identifier}' updated in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
         return true;
     }
 
     /// <inheritdoc />
     public async Task<bool> RemoteDelete(string identifier)
     {
+        sw.Restart();
         await Operation.ReadAsync();
         await DataEntity.DataEntityId.SetAsync(identifier);
         Repository.Delete(identifier);
+        sw.Stop();
+        AxoApplication.Current.Logger.Information($"Record '{identifier}' deleted in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
         return true;
     }
 
     /// <inheritdoc />
     public async Task<bool> RemoteEntityExist(string identifier)
     {
+        sw.Restart();
         await Operation.ReadAsync();
         await DataEntity.DataEntityId.SetAsync(identifier);
-        return Repository.Exists(identifier);
+        var retVal = Repository.Exists(identifier);
+        sw.Stop();
+        AxoApplication.Current.Logger.Information($"Information about record '{identifier}' existence in '{this.Symbol}' retrieved in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
+        return retVal;
     }
 
     /// <inheritdoc />
     public async Task<bool> RemoteCreateOrUpdate(string identifier)
     {
+        sw.Restart();
         await Operation.ReadAsync();
         await DataEntity.DataEntityId.SetAsync(identifier);
 
@@ -258,6 +275,10 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         {
             Repository.Create(identifier, cloned);
         }
+        
+        sw.Stop();
+        AxoApplication.Current.Logger.Information($"Record '{identifier}' created in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms' using `Create or update` function.", this, AxoApplication.Current.ControllerIdentity);
+        
         return true;
     }
 

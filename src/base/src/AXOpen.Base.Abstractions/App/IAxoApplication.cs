@@ -5,6 +5,7 @@
 // https://github.com/ix-ax/axsharp/blob/dev/LICENSE
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/dev/notices.md
 
+using System.Security.Principal;
 using AXOpen.Logging;
 
 namespace AXOpen;
@@ -18,4 +19,9 @@ public interface IAxoApplication
     /// Gets logger configured for this application.
     /// </summary>
     ILogger Logger { get; }
+    
+    /// <summary>
+    /// Provides identity for the logging operation for controller provenience.
+    /// </summary>
+    IIdentity ControllerIdentity { get; }
 }
