@@ -1,5 +1,5 @@
 USING AXOpen.Core;
-USING  AXOpen.Components.SIEM.Identification;
+USING  AXOpen.Components.Siem.Identification;
 USING System.Serialization;
 USING System.Strings;
 

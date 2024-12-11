@@ -1,8 +1,8 @@
 USING AXOpen.Core;
-USING AXOpen.Components.SIEM.Identification;
+USING AXOpen.Components.Siem.Identification;
 USING System.Strings;
 
-NAMESPACE AXOpen.Components.SIEM.Identification
+NAMESPACE AXOpen.Components.Siem.Identification
     {S7.extern=ReadWrite}
     CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>

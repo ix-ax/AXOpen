@@ -1,0 +1,21 @@
+﻿@page "/Component_1"
+@using AXOpen.Core;
+@using AXOpen.Components.Siem.Identification;
+
+
+@* <!-- <GenericComponentStatusView> -->
+<AxoComponentStatusView Component="@Entry.Plc.documentation.componentOne.rf186_1"/>
+<!-- </GenericComponentStatusView> -->
+
+<!-- <GenericComponentCommandView> -->
+<AxoComponentCommandView Component="@Entry.Plc.documentation.componentOne.rf186_1" />
+<!-- </GenericComponentCommandView> --> *@
+
+<!-- <RccComponentStatusView> -->
+<!-- This will render anything found on parameter assigned to Context  -->
+<RenderableContentControl Context="@Entry.Plc.documentation.componentOne" Presentation="Status-Display" />
+<!-- </RccComponentStatusView> -->
+<!-- <RccComponentCommandView> -->
+<!-- This will render anything found on parameter assigned to Context  -->
+<RenderableContentControl Context="@Entry.Plc.documentation.componentOne" Presentation="Command-Control" />
+<!-- </RccComponentCommandView> -->
