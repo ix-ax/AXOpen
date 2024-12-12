@@ -14,7 +14,7 @@ CONFIGURATION HardwareIDs
         plc_line_plc_line_profinet_x2_Port_3_HwID : UINT := UINT#73;
         plc_line_plc_line_virtual_communication_interface_HwID : UINT := UINT#135;
         profinet_plc_line_HwID : UINT := UINT#256;
-        wp462_t1_rh_deso_HwID : UINT := UINT#259;
+        wp462_t1_rh_deso_HwID : UINT := UINT#258;
         wp462_t1_rh_deso_Input_1_byte_1_Input_1_byte_HwID : UINT := UINT#269;
         wp462_t1_rh_deso_Input_1_byte_2_Input_1_byte_HwID : UINT := UINT#268;
         wp462_t1_rh_deso_Input_1_word_1_Input_1_word_HwID : UINT := UINT#266;
@@ -27,7 +27,7 @@ CONFIGURATION HardwareIDs
         wp462_t1_rh_deso_wp462_t1_rh_deso_HwID : UINT := UINT#261;
         wp462_t1_rh_deso_wp462_t1_rh_deso_RT_HwID : UINT := UINT#270;
         wp462_t1_rh_deso_wp462_t1_rh_deso_profinet_HwID : UINT := UINT#257;
-        wp462_t1_rh_deso_wp462_t1_rh_deso_profinet_Port_1_HwID : UINT := UINT#258;
+        wp462_t1_rh_deso_wp462_t1_rh_deso_profinet_Port_1_HwID : UINT := UINT#259;
 
     END_VAR
 END_CONFIGURATION

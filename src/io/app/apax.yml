@@ -8,25 +8,34 @@ variables:
     - "--debug" # Generate debug information for target "1500"
   PLC_NAME: "plc_line"
   DEFAULT_NAMESPACE: "AXOpen.Io"
+  AXTARGET: 10.10.10.120
+  AXTARGETPLATFORMINPUT: .\bin\1500\
+  AX_USERNAME: "adm"
+  AX_TARGET_PWD: "123ABCDabcd$#!"
+  USE_PLC_SIM_ADVANCED: "true"
 devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
 dependencies:
   "@ix-ax/axopen.io": '0.0.0-dev.0'
   "@ix-ax/ax.axopen.app": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
-installStrategy: strict
+  # this is just temporary to test new features
+  # upto the moment of releasing new catalog 
+  # installStrategy: strict
+  "@ix-ax/ax.latest.packages": '0.0.0-dev.0'
+installStrategy: overridable
 apaxVersion: 3.3.1
 scripts:
   # For proper execution of these scripts, the following variables need to be defined as environment variables or local variables.
   # Local variables can override environment variables.
-  # It is highly recommended NOT to store secrets such as 'AX_USERNAME' and 'MY_VERY_STRONG_PASSWORD' in local variables.
+  # It is highly recommended NOT to store secrets such as 'AX_USERNAME' and 'AX_TARGET_PWD' in local variables.
   # PLC_NAME: Name of the PLC (also equal to the PLC Profinet name)
   # DEFAULT_NAMESPACE: Namespace used for HwId and IO addresses
   # AX_USERNAME: Name of the PLC user used for WebAPI and HMI
   # AXTARGET: IP address of the PLC
   # AXTARGETPLATFORMINPUT: Folder of the compiled software to be downloaded to the PLC. Use the value ".\bin\1500\" for the S7-1500 controller, even if running inside PLCSIM
   # AXTARGETPLCSIMINSTANCE: Name of the PLCSIM instance to start. The instance must already exist.
-  # MY_VERY_STRONG_PASSWORD: Password for 'AX_USERNAME'
+  # AX_TARGET_PWD: Password for 'AX_USERNAME'
   # USE_PLC_SIM_ADVANCED with value of "true" will automatically trigger PlcSimAdvanced when calling apax alf or apax all
   # PNIO_MAC: MAC address of the network adapter connected to the Profinet network  
   plcsim: ..\\..\\scripts\\plcsimadvanced.sh $APAX_YML_NAME $PLC_NAME $AXTARGET
@@ -60,7 +69,7 @@ scripts:
     ..\\..\\scripts\\clean_plc.sh $AXTARGET
 
   ssc: | # setup secure communication, create and import certificates, setup password for AX_USERNAME 
-    ..\\..\\scripts\\setup_secure_communication.sh $PLC_NAME $AX_USERNAME $MY_VERY_STRONG_PASSWORD
+    ..\\..\\scripts\\setup_secure_communication.sh $PLC_NAME $AX_USERNAME $AX_TARGET_PWD
 
   gsd: | # copy and install all gsdml files from library
     ..\\..\\scripts\\copy_and_install_gsd.sh 
@@ -78,7 +87,7 @@ scripts:
     ..\\..\\scripts\\copy_io_addresses.sh $DEFAULT_NAMESPACE $PLC_NAME
 
   hwfd: | # copy and install gsd, copy templates,compile, copy the HwIds, copy the IoAddresses, first download HW using password and upload certificate
-    ..\\..\\scripts\\hw_first_download.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $MY_VERY_STRONG_PASSWORD
+    ..\\..\\scripts\\hw_first_download.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AX_TARGET_PWD
 
   hwu: | # copy and install gsd, copy templates, compile, copy the HwIds, copy the IoAddresses, download HW using certificate
     ..\\..\\scripts\\hw_update.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET
@@ -91,10 +100,10 @@ scripts:
 
   alf: | #clear plc except ip and name and provide all actions for install all, build and initial download hw so as sw
     START=$(date +%s)
-    ..\\..\\scripts\\all_first.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $MY_VERY_STRONG_PASSWORD $USE_PLC_SIM_ADVANCED
+    ..\\..\\scripts\\all_first.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"    
 
   all: | #build and download hardware and software
     START=$(date +%s)
-    ..\\..\\scripts\\all.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $MY_VERY_STRONG_PASSWORD $USE_PLC_SIM_ADVANCED
+    ..\\..\\scripts\\all.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"    

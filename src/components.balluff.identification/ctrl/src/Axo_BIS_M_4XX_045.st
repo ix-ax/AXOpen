@@ -155,6 +155,8 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                 hwId_BISM       :   WORD;   //  Hardware Id of the reader 
             END_VAR
 
+            THIS.Initialize(parent);
+            
             Messenger.Serve(THIS);
 
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
@@ -171,7 +173,6 @@ NAMESPACE AXOpen.Components.Balluff.Identification
             _hwID            :=  hwID           ;
             _hwId_BISM  :=  hwId_BISM;
 
-            THIS.Initialize(parent);
             THIS.Execute();
         END_METHOD
 
@@ -186,7 +187,10 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                 hwId_BISM       :   WORD;   //  Hardware Id of the reader 
             END_VAR
 
+            THIS.Initialize(parent);
+
             Messenger.Serve(THIS);
+            
 
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(ULINT#701,hwId_BISM = WORD#0, eAxoMessageCategory#ProgrammingError);
@@ -202,7 +206,6 @@ NAMESPACE AXOpen.Components.Balluff.Identification
             _hwID       :=  hwID;
             _hwId_BISM  :=  hwId_BISM;
 
-            THIS.Initialize(parent);
             THIS.Execute();
         END_METHOD
 

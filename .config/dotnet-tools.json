@@ -31,7 +31,7 @@
       "rollForward": false
     },
     "microsoft.visualstudio.slngen.tool": {
-      "version": "10.3.4",
+      "version": "12.0.3",
       "commands": [
         "slngen"
       ],

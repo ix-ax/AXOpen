@@ -106,6 +106,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 EnableNegative      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
             END_VAR
 
+            THIS.Initialize(parent);
+
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(ULINT#742, Enable AND NOT EnablePositive, eAxoMessageCategory#Warning);
             Messenger.ActivateOnCondition(ULINT#743, Enable AND NOT EnableNegative, eAxoMessageCategory#Warning);
@@ -131,8 +133,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 RETURN;
             END_IF;
         
-            THIS.Initialize(parent);
-
             THIS.Open();
 
             _AxisRefExt.Data.hwID                := hwID;
@@ -164,6 +164,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 EnableNegative      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
             END_VAR
 
+            THIS.Initialize(parent);
+
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(ULINT#742, Enable AND NOT EnablePositive, eAxoMessageCategory#Warning);
             Messenger.ActivateOnCondition(ULINT#743, Enable AND NOT EnableNegative, eAxoMessageCategory#Warning);
@@ -188,8 +190,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 DriveStatus.Error.Id := UINT#704;
                 RETURN;
             END_IF;
-        
-            THIS.Initialize(parent);
 
             THIS.Open();
 

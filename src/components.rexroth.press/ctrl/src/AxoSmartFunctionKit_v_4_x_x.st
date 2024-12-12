@@ -113,6 +113,8 @@ NAMESPACE AXOpen.Components.Rexroth.Press
                 hwIdOutput_21_Words :   WORD;
             END_VAR
 
+            THIS.Initialize(parent);
+
             Messenger.Serve(THIS);
 
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
@@ -143,7 +145,6 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             _hwIdInput_24_Words         := hwIdInput_24_Words;  
             _hwIdOutput_21_Words        := hwIdOutput_21_Words;             
     
-            THIS.Initialize(parent);
             THIS.Execute();
         END_METHOD   
 
@@ -160,6 +161,8 @@ NAMESPACE AXOpen.Components.Rexroth.Press
                 hwIdOutput_21_Words :   WORD;
             END_VAR
 
+            THIS.Initialize(parent);
+
             Messenger.Serve(THIS);
 
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
@@ -190,7 +193,6 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             _hwIdInput_24_Words         := hwIdInput_24_Words;  
             _hwIdOutput_21_Words        := hwIdOutput_21_Words;             
     
-            THIS.Initialize(parent);
             THIS.Execute();
         END_METHOD 
         

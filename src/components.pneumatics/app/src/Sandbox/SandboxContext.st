@@ -1,7 +1,7 @@
 NAMESPACE AXOpen.Components.Pneumatics
         
     {S7.extern=ReadWrite}
-    CLASS SandboContext EXTENDS AXOpen.Core.AxoContext
+    CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             _manualControl : BOOL;
             {#ix-attr:[Container(Layout.UniformGrid)]}

@@ -129,6 +129,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 hwIdDO_64_bytes :   WORD;   //  Hardware Id of the output data of the robot
             END_VAR
 
+            THIS.Initialize(parent);
+
             Messenger.Serve(THIS);
 
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
@@ -151,7 +153,6 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             _hwIdDO_64_bytes :=  hwIdDO_64_bytes;
 
 
-            THIS.Initialize(parent);
             THIS.Execute();
         END_METHOD
 
@@ -167,6 +168,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 hwIdDO_64_bytes :   WORD;   //  Hardware Id of the output data of the robot
             END_VAR
 
+            THIS.Initialize(parent);
+
             Messenger.Serve(THIS);
 
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
@@ -189,7 +192,6 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             _hwIdDO_64_bytes :=  hwIdDO_64_bytes;
 
 
-            THIS.Initialize(parent);
             THIS.Execute();
         END_METHOD
 

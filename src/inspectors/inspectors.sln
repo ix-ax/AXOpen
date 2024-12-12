@@ -19,9 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inspectors.blazor", "app\ix
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_inspectors", "app\ix\axopen_inspectors.csproj", "{E1D7B5F1-8757-4528-9949-8EF2BF4BB392}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AxOpen.Inspectors.Blazor", "src\AxOpen.Inspectors.Blazor\AxOpen.Inspectors.Blazor.csproj", "{1E37E2F6-6707-4B77-B5BE-5CABFF64F8C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AxOpen.Inspectors.Blazor", "src\AXOpen.Inspectors.blazor\AxOpen.Inspectors.Blazor.csproj", "{1E37E2F6-6707-4B77-B5BE-5CABFF64F8C8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_inspectors", "src\AxOpen.Inspectors\ix_ax_axopen_inspectors.csproj", "{73E0BE91-FD1F-4E63-980B-CE5196B3951E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_inspectors", "src\AXOpen.Inspectors\ix_ax_axopen_inspectors.csproj", "{73E0BE91-FD1F-4E63-980B-CE5196B3951E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Inspectors_tests_L1", "tests\AXOpen.Inspectors.Tests\AXOpen.Inspectors_tests_L1.csproj", "{C577B6AA-0BE8-45DB-87ED-32E4569689CD}"
 EndProject
@@ -77,9 +77,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix", "app\ix", "{CC96AC62-8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{D5EAA755-EE1C-441C-9EF0-062D977F1AEE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AxOpen.Inspectors.Blazor", "src\AxOpen.Inspectors.Blazor", "{1138E5AE-BD9C-4FC3-8A50-3B995D6F0277}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Inspectors.blazor", "src\AXOpen.Inspectors.blazor", "{1138E5AE-BD9C-4FC3-8A50-3B995D6F0277}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AxOpen.Inspectors", "src\AxOpen.Inspectors", "{03684F8F-AD19-497E-8DF9-9957786845B7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Inspectors", "src\AXOpen.Inspectors", "{03684F8F-AD19-497E-8DF9-9957786845B7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EAA26B51-293D-45D0-8775-82D81F11F1B1}"
 EndProject

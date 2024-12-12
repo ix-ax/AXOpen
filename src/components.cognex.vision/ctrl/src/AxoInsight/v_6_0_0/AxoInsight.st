@@ -197,6 +197,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 hwIdUserData            :   WORD;
             END_VAR
 
+            THIS.Initialize(parent);
+            
             Messenger.Serve(THIS);
 
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
@@ -250,8 +252,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             _hwIdResultData         :=  hwIdResultData;
             _hwIdUserData           :=  hwIdUserData;
 
-            THIS.Initialize(parent);
-            
             THIS.Open();
             THIS.Execute();
             THIS.Close();            
@@ -277,6 +277,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 hwIdUserData            :   WORD;
             END_VAR
 
+            THIS.Initialize(parent);
+            
             Messenger.Serve(THIS);
 
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
@@ -330,8 +332,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             _hwIdResultData         :=  hwIdResultData;
             _hwIdUserData           :=  hwIdUserData;
 
-            THIS.Initialize(parent);
-            
             THIS.Open();
             THIS.Execute();
             THIS.Close();            

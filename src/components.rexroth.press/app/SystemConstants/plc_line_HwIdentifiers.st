@@ -1,6 +1,6 @@
 CONFIGURATION HardwareIDs
     VAR_GLOBAL CONSTANT
-        SFK_HwID : UINT := UINT#260;
+        SFK_HwID : UINT := UINT#258;
         SFK_F_Modul_not_used_ID_FMod_NotUsed_HwID : UINT := UINT#266;
         SFK_Input_24_Words_ID_InMod_24Words_HwID : UINT := UINT#264;
         SFK_Output_21_Words_ID_OutMod_21Words_HwID : UINT := UINT#263;
@@ -9,8 +9,8 @@ CONFIGURATION HardwareIDs
         SFK_SFK_HwID : UINT := UINT#262;
         SFK_SFK_DAP_1_HwID : UINT := UINT#267;
         SFK_SFK_profinet_HwID : UINT := UINT#257;
-        SFK_SFK_profinet_Port_1_HwID : UINT := UINT#258;
-        SFK_SFK_profinet_Port_2_HwID : UINT := UINT#259;
+        SFK_SFK_profinet_Port_1_HwID : UINT := UINT#259;
+        SFK_SFK_profinet_Port_2_HwID : UINT := UINT#260;
         plc_line_HwID : UINT := UINT#32;
         plc_line_Rail_0_HwID : UINT := UINT#268;
         plc_line_plc_line_HwID : UINT := UINT#48;
