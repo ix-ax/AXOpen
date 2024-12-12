@@ -1,4 +1,4 @@
-gh issue lists --assignee "@me" --state "open"
+gh issue list --assignee "@me" --state "open"
 $issueIDs = gh issue list --state "open" --assignee "@me" --json number | ConvertFrom-Json | ForEach-Object { $_.number }
 $value = Read-Host "Please enter an ID value of the issue."
 
