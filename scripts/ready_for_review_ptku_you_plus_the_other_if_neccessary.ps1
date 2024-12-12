@@ -1,6 +1,6 @@
 $gitStatus = git status
-if($gitStatus -ne "nothing to commit, working tree clean")
+if($gitStatus -notcontains "nothing to commit, working tree clean")
 {
-    Write-Output "Working tree not clean. Commit and push your local changes and then run this script again."
+    Write-Output "Working tree is not clean. Commit and push your local changes and run this script again afterwards."
 
 }
