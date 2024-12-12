@@ -34,7 +34,7 @@ if ([int]::TryParse($IssueId, [ref]$null))
             # Add all changes 
             git add .
             # Commit all changes 
-            git commit -m "Create draft PR for #$selectedIssueNumber"
+            git commit --allow-empty -m "Create draft PR for #$selectedIssueNumber"
             # Write changes to remote            
             Write-Output "Pushing the branch to remote"
             git push -u origin $(git branch --show-current)
