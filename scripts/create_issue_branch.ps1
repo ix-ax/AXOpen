@@ -15,6 +15,8 @@ if ([int]::TryParse($IssueId, [ref]$null)) {
         $selectedIssue = $issues | Where-Object { $_.number -eq [int]$IssueId }
         $selectedIssueNumber = $selectedIssue.number
         $selectedIssueTitle = $selectedIssue.title
+        Write-Output "Checkout to dev"
+        gh issue develop $IssueId --base dev --checkout
         Write-Output "Creating branch for the issue number: '$selectedIssueNumber', title: '$selectedIssueTitle'"
         gh issue develop $IssueId --base dev --checkout
         git add .
