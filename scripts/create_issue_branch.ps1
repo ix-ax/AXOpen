@@ -22,8 +22,9 @@ if ([int]::TryParse($IssueId, [ref]$null))
         $selectedIssueTitle = $selectedIssue.title
         # Checkout dev
         Write-Output "Checkout to dev"
-        $checkout = git checkout dev
-        if($checkout -eq "Your branch is up to date with 'origin/dev'.")
+        git checkout dev
+        $currentBranch = git branch --show-current
+        if($currentBranch -eq "dev")
         {
             # Get remote changes, if any
             git pull
