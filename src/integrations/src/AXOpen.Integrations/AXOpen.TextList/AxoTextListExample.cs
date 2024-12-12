@@ -21,11 +21,14 @@ namespace AxoTextListExample
                     {
                         textList.Add((ulong)i, "Text list item : " + i.ToString());
                     }
-
                 }
                 //</FillingTheItemsOfTheDictionary>
                 //<ReturningTheItemBasedOnId>
                 string _textItem = "   ";
+                if (_myTextList1 == null)
+                {
+                    return "   ";
+                }
                 if (textList.TryGetValue(_myTextList1.Id.LastValue, out _textItem))
                 {
                     return _textItem;
@@ -51,9 +54,12 @@ namespace AxoTextListExample
                     {
                         differentTextList.Add((ulong)i, "Item from the totally different text list : " + i.ToString());
                     }
-
                 }
                 string differentTextItem = "   ";
+                if (_myTextList3 == null)
+                {
+                    return "   ";
+                }
                 if (differentTextList.TryGetValue(_myTextList3.Id.LastValue, out differentTextItem))
                 {
                     return differentTextItem;

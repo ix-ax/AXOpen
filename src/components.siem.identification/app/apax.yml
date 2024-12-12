@@ -16,7 +16,7 @@ variables:
 devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
 dependencies:
-  "@ix-ax/axopen_components_siem_identification": '0.0.0-dev.0'
+  "@ix-ax/axopen.components.siem.identification": '0.0.0-dev.0'
   "@ix-ax/ax.axopen.app": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
   # this is just temporary to test new features

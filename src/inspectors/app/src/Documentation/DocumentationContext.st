@@ -106,8 +106,6 @@ CLASS PUBLIC AutomatSequence
         IF (Steps[40].Execute(THIS, TRUE, 'Example Data inspection')) THEN
         
         // <HandlingFailureExample>
-        // _dataInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[45],_dataInspectorDialog);
-        //????????????  TODO
         _dataInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[45]);
         // </HandlingFailureExample>
         END_IF;
