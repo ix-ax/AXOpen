@@ -8,9 +8,12 @@ else
     $currentBranch = $(git branch --show-current)
     Write-Output "Working tree is clean. Marking '$currentBranch' as ready fore review"
     $AdditionalReviewers = Read-Host "Please enter the additional reviewers names: i.e.: my_boss_github_name, his_boss_github_name, etc. (upto the galaxy owner)"
-    
-
     Write-Output "currentBranch:  $currentBranch"
     Write-Output "AdditionalReviewers:  $AdditionalReviewers"
+    $Reviewers = "PTKu,@me" + "," + $AdditionalReviewers
+    $ReviewersArray = $Reviewers -split "," | ForEach-Object { $_.Trim() }
+    $ReviewersString = $ReviewersArray -join ","
+    $Command = "gh pr review-request --add " + $ReviewersString
+    Invoke-Expression $Command
 }
 
