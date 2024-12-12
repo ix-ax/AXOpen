@@ -1,6 +1,6 @@
 USING AxUnit;
 
-NAMESPACE MyTest
+NAMESPACE AXOpen.Components.Siem.Identification.Tests
 
     {TestFixture}
     {S7.extern=ReadWrite}
