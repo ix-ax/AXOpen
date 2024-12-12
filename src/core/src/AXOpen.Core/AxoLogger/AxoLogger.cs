@@ -83,25 +83,26 @@ namespace AXOpen.Logging
 
         private void CreateLogEntry(eLogLevel level, string message, ITwinObject? sender)
         {
+            var controllerIdentity = AxoApplication.Current.ControllerIdentity;
             switch (level)
             {
                 case eLogLevel.Verbose:
-                    _logger.Verbose($"{message}", sender, new GenericIdentity("Controller"), sender);
+                    _logger.Verbose($"{message}", sender, controllerIdentity, sender);
                     break;
                 case eLogLevel.Debug:
-                    _logger.Debug($"{message}", sender, new GenericIdentity("Controller"), sender);
+                    _logger.Debug($"{message}", sender, controllerIdentity, sender);
                     break;
                 case eLogLevel.Information:
-                    _logger.Information($"{message}", sender, new GenericIdentity("Controller"), sender);
+                    _logger.Information($"{message}", sender, controllerIdentity, sender);
                     break;
                 case eLogLevel.Warning:
-                    _logger.Warning($"{message}", sender, new GenericIdentity("Controller"), sender);
+                    _logger.Warning($"{message}", sender, controllerIdentity, sender);
                     break;
                 case eLogLevel.Error:
-                    _logger.Error($"{message}", sender, new GenericIdentity("Controller"), sender);
+                    _logger.Error($"{message}", sender, controllerIdentity, sender);
                     break;
                 case eLogLevel.Fatal:
-                    _logger.Fatal($"{message}", sender, new GenericIdentity("Controller"), sender);
+                    _logger.Fatal($"{message}", sender, controllerIdentity, sender);
                     break;
             }
         }
