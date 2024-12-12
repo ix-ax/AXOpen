@@ -15,6 +15,7 @@ if ([int]::TryParse($value, [ref]$null)) {
         git push -u origin $(git branch --show-current)
         Write-Output "Creating a draft pull request into 'dev'"
         gh pr create --base dev --head $(git branch --show-current) --title "$selectedIssueTitle" --body "closes #$selectedIssueNumber" --draft
+        git add .
         git commit -m "Create draft PR for #$selectedIssueNumber"
         git push 
         Write-Output "Sync local and remote branches"
