@@ -23,7 +23,7 @@ if ([int]::TryParse($IssueId, [ref]$null))
         # Checkout dev
         Write-Output "Checkout to dev"
         $checkout = git checkout dev
-        if($checkout -eq "Your branch is up to date with 'origin/dev'")
+        if($checkout -eq "Your branch is up to date with 'origin/dev'.")
         {
             # Get remote changes, if any
             git pull
@@ -48,6 +48,7 @@ if ([int]::TryParse($IssueId, [ref]$null))
         } else 
         {
             Write-Output "Unable to checkout to dev"
+            Write-Output "Commit your local changes, sync your local 'dev' branch with th remote and start this script again."
             exit 1
         }
     } 
