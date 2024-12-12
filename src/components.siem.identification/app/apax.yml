@@ -1,4 +1,4 @@
-name: "app_axopen_components_siem_identification"
+name: "app_axopen.components.siem.identification"
 version: '0.0.0-dev.0'
 type: app
 targets:

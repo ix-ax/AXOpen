@@ -1,4 +1,4 @@
-name: "@ix-ax/axopen_components_siem_identification"
+name: "@ix-ax/axopen.components.siem.identification"
 version: '0.0.0-dev.0'
 type: lib
 targets:
