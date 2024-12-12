@@ -1,15 +1,21 @@
 gh issue list --assignee "@me" --state "open"
-$issueIDs = gh issue list --state "open" --assignee "@me" --json number | ConvertFrom-Json | ForEach-Object { $_.number }
+$issues = gh issue list --state "open" --assignee "@me" --json number,title | ConvertFrom-Json
+$issueIDs = $issues | ForEach-Object { $_.number }
+
 $value = Read-Host "Please enter an ID value of the issue."
 
 if ([int]::TryParse($value, [ref]$null)) {
     if ($issueIDs -contains [int]$value) {
-        Write-Output "Creating branch for the issue with ID: '$value'"
+        $selectedIssue = $issues | Where-Object { $_.number -eq [int]$value }
+        $selectedIssueNumber = $selectedIssue.number
+        $selectedIssueTitle = $selectedIssue.title
+        Write-Output "Creating branch for the issue number: '$selectedIssueNumber', title: '$selectedIssueTitle'"
         gh issue develop $value --base dev --checkout
         Write-Output "Pushing the branch to remote"
         git push -u origin $(git branch --show-current)
         Write-Output "Creating a draft pull request into 'dev'"
-        gh pr create --base dev --head $(git branch --show-current) --title "closes $value" --body "Create draft PR for #$value" --draft
+        gh pr create --base dev --head $(git branch --show-current) --title "closes $selectedIssueTitle" --body "closes #$selectedIssueNumber" --draft
+        git commit -m "Create draft PR for #$selectedIssueNumber"
         Write-Output "Sync local and remote branches"
         git pull origin $(git branch --show-current)
     } else {
