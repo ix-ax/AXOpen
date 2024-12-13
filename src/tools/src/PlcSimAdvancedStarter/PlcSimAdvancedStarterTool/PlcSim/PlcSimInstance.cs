@@ -57,6 +57,35 @@ namespace PlcSimAdvancedStarterTool.PlcSim
                 string operatingStateValue = "";
                 if (instanceInfos != null)
                 {
+                    // Check the count of the already registered intances
+                    int currInstancesCount = instanceInfos.Length;
+                    // Unregister all instances if their number reachs the maximum
+                    if (currInstancesCount >= Setup.Constants.PlcSimAdvancedMaxSessionCount)
+                    {
+                        Console.WriteLine($"Maximum number of registered instances ({Setup.Constants.PlcSimAdvancedMaxSessionCount}) reached.");
+                        foreach (var instanceInfo in instanceInfos)
+                        {
+                            // Get name of the existing instance that is gonna to be kill
+                            string instanceName = instanceInfo.GetType().GetField("Name", BindingFlags.Public | BindingFlags.Instance).GetValue(instanceInfo)?.ToString();
+
+                            var createInterfaceMethod = simulationRuntimeManager.GetMethod("CreateInterface", BindingFlags.Static | BindingFlags.Public, null, new Type[] { typeof(string) }, null);
+                            plcSimInstance = createInterfaceMethod.Invoke(null, new object[] { instanceName });
+
+                            var unregisterInstanceMethod = plcSimInstance.GetType().GetMethod("UnregisterInstance",BindingFlags.Public | BindingFlags.Instance);
+
+                            if (unregisterInstanceMethod != null)
+                            {
+                                unregisterInstanceMethod.Invoke(plcSimInstance, null);
+                                Console.WriteLine($"Instance {instanceName} has been unregistered to release resources.");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Method 'UnregisterInstance' not found.");
+                            }
+                        }
+                        instanceInfos = registeredInstanceInfoProperty.GetValue(null) as Array;
+                    }
+
                     foreach (var instanceInfo in instanceInfos)
                     {
                         // Get name of the existing instance
@@ -96,7 +125,7 @@ namespace PlcSimAdvancedStarterTool.PlcSim
                 }
 
 
-                // Register PlcSimInstanceName
+                // Register PlcSimInstanceName 
                 if (!instanceAlreadyRegistered)
                 {
                     var registerInstanceMethod = simulationRuntimeManager.GetMethod("RegisterInstance", BindingFlags.Static | BindingFlags.Public, null, new Type[] { typeof(string) }, null);
