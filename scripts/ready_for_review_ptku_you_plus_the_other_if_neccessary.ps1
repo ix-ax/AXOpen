@@ -14,11 +14,12 @@ else
     $Reviewers = "PTKu,@me" + "," + $AdditionalReviewers
     $ReviewersArray = $Reviewers -split "," | ForEach-Object { $_.Trim() }
     $ReviewersString = $ReviewersArray -join ","
-    $Command = "gh pr review-request --add " + $ReviewersString
+    $Command = "gh pr edit --add-reviewer " + $ReviewersString
     Invoke-Expression $Command
     if ($ReviewComment -ne "") {
         $Command = "gh pr comment -b """ + $ReviewComment + """"
         Invoke-Expression $Command
     }
+    gh pr ready
 }
 
