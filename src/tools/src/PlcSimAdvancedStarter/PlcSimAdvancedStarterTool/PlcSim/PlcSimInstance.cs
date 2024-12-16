@@ -3,7 +3,9 @@ using System.Reflection;
 using Microsoft.CodeAnalysis;
 using System.Xml.Linq;
 using System.Diagnostics;
-
+using System.Net.NetworkInformation;
+using System.Net;
+using System.Threading;
 
 namespace PlcSimAdvancedStarterTool.PlcSim
 {
@@ -197,6 +199,42 @@ namespace PlcSimAdvancedStarterTool.PlcSim
                         Console.WriteLine($"Unable to set the PLC into the RUN mode. {ex.Message}");
 
                     }
+                }
+                const int timeoutSeconds = 60;
+                const int pingIntervalMilliseconds = 1000; 
+
+                bool isAccessible = false;
+                DateTime startTime = DateTime.Now;
+
+                Console.WriteLine($"Checking accessibility of the PLCsim instance: {PlcSimInstanceName} at IP address: {PlcIpAddress}.");
+
+                using (Ping ping = new Ping())
+                {
+                    while ((DateTime.Now - startTime).TotalSeconds < timeoutSeconds)
+                    {
+                        try
+                        {
+                            PingReply reply = ping.Send(PlcIpAddress);
+
+                            if (reply.Status == IPStatus.Success)
+                            {
+                                Console.WriteLine($"PLCsim instance: {PlcSimInstanceName} at IP address: {PlcIpAddress} is accessible!");
+                                isAccessible = true;
+                                break; 
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Ping attempt failed: {ex.Message}");
+                        }
+
+                        Thread.Sleep(pingIntervalMilliseconds); 
+                    }
+                }
+
+                if (!isAccessible)
+                {
+                    Console.WriteLine($"Error: Device did not respond within {timeoutSeconds} seconds.");
                 }
             }
             return Task.CompletedTask;
