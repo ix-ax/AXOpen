@@ -115,10 +115,17 @@ namespace PlcSimAdvancedStarterTool.PlcSim
                                 break;
                             }
                         }
+                    }
 
+                    foreach (var instanceInfo in instanceInfos)
+                    {
+                        // Get name of the existing instance
+                        string instanceName = instanceInfo.GetType().GetField("Name", BindingFlags.Public | BindingFlags.Instance).GetValue(instanceInfo)?.ToString();
                         if (instanceName.Equals(PlcSimInstanceName))
                         {
                             Console.WriteLine($"Instance {PlcSimInstanceName} already registered.");
+                            var createInterfaceMethod = simulationRuntimeManager.GetMethod("CreateInterface", BindingFlags.Static | BindingFlags.Public, null, new Type[] { typeof(string) }, null);
+
                             plcSimInstance = createInterfaceMethod.Invoke(null, new object[] { PlcSimInstanceName });
                             instanceAlreadyRegistered = true;
                             break;
