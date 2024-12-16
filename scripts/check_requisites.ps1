@@ -91,7 +91,7 @@ try {
 $command = "axcode --version"
 
 # Define the expected version
-$expectedVersion = "1.91.1"
+$expectedVersion = "1.94.2"
 
 # Execute the command and capture the output
 try {
