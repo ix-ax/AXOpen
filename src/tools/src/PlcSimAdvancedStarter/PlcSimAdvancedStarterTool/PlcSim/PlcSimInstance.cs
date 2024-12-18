@@ -227,7 +227,7 @@ namespace PlcSimAdvancedStarterTool.PlcSim
                             {
                                 Console.WriteLine($"PLCsim instance: {PlcSimInstanceName} at IP address: {PlcIpAddress} is accessible!");
                                 isAccessible = true;
-                                break; 
+                                return Task.CompletedTask;
                             }
                         }
                         catch (Exception ex)
