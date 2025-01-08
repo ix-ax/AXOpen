@@ -7,6 +7,7 @@ on:
      - 'src/**'
      - 'cake/**'
      - '.github/**'  
+     - 'scripts/**'  
   workflow_dispatch:
 
 jobs:
