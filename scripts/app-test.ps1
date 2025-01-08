@@ -540,7 +540,8 @@ function BuildAndLoadPlc {
     }
     cd $appFolder
     # apax install
-    $result = run-command -command "apax install"
+    $result = run-command -command "apax install" 
+    return
     if ($($result.Success) -match "True") 
     {
         Write-Output "Command 'apax install' finished succesfully in $appFolder"
@@ -827,7 +828,7 @@ if ($appYamls)
                 ###### Overrite security files
                 OverwriteSecurityFiles -appYamlFile $($appYaml.FilePath) -plcName $plcName
                 ###### Build and load PLC
-                #BuildAndLoadPlc -appYamlFile $($appYaml.FilePath) -appName $($appYaml.AppName) -logFilePath $logFilePath -summaryResult ([ref]$SumaryResult)
+                BuildAndLoadPlc -appYamlFile $($appYaml.FilePath) -appName $($appYaml.AppName) -logFilePath $logFilePath -summaryResult ([ref]$SumaryResult)
                 ###### Build and start HMI
                 #BuildAndStartHmi -appYamlFile $($appYaml.FilePath) -appName $($appYaml.AppName) -logFilePath $logFilePath -summaryResult ([ref]$SumaryResult)
             }
