@@ -338,7 +338,7 @@ function Run-Command {
         # Execute the command and capture the output
         $CommandOutput = Invoke-Expression "$Command 2>&1" | ForEach-Object {
             # Write each line to the console immediately
-            Write-Output $_
+            #Write-Output $_
             # Add it to the result output
             $_
         }
