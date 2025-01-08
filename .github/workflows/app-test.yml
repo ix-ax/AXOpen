@@ -19,6 +19,12 @@ jobs:
 
     - name: Run app test PowerShell script
       run: |
-        $result = ./scripts/app-test.ps1 
-#        Write-Output "Script Result: $result"
+        try 
+        {
+            ./scripts/app-test.ps1 2>&1 | ForEach-Object { Write-Host $_ }
+        }
+        catch 
+        {
+            Write-Error "An unexpected error occurred: $_"
+        }
       shell: powershell
