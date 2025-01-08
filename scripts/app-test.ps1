@@ -801,6 +801,7 @@ if ($appYamls)
         Write-Error "Failed to create the log file."
     }
     Kill-Process -ProcessName "Siemens.Simatic.PlcSim.Advanced.UserInterface"
+    Write-Error "I am just curious how this error message impact github action status."
 } 
 else 
 {
