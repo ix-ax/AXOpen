@@ -1,7 +1,8 @@
 # Define 
 $axopenRepoDir = "..\"
-$plcSimVirtualMemoryCardLocation = "..\..\plcsim"    
-$sourceDir = "..\..\source"              
+$plcSimVirtualMemoryCardDir = "..\..\plcsim"    
+$sourceDirSecurityFiles = "..\..\source"              
+$sourceDirPlcSim = "..\..\source\plcsim"              
 $resultDir = "..\..\app_test_results"
 $plcName =  "plc_line"
 $plcIpAddress =  "10.10.10.120"
@@ -147,9 +148,16 @@ function InitializePlcSimInstance {
     # Copy files recursively with overwrite
     try 
     {
-        $plcSimSourceDir = Join-Path -Path $sourceDir -ChildPath "plcsim"
-        Copy-Item -Path "$plcSimSourceDir\*" -Destination $instancePath -Recurse -Force
-        Write-Output "All files copied successfully from $plcSimSourceDir to $instancePath."
+        $plcSimSourceDir = Join-Path -Path $startDir -ChildPath $sourceDirPlcSim
+        if (-Not (Test-Path -Path $plcSimSourceDir)) 
+        {
+            Write-Error "Source directory for the security file $plcSimSourceDir does not exists"
+        }
+        else
+        {
+            Copy-Item -Path "$plcSimSourceDir\*" -Destination $instancePath -Recurse -Force
+            Write-Output "All files copied successfully from $plcSimSourceDir to $instancePath."
+        }
     }
     catch {
         Write-Error "An error occurred while copying files: $_"
@@ -190,7 +198,13 @@ function OverwriteSecurityFiles {
         Write-Error "The provided plc name is empty."
         return $null
     }
-
+    # Check if source dir exists
+    $sourceDir = Join-Path -Path $startDir -ChildPath $sourceDirSecurityFiles
+    if (-Not (Test-Path -Path $sourceDir)) 
+    {
+        Write-Error "Source directory for the security file $sourceDir does not exists"
+        return $null
+    }
 
     #  Check if the certification folder already exists
     $appCertFolder = Join-Path -Path $appFolder -ChildPath "certs"
@@ -213,7 +227,6 @@ function OverwriteSecurityFiles {
     Write-Output "Directory:  $appCertSubFolder has been created."
 
     # Copy certification file
-    $sourceDir = Join-Path -Path $startDir -ChildPath "source"
     $plcSourceCertificateFile  = $plcName + ".cer"
     $plcSourceCertificate = Join-Path -Path $sourceDir -ChildPath $plcSourceCertificateFile
     if (Test-Path -Path $plcSourceCertificate)
@@ -229,7 +242,7 @@ function OverwriteSecurityFiles {
     }
     else 
     {
-        Write-Warning "File '$plcSourceCertificateFile' does not exist in the script's directory: $sourceDir"
+        Write-Error "File '$plcSourceCertificateFile' does not exist in the directory: $sourceDir"
     }
 
     #  Check if the hwc folder already exists
@@ -256,7 +269,6 @@ function OverwriteSecurityFiles {
     }
 
     # Copy certification file
-    $sourceDir = Join-Path -Path $startDir -ChildPath "source"
     $securityConfigFile  = $plcName + ".SecurityConfiguration.json"
     $securityConfig = Join-Path -Path $sourceDir -ChildPath $securityConfigFile
     if (Test-Path -Path $securityConfig)
@@ -767,7 +779,7 @@ $startDir=  $PSScriptRoot
 #    Write-Host "AXOpen repository already exists. Skipping cloning."
 #}
 ###### Get all apax yaml files with type: 'app' excluding restricted
-$repoPath = Resolve-Path -Path (Join-Path -Path $PSScriptRoot -ChildPath $axopenRepoDir)
+$repoPath = Resolve-Path -Path (Join-Path -Path $startDir -ChildPath $axopenRepoDir)
 $appYamls = Get-AppTypeYamlFilesExcludingRestricted -repoPath $repoPath
 if ($appYamls) 
 {
@@ -794,7 +806,8 @@ if ($appYamls)
                 Write-Result -TextToWrite " " -LogFilePath $logFilePath 
                 Write-Result -TextToWrite "$($appYaml.AppName)" -LogFilePath $logFilePath -AppendToSameLine
                 ###### Initialize plcsim instance with default 'fresh' content
-                InitializePlcSimInstance -memoryCardPath $plcSimVirtualMemoryCardLocation -instanceName $($appYaml.AppName)
+                $plcSimVirtualMemoryCardPath = Resolve-Path -Path (Join-Path -Path $startDir -ChildPath $plcSimVirtualMemoryCardDir)
+                InitializePlcSimInstance -memoryCardPath $plcSimVirtualMemoryCardPath -instanceName $($appYaml.AppName)
                 ###### Overrite security files
                 OverwriteSecurityFiles -appYamlFile $($appYaml.FilePath) -plcName $plcName
                 ###### Build and load PLC
