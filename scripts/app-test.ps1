@@ -491,7 +491,8 @@ function Start-DotNetProject {
 function BuildAndLoadPlc {
     param (
         [string]$appYamlFile,
-        [string]$appName
+        [string]$appName,
+        [bool]$summaryResult
     )
     # Check if the application folder is not empty
     if (-Not ($appYamlFile)) 
@@ -538,6 +539,7 @@ function BuildAndLoadPlc {
     else 
     {
 	    $textToWrite = ",NOK"	
+        $summaryResult = 0
     }
     Write-Result -TextToWrite $textToWrite -LogFilePath $logFilePath -AppendToSameLine
     # apax swfd
@@ -550,15 +552,18 @@ function BuildAndLoadPlc {
     else 
     {
 	    $textToWrite = ",NOK"	
+        $summaryResult = 0
     }
     Write-Result -TextToWrite $textToWrite -LogFilePath $logFilePath -AppendToSameLine
+    return $summaryResult
 }
 
 # Build and start HMI
 function BuildAndStartHmi {
     param (
         [string]$appYamlFile,
-        [string]$appName
+        [string]$appName,
+        [bool]$summaryResult
     )
     # Check if the application folder is not empty
     if (-Not ($appYamlFile)) 
@@ -602,6 +607,7 @@ function BuildAndStartHmi {
     else 
     {
 	    $textToWrite = ",NOK"	
+        $summaryResult = 0
     }
     Write-Result -TextToWrite $textToWrite -LogFilePath $logFilePath -AppendToSameLine
     # get blazor projects
@@ -626,6 +632,7 @@ function BuildAndStartHmi {
                 else 
                 {
 	                $textToWrite = ",NOK"	
+                    $summaryResult = 0
                 }
                 $result.output | foreach-object { write-output $_ }
                 Write-Result -TextToWrite $textToWrite -LogFilePath $logFilePath -AppendToSameLine
@@ -638,6 +645,7 @@ function BuildAndStartHmi {
     }
 
     cd $startDir
+    return $summaryResult
 }
 
 # Function to create the log file
@@ -772,6 +780,7 @@ if ($appYamls)
     $createResult = CreateFile -DirectoryPath $resultPath -FileNamePrefix "test_result"
 
     if ($createResult.Success) {
+        $SumaryResult = 1
         $logFilePath = $createResult.FilePath
         Write-Result -TextToWrite "AppName,PlcHw,PlcSw,DotnetBuild,DotnetRun"  -LogFilePath $logFilePath 
         Write-Output "Files with 'type: app':"
@@ -784,14 +793,14 @@ if ($appYamls)
                 Write-Output "App Name: $($appYaml.AppName)"
                 Write-Result -TextToWrite " " -LogFilePath $logFilePath 
                 Write-Result -TextToWrite "$($appYaml.AppName)" -LogFilePath $logFilePath -AppendToSameLine
-                ####### Initialize plcsim instance with default 'fresh' content
-                #InitializePlcSimInstance -memoryCardPath $plcSimVirtualMemoryCardLocation -instanceName $($appYaml.AppName)
-                ####### Overrite security files
-                #OverwriteSecurityFiles -appYamlFile $($appYaml.FilePath) -plcName $plcName
-                ####### Build and load PLC
-                #BuildAndLoadPlc -appYamlFile $($appYaml.FilePath) -appName $($appYaml.AppName) -logFilePath $logFilePath 
-                ####### Build and start HMI
-                #BuildAndStartHmi -appYamlFile $($appYaml.FilePath) -appName $($appYaml.AppName) -logFilePath $logFilePath 
+                ###### Initialize plcsim instance with default 'fresh' content
+                InitializePlcSimInstance -memoryCardPath $plcSimVirtualMemoryCardLocation -instanceName $($appYaml.AppName)
+                ###### Overrite security files
+                OverwriteSecurityFiles -appYamlFile $($appYaml.FilePath) -plcName $plcName
+                ###### Build and load PLC
+                $SumaryResult = BuildAndLoadPlc -appYamlFile $($appYaml.FilePath) -appName $($appYaml.AppName) -logFilePath $logFilePath -summaryResult $SumaryResult
+                ###### Build and start HMI
+                $SumaryResult = BuildAndStartHmi -appYamlFile $($appYaml.FilePath) -appName $($appYaml.AppName) -logFilePath $logFilePath -summaryResult $SumaryResult
             }
         }
 
@@ -801,11 +810,13 @@ if ($appYamls)
         Write-Error "Failed to create the log file."
     }
     Kill-Process -ProcessName "Siemens.Simatic.PlcSim.Advanced.UserInterface"
-#    Write-Error "I am just curious how this error message impact github action status."
-    Write-Output "I am just curious how this error message impact github action status."
+    if($SumaryResult = 0)
+    {
+        Write-Error "Some app test failed."
+    }
 } 
 else 
 {
-    Write-Output "No apax yaml files with 'type: app' were found."
+    Write-Error "No apax yaml files with 'type: app' were found."
 }
 

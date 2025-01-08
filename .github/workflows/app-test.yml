@@ -25,6 +25,6 @@ jobs:
         }
         catch 
         {
-            Write-Error "An unexpected error occurred: $_"
+            Write-Error "An error occurred: $_"
         }
       shell: powershell
