@@ -827,9 +827,9 @@ if ($appYamls)
                 ###### Overrite security files
                 OverwriteSecurityFiles -appYamlFile $($appYaml.FilePath) -plcName $plcName
                 ###### Build and load PLC
-                BuildAndLoadPlc -appYamlFile $($appYaml.FilePath) -appName $($appYaml.AppName) -logFilePath $logFilePath -summaryResult ([ref]$SumaryResult)
+                #BuildAndLoadPlc -appYamlFile $($appYaml.FilePath) -appName $($appYaml.AppName) -logFilePath $logFilePath -summaryResult ([ref]$SumaryResult)
                 ###### Build and start HMI
-                BuildAndStartHmi -appYamlFile $($appYaml.FilePath) -appName $($appYaml.AppName) -logFilePath $logFilePath -summaryResult ([ref]$SumaryResult)
+                #BuildAndStartHmi -appYamlFile $($appYaml.FilePath) -appName $($appYaml.AppName) -logFilePath $logFilePath -summaryResult ([ref]$SumaryResult)
             }
         }
 
