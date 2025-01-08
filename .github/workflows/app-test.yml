@@ -1,0 +1,24 @@
+name: app-test
+
+on:
+  push:
+    branches: [ "504-app-test-workflow" ]
+    paths:
+     - 'src/**'
+     - 'cake/**'
+     - '.github/**'  
+  workflow_dispatch:
+
+    
+jobs:
+  run-app-test:
+    runs-on: [self-hosted, Windows, X64, APP] 
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3  # Check out the repository
+
+    - name: Run app test PowerShell script
+      run: |
+        $result = ./scripts/app-test.ps1 
+        Write-Output "Script Result: $result"
+      shell: powershell
