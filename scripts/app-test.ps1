@@ -504,7 +504,7 @@ function BuildAndLoadPlc {
     param (
         [string]$appYamlFile,
         [string]$appName,
-        [bool]$summaryResult
+        [ref]$summaryResult
     )
     # Check if the application folder is not empty
     if (-Not ($appYamlFile)) 
@@ -536,14 +536,20 @@ function BuildAndLoadPlc {
     cd $appFolder
     # apax install
     $result = run-command -command "apax install"
-    $result.output | foreach-object { write-output $_ }
+    if ($($result.Success) -match "True") 
+    {
+        Write-Output "Command 'apax install' finished succesfully in $appFolder"
+    } 
+    else
+    {
+        $result.error| foreach-object { write-output $_ }
+    }
     # apax plcsim
     $plcSimProjPath = [System.IO.Path]::GetFullPath((Join-Path -Path $appFolder -ChildPath "..\..\tools\src\PlcSimAdvancedStarter\PlcSimAdvancedStarterTool\PlcSimAdvancedStarterTool.csproj"))
     $result = Start-DotNetTool -ProjectName $plcSimProjPath -Arguments "-- startplcsim -x $appName -n $plcName -t $plcIpAddress" 
     $result.output | foreach-object { write-output $_ }
     # apax hwu
     $result = Run-Command -Command "apax hwu"
-    $result.Output | ForEach-Object { Write-Output $_ }
     if ($($result.Success) -match "True") 
     {
 	    $textToWrite = ",OK"	
@@ -551,7 +557,7 @@ function BuildAndLoadPlc {
     else 
     {
 	    $textToWrite = ",NOK"	
-        $summaryResult = 0
+        $summaryResult.Value = $false
     }
     Write-Result -TextToWrite $textToWrite -LogFilePath $logFilePath -AppendToSameLine
     # apax swfd
@@ -564,10 +570,9 @@ function BuildAndLoadPlc {
     else 
     {
 	    $textToWrite = ",NOK"	
-        $summaryResult = 0
+        $summaryResult.Value = $false
     }
     Write-Result -TextToWrite $textToWrite -LogFilePath $logFilePath -AppendToSameLine
-    return $summaryResult
 }
 
 # Build and start HMI
@@ -575,7 +580,7 @@ function BuildAndStartHmi {
     param (
         [string]$appYamlFile,
         [string]$appName,
-        [bool]$summaryResult
+        [ref]$summaryResult
     )
     # Check if the application folder is not empty
     if (-Not ($appYamlFile)) 
@@ -619,7 +624,7 @@ function BuildAndStartHmi {
     else 
     {
 	    $textToWrite = ",NOK"	
-        $summaryResult = 0
+        $summaryResult.Value = $false
     }
     Write-Result -TextToWrite $textToWrite -LogFilePath $logFilePath -AppendToSameLine
     # get blazor projects
@@ -644,7 +649,7 @@ function BuildAndStartHmi {
                 else 
                 {
 	                $textToWrite = ",NOK"	
-                    $summaryResult = 0
+                    $summaryResult.Value = $false
                 }
                 $result.output | foreach-object { write-output $_ }
                 Write-Result -TextToWrite $textToWrite -LogFilePath $logFilePath -AppendToSameLine
@@ -657,7 +662,6 @@ function BuildAndStartHmi {
     }
 
     cd $startDir
-    return $summaryResult
 }
 
 # Function to create the log file
@@ -792,7 +796,7 @@ if ($appYamls)
     $createResult = CreateFile -DirectoryPath $resultPath -FileNamePrefix "test_result"
 
     if ($createResult.Success) {
-        $SumaryResult = 1
+        $SumaryResult = $true
         $logFilePath = $createResult.FilePath
         Write-Result -TextToWrite "AppName,PlcHw,PlcSw,DotnetBuild,DotnetRun"  -LogFilePath $logFilePath 
         Write-Output "Files with 'type: app':"
@@ -811,9 +815,9 @@ if ($appYamls)
                 ###### Overrite security files
                 OverwriteSecurityFiles -appYamlFile $($appYaml.FilePath) -plcName $plcName
                 ###### Build and load PLC
-                $SumaryResult = BuildAndLoadPlc -appYamlFile $($appYaml.FilePath) -appName $($appYaml.AppName) -logFilePath $logFilePath -summaryResult $SumaryResult
+                BuildAndLoadPlc -appYamlFile $($appYaml.FilePath) -appName $($appYaml.AppName) -logFilePath $logFilePath -summaryResult ([ref]$SumaryResult)
                 ###### Build and start HMI
-                $SumaryResult = BuildAndStartHmi -appYamlFile $($appYaml.FilePath) -appName $($appYaml.AppName) -logFilePath $logFilePath -summaryResult $SumaryResult
+                BuildAndStartHmi -appYamlFile $($appYaml.FilePath) -appName $($appYaml.AppName) -logFilePath $logFilePath -summaryResult ([ref]$SumaryResult)
             }
         }
 
