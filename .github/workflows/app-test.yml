@@ -9,7 +9,6 @@ on:
      - '.github/**'  
   workflow_dispatch:
 
-    
 jobs:
   run-app-test:
     runs-on: [self-hosted, Windows, X64, APP] 
