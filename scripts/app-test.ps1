@@ -541,7 +541,8 @@ function BuildAndLoadPlc {
     }
     cd $appFolder
     # apax install
-    $result = run-command -command "apax install" 
+    #$result = run-command -command "apax install" 
+    apax install
     return
     if ($($result.Success) -match "True") 
     {
