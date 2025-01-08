@@ -20,5 +20,5 @@ jobs:
     - name: Run app test PowerShell script
       run: |
         $result = ./scripts/app-test.ps1 
-        Write-Output "Script Result: $result"
+#        Write-Output "Script Result: $result"
       shell: powershell
