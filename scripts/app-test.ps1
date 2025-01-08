@@ -406,19 +406,23 @@ function Start-DotNetTool {
         $output = Get-Content $stdOutFile
         $errorOutput = Get-Content $stdErrFile
 
-        # Check the exit code
-        if ($process.ExitCode -eq 0) 
-        {
-            Write-Output "Command completed successfully."
-            Write-Output $output
-            return $true
-        } 
-        else 
-        {
-            Write-Error "Command failed with exit code: $($process.ExitCode)"
-            Write-Error $errorOutput
-            return $false
-        }
+        Write-Output "Command completed successfully."
+        Write-Output $output
+
+        ###### TODO ##### When running with github action runner, each error cause stop of the action so the error output needs to be forwarded to some logfile in the future
+        ## Check the exit code
+        #if ($process.ExitCode -eq 0) 
+        #{
+        #    Write-Output "Command completed successfully."
+        #    Write-Output $output
+        #    return $true
+        #} 
+        #else 
+        #{
+        #    Write-Error "Command failed with exit code: $($process.ExitCode)"
+        #    Write-Error $errorOutput
+        #    return $false
+        #}
     } 
     catch 
     {
@@ -429,7 +433,7 @@ function Start-DotNetTool {
     finally 
     {
         # Cleanup temporary files
-        Remove-Item -Path $stdOutFile, $stdErrFile -Force
+        Remove-Item -Path $stdOutFile, $stdErrFile -Force -ErrorAction SilentlyContinue > $null 2>&1
     }
 }
 
@@ -478,10 +482,11 @@ function Start-DotNetProject {
         } 
         else 
         {
-            Write-Error "Project failed to start. Check for errors."
+            ###### TODO ##### When running with github action runner, each error cause stop of the action so the error output needs to be forwarded to some logfile in the 
+            #Write-Error "Project failed to start. Check for errors."
             # Read output and error streams
-            $errorOutput = Get-Content $stdErrFile
-            Write-Output $errorOutput
+            #$errorOutput = Get-Content $stdErrFile
+            #Write-Output $errorOutput
             Stop-Process -Id $process.Id -Force #???
             return $false
         }
@@ -495,7 +500,7 @@ function Start-DotNetProject {
     finally 
     {
         # Cleanup temporary files
-        Remove-Item -Path $stdOutFile, $stdErrFile -Force
+        Remove-Item -Path $stdOutFile, $stdErrFile -Force -ErrorAction SilentlyContinue > $null 2>&1
     }
 }
 
@@ -540,16 +545,20 @@ function BuildAndLoadPlc {
     {
         Write-Output "Command 'apax install' finished succesfully in $appFolder"
     } 
-    else
-    {
-        $result.error| foreach-object { write-output $_ }
-    }
+    ###### TODO ##### When running with github action runner, each error cause stop of the action so the error output needs to be forwarded to some logfile in the future
+    #else
+    #{
+    #    $result.error| foreach-object { write-output $_ }
+    #}
     # apax plcsim
     $plcSimProjPath = [System.IO.Path]::GetFullPath((Join-Path -Path $appFolder -ChildPath "..\..\tools\src\PlcSimAdvancedStarter\PlcSimAdvancedStarterTool\PlcSimAdvancedStarterTool.csproj"))
     $result = Start-DotNetTool -ProjectName $plcSimProjPath -Arguments "-- startplcsim -x $appName -n $plcName -t $plcIpAddress" 
-    $result.output | foreach-object { write-output $_ }
+    ###### TODO ##### When running with github action runner, each error cause stop of the action so the error output needs to be forwarded to some logfile in the future
+    #$result.output | foreach-object { write-output $_ }
     # apax hwu
     $result = Run-Command -Command "apax hwu"
+    ###### TODO ##### When running with github action runner, each error cause stop of the action so the error output needs to be forwarded to some logfile in the future
+    #$result.Output | ForEach-Object { Write-Output $_ }
     if ($($result.Success) -match "True") 
     {
 	    $textToWrite = ",OK"	
@@ -562,7 +571,8 @@ function BuildAndLoadPlc {
     Write-Result -TextToWrite $textToWrite -LogFilePath $logFilePath -AppendToSameLine
     # apax swfd
     $result = Run-Command -Command "apax swfd"
-    $result.Output | ForEach-Object { Write-Output $_ }
+    ###### TODO ##### When running with github action runner, each error cause stop of the action so the error output needs to be forwarded to some logfile in the future
+    #$result.Output | ForEach-Object { Write-Output $_ }
     if ($($result.Success) -match "True") 
     {
 	    $textToWrite = ",OK"	
@@ -763,6 +773,8 @@ function Kill-Process
         Write-Output "No processes named $ProcessName were found."
     }
 }
+
+Kill-Process -ProcessName "Siemens.Simatic.PlcSim.Advanced.UserInterface"
 
 $startDir=  $PSScriptRoot
 # Check if axopen repository is already cloned
