@@ -806,6 +806,6 @@ if ($appYamls)
 } 
 else 
 {
-    Write-Output "No apax yaml files with 'type: app' were found. "
+    Write-Output "No apax yaml files with 'type: app' were found."
 }
 
