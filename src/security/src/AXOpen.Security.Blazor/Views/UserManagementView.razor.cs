@@ -71,12 +71,22 @@ namespace AxOpen.Security.Views
             SelectedUser.UserName = _model.Username;
             SelectedUser.CanUserChangePassword = _model.CanUserChangePassword;
             SelectedUser.Email = _model.Email;
-            SelectedUser.Group = _model.Group;
             SelectedUser.Modified = DateTime.Now;
+
+            if (SelectedUser.Group != _model.Group)
+            { 
+                SelectedUser.Group = _model.Group;
+                SelectedUser.SecurityStamp = Guid.NewGuid().ToString(); //due to a change of sensitive information
+            }
+
+
             if (_model.Password != null && _model.Password != "" && _model.ConfirmPassword != null && _model.ConfirmPassword == _model.Password)
             {
                 SelectedUser.PasswordHash = _userManager.PasswordHasher.HashPassword(SelectedUser, _model.Password);
+
+                SelectedUser.SecurityStamp = Guid.NewGuid().ToString(); //due to a change of sensitive information
             }
+
             //SelectedUser.RoleHash = Hasher.CalculateHash(SelectedUser.Roles, _model.Username);
             var result = await _userManager.UpdateAsync(SelectedUser);
             if (result.Succeeded)

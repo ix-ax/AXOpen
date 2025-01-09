@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AXOpen;
+using Microsoft.AspNetCore.Components.Authorization;
 
 
 namespace AxOpen.Security.Services
@@ -22,6 +23,16 @@ namespace AxOpen.Security.Services
             services.AddTransient<IUserStore<User>, UserStore>();
             services.AddTransient<IRoleStore<Role>, RoleStore>();
 
+            services.ConfigureApplicationCookie(options =>
+                        {
+                            options.Cookie.HttpOnly = true;
+                            options.SlidingExpiration = true;
+                            options.ExpireTimeSpan = TimeSpan.FromSeconds(30);
+                        });
+
+            services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
+
+
             services.AddIdentity<User, Role>(identity =>
             {
                 identity.Password.RequireDigit = false;
@@ -34,14 +45,14 @@ namespace AxOpen.Security.Services
             )
             .AddDefaultTokenProviders();
 
-            
+
             RoleGroupManager roleGroupManager = new RoleGroupManager(repos.groupRepo);
-            if (roles != null )
+            if (roles != null)
             {
                 roleGroupManager.CreateRoles(roles);
                 if (addAllRolesToAdminGroup)
                 {
-                    List<string> currentAdminRoles = roleGroupManager.GetRolesFromGroup("AdminGroup").Where(c => ! c.Equals("Administrator")).ToList();
+                    List<string> currentAdminRoles = roleGroupManager.GetRolesFromGroup("AdminGroup").Where(c => !c.Equals("Administrator")).ToList();
                     List<string?>? requiredAdminRoles = roles.Select(c => c.Name).ToList();
                     List<string?>? adminRolesToAdd = requiredAdminRoles?.Where(p => currentAdminRoles.All(p2 => p2 != p)).ToList();
                     List<string>? adminRolesToRemove = currentAdminRoles?.Where(p => requiredAdminRoles.All(p2 => p2 != p)).ToList();
@@ -52,6 +63,7 @@ namespace AxOpen.Security.Services
                 }
             }
 
+            //services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
             services.AddScoped<IRepositoryService, RepositoryService>(provider => new RepositoryService(repos.userRepo, roleGroupManager));
         }
     }
