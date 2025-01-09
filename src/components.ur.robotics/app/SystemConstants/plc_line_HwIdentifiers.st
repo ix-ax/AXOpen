@@ -14,7 +14,7 @@ CONFIGURATION HardwareIDs
         plc_line_plc_line_profinet_x2_Port_3_HwID : UINT := UINT#73;
         plc_line_plc_line_virtual_communication_interface_HwID : UINT := UINT#135;
         profinet_plc_line_HwID : UINT := UINT#256;
-        ureol2l_HwID : UINT := UINT#259;
+        ureol2l_HwID : UINT := UINT#258;
         ureol2l_10_O2T_General_Purpose_Registers_2_10_O2T_General_Purpose_Registers_2_HwID : UINT := UINT#262;
         ureol2l_1_T2O_State_1_T2O_State_HwID : UINT := UINT#271;
         ureol2l_2_T2O_IO_2_T2O_IO_HwID : UINT := UINT#270;
@@ -29,7 +29,7 @@ CONFIGURATION HardwareIDs
         ureol2l_ureol2l_HwID : UINT := UINT#261;
         ureol2l_ureol2l_V1_0_HwID : UINT := UINT#272;
         ureol2l_ureol2l_profinet_HwID : UINT := UINT#257;
-        ureol2l_ureol2l_profinet_Port_1_HwID : UINT := UINT#258;
+        ureol2l_ureol2l_profinet_Port_1_HwID : UINT := UINT#259;
 
     END_VAR
 END_CONFIGURATION

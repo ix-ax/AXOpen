@@ -16,6 +16,6 @@ dependencies:
   "@ax/hw-s7-1500": ^2.0.51
   "@ax/hwld": ^2.0.20
   "@ax/stc": ^8.0.17
-  "@ax/sld": ^3.0.8
+  "@ax/sld": ^3.0.9
 installStrategy: overridable
 apaxVersion: 3.3.1

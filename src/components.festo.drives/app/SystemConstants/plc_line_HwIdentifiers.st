@@ -1,6 +1,6 @@
 CONFIGURATION HardwareIDs
     VAR_GLOBAL CONSTANT
-        cmmtas_HwID : UINT := UINT#260;
+        cmmtas_HwID : UINT := UINT#258;
         cmmtas_Rack_HwID : UINT := UINT#261;
         cmmtas_SiemensTelegram111_PZD_12_12_HwID : UINT := UINT#267;
         cmmtas_SiemensTelegram750_PZD_4_1_HwID : UINT := UINT#268;
@@ -10,8 +10,8 @@ CONFIGURATION HardwareIDs
         cmmtas_cmmtas_DoServo_Module_Access_Point_HwID : UINT := UINT#264;
         cmmtas_cmmtas_empty_submodule_1_HwID : UINT := UINT#265;
         cmmtas_cmmtas_profinet_HwID : UINT := UINT#257;
-        cmmtas_cmmtas_profinet_Port_1_HwID : UINT := UINT#258;
-        cmmtas_cmmtas_profinet_Port_2_HwID : UINT := UINT#259;
+        cmmtas_cmmtas_profinet_Port_1_HwID : UINT := UINT#259;
+        cmmtas_cmmtas_profinet_Port_2_HwID : UINT := UINT#260;
         cmmtas_empty_submodule_HwID : UINT := UINT#266;
         plc_line_HwID : UINT := UINT#32;
         plc_line_Rail_0_HwID : UINT := UINT#270;

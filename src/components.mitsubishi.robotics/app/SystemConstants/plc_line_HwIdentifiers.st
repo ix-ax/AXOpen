@@ -1,13 +1,13 @@
 CONFIGURATION HardwareIDs
     VAR_GLOBAL CONSTANT
-        TZ535_PN_HwID : UINT := UINT#260;
+        TZ535_PN_HwID : UINT := UINT#258;
         TZ535_PN_In_Out_64_byte_In_Out__64_byte_HwID : UINT := UINT#263;
         TZ535_PN_Rack_HwID : UINT := UINT#261;
         TZ535_PN_TZ535_PN_HwID : UINT := UINT#262;
         TZ535_PN_TZ535_PN_2D_TZ535_PNPROFINET_IO_HwID : UINT := UINT#264;
         TZ535_PN_TZ535_PN_profinet_HwID : UINT := UINT#257;
-        TZ535_PN_TZ535_PN_profinet_Port_1_HwID : UINT := UINT#258;
-        TZ535_PN_TZ535_PN_profinet_Port_2_HwID : UINT := UINT#259;
+        TZ535_PN_TZ535_PN_profinet_Port_1_HwID : UINT := UINT#259;
+        TZ535_PN_TZ535_PN_profinet_Port_2_HwID : UINT := UINT#260;
         plc_line_HwID : UINT := UINT#32;
         plc_line_Rail_0_HwID : UINT := UINT#265;
         plc_line_plc_line_HwID : UINT := UINT#48;

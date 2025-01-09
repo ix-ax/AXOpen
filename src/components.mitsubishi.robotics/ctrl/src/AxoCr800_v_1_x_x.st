@@ -109,6 +109,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                 hwID                :   WORD;
                 hwIdInOut_64_byte   :   WORD;
             END_VAR
+            THIS.Initialize(parent);
 
             Messenger.Serve(THIS);
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
@@ -125,7 +126,6 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
             _hwID               :=  hwID;
             _hwIdInOut_64_byte  :=  hwIdInOut_64_byte;
 
-            THIS.Initialize(parent);
             THIS.Execute();
         END_METHOD
 
@@ -139,6 +139,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                 hwID                :   WORD;
                 hwIdInOut_64_byte   :   WORD;
             END_VAR
+            THIS.Initialize(parent);
 
             Messenger.Serve(THIS);
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
@@ -155,7 +156,6 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
             _hwID               :=  hwID;
             _hwIdInOut_64_byte  :=  hwIdInOut_64_byte;
 
-            THIS.Initialize(parent);
             THIS.Execute();
         END_METHOD
 

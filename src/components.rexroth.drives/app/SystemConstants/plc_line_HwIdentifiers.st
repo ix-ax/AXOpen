@@ -1,6 +1,6 @@
 CONFIGURATION HardwareIDs
     VAR_GLOBAL CONSTANT
-        ST3_indradrive_HwID : UINT := UINT#260;
+        ST3_indradrive_HwID : UINT := UINT#258;
         ST3_indradrive_F_Modul_not_used_ID_FMod_NotUsed_HwID : UINT := UINT#266;
         ST3_indradrive_Input_9_Words_ID_InMod_9Words_HwID : UINT := UINT#264;
         ST3_indradrive_Output_13_Words_ID_OutMod_13Words_HwID : UINT := UINT#263;
@@ -9,8 +9,8 @@ CONFIGURATION HardwareIDs
         ST3_indradrive_ST3_indradrive_HwID : UINT := UINT#262;
         ST3_indradrive_ST3_indradrive_DAP_1_HwID : UINT := UINT#267;
         ST3_indradrive_ST3_indradrive_profinet_HwID : UINT := UINT#257;
-        ST3_indradrive_ST3_indradrive_profinet_Port_1_HwID : UINT := UINT#258;
-        ST3_indradrive_ST3_indradrive_profinet_Port_2_HwID : UINT := UINT#259;
+        ST3_indradrive_ST3_indradrive_profinet_Port_1_HwID : UINT := UINT#259;
+        ST3_indradrive_ST3_indradrive_profinet_Port_2_HwID : UINT := UINT#260;
         plc_line_HwID : UINT := UINT#32;
         plc_line_Rail_0_HwID : UINT := UINT#268;
         plc_line_plc_line_HwID : UINT := UINT#48;

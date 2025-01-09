@@ -70,7 +70,7 @@ if ! [[ -e "$certfile" ]]; then
 	printf "${RED}Certification file $certfile does not exist.\r\n${NC}"
 	#alf 										#clear plc except ip and name and provide all actions for install all, build and initial download hw so as sw
 	alf=$( dirname ${BASH_SOURCE[0]})"\\all_first.sh"
-	$alf $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS $PLATFORM $USERNAME $PASSWORD
+	$alf $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS $PLATFORM $USERNAME $PASSWORD $USE_PLC_SIM_ADVANCED 
 else
 	check_requisites_apax_script=$( dirname ${BASH_SOURCE[0]})"\\check_requisites_apax.sh"
 	if ! $check_requisites_apax_script ; then
@@ -97,7 +97,7 @@ else
 		printf "${RED}It has to be regenerated again.\r\n${NC}"
 		#alf										  #clear plc except ip and name and provide all actions for install all, build and initial download hw so as sw
 		alf=$( dirname ${BASH_SOURCE[0]})"\\all_first.sh"
-		$alf $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS $PLATFORM $USERNAME $PASSWORD
+		$alf $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS $PLATFORM $USERNAME $PASSWORD $USE_PLC_SIM_ADVANCED 
 	else
 	
 		printf "${GREEN}Certification file $certfile exists and its sha1 hash is equal to the PLC's one.\r\n"

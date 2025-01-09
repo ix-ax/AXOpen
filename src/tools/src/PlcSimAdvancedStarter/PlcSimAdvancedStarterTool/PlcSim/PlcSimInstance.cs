@@ -3,7 +3,9 @@ using System.Reflection;
 using Microsoft.CodeAnalysis;
 using System.Xml.Linq;
 using System.Diagnostics;
-
+using System.Net.NetworkInformation;
+using System.Net;
+using System.Threading;
 
 namespace PlcSimAdvancedStarterTool.PlcSim
 {
@@ -52,16 +54,78 @@ namespace PlcSimAdvancedStarterTool.PlcSim
 
                 var registeredInstanceInfoProperty = simulationRuntimeManager.GetProperty("RegisteredInstanceInfo", BindingFlags.Static | BindingFlags.Public);
                 var instanceInfos = registeredInstanceInfoProperty.GetValue(null) as Array;
+                var eOperatingStateType = plcSimAdvancedApiDll.GetType("Siemens.Simatic.Simulation.Runtime.EOperatingState");
+                string operatingStateTypeOffValue = Enum.Parse(eOperatingStateType, "Off").ToString();
+                string operatingStateValue = "";
                 if (instanceInfos != null)
                 {
+                    // Check the count of the already registered intances
+                    int currInstancesCount = instanceInfos.Length;
+                    // Unregister all instances if their number reachs the maximum
+                    if (currInstancesCount >= Setup.Constants.PlcSimAdvancedMaxSessionCount)
+                    {
+                        Console.WriteLine($"Maximum number of registered instances ({Setup.Constants.PlcSimAdvancedMaxSessionCount}) reached.");
+                        foreach (var instanceInfo in instanceInfos)
+                        {
+                            // Get name of the existing instance that is gonna to be kill
+                            string instanceName = instanceInfo.GetType().GetField("Name", BindingFlags.Public | BindingFlags.Instance).GetValue(instanceInfo)?.ToString();
+
+                            var createInterfaceMethod = simulationRuntimeManager.GetMethod("CreateInterface", BindingFlags.Static | BindingFlags.Public, null, new Type[] { typeof(string) }, null);
+                            plcSimInstance = createInterfaceMethod.Invoke(null, new object[] { instanceName });
+
+                            var unregisterInstanceMethod = plcSimInstance.GetType().GetMethod("UnregisterInstance",BindingFlags.Public | BindingFlags.Instance);
+
+                            if (unregisterInstanceMethod != null)
+                            {
+                                unregisterInstanceMethod.Invoke(plcSimInstance, null);
+                                Console.WriteLine($"Instance {instanceName} has been unregistered to release resources.");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Method 'UnregisterInstance' not found.");
+                            }
+                        }
+                        instanceInfos = registeredInstanceInfoProperty.GetValue(null) as Array;
+                    }
+
                     foreach (var instanceInfo in instanceInfos)
                     {
+                        // Get name of the existing instance
                         string instanceName = instanceInfo.GetType().GetField("Name", BindingFlags.Public | BindingFlags.Instance).GetValue(instanceInfo)?.ToString();
 
+                        var createInterfaceMethod = simulationRuntimeManager.GetMethod("CreateInterface", BindingFlags.Static | BindingFlags.Public, null, new Type[] { typeof(string) }, null);
+                        plcSimInstance = createInterfaceMethod.Invoke(null, new object[] { instanceName });
+
+                        // Get IPs of the existing instance
+                        string[] controllerIPs = plcSimInstance.GetType().GetProperty("ControllerIP").GetValue(plcSimInstance) as string[];
+
+                        foreach (string controllerIp in controllerIPs)
+                        {
+                            // Power off the instance, if its IP address conflicts 
+                            if (controllerIp.Equals(PlcIpAddress) && !instanceName.Equals(PlcSimInstanceName))
+                            {
+                                var powerOffMethod = plcSimInstance.GetType().GetMethod("PowerOff", BindingFlags.Public | BindingFlags.Instance, null, new Type[] { typeof(uint) }, null);
+                                operatingStateValue = plcSimInstance.GetType().GetRuntimeProperty("OperatingState").GetValue(plcSimInstance).ToString();
+                                if(operatingStateValue != operatingStateTypeOffValue)
+                                {
+                                    uint timeout = 6000;
+                                    powerOffMethod.Invoke(plcSimInstance, new object[] { timeout });
+                                    Console.WriteLine($"Instance {plcSimInstance} powered off, as its IP address {PlcIpAddress} has a conflict with IP address of the instance {PlcSimInstanceName}.");
+                                }
+                                break;
+                            }
+                        }
+                    }
+
+                    foreach (var instanceInfo in instanceInfos)
+                    {
+                        // Get name of the existing instance
+                        string instanceName = instanceInfo.GetType().GetField("Name", BindingFlags.Public | BindingFlags.Instance).GetValue(instanceInfo)?.ToString();
                         if (instanceName.Equals(PlcSimInstanceName))
                         {
                             Console.WriteLine($"Instance {PlcSimInstanceName} already registered.");
                             var createInterfaceMethod = simulationRuntimeManager.GetMethod("CreateInterface", BindingFlags.Static | BindingFlags.Public, null, new Type[] { typeof(string) }, null);
+
                             plcSimInstance = createInterfaceMethod.Invoke(null, new object[] { PlcSimInstanceName });
                             instanceAlreadyRegistered = true;
                             break;
@@ -70,7 +134,7 @@ namespace PlcSimAdvancedStarterTool.PlcSim
                 }
 
 
-                // Register PlcSimInstanceName
+                // Register PlcSimInstanceName 
                 if (!instanceAlreadyRegistered)
                 {
                     var registerInstanceMethod = simulationRuntimeManager.GetMethod("RegisterInstance", BindingFlags.Static | BindingFlags.Public, null, new Type[] { typeof(string) }, null);
@@ -79,9 +143,7 @@ namespace PlcSimAdvancedStarterTool.PlcSim
                 }
 
                 // Power On 
-                var eOperatingStateType = plcSimAdvancedApiDll.GetType("Siemens.Simatic.Simulation.Runtime.EOperatingState");
-                string operatingStateTypeOffValue = Enum.Parse(eOperatingStateType, "Off").ToString();
-                string operatingStateValue = plcSimInstance.GetType().GetRuntimeProperty("OperatingState").GetValue(plcSimInstance).ToString();
+                operatingStateValue = plcSimInstance.GetType().GetRuntimeProperty("OperatingState").GetValue(plcSimInstance).ToString();
 
                 if (operatingStateValue.Equals(operatingStateTypeOffValue))
                 {
@@ -144,6 +206,42 @@ namespace PlcSimAdvancedStarterTool.PlcSim
                         Console.WriteLine($"Unable to set the PLC into the RUN mode. {ex.Message}");
 
                     }
+                }
+                const int timeoutSeconds = 60;
+                const int pingIntervalMilliseconds = 1000; 
+
+                bool isAccessible = false;
+                DateTime startTime = DateTime.Now;
+
+                Console.WriteLine($"Checking accessibility of the PLCsim instance: {PlcSimInstanceName} at IP address: {PlcIpAddress}.");
+
+                using (Ping ping = new Ping())
+                {
+                    while ((DateTime.Now - startTime).TotalSeconds < timeoutSeconds)
+                    {
+                        try
+                        {
+                            PingReply reply = ping.Send(PlcIpAddress);
+
+                            if (reply.Status == IPStatus.Success)
+                            {
+                                Console.WriteLine($"PLCsim instance: {PlcSimInstanceName} at IP address: {PlcIpAddress} is accessible!");
+                                isAccessible = true;
+                                return Task.CompletedTask;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Ping attempt failed: {ex.Message}");
+                        }
+
+                        Thread.Sleep(pingIntervalMilliseconds); 
+                    }
+                }
+
+                if (!isAccessible)
+                {
+                    Console.WriteLine($"Error: Device did not respond within {timeoutSeconds} seconds.");
                 }
             }
             return Task.CompletedTask;

@@ -13,7 +13,7 @@ using AxOpen.Security;
 using Serilog;
 using AXOpen;
 using AXOpen.Logging;
-using librarytemplate;
+using abstractions_app;
 
 var builder = WebApplication.CreateBuilder(args);
 

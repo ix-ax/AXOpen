@@ -10,8 +10,13 @@
 		<PackageReference Include="AXSharp.Connector" />
 		<PackageReference Include="AXSharp.Connector.S71500.WebAPI" />
 	</ItemGroup>
+  <!-- <ItemGroup> -->
+    <!-- <None Include="..\certs\plc_line\plc_line.cer" Link="certs\plc_line\plc_line.cer"> -->
+      <!-- <CopyToOutputDirectory>Always</CopyToOutputDirectory> -->
+    <!-- </None> -->
+  <!-- </ItemGroup> -->
 
-	<ItemGroup>
+  <ItemGroup>
     	<Compile Include=".g\**" />
   	</ItemGroup>
 
@@ -19,12 +24,6 @@
 		<Folder Include=".meta\" />
 		<Content Include=".meta\**" />
 		<Folder Include="certs\plc_line\" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Include="..\certs\plc_line\plc_line.cer" Link="certs\plc_line\plc_line.cer">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
 	</ItemGroup>
 
 	<ItemGroup>

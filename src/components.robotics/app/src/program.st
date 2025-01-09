@@ -8,12 +8,12 @@ PROGRAM MyProgram
         _rtm : AXOpen.S71500.Rtm;
     END_VAR
 
-    sandbox.Run();    
     sandbox.InjectRtc(_rtc);
     sandbox.InjectRtm(_rtm);
+    sandbox.Run();    
 
 
-    documentation.Run();
     documentation.InjectRtc(_rtc);
     documentation.InjectRtm(_rtm);
+    documentation.Run();
 END_PROGRAM

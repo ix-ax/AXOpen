@@ -140,6 +140,8 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 refPowerOnPulse                                         : REF_TO BOOL;
             END_VAR
 
+            THIS.Initialize(parent);
+
             Messenger.Serve(THIS);
 
             Messenger.ActivateOnCondition(ULINT#700, parent = NULL, eAxoMessageCategory#ProgrammingError);
@@ -205,7 +207,6 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 := hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1;
             _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 := hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2;
 
-            THIS.Initialize(parent);
             THIS.Execute(refPowerOnPulse);
         END_METHOD
 
@@ -229,6 +230,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2       : WORD;
                 refPowerOnPulse                                         : REF_TO BOOL;
             END_VAR
+            THIS.Initialize(parent);
 
             Messenger.Serve(THIS);
 
@@ -295,7 +297,6 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 := hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1;
             _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 := hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2;
 
-            THIS.Initialize(parent);
             THIS.Execute(refPowerOnPulse);
         END_METHOD
 

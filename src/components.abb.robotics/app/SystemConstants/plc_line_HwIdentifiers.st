@@ -1,21 +1,21 @@
 CONFIGURATION HardwareIDs
     VAR_GLOBAL CONSTANT
-        OmniCore_HwID : UINT := UINT#259;
+        OmniCore_HwID : UINT := UINT#258;
         OmniCore_DI_64_bytes_DI_64_bytes_HwID : UINT := UINT#263;
         OmniCore_DO_64_bytes_DO_64_bytes_HwID : UINT := UINT#262;
         OmniCore_OmniCore_HwID : UINT := UINT#261;
         OmniCore_OmniCore_OmniCore_Standard_PROFINET_Device_HwID : UINT := UINT#264;
         OmniCore_OmniCore_profinet_HwID : UINT := UINT#257;
-        OmniCore_OmniCore_profinet_Network_Port_1_HwID : UINT := UINT#258;
+        OmniCore_OmniCore_profinet_Network_Port_1_HwID : UINT := UINT#259;
         OmniCore_Rack_HwID : UINT := UINT#260;
-        RobotBasicIO_HwID : UINT := UINT#267;
+        RobotBasicIO_HwID : UINT := UINT#266;
         RobotBasicIO_DI_64_bytes_DI_64_bytes_HwID : UINT := UINT#271;
         RobotBasicIO_DO_64_bytes_DO_64_bytes_HwID : UINT := UINT#270;
         RobotBasicIO_Rack_HwID : UINT := UINT#268;
         RobotBasicIO_RobotBasicIO_HwID : UINT := UINT#269;
         RobotBasicIO_RobotBasicIO_Robot_Basic_Device_HwID : UINT := UINT#272;
         RobotBasicIO_RobotBasicIO_profinet_HwID : UINT := UINT#265;
-        RobotBasicIO_RobotBasicIO_profinet_Network_Port_HwID : UINT := UINT#266;
+        RobotBasicIO_RobotBasicIO_profinet_Network_Port_HwID : UINT := UINT#267;
         plc_line_HwID : UINT := UINT#32;
         plc_line_Rail_0_HwID : UINT := UINT#273;
         plc_line_plc_line_HwID : UINT := UINT#48;

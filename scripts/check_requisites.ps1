@@ -36,7 +36,7 @@ if (Test-Path $vsWhere) {
 
 # Check for apax
 $isApaxInstalled = $false
-$requiredApaxVersion = "3.4.1"
+$requiredApaxVersion = "3.4.2"
 try {
     $apaxVersion = (apax --version).Trim()
     if ($apaxVersion -eq $requiredApaxVersion) {
@@ -91,7 +91,7 @@ try {
 $command = "axcode --version"
 
 # Define the expected version
-$expectedVersion = "1.91.1"
+$expectedVersion = "1.94.2"
 
 # Execute the command and capture the output
 try {

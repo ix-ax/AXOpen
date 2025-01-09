@@ -20,9 +20,17 @@
     <Content Include=".meta\**" />
   </ItemGroup>
 
-	<ItemGroup>
+  <!-- <ItemGroup> -->
+    <!-- <None Include="..\certs\plc_line\plc_line.cer" Link="certs\plc_line\plc_line.cer"> -->
+      <!-- <CopyToOutputDirectory>Always</CopyToOutputDirectory> -->
+    <!-- </None> -->
+  <!-- </ItemGroup> -->
+
+
+  <ItemGroup>
 	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
 	  <ProjectReference Include="..\..\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj" />
 	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj" />
+	  <ProjectReference Include="..\..\..\simatic1500\ctrl\ix\ix_ax_axopen_simatic1500.csproj" />
 	</ItemGroup>
 </Project>
