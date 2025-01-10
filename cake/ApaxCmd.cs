@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
 using Cake.Common.IO;
 using Cake.Common.Tools.ILMerge;
 using Cake.Core.Diagnostics;
@@ -41,7 +42,144 @@ public static class ApaxCmd
         }
     }
 
-    public static void ApaxClean(this BuildContext context, (string folder, string name, bool pack) lib)
+    public static void ApaxInstall(this BuildContext context, string folder)
+    {
+        var apaxArguments = "install";
+
+        context.Log.Information($"apax {apaxArguments} started in '{folder}'");
+        context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        {
+            Arguments = apaxArguments,
+            WorkingDirectory = folder,
+            RedirectStandardOutput = false,
+            RedirectStandardError = false,
+            Silent = false
+        }).WaitForExit();
+        context.Log.Information($"apax {apaxArguments} completed successfully in '{folder}'");
+    }
+    public static void ApaxPlcSim(this BuildContext context, string folder)
+    {
+        var apaxArguments = "plcsim";
+
+        context.Log.Information($"apax {apaxArguments} started in '{folder}'");
+        context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        {
+            Arguments = apaxArguments,
+            WorkingDirectory = folder,
+            RedirectStandardOutput = false,
+            RedirectStandardError = false,
+            Silent = false
+        }).WaitForExit();
+        context.Log.Information($"apax {apaxArguments} completed successfully in '{folder}'");
+    }
+    public static string ApaxHwu(this BuildContext context, string folder, ref bool summaryResult)
+    {
+        string retVal = ",NOK";
+        var apaxArguments = "hwu";
+
+        context.Log.Information($"apax {apaxArguments} started in '{folder}'");
+
+        var processSettings = new ProcessSettings()
+        {
+            Arguments = apaxArguments,
+            WorkingDirectory = folder,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            Silent = false
+        };
+
+        using (var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), processSettings))
+        {
+            if (process == null)
+            {
+                summaryResult = false;
+                throw new Exception("Failed to start the process.");
+            }
+
+            process.WaitForExit();
+
+            var standardOutput = process.GetStandardOutput();
+            var standardError = process.GetStandardError();
+
+
+            // Check the exit code and handle result
+            if (process.GetExitCode() == 0)
+            {
+                foreach (string line in standardOutput)
+                {
+                    context.Log.Information(line);
+                }
+                context.Log.Information($"apax {apaxArguments} completed successfully in '{folder}'");
+                retVal = ",OK";
+            }
+            else
+            {
+                summaryResult = false;
+                foreach (string line in standardError)
+                {
+                    context.Log.Error(line);
+                }
+                context.Log.Error($"apax {apaxArguments} failed with exit code: {process.GetExitCode()} in '{folder}'");
+                context.Log.Error($"Error Output: {standardError}");
+            }
+            return retVal;
+        }
+    }
+    public static string ApaxSwfd(this BuildContext context, string folder, ref bool summaryResult)
+    {
+        string retVal = ",NOK";
+        var apaxArguments = "swfd";
+
+        context.Log.Information($"apax {apaxArguments} started in '{folder}'");
+
+        var processSettings = new ProcessSettings()
+        {
+            Arguments = apaxArguments,
+            WorkingDirectory = folder,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            Silent = false
+        };
+
+        using (var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), processSettings))
+        {
+            if (process == null)
+            {
+                summaryResult = false;
+                throw new Exception("Failed to start the process.");
+            }
+
+            process.WaitForExit();
+
+            var standardOutput = process.GetStandardOutput();
+            var standardError = process.GetStandardError();
+
+
+            // Check the exit code and handle result
+            if (process.GetExitCode() == 0)
+            {
+                foreach (string line in standardOutput)
+                {
+                    context.Log.Information(line);
+                }
+                context.Log.Information($"apax {apaxArguments} completed successfully in '{folder}'");
+                retVal = ",OK";
+            }
+            else
+            {
+                summaryResult = false;
+                foreach (string line in standardError)
+                {
+                    context.Log.Error(line);
+                }
+                context.Log.Error($"apax {apaxArguments} failed with exit code: {process.GetExitCode()} in '{folder}'");
+                context.Log.Error($"Error Output: {standardError}");
+            }
+            return retVal;
+        }
+    }
+
+    public static void ApaxClean(this BuildContext context, (string folder, string name, bool pack, bool app_run) lib)
     {
         foreach (var folder in context.GetAxFolders(lib))
         {
@@ -85,7 +223,7 @@ public static class ApaxCmd
         }
     }
 
-    public static void ApaxUpdate(this BuildContext context, (string folder, string name, bool pack) lib)
+    public static void ApaxUpdate(this BuildContext context, (string folder, string name, bool pack, bool app_run) lib)
     {
         foreach (var folder in context.GetAxFolders(lib))
         {
@@ -110,7 +248,7 @@ public static class ApaxCmd
         }
     }
 
-    public static void ApaxPack(this BuildContext context, (string folder, string name, bool pack) lib)
+    public static void ApaxPack(this BuildContext context, (string folder, string name, bool pack, bool app_run) lib)
     {
 
         System.Console.WriteLine(context.ApaxSignKey);
@@ -128,7 +266,7 @@ public static class ApaxCmd
     }
 
 
-    public static void ApaxTest(this BuildContext context, (string folder, string name, bool pack) lib)
+    public static void ApaxTest(this BuildContext context, (string folder, string name, bool pack, bool app_run) lib)
     {
         foreach (var folder in context.GetAxFolders(lib))
         {
@@ -160,7 +298,7 @@ public static class ApaxCmd
         }
     }
 
-    public static void ApaxTestLibrary(this BuildContext context, (string folder, string name, bool pack) lib)
+    public static void ApaxTestLibrary(this BuildContext context, (string folder, string name, bool pack, bool app_run) lib)
     {
         foreach (var folder in context.GetLibraryAxFolders(lib))
         {
@@ -202,22 +340,22 @@ public static class ApaxCmd
         }
     }
 
-    public static void ApaxIxc(this BuildContext context, IEnumerable<string> folders)
-    {
-        foreach (var folder in folders)
-        {
-            context.ProcessRunner.Start(Helpers.GetDotNetCommand(), new ProcessSettings()
-            {
-                Arguments = "ixc",
-                WorkingDirectory = folder,
-                RedirectStandardOutput = false,
-                RedirectStandardError = false,
-                Silent = false
-            }).WaitForExit();
-        }
-    }
+    //public static void ApaxIxc(this BuildContext context, IEnumerable<string> folders)
+    //{
+    //    foreach (var folder in folders)
+    //    {
+    //        context.ProcessRunner.Start(Helpers.GetDotNetCommand(), new ProcessSettings()
+    //        {
+    //            Arguments = "ixc",
+    //            WorkingDirectory = folder,
+    //            RedirectStandardOutput = false,
+    //            RedirectStandardError = false,
+    //            Silent = false
+    //        }).WaitForExit();
+    //    }
+    //}
 
-    public static void ApaxCopyArtifacts(this BuildContext context,  (string folder, string name, bool pack) lib)
+    public static void ApaxCopyArtifacts(this BuildContext context,  (string folder, string name, bool pack, bool app_run) lib)
     {
         if (lib.pack)
         {
@@ -388,4 +526,34 @@ public static class ApaxCmd
             }
         }
     }
+
+    //public static void RunPowershellScript(this BuildContext context, string scriptPath, string arguments)
+    //{
+    //    string workDir = Path.GetFullPath(Path.Combine(scriptPath, ".."));
+    //    context.Log.Information($"Powershell script {scriptPath} with arguments '{arguments}' started");
+    //    context.ProcessRunner.Start("powershell.exe", new ProcessSettings()
+    //    {
+    //        Arguments = $"-NoProfile -ExecutionPolicy Bypass -File \"{scriptPath}\" {arguments}",
+    //        WorkingDirectory = workDir,
+    //        RedirectStandardOutput = false,
+    //        RedirectStandardError = false,
+    //        Silent = false
+    //    }).WaitForExit();
+    //    context.Log.Information($"Powershell script {scriptPath} with arguments '{arguments}' finished");
+    //}
+
+    //public static void DotnetClean(this BuildContext context, string slnFilePath, string arguments)
+    //{
+    //    string workDir = Path.GetFullPath(Path.Combine(slnFilePath, ".."));
+    //    context.Log.Information($"Dotne clean command started with solution: {slnFilePath}");
+    //    context.ProcessRunner.Start(Helpers.GetDotNetCommand(), new ProcessSettings()
+    //    {
+    //        Arguments = arguments,
+    //        WorkingDirectory = workDir,
+    //        RedirectStandardOutput = false,
+    //        RedirectStandardError = false,
+    //        Silent = false
+    //    }).WaitForExit();
+    //    context.Log.Information($"Dotne clean command finished with solution: {slnFilePath}");
+    //}
 }

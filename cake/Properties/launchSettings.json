@@ -31,6 +31,14 @@
     "build": {
       "commandName": "Project",
       "commandLineArgs": ""
+    },
+    "apps_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run"
+    },
+    "test-L3-apps_run": {
+      "commandName": "Project",
+      "commandLineArgs": "--do-test --test-level 10 --apps-run"
     }
   }
 }

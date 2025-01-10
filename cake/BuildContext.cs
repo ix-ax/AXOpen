@@ -24,6 +24,9 @@ using Octokit;
 using Polly;
 using static NuGet.Packaging.PackagingConstants;
 using Path = System.IO.Path;
+using Cake.Core.IO;
+using System;
+using YamlDotNet.RepresentationModel;
 
 public class BuildContext : FrostingContext
 {
@@ -103,9 +106,15 @@ public class BuildContext : FrostingContext
     public IEnumerable<string> TargetFrameworks { get; } = new List<string>() { "net7.0" };
 
     public string TestResults => Path.Combine(Environment.WorkingDirectory.FullPath, "..//TestResults//");
-
+   
     public string TestResultsCtrl => Path.Combine(Environment.WorkingDirectory.FullPath, "..//TestResultsCtrl//");
+    public string AppTestResultsDir => Path.GetFullPath(Path.Combine(Environment.WorkingDirectory.FullPath, "..//..//app_test_results//"));
+    public string SourceDirPlcSim => Path.GetFullPath(Path.Combine(Environment.WorkingDirectory.FullPath, "..//..//source//plcsim//"));
+    public string PlcSimVirtualMemoryCardLocation => Path.GetFullPath(Path.Combine(Environment.WorkingDirectory.FullPath, "..//..//plcsim//"));
+    public string PlcName => "plc_line";
+    public string PlcIpAddress => "10.10.10.120";
 
+    public string SourceDirSecurityFiles => Path.GetFullPath(Path.Combine(Environment.WorkingDirectory.FullPath, "..//..//source//"));
     public BuildContext(ICakeContext context, BuildParameters buildParameters)
         : base(context)
     {
@@ -145,39 +154,39 @@ public class BuildContext : FrostingContext
     }
 
     #region Libraries
-    public IEnumerable<(string folder, string name, bool pack)> Libraries { get; } = new[]
+    public IEnumerable<(string folder, string name, bool pack, bool app_run)> Libraries { get; } = new[]
     {
-        ("ax.axopen.min", "ax.axopen.min", true),
-        ("ax.axopen.hwlibrary", "ax.axopen.hwlibrary", true),
-        ("ax.axopen.app", "ax.axopen.app", true),
-        ("sdk-ax", "ax-sdk", true),
-        ("abstractions", "axopen.abstractions", true),
-        ("timers", "axopen.timers", true),
-        ("simatic1500", "axopen.simatic1500", true),
-        ("utils", "axopen.utils", true),
-        ("core", "axopen.core", true),       
-        ("data", "axopen.data", true),
-        ("probers", "axopen.probers", true),
-        ("inspectors", "axopen.inspectors", true),
-        ("components.abstractions", "axopen.components.abstractions", true),
-        ("components.elements", "axopen.components.elements", true),
-        ("io", "axopen.io", true),
-        ("components.cognex.vision", "axopen.components.cognex.vision", true),
-        ("components.pneumatics", "axopen.components.pneumatics", true),
-        ("components.drives", "axopen.components.drives", true),
-        ("components.rexroth.drives", "axopen.components.rexroth.drives", true),
-        ("components.rexroth.press", "axopen.components.rexroth.press", true),
-        ("components.festo.drives", "axopen.components.festo.drives", true),
-        ("components.desoutter.tightening", "axopen.components.desoutter.tightening", true),
-        ("components.robotics", "axopen.components.robotics", true),
-        ("components.abb.robotics", "axopen.components.abb.robotics", true),
-        ("components.mitsubishi.robotics", "axopen.components.mitsubishi.robotics", true),
-        ("components.ur.robotics", "axopen.components.ur.robotics", true),
-        ("components.kuka.robotics", "axopen.components.kuka.robotics", true),
-        ("components.siem.identification", "axopen.components.siem.identification", true),
-        ("components.balluff.identification", "axopen.components.balluff.identification", true),
-        ("integrations", "ix.integrations", false),
-        ("template.axolibrary", "template.axolibrary", false)
+        ("ax.axopen.min", "ax.axopen.min", true, false),
+        ("ax.axopen.hwlibrary", "ax.axopen.hwlibrary", true, false),
+        ("ax.axopen.app", "ax.axopen.app", true, false),
+        ("sdk-ax", "ax-sdk", true, false),
+        ("abstractions", "axopen.abstractions", true, true),
+        ("timers", "axopen.timers", true, false),
+        ("simatic1500", "axopen.simatic1500", true, false),
+        ("utils", "axopen.utils", true, false),
+        ("core", "axopen.core", true, true),
+        ("data", "axopen.data", true, true),
+        ("probers", "axopen.probers", true, true),
+        ("inspectors", "axopen.inspectors", true, true),
+        ("components.abstractions", "axopen.components.abstractions", true, true),
+        ("components.elements", "axopen.components.elements", true, true),
+        ("io", "axopen.io", true, true),
+        ("components.cognex.vision", "axopen.components.cognex.vision", true, true),
+        ("components.pneumatics", "axopen.components.pneumatics", true, true),
+        ("components.drives", "axopen.components.drives", true, true),
+        ("components.rexroth.drives", "axopen.components.rexroth.drives", true, true),
+        ("components.rexroth.press", "axopen.components.rexroth.press", true, true),
+        ("components.festo.drives", "axopen.components.festo.drives", true, true),
+        ("components.desoutter.tightening", "axopen.components.desoutter.tightening", true, true),
+        ("components.robotics", "axopen.components.robotics", true, true),
+        ("components.abb.robotics", "axopen.components.abb.robotics", true, true),
+        ("components.mitsubishi.robotics", "axopen.components.mitsubishi.robotics", true, true),
+        ("components.ur.robotics", "axopen.components.ur.robotics", true, true),
+        ("components.kuka.robotics", "axopen.components.kuka.robotics", true, true),
+        ("components.siem.identification", "axopen.components.siem.identification", true, true),
+        ("components.balluff.identification", "axopen.components.balluff.identification", true, true),
+        ("integrations", "ix.integrations", false,false),
+        ("template.axolibrary", "template.axolibrary", false, true)
     };
     #endregion
     
@@ -187,7 +196,7 @@ public class BuildContext : FrostingContext
 
     public string ApaxSignKey { get; } = System.Environment.GetEnvironmentVariable("APAX_KEY");
 
-    public IEnumerable<string> GetAxFolders((string folder, string name, bool pack) library)
+    public IEnumerable<string> GetAxFolders((string folder, string name, bool pack, bool app_run) library)
     {
         var paths = new string[]
         {
@@ -210,7 +219,7 @@ public class BuildContext : FrostingContext
         return paths.Where(p => File.Exists(Path.Combine(p, "apax.yml")));
     }
 
-    public IEnumerable<string> GetLibraryAxFolders((string folder, string name, bool pack) library)
+    public IEnumerable<string> GetLibraryAxFolders((string folder, string name, bool pack, bool app_run) library)
     {
         var paths = new string[]
         {
@@ -220,7 +229,7 @@ public class BuildContext : FrostingContext
         return paths.Where(p => File.Exists(Path.Combine(p, "apax.yml")));
     }
 
-    public IEnumerable<string> GetLibraryWithTestAxFolders((string folder, string name, bool pack) library)
+    public IEnumerable<string> GetLibraryWithTestAxFolders((string folder, string name, bool pack, bool app_run) library)
     {
         var paths = new string[]
         {
@@ -230,12 +239,17 @@ public class BuildContext : FrostingContext
         return paths.Where(p => File.Exists(Path.Combine(p, "apax.yml")) && Directory.Exists(Path.Combine(p, "tests"))).ToList();
     }
 
-    public string GetLibFolder((string folder, string name, bool pack) library)
+    public string GetLibFolder((string folder, string name, bool pack, bool app_run) library)
     {
         return Path.Combine(Path.Combine(RootDir, library.folder), "ctrl");
     }
 
     public string GetAppFolder((string folder, string name) library)
+    {
+        return Path.Combine(Path.Combine(RootDir, library.folder), "app");
+    }
+
+    public string GetAppFolder((string folder, string name, bool pack, bool app_run) library)
     {
         return Path.Combine(Path.Combine(RootDir, library.folder), "app");
     }
@@ -251,7 +265,7 @@ public class BuildContext : FrostingContext
     }
 
     
-    public IEnumerable<string> GetApaxFiles((string folder, string name, bool pack) library)
+    public IEnumerable<string> GetApaxFiles((string folder, string name, bool pack, bool app_run) library)
     {
         var paths = new string[]
         {
@@ -263,7 +277,7 @@ public class BuildContext : FrostingContext
         return paths.Where(Path.Exists);
     }
 
-    public string GetApaxFile((string folder, string name, bool pack) library)
+    public string GetApaxFile((string folder, string name, bool pack, bool app_run) library)
     {
         return Path.Combine(Path.Combine(RootDir, library.folder), "ctrl", "apax.yml");
     }
@@ -272,7 +286,35 @@ public class BuildContext : FrostingContext
     {
         return Path.Combine(Path.Combine(RootDir, folder), sub, "apax.yml");
     }
+    public string GetApaxFile(string folder)
+    {
+        return Path.Combine(Path.Combine(RootDir, folder), "apax.yml");
+    }
 
+    public string GetApplicationName(string yamlFilePath)
+    {
+        string appName = "";
+        // Load the YAML stream
+        var yaml = new YamlStream();
+        using (var reader = new StreamReader(yamlFilePath))
+        {
+            yaml.Load(reader);
+        }
+
+        // Assuming there's only one document in the YAML stream
+        var root = (YamlMappingNode)yaml.Documents[0].RootNode;
+
+        if (root.Children.TryGetValue(new YamlScalarNode("type"), out var typeNode) && typeNode is YamlScalarNode scalarNode && (scalarNode.Value == "app"))
+        {
+            if (root.Children.TryGetValue(new YamlScalarNode("name"), out var nameNode))
+            {
+                appName = nameNode.ToString();
+            }
+
+        }
+
+        return appName;
+    }
 
     public string EnsureFolder(string path)
     {

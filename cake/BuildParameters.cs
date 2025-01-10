@@ -48,4 +48,7 @@ public class BuildParameters
 
     [Option('b', "skip-build", Required = false, Default = false, HelpText = "Does not run build steps")]
     public bool NoBuild { get; set; }
+
+    [Option('a', "apps-run", Required = false, Default = false, HelpText = "Download and run apps")]
+    public bool AppsRun{ get; set; }
 }
