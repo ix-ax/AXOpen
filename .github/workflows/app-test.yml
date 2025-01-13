@@ -14,17 +14,16 @@ jobs:
   run-app-test:
     runs-on: [self-hosted, Windows, X64, APP] 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3  # Check out the repository
-
-    - name: Run app test PowerShell script
-      run: |
-        try 
-        {
-            ./scripts/app-test.ps1 2>&1 | ForEach-Object { Write-Host $_ }
-        }
-        catch 
-        {
-            Write-Error "An error occurred: $_"
-        }
-      shell: powershell
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: '0'   
+                   
+    - name: "Build  script"  
+      run: dotnet build cake/Build.csproj
+                       
+    - name: "Run build script"
+      env:
+          GH_TOKEN : ${{ secrets.GH_TOKEN }}
+          GH_USER : ${{ secrets.GH_USER }}
+      run: dotnet run --project cake/Build.csproj --do-test --do-pack --test-level 3 --do-publish --apps-run
