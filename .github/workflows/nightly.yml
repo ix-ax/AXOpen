@@ -26,5 +26,4 @@ jobs:
       env:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}
           GH_USER : ${{ secrets.GH_USER }}
-      run: dotnet run --project cake/Build.csproj --do-test --do-pack --test-level 3 --do-publish --apps-run
-
+      run: dotnet run --project cake/Build.csproj --do-test --do-pack --test-level 100 --apps-run

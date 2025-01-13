@@ -322,7 +322,7 @@ public sealed class AppsRunTask : FrostingTask<BuildContext>
         if (createResult.Success)
         {
             string logFilePath = createResult.FilePath;
-            WriteResult(context,"AppName,PlcHw,PlcSw,DotnetBuild,DotnetRun", logFilePath);
+            WriteResult(context, "AppName,PlcSim,PlcHw,PlcSw,DotnetBuild,DotnetRun", logFilePath);
 
             foreach (var library in context.Libraries)
             {
@@ -732,7 +732,8 @@ public sealed class AppsRunTask : FrostingTask<BuildContext>
         ApaxCmd.ApaxInstall(context,appFolder);
 
         // Run "apax plcsim"
-        ApaxCmd.ApaxPlcSim(context, appFolder);
+        string plcSimResult = ApaxCmd.ApaxPlcSim(context, appFolder, ref summaryResult);
+        WriteResult(context, plcSimResult, logFilePath, appendToSameLine: true);
 
         // Run "apax hwu"
         string hwuResult = ApaxCmd.ApaxHwu(context, appFolder, ref summaryResult);

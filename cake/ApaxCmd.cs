@@ -11,7 +11,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
 using Cake.Common.IO;
 using Cake.Common.Tools.ILMerge;
 using Cake.Core.Diagnostics;
@@ -57,21 +60,56 @@ public static class ApaxCmd
         }).WaitForExit();
         context.Log.Information($"apax {apaxArguments} completed successfully in '{folder}'");
     }
-    public static void ApaxPlcSim(this BuildContext context, string folder)
+
+    public static string ApaxPlcSim(this BuildContext context, string folder, ref bool summaryResult)
     {
+        string retVal = ",NOK";
         var apaxArguments = "plcsim";
 
         context.Log.Information($"apax {apaxArguments} started in '{folder}'");
-        context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+
+        var processSettings = new ProcessSettings()
         {
             Arguments = apaxArguments,
             WorkingDirectory = folder,
-            RedirectStandardOutput = false,
-            RedirectStandardError = false,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
             Silent = false
-        }).WaitForExit();
-        context.Log.Information($"apax {apaxArguments} completed successfully in '{folder}'");
+        };
+
+        using (var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), processSettings))
+        {
+            if (process == null)
+            {
+                summaryResult = false;
+                throw new Exception("Failed to start the process.");
+            }
+            int timeoutInSeconds = 60;
+
+            context.Log.Information($"Waiting for {timeoutInSeconds} seconds...");
+            Task.Delay(1000 * timeoutInSeconds).Wait();
+            
+            var standardOutput = process.GetStandardOutput();
+            var standardError = process.GetStandardError();
+
+    
+            foreach (var std_line in standardOutput)
+            {
+                context.Log.Information($"std_line: {std_line}");
+                if (std_line.StartsWith("PLCsim instance:") && std_line.EndsWith("is accessible!"))
+                {
+                    retVal = ",OK";
+                    break;
+                }
+            }
+            if (retVal.Equals(",NOK"))
+            {
+                summaryResult = false;
+            }
+            return retVal;
+        }
     }
+
     public static string ApaxHwu(this BuildContext context, string folder, ref bool summaryResult)
     {
         string retVal = ",NOK";
@@ -339,21 +377,6 @@ public static class ApaxCmd
             }
         }
     }
-
-    //public static void ApaxIxc(this BuildContext context, IEnumerable<string> folders)
-    //{
-    //    foreach (var folder in folders)
-    //    {
-    //        context.ProcessRunner.Start(Helpers.GetDotNetCommand(), new ProcessSettings()
-    //        {
-    //            Arguments = "ixc",
-    //            WorkingDirectory = folder,
-    //            RedirectStandardOutput = false,
-    //            RedirectStandardError = false,
-    //            Silent = false
-    //        }).WaitForExit();
-    //    }
-    //}
 
     public static void ApaxCopyArtifacts(this BuildContext context,  (string folder, string name, bool pack, bool app_run) lib)
     {
