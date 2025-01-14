@@ -12,7 +12,7 @@ dependencies:
   "@ix-ax/axopen.components.abstractions": '0.0.0-dev.0'
   "@ix-ax/ax.axopen.hwlibrary": '0.0.0-dev.0'
 installStrategy: strict
-apaxVersion: 3.3.1
+apaxVersion: 3.4.2
 scripts:
   postbuild:
     - dotnet ixc
