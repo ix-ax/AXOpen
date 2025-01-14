@@ -20,6 +20,8 @@ namespace AxOpen.Security.Services
             (IRepository<User> userRepo, IRepository<Group> groupRepo) repos,
             List<Role>? roles = null, bool addAllRolesToAdminGroup = false)
         {
+            services.AddScoped<InactivityService>();
+
             services.AddTransient<IUserStore<User>, UserStore>();
             services.AddTransient<IRoleStore<Role>, RoleStore>();
 

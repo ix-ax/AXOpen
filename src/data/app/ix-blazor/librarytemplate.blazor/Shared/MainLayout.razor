@@ -1,8 +1,12 @@
-﻿@inherits LayoutComponentBase
+﻿@using AxOpen.Security
+@using AxOpen.Security.Entities
+@using AxOpen.Security.Services
+@using Microsoft.AspNetCore.Identity
+@inherits LayoutComponentBase
 
 <PageTitle>librarytemplate.blazor</PageTitle>
 <TopRow />
-<div class="page">
+<div class="page" @onmousedown="OnUserActivity">
     <div class="sidebar">
         <NavMenu />
     </div>
@@ -17,3 +21,30 @@
         </article>
     </main>
 </div>
+
+@inject InactivityService _inactivityService
+@inject NavigationManager _navigationManager
+@inject SignInManager<User> _signInManager
+
+@code {
+    protected override void OnInitialized()
+    {
+        _inactivityService.SetAction(() => LogoutUser());
+    }
+
+    private void LogoutUser()
+    {
+        _signInManager.SignOutAsync();
+        _navigationManager.Refresh(true);
+    }
+
+    private void OnUserActivity()
+    {
+        _inactivityService.Reset();
+    }
+
+    public void Dispose()
+    {
+        _inactivityService.Dispose();
+    }
+}

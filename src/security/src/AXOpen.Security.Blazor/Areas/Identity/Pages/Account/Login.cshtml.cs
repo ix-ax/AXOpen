@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Identity;
 using AxOpen.Security.Entities;
 using AxOpen.Security.Models;
+using AxOpen.Security.Services;
 
 namespace AxOpen.Security.Areas.Identity.Pages.Account
 {
@@ -15,14 +16,17 @@ namespace AxOpen.Security.Areas.Identity.Pages.Account
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly InactivityService _inactivityService;
 
         public LoginModel(SignInManager<User> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<User> userManager)
+            UserManager<User> userManager,
+            InactivityService inactivityService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _inactivityService = inactivityService;
         }
 
         [BindProperty]
@@ -64,6 +68,7 @@ namespace AxOpen.Security.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Username, Input.Password, false, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    _inactivityService.StartMonitoring(TimeSpan.FromSeconds(10));
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }
