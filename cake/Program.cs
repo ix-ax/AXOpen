@@ -1,9 +1,9 @@
 // Build
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/ix/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o.,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/ix/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/ix/blob/master/LICENSE
-// Third party licenses: https://github.com/ix-ax/ix/blob/master/notices.md
+// https://github.com/inxton/ix/blob/master/LICENSE
+// Third party licenses: https://github.com/inxton/ix/blob/master/notices.md
 
 
 using System;
@@ -883,7 +883,7 @@ public sealed class PushPackages : FrostingTask<BuildContext>
                     new Cake.Common.Tools.DotNet.NuGet.Push.DotNetNuGetPushSettings()
                     {
                         ApiKey = context.GitHubToken,
-                        Source = "https://nuget.pkg.github.com/ix-ax/index.json",
+                        Source = "https://nuget.pkg.github.com/inxton/index.json",
                         SkipDuplicate = true
                     });
             }
@@ -910,7 +910,7 @@ public sealed class PublishReleaseTask : FrostingTask<BuildContext>
             githubClient.Credentials = new Credentials(githubToken);
 
             var release = githubClient.Repository.Release.Create(
-                "ix-ax",
+                "inxton",
                 "AXOpen",
                 new NewRelease($"{GitVersionInformation.SemVer}")
                 {

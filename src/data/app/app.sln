@@ -15,11 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".apax", ".apax", "{C1519D32
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packages", "packages", "{2959B50D-7F37-473F-A6BF-573E321C43F9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "@ix-ax", "@ix-ax", "{A817FCC7-1B30-4C66-99C0-C163C5539267}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "@inxton", "@inxton", "{A817FCC7-1B30-4C66-99C0-C163C5539267}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "axopen.timers", "axopen.timers", "{7A9FB96D-C666-45EF-B154-7E0A2E32FCBC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_timers", ".apax\packages\@ix-ax\axopen.timers\ix\ix_ax_axopen_timers.csproj", "{7751D8D0-AABB-4BE5-AA71-7210D4245425}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_timers", ".apax\packages\@inxton\axopen.timers\ix\ix_ax_axopen_timers.csproj", "{7751D8D0-AABB-4BE5-AA71-7210D4245425}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "axopen.core", "axopen.core", "{6F096236-1723-4969-9F18-F14DA18338DC}"
 EndProject
@@ -27,11 +27,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".apax", ".apax", "{5CCFDB0F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packages", "packages", "{81810ACF-9895-4DDB-B795-7D8ED693E5F8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "@ix-ax", "@ix-ax", "{941DB3AD-637D-43A0-8B48-B7B4AD3D4C03}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "@inxton", "@inxton", "{941DB3AD-637D-43A0-8B48-B7B4AD3D4C03}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "axopen.timers", "axopen.timers", "{F10B6222-3102-462A-AA1C-A64BCD7C61B7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_timers", ".apax\packages\@ix-ax\axopen.core\.apax\packages\@ix-ax\axopen.timers\ix\ix_ax_axopen_timers.csproj", "{DBA3A35F-9E9D-401D-9857-13A57731F8F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_timers", ".apax\packages\@inxton\axopen.core\.apax\packages\@inxton\axopen.timers\ix\ix_ax_axopen_timers.csproj", "{DBA3A35F-9E9D-401D-9857-13A57731F8F2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "axopen.data", "axopen.data", "{589284AD-F34F-4005-8989-F5FB226472FA}"
 EndProject
@@ -39,11 +39,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".apax", ".apax", "{4A5B8BD7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packages", "packages", "{1C78F7B9-5174-499C-9EB3-C54F4FF92D05}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "@ix-ax", "@ix-ax", "{777D86F6-ADEA-4848-81BF-BFF8ADD9E6A6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "@inxton", "@inxton", "{777D86F6-ADEA-4848-81BF-BFF8ADD9E6A6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "axopen.timers", "axopen.timers", "{9D9AE7DB-3D9A-4A98-8693-C24A702A2CB5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_timers", ".apax\packages\@ix-ax\axopen.data\.apax\packages\@ix-ax\axopen.timers\ix\ix_ax_axopen_timers.csproj", "{E2601924-C115-4757-9A7B-2B13DDA6B849}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_timers", ".apax\packages\@inxton\axopen.data\.apax\packages\@inxton\axopen.timers\ix\ix_ax_axopen_timers.csproj", "{E2601924-C115-4757-9A7B-2B13DDA6B849}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "axopen.core", "axopen.core", "{86FE9B8E-99AE-4C89-B0CA-96F82B477DA9}"
 EndProject
@@ -51,11 +51,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".apax", ".apax", "{59035635
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packages", "packages", "{D106F9B7-FF36-49C9-8FB2-AC887A4D42BA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "@ix-ax", "@ix-ax", "{A4E39D9A-D824-477C-A6C0-D74E669FE5FD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "@inxton", "@inxton", "{A4E39D9A-D824-477C-A6C0-D74E669FE5FD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "axopen.timers", "axopen.timers", "{DDFE8212-C562-4256-A969-C8D70AA481E9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_timers", ".apax\packages\@ix-ax\axopen.data\.apax\packages\@ix-ax\axopen.core\.apax\packages\@ix-ax\axopen.timers\ix\ix_ax_axopen_timers.csproj", "{01AC4531-10AD-4FFB-A281-B1A9A5DDC7A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_timers", ".apax\packages\@inxton\axopen.data\.apax\packages\@inxton\axopen.core\.apax\packages\@inxton\axopen.timers\ix\ix_ax_axopen_timers.csproj", "{01AC4531-10AD-4FFB-A281-B1A9A5DDC7A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

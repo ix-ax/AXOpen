@@ -1,12 +1,12 @@
 # Automatic Rendering with AXOpen
 
-AXOpen leverages [AX# rendering](https://ix-ax.github.io/axsharp/articles/blazor/RENDERABLECONTENT.html) to enable a variety of advanced features.
+AXOpen leverages [AX# rendering](https://inxton.github.io/axsharp/articles/blazor/RENDERABLECONTENT.html) to enable a variety of advanced features.
 
 This document provides foundational information regarding the presentation methods used within AXOpen.
 
 ## Renderable Content Control
 
-While [presentation modes in AX#](https://ix-ax.github.io/axsharp/articles/blazor/RENDERABLECONTENT.html#presentation-types) offer several options, AXOpen introduces additional presentation types:
+While [presentation modes in AX#](https://inxton.github.io/axsharp/articles/blazor/RENDERABLECONTENT.html#presentation-types) offer several options, AXOpen introduces additional presentation types:
 
 | Presentation Type | Description                                                                                  |
 | ----------------- | -------------------------------------------------------------------------------------------- |

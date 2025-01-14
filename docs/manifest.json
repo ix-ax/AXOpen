@@ -1,11 +1,11 @@
 {
   "sitemap": {
-    "baseUrl": "https://ix-ax.github.io/AXOpen/",
+    "baseUrl": "https://inxton.github.io/AXOpen/",
     "changefreq": "weekly",
     "priority": 0.1
   },
   "homepages": [],
-  "source_base_path": "C:/W/Develop/gh/ix-ax/_axopen/axopen/docfx",
+  "source_base_path": "C:/W/Develop/gh/inxton/_axopen/axopen/docfx",
   "xrefmap": "xrefmap.yml",
   "files": [
     {

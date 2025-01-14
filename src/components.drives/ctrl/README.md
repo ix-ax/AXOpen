@@ -1,4 +1,4 @@
-# @ix-ax/axlibname
+# @inxton/axlibname
 
 [!INCLUDE [General](../docs/README.md)]
 
@@ -7,12 +7,12 @@
 
 ## Adding package to your project
 ~~~bash
-apax add "@ix-ax/axlibname"
+apax add "@inxton/axlibname"
 ~~~
 
 ## Modifying your `apax.yml`
 
 ~~~yml
 dependencies:
-  "@ix-ax/axlibname": '{axopen-version}'  
+  "@inxton/axlibname": '{axopen-version}'  
 ~~~

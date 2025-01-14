@@ -1,1789 +1,1789 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/NUGET-README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/NUGET-README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/Security/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/Security/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/Security/docs/INSTALLATION.html</loc>
+    <loc>https://inxton.github.io/AXOpen/Security/docs/INSTALLATION.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/Security/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/Security/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/Security/integrations/axopen_blazor_auth_app/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/Security/integrations/axopen_blazor_auth_app/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/abstractions/app/ix-blazor/librarytemplate.blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/abstractions/app/ix-blazor/librarytemplate.blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/api/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/api/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/apidoc/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/apidoc/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/articles/guidelines/Conventions.html</loc>
+    <loc>https://inxton.github.io/AXOpen/articles/guidelines/Conventions.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/articles/guidelines/PERFORMANCE.html</loc>
+    <loc>https://inxton.github.io/AXOpen/articles/guidelines/PERFORMANCE.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/articles/guidelines/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/articles/guidelines/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/articles/guidelines/components.html</loc>
+    <loc>https://inxton.github.io/AXOpen/articles/guidelines/components.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/articles/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/articles/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/articles/notes/APAX_PACAKGE_GENERAL.html</loc>
+    <loc>https://inxton.github.io/AXOpen/articles/notes/APAX_PACAKGE_GENERAL.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/articles/notes/Assets_in_nuget_package.html</loc>
+    <loc>https://inxton.github.io/AXOpen/articles/notes/Assets_in_nuget_package.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/articles/notes/CYCLIC_UPDATE_NOTICE.html</loc>
+    <loc>https://inxton.github.io/AXOpen/articles/notes/CYCLIC_UPDATE_NOTICE.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/articles/notes/Configuration.html</loc>
+    <loc>https://inxton.github.io/AXOpen/articles/notes/Configuration.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/articles/notes/LIBRARYHEADER.html</loc>
+    <loc>https://inxton.github.io/AXOpen/articles/notes/LIBRARYHEADER.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/articles/notes/Localization.html</loc>
+    <loc>https://inxton.github.io/AXOpen/articles/notes/Localization.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/articles/notes/NUGET_PACAKGE_BLAZOR_GENERAL.html</loc>
+    <loc>https://inxton.github.io/AXOpen/articles/notes/NUGET_PACAKGE_BLAZOR_GENERAL.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/articles/notes/NUGET_PACAKGE_GENERAL.html</loc>
+    <loc>https://inxton.github.io/AXOpen/articles/notes/NUGET_PACAKGE_GENERAL.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/articles/notes/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/articles/notes/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/articles/notes/Themes.html</loc>
+    <loc>https://inxton.github.io/AXOpen/articles/notes/Themes.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/articles/notes/ToolTipsAndPopOvers.html</loc>
+    <loc>https://inxton.github.io/AXOpen/articles/notes/ToolTipsAndPopOvers.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/articles/rendering/intro.html</loc>
+    <loc>https://inxton.github.io/AXOpen/articles/rendering/intro.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/articles/security/INSTALLATION.html</loc>
+    <loc>https://inxton.github.io/AXOpen/articles/security/INSTALLATION.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/articles/security/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/articles/security/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/base/src/AXOpen.VisualComposer/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/base/src/AXOpen.VisualComposer/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/clientchat/src/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/clientchat/src/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/clientchat/src/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/clientchat/src/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/clientchat/src/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/clientchat/src/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.abb.robotics/CHANGES_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.abb.robotics/CHANGES_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.abb.robotics/CREATION_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.abb.robotics/CREATION_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.abb.robotics/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.abb.robotics/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.abb.robotics/ctrl/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.abb.robotics/ctrl/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.abb.robotics/docs/CHANGELOG.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.abb.robotics/docs/CHANGELOG.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.abb.robotics/docs/ComponentTemplate.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.abb.robotics/docs/ComponentTemplate.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.abb.robotics/docs/Component_1.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.abb.robotics/docs/Component_1.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.abb.robotics/docs/Component_2.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.abb.robotics/docs/Component_2.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.abb.robotics/docs/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.abb.robotics/docs/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.abb.robotics/docs/TROUBLES.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.abb.robotics/docs/TROUBLES.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.abb.robotics/docs/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.abb.robotics/docs/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.abb.robotics/src/AXOpen.Components.Abb.Robotics.blazor/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.abb.robotics/src/AXOpen.Components.Abb.Robotics.blazor/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.abb.robotics/src/AXOpen.Components.Abb.Robotics/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.abb.robotics/src/AXOpen.Components.Abb.Robotics/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.abstractions/app/ix-blazor/librarytemplate.blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.abstractions/app/ix-blazor/librarytemplate.blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.abstractions/docs/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.abstractions/docs/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.abstractions/docs/TROUBLES.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.abstractions/docs/TROUBLES.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.abstractions/docs/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.abstractions/docs/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.balluff.identification/CHANGES_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.balluff.identification/CHANGES_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.balluff.identification/CREATION_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.balluff.identification/CREATION_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.balluff.identification/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.balluff.identification/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.balluff.identification/ctrl/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.balluff.identification/ctrl/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.balluff.identification/docs/CHANGELOG.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.balluff.identification/docs/CHANGELOG.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.balluff.identification/docs/ComponentTemplate.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.balluff.identification/docs/ComponentTemplate.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.balluff.identification/docs/Component_1.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.balluff.identification/docs/Component_1.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.balluff.identification/docs/Component_2.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.balluff.identification/docs/Component_2.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.balluff.identification/docs/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.balluff.identification/docs/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.balluff.identification/docs/TROUBLES.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.balluff.identification/docs/TROUBLES.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.balluff.identification/docs/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.balluff.identification/docs/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.balluff.identification/src/AXOpen.Components.Balluff.Identification.blazor/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.balluff.identification/src/AXOpen.Components.Balluff.Identification.blazor/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.balluff.identification/src/AXOpen.Components.Balluff.Identification/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.balluff.identification/src/AXOpen.Components.Balluff.Identification/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.cognex.vision/CHANGES_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.cognex.vision/CHANGES_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.cognex.vision/CREATION_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.cognex.vision/CREATION_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.cognex.vision/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.cognex.vision/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.cognex.vision/ctrl/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.cognex.vision/ctrl/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.cognex.vision/docs/CHANGELOG.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.cognex.vision/docs/CHANGELOG.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.cognex.vision/docs/ComponentTemplate.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.cognex.vision/docs/ComponentTemplate.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.cognex.vision/docs/Component_1.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.cognex.vision/docs/Component_1.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.cognex.vision/docs/Component_2.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.cognex.vision/docs/Component_2.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.cognex.vision/docs/Component_3.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.cognex.vision/docs/Component_3.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.cognex.vision/docs/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.cognex.vision/docs/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.cognex.vision/docs/TROUBLES.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.cognex.vision/docs/TROUBLES.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.cognex.vision/docs/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.cognex.vision/docs/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.cognex.vision/src/AXOpen.Components.Cognex.Vision.blazor/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.cognex.vision/src/AXOpen.Components.Cognex.Vision.blazor/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.cognex.vision/src/AXOpen.Components.Cognex.Vision/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.cognex.vision/src/AXOpen.Components.Cognex.Vision/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.desoutter.tightening/CHANGES_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.desoutter.tightening/CHANGES_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.desoutter.tightening/CREATION_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.desoutter.tightening/CREATION_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.desoutter.tightening/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.desoutter.tightening/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.desoutter.tightening/ctrl/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.desoutter.tightening/ctrl/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.desoutter.tightening/docs/CHANGELOG.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.desoutter.tightening/docs/CHANGELOG.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.desoutter.tightening/docs/ComponentTemplate.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.desoutter.tightening/docs/ComponentTemplate.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.desoutter.tightening/docs/Component_1.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.desoutter.tightening/docs/Component_1.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.desoutter.tightening/docs/Component_2.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.desoutter.tightening/docs/Component_2.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.desoutter.tightening/docs/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.desoutter.tightening/docs/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.desoutter.tightening/docs/TROUBLES.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.desoutter.tightening/docs/TROUBLES.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.desoutter.tightening/docs/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.desoutter.tightening/docs/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.desoutter.tightening/src/AXOpen.Components.Desoutter.Tightening.blazor/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.desoutter.tightening/src/AXOpen.Components.Desoutter.Tightening.blazor/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.desoutter.tightening/src/AXOpen.Components.Desoutter.Tightening/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.desoutter.tightening/src/AXOpen.Components.Desoutter.Tightening/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.drives/CHANGES_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.drives/CHANGES_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.drives/CREATION_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.drives/CREATION_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.drives/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.drives/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.drives/ctrl/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.drives/ctrl/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.drives/docs/CHANGELOG.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.drives/docs/CHANGELOG.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.drives/docs/ComponentTemplate.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.drives/docs/ComponentTemplate.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.drives/docs/Component_1.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.drives/docs/Component_1.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.drives/docs/Component_2.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.drives/docs/Component_2.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.drives/docs/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.drives/docs/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.drives/docs/TROUBLES.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.drives/docs/TROUBLES.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.drives/docs/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.drives/docs/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.drives/src/AXOpen.Components.Drives.blazor/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.drives/src/AXOpen.Components.Drives.blazor/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.drives/src/AXOpen.Components.Drives/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.drives/src/AXOpen.Components.Drives/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.elements/app/ix-blazor/ElementsComponents.blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.elements/app/ix-blazor/ElementsComponents.blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.elements/docs/AXOAI.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.elements/docs/AXOAI.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.elements/docs/AXOAO.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.elements/docs/AXOAO.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.elements/docs/AXODI.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.elements/docs/AXODI.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.elements/docs/AXODO.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.elements/docs/AXODO.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.elements/docs/HOWTO.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.elements/docs/HOWTO.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.elements/docs/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.elements/docs/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.elements/docs/TROUBLES.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.elements/docs/TROUBLES.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.elements/docs/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.elements/docs/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.festo.drives/CHANGES_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.festo.drives/CHANGES_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.festo.drives/CREATION_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.festo.drives/CREATION_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.festo.drives/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.festo.drives/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.festo.drives/ctrl/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.festo.drives/ctrl/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.festo.drives/docs/CHANGELOG.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.festo.drives/docs/CHANGELOG.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.festo.drives/docs/ComponentTemplate.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.festo.drives/docs/ComponentTemplate.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.festo.drives/docs/Component_1.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.festo.drives/docs/Component_1.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.festo.drives/docs/Component_2.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.festo.drives/docs/Component_2.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.festo.drives/docs/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.festo.drives/docs/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.festo.drives/docs/TROUBLES.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.festo.drives/docs/TROUBLES.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.festo.drives/docs/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.festo.drives/docs/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.festo.drives/src/AXOpen.Components.Festo.Drives.blazor/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.festo.drives/src/AXOpen.Components.Festo.Drives.blazor/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.festo.drives/src/AXOpen.Components.Festo.Drives/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.festo.drives/src/AXOpen.Components.Festo.Drives/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.kuka.robotics/CHANGES_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.kuka.robotics/CHANGES_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.kuka.robotics/CREATION_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.kuka.robotics/CREATION_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.kuka.robotics/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.kuka.robotics/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.kuka.robotics/ctrl/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.kuka.robotics/ctrl/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.kuka.robotics/docs/CHANGELOG.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.kuka.robotics/docs/CHANGELOG.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.kuka.robotics/docs/ComponentTemplate.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.kuka.robotics/docs/ComponentTemplate.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.kuka.robotics/docs/Component_1.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.kuka.robotics/docs/Component_1.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.kuka.robotics/docs/Component_2.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.kuka.robotics/docs/Component_2.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.kuka.robotics/docs/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.kuka.robotics/docs/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.kuka.robotics/docs/TROUBLES.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.kuka.robotics/docs/TROUBLES.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.kuka.robotics/docs/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.kuka.robotics/docs/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.kuka.robotics/src/AXOpen.Components.Kuka.Robotics.blazor/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.kuka.robotics/src/AXOpen.Components.Kuka.Robotics.blazor/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.kuka.robotics/src/AXOpen.Components.Kuka.Robotics/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.kuka.robotics/src/AXOpen.Components.Kuka.Robotics/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.mitsubishi.robotics/CHANGES_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.mitsubishi.robotics/CHANGES_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.mitsubishi.robotics/CREATION_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.mitsubishi.robotics/CREATION_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.mitsubishi.robotics/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.mitsubishi.robotics/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.mitsubishi.robotics/ctrl/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.mitsubishi.robotics/ctrl/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.mitsubishi.robotics/docs/CHANGELOG.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.mitsubishi.robotics/docs/CHANGELOG.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.mitsubishi.robotics/docs/ComponentTemplate.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.mitsubishi.robotics/docs/ComponentTemplate.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.mitsubishi.robotics/docs/Component_1.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.mitsubishi.robotics/docs/Component_1.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.mitsubishi.robotics/docs/Component_2.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.mitsubishi.robotics/docs/Component_2.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.mitsubishi.robotics/docs/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.mitsubishi.robotics/docs/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.mitsubishi.robotics/docs/TROUBLES.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.mitsubishi.robotics/docs/TROUBLES.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.mitsubishi.robotics/docs/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.mitsubishi.robotics/docs/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.mitsubishi.robotics/src/AXOpen.Components.Mitsubishi.Robotics.blazor/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.mitsubishi.robotics/src/AXOpen.Components.Mitsubishi.Robotics.blazor/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.mitsubishi.robotics/src/AXOpen.Components.Mitsubishi.Robotics/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.mitsubishi.robotics/src/AXOpen.Components.Mitsubishi.Robotics/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.pneumatics/app/ix-blazor/PneumaticComponents.blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.pneumatics/app/ix-blazor/PneumaticComponents.blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.pneumatics/ctrl/docs/AXOCYLINDER.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.pneumatics/ctrl/docs/AXOCYLINDER.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.pneumatics/docs/AXOCYLINDER.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.pneumatics/docs/AXOCYLINDER.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.pneumatics/docs/HOWTO.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.pneumatics/docs/HOWTO.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.pneumatics/docs/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.pneumatics/docs/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.pneumatics/docs/TROUBLES.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.pneumatics/docs/TROUBLES.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.pneumatics/docs/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.pneumatics/docs/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.drives/CHANGES_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.drives/CHANGES_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.drives/CREATION_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.drives/CREATION_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.drives/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.drives/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.drives/ctrl/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.drives/ctrl/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.drives/docs/CHANGELOG.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.drives/docs/CHANGELOG.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.drives/docs/ComponentTemplate.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.drives/docs/ComponentTemplate.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.drives/docs/Component_1.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.drives/docs/Component_1.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.drives/docs/Component_2.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.drives/docs/Component_2.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.drives/docs/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.drives/docs/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.drives/docs/TROUBLES.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.drives/docs/TROUBLES.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.drives/docs/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.drives/docs/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.drives/src/AXOpen.Components.Rexroth.Drives.blazor/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.drives/src/AXOpen.Components.Rexroth.Drives.blazor/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.drives/src/AXOpen.Components.Rexroth.Drives/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.drives/src/AXOpen.Components.Rexroth.Drives/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.press/CHANGES_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.press/CHANGES_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.press/CREATION_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.press/CREATION_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.press/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.press/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.press/ctrl/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.press/ctrl/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.press/docs/CHANGELOG.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.press/docs/CHANGELOG.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.press/docs/ComponentTemplate.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.press/docs/ComponentTemplate.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.press/docs/Component_1.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.press/docs/Component_1.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.press/docs/Component_2.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.press/docs/Component_2.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.press/docs/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.press/docs/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.press/docs/TROUBLES.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.press/docs/TROUBLES.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.press/docs/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.press/docs/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.press/src/AXOpen.Components.Rexroth.Press.blazor/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.press/src/AXOpen.Components.Rexroth.Press.blazor/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.rexroth.press/src/AXOpen.Components.Rexroth.Press/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.rexroth.press/src/AXOpen.Components.Rexroth.Press/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.robotics/CHANGES_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.robotics/CHANGES_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.robotics/CREATION_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.robotics/CREATION_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.robotics/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.robotics/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.robotics/ctrl/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.robotics/ctrl/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.robotics/docs/CHANGELOG.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.robotics/docs/CHANGELOG.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.robotics/docs/ComponentTemplate.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.robotics/docs/ComponentTemplate.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.robotics/docs/Component_1.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.robotics/docs/Component_1.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.robotics/docs/Component_2.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.robotics/docs/Component_2.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.robotics/docs/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.robotics/docs/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.robotics/docs/TROUBLES.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.robotics/docs/TROUBLES.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.robotics/docs/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.robotics/docs/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.robotics/src/AXOpen.Components.Robotics.blazor/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.robotics/src/AXOpen.Components.Robotics.blazor/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.robotics/src/AXOpen.Components.Robotics/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.robotics/src/AXOpen.Components.Robotics/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.siemens.identification/CHANGES_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.siemens.identification/CHANGES_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.siemens.identification/CREATION_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.siemens.identification/CREATION_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.siemens.identification/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.siemens.identification/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.siemens.identification/ctrl/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.siemens.identification/ctrl/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.siemens.identification/docs/CHANGELOG.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.siemens.identification/docs/CHANGELOG.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.siemens.identification/docs/ComponentTemplate.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.siemens.identification/docs/ComponentTemplate.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.siemens.identification/docs/Component_1.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.siemens.identification/docs/Component_1.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.siemens.identification/docs/Component_2.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.siemens.identification/docs/Component_2.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.siemens.identification/docs/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.siemens.identification/docs/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.siemens.identification/docs/TROUBLES.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.siemens.identification/docs/TROUBLES.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.siemens.identification/docs/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.siemens.identification/docs/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.siemens.identification/src/AXOpen.Components.Siemens.Identification.blazor/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.siemens.identification/src/AXOpen.Components.Siemens.Identification.blazor/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.siemens.identification/src/AXOpen.Components.Siemens.Identification/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.siemens.identification/src/AXOpen.Components.Siemens.Identification/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.ur.robotics/CHANGES_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.ur.robotics/CHANGES_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.ur.robotics/CREATION_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.ur.robotics/CREATION_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.ur.robotics/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.ur.robotics/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.ur.robotics/ctrl/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.ur.robotics/ctrl/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.ur.robotics/docs/CHANGELOG.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.ur.robotics/docs/CHANGELOG.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.ur.robotics/docs/ComponentTemplate.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.ur.robotics/docs/ComponentTemplate.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.ur.robotics/docs/Component_1.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.ur.robotics/docs/Component_1.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.ur.robotics/docs/Component_2.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.ur.robotics/docs/Component_2.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.ur.robotics/docs/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.ur.robotics/docs/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.ur.robotics/docs/TROUBLES.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.ur.robotics/docs/TROUBLES.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.ur.robotics/docs/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.ur.robotics/docs/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.ur.robotics/src/AXOpen.Components.Ur.Robotics.blazor/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.ur.robotics/src/AXOpen.Components.Ur.Robotics.blazor/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/components.ur.robotics/src/AXOpen.Components.Ur.Robotics/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/components.ur.robotics/src/AXOpen.Components.Ur.Robotics/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/core/app/ix-blazor/axopencore.blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/core/app/ix-blazor/axopencore.blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/core/ctrl/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/core/ctrl/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/core/docs/AXOALERTDIALOG.html</loc>
+    <loc>https://inxton.github.io/AXOpen/core/docs/AXOALERTDIALOG.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/core/docs/AXOCOMPONENT.html</loc>
+    <loc>https://inxton.github.io/AXOpen/core/docs/AXOCOMPONENT.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/core/docs/AXOCONTEXT.html</loc>
+    <loc>https://inxton.github.io/AXOpen/core/docs/AXOCONTEXT.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/core/docs/AXODIALOG.html</loc>
+    <loc>https://inxton.github.io/AXOpen/core/docs/AXODIALOG.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/core/docs/AXOLOGGER.html</loc>
+    <loc>https://inxton.github.io/AXOpen/core/docs/AXOLOGGER.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/core/docs/AXOMESSENGER.html</loc>
+    <loc>https://inxton.github.io/AXOpen/core/docs/AXOMESSENGER.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/core/docs/AXOMOMENTARYTASK.html</loc>
+    <loc>https://inxton.github.io/AXOpen/core/docs/AXOMOMENTARYTASK.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/core/docs/AXOOBJECT.html</loc>
+    <loc>https://inxton.github.io/AXOpen/core/docs/AXOOBJECT.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/core/docs/AXOREMOTETASK.html</loc>
+    <loc>https://inxton.github.io/AXOpen/core/docs/AXOREMOTETASK.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/core/docs/AXOSEQUENCER.html</loc>
+    <loc>https://inxton.github.io/AXOpen/core/docs/AXOSEQUENCER.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/core/docs/AXOSEQUENCERCONTAINER.html</loc>
+    <loc>https://inxton.github.io/AXOpen/core/docs/AXOSEQUENCERCONTAINER.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/core/docs/AXOSTEP.html</loc>
+    <loc>https://inxton.github.io/AXOpen/core/docs/AXOSTEP.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/core/docs/AXOTASK.html</loc>
+    <loc>https://inxton.github.io/AXOpen/core/docs/AXOTASK.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/core/docs/AXOTEXTLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/core/docs/AXOTEXTLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/core/docs/AXOTOGGLETASK.html</loc>
+    <loc>https://inxton.github.io/AXOpen/core/docs/AXOTOGGLETASK.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/core/docs/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/core/docs/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/core/docs/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/core/docs/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/data/app/ix-blazor/librarytemplate.blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/data/app/ix-blazor/librarytemplate.blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/data/ctrl/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/data/ctrl/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/data/docs/AxoDataExchange.html</loc>
+    <loc>https://inxton.github.io/AXOpen/data/docs/AxoDataExchange.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/data/docs/AxoDataFragmentExchange.html</loc>
+    <loc>https://inxton.github.io/AXOpen/data/docs/AxoDataFragmentExchange.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/data/docs/AxoDataPersistentExchange.html</loc>
+    <loc>https://inxton.github.io/AXOpen/data/docs/AxoDataPersistentExchange.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/data/docs/COLUMNS.html</loc>
+    <loc>https://inxton.github.io/AXOpen/data/docs/COLUMNS.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/data/docs/EXPORT.html</loc>
+    <loc>https://inxton.github.io/AXOpen/data/docs/EXPORT.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/data/docs/MODALVIEW.html</loc>
+    <loc>https://inxton.github.io/AXOpen/data/docs/MODALVIEW.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/data/docs/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/data/docs/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/data/docs/SECURITY.html</loc>
+    <loc>https://inxton.github.io/AXOpen/data/docs/SECURITY.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/data/docs/SORT.html</loc>
+    <loc>https://inxton.github.io/AXOpen/data/docs/SORT.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/data/docs/USAGE.html</loc>
+    <loc>https://inxton.github.io/AXOpen/data/docs/USAGE.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/data/docs/VISUALIZATION.html</loc>
+    <loc>https://inxton.github.io/AXOpen/data/docs/VISUALIZATION.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/data/docs/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/data/docs/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/data/src/exporters/AXOpen.Data.Exporters.Excel/ExcelData.html</loc>
+    <loc>https://inxton.github.io/AXOpen/data/src/exporters/AXOpen.Data.Exporters.Excel/ExcelData.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/data/src/repositories/RavenDb/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/data/src/repositories/RavenDb/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/inspectors/app/ix-blazor/AXOpen.Inspectors.blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/inspectors/app/ix-blazor/AXOpen.Inspectors.blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/inspectors/docs/AXOANALOGUEINSPECTOR.html</loc>
+    <loc>https://inxton.github.io/AXOpen/inspectors/docs/AXOANALOGUEINSPECTOR.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/inspectors/docs/AXODATAINSPECTOR.html</loc>
+    <loc>https://inxton.github.io/AXOpen/inspectors/docs/AXODATAINSPECTOR.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/inspectors/docs/AXODIGITALINSPECTOR.html</loc>
+    <loc>https://inxton.github.io/AXOpen/inspectors/docs/AXODIGITALINSPECTOR.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/inspectors/docs/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/inspectors/docs/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/inspectors/docs/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/inspectors/docs/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/integrations/src/AXOpen.Integrations.Blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/integrations/src/AXOpen.Integrations.Blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/io/CHANGES_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/io/CHANGES_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/io/CREATION_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/io/CREATION_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/io/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/io/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/io/ctrl/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/io/ctrl/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/io/docs/CHANGELOG.html</loc>
+    <loc>https://inxton.github.io/AXOpen/io/docs/CHANGELOG.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/io/docs/ComponentTemplate.html</loc>
+    <loc>https://inxton.github.io/AXOpen/io/docs/ComponentTemplate.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/io/docs/Component_1.html</loc>
+    <loc>https://inxton.github.io/AXOpen/io/docs/Component_1.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/io/docs/Component_2.html</loc>
+    <loc>https://inxton.github.io/AXOpen/io/docs/Component_2.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/io/docs/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/io/docs/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/io/docs/TROUBLES.html</loc>
+    <loc>https://inxton.github.io/AXOpen/io/docs/TROUBLES.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/io/docs/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/io/docs/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/io/src/AXOpen.Io.blazor/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/io/src/AXOpen.Io.blazor/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/io/src/AXOpen.Io/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/io/src/AXOpen.Io/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/probers/app/ix-blazor/librarytemplate.blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/probers/app/ix-blazor/librarytemplate.blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/simatic1500/ctrl/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/simatic1500/ctrl/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/template.axolibrary/CHANGES_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/template.axolibrary/CHANGES_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/template.axolibrary/CREATION_CHECKLIST.html</loc>
+    <loc>https://inxton.github.io/AXOpen/template.axolibrary/CREATION_CHECKLIST.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/template.axolibrary/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/template.axolibrary/app/ix-blazor/wwwroot/css/open-iconic/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/template.axolibrary/ctrl/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/template.axolibrary/ctrl/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/template.axolibrary/docs/CHANGELOG.html</loc>
+    <loc>https://inxton.github.io/AXOpen/template.axolibrary/docs/CHANGELOG.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/template.axolibrary/docs/ComponentTemplate.html</loc>
+    <loc>https://inxton.github.io/AXOpen/template.axolibrary/docs/ComponentTemplate.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/template.axolibrary/docs/Component_1.html</loc>
+    <loc>https://inxton.github.io/AXOpen/template.axolibrary/docs/Component_1.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/template.axolibrary/docs/Component_2.html</loc>
+    <loc>https://inxton.github.io/AXOpen/template.axolibrary/docs/Component_2.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/template.axolibrary/docs/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/template.axolibrary/docs/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/template.axolibrary/docs/TROUBLES.html</loc>
+    <loc>https://inxton.github.io/AXOpen/template.axolibrary/docs/TROUBLES.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/template.axolibrary/docs/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/template.axolibrary/docs/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/template.axolibrary/src/projname.blazor/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/template.axolibrary/src/projname.blazor/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/template.axolibrary/src/projname/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/template.axolibrary/src/projname/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/timers/docs/OFFDELAYTIMER.html</loc>
+    <loc>https://inxton.github.io/AXOpen/timers/docs/OFFDELAYTIMER.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/timers/docs/ONDELAYTIMER.html</loc>
+    <loc>https://inxton.github.io/AXOpen/timers/docs/ONDELAYTIMER.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/timers/docs/PULSETIMER.html</loc>
+    <loc>https://inxton.github.io/AXOpen/timers/docs/PULSETIMER.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/timers/docs/README.html</loc>
+    <loc>https://inxton.github.io/AXOpen/timers/docs/README.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://ix-ax.github.io/AXOpen/timers/docs/index.html</loc>
+    <loc>https://inxton.github.io/AXOpen/timers/docs/index.html</loc>
     <lastmod>2024-07-03T11:20:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>

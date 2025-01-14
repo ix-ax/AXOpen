@@ -14,7 +14,7 @@ Add registry to your `apax.yml` file.
 
 ~~~yml
 registries: 
-  "@ix-ax": https://npm.pkg.github.com/
+  "@inxton": https://npm.pkg.github.com/
 ~~~
 
 >[!NOTE]
