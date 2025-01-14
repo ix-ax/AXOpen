@@ -1,9 +1,11 @@
 name: nightly
 
-on:
+on: 
+  workflow_dispatch :
+    branches :  
+      - dev
   schedule:
-    - cron: '02 11 * * *'  
-  workflow_dispatch:
+    - cron: '7 11 * * *'
 
 jobs:
   build:
