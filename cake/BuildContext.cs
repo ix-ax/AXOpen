@@ -156,6 +156,7 @@ public class BuildContext : FrostingContext
     #region Libraries
     public IEnumerable<(string folder, string name, bool pack, bool app_run)> Libraries { get; } = new[]
     {
+        ("ax.latest.packages", "ax.latest.packages", true, false),
         ("ax.axopen.min", "ax.axopen.min", true, false),
         ("ax.axopen.hwlibrary", "ax.axopen.hwlibrary", true, false),
         ("ax.axopen.app", "ax.axopen.app", true, false),
