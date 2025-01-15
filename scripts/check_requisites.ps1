@@ -114,7 +114,7 @@ $headers = @{
     "Accept"        = "application/vnd.github.package-preview+json"
 }
 
-$feedUrl = "https://nuget.pkg.github.com/ix-ax/index.json"
+$feedUrl = "https://nuget.pkg.github.com/inxton/index.json"
 
 # Check if the feed is added
 $isFeedAlreadyAdded = $false;
