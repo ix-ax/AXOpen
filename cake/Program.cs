@@ -883,7 +883,7 @@ public sealed class PushPackages : FrostingTask<BuildContext>
                     new Cake.Common.Tools.DotNet.NuGet.Push.DotNetNuGetPushSettings()
                     {
                         ApiKey = context.GitHubToken,
-                        Source = "https://nuget.pkg.github.com/ix-ax/index.json",
+                        Source = "https://nuget.pkg.github.com/inxton/index.json",
                         SkipDuplicate = true
                     });
             }
