@@ -287,9 +287,7 @@ public static class ApaxCmd
     }
 
     public static void ApaxPack(this BuildContext context, (string folder, string name, bool pack, bool app_run) lib)
-    {
-
-        System.Console.WriteLine(context.ApaxSignKey);
+    {        
         if (lib.pack)
         {
             context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
