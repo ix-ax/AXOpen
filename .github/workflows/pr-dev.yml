@@ -6,7 +6,7 @@ on:
     paths:
      - 'src/**'
      - 'cake/**'
-     - '.github/**'
+    # - '.github/**' # temporarily removed just to tune nightly faster
   workflow_dispatch:
 
 jobs:
