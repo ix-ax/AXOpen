@@ -26,7 +26,7 @@ dependencies:
   # installStrategy: strict
   "@ix-ax/ax.latest.packages": '0.0.0-dev.0'
 installStrategy: overridable
-apaxVersion: 3.3.1
+apaxVersion: 3.4.2
 scripts:
   # For proper execution of these scripts, the following variables need to be defined as environment variables or local variables.
   # Local variables can override environment variables.
