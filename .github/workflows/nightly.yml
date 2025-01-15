@@ -2,10 +2,10 @@ name: nightly
 
 on: 
   workflow_dispatch :
-    branches :  
-      - dev
+#    branches :  
+#      - dev
   schedule:
-    - cron: '13 10 * * *'
+    - cron: '0 7 * * *'
 
 jobs:
   build:
