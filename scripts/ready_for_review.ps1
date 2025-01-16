@@ -26,11 +26,19 @@ else
     # Assign it to me
     gh pr edit $pullRequestNumber --add-assignee "@me"
     Write-Host "Please enter the additional reviewers names: i.e.: my_boss_github_name, his_boss_github_name, etc. (upto the galaxy owner)"
-    $AdditionalReviewers = Read-Host "At least one additional reviewer's github name must be provided."
+    Write-Host "If environment variable 'GH_REVIEWERS' exists, these names will be added, otherwise these names will be used as the only reviewers"
+    $AdditionalReviewers = Read-Host "For empty press enter."
     $ReviewComment = Read-Host "Please enter a comment for the reviewers, for empty press enter"
     Write-Output "currentBranch:  $currentBranch"
     Write-Output "AdditionalReviewers:  $AdditionalReviewers"
-    $Reviewers = "PTKu" + "," + $AdditionalReviewers
+    if ($Env:GH_REVIEWERS -ne $null) 
+    {
+        $Reviewers = $Env:GH_REVIEWERS + "," + $AdditionalReviewers
+    } 
+    else 
+    {
+        $Reviewers = $AdditionalReviewers
+    }
     $ReviewersArray = $Reviewers -split "," | ForEach-Object { $_.Trim() }
     $ReviewersString = $ReviewersArray -join ","
     $Command = "gh pr edit --add-reviewer " + $ReviewersString
