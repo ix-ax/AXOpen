@@ -2,7 +2,7 @@ name: "app_axopen.components.festo.drives"
 version: '0.0.0-dev.0'
 type: app
 targets:
-  - "1500"
+  - s7generic
 variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"

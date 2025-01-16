@@ -2,7 +2,7 @@ name: "elementscomponents"
 version: '0.0.0-dev.0'
 type: app
 targets:
-  - "1500"
+  - s7generic
   - llvm
 variables:
   APAX_BUILD_ARGS:
