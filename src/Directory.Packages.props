@@ -6,6 +6,15 @@
   </PropertyGroup>
   <ItemGroup>
     <GlobalPackageReference Include="GitVersion.MsBuild" Version="5.10.3" />
+
+    <!-- AX# START -->
+    <PackageVersion Include="AXSharp.Abstractions" Version="0.22.0-alpha.288" />
+    <PackageVersion Include="AXSharp.Connector" Version="0.22.0-alpha.288" />
+    <PackageVersion Include="AXSharp.Connector.S71500.WebAPI" Version="0.22.0-alpha.288" />
+    <PackageVersion Include="AXSharp.Presentation.Blazor" Version="0.22.0-alpha.288" />
+    <PackageVersion Include="AXSharp.Presentation.Blazor.Controls" Version="0.22.0-alpha.288" />
+    <!-- AX# END -->
+
     <PackageVersion Include="ClosedXML" Version="0.104.2" />
     <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.3.2" />
     <PackageVersion Include="CommandLineParser" Version="2.9.1" />
@@ -18,28 +27,8 @@
     <PackageVersion Include="MongoDB.Bson" Version="3.0.0" />
     <PackageVersion Include="MongoDB.Driver" Version="3.0.0" />
     <PackageVersion Include="MongoDB.Driver.Core" Version="2.30.0" />
-    <PackageVersion Include="Siemens.Simatic.S7.Webserver.API" Version="2.2.26" />
-    <!-- AX# START -->
-    <PackageVersion Include="AXSharp.Abstractions" Version="0.21.0-alpha.280" />
-    <PackageVersion Include="AXSharp.Connector" Version="0.21.0-alpha.280" />
-    <PackageVersion Include="AXSharp.Connector.S71500.WebAPI" Version="0.21.0-alpha.280" />
-    <PackageVersion Include="AXSharp.Presentation.Blazor" Version="0.21.0-alpha.280" />
-    <PackageVersion Include="AXSharp.Presentation.Blazor.Controls" Version="0.21.0-alpha.280" />
-    <!-- AX# END -->
+    <PackageVersion Include="Siemens.Simatic.S7.Webserver.API" Version="2.2.26" />    
     <PackageVersion Include="AXOpen.KristofferStrube.Blazor.SVGEditor" Version="0.4.4-alpha.296" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.Authorization" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
-    <PackageVersion Include="Microsoft.Extensions.Identity.Stores" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Localization" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.SignalR.Client" Version="9.0.0" />
     <PackageVersion Include="MSTest.TestAdapter" Version="3.6.3" />
     <PackageVersion Include="MSTest.TestFramework" Version="3.1.1" />
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
@@ -52,5 +41,39 @@
     <PackageVersion Include="xunit" Version="2.9.2" />
     <PackageVersion Include="coverlet.collector" Version="6.0.2" />
     <PackageVersion Include="Cocona" Version="2.2.0" />
+
+    <!--Microsoft-->
+    <PackageVersion Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+
+    <!--Microsoft target framework dependent-->
+    <!--net9.0-->
+    <PackageVersion Include="Microsoft.AspNetCore.Components" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'"/>
+    <PackageVersion Include="Microsoft.AspNetCore.Components.Authorization" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
+    <PackageVersion Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />    
+    <PackageVersion Include="Microsoft.Extensions.Identity.Stores" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
+    <PackageVersion Include="Microsoft.Extensions.Localization" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
+    <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
+    <PackageVersion Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
+    <PackageVersion Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
+    <PackageVersion Include="Microsoft.AspNetCore.SignalR.Client" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
+
+    <!--net8.0-->
+    <PackageVersion Include="Microsoft.AspNetCore.Components" Version="8.0.10" Condition="'$(TargetFramework)' == 'net8.0'"/>
+    <PackageVersion Include="Microsoft.AspNetCore.Components.Authorization" Version="8.0.0" Condition="'$(TargetFramework)' == 'net8.0'" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="8.0.10" Condition="'$(TargetFramework)' == 'net8.0'" />
+    <PackageVersion Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.0" Condition="'$(TargetFramework)' == 'net8.0'" />    
+    <PackageVersion Include="Microsoft.Extensions.Identity.Stores" Version="8.0.0" Condition="'$(TargetFramework)' == 'net8.0'" />
+    <PackageVersion Include="Microsoft.Extensions.Localization" Version="8.0.0" Condition="'$(TargetFramework)' == 'net8.0'" />
+    <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0" Condition="'$(TargetFramework)' == 'net8.0'" />
+    <PackageVersion Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.0" Condition="'$(TargetFramework)' == 'net8.0'" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" Condition="'$(TargetFramework)' == 'net8.0'" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0" Condition="'$(TargetFramework)' == 'net8.0'" />
+    <PackageVersion Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.0" Condition="'$(TargetFramework)' == 'net8.0'" />
+    <PackageVersion Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.0" Condition="'$(TargetFramework)' == 'net8.0'" />
+    
+    
   </ItemGroup>
 </Project>
