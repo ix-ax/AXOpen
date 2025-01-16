@@ -30,15 +30,27 @@ else
     $AdditionalReviewers = Read-Host "For empty press enter."
     $ReviewComment = Read-Host "Please enter a comment for the reviewers, for empty press enter"
     Write-Output "currentBranch:  $currentBranch"
-    Write-Output "AdditionalReviewers:  $AdditionalReviewers"
     if ($Env:GH_REVIEWERS -ne $null) 
     {
-        $Reviewers = $Env:GH_REVIEWERS + "," + $AdditionalReviewers
+        if (-not $AdditionalReviewers) 
+        {
+            $Reviewers = $Env:GH_REVIEWERS 
+        }
+        else
+        {
+            $Reviewers = $Env:GH_REVIEWERS + "," + $AdditionalReviewers
+        }
     } 
     else 
     {
         $Reviewers = $AdditionalReviewers
     }
+    if (-not $Reviewers) 
+    {
+        Write-Error "No reviewers defined."
+        exit 1
+    }
+    Write-Output "Reviewers:  $Reviewers"
     $ReviewersArray = $Reviewers -split "," | ForEach-Object { $_.Trim() }
     $ReviewersString = $ReviewersArray -join ","
     $Command = "gh pr edit --add-reviewer " + $ReviewersString
