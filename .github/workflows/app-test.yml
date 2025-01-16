@@ -12,7 +12,7 @@ on:
 
 jobs:
   run-app-test:
-    runs-on: [self-hosted, Windows, X64, APP] 
+    runs-on: [self-hosted, Windows, X64, AX, APP] 
     steps:
     - name: Checkout
       uses: actions/checkout@v3
