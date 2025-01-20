@@ -370,8 +370,8 @@ namespace AXOpen.Data
         {
             public Dictionary<string, ExportData> CustomExportData { get; set; } = new();
             public eExportMode ExportMode { get; set; } = eExportMode.First;
-            public int FirstNumber { get; set; } = 50;
-            public int SecondNumber { get; set; } = 100;
+            public uint FirstNumber { get; set; } = 50;
+            public uint SecondNumber { get; set; } = 100;
             public string ExportFileType { get; set; } = "CSV";
             public char Separator { get; set; } = ';';
         }
