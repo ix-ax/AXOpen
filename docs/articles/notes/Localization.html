@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/notes/Localization.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/docfx/articles/notes/Localization.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,22 +87,22 @@
         </div>
 
         <article data-uid="">
-<h1 id="template-localization"><strong>Template localization</strong></h1>
+<h1 id="template-localization" sourcefile="articles/notes/Localization.md" sourcestartlinenumber="1"><strong sourcefile="articles/notes/Localization.md" sourcestartlinenumber="1">Template localization</strong></h1>
 
-<p>Localization is a useful feature of any application. It allows you to translate the application into different languages. This guide will show you how localization is achieved in our template Blazor application - <code>templates.simple</code>.</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<ul>
-<li><em>Microsoft.Extensions.Localization</em> NuGet package</li>
+<p sourcefile="articles/notes/Localization.md" sourcestartlinenumber="3">Localization is a useful feature of any application. It allows you to translate the application into different languages. This guide will show you how localization is achieved in our template Blazor application - <code sourcefile="articles/notes/Localization.md" sourcestartlinenumber="3">templates.simple</code>.</p>
+<h2 id="prerequisites" sourcefile="articles/notes/Localization.md" sourcestartlinenumber="5">Prerequisites</h2>
+<ul sourcefile="articles/notes/Localization.md" sourcestartlinenumber="7">
+<li sourcefile="articles/notes/Localization.md" sourcestartlinenumber="7"><em sourcefile="articles/notes/Localization.md" sourcestartlinenumber="7">Microsoft.Extensions.Localization</em> NuGet package</li>
 </ul>
-<h2 id="localization-in-blazor">Localization in Blazor</h2>
-<p>To make use of localization in Blazor, make sure that:</p>
-<ul>
-<li><p>Localization services are added in <code>Program.cs</code>:</p>
-<pre><code class="lang-csharp">builder.Services.AddLocalization();
+<h2 id="localization-in-blazor" sourcefile="articles/notes/Localization.md" sourcestartlinenumber="9">Localization in Blazor</h2>
+<p sourcefile="articles/notes/Localization.md" sourcestartlinenumber="11">To make use of localization in Blazor, make sure that:</p>
+<ul sourcefile="articles/notes/Localization.md" sourcestartlinenumber="13">
+<li sourcefile="articles/notes/Localization.md" sourcestartlinenumber="13"><p sourcefile="articles/notes/Localization.md" sourcestartlinenumber="13">Localization services are added in <code sourcefile="articles/notes/Localization.md" sourcestartlinenumber="13">Program.cs</code>:</p>
+<pre><code class="lang-csharp" sourcefile="articles/notes/Localization.md" sourcestartlinenumber="15">builder.Services.AddLocalization();
 </code></pre>
 </li>
-<li><p>Localization middleware with supported languages is added in the correct order to the middleware pipeline in <code>Program.cs</code>:</p>
-<pre><code class="lang-csharp">var supportedCultures = new[] { &quot;en-US&quot;, &quot;sk-SK&quot;, &quot;es-ES&quot;};
+<li sourcefile="articles/notes/Localization.md" sourcestartlinenumber="19"><p sourcefile="articles/notes/Localization.md" sourcestartlinenumber="19">Localization middleware with supported languages is added in the correct order to the middleware pipeline in <code sourcefile="articles/notes/Localization.md" sourcestartlinenumber="19">Program.cs</code>:</p>
+<pre><code class="lang-csharp" sourcefile="articles/notes/Localization.md" sourcestartlinenumber="21">var supportedCultures = new[] { &quot;en-US&quot;, &quot;sk-SK&quot;, &quot;es-ES&quot;};
 var localizationOptions = new RequestLocalizationOptions()
     .AddSupportedCultures(supportedCultures)
     .AddSupportedUICultures(supportedCultures);
@@ -110,25 +110,25 @@ var localizationOptions = new RequestLocalizationOptions()
 app.UseRequestLocalization(localizationOptions);
 </code></pre>
 </li>
-<li><p>In <code>_Imports.razor</code> the following <code>@using</code> directives are added:</p>
-<pre><code class="lang-csharp">@using System.Globalization
+<li sourcefile="articles/notes/Localization.md" sourcestartlinenumber="30"><p sourcefile="articles/notes/Localization.md" sourcestartlinenumber="30">In <code sourcefile="articles/notes/Localization.md" sourcestartlinenumber="30">_Imports.razor</code> the following <code sourcefile="articles/notes/Localization.md" sourcestartlinenumber="30">@using</code> directives are added:</p>
+<pre><code class="lang-csharp" sourcefile="articles/notes/Localization.md" sourcestartlinenumber="32">@using System.Globalization
 @using Microsoft.Extensions.Localization
 </code></pre>
 </li>
 </ul>
-<p>For more information on localization in Blazor visit <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/globalization-localization">Microsoft Docs</a>.</p>
-<h2 id="adding-support-for-a-new-language">Adding support for a new language</h2>
-<p>In order to add a new language support to the application, a resource file (<em>.resx</em>) needs to be created. Resource file are in the forefront of localization in .NET. They are used to store app data (in our case strings), that can be easily accessed and changed without recompiling the app.</p>
-<p>In our template application, resource files are located in the <code>Resources</code> folder. Create a new resource file for the language you want to add. The name of the file should be in the following format: <code>ResourceName.culture.resx</code>, where <code>culture</code> is the culture code of the language. E.g. <code>ResourceName.de.resx</code> would be a resource file for German language.</p>
-<p>If you want to make resource files easier to work with, check out <a href="https://marketplace.visualstudio.com/items?itemName=TomEnglert.ResXManager">ResXManager</a> extension for Visual Studio.</p>
-<p>In <code>_Imports.razor</code> make sure that the <code>@using</code> directive for the newly created resource file is added and inject the <code>IStringLocalizer</code> service of the resource file. E.g.:</p>
-<pre><code class="lang-csharp">@using axosimple.hmi.Resources
+<p sourcefile="articles/notes/Localization.md" sourcestartlinenumber="37">For more information on localization in Blazor visit <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/globalization-localization" sourcefile="articles/notes/Localization.md" sourcestartlinenumber="37">Microsoft Docs</a>.</p>
+<h2 id="adding-support-for-a-new-language" sourcefile="articles/notes/Localization.md" sourcestartlinenumber="39">Adding support for a new language</h2>
+<p sourcefile="articles/notes/Localization.md" sourcestartlinenumber="41">In order to add a new language support to the application, a resource file (<em sourcefile="articles/notes/Localization.md" sourcestartlinenumber="41">.resx</em>) needs to be created. Resource file are in the forefront of localization in .NET. They are used to store app data (in our case strings), that can be easily accessed and changed without recompiling the app.</p>
+<p sourcefile="articles/notes/Localization.md" sourcestartlinenumber="43">In our template application, resource files are located in the <code sourcefile="articles/notes/Localization.md" sourcestartlinenumber="43">Resources</code> folder. Create a new resource file for the language you want to add. The name of the file should be in the following format: <code sourcefile="articles/notes/Localization.md" sourcestartlinenumber="43">ResourceName.culture.resx</code>, where <code sourcefile="articles/notes/Localization.md" sourcestartlinenumber="43">culture</code> is the culture code of the language. E.g. <code sourcefile="articles/notes/Localization.md" sourcestartlinenumber="43">ResourceName.de.resx</code> would be a resource file for German language.</p>
+<p sourcefile="articles/notes/Localization.md" sourcestartlinenumber="45">If you want to make resource files easier to work with, check out <a href="https://marketplace.visualstudio.com/items?itemName=TomEnglert.ResXManager" sourcefile="articles/notes/Localization.md" sourcestartlinenumber="45">ResXManager</a> extension for Visual Studio.</p>
+<p sourcefile="articles/notes/Localization.md" sourcestartlinenumber="47">In <code sourcefile="articles/notes/Localization.md" sourcestartlinenumber="47">_Imports.razor</code> make sure that the <code sourcefile="articles/notes/Localization.md" sourcestartlinenumber="47">@using</code> directive for the newly created resource file is added and inject the <code sourcefile="articles/notes/Localization.md" sourcestartlinenumber="47">IStringLocalizer</code> service of the resource file. E.g.:</p>
+<pre><code class="lang-csharp" sourcefile="articles/notes/Localization.md" sourcestartlinenumber="49">@using axosimple.hmi.Resources
 
 @inject IStringLocalizer&lt;ResourceName&gt; Localizer
 </code></pre>
-<h2 id="changing-the-language-dynamically">Changing the language dynamically</h2>
-<p>To change the language dynamically, add a new <code>CultureInfo</code> object to the <code>supportedCultures</code> array in the code section of <code>Index.razor</code>. E.g.:</p>
-<pre><code class="lang-csharp">private CultureInfo[] supportedCultures = new[]
+<h2 id="changing-the-language-dynamically" sourcefile="articles/notes/Localization.md" sourcestartlinenumber="55">Changing the language dynamically</h2>
+<p sourcefile="articles/notes/Localization.md" sourcestartlinenumber="57">To change the language dynamically, add a new <code sourcefile="articles/notes/Localization.md" sourcestartlinenumber="57">CultureInfo</code> object to the <code sourcefile="articles/notes/Localization.md" sourcestartlinenumber="57">supportedCultures</code> array in the code section of <code sourcefile="articles/notes/Localization.md" sourcestartlinenumber="57">Index.razor</code>. E.g.:</p>
+<pre><code class="lang-csharp" sourcefile="articles/notes/Localization.md" sourcestartlinenumber="59">private CultureInfo[] supportedCultures = new[]
 {
     new CultureInfo(&quot;en-US&quot;),
     new CultureInfo(&quot;sk-SK&quot;),
@@ -136,22 +136,22 @@ app.UseRequestLocalization(localizationOptions);
     new CultureInfo(&quot;de-DE&quot;) // newly added language
 };
 </code></pre>
-<p>When selecting a language from the <code>&lt;select&gt;</code> menu in <code>Index.razor</code>, a <strong>cookie</strong> with selected language is created by <code>ChangeCulture</code> method of <code>CultureController</code>.</p>
-<h2 id="using-localized-strings">Using localized strings</h2>
-<p>To use localized strings, simply use <code>Localizer</code> service previously injected in <code>_Imports.razor</code> E.g.:</p>
-<pre><code class="lang-csharp">&lt;h1&gt;@Localizer[&quot;Hello World!&quot;]&lt;/h1&gt;
+<p sourcefile="articles/notes/Localization.md" sourcestartlinenumber="69">When selecting a language from the <code sourcefile="articles/notes/Localization.md" sourcestartlinenumber="69">&lt;select&gt;</code> menu in <code sourcefile="articles/notes/Localization.md" sourcestartlinenumber="69">Index.razor</code>, a <strong sourcefile="articles/notes/Localization.md" sourcestartlinenumber="69">cookie</strong> with selected language is created by <code sourcefile="articles/notes/Localization.md" sourcestartlinenumber="69">ChangeCulture</code> method of <code sourcefile="articles/notes/Localization.md" sourcestartlinenumber="69">CultureController</code>.</p>
+<h2 id="using-localized-strings" sourcefile="articles/notes/Localization.md" sourcestartlinenumber="71">Using localized strings</h2>
+<p sourcefile="articles/notes/Localization.md" sourcestartlinenumber="73">To use localized strings, simply use <code sourcefile="articles/notes/Localization.md" sourcestartlinenumber="73">Localizer</code> service previously injected in <code sourcefile="articles/notes/Localization.md" sourcestartlinenumber="73">_Imports.razor</code> E.g.:</p>
+<pre><code class="lang-csharp" sourcefile="articles/notes/Localization.md" sourcestartlinenumber="75">&lt;h1&gt;@Localizer[&quot;Hello World!&quot;]&lt;/h1&gt;
 </code></pre>
-<p>If the string is not found in the resource file, the key is returned instead. If it is found, however, the localized string is returned.</p>
-<p>English:</p>
-<p><img src="../../images/hello_english.png" alt="Hello_english"></p>
-<p>Slovak:</p>
-<p><img src="../../images/ahoj_slovak.png" alt="Ahoj_slovak"></p>
-<p>Spanish:</p>
-<p><img src="../../images/hola_spanish.png" alt="Hola_spanish"></p>
+<p sourcefile="articles/notes/Localization.md" sourcestartlinenumber="79">If the string is not found in the resource file, the key is returned instead. If it is found, however, the localized string is returned.</p>
+<p sourcefile="articles/notes/Localization.md" sourcestartlinenumber="81">English:</p>
+<p sourcefile="articles/notes/Localization.md" sourcestartlinenumber="83"><img src="../../images/hello_english.png" sourcefile="articles/notes/Localization.md" sourcestartlinenumber="83" alt="Hello_english"></p>
+<p sourcefile="articles/notes/Localization.md" sourcestartlinenumber="85">Slovak:</p>
+<p sourcefile="articles/notes/Localization.md" sourcestartlinenumber="87"><img src="../../images/ahoj_slovak.png" sourcefile="articles/notes/Localization.md" sourcestartlinenumber="87" alt="Ahoj_slovak"></p>
+<p sourcefile="articles/notes/Localization.md" sourcestartlinenumber="89">Spanish:</p>
+<p sourcefile="articles/notes/Localization.md" sourcestartlinenumber="91"><img src="../../images/hola_spanish.png" sourcefile="articles/notes/Localization.md" sourcestartlinenumber="91" alt="Hola_spanish"></p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/notes/Localization.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/docfx/articles/notes/Localization.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

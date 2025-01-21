@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/template.axolibrary/ctrl/README.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/template.axolibrary/ctrl/README.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,37 +87,37 @@
         </div>
 
         <article data-uid="">
-<h1 id="section">@inxton/apaxlibname</h1>
+<h1 id="section" sourcefile="../src/template.axolibrary/ctrl/README.md" sourcestartlinenumber="1">@inxton/apaxlibname</h1>
 
-<h2 id="description">Description</h2>
+<h2 id="description" sourcefile="../src/template.axolibrary/docs/README.md" sourcestartlinenumber="1">Description</h2>
 <!-- TODO: briefly decsribe the library -->
-<p><strong>APAX package registry</strong></p>
-<div class="IMPORTANT">
+<p sourcefile="../docfx/articles/notes/APAX_PACAKGE_GENERAL.md" sourcestartlinenumber="2"><strong sourcefile="../docfx/articles/notes/APAX_PACAKGE_GENERAL.md" sourcestartlinenumber="2">APAX package registry</strong></p>
+<div class="IMPORTANT" sourcefile="../docfx/articles/notes/APAX_PACAKGE_GENERAL.md" sourcestartlinenumber="4">
 <h5>Important</h5>
-<p><strong>APAX pacakges are now published experimentally</strong></p>
+<p sourcefile="../docfx/articles/notes/APAX_PACAKGE_GENERAL.md" sourcestartlinenumber="5"><strong sourcefile="../docfx/articles/notes/APAX_PACAKGE_GENERAL.md" sourcestartlinenumber="5">APAX pacakges are now published experimentally</strong></p>
 </div>
-<p>This apax package's registry is hosted on github on how to authenticate to the registry see the documentation <a href="https://console.simatic-ax.siemens.io/docs/faq/login-to-external-registries">here</a> and <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">here</a>.</p>
-<pre><code class="lang-bash">apax login --registry https://npm.pkg.github.com --username GH_USER_NAME --password PAT
+<p sourcefile="../docfx/articles/notes/APAX_PACAKGE_GENERAL.md" sourcestartlinenumber="7">This apax package's registry is hosted on github on how to authenticate to the registry see the documentation <a href="https://console.simatic-ax.siemens.io/docs/faq/login-to-external-registries" sourcefile="../docfx/articles/notes/APAX_PACAKGE_GENERAL.md" sourcestartlinenumber="7">here</a> and <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens" sourcefile="../docfx/articles/notes/APAX_PACAKGE_GENERAL.md" sourcestartlinenumber="7">here</a>.</p>
+<pre><code class="lang-bash" sourcefile="../docfx/articles/notes/APAX_PACAKGE_GENERAL.md" sourcestartlinenumber="9">apax login --registry https://npm.pkg.github.com --username GH_USER_NAME --password PAT
 </code></pre>
-<p>Add registry to your <code>apax.yml</code> file.</p>
-<pre><code class="lang-yml">registries: 
+<p sourcefile="../docfx/articles/notes/APAX_PACAKGE_GENERAL.md" sourcestartlinenumber="13">Add registry to your <code sourcefile="../docfx/articles/notes/APAX_PACAKGE_GENERAL.md" sourcestartlinenumber="13">apax.yml</code> file.</p>
+<pre><code class="lang-yml" sourcefile="../docfx/articles/notes/APAX_PACAKGE_GENERAL.md" sourcestartlinenumber="15">registries: 
   &quot;@ix-ax&quot;: https://npm.pkg.github.com/
 </code></pre>
-<div class="NOTE">
+<div class="NOTE" sourcefile="../docfx/articles/notes/APAX_PACAKGE_GENERAL.md" sourcestartlinenumber="20">
 <h5>Note</h5>
-<p>Please notice that all AXOpen packages are being released from a single repository and version numbers are aligned. You can use different versions that have major version number alligned should it be necessary, however we strongly recommend to use pacakge with the same version number, such packages are being built and tested together to enshure best experience.</p>
+<p sourcefile="../docfx/articles/notes/APAX_PACAKGE_GENERAL.md" sourcestartlinenumber="21">Please notice that all AXOpen packages are being released from a single repository and version numbers are aligned. You can use different versions that have major version number alligned should it be necessary, however we strongly recommend to use pacakge with the same version number, such packages are being built and tested together to enshure best experience.</p>
 </div>
-<h2 id="adding-the-package-to-your-project">Adding the package to your project</h2>
-<pre><code class="lang-bash">apax add &quot;@inxton/apaxlibname&quot;
+<h2 id="adding-the-package-to-your-project" sourcefile="../src/template.axolibrary/ctrl/README.md" sourcestartlinenumber="8">Adding the package to your project</h2>
+<pre><code class="lang-bash" sourcefile="../src/template.axolibrary/ctrl/README.md" sourcestartlinenumber="9">apax add &quot;@inxton/apaxlibname&quot;
 </code></pre>
-<h2 id="modifying-your-apaxyml">Modifying your <code>apax.yml</code></h2>
-<pre><code class="lang-yml">dependencies:
+<h2 id="modifying-your-apaxyml" sourcefile="../src/template.axolibrary/ctrl/README.md" sourcestartlinenumber="13">Modifying your <code sourcefile="../src/template.axolibrary/ctrl/README.md" sourcestartlinenumber="13">apax.yml</code></h2>
+<pre><code class="lang-yml" sourcefile="../src/template.axolibrary/ctrl/README.md" sourcestartlinenumber="15">dependencies:
   &quot;@inxton/apaxlibname&quot;: '{axopen-version}'  
 </code></pre>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/template.axolibrary/ctrl/README.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/template.axolibrary/ctrl/README.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

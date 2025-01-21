@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/components.rexroth.press/docs/ComponentTemplate.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/components.rexroth.press/docs/ComponentTemplate.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,36 +87,36 @@
         </div>
 
         <article data-uid="">
-<h1 id="component_1">Component_1</h1>
+<h1 id="component_1" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="1">Component_1</h1>
 
-<div class="tabGroup" id="tabgroup_1">
+<div class="tabGroup" id="tabgroup_1" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="3">
 <ul role="tablist">
 <li role="presentation">
-<a href="#tabpanel_1_controller" role="tab" aria-controls="tabpanel_1_controller" data-tab="controller" tabindex="0" aria-selected="true">CONTROLLER</a>
+<a href="#tabpanel_1_controller" role="tab" aria-controls="tabpanel_1_controller" data-tab="controller" tabindex="0" aria-selected="true" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="3">CONTROLLER</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_1_twin" role="tab" aria-controls="tabpanel_1_twin" data-tab="twin" tabindex="-1">.NET TWIN</a>
+<a href="#tabpanel_1_twin" role="tab" aria-controls="tabpanel_1_twin" data-tab="twin" tabindex="-1" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="25">.NET TWIN</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_1_blazor" role="tab" aria-controls="tabpanel_1_blazor" data-tab="blazor" tabindex="-1">BLAZOR</a>
+<a href="#tabpanel_1_blazor" role="tab" aria-controls="tabpanel_1_blazor" data-tab="blazor" tabindex="-1" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="31">BLAZOR</a>
 </li>
 </ul>
 <section id="tabpanel_1_controller" role="tabpanel" data-tab="controller">
-<h1 id="how-to-use-component-in-controller">How to use component in controller</h1>
-<h2 id="declare-component">Declare component</h2>
-<pre><code class="lang-pascal">VAR PUBLIC                
+<h1 id="how-to-use-component-in-controller" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="5">How to use component in controller</h1>
+<h2 id="declare-component" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="7">Declare component</h2>
+<pre><code class="lang-pascal" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="8">VAR PUBLIC                
     AxoSmartFunctionKit : AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x;             
 END_VAR
-</code></pre><h2 id="declare-initialization-variables">Declare initialization variables</h2>
-<p><em>Most of the initialization variable will come from the I/O system. This example is only for demostrational puproses.</em></p>
-<pre><code class="lang-pascal">VAR PUBLIC              
+</code></pre><h2 id="declare-initialization-variables" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="10">Declare initialization variables</h2>
+<p sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="12"><em sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="12">Most of the initialization variable will come from the I/O system. This example is only for demostrational puproses.</em></p>
+<pre><code class="lang-pascal" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="14">VAR PUBLIC              
     {#ix-set:AttributeName = &quot;&lt;#Activate manual control#&gt;&quot;}
     ActivateManualControl : BOOL;      
 END_VAR
-</code></pre><h2 id="initialize--run">Initialize &amp; Run</h2>
-<pre><code class="lang-pascal">AxoSmartFunctionKit.Run(parent              :=  THIS,                             
+</code></pre><h2 id="initialize--run" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="16">Initialize &amp; Run</h2>
+<pre><code class="lang-pascal" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="18">AxoSmartFunctionKit.Run(parent              :=  THIS,                             
                         hwID                :=  HwIdentifiers#SFK_HwID,
-                        hwIdParamCh_IDN     :=  HwIdentifiers#SFK_ParamCh_IDN_1_ID_PaCh_5Words_HwID,
+                        hwIdParamCh_IDN     :=  HwIdentifiers#SFK_ParamCh_5Words_ID_PaCh_5Words_HwID,
                         hwIdInput_24_Words  :=  HwIdentifiers#SFK_Input_24_Words_ID_InMod_24Words_HwID,
                         hwIdOutput_21_Words :=  HwIdentifiers#SFK_Output_21_Words_ID_OutMod_21Words_HwID);
 
@@ -124,12 +124,12 @@ AxoSmartFunctionKit.Config.InfoTime := T#10s;
 AxoSmartFunctionKit.Config.ErrorTime := T#30s;             
 AxoSmartFunctionKit.Config.IpAddress := '10.10.10.240';             
 AxoSmartFunctionKit.Config.CurveExportLocation := 'D:\Export';             
-</code></pre><div class="IMPORTANT">
+</code></pre><div class="IMPORTANT" sourcefile="../docfx/articles/notes/CYCLIC_UPDATE_NOTICE.md" sourcestartlinenumber="1">
 <h5>Important</h5>
-<p>This component requires cyclic data updates, which are typically sourced from the I/O system. Before using the component, make sure you invoke the <code>Run</code> method. Additionally, it's crucial to ensure that the <code>Run</code> method is positioned within a call tree that operates cyclically. Failing to initiate the <code>Run</code> method or not guaranteeing its cyclic execution can lead to malfunctions and unpredictable component behavior. In extreme circumstances, this could cause erratic controller behavior, potentially leading to equipment damage.</p>
+<p sourcefile="../docfx/articles/notes/CYCLIC_UPDATE_NOTICE.md" sourcestartlinenumber="2">This component requires cyclic data updates, which are typically sourced from the I/O system. Before using the component, make sure you invoke the <code sourcefile="../docfx/articles/notes/CYCLIC_UPDATE_NOTICE.md" sourcestartlinenumber="2">Run</code> method. Additionally, it's crucial to ensure that the <code sourcefile="../docfx/articles/notes/CYCLIC_UPDATE_NOTICE.md" sourcestartlinenumber="2">Run</code> method is positioned within a call tree that operates cyclically. Failing to initiate the <code sourcefile="../docfx/articles/notes/CYCLIC_UPDATE_NOTICE.md" sourcestartlinenumber="2">Run</code> method or not guaranteeing its cyclic execution can lead to malfunctions and unpredictable component behavior. In extreme circumstances, this could cause erratic controller behavior, potentially leading to equipment damage.</p>
 </div>
-<h2 id="use">Use</h2>
-<pre><code class="lang-pascal">VAR PUBLIC                       
+<h2 id="use" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="22">Use</h2>
+<pre><code class="lang-pascal" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="23">VAR PUBLIC                       
     Sequencer : AxoSequencer;       
     Steps : ARRAY[0..10] OF AXOpen.Core.AxoStep;
     {#ix-attr:[CompilerOmits()]} 
@@ -243,24 +243,24 @@ END_METHOD
 
 </code></pre></section>
 <section id="tabpanel_1_twin" role="tabpanel" data-tab="twin" aria-hidden="true" hidden="hidden">
-<pre><code class="lang-csharp"></code></pre></section>
+<pre><code class="lang-csharp" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="28"></code></pre></section>
 <section id="tabpanel_1_blazor" role="tabpanel" data-tab="blazor" aria-hidden="true" hidden="hidden">
-<h2 id="generic-read-only-view">Generic Read-Only view</h2>
-<pre><code class="lang-html">&lt;AxoComponentStatusView Component=&quot;@Entry.Plc.documentation.componentOne.AxoSmartFunctionKit&quot;/&gt;
-</code></pre><h2 id="generic-control-view">Generic control view</h2>
-<pre><code class="lang-html">&lt;AxoComponentCommandView Component=&quot;@Entry.Plc.documentation.componentOne.AxoSmartFunctionKit&quot; /&gt;
-</code></pre><h2 id="type-agnostic-using-renderablecontentcontrol-status-read-only-view">Type agnostic using RenderableContentControl status (Read-Only) view</h2>
-<pre><code class="lang-html">&lt;!-- This will render anything found on parameter assigned to Context  --&gt;
+<h2 id="generic-read-only-view" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="33">Generic Read-Only view</h2>
+<pre><code class="lang-html" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="35">&lt;AxoComponentStatusView Component=&quot;@Entry.Plc.documentation.componentOne.AxoSmartFunctionKit&quot;/&gt;
+</code></pre><h2 id="generic-control-view" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="37">Generic control view</h2>
+<pre><code class="lang-html" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="39">&lt;AxoComponentCommandView Component=&quot;@Entry.Plc.documentation.componentOne.AxoSmartFunctionKit&quot; /&gt;
+</code></pre><h2 id="type-agnostic-using-renderablecontentcontrol-status-read-only-view" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="41">Type agnostic using RenderableContentControl status (Read-Only) view</h2>
+<pre><code class="lang-html" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="43">&lt;!-- This will render anything found on parameter assigned to Context  --&gt;
 &lt;RenderableContentControl Context=&quot;@Entry.Plc.documentation.componentOne&quot; Presentation=&quot;Status-Display&quot; /&gt;
-</code></pre><h2 id="type-agnostic-using-renderablecontentcontrol-control-view">Type agnostic using RenderableContentControl control view</h2>
-<pre><code class="lang-html">&lt;!-- This will render anything found on parameter assigned to Context  --&gt;
+</code></pre><h2 id="type-agnostic-using-renderablecontentcontrol-control-view" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="46">Type agnostic using RenderableContentControl control view</h2>
+<pre><code class="lang-html" sourcefile="../src/components.rexroth.press/docs/ComponentTemplate.md" sourcestartlinenumber="48">&lt;!-- This will render anything found on parameter assigned to Context  --&gt;
 &lt;RenderableContentControl Context=&quot;@Entry.Plc.documentation.componentOne&quot; Presentation=&quot;Command-Control&quot; /&gt;
 </code></pre></section>
 </div>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/components.rexroth.press/docs/ComponentTemplate.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/components.rexroth.press/docs/ComponentTemplate.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

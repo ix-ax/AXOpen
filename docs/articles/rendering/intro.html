@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/rendering/intro.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/docfx/articles/rendering/intro.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,48 +87,48 @@
         </div>
 
         <article data-uid="">
-<h1 id="automatic-rendering-with-axopen">Automatic Rendering with AXOpen</h1>
+<h1 id="automatic-rendering-with-axopen" sourcefile="articles/rendering/intro.md" sourcestartlinenumber="1">Automatic Rendering with AXOpen</h1>
 
-<p>AXOpen leverages <a href="https://ix-ax.github.io/axsharp/articles/blazor/RENDERABLECONTENT.html">AX# rendering</a> to enable a variety of advanced features.</p>
-<p>This document provides foundational information regarding the presentation methods used within AXOpen.</p>
-<h2 id="renderable-content-control">Renderable Content Control</h2>
-<p>While <a href="https://ix-ax.github.io/axsharp/articles/blazor/RENDERABLECONTENT.html#presentation-types">presentation modes in AX#</a> offer several options, AXOpen introduces additional presentation types:</p>
-<table>
+<p sourcefile="articles/rendering/intro.md" sourcestartlinenumber="3">AXOpen leverages <a href="https://ix-ax.github.io/axsharp/articles/blazor/RENDERABLECONTENT.html" sourcefile="articles/rendering/intro.md" sourcestartlinenumber="3">AX# rendering</a> to enable a variety of advanced features.</p>
+<p sourcefile="articles/rendering/intro.md" sourcestartlinenumber="5">This document provides foundational information regarding the presentation methods used within AXOpen.</p>
+<h2 id="renderable-content-control" sourcefile="articles/rendering/intro.md" sourcestartlinenumber="7">Renderable Content Control</h2>
+<p sourcefile="articles/rendering/intro.md" sourcestartlinenumber="9">While <a href="https://ix-ax.github.io/axsharp/articles/blazor/RENDERABLECONTENT.html#presentation-types" sourcefile="articles/rendering/intro.md" sourcestartlinenumber="9">presentation modes in AX#</a> offer several options, AXOpen introduces additional presentation types:</p>
+<table sourcefile="articles/rendering/intro.md" sourcestartlinenumber="11">
 <thead>
-<tr>
-<th>Presentation Type</th>
-<th>Description</th>
+<tr sourcefile="articles/rendering/intro.md" sourcestartlinenumber="11">
+<th sourcefile="articles/rendering/intro.md" sourcestartlinenumber="11">Presentation Type</th>
+<th sourcefile="articles/rendering/intro.md" sourcestartlinenumber="11">Description</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>Command</td>
-<td>Allows interaction with a UI control, permitting modifications and controls of the component.</td>
+<tr sourcefile="articles/rendering/intro.md" sourcestartlinenumber="13">
+<td sourcefile="articles/rendering/intro.md" sourcestartlinenumber="13">Command</td>
+<td sourcefile="articles/rendering/intro.md" sourcestartlinenumber="13">Allows interaction with a UI control, permitting modifications and controls of the component.</td>
 </tr>
-<tr>
-<td>Status</td>
-<td>Grants visibility of a UI control without the capability to modify or control the component.</td>
+<tr sourcefile="articles/rendering/intro.md" sourcestartlinenumber="14">
+<td sourcefile="articles/rendering/intro.md" sourcestartlinenumber="14">Status</td>
+<td sourcefile="articles/rendering/intro.md" sourcestartlinenumber="14">Grants visibility of a UI control without the capability to modify or control the component.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="examples">Examples:</h3>
-<p><strong>To enable manipulation of the <code>DriveX</code> component:</strong></p>
-<pre><code class="lang-XML">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Station001.Components.DriveX&quot; Presentation=&quot;Command&quot;/&gt;
+<h3 id="examples" sourcefile="articles/rendering/intro.md" sourcestartlinenumber="16">Examples:</h3>
+<p sourcefile="articles/rendering/intro.md" sourcestartlinenumber="18"><strong sourcefile="articles/rendering/intro.md" sourcestartlinenumber="18">To enable manipulation of the <code sourcefile="articles/rendering/intro.md" sourcestartlinenumber="18">DriveX</code> component:</strong></p>
+<pre><code class="lang-XML" sourcefile="articles/rendering/intro.md" sourcestartlinenumber="20">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Station001.Components.DriveX&quot; Presentation=&quot;Command&quot;/&gt;
 </code></pre>
-<p><strong>To view the status of the <code>DriveX</code> component without interaction:</strong></p>
-<pre><code class="lang-XML">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Station001.Components.DriveX&quot; Presentation=&quot;Status&quot;/&gt;
+<p sourcefile="articles/rendering/intro.md" sourcestartlinenumber="24"><strong sourcefile="articles/rendering/intro.md" sourcestartlinenumber="24">To view the status of the <code sourcefile="articles/rendering/intro.md" sourcestartlinenumber="24">DriveX</code> component without interaction:</strong></p>
+<pre><code class="lang-XML" sourcefile="articles/rendering/intro.md" sourcestartlinenumber="26">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Station001.Components.DriveX&quot; Presentation=&quot;Status&quot;/&gt;
 </code></pre>
-<p><strong>To engage with visual components within the 'Components' structure for manual control:</strong></p>
-<pre><code class="lang-XML">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Station001.Components&quot; Presentation=&quot;Command&quot;/&gt;
+<p sourcefile="articles/rendering/intro.md" sourcestartlinenumber="30"><strong sourcefile="articles/rendering/intro.md" sourcestartlinenumber="30">To engage with visual components within the 'Components' structure for manual control:</strong></p>
+<pre><code class="lang-XML" sourcefile="articles/rendering/intro.md" sourcestartlinenumber="32">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Station001.Components&quot; Presentation=&quot;Command&quot;/&gt;
 </code></pre>
-<p><strong>To observe the state of visual components within the 'Components' structure without manual interaction:</strong></p>
-<pre><code class="lang-XML">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Station001.Components&quot; Presentation=&quot;Status&quot;/&gt;
+<p sourcefile="articles/rendering/intro.md" sourcestartlinenumber="36"><strong sourcefile="articles/rendering/intro.md" sourcestartlinenumber="36">To observe the state of visual components within the 'Components' structure without manual interaction:</strong></p>
+<pre><code class="lang-XML" sourcefile="articles/rendering/intro.md" sourcestartlinenumber="38">&lt;RenderableContentControl Context=&quot;@Entry.Plc.Station001.Components&quot; Presentation=&quot;Status&quot;/&gt;
 </code></pre>
-<hr>
+<hr sourcefile="articles/rendering/intro.md" sourcestartlinenumber="42">
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/rendering/intro.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/docfx/articles/rendering/intro.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

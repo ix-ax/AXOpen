@@ -64,6 +64,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
     <ProjectReference Include="..\..\..\io\src\AXOpen.Io.blazor\AXOpen.Io.blazor.csproj" />
-    <ProjectReference Include="..\AXOpen.Components.Rexroth.Press\ix_ax_axopen_components_rexroth_press.csproj" />
+    <ProjectReference Include="..\AXOpen.Components.Rexroth.Press\inxton_axopen_components_rexroth_press.csproj" />
   </ItemGroup>
 </Project>

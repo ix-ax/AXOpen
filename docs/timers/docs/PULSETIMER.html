@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/timers/docs/PULSETIMER.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/timers/docs/PULSETIMER.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,26 +87,26 @@
         </div>
 
         <article data-uid="">
-<h1 id="axopentimerspulsetimer">AxOpen.Timers.PulseTimer</h1>
+<h1 id="axopentimerspulsetimer" sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="1">AxOpen.Timers.PulseTimer</h1>
 
-<p><code>PulseTimer</code> class contains <code>Pulse</code> method, where logic of PulseTimer is implemented. <code>Pulse</code> method has following input:</p>
-<pre><code class="lang-C#">VAR_INPUT 
+<p sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="3"><code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="3">PulseTimer</code> class contains <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="3">Pulse</code> method, where logic of PulseTimer is implemented. <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="3">Pulse</code> method has following input:</p>
+<pre><code class="lang-C#" sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="5">VAR_INPUT 
     Parent : IAxoObject; // or IAxoContext, parent provides RTC implementation              
     inSignal : BOOL; // Trigger for start of the pulse signal
     PulseLenght : LTIME; // the length of the pulse signal
 END_VAR 
 </code></pre>
-<p>The Pulse timer returns output, which <em>is TRUE only during time counting</em>. It creates pulses with a defined pulse duration.</p>
-<p>The <code>PulseTimer</code> have also public variables which can be used to access timer results:</p>
-<pre><code class="lang-C#">VAR PUBLIC
+<p sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="13">The Pulse timer returns output, which <em sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="13">is TRUE only during time counting</em>. It creates pulses with a defined pulse duration.</p>
+<p sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="16">The <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="16">PulseTimer</code> have also public variables which can be used to access timer results:</p>
+<pre><code class="lang-C#" sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="18">VAR PUBLIC
     output : BOOL; // the pulse
     elapsedTime : LTIME; // the current phase of the pulse
 END_VAR 
 </code></pre>
-<p>The LOGIC of <code>PulseTimer</code> is following:</p>
-<p>If <code>inSignal</code> is FALSE, the <code>output</code> is FALSE and <code>elapsedTime</code> is 0. As soon as <code>inSignal</code> becomes TRUE, <code>output</code> also becomes TRUE and remains TRUE for the pulse duration <code>PulseLength</code>. As long as <code>output</code> is TRUE, the time is incremented in <code>elapsedTime</code>, until the value reaches PT. The value then remains constant. The <code>output</code> remains TRUE until the pulse duration has elapsed, irrespective of the state of the input <code>inSignal</code>. The <code>output</code> therefore supplies a signal over the interval specified in <code>PulseLength</code>.</p>
-<p>Example usage of <code>Pulse</code> timer:</p>
-<pre><code>USING AXOpen.Timers;
+<p sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="26">The LOGIC of <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="26">PulseTimer</code> is following:</p>
+<p sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">If <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">inSignal</code> is FALSE, the <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">output</code> is FALSE and <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">elapsedTime</code> is 0. As soon as <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">inSignal</code> becomes TRUE, <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">output</code> also becomes TRUE and remains TRUE for the pulse duration <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">PulseLength</code>. As long as <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">output</code> is TRUE, the time is incremented in <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">elapsedTime</code>, until the value reaches PT. The value then remains constant. The <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">output</code> remains TRUE until the pulse duration has elapsed, irrespective of the state of the input <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">inSignal</code>. The <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">output</code> therefore supplies a signal over the interval specified in <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">PulseLength</code>.</p>
+<p sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="30">Example usage of <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="30">Pulse</code> timer:</p>
+<pre><code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="32">USING AXOpen.Timers;
 
 
 VAR 
@@ -129,7 +129,7 @@ ENDIF;
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/timers/docs/PULSETIMER.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/timers/docs/PULSETIMER.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

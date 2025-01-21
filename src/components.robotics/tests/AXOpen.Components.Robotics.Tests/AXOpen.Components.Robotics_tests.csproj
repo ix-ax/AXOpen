@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\AXOpen.Components.Robotics\ix_ax_axopen_components_robotics.csproj" />
+    <ProjectReference Include="..\..\src\AXOpen.Components.Robotics\inxton_axopen_components_robotics.csproj" />
   </ItemGroup>
 
 	<ItemGroup>

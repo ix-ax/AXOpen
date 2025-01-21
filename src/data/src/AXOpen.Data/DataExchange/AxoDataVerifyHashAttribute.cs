@@ -1,4 +1,4 @@
-﻿// ix_ax_axopen_data
+﻿// inxton_axopen_data
 // Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
 // Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.

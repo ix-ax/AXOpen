@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/components.rexroth.drives/CREATION_CHECKLIST.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/components.rexroth.drives/CREATION_CHECKLIST.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,66 +87,66 @@
         </div>
 
         <article data-uid="">
-<h2 id="code">Code</h2>
+<h2 id="code" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="1">Code</h2>
 
-<ul>
-<li>[ ] Does code follow recomendations from <a href="../../docfx/articles/guidelines/Conventions.md">conventions</a> and <a href="../../docfx/articles/guidelines/components.md.md">component convetions</a>?</li>
+<ul sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="3">
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="3">[ ] Does code follow recomendations from <a href="../../docfx/articles/guidelines/Conventions.md" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="3">conventions</a> and <a href="../../docfx/articles/guidelines/components.md.md" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="3">component convetions</a>?</li>
 </ul>
-<h2 id="testing">Testing</h2>
-<ul>
-<li>[ ] Are all publicly exposed members unit-tested using axunit?</li>
-<li>[ ] Is the axunit-test coverage at min level of 60%?</li>
-<li>[ ] Are all extended twins tested and is the coverage at min level of 60% ?</li>
-<li>[ ] Are all extended twins tested and is the coverage at min level of 60% ?</li>
+<h2 id="testing" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="6">Testing</h2>
+<ul sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="8">
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="8">[ ] Are all publicly exposed members unit-tested using axunit?</li>
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="9">[ ] Is the axunit-test coverage at min level of 60%?</li>
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="10">[ ] Are all extended twins tested and is the coverage at min level of 60% ?</li>
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="11">[ ] Are all extended twins tested and is the coverage at min level of 60% ?</li>
 </ul>
-<h2 id="build">Build</h2>
-<ul>
-<li>[ ] Did you add this library to <a href="../../cake/BuildContext.cs#Libraries">build list</a>?</li>
-<li>[ ] Did you add place the library in the <a href="../../cake/BuildContext.cs#Libraries">list</a> past its dependencies?</li>
-<li>[ ] Did you add this library <code>src</code> folder to  <a href="../../src/AXOpen-packable-only.proj">build list</a>?</li>
-<li>[ ] Did you remove all project from the <code>src</code> folder that should not be packed?</li>
-<li>[ ] Does the build with test level L2 passes locally?</li>
+<h2 id="build" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="13">Build</h2>
+<ul sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="15">
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="15">[ ] Did you add this library to <a href="../../cake/BuildContext.cs#Libraries" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="15">build list</a>?</li>
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="16">[ ] Did you add place the library in the <a href="../../cake/BuildContext.cs#Libraries" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="16">list</a> past its dependencies?</li>
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="17">[ ] Did you add this library <code sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="17">src</code> folder to  <a href="../../src/AXOpen-packable-only.proj" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="17">build list</a>?</li>
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="18">[ ] Did you remove all project from the <code sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="18">src</code> folder that should not be packed?</li>
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="19">[ ] Does the build with test level L2 passes locally?</li>
 </ul>
-<h2 id="documentation">Documentation</h2>
-<ul>
-<li>The documentation should be CONCISE delivering nessary information about the usage of the library.</li>
-<li>The documentation should not explain details about internals of the library limit yourself on explaing how to use, not how it is made. Should it be necessary to explain some aspects in detail write an article instead.</li>
-<li>Do not explain HOW the parts of the library operate but WHAT they do.</li>
-<li>Focus on creating usable examples</li>
-<li>Examples should not be hard-written into to documents, but referenced from the <a href="app">documentation project</a>, the <a href="docs/ComponentTemplate.html">ComponentTemplate</a> scaffolds the document with example references to documenation project</li>
+<h2 id="documentation" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="21">Documentation</h2>
+<ul sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="23">
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="23">The documentation should be CONCISE delivering nessary information about the usage of the library.</li>
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="24">The documentation should not explain details about internals of the library limit yourself on explaing how to use, not how it is made. Should it be necessary to explain some aspects in detail write an article instead.</li>
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="25">Do not explain HOW the parts of the library operate but WHAT they do.</li>
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="26">Focus on creating usable examples</li>
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="27">Examples should not be hard-written into to documents, but referenced from the <a href="app" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="27">documentation project</a>, the <a href="docs/ComponentTemplate.html" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="27">ComponentTemplate</a> scaffolds the document with example references to documenation project</li>
 </ul>
-<h2 id="general">General</h2>
-<ul>
-<li>[ ] Does <a href="docs/README.html">README.md</a> contain general description of the library?</li>
-<li>[ ] Is the link to this documentation added to the <a href="../../docfx/components/toc.yml">toc.yaml</a>?</li>
+<h2 id="general" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="29">General</h2>
+<ul sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="30">
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="30">[ ] Does <a href="docs/README.html" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="30">README.md</a> contain general description of the library?</li>
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="31">[ ] Is the link to this documentation added to the <a href="../../docfx/components/toc.yml" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="31">toc.yaml</a>?</li>
 </ul>
-<h3 id="ctrl-readmemd">CTRL README.md</h3>
-<ul>
-<li>[ ] Does <a href="ctrl/README.html">README.md</a> for controller contain information about apax package installation instructions?</li>
-<li>[ ] Does <a href="ctrl/README.html">README.md</a> for controller contain link to API documentation?</li>
-<li>[ ] Are there any additional requirement regarding usage of this package listed in this <a href="ctrl/README.html">README.md</a>?</li>
+<h3 id="ctrl-readmemd" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="33">CTRL README.md</h3>
+<ul sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="34">
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="34">[ ] Does <a href="ctrl/README.html" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="34">README.md</a> for controller contain information about apax package installation instructions?</li>
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="35">[ ] Does <a href="ctrl/README.html" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="35">README.md</a> for controller contain link to API documentation?</li>
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="36">[ ] Are there any additional requirement regarding usage of this package listed in this <a href="ctrl/README.html" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="36">README.md</a>?</li>
 </ul>
-<h3 id="net-twin-readmemd">.NET TWIN README.md</h3>
-<ul>
-<li>[ ] Does <a href="src/AXOpen.Components.Rexroth.Drives/README.html">README.md</a> for .NET TWIN contain information with installation instructions?</li>
-<li>[ ] Does <a href="src/AXOpen.Components.Rexroth.Drives/README.html">README.md</a> for .NET TWIN contain link to API documentation?</li>
-<li>[ ] Are there any additional requirement regarding usage of this nuget package listed in this <a href="src/AXOpen.Components.Rexroth.Drives/README.html">README.md</a>?</li>
+<h3 id="net-twin-readmemd" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="38">.NET TWIN README.md</h3>
+<ul sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="39">
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="39">[ ] Does <a href="src/AXOpen.Components.Rexroth.Drives/README.html" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="39">README.md</a> for .NET TWIN contain information with installation instructions?</li>
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="40">[ ] Does <a href="src/AXOpen.Components.Rexroth.Drives/README.html" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="40">README.md</a> for .NET TWIN contain link to API documentation?</li>
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="41">[ ] Are there any additional requirement regarding usage of this nuget package listed in this <a href="src/AXOpen.Components.Rexroth.Drives/README.html" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="41">README.md</a>?</li>
 </ul>
-<h3 id="blazor-readmemd">BLAZOR README.md</h3>
-<ul>
-<li>[ ] Does <a href="src/AXOpen.Components.Rexroth.Drives.blazor/README.html">README.md</a> contain information with installation instructions?</li>
-<li>[ ] Does <a href="src/AXOpen.Components.Rexroth.Drives.blazor/README.html">README.md</a> contain link to API documentation?</li>
-<li>[ ] Are there any additional requirement regarding usage of this nuget package listed in this <a href="src/AXOpen.Components.Rexroth.Drives/README.html">README.md</a>?</li>
+<h3 id="blazor-readmemd" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="43">BLAZOR README.md</h3>
+<ul sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="44">
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="44">[ ] Does <a href="src/AXOpen.Components.Rexroth.Drives.blazor/README.html" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="44">README.md</a> contain information with installation instructions?</li>
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="45">[ ] Does <a href="src/AXOpen.Components.Rexroth.Drives.blazor/README.html" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="45">README.md</a> contain link to API documentation?</li>
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="46">[ ] Are there any additional requirement regarding usage of this nuget package listed in this <a href="src/AXOpen.Components.Rexroth.Drives/README.html" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="46">README.md</a>?</li>
 </ul>
-<h3 id="components">Components</h3>
-<ul>
-<li>[ ] Does <a href="docs/toc.html">toc.yml</a> contain references to documenation to all components in this library?</li>
-<li>[ ] Does each component in this library has single md file with examples references from the code and structured according to <a href="docs/ComponentTemplate.html">ComponentTemplate.md</a>?</li>
+<h3 id="components" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="49">Components</h3>
+<ul sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="51">
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="51">[ ] Does <a href="docs/toc.html" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="51">toc.yml</a> contain references to documenation to all components in this library?</li>
+<li sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="52">[ ] Does each component in this library has single md file with examples references from the code and structured according to <a href="docs/ComponentTemplate.html" sourcefile="../src/components.rexroth.drives/CREATION_CHECKLIST.md" sourcestartlinenumber="52">ComponentTemplate.md</a>?</li>
 </ul>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/components.rexroth.drives/CREATION_CHECKLIST.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/components.rexroth.drives/CREATION_CHECKLIST.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

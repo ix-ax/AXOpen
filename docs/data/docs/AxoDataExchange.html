@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/data/docs/AxoDataExchange.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/data/docs/AxoDataExchange.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,12 +87,12 @@
         </div>
 
         <article data-uid="">
-<h1 id="axodataexchange">AxoDataExchange</h1>
+<h1 id="axodataexchange" sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="1">AxoDataExchange</h1>
 
-<h2 id="getting-started">Getting started</h2>
-<h3 id="data-exchange-manager">Data exchange manager</h3>
-<p>Data exchange object must be extended by <code>AxoDataExchange</code>.</p>
-<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+<h2 id="getting-started" sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="3">Getting started</h2>
+<h3 id="data-exchange-manager" sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="5">Data exchange manager</h3>
+<p sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="7">Data exchange object must be extended by <code sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="7">AxoDataExchange</code>.</p>
+<pre><code class="lang-smalltalk" sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="9">{S7.extern=ReadWrite}
 CLASS PUBLIC AxoProcessDataManager EXTENDS AXOpen.Data.AxoDataExchange
     VAR PUBLIC
         {#ix-generic:TOnline}
@@ -101,23 +101,23 @@ CLASS PUBLIC AxoProcessDataManager EXTENDS AXOpen.Data.AxoDataExchange
         Set : AxoProcessData; // &lt;- Manager will operate on this member.
     END_VAR
 END_CLASS
-</code></pre><h3 id="data-exchange-object">Data exchange object</h3>
-<p>The data entity variable must be created. It contains data that we want to exchange between PLC and repository. This variable must be annotated with following attributes:</p>
-<ul>
-<li><code>AxoDataEntityAttribute</code> -- unique attribute for finding a correct instance of data exchange.</li>
-<li><code>#ix-generic:TOnline</code> -- type information attribute.</li>
-<li><code>#ix-generic:TPlain as POCO</code> -- type information attribute.</li>
+</code></pre><h3 id="data-exchange-object" sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="11">Data exchange object</h3>
+<p sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="13">The data entity variable must be created. It contains data that we want to exchange between PLC and repository. This variable must be annotated with following attributes:</p>
+<ul sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="15">
+<li sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="15"><code sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="15">AxoDataEntityAttribute</code> -- unique attribute for finding a correct instance of data exchange.</li>
+<li sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="16"><code sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="16">#ix-generic:TOnline</code> -- type information attribute.</li>
+<li sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="17"><code sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="17">#ix-generic:TPlain as POCO</code> -- type information attribute.</li>
 </ul>
-<div class="NOTE">
+<div class="NOTE" sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="19">
 <h5>Note</h5>
-<p>The <code>AxoDataExchange</code> object must be unique. Annotations <code>AxoDataEntityAttribute</code>, <code>#ix-generic:TOnline</code> and <code>#ix-generic:TPlain as POCO</code> must be attributed to only one member <code>AxoDataExchange</code> object, which is used to locate data object that contains data to be exchanged between PLC and the target repository.
-An exception is thrown when <code>AxoDataEntityAttribute</code> is missing or multiple members have the annotation.</p>
+<p sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="20">The <code sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="20">AxoDataExchange</code> object must be unique. Annotations <code sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="20">AxoDataEntityAttribute</code>, <code sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="20">#ix-generic:TOnline</code> and <code sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="20">#ix-generic:TPlain as POCO</code> must be attributed to only one member <code sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="20">AxoDataExchange</code> object, which is used to locate data object that contains data to be exchanged between PLC and the target repository.
+An exception is thrown when <code sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="21">AxoDataEntityAttribute</code> is missing or multiple members have the annotation.</p>
 </div>
-<div class="NOTE">
+<div class="NOTE" sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="23">
 <h5>Note</h5>
-<p>The 'Data' variable must be of a type that extends <code>AxoDataEntity</code>.</p>
+<p sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="24">The 'Data' variable must be of a type that extends <code sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="24">AxoDataEntity</code>.</p>
 </div>
-<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+<pre><code class="lang-smalltalk" sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="26">{S7.extern=ReadWrite}
 CLASS PUBLIC AxoProcessData EXTENDS AXOpen.Data.AxoDataEntity
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;Some string&quot;}
@@ -126,9 +126,9 @@ CLASS PUBLIC AxoProcessData EXTENDS AXOpen.Data.AxoDataEntity
         SomeInt : INT;
     END_VAR
 END_CLASS
-</code></pre><h3 id="data-exchange-initialization-in-plc">Data exchange initialization in PLC</h3>
-<p>As mentioned earlier, we use remote calls to execute the CRUD operations. These calls are a variant of <code>AxoTask</code>, which allows for invoking a C# code. We will now need to create an instance of <code>AxoProcessDataManager</code> in a context object (<code>AxoContext</code>) (or as a member of another class that derives from <code>AxoObject</code>). We will also need to call <code>DataManager</code> in the Main method of appropriate context.</p>
-<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+</code></pre><h3 id="data-exchange-initialization-in-plc" sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="28">Data exchange initialization in PLC</h3>
+<p sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="30">As mentioned earlier, we use remote calls to execute the CRUD operations. These calls are a variant of <code sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="30">AxoTask</code>, which allows for invoking a C# code. We will now need to create an instance of <code sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="30">AxoProcessDataManager</code> in a context object (<code sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="30">AxoContext</code>) (or as a member of another class that derives from <code sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="30">AxoObject</code>). We will also need to call <code sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="30">DataManager</code> in the Main method of appropriate context.</p>
+<pre><code class="lang-smalltalk" sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="32">{S7.extern=ReadWrite}
 CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
         //Controlled unit that needs to manipulate with data
@@ -150,8 +150,8 @@ CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
     END_METHOD
 END_CLASS
 </code></pre>
-<p>Execute run method in CU</p>
-<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+<p sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="34">Execute run method in CU</p>
+<pre><code class="lang-smalltalk" sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="36">{S7.extern=ReadWrite}
 CLASS PUBLIC ControlledUnit EXTENDS AXOpen.Core.AxoObject
     VAR PUBLIC
         //Reference to ProcessDataManager
@@ -174,8 +174,8 @@ CLASS PUBLIC ControlledUnit EXTENDS AXOpen.Core.AxoObject
     END_METHOD
 END_CLASS
 </code></pre>
-<p>Use in Automat Sequence</p>
-<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+<p sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="38">Use in Automat Sequence</p>
+<pre><code class="lang-smalltalk" sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="40">{S7.extern=ReadWrite}
 CLASS PUBLIC AutomatSequence EXTENDS AXOpen.Core.AxoSequencerContainer
     VAR PRIVATE
         // private reference is used in Main()
@@ -195,11 +195,11 @@ CLASS PUBLIC AutomatSequence EXTENDS AXOpen.Core.AxoSequencerContainer
         ;//cyclic logic
     END_METHOD
 END_CLASS
-</code></pre><h3 id="data-exchange-initialization-in-net">Data exchange initialization in .NET</h3>
-<p>At this point, we have everything ready in the PLC.</p>
-<p>We must now tell the <code>DataManager</code> what repository to use. As a example, data repository is set as JSON files.</p>
-<p>Let's create a configuration for the repository and initialize remote data exchange:</p>
-<pre><code class="lang-csharp">IRepository&lt;Pocos.AxoDataExchangeExample.AxoProcessData&gt; AxoProcessDataRepository;
+</code></pre><h3 id="data-exchange-initialization-in-net" sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="42">Data exchange initialization in .NET</h3>
+<p sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="44">At this point, we have everything ready in the PLC.</p>
+<p sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="46">We must now tell the <code sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="46">DataManager</code> what repository to use. As a example, data repository is set as JSON files.</p>
+<p sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="48">Let's create a configuration for the repository and initialize remote data exchange:</p>
+<pre><code class="lang-csharp" sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="50">IRepository&lt;Pocos.AxoDataExchangeExample.AxoProcessData&gt; AxoProcessDataRepository;
 
 // *** IN MEMORY REPOSITORY ***
 //AxoProcessDataRepository = new InMemoryRepositorySettings&lt;Pocos.AxoDataExchangeExample.AxoProcessData&gt;().Factory();
@@ -211,19 +211,18 @@ END_CLASS
 
 // *** MONGO REPOSITORY ***
 
-
-AxoProcessDataRepository = AXOpen.Data.MongoDb.Repository.Factory&lt;Pocos.AxoDataExchangeExample.AxoProcessData&gt;(new MongoDbRepositorySettings&lt;Pocos.AxoDataExchangeExample.AxoProcessData&gt;(&quot;mongodb://localhost:27017&quot;, &quot;AxOpenData&quot;,&quot;AxoDataExchangeExample&quot;));
+AxoProcessDataRepository = AXOpen.Data.MongoDb.Repository.Factory&lt;Pocos.AxoDataExchangeExample.AxoProcessData&gt;(new MongoDbRepositorySettings&lt;Pocos.AxoDataExchangeExample.AxoProcessData&gt;(&quot;mongodb://localhost:27017&quot;, &quot;AxOpenData&quot;, &quot;AxoDataExchangeExample&quot;));
 
 Entry.Plc.AxoDataExchangeContext.DataManager.InitializeRemoteDataExchange(AxoProcessDataRepository);
 </code></pre>
-<div class="NOTE">
+<div class="NOTE" sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="52">
 <h5>Note</h5>
-<p><code>MyData</code> should be of type from <code>Pocos</code>.</p>
+<p sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="53"><code sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="53">MyData</code> should be of type from <code sourcefile="../src/data/docs/AxoDataExchange.md" sourcestartlinenumber="53">Pocos</code>.</p>
 </div>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/docs/AxoDataExchange.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/data/docs/AxoDataExchange.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

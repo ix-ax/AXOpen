@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/data/docs/index.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/data/docs/index.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,27 +87,27 @@
         </div>
 
         <article data-uid="">
-<h1 id="axopendata"><strong>AXOpen.Data</strong></h1>
+<h1 id="axopendata" sourcefile="../src/data/docs/README.md" sourcestartlinenumber="1"><strong sourcefile="../src/data/docs/README.md" sourcestartlinenumber="1">AXOpen.Data</strong></h1>
 
-<p><strong>AXOpen.Data</strong> provides data exchange between the controller and an arbitrary repository.</p>
-<p><code>AXOpen.Data</code> library provides a simple yet powerful data exchange between PLC and an arbitrary data repository. It includes the implementation of a series of repository operations known as CRUD (Create Read Update Delete), accessible directly from the PLC.</p>
-<h2 id="benefits">Benefits</h2>
-<p>The main benefit of this solution is data scalability; once the repository is set up, any modification of the data structure(s) will result in an automatic update of mapped objects. And therefore, there is no need for additional coding and configuration.</p>
-<h2 id="how-it-works">How it works</h2>
-<p>The basic PLC block is <code>AxoDataExchange</code>, which has its .NET counterpart (or .NET twin) that handles complex repository operations using a modified <code>AxoRemoteTask</code>, which is a form of RPC (Remote Procedure Call), that allows you to execute the code from the PLC in a remote .NET application.</p>
-<h2 id="implemented-repositories">Implemented repositories</h2>
-<p>The <code>AxoDataExchange</code> uses a predefined interface, <code>IRepository</code>, that allows for the virtually unlimited implementation of different target repositories.</p>
-<p>At this point, AXOpen supports these repositories directly:</p>
-<ul>
-<li>InMemory</li>
-<li>Json</li>
-<li>MongoDB</li>
-<li>RavenDB</li>
+<p sourcefile="../src/data/docs/README.md" sourcestartlinenumber="3"><strong sourcefile="../src/data/docs/README.md" sourcestartlinenumber="3">AXOpen.Data</strong> provides data exchange between the controller and an arbitrary repository.</p>
+<p sourcefile="../src/data/docs/README.md" sourcestartlinenumber="5"><code sourcefile="../src/data/docs/README.md" sourcestartlinenumber="5">AXOpen.Data</code> library provides a simple yet powerful data exchange between PLC and an arbitrary data repository. It includes the implementation of a series of repository operations known as CRUD (Create Read Update Delete), accessible directly from the PLC.</p>
+<h2 id="benefits" sourcefile="../src/data/docs/README.md" sourcestartlinenumber="7">Benefits</h2>
+<p sourcefile="../src/data/docs/README.md" sourcestartlinenumber="9">The main benefit of this solution is data scalability; once the repository is set up, any modification of the data structure(s) will result in an automatic update of mapped objects. And therefore, there is no need for additional coding and configuration.</p>
+<h2 id="how-it-works" sourcefile="../src/data/docs/README.md" sourcestartlinenumber="11">How it works</h2>
+<p sourcefile="../src/data/docs/README.md" sourcestartlinenumber="13">The basic PLC block is <code sourcefile="../src/data/docs/README.md" sourcestartlinenumber="13">AxoDataExchange</code>, which has its .NET counterpart (or .NET twin) that handles complex repository operations using a modified <code sourcefile="../src/data/docs/README.md" sourcestartlinenumber="13">AxoRemoteTask</code>, which is a form of RPC (Remote Procedure Call), that allows you to execute the code from the PLC in a remote .NET application.</p>
+<h2 id="implemented-repositories" sourcefile="../src/data/docs/README.md" sourcestartlinenumber="15">Implemented repositories</h2>
+<p sourcefile="../src/data/docs/README.md" sourcestartlinenumber="17">The <code sourcefile="../src/data/docs/README.md" sourcestartlinenumber="17">AxoDataExchange</code> uses a predefined interface, <code sourcefile="../src/data/docs/README.md" sourcestartlinenumber="17">IRepository</code>, that allows for the virtually unlimited implementation of different target repositories.</p>
+<p sourcefile="../src/data/docs/README.md" sourcestartlinenumber="19">At this point, AXOpen supports these repositories directly:</p>
+<ul sourcefile="../src/data/docs/README.md" sourcestartlinenumber="21">
+<li sourcefile="../src/data/docs/README.md" sourcestartlinenumber="21">InMemory</li>
+<li sourcefile="../src/data/docs/README.md" sourcestartlinenumber="22">Json</li>
+<li sourcefile="../src/data/docs/README.md" sourcestartlinenumber="23">MongoDB</li>
+<li sourcefile="../src/data/docs/README.md" sourcestartlinenumber="24">RavenDB</li>
 </ul>
 [!include[AxoDataExchange](docs/AxoDataExchange.md)][!include[AxoDataFragmentExchange](docs/AxoDataFragmentExchange.md)]</article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/docs/index.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/data/docs/index.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

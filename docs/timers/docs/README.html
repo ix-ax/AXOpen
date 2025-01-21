@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/timers/docs/README.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/timers/docs/README.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,33 +87,33 @@
         </div>
 
         <article data-uid="">
-<h1 id="axopentimers">AXOpen.Timers</h1>
+<h1 id="axopentimers" sourcefile="../src/timers/docs/README.md" sourcestartlinenumber="1">AXOpen.Timers</h1>
 
-<p><strong>AXOpen.Timers</strong> provide implementations of basic timers used in PLC programming. Timers are implemented in separated classes within corresponding methods.
-Functionality of Timers is based on <em>Real Time Clock</em> implementation provided from <strong>AXContext</strong>.</p>
-<div class="NOTE">
+<p sourcefile="../src/timers/docs/README.md" sourcestartlinenumber="3"><strong sourcefile="../src/timers/docs/README.md" sourcestartlinenumber="3">AXOpen.Timers</strong> provide implementations of basic timers used in PLC programming. Timers are implemented in separated classes within corresponding methods.
+Functionality of Timers is based on <em sourcefile="../src/timers/docs/README.md" sourcestartlinenumber="4">Real Time Clock</em> implementation provided from <strong sourcefile="../src/timers/docs/README.md" sourcestartlinenumber="4">AXContext</strong>.</p>
+<div class="NOTE" sourcefile="../src/timers/docs/README.md" sourcestartlinenumber="6">
 <h5>Note</h5>
-<p>Be aware, that resolution of the timer depends on cycle time of the PLC task, on which the timer is used.</p>
+<p sourcefile="../src/timers/docs/README.md" sourcestartlinenumber="7">Be aware, that resolution of the timer depends on cycle time of the PLC task, on which the timer is used.</p>
 </div>
-<h1 id="axopentimersondelaytimer">AxOpen.Timers.OnDelayTimer</h1>
-<p><code>OnDelayTimer</code> class contains <code>OnDelay</code> method, where logic of OnDelayTimer is implemented. <code>OnDelay</code> method has following input:</p>
-<pre><code class="lang-C#">VAR_INPUT 
+<h1 id="axopentimersondelaytimer" sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="1">AxOpen.Timers.OnDelayTimer</h1>
+<p sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="3"><code sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="3">OnDelayTimer</code> class contains <code sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="3">OnDelay</code> method, where logic of OnDelayTimer is implemented. <code sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="3">OnDelay</code> method has following input:</p>
+<pre><code class="lang-C#" sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="5">VAR_INPUT 
     Parent : IAxoObject; // or IAxoContext, parent provides RTC implementation              
     inSignal : BOOL; // starts timer with rising edge, resets timer with falling edge 
     TimeDelay : LTIME; // time to pass, before output is set
 END_VAR 
 </code></pre>
-<p>The OnDelay method returns <code>output</code>, which <em>is TRUE, <code>TimeDelay</code> seconds after rising edge of <code>inSignal</code> is detected</em>.</p>
-<p>The <code>OnDelayTimer</code> have also public variables which can be used to access timer results:</p>
-<pre><code class="lang-C#">VAR PUBLIC
+<p sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="13">The OnDelay method returns <code sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="13">output</code>, which <em sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="13">is TRUE, <code sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="13">TimeDelay</code> seconds after rising edge of <code sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="13">inSignal</code> is detected</em>.</p>
+<p sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="15">The <code sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="15">OnDelayTimer</code> have also public variables which can be used to access timer results:</p>
+<pre><code class="lang-C#" sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="17">VAR PUBLIC
     output : BOOL; // is TRUE, TimeDelay seconds after rising edge of inSignal is detected.
     elapsedTime : LTIME; // elapsed time 
 END_VAR 
 </code></pre>
-<p>The LOGIC of <code>OnDelayTimer</code> is following:</p>
-<p>If <code>inSignal</code> is FALSE, <code>output</code> is FALSE and <code>elapsedTime</code> is 0. As soon as <code>input</code> becomes TRUE, the time will begin to be counted in <code>elapsedTime</code> until its value is equal to <code>TimeDelay</code>. It will then remain constant. The <code>output</code> is TRUE when <code>inSignal</code> is TRUE and <code>elapsedTime</code> is equal to <code>TimeDelay</code>. Otherwise it is FALSE. Thus, <code>output</code> has a rising edge when the time indicated in <code>TimeDelay</code> has run out.</p>
-<p>Example usage of <code>OnDelay</code> timer:</p>
-<pre><code>USING AXOpen.Timers;
+<p sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="25">The LOGIC of <code sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="25">OnDelayTimer</code> is following:</p>
+<p sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="27">If <code sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="27">inSignal</code> is FALSE, <code sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="27">output</code> is FALSE and <code sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="27">elapsedTime</code> is 0. As soon as <code sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="27">input</code> becomes TRUE, the time will begin to be counted in <code sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="27">elapsedTime</code> until its value is equal to <code sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="27">TimeDelay</code>. It will then remain constant. The <code sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="27">output</code> is TRUE when <code sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="27">inSignal</code> is TRUE and <code sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="27">elapsedTime</code> is equal to <code sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="27">TimeDelay</code>. Otherwise it is FALSE. Thus, <code sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="27">output</code> has a rising edge when the time indicated in <code sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="27">TimeDelay</code> has run out.</p>
+<p sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="29">Example usage of <code sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="29">OnDelay</code> timer:</p>
+<pre><code sourcefile="../src/timers/docs/ONDELAYTIMER.md" sourcestartlinenumber="31">USING AXOpen.Timers;
 
 
 VAR 
@@ -133,25 +133,25 @@ IF(_testTimerOnDelay.output) THEN
 
 ENDIF;
 </code></pre>
-<h1 id="axopentimersoffdelaytimer">AxOpen.Timers.OffDelayTimer</h1>
-<p><code>OffDelayTimer</code> class contains <code>OffDelay</code> method, where logic of OffDelayTimer is implemented. <code>OffDelay</code> method has following input:</p>
-<pre><code class="lang-C#">VAR_INPUT 
+<h1 id="axopentimersoffdelaytimer" sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="1">AxOpen.Timers.OffDelayTimer</h1>
+<p sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="3"><code sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="3">OffDelayTimer</code> class contains <code sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="3">OffDelay</code> method, where logic of OffDelayTimer is implemented. <code sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="3">OffDelay</code> method has following input:</p>
+<pre><code class="lang-C#" sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="5">VAR_INPUT 
     Parent : IAxoObject; // or IAxoContext, parent provides RTC implementation              
     inSignal : BOOL; // starts timer with falling edge, resets timer with rising edge
     TimeDelay : LTIME; // time to pass, before output is set
 END_VAR 
 </code></pre>
-<p>The OffDelay method returns <code>output</code>, which <em>is FALSE, <code>TimeDelay</code> seconds after falling edge of <code>inSignal</code> is detected</em>.</p>
-<p>The <code>OffDelayTimer</code> have also public variables which can be used to access timer results:</p>
-<pre><code class="lang-C#">VAR PUBLIC
+<p sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="13">The OffDelay method returns <code sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="13">output</code>, which <em sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="13">is FALSE, <code sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="13">TimeDelay</code> seconds after falling edge of <code sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="13">inSignal</code> is detected</em>.</p>
+<p sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="15">The <code sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="15">OffDelayTimer</code> have also public variables which can be used to access timer results:</p>
+<pre><code class="lang-C#" sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="17">VAR PUBLIC
     output : BOOL; // is FALSE, TimeDelay seconds after falling edge of inSignal is detected
     elapsedTime : LTIME; // elapsed time 
 END_VAR 
 </code></pre>
-<p>The LOGIC of <code>OffDelayTimer</code> is following:</p>
-<p>When <code>inSignal</code> is TRUE, <code>output</code> is TRUE and <code>elapsedTime</code> is 0. As soon as <code>inSignal</code> becomes FALSE, the time will begin to be counted in <code>elapsedTime</code> until its value is equal to that of <code>TimeDelay</code>. It will then remain constant. The <code>output</code> is FALSE when <code>inSignal</code> is FALSE and <code>elapsedTime</code> is equal to <code>TimeDelay</code>. Otherwise it is TRUE. Thus, <code>output</code> has a falling edge when the time indicated in <code>TimeDelay</code> has run out.</p>
-<p>Example usage of <code>OffDelay</code> timer:</p>
-<pre><code>USING AXOpen.Timers;
+<p sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="25">The LOGIC of <code sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="25">OffDelayTimer</code> is following:</p>
+<p sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="28">When <code sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="28">inSignal</code> is TRUE, <code sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="28">output</code> is TRUE and <code sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="28">elapsedTime</code> is 0. As soon as <code sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="28">inSignal</code> becomes FALSE, the time will begin to be counted in <code sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="28">elapsedTime</code> until its value is equal to that of <code sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="28">TimeDelay</code>. It will then remain constant. The <code sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="28">output</code> is FALSE when <code sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="28">inSignal</code> is FALSE and <code sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="28">elapsedTime</code> is equal to <code sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="28">TimeDelay</code>. Otherwise it is TRUE. Thus, <code sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="28">output</code> has a falling edge when the time indicated in <code sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="28">TimeDelay</code> has run out.</p>
+<p sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="31">Example usage of <code sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="31">OffDelay</code> timer:</p>
+<pre><code sourcefile="../src/timers/docs/OFFDELAYTIMER.md" sourcestartlinenumber="33">USING AXOpen.Timers;
 
 
 VAR 
@@ -171,25 +171,25 @@ IF(_testTimerOffDelay.output) THEN
 
 ENDIF;
 </code></pre>
-<h1 id="axopentimerspulsetimer">AxOpen.Timers.PulseTimer</h1>
-<p><code>PulseTimer</code> class contains <code>Pulse</code> method, where logic of PulseTimer is implemented. <code>Pulse</code> method has following input:</p>
-<pre><code class="lang-C#">VAR_INPUT 
+<h1 id="axopentimerspulsetimer" sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="1">AxOpen.Timers.PulseTimer</h1>
+<p sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="3"><code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="3">PulseTimer</code> class contains <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="3">Pulse</code> method, where logic of PulseTimer is implemented. <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="3">Pulse</code> method has following input:</p>
+<pre><code class="lang-C#" sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="5">VAR_INPUT 
     Parent : IAxoObject; // or IAxoContext, parent provides RTC implementation              
     inSignal : BOOL; // Trigger for start of the pulse signal
     PulseLenght : LTIME; // the length of the pulse signal
 END_VAR 
 </code></pre>
-<p>The Pulse timer returns output, which <em>is TRUE only during time counting</em>. It creates pulses with a defined pulse duration.</p>
-<p>The <code>PulseTimer</code> have also public variables which can be used to access timer results:</p>
-<pre><code class="lang-C#">VAR PUBLIC
+<p sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="13">The Pulse timer returns output, which <em sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="13">is TRUE only during time counting</em>. It creates pulses with a defined pulse duration.</p>
+<p sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="16">The <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="16">PulseTimer</code> have also public variables which can be used to access timer results:</p>
+<pre><code class="lang-C#" sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="18">VAR PUBLIC
     output : BOOL; // the pulse
     elapsedTime : LTIME; // the current phase of the pulse
 END_VAR 
 </code></pre>
-<p>The LOGIC of <code>PulseTimer</code> is following:</p>
-<p>If <code>inSignal</code> is FALSE, the <code>output</code> is FALSE and <code>elapsedTime</code> is 0. As soon as <code>inSignal</code> becomes TRUE, <code>output</code> also becomes TRUE and remains TRUE for the pulse duration <code>PulseLength</code>. As long as <code>output</code> is TRUE, the time is incremented in <code>elapsedTime</code>, until the value reaches PT. The value then remains constant. The <code>output</code> remains TRUE until the pulse duration has elapsed, irrespective of the state of the input <code>inSignal</code>. The <code>output</code> therefore supplies a signal over the interval specified in <code>PulseLength</code>.</p>
-<p>Example usage of <code>Pulse</code> timer:</p>
-<pre><code>USING AXOpen.Timers;
+<p sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="26">The LOGIC of <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="26">PulseTimer</code> is following:</p>
+<p sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">If <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">inSignal</code> is FALSE, the <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">output</code> is FALSE and <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">elapsedTime</code> is 0. As soon as <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">inSignal</code> becomes TRUE, <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">output</code> also becomes TRUE and remains TRUE for the pulse duration <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">PulseLength</code>. As long as <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">output</code> is TRUE, the time is incremented in <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">elapsedTime</code>, until the value reaches PT. The value then remains constant. The <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">output</code> remains TRUE until the pulse duration has elapsed, irrespective of the state of the input <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">inSignal</code>. The <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">output</code> therefore supplies a signal over the interval specified in <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="28">PulseLength</code>.</p>
+<p sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="30">Example usage of <code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="30">Pulse</code> timer:</p>
+<pre><code sourcefile="../src/timers/docs/PULSETIMER.md" sourcestartlinenumber="32">USING AXOpen.Timers;
 
 
 VAR 
@@ -212,7 +212,7 @@ ENDIF;
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/timers/docs/README.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/timers/docs/README.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

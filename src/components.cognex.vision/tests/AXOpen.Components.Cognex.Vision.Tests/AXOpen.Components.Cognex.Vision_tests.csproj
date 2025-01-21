@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\AXOpen.Components.Cognex.Vision\ix_ax_axopen_components_cognex_vision.csproj" />
+    <ProjectReference Include="..\..\src\AXOpen.Components.Cognex.Vision\inxton_axopen_components_cognex_vision.csproj" />
   </ItemGroup>
 
 	<ItemGroup>

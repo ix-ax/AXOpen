@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/guidelines/PERFORMANCE.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/docfx/articles/guidelines/PERFORMANCE.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,89 +87,89 @@
         </div>
 
         <article data-uid="">
-<h1 id="performance-considerations-when-designing-axopen-applications">Performance Considerations when Designing AXOpen Applications</h1>
+<h1 id="performance-considerations-when-designing-axopen-applications" sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="1">Performance Considerations when Designing AXOpen Applications</h1>
 
-<p>AXOpen boasts a variety of features. However, it's noteworthy that certain features may demand higher performance, affecting both the controller and communication load. This is especially true for hardware-based controllers. This document covers the general guidelines for selecting a suitable controller within the usable range of hardware based controllers is S7-1516 to S7-1518. It is crucial to carefully determine the requirements for the desired controller, taking into consideration the size and performance demands of the application.</p>
-<h2 id="hardware-controllers">Hardware Controllers</h2>
-<p>The table below provides an overview of the specifications of various hardware controllers:</p>
-<table>
+<p sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="3">AXOpen boasts a variety of features. However, it's noteworthy that certain features may demand higher performance, affecting both the controller and communication load. This is especially true for hardware-based controllers. This document covers the general guidelines for selecting a suitable controller within the usable range of hardware based controllers is S7-1516 to S7-1518. It is crucial to carefully determine the requirements for the desired controller, taking into consideration the size and performance demands of the application.</p>
+<h2 id="hardware-controllers" sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="5">Hardware Controllers</h2>
+<p sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="7">The table below provides an overview of the specifications of various hardware controllers:</p>
+<table sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="9">
 <thead>
-<tr>
-<th>Controller</th>
-<th>Max. Controlled Units</th>
-<th>Traceability</th>
-<th>Controller Logging</th>
-<th>Data Load</th>
-<th>Main Cyclic Loop*</th>
+<tr sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="9">
+<th sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="9">Controller</th>
+<th sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="9">Max. Controlled Units</th>
+<th sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="9">Traceability</th>
+<th sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="9">Controller Logging</th>
+<th sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="9">Data Load</th>
+<th sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="9">Main Cyclic Loop*</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>S7-1516 FW 3.0</td>
-<td>1</td>
-<td>No</td>
-<td>No</td>
-<td>Low</td>
-<td>500ms</td>
+<tr sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="11">
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="11">S7-1516 FW 3.0</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="11">1</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="11">No</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="11">No</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="11">Low</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="11">500ms</td>
 </tr>
-<tr>
-<td>S7-1517 FW 3.0</td>
-<td>5</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Modest</td>
-<td>250ms</td>
+<tr sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="12">
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="12">S7-1517 FW 3.0</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="12">5</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="12">Yes</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="12">Yes</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="12">Modest</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="12">250ms</td>
 </tr>
-<tr>
-<td>S7-1518 FW 3.0</td>
-<td>7</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Modest</td>
-<td>250ms</td>
+<tr sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="13">
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="13">S7-1518 FW 3.0</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="13">7</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="13">Yes</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="13">Yes</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="13">Modest</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="13">250ms</td>
 </tr>
 </tbody>
 </table>
-<h2 id="software-controllers">Software Controllers</h2>
-<p>Software controllers also offer a range of capabilities, as detailed in the table below:</p>
-<table>
+<h2 id="software-controllers" sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="15">Software Controllers</h2>
+<p sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="17">Software controllers also offer a range of capabilities, as detailed in the table below:</p>
+<table sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="19">
 <thead>
-<tr>
-<th>Controller</th>
-<th>Max. Controlled Units</th>
-<th>Traceability</th>
-<th>Controller Logging</th>
-<th>Data Load</th>
-<th>Main Cyclic Loop*</th>
+<tr sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="19">
+<th sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="19">Controller</th>
+<th sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="19">Max. Controlled Units</th>
+<th sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="19">Traceability</th>
+<th sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="19">Controller Logging</th>
+<th sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="19">Data Load</th>
+<th sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="19">Main Cyclic Loop*</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>S7-1507S</td>
-<td>10</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Low</td>
-<td>50ms</td>
+<tr sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="21">
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="21">S7-1507S</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="21">10</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="21">Yes</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="21">Yes</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="21">Low</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="21">50ms</td>
 </tr>
-<tr>
-<td>S7-1508S</td>
-<td>10</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Low</td>
-<td>50ms</td>
+<tr sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="22">
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="22">S7-1508S</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="22">10</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="22">Yes</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="22">Yes</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="22">Low</td>
+<td sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="22">50ms</td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li>Main cyclic loop is the base time interval of the AXOpen application to handle all cyclic requests.</li>
+<ul sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="24">
+<li sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="24">Main cyclic loop is the base time interval of the AXOpen application to handle all cyclic requests.</li>
 </ul>
-<p>Always ensure to align the selection of a controller with the specific needs of your AXOpen application to achieve optimal performance.</p>
+<p sourcefile="articles/guidelines/PERFORMANCE.md" sourcestartlinenumber="26">Always ensure to align the selection of a controller with the specific needs of your AXOpen application to achieve optimal performance.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/guidelines/PERFORMANCE.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/docfx/articles/guidelines/PERFORMANCE.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

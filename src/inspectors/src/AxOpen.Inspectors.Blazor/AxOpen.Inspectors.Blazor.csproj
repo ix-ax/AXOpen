@@ -60,6 +60,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
-    <ProjectReference Include="..\AXOpen.Inspectors\ix_ax_axopen_inspectors.csproj" />
+    <ProjectReference Include="..\AXOpen.Inspectors\inxton_axopen_inspectors.csproj" />
   </ItemGroup>
 </Project>

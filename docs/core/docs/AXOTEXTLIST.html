@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/core/docs/AXOTEXTLIST.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/core/docs/AXOTEXTLIST.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,34 +87,34 @@
         </div>
 
         <article data-uid="">
-<h1 id="axotextlist">AxoTextList</h1>
+<h1 id="axotextlist" sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="1">AxoTextList</h1>
 
-<p>AxoTextList provides displaying the string value from the list defined in the extended class inside the <code>.NET</code> twin based on the numerical value read out from the PLC.
-Moreover, the display form could also change the background colour with the numerical value change. To achieve this, the attributes <code>WarningLevel</code> and <code>ErrorLevel</code> need to be declared as in the following example.</p>
-<pre><code class="lang-smalltalk">{#ix-set:AttributeName = &quot;Description: |[[1]TextList]|&quot;}
+<p sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="3">AxoTextList provides displaying the string value from the list defined in the extended class inside the <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="3">.NET</code> twin based on the numerical value read out from the PLC.
+Moreover, the display form could also change the background colour with the numerical value change. To achieve this, the attributes <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="4">WarningLevel</code> and <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="4">ErrorLevel</code> need to be declared as in the following example.</p>
+<pre><code class="lang-smalltalk" sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="5">{#ix-set:AttributeName = &quot;Description: |[[1]TextList]|&quot;}
 {#ix-attr:[WarningLevel(600)]}
 {#ix-attr:[ErrorLevel(700)]}
 _myTextList1 : AXOpen.Core.AxoTextList;
 </code></pre>
-<p>The final text displayed in the UI application will be <code>static prefix</code>+[<code>text value from text list</code>(Id)](for example <code>Description : </code> + [TextList(Id)]).
+<p sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="6">The final text displayed in the UI application will be <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="6">static prefix</code>+[<code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="6">text value from text list</code>(Id)](for example <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="6">Description : </code> + [TextList(Id)]).
 The static prefix is optional. Use the following example to display the same text list without static prefix and with different levels.</p>
-<pre><code class="lang-smalltalk">{#ix-set:AttributeName = &quot;|[[1]TextList]|&quot;}
+<pre><code class="lang-smalltalk" sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="8">{#ix-set:AttributeName = &quot;|[[1]TextList]|&quot;}
 {#ix-attr:[WarningLevel(300)]}
 {#ix-attr:[ErrorLevel(500)]}
 _myTextList2 : AXOpen.Core.AxoTextList;
 </code></pre>
-<p>If the <code>WarningLevel</code> is greater than 0 and the <code>ErrorLevel</code> is greater than the <code>WarningLevel</code>, all items with the <code>Id</code> lower than the <code>WarningLevel</code> are displayed with the <code>Primary</code> background, all items with the <code>Id</code> greater or equal to the <code>WarningLevel</code> and lower then the <code>ErrorLevel</code> are displayed with the <code>Warning</code> background and all the rest are displayed with the <code>Danger</code> background. The final colours depend on the style used.
-If the attributes <code>WarningLevel</code> and <code>ErrorLevel</code> are not declared as in the following example, all items are displayed with the <code>Primary</code> background.</p>
-<pre><code class="lang-smalltalk">{#ix-set:AttributeName = &quot;Totaly different description without error elevation: |[[1]DifferentTextList]|&quot;}
+<p sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="9">If the <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="9">WarningLevel</code> is greater than 0 and the <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="9">ErrorLevel</code> is greater than the <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="9">WarningLevel</code>, all items with the <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="9">Id</code> lower than the <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="9">WarningLevel</code> are displayed with the <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="9">Primary</code> background, all items with the <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="9">Id</code> greater or equal to the <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="9">WarningLevel</code> and lower then the <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="9">ErrorLevel</code> are displayed with the <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="9">Warning</code> background and all the rest are displayed with the <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="9">Danger</code> background. The final colours depend on the style used.
+If the attributes <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="10">WarningLevel</code> and <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="10">ErrorLevel</code> are not declared as in the following example, all items are displayed with the <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="10">Primary</code> background.</p>
+<pre><code class="lang-smalltalk" sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="11">{#ix-set:AttributeName = &quot;Totaly different description without error elevation: |[[1]DifferentTextList]|&quot;}
 _myTextList3 : AXOpen.Core.AxoTextList;
 </code></pre>
-<p>For each <code>AxoTextList</code>, there must be a defined property, named exactly as in the <code>Attributes</code> inside the examples above. It must be defined in the extended class that the particular <code>AxoTextList</code> is a member of.<br>
-This property must return a string value from the dictionary defined in the same class based on the numerical value of the <code>Id</code> variable.</p>
-<p>Declaration of the dictionary:</p>
-<pre><code class="lang-csharp">Dictionary&lt;ulong, string&gt; textList = new Dictionary&lt;ulong, string&gt;();
+<p sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="13">For each <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="13">AxoTextList</code>, there must be a defined property, named exactly as in the <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="13">Attributes</code> inside the examples above. It must be defined in the extended class that the particular <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="13">AxoTextList</code> is a member of.<br>
+This property must return a string value from the dictionary defined in the same class based on the numerical value of the <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="14">Id</code> variable.</p>
+<p sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="16">Declaration of the dictionary:</p>
+<pre><code class="lang-csharp" sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="17">Dictionary&lt;ulong, string&gt; textList = new Dictionary&lt;ulong, string&gt;();
 </code></pre>
-<p>Filling the items of the dictionary:</p>
-<pre><code class="lang-csharp">if (textList == null) { textList = new Dictionary&lt;ulong, string&gt;(); }
+<p sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="19">Filling the items of the dictionary:</p>
+<pre><code class="lang-csharp" sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="20">if (textList == null) { textList = new Dictionary&lt;ulong, string&gt;(); }
 if (textList.Count == 0)
 {
     textList.Add(0, &quot;   &quot;);
@@ -124,8 +124,8 @@ if (textList.Count == 0)
     }
 }
 </code></pre>
-<p>Returning the string item from the dictionary:</p>
-<pre><code class="lang-csharp">string _textItem = &quot;   &quot;;
+<p sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="22">Returning the string item from the dictionary:</p>
+<pre><code class="lang-csharp" sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="23">string _textItem = &quot;   &quot;;
 if (_myTextList1 != null &amp;&amp; _myTextList1.Id != null &amp;&amp; textList.TryGetValue(_myTextList1.Id.LastValue, out _textItem))
 {
     return _textItem;
@@ -135,8 +135,8 @@ else
     return &quot;   &quot;;
 }
 </code></pre>
-<p>Complete example for two different <code>AxoTextList</code>:</p>
-<pre><code class="lang-csharp">
+<p sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="25">Complete example for two different <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="25">AxoTextList</code>:</p>
+<pre><code class="lang-csharp" sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="26">
 using System.Collections.Generic;
 
 namespace AxoTextListExample
@@ -206,9 +206,9 @@ namespace AxoTextListExample
 
 }
 </code></pre>
-<p><strong>How to visualize <code>AxoTextList</code></strong></p>
-<p>On the UI side, to visualize the <code>AxoTextList</code>, use the <code>RenderableContentControl</code> and set its Context according to the placement of the instance of the <code>AxoTextList</code>.</p>
-<pre><code class="lang-csharp">&lt;div class=&quot;col&quot;&gt;
+<p sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="28"><strong sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="28">How to visualize <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="28">AxoTextList</code></strong></p>
+<p sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="30">On the UI side, to visualize the <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="30">AxoTextList</code>, use the <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="30">RenderableContentControl</code> and set its Context according to the placement of the instance of the <code sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="30">AxoTextList</code>.</p>
+<pre><code class="lang-csharp" sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="31">&lt;div class=&quot;col&quot;&gt;
     &lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoTextListExampleContext._myTextList1&quot; /&gt;
 &lt;/div&gt;
 &lt;div class=&quot;col&quot;&gt;
@@ -218,12 +218,12 @@ namespace AxoTextListExample
     &lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoTextListExampleContext._myTextList3&quot; /&gt;
 &lt;/div&gt;
 </code></pre>
-<p>The displayed result should look like this:</p>
-<p><img src="assets/AxoMomentaryTaskExampleVisu.gif" alt="Alt text"></p>
+<p sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="33">The displayed result should look like this:</p>
+<p sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="35"><img src="assets/AxoMomentaryTaskExampleVisu.gif" sourcefile="../src/core/docs/AXOTEXTLIST.md" sourcestartlinenumber="35" alt="Alt text"></p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/docs/AXOTEXTLIST.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/core/docs/AXOTEXTLIST.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

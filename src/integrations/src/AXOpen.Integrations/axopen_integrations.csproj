@@ -27,14 +27,14 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\components.cognex.vision\src\AXOpen.Components.Cognex.Vision\ix_ax_axopen_components_cognex_vision.csproj" />
-    <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
-    <ProjectReference Include="..\..\..\data\src\AXOpen.Data\ix_ax_axopen_data.csproj" />
+    <ProjectReference Include="..\..\..\components.cognex.vision\src\AXOpen.Components.Cognex.Vision\inxton_axopen_components_cognex_vision.csproj" />
+    <ProjectReference Include="..\..\..\core\src\AXOpen.Core\inxton_axopen_core.csproj" />
+    <ProjectReference Include="..\..\..\data\src\AXOpen.Data\inxton_axopen_data.csproj" />
     <ProjectReference Include="..\..\..\data\src\repositories\InMemory\AXOpen.Data.InMemory.csproj" />
-    <ProjectReference Include="..\..\..\probers\src\AXOpen.Probers\ix_ax_axopen_probers.csproj" />
-    <ProjectReference Include="..\..\..\simatic1500\ctrl\ix\ix_ax_axopen_simatic1500.csproj" />
-    <ProjectReference Include="..\..\..\components.abstractions\src\AXOpen.Components.Abstractions\ix_ax_axopen_components_abstractions.csproj" />
-    <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj" />
-    <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj" />
+    <ProjectReference Include="..\..\..\probers\src\AXOpen.Probers\inxton_axopen_probers.csproj" />
+    <ProjectReference Include="..\..\..\simatic1500\ctrl\ix\inxton_axopen_simatic1500.csproj" />
+    <ProjectReference Include="..\..\..\components.abstractions\src\AXOpen.Components.Abstractions\inxton_axopen_components_abstractions.csproj" />
+    <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\inxton_axopen_timers.csproj" />
+    <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\inxton_axopen_abstractions.csproj" />
   </ItemGroup>
 </Project>

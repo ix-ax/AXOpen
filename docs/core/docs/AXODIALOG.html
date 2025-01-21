@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/core/docs/AXODIALOG.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/core/docs/AXODIALOG.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,11 +87,11 @@
         </div>
 
         <article data-uid="">
-<h1 id="axodialogs">AxoDialogs</h1>
+<h1 id="axodialogs" sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="1">AxoDialogs</h1>
 
-<p>AxoDialogs provide capability to interact with the user by rising dialogs directly from the PLC program.</p>
-<h2 id="example">Example</h2>
-<pre><code>VAR PUBLIC
+<p sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="3">AxoDialogs provide capability to interact with the user by rising dialogs directly from the PLC program.</p>
+<h2 id="example" sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="5">Example</h2>
+<pre><code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="8">VAR PUBLIC
     _dialog : AXOpen.Core.AxoDialog;
 END_VAR
 //----------------------------------------------
@@ -107,36 +107,36 @@ IF(_dialog.Show(THIS)
 
 END_IF;	
 </code></pre>
-<p><img src="assets/ok-dialog.png" alt="Modal ok Dialog"></p>
-<h2 id="getting-started">Getting started</h2>
-<ol>
-<li>Make sure your Blazor application references <code>axopen_core_blazor</code> project and AxoCore services are added to builder in <code>Program.cs</code> file. Also, map <code>dialoghub</code> which is needed for dialog synchronization using SignalR technology.</li>
+<p sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="26"><img src="assets/ok-dialog.png" sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="26" alt="Modal ok Dialog"></p>
+<h2 id="getting-started" sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="28">Getting started</h2>
+<ol sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="30">
+<li sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="30">Make sure your Blazor application references <code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="30">axopen_core_blazor</code> project and AxoCore services are added to builder in <code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="30">Program.cs</code> file. Also, map <code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="30">dialoghub</code> which is needed for dialog synchronization using SignalR technology.</li>
 </ol>
-<pre><code class="lang-C#">builder.Services.AddAxoCoreServices();
+<pre><code class="lang-C#" sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="31">builder.Services.AddAxoCoreServices();
 //...
 app.MapHub&lt;DialogHub&gt;(&quot;/dialoghub&quot;);
 </code></pre>
-<ol start="2">
-<li>Go to your page, where you wish to have dialogs and include <code>AxoDialogLocator</code> component at the end of that page.</li>
+<ol start="2" sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="39">
+<li sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="39">Go to your page, where you wish to have dialogs and include <code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="39">AxoDialogLocator</code> component at the end of that page.</li>
 </ol>
-<p>Provide list of <code>ObservedObjects</code>, on which you want to observe dialogs. You can also provide <code>DialogLocatorPath</code>, which serves for synchronization of dialogs between multiple clients. If <code>DialogLocatorPath</code> is not provided, the current <em>URI</em> is used as an id.</p>
-<div class="IMPORTANT">
+<p sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="41">Provide list of <code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="41">ObservedObjects</code>, on which you want to observe dialogs. You can also provide <code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="41">DialogLocatorPath</code>, which serves for synchronization of dialogs between multiple clients. If <code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="41">DialogLocatorPath</code> is not provided, the current <em sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="41">URI</em> is used as an id.</p>
+<div class="IMPORTANT" sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="43">
 <h5>Important</h5>
-<p>Make sure, that each page has only one instance of <code>AxoDialogLocator</code> and that provided <code>DialogLocatorPath</code> is unique across the application! If you wish to observe multiple objects, add them into <code>ObservedObjects</code> list.</p>
+<p sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="44">Make sure, that each page has only one instance of <code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="44">AxoDialogLocator</code> and that provided <code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="44">DialogLocatorPath</code> is unique across the application! If you wish to observe multiple objects, add them into <code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="44">ObservedObjects</code> list.</p>
 </div>
-<pre><code class="lang-HTML">&lt;AxoDialogLocator DialogLocatorPath=&quot;custation001&quot; ObservedObjects=&quot;new[] {Entry.Plc.Context.PneumaticManipulator}&quot;/&gt;
+<pre><code class="lang-HTML" sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="46">&lt;AxoDialogLocator DialogLocatorPath=&quot;custation001&quot; ObservedObjects=&quot;new[] {Entry.Plc.Context.PneumaticManipulator}&quot;/&gt;
 </code></pre>
-<p>Now, when dialog is invoked in PLC, it will show on all clients and pages, where <code>AxoDialogLocator</code> is present with corresponding observed objects. The answers are synchronized across multiple clients.</p>
-<h2 id="axodialog-types">AxoDialog types</h2>
-<p>AxoDialogs contains currently 3 types of predefined dialogs:</p>
-<ol>
-<li>Okay dialog</li>
-<li>YesNo dialog</li>
-<li>YesNoCancel dialog</li>
+<p sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="50">Now, when dialog is invoked in PLC, it will show on all clients and pages, where <code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="50">AxoDialogLocator</code> is present with corresponding observed objects. The answers are synchronized across multiple clients.</p>
+<h2 id="axodialog-types" sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="52">AxoDialog types</h2>
+<p sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="54">AxoDialogs contains currently 3 types of predefined dialogs:</p>
+<ol sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="56">
+<li sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="56">Okay dialog</li>
+<li sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="57">YesNo dialog</li>
+<li sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="58">YesNoCancel dialog</li>
 </ol>
-<p><img src="assets/dialog-types.gif" alt="Dialog types"></p>
-<p>Also, the visual type of corresponding dialog can be adjusted with <code>eDialogType</code> enum, which is defined as follows:</p>
-<pre><code> eDialogType : INT (
+<p sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="61"><img src="assets/dialog-types.gif" sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="61" alt="Dialog types"></p>
+<p sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="63">Also, the visual type of corresponding dialog can be adjusted with <code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="63">eDialogType</code> enum, which is defined as follows:</p>
+<pre><code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="64"> eDialogType : INT (
     Undefined := 0,
     Info := 10,
     Success := 20,
@@ -145,20 +145,20 @@ app.MapHub&lt;DialogHub&gt;(&quot;/dialoghub&quot;);
 );
 
 </code></pre>
-<h2 id="answer-synchronization-on-multiple-clients">Answer synchronization on multiple clients</h2>
-<p>Answers of dialogs are synchronized across multiple clients with the SignalR technology.</p>
-<p><img src="assets/dialog-sync.gif" alt="Dialog sync"></p>
-<h2 id="closing-a-dialog-with-external-signal">Closing a dialog with external signal</h2>
-<p>External signals can be provided to dialog instance within a <code>ShowWithExternalClose</code> method, which can be then used to close dialog externally (for example from other page of application, or by pressing a hardware button...).</p>
-<p>4 different signals can be monitored in <code>ShowWithExternalClose</code> method:</p>
-<ul>
-<li>inOkAnswerSignal</li>
-<li>inYesAnswerSignal</li>
-<li>inNoAnswerSignal</li>
-<li>inCancelAnswerSignal</li>
+<h2 id="answer-synchronization-on-multiple-clients" sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="75">Answer synchronization on multiple clients</h2>
+<p sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="77">Answers of dialogs are synchronized across multiple clients with the SignalR technology.</p>
+<p sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="79"><img src="assets/dialog-sync.gif" sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="79" alt="Dialog sync"></p>
+<h2 id="closing-a-dialog-with-external-signal" sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="82">Closing a dialog with external signal</h2>
+<p sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="84">External signals can be provided to dialog instance within a <code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="84">ShowWithExternalClose</code> method, which can be then used to close dialog externally (for example from other page of application, or by pressing a hardware button...).</p>
+<p sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="86">4 different signals can be monitored in <code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="86">ShowWithExternalClose</code> method:</p>
+<ul sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="87">
+<li sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="87">inOkAnswerSignal</li>
+<li sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="88">inYesAnswerSignal</li>
+<li sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="89">inNoAnswerSignal</li>
+<li sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="90">inCancelAnswerSignal</li>
 </ul>
-<p>Below is an example of closing dialog with <code>_externalCloseOkSignal</code> bool variable, which is set in other part of application:</p>
-<pre><code>VAR PUBLIC
+<p sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="93">Below is an example of closing dialog with <code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="93">_externalCloseOkSignal</code> bool variable, which is set in other part of application:</p>
+<pre><code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="95">VAR PUBLIC
     _dialog : AXOpen.Core.AxoDialog;
     _externalCloseOkSignal : BOOL;
     _dialogAnswer : eDialogAnswer;
@@ -177,24 +177,24 @@ IF(_dialog3Answer = eDialogAnswer#Ok) THEN
 
 END_IF;	
 </code></pre>
-<p><img src="assets/dialog-external-close.gif" alt="Dialog sync"></p>
-<h2 id="creation-of-own-modal-dialog">Creation of own modal dialog</h2>
-<h3 id="plc-side">PLC side</h3>
-<ul>
-<li><p>Create own PLC instance of dialog, which extends <code>AxoDialogBase</code>.</p>
+<p sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="116"><img src="assets/dialog-external-close.gif" sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="116" alt="Dialog sync"></p>
+<h2 id="creation-of-own-modal-dialog" sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="118">Creation of own modal dialog</h2>
+<h3 id="plc-side" sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="121">PLC side</h3>
+<ul sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="122">
+<li sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="122"><p sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="122">Create own PLC instance of dialog, which extends <code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="122">AxoDialogBase</code>.</p>
 </li>
-<li><p>Define dialog structure and corresponding show method, which will initialize and invoke remote task needed for dialog creation.</p>
-</li>
-</ul>
-<h3 id="blazor-side">Blazor side</h3>
-<ul>
-<li><p>Define Blazor view of modal dialog, which is then generated by <code>RenderableContentControl</code> according to presentation pipeline.
-For example, when Dialog plc type is <code>MyCustomModal</code>, the view must by named <code>MyCustomModalDialogView</code>, because implementation is using <code>Dialog</code> presentation type.</p>
-<p>The Blazor view must inherits from <code>@AxoDialogBaseView&lt;MyCustomModal&gt;</code>, where correct generic type of dialog from PLC must be passed. The opening/closing of dialog is managed in base class by virtual methods, which can be overridden if needed.</p>
+<li sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="124"><p sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="124">Define dialog structure and corresponding show method, which will initialize and invoke remote task needed for dialog creation.</p>
 </li>
 </ul>
-<h2 id="net-integration-uml">.Net integration UML</h2>
-<pre><code class="lang-mermaid">classDiagram
+<h3 id="blazor-side" sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="126">Blazor side</h3>
+<ul sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="127">
+<li sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="127"><p sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="127">Define Blazor view of modal dialog, which is then generated by <code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="127">RenderableContentControl</code> according to presentation pipeline.
+For example, when Dialog plc type is <code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="128">MyCustomModal</code>, the view must by named <code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="128">MyCustomModalDialogView</code>, because implementation is using <code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="128">Dialog</code> presentation type.</p>
+<p sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="130">The Blazor view must inherits from <code sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="130">@AxoDialogBaseView&lt;MyCustomModal&gt;</code>, where correct generic type of dialog from PLC must be passed. The opening/closing of dialog is managed in base class by virtual methods, which can be overridden if needed.</p>
+</li>
+</ul>
+<h2 id="net-integration-uml" sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="133">.Net integration UML</h2>
+<pre><code class="lang-mermaid" sourcefile="../src/core/docs/AXODIALOG.md" sourcestartlinenumber="136">classDiagram
     class AxoDialogLocator {
       -AxoDialogLocatorService _dialogProxyService
       -string ModalDisplay
@@ -269,7 +269,7 @@ For example, when Dialog plc type is <code>MyCustomModal</code>, the view must b
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/docs/AXODIALOG.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/core/docs/AXODIALOG.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/notes/Themes.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/docfx/articles/notes/Themes.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,13 +87,13 @@
         </div>
 
         <article data-uid="">
-<h1 id="axopenthemes"><strong>AXOpen.Themes</strong></h1>
+<h1 id="axopenthemes" sourcefile="articles/notes/Themes.md" sourcestartlinenumber="1"><strong sourcefile="articles/notes/Themes.md" sourcestartlinenumber="1">AXOpen.Themes</strong></h1>
 
-<p>There is a way to change the look of the application by creating and using modified bootstrap files.</p>
-<h2 id="1-modifying-bootstrap">1. Modifying bootstrap</h2>
-<p>Each theme is a separate bootstrap file. To get the desired color theme, bootstrap's variables need to be modified before compilation.</p>
-<p>Example of a file with modified variables:</p>
-<pre><code class="lang-scss">// scss-docs-start theme-color-variables
+<p sourcefile="articles/notes/Themes.md" sourcestartlinenumber="3">There is a way to change the look of the application by creating and using modified bootstrap files.</p>
+<h2 id="1-modifying-bootstrap" sourcefile="articles/notes/Themes.md" sourcestartlinenumber="5">1. Modifying bootstrap</h2>
+<p sourcefile="articles/notes/Themes.md" sourcestartlinenumber="7">Each theme is a separate bootstrap file. To get the desired color theme, bootstrap's variables need to be modified before compilation.</p>
+<p sourcefile="articles/notes/Themes.md" sourcestartlinenumber="9">Example of a file with modified variables:</p>
+<pre><code class="lang-scss" sourcefile="articles/notes/Themes.md" sourcestartlinenumber="11">// scss-docs-start theme-color-variables
 $primary:       #0A6105 !default;
 $secondary:     #13c70e !default;
 $success:       #0e9e0a !default;
@@ -104,11 +104,11 @@ $light:         #f0f1ee !default;
 $dark:          #021301 !default;
 // scss-docs-end theme-color-variables
 </code></pre>
-<h2 id="2-compiling-bootstrap">2. Compiling bootstrap</h2>
-<p>Compile these files using the <code>sass</code> compiler:</p>
-<h2 id="3-using-a-theme">3. Using a theme</h2>
-<p>The custom compiled bootstrap files are stored in the <code>wwwroot\css\custom</code> folder. Add your custom compiled bootstrap to this folder. In order to be able to switch to your newly created theme, you need to add the name of the theme to the <code>supportedThemes</code> array:</p>
-<pre><code class="lang-csharp">private string defaultThemeColor = &quot;Bootstrap&quot;;
+<h2 id="2-compiling-bootstrap" sourcefile="articles/notes/Themes.md" sourcestartlinenumber="24">2. Compiling bootstrap</h2>
+<p sourcefile="articles/notes/Themes.md" sourcestartlinenumber="26">Compile these files using the <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="26">sass</code> compiler:</p>
+<h2 id="3-using-a-theme" sourcefile="articles/notes/Themes.md" sourcestartlinenumber="28">3. Using a theme</h2>
+<p sourcefile="articles/notes/Themes.md" sourcestartlinenumber="30">The custom compiled bootstrap files are stored in the <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="30">wwwroot\css\custom</code> folder. Add your custom compiled bootstrap to this folder. In order to be able to switch to your newly created theme, you need to add the name of the theme to the <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="30">supportedThemes</code> array:</p>
+<pre><code class="lang-csharp" sourcefile="articles/notes/Themes.md" sourcestartlinenumber="32">private string defaultThemeColor = &quot;Bootstrap&quot;;
 private string[] supportedThemeColors = new[]
 {
     &quot;Bootstrap&quot;,
@@ -117,19 +117,19 @@ private string[] supportedThemeColors = new[]
     &quot;Jupiter&quot;
 };
 </code></pre>
-<p>Upon selecting a new theme, redirection to the <code>themeColor</code> uri is triggered:</p>
-<pre><code class="lang-csharp">NavigationManager.NavigateTo($&quot;/themeColor?themeColor={_themeColor}&quot;, true);
+<p sourcefile="articles/notes/Themes.md" sourcestartlinenumber="43">Upon selecting a new theme, redirection to the <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="43">themeColor</code> uri is triggered:</p>
+<pre><code class="lang-csharp" sourcefile="articles/notes/Themes.md" sourcestartlinenumber="45">NavigationManager.NavigateTo($&quot;/themeColor?themeColor={_themeColor}&quot;, true);
 </code></pre>
-<p>Upon navigating to the <code>themeColor</code> uri, the <code>ChangeThemeColor</code> method of the <code>ThemeColorController</code> (an API controller) is called:</p>
-<pre><code class="lang-csharp">public async Task&lt;ActionResult&gt; ChangeThemeColor([FromQuery] string themeColor)
+<p sourcefile="articles/notes/Themes.md" sourcestartlinenumber="49">Upon navigating to the <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="49">themeColor</code> uri, the <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="49">ChangeThemeColor</code> method of the <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="49">ThemeColorController</code> (an API controller) is called:</p>
+<pre><code class="lang-csharp" sourcefile="articles/notes/Themes.md" sourcestartlinenumber="51">public async Task&lt;ActionResult&gt; ChangeThemeColor([FromQuery] string themeColor)
 {
     Response.Cookies.Append(&quot;ThemeColor&quot;, themeColor);
     return Redirect(&quot;/&quot;);
 }
 </code></pre>
-<p>This method creates a <strong>cookie</strong> with the name <code>ThemeColor</code> and the value of the selected theme. The cookie is then used to determine which stylesheet to use. The cookie <strong>expires</strong> after the browser session ends.</p>
-<p>In the <code>_Host.cshtml</code> file, the <code>css</code> file of the selected theme is loaded based on the value of the <code>theme</code> cookie:</p>
-<pre><code class="lang-html">@switch (Request.Cookies[&quot;ThemeColor&quot;])
+<p sourcefile="articles/notes/Themes.md" sourcestartlinenumber="59">This method creates a <strong sourcefile="articles/notes/Themes.md" sourcestartlinenumber="59">cookie</strong> with the name <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="59">ThemeColor</code> and the value of the selected theme. The cookie is then used to determine which stylesheet to use. The cookie <strong sourcefile="articles/notes/Themes.md" sourcestartlinenumber="59">expires</strong> after the browser session ends.</p>
+<p sourcefile="articles/notes/Themes.md" sourcestartlinenumber="61">In the <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="61">_Host.cshtml</code> file, the <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="61">css</code> file of the selected theme is loaded based on the value of the <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="61">theme</code> cookie:</p>
+<pre><code class="lang-html" sourcefile="articles/notes/Themes.md" sourcestartlinenumber="63">@switch (Request.Cookies[&quot;ThemeColor&quot;])
 {
     case &quot;MTS&quot;:
         &lt;link rel=&quot;stylesheet&quot; href=&quot;~/css/custom/mts.css&quot; /&gt;
@@ -144,29 +144,29 @@ private string[] supportedThemeColors = new[]
         break;
 }
 </code></pre>
-<p>Make sure that the string name of your theme in <code>supportedThemes</code> array  file matches with the correct <code>case</code> string in the <code>switch</code> statement in the <code>_Host.cshtml</code> file. In case of an unknown theme name from the <code>ThemeColor</code> cookie or when the app is opened for the first time (the cookie has not been created yet), the default bootstrap theme is loaded.</p>
-<p>Theme changes in action:</p>
-<p><img src="../../images/Theme_demo.gif" alt="Theme gif"></p>
-<h1 id="change-darklight-theme">Change dark/light theme</h1>
-<p>If you change the theme to dark/light, redirection to the <code>theme</code> uri is triggered:</p>
-<pre><code class="lang-csharp">NavigationManager.NavigateTo($&quot;/theme?theme={_theme}&quot;, true);
+<p sourcefile="articles/notes/Themes.md" sourcestartlinenumber="80">Make sure that the string name of your theme in <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="80">supportedThemes</code> array  file matches with the correct <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="80">case</code> string in the <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="80">switch</code> statement in the <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="80">_Host.cshtml</code> file. In case of an unknown theme name from the <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="80">ThemeColor</code> cookie or when the app is opened for the first time (the cookie has not been created yet), the default bootstrap theme is loaded.</p>
+<p sourcefile="articles/notes/Themes.md" sourcestartlinenumber="82">Theme changes in action:</p>
+<p sourcefile="articles/notes/Themes.md" sourcestartlinenumber="84"><img src="../../images/Theme_demo.gif" sourcefile="articles/notes/Themes.md" sourcestartlinenumber="84" alt="Theme gif"></p>
+<h1 id="change-darklight-theme" sourcefile="articles/notes/Themes.md" sourcestartlinenumber="86">Change dark/light theme</h1>
+<p sourcefile="articles/notes/Themes.md" sourcestartlinenumber="88">If you change the theme to dark/light, redirection to the <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="88">theme</code> uri is triggered:</p>
+<pre><code class="lang-csharp" sourcefile="articles/notes/Themes.md" sourcestartlinenumber="90">NavigationManager.NavigateTo($&quot;/theme?theme={_theme}&quot;, true);
 </code></pre>
-<p>Upon navigating to the <code>theme</code> uri, the <code>ChangeTheme</code> method of the <code>ThemeController</code> (an API controller) is called:</p>
-<pre><code class="lang-csharp">public async Task&lt;ActionResult&gt; ChangeTheme([FromQuery] string theme)
+<p sourcefile="articles/notes/Themes.md" sourcestartlinenumber="94">Upon navigating to the <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="94">theme</code> uri, the <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="94">ChangeTheme</code> method of the <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="94">ThemeController</code> (an API controller) is called:</p>
+<pre><code class="lang-csharp" sourcefile="articles/notes/Themes.md" sourcestartlinenumber="96">public async Task&lt;ActionResult&gt; ChangeTheme([FromQuery] string theme)
 {
     Response.Cookies.Append(&quot;Theme&quot;, theme);
     return Redirect(&quot;/&quot;);
 }
 </code></pre>
-<p>This method creates a <strong>cookie</strong> with the name <code>Theme</code> and the value of the selected theme. The cookie <strong>expires</strong> after the browser session ends.</p>
-<p>In the <code>_Host.cshtml</code> file, the <code>data-bs-theme</code> is set based on the value of the <code>theme</code> cookie:</p>
-<pre><code class="lang-html">&lt;html lang=&quot;en&quot; data-bs-theme=&quot;@(Request.Cookies[&quot;Theme&quot;] == &quot;dark&quot; ? &quot;dark&quot; : &quot;light&quot;)&quot;&gt;
+<p sourcefile="articles/notes/Themes.md" sourcestartlinenumber="104">This method creates a <strong sourcefile="articles/notes/Themes.md" sourcestartlinenumber="104">cookie</strong> with the name <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="104">Theme</code> and the value of the selected theme. The cookie <strong sourcefile="articles/notes/Themes.md" sourcestartlinenumber="104">expires</strong> after the browser session ends.</p>
+<p sourcefile="articles/notes/Themes.md" sourcestartlinenumber="106">In the <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="106">_Host.cshtml</code> file, the <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="106">data-bs-theme</code> is set based on the value of the <code sourcefile="articles/notes/Themes.md" sourcestartlinenumber="106">theme</code> cookie:</p>
+<pre><code class="lang-html" sourcefile="articles/notes/Themes.md" sourcestartlinenumber="108">&lt;html lang=&quot;en&quot; data-bs-theme=&quot;@(Request.Cookies[&quot;Theme&quot;] == &quot;dark&quot; ? &quot;dark&quot; : &quot;light&quot;)&quot;&gt;
 </code></pre>
-<p>This theme change is implemented in bootstrap and if you have correct set colors it will be working as expected.</p>
+<p sourcefile="articles/notes/Themes.md" sourcestartlinenumber="112">This theme change is implemented in bootstrap and if you have correct set colors it will be working as expected.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/notes/Themes.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/docfx/articles/notes/Themes.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

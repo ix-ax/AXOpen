@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/data/docs/EXPORT.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/data/docs/EXPORT.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,29 +87,29 @@
         </div>
 
         <article data-uid="">
-<h1 id="exportimport">Export/Import</h1>
+<h1 id="exportimport" sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="1">Export/Import</h1>
 
-<p>If you want to be able to export data, you must add <code>CanExport</code> attribute with <code>true</code> value. Like this:</p>
-<pre><code class="lang-smalltalk">&lt;DataExchangeView Vm=&quot;@_vm_export&quot; Presentation=&quot;Command&quot; CanExport=&quot;true&quot; /&gt;
+<p sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="3">If you want to be able to export data, you must add <code sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="3">CanExport</code> attribute with <code sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="3">true</code> value. Like this:</p>
+<pre><code class="lang-smalltalk" sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="5">&lt;DataExchangeView Vm=&quot;@_vm_export&quot; Presentation=&quot;Command&quot; CanExport=&quot;true&quot; /&gt;
 </code></pre>
-<p>With this option, buttons for export and import data will appear. After clicking on the export button, the <code>.zip</code> file will be created, which contains all existing records. If you want to import data, you must upload <code>.zip</code> file with an equal data structure as we get in the export file.</p>
-<p><img src="assets/Export.png" alt="Export"></p>
-<h2 id="custom-export">Custom export</h2>
-<p>You have the option to customize the exported files according to your preferences. This includes selecting specific columns and rows, choosing the desired file type, and specifying the separator. It's important to note that if you don't select all columns for export, importing the files may not be done correctly.</p>
-<p>During the importing process, it is crucial to enter the same separator that was used during the export. If the default separator was used during the export, there is no need to make any changes.</p>
-<p>You also can create own exporter. To do this, you must create a class that implements <code>IDataExporter&lt;TPlain, TOnline&gt;</code> interface. This interface requires you to implement the <code>Export</code>, <code>Import</code> and <code>GetName</code> method. Once you've done this, your custom exporter will be displayed in the custom export and import modal view. Users will be able to choose the exported file type through this view.</p>
-<p>For a better user experience, it is strongly recommended to clean the <code>Temp</code> directory when starting the application. The best way to do this is to add the following lines to the &quot;Program.cs&quot; file:</p>
-<pre><code class="lang-csharp">// Clean Temp directory
+<p sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="7">With this option, buttons for export and import data will appear. After clicking on the export button, the <code sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="7">.zip</code> file will be created, which contains all existing records. If you want to import data, you must upload <code sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="7">.zip</code> file with an equal data structure as we get in the export file.</p>
+<p sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="9"><img src="assets/Export.png" sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="9" alt="Export"></p>
+<h2 id="custom-export" sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="11">Custom export</h2>
+<p sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="13">You have the option to customize the exported files according to your preferences. This includes selecting specific columns and rows, choosing the desired file type, and specifying the separator. It's important to note that if you don't select all columns for export, importing the files may not be done correctly.</p>
+<p sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="15">During the importing process, it is crucial to enter the same separator that was used during the export. If the default separator was used during the export, there is no need to make any changes.</p>
+<p sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="17">You also can create own exporter. To do this, you must create a class that implements <code sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="17">IDataExporter&lt;TPlain, TOnline&gt;</code> interface. This interface requires you to implement the <code sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="17">Export</code>, <code sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="17">Import</code> and <code sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="17">GetName</code> method. Once you've done this, your custom exporter will be displayed in the custom export and import modal view. Users will be able to choose the exported file type through this view.</p>
+<p sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="19">For a better user experience, it is strongly recommended to clean the <code sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="19">Temp</code> directory when starting the application. The best way to do this is to add the following lines to the &quot;Program.cs&quot; file:</p>
+<pre><code class="lang-csharp" sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="21">// Clean Temp directory
 AXOpen.Data.IAxoDataExchange.CleanUp();
 </code></pre>
-<div class="IMPORTANT">
+<div class="IMPORTANT" sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="23">
 <h5>Important</h5>
-<p>Export and import function will create high load on the application. Don't use with large datasets. These function can be used only on a limited number (100 or less) documents. Typical used would be for recipes and settings, but not for large collections of production or event data.</p>
+<p sourcefile="../src/data/docs/EXPORT.md" sourcestartlinenumber="24">Export and import function will create high load on the application. Don't use with large datasets. These function can be used only on a limited number (100 or less) documents. Typical used would be for recipes and settings, but not for large collections of production or event data.</p>
 </div>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/docs/EXPORT.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/data/docs/EXPORT.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

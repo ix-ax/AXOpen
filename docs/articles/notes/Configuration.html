@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/notes/Configuration.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/docfx/articles/notes/Configuration.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,51 +87,51 @@
         </div>
 
         <article data-uid="">
-<h1 id="how-to-configure-blazor-server-for-siemens-panel">How to configure Blazor server for Siemens panel</h1>
+<h1 id="how-to-configure-blazor-server-for-siemens-panel" sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="1">How to configure Blazor server for Siemens panel</h1>
 
-<p>To configure Blazor Server, you need to follow these two steps:</p>
-<h2 id="1-change-the-default-ip-address">1. Change the default IP Address</h2>
-<p>To modify the IP address of the website, you have two options:</p>
-<ol>
-<li><p>In Program.cs
+<p sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="3">To configure Blazor Server, you need to follow these two steps:</p>
+<h2 id="1-change-the-default-ip-address" sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="5">1. Change the default IP Address</h2>
+<p sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="7">To modify the IP address of the website, you have two options:</p>
+<ol sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="9">
+<li sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="9"><p sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="9">In Program.cs
 Inside the Program.cs file, add the following lines to specify the URLs:</p>
-<pre><code class="lang-C#">builder.WebHost.UseUrls(&quot;http://10.10.10.198:5262;https://10.10.10.198:7292&quot;);
+<pre><code class="lang-C#" sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="12">builder.WebHost.UseUrls(&quot;http://10.10.10.198:5262;https://10.10.10.198:7292&quot;);
 </code></pre>
-<p>or</p>
-<pre><code class="lang-C#">builder.WebHost.UseUrls(&quot;http://*:5262;https://*:7292&quot;);
+<p sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="16">or</p>
+<pre><code class="lang-C#" sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="18">builder.WebHost.UseUrls(&quot;http://*:5262;https://*:7292&quot;);
 </code></pre>
 </li>
-<li><p>In launchSettings.json
+<li sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="22"><p sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="22">In launchSettings.json
 Open the launchSettings.json file and modify the 'applicationUrl' under the profiles section. For example:</p>
 </li>
 </ol>
-<pre><code class="lang-JSON">&quot;applicationUrl&quot;: &quot;http://10.10.10.198:5262;https://10.10.10.198:7292&quot;
+<pre><code class="lang-JSON" sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="25">&quot;applicationUrl&quot;: &quot;http://10.10.10.198:5262;https://10.10.10.198:7292&quot;
 </code></pre>
-<p>Please note that the IP address corresponds to the IP address of your network adapter.</p>
-<h2 id="2-add-rules-to-the-firewall">2. Add rules to the firewall</h2>
-<p>Follow these steps to add rules for the desired ports in the Windows Defender Firewall:</p>
-<ol>
-<li><p>Go to Control Panel &gt; Windows Defender Firewall &gt; Advanced Settings</p>
+<p sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="29">Please note that the IP address corresponds to the IP address of your network adapter.</p>
+<h2 id="2-add-rules-to-the-firewall" sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="31">2. Add rules to the firewall</h2>
+<p sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="33">Follow these steps to add rules for the desired ports in the Windows Defender Firewall:</p>
+<ol sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="35">
+<li sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="35"><p sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="35">Go to Control Panel &gt; Windows Defender Firewall &gt; Advanced Settings</p>
 </li>
-<li><p>In the Inbound Rules section, add the rules for the ports you wish to use.</p>
+<li sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="37"><p sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="37">In the Inbound Rules section, add the rules for the ports you wish to use.</p>
 </li>
 </ol>
-<p>If you are using Eset, you should perform the following steps:</p>
-<ol>
-<li><p>Navigate to Eset &gt; Setup &gt; Network &gt; Click on settings next to Firewall &gt; Configure.</p>
+<p sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="39">If you are using Eset, you should perform the following steps:</p>
+<ol sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="41">
+<li sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="41"><p sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="41">Navigate to Eset &gt; Setup &gt; Network &gt; Click on settings next to Firewall &gt; Configure.</p>
 </li>
-<li><p>Check the option `Also evaluate rules from Windows Firewall`` or add the rule directly in Eset.
+<li sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="43"><p sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="43">Check the option `Also evaluate rules from Windows Firewall`` or add the rule directly in Eset.
 If you using Eset you need to: Eset &gt; Setup &gt; Network &gt; click on settings next to Firewall &gt; Configure</p>
 </li>
 </ol>
-<h3 id="warning">Warning</h3>
-<p>If you intend to use HTTPS with a self-signed SSL certificate, make sure to adjust the <code>DeveloperSettings.BypassSSLCertificate</code> attribute in <code>Program.cs</code> to <code>true</code>, before start your application. Here's an example of how to do it:</p>
-<pre><code class="lang-C#">DeveloperSettings.BypassSSLCertificate = false;
+<h3 id="warning" sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="46">Warning</h3>
+<p sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="48">If you intend to use HTTPS with a self-signed SSL certificate, make sure to adjust the <code sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="48">DeveloperSettings.BypassSSLCertificate</code> attribute in <code sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="48">Program.cs</code> to <code sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="48">true</code>, before start your application. Here's an example of how to do it:</p>
+<pre><code class="lang-C#" sourcefile="articles/notes/Configuration.md" sourcestartlinenumber="50">DeveloperSettings.BypassSSLCertificate = false;
 </code></pre>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/notes/Configuration.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/docfx/articles/notes/Configuration.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

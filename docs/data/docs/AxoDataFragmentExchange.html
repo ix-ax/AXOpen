@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/data/docs/AxoDataFragmentExchange.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/data/docs/AxoDataFragmentExchange.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,13 +87,13 @@
         </div>
 
         <article data-uid="">
-<h1 id="axodatafragmentexchange">AxoDataFragmentExchange</h1>
+<h1 id="axodatafragmentexchange" sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="1">AxoDataFragmentExchange</h1>
 
-<p>Fragment data exchange allows to group of multiple data managers into a single object and perform repository operations jointly on all nested repositories.</p>
-<h2 id="getting-started">Getting started</h2>
-<h3 id="data-fragment-exchange-manager">Data fragment exchange manager</h3>
-<p>Data exchange object must be extended by <code>AxoDataFragmentExchange</code>.</p>
-<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+<p sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="3">Fragment data exchange allows to group of multiple data managers into a single object and perform repository operations jointly on all nested repositories.</p>
+<h2 id="getting-started" sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="5">Getting started</h2>
+<h3 id="data-fragment-exchange-manager" sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="7">Data fragment exchange manager</h3>
+<p sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="9">Data exchange object must be extended by <code sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="9">AxoDataFragmentExchange</code>.</p>
+<pre><code class="lang-smalltalk" sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="11">{S7.extern=ReadWrite}
 CLASS PUBLIC AxoProcessDataManager
     EXTENDS AXOpen.Data.AxoDataFragmentExchange
     VAR PUBLIC                    
@@ -104,19 +104,19 @@ CLASS PUBLIC AxoProcessDataManager
     END_VAR
 END_CLASS
 </code></pre>
-<p><strong>Nesting AxoDataExchanger(s)</strong></p>
-<p>AxoDataFragmenExchange can group several data managers where each can point to a different repository. Nested data managers must be set up as explained <a href="AxoDataExchange.html#data-exchange-manager">here</a>.</p>
-<div class="NOTE">
+<p sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="13"><strong sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="13">Nesting AxoDataExchanger(s)</strong></p>
+<p sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="15">AxoDataFragmenExchange can group several data managers where each can point to a different repository. Nested data managers must be set up as explained <a href="AxoDataExchange.html#data-exchange-manager" sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="15">here</a>.</p>
+<div class="NOTE" sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="17">
 <h5>Note</h5>
-<p>Note that each data manager must be annotated with <code>AXOpen.Data.AxoDataFragmentAttribute</code> that will provide information to the parent manager that the member takes part in data operations.</p>
+<p sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="18">Note that each data manager must be annotated with <code sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="18">AXOpen.Data.AxoDataFragmentAttribute</code> that will provide information to the parent manager that the member takes part in data operations.</p>
 </div>
-<div class="IMPORTANT">
+<div class="IMPORTANT" sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="20">
 <h5>Important</h5>
-<p>First data manager declared as a fragment is considered a master fragment. The overview and list of existing data are retrieved only from the master fragment.</p>
+<p sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="21">First data manager declared as a fragment is considered a master fragment. The overview and list of existing data are retrieved only from the master fragment.</p>
 </div>
-<h3 id="initialization-and-handling-in-the-controller">Initialization and handling in the controller</h3>
-<p>We will now need to create an instance of <code>AxoDataFragmentExchange</code> in a context object (<code>AxoContext</code>) (or as a member of another class that derives from <code>AxoObject</code>). We will also need to call <code>AxoDataFragmentExchangeContext</code> in the Main method of appropriate context.</p>
-<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+<h3 id="initialization-and-handling-in-the-controller" sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="23">Initialization and handling in the controller</h3>
+<p sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="25">We will now need to create an instance of <code sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="25">AxoDataFragmentExchange</code> in a context object (<code sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="25">AxoContext</code>) (or as a member of another class that derives from <code sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="25">AxoObject</code>). We will also need to call <code sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="25">AxoDataFragmentExchangeContext</code> in the Main method of appropriate context.</p>
+<pre><code class="lang-smalltalk" sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="27">{S7.extern=ReadWrite}
 CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
         //Controlled unit that needs to manipulate with data
@@ -138,8 +138,8 @@ CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
     END_METHOD
 END_CLASS
 </code></pre>
-<p>Execute run method in CU</p>
-<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+<p sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="29">Execute run method in CU</p>
+<pre><code class="lang-smalltalk" sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="31">{S7.extern=ReadWrite}
 CLASS PUBLIC ControlledUnit EXTENDS AXOpen.Core.AxoObject
     VAR PUBLIC
         //Reference to ProcessDataManager
@@ -162,8 +162,8 @@ CLASS PUBLIC ControlledUnit EXTENDS AXOpen.Core.AxoObject
     END_METHOD
 END_CLASS
 </code></pre>
-<p>Use in Automat Sequence</p>
-<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+<p sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="33">Use in Automat Sequence</p>
+<pre><code class="lang-smalltalk" sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="35">{S7.extern=ReadWrite}
 CLASS PUBLIC AutomatSequence EXTENDS AXOpen.Core.AxoSequencerContainer
     VAR PRIVATE
         // private reference is used in Main()
@@ -183,10 +183,10 @@ CLASS PUBLIC AutomatSequence EXTENDS AXOpen.Core.AxoSequencerContainer
         ;//cyclic logic
     END_METHOD
 END_CLASS
-</code></pre><h3 id="data-exchange-initialization-in-net">Data exchange initialization in .NET</h3>
-<p>At this point, we have everything ready in the PLC.</p>
-<p>If the nested data exchange object does not have the repository set previously, we will need to tell the to fragment manager wich repositories we be used by in data exchange. We will work with data stored in files in JSON format.</p>
-<pre><code class="lang-csharp">IRepository&lt;Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData&gt; SharedDataHeaderDataRepository;
+</code></pre><h3 id="data-exchange-initialization-in-net" sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="37">Data exchange initialization in .NET</h3>
+<p sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="39">At this point, we have everything ready in the PLC.</p>
+<p sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="41">If the nested data exchange object does not have the repository set previously, we will need to tell the to fragment manager wich repositories we be used by in data exchange. We will work with data stored in files in JSON format.</p>
+<pre><code class="lang-csharp" sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="43">IRepository&lt;Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData&gt; SharedDataHeaderDataRepository;
 IRepository&lt;Pocos.AxoDataFramentsExchangeExample.Station_1_Data&gt; Station_1_DataRepository;
 
 // *** IN MEMORY REPOSITORY ***
@@ -204,20 +204,20 @@ IRepository&lt;Pocos.AxoDataFramentsExchangeExample.Station_1_Data&gt; Station_1
 SharedDataHeaderDataRepository = AXOpen.Data.MongoDb.Repository.Factory&lt;Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData&gt;(new MongoDbRepositorySettings&lt;Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData&gt;(&quot;mongodb://localhost:27017&quot;, &quot;AxOpenData&quot;, &quot;SharedDataHeader&quot;));
 Station_1_DataRepository = AXOpen.Data.MongoDb.Repository.Factory&lt;Pocos.AxoDataFramentsExchangeExample.Station_1_Data&gt;(new MongoDbRepositorySettings&lt;Pocos.AxoDataFramentsExchangeExample.Station_1_Data&gt;(&quot;mongodb://localhost:27017&quot;, &quot;AxOpenData&quot;, &quot;Station_1&quot;));
 
-var AxoProcessDataManager = Entry.Plc.AxoDataFragmentsExchangeContext.DataManager.CreateBuilder&lt;AxoDataFramentsExchangeExample.AxoProcessDataManager&gt;();
+var AxoProcessDataManager = Entry.Plc.AxoDataFragmentsExchangeContext.DataManager.CreateDataFragments&lt;AxoDataFramentsExchangeExample.AxoProcessDataManager&gt;();
 
 AxoProcessDataManager.SharedHeader.SetRepository(SharedDataHeaderDataRepository);
 AxoProcessDataManager.Station_1.SetRepository(Station_1_DataRepository);
 AxoProcessDataManager.InitializeRemoteDataExchange();
 </code></pre>
-<div class="NOTE">
+<div class="NOTE" sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="45">
 <h5>Note</h5>
-<p><code>MyData</code> should be of type from <code>Pocos</code>.</p>
+<p sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="46"><code sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="46">MyData</code> should be of type from <code sourcefile="../src/data/docs/AxoDataFragmentExchange.md" sourcestartlinenumber="46">Pocos</code>.</p>
 </div>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/docs/AxoDataFragmentExchange.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/data/docs/AxoDataFragmentExchange.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

@@ -63,6 +63,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
-    <ProjectReference Include="..\AXOpen.Io\ix_ax_axopen_io.csproj" />
+    <ProjectReference Include="..\AXOpen.Io\inxton_axopen_io.csproj" />
   </ItemGroup>
 </Project>

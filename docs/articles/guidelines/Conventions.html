@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/guidelines/Conventions.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/docfx/articles/guidelines/Conventions.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,306 +87,306 @@
         </div>
 
         <article data-uid="">
-<h1 id="work-in-progress">WORK IN PROGRESS...</h1>
+<h1 id="work-in-progress" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="1">WORK IN PROGRESS...</h1>
 
-<h1 id="axopen-conventions">AXOpen Conventions</h1>
-<table>
+<h1 id="axopen-conventions" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="3">AXOpen Conventions</h1>
+<table sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="5">
 <thead>
-<tr>
-<th>REVISION</th>
-<th>DATE</th>
-<th>NOTES</th>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="5">
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="5">REVISION</th>
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="5">DATE</th>
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="5">NOTES</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>0.0</td>
-<td>July 2023</td>
-<td>Initial release</td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="7">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="7">0.0</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="7">July 2023</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="7">Initial release</td>
 </tr>
 </tbody>
 </table>
-<h2 id="introduction">Introduction</h2>
-<p>Thanks for taking the time to read this document. Here we aim to outline a set of rules that will help us write consistent libraries that will serve their other consumers and us.</p>
-<p>This document follows recommendations from <a href="https://console.simatic-ax.siemens.io/docs/st-styleguide">SIMATIC-AX ST Style guide</a> for AXOpen project(s).</p>
-<p>This document defines the minimum coding standards and will be updated as the project develops in time.</p>
-<h3 id="why-do-we-need-to-agree-on-conventions">Why do we need to agree on conventions</h3>
-<ul>
-<li>They create a consistent look to the code so that readers can focus on content, not layout.</li>
-<li>They enable readers to understand the code more quickly by making assumptions based on previous experience.</li>
-<li>They facilitate copying, changing, and maintaining the code.</li>
-<li>They demonstrate Structured Text best practices.</li>
+<h2 id="introduction" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="11">Introduction</h2>
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="13">Thanks for taking the time to read this document. Here we aim to outline a set of rules that will help us write consistent libraries that will serve their other consumers and us.</p>
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="15">This document follows recommendations from <a href="https://console.simatic-ax.siemens.io/docs/st-styleguide" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="15">SIMATIC-AX ST Style guide</a> for AXOpen project(s).</p>
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="17">This document defines the minimum coding standards and will be updated as the project develops in time.</p>
+<h3 id="why-do-we-need-to-agree-on-conventions" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="19">Why do we need to agree on conventions</h3>
+<ul sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="21">
+<li sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="21">They create a consistent look to the code so that readers can focus on content, not layout.</li>
+<li sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="22">They enable readers to understand the code more quickly by making assumptions based on previous experience.</li>
+<li sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="23">They facilitate copying, changing, and maintaining the code.</li>
+<li sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="24">They demonstrate Structured Text best practices.</li>
 </ul>
-<h3 id="a-general-note-on-naming">A general note on naming</h3>
-<p>Names should be self-describing, readable considered in calling context. Use of prefixes is discouraged, except for those outlined in this document. For example to inform/warn about some property like a reference, IN_OUT reference, or to aid to IntelliSense to narrow the scope of search.</p>
-<h3 id="general-note-on-the-use-of-plc-language">General note on the use of PLC-Language</h3>
-<p>AXOpen uses exclusively IEC 61131-3 Structured Test (ST).</p>
-<h2 id="namespaces">Namespaces</h2>
-<p>Each type must be enclosed in an appropriate namespace. Orphaned types with no namespace are not allowed.</p>
-<h2 id="naming">Naming</h2>
-<blockquote>
-<p><strong>Type Naming</strong></p>
+<h3 id="a-general-note-on-naming" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="26">A general note on naming</h3>
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="28">Names should be self-describing, readable considered in calling context. Use of prefixes is discouraged, except for those outlined in this document. For example to inform/warn about some property like a reference, IN_OUT reference, or to aid to IntelliSense to narrow the scope of search.</p>
+<h3 id="general-note-on-the-use-of-plc-language" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="30">General note on the use of PLC-Language</h3>
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="32">AXOpen uses exclusively IEC 61131-3 Structured Test (ST).</p>
+<h2 id="namespaces" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="34">Namespaces</h2>
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="36">Each type must be enclosed in an appropriate namespace. Orphaned types with no namespace are not allowed.</p>
+<h2 id="naming" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="38">Naming</h2>
+<blockquote sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="40">
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="40"><strong sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="40">Type Naming</strong></p>
 </blockquote>
-<table>
+<table sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="43">
 <thead>
-<tr>
-<th>Block type</th>
-<th>Notation</th>
-<th>Prefix</th>
-<th>Example</th>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="43">
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="43">Block type</th>
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="43">Notation</th>
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="43">Prefix</th>
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="43">Example</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>FB/CLASS name</td>
-<td>PascalCase</td>
-<td>NoPrefix</td>
-<td><code>Cyclinder</code></td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="45">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="45">FB/CLASS name</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="45">PascalCase</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="45">NoPrefix</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="45"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="45">Cyclinder</code></td>
 </tr>
-<tr>
-<td>ENUM type name</td>
-<td>PascalCase</td>
-<td><code>e</code></td>
-<td><code>eMachineState.Start</code></td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="46">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="46">ENUM type name</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="46">PascalCase</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="46"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="46">e</code></td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="46"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="46">eMachineState.Start</code></td>
 </tr>
-<tr>
-<td>INTERFACE name</td>
-<td>PascalCase</td>
-<td><code>I</code></td>
-<td><code>ICyclinder</code></td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="47">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="47">INTERFACE name</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="47">PascalCase</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="47"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="47">I</code></td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="47"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="47">ICyclinder</code></td>
 </tr>
-<tr>
-<td>FUNCTION name</td>
-<td>PascalCase</td>
-<td>NoPrefix</td>
-<td><code>Add()</code></td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="48">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="48">FUNCTION name</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="48">PascalCase</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="48">NoPrefix</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="48"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="48">Add()</code></td>
 </tr>
-<tr>
-<td>STRUCT name</td>
-<td>PascalCase</td>
-<td>NoPrefix</td>
-<td><code>Data</code></td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="49">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="49">STRUCT name</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="49">PascalCase</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="49">NoPrefix</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="49"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="49">Data</code></td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><strong>CLASS member naming</strong></p>
+<blockquote sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="53">
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="53"><strong sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="53">CLASS member naming</strong></p>
 </blockquote>
-<table>
+<table sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="55">
 <thead>
-<tr>
-<th>Variable section</th>
-<th>Notation</th>
-<th>Prefix</th>
-<th>Example</th>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="55">
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="55">Variable section</th>
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="55">Notation</th>
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="55">Prefix</th>
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="55">Example</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>METHOD name</td>
-<td>PascalCase</td>
-<td>NoPrefix</td>
-<td><code>MoveToWork()</code></td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="57">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="57">METHOD name</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="57">PascalCase</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="57">NoPrefix</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="57"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="57">MoveToWork()</code></td>
 </tr>
-<tr>
-<td>METHOD arguments</td>
-<td>camelCase</td>
-<td>NoPrefix</td>
-<td><code>targetPosition  : LREAL</code></td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="58">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="58">METHOD arguments</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="58">camelCase</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="58">NoPrefix</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="58"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="58">targetPosition  : LREAL</code></td>
 </tr>
-<tr>
-<td>*PROPERTY name</td>
-<td>PascalCase</td>
-<td>NoPrefix</td>
-<td><code>IsEnabled</code></td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="59">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="59">*PROPERTY name</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="59">PascalCase</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="59">NoPrefix</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="59"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="59">IsEnabled</code></td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><strong>CLASS member naming</strong></p>
+<blockquote sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="63">
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="63"><strong sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="63">CLASS member naming</strong></p>
 </blockquote>
-<table>
+<table sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="65">
 <thead>
-<tr>
-<th>Variable section</th>
-<th>Notation</th>
-<th>Prefix</th>
-<th>Example</th>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="65">
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="65">Variable section</th>
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="65">Notation</th>
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="65">Prefix</th>
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="65">Example</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>VAR_INPUT</td>
-<td>camelCase</td>
-<td><code>in</code></td>
-<td><code>inActualPosition  : LREAL</code></td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="67">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="67">VAR_INPUT</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="67">camelCase</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="67"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="67">in</code></td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="67"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="67">inActualPosition  : LREAL</code></td>
 </tr>
-<tr>
-<td>VAR_OUTPUT</td>
-<td>camelCase</td>
-<td><code>out</code></td>
-<td><code>outActualPosition  : LREAL</code></td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="68">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="68">VAR_OUTPUT</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="68">camelCase</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="68"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="68">out</code></td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="68"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="68">outActualPosition  : LREAL</code></td>
 </tr>
-<tr>
-<td>VAR_IN_OUT</td>
-<td>camelCase</td>
-<td><code>ino</code></td>
-<td><code>inoActualPosition  : LREAL</code></td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="69">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="69">VAR_IN_OUT</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="69">camelCase</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="69"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="69">ino</code></td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="69"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="69">inoActualPosition  : LREAL</code></td>
 </tr>
-<tr>
-<td>VAR</td>
-<td>camelCase</td>
-<td><code>_</code></td>
-<td><code>_actualPosition  : LREAL</code>,</td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="70">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="70">VAR</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="70">camelCase</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="70"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="70">_</code></td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="70"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="70">_actualPosition  : LREAL</code>,</td>
 </tr>
-<tr>
-<td>VAR_STAT</td>
-<td>camelCase</td>
-<td><code>_</code></td>
-<td><code>_actualPosition  : LREAL</code>,</td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="71">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="71">VAR_STAT</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="71">camelCase</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="71"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="71">_</code></td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="71"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="71">_actualPosition  : LREAL</code>,</td>
 </tr>
-<tr>
-<td>VAR_INST</td>
-<td>camelCase</td>
-<td><code>_</code></td>
-<td><code>_actualPosition  : LREAL</code> ,</td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="72">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="72">VAR_INST</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="72">camelCase</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="72"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="72">_</code></td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="72"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="72">_actualPosition  : LREAL</code> ,</td>
 </tr>
-<tr>
-<td>VAR CONSTANT</td>
-<td>UpperCase</td>
-<td>NoPrefix</td>
-<td><code>MAX_747_CRUISING_ALTITUDE</code></td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="73">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="73">VAR CONSTANT</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="73">UpperCase</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="73">NoPrefix</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="73"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="73">MAX_747_CRUISING_ALTITUDE</code></td>
 </tr>
-<tr>
-<td>REFERENCE</td>
-<td>PascalCase</td>
-<td><code>ref</code></td>
-<td><code>refDrive</code></td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="74">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="74">REFERENCE</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="74">PascalCase</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="74"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="74">ref</code></td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="74"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="74">refDrive</code></td>
 </tr>
-<tr>
-<td>INTERFACE name</td>
-<td>PascalCase</td>
-<td>NoPrefix</td>
-<td><code>Cyclinder</code></td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="75">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="75">INTERFACE name</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="75">PascalCase</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="75">NoPrefix</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="75"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="75">Cyclinder</code></td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><strong>STRUCT member naming</strong></p>
+<blockquote sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="78">
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="78"><strong sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="78">STRUCT member naming</strong></p>
 </blockquote>
-<table>
+<table sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="80">
 <thead>
-<tr>
-<th>Group</th>
-<th>Notation</th>
-<th>Prefix</th>
-<th>Example</th>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="80">
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="80">Group</th>
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="80">Notation</th>
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="80">Prefix</th>
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="80">Example</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>VARIABLE</td>
-<td>PascalCase</td>
-<td>NoPrefix</td>
-<td><code>ActualPosition</code></td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="82">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="82">VARIABLE</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="82">PascalCase</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="82">NoPrefix</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="82"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="82">ActualPosition</code></td>
 </tr>
-<tr>
-<td>REFERENCE</td>
-<td>PascalCase</td>
-<td><code>ref</code></td>
-<td><code>refDrive</code></td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="83">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="83">REFERENCE</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="83">PascalCase</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="83"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="83">ref</code></td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="83"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="83">refDrive</code></td>
 </tr>
-<tr>
-<td>INTERFACE name</td>
-<td>PascalCase</td>
-<td>NoPrefix</td>
-<td><code>Cyclinder</code></td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="84">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="84">INTERFACE name</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="84">PascalCase</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="84">NoPrefix</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="84"><code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="84">Cyclinder</code></td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><strong>Features to avoid</strong></p>
+<blockquote sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="86">
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="86"><strong sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="86">Features to avoid</strong></p>
 </blockquote>
-<table>
+<table sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="88">
 <thead>
-<tr>
-<th>Avoid</th>
-<th>Use instead</th>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="88">
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="88">Avoid</th>
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="88">Use instead</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>FUNCTION_BLOCK</td>
-<td>CLASS</td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="90">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="90">FUNCTION_BLOCK</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="90">CLASS</td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><strong>Features to prefer</strong></p>
+<blockquote sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="93">
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="93"><strong sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="93">Features to prefer</strong></p>
 </blockquote>
-<table>
+<table sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="95">
 <thead>
-<tr>
-<th>IF YOU REALLY MUST</th>
-<th>EVERYWHERE ELSE</th>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="95">
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="95">IF YOU REALLY MUST</th>
+<th sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="95">EVERYWHERE ELSE</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>FUNCTION</td>
-<td>CLASS.METHOD</td>
+<tr sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="97">
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="97">FUNCTION</td>
+<td sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="97">CLASS.METHOD</td>
 </tr>
 </tbody>
 </table>
-<h2 id="identifiers">Identifiers</h2>
-<p>Any identifier (variable, methods, properties) should have an identifier that clearly expresses intent. Identifiers with less than <code>4</code> characters should be avoided (unless they represent well-known acronyms or expressions). There is no formal constraint on a maximum number of characters; however, about 25 characters should suffice to name the variable appropriately.</p>
-<h2 id="scope">Scope</h2>
-<p>All variables should be declared closest to the scope where they are used. Avoid using global declarations unless it is necessary or the global scope is required for the application.</p>
-<h3 id="global-scope">Global scope</h3>
-<p>Generally, the global scope should be avoided where possible.</p>
-<h2 id="member-variables">Member Variables</h2>
-<p>Private CLASS member variables should begin with underscore <code>_</code>, followed by the variable name.</p>
-<pre><code class="lang-iecst">VAR PRIVATE
+<h2 id="identifiers" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="100">Identifiers</h2>
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="102">Any identifier (variable, methods, properties) should have an identifier that clearly expresses intent. Identifiers with less than <code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="102">4</code> characters should be avoided (unless they represent well-known acronyms or expressions). There is no formal constraint on a maximum number of characters; however, about 25 characters should suffice to name the variable appropriately.</p>
+<h2 id="scope" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="104">Scope</h2>
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="106">All variables should be declared closest to the scope where they are used. Avoid using global declarations unless it is necessary or the global scope is required for the application.</p>
+<h3 id="global-scope" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="108">Global scope</h3>
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="110">Generally, the global scope should be avoided where possible.</p>
+<h2 id="member-variables" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="112">Member Variables</h2>
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="114">Private CLASS member variables should begin with underscore <code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="114">_</code>, followed by the variable name.</p>
+<pre><code class="lang-iecst" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="116">VAR PRIVATE
     _trigger : BOOL;
     _counter : INT;
     _analogStatus : AnalogStatus;
 END_VAR
 </code></pre>
-<h3 id="constants">Constants</h3>
-<p>Use constants instead of magic numbers. Constants should be all caps.</p>
-<p>Where magic numbers are required for low-level domain-specific operations, these should be managed in the highest level block that makes sense without breaking an abstraction layer.</p>
-<h2 id="arrays">Arrays</h2>
-<p>Arrays should be 0 based index due to consistency when used on HMI platforms (based on JavaScript, TypeScript, C#).</p>
-<pre><code class="lang-PASCAL">VAR
+<h3 id="constants" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="124">Constants</h3>
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="126">Use constants instead of magic numbers. Constants should be all caps.</p>
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="128">Where magic numbers are required for low-level domain-specific operations, these should be managed in the highest level block that makes sense without breaking an abstraction layer.</p>
+<h2 id="arrays" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="130">Arrays</h2>
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="132">Arrays should be 0 based index due to consistency when used on HMI platforms (based on JavaScript, TypeScript, C#).</p>
+<pre><code class="lang-PASCAL" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="134">VAR
     myArray     : ARRAY[0..9] OF BOOL; // Prefered
     myArray1    : ARRAY[1..10] OF BOOL; // AVOID
 END_VAR
 </code></pre>
-<h2 id="namespaces-1">Namespaces</h2>
-<p>Variables defined in referenced libraries must be declared using a fully qualified name with the namespace.</p>
-<pre><code class="lang-Pascal">VAR
+<h2 id="namespaces-1" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="141">Namespaces</h2>
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="143">Variables defined in referenced libraries must be declared using a fully qualified name with the namespace.</p>
+<pre><code class="lang-Pascal" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="145">VAR
     _mixer : fbMixer; // AVOID!
     _mixer : Mixers.fbMixer; // Like this
 END_VAR
 </code></pre>
-<h2 id="methods">Methods</h2>
-<p>Methods names should clearly state the intent. Method name should not have any prefix. The methods should be used to perform some action (Movement, Measurement, Trigger etc.). For obtaining or setting values, prefer properties.</p>
-<pre><code class="lang-Pascal">piston.MoveToWork();
+<h2 id="methods" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="152">Methods</h2>
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="154">Methods names should clearly state the intent. Method name should not have any prefix. The methods should be used to perform some action (Movement, Measurement, Trigger etc.). For obtaining or setting values, prefer properties.</p>
+<pre><code class="lang-Pascal" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="156">piston.MoveToWork();
 laser.Measure();
 dmcReader.Trigger();
 </code></pre>
-<h2 id="properties">Properties*</h2>
-<p>Property names should clearly describe intent. Properties should not start with any prefix.</p>
-<h2 id="parameter-transfer-in-cyclic-execution">Parameter transfer in cyclic execution.</h2>
-<p>Whenever a parameter transfer is required during the initialization/cyclic-update of a class, use the <code>Run</code> method, the parameters passed using this method  must not be changed at runtime.</p>
-<h2 id="components"><a href="components.html">Components</a></h2>
-<ul>
-<li>Expecting future implementation</li>
+<h2 id="properties" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="162">Properties*</h2>
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="164">Property names should clearly describe intent. Properties should not start with any prefix.</p>
+<h2 id="parameter-transfer-in-cyclic-execution" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="166">Parameter transfer in cyclic execution.</h2>
+<p sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="168">Whenever a parameter transfer is required during the initialization/cyclic-update of a class, use the <code sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="168">Run</code> method, the parameters passed using this method  must not be changed at runtime.</p>
+<h2 id="components" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="171"><a href="components.html" sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="171">Components</a></h2>
+<ul sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="172">
+<li sourcefile="articles/guidelines/Conventions.md" sourcestartlinenumber="172">Expecting future implementation</li>
 </ul>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/guidelines/Conventions.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/docfx/articles/guidelines/Conventions.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

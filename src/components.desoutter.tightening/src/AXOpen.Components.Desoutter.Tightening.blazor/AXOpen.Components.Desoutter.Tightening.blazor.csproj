@@ -64,6 +64,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
     <ProjectReference Include="..\..\..\io\src\AXOpen.Io.blazor\AXOpen.Io.blazor.csproj" />
-    <ProjectReference Include="..\AXOpen.Components.Desoutter.Tightening\ix_ax_axopen_components_desoutter_tightening.csproj" />
+    <ProjectReference Include="..\AXOpen.Components.Desoutter.Tightening\inxton_axopen_components_desoutter_tightening.csproj" />
   </ItemGroup>
 </Project>

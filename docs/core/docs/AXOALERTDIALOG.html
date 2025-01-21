@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/core/docs/AXOALERTDIALOG.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/core/docs/AXOALERTDIALOG.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,25 +87,25 @@
         </div>
 
         <article data-uid="">
-<h1 id="alertdialog">AlertDialog</h1>
+<h1 id="alertdialog" sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="1">AlertDialog</h1>
 
-<p>The AlertDialog class provides a notification mechanism in application in form of toasts.</p>
-<p><img src="assets/AlertDialog.png" alt="Alert Dialog"></p>
-<h2 id="in-app-usage">In-app usage</h2>
-<p>Alerts dialogs can be simply called anywhere from application by injecting <code>IAlertService</code> and calling <code>AddAlertDialog(type, title, message, time)</code> method.</p>
-<div class="NOTE">
+<p sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="3">The AlertDialog class provides a notification mechanism in application in form of toasts.</p>
+<p sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="5"><img src="assets/AlertDialog.png" sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="5" alt="Alert Dialog"></p>
+<h2 id="in-app-usage" sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="7">In-app usage</h2>
+<p sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="9">Alerts dialogs can be simply called anywhere from application by injecting <code sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="9">IAlertService</code> and calling <code sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="9">AddAlertDialog(type, title, message, time)</code> method.</p>
+<div class="NOTE" sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="11">
 <h5>Note</h5>
-<p><code>IAlertService</code> is a scoped service, therefore alerts are unique to each client and are not synchronized.</p>
+<p sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="12"><code sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="12">IAlertService</code> is a scoped service, therefore alerts are unique to each client and are not synchronized.</p>
 </div>
-<ol>
-<li>Make sure your Blazor application references <code>axopen_core_blazor</code> project and AxoCore services are added to builder in <code>Program.cs</code> file.</li>
+<ol sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="14">
+<li sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="14">Make sure your Blazor application references <code sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="14">axopen_core_blazor</code> project and AxoCore services are added to builder in <code sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="14">Program.cs</code> file.</li>
 </ol>
-<pre><code class="lang-C#">builder.Services.AddAxoCoreServices();
+<pre><code class="lang-C#" sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="15">builder.Services.AddAxoCoreServices();
 </code></pre>
-<ol start="2">
-<li>Add <code>AxoAlertToast</code> instance to <code>MainLayout.razor</code> file.</li>
+<ol start="2" sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="19">
+<li sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="19">Add <code sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="19">AxoAlertToast</code> instance to <code sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="19">MainLayout.razor</code> file.</li>
 </ol>
-<pre><code class="lang-HTML">@using AXOpen.Core.Blazor.AxoAlertDialog
+<pre><code class="lang-HTML" sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="20">@using AXOpen.Core.Blazor.AxoAlertDialog
 
 &lt;div class=&quot;page&quot;&gt;
     &lt;main&gt;
@@ -120,34 +120,34 @@
 
 &lt;/div&gt;
 </code></pre>
-<ol start="2">
-<li>Inject <code>IAlertService</code> into you Blazor component</li>
+<ol start="2" sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="36">
+<li sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="36">Inject <code sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="36">IAlertService</code> into you Blazor component</li>
 </ol>
-<pre><code class="lang-C#">@inject IAlertService _alerts
+<pre><code class="lang-C#" sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="38">@inject IAlertService _alerts
 </code></pre>
-<ol start="3">
-<li>Invoke notification toast from your Blazor view</li>
+<ol start="3" sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="42">
+<li sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="42">Invoke notification toast from your Blazor view</li>
 </ol>
-<pre><code class="lang-C#">_alertDialogService.AddAlertDialog(type, title, message, time);
+<pre><code class="lang-C#" sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="44">_alertDialogService.AddAlertDialog(type, title, message, time);
 </code></pre>
-<p>Where:</p>
-<ul>
-<li><strong>type</strong>: <code>eAlertDialogType</code> enum representing visualization type:
-<ul>
-<li>Undefined</li>
-<li>Info</li>
-<li>Success</li>
-<li>Danger</li>
-<li>Warning</li>
+<p sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="48">Where:</p>
+<ul sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="50">
+<li sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="50"><strong sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="50">type</strong>: <code sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="50">eAlertDialogType</code> enum representing visualization type:
+<ul sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="51">
+<li sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="51">Undefined</li>
+<li sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="52">Info</li>
+<li sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="53">Success</li>
+<li sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="54">Danger</li>
+<li sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="55">Warning</li>
 </ul>
 </li>
-<li><strong>title</strong>: Refers to the header of alert</li>
-<li><strong>message</strong>: Corresponds to the message</li>
-<li><strong>time</strong>: Specifies the duration in <em>seconds</em> for which the alert will be displayed</li>
+<li sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="56"><strong sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="56">title</strong>: Refers to the header of alert</li>
+<li sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="57"><strong sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="57">message</strong>: Corresponds to the message</li>
+<li sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="58"><strong sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="58">time</strong>: Specifies the duration in <em sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="58">seconds</em> for which the alert will be displayed</li>
 </ul>
-<h2 id="invoking-alerts-from-plc">Invoking alerts from PLC</h2>
-<p>Alerts can be invoked from PLC similarly like <a href="AXODIALOG.html">AxoDialog</a>, however there is no need for user interaction.</p>
-<pre><code>VAR PUBLIC
+<h2 id="invoking-alerts-from-plc" sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="62">Invoking alerts from PLC</h2>
+<p sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="64">Alerts can be invoked from PLC similarly like <a href="AXODIALOG.html" sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="64">AxoDialog</a>, however there is no need for user interaction.</p>
+<pre><code sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="66">VAR PUBLIC
     _alertDialog : AXOpen.Core.AxoAlertDialog;
 END_VAR
 //...
@@ -160,32 +160,32 @@ IF(_alertDialog.Show(THIS)
     THIS.MoveNext(); 
 END_IF;	
 </code></pre>
-<div class="NOTE">
+<div class="NOTE" sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="81">
 <h5>Note</h5>
-<p><code>Alerts</code> invoked from PLC are synchronized across clients.</p>
+<p sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="82"><code sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="82">Alerts</code> invoked from PLC are synchronized across clients.</p>
 </div>
-<ol>
-<li><p>Make sure your Blazor application references <code>axopen_core_blazor</code> project and AxoCore services are added to builder in <code>Program.cs</code> file.</p>
+<ol sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="84">
+<li sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="84"><p sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="84">Make sure your Blazor application references <code sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="84">axopen_core_blazor</code> project and AxoCore services are added to builder in <code sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="84">Program.cs</code> file.</p>
 </li>
-<li><p>Make sure your <code>MainLayout.razor</code> file contains instance of <code>&lt;AxoAlertToast/&gt;</code> component.</p>
+<li sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="86"><p sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="86">Make sure your <code sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="86">MainLayout.razor</code> file contains instance of <code sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="86">&lt;AxoAlertToast/&gt;</code> component.</p>
 </li>
-<li><p>Add <code>AxoAlertDialogLocator</code> with provided list of observed objects to your view. You can add it either to:</p>
-<ul>
-<li><code>MainLayout.razor</code> file, where in consequence alerts will be displayed and synchronized across whole application.</li>
-<li>Your own razor file, where alerts will be synchronized across multiple clients but only displayed within that specific razor page.</li>
+<li sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="88"><p sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="88">Add <code sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="88">AxoAlertDialogLocator</code> with provided list of observed objects to your view. You can add it either to:</p>
+<ul sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="90">
+<li sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="90"><code sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="90">MainLayout.razor</code> file, where in consequence alerts will be displayed and synchronized across whole application.</li>
+<li sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="91">Your own razor file, where alerts will be synchronized across multiple clients but only displayed within that specific razor page.</li>
 </ul>
 </li>
 </ol>
-<div class="NOTE">
+<div class="NOTE" sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="93">
 <h5>Note</h5>
-<p>Make sure, that exist only one instance of <code>AxoAlertDialogLocator</code> either in <code>MainLayout.razor</code> or in your own page.</p>
+<p sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="94">Make sure, that exist only one instance of <code sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="94">AxoAlertDialogLocator</code> either in <code sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="94">MainLayout.razor</code> or in your own page.</p>
 </div>
-<pre><code class="lang-HTML">&lt;AxoAlertDialogLocator ObservedObjects=&quot;new[] {Entry.Plc.Context.PneumaticManipulator}&quot;/&gt;
+<pre><code class="lang-HTML" sourcefile="../src/core/docs/AXOALERTDIALOG.md" sourcestartlinenumber="96">&lt;AxoAlertDialogLocator ObservedObjects=&quot;new[] {Entry.Plc.Context.PneumaticManipulator}&quot;/&gt;
 </code></pre>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/docs/AXOALERTDIALOG.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/core/docs/AXOALERTDIALOG.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

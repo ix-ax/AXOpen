@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\AXOpen.Components.Pneumatics\ix_ax_axopen_components_pneumatics.csproj" />
+    <ProjectReference Include="..\..\src\AXOpen.Components.Pneumatics\inxton_axopen_components_pneumatics.csproj" />
   </ItemGroup>
 
 	<ItemGroup>

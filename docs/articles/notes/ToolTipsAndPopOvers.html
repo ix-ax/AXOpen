@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/notes/ToolTipsAndPopOvers.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/docfx/articles/notes/ToolTipsAndPopOvers.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,12 +87,12 @@
         </div>
 
         <article data-uid="">
-<h1 id="utilizing-tooltips-and-popovers">Utilizing ToolTips and PopOvers</h1>
+<h1 id="utilizing-tooltips-and-popovers" sourcefile="articles/notes/ToolTipsAndPopOvers.md" sourcestartlinenumber="1">Utilizing ToolTips and PopOvers</h1>
 
-<p>To incorporate ToolTips and PopOvers into your Blazor Server application, you need to initialize these components. You can achieve this by adding a JavaScript file and invoking it within MainLayout.razor, as demonstrated below.</p>
-<h2 id="adding-the-javascript-file">Adding the JavaScript file</h2>
-<p>Start by creating a new JavaScript file named 'addToolTipsAndPopOvers.js' within the 'wwwroot/js' folder. In this file, insert the following method:</p>
-<pre><code class="lang-JS">export function addToolTipsAndPopOvers() {
+<p sourcefile="articles/notes/ToolTipsAndPopOvers.md" sourcestartlinenumber="3">To incorporate ToolTips and PopOvers into your Blazor Server application, you need to initialize these components. You can achieve this by adding a JavaScript file and invoking it within MainLayout.razor, as demonstrated below.</p>
+<h2 id="adding-the-javascript-file" sourcefile="articles/notes/ToolTipsAndPopOvers.md" sourcestartlinenumber="5">Adding the JavaScript file</h2>
+<p sourcefile="articles/notes/ToolTipsAndPopOvers.md" sourcestartlinenumber="7">Start by creating a new JavaScript file named 'addToolTipsAndPopOvers.js' within the 'wwwroot/js' folder. In this file, insert the following method:</p>
+<pre><code class="lang-JS" sourcefile="articles/notes/ToolTipsAndPopOvers.md" sourcestartlinenumber="9">export function addToolTipsAndPopOvers() {
     // Initialize tooltips
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle=&quot;tooltip&quot;]'));
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
@@ -106,9 +106,9 @@
     });
 }
 </code></pre>
-<h2 id="adding-the-onafterrenderasync-method-in-mainlayoutrazor">Adding the OnAfterRenderAsync method in MainLayout.razor</h2>
-<p>In your 'MainLayout.razor', include the 'OnAfterRenderAsync' method, which call the JavaScript function.</p>
-<pre><code class="lang-C">@code {
+<h2 id="adding-the-onafterrenderasync-method-in-mainlayoutrazor" sourcefile="articles/notes/ToolTipsAndPopOvers.md" sourcestartlinenumber="25">Adding the OnAfterRenderAsync method in MainLayout.razor</h2>
+<p sourcefile="articles/notes/ToolTipsAndPopOvers.md" sourcestartlinenumber="27">In your 'MainLayout.razor', include the 'OnAfterRenderAsync' method, which call the JavaScript function.</p>
+<pre><code class="lang-C" sourcefile="articles/notes/ToolTipsAndPopOvers.md" sourcestartlinenumber="29">@code {
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         var module = await JSRuntime.InvokeAsync&lt;IJSObjectReference&gt;(&quot;import&quot;, &quot;/js/addToolTipsAndPopOvers.js&quot;);
@@ -119,7 +119,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/notes/ToolTipsAndPopOvers.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/docfx/articles/notes/ToolTipsAndPopOvers.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

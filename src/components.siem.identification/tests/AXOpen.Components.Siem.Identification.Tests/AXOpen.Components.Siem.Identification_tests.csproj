@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\AXOpen.Components.Siem.Identification\ix_ax_axopen_components_siem_identification.csproj" />
+    <ProjectReference Include="..\..\src\AXOpen.Components.Siem.Identification\inxton_axopen_components_siem_identification.csproj" />
   </ItemGroup>
 
 	<ItemGroup>

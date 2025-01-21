@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/data/docs/AxoDataPersistentExchange.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/data/docs/AxoDataPersistentExchange.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,17 +87,17 @@
         </div>
 
         <article data-uid="">
-<h1 id="axodatapersistentexchange">AxoDataPersistentExchange</h1>
+<h1 id="axodatapersistentexchange" sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="1">AxoDataPersistentExchange</h1>
 
-<p>Persistent data exchange allows the grouping of multiple primitive variables or properties assigned by an attribute into tag lists, on which repository operations can be performed.</p>
-<div class="IMPORTANT">
+<p sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="3">Persistent data exchange allows the grouping of multiple primitive variables or properties assigned by an attribute into tag lists, on which repository operations can be performed.</p>
+<div class="IMPORTANT" sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="5">
 <h5>Important</h5>
-<p>The main goal is to store the values of selected variables that are not on the same level in the program structure. It is important to retain them in case of a program restart. Therefore, this storage is suitable for scenarios such as remembering &quot;only the Identifier&quot; of process data settings or technology data, which can be loaded from another repository or source at startup.</p>
+<p sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="6">The main goal is to store the values of selected variables that are not on the same level in the program structure. It is important to retain them in case of a program restart. Therefore, this storage is suitable for scenarios such as remembering &quot;only the Identifier&quot; of process data settings or technology data, which can be loaded from another repository or source at startup.</p>
 </div>
-<h2 id="getting-started">Getting started</h2>
-<h3 id="label-the-requested-variable-as-persistent">Label the requested variable as Persistent</h3>
-<p>Anywhere in the structured code, use the persistent attribute <code>AXOpen.Data.PersistentAttribute(&quot;PersistentGroupName&quot;)</code> to mark a variable as persistent.</p>
-<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+<h2 id="getting-started" sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="8">Getting started</h2>
+<h3 id="label-the-requested-variable-as-persistent" sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="10">Label the requested variable as Persistent</h3>
+<p sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="12">Anywhere in the structured code, use the persistent attribute <code sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="12">AXOpen.Data.PersistentAttribute(&quot;PersistentGroupName&quot;)</code> to mark a variable as persistent.</p>
+<pre><code class="lang-smalltalk" sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="14">{S7.extern=ReadWrite}
 CLASS PUBLIC PersistentRootObject
     VAR PUBLIC 
         NotPersistentVariable : BOOL; 
@@ -163,8 +163,8 @@ CLASS PUBLIC InitializedPrimitives
         myWSTRING       :       WSTRING	      := WSTRING#&quot;o\zxcvbnm,./asdfghjkl;'\qwertyuiop[]1234567890-~!@#^&amp;*()_+&quot;;
     END_VAR    
 END_CLASS
-</code></pre><h3 id="ax-snippet-for-attribute">AX Snippet for attribute</h3>
-<pre><code> &quot;attritubePersistentProperty&quot;:
+</code></pre><h3 id="ax-snippet-for-attribute" sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="16">AX Snippet for attribute</h3>
+<pre><code sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="18"> &quot;attritubePersistentProperty&quot;:
     {
         &quot;prefix&quot;: [&quot;attPersistent&quot;,&quot;persistent&quot;],
         &quot;scope&quot;: &quot;st&quot;,
@@ -175,9 +175,9 @@ END_CLASS
     &quot;description&quot;: &quot;The variable will be flagged as persistent, and the persistent data exchange will handle CRUD operations.&quot;
     }
 </code></pre>
-<h3 id="create-an-instance-of-the-exchange-manager">Create an instance of the exchange manager</h3>
-<p>Create an instance of the manager and call it in the Context.</p>
-<pre><code class="lang-smalltalk">{S7.extern=ReadWrite}
+<h3 id="create-an-instance-of-the-exchange-manager" sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="30">Create an instance of the exchange manager</h3>
+<p sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="32">Create an instance of the manager and call it in the Context.</p>
+<pre><code class="lang-smalltalk" sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="34">{S7.extern=ReadWrite}
 CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
         //persistent manager instance
@@ -194,21 +194,21 @@ CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
     END_METHOD
 END_CLASS
 </code></pre>
-<div class="NOTE">
+<div class="NOTE" sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="36">
 <h5>Note</h5>
-<p>Note that you can use multiple instances of the persistent manager, which can operate on different root objects that are initialized on the .NET side.</p>
+<p sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="37">Note that you can use multiple instances of the persistent manager, which can operate on different root objects that are initialized on the .NET side.</p>
 </div>
-<h3 id="usage-in-the-controller">Usage in the controller</h3>
-<p>In the case of saving variables to a repository, call the <code>InvokeUpdate()</code> method, which returns <code>true</code> if the invocation is successful. To monitor the completion status, use the <code>IsUpdateDone()</code> method.</p>
-<p>Other operations like <code>InvokeRead</code>, <code>InvokeUpdateAll</code>, <code>InvokeReadAll</code>, and <code>InvokeEntityExist</code> follow the same principle. These methods accept an <code>IAxoObject</code>, which uses the identity of the object to prevent concurrent calls. The object executing the first call is prioritized, and subsequent calls with a different caller will wait until the first caller has finished.</p>
-<div class="WARNING">
+<h3 id="usage-in-the-controller" sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="39">Usage in the controller</h3>
+<p sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="41">In the case of saving variables to a repository, call the <code sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="41">InvokeUpdate()</code> method, which returns <code sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="41">true</code> if the invocation is successful. To monitor the completion status, use the <code sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="41">IsUpdateDone()</code> method.</p>
+<p sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="43">Other operations like <code sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="43">InvokeRead</code>, <code sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="43">InvokeUpdateAll</code>, <code sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="43">InvokeReadAll</code>, and <code sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="43">InvokeEntityExist</code> follow the same principle. These methods accept an <code sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="43">IAxoObject</code>, which uses the identity of the object to prevent concurrent calls. The object executing the first call is prioritized, and subsequent calls with a different caller will wait until the first caller has finished.</p>
+<div class="WARNING" sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="46">
 <h5>Warning</h5>
-<p>If the record does not exist, the loading task will end with an error. Therefore, it is necessary to ensure that the record exists, either by manual saving or by generating a new record.</p>
+<p sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="47">If the record does not exist, the loading task will end with an error. Therefore, it is necessary to ensure that the record exists, either by manual saving or by generating a new record.</p>
 </div>
-<pre><code class="lang-smalltalk"></code></pre><h3 id="data-exchange-initialization-in-net">Data exchange initialization in .NET</h3>
-<p>At this point, we have everything ready in the PLC.</p>
-<p>An instance of the Persistent Manager requires additional parameters for initialization. It needs to set up a repository where the data will be saved. The next parameter is the root object of the PLC tree from which it begins collecting persistent variables.</p>
-<pre><code class="lang-csharp">IRepository&lt;AXOpen.Data.PersistentRecord&gt; persistentRepository;
+<pre><code class="lang-smalltalk" sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="49"></code></pre><h3 id="data-exchange-initialization-in-net" sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="51">Data exchange initialization in .NET</h3>
+<p sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="53">At this point, we have everything ready in the PLC.</p>
+<p sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="55">An instance of the Persistent Manager requires additional parameters for initialization. It needs to set up a repository where the data will be saved. The next parameter is the root object of the PLC tree from which it begins collecting persistent variables.</p>
+<pre><code class="lang-csharp" sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="57">IRepository&lt;AXOpen.Data.PersistentRecord&gt; persistentRepository;
 
 // *** IN MEMORY REPOSITORY ***
 //persistentRepository = new InMemoryRepositorySettings&lt;AXOpen.Data.PersistentRecord&gt;().Factory();
@@ -219,18 +219,21 @@ END_CLASS
 
 // *** MONGO REPOSITORY ***
 
-
 persistentRepository = AXOpen.Data.MongoDb.Repository.Factory&lt;AXOpen.Data.PersistentRecord&gt;(new MongoDbRepositorySettings&lt;AXOpen.Data.PersistentRecord&gt;(&quot;mongodb://localhost:27017&quot;, &quot;AxOpenData&quot;, &quot;PersistentData&quot;));
 
-
-Entry.Plc.AxoDataPersistentContext.DataManager.InitializeRemoteDataExchange( 
-        Entry.Plc.AxoDataPersistentContext.PersistentRootObject, 
+Entry.Plc.AxoDataPersistentContext.DataManager.InitializeRemoteDataExchange(
+        Entry.Plc.AxoDataPersistentContext.PersistentRootObject,
         persistentRepository
         );
-</code></pre></article>
+</code></pre><h3 id="data-view" sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="59">Data view</h3>
+<p sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="60">The DataExchange view is connected to an instance. Therefore, you need to pass the instance through the Context property.</p>
+<p sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="62">Usage:</p>
+<pre><code sourcefile="../src/data/docs/AxoDataPersistentExchange.md" sourcestartlinenumber="63">&lt;AxoDataPersistentExchangeView Context=&quot;@Entry.Plc.Context.Glob.Persits&quot;&gt;&lt;/AxoDataPersistentExchangeView&gt;
+</code></pre>
+</article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/docs/AxoDataPersistentExchange.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/data/docs/AxoDataPersistentExchange.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

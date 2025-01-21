@@ -1,5 +1,5 @@
 using Ix.Connector;
-using ix_ax_ix_framework_probers;
+using inxton_ix_framework_probers;
 
 
 namespace AXOpen.proberstests

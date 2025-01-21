@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/repositories/RavenDb/README.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/data/src/repositories/RavenDb/README.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,44 +87,44 @@
         </div>
 
         <article data-uid="">
-<h1 id="ravendb-repository">RavenDB Repository</h1>
+<h1 id="ravendb-repository" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="1">RavenDB Repository</h1>
 
-<p>This is an implementation of data persistence via RavenDB.</p>
-<h2 id="what-is-ravendb">What is RavenDB?</h2>
-<p><a href="https://github.com/ravendb/ravendb">RavenDB</a> is an Open Source ACID NoSQL database.</p>
-<p>It started in 2009 as a document database, but over time included many ways to model data, so you will be able to accomodate various business and industry scenarios.</p>
-<p>You will be able to use it a fast CRUD engine to <a href="https://ravendb.net/docs/article-page/latest/csharp/client-api/session/loading-entities">read</a> and <a href="https://ravendb.net/docs/article-page/latest/csharp/client-api/session/storing-entities">write</a> JSON as a native format, but also to manipulate and index JSON via <a href="https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes">Map</a> and <a href="https://ravendb.net/docs/article-page/latest/csharp/indexes/map-reduce-indexes">Map/Reduce</a> indexes which are powering fast Queries even with <a href="https://ravendb.net/whitepapers/couchbase-vs-ravendb-performance-at-rakuten-kobo">multi-terabyte datasets</a>.</p>
-<h2 id="how-to-install-it">How to install it?</h2>
-<h3 id="on-premise">On-premise</h3>
-<p>You can <a href="https://ravendb.net/docs/article-page/latest/csharp/start/installation/setup-wizard">install</a> and maintain yourself a single node or multinode cluster. Follow <a href="https://ravendb.net/docs/article-page/latest/csharp/start/installation/setup-wizard">instructions</a> to easily set up secured instance of RavenDB.</p>
-<p><a href="https://ravendb.net/download">Various options</a> are at your disposal</p>
-<ul>
-<li>Native installation on Linux and Windows</li>
-<li>Raspberry Pi</li>
-<li>Docker</li>
-<li>Kubernetes</li>
-<li>ARM processors</li>
+<p sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="3">This is an implementation of data persistence via RavenDB.</p>
+<h2 id="what-is-ravendb" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="5">What is RavenDB?</h2>
+<p sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="7"><a href="https://github.com/ravendb/ravendb" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="7">RavenDB</a> is an Open Source ACID NoSQL database.</p>
+<p sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="9">It started in 2009 as a document database, but over time included many ways to model data, so you will be able to accomodate various business and industry scenarios.</p>
+<p sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="11">You will be able to use it a fast CRUD engine to <a href="https://ravendb.net/docs/article-page/latest/csharp/client-api/session/loading-entities" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="11">read</a> and <a href="https://ravendb.net/docs/article-page/latest/csharp/client-api/session/storing-entities" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="11">write</a> JSON as a native format, but also to manipulate and index JSON via <a href="https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="11">Map</a> and <a href="https://ravendb.net/docs/article-page/latest/csharp/indexes/map-reduce-indexes" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="11">Map/Reduce</a> indexes which are powering fast Queries even with <a href="https://ravendb.net/whitepapers/couchbase-vs-ravendb-performance-at-rakuten-kobo" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="11">multi-terabyte datasets</a>.</p>
+<h2 id="how-to-install-it" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="13">How to install it?</h2>
+<h3 id="on-premise" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="15">On-premise</h3>
+<p sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="17">You can <a href="https://ravendb.net/docs/article-page/latest/csharp/start/installation/setup-wizard" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="17">install</a> and maintain yourself a single node or multinode cluster. Follow <a href="https://ravendb.net/docs/article-page/latest/csharp/start/installation/setup-wizard" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="17">instructions</a> to easily set up secured instance of RavenDB.</p>
+<p sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="19"><a href="https://ravendb.net/download" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="19">Various options</a> are at your disposal</p>
+<ul sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="20">
+<li sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="20">Native installation on Linux and Windows</li>
+<li sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="21">Raspberry Pi</li>
+<li sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="22">Docker</li>
+<li sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="23">Kubernetes</li>
+<li sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="24">ARM processors</li>
 </ul>
-<p>but <a href="https://ravendb.net/docs/article-page/latest/csharp/start/installation/running-in-docker-container">Dockerized</a> one is probably most straightforward one</p>
-<pre><code>docker run -d -p 8080:8080 -p 38888:38888 -e RAVEN_ARGS=&quot;--Setup.Mode=None --License.Eula.Accepted=true&quot; ravendb/ravendb
+<p sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="26">but <a href="https://ravendb.net/docs/article-page/latest/csharp/start/installation/running-in-docker-container" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="26">Dockerized</a> one is probably most straightforward one</p>
+<pre><code sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="28">docker run -d -p 8080:8080 -p 38888:38888 -e RAVEN_ARGS=&quot;--Setup.Mode=None --License.Eula.Accepted=true&quot; ravendb/ravendb
 </code></pre>
-<p>and RavenDB instance will be available in a few moments at</p>
-<pre><code>http://127.0.0.1:8080/
+<p sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="32">and RavenDB instance will be available in a few moments at</p>
+<pre><code sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="34">http://127.0.0.1:8080/
 </code></pre>
-<h3 id="in-the-cloud">In the cloud</h3>
-<p>RavenDB offers its own Database-as-a-Service (DBaaS) <a href="https://cloud.ravendb.net/">RavenDB Cloud</a> where you can create cluster residing on AWS, Azure or GCP infrastructure. With this option, you can concentrate on developing your application while <a href="https://ravendb.net/docs/article-page/latest/csharp/cloud/cloud-overview">complete DevOps</a> including automated offsite backups will be handled by RavenDB DevOps team.</p>
-<p>If your project is a low-demand one, there is a <a href="https://ravendb.net/docs/article-page/latest/csharp/cloud/cloud-instances#a-free-cloud-node">Free 1-node cluster</a> available.</p>
-<h2 id="what-about-the-license">What about the license?</h2>
-<h3 id="open-source-projects">Open Source projects</h3>
-<p>RavenDB is licensed under AGPLv3 license, so you are free to use it with your open source project.</p>
-<h3 id="commercial-projects">Commercial projects</h3>
-<p>During development, <a href="https://ravendb.net/buy#developer">free Developer license</a> is available (just register with your email address).</p>
-<p>Once you go into production, <a href="https://ravendb.net/license/request/community">free Community license</a> is suitable for commercial usage.</p>
-<p>However, if you decide to go with <a href="https://cloud.ravendb.net/">RavenDB Cloud</a> your Enterprise license will be provided out of the box with every instance or cluster you create.</p>
+<h3 id="in-the-cloud" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="38">In the cloud</h3>
+<p sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="40">RavenDB offers its own Database-as-a-Service (DBaaS) <a href="https://cloud.ravendb.net/" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="40">RavenDB Cloud</a> where you can create cluster residing on AWS, Azure or GCP infrastructure. With this option, you can concentrate on developing your application while <a href="https://ravendb.net/docs/article-page/latest/csharp/cloud/cloud-overview" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="40">complete DevOps</a> including automated offsite backups will be handled by RavenDB DevOps team.</p>
+<p sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="42">If your project is a low-demand one, there is a <a href="https://ravendb.net/docs/article-page/latest/csharp/cloud/cloud-instances#a-free-cloud-node" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="42">Free 1-node cluster</a> available.</p>
+<h2 id="what-about-the-license" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="44">What about the license?</h2>
+<h3 id="open-source-projects" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="46">Open Source projects</h3>
+<p sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="48">RavenDB is licensed under AGPLv3 license, so you are free to use it with your open source project.</p>
+<h3 id="commercial-projects" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="50">Commercial projects</h3>
+<p sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="52">During development, <a href="https://ravendb.net/buy#developer" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="52">free Developer license</a> is available (just register with your email address).</p>
+<p sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="54">Once you go into production, <a href="https://ravendb.net/license/request/community" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="54">free Community license</a> is suitable for commercial usage.</p>
+<p sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="56">However, if you decide to go with <a href="https://cloud.ravendb.net/" sourcefile="../src/data/src/repositories/RavenDb/README.md" sourcestartlinenumber="56">RavenDB Cloud</a> your Enterprise license will be provided out of the box with every instance or cluster you create.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/repositories/RavenDb/README.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Inxton/AXOpen/blob/port-to-inxton-org-1/src/data/src/repositories/RavenDb/README.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
