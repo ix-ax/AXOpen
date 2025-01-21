@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>AXOpen.VisualComposer | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="AXOpen.VisualComposer | System.Dynamic.ExpandoObject ">
+      
+      <link rel="icon" href="../../../images/favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/src/base/src/AXOpen.VisualComposer/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../../public/main.js'
+    import { init } from './../../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="axopenvisualcomposer">AXOpen.VisualComposer</h1>
+
+<p>VisualComposer library is for creating draggable elements in AXOpen applications.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-HTML">&lt;VisualComposerContainer Objects=&quot;@(new[] {Entry.Plc.Context.UnitTemplate})&quot; Id=&quot;@Component.Symbol&quot; /&gt;
+</code></pre>
+<p>For proper functioning of the SVG editor is necessary to add service in your <code>Program.cs</code> file. Add this line of code:</p>
+<pre><code class="lang-C#">builder.Services.AddVisualComposerService();
+</code></pre>
+<h2 id="visualcomposercontainer">VisualComposerContainer</h2>
+<p>The <code>VisualComposerContainer</code> is default component that is used to generate customizable view.</p>
+<h3 id="attributes">Attributes</h3>
+<ul>
+<li><code>Objects</code> - The list of ITwinObjects that will be available for display.</li>
+<li>'ModalDetailView' - The modal detail view.</li>
+<li><code>Id</code> - The id of the container. If not specified, the id is generated automatically.</li>
+</ul>
+<h2 id="customizing">Customizing</h2>
+<p>All option that is bellow is only available with role Administrator.</p>
+<h2 id="adding-items">Adding items</h2>
+<ul>
+<li><code>Controller objects</code> - show all objects, that can be added to the view</li>
+</ul>
+<h2 id="views-options">Views options</h2>
+<ul>
+<li><code>Used objects</code> - show all object, that is used in view. Provide simple access to customizable or remove item</li>
+<li><code>Create new</code> - create new view</li>
+<li><code>Create copy</code> - create new view as copy of current selected view</li>
+<li><code>Views</code> - show all views with clear zoom and pan, remove, add/remove from base views, enable/disable zooming and panning and set as default view</li>
+<li><code>Background</code> - set background of view. You can choose from image or simple color</li>
+<li><code>Toggle Edit SVG</code> - show/hide SVG editor</li>
+<li><code>Change theme</code> - change color of icon for customizable item (black/white)</li>
+<li>after every change is view automatically saved into json</li>
+</ul>
+<h3 id="views-option">Views option</h3>
+<p>In Views modal you can see all views, that are created and you can:</p>
+<ul>
+<li><code>clear</code> - clear zoom and pan</li>
+<li><code>remove</code> - remove view</li>
+<li><code>add/remove from base views</code> - add or remove view from base views (base views is views, that is available in non edit mode)</li>
+<li><code>enable/disable zooming and panning</code> - enable or disable zooming and panning</li>
+<li><code>set as default view</code> - set view as default view, that is open when you open a site. When you set view as default, the previous default view is automatically unset and is added to base views</li>
+</ul>
+<h2 id="customizable-options">Customizable options</h2>
+<p>With drag-and-drop you can move every item on view.</p>
+<p>You can every item customizing with these options:</p>
+<ul>
+<li><code>Top</code> - the top position of the object</li>
+<li><code>Left</code> - the left position of the object</li>
+<li><code>Presentation</code> - Command-Control, Status-Display or Spot. Can be checked <code>Custom</code> and write your own name of presentation</li>
+<li><code>Transform</code> - the location from which the position will be calculated (combination of left, center, right and top, center, bottom)</li>
+<li><code>Width</code> - width of element (double value in rem, or -1 for auto)</li>
+<li><code>Height</code> - height of element (double value in rem, or -1 for auto)</li>
+<li><code>ZIndex</code> - the layer in which the object should be located (int value, default is 10)</li>
+<li><code>Scale</code> - zoom of item</li>
+<li><code>Roles</code> - list of roles, that can see this item (<code>process_settings_access</code> or <code>process_settings_access, process_traceability_access</code>)</li>
+<li><code>Template</code> - specifies the way the item is formatted and presented. Can be checked <code>Custom</code> and write your own name of template</li>
+<li><code>Background</code> - item background</li>
+</ul>
+<h2 id="svg-editor">SVG editor</h2>
+<p>In SVG Editor you can easily create and edit SVG.</p>
+<p>When you are in SVG editor, in options is revealed <code>Background SVG Input</code> option where you can check and edit SVG code.</p>
+<p>SVG editor is always in 100% zoom and it has disabled zooming and panning.</p>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Inxton/AXOpen/blob/dev/src/base/src/AXOpen.VisualComposer/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
