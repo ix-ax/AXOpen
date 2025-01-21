@@ -55,7 +55,8 @@ namespace AXOpen.Data
             }
         }
 
-        public bool IsFileExported { get; set; } = false;
+        public eOperationStatus exportStatus { get; set; } = eOperationStatus.Ready;
+
         public List<ValueChangeItem> Changes { get; set; } = new List<ValueChangeItem>();
 
         private IAlertService _alertDialogService;
@@ -310,7 +311,7 @@ namespace AXOpen.Data
 
         public Task ExportDataAsync(string path)
         {
-            IsFileExported = false;
+            exportStatus = eOperationStatus.Busy;
 
             return Task.Run(() =>
             {
@@ -318,7 +319,7 @@ namespace AXOpen.Data
                 {
                     DataExchange.ExportData(path, ExportSet.CustomExportData, ExportSet.ExportMode, ExportSet.FirstNumber, ExportSet.SecondNumber, ExportSet.ExportFileType, ExportSet.Separator);
 
-                    IsFileExported = true;
+                    exportStatus = eOperationStatus.Done;
 
                     AlertDialogService?.AddAlertDialog(eAlertType.Success, "Exported!", "Data was successfully exported!", 10);
 
@@ -328,6 +329,7 @@ namespace AXOpen.Data
                 catch (Exception e)
                 {
                     AlertDialogService?.AddAlertDialog(eAlertType.Danger, "Error!", e.Message, 10);
+                    exportStatus = eOperationStatus.Failed;
                 }
             });
         }

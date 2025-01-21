@@ -59,6 +59,54 @@ public partial class DataExchangeView : ComponentBase, IDisposable
     private ProtectedLocalStorage ProtectedLocalStore { get; set; }
 
     private Guid ViewGuid { get; } = Guid.NewGuid();
+
+    private string _inputFileId = Guid.NewGuid().ToString();
+
+
+    private string _ClientFolder = string.Empty;
+
+    public string ClientFolder
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(_ClientFolder)) _ClientFolder = "wwwroot/Temp/" + ViewGuid;
+            return _ClientFolder;
+        }
+    }
+
+    private string _ExportPath = string.Empty;
+
+    public string ExportPath
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(_ExportPath)) _ExportPath = ClientFolder + "/exportData.zip";
+            return _ExportPath;
+        }
+    }
+
+    private string _ImportPath = string.Empty;
+
+    public string ImportPath
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(_ImportPath)) _ImportPath = ClientFolder + "/importData.zip";
+            return _ImportPath;
+        }
+    }
+
+    private string _ExportDownloadUrl = string.Empty;
+
+    public string ExportDownloadUrl
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(_ExportDownloadUrl)) _ExportDownloadUrl = "/Temp/" + ViewGuid + "/exportData.zip";
+            return _ExportDownloadUrl;
+        }
+    }
+
     private string Create { get; set; } = "";
 
     private bool isFileImported { get; set; } = false;
@@ -138,7 +186,6 @@ public partial class DataExchangeView : ComponentBase, IDisposable
         Vm.StateHasChangedDelegate = StateHasChanged;
     }
 
-    private string _inputFileId = Guid.NewGuid().ToString();
 
     private async Task LoadFile(InputFileChangeEventArgs e)
     {
@@ -147,9 +194,9 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
         try
         {
-            Directory.CreateDirectory("wwwroot/Temp/" + ViewGuid);
+            Directory.CreateDirectory(ClientFolder);
 
-            await using FileStream fs = new("wwwroot/Temp/" + ViewGuid + "/importData.zip", FileMode.Create);
+            await using FileStream fs = new(ImportPath, FileMode.Create);
             await e.File.OpenReadStream().CopyToAsync(fs);
 
             isFileImported = true;
@@ -166,6 +213,21 @@ public partial class DataExchangeView : ComponentBase, IDisposable
     {
         if (Directory.Exists(path))
             Directory.Delete(path, true);
+    }
+
+    private void ClearClientFiles()
+    {
+        ClearFiles(ClientFolder);
+        Vm.exportStatus = eOperationStatus.Ready; // reset export status
+    }
+
+    public async Task ExportDataAndSaveExportSettings()
+    {
+        Vm.exportStatus = eOperationStatus.Ready;
+
+        await SaveCustomExportDataAsync();
+
+        await Vm.ExportDataAsync(ExportPath);
     }
 
     public async Task SaveCustomExportDataAsync()

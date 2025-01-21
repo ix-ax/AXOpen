@@ -39,7 +39,7 @@ else
                 {
                     <AuthorizeView Roles="@DataExchangeRoleNames.can_data_export">
                         <Authorized>
-                            <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='async () => { Vm.IsFileExported = false; await LoadCustomExportDataAsync(); await Vm.ExportDataAsync("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); }'>@Localizer["Export"]</button>
+                            <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='async () => { Vm.exportStatus = eOperationStatus.Ready ; await LoadCustomExportDataAsync() ;}'>@Localizer["Export"]</button>
                         </Authorized>
                     </AuthorizeView>
 
@@ -603,23 +603,51 @@ else
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">@Localizer["Export data"]</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick='() => ClearFiles("wwwroot/Temp/" + ViewGuid)'></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick='() => ClearClientFiles()'></button>
                 </div>
                 <div class="modal-body">
-                    @if (!Vm.IsFileExported)
+                    @if (Vm.exportStatus == eOperationStatus.Busy)
                     {
                         <div class="spinner-border" role="status">
                             <span class="visually-hidden">Loading...</span>
                         </div>
                     }
-                    else
+                    @if (Vm.exportStatus == eOperationStatus.Done)
                     {
-                        <a download href="/Temp/@ViewGuid/exportData.zip">@Localizer["Download"]</a>
+                        <a download href="@ExportDownloadUrl">@Localizer["Download"]</a>
                     }
+
+                    @if (Vm.exportStatus == eOperationStatus.Failed)
+                    {
+                        <span class="text-muted"> "Export failed"</span>
+                    }
+
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exportCustomModal-@ViewGuid">@Localizer["Customize"]</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick='() => ClearFiles("wwwroot/Temp/" + ViewGuid)'>@Localizer["Close"]</button>
+
+                    @switch (Vm.ExportSet.ExportMode)
+                    {
+                        case eExportMode.First:
+                            <span class="text-muted"> "The first @Vm.ExportSet.FirstNumber items will be exported to a @Vm.ExportSet.ExportFileType."</span>
+                            break;
+                        case eExportMode.Last:
+                            <span class="text-muted">"The last @Vm.ExportSet.FirstNumber items will be exported to a @Vm.ExportSet.ExportFileType."</span>
+                            break;
+                        case eExportMode.Exact:
+                            <span class="text-muted">"Items from @Vm.ExportSet.FirstNumber to @Vm.ExportSet.SecondNumber will be exported to a @Vm.ExportSet.ExportFileType."</span>
+                            break;
+                    }
+
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exportCustomModal-@ViewGuid">@Localizer["Customize export options"]</button>
+
+                    <button type="button" class="btn btn-primary" @onclick='async () => {
+                        ClearClientFiles();
+                        await Vm.ExportDataAsync(ExportPath);
+                        }'>
+                        <strong>@Localizer["Export"]</strong>
+                    </button>
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick='() => ClearClientFiles()'>@Localizer["Close"]</button>
                 </div>
             </div>
         </div>
@@ -657,7 +685,14 @@ else
                             <span class="visually-hidden">Loading...</span>
                         </div>
                     }
-                    <button type="button" class="btn btn-primary @(!isFileImported || isFileImporting ? "disabled" : "")" data-bs-dismiss="modal" @onclick='async () => { await Vm.ImportDataAsync("wwwroot/Temp/" + ViewGuid + "/importData.zip"); isFileImported = false; _inputFileId = Guid.NewGuid().ToString(); SaveCustomExportDataAsync(); }'>@Localizer["Import"]</button>
+                    <button type="button" class="btn btn-primary @(!isFileImported || isFileImporting ? "disabled" : "")" data-bs-dismiss="modal"
+                            @onclick='async () => {
+                            await Vm.ImportDataAsync(ImportPath);
+                            isFileImported = false;
+                            _inputFileId = Guid.NewGuid().ToString();
+                            SaveCustomExportDataAsync(); }'>
+                        @Localizer["Import"]
+                    </button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="async () => await SaveCustomExportDataAsync()">@Localizer["Close"]</button>
                 </div>
             </div>
@@ -669,7 +704,12 @@ else
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">@Localizer["Export data"]</h1>
-                    <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" aria-label="Close" @onclick='async () => { Vm.IsFileExported = false; await Vm.ExportDataAsync("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); SaveCustomExportDataAsync(); }'></button>
+                    <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" aria-label="Close"
+                            @onclick='async () => {
+                            Vm.exportStatus = eOperationStatus.Ready;
+                            await Vm.ExportDataAsync(ExportPath);
+                            SaveCustomExportDataAsync(); }'>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <div class="accordion">
@@ -759,7 +799,7 @@ else
                             </div>
                         </div>
                     }
-                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='async () => { Vm.IsFileExported = false; await Vm.ExportDataAsync("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); SaveCustomExportDataAsync(); }'>@Localizer["Back"]</button>
+                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='async () => { await ExportDataAndSaveExportSettings(); }'>@Localizer["Back"]</button>
                 </div>
             </div>
         </div>
