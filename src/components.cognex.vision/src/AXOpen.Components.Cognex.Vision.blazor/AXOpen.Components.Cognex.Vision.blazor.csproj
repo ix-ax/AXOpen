@@ -13,11 +13,11 @@
 	  <Title>AXOpen - AXOpen.Components.Cognex.Vision</Title>
 
 	  <!-- NuGet Common part-->
-	  <PackageProjectUrl>https://github.com/ix-ax/</PackageProjectUrl>
-	  <RepositoryUrl>https://github.com/ix-ax/AXOpen</RepositoryUrl>
+	  <PackageProjectUrl>https://github.com/inxton/</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/inxton/AXOpen</RepositoryUrl>
 	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-	  <Authors>ix-ax</Authors>
-	  <Copyright>(c) Peter Kurhajec and Contributors</Copyright>
+	  <Authors>inxton</Authors>
+	  <Copyright>(c) 2023  MTS spol. s r.o.  and Contributors</Copyright>
 	  <PackageTags>simatix-ax, PLC, industrial automation, SCADA, HMI, Blazor</PackageTags>
 	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
 	  <PackageIcon>icon_128_128.png</PackageIcon>
@@ -27,14 +27,12 @@
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <PackageReleaseNotes>
 		  Release notes are published here:
-		  https://github.com/ix-ax/AXOpen/releases
+		  https://github.com/inxton/AXOpen/releases
 	  </PackageReleaseNotes>
 	  <PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Content Remove="C:\Users\peto.kurhajec\.nuget\packages\ix.presentation.blazor.controls\0.6.0-alpha.18\contentFiles\any\net7.0\Styles\custom.scss" />
-  </ItemGroup>
+ 
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />

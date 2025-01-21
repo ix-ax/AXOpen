@@ -782,7 +782,7 @@ Kill-Process -ProcessName "Siemens.Simatic.PlcSim.Advanced.UserInterface"
 $startDir=  $PSScriptRoot
 # Check if axopen repository is already cloned
 #if (-Not (Test-Path -Path $axopenRepoDir)) {
-#    git clone -b dev https://github.com/ix-ax/AXOpen.git axopen
+#    git clone -b dev https://github.com/inxton/AXOpen.git axopen
 #    Write-Host "AXOpen repository cloned."
 #    # Build axopen if it was just cloned 
 #    cd $axopenRepoDir

@@ -1,9 +1,9 @@
 ﻿// Build
-// Copyright (c)2024 Peter Kurhajec and Contributors All Rights Reserved.
-// Contributors: https://github.com/PTKu/ix/graphs/contributors
+// Copyright (c)2024 MTS spol. s r.o. and Contributors All Rights Reserved.
+// Contributors: https://github.com/inxton/AXOpen/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/PTKu/ix/blob/master/LICENSE
-// Third party licenses: https://github.com/PTKu/ix/blob/master/notices.md
+// https://github.com/inxton/AXOpen/blob/master/LICENSE
+// Third party licenses: https://github.com/inxton/AXOpen/blob/master/notices.md
 
 using System;
 using System.Collections.Generic;
@@ -94,7 +94,7 @@ public static class ApaxTraversal
         foreach (var dependency in dependencies.Where(p => p.Name != "apax.traversal" 
                                                            && p.Name != "@inxton/ax-sdk" 
                                                            && !p.Name.EndsWith("-test")
-                                                           && p.Name != "ix-ax"))
+                                                           && p.Name != "inxton"))
         {
             if (!dependenciesDictionary.ContainsKey(dependency.Name))
             {

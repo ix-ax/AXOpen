@@ -63,5 +63,4 @@ dependencies:
   '@inxton/axopen.timers': 0.0.0-dev.0
   utils-app: 0.0.0-dev.0
   '@inxton/axopen.utils': 0.0.0-dev.0
-  inxton: 0.0.0-dev.0
 installStrategy: overridable
