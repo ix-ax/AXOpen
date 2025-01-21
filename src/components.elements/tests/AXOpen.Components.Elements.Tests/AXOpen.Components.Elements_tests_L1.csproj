@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\AXOpen.Components.Elements\ix_ax_axopen_components_elements.csproj" />
+    <ProjectReference Include="..\..\src\AXOpen.Components.Elements\inxton_axopen_components_elements.csproj" />
   </ItemGroup>
 
 	<ItemGroup>

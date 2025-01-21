@@ -31,7 +31,7 @@ if (Test-Path $OutputDirectory) {
 #Remove source items
 $item = ".\app\ix\app_apaxappname.csproj"
 Remove-Item $item -r -force -ErrorAction Ignore
-$item = ".\src\"+ $ProjectNamespace + "\ix_ax_apaxlibname.csproj"
+$item = ".\src\"+ $ProjectNamespace + "\inxton_apaxlibname.csproj"
 Remove-Item $item -r -force -ErrorAction Ignore
 
 Set-Location app

@@ -2,13 +2,13 @@
 
 **Additional Resources:**
 
-* [AX# Official Documentation](https://ix-ax.github.io/axsharp/)
+* [AX# Official Documentation](https://inxton.github.io/axsharp/)
 * [UI Rendering Guide](../rendering/intro.md)
 
 > [!NOTE]
 > This document's content is synchronized with the source code of this library. Please note that the images and illustrative visuals included may not mirror the exact appearance in your application.
 
 > [!NOTE]
-> Should you identify errors, misleading content, or gaps in this documentation, kindly report the **[issue here](https://github.com/ix-ax/AXOpen/issues/new?assignees=&labels=documentation&projects=&template=documentation.md&title=)**. Alternatively, you're welcome to suggest edits directly by initiating a pull request in **[this repository](https://github.com/ix-ax/AXOpen)**.
+> Should you identify errors, misleading content, or gaps in this documentation, kindly report the **[issue here](https://github.com/inxton/AXOpen/issues/new?assignees=&labels=documentation&projects=&template=documentation.md&title=)**. Alternatively, you're welcome to suggest edits directly by initiating a pull request in **[this repository](https://github.com/inxton/AXOpen)**.
 
 ---

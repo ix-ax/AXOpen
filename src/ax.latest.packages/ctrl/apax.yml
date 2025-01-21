@@ -1,10 +1,10 @@
-name: "@ix-ax/ax.latest.packages"
+name: "@inxton/ax.latest.packages"
 version: '0.0.0-dev.0'
 type: generic
 files:
   - apax.yml
 devDependencies:
-  "@ix-ax/ax-sdk": '0.0.0-dev.0'
+  "@inxton/ax-sdk": '0.0.0-dev.0'
 catalogs:
   "@ax/simatic-ax": 2411.0.0
 dependencies:

@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackageId>AXOpen.Components.Abstractions</PackageId>
+    <RootNamespace>AXOpen.Components.Abstractions</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>   
+    <PackageReference Include="AXSharp.Abstractions" />
+		<PackageReference Include="AXSharp.Connector" />
+	</ItemGroup>
+	 
+  <ItemGroup>
+    	<Compile Include=".g\**" />
+  	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include=".meta\" />
+		<Content Include=".meta\**" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\src\AXOpen.Core\inxton_axopen_core.csproj" />
+    <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\inxton_axopen_timers.csproj" />
+    <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\inxton_axopen_abstractions.csproj" />
+  </ItemGroup>
+</Project>

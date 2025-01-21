@@ -28,7 +28,7 @@
 		</None>
 	</ItemGroup>
    <ItemGroup>
-     <ProjectReference Include="..\..\src\AXOpen.Data\ix_ax_axopen_data.csproj" />
+     <ProjectReference Include="..\..\src\AXOpen.Data\inxton_axopen_data.csproj" />
      <ProjectReference Include="..\..\src\repositories\InMemory\AXOpen.Data.InMemory.csproj" />
   </ItemGroup>
   

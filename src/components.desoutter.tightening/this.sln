@@ -1,7 +1,7 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "this", "this.proj", "{11929D7D-32C6-4808-ADF2-BA21F181E03C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_abstractions", "..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj", "{B5EF2E2A-3CF0-4971-8236-D0538F8319FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_axopen_abstractions", "..\abstractions\src\AXOpen.Abstractions\inxton_axopen_abstractions.csproj", "{B5EF2E2A-3CF0-4971-8236-D0538F8319FD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Base.Abstractions", "..\base\src\AXOpen.Base.Abstractions\AXOpen.Base.Abstractions.csproj", "{F9D6C8C8-997A-486D-87D3-879FB398DE3E}"
 EndProject
@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Logging.Serilog", ".
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.VisualComposer", "..\base\src\AXOpen.VisualComposer\AXOpen.VisualComposer.csproj", "{58B13369-CAA2-42BF-844E-434C10E557AE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_components_abstractions", "..\components.abstractions\src\AXOpen.Components.Abstractions\ix_ax_axopen_components_abstractions.csproj", "{13E7DAC5-4C27-4636-BFA0-E01080DD11DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_axopen_components_abstractions", "..\components.abstractions\src\AXOpen.Components.Abstractions\inxton_axopen_components_abstractions.csproj", "{13E7DAC5-4C27-4636-BFA0-E01080DD11DB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Components.Desoutter.Tightening.blazorapp", "app\ix-blazor\AXOpen.Components.Desoutter.Tightening.blazorapp.csproj", "{81D9771C-2C6F-43A9-A827-8E3D154D2749}"
 EndProject
@@ -17,29 +17,29 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "app_axopen_components_desou
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Components.Desoutter.Tightening.blazor", "src\AXOpen.Components.Desoutter.Tightening.blazor\AXOpen.Components.Desoutter.Tightening.blazor.csproj", "{1B2034A2-9AD5-4E13-87EC-CC5EFD6914E8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_components_desoutter_tightening", "src\AXOpen.Components.Desoutter.Tightening\ix_ax_axopen_components_desoutter_tightening.csproj", "{AF50FD37-8342-4573-822A-612DBDBFE2AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_axopen_components_desoutter_tightening", "src\AXOpen.Components.Desoutter.Tightening\inxton_axopen_components_desoutter_tightening.csproj", "{AF50FD37-8342-4573-822A-612DBDBFE2AA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Components.Desoutter.Tightening_tests", "tests\AXOpen.Components.Desoutter.Tightening.Tests\AXOpen.Components.Desoutter.Tightening_tests.csproj", "{82ADBEA8-C84E-4DC4-8CFC-EACA8C8AB6C1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_core_blazor", "..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj", "{73CFC489-E24F-40D4-9FA8-655A20B37FE2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_core", "..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj", "{D5462B6D-5AEA-4C1A-AC87-73EF11C54634}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_axopen_core", "..\core\src\AXOpen.Core\inxton_axopen_core.csproj", "{D5462B6D-5AEA-4C1A-AC87-73EF11C54634}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Data.Json", "..\data\src\repositories\Json\AXOpen.Data.Json.csproj", "{D5D2ABEE-9CC0-4B31-B68E-7E23A439D675}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Io.blazor", "..\io\src\AXOpen.Io.blazor\AXOpen.Io.blazor.csproj", "{25A01731-3B75-4EE6-9AA0-830E2435B6BF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_io", "..\io\src\AXOpen.Io\ix_ax_axopen_io.csproj", "{148EEE9E-F7AD-4667-9783-0D337A91DBCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_axopen_io", "..\io\src\AXOpen.Io\inxton_axopen_io.csproj", "{148EEE9E-F7AD-4667-9783-0D337A91DBCA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_ax_sdk", "..\sdk-ax\ctrl\ix\ix_ax_ax_sdk.csproj", "{C4467FA1-D967-4B42-B0F0-898D1C5DEFE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_ax_sdk", "..\sdk-ax\ctrl\ix\inxton_ax_sdk.csproj", "{C4467FA1-D967-4B42-B0F0-898D1C5DEFE4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security.Blazor", "..\Security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj", "{F3A0CEBE-BC70-4F0C-A28A-9660828E79C1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security", "..\Security\src\AXOpen.Security\AXOpen.Security.csproj", "{11090734-D744-409E-ABB9-4A2400230523}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_simatic1500", "..\simatic1500\ctrl\ix\ix_ax_axopen_simatic1500.csproj", "{BBE39CF2-A448-4892-A8C4-DC394D8583AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_axopen_simatic1500", "..\simatic1500\ctrl\ix\inxton_axopen_simatic1500.csproj", "{BBE39CF2-A448-4892-A8C4-DC394D8583AB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_timers", "..\timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj", "{A401DA48-F4BE-4EF1-B52D-3C605893F700}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_axopen_timers", "..\timers\src\AXOpen.Timers\inxton_axopen_timers.csproj", "{A401DA48-F4BE-4EF1-B52D-3C605893F700}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.ToolBox", "..\toolbox\src\AXOpen.ToolBox\AXOpen.ToolBox.csproj", "{5297B6BA-38DE-4118-B1CE-30F06E3E219A}"
 EndProject

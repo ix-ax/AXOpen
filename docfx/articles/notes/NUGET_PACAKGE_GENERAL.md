@@ -7,7 +7,7 @@
 This nuget package's feed is hosted on github on how to authenticate to the feed see the documentation [here](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry).
 
 ~~~bash
-dotnet nuget add source --username GITHUBUSERNAME --password PAT  --store-password-in-clear-text --name gh-packages-ix-ax "https://nuget.pkg.github.com/ix-ax/index.json"
+dotnet nuget add source --username GITHUBUSERNAME --password PAT  --store-password-in-clear-text --name gh-packages-inxton "https://nuget.pkg.github.com/inxton/index.json"
 ~~~
 
 Replace GITHUBUSERNAME with your github name

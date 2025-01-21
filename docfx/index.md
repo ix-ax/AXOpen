@@ -8,8 +8,8 @@
 
 ## Source repositories
 
-- Underlying technology of AXOpen **[AX#](https://github.com/ix-ax/axsharp)**
-- Sources of AXOpen framework **[AXOpen](https://github.com/ix-ax/AXOpen)**
+- Underlying technology of AXOpen **[AX#](https://github.com/inxton/axsharp)**
+- Sources of AXOpen framework **[AXOpen](https://github.com/inxton/AXOpen)**
 
 >[!NOTE]
 >This project is under development. We periodically release versions that can be used for testing and in non-production environments.

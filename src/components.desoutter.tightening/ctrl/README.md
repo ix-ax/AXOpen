@@ -1,4 +1,4 @@
-# @ix-ax/axopen.components.desoutter.tightening
+# @inxton/axopen.components.desoutter.tightening
 
 [!INCLUDE [General](../docs/README.md)]
 
@@ -7,12 +7,12 @@
 
 ## Adding the package to your project
 ~~~bash
-apax add "@ix-ax/axopen.components.desoutter.tightening"
+apax add "@inxton/axopen.components.desoutter.tightening"
 ~~~
 
 ## Modifying your `apax.yml`
 
 ~~~yml
 dependencies:
-  "@ix-ax/axopen.components.desoutter.tightening": '{axopen-version}'  
+  "@inxton/axopen.components.desoutter.tightening": '{axopen-version}'  
 ~~~
