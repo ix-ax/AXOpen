@@ -1,4 +1,4 @@
-# @ix-ax/axopen.components.rexroth.press
+# @inxton/axopen.components.rexroth.press
 
 [!INCLUDE [General](../docs/README.md)]
 
@@ -7,12 +7,12 @@
 
 ## Adding the package to your project
 ~~~bash
-apax add "@ix-ax/axopen.components.rexroth.press"
+apax add "@inxton/axopen.components.rexroth.press"
 ~~~
 
 ## Modifying your `apax.yml`
 
 ~~~yml
 dependencies:
-  "@ix-ax/axopen.components.rexroth.press": '{axopen-version}'  
+  "@inxton/axopen.components.rexroth.press": '{axopen-version}'  
 ~~~

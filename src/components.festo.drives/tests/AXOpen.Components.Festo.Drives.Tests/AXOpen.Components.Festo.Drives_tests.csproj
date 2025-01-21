@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\AXOpen.Components.Festo.Drives\ix_ax_axopen_components_festo_drives.csproj" />
+    <ProjectReference Include="..\..\src\AXOpen.Components.Festo.Drives\inxton_axopen_components_festo_drives.csproj" />
   </ItemGroup>
 
 	<ItemGroup>

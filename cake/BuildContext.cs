@@ -1,8 +1,8 @@
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/ix/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/AXOpen/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/ix/blob/master/LICENSE
-// Third party licenses: https://github.com/ix-ax/ix/blob/master/notices.md
+// https://github.com/inxton/AXOpen/blob/master/LICENSE
+// Third party licenses: https://github.com/inxton/AXOpen/blob/master/notices.md
 
 using System.Collections;
 using System.Collections.Generic;
@@ -33,7 +33,7 @@ public class BuildContext : FrostingContext
 
     public bool IsGitHubActions { get; set; }
 
-    public string ApaxRegistry => "ix-ax";
+    public string ApaxRegistry => "inxton";
 
     public void UpdateApaxVersion(string file, string version)
     {

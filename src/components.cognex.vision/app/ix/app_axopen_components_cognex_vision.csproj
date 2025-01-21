@@ -27,10 +27,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\src\AXOpen.Components.Cognex.Vision\ix_ax_axopen_components_cognex_vision.csproj" />
-	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
-	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj" />
-	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj" />
-	  <ProjectReference Include="..\..\..\simatic1500\ctrl\ix\ix_ax_axopen_simatic1500.csproj" />
+	  <ProjectReference Include="..\..\src\AXOpen.Components.Cognex.Vision\inxton_axopen_components_cognex_vision.csproj" />
+	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\inxton_axopen_core.csproj" />
+	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\inxton_axopen_timers.csproj" />
+	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\inxton_axopen_abstractions.csproj" />
+	  <ProjectReference Include="..\..\..\simatic1500\ctrl\ix\inxton_axopen_simatic1500.csproj" />
 	</ItemGroup>
 </Project>

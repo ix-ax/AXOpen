@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\AXOpen.Components.Kuka.Robotics\ix_ax_axopen_components_kuka_robotics.csproj" />
+    <ProjectReference Include="..\..\src\AXOpen.Components.Kuka.Robotics\inxton_axopen_components_kuka_robotics.csproj" />
   </ItemGroup>
 
 	<ItemGroup>

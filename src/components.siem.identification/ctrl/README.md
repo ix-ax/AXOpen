@@ -1,4 +1,4 @@
-# @ix-ax/axopen_components_siem_identification
+# @inxton/axopen_components_siem_identification
 
 [!INCLUDE [General](../docs/README.md)]
 
@@ -7,12 +7,12 @@
 
 ## Adding the package to your project
 ~~~bash
-apax add "@ix-ax/axopen_components_siem_identification"
+apax add "@inxton/axopen_components_siem_identification"
 ~~~
 
 ## Modifying your `apax.yml`
 
 ~~~yml
 dependencies:
-  "@ix-ax/axopen_components_siem_identification": '{axopen-version}'  
+  "@inxton/axopen_components_siem_identification": '{axopen-version}'  
 ~~~
