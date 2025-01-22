@@ -62,6 +62,8 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     private string _inputFileId = Guid.NewGuid().ToString();
 
+    private eOperationStatus _fileLoadingStatus = eOperationStatus.Ready;
+
 
     private string _ClientFolder = string.Empty;
 
@@ -109,8 +111,6 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     private string Create { get; set; } = "";
 
-    private bool isFileImported { get; set; } = false;
-    private bool isFileImporting { get; set; } = false;
 
     private int MaxPage =>
         (int)(Vm.FilteredCount % Vm.Limit == 0 ? Vm.FilteredCount / Vm.Limit - 1 : Vm.FilteredCount / Vm.Limit);
@@ -189,24 +189,26 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     private async Task LoadFile(InputFileChangeEventArgs e)
     {
-        isFileImported = false;
-        isFileImporting = true;
+        _fileLoadingStatus = eOperationStatus.Busy;
 
         try
         {
-            Directory.CreateDirectory(ClientFolder);
+            if (!Directory.Exists(ClientFolder))
+                Directory.CreateDirectory(ClientFolder);
 
+            Console.WriteLine( $"willl be imported to {ImportPath}");
             await using FileStream fs = new(ImportPath, FileMode.Create);
+
             await e.File.OpenReadStream().CopyToAsync(fs);
 
-            isFileImported = true;
+            _fileLoadingStatus = eOperationStatus.Done;
         }
         catch (Exception ex)
         {
             _alertDialogService.AddAlertDialog(eAlertType.Danger, "Error!", ex.Message, 10);
+            _fileLoadingStatus = eOperationStatus.Failed;
         }
 
-        isFileImporting = false;
     }
 
     private void ClearFiles(string path)
@@ -219,15 +221,8 @@ public partial class DataExchangeView : ComponentBase, IDisposable
     {
         ClearFiles(ClientFolder);
         Vm.exportStatus = eOperationStatus.Ready; // reset export status
-    }
-
-    public async Task ExportDataAndSaveExportSettings()
-    {
-        Vm.exportStatus = eOperationStatus.Ready;
-
-        await SaveCustomExportDataAsync();
-
-        await Vm.ExportDataAsync(ExportPath);
+        Vm.importStatus = eOperationStatus.Ready;
+        this._fileLoadingStatus = eOperationStatus.Ready;
     }
 
     public async Task SaveCustomExportDataAsync()
@@ -242,8 +237,10 @@ public partial class DataExchangeView : ComponentBase, IDisposable
         {
             Vm.ExportSet = result.Value;
         }
+
         StateHasChanged();
     }
+
 
     protected void ReloadRecordAfterEditWithoutModal()
     {

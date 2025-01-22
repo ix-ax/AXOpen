@@ -30,6 +30,7 @@ namespace AXOpen.Data
             get;
             private set;
         }
+
         public override object Model
         {
             get => this.DataExchange;
@@ -41,11 +42,12 @@ namespace AXOpen.Data
         }
 
         private AuthenticationStateProvider _authenticationProvider;
+
         public AuthenticationStateProvider AuthenticationProvider
         {
             get
             {
-                if(_authenticationProvider == null)
+                if (_authenticationProvider == null)
                     throw new Exception("AuthenticationProvider must be implemented in " + this.ToString());
                 return _authenticationProvider;
             }
@@ -56,10 +58,12 @@ namespace AXOpen.Data
         }
 
         public eOperationStatus exportStatus { get; set; } = eOperationStatus.Ready;
+        public eOperationStatus importStatus { get; set; } = eOperationStatus.Ready;
 
         public List<ValueChangeItem> Changes { get; set; } = new List<ValueChangeItem>();
 
         private IAlertService _alertDialogService;
+
         public IAlertService AlertDialogService
         {
             get
@@ -271,8 +275,6 @@ namespace AXOpen.Data
             }
         }
 
-
-
         public async Task Edit()
         {
             await DataExchange.UpdateFromShadowsAsync();
@@ -294,7 +296,6 @@ namespace AXOpen.Data
                 await DataExchange.CreateDataFromControllerAsync(CreateItemId);
                 AlertDialogService?.AddAlertDialog(eAlertType.Success, "Loaded from PLC!", "Item was successfully loaded from PLC!", 10);
                 AxoApplication.Current.Logger.Information($"Loaded from Plc {CreateItemId} into {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
-
             }
             catch (Exception e)
             {
@@ -305,8 +306,6 @@ namespace AXOpen.Data
                 await FillObservableRecordsAsync();
                 CreateItemId = null;
             }
-
-
         }
 
         public Task ExportDataAsync(string path)
@@ -324,7 +323,6 @@ namespace AXOpen.Data
                     AlertDialogService?.AddAlertDialog(eAlertType.Success, "Exported!", "Data was successfully exported!", 10);
 
                     AxoApplication.Current.Logger.Information($"Exported data from {DataExchange} to path {path} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
-
                 }
                 catch (Exception e)
                 {
@@ -341,12 +339,12 @@ namespace AXOpen.Data
                 try
                 {
                     DataExchange.ImportData(path, AuthenticationProvider.GetAuthenticationStateAsync().Result, exportFileType: ExportSet.ExportFileType, separator: ExportSet.Separator);
-
                     this.UpdateObservableRecords();
 
                     AlertDialogService?.AddAlertDialog(eAlertType.Success, "Imported!", "Data was successfully imported!", 10);
                     AxoApplication.Current.Logger.Information($"Imported data into {DataExchange} from path {path} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
 
+                    importStatus = eOperationStatus.Done;
                 }
                 catch (Exception e)
                 {
@@ -443,7 +441,6 @@ namespace AXOpen.Data
             if (check)
                 r.Add("checked", "checked");
             return r;
-
         }
 
         public bool GetFragmentsExportedValue()
