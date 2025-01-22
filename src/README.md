@@ -2,10 +2,11 @@
 
 ## Pre-requisites
 
-- APAX 3.1.1
-- AXCODE 
-- DOTNET 7.0.8.0
-- VSCODE or VS2022
+Run following script to check the pre-requisites:
+
+~~~
+./scripts/check_requisites.ps1
+~~~
 
 ### Add package source
 
