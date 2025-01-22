@@ -872,11 +872,14 @@ public sealed class PushPackages : FrostingTask<BuildContext>
         }
 
         if (Helpers.CanReleaseInternal())
-        {
-            context.ApaxPublish();
+        {      
+            if(int.Parse(GitVersionInformation.Major) >= 1)
+            {
+                context.ApaxPublish();
+            }
        
 
-        foreach (var nugetFile in Directory.EnumerateFiles(Path.Combine(context.Artifacts, @"nugets"), "*.nupkg")
+            foreach (var nugetFile in Directory.EnumerateFiles(Path.Combine(context.Artifacts, @"nugets"), "*.nupkg")
                          .Select(p => new FileInfo(p)))
             {
                 context.DotNetNuGetPush(nugetFile.FullName,
@@ -906,7 +909,7 @@ public sealed class PublishReleaseTask : FrostingTask<BuildContext>
         if (Helpers.CanReleaseInternal())
         {
             var githubToken = context.Environment.GetEnvironmentVariable("GH_TOKEN");
-            var githubClient = new GitHubClient(new ProductHeaderValue("IX"));
+            var githubClient = new GitHubClient(new ProductHeaderValue("INXTON"));
             githubClient.Credentials = new Credentials(githubToken);
 
             var release = githubClient.Repository.Release.Create(
