@@ -6,7 +6,7 @@ param
     [string]$IssueBody 
 )
 
-$issue = gh issue create --assignee "@me" --title "$IssueTitle" --body "$IssueBody" 
+$issue = gh issue create --assignee "@me" --title "$IssueTitle" --body "$IssueBody" --project simatic-ax
 
 if ($issue -match ".*/(\d+)$") {
     $issueID = $matches[1] 
