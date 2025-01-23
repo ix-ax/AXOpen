@@ -16,10 +16,11 @@ if ([int]::TryParse($IssueId, [ref]$null))
     # Check if any of the open issue IDs assigned to @me is equal to entered value
     if ($issueIDs -contains [int]$IssueId) 
     {
-        # Get selected issue id and issue title
+        # Get selected issue id ,issue title and issue label
         $selectedIssue = $issues | Where-Object { $_.number -eq [int]$IssueId }
         $selectedIssueNumber = $selectedIssue.number
         $selectedIssueTitle = $selectedIssue.title
+        $currentLabels = $selectedIssue.labels | ForEach-Object { $_.name }
         # Checkout dev
         Write-Output "Checkout to dev"
         git checkout dev
