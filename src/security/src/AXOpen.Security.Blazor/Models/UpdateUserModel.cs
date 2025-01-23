@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -23,6 +22,18 @@ namespace AxOpen.Security.Models
         public bool CanUserChangePassword { get; set; }
 
         public string Email { get; set; }
+
+        public bool EnableAutoLogOut { get; set; } = true;
+
+        public int AutoLogOutTimeOutMinutes { get; set; } = 30;
+
+        // This property will store the actual TimeSpan
+        public TimeSpan AutoLogOutTimeOut
+        {
+            get => TimeSpan.FromSeconds(AutoLogOutTimeOutMinutes);
+            set => AutoLogOutTimeOutMinutes = (int)value.Seconds; // Set the minutes when TimeSpan changes
+        }
+
         [Required]
         public string Group { get; set; }
 
@@ -34,6 +45,17 @@ namespace AxOpen.Security.Models
                     yield return new ValidationResult($"Password is required.", new[] { nameof(Password) });
                 if (ConfirmPassword == null || ConfirmPassword == "")
                     yield return new ValidationResult($"Confirm Password is required.", new[] { nameof(ConfirmPassword) });
+            }
+
+            if (EnableAutoLogOut)
+            {
+                if ( AutoLogOutTimeOutMinutes < 1 || AutoLogOutTimeOutMinutes > 1440)
+                {
+                    yield return new ValidationResult(
+                        "Timeout must be a whole number between 1 and 1440.",
+                        new[] { nameof(AutoLogOutTimeOutMinutes) }
+                    );
+                }
             }
         }
     }

@@ -19,8 +19,8 @@ namespace AxOpen.Security.Areas.Identity.Pages.Account
 
         public LoginModel(SignInManager<User> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<User> userManager,
-            InactivityService inactivityService)
+            UserManager<User> userManager
+            )
         {
             _userManager = userManager;
             _signInManager = signInManager;

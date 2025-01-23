@@ -72,6 +72,8 @@ namespace AxOpen.Security.Views
             SelectedUser.CanUserChangePassword = _model.CanUserChangePassword;
             SelectedUser.Email = _model.Email;
             SelectedUser.Modified = DateTime.Now;
+            SelectedUser.EnableAutoLogOut = _model.EnableAutoLogOut;
+            SelectedUser.AutoLogOutTimeOut = _model.AutoLogOutTimeOut;
 
             if (SelectedUser.Group != _model.Group)
             { 

@@ -1,7 +1,10 @@
 using System.Security.Claims;
 using AxOpen.Security.Entities;
+using AXOpen;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Server;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -14,7 +17,9 @@ namespace AxOpen.Security.Services
     internal sealed class IdentityRevalidatingAuthenticationStateProvider(
             ILoggerFactory loggerFactory,
             IServiceScopeFactory scopeFactory,
-            IOptions<IdentityOptions> options)
+            IUserStore<User> userStore,
+            IOptions<IdentityOptions> options
+        )
         : RevalidatingServerAuthenticationStateProvider(loggerFactory)
     {
         protected override TimeSpan RevalidationInterval => TimeSpan.FromSeconds(30);
@@ -27,10 +32,48 @@ namespace AxOpen.Security.Services
 
             var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
 
-            return await ValidateSecurityStampAsync(userManager, authenticationState.User);
+            ClaimsPrincipal userPrincipal = (authenticationState.User as ClaimsPrincipal);
+
+            if (userPrincipal == null) { return false; }
+
+            var c = new CancellationTokenSource();
+
+            var user = await userStore.FindByNameAsync(userPrincipal.Identity.Name, c.Token);
+
+            if (user == null) return false; // user was deleted
+
+            if (user.EnableAutoLogOut)
+            {
+                var httpContext = scope.ServiceProvider.GetRequiredService<IHttpContextAccessor>().HttpContext;
+                var ticket = await httpContext.AuthenticateAsync("Identity.Application");
+
+                if (!ticket.Succeeded)
+                {
+                    AxoApplication.Current.Logger.Warning($"User ticket does not exist for '{user.UserName}' and the user will be logged out!", userPrincipal.Identity);
+
+                    return false;
+                }
+
+                var start = ticket.Properties.IssuedUtc.Value;
+
+                if (DateTime.UtcNow > (start + user.AutoLogOutTimeOut))
+                {
+                    AxoApplication.Current.Logger.Information($"User '{user.UserName}' has reached the logout timeout and will be logged out!", userPrincipal.Identity);
+                    return false;
+                }
+            }
+
+            return await ValidateSecurityStampAsync(userManager, authenticationState.User, user);
         }
 
-        private async Task<bool> ValidateSecurityStampAsync(UserManager<User> userManager, ClaimsPrincipal principal)
+        /// <summary>
+        /// check user if user have changed sensitive information (password, role ....)
+        /// </summary>
+        /// <param name="userManager"></param>
+        /// <param name="principal"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        private async Task<bool> ValidateSecurityStampAsync(UserManager<User> userManager, ClaimsPrincipal principal, User user)
         {
             var principalStamp = principal.FindFirstValue(options.Value.ClaimsIdentity.SecurityStampClaimType);
 
@@ -40,8 +83,7 @@ namespace AxOpen.Security.Services
             }
 
             // !!! BUG !!! - tcopen repo do not find user =>  record key Tcopen/Sql? => EntityId / Id
-
-            var user = await userManager.GetUserAsync(principal);
+            // var user = await userManager.GetUserAsync(principal);
 
             if (user is null)
             {
@@ -54,7 +96,14 @@ namespace AxOpen.Security.Services
             else
             {
                 var userStamp = await userManager.GetSecurityStampAsync(user);
-                return principalStamp == userStamp;
+
+                var equals = principalStamp == userStamp;
+                if (!equals)
+                {
+                    AxoApplication.Current.Logger.Warning($"User security stamp was changed for '{user.UserName}', and the user will be logged out!", principal.Identity);
+                }
+
+                return equals;
             }
         }
     }

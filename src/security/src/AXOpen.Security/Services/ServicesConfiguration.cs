@@ -26,7 +26,7 @@ namespace AxOpen.Security.Services
                         {
                             options.Cookie.HttpOnly = true;
                             options.SlidingExpiration = true;
-                            options.ExpireTimeSpan = TimeSpan.FromSeconds(30);
+                            options.ExpireTimeSpan = TimeSpan.FromDays(1);
                         });
 
             services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
