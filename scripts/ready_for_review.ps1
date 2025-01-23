@@ -12,7 +12,7 @@ else
     if ($currentBranch -match "\d+") 
     {
         $issueID = $matches[0]
-        Write-Output "Issue number: $issueNumber"
+        Write-Output "issueID: $issueID"
         # Get the current script directory
         $scriptDir = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
         # Construct the full path to _change_stateScriptPath.ps1
