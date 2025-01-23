@@ -2,16 +2,11 @@
     [int]$IssueId,
     [string]$oldColumnName,
     [string]$newColumnName,
+    [bool]$doNotCheckOldColumnName = 0,
     [string]$repoOwner = "Inxton",
     [string]$repoName = "AXOpen",
     [string]$projectName = "simatic-ax"
-
-
 )
-
-$IssueId = 281
-$oldColumnName = "Ready"
-$newColumnName = "In progress"
 
 gh issue list --assignee "@me" --state "open"
 $issues = gh issue list --state "open" --assignee "@me" --json number,title | ConvertFrom-Json
@@ -162,15 +157,22 @@ if ($issueCardHasStatusField -eq 0)
 
 if ($issueCardIsInOldColumnName -ne $oldColumnName) 
 {
-    Write-Output "Error: The issue #$IssueId in project ID $projectId (name: $projectName) cannot be moved from '$oldColumnName' to '$newColumnName' as it is in '$issueCardIsInOldColumnName'."
-    exit 1
+    if($doNotCheckOldColumnName -eq 0)
+    { 
+        Write-Output "Error: The issue #$IssueId in project ID $projectId (name: $projectName) cannot be moved from '$oldColumnName' to '$newColumnName' as it is in '$issueCardIsInOldColumnName'."
+        exit 1
+    }
+    Write-Output "Moving issue #$IssueId to '$newColumnName'  in project ID $projectId (name: $projectName)."
+}
+else
+{
+    Write-Output "Moving issue #$IssueId from '$oldColumnName' to '$newColumnName'  in project ID $projectId (name: $projectName)."
 }
 
 
 $cardId = $issueCard.id
 
 # Move the issue card to $newColumnName
-Write-Output "Moving issue #$IssueId from '$oldColumnName' to '$newColumnName'  in project ID $projectId (name: $projectName)."
 gh api graphql -f query='
 mutation($projectId: ID!, $cardId: ID!, $projectColumnId: ID!, $newColumnId: String!) {
   updateProjectV2ItemFieldValue(
