@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 using AXOpen;
 using Microsoft.AspNetCore.Components.Authorization;
 
-
 namespace AxOpen.Security.Services
 {
     public static class ServicesConfiguration
@@ -20,8 +19,6 @@ namespace AxOpen.Security.Services
             (IRepository<User> userRepo, IRepository<Group> groupRepo) repos,
             List<Role>? roles = null, bool addAllRolesToAdminGroup = false)
         {
-            services.AddScoped<InactivityService>();
-
             services.AddTransient<IUserStore<User>, UserStore>();
             services.AddTransient<IRoleStore<Role>, RoleStore>();
 
@@ -34,7 +31,6 @@ namespace AxOpen.Security.Services
 
             services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
 
-
             services.AddIdentity<User, Role>(identity =>
             {
                 identity.Password.RequireDigit = false;
@@ -46,7 +42,6 @@ namespace AxOpen.Security.Services
             }
             )
             .AddDefaultTokenProviders();
-
 
             RoleGroupManager roleGroupManager = new RoleGroupManager(repos.groupRepo);
             if (roles != null)
@@ -61,7 +56,6 @@ namespace AxOpen.Security.Services
 
                     roleGroupManager.AddRolesToGroup("AdminGroup", adminRolesToAdd);
                     roleGroupManager.RemoveRolesFromGroup("AdminGroup", adminRolesToRemove);
-
                 }
             }
 
