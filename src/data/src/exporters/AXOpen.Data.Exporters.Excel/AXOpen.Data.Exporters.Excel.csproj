@@ -12,6 +12,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\AXOpen.Data\ix_ax_axopen_data.csproj" />
+	  <ProjectReference Include="..\..\AXOpen.Data\inxton_axopen_data.csproj" />
 	</ItemGroup>
 </Project>

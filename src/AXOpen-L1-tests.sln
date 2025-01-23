@@ -1,21 +1,21 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AXOpen-L1-tests", "AXOpen-L1-tests.proj", "{091BFA68-B549-45AF-9857-3932996D7C60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen-L1-tests", "AXOpen-L1-tests.proj", "{091BFA68-B549-45AF-9857-3932996D7C60}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_abstractions", "abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj", "{02DDDB95-D6BC-4718-BA35-3454EAB5DF67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_axopen_abstractions", "abstractions\src\AXOpen.Abstractions\inxton_axopen_abstractions.csproj", "{02DDDB95-D6BC-4718-BA35-3454EAB5DF67}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Base.Abstractions", "base\src\AXOpen.Base.Abstractions\AXOpen.Base.Abstractions.csproj", "{1891972B-9C8C-4D7B-9033-853F8F2A24E2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_components_abstractions", "components.abstractions\src\AXOpen.Components.Abstractions\ix_ax_axopen_components_abstractions.csproj", "{0E67A274-CB6E-411D-806F-AD30ACD5D097}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_axopen_components_abstractions", "components.abstractions\src\AXOpen.Components.Abstractions\inxton_axopen_components_abstractions.csproj", "{0E67A274-CB6E-411D-806F-AD30ACD5D097}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_components_elements", "components.elements\src\AXOpen.Components.Elements\ix_ax_axopen_components_elements.csproj", "{DD51C869-9708-4AAF-B962-4C13946E86B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_axopen_components_elements", "components.elements\src\AXOpen.Components.Elements\inxton_axopen_components_elements.csproj", "{DD51C869-9708-4AAF-B962-4C13946E86B6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Components.Elements_tests_L1", "components.elements\tests\AXOpen.Components.Elements.Tests\AXOpen.Components.Elements_tests_L1.csproj", "{D400DCAB-BF88-4E8D-BFFF-B54F8B5F0FFB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_components_pneumatics", "components.pneumatics\src\AXOpen.Components.Pneumatics\ix_ax_axopen_components_pneumatics.csproj", "{CDF26EA4-C476-47B3-B8C0-D4A6F0CDED76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_axopen_components_pneumatics", "components.pneumatics\src\AXOpen.Components.Pneumatics\inxton_axopen_components_pneumatics.csproj", "{CDF26EA4-C476-47B3-B8C0-D4A6F0CDED76}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Components.Pneumatics_tests_L1", "components.pneumatics\tests\AXOpen.Components.Pneumatics.Tests\AXOpen.Components.Pneumatics_tests_L1.csproj", "{1A131A77-FF79-42C6-AE32-8AD859D3732D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_core", "core\src\AXOpen.Core\ix_ax_axopen_core.csproj", "{F99DBBD9-272F-4DB5-B05A-C80402547024}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_axopen_core", "core\src\AXOpen.Core\inxton_axopen_core.csproj", "{F99DBBD9-272F-4DB5-B05A-C80402547024}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_core_tests_L1", "core\tests\AXOpen.Core.Tests\axopen_core_tests_L1.csproj", "{BAF8BDFE-68FB-45BC-B41A-3BBF2F06AF43}"
 EndProject
@@ -29,17 +29,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Data.RavenDb", "data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_repository_integration_tests_L1", "data\tests\AXOpen.Repository.Integration.Tests_L1\axopen_repository_integration_tests_L1.csproj", "{CE6EDD11-2686-4D26-82D6-611022775C95}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_inspectors", "inspectors\src\AXOpen.Inspectors\ix_ax_axopen_inspectors.csproj", "{F4E62A68-4350-47AD-B00E-0F59B11EDF10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_axopen_inspectors", "inspectors\src\AXOpen.Inspectors\inxton_axopen_inspectors.csproj", "{F4E62A68-4350-47AD-B00E-0F59B11EDF10}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Inspectors_tests_L1", "inspectors\tests\AXOpen.Inspectors.Tests\AXOpen.Inspectors_tests_L1.csproj", "{FFDE7621-B3BE-4D02-A23A-6845350B6E83}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_ax_sdk", "sdk-ax\ctrl\ix\ix_ax_ax_sdk.csproj", "{B0430C18-2005-4721-B8FC-3ED650C611C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_ax_sdk", "sdk-ax\ctrl\ix\inxton_ax_sdk.csproj", "{B0430C18-2005-4721-B8FC-3ED650C611C5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security", "Security\src\AXOpen.Security\AXOpen.Security.csproj", "{D961817D-4B18-4E0E-84DB-32258250CC88}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.SecurityTests_L1", "Security\tests\axopen_security_tests\AXOpen.SecurityTests_L1.csproj", "{AF374A2D-7889-46F1-94A3-19B7985EBF5D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_timers", "timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj", "{F8E30228-0B22-4377-86DF-E28D12451310}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_axopen_timers", "timers\src\AXOpen.Timers\inxton_axopen_timers.csproj", "{F8E30228-0B22-4377-86DF-E28D12451310}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.ToolBox", "toolbox\src\AXOpen.ToolBox\AXOpen.ToolBox.csproj", "{159B7412-B29B-4235-AF49-7AA063619B6C}"
 EndProject
@@ -165,7 +165,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{091BFA68-B549-45AF-9857-3932996D7C60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{091BFA68-B549-45AF-9857-3932996D7C60}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{091BFA68-B549-45AF-9857-3932996D7C60}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{091BFA68-B549-45AF-9857-3932996D7C60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{091BFA68-B549-45AF-9857-3932996D7C60}.Release|Any CPU.Build.0 = Release|Any CPU
 		{02DDDB95-D6BC-4718-BA35-3454EAB5DF67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{02DDDB95-D6BC-4718-BA35-3454EAB5DF67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02DDDB95-D6BC-4718-BA35-3454EAB5DF67}.Release|Any CPU.ActiveCfg = Release|Any CPU

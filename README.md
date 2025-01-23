@@ -1,12 +1,12 @@
 ![AXOpen Banner](/docfx/images/banner.png)
 
-[![dev](https://github.com/ix-ax/AXOpen/actions/workflows/dev.yml/badge.svg)](https://github.com/ix-ax/AXOpen/actions/workflows/dev.yml)
-[![preview](https://github.com/ix-ax/AXOpen/actions/workflows/release.yml/badge.svg?branch=releases%2Fv0)](https://github.com/ix-ax/AXOpen/actions/workflows/release.yml)
-[![master](https://github.com/ix-ax/AXOpen/actions/workflows/master.yml/badge.svg?branch=master)](https://github.com/ix-ax/AXOpen/actions/workflows/master.yml)
+[![dev](https://github.com/inxton/AXOpen/actions/workflows/dev.yml/badge.svg)](https://github.com/inxton/AXOpen/actions/workflows/dev.yml)
+[![preview](https://github.com/inxton/AXOpen/actions/workflows/release.yml/badge.svg?branch=releases%2Fv0)](https://github.com/inxton/AXOpen/actions/workflows/release.yml)
+[![master](https://github.com/inxton/AXOpen/actions/workflows/master.yml/badge.svg?branch=master)](https://github.com/inxton/AXOpen/actions/workflows/master.yml)
 ![semver](https://img.shields.io/badge/semver-0.10.0-blue)
-[![GitHub license](https://badgen.net/github/license/Naereen/Strapdown.js)](https://github.com/ix-ax/AXOpen/blob/dev/LICENSE)
+[![GitHub license](https://badgen.net/github/license/Naereen/Strapdown.js)](https://github.com/inxton/AXOpen/blob/dev/LICENSE)
 
-`AXOpen` (AXO) is an application framework for industrial automation applications. This project leverages the capabilities of [SIMATIC AX](https://simatic-ax.siemens.io) and [AX#](https://github.com/ix-ax/AXSharp), amalgamating their unique strengths to deliver a high level of OT IT convergence.
+`AXOpen` (AXO) is an application framework for industrial automation applications. This project leverages the capabilities of [SIMATIC AX](https://simatic-ax.siemens.io) and [AX#](https://github.com/inxton/AXSharp), amalgamating their unique strengths to deliver a high level of OT IT convergence.
 
 `AXOpen` is developed primarily as an application framework for and within [MTS](https://mts.sk/en). We opened this repository to share our knowledge and experience with the community of like-minded automation engineers, who see the potential in using software engineering approaches and workflows for industrial automation.
 
@@ -28,7 +28,7 @@ The guiding principle in `AXOpen` is **Single Point Of Change**. The idea is tha
 
 In the same way, any modification of a structure destined to be a source of data for an arbitrary target storage system should reflect automatically through multiple layers up to the target structure.
 
-To achieve this level of scalability, `AXOpen` uses [AX#](https://github.com/ix-ax/AXSharp) which provides a transpiler that creates a .NET **twin** library for an ax-based project. The .NET twin reflects all types and project structures to allow for easy two-way structured access to the controller. The library can be regenerated on the fly with each change of the source project. These twin objects are then used by presentation libraries to generate HMI/UI or allow for mapping objects directly to the database.
+To achieve this level of scalability, `AXOpen` uses [AX#](https://github.com/inxton/AXSharp) which provides a transpiler that creates a .NET **twin** library for an ax-based project. The .NET twin reflects all types and project structures to allow for easy two-way structured access to the controller. The library can be regenerated on the fly with each change of the source project. These twin objects are then used by presentation libraries to generate HMI/UI or allow for mapping objects directly to the database.
 
 ## DEclarative COntrol Programming - DeCoP
 
@@ -42,7 +42,7 @@ A simple example could be a component of a pneumatic cylinder where the call of 
 
 `AXOpen` is designed to simplify the development of industrial automation by covering a broad spectrum of areas. These include coordination (e.g., sequential control), alarm/messaging, components (pneumatics, vision, robotics, etc.), data acquisition, and various utility libraries.
 
-Moreover, AXOpen comprises powerful tools that expedite the development of HMI/UI applications. It builds upon web technologies (Blazor) and the incredibly powerful [AX# library](https://ix-ax.github.io/axsharp/articles/blazor/RENDERABLECONTENT.html) for the automated generation of user interfaces. Each library/component within AXOpen comes equipped with ready-to-use visual components, enabling swift deployment in any human-machine interface scenario. Though we develop HMI/UI controls based on `Blazor` technology, we keep the design open to other UI technologies from the .NET ecosystem.
+Moreover, AXOpen comprises powerful tools that expedite the development of HMI/UI applications. It builds upon web technologies (Blazor) and the incredibly powerful [AX# library](https://inxton.github.io/axsharp/articles/blazor/RENDERABLECONTENT.html) for the automated generation of user interfaces. Each library/component within AXOpen comes equipped with ready-to-use visual components, enabling swift deployment in any human-machine interface scenario. Though we develop HMI/UI controls based on `Blazor` technology, we keep the design open to other UI technologies from the .NET ecosystem.
 
 
 ## Tasks
@@ -94,15 +94,15 @@ Each component has built-in alarms that will report when a component encounters 
 
 ---
 
-**As we continue to make headway in our developmental journey, we request your patience. Stay tuned for updates regarding the upcoming releases of AXOpen.** Your interest, support, and feedback are invaluable to us, and we encourage you to engage with us during the evolution of this project.
+**As we continue to make headway in our developmental journey, we request your patience. Stay tuned for updates regarding the upcoming releases of AXOpen.** 
 
-To remain updated about our progress, consider starring and subscribing to this repository.
+To remain updated about our progress, consider staring and subscribing to this repository.
 
 We are planning the first pilot project using `AXOpen` in the coming months. Once we verify the framework on the battlefield, we will release a production-ready version.
 
 ## Documentation
 
-In parallel with the project's advancement, we are incrementally building the [documentation](https://ix-ax.github.io/AXOpen/). We invite you to visit the link if you wish to learn more about AXOpen.
+In parallel with the project's advancement, we are incrementally building the [documentation](https://inxton.github.io/AXOpen/). We invite you to visit the link if you wish to learn more about AXOpen.
 
 ## About the Repository
 

@@ -1,21 +1,23 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "this", "this.proj", "{8216DD3B-6923-4425-84C5-F001A41BEC63}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_abstractions", "..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj", "{510F0FFE-8625-4161-B823-A1073174C0F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_axopen_abstractions", "..\abstractions\src\AXOpen.Abstractions\inxton_axopen_abstractions.csproj", "{510F0FFE-8625-4161-B823-A1073174C0F4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Base.Abstractions", "..\base\src\AXOpen.Base.Abstractions\AXOpen.Base.Abstractions.csproj", "{1860C1A6-2387-4C0E-A14F-BD98B6AB1C1B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_core", "..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj", "{F1929299-FDE7-41C9-8D6A-0E5DC10048E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_axopen_core", "..\core\src\AXOpen.Core\inxton_axopen_core.csproj", "{F1929299-FDE7-41C9-8D6A-0E5DC10048E0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_ax_sdk", "..\sdk-ax\ctrl\ix\ix_ax_ax_sdk.csproj", "{653A5257-1488-4BF8-86A0-42DA495E4461}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_ax_sdk", "..\sdk-ax\ctrl\ix\inxton_ax_sdk.csproj", "{653A5257-1488-4BF8-86A0-42DA495E4461}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_timers", "..\timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj", "{5FBD59DA-0C2C-40CF-AC3F-2E06DFF7C629}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_axopen_simatic1500", "..\simatic1500\ctrl\ix\inxton_axopen_simatic1500.csproj", "{1DE31C78-DE35-4ABD-ADDA-9099A4918F3F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_axopen_timers", "..\timers\src\AXOpen.Timers\inxton_axopen_timers.csproj", "{5FBD59DA-0C2C-40CF-AC3F-2E06DFF7C629}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.ToolBox", "..\toolbox\src\AXOpen.ToolBox\AXOpen.ToolBox.csproj", "{6C21488E-3A34-4D7A-8DAA-7FE508F4D352}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "utils_app", "app\ix\utils_app.csproj", "{6BE94403-BC09-404B-931C-D3EA7DCBA947}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_utils", "src\AXOpen.Utils\ix_ax_axopen_utils.csproj", "{89F608BB-1CF5-4927-965E-AD2A1D2ACFDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inxton_axopen_utils", "src\AXOpen.Utils\inxton_axopen_utils.csproj", "{89F608BB-1CF5-4927-965E-AD2A1D2ACFDF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_utils_tests_L1", "tests\AXOpen.Utils.Tests\axopen_utils_tests_L1.csproj", "{C2E2F9C6-7E37-4314-BD1C-10F027F3CB45}"
 EndProject
@@ -42,6 +44,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ctrl", "..\sdk-ax\ctrl", "{C774E146-D81D-43E4-809F-2C3EB42DDD38}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sdk-ax", "..\sdk-ax", "{6A1F3623-0F4F-4E25-B5FE-5D5A4259D634}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix", "..\simatic1500\ctrl\ix", "{32D891C2-2081-4D5C-B487-30FCEE87CDC3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ctrl", "..\simatic1500\ctrl", "{F4A57554-42D1-4F2E-9DD3-A4B6BD3A7B09}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "simatic1500", "..\simatic1500", "{C417873F-0D6D-4AB8-B1EE-10CD18919173}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Timers", "..\timers\src\AXOpen.Timers", "{A35CEDC5-EA25-4FAC-A2CE-B0D5BD9D7AFC}"
 EndProject
@@ -95,6 +103,10 @@ Global
 		{653A5257-1488-4BF8-86A0-42DA495E4461}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{653A5257-1488-4BF8-86A0-42DA495E4461}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{653A5257-1488-4BF8-86A0-42DA495E4461}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DE31C78-DE35-4ABD-ADDA-9099A4918F3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DE31C78-DE35-4ABD-ADDA-9099A4918F3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DE31C78-DE35-4ABD-ADDA-9099A4918F3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DE31C78-DE35-4ABD-ADDA-9099A4918F3F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5FBD59DA-0C2C-40CF-AC3F-2E06DFF7C629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5FBD59DA-0C2C-40CF-AC3F-2E06DFF7C629}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FBD59DA-0C2C-40CF-AC3F-2E06DFF7C629}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -132,6 +144,9 @@ Global
 		{653A5257-1488-4BF8-86A0-42DA495E4461} = {C2171157-A425-49BB-8015-F997A2B569B9}
 		{C2171157-A425-49BB-8015-F997A2B569B9} = {C774E146-D81D-43E4-809F-2C3EB42DDD38}
 		{C774E146-D81D-43E4-809F-2C3EB42DDD38} = {6A1F3623-0F4F-4E25-B5FE-5D5A4259D634}
+		{1DE31C78-DE35-4ABD-ADDA-9099A4918F3F} = {32D891C2-2081-4D5C-B487-30FCEE87CDC3}
+		{32D891C2-2081-4D5C-B487-30FCEE87CDC3} = {F4A57554-42D1-4F2E-9DD3-A4B6BD3A7B09}
+		{F4A57554-42D1-4F2E-9DD3-A4B6BD3A7B09} = {C417873F-0D6D-4AB8-B1EE-10CD18919173}
 		{5FBD59DA-0C2C-40CF-AC3F-2E06DFF7C629} = {A35CEDC5-EA25-4FAC-A2CE-B0D5BD9D7AFC}
 		{A35CEDC5-EA25-4FAC-A2CE-B0D5BD9D7AFC} = {53D778CA-4BE5-4023-83BB-773F5789F809}
 		{53D778CA-4BE5-4023-83BB-773F5789F809} = {44D49DE9-5413-4E4D-AB61-E2DB0FE8C931}

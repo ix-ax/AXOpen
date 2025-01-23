@@ -1,4 +1,4 @@
-# @ix-ax/axopen.components.cognex.vision
+# @inxton/axopen.components.cognex.vision
 
 [!INCLUDE [General](../docs/README.md)]
 
@@ -7,12 +7,12 @@
 
 ## Adding the package to your project
 ~~~bash
-apax add "@ix-ax/axopen.components.cognex.vision"
+apax add "@inxton/axopen.components.cognex.vision"
 ~~~
 
 ## Modifying your `apax.yml`
 
 ~~~yml
 dependencies:
-  "@ix-ax/axopen.components.cognex.vision": '{axopen-version}'  
+  "@inxton/axopen.components.cognex.vision": '{axopen-version}'  
 ~~~

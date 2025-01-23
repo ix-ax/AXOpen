@@ -21,7 +21,7 @@ namespace AXOpen.Data
         /// <param name="fragmentName">Name of the fragment.</param>
         /// <param name="expression">Expression of function for export rules.</param>
         /// <param name="separator">Separator for individual records.</param>
-        void Export(IRepository<TPlain> dataRepository, string path, string fragmentName, Expression<Func<TPlain, bool>> expression, Dictionary<string, bool> customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, char separator = ';');
+        void Export(IRepository<TPlain> dataRepository, string path, string fragmentName, Expression<Func<TPlain, bool>> expression, Dictionary<string, bool> customExportData = null, eExportMode exportMode = eExportMode.First, uint firstNumber = 50, uint secondNumber = 100, char separator = ';');
 
         /// <summary>
         /// Import data from file to the repository.

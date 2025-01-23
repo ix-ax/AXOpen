@@ -1,19 +1,19 @@
-name: "@ix-ax/ax.axopen.hwlibrary"
+name: "@inxton/ax.axopen.hwlibrary"
 version: '0.0.0-dev.0'
 type: generic
 files:
   - apax.yml
 devDependencies:
-  "@ix-ax/ax-sdk": '0.0.0-dev.0'
+  "@inxton/ax-sdk": '0.0.0-dev.0'
 catalogs:
-  "@ax/simatic-ax": 2405.2.0
+  "@ax/simatic-ax": 2411.0.0
 dependencies:
-  "@ix-ax/ax.axopen.min": '0.0.0-dev.0'
-  "@ax/simatic-1500-distributedio": 7.0.1
-  "@ax/simatic-1500-diagnostics-hardware": 7.0.1
-  "@ax/simatic-1500-clocks": 7.0.4
-  "@ax/system-timer": 7.1.47
-  "@ax/system-serde": 7.1.47
-  "@ax/system-bitaccess": 7.1.47
+  "@inxton/ax.axopen.min": '0.0.0-dev.0'
+  "@ax/simatic-1500-distributedio": 8.0.6
+  "@ax/simatic-1500-diagnostics-hardware": 8.0.0
+  "@ax/simatic-1500-clocks": 8.0.8
+  "@ax/system-timer": 8.0.7
+  "@ax/system-serde": 8.0.7
+  "@ax/system-bitaccess": 8.0.7
 installStrategy: strict
-apaxVersion: 3.3.1
+apaxVersion: 3.4.2

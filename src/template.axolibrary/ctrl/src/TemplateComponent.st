@@ -132,6 +132,8 @@ NAMESPACE Template.Axolibrary
                 moveWorkSignal : REF_TO BOOL;
             END_VAR
 
+            THIS.Initialize(parent);
+
             THIS.Open();
 
             Messenger.Serve(THIS);
@@ -162,7 +164,6 @@ NAMESPACE Template.Axolibrary
                 RETURN;
             END_IF;
 
-            THIS.Initialize(parent);
 
             Inputs.Status.HomeSensor := homeSensor^;
             Inputs.Status.WorkSensor := workSensor^;
@@ -192,6 +193,8 @@ NAMESPACE Template.Axolibrary
                 moveWorkSignal : REF_TO BOOL;
             END_VAR
 
+            THIS.Initialize(parent);
+
             THIS.Open();
 
             Messenger.Serve(THIS);
@@ -221,8 +224,6 @@ NAMESPACE Template.Axolibrary
                 Status.Error.Id := UINT#705;
                 RETURN;
             END_IF;
-
-            THIS.Initialize(parent);
 
             Inputs.Status.HomeSensor := homeSensor^;
             Inputs.Status.WorkSensor := workSensor^;

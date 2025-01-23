@@ -1,11 +1,11 @@
 {
   "sitemap": {
-    "baseUrl": "https://ix-ax.github.io/AXOpen/",
+    "baseUrl": "https://inxton.github.io/AXOpen/",
     "changefreq": "weekly",
     "priority": 0.1
   },
   "homepages": [],
-  "source_base_path": "C:/W/Develop/gh/ix-ax/_axopen/axopen/docfx",
+  "source_base_path": "C:/W/Develop/gh/inxton/ax/_axopen/axopen/docfx",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -2598,10 +2598,10 @@
         "InvalidFileLink"
       ],
       "type": "Conceptual",
-      "source_relative_path": "../src/components.siemens.identification/CHANGES_CHECKLIST.md",
+      "source_relative_path": "../src/components.siem.identification/CHANGES_CHECKLIST.md",
       "output": {
         ".html": {
-          "relative_path": "components.siemens.identification/CHANGES_CHECKLIST.html"
+          "relative_path": "components.siem.identification/CHANGES_CHECKLIST.html"
         }
       },
       "version": ""
@@ -2611,163 +2611,163 @@
         "InvalidFileLink"
       ],
       "type": "Conceptual",
-      "source_relative_path": "../src/components.siemens.identification/CREATION_CHECKLIST.md",
+      "source_relative_path": "../src/components.siem.identification/CREATION_CHECKLIST.md",
       "output": {
         ".html": {
-          "relative_path": "components.siemens.identification/CREATION_CHECKLIST.html"
+          "relative_path": "components.siem.identification/CREATION_CHECKLIST.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "../src/components.siemens.identification/app/ix-blazor/wwwroot/css/open-iconic/README.md",
+      "source_relative_path": "../src/components.siem.identification/app/ix-blazor/wwwroot/css/open-iconic/README.md",
       "output": {
         ".html": {
-          "relative_path": "components.siemens.identification/app/ix-blazor/wwwroot/css/open-iconic/README.html"
+          "relative_path": "components.siem.identification/app/ix-blazor/wwwroot/css/open-iconic/README.html"
         }
       },
       "version": ""
     },
     {
       "type": "Resource",
-      "source_relative_path": "../src/components.siemens.identification/app/ix-blazor/wwwroot/css/open-iconic/font/fonts/open-iconic.svg",
+      "source_relative_path": "../src/components.siem.identification/app/ix-blazor/wwwroot/css/open-iconic/font/fonts/open-iconic.svg",
       "output": {
         "resource": {
-          "relative_path": "components.siemens.identification/app/ix-blazor/wwwroot/css/open-iconic/font/fonts/open-iconic.svg"
+          "relative_path": "components.siem.identification/app/ix-blazor/wwwroot/css/open-iconic/font/fonts/open-iconic.svg"
         }
       },
       "version": ""
     },
     {
       "type": "Resource",
-      "source_relative_path": "../src/components.siemens.identification/app/ix-blazor/wwwroot/favicon.png",
+      "source_relative_path": "../src/components.siem.identification/app/ix-blazor/wwwroot/favicon.png",
       "output": {
         "resource": {
-          "relative_path": "components.siemens.identification/app/ix-blazor/wwwroot/favicon.png"
+          "relative_path": "components.siem.identification/app/ix-blazor/wwwroot/favicon.png"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "../src/components.siemens.identification/ctrl/README.md",
+      "source_relative_path": "../src/components.siem.identification/ctrl/README.md",
       "output": {
         ".html": {
-          "relative_path": "components.siemens.identification/ctrl/README.html"
+          "relative_path": "components.siem.identification/ctrl/README.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "../src/components.siemens.identification/docs/CHANGELOG.md",
+      "source_relative_path": "../src/components.siem.identification/docs/CHANGELOG.md",
       "output": {
         ".html": {
-          "relative_path": "components.siemens.identification/docs/CHANGELOG.html"
+          "relative_path": "components.siem.identification/docs/CHANGELOG.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "../src/components.siemens.identification/docs/ComponentTemplate.md",
+      "source_relative_path": "../src/components.siem.identification/docs/ComponentTemplate.md",
       "output": {
         ".html": {
-          "relative_path": "components.siemens.identification/docs/ComponentTemplate.html"
+          "relative_path": "components.siem.identification/docs/ComponentTemplate.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "../src/components.siemens.identification/docs/Component_1.md",
+      "source_relative_path": "../src/components.siem.identification/docs/Component_1.md",
       "output": {
         ".html": {
-          "relative_path": "components.siemens.identification/docs/Component_1.html"
+          "relative_path": "components.siem.identification/docs/Component_1.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "../src/components.siemens.identification/docs/Component_2.md",
+      "source_relative_path": "../src/components.siem.identification/docs/Component_2.md",
       "output": {
         ".html": {
-          "relative_path": "components.siemens.identification/docs/Component_2.html"
+          "relative_path": "components.siem.identification/docs/Component_2.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "../src/components.siemens.identification/docs/README.md",
+      "source_relative_path": "../src/components.siem.identification/docs/README.md",
       "output": {
         ".html": {
-          "relative_path": "components.siemens.identification/docs/README.html"
+          "relative_path": "components.siem.identification/docs/README.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "../src/components.siemens.identification/docs/TROUBLES.md",
+      "source_relative_path": "../src/components.siem.identification/docs/TROUBLES.md",
       "output": {
         ".html": {
-          "relative_path": "components.siemens.identification/docs/TROUBLES.html"
+          "relative_path": "components.siem.identification/docs/TROUBLES.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "../src/components.siemens.identification/docs/index.md",
+      "source_relative_path": "../src/components.siem.identification/docs/index.md",
       "output": {
         ".html": {
-          "relative_path": "components.siemens.identification/docs/index.html"
+          "relative_path": "components.siem.identification/docs/index.html"
         }
       },
       "version": ""
     },
     {
       "type": "Toc",
-      "source_relative_path": "../src/components.siemens.identification/docs/toc.yml",
+      "source_relative_path": "../src/components.siem.identification/docs/toc.yml",
       "output": {
         ".html": {
-          "relative_path": "components.siemens.identification/docs/toc.html"
+          "relative_path": "components.siem.identification/docs/toc.html"
         },
         ".json": {
-          "relative_path": "components.siemens.identification/docs/toc.json"
+          "relative_path": "components.siem.identification/docs/toc.json"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "../src/components.siemens.identification/src/AXOpen.Components.Siemens.Identification.blazor/README.md",
+      "source_relative_path": "../src/components.siem.identification/src/AXOpen.Components.Siem.Identification.blazor/README.md",
       "output": {
         ".html": {
-          "relative_path": "components.siemens.identification/src/AXOpen.Components.Siemens.Identification.blazor/README.html"
+          "relative_path": "components.siem.identification/src/AXOpen.Components.Siem.Identification.blazor/README.html"
         }
       },
       "version": ""
     },
     {
       "type": "Resource",
-      "source_relative_path": "../src/components.siemens.identification/src/AXOpen.Components.Siemens.Identification.blazor/wwwroot/background.png",
+      "source_relative_path": "../src/components.siem.identification/src/AXOpen.Components.Siem.Identification.blazor/wwwroot/background.png",
       "output": {
         "resource": {
-          "relative_path": "components.siemens.identification/src/AXOpen.Components.Siemens.Identification.blazor/wwwroot/background.png"
+          "relative_path": "components.siem.identification/src/AXOpen.Components.Siem.Identification.blazor/wwwroot/background.png"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "../src/components.siemens.identification/src/AXOpen.Components.Siemens.Identification/README.md",
+      "source_relative_path": "../src/components.siem.identification/src/AXOpen.Components.Siem.Identification/README.md",
       "output": {
         ".html": {
-          "relative_path": "components.siemens.identification/src/AXOpen.Components.Siemens.Identification/README.html"
+          "relative_path": "components.siem.identification/src/AXOpen.Components.Siem.Identification/README.html"
         }
       },
       "version": ""

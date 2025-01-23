@@ -114,7 +114,7 @@ $headers = @{
     "Accept"        = "application/vnd.github.package-preview+json"
 }
 
-$feedUrl = "https://nuget.pkg.github.com/ix-ax/index.json"
+$feedUrl = "https://nuget.pkg.github.com/inxton/index.json"
 
 # Check if the feed is added
 $isFeedAlreadyAdded = $false;
@@ -216,7 +216,7 @@ To manually add the GitHub NuGet feed to your sources:
 1. Generate a Personal Access Token on GitHub with 'read:packages', 'write:packages', and 'delete:packages' (if needed) permissions.
 2. Open a command prompt or terminal.
 3. Use the following command to add the feed to your NuGet sources:
-   dotnet nuget add source --username [YOUR_GITHUB_USERNAME] --password [YOUR_PERSONAL_ACCESS_TOKEN]  --store-password-in-clear-text --name gh-packages-ix-ax "https://nuget.pkg.github.com/ix-ax/index.json"
+   dotnet nuget add source --username [YOUR_GITHUB_USERNAME] --password [YOUR_PERSONAL_ACCESS_TOKEN]  --store-password-in-clear-text --name gh-packages-inxton "https://nuget.pkg.github.com/inxton/index.json"
    
    Replace [YOUR_GITHUB_USERNAME] with your actual GitHub username and [YOUR_PERSONAL_ACCESS_TOKEN] with the token you generated.
 

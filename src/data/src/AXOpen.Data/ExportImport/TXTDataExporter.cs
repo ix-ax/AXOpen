@@ -21,7 +21,7 @@ namespace AXOpen.Data
         {
         }
 
-        public void Export(IRepository<TPlain> dataRepository, string path, string fragmentName, Expression<Func<TPlain, bool>> expression, Dictionary<string, bool> customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, char separator = ';')
+        public void Export(IRepository<TPlain> dataRepository, string path, string fragmentName, Expression<Func<TPlain, bool>> expression, Dictionary<string, bool> customExportData = null, eExportMode exportMode = eExportMode.First, uint firstNumber = 50, uint secondNumber = 100, char separator = ';')
         {
             var export = BaseExport(dataRepository, expression, customExportData, exportMode, firstNumber, secondNumber, separator);
 

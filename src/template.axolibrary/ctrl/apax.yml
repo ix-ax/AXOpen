@@ -1,4 +1,4 @@
-name: "@ix-ax/apaxlibname"
+name: "@inxton/apaxlibname"
 version: '0.0.0-dev.0'
 type: lib
 targets:
@@ -7,14 +7,14 @@ files:
   - src
   - axsharp.companion.json
 devDependencies:
-  "@ix-ax/ax-sdk": '0.0.0-dev.0'
+  "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
-  "@ix-ax/axopen.io": '0.0.0-dev.0'
+  "@inxton/axopen.io": '0.0.0-dev.0'
 installStrategy: strict
-apaxVersion: 3.3.1
+apaxVersion: 3.4.2
 scripts:
   postbuild:
     - dotnet ixc
 publicKeys:
-  "@ix-ax": 30c06ef7830b4dfd8f16e003508da1ac2d187714d0e1f38279a9332cbe4e4e17
+  "@inxton": 30c06ef7830b4dfd8f16e003508da1ac2d187714d0e1f38279a9332cbe4e4e17
 ...

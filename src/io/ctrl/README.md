@@ -1,4 +1,4 @@
-# @ix-ax/axopen.io
+# @inxton/axopen.io
 
 [!INCLUDE [General](../docs/README.md)]
 
@@ -7,12 +7,12 @@
 
 ## Adding the package to your project
 ~~~bash
-apax add "@ix-ax/axopen.io"
+apax add "@inxton/axopen.io"
 ~~~
 
 ## Modifying your `apax.yml`
 
 ~~~yml
 dependencies:
-  "@ix-ax/axopen.io": '{axopen-version}'  
+  "@inxton/axopen.io": '{axopen-version}'  
 ~~~

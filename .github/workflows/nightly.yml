@@ -1,18 +1,15 @@
 name: nightly
 
-on:
+on: 
   schedule:
-    - cron: '0 7 * * *'  
-  workflow_dispatch:
+    - cron: '0 0 * * *'
+  workflow_dispatch :
 
 jobs:
-  build:
-    strategy:
-      matrix:
-        configuration: [Release]
-
-    runs-on: [self-hosted, Windows, X64, L3]  # For a list of available runner types, refer to
-                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on    
+  run-on-dev:
+    if: github.ref == 'refs/heads/dev'
+    runs-on: [self-hosted, Windows, X64, AX, APP]  
+    
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -26,5 +23,4 @@ jobs:
       env:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}
           GH_USER : ${{ secrets.GH_USER }}
-      run: dotnet run --project cake/Build.csproj --do-test --do-pack --test-level 3 --do-publish
-
+      run: dotnet run --project cake/Build.csproj --apps-run

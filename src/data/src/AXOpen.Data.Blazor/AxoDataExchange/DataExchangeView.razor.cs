@@ -1,9 +1,9 @@
 ﻿// axopen_data_blazor
-// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
-// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// Copyright (c) 2023 MTS spol. s r.o,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
-// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
-// Third party licenses: https://github.com/ix-ax/axsharp/blob/dev/notices.md
+// https://github.com/inxton/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/inxton/axsharp/blob/dev/notices.md
 
 using AXOpen.Base.Data;
 using AXOpen.Data.Interfaces;
@@ -59,10 +59,58 @@ public partial class DataExchangeView : ComponentBase, IDisposable
     private ProtectedLocalStorage ProtectedLocalStore { get; set; }
 
     private Guid ViewGuid { get; } = Guid.NewGuid();
+
+    private string _inputFileId = Guid.NewGuid().ToString();
+
+    private eOperationStatus _fileLoadingStatus = eOperationStatus.Ready;
+
+
+    private string _ClientFolder = string.Empty;
+
+    public string ClientFolder
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(_ClientFolder)) _ClientFolder = "wwwroot/Temp/" + ViewGuid;
+            return _ClientFolder;
+        }
+    }
+
+    private string _ExportPath = string.Empty;
+
+    public string ExportPath
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(_ExportPath)) _ExportPath = ClientFolder + "/exportData.zip";
+            return _ExportPath;
+        }
+    }
+
+    private string _ImportPath = string.Empty;
+
+    public string ImportPath
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(_ImportPath)) _ImportPath = ClientFolder + "/importData.zip";
+            return _ImportPath;
+        }
+    }
+
+    private string _ExportDownloadUrl = string.Empty;
+
+    public string ExportDownloadUrl
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(_ExportDownloadUrl)) _ExportDownloadUrl = "/Temp/" + ViewGuid + "/exportData.zip";
+            return _ExportDownloadUrl;
+        }
+    }
+
     private string Create { get; set; } = "";
 
-    private bool isFileImported { get; set; } = false;
-    private bool isFileImporting { get; set; } = false;
 
     private int MaxPage =>
         (int)(Vm.FilteredCount % Vm.Limit == 0 ? Vm.FilteredCount / Vm.Limit - 1 : Vm.FilteredCount / Vm.Limit);
@@ -138,34 +186,43 @@ public partial class DataExchangeView : ComponentBase, IDisposable
         Vm.StateHasChangedDelegate = StateHasChanged;
     }
 
-    private string _inputFileId = Guid.NewGuid().ToString();
 
     private async Task LoadFile(InputFileChangeEventArgs e)
     {
-        isFileImported = false;
-        isFileImporting = true;
+        _fileLoadingStatus = eOperationStatus.Busy;
 
         try
         {
-            Directory.CreateDirectory("wwwroot/Temp/" + ViewGuid);
+            if (!Directory.Exists(ClientFolder))
+                Directory.CreateDirectory(ClientFolder);
 
-            await using FileStream fs = new("wwwroot/Temp/" + ViewGuid + "/importData.zip", FileMode.Create);
+            Console.WriteLine( $"willl be imported to {ImportPath}");
+            await using FileStream fs = new(ImportPath, FileMode.Create);
+
             await e.File.OpenReadStream().CopyToAsync(fs);
 
-            isFileImported = true;
+            _fileLoadingStatus = eOperationStatus.Done;
         }
         catch (Exception ex)
         {
             _alertDialogService.AddAlertDialog(eAlertType.Danger, "Error!", ex.Message, 10);
+            _fileLoadingStatus = eOperationStatus.Failed;
         }
 
-        isFileImporting = false;
     }
 
     private void ClearFiles(string path)
     {
         if (Directory.Exists(path))
             Directory.Delete(path, true);
+    }
+
+    private void ClearClientFiles()
+    {
+        ClearFiles(ClientFolder);
+        Vm.exportStatus = eOperationStatus.Ready; // reset export status
+        Vm.importStatus = eOperationStatus.Ready;
+        this._fileLoadingStatus = eOperationStatus.Ready;
     }
 
     public async Task SaveCustomExportDataAsync()
@@ -180,8 +237,10 @@ public partial class DataExchangeView : ComponentBase, IDisposable
         {
             Vm.ExportSet = result.Value;
         }
+
         StateHasChanged();
     }
+
 
     protected void ReloadRecordAfterEditWithoutModal()
     {

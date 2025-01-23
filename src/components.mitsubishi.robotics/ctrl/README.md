@@ -1,4 +1,4 @@
-# @ix-ax/axopen.components.mitsubishi.robotics
+# @inxton/axopen.components.mitsubishi.robotics
 
 [!INCLUDE [General](../docs/README.md)]
 
@@ -7,12 +7,12 @@
 
 ## Adding the package to your project
 ~~~bash
-apax add "@ix-ax/axopen.components.mitsubishi.robotics"
+apax add "@inxton/axopen.components.mitsubishi.robotics"
 ~~~
 
 ## Modifying your `apax.yml`
 
 ~~~yml
 dependencies:
-  "@ix-ax/axopen.components.mitsubishi.robotics": '{axopen-version}'  
+  "@inxton/axopen.components.mitsubishi.robotics": '{axopen-version}'  
 ~~~

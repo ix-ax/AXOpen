@@ -1,4 +1,4 @@
-feedUrl="https://nuget.pkg.github.com/ix-ax/index.json"
+feedUrl="https://nuget.pkg.github.com/inxton/index.json"
 
 export GREEN='\033[0;32m'
 export RED='\033[0;31m'

@@ -9,7 +9,7 @@ using Microsoft.CSharp.RuntimeBinder;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.Authorization;
 
-namespace ix_ax_axopen_exporters;
+namespace inxton_axopen_exporters;
 
 public class ExcelDataExporter<TPlain, TOnline> : BaseDataExporter<TPlain, TOnline>, IDataExporter<TPlain, TOnline> where TOnline : IAxoDataEntity
 where TPlain : Pocos.AXOpen.Data.IAxoDataEntity, new()
@@ -89,7 +89,7 @@ where TPlain : Pocos.AXOpen.Data.IAxoDataEntity, new()
     {
     }
 
-    public void Export(IRepository<TPlain> dataRepository, string path, string fragmentName, Expression<Func<TPlain, bool>> expression, Dictionary<string, bool>? customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, char separator = ';')
+    public void Export(IRepository<TPlain> dataRepository, string path, string fragmentName, Expression<Func<TPlain, bool>> expression, Dictionary<string, bool>? customExportData = null, eExportMode exportMode = eExportMode.First, uint firstNumber = 50, uint secondNumber = 100, char separator = ';')
     {
         var prototype = Activator.CreateInstance(typeof(TOnline), new object[] { ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(new object[] { }), "_data", "_data" }) as ITwinObject;
 
@@ -97,16 +97,32 @@ where TPlain : Pocos.AXOpen.Data.IAxoDataEntity, new()
 
         // Get exportables in range
         IQueryable<TPlain> exportables = null;
+        int toSkip = 0;
+        int toTake = 0;
+
         switch (exportMode)
         {
             case eExportMode.First:
-                exportables = dataRepository.Queryable.Where(expression).Skip((int)dataRepository.Count - firstNumber).Take(firstNumber).OrderByDescending(e => e.RecordId);
+
+                toSkip = (int)dataRepository.Count - (int)firstNumber;
+                if (toSkip < 0) toSkip = 0;
+
+                exportables = dataRepository.Queryable.Where(expression).Skip(toSkip).Take((int)firstNumber).OrderByDescending(e => e.RecordId);
+
                 break;
             case eExportMode.Last:
-                exportables = dataRepository.Queryable.Where(expression).Take(firstNumber).OrderByDescending(e => e.RecordId);
+                exportables = dataRepository.Queryable.Where(expression).Take((int)firstNumber).OrderByDescending(e => e.RecordId);
                 break;
+
             case eExportMode.Exact:
-                exportables = dataRepository.Queryable.Where(expression).Skip(firstNumber - 1).Take(secondNumber - firstNumber + 1).OrderByDescending(e => e.RecordId);
+
+                toSkip = (int)firstNumber - 1;
+                if (toSkip < 0) toSkip = 0;
+
+                toTake = (int)secondNumber - (int)firstNumber + 1;
+                if (toTake < 1) toTake = 1;
+
+                exportables = dataRepository.Queryable.Where(expression).Skip(toSkip).Take(toTake).OrderByDescending(e => e.RecordId);
                 break;
         }
 

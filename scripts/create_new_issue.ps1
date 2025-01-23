@@ -6,7 +6,7 @@ param
     [string]$IssueBody 
 )
 
-$issue = gh issue create --assignee "@me" --title "$IssueTitle" --body "$IssueBody" 
+$issue = gh issue create --assignee "@me" --title "$IssueTitle" --body "$IssueBody" --project simatic-ax
 
 if ($issue -match ".*/(\d+)$") {
     $issueID = $matches[1] 
@@ -15,7 +15,7 @@ if ($issue -match ".*/(\d+)$") {
     $scriptDir = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
 
     # Construct the full path to SecondScript.ps1
-    $create_issue_branchScriptPath = Join-Path -Path $scriptDir -ChildPath "create_issue_branch.ps1"
+    $create_issue_branchScriptPath = Join-Path -Path $scriptDir -ChildPath "_create_issue_branch.ps1"
 
     # Call create_issue_branch.ps1 with the parameter IssueId
     & $create_issue_branchScriptPath -IssueId $issueID

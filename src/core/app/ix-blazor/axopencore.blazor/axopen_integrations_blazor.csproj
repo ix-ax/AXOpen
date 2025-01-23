@@ -24,7 +24,7 @@
 	  <ProjectReference Include="..\..\..\..\data\src\repositories\Json\AXOpen.Data.Json.csproj" />
 	  <ProjectReference Include="..\..\..\..\data\src\repositories\InMemory\AXOpen.Data.InMemory.csproj" />
 	  <ProjectReference Include="..\..\..\..\security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj" />
-	  <ProjectReference Include="..\..\..\..\simatic1500\ctrl\ix\ix_ax_axopen_simatic1500.csproj" />
+	  <ProjectReference Include="..\..\..\..\simatic1500\ctrl\ix\inxton_axopen_simatic1500.csproj" />
 	  <ProjectReference Include="..\..\..\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
 	  <ProjectReference Include="..\..\ix\ix_axopencore.csproj" />
 	</ItemGroup>

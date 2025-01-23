@@ -1,7 +1,9 @@
+USING Template.Axolibrary;
+
 PROGRAM MyProgram
     VAR_EXTERNAL
-        sandbox : SandboxContext;
-        documentation : DocumentationContext;
+        sandbox : Template.Axolibrary.SandboxContext;
+        documentation : Template.Axolibrary.DocumentationContext;
         _rtc : AXOpen.S71500.Rtc;
         _rtm : AXOpen.S71500.Rtm;
     END_VAR
