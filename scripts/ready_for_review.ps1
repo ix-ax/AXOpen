@@ -11,14 +11,14 @@ else
     # Extract the issue number (assuming "issue-<number>" or "<type>/<number>-description" format)
     if ($currentBranch -match "\d+") 
     {
-        $issueNumber = $matches[0]
+        $issueID = $matches[0]
         Write-Output "Issue number: $issueNumber"
         # Get the current script directory
         $scriptDir = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
         # Construct the full path to _change_stateScriptPath.ps1
         $_change_stateScriptPath = Join-Path -Path $scriptDir -ChildPath "_change_state.ps1"
         # Call _change_state.ps1 with the parameters IssueId, oldColumnName, newColumnName,doNotCheckOldColumnName, repoOwner, repoName, projectName
-        & $_change_stateScriptPath -IssueId $issueID -oldColumnName "In progress" -newColumnName "In review" -doNotCheckOldColumnName $doNotCheckOldColumnName -repoOwner "Inxton" -repoName "AXOpen" -projectName "simatic-ax"
+        & $_change_stateScriptPath -IssueId $issueID -oldColumnName "In progress" -newColumnName "In review" -doNotCheckOldColumnName $doNotCheckOldColumnName 0 -repoOwner "Inxton" -repoName "AXOpen" -projectName "simatic-ax"
     } 
     else 
     {
