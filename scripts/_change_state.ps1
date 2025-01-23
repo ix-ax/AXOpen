@@ -92,6 +92,18 @@ while ($hasNextPage) {
           items(first: 100, after: $cursor) {
             nodes {
               id
+              fieldValues(first: 10) {
+                nodes{
+                  ... on ProjectV2ItemFieldSingleSelectValue {
+                    name
+                    field {
+                      ... on ProjectV2FieldCommon {
+                        name
+                      }
+                    }
+                  }
+                }
+              }
               content {
                 ... on Issue {
                   number
@@ -105,7 +117,7 @@ while ($hasNextPage) {
           }
         }
       }
-    }' -F projectId=$projectId -F cursor=$endCursor | ConvertFrom-Json
+    }' -F projectId=$projectId -F cursor=$endCursor -F fieldId=$projectColumnId | ConvertFrom-Json
 
     # Append fetched items to $allItems
     $allItems += $result.data.node.items.nodes
@@ -123,24 +135,42 @@ Write-Output "Fetched all items: #$itemsCount"
 Write-Output "Fetching project cards for issue #$IssueId in the '$oldColumnName' column"
 # Find the card associated with the issue
 $issueCard = $allItems | Where-Object { $_.content.number -eq $IssueId }
-
-
 if (-not $issueCard) {
     Write-Output "Error: No project card found for issue #$IssueId in project ID $projectId (name: $projectName)."
     exit 1
 }
 
-# Filter items that belong to the specified column
-$columnCards = $cards.data.node.items.nodes | Where-Object {
-    $_.fieldValues.nodes | Where-Object {
-        $_.field.id -eq $columnId
+# Discover the 'Status' field value
+$fieldValues = $issueCard.fieldValues.nodes
+$issueCardHasStatusField = 0
+$issueCardIsInOldColumnName = ""
+foreach ($fieldValue in $fieldValues ) 
+{
+    if ($fieldValue.field.name -eq "Status") 
+    {
+        $issueCardHasStatusField = 1
+        $issueCardIsInOldColumnName = $fieldValue.name
+        break
     }
 }
+
+if ($issueCardHasStatusField -eq 0) 
+{
+    Write-Output "Error: The issue #$IssueId in project ID $projectId (name: $projectName) does not have defined the 'Status' value."
+    exit 1
+}
+
+if ($issueCardIsInOldColumnName -ne $oldColumnName) 
+{
+    Write-Output "Error: The issue #$IssueId in project ID $projectId (name: $projectName) cannot be moved from '$oldColumnName' to '$newColumnName' as it is in '$issueCardIsInOldColumnName'."
+    exit 1
+}
+
 
 $cardId = $issueCard.id
 
 # Move the issue card to $newColumnName
-Write-Output "Moving issue #$IssueId to '$newColumnName'"
+Write-Output "Moving issue #$IssueId from '$oldColumnName' to '$newColumnName'  in project ID $projectId (name: $projectName)."
 gh api graphql -f query='
 mutation($projectId: ID!, $cardId: ID!, $projectColumnId: ID!, $newColumnId: String!) {
   updateProjectV2ItemFieldValue(
