@@ -18,7 +18,7 @@ if ($issue -match ".*/(\d+)$") {
     $_create_issue_branchScriptPath = Join-Path -Path $scriptDir -ChildPath "_create_issue_branch.ps1"
 
     # Call _create_issue_branch.ps1 with the parameter IssueId and doNotCheckOldColumnName
-    & $_create_issue_branchScriptPath -IssueId $issueID -doNotCheckOldColumnName 1
+    & $_create_issue_branchScriptPath -IssueId $issueID -doNotCheckOldColumnName $True
 } else {
     Write-Output "No numeric ID found for this issue."
 }
