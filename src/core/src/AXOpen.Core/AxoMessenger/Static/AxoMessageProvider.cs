@@ -175,7 +175,7 @@ namespace AXOpen.Messaging.Static
                     p.AcknowledgedBeforeFallen
                 });
 
-            await Messengers?.First()?.GetConnector()?.ReadBatchAsync(r)!;
+            await Messengers?.FirstOrDefault()?.GetConnector()?.ReadBatchAsync(r)!;
         }
         
         public async Task ReadMessageStateAsync()
@@ -185,8 +185,9 @@ namespace AXOpen.Messaging.Static
                 {
                     p.MessengerState,
                 });
+            
 
-            await Messengers?.First()?.GetConnector()?.ReadBatchAsync(r)!;
+            await Messengers?.FirstOrDefault()?.GetConnector()?.ReadBatchAsync(r)!;
         }
     }
 }
