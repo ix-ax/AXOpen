@@ -16,6 +16,14 @@
                             <label>RenderableContentControl Context="@Entry.Plc.AxoMessengers" Presentation="Command-Control"</label>
                             <RenderableContentControl Context="@Entry.Plc.AxoMessengers" Presentation="Command-Control" Class="ps-2" />
                         </div>
+                        <div class="card ps-2">
+                            <label>_messenger1 </label>
+                            <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger1" Presentation="Status-Display" Class="ps-2" />
+                        </div>
+                        <div class="card ps-2">
+                            <label>_messenger1 </label>
+                            <AXOpen.Messaging.Static.AxoMessengerView Context="@Entry.Plc.AxoMessengers._messenger1" Class="ps-2" />
+                        </div>
                     </div>
                 </div>
             </div>

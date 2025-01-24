@@ -86,11 +86,12 @@
 
     public override async void OnComponentChanged()
     {
-        if (observedObjects.Count() == 0 
-            || !observedObjects.First().Equals(this.Component))
-        {
-            observedObjects = new[] { this.Component };
-        }
+        // if (observedObjects.Count() == 0 
+        //     && !observedObjects.First().Equals(this.Component))
+        // {
+        //     observedObjects = new[] { this.Component };
+        // }
+
         MessageProvider = AxoMessageProvider.Create(observedObjects);
         await LoadMessages();
         base.OnComponentChanged();
