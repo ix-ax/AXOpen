@@ -30,6 +30,7 @@ namespace AXOpen.Data
             get;
             private set;
         }
+
         public override object Model
         {
             get => this.DataExchange;
@@ -41,11 +42,12 @@ namespace AXOpen.Data
         }
 
         private AuthenticationStateProvider _authenticationProvider;
+
         public AuthenticationStateProvider AuthenticationProvider
         {
             get
             {
-                if(_authenticationProvider == null)
+                if (_authenticationProvider == null)
                     throw new Exception("AuthenticationProvider must be implemented in " + this.ToString());
                 return _authenticationProvider;
             }
@@ -55,10 +57,13 @@ namespace AXOpen.Data
             }
         }
 
-        public bool IsFileExported { get; set; } = false;
+        public eOperationStatus exportStatus { get; set; } = eOperationStatus.Ready;
+        public eOperationStatus importStatus { get; set; } = eOperationStatus.Ready;
+
         public List<ValueChangeItem> Changes { get; set; } = new List<ValueChangeItem>();
 
         private IAlertService _alertDialogService;
+
         public IAlertService AlertDialogService
         {
             get
@@ -270,8 +275,6 @@ namespace AXOpen.Data
             }
         }
 
-
-
         public async Task Edit()
         {
             await DataExchange.UpdateFromShadowsAsync();
@@ -293,7 +296,6 @@ namespace AXOpen.Data
                 await DataExchange.CreateDataFromControllerAsync(CreateItemId);
                 AlertDialogService?.AddAlertDialog(eAlertType.Success, "Loaded from PLC!", "Item was successfully loaded from PLC!", 10);
                 AxoApplication.Current.Logger.Information($"Loaded from Plc {CreateItemId} into {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
-
             }
             catch (Exception e)
             {
@@ -304,13 +306,11 @@ namespace AXOpen.Data
                 await FillObservableRecordsAsync();
                 CreateItemId = null;
             }
-
-
         }
 
         public Task ExportDataAsync(string path)
         {
-            IsFileExported = false;
+            exportStatus = eOperationStatus.Busy;
 
             return Task.Run(() =>
             {
@@ -318,16 +318,16 @@ namespace AXOpen.Data
                 {
                     DataExchange.ExportData(path, ExportSet.CustomExportData, ExportSet.ExportMode, ExportSet.FirstNumber, ExportSet.SecondNumber, ExportSet.ExportFileType, ExportSet.Separator);
 
-                    IsFileExported = true;
+                    exportStatus = eOperationStatus.Done;
 
                     AlertDialogService?.AddAlertDialog(eAlertType.Success, "Exported!", "Data was successfully exported!", 10);
 
                     AxoApplication.Current.Logger.Information($"Exported data from {DataExchange} to path {path} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
-
                 }
                 catch (Exception e)
                 {
                     AlertDialogService?.AddAlertDialog(eAlertType.Danger, "Error!", e.Message, 10);
+                    exportStatus = eOperationStatus.Failed;
                 }
             });
         }
@@ -339,12 +339,12 @@ namespace AXOpen.Data
                 try
                 {
                     DataExchange.ImportData(path, AuthenticationProvider.GetAuthenticationStateAsync().Result, exportFileType: ExportSet.ExportFileType, separator: ExportSet.Separator);
-
                     this.UpdateObservableRecords();
 
                     AlertDialogService?.AddAlertDialog(eAlertType.Success, "Imported!", "Data was successfully imported!", 10);
                     AxoApplication.Current.Logger.Information($"Imported data into {DataExchange} from path {path} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
 
+                    importStatus = eOperationStatus.Done;
                 }
                 catch (Exception e)
                 {
@@ -370,8 +370,8 @@ namespace AXOpen.Data
         {
             public Dictionary<string, ExportData> CustomExportData { get; set; } = new();
             public eExportMode ExportMode { get; set; } = eExportMode.First;
-            public int FirstNumber { get; set; } = 50;
-            public int SecondNumber { get; set; } = 100;
+            public uint FirstNumber { get; set; } = 50;
+            public uint SecondNumber { get; set; } = 100;
             public string ExportFileType { get; set; } = "CSV";
             public char Separator { get; set; } = ';';
         }
@@ -441,7 +441,6 @@ namespace AXOpen.Data
             if (check)
                 r.Add("checked", "checked");
             return r;
-
         }
 
         public bool GetFragmentsExportedValue()
