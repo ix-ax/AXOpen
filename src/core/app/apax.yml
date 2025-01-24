@@ -107,3 +107,10 @@ scripts:
     START=$(date +%s)
     ..\\..\\scripts\\all.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"    
+
+  mm1: |
+    apax mon -t 10.10.10.120 -f messages1.mon -C .\\certs\\plc_line\\plc_line.cer -c
+  mm2: |
+    apax mon -t 10.10.10.120 -f messages2.mon -C .\\certs\\plc_line\\plc_line.cer -c
+    
+    
