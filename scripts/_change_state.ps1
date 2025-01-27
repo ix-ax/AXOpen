@@ -151,8 +151,9 @@ foreach ($fieldValue in $fieldValues )
 
 if ($issueCardHasStatusField -eq 0) 
 {
-    Write-Output "Error: The issue #$IssueId in project ID $projectId (name: $projectName) does not have defined the 'Status' value."
-    exit 1
+    #Write-Output "Error: The issue #$IssueId in project ID $projectId (name: $projectName) does not have defined the 'Status' value."
+    Write-Output "Warning: The issue #$IssueId in project ID $projectId (name: $projectName) does not have a defined 'Status' value. Proceeding without 'Status' verification."
+    #exit 1
 }
 
 if ($issueCardIsInOldColumnName -ne $oldColumnName) 
