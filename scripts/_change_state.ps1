@@ -53,6 +53,11 @@ query($projectId: ID!) {
 
 $projectColumns = $projectOptions.data.node.fields.nodes | Where-Object { $_.name -eq 'Status'}
 $projectColumnId =$projectColumns.id
+if(-not $projectColumnId)
+{
+    Write-Output "Error: No 'Status' field defined in project ID $projectId (name: $projectName)."
+    exit 1
+}
 
 $oldColumn = $projectColumns.options | Where-Object { $_.name -eq $oldColumnName}
 if (-not $oldColumn) {
@@ -151,9 +156,7 @@ foreach ($fieldValue in $fieldValues )
 
 if ($issueCardHasStatusField -eq 0) 
 {
-    #Write-Output "Error: The issue #$IssueId in project ID $projectId (name: $projectName) does not have defined the 'Status' value."
     Write-Output "Warning: The issue #$IssueId in project ID $projectId (name: $projectName) does not have a defined 'Status' value. Proceeding without 'Status' verification."
-    #exit 1
 }
 
 if ($issueCardIsInOldColumnName -ne $oldColumnName) 
