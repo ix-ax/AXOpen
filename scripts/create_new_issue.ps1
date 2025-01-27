@@ -1,10 +1,29 @@
 param 
 (
-     [Parameter(Mandatory=$true)]
     [string]$IssueTitle, 
-     [Parameter(Mandatory=$true)]
     [string]$IssueBody 
 )
+
+if (-not $IssueTitle) 
+{
+    $IssueTitle = Read-Host "Please enter an issue title."
+}
+if (-not $IssueBody) 
+{
+    $IssueBody = Read-Host "Please enter an issue body."
+}
+
+
+if (-not $IssueTitle) 
+{
+    Write-Output "Issue title cannot be an empty string!"
+    exit 1
+}
+if (-not $IssueBody) 
+{
+    $IssueBody = " "
+}
+
 
 $issue = gh issue create --assignee "@me" --title "$IssueTitle" --body "$IssueBody" --project simatic-ax
 
