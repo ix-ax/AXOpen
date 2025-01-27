@@ -14,11 +14,11 @@ if ($issue -match ".*/(\d+)$") {
     # Get the current script directory
     $scriptDir = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
 
-    # Construct the full path to SecondScript.ps1
-    $create_issue_branchScriptPath = Join-Path -Path $scriptDir -ChildPath "_create_issue_branch.ps1"
+    # Construct the full path to _create_issue_branch.ps1
+    $_create_issue_branchScriptPath = Join-Path -Path $scriptDir -ChildPath "_create_issue_branch.ps1"
 
-    # Call create_issue_branch.ps1 with the parameter IssueId
-    & $create_issue_branchScriptPath -IssueId $issueID
+    # Call _create_issue_branch.ps1 with the parameter IssueId and doNotCheckOldColumnName
+    & $_create_issue_branchScriptPath -IssueId $issueID -doNotCheckOldColumnName $True
 } else {
     Write-Output "No numeric ID found for this issue."
 }

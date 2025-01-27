@@ -6,16 +6,27 @@
 
 <tr class="@TableRowBackgroundColor">
     <th scope="row">@Component.GetParent()?.AttributeName</th>
-    <td>
-        <span class="@(IsActive ? "fw-bold" : "") @(AcknowledgedBeforeFallen ? "line-through" : "")">
-            @Category
-        </span>
-    </td>
-    <td>
-        <span class="@(IsActive ? "fw-bold" : "") @(AcknowledgedBeforeFallen ? "line-through" : "")">
-            @MessageText
-        </span>
-    </td>
+    @if (!ShowHelpText )
+    {
+        <td>
+            <span class="@(IsActive ? "fw-bold" : "") @(AcknowledgedBeforeFallen ? "line-through" : "")">
+                @Category
+            </span>
+        </td>
+        <td>
+            <span class="@(IsActive ? "fw-bold" : "") @(AcknowledgedBeforeFallen ? "line-through" : "")">
+                @MessageText
+            </span>
+        </td>
+    }
+    else
+    {
+        <td>
+            <span class="@TableRowBackgroundColor">
+                @HelpText
+            </span>
+        </td>
+    }
     <td style="font-size: 0.55em; margin-top: 0.15em;"></td>
     <td style="font-size: 0.55em; margin-top: 0.15em;">
         <AuthorizeView Roles="can_attempt_repair">
@@ -28,7 +39,12 @@
         
     </td>
     <td style="font-size: 0.55em; margin-top: 0.15em;">
-        <button class="btn @AckBtnBackgroundColor equal-button" type="button" @onclick="@AcknowledgeTask" hidden="@HideAckowledgeButton">
+        <button class="btn @AckBtnBackgroundColor equal-button" type="button" @onclick="@HelpTextTask" hidden="@HideHelpButton">
+            <span class="oi oi-question-mark" aria-hidden="true"></span>
+        </button>
+    </td>
+    <td style="font-size: 0.55em; margin-top: 0.15em;">
+        <button class="btn @AckBtnBackgroundColor equal-button" type="button" @onclick="@AcknowledgeTask" hidden="@HideAcknowledgeButton">
             <span class="oi oi-x" aria-hidden="true"></span>
         </button>
     </td>
@@ -40,7 +56,7 @@
     </td>
     <td style="font-size: 0.55em; margin-top: 0.15em;">@Risen</td>
     <td style="font-size: 0.55em; margin-top: 0.15em;">@Fallen</td>
-    <td style="font-size: 0.55em; margin-top: 0.15em;;">@Acknowledged</td>
+    <td style="font-size: 0.55em; margin-top: 0.15em;">@Acknowledged</td>
     
 </tr>
 

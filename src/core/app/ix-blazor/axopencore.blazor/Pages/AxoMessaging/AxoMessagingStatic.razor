@@ -12,9 +12,58 @@
             <div class="container text-left">
                 <div class="row">
                     <div class="col">
-                        <div class="card ps-2">
-                            <label>RenderableContentControl Context="@Entry.Plc.AxoMessengers" Presentation="Command-Control"</label>
+@*                         <div class="card ps-2">
+                            <label>RenderableContentControl Context="@Entry.Plc.AxoMessengers" Presentation="Command-Control"</label> 
                             <RenderableContentControl Context="@Entry.Plc.AxoMessengers" Presentation="Command-Control" Class="ps-2" />
+                        </div>
+ *@
+                        <div class="card ps-2">
+                            <label>_messenger1</label>
+                            <div class="card ps-2">
+                                <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger1condition" Presentation="Command-Control" />
+                                <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger1conditionWithCode" Presentation="Command-Control" />
+                                <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger1code" Presentation="Command-Control" />
+                                <AXOpen.Messaging.Static.AxoMessengerDetailedCommandView Component="@Entry.Plc.AxoMessengers._messenger1" />
+                            </div>
+                        </div>
+                        <div class="card ps-2">
+                            <label>_messenger2</label>
+                            <div class="card ps-2">
+                                <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger2condition" Presentation="Command-Control" />
+                                <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger2code" Presentation="Command-Control" />
+                                <AXOpen.Messaging.Static.AxoMessengerDetailedCommandView Component="@Entry.Plc.AxoMessengers._messenger2" />
+                            </div>
+                        </div>
+                        <div class="card ps-2">
+                            <label>_messenger3</label>
+                            <div class="card ps-2">
+                                <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger3condition" Presentation="Command-Control" />
+                                <AXOpen.Messaging.Static.AxoMessengerDetailedCommandView Component="@Entry.Plc.AxoMessengers._messenger3" />
+                            </div>
+                        </div>
+                        <div class="card ps-2">
+                            <label>_messenger4</label>
+                            <div class="card ps-2">
+                                <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger4condition" Presentation="Command-Control" />
+                                <AXOpen.Messaging.Static.AxoMessengerDetailedCommandView Component="@Entry.Plc.AxoMessengers._messenger4" />
+                            </div>
+                        </div>
+                        <div class="card ps-2">
+                            <label>_messenger5</label>
+                            <div class="card ps-2">
+                                <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger5condition_1" Presentation="Command-Control" />
+                                <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger5condition_2" Presentation="Command-Control" />
+                                <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger5condition_3" Presentation="Command-Control" />
+                                <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger5condition_4" Presentation="Command-Control" />
+                                <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger5condition_5" Presentation="Command-Control" />
+                                <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger5condition_6" Presentation="Command-Control" />
+                                <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger5condition_7" Presentation="Command-Control" />
+                                <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger5condition_8" Presentation="Command-Control" />
+                                <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger5condition_9" Presentation="Command-Control" />
+                                <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger5condition_10" Presentation="Command-Control" />
+                                <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger5callcondition" Presentation="Command-Control" />
+                                <AXOpen.Messaging.Static.AxoMessengerDetailedCommandView Component="@Entry.Plc.AxoMessengers._messenger5" />
+                            </div>
                         </div>
                     </div>
                 </div>

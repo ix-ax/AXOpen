@@ -4,7 +4,7 @@ USING AXOpen.Core;
 NAMESPACE AXOpen.Messaging.Static    
 
     TYPE
-        eAxoMessengerState : (Idle, ActiveNoAck, ActiveAckn, NotActiveWaitingAckn);
+        eAxoMessengerState : (ActiveAckn,Idle, Active, ActiveNoAck, NotActiveWaitingAckn) := Idle;
     END_TYPE
 
     {#ix-prop: public string MessageText }
@@ -61,10 +61,12 @@ NAMESPACE AXOpen.Messaging.Static
                 Context := _context; // Duplicity!!!
             END_IF;
 
-            THIS.MessengerState := eAxoMessengerState#Idle;
-            
-            IF THIS.IsActive THEN
-                THIS.MessengerState := eAxoMessengerState#ActiveNoAck;                 
+            IF THIS.IsActive AND NOT THIS.AcknowledgedBeforeFallen THEN
+                IF AcknowledgementRequired THEN
+                    THIS.MessengerState := eAxoMessengerState#ActiveNoAck;                 
+                ELSE
+                    THIS.MessengerState := eAxoMessengerState#Active;                 
+                END_IF;
             END_IF;
 
             IF MessageCode = ULINT#0 THEN
@@ -114,10 +116,12 @@ NAMESPACE AXOpen.Messaging.Static
                 Context := _context_; // Duplicity!!!
             END_IF;
 
-            THIS.MessengerState := eAxoMessengerState#Idle;
-            
-            IF THIS.IsActive THEN
-                THIS.MessengerState := eAxoMessengerState#ActiveNoAck;                 
+            IF THIS.IsActive AND NOT THIS.AcknowledgedBeforeFallen THEN
+                IF AcknowledgementRequired THEN
+                    THIS.MessengerState := eAxoMessengerState#ActiveNoAck;                 
+                ELSE
+                    THIS.MessengerState := eAxoMessengerState#Active;                 
+                END_IF;      
             END_IF;
 
             IF MessageCode = ULINT#0 THEN
@@ -276,6 +280,7 @@ NAMESPACE AXOpen.Messaging.Static
                     IF AcknowledgementRequired AND NOT AcknowledgedBeforeFallen THEN
                         WaitingForAcknowledge := TRUE;
                     ELSE
+                        THIS.MessengerState := eAxoMessengerState#Idle;
                         MessageCode := ULINT#0;
                     END_IF;
                 END_IF;
@@ -295,6 +300,8 @@ NAMESPACE AXOpen.Messaging.Static
                     Context.GetLogger().Log('Fallen', eLogLevel#Information, THIS);
                     IF AcknowledgementRequired AND NOT AcknowledgedBeforeFallen THEN
                         WaitingForAcknowledge := TRUE;
+                    ELSE
+                        THIS.MessengerState := eAxoMessengerState#Idle;
                     END_IF;
                 END_IF;
             END_IF;
@@ -315,7 +322,9 @@ NAMESPACE AXOpen.Messaging.Static
             IF MessageCode = _messageCode THEN
                 IF NOT WaitingForAcknowledge THEN
                     AcknowledgedBeforeFallen := TRUE;
+                    THIS.MessengerState := eAxoMessengerState#ActiveAckn; 
                 ELSE
+                    THIS.MessengerState := eAxoMessengerState#Idle;
                     WaitingForAcknowledge := FALSE;
                     MessageCode := ULINT#0;
                 END_IF;
@@ -335,8 +344,10 @@ NAMESPACE AXOpen.Messaging.Static
 
             IF NOT WaitingForAcknowledge THEN
                 AcknowledgedBeforeFallen := TRUE;
+                THIS.MessengerState := eAxoMessengerState#ActiveAckn; 
             ELSE
                 WaitingForAcknowledge := FALSE;
+                THIS.MessengerState := eAxoMessengerState#Idle;
                 MessageCode := ULINT#0;
             END_IF;
             AcknowledgeRequest := FALSE;
