@@ -22,6 +22,7 @@ namespace AxOpen.Security.Stores
         IQueryableUserStore<User>
     {
         private readonly IRepositoryService _unitOfWork;
+
         public UserStore(IRepositoryService unitOfWork, IdentityErrorDescriber errorDescriber = null)
         {
             ErrorDescriber = errorDescriber;
@@ -29,10 +30,12 @@ namespace AxOpen.Security.Stores
 
             CreateDefaultUser();
         }
+
         /// <summary>
         /// Gets or sets the <see cref="IdentityErrorDescriber"/> for any error that occurred with the current operation.
         /// </summary>
         public IdentityErrorDescriber ErrorDescriber { get; set; }
+
         /// <summary>
         /// Get all available users from UserRepository./>.
         /// </summary>
@@ -43,6 +46,7 @@ namespace AxOpen.Security.Stores
                 return _unitOfWork.UserRepository.GetRecords("*").AsQueryable();
             }
         }
+
         /// <summary>
         /// Get all available roles from RoleRepository./>.
         /// </summary>
@@ -59,7 +63,7 @@ namespace AxOpen.Security.Stores
             if (!Users.Any())
             {
                 //create default admin user
-                var user = new User("admin", null, "AdminGroup", false);
+                var user = new User("admin", null, "AdminGroup", false, false, 0);
                 user.SecurityStamp = Guid.NewGuid().ToString();
                 user.PasswordHash = new PasswordHasher<User>().HashPassword(user, "admin");
                 user.Group = "AdminGroup";
@@ -70,6 +74,7 @@ namespace AxOpen.Security.Stores
         }
 
         private bool _disposed;
+
         protected void ThrowIfDisposed()
         {
             if (_disposed)
@@ -82,6 +87,7 @@ namespace AxOpen.Security.Stores
         {
             _disposed = true;
         }
+
         /// <summary>
         /// Gets the user identifier for the specified <paramref name="user"/>.
         /// </summary>
@@ -90,7 +96,6 @@ namespace AxOpen.Security.Stores
         /// <returns>The <see cref="Task"/> that represents the asynchronous operation, containing the identifier for the specified <paramref name="user"/>.</returns>
         public Task<string> GetUserIdAsync(User user, CancellationToken cancellationToken = default)
         {
-
             cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
@@ -98,6 +103,7 @@ namespace AxOpen.Security.Stores
 
             return Task.FromResult(user.Id);
         }
+
         /// <summary>
         /// Gets the user name for the specified <paramref name="user"/>.
         /// </summary>
@@ -113,6 +119,7 @@ namespace AxOpen.Security.Stores
 
             return Task.FromResult(user.UserName);
         }
+
         /// <summary>
         /// Sets the given <paramref name="userName" /> for the specified <paramref name="user"/>.
         /// </summary>
@@ -131,6 +138,7 @@ namespace AxOpen.Security.Stores
 
             return Task.CompletedTask;
         }
+
         /// <summary>
         /// Gets the normalized user name for the specified <paramref name="user"/>.
         /// </summary>
@@ -165,6 +173,7 @@ namespace AxOpen.Security.Stores
 
             return Task.CompletedTask;
         }
+
         /// <summary>
         /// Creates the specified <paramref name="user"/> in the user store.
         /// </summary>
@@ -217,6 +226,8 @@ namespace AxOpen.Security.Stores
                     userData.GroupHash = new PasswordHasher<User>().HashPassword(user, user.Group);
                     userData.CanUserChangePassword = user.CanUserChangePassword;
                     userData.Modified = user.Modified;
+                    userData.AutoLogOutTimeOutMinutes = user.AutoLogOutTimeOutMinutes;
+                    userData.EnableAutoLogOut = user.EnableAutoLogOut;
                 }
                 else
                 {
@@ -230,9 +241,9 @@ namespace AxOpen.Security.Stores
                 return Task.FromResult(IdentityResult.Failed(new IdentityError { Description = $"User with username {user.UserName} doesn't exists." }));
             }
 
-
             return Task.FromResult(IdentityResult.Success);
         }
+
         /// <summary>
         /// Deletes the specified <paramref name="user"/> from the user store.
         /// </summary>
@@ -250,6 +261,7 @@ namespace AxOpen.Security.Stores
 
             return Task.FromResult(IdentityResult.Success);
         }
+
         /// <summary>
         /// Finds and returns a user, if any, who has the specified <paramref name="userId"/>.
         /// </summary>
@@ -279,6 +291,7 @@ namespace AxOpen.Security.Stores
 
             return Task.FromResult(user);
         }
+
         /// <summary>
         /// Finds and returns a user, if any, who has the specified normalized user name.
         /// </summary>
@@ -309,6 +322,7 @@ namespace AxOpen.Security.Stores
 
             return Task.FromResult(user);
         }
+
         /// <summary>
         /// Sets the password hash for a user.
         /// </summary>
@@ -327,6 +341,7 @@ namespace AxOpen.Security.Stores
 
             return Task.CompletedTask;
         }
+
         /// <summary>
         /// Gets the password hash for a user.
         /// </summary>
@@ -342,12 +357,13 @@ namespace AxOpen.Security.Stores
 
             return Task.FromResult(user.PasswordHash);
         }
+
         /// <summary>
         /// Returns a flag indicating if the specified user has a password.
         /// </summary>
         /// <param name="user">The user to retrieve the password hash for.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
-        /// <returns>A <see cref="Task{TResult}"/> containing a flag indicating if the specified user has a password. If the 
+        /// <returns>A <see cref="Task{TResult}"/> containing a flag indicating if the specified user has a password. If the
         /// user has a password the returned value with be true, otherwise it will be false.</returns>
         public Task<bool> HasPasswordAsync(User user, CancellationToken cancellationToken = default)
         {
@@ -358,6 +374,7 @@ namespace AxOpen.Security.Stores
 
             return Task.FromResult(!string.IsNullOrWhiteSpace(user.PasswordHash));
         }
+
         /// <summary>
         /// Adds the given <paramref name="normalizedRoleName"/> to the specified <paramref name="user"/>.
         /// </summary>
@@ -375,7 +392,6 @@ namespace AxOpen.Security.Stores
             if (string.IsNullOrWhiteSpace(normalizedRoleName))
                 throw new ArgumentNullException(nameof(normalizedRoleName));
 
-
             var role = _unitOfWork.RoleGroupManager.GetAllGroup().FirstOrDefault(x => x.DataEntityId == normalizedRoleName);
             if (role == null)
             {
@@ -386,6 +402,7 @@ namespace AxOpen.Security.Stores
 
             return Task.CompletedTask;
         }
+
         /// <summary>
         /// Removes the given <paramref name="normalizedRoleName"/> from the specified <paramref name="user"/>.
         /// </summary>
@@ -412,6 +429,7 @@ namespace AxOpen.Security.Stores
 
             return Task.CompletedTask;
         }
+
         /// <summary>
         /// Retrieves the roles the specified <paramref name="user"/> is a member of.
         /// </summary>
@@ -435,6 +453,7 @@ namespace AxOpen.Security.Stores
 
             return Task.FromResult(roleNames);
         }
+
         /// <summary>
         /// Returns a flag indicating if the specified user is a member of the give <paramref name="normalizedRoleName"/>.
         /// </summary>
@@ -456,7 +475,6 @@ namespace AxOpen.Security.Stores
             if (new PasswordHasher<User>().VerifyHashedPassword(user, user.GroupHash, user.Group) == PasswordVerificationResult.Failed)
                 return Task.FromResult(false);
 
-
             var blazorRole = _roleCollection.FirstOrDefault(x => x.NormalizedName == normalizedRoleName);
             var roleNames = _unitOfWork.RoleGroupManager.GetRolesFromGroup(user.Group);
 
@@ -465,7 +483,6 @@ namespace AxOpen.Security.Stores
 
             return Task.FromResult(roleNames.Contains(blazorRole.Name));
         }
-
 
         /// <summary>
         /// Retrieves all users in the specified role.
@@ -484,6 +501,7 @@ namespace AxOpen.Security.Stores
             IList<User> usersInRole = Users.Where(x => (_unitOfWork.RoleGroupManager.GetRolesFromGroup(x.Group) != null ? _unitOfWork.RoleGroupManager.GetRolesFromGroup(x.Group).Contains(blazorRole.Name) : false)).ToList();
             return Task.FromResult(usersInRole);
         }
+
         // <summary>
         /// Sets the provided security <paramref name="stamp"/> for the specified <paramref name="user"/>.
         /// </summary>
@@ -502,6 +520,7 @@ namespace AxOpen.Security.Stores
 
             return Task.CompletedTask;
         }
+
         /// <summary>
         /// Get the security stamp for the specified <paramref name="user" />.
         /// </summary>
@@ -517,6 +536,7 @@ namespace AxOpen.Security.Stores
 
             return Task.FromResult(user.SecurityStamp);
         }
+
         // Not implemented, do not need for requested functionality in Blazor application.
         public Task<IList<Claim>> GetClaimsAsync(User user, CancellationToken cancellationToken = default)
         {
@@ -542,7 +562,5 @@ namespace AxOpen.Security.Stores
         {
             return Task.FromResult((IList<User>)new List<User>());
         }
-
-
     }
 }

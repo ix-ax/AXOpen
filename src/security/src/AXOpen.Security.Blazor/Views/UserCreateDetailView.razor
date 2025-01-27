@@ -92,7 +92,7 @@
 
     private async void OnValidSubmit()
     {
-        _user = new User(_model.Username, _model.Email, _model.Group, _model.CanUserChangePassword);
+        _user = new User(_model.Username, _model.Email, _model.Group, _model.CanUserChangePassword, _model.EnableAutoLogOut, _model.AutoLogOutTimeOutMinutes );
 
         _user.SecurityStamp = Guid.NewGuid().ToString();
 

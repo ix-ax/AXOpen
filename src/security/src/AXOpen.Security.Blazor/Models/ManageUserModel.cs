@@ -23,14 +23,14 @@ namespace AxOpen.Security.Models
         public string ConfirmPassword { get; set; }
 
         public bool CanUserChangePassword { get; set; }
-        public bool EnableAutoLogOut { get; set; } = true;
-        public int AutoLogOutTimeOutMinutes { get; set; } = 30;
+        public bool EnableAutoLogOut { get; set; }
+        public int AutoLogOutTimeOutMinutes { get; set; }
 
         // This property will store the actual TimeSpan
         public TimeSpan AutoLogOutTimeOut
         {
             get => TimeSpan.FromSeconds(AutoLogOutTimeOutMinutes);
-            set => AutoLogOutTimeOutMinutes = (int)value.Seconds; // Set the minutes when TimeSpan changes
+            set => AutoLogOutTimeOutMinutes = (int)value.TotalMinutes; // Set the minutes when TimeSpan changes
         }
 
         public string Email { get; set; }

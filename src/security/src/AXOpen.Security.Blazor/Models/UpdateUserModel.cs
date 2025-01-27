@@ -25,13 +25,13 @@ namespace AxOpen.Security.Models
 
         public bool EnableAutoLogOut { get; set; } = true;
 
-        public int AutoLogOutTimeOutMinutes { get; set; } = 30;
+        public uint AutoLogOutTimeOutMinutes { get; set; }
 
         // This property will store the actual TimeSpan
         public TimeSpan AutoLogOutTimeOut
         {
             get => TimeSpan.FromSeconds(AutoLogOutTimeOutMinutes);
-            set => AutoLogOutTimeOutMinutes = (int)value.Seconds; // Set the minutes when TimeSpan changes
+            set => AutoLogOutTimeOutMinutes = (uint)value.TotalMinutes; // Set the minutes when TimeSpan changes
         }
 
         [Required]
@@ -49,10 +49,10 @@ namespace AxOpen.Security.Models
 
             if (EnableAutoLogOut)
             {
-                if ( AutoLogOutTimeOutMinutes < 1 || AutoLogOutTimeOutMinutes > 1440)
+                if (AutoLogOutTimeOutMinutes < 1 || AutoLogOutTimeOutMinutes > 20160)
                 {
                     yield return new ValidationResult(
-                        "Timeout must be a whole number between 1 and 1440.",
+                        "Timeout must be a whole number between 1 and 20160.",
                         new[] { nameof(AutoLogOutTimeOutMinutes) }
                     );
                 }

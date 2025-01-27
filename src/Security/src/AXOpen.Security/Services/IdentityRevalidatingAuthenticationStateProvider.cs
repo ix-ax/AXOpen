@@ -45,6 +45,9 @@ namespace AxOpen.Security.Services
             if (user.EnableAutoLogOut)
             {
                 var httpContext = scope.ServiceProvider.GetRequiredService<IHttpContextAccessor>().HttpContext;
+
+                if (httpContext == null) return false;
+
                 var ticket = await httpContext.AuthenticateAsync("Identity.Application");
 
                 if (!ticket.Succeeded)
@@ -56,7 +59,8 @@ namespace AxOpen.Security.Services
 
                 var start = ticket.Properties.IssuedUtc.Value;
 
-                if (DateTime.UtcNow > (start + user.AutoLogOutTimeOut))
+                //todo - fix
+                if (DateTime.UtcNow > (start + TimeSpan.FromMinutes(user.AutoLogOutTimeOutMinutes)))
                 {
                     AxoApplication.Current.Logger.Information($"User '{user.UserName}' has reached the logout timeout and will be logged out!", userPrincipal.Identity);
                     return false;
