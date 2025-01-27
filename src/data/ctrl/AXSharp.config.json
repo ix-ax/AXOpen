@@ -1,1 +1,1 @@
-{"OutputProjectFolder":"..\\src\\AXOpen.Data","UseBase":false,"NoDependencyUpdate":false,"IgnoreS7Pragmas":false,"SkipDependencyCompilation":false,"ProjectFile":"inxton_axopen_data.csproj"}
+{"OutputProjectFolder":"..\\src\\AXOpen.Data","UseBase":false,"NoDependencyUpdate":false,"IgnoreS7Pragmas":false,"SkipDependencyCompilation":false,"TargetPlatfromMoniker":"ax","ProjectFile":"inxton_axopen_data.csproj"}

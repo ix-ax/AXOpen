@@ -7,7 +7,24 @@ else
 {
     # Get current branch name
     $currentBranch = $(git branch --show-current)
-    Write-Output "Working tree is clean. Marking '$currentBranch' as ready fore review"
+    Write-Output "Working tree is clean. Marking '$currentBranch' as ready for review"
+    # Extract the issue number (assuming "issue-<number>" or "<type>/<number>-description" format)
+    if ($currentBranch -match "\d+") 
+    {
+        $issueID = $matches[0]
+        Write-Output "issueID: $issueID"
+        # Get the current script directory
+        $scriptDir = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
+        # Construct the full path to _change_stateScriptPath.ps1
+        $_change_stateScriptPath = Join-Path -Path $scriptDir -ChildPath "_change_state.ps1"
+        # Call _change_state.ps1 with the parameters IssueId, oldColumnName, newColumnName,doNotCheckOldColumnName, repoOwner, repoName, projectName
+        & $_change_stateScriptPath -IssueId $issueID -oldColumnName "In progress" -newColumnName "In review" -doNotCheckOldColumnName $False -repoOwner "Inxton" -repoName "AXOpen" -projectName "simatic-ax"
+    } 
+    else 
+    {
+        Write-Output "No issue number found in the branch name. Unable to move the issue to 'In review'"
+    }
+
     # Get the list of pull requests
     $pullRequests = gh pr list --state open --json number,headRefName | ConvertFrom-Json
     if (-not $pullRequests) {
