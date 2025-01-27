@@ -7,6 +7,7 @@ using AXOpen.Core;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 
+
 namespace AXOpen.Messaging.Static
 {
     public partial class AxoMessengerView : RenderableComplexComponentBase<AxoMessenger>, IDisposable
@@ -33,10 +34,15 @@ namespace AXOpen.Messaging.Static
 
         private async void AcknowledgeTask()
         {
+            this.ShowHelpText = false;
             Component.AcknowledgeRequest.Cyclic = true; 
             AxoApplication.Current.Logger.Information($"Message '{this.MessageText}' acknowledged.", this.Component, await GetCurrentUserIdentity());
         }
 
+        private async void HelpTextTask()
+        {
+            this.ShowHelpText = !this.ShowHelpText;
+        }
         private async void RestoreTask()
         {
             if (this.Component.GetParent() is AxoTask t)
@@ -60,14 +66,16 @@ namespace AXOpen.Messaging.Static
             UpdateValuesOnChange(Component.Risen);
             UpdateValuesOnChange(Component.Fallen);
             UpdateValuesOnChange(Component.Acknowledged);
+            
         }
+
+
 
         public override void Dispose()
         {
             Component.StopPolling(this);
             base.Dispose();
         }
-
         private string BackgroundColor
         {
             get
@@ -156,20 +164,30 @@ namespace AXOpen.Messaging.Static
         private string Symbol => !(string.IsNullOrEmpty(Component.Symbol)) ? Component.Symbol : "Unable to retrieve symbol!";
         private string MessageText => Component.GetMessageText();
         private string HelpText => GetHelpText();
+        private bool HelpTextDefined => Component.HelpTextDefined;
         private string Risen => !(string.IsNullOrEmpty(Component.Risen.Cyclic.ToString())) ? Component.Risen.Cyclic.ToString() : "";
         private string Fallen => !(string.IsNullOrEmpty(Component.Fallen.Cyclic.ToString())) ? Component.Fallen.Cyclic.ToString() : "";
         private string Acknowledged => !(string.IsNullOrEmpty(Component.Acknowledged.Cyclic.ToString())) ? Component.Acknowledged.Cyclic.ToString() : "";
-        private bool IsActive => Component.State > eAxoMessengerState.Idle && Component.State != eAxoMessengerState.NotActiveWaitingAckn;
-        
-        private bool AcknowledgementRequired => true; //Component.State >= eAxoMessengerState.ActiveAckn;
-        private bool AcknowledgedBeforeFallen => Component.AcknowledgedBeforeFallen.Cyclic;
-        private bool AcknowledgementDoesNotRequired => !AcknowledgementRequired;
-        private bool WaitingForAcknowledge => Component.State >= eAxoMessengerState.NotActiveWaitingAckn;
-        private bool HideAckowledgeButton => !AcknowledgementRequired || AcknowledgedBeforeFallen || (!IsActive && !WaitingForAcknowledge);
-        
-        private bool HideRepairButton =>(!IsActive || this.Component.GetParent() is not AxoTask);
+        private eAxoMessengerState MessengerState
+        {
+            get
+            {
+                if (Component.State == eAxoMessengerState.Idle)
+                {
+                    ShowHelpText = false;
+                }
+                return Component.State;
+            }
+        }
+        private bool IsActive => Component.State == eAxoMessengerState.ActiveNoAck || Component.State == eAxoMessengerState.ActiveAckn || Component.State == eAxoMessengerState.Active;
 
-       
+        private bool AcknowledgedBeforeFallen => Component.State == eAxoMessengerState.ActiveAckn;
+        private bool HideAcknowledgeButton => Component.State <= eAxoMessengerState.Idle || Component.State == eAxoMessengerState.Active;
+        private bool HideHelpButton => MessengerState == eAxoMessengerState.Idle || !HelpTextDefined;
+
+        private bool HideRepairButton => (!IsActive || this.Component.GetParent() is not AxoTask);
+        private bool ShowHelpText;
+
         private string GetHelpText()
         {
             ulong messageCode = Component.MessageCode.Cyclic;
@@ -237,4 +255,6 @@ namespace AXOpen.Messaging.Static
         {
         }
     }
+
+
 }

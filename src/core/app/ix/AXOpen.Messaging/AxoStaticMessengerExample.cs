@@ -31,7 +31,7 @@ namespace AxoStaticMessengerExample
                 new KeyValuePair<ulong, AxoMessengerTextItem>(7, new AxoMessengerTextItem("Messenger 5: message text 7", "Messenger 5: help text 7")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(8, new AxoMessengerTextItem("Messenger 5: message text 8", "Messenger 5: help text 8")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(9, new AxoMessengerTextItem("Messenger 5: message text 9", "Messenger 5: help text 9")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10, new AxoMessengerTextItem("Messenger 5: message text 10", "Messenger 5: help text 10"))
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10, new AxoMessengerTextItem("Messenger 5: message text 10"))
             };
 
             _messenger5.DotNetMessengerTextList = messengerTextList;

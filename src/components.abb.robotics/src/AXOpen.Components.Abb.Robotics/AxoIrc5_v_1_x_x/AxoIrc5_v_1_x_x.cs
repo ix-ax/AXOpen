@@ -1,5 +1,7 @@
 ﻿using AXOpen.Messaging.Static;
 using AXSharp.Connector;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -79,8 +81,10 @@ namespace AXOpen.Components.Abb.Robotics
                 new KeyValuePair<ulong, AxoMessengerTextItem>(702, new AxoMessengerTextItem("Input variable `hwIdDO_64_bytes` has invalid value in `Run` method!",                          "Check the call of the `Run` method, if the `hwIdDO_64_bytes` parameter is assigned.")),
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(703, new AxoMessengerTextItem("Error reading the hwIdDI_64_bytes in the UpdateInputs method!",                                "Check the value of the hwIdDI_64_bytes and reacheability of the device!")),
-
                 new KeyValuePair<ulong, AxoMessengerTextItem>(704, new AxoMessengerTextItem("Error writing the hwIdDO_64_bytes in the UpdateOutputs method!",                               "Check the value of the hwIdDO_64_bytes and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(705, new AxoMessengerTextItem("Emergency stop activated!",                                                                    "Check the status of the `Inputs.EmgStop` signal. Required value is 'FALSE'")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(706, new AxoMessengerTextItem("Safety circuit interupted!",                                                                   "Check the status of the `Inputs.SafetyOk` signal.Required value is 'TRUE'")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(705, new AxoMessengerTextItem("Program error active!",                                                                        "Check the status of the `Inputs.ProgExecError` signal. Required value is 'FALSE'")),
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(800, new AxoMessengerTextItem("Start at main finished with error!",                                                           "Check the details.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(801, new AxoMessengerTextItem("Start at main was aborted, while not yet completed!",                                          "Check the details.")),
