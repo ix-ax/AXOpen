@@ -12,9 +12,14 @@ public class AxoMessengerTextItem
     public string MessageText { get; }
     public string HelpText { get; }
 
-    public AxoMessengerTextItem(string messageText,string helpText)
+    public AxoMessengerTextItem(string messageText, string helpText)
     {
         MessageText = messageText;
         HelpText = helpText;
+    }
+    public AxoMessengerTextItem(string messageText)
+    {
+        MessageText = messageText;
+        HelpText = "";
     }
 }

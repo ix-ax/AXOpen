@@ -168,10 +168,22 @@ namespace AXOpen.Messaging.Static
         private string Risen => !(string.IsNullOrEmpty(Component.Risen.Cyclic.ToString())) ? Component.Risen.Cyclic.ToString() : "";
         private string Fallen => !(string.IsNullOrEmpty(Component.Fallen.Cyclic.ToString())) ? Component.Fallen.Cyclic.ToString() : "";
         private string Acknowledged => !(string.IsNullOrEmpty(Component.Acknowledged.Cyclic.ToString())) ? Component.Acknowledged.Cyclic.ToString() : "";
+        private eAxoMessengerState MessengerState
+        {
+            get
+            {
+                if (Component.State == eAxoMessengerState.Idle)
+                {
+                    ShowHelpText = false;
+                }
+                return Component.State;
+            }
+        }
         private bool IsActive => Component.State == eAxoMessengerState.ActiveNoAck || Component.State == eAxoMessengerState.ActiveAckn || Component.State == eAxoMessengerState.Active;
+
         private bool AcknowledgedBeforeFallen => Component.State == eAxoMessengerState.ActiveAckn;
-        private bool HideAcknowledgeButton => Component.State <= eAxoMessengerState.Idle;
-        private bool HideHelpButton => !IsActive && !HelpTextDefined;
+        private bool HideAcknowledgeButton => Component.State <= eAxoMessengerState.Idle || Component.State == eAxoMessengerState.Active;
+        private bool HideHelpButton => MessengerState == eAxoMessengerState.Idle || !HelpTextDefined;
 
         private bool HideRepairButton => (!IsActive || this.Component.GetParent() is not AxoTask);
         private bool ShowHelpText;

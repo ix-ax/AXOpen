@@ -112,5 +112,9 @@ scripts:
     apax mon -t 10.10.10.120 -f messages1.mon -C .\\certs\\plc_line\\plc_line.cer -c
   mm2: |
     apax mon -t 10.10.10.120 -f messages2.mon -C .\\certs\\plc_line\\plc_line.cer -c
+  mm3: |
+    apax mon -t 10.10.10.120 -f messages3.mon -C .\\certs\\plc_line\\plc_line.cer -c
+  mm: |
+    apax mon -t 10.10.10.120 -f messages.mon -C .\\certs\\plc_line\\plc_line.cer -c
     
     

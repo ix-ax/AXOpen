@@ -4,7 +4,6 @@ USING AXOpen.Core;
 NAMESPACE AXOpen.Messaging.Static    
 
     TYPE
-//        eAxoMessengerState : (Idle, ActiveNoAck,ActiveAckn, NotActiveWaitingAckn);
         eAxoMessengerState : (ActiveAckn,Idle, Active, ActiveNoAck, NotActiveWaitingAckn) := Idle;
     END_TYPE
 
@@ -62,8 +61,6 @@ NAMESPACE AXOpen.Messaging.Static
                 Context := _context; // Duplicity!!!
             END_IF;
 
-            // THIS.MessengerState := eAxoMessengerState#Idle;
-            
             IF THIS.IsActive AND NOT THIS.AcknowledgedBeforeFallen THEN
                 IF AcknowledgementRequired THEN
                     THIS.MessengerState := eAxoMessengerState#ActiveNoAck;                 
@@ -119,8 +116,6 @@ NAMESPACE AXOpen.Messaging.Static
                 Context := _context_; // Duplicity!!!
             END_IF;
 
-            // THIS.MessengerState := eAxoMessengerState#Idle;
-            
             IF THIS.IsActive AND NOT THIS.AcknowledgedBeforeFallen THEN
                 IF AcknowledgementRequired THEN
                     THIS.MessengerState := eAxoMessengerState#ActiveNoAck;                 

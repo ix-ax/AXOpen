@@ -184,7 +184,7 @@ public partial class AxoMessenger
                 throw;
             }
         }
-
+        ChekIfHelpTextDefined();
         return retVal;
     }
 
