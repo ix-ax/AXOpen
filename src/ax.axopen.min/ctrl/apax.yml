@@ -6,8 +6,10 @@ files:
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 catalogs:
-  "@ax/simatic-ax": 2411.0.0
+  "@inxton/ax.catalog": 0.0.2
 dependencies:
-  "@ax/system-strings": 8.0.7
+  "@ax/system-strings": 9.0.12
 installStrategy: strict
 apaxVersion: 3.4.2
+registries:
+  "@inxton": "https://npm.pkg.github.com/"
