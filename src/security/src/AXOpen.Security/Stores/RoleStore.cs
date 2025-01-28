@@ -16,22 +16,26 @@ namespace AxOpen.Security.Stores
         IQueryableRoleStore<Role>
     {
         private readonly IRepositoryService _unitOfWork;
-        public RoleStore(IRepositoryService unitOfWork,IdentityErrorDescriber errorDescriber = null)
+
+        public RoleStore(IRepositoryService unitOfWork, IdentityErrorDescriber errorDescriber = null)
         {
             ErrorDescriber = errorDescriber;
             _unitOfWork = unitOfWork;
-            
         }
+
         /// <summary>
         /// Gets or sets the <see cref="IdentityErrorDescriber"/> for any error that occurred with the current operation.
         /// </summary>
         public IdentityErrorDescriber ErrorDescriber { get; set; }
-        public IList<Role> _roleCollection {
-            get 
+
+        public IList<Role> _roleCollection
+        {
+            get
             {
                 return _unitOfWork.RoleGroupManager.inAppRoleCollection.ToList();
             }
         }
+
         public IQueryable<Role> Roles
         {
             get
@@ -40,7 +44,9 @@ namespace AxOpen.Security.Stores
                 //return _unitOfWork.RoleRepository.GetRecords("*").Select(x => new IdentityRole(x.Name)).AsQueryable();
             }
         }
+
         private bool _disposed;
+
         protected void ThrowIfDisposed()
         {
             if (_disposed)
@@ -56,7 +62,6 @@ namespace AxOpen.Security.Stores
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
         public Task<IdentityResult> CreateAsync(Role role, CancellationToken cancellationToken = default)
         {
-            
             cancellationToken.ThrowIfCancellationRequested();
 
             //if (role == null)
@@ -74,6 +79,7 @@ namespace AxOpen.Security.Stores
 
             return Task.FromResult(IdentityResult.Success);
         }
+
         /// <summary>
         /// Deletes a role from the store as an asynchronous operation.
         /// </summary>
@@ -104,12 +110,12 @@ namespace AxOpen.Security.Stores
 
             if (string.IsNullOrWhiteSpace(roleId))
                 throw new ArgumentNullException(nameof(roleId));
-          
+
             var role = _roleCollection.FirstOrDefault(x => x.Id == roleId);
-          
-            
+
             return Task.FromResult(role);
         }
+
         /// <summary>
         /// Finds the role who has the specified normalized name as an asynchronous operation.
         /// </summary>
@@ -118,20 +124,16 @@ namespace AxOpen.Security.Stores
         /// <returns>A <see cref="Task{TResult}"/> that result of the look up.</returns>
         public Task<Role> FindByNameAsync(string normalizedRoleName, CancellationToken cancellationToken = default)
         {
-
             cancellationToken.ThrowIfCancellationRequested();
 
             if (string.IsNullOrWhiteSpace(normalizedRoleName))
                 throw new ArgumentNullException(nameof(normalizedRoleName));
-          
-            var roleData = _roleCollection.FirstOrDefault(x => x.NormalizedName == normalizedRoleName);
-          
-            
 
-            
+            var roleData = _roleCollection.FirstOrDefault(x => x.NormalizedName == normalizedRoleName);
 
             return Task.FromResult(roleData);
         }
+
         /// <summary>
         /// Get a role's normalized name as an asynchronous operation.
         /// </summary>
@@ -139,7 +141,7 @@ namespace AxOpen.Security.Stores
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
         /// <returns>A <see cref="Task{TResult}"/> that contains the name of the role.</returns>
         public Task<string> GetNormalizedRoleNameAsync(Role role, CancellationToken cancellationToken = default)
-        { 
+        {
             cancellationToken.ThrowIfCancellationRequested();
 
             if (role == null)
@@ -147,6 +149,7 @@ namespace AxOpen.Security.Stores
 
             return Task.FromResult(role.NormalizedName);
         }
+
         /// <summary>
         /// Gets the ID for a role from the store as an asynchronous operation.
         /// </summary>
@@ -162,6 +165,7 @@ namespace AxOpen.Security.Stores
 
             return Task.FromResult(role.Id);
         }
+
         /// <summary>
         /// Gets the name of a role from the store as an asynchronous operation.
         /// </summary>
@@ -175,6 +179,7 @@ namespace AxOpen.Security.Stores
 
             return Task.FromResult(role.Name);
         }
+
         /// <summary>
         /// Set a role's normalized name as an asynchronous operation.
         /// </summary>
@@ -193,6 +198,7 @@ namespace AxOpen.Security.Stores
 
             return Task.CompletedTask;
         }
+
         /// <summary>
         /// Sets the name of a role in the store as an asynchronous operation.
         /// </summary>
@@ -211,13 +217,13 @@ namespace AxOpen.Security.Stores
 
             return Task.CompletedTask;
         }
+
         /// <summary>
         /// Updates a role in a store as an asynchronous operation.
         /// </summary>
         /// <param name="role">The role to update in the store.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
         /// <returns>A <see cref="Task{TResult}"/> that represents the <see cref="IdentityResult"/> of the asynchronous query.</returns>
-
 
         public void Dispose()
         {

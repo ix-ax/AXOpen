@@ -1,4 +1,8 @@
-﻿@inherits LayoutComponentBase
+﻿@using AxOpen.Security
+@using AxOpen.Security.Entities
+@using AxOpen.Security.Services
+@using Microsoft.AspNetCore.Identity
+@inherits LayoutComponentBase
 
 <PageTitle>librarytemplate.blazor</PageTitle>
 <TopRow />
@@ -17,3 +21,6 @@
         </article>
     </main>
 </div>
+
+@inject NavigationManager _navigationManager
+@inject SignInManager<User> _signInManager
