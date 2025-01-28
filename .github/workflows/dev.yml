@@ -8,7 +8,7 @@ on:
      - 'cake/**'
      - '.github/**'  
   workflow_dispatch:
-  inputs:
+    inputs:
       publish:
         type: boolean
         required: false
