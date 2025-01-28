@@ -1,12 +1,6 @@
-name: dev
+name: publish
 
-on:
-  push:
-    branches: [ "dev" ]
-    paths:
-     - 'src/**'
-     - 'cake/**'
-     - '.github/**'  
+on: 
   workflow_dispatch:
 
 jobs:
@@ -30,5 +24,5 @@ jobs:
       env:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}
           GH_USER : ${{ secrets.GH_USER }}
-      run: dotnet run --project cake/Build.csproj --do-test --do-pack --test-level 2
+      run: dotnet run --project cake/Build.csproj --do-test --do-pack --test-level 2 --do-publish --do-publish-release
 
