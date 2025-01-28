@@ -19,7 +19,7 @@ namespace AxOpen.Security.Tests
         /// </summary>
         public void SeedData()
         {
-            ExistUser = new User("EXIST", "exist@exist.com", "", false)
+            ExistUser = new User("EXIST", "exist@exist.com", "", false, false, 0)
             {
                 Id = "EXIST",
                 SecurityStamp = Guid.NewGuid().ToString()
@@ -27,7 +27,7 @@ namespace AxOpen.Security.Tests
             ExistUser.PasswordHash = Hasher.HashPassword(ExistUser, "EXIST");
             ExistUser.GroupHash = Hasher.HashPassword(ExistUser, "");
 
-            NoExistUser = new User("NOEXIST", "noexist@noexist.com", "", false)
+            NoExistUser = new User("NOEXIST", "noexist@noexist.com", "", false, false, 0)
             {
                 Id = "NOEXIST",
                 SecurityStamp = Guid.NewGuid().ToString()
@@ -35,7 +35,7 @@ namespace AxOpen.Security.Tests
             NoExistUser.PasswordHash = Hasher.HashPassword(NoExistUser, "NOEXIST");
             NoExistUser.GroupHash = Hasher.HashPassword(NoExistUser, "");
 
-            CreateUser = new User("CREATE", "create@create.com", "", false)
+            CreateUser = new User("CREATE", "create@create.com", "", false, false, 0)
             {
                 Id = "CREATE",
                 SecurityStamp = Guid.NewGuid().ToString()
@@ -43,7 +43,7 @@ namespace AxOpen.Security.Tests
             CreateUser.PasswordHash = Hasher.HashPassword(CreateUser, "CREATE");
             CreateUser.GroupHash = Hasher.HashPassword(CreateUser, "");
 
-            RemoveUser = new User("REMOVE", "remove@remove.com", "", false)
+            RemoveUser = new User("REMOVE", "remove@remove.com", "", false, false, 0)
             {
                 Id = "REMOVE",
                 SecurityStamp = Guid.NewGuid().ToString()
@@ -51,7 +51,7 @@ namespace AxOpen.Security.Tests
             RemoveUser.PasswordHash = Hasher.HashPassword(RemoveUser, "REMOVE");
             RemoveUser.GroupHash = Hasher.HashPassword(RemoveUser, "");
 
-            UpdateUser = new User("UPDATE", "update@update.com", "", false)
+            UpdateUser = new User("UPDATE", "update@update.com", "", false, false, 0)
             {
                 Id = "UPDATE",
                 SecurityStamp = Guid.NewGuid().ToString()
@@ -59,7 +59,7 @@ namespace AxOpen.Security.Tests
             UpdateUser.PasswordHash = Hasher.HashPassword(UpdateUser, "UPDATE");
             UpdateUser.GroupHash = Hasher.HashPassword(UpdateUser, "");
 
-            AdminUser = new User("ADMIN", "admin@admin.com", "AdminGroup", false)
+            AdminUser = new User("ADMIN", "admin@admin.com", "AdminGroup", false, false, 0)
             {
                 Id = "ADMIN",
                 SecurityStamp = Guid.NewGuid().ToString()
@@ -67,7 +67,7 @@ namespace AxOpen.Security.Tests
             AdminUser.PasswordHash = Hasher.HashPassword(AdminUser, "ADMIN");
             AdminUser.GroupHash = Hasher.HashPassword(AdminUser, "AdminGroup");
 
-            DefaultUser = new User("DEFAULT", "default@default.com", "DefaultGroup", false)
+            DefaultUser = new User("DEFAULT", "default@default.com", "DefaultGroup", false, false, 0)
             {
                 Id = "DEFAULT",
                 SecurityStamp = Guid.NewGuid().ToString()

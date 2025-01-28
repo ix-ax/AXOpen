@@ -12,20 +12,23 @@ namespace AxOpen.Security.Entities
         public string DataEntityId { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
+        public bool EnableAutoLogOut { get; set; }
+        public uint AutoLogOutTimeOutMinutes { get; set; }
 
-        public User(string username, string email, string group, bool canUserChangePassword)
+        public User(string username, string email, string group, bool canUserChangePassword, bool enableAutoLogOut, uint autoLogOutTimeOutMinutes)
         {
             var normalizer = new UpperInvariantLookupNormalizer();
             UserName = username;
-            NormalizedUserName = normalizer.NormalizeName(UserName);            
+            NormalizedUserName = normalizer.NormalizeName(UserName);
             Email = email;
-            NormalizedEmail = normalizer.NormalizeEmail(email);       
+            NormalizedEmail = normalizer.NormalizeEmail(email);
             Group = group;
             CanUserChangePassword = canUserChangePassword;
             Id = Guid.NewGuid().ToString();
             Created = DateTime.Now;
             Modified = DateTime.Now;
+            EnableAutoLogOut = enableAutoLogOut;
+            AutoLogOutTimeOutMinutes = autoLogOutTimeOutMinutes;
         }
-
     }
 }

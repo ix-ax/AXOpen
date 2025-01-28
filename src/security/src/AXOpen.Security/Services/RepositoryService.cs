@@ -6,19 +6,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace AxOpen.Security.Services
 {
     public class RepositoryService : IRepositoryService
     {
-        private readonly IRepository<User>  _userRepository;
+        private readonly IRepository<User> _userRepository;
         private readonly RoleGroupManager _roleGroupManager;
         private bool _disposed;
+
         public RepositoryService(IRepository<User> userRepository, RoleGroupManager roleGroupManager)
         {
             _userRepository = userRepository;
             _roleGroupManager = roleGroupManager;
         }
+
         public IRepository<User> UserRepository
         {
             get

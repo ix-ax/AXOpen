@@ -18,7 +18,7 @@ var builder = WebApplication.CreateBuilder(args);
 var jsonRepositoryLocation = CreateJsonRepositoryDirectory();
 
 // Add services to the container.
-builder.Services.ConfigureAxBlazorSecurity(SetUpJsonSecurityRepository(jsonRepositoryLocation), Roles.CreateRoles());
+builder.Services.ConfigureAxBlazorSecurity(SetUpJsonSecurityRepository(jsonRepositoryLocation), Roles.CreateRoles(), true);
 builder.Services.AddLocalization();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();

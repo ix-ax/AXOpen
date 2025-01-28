@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -25,7 +24,18 @@ namespace AxOpen.Security.Models
         public bool CanUserChangePassword { get; set; }
 
         public string Email { get; set; }
+
         [Required]
         public string Group { get; set; }
+
+        public bool EnableAutoLogOut { get; set; } = true;
+        public uint AutoLogOutTimeOutMinutes { get; set; } = 30;
+
+        // This property will store the actual TimeSpan
+        public TimeSpan AutoLogOutTimeOut
+        {
+            get => TimeSpan.FromSeconds(AutoLogOutTimeOutMinutes);
+            set => AutoLogOutTimeOutMinutes = (uint)value.TotalMinutes; // Set the minutes when TimeSpan changes
+        }
     }
 }

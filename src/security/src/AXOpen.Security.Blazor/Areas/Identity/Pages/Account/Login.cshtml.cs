@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Identity;
 using AxOpen.Security.Entities;
 using AxOpen.Security.Models;
+using AxOpen.Security.Services;
 
 namespace AxOpen.Security.Areas.Identity.Pages.Account
 {
@@ -18,7 +19,8 @@ namespace AxOpen.Security.Areas.Identity.Pages.Account
 
         public LoginModel(SignInManager<User> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<User> userManager)
+            UserManager<User> userManager
+            )
         {
             _userManager = userManager;
             _signInManager = signInManager;
