@@ -74,6 +74,12 @@ public sealed class CleanUpTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
+        if (context.BuildParameters.PublishOnly)
+        {
+            context.Log.Information("Skipping. Publish only.");
+            return;
+        }
+
         context.Log.Information("Build running with following parameters:");
         context.Log.Information(context.BuildParameters.ToJson(Formatting.Indented));
        
@@ -104,6 +110,12 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
+        if (context.BuildParameters.PublishOnly)
+        {
+            context.Log.Information("Skipping. Publish only.");
+            return;
+        }
+
         ProvisionTools(context);
 
         foreach (var library in context.Libraries)
@@ -128,6 +140,12 @@ public sealed class ApaxUpdateTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
+        if (context.BuildParameters.PublishOnly)
+        {
+            context.Log.Information("Skipping. Publish only.");
+            return;
+        }
+
         if (!context.BuildParameters.DoApaxUpdate)
             return;
 
@@ -147,6 +165,12 @@ public sealed class CatalogInstallTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
+        if (context.BuildParameters.PublishOnly)
+        {
+            context.Log.Information("Skipping. Publish only.");
+            return;
+        }
+
         context.Libraries.ToList().ForEach(lib =>
         {
             foreach (var apaxfile in context.GetApaxFiles(lib))
@@ -165,6 +189,12 @@ public sealed class BuildTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
+        if (context.BuildParameters.PublishOnly)
+        {
+            context.Log.Information("Skipping. Publish only.");
+            return;
+        }
+
         if (context.BuildParameters.DoPack)
         {
             context.Libraries.ToList().ForEach(lib =>
@@ -215,6 +245,12 @@ public sealed class TestsTask : FrostingTask<BuildContext>
     // Tasks can be asynchronous
     public override void Run(BuildContext context)
     {
+        if (context.BuildParameters.PublishOnly)
+        {
+            context.Log.Information("Skipping. Publish only.");
+            return;
+        }
+
         if (!context.BuildParameters.DoTest)
         {
             context.Log.Warning($"Skipping tests");
@@ -816,6 +852,12 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
+        if (context.BuildParameters.PublishOnly)
+        {
+            context.Log.Information("Skipping. Publish only.");
+            return;
+        }
+
         if (context.BuildParameters.DoPack)
         {
             //context.Libraries.ToList().ForEach(lib =>
