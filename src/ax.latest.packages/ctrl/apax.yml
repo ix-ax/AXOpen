@@ -5,8 +5,11 @@ files:
   - apax.yml
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
+registries:
+  "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@ax/simatic-ax": 2411.0.0
+  # "@ax/simatic-ax": 2411.0.0
+  "@inxton/ax.catalog": 0.0.3
 dependencies:
   "@ax/simatic-1500-clocks": 8.0.8
   "@ax/system-bitaccess": 8.0.7

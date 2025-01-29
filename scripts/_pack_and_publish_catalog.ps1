@@ -80,7 +80,7 @@ if (Test-Path -Path $catalogAbsPath)
             Write-Host "Error: $publishResult[0]:  $publishResult[1]" -ForegroundColor Red
         }
     }
-    Remove-Item -Path $File[0].FullName -Force
+    Remove-Item -Path $Files[0].FullName -Force
 
 } 
 else 

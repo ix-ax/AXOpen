@@ -6,8 +6,8 @@ files:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@ax/simatic-ax": 2411.0.0
-#   "@inxton/ax.catalog": 0.0.3
+  # "@ax/simatic-ax": 2411.0.0
+  "@inxton/ax.catalog": 0.0.3
 dependencies:
   '@ax/apax-build': 2.0.20
   '@ax/axunitst': 6.0.6
