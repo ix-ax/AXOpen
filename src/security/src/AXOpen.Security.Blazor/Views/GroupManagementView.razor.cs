@@ -25,7 +25,7 @@ namespace AxOpen.Security.Views
         private IRepositoryService _repositoryService { get; set; }
 
         [Inject]
-        private IAlertService _alertDialogService { get; set; }
+        private IAlertService? _alertDialogService { get; set; }
 
         private RoleGroupManager _roleGroupManager { get { return _repositoryService.RoleGroupManager; } }
 

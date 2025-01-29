@@ -27,7 +27,7 @@ namespace AxOpen.Security.Views
         private UserManager<User> _userManager { get; set; }
 
         [Inject]
-        private IAlertService _alertDialogService { get; set; }
+        private IAlertService? _alertDialogService { get; set; }
 
         private User SelectedUser { get; set; }
         private UpdateUserModel _model { get; set; }
