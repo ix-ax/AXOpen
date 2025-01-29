@@ -39,16 +39,16 @@ if (Test-Path -Path $catalogAbsPath)
     cd $catalogAbsPath
 
     # Pack the catalog
-    $packError = apax pack --key $env:APAX_KEY 1>$null 2>&1  # Capture errors only
+    $packResult = apax pack --key $env:APAX_KEY
 
-    if (-not $packError) 
+    if ($packResult[0] -and -not $packResult[1]) 
     {
         Write-Host "Catalog packed succesfully" -ForegroundColor Green
     } 
     else 
     {
         Write-Host "Failed to pack catalog" -ForegroundColor Red
-        Write-Host "Error: $packError" -ForegroundColor Red
+        Write-Host "Error: $packResult[0]:  $packResult[1]" -ForegroundColor Red
         exit 1
     }
 
@@ -67,17 +67,17 @@ if (Test-Path -Path $catalogAbsPath)
 
 
         # Publish the catalog
-        #$publishError = apax publish --package $catalogFileName --registry https://npm.pkg.github.com 1>$null 2>&1  # Capture errors only
+        $publishResult = apax publish --package $catalogFileName --registry https://npm.pkg.github.com 
 
-        $publishError = apax publish --package $catalogFileName --registry https://npm.pkg.github.com *> $null 2>&1  # Capture both standard and error output, discarding it
-        if (-not $publishError) 
+
+        if ($publishResult[0] -and -not $publishResult[1]) 
         {
             Write-Host "Catalog published succesfully" -ForegroundColor Green
         } 
         else 
         {
             Write-Host "Failed to publish catalog" -ForegroundColor Red
-            Write-Host "Error: $publishError" -ForegroundColor Red
+            Write-Host "Error: $publishResult[0]:  $publishResult[1]" -ForegroundColor Red
         }
     }
     Remove-Item -Path $File[0].FullName -Force
