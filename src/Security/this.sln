@@ -55,7 +55,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "axopen_security_tests", "te
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BB0B9DEF-C0E9-4C71-9DA9-0184B4E25A50}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Security", "..\Security", "{BA61E15F-E917-4F5B-A66B-9633788E7062}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "security", "..\security", "{BA61E15F-E917-4F5B-A66B-9633788E7062}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
