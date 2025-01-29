@@ -52,6 +52,6 @@ public class BuildParameters
     [Option('a', "apps-run", Required = false, Default = false, HelpText = "Download and run apps")]
     public bool AppsRun{ get; set; }
 
-    [Option('o', "publish-only", Required = false, Default = false, HelpText = "Skips all step and publishes from pre-build artefacts.")]
+    [Option('o', "do-publish-only", Required = false, Default = false, HelpText = "Skips all steps and publishes from pre-build artefacts.")]
     public bool PublishOnly { get; set; }
 }
