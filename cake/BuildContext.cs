@@ -63,7 +63,7 @@ public partial class BuildContext : FrostingContext
         System.IO.File.WriteAllText(file, sb.ToString());
     }
 
-    public void UpdateApaxDependencies(string file, IEnumerable<string> dependencies, string version)
+    public void UpdateApaxDependencies(string file, string version)
     {
         var sb = new StringBuilder();
         foreach (var line in System.IO.File.ReadLines(file))
@@ -71,15 +71,12 @@ public partial class BuildContext : FrostingContext
             var newLine = line;
 
             // Do not change the version of the catalog when used
-            foreach (var dependency in dependencies.Where(p => !p.Contains(".catalog")).Select(p => $"\"@{ApaxRegistry}/{p}\""))
+            if (line.Trim().StartsWith($"\"@{ApaxRegistry}/") && line.Contains(":") && !line.Contains(".catalog"))
             {
-                if (line.Trim().StartsWith($"\"@{ApaxRegistry}/") && line.Contains(":"))
-                {
-                    var semicPosition = line.IndexOf(":");
-                    var lenght = line.Length - semicPosition;
+                var semicPosition = line.IndexOf(":");
+                var lenght = line.Length - semicPosition;
 
-                    newLine = $"{line.Substring(0, semicPosition)} : '{version}'";
-                }
+                newLine = $"{line.Substring(0, semicPosition)} : '{version}'";
             }
 
             sb.AppendLine(newLine);
