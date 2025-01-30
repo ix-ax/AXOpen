@@ -3,46 +3,9 @@ version: '0.0.0-dev.0'
 type: generic
 files:
   - apax.yml
-registries:
-  "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  # "@ax/simatic-ax": 2411.0.0
-  "@inxton/ax.catalog": 0.0.3
+  "@ax/simatic-ax": 2411.0.0
 dependencies:
-  '@ax/apax-build': 2.0.20
-  '@ax/axunitst': 6.0.6
-  '@ax/axunitst-ls-contrib': 6.0.6
-  '@ax/certificate-management': 1.1.3
-  '@ax/diagnostic-buffer': 1.3.2
-  '@ax/hw-s7-1500': 2.0.51
-  '@ax/hwc': 2.0.51
-  '@ax/hwld': 2.0.20
-  '@ax/mod': 1.4.6
-  '@ax/mon': 1.4.6
-  '@ax/performance-info': 1.1.2
-  '@ax/plc-info': 3.0.0
-  '@ax/sdb': 1.4.6
-  '@ax/simatic-package-tool': 2.0.11
-  '@ax/simatic-pragma-stc-plugin': 5.0.8
-  '@ax/sld': 3.0.9
-  '@ax/st-ls': 8.0.17
-  '@ax/st-resources.stc-plugin': 2.0.10
-  '@ax/stc': 8.0.17
-  '@ax/target-llvm': 8.0.17
-  '@ax/target-mc7plus': 8.0.17
-  '@ax/trace': 2.8.1
+  "@ax/sdk": 2411.0.0
 installStrategy: strict
 apaxVersion: 3.4.2
-scripts:
-  ib: |
-    apax install
-    apax build
-  icb: |
-    apax install --catalog
-    apax ib
-  cib: |
-    apax clean
-    apax ib
-  cicb: |
-    apax clean
-    apax icb
