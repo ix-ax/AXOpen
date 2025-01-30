@@ -6,7 +6,8 @@ on:
     paths:
      - 'src/**'
      - 'cake/**'
-    # - '.github/**' # temporarily removed just to tune nightly faster
+     - '.github/**' 
+     - 'GitVersion.yaml'
   workflow_dispatch:
 
 jobs:
