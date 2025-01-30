@@ -104,6 +104,12 @@ scripts:
     ..\\..\\scripts\\all.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"    
 
+<<<<<<< HEAD
+  cib: |
+    apax clean
+    apax install
+    apax build
+=======
   ib: |
     apax install
     apax build
@@ -116,3 +122,4 @@ scripts:
   cicb: |
     apax clean
     apax icb
+>>>>>>> ebc067e5258bfe8006648f4712e47dd8530cf393
