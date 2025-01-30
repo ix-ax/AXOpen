@@ -6,7 +6,6 @@ on:
       - dev
   schedule:
     - cron: '0 0 * * *'
-
 jobs:
   nightly:   
     runs-on: [self-hosted, Windows, X64, AX, APP]  
