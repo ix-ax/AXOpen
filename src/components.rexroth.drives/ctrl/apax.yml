@@ -12,17 +12,4 @@ dependencies:
   "@inxton/axopen.components.drives": '0.0.0-dev.0'
 installStrategy: strict
 apaxVersion: 3.4.2
-scripts:
-  ib: |
-    apax install
-    apax build
-  icb: |
-    apax install --catalog
-    apax ib
-  cib: |
-    apax clean
-    apax ib
-  cicb: |
-    apax clean
-    apax icb
 ...
