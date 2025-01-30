@@ -134,33 +134,8 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
     }
 }
 
-[TaskName("ApaxUpdate")]
-[IsDependentOn(typeof(ProvisionTask))]
-public sealed class ApaxUpdateTask : FrostingTask<BuildContext>
-{
-    public override void Run(BuildContext context)
-    {
-        if (context.BuildParameters.PublishOnly)
-        {
-            context.Log.Information("Skipping. Publish only.");
-            return;
-        }
-
-        if (!context.BuildParameters.DoApaxUpdate)
-            return;
-
-        context.Libraries.ToList().ForEach(lib =>
-        {
-            context.ApaxUpdate(lib);
-        });
-
-        context.DotNetBuild(Path.Combine(context.RootDir, "AXOpen.proj"), context.DotNetBuildSettings);
-    }
-}
-
-
 [TaskName("CatalogInstall")]
-[IsDependentOn(typeof(ApaxUpdateTask))]
+[IsDependentOn(typeof(ProvisionTask))]
 public sealed class CatalogInstallTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)

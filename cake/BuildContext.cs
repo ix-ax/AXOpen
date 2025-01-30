@@ -27,8 +27,9 @@ using Path = System.IO.Path;
 using Cake.Core.IO;
 using System;
 using YamlDotNet.RepresentationModel;
+using AXSharp.Compiler;
 
-public class BuildContext : FrostingContext
+public partial class BuildContext : FrostingContext
 {
 
     public bool IsGitHubActions { get; set; }
@@ -62,7 +63,7 @@ public class BuildContext : FrostingContext
         {
             var newLine = line;
 
-            foreach (var dependency in dependencies.Select(p => $"\"@{ApaxRegistry}/{p}\""))
+            foreach (var dependency in dependencies.Where(p => !p.Contains(".catalog")).Select(p => $"\"@{ApaxRegistry}/{p}\""))
             {
                 if (line.Trim().StartsWith($"\"@{ApaxRegistry}/") && line.Contains(":"))
                 {
