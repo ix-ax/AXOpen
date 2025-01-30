@@ -42,7 +42,14 @@ public partial class BuildContext : FrostingContext
         foreach (var line in System.IO.File.ReadLines(file))
         {
             var newLine = line;
-
+            if (line.Trim().StartsWith("name"))
+            {
+                // Do not change the version of the catalog in the declaration field
+                if (line.Contains(".catalog"))
+                {
+                    return;
+                }
+            }
             if (line.Trim().StartsWith("version"))
             {
                 var semicPosition = line.IndexOf(":");
@@ -63,6 +70,7 @@ public partial class BuildContext : FrostingContext
         {
             var newLine = line;
 
+            // Do not change the version of the catalog when used
             foreach (var dependency in dependencies.Where(p => !p.Contains(".catalog")).Select(p => $"\"@{ApaxRegistry}/{p}\""))
             {
                 if (line.Trim().StartsWith($"\"@{ApaxRegistry}/") && line.Contains(":"))
