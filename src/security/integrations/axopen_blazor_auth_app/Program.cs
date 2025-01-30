@@ -1,11 +1,5 @@
 
 using axopen_blazor_auth_app.Data;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Components.Web;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.EntityFrameworkCore;
 using AxOpen.Security.Services;
 using System.Reflection;
 using AXOpen.Base.Data;
@@ -14,16 +8,33 @@ using AxOpen.Security.Entities;
 using axopen_blazor_auth_app;
 using AxOpen.Security;
 using AXOpen.Data.MongoDb;
+using AXOpen.Base.Dialogs;
+using AXOpen.Core.Blazor.AxoAlertDialog;
+using AXOpen.Core;
+using AXOpen.Logging;
+using Serilog;
+using AXOpen;
+using AXSharp.Presentation.Blazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//<AxConfiguration>
+builder.Services.ConfigureAxBlazorSecurity(SetUpJSon(), Roles.CreateRoles());
+//</AxConfiguration>
 
 builder.Services.AddLocalization();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+
+builder.Services.AddIxBlazorServices();
+builder.Services.AddAxoCoreServices();
+
 builder.Services.AddSingleton<WeatherForecastService>();
-//<AxConfiguration>
-builder.Services.ConfigureAxBlazorSecurity(SetUpJSon(), Roles.CreateRoles());
-//</AxConfiguration>
+
+AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
+    .WriteTo.Console().MinimumLevel.Verbose()
+    .CreateLogger()));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -1,35 +1,27 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.JSInterop;
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using System.Linq;
-using AxOpen.Security.Entities;
-using AxOpen.Security.Models;
+﻿using AxOpen.Security.Entities;
+using AxOpen.Security.Services;
+using AXOpen;
 using AXOpen.Base.Dialogs;
+using System.Collections.ObjectModel;
+
+using AxOpen.Security.Entities;
+
+using AxOpen.Security.Models;
+
+using AXOpen.Base.Dialogs;
+using AXOpen;
+
+using AXOpen.Security;
+using Microsoft.Extensions.Localization;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Identity;
 
 namespace AxOpen.Security.Views
 {
-    public partial class UserManagementView
+    public partial class UserManagementView : BaseSecurityView
     {
-        private class RoleData
-        {
-            public RoleData(Role role)
-            {
-                Role = role;
-            }
-
-            public Role Role { get; set; }
-            public bool IsSelected { get; set; }
-        }
-
-        [Inject]
-        private UserManager<User> _userManager { get; set; }
-
-        [Inject]
-        private IAlertService? _alertDialogService { get; set; }
-
         private User SelectedUser { get; set; }
+
         private UpdateUserModel _model { get; set; }
 
         private ObservableCollection<User> AllUsers
@@ -56,6 +48,12 @@ namespace AxOpen.Security.Views
             StateHasChanged();
         }
 
+        public string GetBaseUri()
+        {
+            var path = this._navigationManager.ToBaseRelativePath(_navigationManager.Uri);
+            return path;
+        }
+
         public void CloseUserDetail()
         {
             SelectedUser = null;
@@ -63,10 +61,26 @@ namespace AxOpen.Security.Views
 
         public async Task DeleteUser(User user)
         {
-            await _userManager.DeleteAsync(user);
-            SelectedUser = null;
-            _alertDialogService?.AddAlertDialog(eAlertType.Success, Localizer["Deleted!"], Localizer["User succesfully deleted!"], 10);
-            //TcoAppDomain.Current.Logger.Information($"User '{user.UserName}' deleted. {{@sender}}", new { UserName = user.UserName });
+            var deletedUserName = user.UserName;
+
+            var result = await _userManager.DeleteAsync(user);
+
+            if (result.Succeeded)
+            {
+                SelectedUser = null;
+
+                string msg = Localizer["User \"{0}\" succesfully deleted!", deletedUserName];
+
+                _alertDialogService?.AddAlertDialog(eAlertType.Success, Localizer["Deleted!"], msg, 10);
+                AxoApplication.Current.Logger.Information(msg, await GetCurrentIdentity());
+            }
+            else
+            {
+                string msg = Localizer["User \"{0}\" was not deleted!", deletedUserName] + $" {result.ToString()}";
+
+                _alertDialogService?.AddAlertDialog(eAlertType.Success, Localizer["Deleted!"], msg, 10);
+                AxoApplication.Current.Logger.Warning(msg, await GetCurrentIdentity());
+            }
         }
 
         private async void OnValidUpdate()
@@ -100,12 +114,17 @@ namespace AxOpen.Security.Views
 
             if (result.Succeeded)
             {
-                _alertDialogService?.AddAlertDialog(eAlertType.Success, Localizer["Updated!"], Localizer["User succesfully updated!"], 10);
-                //TcoAppDomain.Current.Logger.Information($"User '{SelectedUser.UserName}' updated. {{@sender}}", new { UserName = SelectedUser.UserName, Group = SelectedUser.Roles });
+                string msg = Localizer["User \"{0}\" succesfully updated!", _model.Username];
+
+                _alertDialogService?.AddAlertDialog(eAlertType.Success, Localizer["Updated!"], msg, 10);
+                AxoApplication.Current.Logger.Information(msg, await GetCurrentIdentity());
             }
             else
             {
-                _alertDialogService?.AddAlertDialog(eAlertType.Warning, Localizer["Not updated!"], Localizer["User was not updated!"], 10);
+                string msg = Localizer["User \"{0}\" was not updated!", _model.Username] + $" {result.ToString()}";
+                _alertDialogService?.AddAlertDialog(eAlertType.Warning, Localizer["Not updated!"], msg, 10);
+
+                AxoApplication.Current.Logger.Warning(msg, await GetCurrentIdentity());
             }
         }
 
