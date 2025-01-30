@@ -3,10 +3,12 @@ version: '0.0.0-dev.0'
 type: generic
 files:
   - apax.yml
+registries:
+  "@inxton": "https://npm.pkg.github.com/"
+catalogs:
+  "@inxton/ax.catalog": 0.0.3
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
-catalogs:
-  "@ax/simatic-ax": 2411.0.0
 dependencies:
   "@ax/simatic-1500-clocks": 8.0.8
   "@ax/system-bitaccess": 8.0.7
@@ -14,3 +16,16 @@ dependencies:
   "@ax/system-serde": 8.0.7
 installStrategy: strict
 apaxVersion: 3.4.2
+scripts:
+  ib: |
+    apax install
+    apax build
+  icb: |
+    apax install --catalog
+    apax ib
+  cib: |
+    apax clean
+    apax ib
+  cicb: |
+    apax clean
+    apax icb
