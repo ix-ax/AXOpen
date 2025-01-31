@@ -66,7 +66,7 @@ namespace AxOpen.Security.Services
 
                 if (user == null)
                 {
-                    AxoApplication.Current.Logger.Warning($"User '{user.UserName}' does not found in the database. Will be logged out!", userPrincipal.Identity);
+                    AxoApplication.Current.Logger.Warning($"User '{userPrincipal.Identity.Name}' does not found in the database. Will be logged out!", userPrincipal.Identity);
                     return false;
                 }
 
