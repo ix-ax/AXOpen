@@ -20,11 +20,7 @@ dependencies:
   "@inxton/axopen.components.abstractions": '0.0.0-dev.0'
   "@inxton/ax.axopen.app": '0.0.0-dev.0'
   "@inxton/axopen.simatic1500": '0.0.0-dev.0'
-  # this is just temporary to be able create hardware configuration using latest hwc version
-  # upto the moment of releasing new catalog 
-  # installStrategy: strict
-  "@inxton/ax.latest.packages": '0.0.0-dev.0'
-installStrategy: overridable
+installStrategy: strict
 apaxVersion: 3.4.2
 scripts:
   # For proper execution of these scripts, the following variables need to be defined as environment variables or local variables.
@@ -108,3 +104,16 @@ scripts:
     START=$(date +%s)
     ..\\..\\scripts\\all.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"    
+
+  ib: |
+    apax install
+    apax build
+  icb: |
+    apax install --catalog
+    apax ib
+  cib: |
+    apax clean
+    apax ib
+  cicb: |
+    apax clean
+    apax icb

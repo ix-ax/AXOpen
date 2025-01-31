@@ -1,13 +1,19 @@
 name: dev
 
 on:
-  push:
-    branches: [ "dev" ]
-    paths:
-     - 'src/**'
-     - 'cake/**'
-     - '.github/**'  
+#  push:
+#    branches: [ "dev" ]
+#    paths:
+#     - 'src/**'
+#     - 'cake/**'
+#     - '.github/**'  
   workflow_dispatch:
+    inputs:
+      publish:
+        type: boolean
+        required: false
+        default: false
+        description: "Set to 'true' to publish packages"
 
 jobs:
   build:
@@ -31,4 +37,10 @@ jobs:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}
           GH_USER : ${{ secrets.GH_USER }}
       run: dotnet run --project cake/Build.csproj --do-test --do-pack --test-level 2
+    - name: "Publish packages"
+      if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.publish == 'true' }}
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        GH_USER: ${{ secrets.GH_USER }}
+      run: dotnet run --project cake/Build.csproj --do-publish-only --do-publish --do-publish-release
 

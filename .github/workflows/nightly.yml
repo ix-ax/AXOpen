@@ -1,13 +1,13 @@
 name: nightly
 
 on: 
+  workflow_dispatch :
+    branches :  
+      - dev
   schedule:
     - cron: '0 0 * * *'
-  workflow_dispatch :
-
 jobs:
-  run-on-dev:
-    if: github.ref == 'refs/heads/dev'
+  nightly:   
     runs-on: [self-hosted, Windows, X64, AX, APP]  
     
     steps:

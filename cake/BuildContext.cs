@@ -28,7 +28,8 @@ using Cake.Core.IO;
 using System;
 using YamlDotNet.RepresentationModel;
 
-public class BuildContext : FrostingContext
+
+public partial class BuildContext : FrostingContext
 {
 
     public bool IsGitHubActions { get; set; }
@@ -41,7 +42,14 @@ public class BuildContext : FrostingContext
         foreach (var line in System.IO.File.ReadLines(file))
         {
             var newLine = line;
-
+            if (line.Trim().StartsWith("name"))
+            {
+                // Do not change the version of the catalog in the declaration field
+                if (line.Contains(".catalog"))
+                {
+                    return;
+                }
+            }
             if (line.Trim().StartsWith("version"))
             {
                 var semicPosition = line.IndexOf(":");
@@ -55,22 +63,20 @@ public class BuildContext : FrostingContext
         System.IO.File.WriteAllText(file, sb.ToString());
     }
 
-    public void UpdateApaxDependencies(string file, IEnumerable<string> dependencies, string version)
+    public void UpdateApaxDependencies(string file, string version)
     {
         var sb = new StringBuilder();
         foreach (var line in System.IO.File.ReadLines(file))
         {
             var newLine = line;
 
-            foreach (var dependency in dependencies.Select(p => $"\"@{ApaxRegistry}/{p}\""))
+            // Do not change the version of the catalog when used
+            if (line.Trim().StartsWith($"\"@{ApaxRegistry}/") && line.Contains(":") && !line.Contains(".catalog"))
             {
-                if (line.Trim().StartsWith($"\"@{ApaxRegistry}/") && line.Contains(":"))
-                {
-                    var semicPosition = line.IndexOf(":");
-                    var lenght = line.Length - semicPosition;
+                var semicPosition = line.IndexOf(":");
+                var lenght = line.Length - semicPosition;
 
-                    newLine = $"{line.Substring(0, semicPosition)} : '{version}'";
-                }
+                newLine = $"{line.Substring(0, semicPosition)} : '{version}'";
             }
 
             sb.AppendLine(newLine);
