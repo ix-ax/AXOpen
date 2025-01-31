@@ -61,29 +61,64 @@ namespace AxOpen.Security.Areas.Identity.Pages.Account
         {
             returnUrl ??= Url.Content("~/");
 
+            string msg = "";
+
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(Input.Username, Input.Password, false, lockoutOnFailure: false);
+                var user = await _userManager.FindByNameAsync(Input.Username);
 
-                if (result.Succeeded)
+                if (user == null)
                 {
-                    var msg = _localizer["User \"{0}\", has been logged in.", Input.Username];
-                    AxoApplication.Current.Logger.Information(msg, new GenericIdentity(Input.Username));
+                    msg = _localizer["User \"{0}\" does not exit!", Input?.Username];
 
-                    return LocalRedirect(returnUrl);
+                    AxoApplication.Current.Logger.Warning(msg, new GenericIdentity("unknown"));
+
+                    ModelState.AddModelError(string.Empty, msg);
+                    return Page();
+                }
+
+                var passIsValid = await _userManager.CheckPasswordAsync(user, Input.Password);
+
+                if (!passIsValid)
+                {
+                    msg = _localizer["Invalid password for the user \"{0}\" !", Input?.Username];
+
+                    AxoApplication.Current.Logger.Warning(msg, new GenericIdentity("unknown"));
+
+                    ModelState.AddModelError(string.Empty, msg);
+                    return Page();
+                }
+
+                AuthenticationProperties authProperties;
+
+                if (user.EnableAutoLogOut)
+                {
+                    authProperties = new AuthenticationProperties
+                    {
+                        IsPersistent = true,
+                        ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(user.AutoLogOutTimeOutMinutes),
+                        AllowRefresh = true,
+                    };
                 }
                 else
                 {
-                    var msg = _localizer["Invalid credentials entered for user \"{0}\"!", Input.Username];
-
-                    ModelState.AddModelError(string.Empty, msg);
-                    AxoApplication.Current.Logger.Information(msg, new GenericIdentity(Input.Username));
-
-                    return Page();
+                    authProperties = new AuthenticationProperties
+                    {
+                        IsPersistent = true,
+                        ExpiresUtc = DateTimeOffset.UtcNow.AddDays(14),
+                        AllowRefresh = true,
+                    };
                 }
+
+                // Sign in with custom expiration
+                await _signInManager.SignInAsync(user, authProperties);
+
+                msg = _localizer["User \"{0}\", has been logged in.", Input.Username];
+                AxoApplication.Current.Logger.Information(msg, new GenericIdentity(Input.Username));
+
+                return LocalRedirect(returnUrl);
             }
 
-            // If we got this far, something failed, redisplay form
             return Page();
         }
     }
