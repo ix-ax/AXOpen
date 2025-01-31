@@ -77,6 +77,12 @@ if ! $check_requisites_nuget_script ; then
 	exit 1
 fi
 
+check_requisites_custom_registry_script=$( dirname ${BASH_SOURCE[0]})"\\check_requisites_custom_registry.sh"
+if ! $check_requisites_custom_registry_script ; then
+	exit 1
+fi
+
+
 if [ "$PLCSIM" -eq 1 ]; then
 	plcsim_script=$( dirname ${BASH_SOURCE[0]})"\\plcsimadvanced.sh"
 	$plcsim_script $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS
