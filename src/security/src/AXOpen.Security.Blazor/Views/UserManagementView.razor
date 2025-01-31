@@ -1,8 +1,6 @@
-﻿@inject IRepositoryService _repositoryService
-@using AxOpen.Security.Entities;
-@using AxOpen.Security.Services;
-@using Microsoft.AspNetCore.Components.Forms
-@namespace AxOpen.Security.Views
+﻿@namespace AxOpen.Security.Views
+@using AxOpen.Security.Entities
+@inherits BaseSecurityView
 
 <div class="card" style="min-height: 20vh; max-height: 40vh">
     <div class="card-header">
@@ -32,7 +30,12 @@
         </table>
     </div>
 </div>
-<a class="btn btn-primary mt-4" role="button" href="Identity/Account/Register">@Localizer["Create new user"]</a>
+
+<a class="btn btn-primary mt-4" role="button"
+   href="Identity/Account/Register?returnUrl=~/@(GetBaseUri())"> 
+   @Localizer["Create new user"]
+</a>
+
 @if (SelectedUser != null)
 {
     <div class="card mt-4">

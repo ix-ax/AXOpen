@@ -1,15 +1,14 @@
 using AxOpen.Security.Entities;
 using AxOpen.Security.Services;
+using AXOpen;
 using AXOpen.Base.Dialogs;
 using Microsoft.AspNetCore.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components.Authorization;
+using System.Security.Principal;
 
 namespace AxOpen.Security.Views
 {
-    public partial class GroupManagementView
+    public partial class GroupManagementView : BaseSecurityView
     {
         private class RoleData
         {
@@ -17,28 +16,28 @@ namespace AxOpen.Security.Views
             {
                 Role = role;
             }
+
             public Role Role { get; set; }
             public bool IsSelected { get; set; }
         }
 
-        [Inject]
-        private IRepositoryService _repositoryService { get; set; }
-
-        [Inject]
-        private IAlertService _alertDialogService { get; set; }
-
-        private RoleGroupManager _roleGroupManager { get { return _repositoryService.RoleGroupManager; } }
+        private RoleGroupManager _roleGroupManager
+        {
+            get
+            {
+                return _repositoryService.RoleGroupManager;
+            }
+        }
 
         private IList<RoleData> AvailableRoles { get; set; }
         private IList<RoleData> AssignedRoles { get; set; }
-
 
         private bool selectAllAvailable;
 
         public bool SelectAllAvailable
         {
             get { return selectAllAvailable; }
-            set 
+            set
             {
                 selectAllAvailable = value;
                 foreach (RoleData role in AvailableRoles)
@@ -66,31 +65,44 @@ namespace AxOpen.Security.Views
         public Group SelectedGroupN { get; set; }
         public string newGroupName { get; set; }
 
-        public void AssignRoles()
+        public async void AssignRoles()
         {
             var result = _roleGroupManager.AddRolesToGroup(SelectedGroupN.Name, AvailableRoles.Where(x => x.IsSelected == true).Select(x => x.Role.Name));
             if (result.Succeeded)
             {
-                _alertDialogService.AddAlertDialog(eAlertType.Success, Localizer["Updated!"], Localizer["Group successfully updated!"], 10);
+                string msg = Localizer["Group \"{0}\" successfully updated.", SelectedGroupN.Name];
+
+                _alertDialogService?.AddAlertDialog(eAlertType.Success, Localizer["Updated!"], msg, 10);
+                AxoApplication.Current.Logger.Information(msg, await GetCurrentIdentity());
             }
             else
             {
-                _alertDialogService.AddAlertDialog(eAlertType.Warning, Localizer["Not updated!"], Localizer["Group was not updated."], 10);
+                string msg = Localizer["Group \"{0}\" was not updated!", SelectedGroupN.Name] + $" {result.ToString()}";
+
+                _alertDialogService?.AddAlertDialog(eAlertType.Warning, Localizer["Not updated!"], msg, 10);
+                AxoApplication.Current.Logger.Warning(msg, await GetCurrentIdentity());
             }
             GroupClicked(SelectedGroupN);
             SelectAllAvailable = false;
         }
 
-        public void ReturnRoles()
+        public async void ReturnRoles()
         {
+            // get current user identity
+
             var result = _roleGroupManager.RemoveRolesFromGroup(SelectedGroupN.Name, AssignedRoles.Where(x => x.IsSelected == true).Select(x => x.Role.Name));
             if (result.Succeeded)
             {
-                _alertDialogService.AddAlertDialog(eAlertType.Success, Localizer["Updated!"], Localizer["Group successfully updated!"], 10);
+                string msg = Localizer["Group \"{0}\" successfully updated.", SelectedGroupN.Name];
+
+                _alertDialogService?.AddAlertDialog(eAlertType.Success, Localizer["Updated!"], msg, 10);
+                AxoApplication.Current.Logger.Information(msg, await GetCurrentIdentity());
             }
             else
             {
-                _alertDialogService.AddAlertDialog(eAlertType.Warning, Localizer["Not updated!"], Localizer["Group was not updated."], 10);
+                string msg = Localizer["Group \"{0}\" was not updated!", SelectedGroupN.Name] + $" {result.ToString()}";
+                _alertDialogService?.AddAlertDialog(eAlertType.Warning, Localizer["Not updated!"], msg, 10);
+                AxoApplication.Current.Logger.Warning(msg, await GetCurrentIdentity());
             }
             GroupClicked(SelectedGroupN);
             SelectAllAssigned = false;
@@ -109,36 +121,50 @@ namespace AxOpen.Security.Views
             SelectedGroupN = null;
         }
 
-        public void CreateGroup()
+        public async void CreateGroup()
         {
-            if(newGroupName == null || newGroupName == "")
+            if (newGroupName == null || newGroupName == "")
             {
-                _alertDialogService.AddAlertDialog(eAlertType.Warning, Localizer["Wrong name!"], Localizer["Wrong group name"], 10);
+                _alertDialogService?.AddAlertDialog(eAlertType.Warning, Localizer["Wrong name!"], Localizer["Wrong group name"], 10);
+
                 return;
             }
             var result = _roleGroupManager.CreateGroup(newGroupName);
             if (result.Succeeded)
             {
-                _alertDialogService.AddAlertDialog(eAlertType.Success, Localizer["Created!"], Localizer["Group successfully created!"], 10);
+                string msg = Localizer["Group \"{0}\" successfully created!", newGroupName];
+
+                _alertDialogService?.AddAlertDialog(eAlertType.Success, Localizer["Created!"], msg, 10);
+                AxoApplication.Current.Logger.Information(msg, await GetCurrentIdentity());
             }
             else
             {
-                _alertDialogService.AddAlertDialog(eAlertType.Warning, Localizer["Not created!"], Localizer["Group was not created."], 10);
+                string msg = Localizer["Group \"{0}\" was not created!", newGroupName] + $" {result.ToString()}";
+
+                _alertDialogService?.AddAlertDialog(eAlertType.Warning, Localizer["Not created!"], msg, 10);
+                AxoApplication.Current.Logger.Warning(msg, await GetCurrentIdentity());
             }
             StateHasChanged();
         }
 
-        public void DeleteGroup(Group group)
+        public async void DeleteGroup(Group group)
         {
             SelectedGroupN = null;
             var result = _roleGroupManager.DeleteGroup(group.Name);
+
             if (result.Succeeded)
             {
-                _alertDialogService.AddAlertDialog(eAlertType.Success, Localizer["Deleted!"], Localizer["Group successfully deleted"], 10);
+                string msg = Localizer["Group \"{0}\" successfully deleted!", group.Name];
+
+                _alertDialogService?.AddAlertDialog(eAlertType.Success, Localizer["Deleted!"], Localizer["Group successfully deleted"], 10);
+                AxoApplication.Current.Logger.Information(msg, await GetCurrentIdentity());
             }
             else
             {
-                _alertDialogService.AddAlertDialog(eAlertType.Warning, Localizer["Not deleted!"], Localizer["Group was not deleted."], 10);
+                string msg = Localizer["Group \"{0}\" was not deleted!", group.Name] + $" {result.ToString()}";
+
+                _alertDialogService?.AddAlertDialog(eAlertType.Warning, Localizer["Not deleted!"], msg, 10);
+                AxoApplication.Current.Logger.Information(msg, await GetCurrentIdentity());
             }
             StateHasChanged();
         }

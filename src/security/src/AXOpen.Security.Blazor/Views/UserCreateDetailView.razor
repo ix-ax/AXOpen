@@ -1,15 +1,9 @@
-﻿@page "/Identity/Account/Register"
+﻿@page "/Identity/Account/Register/{ReturnUrl?}"
+
 @namespace AxOpen.Security.Views
-@using AxOpen.Security.Entities;
-@using AxOpen.Security.Models;
-@using AxOpen.Security.Services;
 @using Microsoft.AspNetCore.Components.Authorization;
-@using Microsoft.AspNetCore.Identity;
-@using Microsoft.AspNetCore.Components.Forms;
-@inject IRepositoryService _repositoryService
-@inject UserManager<User> _userManager
-@inject IAlertService _alertDialogService
-@inject NavigationManager _navigationManager
+
+@inherits BaseSecurityView
 
 <AuthorizeView Roles="Administrator">
     <Authorized Context="Auth">
@@ -85,32 +79,3 @@
         <p>@Localizer["Sorry, you are not authorized to create new users. Please log in as administrator."]</p>
     </NotAuthorized>
 </AuthorizeView>
-
-@code {
-    private CreateUserModel _model { get; set; }
-    private User _user { get; set; }
-
-    private async void OnValidSubmit()
-    {
-        _user = new User(_model.Username, _model.Email, _model.Group, _model.CanUserChangePassword, _model.EnableAutoLogOut, _model.AutoLogOutTimeOutMinutes );
-
-        _user.SecurityStamp = Guid.NewGuid().ToString();
-
-        var result = await _userManager.CreateAsync(_user, _model.Password);
-
-        if (result.Succeeded)
-        {
-            _navigationManager.NavigateTo("");
-            _alertDialogService.AddAlertDialog(eAlertType.Success, Localizer["Created!"], Localizer["User successfully created."], 10);
-        }
-        else
-        {
-            _alertDialogService.AddAlertDialog(eAlertType.Warning, Localizer["Not created!"], Localizer["User was not created."], 10);
-        }
-    }
-
-    protected override void OnInitialized()
-    {
-        _model = new CreateUserModel();
-    }
-}

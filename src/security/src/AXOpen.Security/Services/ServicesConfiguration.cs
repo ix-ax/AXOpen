@@ -22,13 +22,6 @@ namespace AxOpen.Security.Services
             services.AddTransient<IUserStore<User>, UserStore>();
             services.AddTransient<IRoleStore<Role>, RoleStore>();
 
-            services.ConfigureApplicationCookie(options =>
-                        {
-                            options.Cookie.HttpOnly = true;
-                            options.SlidingExpiration = true;
-                            options.ExpireTimeSpan = TimeSpan.FromDays(1);
-                        });
-
             services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
 
             services.AddIdentity<User, Role>(identity =>
