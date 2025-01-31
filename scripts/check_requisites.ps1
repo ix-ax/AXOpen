@@ -167,7 +167,7 @@ if ($jsonData.PSObject.Properties.Name -contains $inxtonRegistryUrl)
 $registryGuide = @"
 
 1. Generate a Personal Access Token on GitHub with 'read:packages' permissions (at least).
-2. In AX code environment run 'apax install' command.
+2. In AX code environment run 'apax login' command.
 3. Choose the 'Custom NPM registry'
 4. Enter the registry URL: $inxtonRegistryUrl 
 5. Enter your username
