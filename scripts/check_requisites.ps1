@@ -1,66 +1,105 @@
 ## Check pre-requisites
+# Definition of the requisities and locations
+$dotNetRequiredVersion = "9.0.100"
+$dotNetWingetInstall = "Microsoft.DotNet.SDK.9 --version 9.0.100"
+
+
+$visualStudioRequiredVersionRange = "[17.8.0,18.0)";
+
+$apaxRequiredVersion = "3.4.2"
+$apaxUrl = "https://console.simatic-ax.siemens.io/"
+$axCodeRequiredVersion = "1.94.2"
+
+$inxtonRegistryUrl = "https://npm.pkg.github.com/"
+
+$nugetFeedUrl = "https://nuget.pkg.github.com/inxton/index.json"
+
+
+$vsWhereLocation = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+$expectedVCToolsInstallDir = "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Tools\MSVC\14.29.30133"
+
+$vsBuildToolInstallerDownloadLocation = "https://aka.ms/vs/16/release/vs_buildtools.exe"
+$vsBuildToolRequiredComponents = "--add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows10SDK --add Microsoft.VisualStudio.Component.Windows10SDK.18362"
 
 # List all installed .NET SDKs
 $dotnetSDKs = (dotnet --list-sdks 2>$null)
-$dotnet9Installed = $false
+$dotnetInstalled = $false
 
-foreach ($sdk in $dotnetSDKs) {
-    if ($sdk -like "9.0.100*") {
-        $dotnet9Installed = $true
+foreach ($sdk in $dotnetSDKs) 
+{
+    if ($sdk -match [regex]::Escape($dotNetRequiredVersion)) 
+    {
+        $dotnetInstalled = $true
+        break
     }
 }
 
 
-if (-not $dotnet9Installed) {
-    Write-Host ".NET 9.0.100 SDK is not installed." -ForegroundColor Red
-} else {
-    Write-Host ".NET 9.0.100 SDK detected." -ForegroundColor Green
+if ($dotnetInstalled) 
+{
+    Write-Host ".NET $dotNetRequiredVersion SDK detected." -ForegroundColor Green
+} 
+else 
+{
+    Write-Host ".NET $dotNetRequiredVersion SDK is not installed." -ForegroundColor Red
 }
 
-# Check for Visual Studio 2022
-$vsWhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
-if (Test-Path $vsWhere) {
-    $requiredVersionRange = "[17.8.0,18.0)";
-    $vsVersion = & $vsWhere -version $requiredVersionRange -products * -property catalog_productDisplayVersion
-    if (-not $vsVersion) {
-        Write-Host "Visual Studio 2022 is not detected in required version or update. Required version range is $requiredVersionRange" -ForegroundColor Yellow
-        Write-Host "VS2022 is optional you can use any editor of your choice like VSCode, Rider, or you can even use AXCode to edit .NET files." -ForegroundColor Yellow
-    } else {
-        Write-Host "Visual Studio 2022 detected: $vsVersion" -ForegroundColor Green
-        Write-Host "VS2022 is optional you can use any editor of your choice like VSCode, Rider, or you can even use AXCode to edit .NET files." -ForegroundColor DarkBlue
+# Check for Visual Studio 
+
+if (Test-Path $vsWhereLocation) 
+{
+    $vsVersion = & $vsWhereLocation -version $visualStudioRequiredVersionRange -products * -property catalog_productDisplayVersion
+    if (-not $vsVersion) 
+    {
+        Write-Host "Visual Studio is not detected in required version or update. Required version range is $visualStudioRequiredVersionRange" -ForegroundColor Yellow
+        Write-Host "Visual Studio is optional you can use any editor of your choice like VSCode, Rider, or you can even use AXCode to edit .NET files." -ForegroundColor Yellow
+    } 
+    else 
+    {
+        Write-Host "Visual Studio detected: $vsVersion" -ForegroundColor Green
+        Write-Host "Visual Studio is optional you can use any editor of your choice like VSCode, Rider, or you can even use AXCode to edit .NET files." -ForegroundColor DarkBlue
     }
-} else {
-    Write-Host "vswhere tool not found. Unable to determine if Visual Studio 2022 is installed." -ForegroundColor Yellow
-    Write-Host "VS2022 is optional you can use any editor of your choice like VSCode, Rider, or you can even use AXCode to edit .NET files." -ForegroundColor Yellow
+} 
+else 
+{
+    Write-Host "vswhere tool not found. Unable to determine if Visual Studio is installed." -ForegroundColor Yellow
+    Write-Host "Visual Studio is optional you can use any editor of your choice like VSCode, Rider, or you can even use AXCode to edit .NET files." -ForegroundColor Yellow
 }
 
 # Check for apax
 $isApaxInstalled = $false
-$requiredApaxVersion = "3.4.2"
-try {
+try 
+{
     $apaxVersion = (apax --version).Trim()
-    if ($apaxVersion -eq $requiredApaxVersion) {
-        Write-Host "Apax $requiredApaxVersion detected." -ForegroundColor Green
+    if ($apaxVersion -eq $apaxRequiredVersion) 
+    {
+        Write-Host "Apax $apaxRequiredVersion detected." -ForegroundColor Green
         $isApaxInstalled = $true;
-    } else {
-        Write-Host "Apax version mismatch. Expected $requiredApaxVersion but found $apaxVersion." -ForegroundColor Red
+    } 
+    else 
+    {
+        Write-Host "Apax version mismatch. Expected $apaxRequiredVersion but found $apaxVersion." -ForegroundColor Red
         Write-Host "Run apax self-update $apaxVersion." -ForegroundColor Red
     }
-} catch {
+} 
+catch 
+{
     Write-Host "Apax is not installed or not found in PATH. You need to have valid SIMATIC-AX license." -ForegroundColor Red
 }
 
 
-$apaxUrl = "https://console.simatic-ax.siemens.io/"
 $accessToApax = $false;
-if($isApaxInstalled){
-    try {
+if($isApaxInstalled)
+{
+    try 
+    {
         # Just check the access by trying to get the feed
         $response = Invoke-RestMethod -Uri $apaxUrl -Method Get
         Write-Host "Feed: $apaxUrl accessible by means of network." -ForegroundColor Green
         $accessToApax = $true;
     }
-    catch {
+    catch 
+    {
         Write-Host "Failed to access feed: $apaxUrl. Error: $($_.Exception.Message)" -ForegroundColor Red
         Write-Host "Try to access it manually, check your connection, firewall setttings, etc. " -ForegroundColor Red
     }
@@ -83,27 +122,82 @@ try {
         Write-Host "Apax packages are accessible." -ForegroundColor Green   
         $isApaxAccessible = $true; 
     } 
-} catch {
+} 
+catch 
+{
     Write-Host "Error: Unable to access apax packages. Check your connections, firewall, credentials etc. : $($_.Exception.Message)" -ForegroundColor Red
 }
 
+# Check the access to the external @inxton registry
+$jsonData = Get-Content -Raw -Path "$env:USERPROFILE\.apax\auth.json" | ConvertFrom-Json
+
+
+# Check if the registry exists and extract values
+if ($jsonData.PSObject.Properties.Name -contains $inxtonRegistryUrl) 
+{
+    $registryToken = $jsonData.$inxtonRegistryUrl.registryToken
+    $userName = $jsonData.$inxtonRegistryUrl.userName
+
+    $jsonFile = $env:USERPROFILE
+    $maskedPath = $jsonFile -replace '\\[^\\]+$', '\<current_user_name>\.apax\auth.json'
+
+    if ($registryToken.Length -gt 6) 
+    {
+        $maskedToken = $registryToken.Substring(0,5) + ("*" * ($registryToken.Length - 6)) + $registryToken[-1]
+    }else 
+    {
+        $maskedToken = "*" * $registryToken.Length 
+    }
+
+    if ($userName.Length -gt 2) 
+    {
+        $maskedUserName = $userName.Substring(0,1) + ("*" * ($userName.Length - 2)) + $userName[-1]
+    }else 
+    {
+        $maskedUserName  = "*" * $userName.Length  
+    }
+
+    Write-Host "Registry $inxtonRegistryUrl found in $maskedPath!" -ForegroundColor Green
+    Write-Host "Registry Token: $maskedToken" -ForegroundColor Green
+    Write-Host "User Name: $maskedUserName" -ForegroundColor Green
+}else 
+{
+    Write-Host "Registry '$inxtonRegistryUrl' not found in $maskedPath." -ForegroundColor Red
+
+$registryGuide = @"
+
+1. Generate a Personal Access Token on GitHub with 'read:packages' permissions (at least).
+2. In AX code environment run 'apax install' command.
+3. Choose the 'Custom NPM registry'
+4. Enter the registry URL: $inxtonRegistryUrl 
+5. Enter your username
+6. Enter your personal access token
+Note: Treat your personal access token like a password. Keep it secure and do not share it.
+"@    
+    Write-Host "You need to provide apax login to external registry." $registryGuide
+
+}
+
+
 # Define the command to get the version
 $command = "axcode --version"
-
-# Define the expected version
-$expectedVersion = "1.94.2"
-
 # Execute the command and capture the output
-try {
+try 
+{
     $version = Invoke-Expression $command
     
     # Compare the retrieved version with the expected version
-    if ($version -eq $expectedVersion) {
-        Write-Host "The AXCode version matches the expected version: $expectedVersion" -ForegroundColor Green
-    } else {
-        Write-Host "The AXCode version does not match the expected version: $expectedVersion" -ForegroundColor Red
+    if ($version -eq $axCodeRequiredVersion) 
+    {
+        Write-Host "The AXCode version matches the expected version: $axCodeRequiredVersion" -ForegroundColor Green
+    } 
+    else 
+    {
+        Write-Host "The AXCode version does not match the expected version: $axCodeRequiredVersion" -ForegroundColor Red
     }
-} catch {
+} 
+catch 
+{
     Write-Host "Error: Unable to determine the AXCode version. Ensure AXCode is correctly installed and accessible from the command line." -ForegroundColor Red
 }
 
@@ -114,59 +208,70 @@ $headers = @{
     "Accept"        = "application/vnd.github.package-preview+json"
 }
 
-$feedUrl = "https://nuget.pkg.github.com/inxton/index.json"
+
 
 # Check if the feed is added
 $isFeedAlreadyAdded = $false;
-try {
+try 
+{
     $feeds=$(dotnet nuget list source)
 
-    $isFeedAlreadyAdded = $feeds | Select-String -Pattern $feedUrl
+    $isFeedAlreadyAdded = $feeds | Select-String -Pattern $nugetFeedUrl
 
-    if ($isFeedAlreadyAdded) {
-        Write-Host "The NuGet feed with URL $feedUrl is already added."
-    } else {
-        Write-Host "The NuGet feed with URL $feedUrl is not added." -ForegroundColor Red
-        Write-Host "You will need to add $feedUrl to your nuget sources manually (more information in src/README.md)." -ForegroundColor Red
+    if ($isFeedAlreadyAdded) 
+    {
+        Write-Host "The NuGet feed with URL $nugetFeedUrl is already added."
+    } 
+    else 
+    {
+        Write-Host "The NuGet feed with URL $nugetFeedUrl is not added." -ForegroundColor Red
+        Write-Host "You will need to add $nugetFeedUrl to your nuget sources manually (more information in src/README.md)." -ForegroundColor Red
     }
 }
-catch {
-        Write-Host "Check if the NuGet feed with URL $feedUrl is properly added to your nuget sources." -ForegroundColor Red
+catch 
+{
+        Write-Host "Check if the NuGet feed with URL $nugetFeedUrl is properly added to your nuget sources." -ForegroundColor Red
 }
 
 # Check if the feed is accessible by means of network
 $hasFeedAccess = $false;
-if($isFeedAlreadyAdded){
-    try {
+if($isFeedAlreadyAdded)
+{
+    try 
+    {
         # Just check the access by trying to get the feed
-        $response = Invoke-RestMethod -Uri $feedUrl -Headers $headers -Method Get
-        Write-Host "Feed: $feedUrl accessible by means of network." -ForegroundColor Green
+        $response = Invoke-RestMethod -Uri $nugetFeedUrl -Headers $headers -Method Get
+        Write-Host "Feed: $nugetFeedUrl accessible by means of network." -ForegroundColor Green
         $hasFeedAccess = $true;
     }
-    catch {
-        Write-Host "Failed to access feed: $feedUrl. Error: $($_.Exception.Message)" -ForegroundColor Red
+    catch 
+    {
+        Write-Host "Failed to access feed: $nugetFeedUrl. Error: $($_.Exception.Message)" -ForegroundColor Red
         Write-Host "Try to access it manually, check your connection, firewall setttings, etc. " -ForegroundColor Red
     }
 }
 
 $hasFeedAutorization = $false;
-if($hasFeedAccess){
-    try {     
+if($hasFeedAccess)
+{
+    try 
+    {     
 
         # $response = dotnet tool update axsharp.ixc --prerelease
         $status = $?
         if($status -match "^(?i)true$")
         {         
-            write-host "Authentification passed successfully while accessing feed $feedurl."  -foregroundcolor green   
+            write-host "Authentification passed successfully while accessing feed $nugetFeedUrl."  -foregroundcolor green   
             $hasfeedautorization = $true; 
         }
         else
         {
-            Write-Host "Authentification error when trying to access the feed $feedUrl. "  -ForegroundColor Red    
+            Write-Host "Authentification error when trying to access the feed $nugetFeedUrl. "  -ForegroundColor Red    
         } 
     } 
-    catch {     
-		    Write-Host "Authentification error when trying to access the feed  $feedUrl : $($_.Exception.Message)"   -ForegroundColor Red    
+    catch 
+    {     
+		    Write-Host "Authentification error when trying to access the feed  $nugetFeedUrl : $($_.Exception.Message)"   -ForegroundColor Red    
     }
 }
 
@@ -178,22 +283,24 @@ function PromptAndDownload {
     )
 
     $response = Read-Host "$message Would you like to download it now? (Y/N)"
-    if ($response -eq 'Y' -or $response -eq 'y') {        
+    if ($response -eq 'Y' -or $response -eq 'y') 
+    {        
         Start-Process $downloadLink    
     }
 }
 
 # Check .NET SDKs
-if (-not $dotnet9Installed) {
-    $response = Read-Host ".NET 9.0 SDK is not installed. Would you like to install it now? (Y/N)"
+if (-not $dotnetInstalled) 
+{
+    $response = Read-Host ".NET $dotNetRequiredVersion SDK is not installed. Would you like to install it now? (Y/N)"
     if ($response -eq 'Y' -or $response -eq 'y') {        
-        winget install Microsoft.DotNet.SDK.9    
+        winget install $dotNetWingetInstall     
     }
 }
 
-# Check for Visual Studio 2022
+# Check for Visual Studio
 if (-not $vsVersion) {
-    PromptAndDownload "Visual Studio 2022 is not detected." "https://visualstudio.microsoft.com/vs/"
+    PromptAndDownload "Visual Studio is not detected." "https://visualstudio.microsoft.com/vs/"
 }
 
 # Check for Apax - Assuming there's a direct link for Apax
@@ -216,7 +323,7 @@ To manually add the GitHub NuGet feed to your sources:
 1. Generate a Personal Access Token on GitHub with 'read:packages', 'write:packages', and 'delete:packages' (if needed) permissions.
 2. Open a command prompt or terminal.
 3. Use the following command to add the feed to your NuGet sources:
-   dotnet nuget add source --username [YOUR_GITHUB_USERNAME] --password [YOUR_PERSONAL_ACCESS_TOKEN]  --store-password-in-clear-text --name gh-packages-inxton "https://nuget.pkg.github.com/inxton/index.json"
+   dotnet nuget add source --username [YOUR_GITHUB_USERNAME] --password [YOUR_PERSONAL_ACCESS_TOKEN]  --store-password-in-clear-text --name gh-packages-inxton $nugetFeedUrl
    
    Replace [YOUR_GITHUB_USERNAME] with your actual GitHub username and [YOUR_PERSONAL_ACCESS_TOKEN] with the token you generated.
 
@@ -226,47 +333,51 @@ Note: Treat your personal access token like a password. Keep it secure and do no
 }
 
 # Function to download VS Build Tools
-function Download-VSBuildTools {
-    $url = "https://aka.ms/vs/16/release/vs_buildtools.exe"
+function Download-VSBuildTools 
+{
     $output = "vs_buildtools.exe"
     
     Write-Host "Downloading Visual Studio Build Tools..."
-    Invoke-WebRequest -Uri $url -OutFile $output
+    Invoke-WebRequest -Uri $vsBuildToolInstallerDownloadLocation -OutFile $output
     
-    if (Test-Path $output) {
+    if (Test-Path $output) 
+    {
         Write-Host "Visual Studio Build Tools downloaded successfully."
-    } else {
+    } 
+    else 
+    {
         Write-Host "Failed to download Visual Studio Build Tools."
         exit 1
     }
 }
 
 # Function to install VS Build Tools
-function Install-VSBuildTools {
+function Install-VSBuildTools 
+{
     Write-Host "Installing Visual Studio Build Tools..."
     
-    #Start-Process -FilePath ".\vs_buildtools.exe --wait --norestart --nocache --passive --add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows10SDK --add Microsoft.VisualStudio.Component.Windows10SDK.18362" -Wait
-    .\vs_buildtools.exe --wait --norestart --nocache --passive --add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows10SDK --add Microsoft.VisualStudio.Component.Windows10SDK.18362
+    .\vs_buildtools.exe --wait --norestart --nocache --passive $vsBuildToolRequiredComponents
     Write-Host "Visual Studio Build Tools installation completed."
 }
-
-# Expected path from the environment variable
-$expectedVCToolsInstallDir = "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Tools\MSVC\14.29.30133"
 
 # Check if the environment variable exists
 $vctoolsDir = [System.Environment]::GetEnvironmentVariable("VCToolsInstallDir", [System.EnvironmentVariableTarget]::Machine)
 
-if ($vctoolsDir -and (Test-Path $vctoolsDir)) {
+if ($vctoolsDir -and (Test-Path $vctoolsDir)) 
+{
     # If the environment variable exists and the path is valid
     Write-Host "VCToolsInstallDir is set and the path exists: $vctoolsDir" -foregroundcolor green
-} else {
+} 
+else 
+{
     # If the environment variable doesn't exist or the path is invalid
     Write-Host "VCToolsInstallDir is not set correctly or the path does not exist." -foregroundcolor red
 
     # Prompt the user to confirm installation
     $userResponse = Read-Host "Would you like to download and install Visual Studio Build Tools? (Y/N)"
     
-    if ($userResponse -eq 'Y' -or $userResponse -eq 'y') {
+    if ($userResponse -eq 'Y' -or $userResponse -eq 'y') 
+    {
         # If the user confirms, download and install Visual Studio Build Tools
         Download-VSBuildTools
         Install-VSBuildTools
@@ -284,12 +395,17 @@ if ($vctoolsDir -and (Test-Path $vctoolsDir)) {
         # Verify that the environment variable and path are now correct
         $finalVCToolsInstallDir = [System.Environment]::GetEnvironmentVariable("VCToolsInstallDir", [System.EnvironmentVariableTarget]::Machine)
         
-        if ($finalVCToolsInstallDir -eq $expectedVCToolsInstallDir -and (Test-Path $finalVCToolsInstallDir)) {
+        if ($finalVCToolsInstallDir -eq $expectedVCToolsInstallDir -and (Test-Path $finalVCToolsInstallDir)) 
+        {
             Write-Host "VCToolsInstallDir is now set correctly: $finalVCToolsInstallDir"
-        } else {
+        } 
+        else 
+        {
             Write-Host "Failed to set VCToolsInstallDir environment variable or path."
         }
-    } else {
+    } 
+    else 
+    {
         # If the user declines installation
         Write-Host "Installation aborted by the user."
     }
