@@ -54,7 +54,7 @@ namespace axopen_integrations_blazor
             Entry.Plc.Connector.ReadWriteCycleDelay = 250;
             Entry.Plc.Connector.BuildAndStart();
 
-            Entry.Plc.Connector.ExceptionBehaviour = CommExceptionBehaviour.Ignore;
+            Entry.Plc.Connector.ExceptionBehaviour = CommExceptionBehaviour.ReThrow;
 
             Entry.Plc.Connector.SubscriptionMode = AXSharp.Connector.ReadSubscriptionMode.Polling;
 
