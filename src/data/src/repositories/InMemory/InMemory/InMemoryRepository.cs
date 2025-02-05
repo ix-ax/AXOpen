@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using AXOpen.Base;
 using AXOpen.Base.Data;
 
@@ -22,7 +23,6 @@ namespace AXOpen.Data.InMemory
         /// <param name="parameters">Repository settings</param>
         public InMemoryRepository(InMemoryRepositorySettings<T> parameters)
         {
-
         }
 
         /// <summary>
@@ -30,32 +30,32 @@ namespace AXOpen.Data.InMemory
         /// </summary>
         public InMemoryRepository()
         {
-
         }
 
         private readonly Dictionary<string, T> _repository = new Dictionary<string, T>();
+
         internal Dictionary<string, T> Records
         {
             get { return this._repository; }
         }
-      
-        protected override void CreateNvi(string identifier, T data) 
+
+        protected override void CreateNvi(string identifier, T data)
         {
             try
-            {                
+            {
                 if (_repository.Any(p => p.Value.Equals(data)))
                 {
                     throw new SameObjectReferenceException($"InMemory repository cannot contain two object with the same reference. You must create as new instance of '{nameof(T)}'");
                 }
-                                
-                _repository.Add(identifier, data);                                                   
+
+                _repository.Add(identifier, data);
             }
             catch (ArgumentException argumentException)
             {
                 throw new DuplicateIdException($"Record with ID '{identifier}' already exists in this collection.", argumentException);
             }
-                                              
         }
+
         protected override T ReadNvi(string identifier)
         {
             try
@@ -64,17 +64,15 @@ namespace AXOpen.Data.InMemory
             }
             catch (Exception ex)
             {
-
                 throw new UnableToLocateRecordId($"Unable to locate record with ID: {identifier} in {this.GetType()}.", ex);
             }
-            
         }
-        
+
         protected override void UpdateNvi(string identifier, T data)
         {
             try
             {
-                if(data == null)
+                if (data == null)
                 {
                     throw new Exception("Data object cannot be 'null'");
                 }
@@ -84,11 +82,10 @@ namespace AXOpen.Data.InMemory
             }
             catch (Exception ex)
             {
-
                 throw new UnableToUpdateRecord($"Unable to update record ID:{identifier} in {this.GetType()}.", ex);
             }
-           
         }
+
         protected override void DeleteNvi(string identifier)
         {
             this._repository.Remove(identifier);
@@ -114,9 +111,11 @@ namespace AXOpen.Data.InMemory
                     case eSearchMode.StartsWith:
                         enumerable = this.Records.Where(p => p.Key.StartsWith(identifier));
                         break;
+
                     case eSearchMode.Contains:
-                        enumerable = this.Records.Where(p =>p.Key.Contains(identifier));
+                        enumerable = this.Records.Where(p => p.Key.Contains(identifier));
                         break;
+
                     case eSearchMode.Exact:
                     default:
                         enumerable = this.Records.Where(p => p.Key == identifier);
@@ -140,6 +139,37 @@ namespace AXOpen.Data.InMemory
             return enumerable.Skip(skip).Take(limit).Select(x => x.Value);
         }
 
+        //protected override IEnumerable<T> GetRecordsNvi(IEnumerable<Expression<Func<T, bool>>> predicates, int limit = 100, int skip = 0, string sortExpresion = "Default", bool sortAscending = false)
+        //{
+        //    // 1. Get all records.
+        //    IEnumerable<T> records = Records.Values.ToList();
+
+        //    // 2. Apply filtering predicates.
+        //    if (predicates != null && predicates.Any())
+        //    {
+        //        foreach (var predicate in predicates)
+        //        {
+        //            // Optionally, adjust predicate behavior based on searchMode here.
+        //            records = records.Where(record => predicate(record));
+        //        }
+        //    }
+
+        //    if (sortExpresion == null || string.IsNullOrWhiteSpace(sortExpresion) || sortExpresion.Equals("Default"))
+        //    {
+        //        if (!sortAscending)
+        //            records = records.Reverse();
+        //    }
+        //    else
+        //    {
+        //        if (sortAscending)
+        //            records = records.OrderBy(x => PropertyHelper.GetPropertyValue(x, sortExpresion));
+        //        else
+        //            records = records.OrderByDescending(x => PropertyHelper.GetPropertyValue(x, sortExpresion));
+        //    }
+
+        //    return records.Skip(skip).Take(limit);
+        //}
+
         protected override long FilteredCountNvi(string id, eSearchMode searchMode)
         {
             if (string.IsNullOrEmpty(id) || string.IsNullOrWhiteSpace(id) || id == "*")
@@ -152,8 +182,10 @@ namespace AXOpen.Data.InMemory
                 {
                     case eSearchMode.StartsWith:
                         return this.Records.Where(p => p.Key.StartsWith(id)).LongCount();
+
                     case eSearchMode.Contains:
                         return this.Records.Where(p => p.Key.Contains(id)).LongCount();
+
                     case eSearchMode.Exact:
                     default:
                         return this.Records.Where(p => p.Key == id).LongCount();
@@ -165,7 +197,13 @@ namespace AXOpen.Data.InMemory
         {
             return this.Records.Any(p => p.Key == identifier);
         }
-        
-        public override IQueryable<T> Queryable { get { return this._repository.AsQueryable().Select(p => p.Value); } }
-    }    
+
+        protected override IEnumerable<T> GetRecordsNvi(IEnumerable<Expression<Func<T, bool>>> predicates, int limit, int skip, string sortExpresion, bool sortAscending)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override IQueryable<T> Queryable
+        { get { return this._repository.AsQueryable().Select(p => p.Value); } }
+    }
 }

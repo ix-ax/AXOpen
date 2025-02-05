@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using AXOpen.Base;
 using AXOpen.Base.Data;
 using AXOpen.Data;
-
 
 namespace AXOpen.Data.Json
 {
     /// <summary>
     /// Provides repository for storing data in files with `Json` format.
     /// <note type="warning">
-    /// This repository type is not suitable for large data collections.   
+    /// This repository type is not suitable for large data collections.
     /// Use this repository for settings, recipes or data persistence with limited number of records.
     /// </note>
     /// </summary>
@@ -37,10 +37,8 @@ namespace AXOpen.Data.Json
                 }
                 catch (Exception)
                 {
-
                     throw;
                 }
-
             }
         }
 
@@ -48,6 +46,7 @@ namespace AXOpen.Data.Json
         /// Get the location (directory) where the entries of this repository are placed.
         /// </summary>
         public string Location { get; private set; }
+
         protected override void CreateNvi(string identifier, T data)
         {
             try
@@ -63,8 +62,8 @@ namespace AXOpen.Data.Json
             {
                 throw ex;
             }
-
         }
+
         protected override T ReadNvi(string identifier)
         {
             try
@@ -75,14 +74,13 @@ namespace AXOpen.Data.Json
                 }
 
                 return this.Load(identifier, typeof(T));
-
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-
         }
+
         protected override void UpdateNvi(string identifier, T data)
         {
             try
@@ -96,11 +94,10 @@ namespace AXOpen.Data.Json
             }
             catch (Exception ex)
             {
-
                 throw new UnableToUpdateRecord($"Unable to update record ID:{identifier} in {Location}.", ex);
             }
-
         }
+
         protected override void DeleteNvi(string identifier)
         {
             if (this.RecordExists(identifier))
@@ -108,6 +105,7 @@ namespace AXOpen.Data.Json
                 File.Delete(Path.Combine(this.Location, identifier));
             }
         }
+
         protected override long CountNvi
         {
             get { return Directory.EnumerateFiles(Location).Count(); }
@@ -128,9 +126,11 @@ namespace AXOpen.Data.Json
                     case eSearchMode.StartsWith:
                         enumerable = Directory.EnumerateFiles(this.Location).Where(p => new FileInfo(p).Name.StartsWith(identifier));
                         break;
+
                     case eSearchMode.Contains:
                         enumerable = Directory.EnumerateFiles(this.Location).Where(p => new FileInfo(p).Name.Contains(identifier));
                         break;
+
                     case eSearchMode.Exact:
                     default:
                         enumerable = Directory.EnumerateFiles(this.Location).Select(p => new FileInfo(p)).Where(p => p.Name == identifier).Select(p => p.FullName);
@@ -154,6 +154,48 @@ namespace AXOpen.Data.Json
             return enumerable.Skip(skip).Take(limit).Select(x => this.Load(new FileInfo(x).Name, typeof(T)));
         }
 
+        //protected override IEnumerable<T> GetRecordsNvi(
+        //        IEnumerable<Expression<Func<T, bool>>> predicates,
+        //        int limit = 100,
+        //        int skip = 0,
+        //        string sortExpresion = "Default",
+        //        bool sortAscending = false)
+        //{
+        //    var filePaths = Directory.EnumerateFiles(this.Location);
+
+        //    var records = filePaths.Select(file =>
+        //    {
+        //        var fileName = new FileInfo(file).Name;
+        //        return (T)this.Load(fileName, typeof(T));
+        //    });
+
+        //    if (predicates != null && predicates.Any())
+        //    {
+        //        foreach (var predicate in predicates)
+        //        {
+        //            records = records.Where(predicate);
+        //        }
+        //    }
+
+        //    if (string.IsNullOrWhiteSpace(sortExpresion) || sortExpresion.Equals("Default", StringComparison.OrdinalIgnoreCase))
+        //    {
+        //        if (!sortAscending)
+        //        {
+        //            records = records.Reverse();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        // Use the sort expression to order the records by a given property.
+        //        // PropertyHelper.GetPropertyValue is assumed to use reflection to get the property value.
+        //        records = sortAscending
+        //            ? records.OrderBy(x => PropertyHelper.GetPropertyValue(x, sortExpresion))
+        //            : records.OrderByDescending(x => PropertyHelper.GetPropertyValue(x, sortExpresion));
+        //    }
+
+        //    return records.Skip(skip).Take(limit);
+        //}
+
         protected override long FilteredCountNvi(string id, eSearchMode searchMode)
         {
             if (string.IsNullOrEmpty(id) || string.IsNullOrWhiteSpace(id) || id == "*")
@@ -166,8 +208,10 @@ namespace AXOpen.Data.Json
                 {
                     case eSearchMode.StartsWith:
                         return Directory.EnumerateFiles(this.Location).Where(p => new FileInfo(p).Name.StartsWith(id)).Count();
+
                     case eSearchMode.Contains:
                         return Directory.EnumerateFiles(this.Location).Where(p => new FileInfo(p).Name.Contains(id)).Count();
+
                     case eSearchMode.Exact:
                     default:
                         return Directory.EnumerateFiles(this.Location).Select(p => new FileInfo(p)).Where(p => p.Name == id).Select(p => p.FullName).Count();
@@ -203,6 +247,7 @@ namespace AXOpen.Data.Json
                 serializer.Serialize(jw, obj, obj.GetType());
             }
         }
+
         internal T Load(string identifier, Type objtype)
         {
             var path = Path.Combine(this.Location, identifier);
@@ -217,6 +262,11 @@ namespace AXOpen.Data.Json
         protected override bool ExistsNvi(string identifier)
         {
             return RecordExists(identifier);
+        }
+
+        protected override IEnumerable<T> GetRecordsNvi(IEnumerable<Expression<Func<T, bool>>> predicates, int limit, int skip, string sortExpresion, bool sortAscending)
+        {
+            throw new NotImplementedException();
         }
 
         public override IQueryable<T> Queryable

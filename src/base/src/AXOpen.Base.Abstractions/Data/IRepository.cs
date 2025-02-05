@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace AXOpen.Base.Data
 {
@@ -41,6 +42,15 @@ namespace AXOpen.Base.Data
         bool Exists(string identifier);
         long FilteredCount(string id, eSearchMode searchMode = eSearchMode.Exact);
         IEnumerable<T> GetRecords(string identifier = "*", int limit = 100, int skip = 0, eSearchMode searchMode = eSearchMode.Exact, string sortExpresion = "Default", bool sortAscending = false);
+
+        IEnumerable<T> GetRecordsComplex(
+            IEnumerable<Expression<Func<T, bool>>> predicates,
+            int limit = 100,
+            int skip = 0,
+            string sortExpresion = "Default",
+            bool sortAscending = false
+            );
+
         T Read(string identifier);
         void Update(string identifier, T data);
         OnCreateDelegate<T> OnCreate { get; set; }

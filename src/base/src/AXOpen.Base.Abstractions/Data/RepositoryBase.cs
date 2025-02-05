@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using System.Security;
 
@@ -260,6 +261,9 @@ namespace AXOpen.Base.Data
         /// <returns></returns>
         protected abstract IEnumerable<T> GetRecordsNvi(string identifierContent, int limit, int skip, eSearchMode searchMode, string sortExpresion, bool sortAscending);
 
+        protected abstract IEnumerable<T> GetRecordsNvi(IEnumerable<Expression<Func<T, bool>>> predicates,
+            int limit,int skip, string sortExpresion, bool sortAscending);
+
         /// <summary>
         /// Counts records that contain given string in the id. (Concrete implementation of given repository type)
         /// </summary>
@@ -428,6 +432,18 @@ namespace AXOpen.Base.Data
             }
         }
 
+        public IEnumerable<T> GetRecordsComplex(IEnumerable<Expression<Func<T, bool>>> predicates,int limit = 100, int skip = 0, string sortExpresion = "Default", bool sortAscending = false)
+        {
+            try
+            {
+                return GetRecordsNvi(predicates, limit, skip, sortExpresion, sortAscending);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         /// <summary>
         /// Gets <see cref="IQueryable"/> of given repository.
         /// </summary>
@@ -465,7 +481,7 @@ namespace AXOpen.Base.Data
         /// <param name="message">The message that describes the error. </param>
         public RepositoryNotInitializedException(string message) : base(message)
         {
-            
+
         }
 
         /// <summary>Initializes a new instance of the <see cref="RepositoryNotInitializedException" /> class with a specified error message and a reference to the inner exception that is the cause of this exception.</summary>

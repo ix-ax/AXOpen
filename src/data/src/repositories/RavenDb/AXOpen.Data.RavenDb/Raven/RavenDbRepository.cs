@@ -11,7 +11,6 @@ using Raven.Client.Exceptions.Database;
 using Raven.Client.ServerWide;
 using Raven.Client.ServerWide.Operations;
 
-
 namespace AXOpen.Data.RavenDb
 {
     public static class SharedData
@@ -23,7 +22,6 @@ namespace AXOpen.Data.RavenDb
         where T : IBrowsableDataObject
     {
         private readonly IDocumentStore _store;
-
 
         protected void EnsureDatabaseExists(IDocumentStore store, string database = null, bool createDatabaseIfNotExists = true)
         {
@@ -53,7 +51,7 @@ namespace AXOpen.Data.RavenDb
         }
 
         public RavenDbRepository(RavenDbRepositorySettingsBase<T> parameters)
-        {           
+        {
             var existing = SharedData.Stores.SingleOrDefault(x => x.Database == parameters.Store.Database);
 
             if (existing != null)
@@ -130,7 +128,7 @@ namespace AXOpen.Data.RavenDb
         protected override long CountNvi => _store.Maintenance.Send(new GetStatisticsOperation()).CountOfDocuments;
 
         protected override IEnumerable<T> GetRecordsNvi(string identifier, int limit, int skip, eSearchMode searchMode, string sortExpresion, bool sortAscending)
-        {           
+        {
             using (var session = _store.OpenSession())
             {
                 IQueryable<T> query;
@@ -147,10 +145,12 @@ namespace AXOpen.Data.RavenDb
                             query = session.Query<T>()
                                            .Where(x => x.DataEntityId.StartsWith(identifier));
                             break;
+
                         case eSearchMode.Contains:
                             query = session.Query<T>()
                                            .Search(x => x.DataEntityId, $"*{identifier}*");
                             break;
+
                         case eSearchMode.Exact:
                         default:
                             query = session.Query<T>()
@@ -178,6 +178,7 @@ namespace AXOpen.Data.RavenDb
             }
         }
 
+        
         protected override long FilteredCountNvi(string identifier, eSearchMode searchMode)
         {
             if (identifier == "*")
@@ -189,18 +190,20 @@ namespace AXOpen.Data.RavenDb
                 using (var session = _store.OpenSession())
                 {
                     switch (searchMode)
-                    {                     
+                    {
                         case eSearchMode.StartsWith:
-                            return session.Query<T>()                             
+                            return session.Query<T>()
                                  .Where(x => x.DataEntityId.StartsWith(identifier))
                                  .Count();
-                        case eSearchMode.Contains:                           
-                            return session.Query<T>()                            
+
+                        case eSearchMode.Contains:
+                            return session.Query<T>()
                                 .Search(x => x.DataEntityId, $"*{identifier}*")
                                 .Count();
+
                         case eSearchMode.Exact:
                         default:
-                            return session.Query<T>()                               
+                            return session.Query<T>()
                                    .Where(x => x.DataEntityId == identifier)
                                    .Count();
                     }
@@ -212,9 +215,14 @@ namespace AXOpen.Data.RavenDb
         {
             using (var session = _store.OpenSession())
             {
-                T entity = session.Load<T>(identifier);               
+                T entity = session.Load<T>(identifier);
                 return entity != null;
             }
+        }
+
+        protected override IEnumerable<T> GetRecordsNvi(IEnumerable<Expression<Func<T, bool>>> predicates, int limit, int skip, string sortExpresion, bool sortAscending)
+        {
+            throw new NotImplementedException();
         }
 
         public override IQueryable<T> Queryable
