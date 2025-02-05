@@ -37,6 +37,21 @@ namespace AXOpen.Data
             set => this.DataExchange = (IAxoDataExchange)value;
         }
 
+
+        private ITwinObject _refUIData;
+        public ITwinObject RefUIData
+        {
+            get
+            {
+                if(_refUIData == null)
+                {
+                    _refUIData = DataExchange.CloneDataObject();
+                }
+
+                return _refUIData;
+            }
+        }
+
         public DataExchangeViewModel()
         {
         }
@@ -94,9 +109,9 @@ namespace AXOpen.Data
                 _selectedRecord = value;
                 if (value != null)
                 {
-                    DataExchange.FromRepositoryToShadowsAsync(value).Wait();
-                    DataExchange.ChangeTrackerSetChanges();
-                    IsHashCorrect = DataExchange.IsHashCorrect(AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
+                    DataExchange.FromRepositoryToShadowsAsync(value, RefUIData).Wait();
+                    DataExchange.ChangeTrackerSetChanges(RefUIData);
+                    IsHashCorrect = DataExchange.IsHashCorrect(AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity, RefUIData);
                     Changes = DataExchange.ChangeTrackerGetChanges().OrderBy(p => p.DateTime.Ticks).ToList();
                 }
             }
@@ -214,7 +229,7 @@ namespace AXOpen.Data
                     return;
                 }
 
-                await DataExchange.CreateNewAsync(CreateItemId);
+                await DataExchange.CreateNewAsync(CreateItemId, RefUIData);
                 AxoApplication.Current.Logger.Information($"Created {CreateItemId} in {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
                 AlertDialogService?.AddAlertDialog(eAlertType.Success, "Created!", "Item was successfully created!", 10);
             }
@@ -257,7 +272,7 @@ namespace AXOpen.Data
         {
             try
             {
-                await DataExchange.CreateCopyCurrentShadowsAsync(CreateItemId);
+                await DataExchange.CreateCopyCurrentShadowsAsync(CreateItemId, RefUIData);
                 AxoApplication.Current.Logger.Information($"Copied {CreateItemId} into {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
                 AlertDialogService.AddAlertDialog(eAlertType.Success, "Copied!", "Item was successfully copied!", 10);
             }
@@ -277,14 +292,14 @@ namespace AXOpen.Data
 
         public async Task Edit()
         {
-            await DataExchange.UpdateFromShadowsAsync();
+            await DataExchange.UpdateFromShadowsAsync(RefUIData);
             AlertDialogService?.AddAlertDialog(eAlertType.Success, "Edited!", "Item was successfully edited!", 10);
             UpdateObservableRecords();
         }
 
         public async Task SendToPlc()
         {
-            await DataExchange.FromRepositoryToControllerAsync(SelectedRecord);
+            await DataExchange.FromRepositoryToControllerAsync(SelectedRecord, RefUIData);
             AxoApplication.Current.Logger.Information($"Sended to Plc {SelectedRecord.DataEntityId} in {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
             AlertDialogService?.AddAlertDialog(eAlertType.Success, "Sended to PLC!", "Item was successfully sended to PLC!", 10);
         }
@@ -293,7 +308,7 @@ namespace AXOpen.Data
         {
             try
             {
-                await DataExchange.CreateDataFromControllerAsync(CreateItemId);
+                await DataExchange.CreateDataFromControllerAsync(CreateItemId, RefUIData);
                 AlertDialogService?.AddAlertDialog(eAlertType.Success, "Loaded from PLC!", "Item was successfully loaded from PLC!", 10);
                 AxoApplication.Current.Logger.Information($"Loaded from Plc {CreateItemId} into {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
             }

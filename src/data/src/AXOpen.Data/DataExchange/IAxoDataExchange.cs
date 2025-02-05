@@ -13,15 +13,12 @@ namespace AXOpen.Data
 {
     public partial interface IAxoDataExchange
     {
+        ITwinObject CloneDataObject();
+
         /// <summary>
         /// Gets repository associated with this <see cref="IAxoDataExchange"/> object.
         /// </summary>
         IRepository? Repository { get; }
-
-        /// <summary>
-        /// Gets data of this AxoDataExchange object for automated UI generation.
-        /// </summary>
-        ITwinObject RefUIData { get; }
 
         bool VerifyHash { get; set; }
 
@@ -46,7 +43,7 @@ namespace AXOpen.Data
         /// Sets changes to changeTracker.
         /// </summary>
         /// <param name="entity">Entity from which is set data.</param>
-        void ChangeTrackerSetChanges();
+        void ChangeTrackerSetChanges(ITwinObject dataObject);
 
         /// <summary>
         /// Get object which locked this repository.
@@ -60,7 +57,7 @@ namespace AXOpen.Data
         /// <param name="by"></param>
         void SetLockedBy(object by);
 
-        bool IsHashCorrect(IIdentity identity);
+        bool IsHashCorrect(IIdentity identity, ITwinObject dataObject);
 
         /// <summary>
         /// Gets changes from changeTracker.
@@ -78,27 +75,27 @@ namespace AXOpen.Data
         /// Copies the data from the repository(ies) to shadows of this twin object.
         /// </summary>
         /// <param name="entity">Data entity object.</param>
-        Task FromRepositoryToShadowsAsync(IBrowsableDataObject entity);
+        Task FromRepositoryToShadowsAsync(IBrowsableDataObject entity, ITwinObject dataObject);
 
         /// <summary>
         /// Updates data form shadows of this object to respective record in the repository.
         /// </summary>
         /// <returns>Task</returns>
-        Task UpdateFromShadowsAsync();
+        Task UpdateFromShadowsAsync(ITwinObject dataObject);
 
         /// <summary>
         /// Loads data from respective record of the repository into the controller.
         /// </summary>
         /// <param name="entity">Entity to be loaded into the controller.</param>
         /// <returns></returns>
-        Task FromRepositoryToControllerAsync(IBrowsableDataObject entity);
+        Task FromRepositoryToControllerAsync(IBrowsableDataObject entity, ITwinObject dataObject);
 
         /// <summary>
         /// Load data from controller and creates new record in the repository.
         /// </summary>
         /// <param name="recordId"></param>
         /// <returns></returns>
-        Task CreateDataFromControllerAsync(string recordId);
+        Task CreateDataFromControllerAsync(string recordId, ITwinObject dataObject);
 
         /// <summary>
         /// Deletes record from the repository.
@@ -112,7 +109,7 @@ namespace AXOpen.Data
         /// </summary>
         /// <param name="identifier">Id of the record.</param>
         /// <returns>Task</returns>
-        Task CreateNewAsync(string identifier);
+        Task<ITwinObject> CreateNewAsync(string identifier, ITwinObject dataObject);
 
         /// <summary>
         /// Check if record exists in the repository.
@@ -126,14 +123,14 @@ namespace AXOpen.Data
         /// </summary>
         /// <param name="identifier">Id of the record.</param>
         /// <returns>Task</returns>
-        Task CreateOrUpdate(string identifier);
+        Task CreateOrUpdate(string identifier, ITwinObject dataObject);
 
         /// <summary>
         /// Create new record of the current data present in the shadows of this object in the repository.
         /// </summary>
         /// <param name="identifier">Id of the new record</param>
         /// <returns></returns>
-        Task CreateCopyCurrentShadowsAsync(string identifier);
+        Task CreateCopyCurrentShadowsAsync(string identifier, ITwinObject dataObject);
 
         /// <summary>
         /// Provides handler for remote (controller's) request to create new data entry in the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>
@@ -221,7 +218,6 @@ namespace AXOpen.Data
         }
     }
 }
-
 
 namespace AXOpen.Data
 {
