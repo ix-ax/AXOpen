@@ -30,7 +30,7 @@ public partial class AxoDataFragmentExchange
     public object CreateDataFragments()
     {
         DataFragments = GetDataSetProperty<AxoDataFragmentAttribute, IAxoDataExchange>().ToArray();
-        RefUIData = new AxoFragmentedDataCompound(this, DataFragments.Select(p => p.RefUIData).Cast<ITwinElement>().ToList());
+        //RefUIData = new AxoFragmentedDataCompound(this, DataFragments.Select(p => p.RefUIData).Cast<ITwinElement>().ToList());
         Repository = new AxoCompoundRepository(DataFragments);
 
         foreach (var prop in this.GetType().GetProperties())
@@ -98,7 +98,7 @@ public partial class AxoDataFragmentExchange
         private set => _repository = value;
     }
 
-    public ITwinObject RefUIData { get; private set; }
+    //public ITwinObject RefUIData { get; private set; }
 
     /// <summary>
     /// Stop observing changes of the data object with changeTracker.
@@ -138,10 +138,10 @@ public partial class AxoDataFragmentExchange
     /// <param name="entity">Entity from which is set data.</param>
     public void ChangeTrackerSetChanges()
     {
-        foreach (var fragment in DataFragments)
-        {
-            fragment.ChangeTrackerSetChanges();
-        }
+        //foreach (var fragment in DataFragments)
+        //{
+        //    fragment.ChangeTrackerSetChanges();
+        //}
     }
 
     /// <summary>
@@ -186,11 +186,11 @@ public partial class AxoDataFragmentExchange
 
     public bool IsHashCorrect(IIdentity identity)
     {
-        foreach (var fragment in DataFragments)
-        {
-            if (!fragment.IsHashCorrect(identity))
-                return false;
-        }
+        //foreach (var fragment in DataFragments)
+        //{
+        //    if (!fragment.IsHashCorrect(identity))
+        //        return false;
+        //}
         return true;
     }
 
@@ -209,63 +209,63 @@ public partial class AxoDataFragmentExchange
 
     private static void CreateNewPocoInFragmentRepository(string identifier, IAxoDataExchange fragment)
     {
-        Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)fragment.RefUIData.CreatePoco();
-        poco.DataEntityId = identifier;
-        poco.Hash = HashHelper.CreateHash(poco);
+        //Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)fragment.RefUIData.CreatePoco();
+        //poco.DataEntityId = identifier;
+        //poco.Hash = HashHelper.CreateHash(poco);
 
-        fragment?.Repository.Create(identifier, poco);
+        //fragment?.Repository.Create(identifier, poco);
     }
 
     public async Task FromRepositoryToShadowsAsync(IBrowsableDataObject entity)
     {
-        foreach (var fragment in DataFragments)
-        {
-            var exist = fragment.Repository.Exists(entity.DataEntityId);
+        //foreach (var fragment in DataFragments)
+        //{
+        //    var exist = fragment.Repository.Exists(entity.DataEntityId);
 
-            if (exist)
-            {
-                var record = fragment.Repository.Read(entity.DataEntityId);
-                await fragment.RefUIData.PlainToShadow(record);
-                ((AxoDataEntity)fragment.RefUIData).Hash = record.Hash;
-                ((AxoDataEntity)fragment.RefUIData).Changes = record.Changes;
-            }
-            else
-            {
-                CreateNewPocoInFragmentRepository(entity.DataEntityId, fragment);
-            }
-        }
+        //    if (exist)
+        //    {
+        //        var record = fragment.Repository.Read(entity.DataEntityId);
+        //        await fragment.RefUIData.PlainToShadow(record);
+        //        ((AxoDataEntity)fragment.RefUIData).Hash = record.Hash;
+        //        ((AxoDataEntity)fragment.RefUIData).Changes = record.Changes;
+        //    }
+        //    else
+        //    {
+        //        CreateNewPocoInFragmentRepository(entity.DataEntityId, fragment);
+        //    }
+        //}
     }
 
     public async Task UpdateFromShadowsAsync()
     {
-        foreach (var fragment in DataFragments)
-        {
-            var plainer = await (fragment.RefUIData).ShadowToPlain<dynamic>();
-            fragment.ChangeTrackerSaveObservedChanges(plainer);
-            plainer.Hash = HashHelper.CreateHash(plainer);
-            fragment.Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
-        }
+        //foreach (var fragment in DataFragments)
+        //{
+        //    var plainer = await (fragment.RefUIData).ShadowToPlain<dynamic>();
+        //    fragment.ChangeTrackerSaveObservedChanges(plainer);
+        //    plainer.Hash = HashHelper.CreateHash(plainer);
+        //    fragment.Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
+        //}
     }
 
     public async Task FromRepositoryToControllerAsync(IBrowsableDataObject selected)
     {
-        foreach (var fragment in DataFragments)
-        {
-            await fragment.RefUIData.PlainToOnline(fragment.Repository.Read(selected.DataEntityId));
-        }
+        //foreach (var fragment in DataFragments)
+        //{
+        //    await fragment.RefUIData.PlainToOnline(fragment.Repository.Read(selected.DataEntityId));
+        //}
     }
 
     public async Task CreateDataFromControllerAsync(string recordId)
     {
-        foreach (var fragment in DataFragments)
-        {
-            var plainer = await fragment.RefUIData.OnlineToPlain<dynamic>();
-            plainer.DataEntityId = recordId;
-            plainer.Hash = HashHelper.CreateHash(plainer);
-            fragment.Repository.Create(plainer.DataEntityId, plainer);
-            var plain = fragment.Repository.Read(plainer.DataEntityId);
-            fragment.RefUIData.PlainToShadow(plain);
-        }
+        //foreach (var fragment in DataFragments)
+        //{
+        //    var plainer = await fragment.RefUIData.OnlineToPlain<dynamic>();
+        //    plainer.DataEntityId = recordId;
+        //    plainer.Hash = HashHelper.CreateHash(plainer);
+        //    fragment.Repository.Create(plainer.DataEntityId, plainer);
+        //    var plain = fragment.Repository.Read(plainer.DataEntityId);
+        //    fragment.RefUIData.PlainToShadow(plain);
+        //}
     }
 
     public async Task Delete(string identifier)
@@ -275,13 +275,13 @@ public partial class AxoDataFragmentExchange
 
     public async Task CreateCopyCurrentShadowsAsync(string recordId)
     {
-        foreach (var fragment in DataFragments)
-        {
-            var source = (Pocos.AXOpen.Data.IAxoDataEntity)await fragment.RefUIData.ShadowToPlain<IBrowsableDataObject>();
-            source.DataEntityId = recordId;
-            source.Hash = HashHelper.CreateHash(source);
-            fragment.Repository.Create(source.DataEntityId, source);
-        }
+        //foreach (var fragment in DataFragments)
+        //{
+        //    var source = (Pocos.AXOpen.Data.IAxoDataEntity)await fragment.RefUIData.ShadowToPlain<IBrowsableDataObject>();
+        //    source.DataEntityId = recordId;
+        //    source.Hash = HashHelper.CreateHash(source);
+        //    fragment.Repository.Create(source.DataEntityId, source);
+        //}
     }
 
     public async Task<bool> ExistsAsync(string recordId)
@@ -296,27 +296,78 @@ public partial class AxoDataFragmentExchange
 
     public async Task CreateOrUpdate(string recordId)
     {
-        foreach (var fragment in DataFragments)
-        {
-            if (Repository.Exists(recordId))
-            {
-                var plainer = await ((ITwinObject)RefUIData).ShadowToPlain<dynamic>();
-                fragment.ChangeTrackerSaveObservedChanges(plainer);
-                plainer.Hash = HashHelper.CreateHash(plainer);
-                fragment.Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
-            }
-            else
-            {
-                Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)fragment.RefUIData.CreatePoco();
-                poco.DataEntityId = recordId;
-                poco.Hash = HashHelper.CreateHash(poco);
+        //foreach (var fragment in DataFragments)
+        //{
+        //    if (Repository.Exists(recordId))
+        //    {
+        //        var plainer = await ((ITwinObject)RefUIData).ShadowToPlain<dynamic>();
+        //        fragment.ChangeTrackerSaveObservedChanges(plainer);
+        //        plainer.Hash = HashHelper.CreateHash(plainer);
+        //        fragment.Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
+        //    }
+        //    else
+        //    {
+        //        Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)fragment.RefUIData.CreatePoco();
+        //        poco.DataEntityId = recordId;
+        //        poco.Hash = HashHelper.CreateHash(poco);
 
-                fragment.Repository.Create(recordId, poco);
-            }
-        }
+        //        fragment.Repository.Create(recordId, poco);
+        //    }
+        //}
 
-        DataFragments.First().Repository.Read(recordId);
+        //DataFragments.First().Repository.Read(recordId);
     }
+    #region
+    public ITwinObject CloneDataObject()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void ChangeTrackerSetChanges(ITwinObject dataObject)
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool IsHashCorrect(IIdentity identity, ITwinObject dataObject)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task FromRepositoryToShadowsAsync(IBrowsableDataObject entity, ITwinObject dataObject)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task UpdateFromShadowsAsync(ITwinObject dataObject)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task FromRepositoryToControllerAsync(IBrowsableDataObject entity, ITwinObject dataObject)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task CreateDataFromControllerAsync(string recordId, ITwinObject dataObject)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<ITwinObject> CreateNewAsync(string identifier, ITwinObject dataObject)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task CreateOrUpdate(string identifier, ITwinObject dataObject)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task CreateCopyCurrentShadowsAsync(string identifier, ITwinObject dataObject)
+    {
+        throw new NotImplementedException();
+    }
+    #endregion
 
     public async Task<bool> RemoteCreate(string identifier)
     {

@@ -280,7 +280,7 @@ else
     @if (!ModalDataView && Vm.SelectedRecord != null)
     {
         <div class="border p-2">
-            <RenderableContentControl Context="Vm.DataExchange.RefUIData" Presentation="ShadowDisplay"></RenderableContentControl>
+            <RenderableContentControl Context="Vm.RefUIData" Presentation="ShadowDisplay"></RenderableContentControl>
             @if (Presentation.Equals("Command"))
             {
                 <div class="d-flex justify-content-end mt-3">
@@ -388,7 +388,7 @@ else
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <RenderableContentControl Context="Vm.DataExchange.RefUIData" Presentation="ShadowDisplay"></RenderableContentControl>
+                    <RenderableContentControl Context="Vm.RefUIData" Presentation="ShadowDisplay"></RenderableContentControl>
                 </div>
                 <div class="modal-footer">
                     @if (Presentation.Equals("Command"))
@@ -496,11 +496,11 @@ else
                 <div class="modal-body">
                     @if (Vm.IsLockedByMeOrNull())
                     {
-                        <RenderableContentControl Context="Vm.DataExchange.RefUIData" Presentation="ShadowControl"></RenderableContentControl>
+                        <RenderableContentControl Context="Vm.RefUIData" Presentation="ShadowControl"></RenderableContentControl>
                     }
                     else
                     {
-                        <RenderableContentControl Context="Vm.DataExchange.RefUIData" Presentation="ShadowDisplay"></RenderableContentControl>
+                        <RenderableContentControl Context="Vm.RefUIData" Presentation="ShadowDisplay"></RenderableContentControl>
                     }
                 </div>
                 <div class="modal-footer">
@@ -729,7 +729,7 @@ else
                         @{
                             bool firstIteration = true;
                         }
-                        @foreach (var fragment in Vm.DataExchange.RefUIData.GetChildren().DefaultIfEmpty(Vm.DataExchange.RefUIData))
+                        @foreach (var fragment in Vm.RefUIData.GetChildren().DefaultIfEmpty(Vm.RefUIData))
                         {
                             <div class="accordion-item">
                                 <div class="accordion-header">
