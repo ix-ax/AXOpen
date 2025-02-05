@@ -32,6 +32,8 @@ namespace AXOpen.Data;
 public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEntity
     where TPlain : Pocos.AXOpen.Data.IAxoDataEntity, new()
 {
+    public ITwinObject? Data => DataEntity as ITwinObject;
+
     private TOnline _dataEntity;
 
     public ITwinObject CloneDataObject()
@@ -480,7 +482,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     }
 
     /// <inheritdoc />
-    public async Task<ITwinObject> CreateNewAsync(string identifier, ITwinObject dataObject)
+    public async Task CreateNewAsync(string identifier, ITwinObject dataObject)
     {
         Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)dataObject.CreatePoco();
         poco.DataEntityId = identifier;
@@ -489,8 +491,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         this.Repository.Create(identifier, poco);
 
         var plain = Repository.Read(identifier);
-        dataObject.PlainToShadow(plain);
-        return dataObject;
+        dataObject.PlainToShadow(plain);        
     }
 
     /// <inheritdoc />

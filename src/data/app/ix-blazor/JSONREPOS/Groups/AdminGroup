@@ -4,9 +4,23 @@
   "DataEntityId": "AdminGroup",
   "Name": "AdminGroup",
   "Roles": [
-    "Administrator"
+    "Administrator",
+    "process_settings_access",
+    "process_traceability_access",
+    "can_run_ground_mode",
+    "can_run_automat_mode",
+    "can_run_service_mode",
+    "can_skip_steps_in_sequence",
+    "can_data_item_create",
+    "can_data_item_edit",
+    "can_data_item_copy",
+    "can_data_item_delete",
+    "can_data_send_to_plc",
+    "can_data_load_from_plc",
+    "can_data_export",
+    "can_data_import"
   ],
-  "RolesHash": "AQAAAAIAAYagAAAAEOnVgoEc0N/grlrKHOmSswEnXUk0/PHHYrCCns0sBFfQdP27cLrZ3LZPIFyLd6X/oA==",
+  "RolesHash": "AQAAAAIAAYagAAAAEOPdwh+uhMG9DkzyJrBFcVJkII+nz18KMY//f4CfNO5B13Z06cM3fzwGjbRrXSWSGQ==",
   "Created": "2023-08-09T12:33:03.2736142+02:00",
-  "Modified": "2023-08-09T12:33:03.4914502+02:00"
+  "Modified": "2025-02-05T16:30:45.642462+01:00"
 }

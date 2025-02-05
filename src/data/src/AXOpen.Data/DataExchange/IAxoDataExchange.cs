@@ -15,6 +15,8 @@ namespace AXOpen.Data
     {
         ITwinObject CloneDataObject();
 
+        ITwinObject Data { get; }
+
         /// <summary>
         /// Gets repository associated with this <see cref="IAxoDataExchange"/> object.
         /// </summary>
@@ -109,7 +111,7 @@ namespace AXOpen.Data
         /// </summary>
         /// <param name="identifier">Id of the record.</param>
         /// <returns>Task</returns>
-        Task<ITwinObject> CreateNewAsync(string identifier, ITwinObject dataObject);
+        Task CreateNewAsync(string identifier, ITwinObject dataObject);
 
         /// <summary>
         /// Check if record exists in the repository.
@@ -216,6 +218,8 @@ namespace AXOpen.Data
             if (Directory.Exists(path))
                 Directory.Delete(path, true);
         }
+
+        
     }
 }
 

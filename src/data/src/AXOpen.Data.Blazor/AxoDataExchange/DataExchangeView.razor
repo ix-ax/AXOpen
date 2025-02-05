@@ -148,13 +148,23 @@ else
 
                                 @foreach (ColumnData column in Columns.ToList())
                                 {
-                                    if (column.Clickable)
+                                    
+                                    try
                                     {
-                                        <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@(PropertyHelper.GetPropertyValue(item, column.BindingValue))</td>
+                                        var propertyValue = PropertyHelper.GetPropertyValue(item, column.BindingValue);
+
+                                        if (column.Clickable)
+                                        {
+                                            <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@(propertyValue)</td>
+                                        }
+                                        else
+                                        {
+                                            <td>@(propertyValue)</td>
+                                        }
                                     }
-                                    else
-                                    {
-                                        <td>@(PropertyHelper.GetPropertyValue(item, column.BindingValue))</td>
+                                    catch (Exception ex)
+                                    {                                        
+                                        <td>@ex.Message</td>
                                     }
                                 }
                             }
@@ -164,14 +174,23 @@ else
 
                                 @foreach (ColumnData column in Columns)
                                 {
-                                    if (column.Clickable)
+                                    try
                                     {
-                                        <td style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@(PropertyHelper.GetPropertyValue(item, column.BindingValue))</td>
+                                        var propertyValue = PropertyHelper.GetPropertyValue(item, column.BindingValue);
+                                        if (column.Clickable)
+                                        {
+                                            <td style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@(propertyValue)</td>
+                                        }
+                                        else
+                                        {
+                                            <td>@(propertyValue)</td>
+                                        }
                                     }
-                                    else
+                                    catch (Exception ex)
                                     {
-                                        <td>@(PropertyHelper.GetPropertyValue(item, column.BindingValue))</td>
+                                        <td>@ex.Message</td>
                                     }
+                                    
                                 }
                             }
 
