@@ -122,7 +122,7 @@ namespace AXOpen.Data
             if (IsLockedByMeOrNull())
             {
                 DataExchange.SetLockedBy(this);
-                DataExchange.ChangeTrackerStartObservingChanges(AuthenticationProvider.GetAuthenticationStateAsync().Result);
+                DataExchange.ChangeTrackerStartObservingChanges(AuthenticationProvider.GetAuthenticationStateAsync().Result, this.RefUIData);
             }
         }
 
@@ -130,7 +130,7 @@ namespace AXOpen.Data
         {
             if (IsLockedByMeOrNull())
             {
-                DataExchange.ChangeTrackerStopObservingChanges();
+                DataExchange.ChangeTrackerStopObservingChanges(this.RefUIData);
                 DataExchange.SetLockedBy(null);
             }
         }

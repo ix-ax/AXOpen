@@ -103,31 +103,31 @@ public partial class AxoDataFragmentExchange
     /// <summary>
     /// Stop observing changes of the data object with changeTracker.
     /// </summary>
-    public void ChangeTrackerStopObservingChanges()
+    public void ChangeTrackerStopObservingChanges(ITwinObject dataObject)
     {
-        foreach (var fragment in DataFragments)
-        {
-            fragment.ChangeTrackerStopObservingChanges();
-        }
+        //foreach (var fragment in DataFragments)
+        //{
+        //    fragment.ChangeTrackerStopObservingChanges();
+        //}
     }
 
     /// <summary>
     /// Start observing changes of the data object with changeTracker.
     /// </summary>
     /// <param name="authenticationState">Authentication state of current logged user.</param>
-    public void ChangeTrackerStartObservingChanges(AuthenticationState authenticationState)
+    public void ChangeTrackerStartObservingChanges(AuthenticationState authenticationState, ITwinObject dataObject)
     {
-        foreach (var fragment in DataFragments)
-        {
-            fragment.ChangeTrackerStartObservingChanges(authenticationState);
-        }
+        //foreach (var fragment in DataFragments)
+        //{
+        //    fragment.ChangeTrackerStartObservingChanges(authenticationState);
+        //}
     }
 
     /// <summary>
     /// Saves observed changes from changeTracker to object.
     /// </summary>
     /// <param name="plainObject"></param>
-    public void ChangeTrackerSaveObservedChanges(IBrowsableDataObject plainObject)
+    public void ChangeTrackerSaveObservedChanges(IBrowsableDataObject plainObject, ITwinObject dataObject)
     {
         throw new NotImplementedException();
     }

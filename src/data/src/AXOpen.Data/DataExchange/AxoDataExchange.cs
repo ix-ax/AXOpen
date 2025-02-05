@@ -89,27 +89,27 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <summary>
     /// Stop observing changes of the data object with changeTracker.
     /// </summary>
-    public void ChangeTrackerStopObservingChanges()
+    public void ChangeTrackerStopObservingChanges(ITwinObject dataObject)
     {
-        CrudDataObject?.ChangeTracker.StopObservingChanges();
+        (dataObject as ICrudDataObject)?.ChangeTracker.StopObservingChanges();        
     }
 
     /// <summary>
     /// Start observing changes of the data object with changeTracker.
     /// </summary>
     /// <param name="authenticationState">Authentication state of current logged user.</param>
-    public void ChangeTrackerStartObservingChanges(AuthenticationState authenticationState)
+    public void ChangeTrackerStartObservingChanges(AuthenticationState authenticationState, ITwinObject dataObject)
     {
-        CrudDataObject?.ChangeTracker.StartObservingChanges(authenticationState);
+        (dataObject as ICrudDataObject)?.ChangeTracker.StartObservingChanges(authenticationState);
     }
 
     /// <summary>
     /// Saves observed changes from changeTracker to object.
     /// </summary>
     /// <param name="plainObject"></param>
-    public void ChangeTrackerSaveObservedChanges(IBrowsableDataObject plainObject)
+    public void ChangeTrackerSaveObservedChanges(IBrowsableDataObject plainObject, ITwinObject dataObject)
     {
-        CrudDataObject?.ChangeTracker.SaveObservedChanges(plainObject);
+        (dataObject as ICrudDataObject)?.ChangeTracker.SaveObservedChanges(plainObject);
     }
 
     /// <summary>
@@ -118,6 +118,8 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <param name="entity">Entity from which is set data.</param>
     public void ChangeTrackerSetChanges(ITwinObject dataObject)
     {
+
+        //(dataObject as ICrudDataObject)?
         CrudDataObject.Changes = ((AxoDataEntity)dataObject).Changes;
     }
 
@@ -504,7 +506,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     public async Task UpdateFromShadowsAsync(ITwinObject dataObject)
     {
         var plainer = await ((ITwinObject)dataObject).ShadowToPlain<dynamic>();
-        ChangeTrackerSaveObservedChanges(plainer);
+        ChangeTrackerSaveObservedChanges(plainer, dataObject);
         plainer.Hash = HashHelper.CreateHash(plainer);
         Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
     }
@@ -708,7 +710,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         if (Repository.Exists(recordId))
         {
             var plainer = await ((ITwinObject)dataObject).ShadowToPlain<dynamic>();
-            ChangeTrackerSaveObservedChanges(plainer);
+            ChangeTrackerSaveObservedChanges(plainer, dataObject);
             plainer.Hash = HashHelper.CreateHash(plainer);
             Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
         }

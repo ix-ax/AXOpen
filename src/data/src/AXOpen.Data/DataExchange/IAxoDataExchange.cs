@@ -25,19 +25,19 @@ namespace AXOpen.Data
         /// <summary>
         /// Stop observing changes of the data object with changeTracker.
         /// </summary>
-        void ChangeTrackerStopObservingChanges();
+        void ChangeTrackerStopObservingChanges(ITwinObject dataObject);
 
         /// <summary>
         /// Start observing changes of the data object with changeTracker.
         /// </summary>
         /// <param name="authenticationState">Authentication state of current logged user.</param>
-        void ChangeTrackerStartObservingChanges(AuthenticationState authenticationState);
+        void ChangeTrackerStartObservingChanges(AuthenticationState authenticationState, ITwinObject dataObject);
 
         /// <summary>
         /// Saves observed changes from changeTracker to object.
         /// </summary>
         /// <param name="plainObject"></param>
-        void ChangeTrackerSaveObservedChanges(IBrowsableDataObject plainObject);
+        void ChangeTrackerSaveObservedChanges(IBrowsableDataObject plainObject, ITwinObject dataObject);
 
         /// <summary>
         /// Sets changes to changeTracker.
