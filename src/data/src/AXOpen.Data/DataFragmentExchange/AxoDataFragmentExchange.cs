@@ -21,13 +21,24 @@ public partial class AxoDataFragmentExchange
     private IRepository? _repository;
     protected IAxoDataExchange[] DataFragments { get; private set; }
 
+    /// <summary>
+    /// Creates data fragments from properties annotated with <see cref="AxoDataFragmentAttribute" />
+    /// and returns new instance of <see cref="AxoDataFragmentExchange"/>
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns>New instance of <see cref="AxoDataFragmentExchange"/></returns>
     public T? CreateDataFragments<T>() where T : AxoDataFragmentExchange
     {
         return CreateDataFragments() as T;
     }
     
-    public bool VerifyHash { get; set; } = false;
+    public bool ShouldVerifyHash { get; set; } = false;
 
+    /// <summary>
+    /// Creates data fragments from properties annotated with <see cref="AxoDataFragmentAttribute" />
+    /// and returns new instance of <see cref="AxoDataFragmentExchange"/>
+    /// </summary>
+    /// <returns>New instance of AxoDataFragmentExchange</returns>
     public object CreateDataFragments()
     {
         DataFragments = GetDataSetProperty<AxoDataFragmentAttribute, IAxoDataExchange>().ToArray();
@@ -39,7 +50,7 @@ public partial class AxoDataFragmentExchange
             var attr = prop.GetCustomAttribute(typeof(AxoDataVerifyHashAttribute));
             if (attr != null)
             {
-                DataFragments.First(p => p.GetType() == prop.PropertyType).VerifyHash = true;
+                DataFragments.First(p => p.GetType() == prop.PropertyType).ShouldVerifyHash = true;
             }
         }
 
@@ -55,6 +66,10 @@ public partial class AxoDataFragmentExchange
         await this.WriteAsync();
     }
 
+    /// <summary>
+    ///    Deinitializes data exchange between remote controller and this <see cref="AxoDataExchange{TOnline,TPlain}" />
+    /// </summary>
+    /// <returns></returns>
     public async Task DeInitializeRemoteDataExchange()
     {
         Operation.DeInitialize();
@@ -93,6 +108,9 @@ public partial class AxoDataFragmentExchange
         }
     }
 
+    /// <summary>
+    /// Repository for this data exchange.
+    /// </summary>
     public IRepository? Repository
     {
         get => _repository ?? throw new RepositoryNotInitializedException(this.Symbol);
@@ -102,30 +120,33 @@ public partial class AxoDataFragmentExchange
     /// <summary>
     /// Stop observing changes of the data object with changeTracker.
     /// </summary>
+    /// <param name="dataObject">Data object</param>
     public void ChangeTrackerStopObservingChanges(ITwinObject dataObject)
     {
-        //foreach (var fragment in DataFragments)
-        //{
-        //    fragment.ChangeTrackerStopObservingChanges();
-        //}
+        foreach (var fragment in GetFragments(dataObject))
+        {
+            fragment.Manager.ChangeTrackerStopObservingChanges(fragment.Twin);
+        }
     }
 
     /// <summary>
     /// Start observing changes of the data object with changeTracker.
     /// </summary>
     /// <param name="authenticationState">Authentication state of current logged user.</param>
+    /// <param name="dataObject">Data object</param>
     public void ChangeTrackerStartObservingChanges(AuthenticationState authenticationState, ITwinObject dataObject)
     {
-        //foreach (var fragment in DataFragments)
-        //{
-        //    fragment.ChangeTrackerStartObservingChanges(authenticationState);
-        //}
+        foreach (var fragment in GetFragments(dataObject))
+        {
+            fragment.Manager.ChangeTrackerStartObservingChanges(authenticationState, fragment.Twin);
+        }
     }
 
     /// <summary>
     /// Saves observed changes from changeTracker to object.
     /// </summary>
-    /// <param name="plainObject"></param>
+    /// <param name="plainObject">This object is used merely for record identification.</param>
+    /// <param name="dataObject">Data Object</param>
     public void ChangeTrackerSaveObservedChanges(IBrowsableDataObject plainObject, ITwinObject dataObject)
     {
         throw new NotImplementedException();
@@ -149,7 +170,6 @@ public partial class AxoDataFragmentExchange
     /// <summary>
     /// Get object which locked this repository.
     /// </summary>
-    /// <param name="by"></param>
     public object? GetLockedBy()
     {
         foreach (var fragment in DataFragments)
@@ -163,7 +183,7 @@ public partial class AxoDataFragmentExchange
     /// <summary>
     /// Set object which locked this repository.
     /// </summary>
-    /// <param name="by"></param>
+    /// <param name="by">Object that will lock this record.</param>
     public void SetLockedBy(object by)
     {
         foreach (var fragment in DataFragments)
@@ -171,19 +191,20 @@ public partial class AxoDataFragmentExchange
             fragment.SetLockedBy(by);
         }
     }
-   
-    public async Task CreateNewAsync(string identifier)
-    {
-        await Task.Run(() =>
-        {
-            foreach (var fragment in DataFragments)
-            {
-                CreateNewPocoInFragmentRepository(identifier, fragment);
-            }
 
-            DataFragments.First().Repository.Read(identifier);
-        });
-    }
+    
+    //public async Task CreateNewAsync(string identifier)
+    //{
+    //    await Task.Run(() =>
+    //    {
+    //        foreach (var fragment in DataFragments)
+    //        {
+    //            CreateNewPocoInFragmentRepository(identifier, fragment);
+    //        }
+
+    //        DataFragments.First().Repository.Read(identifier);
+    //    });
+    //}
 
     private static void CreateNewPocoInFragmentRepository(string identifier, IAxoDataExchange fragment)
     {
@@ -193,13 +214,22 @@ public partial class AxoDataFragmentExchange
 
         fragment?.Repository.Create(identifier, poco);
     }
-    
+
+    /// <summary>
+    /// Deleted new record in all fragments.
+    /// </summary>
+    /// <param name="identifier">Id</param>
+    /// <returns></returns>
     public async Task Delete(string identifier)
     {
         await Task.Run(() => { foreach (var fragment in DataFragments) { fragment.Repository.Delete(identifier); } });
     }
-  
 
+    /// <summary>
+    /// Verifies that the record with given Id exists in all fragments.
+    /// </summary>
+    /// <param name="recordId">Id</param>
+    /// <returns></returns>
     public async Task<bool> ExistsAsync(string recordId)
     {
         foreach (var fragment in DataFragments)
@@ -212,7 +242,7 @@ public partial class AxoDataFragmentExchange
 
     
     #region
-
+    
     private IEnumerable<(IAxoDataExchange Manager, IRepository Repository, ITwinObject Twin)> GetFragments(ITwinObject fragmentCompound)
     {
         if (fragmentCompound is not AxoFragmentedDataCompound)
@@ -229,20 +259,22 @@ public partial class AxoDataFragmentExchange
         }
     }
 
+    /// <inheritdoc />
     public ITwinObject CloneDataObject()
     {
         return new AxoFragmentedDataCompound(this, DataFragments.Select(p => p.CloneDataObject()).Cast<ITwinElement>().ToList());
     }
 
+    /// <inheritdoc />
     public void ChangeTrackerSetChanges(ITwinObject dataObject)
     {
-        
         foreach (var fragment in GetFragments(dataObject))
         {
             fragment.Manager.ChangeTrackerSetChanges(fragment.Twin as ITwinObject);
         }
     }
 
+    /// <inheritdoc />
     public bool IsHashCorrect(IIdentity identity, ITwinObject dataObject)
     {
         foreach (var fragment in GetFragments(dataObject))
@@ -254,6 +286,7 @@ public partial class AxoDataFragmentExchange
         return true;
     }
 
+    /// <inheritdoc />
     public async Task FromRepositoryToShadowsAsync(IBrowsableDataObject entity, ITwinObject dataObject)
     {
         foreach (var fragment in GetFragments(dataObject))
@@ -274,6 +307,7 @@ public partial class AxoDataFragmentExchange
         }
     }
 
+    /// <inheritdoc />
     public async Task UpdateFromShadowsAsync(ITwinObject dataObject)
     {
         foreach (var fragment in GetFragments(dataObject))
@@ -285,6 +319,7 @@ public partial class AxoDataFragmentExchange
         }
     }
 
+    /// <inheritdoc />
     public async Task FromRepositoryToControllerAsync(IBrowsableDataObject entity, ITwinObject dataObject)
     {
         foreach (var fragment in GetFragments(dataObject))
@@ -293,6 +328,7 @@ public partial class AxoDataFragmentExchange
         }
     }
 
+    /// <inheritdoc />
     public async Task CreateDataFromControllerAsync(string recordId, ITwinObject dataObject)
     {
         foreach (var fragment in GetFragments(dataObject))
@@ -306,6 +342,7 @@ public partial class AxoDataFragmentExchange
         }
     }
 
+    /// <inheritdoc />
     public async Task CreateNewAsync(string identifier, ITwinObject dataObject)
     {
         var fragments = GetFragments(dataObject);
@@ -321,6 +358,7 @@ public partial class AxoDataFragmentExchange
         fragments.First().Repository.Read(identifier);       
     }
 
+    /// <inheritdoc />
     public async Task CreateOrUpdate(string identifier, ITwinObject dataObject)
     {
         foreach (var fragment in GetFragments(dataObject))
@@ -345,6 +383,7 @@ public partial class AxoDataFragmentExchange
         DataFragments.First().Repository.Read(identifier);
     }
 
+    /// <inheritdoc />
     public async Task CreateCopyCurrentShadowsAsync(string identifier, ITwinObject dataObject)
     {
         foreach (var fragment in GetFragments(dataObject))
@@ -357,6 +396,7 @@ public partial class AxoDataFragmentExchange
     }
     #endregion
 
+    /// <inheritdoc />
     public async Task<bool> RemoteCreate(string identifier)
     {
         foreach (var fragment in DataFragments)
@@ -367,6 +407,7 @@ public partial class AxoDataFragmentExchange
         return true;
     }
 
+    /// <inheritdoc />
     public async Task<bool> RemoteRead(string identifier)
     {
         foreach (var fragment in DataFragments)
@@ -377,6 +418,7 @@ public partial class AxoDataFragmentExchange
         return true;
     }
 
+    /// <inheritdoc />
     public async Task<bool> RemoteUpdate(string identifier)
     {
         foreach (var fragment in DataFragments)
@@ -387,6 +429,7 @@ public partial class AxoDataFragmentExchange
         return true;
     }
 
+    /// <inheritdoc />
     public async Task<bool> RemoteDelete(string identifier)
     {
         foreach (var fragment in DataFragments)
@@ -397,6 +440,7 @@ public partial class AxoDataFragmentExchange
         return true;
     }
 
+    /// <inheritdoc />
     public async Task<bool> RemoteEntityExist(string identifier)
     {
         foreach (var fragment in DataFragments)
@@ -408,6 +452,7 @@ public partial class AxoDataFragmentExchange
         return true;
     }
 
+    /// <inheritdoc />
     public async Task<bool> RemoteCreateOrUpdate(string identifier)
     {
         foreach (var fragment in DataFragments)
@@ -418,11 +463,13 @@ public partial class AxoDataFragmentExchange
         return true;
     }
 
-    public IEnumerable<IBrowsableDataObject> GetRecords(string identifier, int limit, int skip, eSearchMode searchMode, string sortExpresion, bool sortAscending)
+    /// <inheritdoc />
+    public IEnumerable<IBrowsableDataObject> GetRecords(string identifier, int limit, int skip, eSearchMode searchMode, string sortExpression, bool sortAscending)
     {
-        return ((dynamic)Repository)?.GetRecords(identifier, limit, skip, searchMode, sortExpresion, sortAscending);
+        return ((dynamic)Repository)?.GetRecords(identifier, limit, skip, searchMode, sortExpression, sortAscending);
     }
 
+    /// <inheritdoc />
     public IEnumerable<IBrowsableDataObject> GetRecords(string identifier)
     {
         return ((dynamic)Repository).GetRecords(identifier);

@@ -22,7 +22,7 @@ namespace AXOpen.Data
         /// </summary>
         IRepository? Repository { get; }
 
-        bool VerifyHash { get; set; }
+        bool ShouldVerifyHash { get; set; }
 
         /// <summary>
         /// Stop observing changes of the data object with changeTracker.
@@ -116,21 +116,22 @@ namespace AXOpen.Data
         /// <summary>
         /// Check if record exists in the repository.
         /// </summary>
-        /// <param name="identifier">Id of the record.</param>
+        /// <param name="identifier">Identifier of the record.</param>
         /// <returns>Task</returns>
         Task<bool> ExistsAsync(string identifier);
 
         /// <summary>
         /// Create or update record in the repository.
         /// </summary>
-        /// <param name="identifier">Id of the record.</param>
+        /// <param name="identifier">Identifier of the record.</param>
         /// <returns>Task</returns>
         Task CreateOrUpdate(string identifier, ITwinObject dataObject);
 
         /// <summary>
         /// Create new record of the current data present in the shadows of this object in the repository.
         /// </summary>
-        /// <param name="identifier">Id of the new record</param>
+        /// <param name="identifier">Identifier of the new record</param>
+        /// <param name="dataObject">Data object from which the copy will be created.</param>
         /// <returns></returns>
         Task CreateCopyCurrentShadowsAsync(string identifier, ITwinObject dataObject);
 
@@ -183,9 +184,11 @@ namespace AXOpen.Data
         /// <param name="limit">Limits number of entries</param>
         /// <param name="skip">Skips number of entries.</param>
         /// <param name="searchMode">Set the search mode fot his query. <seealso cref="eSearchMode"/></param>
+        /// <param name="sortExpression">Sorting data expression.</param>
+        /// <param name="sortAscending">Indicated the records should be ordered in ascending order.</param>
         /// <returns>Records from the associated repository meeting criteria.</returns>
         IEnumerable<IBrowsableDataObject> GetRecords(string identifier, int limit, int skip,
-            eSearchMode searchMode, string sortExpresion, bool sortAscending);
+            eSearchMode searchMode, string sortExpression, bool sortAscending);
 
         /// <summary>
         /// Gets record meeting criteria from the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/> where the data entity id matches exactly the argument.
@@ -205,7 +208,9 @@ namespace AXOpen.Data
         /// Import data from file to the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>.
         /// </summary>
         /// <param name="path">Path to imported file.</param>
+        /// <param name="authenticationState">Provides information about identity of the user performing import of data. </param>
         /// <param name="crudDataObject">Object type of the imported records.</param>
+        /// <param name="exportFileType">Type of exported file.</param>
         /// <param name="separator">Separator for individual records.</param>
         void ImportData(string path, AuthenticationState authenticationState, ITwinObject crudDataObject = null, string exportFileType = "CSV", char separator = ';');
 

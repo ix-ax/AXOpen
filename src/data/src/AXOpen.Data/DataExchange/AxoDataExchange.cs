@@ -41,7 +41,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     private TOnline _dataEntity;
 
     /// <summary>
-    /// Creates new instance of class that contain data managed by an external entity in this <see cref="AxoDataExchange{TOnline,TPlain}"/> class./>.
+    /// Creates new instance of class that contains data managed by an external entity in this <see cref="AxoDataExchange{TOnline,TPlain}"/> class./>.
     /// </summary>
     /// <returns>Data object of this AxoDataExchange.</returns>
     public ITwinObject CloneDataObject()
@@ -63,6 +63,10 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         }
     }
 
+    /// <summary>
+    ///    Gets <see cref="ICrudDataObject" /> associated with this <see cref="AxoDataExchange{TOnline,TPlain}" />.
+    ///    Provides access to data changes.
+    /// </summary>
     public ICrudDataObject? CrudDataObject
     {
         get
@@ -73,7 +77,10 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
     private bool? _verifyHash = null;
 
-    public bool VerifyHash
+    /// <summary>
+    /// Gets or sets a value indicating whether to verify the hash.
+    /// </summary>
+    public bool ShouldVerifyHash
     {
         get
         {
@@ -99,6 +106,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <summary>
     /// Stop observing changes of the data object with changeTracker.
     /// </summary>
+    /// <param name="dataObject">Data object on which to stop observing the changes.</param>
     public void ChangeTrackerStopObservingChanges(ITwinObject dataObject)
     {
         (dataObject as ICrudDataObject)?.ChangeTracker.StopObservingChanges();        
@@ -108,6 +116,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// Start observing changes of the data object with changeTracker.
     /// </summary>
     /// <param name="authenticationState">Authentication state of current logged user.</param>
+    /// <param name="dataObject">Data object on which to start observing the changes.</param>
     public void ChangeTrackerStartObservingChanges(AuthenticationState authenticationState, ITwinObject dataObject)
     {
         (dataObject as ICrudDataObject)?.ChangeTracker.StartObservingChanges(authenticationState);
@@ -117,6 +126,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// Saves observed changes from changeTracker to object.
     /// </summary>
     /// <param name="plainObject"></param>
+    /// <param name="dataObject">Data object from which the observed changes will be saved.</param>
     public void ChangeTrackerSaveObservedChanges(IBrowsableDataObject plainObject, ITwinObject dataObject)
     {
         (dataObject as ICrudDataObject)?.ChangeTracker.SaveObservedChanges(plainObject);
@@ -125,11 +135,9 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <summary>
     /// Sets changes to changeTracker.
     /// </summary>
-    /// <param name="entity">Entity from which is set data.</param>
+    /// <param name="dataObject">Entity from which is set data.</param>
     public void ChangeTrackerSetChanges(ITwinObject dataObject)
     {
-
-        //(dataObject as ICrudDataObject)?
         CrudDataObject.Changes = ((AxoDataEntity)dataObject).Changes;
     }
 
@@ -145,7 +153,6 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <summary>
     /// Get object which locked this repository.
     /// </summary>
-    /// <param name="by"></param>
     public object? GetLockedBy()
     {
         return DataEntity.LockedBy;
@@ -154,15 +161,21 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <summary>
     /// Set object which locked this repository.
     /// </summary>
-    /// <param name="by"></param>
+    /// <param name="by">Object by which the document/record is locked.</param>
     public void SetLockedBy(object by)
     {
         DataEntity.LockedBy = by;
     }
 
+    /// <summary>
+    /// Verifies that the hash of the data object is correct.
+    /// </summary>
+    /// <param name="identity">Identity of the verifier.</param>
+    /// <param name="dataObject">Data object of which identity will verified.</param>
+    /// <returns></returns>
     public bool IsHashCorrect(IIdentity identity, ITwinObject dataObject)
     {
-        if (!VerifyHash)
+        if (!ShouldVerifyHash)
             return true;
 
         var poco = dataObject.CreatePoco().ShadowToPlain1<TPlain>(dataObject);
@@ -183,9 +196,9 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
     /// <inheritdoc />
     public IEnumerable<IBrowsableDataObject> GetRecords(string identifier, int limit, int skip,
-        eSearchMode searchMode, string sortExpresion, bool sortAscending)
+        eSearchMode searchMode, string sortExpression, bool sortAscending)
     {
-        return DataRepository.GetRecords(identifier, limit, skip, searchMode, sortExpresion, sortAscending).Cast<IBrowsableDataObject>();
+        return DataRepository.GetRecords(identifier, limit, skip, searchMode, sortExpression, sortAscending).Cast<IBrowsableDataObject>();
     }
 
     /// <inheritdoc />
@@ -293,7 +306,6 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         
         return true;
     }
-
 
 
     private PropertyInfo? GetDataSetPropertyInfo<TA>() where TA : Attribute
@@ -418,66 +430,78 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         return await RemoteRead(Identifier);
     }
 
-    private async Task<bool> RemoteUpdate()
+    /// <summary>
+    ///    Creates new record in the repository.
+    /// </summary>
+    /// <param name="identifier">Unique identifier</param>
+    /// <param name="plainDataObject">Data object from which the record will be created.</param>
+    /// <returns></returns>
+    public async Task CreateAsync(string identifier, TPlain plainDataObject)
     {
-        var Identifier = await Operation.DataEntityIdentifier.GetAsync();
-        return await RemoteUpdate(Identifier);
+        await Task.Run(() => Repository?.Create(identifier, plainDataObject));
     }
 
-    private async Task<bool> RemoteDelete()
-    {
-        var Identifier = await Operation.DataEntityIdentifier.GetAsync();
-        return await RemoteDelete(Identifier);
-    }
-
-    private async Task<bool> RemoteEntityExist()
-    {
-        var Identifier = await Operation.DataEntityIdentifier.GetAsync();
-        return await RemoteEntityExist(Identifier);
-    }
-
-    private async Task<bool> RemoteCreateOrUpdate()
-    {
-        var Identifier = await Operation.DataEntityIdentifier.GetAsync();
-        return await RemoteCreateOrUpdate(Identifier);
-    }
-
-    public async Task CreateAsync(string identifier, TPlain plain)
-    {
-        await Task.Run(() => Repository?.Create(identifier, plain));
-    }
-
+    /// <summary>
+    ///   Reads record from the repository.
+    /// </summary>
+    /// <param name="identifier">Unique identifier</param>
+    /// <returns>Plain data object retrieved from the repository.</returns>
     public async Task<TPlain> ReadAsync(string identifier)
     {
         return await Task.Run(() => DataRepository.Read(identifier));
     }
 
-    public async Task UpdateAsync(string identifier, TPlain data)
+    /// <summary>
+    ///  Updates record in the repository.
+    ///  >[!IMPORTANT]
+    ///  > In most scenarios all data from the data object will be updated.
+    ///  > Verify the specific repository behaviour to prevent data loss. 
+    /// </summary>
+    /// <param name="identifier">Identifier of the document/record to update.</param>
+    /// <param name="plainDataObject">Data object from which the data will be updated.</param>
+    /// <returns></returns>
+    public async Task UpdateAsync(string identifier, TPlain plainDataObject)
     {
-        await Task.Run(() => Repository.Update(identifier, data));
+        await Task.Run(() => Repository.Update(identifier, plainDataObject));
     }
 
+    /// <summary>
+    /// Deletes record from the repository.
+    /// </summary>
+    /// <param name="identifier">Identifier of the record/document to be deleted.</param>
+    /// <returns></returns>
     public async Task DeleteAsync(string identifier)
     {
         await Task.Run(() => Repository.Delete(identifier));
     }
 
+    /// <summary>
+    /// Checks if the record exists in the repository.
+    /// </summary>
+    /// <param name="identifier">Identifier of the record/document.</param>
+    /// <returns>True if the record was found.</returns>
     public async Task<bool> EntityExistAsync(string identifier)
     {
         return await Task.Run(() => Repository.Exists(identifier));
     }
 
-    public async Task CreateOrUpdateAsync(string identifier, TPlain data)
+    /// <summary>
+    /// Creates or updates new record in the repository.
+    /// </summary>
+    /// <param name="identifier">Document/Record identifier.</param>
+    /// <param name="plainDataObject">Data object from which the data will be retrieved.</param>
+    /// <returns></returns>
+    public async Task CreateOrUpdateAsync(string identifier, TPlain plainDataObject)
     {
         await Task.Run(() =>
         {
             if (Repository.Exists(identifier))
             {
-                Repository.Update(identifier, data);
+                Repository.Update(identifier, plainDataObject);
             }
             else
             {
-                Repository.Create(identifier, data);
+                Repository.Create(identifier, plainDataObject);
             }
         });
     }
