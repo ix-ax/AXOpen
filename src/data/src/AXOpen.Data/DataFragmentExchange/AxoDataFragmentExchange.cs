@@ -25,7 +25,6 @@ public partial class AxoDataFragmentExchange
     {
         return CreateDataFragments() as T;
     }
-
     
     public bool VerifyHash { get; set; } = false;
 
@@ -99,9 +98,7 @@ public partial class AxoDataFragmentExchange
         get => _repository ?? throw new RepositoryNotInitializedException(this.Symbol);
         private set => _repository = value;
     }
-
-    //public ITwinObject RefUIData { get; private set; }
-
+   
     /// <summary>
     /// Stop observing changes of the data object with changeTracker.
     /// </summary>
@@ -134,18 +131,7 @@ public partial class AxoDataFragmentExchange
         throw new NotImplementedException();
     }
 
-    /// <summary>
-    /// Sets changes to changeTracker.
-    /// </summary>
-    /// <param name="entity">Entity from which is set data.</param>
-    public void ChangeTrackerSetChanges()
-    {
-        //foreach (var fragment in DataFragments)
-        //{
-        //    fragment.ChangeTrackerSetChanges();
-        //}
-    }
-
+ 
     /// <summary>
     /// Gets changes from changeTracker.
     /// </summary>
@@ -185,17 +171,7 @@ public partial class AxoDataFragmentExchange
             fragment.SetLockedBy(by);
         }
     }
-
-    //public bool IsHashCorrect(IIdentity identity)
-    //{
-    //    //foreach (var fragment in DataFragments)
-    //    //{
-    //    //    if (!fragment.IsHashCorrect(identity))
-    //    //        return false;
-    //    //}
-    //    return true;
-    //}
-
+   
     public async Task CreateNewAsync(string identifier)
     {
         await Task.Run(() =>
@@ -217,74 +193,12 @@ public partial class AxoDataFragmentExchange
 
         fragment?.Repository.Create(identifier, poco);
     }
-
-    public async Task FromRepositoryToShadowsAsync(IBrowsableDataObject entity)
-    {
-        //foreach (var fragment in DataFragments)
-        //{
-        //    var exist = fragment.Repository.Exists(entity.DataEntityId);
-
-        //    if (exist)
-        //    {
-        //        var record = fragment.Repository.Read(entity.DataEntityId);
-        //        await fragment.RefUIData.PlainToShadow(record);
-        //        ((AxoDataEntity)fragment.RefUIData).Hash = record.Hash;
-        //        ((AxoDataEntity)fragment.RefUIData).Changes = record.Changes;
-        //    }
-        //    else
-        //    {
-        //        CreateNewPocoInFragmentRepository(entity.DataEntityId, fragment);
-        //    }
-        //}
-    }
-
-    //public async Task UpdateFromShadowsAsync()
-    //{
-    //    //foreach (var fragment in DataFragments)
-    //    //{
-    //    //    var plainer = await (fragment.RefUIData).ShadowToPlain<dynamic>();
-    //    //    fragment.ChangeTrackerSaveObservedChanges(plainer);
-    //    //    plainer.Hash = HashHelper.CreateHash(plainer);
-    //    //    fragment.Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
-    //    //}
-    //}
-
-    //public async Task FromRepositoryToControllerAsync(IBrowsableDataObject selected)
-    //{
-    //    foreach (var fragment in DataFragments)
-    //    {
-    //        await fragment.RefUIData.PlainToOnline(fragment.Repository.Read(selected.DataEntityId));
-    //    }
-    //}
-
-    //public async Task CreateDataFromControllerAsync(string recordId)
-    //{
-    //    foreach (var fragment in DataFragments)
-    //    {
-    //        var plainer = await fragment.Data.OnlineToPlain<dynamic>();
-    //        plainer.DataEntityId = recordId;
-    //        plainer.Hash = HashHelper.CreateHash(plainer);
-    //        fragment.Repository.Create(plainer.DataEntityId, plainer);
-    //        var plain = fragment.Repository.Read(plainer.DataEntityId);
-    //        fragment.Data.PlainToShadow(plain);
-    //    }
-    //}
-
+    
     public async Task Delete(string identifier)
     {
         await Task.Run(() => { foreach (var fragment in DataFragments) { fragment.Repository.Delete(identifier); } });
     }
-
-    public async Task CreateCopyCurrentShadowsAsync(string recordId)
-    {
-        foreach (var fragment in DataFragments)
-        {
-            var source = (Pocos.AXOpen.Data.IAxoDataEntity)await fragment.Data.ShadowToPlain<IBrowsableDataObject>();
-            source.DataEntityId = recordId;
-            source.Hash = HashHelper.CreateHash(source);
-            fragment.Repository.Create(source.DataEntityId, source);
-        }
-    }
+  
 
     public async Task<bool> ExistsAsync(string recordId)
     {
@@ -296,34 +210,17 @@ public partial class AxoDataFragmentExchange
         return true;
     }
 
-    public async Task CreateOrUpdate(string recordId)
-    {
-        //foreach (var fragment in DataFragments)
-        //{
-        //    if (Repository.Exists(recordId))
-        //    {
-        //        var plainer = await ((ITwinObject)RefUIData).ShadowToPlain<dynamic>();
-        //        fragment.ChangeTrackerSaveObservedChanges(plainer);
-        //        plainer.Hash = HashHelper.CreateHash(plainer);
-        //        fragment.Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
-        //    }
-        //    else
-        //    {
-        //        Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)fragment.RefUIData.CreatePoco();
-        //        poco.DataEntityId = recordId;
-        //        poco.Hash = HashHelper.CreateHash(poco);
-
-        //        fragment.Repository.Create(recordId, poco);
-        //    }
-        //}
-
-        //DataFragments.First().Repository.Read(recordId);
-    }
+    
     #region
 
-    private IEnumerable<(IAxoDataExchange Manager, IRepository Repository, ITwinObject Twin)> GetFragments(ITwinObject parent)
+    private IEnumerable<(IAxoDataExchange Manager, IRepository Repository, ITwinObject Twin)> GetFragments(ITwinObject fragmentCompound)
     {
-        var interfaceFragments = (parent as AxoFragmentedDataCompound)?.GetChildren().Select(p => p);
+        if (fragmentCompound is not AxoFragmentedDataCompound)
+        {
+            throw new ArgumentException("The parent argument must be of type AxoFragmentedDataCompound.", nameof(fragmentCompound));
+        }
+
+        var interfaceFragments = (fragmentCompound as AxoFragmentedDataCompound)?.GetChildren().Select(p => p);
 
         foreach (var fragment in interfaceFragments)
         {

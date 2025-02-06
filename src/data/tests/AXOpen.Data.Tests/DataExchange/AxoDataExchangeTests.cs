@@ -249,7 +249,7 @@ namespace AXOpen.Data.Tests
 
             repo.Create("hey remote create", new Pocos.axosimple.SharedProductionData() { ComesFrom = 85, GoesTo = 98 });
 
-            sut.FromRepositoryToShadowsAsync(new SharedProductionData() { DataEntityId = "hey remote create" }, sut.CloneDataObject());
+            await sut.FromRepositoryToShadowsAsync(new SharedProductionData() { DataEntityId = "hey remote create" }, sut.Set);
 
 
             Assert.Equal("hey remote create", sut.Set.DataEntityId.Shadow);
@@ -268,7 +268,11 @@ namespace AXOpen.Data.Tests
 
             repo.Create("hey remote create", new Pocos.axosimple.SharedProductionData() { ComesFrom = 85, GoesTo = 98 });
 
-            await sut.FromRepositoryToControllerAsync(new Pocos.axosimple.SharedProductionData() { DataEntityId = "hey remote create" }, sut.CloneDataObject());
+            await sut.FromRepositoryToControllerAsync(new Pocos.axosimple.SharedProductionData() { DataEntityId = "hey remote create" }, sut.Set);
+
+            var records = repo.GetRecords("*").ToList();
+
+            var a = await sut.WriteAsync();
 
             Assert.Equal("hey remote create", await sut.Set.DataEntityId.GetAsync());
             Assert.Equal(85, await sut.Set.ComesFrom.GetAsync());
@@ -474,7 +478,7 @@ namespace AXOpen.Data.Tests
             sut.Set.DataEntityId.Shadow = "hey remote create";
             sut.Set.ComesFrom.Shadow = 140;
             sut.Set.GoesTo.Shadow = 885;
-            await sut.UpdateFromShadowsAsync(sut.CloneDataObject());
+            await sut.UpdateFromShadowsAsync(sut.Set);
 
             var record = repo.Read("hey remote create");
             Assert.Equal("hey remote create", record.DataEntityId);
@@ -492,7 +496,7 @@ namespace AXOpen.Data.Tests
             var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
             sut.SetRepository(repo);
 
-            await sut.CreateNewAsync("hey remote create - brandnew", sut.CloneDataObject());
+            await sut.CreateNewAsync("hey remote create - brandnew", sut.Set);
 
             var record = repo.Read("hey remote create - brandnew");
             Assert.Equal("hey remote create - brandnew", record.DataEntityId);
@@ -513,7 +517,7 @@ namespace AXOpen.Data.Tests
             sut.Set.GoesTo.Shadow = 201;
 
 
-            sut.CreateCopyCurrentShadowsAsync("hey remote create - new", sut.CloneDataObject());
+            await sut.CreateCopyCurrentShadowsAsync("hey remote create - new", sut.Data);
 
             var record = repo.Read("hey remote create - new");
             Assert.Equal("hey remote create - new", record.DataEntityId);
@@ -536,7 +540,7 @@ namespace AXOpen.Data.Tests
             await sut.Set.GoesTo.SetAsync(1201);
 
 
-            await sut.CreateDataFromControllerAsync("hey remote create", sut.CloneDataObject());
+            await sut.CreateDataFromControllerAsync("hey remote create", sut.Set);
 
             var record = repo.Read("hey remote create");
             Assert.Equal("hey remote create", record.DataEntityId);

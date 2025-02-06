@@ -32,13 +32,21 @@ namespace AXOpen.Data;
 public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEntity
     where TPlain : Pocos.AXOpen.Data.IAxoDataEntity, new()
 {
+    /// <summary>
+    ///     Gets <see cref="AxoDataEntity" /> as <see cref="ITwinObject" /> that provides exchange mechanisms between this
+    ///     <see cref="AxoDataExchange{TOnline,TPlain}" /> and the controller.
+    /// </summary>
     public ITwinObject? Data => DataEntity as ITwinObject;
 
     private TOnline _dataEntity;
 
+    /// <summary>
+    /// Creates new instance of class that contain data managed by an external entity in this <see cref="AxoDataExchange{TOnline,TPlain}"/> class./>.
+    /// </summary>
+    /// <returns>Data object of this AxoDataExchange.</returns>
     public ITwinObject CloneDataObject()
     {
-        var de = (_dataEntity as ITwinObject);
+        var de = (DataEntity as ITwinObject);
         return (ITwinObject)Activator.CreateInstance(typeof(TOnline), de.GetParent(), de.GetAttributeName(CultureInfo.InvariantCulture), de.GetSymbolTail());
     }
 
@@ -168,14 +176,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <summary>
     ///     Get strongly typed repository associated with this <see cref="AxoDataExchange{TOnline,TPlain}" />.
     /// </summary>
-    public IRepository<TPlain> DataRepository { get; private set; }
-
-    /// <summary>
-    ///     Gets <see cref="AxoDataEntity" /> as <see cref="ITwinObject" /> that provides exchange mechanisms between this
-    ///     <see cref="AxoDataExchange{TOnline,TPlain}" /> and controller.
-    /// </summary>
-    //public ITwinObject RefUIData => DataEntity as ITwinObject;
-
+    public IRepository<TPlain> DataRepository { get; private set; }       
 
     /// <inheritdoc />
     public IRepository? Repository => DataRepository as IRepository;
