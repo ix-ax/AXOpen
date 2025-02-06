@@ -3,6 +3,7 @@ using AXOpen.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using AXOpen.Base.Data;
@@ -43,6 +44,13 @@ namespace AXOpen.Data.Fragments.Tests
             {
             }
         }
+
+        public AxoDataFragmentExchange()
+        {
+            TempPath = new FileInfo(Assembly.GetExecutingAssembly().Location).Directory.FullName;
+        }
+
+        private readonly string TempPath;
 
         [Fact()]
         public async void RemoteCreate_ShouldCreateRecordsInEachRepository()
@@ -506,7 +514,7 @@ namespace AXOpen.Data.Fragments.Tests
             var manip = sut.Manip.DataRepository.Read("hey remote create");
             Assert.Equal(20ul, manip.CounterDelay);
 
-            var zipFile = Path.Combine(Path.GetTempPath(), "ExportDataFragmentTest", "ExportDataFragment.zip");
+            var zipFile = Path.Combine(TempPath, "ExportDataFragmentTest", "ExportDataFragment.zip");
 
             // export
             sut.ExportData(zipFile);
@@ -570,7 +578,7 @@ namespace AXOpen.Data.Fragments.Tests
             manip = sut.Manip.DataRepository.Read("second");
             Assert.Equal(22ul, manip.CounterDelay);
 
-            var zipFile = Path.Combine(Path.GetTempPath(), "ExportDataFragmentTest", "ExportDataFragment.zip");
+            var zipFile = Path.Combine(TempPath, "ExportDataFragmentTest", "ExportDataFragment.zip");
 
             var dictionary = new Dictionary<string, ExportData>
             {
@@ -619,8 +627,8 @@ namespace AXOpen.Data.Fragments.Tests
             s.Set.SetRepository(new InMemoryRepository<Pocos.axosimple.SharedProductionData>());
             s.Manip.SetRepository(new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>());
 
-            var tempDirectory = Path.Combine(Path.GetTempPath(), "ImportDataFragmentTest", "importDataFragmentPrepare");
-            var zipFile = Path.Combine(Path.GetTempPath(), "ImportDataFragmentTest", "ImportDataFragment.zip");
+            var tempDirectory = Path.Combine(TempPath, "ImportDataFragmentTest", "importDataFragmentPrepare");
+            var zipFile = Path.Combine(TempPath, "ImportDataFragmentTest", "ImportDataFragment.zip");
 
             Directory.CreateDirectory(tempDirectory);
 
@@ -664,8 +672,8 @@ namespace AXOpen.Data.Fragments.Tests
             s.Set.SetRepository(new InMemoryRepository<Pocos.axosimple.SharedProductionData>());
             s.Manip.SetRepository(new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>());
 
-            var tempDirectory = Path.Combine(Path.GetTempPath(), "ImportDataFragmentTest", "importDataFragmentPrepare");
-            var zipFile = Path.Combine(Path.GetTempPath(), "ImportDataFragmentTest", "ImportDataFragment.zip");
+            var tempDirectory = Path.Combine(TempPath, "ImportDataFragmentTest", "importDataFragmentPrepare");
+            var zipFile = Path.Combine(TempPath, "ImportDataFragmentTest", "ImportDataFragment.zip");
 
             Directory.CreateDirectory(tempDirectory);
 
@@ -699,6 +707,8 @@ namespace AXOpen.Data.Fragments.Tests
                 File.Delete(zipFile);
         }
 
+        
+
         [Fact()]
         public async void ImportFragmentDataWithExtraElements()
         {
@@ -709,8 +719,8 @@ namespace AXOpen.Data.Fragments.Tests
             s.Set.SetRepository(new InMemoryRepository<Pocos.axosimple.SharedProductionData>());
             s.Manip.SetRepository(new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>());
 
-            var tempDirectory = Path.Combine(Path.GetTempPath(), "ImportFragmentDataWithExtraElements", "importDataFragmentPrepare");
-            var zipFile = Path.Combine(Path.GetTempPath(), "ImportFragmentDataWithExtraElements", "ImportDataFragment.zip");
+            var tempDirectory = Path.Combine(TempPath, "ImportFragmentDataWithExtraElements", "importDataFragmentPrepare");
+            var zipFile = Path.Combine(TempPath, "ImportFragmentDataWithExtraElements", "ImportDataFragment.zip");
 
             Directory.CreateDirectory(tempDirectory);
 
