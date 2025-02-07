@@ -542,7 +542,7 @@ else
                         </div>
                     }
                     @* <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" data-bs-dismiss="modal" @onclick="async () => { await Vm.Edit(); Vm.UnLocked(); }">@Localizer["Save"]</button> *@
-                    <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#AckEditUpdateModal-@ViewGuid">@Localizer["Update"]</button>
+                    <button type="button" class="btn btn-primary mx-1 @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" data-bs-toggle="modal" data-bs-target="#AckEditUpdateModal-@ViewGuid">@Localizer["Update"]</button>
 
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="() => { Vm.UnLocked(); ReloadRecordAfterEditWithoutModal(); }">@Localizer["Close"]</button>
                 </div>
