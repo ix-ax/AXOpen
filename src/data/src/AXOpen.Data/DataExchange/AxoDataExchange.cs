@@ -7,6 +7,7 @@
 
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO.Compression;
 using System.Linq;
 using System.Linq.Expressions;
@@ -31,7 +32,23 @@ namespace AXOpen.Data;
 public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEntity
     where TPlain : Pocos.AXOpen.Data.IAxoDataEntity, new()
 {
+    /// <summary>
+    ///     Gets <see cref="AxoDataEntity" /> as <see cref="ITwinObject" /> that provides exchange mechanisms between this
+    ///     <see cref="AxoDataExchange{TOnline,TPlain}" /> and the controller.
+    /// </summary>
+    public ITwinObject? Data => DataEntity as ITwinObject;
+
     private TOnline _dataEntity;
+
+    /// <summary>
+    /// Creates new instance of class that contains data managed by an external entity in this <see cref="AxoDataExchange{TOnline,TPlain}"/> class./>.
+    /// </summary>
+    /// <returns>Data object of this AxoDataExchange.</returns>
+    public ITwinObject CloneDataObject()
+    {
+        var de = (DataEntity as ITwinObject);
+        return (ITwinObject)Activator.CreateInstance(typeof(TOnline), de.GetParent(), de.GetAttributeName(CultureInfo.InvariantCulture), de.GetSymbolTail());
+    }
 
     /// <summary>
     ///     Gets <see cref="AxoDataEntity" /> associated with this <see cref="AxoDataExchange{TOnline,TPlain}" />.
@@ -46,6 +63,10 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         }
     }
 
+    /// <summary>
+    ///    Gets <see cref="ICrudDataObject" /> associated with this <see cref="AxoDataExchange{TOnline,TPlain}" />.
+    ///    Provides access to data changes.
+    /// </summary>
     public ICrudDataObject? CrudDataObject
     {
         get
@@ -56,7 +77,10 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
     private bool? _verifyHash = null;
 
-    public bool VerifyHash
+    /// <summary>
+    /// Gets or sets a value indicating whether to verify the hash.
+    /// </summary>
+    public bool ShouldVerifyHash
     {
         get
         {
@@ -82,36 +106,39 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <summary>
     /// Stop observing changes of the data object with changeTracker.
     /// </summary>
-    public void ChangeTrackerStopObservingChanges()
+    /// <param name="dataObject">Data object on which to stop observing the changes.</param>
+    public void ChangeTrackerStopObservingChanges(ITwinObject dataObject)
     {
-        CrudDataObject?.ChangeTracker.StopObservingChanges();
+        (dataObject as ICrudDataObject)?.ChangeTracker.StopObservingChanges();        
     }
 
     /// <summary>
     /// Start observing changes of the data object with changeTracker.
     /// </summary>
     /// <param name="authenticationState">Authentication state of current logged user.</param>
-    public void ChangeTrackerStartObservingChanges(AuthenticationState authenticationState)
+    /// <param name="dataObject">Data object on which to start observing the changes.</param>
+    public void ChangeTrackerStartObservingChanges(AuthenticationState authenticationState, ITwinObject dataObject)
     {
-        CrudDataObject?.ChangeTracker.StartObservingChanges(authenticationState);
+        (dataObject as ICrudDataObject)?.ChangeTracker.StartObservingChanges(authenticationState);
     }
 
     /// <summary>
     /// Saves observed changes from changeTracker to object.
     /// </summary>
     /// <param name="plainObject"></param>
-    public void ChangeTrackerSaveObservedChanges(IBrowsableDataObject plainObject)
+    /// <param name="dataObject">Data object from which the observed changes will be saved.</param>
+    public void ChangeTrackerSaveObservedChanges(IBrowsableDataObject plainObject, ITwinObject dataObject)
     {
-        CrudDataObject?.ChangeTracker.SaveObservedChanges(plainObject);
+        (dataObject as ICrudDataObject)?.ChangeTracker.SaveObservedChanges(plainObject);
     }
 
     /// <summary>
     /// Sets changes to changeTracker.
     /// </summary>
-    /// <param name="entity">Entity from which is set data.</param>
-    public void ChangeTrackerSetChanges()
+    /// <param name="dataObject">Entity from which is set data.</param>
+    public void ChangeTrackerSetChanges(ITwinObject dataObject)
     {
-        CrudDataObject.Changes = ((AxoDataEntity)RefUIData).Changes;
+        CrudDataObject.Changes = ((AxoDataEntity)dataObject).Changes;
     }
 
     /// <summary>
@@ -126,7 +153,6 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <summary>
     /// Get object which locked this repository.
     /// </summary>
-    /// <param name="by"></param>
     public object? GetLockedBy()
     {
         return DataEntity.LockedBy;
@@ -135,21 +161,27 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <summary>
     /// Set object which locked this repository.
     /// </summary>
-    /// <param name="by"></param>
+    /// <param name="by">Object by which the document/record is locked.</param>
     public void SetLockedBy(object by)
     {
         DataEntity.LockedBy = by;
     }
 
-    public bool IsHashCorrect(IIdentity identity)
+    /// <summary>
+    /// Verifies that the hash of the data object is correct.
+    /// </summary>
+    /// <param name="identity">Identity of the verifier.</param>
+    /// <param name="dataObject">Data object of which identity will verified.</param>
+    /// <returns></returns>
+    public bool IsHashCorrect(IIdentity identity, ITwinObject dataObject)
     {
-        if (!VerifyHash)
+        if (!ShouldVerifyHash)
             return true;
 
-        var poco = RefUIData.CreatePoco().ShadowToPlain1<TPlain>(RefUIData);
+        var poco = dataObject.CreatePoco().ShadowToPlain1<TPlain>(dataObject);
 
-        poco.Changes = ((AxoDataEntity)RefUIData).Changes;
-        poco.Hash = ((AxoDataEntity)RefUIData).Hash;
+        poco.Changes = ((AxoDataEntity)dataObject).Changes;
+        poco.Hash = ((AxoDataEntity)dataObject).Hash;
 
         return HashHelper.VerifyHash(poco, identity);
     }
@@ -157,23 +189,16 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <summary>
     ///     Get strongly typed repository associated with this <see cref="AxoDataExchange{TOnline,TPlain}" />.
     /// </summary>
-    public IRepository<TPlain> DataRepository { get; private set; }
-
-    /// <summary>
-    ///     Gets <see cref="AxoDataEntity" /> as <see cref="ITwinObject" /> that provides exchange mechanisms between this
-    ///     <see cref="AxoDataExchange{TOnline,TPlain}" /> and controller.
-    /// </summary>
-    public ITwinObject RefUIData => DataEntity as ITwinObject;
-
+    public IRepository<TPlain> DataRepository { get; private set; }       
 
     /// <inheritdoc />
     public IRepository? Repository => DataRepository as IRepository;
 
     /// <inheritdoc />
     public IEnumerable<IBrowsableDataObject> GetRecords(string identifier, int limit, int skip,
-        eSearchMode searchMode, string sortExpresion, bool sortAscending)
+        eSearchMode searchMode, string sortExpression, bool sortAscending)
     {
-        return DataRepository.GetRecords(identifier, limit, skip, searchMode, sortExpresion, sortAscending).Cast<IBrowsableDataObject>();
+        return DataRepository.GetRecords(identifier, limit, skip, searchMode, sortExpression, sortAscending).Cast<IBrowsableDataObject>();
     }
 
     /// <inheritdoc />
@@ -281,7 +306,6 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         
         return true;
     }
-
 
 
     private PropertyInfo? GetDataSetPropertyInfo<TA>() where TA : Attribute
@@ -406,116 +430,128 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         return await RemoteRead(Identifier);
     }
 
-    private async Task<bool> RemoteUpdate()
+    /// <summary>
+    ///    Creates new record in the repository.
+    /// </summary>
+    /// <param name="identifier">Unique identifier</param>
+    /// <param name="plainDataObject">Data object from which the record will be created.</param>
+    /// <returns></returns>
+    public async Task CreateAsync(string identifier, TPlain plainDataObject)
     {
-        var Identifier = await Operation.DataEntityIdentifier.GetAsync();
-        return await RemoteUpdate(Identifier);
+        await Task.Run(() => Repository?.Create(identifier, plainDataObject));
     }
 
-    private async Task<bool> RemoteDelete()
-    {
-        var Identifier = await Operation.DataEntityIdentifier.GetAsync();
-        return await RemoteDelete(Identifier);
-    }
-
-    private async Task<bool> RemoteEntityExist()
-    {
-        var Identifier = await Operation.DataEntityIdentifier.GetAsync();
-        return await RemoteEntityExist(Identifier);
-    }
-
-    private async Task<bool> RemoteCreateOrUpdate()
-    {
-        var Identifier = await Operation.DataEntityIdentifier.GetAsync();
-        return await RemoteCreateOrUpdate(Identifier);
-    }
-
-    public async Task CreateAsync(string identifier, TPlain plain)
-    {
-        await Task.Run(() => Repository?.Create(identifier, plain));
-    }
-
+    /// <summary>
+    ///   Reads record from the repository.
+    /// </summary>
+    /// <param name="identifier">Unique identifier</param>
+    /// <returns>Plain data object retrieved from the repository.</returns>
     public async Task<TPlain> ReadAsync(string identifier)
     {
         return await Task.Run(() => DataRepository.Read(identifier));
     }
 
-    public async Task UpdateAsync(string identifier, TPlain data)
+    /// <summary>
+    ///  Updates record in the repository.
+    ///  >[!IMPORTANT]
+    ///  > In most scenarios all data from the data object will be updated.
+    ///  > Verify the specific repository behaviour to prevent data loss. 
+    /// </summary>
+    /// <param name="identifier">Identifier of the document/record to update.</param>
+    /// <param name="plainDataObject">Data object from which the data will be updated.</param>
+    /// <returns></returns>
+    public async Task UpdateAsync(string identifier, TPlain plainDataObject)
     {
-        await Task.Run(() => Repository.Update(identifier, data));
+        await Task.Run(() => Repository.Update(identifier, plainDataObject));
     }
 
+    /// <summary>
+    /// Deletes record from the repository.
+    /// </summary>
+    /// <param name="identifier">Identifier of the record/document to be deleted.</param>
+    /// <returns></returns>
     public async Task DeleteAsync(string identifier)
     {
         await Task.Run(() => Repository.Delete(identifier));
     }
 
+    /// <summary>
+    /// Checks if the record exists in the repository.
+    /// </summary>
+    /// <param name="identifier">Identifier of the record/document.</param>
+    /// <returns>True if the record was found.</returns>
     public async Task<bool> EntityExistAsync(string identifier)
     {
         return await Task.Run(() => Repository.Exists(identifier));
     }
 
-    public async Task CreateOrUpdateAsync(string identifier, TPlain data)
+    /// <summary>
+    /// Creates or updates new record in the repository.
+    /// </summary>
+    /// <param name="identifier">Document/Record identifier.</param>
+    /// <param name="plainDataObject">Data object from which the data will be retrieved.</param>
+    /// <returns></returns>
+    public async Task CreateOrUpdateAsync(string identifier, TPlain plainDataObject)
     {
         await Task.Run(() =>
         {
             if (Repository.Exists(identifier))
             {
-                Repository.Update(identifier, data);
+                Repository.Update(identifier, plainDataObject);
             }
             else
             {
-                Repository.Create(identifier, data);
+                Repository.Create(identifier, plainDataObject);
             }
         });
     }
 
     /// <inheritdoc />
-    public async Task CreateNewAsync(string identifier)
+    public async Task CreateNewAsync(string identifier, ITwinObject dataObject)
     {
-        Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)this.RefUIData.CreatePoco();
+        Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)dataObject.CreatePoco();
         poco.DataEntityId = identifier;
         poco.Hash = HashHelper.CreateHash(poco);
 
         this.Repository.Create(identifier, poco);
 
         var plain = Repository.Read(identifier);
-        RefUIData.PlainToShadow(plain);
+        dataObject.PlainToShadow(plain);        
     }
 
     /// <inheritdoc />
-    public async Task FromRepositoryToShadowsAsync(IBrowsableDataObject entity)
+    public async Task FromRepositoryToShadowsAsync(IBrowsableDataObject entity, ITwinObject dataObject)
     {
         var record = Repository.Read(entity.DataEntityId);
-        await this.RefUIData.PlainToShadow(record);
-        ((AxoDataEntity)this.RefUIData).Hash = record.Hash;
-        ((AxoDataEntity)this.RefUIData).Changes = record.Changes;
+        await dataObject.PlainToShadow(record);
+        ((AxoDataEntity)dataObject).Hash = record.Hash;
+        ((AxoDataEntity)dataObject).Changes = record.Changes;
     }
 
     /// <inheritdoc />
-    public async Task UpdateFromShadowsAsync()
+    public async Task UpdateFromShadowsAsync(ITwinObject dataObject)
     {
-        var plainer = await ((ITwinObject)RefUIData).ShadowToPlain<dynamic>();
-        ChangeTrackerSaveObservedChanges(plainer);
+        var plainer = await ((ITwinObject)dataObject).ShadowToPlain<dynamic>();
+        ChangeTrackerSaveObservedChanges(plainer, dataObject);
         plainer.Hash = HashHelper.CreateHash(plainer);
         Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
     }
 
     /// <inheritdoc />
-    public async Task FromRepositoryToControllerAsync(IBrowsableDataObject selected)
+    public async Task FromRepositoryToControllerAsync(IBrowsableDataObject selected, ITwinObject dataObject)
     {
-        await RefUIData.PlainToOnline(Repository.Read(selected.DataEntityId));
+        await dataObject.PlainToOnline(Repository.Read(selected.DataEntityId));
     }
 
     /// <inheritdoc />
-    public async Task CreateDataFromControllerAsync(string recordId)
+    public async Task CreateDataFromControllerAsync(string recordId, ITwinObject dataObject)
     {
-        var plainer = await RefUIData.OnlineToPlain<dynamic>();
+        var plainer = await dataObject.OnlineToPlain<dynamic>();
         plainer.DataEntityId = recordId;
         plainer.Hash = HashHelper.CreateHash(plainer);
         Repository.Create(plainer.DataEntityId, plainer);
         var plain = Repository.Read(plainer.DataEntityId);
-        RefUIData.PlainToShadow(plain);
+        dataObject.PlainToShadow(plain);
     }
 
     /// <inheritdoc />
@@ -525,9 +561,9 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     }
 
     /// <inheritdoc />
-    public async Task CreateCopyCurrentShadowsAsync(string recordId)
+    public async Task CreateCopyCurrentShadowsAsync(string recordId, ITwinObject dataObject)
     {
-        var source = (Pocos.AXOpen.Data.IAxoDataEntity)await RefUIData.ShadowToPlain<IBrowsableDataObject>();
+        var source = (Pocos.AXOpen.Data.IAxoDataEntity)await dataObject.ShadowToPlain<IBrowsableDataObject>();
         source.DataEntityId = recordId;
         source.Hash = HashHelper.CreateHash(source);
         Repository.Create(source.DataEntityId, source);
@@ -649,7 +685,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
             File.Delete(path);
 
-            ExportData exportData = customExportData.GetValueOrDefault(RefUIData.ToString(), new ExportData(true, new Dictionary<string, bool>()));
+            ExportData exportData = customExportData.GetValueOrDefault(typeof(TOnline).ToString(), new ExportData(true, new Dictionary<string, bool>()));
             if (exportData.Exported)
                 dataExporter.Export(DataRepository, Path.GetDirectoryName(path) + "\\exportDataPrepare", this.SymbolTail, p => true, exportData.Data, exportMode, firstNumber, secondNumber, separator);
 
@@ -657,7 +693,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         }
         else
         {
-            ExportData exportData = customExportData.GetValueOrDefault(RefUIData.ToString(), new ExportData(true, new Dictionary<string, bool>()));
+            ExportData exportData = customExportData.GetValueOrDefault(typeof(TOnline).ToString(), new ExportData(true, new Dictionary<string, bool>()));
             if (exportData.Exported)
                 dataExporter.Export(DataRepository, path, this.SymbolTail, p => true, exportData.Data, exportMode, firstNumber, secondNumber, separator);
         }
@@ -695,24 +731,24 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     }
 
     /// <inheritdoc />
-    public async Task CreateOrUpdate(string recordId)
+    public async Task CreateOrUpdate(string recordId, ITwinObject dataObject)
     {
         if (Repository.Exists(recordId))
         {
-            var plainer = await ((ITwinObject)RefUIData).ShadowToPlain<dynamic>();
-            ChangeTrackerSaveObservedChanges(plainer);
+            var plainer = await ((ITwinObject)dataObject).ShadowToPlain<dynamic>();
+            ChangeTrackerSaveObservedChanges(plainer, dataObject);
             plainer.Hash = HashHelper.CreateHash(plainer);
             Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
         }
         else
         {
-            Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)this.RefUIData.CreatePoco();
+            Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)dataObject.CreatePoco();
             poco.DataEntityId = recordId;
             poco.Hash = HashHelper.CreateHash(poco);
 
             this.Repository.Create(recordId, poco);
             var plain = Repository.Read(recordId);
-            RefUIData.PlainToShadow(plain);
+            dataObject.PlainToShadow(plain);
         }
     }
 }

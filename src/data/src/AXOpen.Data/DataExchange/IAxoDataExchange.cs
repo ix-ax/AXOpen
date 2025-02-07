@@ -13,40 +13,39 @@ namespace AXOpen.Data
 {
     public partial interface IAxoDataExchange
     {
+        ITwinObject CloneDataObject();
+
+        ITwinObject Data { get; }
+
         /// <summary>
         /// Gets repository associated with this <see cref="IAxoDataExchange"/> object.
         /// </summary>
         IRepository? Repository { get; }
 
-        /// <summary>
-        /// Gets data of this AxoDataExchange object for automated UI generation.
-        /// </summary>
-        ITwinObject RefUIData { get; }
-
-        bool VerifyHash { get; set; }
+        bool ShouldVerifyHash { get; set; }
 
         /// <summary>
         /// Stop observing changes of the data object with changeTracker.
         /// </summary>
-        void ChangeTrackerStopObservingChanges();
+        void ChangeTrackerStopObservingChanges(ITwinObject dataObject);
 
         /// <summary>
         /// Start observing changes of the data object with changeTracker.
         /// </summary>
         /// <param name="authenticationState">Authentication state of current logged user.</param>
-        void ChangeTrackerStartObservingChanges(AuthenticationState authenticationState);
+        void ChangeTrackerStartObservingChanges(AuthenticationState authenticationState, ITwinObject dataObject);
 
         /// <summary>
         /// Saves observed changes from changeTracker to object.
         /// </summary>
         /// <param name="plainObject"></param>
-        void ChangeTrackerSaveObservedChanges(IBrowsableDataObject plainObject);
+        void ChangeTrackerSaveObservedChanges(IBrowsableDataObject plainObject, ITwinObject dataObject);
 
         /// <summary>
         /// Sets changes to changeTracker.
         /// </summary>
         /// <param name="entity">Entity from which is set data.</param>
-        void ChangeTrackerSetChanges();
+        void ChangeTrackerSetChanges(ITwinObject dataObject);
 
         /// <summary>
         /// Get object which locked this repository.
@@ -60,7 +59,7 @@ namespace AXOpen.Data
         /// <param name="by"></param>
         void SetLockedBy(object by);
 
-        bool IsHashCorrect(IIdentity identity);
+        bool IsHashCorrect(IIdentity identity, ITwinObject dataObject);
 
         /// <summary>
         /// Gets changes from changeTracker.
@@ -78,27 +77,27 @@ namespace AXOpen.Data
         /// Copies the data from the repository(ies) to shadows of this twin object.
         /// </summary>
         /// <param name="entity">Data entity object.</param>
-        Task FromRepositoryToShadowsAsync(IBrowsableDataObject entity);
+        Task FromRepositoryToShadowsAsync(IBrowsableDataObject entity, ITwinObject dataObject);
 
         /// <summary>
         /// Updates data form shadows of this object to respective record in the repository.
         /// </summary>
         /// <returns>Task</returns>
-        Task UpdateFromShadowsAsync();
+        Task UpdateFromShadowsAsync(ITwinObject dataObject);
 
         /// <summary>
         /// Loads data from respective record of the repository into the controller.
         /// </summary>
         /// <param name="entity">Entity to be loaded into the controller.</param>
         /// <returns></returns>
-        Task FromRepositoryToControllerAsync(IBrowsableDataObject entity);
+        Task FromRepositoryToControllerAsync(IBrowsableDataObject entity, ITwinObject dataObject);
 
         /// <summary>
         /// Load data from controller and creates new record in the repository.
         /// </summary>
         /// <param name="recordId"></param>
         /// <returns></returns>
-        Task CreateDataFromControllerAsync(string recordId);
+        Task CreateDataFromControllerAsync(string recordId, ITwinObject dataObject);
 
         /// <summary>
         /// Deletes record from the repository.
@@ -112,28 +111,29 @@ namespace AXOpen.Data
         /// </summary>
         /// <param name="identifier">Id of the record.</param>
         /// <returns>Task</returns>
-        Task CreateNewAsync(string identifier);
+        Task CreateNewAsync(string identifier, ITwinObject dataObject);
 
         /// <summary>
         /// Check if record exists in the repository.
         /// </summary>
-        /// <param name="identifier">Id of the record.</param>
+        /// <param name="identifier">Identifier of the record.</param>
         /// <returns>Task</returns>
         Task<bool> ExistsAsync(string identifier);
 
         /// <summary>
         /// Create or update record in the repository.
         /// </summary>
-        /// <param name="identifier">Id of the record.</param>
+        /// <param name="identifier">Identifier of the record.</param>
         /// <returns>Task</returns>
-        Task CreateOrUpdate(string identifier);
+        Task CreateOrUpdate(string identifier, ITwinObject dataObject);
 
         /// <summary>
         /// Create new record of the current data present in the shadows of this object in the repository.
         /// </summary>
-        /// <param name="identifier">Id of the new record</param>
+        /// <param name="identifier">Identifier of the new record</param>
+        /// <param name="dataObject">Data object from which the copy will be created.</param>
         /// <returns></returns>
-        Task CreateCopyCurrentShadowsAsync(string identifier);
+        Task CreateCopyCurrentShadowsAsync(string identifier, ITwinObject dataObject);
 
         /// <summary>
         /// Provides handler for remote (controller's) request to create new data entry in the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>
@@ -184,9 +184,11 @@ namespace AXOpen.Data
         /// <param name="limit">Limits number of entries</param>
         /// <param name="skip">Skips number of entries.</param>
         /// <param name="searchMode">Set the search mode fot his query. <seealso cref="eSearchMode"/></param>
+        /// <param name="sortExpression">Sorting data expression.</param>
+        /// <param name="sortAscending">Indicated the records should be ordered in ascending order.</param>
         /// <returns>Records from the associated repository meeting criteria.</returns>
         IEnumerable<IBrowsableDataObject> GetRecords(string identifier, int limit, int skip,
-            eSearchMode searchMode, string sortExpresion, bool sortAscending);
+            eSearchMode searchMode, string sortExpression, bool sortAscending);
 
         /// <summary>
         /// Gets record meeting criteria from the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/> where the data entity id matches exactly the argument.
@@ -206,7 +208,9 @@ namespace AXOpen.Data
         /// Import data from file to the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>.
         /// </summary>
         /// <param name="path">Path to imported file.</param>
+        /// <param name="authenticationState">Provides information about identity of the user performing import of data. </param>
         /// <param name="crudDataObject">Object type of the imported records.</param>
+        /// <param name="exportFileType">Type of exported file.</param>
         /// <param name="separator">Separator for individual records.</param>
         void ImportData(string path, AuthenticationState authenticationState, ITwinObject crudDataObject = null, string exportFileType = "CSV", char separator = ';');
 
@@ -219,9 +223,10 @@ namespace AXOpen.Data
             if (Directory.Exists(path))
                 Directory.Delete(path, true);
         }
+
+        
     }
 }
-
 
 namespace AXOpen.Data
 {

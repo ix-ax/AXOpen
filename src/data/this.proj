@@ -1,5 +1,17 @@
 ﻿<Project Sdk="Microsoft.Build.Traversal/4.1.0">
 	<ItemGroup>    
-    <ProjectReference Include="**\*.csproj"  Exclude="**\.apax\**"/>     
+    <ProjectReference Include="app\ix-blazor\librarytemplate.blazor\librarytemplate.blazor.csproj" />    
+    <ProjectReference Include="app\ix\axopen_data_app.csproj" />    
+    <ProjectReference Include="src\AXOpen.Data.Blazor\axopen_data_blazor.csproj" />    
+    <ProjectReference Include="src\AXOpen.Data\inxton_axopen_data.csproj" />    
+    <ProjectReference Include="src\exporters\AXOpen.Data.Exporters.Excel\AXOpen.Data.Exporters.Excel.csproj" />    
+    <ProjectReference Include="src\repositories\InMemory\AXOpen.Data.InMemory.csproj" />    
+    <ProjectReference Include="src\repositories\Json\AXOpen.Data.Json.csproj" />    
+    <ProjectReference Include="src\repositories\MongoDb\AXOpen.Data.MongoDb.csproj" />    
+    <ProjectReference Include="src\repositories\RavenDb\AXOpen.Data.RavenDb\AXOpen.Data.RavenDb.csproj" />    
+    <ProjectReference Include="tests\AXOpen.Data.Exporters.ExcelTests\AXOpen.Data.Exporters.ExcelTests_L1.csproj" />    
+    <ProjectReference Include="tests\AXOpen.Data.Tests\axopen_data_tests_L1.csproj" />    
+    <ProjectReference Include="tests\AXOpen.Repository.Integration.Tests_L1\axopen_repository_integration_tests_L1.csproj" />    
+    <ProjectReference Include="tests\AXOpen.Repository.Integration.Tests_L3\axopen_repository_integration_tests_L3.csproj" />     
   </ItemGroup>
 </Project>

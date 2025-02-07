@@ -155,7 +155,7 @@ namespace AXOpen.Repository.Integration.Tests
             //-- Assert
             Assert.That("Pepo post update", Is.EqualTo(testObj.Name));
             Assert.That(44, Is.EqualTo(testObj.Age));
-            Assert.That(testObj._Created, Is.EqualTo(testObj._Modified));
+            Assert.That(testObj._Created, !Is.EqualTo(testObj._Modified));
             Assert.That(DateTime.Now.Subtract(new TimeSpan(0, 0, 3)) < testObj._Modified, Is.True);
         }
 
