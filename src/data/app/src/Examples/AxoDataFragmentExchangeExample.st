@@ -61,6 +61,8 @@ NAMESPACE AxoDataFramentsExchangeExample
             SomeString : STRING;
             {#ix-set:AttributeName = "Some int"}
             SomeInt : INT;
+            {#ix-set:AttributeName = "Some bool"}
+            SomeBool : BOOL;
         END_VAR      
     END_CLASS
         
@@ -80,10 +82,12 @@ NAMESPACE AxoDataFramentsExchangeExample
     {S7.extern=ReadWrite}
     CLASS PUBLIC Station_1_Data EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
-            {#ix-set:AttributeName = "Some string"}
+            {#ix-set:AttributeName = "Some string st"}
             SomeString : STRING;
-            {#ix-set:AttributeName = "Some int"}
+            {#ix-set:AttributeName = "Some int st"}
             SomeInt : INT;
+            {#ix-set:AttributeName = "Some bool st"}
+            SomeBool : BOOL;
         END_VAR
     END_CLASS
 
