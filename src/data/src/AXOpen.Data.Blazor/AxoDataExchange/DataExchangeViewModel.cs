@@ -43,7 +43,7 @@ namespace AXOpen.Data
         {
             get
             {
-                if(_refUIData == null)
+                if (_refUIData == null)
                 {
                     _refUIData = DataExchange.CloneDataObject();
                 }
@@ -155,17 +155,18 @@ namespace AXOpen.Data
 
         public IEnumerable<IBrowsableDataObject> Filter(string identifier, int limit = 10, int skip = 0, eSearchMode searchMode = eSearchMode.Exact, string sortExpresion = "Default", bool sortAscending = false)
         {
-            Records.Clear();
-
             var records = this.DataExchange.GetRecords(identifier, limit: limit, skip: skip, searchMode, sortExpresion,
                 sortAscending);
 
-            foreach (var item in records)
+            lock (_viewRefreshMutex)
             {
-                this.Records.Add(item);
+                Records.Clear();
+                foreach (var item in records)
+                {
+                    this.Records.Add(item);
+                }
+                FilteredCount = CountFiltered(FilterById, SearchMode);
             }
-
-            FilteredCount = CountFiltered(FilterById, SearchMode);
 
             return Records;
         }
@@ -367,6 +368,8 @@ namespace AXOpen.Data
                 }
             });
         }
+
+        protected volatile object _viewRefreshMutex = new object();
 
         public ObservableCollection<IBrowsableDataObject> Records { get; set; } = new ObservableCollection<IBrowsableDataObject>();
         public int Limit { get; set; } = 10;
