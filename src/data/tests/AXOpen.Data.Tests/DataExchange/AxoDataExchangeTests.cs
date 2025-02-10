@@ -521,7 +521,7 @@ namespace AXOpen.Data.Tests
             sut.Set.GoesTo.Shadow = 201;
 
 
-            await sut.CreateCopyCurrentShadowsAsync("hey remote create - new", sut.Data);
+            await sut.CreateCopyCurrentShadowsAsync("hey remote create - new", sut.DataExchangeTwinObject);
 
             var record = repo.Read("hey remote create - new");
             Assert.Equal("hey remote create - new", record.DataEntityId);

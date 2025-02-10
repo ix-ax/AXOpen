@@ -99,7 +99,7 @@ namespace integration.data.blazor.tests
             };
 
             //await _vm.DataExchange.RefUIData.PlainToShadow(_vm.SelectedRecord);
-            await _vm.DataExchange.FromRepositoryToShadowsAsync(_vm.SelectedRecord, _vm.DataExchange.Data);
+            await _vm.DataExchange.FromRepositoryToShadowsAsync(_vm.SelectedRecord, _vm.DataExchange.DataExchangeTwinObject);
             await _vm.Edit();
 
             //assert

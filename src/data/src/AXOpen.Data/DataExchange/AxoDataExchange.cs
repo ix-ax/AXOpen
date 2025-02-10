@@ -32,11 +32,8 @@ namespace AXOpen.Data;
 public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEntity
     where TPlain : Pocos.AXOpen.Data.IAxoDataEntity, new()
 {
-    /// <summary>
-    ///     Gets <see cref="AxoDataEntity" /> as <see cref="ITwinObject" /> that provides exchange mechanisms between this
-    ///     <see cref="AxoDataExchange{TOnline,TPlain}" /> and the controller.
-    /// </summary>
-    public ITwinObject? Data => DataEntity as ITwinObject;
+    /// <inheritdoc />
+    public ITwinObject? DataExchangeTwinObject => DataEntity as ITwinObject;
 
     private TOnline _dataEntity;
 
