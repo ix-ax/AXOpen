@@ -114,13 +114,13 @@ public partial class BuildContext : FrostingContext
     public string TestResults => Path.Combine(Environment.WorkingDirectory.FullPath, "..//TestResults//");
    
     public string TestResultsCtrl => Path.Combine(Environment.WorkingDirectory.FullPath, "..//TestResultsCtrl//");
-    public string AppTestResultsDir => Path.GetFullPath(Path.Combine(Environment.WorkingDirectory.FullPath, "..//..//app_test_results//"));
-    public string SourceDirPlcSim => Path.GetFullPath(Path.Combine(Environment.WorkingDirectory.FullPath, "..//..//source//plcsim//"));
+    public string AppTestResultsDir => Path.GetFullPath(Path.Combine(Environment.WorkingDirectory.FullPath, "..//..//..//app_test_results//"));
+    public string SourceDirPlcSim => Path.GetFullPath(Path.Combine(Environment.WorkingDirectory.FullPath, "..//..//..//source//plcsim//"));
     public string PlcSimVirtualMemoryCardLocation => Path.GetFullPath(Path.Combine(Environment.WorkingDirectory.FullPath, "..//..//..//plcsim//"));
     public string PlcName => "plc_line";
     public string PlcIpAddress => "10.10.10.120";
 
-    public string SourceDirSecurityFiles => Path.GetFullPath(Path.Combine(Environment.WorkingDirectory.FullPath, "..//..//source//"));
+    public string SourceDirSecurityFiles => Path.GetFullPath(Path.Combine(Environment.WorkingDirectory.FullPath, "..//..//..//source//"));
     public BuildContext(ICakeContext context, BuildParameters buildParameters)
         : base(context)
     {
