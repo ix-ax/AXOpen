@@ -7,6 +7,7 @@ targets:
 variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
+  # Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build. =>
   PLC_NAME: "plc_line"
   DEFAULT_NAMESPACE: "AXOpen.Components.Drives"
   AXTARGET: 10.10.10.120
@@ -14,6 +15,7 @@ variables:
   AX_USERNAME: "adm"
   AX_TARGET_PWD: "123ABCDabcd$#!"
   USE_PLC_SIM_ADVANCED: "true"
+  # <= Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build.
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
