@@ -268,7 +268,7 @@ namespace AXOpen.Data.Fragments.Tests
             { ComesFrom = 185, GoesTo = 398 });
             manipRepo.Create("hey remote create", new() { CounterDelay = 898577ul });
 
-            await sut.FromRepositoryToShadowsAsync(new SharedProductionData() { DataEntityId = "hey remote create" }, s.Data);
+            await sut.FromRepositoryToShadowsAsync(new SharedProductionData() { DataEntityId = "hey remote create" }, s.DataExchangeTwinObject);
 
 
             Assert.Equal("hey remote create", sut.Set.Set.DataEntityId.Shadow);
@@ -294,7 +294,7 @@ namespace AXOpen.Data.Fragments.Tests
             { ComesFrom = 485, GoesTo = 898 });
             manipRepo.Create("hey remote create", new() { CounterDelay = 5898577ul });
 
-            await sut.FromRepositoryToControllerAsync(new SharedProductionData() { DataEntityId = "hey remote create" }, s.Data);
+            await sut.FromRepositoryToControllerAsync(new SharedProductionData() { DataEntityId = "hey remote create" }, s.DataExchangeTwinObject);
 
             // TODO: @kuh0005 : This test is not working as originally written
             // seems to have something to do with later additions to `LethargicWrite` in the generated code
@@ -319,7 +319,7 @@ namespace AXOpen.Data.Fragments.Tests
 
             for (int i = 0; i < 10; i++)
             {
-                await sut.CreateNewAsync($"{i}Record", s.Data);
+                await sut.CreateNewAsync($"{i}Record", s.DataExchangeTwinObject);
             }
 
             var actual = sut.GetRecords("Rec", 3, 0, eSearchMode.Contains, "Default", true);
@@ -339,7 +339,7 @@ namespace AXOpen.Data.Fragments.Tests
 
             for (int i = 0; i < 10; i++)
             {
-                await sut.CreateNewAsync($"{i}Record", s.Data);
+                await sut.CreateNewAsync($"{i}Record", s.DataExchangeTwinObject);
             }
 
             var actual = sut.GetRecords("*");
@@ -394,7 +394,7 @@ namespace AXOpen.Data.Fragments.Tests
             sut.Manip.Set.DataEntityId.Shadow = "hey remote create";
             sut.Manip.Set.CounterDelay.Shadow = 8566ul;
 
-            await sut.UpdateFromShadowsAsync(sut.Data);
+            await sut.UpdateFromShadowsAsync(sut.DataExchangeTwinObject);
 
 
             var shared = sut.Set.DataRepository.Read("hey remote create");
@@ -419,7 +419,7 @@ namespace AXOpen.Data.Fragments.Tests
             await sut.Set.Set.GoesTo.SetAsync(222);
             await sut.Manip.Set.CounterDelay.SetAsync(4859);
 
-            await sut.CreateDataFromControllerAsync("hey remote create", sut.Data);
+            await sut.CreateDataFromControllerAsync("hey remote create", sut.DataExchangeTwinObject);
 
             var shared = sut.Set.DataRepository.Read("hey remote create");
 
@@ -448,11 +448,11 @@ namespace AXOpen.Data.Fragments.Tests
 
             
 
-            await sut.CreateDataFromControllerAsync("hey remote create", sut.Data);
+            await sut.CreateDataFromControllerAsync("hey remote create", sut.DataExchangeTwinObject);
 
 
 
-            await sut.CreateCopyCurrentShadowsAsync("hey remote create - copy", sut.Data);
+            await sut.CreateCopyCurrentShadowsAsync("hey remote create - copy", sut.DataExchangeTwinObject);
 
 
             var shared = sut.Set.DataRepository.Read("hey remote create - copy");
@@ -482,7 +482,7 @@ namespace AXOpen.Data.Fragments.Tests
             manipRepo.Create("hey remote create", new() { CounterDelay = 898577ul });
             manipRepo.Delete("hey remote create");
 
-            await sut.FromRepositoryToShadowsAsync(new SharedProductionData() { DataEntityId = "hey remote create" }, s.Data);
+            await sut.FromRepositoryToShadowsAsync(new SharedProductionData() { DataEntityId = "hey remote create" }, s.DataExchangeTwinObject);
 
             Assert.Equal("hey remote create", sut.Set.Set.DataEntityId.Shadow);
             Assert.Equal(185, sut.Set.Set.ComesFrom.Shadow);

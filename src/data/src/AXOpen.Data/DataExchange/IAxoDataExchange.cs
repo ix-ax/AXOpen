@@ -15,7 +15,11 @@ namespace AXOpen.Data
     {
         ITwinObject CloneDataObject();
 
-        ITwinObject Data { get; }
+        /// <summary>
+        ///     Gets <see cref="AxoDataEntity" /> as <see cref="ITwinObject" /> that provides exchange mechanisms between this
+        ///     data exchange instance and the controller.
+        /// </summary>
+        ITwinObject DataExchangeTwinObject { get; }
 
         /// <summary>
         /// Gets repository associated with this <see cref="IAxoDataExchange"/> object.

@@ -16,7 +16,8 @@ namespace AXOpen.Data;
 
 public partial class AxoDataFragmentExchange
 {
-    public ITwinObject? Data { get; private set; }
+    /// <inheritdoc />
+    public ITwinObject? DataExchangeTwinObject { get; private set; }
 
     private IRepository? _repository;
     protected IAxoDataExchange[] DataFragments { get; private set; }
@@ -42,7 +43,7 @@ public partial class AxoDataFragmentExchange
     public object CreateDataFragments()
     {
         DataFragments = GetDataSetProperty<AxoDataFragmentAttribute, IAxoDataExchange>().ToArray();
-        Data = new AxoFragmentedDataCompound(this, DataFragments.Select(p => p.Data).Cast<ITwinElement>().ToList());
+        DataExchangeTwinObject = new AxoFragmentedDataCompound(this, DataFragments.Select(p => p.DataExchangeTwinObject).Cast<ITwinElement>().ToList());
         Repository = new AxoCompoundRepository(DataFragments);
 
         foreach (var prop in this.GetType().GetProperties())
@@ -208,7 +209,7 @@ public partial class AxoDataFragmentExchange
 
     private static void CreateNewPocoInFragmentRepository(string identifier, IAxoDataExchange fragment)
     {
-        Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)fragment.Data.CreatePoco();
+        Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)fragment.DataExchangeTwinObject.CreatePoco();
         poco.DataEntityId = identifier;
         poco.Hash = HashHelper.CreateHash(poco);
 
@@ -254,7 +255,7 @@ public partial class AxoDataFragmentExchange
 
         foreach (var fragment in interfaceFragments)
         {
-            var fr = DataFragments.FirstOrDefault(p => p.Data.GetType() == fragment.GetType());
+            var fr = DataFragments.FirstOrDefault(p => p.DataExchangeTwinObject.GetType() == fragment.GetType());
             yield return (fr, fr.Repository, fragment); 
         }
     }
