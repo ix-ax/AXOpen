@@ -64,6 +64,119 @@ internal static class AppsRunTaskHelpers
         string swfdResult = ApaxCmd.ApaxSwfd(context, appFolder, ref summaryResult);
         WriteResult(context, swfdResult, logFilePath, appendToSameLine: true);
     }
+    public static void AppRunDetailed(BuildContext context, string appYamlFile, string appName, string logFilePath, ref bool summaryResult)
+    {
+        string plcName = context.PlcName;
+        string plcIpAddress = context.PlcIpAddress;
+
+        // Validate application YAML file
+        if (string.IsNullOrWhiteSpace(appYamlFile))
+        {
+            context.Log.Error("The provided YAML of the application is empty.");
+            return;
+        }
+
+        if (!File.Exists(appYamlFile))
+        {
+            context.Log.Error($"The provided application file does not exist: {appYamlFile}");
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(appName))
+        {
+            context.Log.Error("The provided application name is empty.");
+            return;
+        }
+
+        string appFolder = Path.GetDirectoryName(appYamlFile);
+        if (string.IsNullOrWhiteSpace(appFolder) || !Directory.Exists(appFolder))
+        {
+            context.Log.Error($"The provided path for the application does not exist: {appFolder}");
+            return;
+        }
+
+        // Run "apax install"
+        string result = ApaxCmd.ApaxCommand(context, appFolder, "install", ref summaryResult);
+        WriteResult(context, result, logFilePath, appendToSameLine: true);
+
+        // Run "apax plcsim"
+        result = ApaxCmd.ApaxPlcSim(context, appFolder, ref summaryResult);
+        WriteResult(context, result, logFilePath, appendToSameLine: true);
+
+        // Run "apax gsd" # copy and install all gsdml files from libraries
+        result = ApaxCmd.ApaxCommand(context, appFolder, "gsd", ref summaryResult);
+        WriteResult(context, result, logFilePath, appendToSameLine: true);
+
+        // Run "apax hwl" # copy all templates from libraries
+        result = ApaxCmd.ApaxCommand(context, appFolder, "hwl", ref summaryResult);
+        WriteResult(context, result, logFilePath, appendToSameLine: true);
+
+        // Run "apax hwcc" # compile hardware configuration
+        result = ApaxCmd.ApaxCommand(context, appFolder, "hwcc", ref summaryResult);
+        WriteResult(context, result, logFilePath, appendToSameLine: true);
+
+        // Run "apax hwid" # copy the generated HwIds from global constants into the type definition, matching the format as the TIA2AX tool creates
+        result = ApaxCmd.ApaxCommand(context, appFolder, "hwid", ref summaryResult);
+        WriteResult(context, result, logFilePath, appendToSameLine: true);
+
+        // Run "apax hwadr" # copy the generated IoAddresses
+        result = ApaxCmd.ApaxCommand(context, appFolder, "hwadr", ref summaryResult);
+        WriteResult(context, result, logFilePath, appendToSameLine: true);
+
+        // Run "apax hwdo" # download HW only using certificate
+        result = ApaxCmd.ApaxCommand(context, appFolder, "hwdo", ref summaryResult);
+        WriteResult(context, result, logFilePath, appendToSameLine: true);
+
+        // Run "apax build --ignore-scripts" 
+        result = ApaxCmd.ApaxCommand(context, appFolder, "build --ignore-scripts", ref summaryResult);
+        WriteResult(context, result, logFilePath, appendToSameLine: true);
+
+        // Run "dotnet ixc" 
+        result = DotNetCmd.DotNetIxc(context, appFolder, ref summaryResult);
+        WriteResult(context, result, logFilePath, appendToSameLine: true);
+
+        // Run "apax swfdo" # software full download only
+        result = ApaxCmd.ApaxCommand(context, appFolder, "swfdo", ref summaryResult);
+        WriteResult(context, result, logFilePath, appendToSameLine: true);
+
+
+        // Recreate solution file by running the slngen script
+        string slnGenPath = Path.GetFullPath(Path.GetFullPath(Path.Combine(appFolder, "..", "./slngen.ps1")));
+        result = DotNetCmd.RunPowershellScript(context, slnGenPath, "", ref summaryResult);
+        WriteResult(context, result, logFilePath, appendToSameLine: true);
+
+        // Clean solution
+        string solutionFile = Path.GetFullPath(Path.Combine(appFolder, "../this.sln"));
+        result = DotNetCmd.DotNetClean(context, solutionFile, "-c Debug", ref summaryResult);
+        WriteResult(context, result, logFilePath, appendToSameLine: true);
+
+        // Build solution
+        result = DotNetCmd.DotNetBuildWithResult(context, solutionFile, "-c Debug", ref summaryResult);
+        WriteResult(context, result, logFilePath, appendToSameLine: true);
+
+        // Get blazor projects
+        var blazorFiles = Directory.GetFiles(appFolder, "*.csproj", SearchOption.AllDirectories).Where(file => file.Contains("blazor")).ToList();
+
+        if (blazorFiles.Any())
+        {
+            foreach (var blazorFile in blazorFiles)
+            {
+                context.Log.Information($"Application 'blazor' file: {blazorFile}");
+
+                // Filter out libraries by checking for <PackageId> in the project file
+                string csprojContent = File.ReadAllText(blazorFile);
+                if (!csprojContent.Contains("<PackageId>"))
+                {
+                    result = DotNetCmd.DotNetRunWithResult(context, blazorFile, "-c Debug --framework net9.0", 60, ref summaryResult);
+                    WriteResult(context, result, logFilePath, appendToSameLine: true);
+                }
+            }
+        }
+        else
+        {
+            context.Log.Information("No files containing 'blazor' in the filename and ending with '.csproj' were found.");
+        }
+    }
 
     public static void BuildAndStartHmi(BuildContext context, string appYamlFile, string appName, string logFilePath, ref bool summaryResult)
     {

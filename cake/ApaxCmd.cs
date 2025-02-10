@@ -60,7 +60,58 @@ public static class ApaxCmd
         }).WaitForExit();
         context.Log.Information($"apax {apaxArguments} completed successfully in '{folder}'");
     }
+    public static string ApaxCommand(this BuildContext context, string folder, string apaxCommand, ref bool summaryResult)
+    {
+        string retVal = ",NOK";
 
+        context.Log.Information($"apax {apaxCommand} started in '{folder}'");
+
+        var processSettings = new ProcessSettings()
+        {
+            Arguments = apaxCommand,
+            WorkingDirectory = folder,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            Silent = false
+        };
+
+        using (var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), processSettings))
+        {
+            if (process == null)
+            {
+                summaryResult = false;
+                throw new Exception("Failed to start the process.");
+            }
+
+            process.WaitForExit();
+
+            var standardOutput = process.GetStandardOutput();
+            var standardError = process.GetStandardError();
+
+
+            // Check the exit code and handle result
+            if (process.GetExitCode() == 0)
+            {
+                foreach (string line in standardOutput)
+                {
+                    context.Log.Information(line);
+                }
+                context.Log.Information($"apax {apaxCommand} completed successfully in '{folder}'");
+                retVal = ",OK";
+            }
+            else
+            {
+                summaryResult = false;
+                foreach (string line in standardError)
+                {
+                    context.Log.Error(line);
+                }
+                context.Log.Error($"apax {apaxCommand} failed with exit code: {process.GetExitCode()} in '{folder}'");
+                context.Log.Error($"Error Output: {standardError}");
+            }
+            return retVal;
+        }
+    }
     public static string ApaxPlcSim(this BuildContext context, string folder, ref bool summaryResult)
     {
         string retVal = ",NOK";
@@ -109,7 +160,6 @@ public static class ApaxCmd
             return retVal;
         }
     }
-
     public static string ApaxHwu(this BuildContext context, string folder, ref bool summaryResult)
     {
         string retVal = ",NOK";

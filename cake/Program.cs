@@ -386,7 +386,7 @@ public sealed class AppsRunTask : FrostingTask<BuildContext>
             if (createResult.Success)
             {
                 string logFilePath = createResult.FilePath;
-                AppsRunTaskHelpers.WriteResult(context, "AppName,PlcSim,PlcHw,PlcSw,DotnetBuild,DotnetRun", logFilePath);
+                AppsRunTaskHelpers.WriteResult(context, "AppName,ApaxInstall,ApaxPlcSim,ApaxGsd,ApaxHwl,ApaxHwcc,ApaxHwid,ApaxHwadr,ApaxHwdo,ApaxBuild,DotnetIxc,ApaxSlfdo,Slngen,DotnetClean,DotnetBuild,DotnetRun", logFilePath);
 
                 string appFolder = Path.Combine(Path.Combine(context.RootDir, context.BuildParameters.AppRunOnlyFolderName), "app");
                 string appFile = context.GetApaxFile(appFolder);
@@ -411,11 +411,8 @@ public sealed class AppsRunTask : FrostingTask<BuildContext>
                     // Overwrite security files
                     AppsRunTaskHelpers.OverwriteSecurityFiles(context, appFile, context.PlcName);
 
-                    // Build and load PLC
-                    AppsRunTaskHelpers.BuildAndLoadPlc(context, appFile, appName, logFilePath, ref summaryResult);
-
-                    // Build and start HMI
-                    AppsRunTaskHelpers.BuildAndStartHmi(context, appFile, appName, logFilePath, ref summaryResult);
+                    // Build and load PLC, build and start HMI with more grannular evaluation
+                    AppsRunTaskHelpers.AppRunDetailed(context, appFile, appName, logFilePath, ref summaryResult);
                 }
             }
             else
