@@ -229,6 +229,22 @@ internal static class AppsRunTaskHelpers
         string solutionFile = Path.GetFullPath(Path.Combine(appFolder, "../this.sln"));
         DotNetCmd.DotNetClean(context, solutionFile, "-c Debug");
 
+
+        //##########################          template.axolibrary     =>       ######################//
+        if (appFolder.Contains("template.axolibrary"))
+        {
+            string dot_g_folder = Path.GetFullPath(Path.Combine(appFolder, "ix//.g"));
+            context.CleanDirectory(dot_g_folder, new CleanDirectorySettings() { Force = true });
+
+            string dot_meta_folder = Path.GetFullPath(Path.Combine(appFolder, "ix//.meta"));
+            context.CleanDirectory(dot_meta_folder, new CleanDirectorySettings() { Force = true });
+
+            // Run "dotnet ixc" 
+            DotNetCmd.DotNetIxc(context, appFolder, ref summaryResult);
+        }
+
+        //##########################     <=     template.axolibrary              ######################//
+
         // Build solution
         string buildResult = DotNetCmd.DotNetBuildWithResult(context, solutionFile, "-c Debug", ref summaryResult);
         WriteResult(context, buildResult, logFilePath, appendToSameLine: true);
