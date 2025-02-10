@@ -329,15 +329,15 @@ public sealed class AppsRunTask : FrostingTask<BuildContext>
 
         bool summaryResult = true;
 
-        var createResult = AppsRunTaskHelpers.CreateLogFile(context, "app_test_result");
-
-        if (createResult.Success)
+        if (string.IsNullOrEmpty(context.BuildParameters.AppRunOnlyFolderName))
         {
-            string logFilePath = createResult.FilePath;
-            AppsRunTaskHelpers.WriteResult(context, "AppName,PlcSim,PlcHw,PlcSw,DotnetBuild,DotnetRun", logFilePath);
+            var createResult = AppsRunTaskHelpers.CreateLogFile(context, "app_test_result");
 
-            if (string.IsNullOrEmpty(context.BuildParameters.AppRunOnlyFolderName))
+            if (createResult.Success)
             {
+                string logFilePath = createResult.FilePath;
+                AppsRunTaskHelpers.WriteResult(context, "AppName,PlcSim,PlcHw,PlcSw,DotnetBuild,DotnetRun", logFilePath);
+
                 foreach (var library in context.Libraries)
                 {
                     if (library.app_run)
@@ -376,7 +376,19 @@ public sealed class AppsRunTask : FrostingTask<BuildContext>
             }
             else
             {
-                string appFolder = Path.Combine(Path.Combine(context.RootDir, context.BuildParameters.AppRunOnlyFolderName), "app"); 
+                Console.Error.WriteLine("Failed to create the log file.");
+            }
+        }
+        else
+        {
+            var createResult = AppsRunTaskHelpers.CreateLogFile(context, "single_app_test_result");
+
+            if (createResult.Success)
+            {
+                string logFilePath = createResult.FilePath;
+                AppsRunTaskHelpers.WriteResult(context, "AppName,PlcSim,PlcHw,PlcSw,DotnetBuild,DotnetRun", logFilePath);
+
+                string appFolder = Path.Combine(Path.Combine(context.RootDir, context.BuildParameters.AppRunOnlyFolderName), "app");
                 string appFile = context.GetApaxFile(appFolder);
                 string appName = context.GetApplicationName(appFile);
 
@@ -406,10 +418,10 @@ public sealed class AppsRunTask : FrostingTask<BuildContext>
                     AppsRunTaskHelpers.BuildAndStartHmi(context, appFile, appName, logFilePath, ref summaryResult);
                 }
             }
-        }
-        else
-        {
-            Console.Error.WriteLine("Failed to create the log file.");
+            else
+            {
+                Console.Error.WriteLine("Failed to create the log file.");
+            }
         }
 
         AppsRunTaskHelpers.KillProcess(context, "Siemens.Simatic.PlcSim.Advanced.UserInterface");

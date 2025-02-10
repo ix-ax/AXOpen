@@ -27,15 +27,16 @@ if [ -z $PLATFORM ]; then
     exit 1
 fi
 
-apax build --ignore-scripts
-dotnet ixc
-
-#sw_download_delta
-sw_download_delta=$( dirname ${BASH_SOURCE[0]})"\\sw_download_delta.sh"
-$sw_download_delta $PLC_NAME $PLC_IP_ADDRESS $PLATFORM 
+certfile="./certs/$PLC_NAME/$PLC_NAME.cer"
+if ! [[ -e "$certfile" ]]; then
+	printf "${RED}Certification file $certfile does not exist!!!${NC}"
+	exit 1
+fi   
+apax sld load --accept-security-disclaimer -t $PLC_IP_ADDRESS -i $PLATFORM -r -C $certfile --mode delta
 if [[ $? -eq 0 ]]; then
-	printf "${GREEN}Software changes has been succesfully downloaded using security certificate.${NC}"
+	printf "${GREEN}Software has been succesfully downloaded using security certificate.${NC}"
 else
-	printf "${RED}Downloading of the software changes using security certificate finished with an error!${NC}\n"
+	printf "${RED}Downloading of the software using security certificate finished with an error!${NC}\n"
 	printf "${RED}Please check the details above.${NC}\n"
 	exit 1
+fi
