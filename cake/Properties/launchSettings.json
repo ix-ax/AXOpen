@@ -40,6 +40,10 @@
       "commandName": "Project",
       "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name data"
     },
+    "abb_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name components.abb.robotics"
+    },
     "test-L3-apps_run": {
       "commandName": "Project",
       "commandLineArgs": "--do-test --test-level 10 --apps-run"
