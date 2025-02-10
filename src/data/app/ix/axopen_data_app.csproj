@@ -23,7 +23,9 @@
 	<ItemGroup>
 		<Folder Include=".meta\" />
 		<Content Include=".meta\**" />
-		<Folder Include="certs\plc_line\" />
+		<Compile Remove="certs\**" />
+		<EmbeddedResource Remove="certs\**" />
+		<None Remove="certs\**" />
 	</ItemGroup>
 
 	<ItemGroup>

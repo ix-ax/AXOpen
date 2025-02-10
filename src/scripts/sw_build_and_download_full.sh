@@ -39,3 +39,4 @@ else
 	printf "${RED}Downloading of the software using security certificate finished with an error!${NC}\n"
 	printf "${RED}Please check the details above.${NC}\n"
 	exit 1
+fi
