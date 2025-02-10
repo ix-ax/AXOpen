@@ -432,4 +432,4 @@ dcp_export/
 *.apax.tgz
 
 #JSONREPOS
-JSONREPOS/
+**/JSONREPOS/
