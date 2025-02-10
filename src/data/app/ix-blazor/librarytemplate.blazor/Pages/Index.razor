@@ -7,3 +7,12 @@
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
+
+<div class="card">
+    <div class="card-header">
+        <h2>DataExchange PresentationType="Command"</h2>
+    </div>
+    <div class="card-body">
+        <RenderableContentControl Context="@Entry.Plc.AxoDataExchangeContext.DataManager" Presentation="Command" />
+    </div>
+</div>

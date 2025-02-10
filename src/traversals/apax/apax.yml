@@ -11,7 +11,7 @@ dependencies:
   '@inxton/ax.axopen.app': 0.0.0-dev.0
   '@inxton/ax.axopen.hwlibrary': 0.0.0-dev.0
   '@inxton/ax.axopen.min': 0.0.0-dev.0
-  '@inxton/ax.catalog': 0.0.3
+  '@inxton/ax.catalog': 0.0.4
   '@inxton/ax.latest.packages': 0.0.0-dev.0
   app_axopen.components.abb.robotics: 0.0.0-dev.0
   '@inxton/axopen.components.abb.robotics': 0.0.0-dev.0

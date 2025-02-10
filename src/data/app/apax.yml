@@ -8,11 +8,11 @@ variables:
     - "--debug" # Generate debug information for target "1500"
   PLC_NAME: "plc_line"
   DEFAULT_NAMESPACE: "AXOpen.Data"
-  AXTARGET: 10.10.10.120
+  AXTARGET: 10.222.6.2
   AXTARGETPLATFORMINPUT: .\bin\1500\
   AX_USERNAME: "adm"
   AX_TARGET_PWD: "123ABCDabcd$#!"
-  USE_PLC_SIM_ADVANCED: "true"
+  USE_PLC_SIM_ADVANCED: "false"
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:

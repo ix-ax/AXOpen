@@ -98,8 +98,9 @@ namespace integration.data.blazor.tests
                 RecipeName=recipe
             };
 
-             await _vm.DataExchange.RefUIData.PlainToShadow(_vm.SelectedRecord);
-             await _vm.Edit();
+            //await _vm.DataExchange.RefUIData.PlainToShadow(_vm.SelectedRecord);
+            await _vm.DataExchange.FromRepositoryToShadowsAsync(_vm.SelectedRecord, _vm.DataExchange.Data);
+            await _vm.Edit();
 
             //assert
             var foundRecord = _vm.Records.FirstOrDefault(p=> p.DataEntityId == id);
