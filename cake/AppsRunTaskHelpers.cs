@@ -161,7 +161,6 @@ internal static class AppsRunTaskHelpers
 
             // Run "dotnet ixc" 
             result = DotNetCmd.DotNetIxc(context, appFolder, ref summaryResult);
-            WriteResult(context, result, logFilePath, appendToSameLine: true);
         }
 
         //##########################     <=     template.axolibrary              ######################//

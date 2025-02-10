@@ -413,6 +413,12 @@ public sealed class AppsRunTask : FrostingTask<BuildContext>
 
                     // Build and load PLC, build and start HMI with more grannular evaluation
                     AppsRunTaskHelpers.AppRunDetailed(context, appFile, appName, logFilePath, ref summaryResult);
+
+                    if (!summaryResult)
+                    {
+                        context.Log.Error($"App run failed for the application name: '{appName}', application file: '{appFile}' in folder: '{appFolder}'");
+                        Environment.Exit(1);
+                    }
                 }
             }
             else
