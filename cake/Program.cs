@@ -69,251 +69,251 @@ public static class Program
     }
 }
 
-//[TaskName("CleanUp")]
-//public sealed class CleanUpTask : FrostingTask<BuildContext>
-//{
-//    public override void Run(BuildContext context)
-//    {
-//        if (context.BuildParameters.PublishOnly)
-//        {
-//            context.Log.Information("Skipping. Publish only.");
-//            return;
-//        }
+[TaskName("CleanUp")]
+public sealed class CleanUpTask : FrostingTask<BuildContext>
+{
+    public override void Run(BuildContext context)
+    {
+        if (context.BuildParameters.PublishOnly)
+        {
+            context.Log.Information("Skipping. Publish only.");
+            return;
+        }
 
-//        context.Log.Information("Build running with following parameters:");
-//        context.Log.Information(context.BuildParameters.ToJson(Formatting.Indented));
+        context.Log.Information("Build running with following parameters:");
+        context.Log.Information(context.BuildParameters.ToJson(Formatting.Indented));
 
-//        if (context.IsGitHubActions)
-//        {
-//            context.BuildParameters.CleanUp = true;
-//        }
+        if (context.IsGitHubActions)
+        {
+            context.BuildParameters.CleanUp = true;
+        }
 
-//        if (!context.BuildParameters.CleanUp)
-//        {
-//            context.Log.Information($"Skipping clean-up");
-//            return;
-//        }
+        if (!context.BuildParameters.CleanUp)
+        {
+            context.Log.Information($"Skipping clean-up");
+            return;
+        }
 
-//        Parallel.ForEach(context.Libraries, lib => context.ApaxClean(lib));
+        Parallel.ForEach(context.Libraries, lib => context.ApaxClean(lib));
 
-//        context.DotNetClean(Path.Combine(context.RootDir, "AXOpen.proj"), new DotNetCleanSettings() { Verbosity = context.BuildParameters.Verbosity });
-//        context.CleanDirectory(context.BuildsOutput);
-//        context.CleanDirectory(context.Artifacts);
-//        context.CleanDirectory(context.TestResults);
-//        context.CleanDirectory(context.TestResultsCtrl);
-//    }
-//}
+        context.DotNetClean(Path.Combine(context.RootDir, "AXOpen.proj"), new DotNetCleanSettings() { Verbosity = context.BuildParameters.Verbosity });
+        context.CleanDirectory(context.BuildsOutput);
+        context.CleanDirectory(context.Artifacts);
+        context.CleanDirectory(context.TestResults);
+        context.CleanDirectory(context.TestResultsCtrl);
+    }
+}
 
-//[TaskName("Provision")]
-//[IsDependentOn(typeof(CleanUpTask))]
-//public sealed class ProvisionTask : FrostingTask<BuildContext>
-//{
-//    public override void Run(BuildContext context)
-//    {
-//        if (context.BuildParameters.PublishOnly)
-//        {
-//            context.Log.Information("Skipping. Publish only.");
-//            return;
-//        }
+[TaskName("Provision")]
+[IsDependentOn(typeof(CleanUpTask))]
+public sealed class ProvisionTask : FrostingTask<BuildContext>
+{
+    public override void Run(BuildContext context)
+    {
+        if (context.BuildParameters.PublishOnly)
+        {
+            context.Log.Information("Skipping. Publish only.");
+            return;
+        }
 
-//        ProvisionTools(context);
+        ProvisionTools(context);
 
-//        foreach (var library in context.Libraries)
-//        {
-//            context.CopyFiles(Path.Combine(context.RootDir, "traversals", "traversalBuilds", "**/*.*"), Path.Combine(context.RootDir, library.folder));
-//        }
-//    }
+        foreach (var library in context.Libraries)
+        {
+            context.CopyFiles(Path.Combine(context.RootDir, "traversals", "traversalBuilds", "**/*.*"), Path.Combine(context.RootDir, library.folder));
+        }
+    }
 
-//    private static void ProvisionTools(BuildContext context)
-//    {
-//        context.ProcessRunner.Start(@"dotnet", new Cake.Core.IO.ProcessSettings()
-//        {
-//            Arguments = $"tool restore",
-//            WorkingDirectory = context.RootDir
-//        }).WaitForExit();
-//    }
-//}
+    private static void ProvisionTools(BuildContext context)
+    {
+        context.ProcessRunner.Start(@"dotnet", new Cake.Core.IO.ProcessSettings()
+        {
+            Arguments = $"tool restore",
+            WorkingDirectory = context.RootDir
+        }).WaitForExit();
+    }
+}
 
-//[TaskName("CatalogInstall")]
-//[IsDependentOn(typeof(ProvisionTask))]
-//public sealed class CatalogInstallTask : FrostingTask<BuildContext>
-//{
-//    public override void Run(BuildContext context)
-//    {
-//        if (context.BuildParameters.PublishOnly)
-//        {
-//            context.Log.Information("Skipping. Publish only.");
-//            return;
-//        }
+[TaskName("CatalogInstall")]
+[IsDependentOn(typeof(ProvisionTask))]
+public sealed class CatalogInstallTask : FrostingTask<BuildContext>
+{
+    public override void Run(BuildContext context)
+    {
+        if (context.BuildParameters.PublishOnly)
+        {
+            context.Log.Information("Skipping. Publish only.");
+            return;
+        }
 
-//        context.Libraries.ToList().ForEach(lib =>
-//        {
-//            foreach (var apaxfile in context.GetApaxFiles(lib))
-//            {
-//                context.ApaxCatalogInstall(apaxfile);
-//            }
-//        });
-
-
-//    }
-//}
-
-//[TaskName("Build")]
-//[IsDependentOn(typeof(CatalogInstallTask))]
-//public sealed class BuildTask : FrostingTask<BuildContext>
-//{
-//    public override void Run(BuildContext context)
-//    {
-//        if (context.BuildParameters.PublishOnly)
-//        {
-//            context.Log.Information("Skipping. Publish only.");
-//            return;
-//        }
-
-//        if (context.BuildParameters.DoPack)
-//        {
-//            context.Libraries.ToList().ForEach(lib =>
-//            {
-//                foreach (var apaxfile in context.GetApaxFiles(lib))
-//                {
-//                    context.UpdateApaxVersion(apaxfile, GitVersionInformation.SemVer);
-//                    context.UpdateApaxDependencies(apaxfile, GitVersionInformation.SemVer);
-//                }
-//            });
-
-//            context.Libraries.ToList().ForEach(lib =>
-//            {
-//                foreach (var apaxfile in context.GetApaxFiles(lib))
-//                {
-//                    context.ApaxChangeBuildProperties(apaxfile, new string[] { "\"1500\"", "llvm" }, new[] { "src", "axsharp.companion.json" });
-//                }
-//            });
-//        }
-
-//        var traversalProjectFolder = Path.Combine(context.RootDir, "traversals", "apax");
-//        if (!context.BuildParameters.NoBuild)
-//        {
-//            var traversalProject = Path.Combine(traversalProjectFolder, "apax.yml");
-//            context.CreateApaxTraversal(context.RootDir, traversalProject);
-//            context.ApaxInstall(new[] { traversalProjectFolder });
-//            context.DotnetIxc(new[] { traversalProjectFolder });
-//            context.DotNetBuildSettings.Verbosity = DotNetVerbosity.Quiet;
-//            context.DotNetBuildSettings.MSBuildSettings.Properties.Add("NoWarn", new List<string>()
-//            { "1234;2345;8602;10012;8618;0162;8605;1416;3270;1504;8600;8618;" +
-//                "CS0618;CS1591;BL0007;BL0005;CA1416;CA2200;CS0105;CS0108;CS0109;CS0162;CS0168;CS0169;CS219;CS0414;CS0436;CS0472;CS0618;CS1591;CS1998;CS8604;" +
-//                "CS8601;SYSLIB0051;SYSLIB0014;CS8625;CS0219;CS8625;CS8625;CS8620;RZ2012;RZ10012;CS4014;CS8981;CS8603;CS8766;CS8619;CS0649;CS8321"
-//            });
-//            context.DotNetBuild(Path.Combine(context.RootDir, "AXOpen.proj"), context.DotNetBuildSettings);
-//        }
-
-//        if (!context.BuildParameters.NoBuild && !context.BuildParameters.DoTest && !context.BuildParameters.DoPack)
-//        {
-//            context.ApaxBuild(new[] { traversalProjectFolder });
-//        }
-//    }
-//}
-
-//[TaskName("Tests")]
-//[IsDependentOn(typeof(BuildTask))]
-//public sealed class TestsTask : FrostingTask<BuildContext>
-//{
-//    // Tasks can be asynchronous
-//    public override void Run(BuildContext context)
-//    {
-//        if (context.BuildParameters.PublishOnly)
-//        {
-//            context.Log.Information("Skipping. Publish only.");
-//            return;
-//        }
-
-//        if (!context.BuildParameters.DoTest)
-//        {
-//            context.Log.Warning($"Skipping tests");
-//            return;
-//        }
+        context.Libraries.ToList().ForEach(lib =>
+        {
+            foreach (var apaxfile in context.GetApaxFiles(lib))
+            {
+                context.ApaxCatalogInstall(apaxfile);
+            }
+        });
 
 
-//        if (context.BuildParameters.Paralellize)
-//        {
-//            context.Libraries.ToList().ForEach(lib =>
-//            {
-//                context.ApaxClean(lib);
-//                context.ApaxInstall(context.GetLibraryAxFolders(lib));
-//                context.ApaxBuild(context.GetLibraryAxFolders(lib));
-//                context.ApaxTestLibrary(lib);
-//                if (context.BuildParameters.DoPack)
-//                {
-//                    context.ApaxPack(lib);
-//                    context.ApaxCopyArtifacts(lib);
-//                }
-//                context.ApaxClean(lib);
-//            });
+    }
+}
 
-//        }
-//        else
-//        {
-//            context.Libraries.ToList().ForEach(lib =>
-//            {
-//                context.Log.Information($"---------------------------------");
-//                context.Log.Information($"Testing {lib.folder}");
-//                context.Log.Information($"---------------------------------");
-//                context.ApaxClean(lib);
-//                context.ApaxInstall(context.GetLibraryAxFolders(lib));
-//                context.ApaxBuild(context.GetLibraryAxFolders(lib));
-//                context.ApaxTestLibrary(lib);
-//                if (context.BuildParameters.DoPack)
-//                {
-//                    context.ApaxPack(lib);
-//                    context.ApaxCopyArtifacts(lib);
-//                }
-//                context.ApaxClean(lib);
-//            });
-//        }
+[TaskName("Build")]
+[IsDependentOn(typeof(CatalogInstallTask))]
+public sealed class BuildTask : FrostingTask<BuildContext>
+{
+    public override void Run(BuildContext context)
+    {
+        if (context.BuildParameters.PublishOnly)
+        {
+            context.Log.Information("Skipping. Publish only.");
+            return;
+        }
+
+        if (context.BuildParameters.DoPack)
+        {
+            context.Libraries.ToList().ForEach(lib =>
+            {
+                foreach (var apaxfile in context.GetApaxFiles(lib))
+                {
+                    context.UpdateApaxVersion(apaxfile, GitVersionInformation.SemVer);
+                    context.UpdateApaxDependencies(apaxfile, GitVersionInformation.SemVer);
+                }
+            });
+
+            context.Libraries.ToList().ForEach(lib =>
+            {
+                foreach (var apaxfile in context.GetApaxFiles(lib))
+                {
+                    context.ApaxChangeBuildProperties(apaxfile, new string[] { "\"1500\"", "llvm" }, new[] { "src", "axsharp.companion.json" });
+                }
+            });
+        }
+
+        var traversalProjectFolder = Path.Combine(context.RootDir, "traversals", "apax");
+        if (!context.BuildParameters.NoBuild)
+        {
+            var traversalProject = Path.Combine(traversalProjectFolder, "apax.yml");
+            context.CreateApaxTraversal(context.RootDir, traversalProject);
+            context.ApaxInstall(new[] { traversalProjectFolder });
+            context.DotnetIxc(new[] { traversalProjectFolder });
+            context.DotNetBuildSettings.Verbosity = DotNetVerbosity.Quiet;
+            context.DotNetBuildSettings.MSBuildSettings.Properties.Add("NoWarn", new List<string>()
+            { "1234;2345;8602;10012;8618;0162;8605;1416;3270;1504;8600;8618;" +
+                "CS0618;CS1591;BL0007;BL0005;CA1416;CA2200;CS0105;CS0108;CS0109;CS0162;CS0168;CS0169;CS219;CS0414;CS0436;CS0472;CS0618;CS1591;CS1998;CS8604;" +
+                "CS8601;SYSLIB0051;SYSLIB0014;CS8625;CS0219;CS8625;CS8625;CS8620;RZ2012;RZ10012;CS4014;CS8981;CS8603;CS8766;CS8619;CS0649;CS8321"
+            });
+            context.DotNetBuild(Path.Combine(context.RootDir, "AXOpen.proj"), context.DotNetBuildSettings);
+        }
+
+        if (!context.BuildParameters.NoBuild && !context.BuildParameters.DoTest && !context.BuildParameters.DoPack)
+        {
+            context.ApaxBuild(new[] { traversalProjectFolder });
+        }
+    }
+}
+
+[TaskName("Tests")]
+[IsDependentOn(typeof(BuildTask))]
+public sealed class TestsTask : FrostingTask<BuildContext>
+{
+    // Tasks can be asynchronous
+    public override void Run(BuildContext context)
+    {
+        if (context.BuildParameters.PublishOnly)
+        {
+            context.Log.Information("Skipping. Publish only.");
+            return;
+        }
+
+        if (!context.BuildParameters.DoTest)
+        {
+            context.Log.Warning($"Skipping tests");
+            return;
+        }
+
+
+        if (context.BuildParameters.Paralellize)
+        {
+            context.Libraries.ToList().ForEach(lib =>
+            {
+                context.ApaxClean(lib);
+                context.ApaxInstall(context.GetLibraryAxFolders(lib));
+                context.ApaxBuild(context.GetLibraryAxFolders(lib));
+                context.ApaxTestLibrary(lib);
+                if (context.BuildParameters.DoPack)
+                {
+                    context.ApaxPack(lib);
+                    context.ApaxCopyArtifacts(lib);
+                }
+                context.ApaxClean(lib);
+            });
+
+        }
+        else
+        {
+            context.Libraries.ToList().ForEach(lib =>
+            {
+                context.Log.Information($"---------------------------------");
+                context.Log.Information($"Testing {lib.folder}");
+                context.Log.Information($"---------------------------------");
+                context.ApaxClean(lib);
+                context.ApaxInstall(context.GetLibraryAxFolders(lib));
+                context.ApaxBuild(context.GetLibraryAxFolders(lib));
+                context.ApaxTestLibrary(lib);
+                if (context.BuildParameters.DoPack)
+                {
+                    context.ApaxPack(lib);
+                    context.ApaxCopyArtifacts(lib);
+                }
+                context.ApaxClean(lib);
+            });
+        }
 
 
 
 
-//        if (context.BuildParameters.TestLevel == 1)
-//        {
-//            context.DotNetTest(Path.Combine(context.RootDir, "AXOpen-L1-tests.proj"), context.DotNetTestSettings);
-//        }
-//        if (context.BuildParameters.TestLevel == 2)
-//        {
+        if (context.BuildParameters.TestLevel == 1)
+        {
+            context.DotNetTest(Path.Combine(context.RootDir, "AXOpen-L1-tests.proj"), context.DotNetTestSettings);
+        }
+        if (context.BuildParameters.TestLevel == 2)
+        {
 
-//            context.DotNetTest(Path.Combine(context.RootDir, "AXOpen-L2-tests.proj"), context.DotNetTestSettings);
-//        }
-//        if (context.BuildParameters.TestLevel >= 3)
-//        {
-//            foreach (var package in context.Libraries)
-//            {
-//                var app = Path.Combine(context.RootDir, package.folder, "app");
-//                var ax = Path.Combine(context.RootDir, package.folder, "ax");
+            context.DotNetTest(Path.Combine(context.RootDir, "AXOpen-L2-tests.proj"), context.DotNetTestSettings);
+        }
+        if (context.BuildParameters.TestLevel >= 3)
+        {
+            foreach (var package in context.Libraries)
+            {
+                var app = Path.Combine(context.RootDir, package.folder, "app");
+                var ax = Path.Combine(context.RootDir, package.folder, "ax");
 
-//                if (Directory.Exists(app))
-//                {
-//                    context.ApaxDownload(app);
-//                }
-//                else if (Directory.Exists(ax))
-//                {
-//                    context.ApaxDownload(ax);
-//                }
-//                else
-//                {
-//                    //throw new Exception($"No app or ax folder found for {package.folder}");
-//                    context.Log.Information($"No app or ax folder found for {package.folder}");
-//                    break;
-//                }
+                if (Directory.Exists(app))
+                {
+                    context.ApaxDownload(app);
+                }
+                else if (Directory.Exists(ax))
+                {
+                    context.ApaxDownload(ax);
+                }
+                else
+                {
+                    //throw new Exception($"No app or ax folder found for {package.folder}");
+                    context.Log.Information($"No app or ax folder found for {package.folder}");
+                    break;
+                }
 
-//                context.DotNetTest(Path.Combine(context.RootDir, package.folder, "tmp_L3_.proj"), context.DotNetTestSettings);
-//            }
-//        }
+                context.DotNetTest(Path.Combine(context.RootDir, package.folder, "tmp_L3_.proj"), context.DotNetTestSettings);
+            }
+        }
 
-//        context.Log.Information("Tests done.");
-//    }
-//}
+        context.Log.Information("Tests done.");
+    }
+}
 
 [TaskName("AppsRun")]
-//[IsDependentOn(typeof(TestsTask))]
+[IsDependentOn(typeof(TestsTask))]
 public sealed class AppsRunTask : FrostingTask<BuildContext>
 {
     // Tasks can be asynchronous
