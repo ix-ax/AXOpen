@@ -1,0 +1,72 @@
+name: nightly
+
+on:
+  workflow_dispatch:
+    inputs:
+      folder:
+        description: "Select library folder (abstractions, components.abb.robotics, components.abstractions)"
+        required: true
+        default: "template.axolibrary"
+        type: choice
+        options:
+          - abstractions
+          - components.abb.robotics
+          - components.abstractions
+          - components.balluff.identification
+          - components.cognex.vision
+          - components.desoutter.tightening
+          - components.drives
+          - components.elements
+          - components.festo.drives
+          - components.kuka.robotics
+          - components.mitsubishi.robotics
+          - components.pneumatics
+          - components.rexroth.drives
+          - components.rexroth.press
+          - components.robotics
+          - components.siem.identification
+          - components.ur.robotics
+          - core
+          - data
+          - inspectors
+          - integrations
+          - io
+          - probers
+          - simatic1500
+          - template.axolibrary
+          - timers
+          - utils
+jobs:
+  app-run-manual-with-selected-folder:
+    runs-on: [self-hosted, Windows, X64, L3, AX, APP]  
+    steps:
+    - name: Get Branch Name
+      shell: pwsh
+      run: |
+          if ($env:GITHUB_REF -like "refs/pull/*") {
+            $BRANCH_NAME = "${{ github.event.pull_request.head.ref }}"
+          } else {
+            $BRANCH_NAME = $env:GITHUB_REF -replace 'refs/heads/', ''
+          }
+          Write-Host "Triggered on branch: $BRANCH_NAME"
+          "BRANCH_NAME=$BRANCH_NAME" | Out-File -FilePath $env:GITHUB_ENV -Append
+
+    - name: Print Inputs
+      run: |
+        $APP_FOLDER=${{ github.event.inputs.folder }}
+        echo "Selected folder: $APP_FOLDER"
+        "APP_FOLDER=$APP_FOLDER" | Out-File -FilePath $env:GITHUB_ENV -Append
+
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: '0'   
+                   
+    - name: "Build cake"  
+      run: dotnet build cake/Build.csproj
+                       
+    - name: "Run cake with single app"
+      env:
+        GH_TOKEN : ${{ secrets.GH_TOKEN }}
+        GH_USER : ${{ secrets.GH_USER }}
+      run: dotnet run --project cake/Build.csproj --skip-build --apps-run --single-app-run-folder-name $env:APP_FOLDER

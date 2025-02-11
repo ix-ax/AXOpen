@@ -29,12 +29,10 @@ fi
 
 apax build --ignore-scripts
 dotnet ixc
-certfile="./certs/$PLC_NAME/$PLC_NAME.cer"
-if ! [[ -e "$certfile" ]]; then
-	printf "${RED}Certification file $certfile does not exist!!!${NC}"
-	exit 1
-fi   
-apax sld load --accept-security-disclaimer -t $PLC_IP_ADDRESS -i $PLATFORM -r -C $certfile
+
+#sw_download_full
+sw_download_full=$( dirname ${BASH_SOURCE[0]})"\\sw_download_full.sh"
+$sw_download_full $PLC_NAME $PLC_IP_ADDRESS $PLATFORM 
 if [[ $? -eq 0 ]]; then
 	printf "${GREEN}Software has been succesfully downloaded using security certificate.${NC}"
 else
