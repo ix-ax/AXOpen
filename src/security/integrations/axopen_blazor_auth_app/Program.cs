@@ -81,11 +81,11 @@ static (IRepository<User>, IRepository<Group>) SetUpJSon(string path = "..\\..\\
 //</SetupJson>
 static (IRepository<User>, IRepository<Group>) SetUpMongo(string path = "Blazor")
 {
-    var mongoUri = "mongodb://localhost:27017";
+    var MongoDatabaseName = path;
+    var MongoConnectionString = "mongodb://localhost:27017";
 
-    IRepository<User> userRepo = new MongoDbRepository<User>(new MongoDbRepositorySettings<User>(mongoUri, path, "Users"));
-    IRepository<Group> groupRepo = new MongoDbRepository<Group>(new MongoDbRepositorySettings<Group>(mongoUri, path, "Groups"));
-
+    IRepository<User> userRepo = AXOpen.Data.MongoDb.Repository.Factory<User>(new MongoDbRepositorySettings<User>(MongoConnectionString, MongoDatabaseName, "Users", idExpression: t => t.Id));
+    IRepository<Group> groupRepo = AXOpen.Data.MongoDb.Repository.Factory<Group>(new MongoDbRepositorySettings<Group>(MongoConnectionString, MongoDatabaseName, "Groups"));
     return (userRepo, groupRepo);
 }
 

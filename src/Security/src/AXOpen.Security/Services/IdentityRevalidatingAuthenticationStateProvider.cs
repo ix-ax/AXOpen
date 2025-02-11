@@ -34,11 +34,9 @@ namespace AxOpen.Security.Services
             this.scopeFactory = scopeFactory;
             this.userStore = userStore;
             this.options = options;
-
-            Instances++;
         }
 
-        internal static int Instances = 0;
+        UpperInvariantLookupNormalizer Normalizer = new UpperInvariantLookupNormalizer();
 
         protected override TimeSpan RevalidationInterval => TimeSpan.FromSeconds(30);
 
@@ -62,7 +60,7 @@ namespace AxOpen.Security.Services
                     return false;
                 }
 
-                var user = await userStore.FindByNameAsync(userPrincipal.Identity.Name, cancellationToken);
+                var user = await userStore.FindByNameAsync(Normalizer.NormalizeName(userPrincipal.Identity.Name), cancellationToken);
 
                 if (user == null)
                 {
@@ -107,7 +105,7 @@ namespace AxOpen.Security.Services
             }
             catch (Exception ex)
             {
-                throw new Exception("Revalidataion failed", ex);
+                throw new Exception("Revalidation failed", ex);
             }
         }
 
