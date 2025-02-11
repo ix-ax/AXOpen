@@ -1,0 +1,12 @@
+{
+  "Changes": [],
+  "RecordId": null,
+  "DataEntityId": "AdminGroup",
+  "Name": "AdminGroup",
+  "Roles": [
+    "Administrator"
+  ],
+  "RolesHash": "AQAAAAIAAYagAAAAEKys83RAExNqSZMakYMEvtaLHlF6kI3yWS9gDleKBO6s53gCSfoVkfXD39gPpl4Iiw==",
+  "Created": "2025-02-11T09:18:36.8940817+01:00",
+  "Modified": "2025-02-11T09:18:37.1615793+01:00"
+}
