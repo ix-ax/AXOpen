@@ -7,6 +7,7 @@ targets:
 variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
+  # Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build. =>
   PLC_NAME: "plc_line"
   DEFAULT_NAMESPACE: "AXOpen.Components.Drives"
   AXTARGET: 10.10.10.120
@@ -14,6 +15,7 @@ variables:
   AX_USERNAME: "adm"
   AX_TARGET_PWD: "123ABCDabcd$#!"
   USE_PLC_SIM_ADVANCED: "true"
+  # <= Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build.
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
@@ -36,75 +38,58 @@ scripts:
   # USE_PLC_SIM_ADVANCED with value of "true" will automatically trigger PlcSimAdvanced when calling apax alf or apax all
   # PNIO_MAC: MAC address of the network adapter connected to the Profinet network  
   plcsim: ..\\..\\scripts\\plcsimadvanced.sh $APAX_YML_NAME $PLC_NAME $AXTARGET
-
-  r: | #restart PLC
-    ..\\..\\scripts\\restart_PLC.sh $AXTARGET $PLC_NAME
-
+  r: ..\\..\\scripts\\restart_PLC.sh $AXTARGET $PLC_NAME
   ixc: | # run ix builder
     dotnet tool restore
-    dotnet ixc
-
+    dotnet ixc --skip-deps 
   postbuild: apax run ixc # run after build
-
   dcpli: | # list all interfaces, used to discover MAC address of the adapter connected to PLC 
     ..\\..\\scripts\\dcp_utility_list_interfaces.sh 
-
   dcpd: | # discover all accesible devices connected to adapter with MAC address equal to entered MAC, used to discover MAC-addresses of the slaves
     ..\\..\\scripts\\dcp_utility_discover.sh $PNIO_MAC
-
   hdl: | #List configured harware and its state
     ..\\..\\scripts\\hw_diag_list.sh $AXTARGET $PLC_NAME
-
   ci: | #clean and install dependencies
     apax clean
     apax install
-
   reset_plc: | #total reset of the PLC including IP and name
-    ..\\..\\scripts\\reset_plc.sh $AXTARGET
-
+    ..\\..\\scripts\\reset_plc.sh $AXTARGET 
   clean_plc: | #total reset of the PLC excluding IP and name
-    ..\\..\\scripts\\clean_plc.sh $AXTARGET
-
+    ..\\..\\scripts\\clean_plc.sh $AXTARGET 
   ssc: | # setup secure communication, create and import certificates, setup password for AX_USERNAME 
-    ..\\..\\scripts\\setup_secure_communication.sh $PLC_NAME $AX_USERNAME $AX_TARGET_PWD
-
-  gsd: | # copy and install all gsdml files from library
+    ..\\..\\scripts\\setup_secure_communication.sh $PLC_NAME $AX_USERNAME $AX_TARGET_PWD 
+  gsd: | # copy and install all gsdml files from libraries
     ..\\..\\scripts\\copy_and_install_gsd.sh 
-
-  hwl: | # copy all templates from library
+  hwl: | # copy all templates from libraries
     ..\\..\\scripts\\copy_hwl_templates.sh 
-
   hwcc: | # compile hardware configuration
     ..\\..\\scripts\\hw_compile.sh
-
   hwid: | # copy the generated HwIds from global constants into the type definition, matching the format as the TIA2AX tool creates
     ..\\..\\scripts\\copy_hardware_ids.sh $DEFAULT_NAMESPACE $PLC_NAME
-
   hwadr: | # copy the generated IoAddresses
-    ..\\..\\scripts\\copy_io_addresses.sh $DEFAULT_NAMESPACE $PLC_NAME
-
+    ..\\..\\scripts\\copy_io_addresses.sh $DEFAULT_NAMESPACE $PLC_NAME 
+  hwdo: | # download HW only using certificate
+    ..\\..\\scripts\\hw_download_only.sh $PLC_NAME $AXTARGET 
   hwfd: | # copy and install gsd, copy templates,compile, copy the HwIds, copy the IoAddresses, first download HW using password and upload certificate
-    ..\\..\\scripts\\hw_first_download.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AX_TARGET_PWD
-
+    ..\\..\\scripts\\hw_first_download.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AX_TARGET_PWD 
   hwu: | # copy and install gsd, copy templates, compile, copy the HwIds, copy the IoAddresses, download HW using certificate
-    ..\\..\\scripts\\hw_update.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET
-
+    ..\\..\\scripts\\hw_update.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET 
   swfd: | # software build and full download
-    ..\\..\\scripts\\sw_build_and_download_full.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT
-
+    ..\\..\\scripts\\sw_build_and_download_full.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT 
+  swfdo: | # software full download only
+    ..\\..\\scripts\\sw_download_full.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT 
   swdd: | # software build and delta download
-    ..\\..\\scripts\\sw_build_and_download_delta.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT
-
+    ..\\..\\scripts\\sw_build_and_download_delta.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT 
+  swddo: | # software delta download only
+    ..\\..\\scripts\\sw_download_delta.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT 
   alf: | #clear plc except ip and name and provide all actions for install all, build and initial download hw so as sw
     START=$(date +%s)
-    ..\\..\\scripts\\all_first.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED
-    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"    
-
+      ..\\..\\scripts\\all_first.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
   all: | #build and download hardware and software
     START=$(date +%s)
-    ..\\..\\scripts\\all.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED
-    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"    
-
+      ..\\..\\scripts\\all.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
   ib: |
     apax install
     apax build
