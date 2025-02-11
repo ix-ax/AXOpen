@@ -10,7 +10,7 @@ on:
         type: choice
         options:
           - abstractions
-          - 'components.abb.robotics'
+          - "components.abb.robotics2"
           - components.abstractions
           - components.balluff.identification
           - components.cognex.vision
