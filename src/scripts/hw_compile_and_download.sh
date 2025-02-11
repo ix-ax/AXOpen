@@ -64,11 +64,13 @@ else
 	printf "${RED}Please check the details above.${NC}\n"
 	exit 1
 fi
-apax hwld -i bin/hwc/$PLC_NAME -t $PLC_IP_ADDRESS -C $certfile --nonInteractive --accept-security-disclaimer -l Information
+
+hw_download_only=$( dirname ${BASH_SOURCE[0]})"\\hw_download_only.sh"
+$hw_download_only $PLC_NAME $PLC_IP_ADDRESS 
 if [[ $? -eq 0 ]]; then
-	printf "${GREEN}Hardware configuration has been succesfully downloaded.${NC}"
+	printf "${GREEN}Hardware configuration downloaded succesfully.${NC}"
 else
-	printf "${RED}Downloading of the hardware configuration finished with an error!${NC}\n"
+	printf "${RED}Downloading hardware configuration finished with an error!${NC}\n"
 	printf "${RED}Please check the details above.${NC}\n"
 	exit 1
 fi

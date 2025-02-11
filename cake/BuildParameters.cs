@@ -49,9 +49,12 @@ public class BuildParameters
     [Option('b', "skip-build", Required = false, Default = false, HelpText = "Does not run build steps")]
     public bool NoBuild { get; set; }
 
-    [Option('a', "apps-run", Required = false, Default = false, HelpText = "Download and run apps")]
+    [Option('a', "apps-run", Required = false, Default = false, HelpText = "Download to PLC and run apps ")]
     public bool AppsRun{ get; set; }
 
     [Option('o', "do-publish-only", Required = false, Default = false, HelpText = "Skips all steps and publishes from pre-build artefacts.")]
     public bool PublishOnly { get; set; }
+
+    [Option('s', "single-app-run-folder-name", Required = false, Default = "", HelpText = "Download to PLC and run just app from folder")]
+    public string AppRunOnlyFolderName { get; set; }
 }

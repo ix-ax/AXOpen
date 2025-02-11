@@ -22,6 +22,7 @@ using Cake.Core.IO;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Win32;
 using Octokit;
+using Polly;
 using YamlDotNet.RepresentationModel;
 using static NuGet.Packaging.PackagingConstants;
 using Path = System.IO.Path;
@@ -44,6 +45,83 @@ public static class DotNetCmd
         }
     }
 
+
+    //this BuildContext context, string folder, string apaxCommand, ref bool summaryResult
+    public static string DotNetIxc(this BuildContext context, string folder, ref bool summaryResult)
+    {
+        string retVal = ",NOK";
+
+        var processSettings = new ProcessSettings
+        {
+            Arguments = "ixc",
+            WorkingDirectory = folder,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            Silent = false
+        };
+
+        try
+        {
+            using (var process = context.ProcessRunner.Start(Helpers.GetDotNetCommand(), processSettings))
+            {
+                if (process == null)
+                {
+                    summaryResult = false;
+                    throw new Exception($"Failed to start the 'dotnet ixc' command in folder: '{folder}'");
+                }
+                context.Log.Information($"Dotnet ixc command started in folder: '{folder}'");
+
+                // Initialize output storage
+                var standardOutput = new List<string>();
+                var standardError = new List<string>();
+
+                // Read output and error streams asynchronously
+                Task outputTask = Task.Run(() =>
+                {
+                    foreach (var line in process.GetStandardOutput())
+                    {
+                        standardOutput.Add(line);
+                        context.Log.Information(line); // Log output immediately
+                    }
+                });
+
+                Task errorTask = Task.Run(() =>
+                {
+                    foreach (var line in process.GetStandardError())
+                    {
+                        standardError.Add(line);
+                        context.Log.Error(line); // Log errors immediately
+                    }
+                });
+
+                // Wait for the process to exit
+                process.WaitForExit();
+
+                // Ensure all output and error streams are read
+                Task.WaitAll(outputTask, errorTask);
+
+                // Check the exit code and handle result
+                if (process.GetExitCode() == 0)
+                {
+                    context.Log.Information($"Dotnet ixc command finished successfully in '{folder}'");
+                    retVal = ",OK";
+                }
+                else
+                {
+                    summaryResult = false;
+                    context.Log.Error($"Dotnet ixc command in folder: '{folder}' failed with exit code: {process.GetExitCode()}");
+                    context.Log.Error($"Standard Error Output: {string.Join(Environment.NewLine, standardError)}");
+                    context.Log.Error($"Standard Output: {string.Join(Environment.NewLine, standardOutput)}");
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            context.Log.Error($"An exception occurred while running the dotnet build command: {ex.Message}");
+            summaryResult = false;
+        }
+        return retVal;
+    }
     public static void RunPowershellScript(this BuildContext context, string scriptPath, string arguments)
     {
         string workDir = Path.GetFullPath(Path.Combine(scriptPath, ".."));
@@ -57,6 +135,84 @@ public static class DotNetCmd
             Silent = false
         }).WaitForExit();
         context.Log.Information($"Powershell script {scriptPath} with arguments '{arguments}' finished");
+    }
+
+    public static string RunPowershellScript(this BuildContext context, string scriptPath, string arguments, ref bool summaryResult)
+    {
+        string retVal = ",NOK";
+
+        string workDir = Path.GetFullPath(Path.Combine(scriptPath, ".."));
+
+        var processSettings = new ProcessSettings
+        {
+            Arguments = $"-NoProfile -ExecutionPolicy Bypass -File \"{scriptPath}\" {arguments}",
+            WorkingDirectory = workDir,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            Silent = false
+        };
+
+        try
+        {
+            using (var process = context.ProcessRunner.Start("powershell.exe", processSettings))
+            {
+                if (process == null)
+                {
+                    summaryResult = false;
+                    throw new Exception($"Failed to start Powershell script {scriptPath} with arguments '{arguments}'");
+                }
+                context.Log.Information($"Powershell script {scriptPath} with arguments '{arguments}' started");
+
+                // Initialize output storage
+                var standardOutput = new List<string>();
+                var standardError = new List<string>();
+
+                // Read output and error streams asynchronously
+                Task outputTask = Task.Run(() =>
+                {
+                    foreach (var line in process.GetStandardOutput())
+                    {
+                        standardOutput.Add(line);
+                        context.Log.Information(line); // Log output immediately
+                    }
+                });
+
+                Task errorTask = Task.Run(() =>
+                {
+                    foreach (var line in process.GetStandardError())
+                    {
+                        standardError.Add(line);
+                        context.Log.Error(line); // Log errors immediately
+                    }
+                });
+
+                // Wait for the process to exit
+                process.WaitForExit();
+
+                // Ensure all output and error streams are read
+                Task.WaitAll(outputTask, errorTask);
+
+                // Check the exit code and handle result
+                if (process.GetExitCode() == 0)
+                {
+                    context.Log.Information($"Powershell script {scriptPath} with arguments '{arguments}' finished successfully.");
+                    retVal = ",OK";
+                }
+                else
+                {
+                    summaryResult = false;
+                    context.Log.Error($"Powershell script {scriptPath} with arguments '{arguments}' failed with exit code: {process.GetExitCode()}");
+                    context.Log.Error($"Standard Error Output: {string.Join(Environment.NewLine, standardError)}");
+                    context.Log.Error($"Standard Output: {string.Join(Environment.NewLine, standardOutput)}");
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            context.Log.Error($"An exception occurred while running the Powershell script {scriptPath} with arguments '{arguments}' : {ex.Message}");
+            summaryResult = false;
+        }
+        return retVal;
     }
 
     public static void DotNetClean(this BuildContext context, string slnFilePath, string arguments)
@@ -73,6 +229,85 @@ public static class DotNetCmd
             Silent = false
         }).WaitForExit();
         context.Log.Information($"Dotnet clean command finished with solution: {slnFilePath}");
+    }
+
+    public static string DotNetClean(this BuildContext context, string slnFilePath, string arguments, ref bool summaryResult)
+    {
+        string workDir = Path.GetFullPath(Path.Combine(slnFilePath, ".."));
+        string args = string.Concat($"clean \"{slnFilePath}\" ", arguments);
+        context.Log.Information($"Dotnet clean command started with solution: {slnFilePath}");
+
+        string retVal = ",NOK";
+
+        var processSettings = new ProcessSettings
+        {
+            Arguments = args,
+            WorkingDirectory = workDir,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            Silent = false
+        };
+
+        try
+        {
+            using (var process = context.ProcessRunner.Start(Helpers.GetDotNetCommand(), processSettings))
+            {
+                if (process == null)
+                {
+                    summaryResult = false;
+                    throw new Exception("Failed to start the process.");
+                }
+
+                // Initialize output storage
+                var standardOutput = new List<string>();
+                var standardError = new List<string>();
+
+                // Read output and error streams asynchronously
+                Task outputTask = Task.Run(() =>
+                {
+                    foreach (var line in process.GetStandardOutput())
+                    {
+                        standardOutput.Add(line);
+                        context.Log.Information(line); // Log output immediately
+                    }
+                });
+
+                Task errorTask = Task.Run(() =>
+                {
+                    foreach (var line in process.GetStandardError())
+                    {
+                        standardError.Add(line);
+                        context.Log.Error(line); // Log errors immediately
+                    }
+                });
+
+                // Wait for the process to exit
+                process.WaitForExit();
+
+                // Ensure all output and error streams are read
+                Task.WaitAll(outputTask, errorTask);
+
+                // Check the exit code and handle result
+                if (process.GetExitCode() == 0)
+                {
+                    context.Log.Information($"Dotnet clean command finished successfully with solution: {slnFilePath}");
+                    retVal = ",OK";
+                }
+                else
+                {
+                    summaryResult = false;
+                    context.Log.Error($"Dotnet clean command with solution: {slnFilePath} failed with exit code: {process.GetExitCode()}");
+                    context.Log.Error($"Standard Error Output: {string.Join(Environment.NewLine, standardError)}");
+                    context.Log.Error($"Standard Output: {string.Join(Environment.NewLine, standardOutput)}");
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            context.Log.Error($"An exception occurred while running the dotnet clean command: {ex.Message}");
+            summaryResult = false;
+        }
+        return retVal;
     }
 
     public static string DotNetBuildWithResult(this BuildContext context, string slnFilePath, string arguments, ref bool summaryResult)
