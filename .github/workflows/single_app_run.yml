@@ -1,4 +1,4 @@
-name: nightly
+name: single_app_run
 
 on:
   workflow_dispatch:
@@ -52,9 +52,10 @@ jobs:
           "BRANCH_NAME=$BRANCH_NAME" | Out-File -FilePath $env:GITHUB_ENV -Append
 
     - name: Print Inputs
+      shell: pwsh
       run: |
         $APP_FOLDER=${{ github.event.inputs.folder }}
-        echo "Selected folder: $APP_FOLDER"
+        Write-Host "Selected folder: $APP_FOLDER"
         "APP_FOLDER=$APP_FOLDER" | Out-File -FilePath $env:GITHUB_ENV -Append
 
     - name: Checkout
