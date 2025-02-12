@@ -371,14 +371,16 @@ public sealed class AppsRunTask : FrostingTask<BuildContext>
                             // Build and start HMI
                             AppsRunTaskHelpers.BuildAndStartHmi(context, appFile, appName, logFilePath, ref summaryResult);
 
-                            if (!summaryResult)
-                            {
-                                context.Log.Error($"App run failed for some of the applications.");
-                                context.Log.Error($"Good luck with finding out the reason :-).");
-                                Environment.Exit(1);
-                            }
+
                         }
                     }
+                }
+                
+                if (!summaryResult)
+                {
+                    context.Log.Error($"App run failed for some of the applications.");
+                    context.Log.Error($"Good luck with finding out the reason :-).");
+                    Environment.Exit(1);
                 }
             }
             else
