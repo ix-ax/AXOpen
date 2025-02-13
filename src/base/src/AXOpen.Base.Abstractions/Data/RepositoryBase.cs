@@ -264,6 +264,10 @@ namespace AXOpen.Base.Data
         protected abstract IEnumerable<T> GetRecordsNvi(IEnumerable<Expression<Func<T, bool>>> predicates,
             int limit,int skip, string sortExpresion, bool sortAscending);
 
+        protected abstract IEnumerable<string> GetEntityIdsNvi(IEnumerable<Expression<Func<T, bool>>> predicates,
+           int limit, int skip, string sortExpresion, bool sortAscending);
+
+
         /// <summary>
         /// Counts records that contain given string in the id. (Concrete implementation of given repository type)
         /// </summary>
@@ -432,11 +436,23 @@ namespace AXOpen.Base.Data
             }
         }
 
-        public IEnumerable<T> GetRecordsComplex(IEnumerable<Expression<Func<T, bool>>> predicates,int limit = 100, int skip = 0, string sortExpresion = "Default", bool sortAscending = false)
+        public IEnumerable<T> GetRecords(IEnumerable<Expression<Func<T, bool>>> predicates,int limit = 100, int skip = 0, string sortExpresion = "Default", bool sortAscending = false)
         {
             try
             {
                 return GetRecordsNvi(predicates, limit, skip, sortExpresion, sortAscending);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public IEnumerable<string> GetEntityIds(IEnumerable<Expression<Func<T, bool>>> predicates, int limit = 100, int skip = 0, string sortExpresion = "Default", bool sortAscending = false)
+        {
+            try
+            {
+                return GetEntityIdsNvi(predicates, limit, skip, sortExpresion, sortAscending);
             }
             catch (Exception e)
             {

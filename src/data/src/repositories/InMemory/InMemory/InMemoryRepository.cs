@@ -203,6 +203,11 @@ namespace AXOpen.Data.InMemory
             throw new NotImplementedException();
         }
 
+        protected override IEnumerable<string> GetEntityIdsNvi(IEnumerable<Expression<Func<T, bool>>> predicates, int limit, int skip, string sortExpresion, bool sortAscending)
+        {
+            throw new NotImplementedException();
+        }
+
         public override IQueryable<T> Queryable
         { get { return this._repository.AsQueryable().Select(p => p.Value); } }
     }

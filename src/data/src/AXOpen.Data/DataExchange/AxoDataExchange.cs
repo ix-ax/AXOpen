@@ -21,7 +21,6 @@ using AXSharp.Connector;
 using Microsoft.AspNetCore.Components.Authorization;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-
 namespace AXOpen.Data;
 
 /// <summary>
@@ -106,7 +105,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <param name="dataObject">Data object on which to stop observing the changes.</param>
     public void ChangeTrackerStopObservingChanges(ITwinObject dataObject)
     {
-        (dataObject as ICrudDataObject)?.ChangeTracker.StopObservingChanges();        
+        (dataObject as ICrudDataObject)?.ChangeTracker.StopObservingChanges();
     }
 
     /// <summary>
@@ -186,7 +185,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <summary>
     ///     Get strongly typed repository associated with this <see cref="AxoDataExchange{TOnline,TPlain}" />.
     /// </summary>
-    public IRepository<TPlain> DataRepository { get; private set; }       
+    public IRepository<TPlain> DataRepository { get; private set; }
 
     /// <inheritdoc />
     public IRepository? Repository => DataRepository as IRepository;
@@ -198,6 +197,31 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         return DataRepository.GetRecords(identifier, limit, skip, searchMode, sortExpression, sortAscending).Cast<IBrowsableDataObject>();
     }
 
+    public IEnumerable<IBrowsableDataObject> GetRecords(PredicateContainer predicates, int limit, int skip,
+        eSearchMode searchMode, string sortExpression, bool sortAscending)
+    {
+        var predict = predicates.GetPredicates<TPlain>();
+
+        if (predict != null)
+        {
+            return new List<IBrowsableDataObject>();
+        }
+
+        return DataRepository.GetRecords(predict, limit, skip, sortExpression, sortAscending).Cast<IBrowsableDataObject>();
+    }
+
+    public IEnumerable<IBrowsableDataObject> GetEntityIds(PredicateContainer predicates, int limit, int skip, string sortExpression, bool sortAscending)
+    {
+        var predict = predicates.GetPredicates<TPlain>();
+
+        if (predict != null)
+        {
+            return new List<IBrowsableDataObject>();
+        }
+
+        return DataRepository.GetRecords(predict, limit, skip, sortExpression, sortAscending).Cast<IBrowsableDataObject>();
+    }
+
     /// <inheritdoc />
     public IEnumerable<IBrowsableDataObject> GetRecords(string identifier)
     {
@@ -205,14 +229,14 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     }
 
     private Stopwatch sw = new Stopwatch();
-    
+
     /// <inheritdoc />
     public async Task<bool> RemoteCreate(string identifier)
     {
         sw.Restart();
         await Operation.ReadAsync();
         await DataEntity.DataEntityId.SetAsync(identifier);
-        var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>();        
+        var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>();
         Repository.Create(identifier, cloned);
         sw.Stop();
         AxoApplication.Current.Logger.Information($"Record '{identifier}' created in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
@@ -244,7 +268,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         sw.Restart();
         await Operation.ReadAsync();
         await DataEntity.DataEntityId.SetAsync(identifier);
-        
+
         var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>();
 
         cloned.Hash = HashHelper.CreateHash(cloned);
@@ -297,13 +321,12 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         {
             Repository.Create(identifier, cloned);
         }
-        
+
         sw.Stop();
         AxoApplication.Current.Logger.Information($"Record '{identifier}' created in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms' using `Create or update` function.", this, AxoApplication.Current.ControllerIdentity);
-        
+
         return true;
     }
-
 
     private PropertyInfo? GetDataSetPropertyInfo<TA>() where TA : Attribute
     {
@@ -369,7 +392,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     public async Task InitializeRemoteDataExchange(IRepository<TPlain> repository)
     {
         SetRepository(repository);
-       await InitializeRemoteDataExchange();
+        await InitializeRemoteDataExchange();
     }
 
     /// <summary>
@@ -394,22 +417,28 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
             case eCrudOperation.Create:
                 await this.RemoteCreate(identifier);
                 break;
+
             case eCrudOperation.Read:
                 await this.RemoteRead(identifier);
                 break;
+
             case eCrudOperation.Update:
                 await this.RemoteUpdate(identifier);
                 break;
+
             case eCrudOperation.Delete:
                 await this.RemoteDelete(identifier);
                 break;
+
             case eCrudOperation.CreateOrUpdate:
                 await this.RemoteCreateOrUpdate(identifier);
                 break;
+
             case eCrudOperation.EntityExist:
                 var result = await this.RemoteEntityExist(identifier);
                 await Operation._exist.SetAsync(result);
                 break;
+
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -418,7 +447,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     private async Task<bool> RemoteCreate()
     {
         var Identifier = await Operation.DataEntityIdentifier.GetAsync();
-        return  await RemoteCreate(Identifier);
+        return await RemoteCreate(Identifier);
     }
 
     private async Task<bool> RemoteRead()
@@ -452,7 +481,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     ///  Updates record in the repository.
     ///  >[!IMPORTANT]
     ///  > In most scenarios all data from the data object will be updated.
-    ///  > Verify the specific repository behaviour to prevent data loss. 
+    ///  > Verify the specific repository behaviour to prevent data loss.
     /// </summary>
     /// <param name="identifier">Identifier of the document/record to update.</param>
     /// <param name="plainDataObject">Data object from which the data will be updated.</param>
@@ -513,7 +542,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         this.Repository.Create(identifier, poco);
 
         var plain = Repository.Read(identifier);
-        dataObject.PlainToShadow(plain);        
+        dataObject.PlainToShadow(plain);
     }
 
     /// <inheritdoc />
@@ -601,19 +630,17 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
                     }
                     catch (ReflectionTypeLoadException ex)
                     {
-                       // Swallow
+                        // Swallow
                     }
-
                 }
             }
-            catch(ReflectionTypeLoadException ex)
+            catch (ReflectionTypeLoadException ex)
             {
                 //Swallow
             }
-
         }
 
-        //LoadAssemblies().ForEach(assembly => 
+        //LoadAssemblies().ForEach(assembly =>
         //    types.AddRange(assembly.GetTypes()
         //        .Where(type => type.GetInterfaces().Where(i => i.Name.Contains(typeof(IDataExporter<TPlain, TOnline>).Name)).Any())));
 

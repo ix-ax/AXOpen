@@ -194,6 +194,12 @@ namespace AXOpen.Data
         IEnumerable<IBrowsableDataObject> GetRecords(string identifier, int limit, int skip,
             eSearchMode searchMode, string sortExpression, bool sortAscending);
 
+        IEnumerable<IBrowsableDataObject> GetRecords(PredicateContainer predicates, int limit, int skip,
+            eSearchMode searchMode, string sortExpression, bool sortAscending);
+
+        IEnumerable<string> GetEntityIds(PredicateContainer predicates, int limit, int skip,
+            eSearchMode searchMode, string sortExpression, bool sortAscending);
+
         /// <summary>
         /// Gets record meeting criteria from the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/> where the data entity id matches exactly the argument.
         /// </summary>

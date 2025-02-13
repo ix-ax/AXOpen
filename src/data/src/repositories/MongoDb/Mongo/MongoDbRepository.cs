@@ -211,6 +211,46 @@ namespace AXOpen.Data.MongoDb
 
             return results;
         }
+        protected override IEnumerable<string> GetEntityIdsNvi(
+            IEnumerable<Expression<Func<T, bool>>> predicates,
+            int limit = 100,
+            int skip = 0,
+            string sortExpression = "Default",
+            bool sortAscending = false)
+        {
+            // 1. Set up sorting.
+            var sortBuilder = new SortDefinitionBuilder<T>();
+            SortDefinition<T> sortDefinition = string.IsNullOrWhiteSpace(sortExpression) ||
+                                                 sortExpression.Equals("Default", StringComparison.OrdinalIgnoreCase)
+                ? (sortAscending
+                    ? sortBuilder.Ascending("$natural")
+                    : sortBuilder.Descending("$natural"))
+                : (sortAscending
+                    ? sortBuilder.Ascending(sortExpression)
+                    : sortBuilder.Descending(sortExpression));
+
+            // 2. Build filter from predicates.
+            FilterDefinition<T> filter = Builders<T>.Filter.Empty;
+            if (predicates != null && predicates.Any())
+            {
+                // Each predicate is now an Expression<Func<T, bool>>, which is what Filter.Where expects.
+                var filters = predicates.Select(predicate => Builders<T>.Filter.Where(predicate));
+                filter = Builders<T>.Filter.And(filters);
+            }
+
+            // 3. Execute the query with filtering, sorting, skipping, limiting, and projection.
+            var results = collection
+                .Find(filter)
+                .Sort(sortDefinition)
+                .Skip(skip)
+                .Limit(limit)
+                .Project(Builders<T>.Projection.Expression(x => x.DataEntityId)) // Projection for DataEntityId
+                .ToList();
+
+            // Convert the projection result to a list of strings.
+            return results.ToList();
+        }
+
 
         /// <summary>
         /// Parses input string, so it is evaluated as verbatim string and not as regular expression. All special ascii characters are prefixed with "\".
@@ -280,6 +320,7 @@ namespace AXOpen.Data.MongoDb
             return RecordExists(identifier);
         }
 
+       
         protected override long CountNvi => collection.Count(new BsonDocument());
 
         /// <summary>

@@ -470,6 +470,42 @@ public partial class AxoDataFragmentExchange
         return ((dynamic)Repository)?.GetRecords(identifier, limit, skip, searchMode, sortExpression, sortAscending);
     }
 
+    public IEnumerable<IBrowsableDataObject> GetRecords(PredicateContainer predicates, int limit, int skip,
+      eSearchMode searchMode, string sortExpression, bool sortAscending)
+    {
+
+        List<List<String>> entities = new ();
+
+        //foreach (var fragment in DataFragments)
+        //{
+        //    var pocoType = fragment.DataExchangeTwinObject.CreatePoco().GetType();
+
+        //    var predict = predicates.GetPredicates(pocoType);
+
+        //    fragment.GetRecords()
+
+        //    fragment.get
+        //}
+
+
+
+        //return DataRepository.GetRecords(predict, limit, skip, sortExpression, sortAscending).Cast<IBrowsableDataObject>();
+
+        return new List<IBrowsableDataObject>();
+    }
+
+    public IEnumerable<IBrowsableDataObject> GetEntityIds(PredicateContainer predicates, int limit, int skip, string sortExpression, bool sortAscending)
+    {
+        //var predict = predicates.GetPredicates<TPlain>();
+
+        //if (predict != null)
+        //{
+            return new List<IBrowsableDataObject>();
+        //}
+
+        //return DataRepository.GetRecords(predict, limit, skip, sortExpression, sortAscending).Cast<IBrowsableDataObject>();
+    }
+
     /// <inheritdoc />
     public IEnumerable<IBrowsableDataObject> GetRecords(string identifier)
     {
