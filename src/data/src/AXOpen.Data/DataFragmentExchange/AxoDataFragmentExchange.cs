@@ -482,34 +482,26 @@ public partial class AxoDataFragmentExchange
     public IEnumerable<IBrowsableDataObject> GetRecords(PredicateContainer predicates,
         int limit, int skip, string sortExpression, bool sortAscending)
     {
-        List<List<String>> fragmentEntities = new();
+        List<List<string>> fragmentEntities = new();
 
-        foreach (var fragment in DataFragments)
+        Parallel.ForEach(DataFragments.Where(fragment => predicates.ContainsType(fragment.PlainObjectType())), fragment =>
         {
-            if (predicates.ContainsType(fragment.PlainObjectType()))
+            var ids = fragment.GetEntityIds(predicates, limit, skip, sortExpression, sortAscending).ToList();
+            lock (fragmentEntities)
             {
-                var ids = fragment.GetEntityIds(predicates, limit, skip, sortExpression, sortAscending).ToList();
                 fragmentEntities.Add(ids);
             }
-        }
+        });
 
-        List<string> commonEntities = new();
-
-        if (fragmentEntities.Count > 1)
-        {
-            commonEntities = fragmentEntities
-                .Skip(1) // Start with the second list
+        List<string> commonEntities = fragmentEntities.Count > 1
+            ? fragmentEntities.Skip(1)
                 .Aggregate(new HashSet<string>(fragmentEntities.First()), (common, next) =>
                 {
                     common.IntersectWith(next);
                     return common;
                 })
-                .ToList();
-        }
-        else
-        {
-            commonEntities = fragmentEntities.First();
-        }
+                .ToList()
+            : fragmentEntities.FirstOrDefault() ?? new List<string>();
 
         return GetRecords(commonEntities).ToList();
     }
@@ -521,14 +513,7 @@ public partial class AxoDataFragmentExchange
 
     public IEnumerable<string> GetEntityIds(PredicateContainer predicates, int limit, int skip, string sortExpression, bool sortAscending)
     {
-        //var predict = predicates.GetPredicates<TPlain>();
-
-        //if (predict != null)
-        //{
-        return new List<string>();
-        //}
-
-        //return DataRepository.GetRecords(predict, limit, skip, sortExpression, sortAscending).Cast<IBrowsableDataObject>();
+       throw new NotImplementedException();
     }
 
     /// <inheritdoc />

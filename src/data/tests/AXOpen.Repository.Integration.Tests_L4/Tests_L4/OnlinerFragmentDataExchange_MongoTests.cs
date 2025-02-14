@@ -62,8 +62,8 @@
         {
             var builder = new PredicateContainer();
 
-            //builder.AddPredicates<HeaderData>(p => (p.vString.Equals("odd 4")));
-            builder.AddPredicates<HeaderData>(p => (p.vInt == 4));
+            builder.AddPredicates<HeaderData>(p => (p.vString.Contains("odd 4")));
+            //builder.AddPredicates<HeaderData>(p => (p.vInt == 4));
 
             var result = _exchange.GetRecords(builder, 1000, 0, "", false).ToList();
 
