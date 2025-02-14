@@ -56,5 +56,20 @@
             Assert.Equal("6", result[0].DataEntityId);
             Assert.Equal("7", result[1].DataEntityId);
         }
+
+        [Fact]
+        public void should_return_entities_from_framgents_string()
+        {
+            var builder = new PredicateContainer();
+
+            //builder.AddPredicates<HeaderData>(p => (p.vString.Equals("odd 4")));
+            builder.AddPredicates<HeaderData>(p => (p.vInt == 4));
+
+            var result = _exchange.GetRecords(builder, 1000, 0, "", false).ToList();
+
+            Assert.Equal(1, result.Count());
+
+            Assert.Equal("4", result[0].DataEntityId);
+        }
     }
 }

@@ -34,12 +34,20 @@ namespace Tests_L4
         {
             obj.DataEntityId = iteration.ToString();
             obj.vBool = true;
-            obj.vString = iteration.ToString();
+            obj.vString = "even " + iteration.ToString();
             obj.vInt = (short)iteration;
 
-            obj.NestObj.vString = (iteration + 1).ToString();
+            obj.NestObj.vString = "odd " + (iteration + 1).ToString();
             obj.NestObj.vBool = true;
             obj.NestObj.vInt = (short)(iteration + 1);
+
+            if (iteration % 2 == 0)
+            {
+                obj.vBool = false;
+                obj.NestObj.vBool = false;
+                obj.vString = "odd " + iteration.ToString();
+                obj.NestObj.vString = "even " + (iteration + 1).ToString();
+            }
         }
 
         public void Dispose()

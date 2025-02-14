@@ -5,6 +5,7 @@
     using System.Linq;
     using Xunit;
     using Pocos.FragmentExchange_Test_L4;
+    using System.Net.NetworkInformation;
 
     [Collection("DatabaseTests")]
     public class FragmentDataExchange_MongoTests : IClassFixture<FragmentDataExchangeMongoFixture>
@@ -41,5 +42,6 @@
             Assert.Equal(5, resultHeader.Count());
             Assert.Equal(2, resultStation.Count());
         }
+
     }
 }

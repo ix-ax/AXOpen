@@ -33,7 +33,7 @@
 
             var result = _fixture._repository.GetRecords(predicates);
 
-            Assert.Equal( 5, result.Count());
+            Assert.Equal( 3, result.Count());
         }
 
         [Fact]
@@ -47,7 +47,7 @@
 
             IEnumerable<string> result = _fixture._repository.GetEntityIds(predicates);
 
-            Assert.Equal(5, result.Count());
+            Assert.Equal(3, result.Count());
         }
 
     }

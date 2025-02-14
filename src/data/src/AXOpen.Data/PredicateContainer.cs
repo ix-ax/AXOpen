@@ -28,16 +28,15 @@
             this._predicates[typeof(T)].AddRange(predicates);
         }
 
-        public bool ContainAnyOfType<T>(T targetObject)
+        public bool ContainsType<T>()
         {
-            if (!this._predicates.ContainsKey(typeof(T)))
-            {
-                return true;
-            }
-
-            return false;
+            return this._predicates.ContainsKey(typeof(T));
         }
 
+        public bool ContainsType(Type targetType)
+        {
+            return this._predicates.ContainsKey(targetType);
+        }
 
         public List<Expression<Func<T, bool>>> GetPredicates<T>()
         {

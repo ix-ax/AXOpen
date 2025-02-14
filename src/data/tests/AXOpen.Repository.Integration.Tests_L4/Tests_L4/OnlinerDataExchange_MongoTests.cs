@@ -47,7 +47,7 @@
 
             var result = _exchange.GetRecords(c, 100, 0, "", false);
 
-            Assert.Equal(5, result.Count());
+            Assert.Equal(3, result.Count());
         }
     }
 }

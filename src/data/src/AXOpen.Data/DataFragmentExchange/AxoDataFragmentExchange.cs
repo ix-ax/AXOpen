@@ -486,21 +486,30 @@ public partial class AxoDataFragmentExchange
 
         foreach (var fragment in DataFragments)
         {
-            if (predicates.ContainAnyOfType(fragment.PlainObjectType()))
+            if (predicates.ContainsType(fragment.PlainObjectType()))
             {
                 var ids = fragment.GetEntityIds(predicates, limit, skip, sortExpression, sortAscending).ToList();
                 fragmentEntities.Add(ids);
             }
         }
 
-        List<string> commonEntities = fragmentEntities
-            .Skip(1) // Start with the second list
-            .Aggregate(new HashSet<string>(fragmentEntities.First()), (common, next) =>
-            {
-                common.IntersectWith(next);
-                return common;
-            })
-            .ToList();
+        List<string> commonEntities = new();
+
+        if (fragmentEntities.Count > 1)
+        {
+            commonEntities = fragmentEntities
+                .Skip(1) // Start with the second list
+                .Aggregate(new HashSet<string>(fragmentEntities.First()), (common, next) =>
+                {
+                    common.IntersectWith(next);
+                    return common;
+                })
+                .ToList();
+        }
+        else
+        {
+            commonEntities = fragmentEntities.First();
+        }
 
         return GetRecords(commonEntities).ToList();
     }
