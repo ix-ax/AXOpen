@@ -1,11 +1,11 @@
 ﻿@namespace AXOpen.Inspectors
-@inherits RenderableComplexComponentBase<AxoDataInspector>
+@inherits RenderableComplexComponentBase<AxoAnalogueInspectorData>
 
 
 
-<InspectorViewTemplate Data="Component._data"
+<InspectorViewTemplate Data="Component"
                        Name="@getNameOrSymbol()"
-                       Presentation="ShadowDisplay"/>
+                       Presentation="ShadowDisplay" />
 
 
 
@@ -19,6 +19,6 @@
 
     protected override void OnInitialized()
     {
-        UpdateValuesOnChange(Component._data.Result);
+        UpdateValuesOnChange(Component.Result);
     }
 }

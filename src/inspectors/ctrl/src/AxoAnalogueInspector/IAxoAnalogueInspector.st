@@ -4,7 +4,8 @@ NAMESPACE AXOpen.Inspectors
     
         METHOD Inspect : IInspector
             VAR_INPUT
-                _parent: IAxoObject;
+                _parent : AXOpen.Core.IAxoObject;
+                inData : REF_TO AxoAnalogueInspectorData;
                 Status : LREAL;
             END_VAR
         END_METHOD

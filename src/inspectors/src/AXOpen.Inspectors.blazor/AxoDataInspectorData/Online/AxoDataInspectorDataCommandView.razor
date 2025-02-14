@@ -1,9 +1,13 @@
 ﻿@namespace AXOpen.Inspectors
-@inherits RenderableComplexComponentBase<AxoDigitalInspector>
+@inherits RenderableComplexComponentBase<AxoDataInspectorData>
 
-<InspectorViewTemplate Data="Component._data"
+
+
+
+<InspectorViewTemplate Data="Component"
                        Name="@getNameOrSymbol()"
-                       Presentation="Display" />
+                       Presentation="Control"/>
+
 
 
 @code {
@@ -14,9 +18,9 @@
         return string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName;
     }
 
+
     protected override void OnInitialized()
     {
-        UpdateValuesOnChange(Component._data.Result);
+        UpdateValuesOnChange(Component.Result);
     }
 }
-

@@ -16,9 +16,9 @@
     private void ResetInspection()
     {
         Entry.Plc.sandbox._startInspection.Cyclic = false;
-        Entry.Plc.sandbox._inspectors._digitalInspector._data.Result.Cyclic = (short)eInspectorResult.NoAction; 
-        Entry.Plc.sandbox._inspectors._analogueInspector._data.Result.Cyclic = (short)eInspectorResult.NoAction;
-        Entry.Plc.sandbox._inspectors._dataInspector._data.Result.Cyclic = (short)eInspectorResult.NoAction;
+        Entry.Plc.sandbox._inspectors._digitalInspectorData.Result.Cyclic = (short)eInspectorResult.NoAction; 
+        Entry.Plc.sandbox._inspectors._analogueInspectorData.Result.Cyclic = (short)eInspectorResult.NoAction;
+        Entry.Plc.sandbox._inspectors._dataInspectorData.Result.Cyclic = (short)eInspectorResult.NoAction;
     }
 
     private void StartInspection()

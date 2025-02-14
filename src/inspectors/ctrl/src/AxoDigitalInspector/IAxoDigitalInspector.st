@@ -5,6 +5,7 @@ NAMESPACE AXOpen.Inspectors
         METHOD Inspect : IInspector
             VAR_INPUT
                 _parent: IAxoObject;
+                inData : REF_TO AxoDigitalInspectorData;
                 Status : BOOL;
             END_VAR
         END_METHOD

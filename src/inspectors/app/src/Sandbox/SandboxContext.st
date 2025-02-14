@@ -31,6 +31,10 @@ CLASS Inspectors EXTENDS AXOpen.Core.AxoObject
         _inspectionResult: BOOL;
         _inspectionValue: LREAL;
         _inspectionData: STRING;
+
+        _digitalInspectorData: AXOpen.Inspectors.AxoDigitalInspectorData;
+        _analogueInspectorData : AXOpen.Inspectors.AxoAnalogueInspectorData;
+        _dataInspectorData: AXOpen.Inspectors.AxoDataInspectorData;
     END_VAR
 
 
@@ -39,19 +43,18 @@ CLASS Inspectors EXTENDS AXOpen.Core.AxoObject
     METHOD PUBLIC Run
         THIS.Initialize(THIS);
 
-        IF _digitalInspector.Data()^.FailTime = TIME#0s THEN  _digitalInspector.Data()^.FailTime := TIME#1100MS; END_IF;
-        IF _digitalInspector.Data()^.PassTime = TIME#0s THEN  _digitalInspector.Data()^.PassTime := TIME#1000MS; END_IF;
+        IF _digitalInspectorData.FailTime = TIME#0s THEN  _digitalInspectorData.FailTime := TIME#1100MS; END_IF;
+        IF _digitalInspectorData.PassTime = TIME#0s THEN  _digitalInspectorData.PassTime := TIME#1000MS; END_IF;
             
-        IF _dataInspector.Data()^.FailTime = TIME#0s THEN  _dataInspector.Data()^.FailTime := TIME#1100MS; END_IF;
-        IF _dataInspector.Data()^.PassTime = TIME#0s THEN  _dataInspector.Data()^.PassTime := TIME#1000MS; END_IF;
+        IF _analogueInspectorData.FailTime = TIME#0s THEN  _analogueInspectorData.FailTime := TIME#1100MS; END_IF;
+        IF _analogueInspectorData.PassTime = TIME#0s THEN  _analogueInspectorData.PassTime := TIME#1000MS; END_IF;
+                              
+        IF _dataInspectorData.FailTime = TIME#0s THEN  _dataInspectorData.FailTime := TIME#1100MS; END_IF;
+        IF _dataInspectorData.PassTime = TIME#0s THEN  _dataInspectorData.PassTime := TIME#1000MS; END_IF;
            
-        IF _analogueInspector.Data()^.FailTime = TIME#0s THEN  _analogueInspector.Data()^.FailTime := TIME#1100MS; END_IF;
-        IF _analogueInspector.Data()^.PassTime = TIME#0s THEN  _analogueInspector.Data()^.PassTime := TIME#1000MS; END_IF;
-                       
-       
-        _digitalInspector.Inspect(THIS, _inspectionResult);
-        _analogueInspector.Inspect(THIS, _inspectionValue);
-        _dataInspector.Inspect(THIS, _inspectionData);
+        _digitalInspector.Inspect(THIS, REF(_digitalInspectorData),_inspectionResult);
+        _analogueInspector.Inspect(THIS,REF(_analogueInspectorData), _inspectionValue);
+        _dataInspector.Inspect(THIS, REF(_dataInspectorData),_inspectionData);
         ;
     END_METHOD
 
