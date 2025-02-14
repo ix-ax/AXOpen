@@ -2,27 +2,27 @@
 using AXOpen.Data.MongoDb;
 using MongoDB.Driver;
 
-namespace RepositoryTestProject_L4
+namespace Tests_L4
 {
-    using Pocos.RepositoryTestProject_L4.DataExchange;
+    using Pocos.Exchange_Test_L4;
 
     public class DataExchangeMongoFixture : IDisposable
     {
-        internal IRepository<AxoProcessData> _repository;
+        internal IRepository<ProcessData> _repository;
 
         public DataExchangeMongoFixture()
         {
             // Initialize shared resource (e.g., open a database connection)
-            var parameters = new MongoDbRepositorySettings<AxoProcessData>("mongodb://localhost:27017", "AxOpen_L4", "DataTestObject");
+            var parameters = new MongoDbRepositorySettings<ProcessData>("mongodb://localhost:27017", "AxOpen_L4", "DataTestObject");
 
             // clean up repository
-            parameters.Collection.DeleteMany(Builders<AxoProcessData>.Filter.Empty);
+            parameters.Collection.DeleteMany(Builders<ProcessData>.Filter.Empty);
 
             this._repository = AXOpen.Data.MongoDb.Repository.Factory(parameters);
 
             for (int i = 0; i < 10; i++)
             {
-                var item = new AxoProcessData();
+                var item = new ProcessData();
 
                 FillUpData(item, i);
 
@@ -30,7 +30,7 @@ namespace RepositoryTestProject_L4
             }
         }
 
-        private void FillUpData(AxoProcessData obj, int iteration)
+        private void FillUpData(ProcessData obj, int iteration)
         {
             obj.DataEntityId = iteration.ToString();
             obj.vBool = true;

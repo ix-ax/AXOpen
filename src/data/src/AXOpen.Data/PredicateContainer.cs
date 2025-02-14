@@ -28,6 +28,17 @@
             this._predicates[typeof(T)].AddRange(predicates);
         }
 
+        public bool ContainAnyOfType<T>(T targetObject)
+        {
+            if (!this._predicates.ContainsKey(typeof(T)))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+
         public List<Expression<Func<T, bool>>> GetPredicates<T>()
         {
             if (!_predicates.ContainsKey(typeof(T)))
@@ -35,23 +46,21 @@
                 return null;
             }
 
-            // Cast each LambdaExpression to Expression<Func<T, bool>>
             return _predicates[typeof(T)]
                 .Select(p => (Expression<Func<T, bool>>)p)
                 .ToList();
         }
 
-        //public List<Expression<Func<T, bool>>> GetPredicates( Type pocoType)
-        //{
-        //    if (!_predicates.ContainsKey(pocoType))
-        //    {
-        //        return null;
-        //    }
+        public List<Expression<Func<T, bool>>> GetPredicates<T>(T pocoType)
+        {
+            if (!_predicates.ContainsKey(typeof(T)))
+            {
+                return null;
+            }
 
-        //    // Cast each LambdaExpression to Expression<Func<T, bool>>
-        //    return _predicates[pocoType]
-        //        .Select(p => (Expression<Func<poco, bool>>)p)
-        //        .ToList();
-        //}
+            return _predicates[typeof(T)]
+                .Select(p => (Expression<Func<T, bool>>)p)
+                .ToList();
+        }
     }
 }

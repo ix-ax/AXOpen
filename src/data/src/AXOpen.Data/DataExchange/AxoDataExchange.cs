@@ -36,6 +36,11 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
     private TOnline _dataEntity;
 
+    public Type PlainObjectType()
+    {
+        return typeof(TPlain);
+    }
+
     /// <summary>
     /// Creates new instance of class that contains data managed by an external entity in this <see cref="AxoDataExchange{TOnline,TPlain}"/> class./>.
     /// </summary>
@@ -197,12 +202,13 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         return DataRepository.GetRecords(identifier, limit, skip, searchMode, sortExpression, sortAscending).Cast<IBrowsableDataObject>();
     }
 
-    public IEnumerable<IBrowsableDataObject> GetRecords(PredicateContainer predicates, int limit, int skip,
-        eSearchMode searchMode, string sortExpression, bool sortAscending)
+    public IEnumerable<IBrowsableDataObject> GetRecords(
+        PredicateContainer predicates,
+        int limit, int skip, string sortExpression, bool sortAscending)
     {
         var predict = predicates.GetPredicates<TPlain>();
 
-        if (predict != null)
+        if (predict == null)
         {
             return new List<IBrowsableDataObject>();
         }
@@ -210,16 +216,23 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         return DataRepository.GetRecords(predict, limit, skip, sortExpression, sortAscending).Cast<IBrowsableDataObject>();
     }
 
-    public IEnumerable<IBrowsableDataObject> GetEntityIds(PredicateContainer predicates, int limit, int skip, string sortExpression, bool sortAscending)
+
+    public IEnumerable<IBrowsableDataObject> GetRecords(List<string> identifiers)
+    {
+        return DataRepository.GetRecords(identifiers).Cast<IBrowsableDataObject>();
+    }
+
+    public IEnumerable<string> GetEntityIds(PredicateContainer predicates,
+        int limit, int skip, string sortExpression, bool sortAscending)
     {
         var predict = predicates.GetPredicates<TPlain>();
 
-        if (predict != null)
+        if (predict == null)
         {
-            return new List<IBrowsableDataObject>();
+            return new List<string>();
         }
 
-        return DataRepository.GetRecords(predict, limit, skip, sortExpression, sortAscending).Cast<IBrowsableDataObject>();
+        return DataRepository.GetEntityIds(predict, limit, skip, sortExpression, sortAscending).ToList();
     }
 
     /// <inheritdoc />

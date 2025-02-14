@@ -1,6 +1,6 @@
-﻿namespace RepositoryTestProject_L4
+﻿namespace Tests_L4
 {
-    using Pocos.RepositoryTestProject_L4.DataExchange;
+    using Pocos.Exchange_Test_L4;
     using System;
     using System.Linq;
     using System.Linq.Expressions;
@@ -25,7 +25,7 @@
         [Fact]
         public void should_return_entities()
         {
-            IEnumerable<Expression<Func<AxoProcessData, bool>>> predicates = new List<Expression<Func<AxoProcessData, bool>>>
+            IEnumerable<Expression<Func<ProcessData, bool>>> predicates = new List<Expression<Func<ProcessData, bool>>>
                 {
                     p => (p.vInt > 2 && (p.NestObj.vInt > 3 && p.NestObj.vInt <= 8)),
                     p => (p.vBool == true),
@@ -39,7 +39,7 @@
         [Fact]
         public void should_return_entity_ids()
         {
-            IEnumerable<Expression<Func<AxoProcessData, bool>>> predicates = new List<Expression<Func<AxoProcessData, bool>>>
+            IEnumerable<Expression<Func<ProcessData, bool>>> predicates = new List<Expression<Func<ProcessData, bool>>>
                 {
                     p => (p.vInt > 2 && (p.NestObj.vInt > 3 && p.NestObj.vInt <= 8)),
                     p => (p.vBool == true),

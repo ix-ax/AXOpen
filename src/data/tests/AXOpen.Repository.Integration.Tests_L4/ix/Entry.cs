@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AXSharp.Connector.S71500.WebApi;
 using System.Net.Security;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;

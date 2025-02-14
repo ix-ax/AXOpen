@@ -1,10 +1,10 @@
-﻿namespace RepositoryTestProject_L4
+﻿namespace Tests_L4
 {
-    using Pocos.RepositoryTestProject_L4.FragmentDataExchange;
     using AXOpen.Data;
     using System;
     using System.Linq;
     using Xunit;
+    using Pocos.FragmentExchange_Test_L4;
 
     [Collection("DatabaseTests")]
     public class FragmentDataExchange_MongoTests : IClassFixture<FragmentDataExchangeMongoFixture>
@@ -28,11 +28,11 @@
         {
             var builder = new PredicateContainer();
 
-            builder.AddPredicates<SharedDataHeaderData>(p => (p.vInt > 3 && p.vInt <= 8));
+            builder.AddPredicates<HeaderData>(p => (p.vInt > 3 && p.vInt <= 8));
 
             builder.AddPredicates<StationData>(p => (p.vInt > 5 && p.vInt <= 7));
 
-            var headerProdicates = builder.GetPredicates<SharedDataHeaderData>();
+            var headerProdicates = builder.GetPredicates<HeaderData>();
             var stationProdicates = builder.GetPredicates<StationData>();
 
             IEnumerable<string> resultHeader = _fixture._headerRepository.GetEntityIds(headerProdicates);

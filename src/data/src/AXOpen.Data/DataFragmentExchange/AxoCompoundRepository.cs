@@ -69,6 +69,11 @@ public class AxoCompoundRepository : IRepository
         return ((dynamic)DataFragments.First().Repository).GetRecords(identifier, limit, skip, searchMode, sortExpresion, sortAscending);
     }
 
+    public IEnumerable<IBrowsableDataObject> GetRecords(List<string> identifiers)
+    {
+        return ((dynamic)DataFragments.First().Repository).GetRecords(identifiers);
+    }
+
     public IEnumerable<IBrowsableDataObject> GetRecords(string identifier)
     {
         return ((dynamic)DataFragments.First().Repository).GetRecords(identifier);

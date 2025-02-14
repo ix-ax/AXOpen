@@ -1,15 +1,12 @@
 USING AXOpen.Core;
 USING AXOpen.Data;
 
-NAMESPACE AxoDataFragmentExchange_Test_L4  
+NAMESPACE FragmentExchange_Test_L4  
 
-    //<ContextDeclaration>
     {S7.extern=ReadWrite}
     CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
-           
-            DataManager  : AxoProcessDataManager_Test_L4;
-
+            DataManager  : FragmentProcessDataManager;
         END_VAR
         
         METHOD OVERRIDE Main
@@ -18,20 +15,20 @@ NAMESPACE AxoDataFragmentExchange_Test_L4
     END_CLASS
 
     {S7.extern=ReadWrite}
-    CLASS PUBLIC AxoProcessDataManager_Test_L4
+    CLASS PUBLIC FragmentProcessDataManager
         EXTENDS AXOpen.Data.AxoDataFragmentExchange
         VAR PUBLIC                    
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
-            Header : SharedDataHeaderManager_Test_L4;  
+            Header : HeaderManager;  
 
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
-            St1 : StationProcessDataManager_Test_L4;
+            St1 : StationManager;
 
         END_VAR
     END_CLASS
 
     {S7.extern=ReadWrite}
-    CLASS PUBLIC SharedDataHeaderManager_Test_L4
+    CLASS PUBLIC HeaderManager
         EXTENDS AXOpen.Data.AxoDataExchange
         VAR PUBLIC
             {#ix-generic:TOnline}
@@ -39,22 +36,22 @@ NAMESPACE AxoDataFragmentExchange_Test_L4
             {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}
             {#ix-attr:[Container(Layout.Stack)]} 
             {#ix-set:AttributeName = "Shared Header"}
-            Set : SharedDataHeaderData_Test_L4;
+            Set : HeaderData;
         END_VAR
     END_CLASS
 
     {S7.extern=ReadWrite}
-    CLASS PUBLIC SharedDataHeaderData_Test_L4
+    CLASS PUBLIC HeaderData
         EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
-            SomeString : STRING;
-            SomeInt : INT;
-            SomeBool : BOOL;
+            vString : STRING;
+            vInt : INT;
+            vBool : BOOL;
         END_VAR      
     END_CLASS
         
     {S7.extern=ReadWrite}
-    CLASS PUBLIC StationProcessDataManager_Test_L4
+    CLASS PUBLIC StationManager
         EXTENDS AXOpen.Data.AxoDataExchange
         VAR PUBLIC
             {#ix-generic:TOnline}
@@ -62,22 +59,22 @@ NAMESPACE AxoDataFragmentExchange_Test_L4
             {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}        
             {#ix-attr:[Container(Layout.Stack)]}    
             {#ix-set:AttributeName = "Station"}    
-            Set : StationData_Test_L4;
+            Set : StationData;
         END_VAR
     END_CLASS
 
     {S7.extern=ReadWrite}
-    CLASS PUBLIC StationData_Test_L4 EXTENDS AXOpen.Data.AxoDataEntity
+    CLASS PUBLIC StationData EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
             vString : STRING;
             vInt : INT;
             vBool : BOOL;
-            NestObj : NestingData;
+            NestObj : NestedObject;
         END_VAR
     END_CLASS
 
     {S7.extern=ReadWrite}
-    CLASS PUBLIC NestingData 
+    CLASS PUBLIC NestedObject 
         VAR PUBLIC
             vString : STRING;
             vInt : INT;

@@ -211,6 +211,19 @@ namespace AXOpen.Data.MongoDb
 
             return results;
         }
+
+        protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids)
+        {
+            if (ids == null || !ids.Any())
+            {
+                return Enumerable.Empty<T>();
+            }
+
+            var filter = Builders<T>.Filter.In(p => p.DataEntityId, ids);
+
+            return collection.Find(filter).ToList();
+        }
+
         protected override IEnumerable<string> GetEntityIdsNvi(
             IEnumerable<Expression<Func<T, bool>>> predicates,
             int limit = 100,
@@ -250,7 +263,6 @@ namespace AXOpen.Data.MongoDb
             // Convert the projection result to a list of strings.
             return results.ToList();
         }
-
 
         /// <summary>
         /// Parses input string, so it is evaluated as verbatim string and not as regular expression. All special ascii characters are prefixed with "\".
@@ -320,7 +332,6 @@ namespace AXOpen.Data.MongoDb
             return RecordExists(identifier);
         }
 
-       
         protected override long CountNvi => collection.Count(new BsonDocument());
 
         /// <summary>

@@ -230,6 +230,11 @@ namespace AXOpen.Data.RavenDb
             throw new NotImplementedException();
         }
 
+        protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids)
+        {
+            throw new NotImplementedException();
+        }
+
         public override IQueryable<T> Queryable
         {
             get

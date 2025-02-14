@@ -65,6 +65,8 @@ namespace AXOpen.Base.Data
             bool sortAscending = false
             );
 
+        IEnumerable<T> GetRecords(List<string> identifiers);
+
         T Read(string identifier);
         void Update(string identifier, T data);
         OnCreateDelegate<T> OnCreate { get; set; }

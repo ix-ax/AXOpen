@@ -8,6 +8,7 @@
 using System.IO.Compression;
 using System.Reflection;
 using System.Security.Principal;
+using System.Xml;
 using AXOpen.Base.Data;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -32,7 +33,12 @@ public partial class AxoDataFragmentExchange
     {
         return CreateDataFragments() as T;
     }
-    
+
+    public Type PlainObjectType()
+    {
+        throw new NotImplementedException();
+    }
+
     public bool ShouldVerifyHash { get; set; } = false;
 
     /// <summary>
@@ -88,22 +94,28 @@ public partial class AxoDataFragmentExchange
             case eCrudOperation.Create:
                 await this.RemoteCreate(identifier);
                 break;
+
             case eCrudOperation.Read:
                 await this.RemoteRead(identifier);
                 break;
+
             case eCrudOperation.Update:
                 await this.RemoteUpdate(identifier);
                 break;
+
             case eCrudOperation.Delete:
                 await this.RemoteDelete(identifier);
                 break;
+
             case eCrudOperation.CreateOrUpdate:
                 await this.RemoteCreateOrUpdate(identifier);
                 break;
+
             case eCrudOperation.EntityExist:
                 var result = await this.RemoteEntityExist(identifier);
                 await Operation._exist.SetAsync(result);
                 break;
+
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -117,7 +129,7 @@ public partial class AxoDataFragmentExchange
         get => _repository ?? throw new RepositoryNotInitializedException(this.Symbol);
         private set => _repository = value;
     }
-   
+
     /// <summary>
     /// Stop observing changes of the data object with changeTracker.
     /// </summary>
@@ -153,7 +165,6 @@ public partial class AxoDataFragmentExchange
         throw new NotImplementedException();
     }
 
- 
     /// <summary>
     /// Gets changes from changeTracker.
     /// </summary>
@@ -193,7 +204,6 @@ public partial class AxoDataFragmentExchange
         }
     }
 
-    
     //public async Task CreateNewAsync(string identifier)
     //{
     //    await Task.Run(() =>
@@ -241,9 +251,8 @@ public partial class AxoDataFragmentExchange
         return true;
     }
 
-    
     #region
-    
+
     private IEnumerable<(IAxoDataExchange Manager, IRepository Repository, ITwinObject Twin)> GetFragments(ITwinObject fragmentCompound)
     {
         if (fragmentCompound is not AxoFragmentedDataCompound)
@@ -256,7 +265,7 @@ public partial class AxoDataFragmentExchange
         foreach (var fragment in interfaceFragments)
         {
             var fr = DataFragments.FirstOrDefault(p => p.DataExchangeTwinObject.GetType() == fragment.GetType());
-            yield return (fr, fr.Repository, fragment); 
+            yield return (fr, fr.Repository, fragment);
         }
     }
 
@@ -349,14 +358,13 @@ public partial class AxoDataFragmentExchange
         var fragments = GetFragments(dataObject);
         await Task.Run(() =>
         {
-            
             foreach (var fragment in fragments)
             {
                 CreateNewPocoInFragmentRepository(identifier, fragment.Manager);
-            }          
+            }
         });
 
-        fragments.First().Repository.Read(identifier);       
+        fragments.First().Repository.Read(identifier);
     }
 
     /// <inheritdoc />
@@ -395,6 +403,7 @@ public partial class AxoDataFragmentExchange
             fragment.Repository.Create(source.DataEntityId, source);
         }
     }
+
     #endregion
 
     /// <inheritdoc />
@@ -413,7 +422,7 @@ public partial class AxoDataFragmentExchange
     {
         foreach (var fragment in DataFragments)
         {
-           await fragment?.RemoteRead(identifier);
+            await fragment?.RemoteRead(identifier);
         }
 
         return true;
@@ -424,7 +433,7 @@ public partial class AxoDataFragmentExchange
     {
         foreach (var fragment in DataFragments)
         {
-           await fragment?.RemoteUpdate(identifier);
+            await fragment?.RemoteUpdate(identifier);
         }
 
         return true;
@@ -446,7 +455,7 @@ public partial class AxoDataFragmentExchange
     {
         foreach (var fragment in DataFragments)
         {
-            if (! await fragment.RemoteEntityExist(identifier))
+            if (!await fragment.RemoteEntityExist(identifier))
                 return false;
         }
 
@@ -458,7 +467,7 @@ public partial class AxoDataFragmentExchange
     {
         foreach (var fragment in DataFragments)
         {
-           await fragment?.RemoteCreateOrUpdate(identifier);
+            await fragment?.RemoteCreateOrUpdate(identifier);
         }
 
         return true;
@@ -470,37 +479,44 @@ public partial class AxoDataFragmentExchange
         return ((dynamic)Repository)?.GetRecords(identifier, limit, skip, searchMode, sortExpression, sortAscending);
     }
 
-    public IEnumerable<IBrowsableDataObject> GetRecords(PredicateContainer predicates, int limit, int skip,
-      eSearchMode searchMode, string sortExpression, bool sortAscending)
+    public IEnumerable<IBrowsableDataObject> GetRecords(PredicateContainer predicates,
+        int limit, int skip, string sortExpression, bool sortAscending)
     {
+        List<List<String>> fragmentEntities = new();
 
-        List<List<String>> entities = new ();
+        foreach (var fragment in DataFragments)
+        {
+            if (predicates.ContainAnyOfType(fragment.PlainObjectType()))
+            {
+                var ids = fragment.GetEntityIds(predicates, limit, skip, sortExpression, sortAscending).ToList();
+                fragmentEntities.Add(ids);
+            }
+        }
 
-        //foreach (var fragment in DataFragments)
-        //{
-        //    var pocoType = fragment.DataExchangeTwinObject.CreatePoco().GetType();
+        List<string> commonEntities = fragmentEntities
+            .Skip(1) // Start with the second list
+            .Aggregate(new HashSet<string>(fragmentEntities.First()), (common, next) =>
+            {
+                common.IntersectWith(next);
+                return common;
+            })
+            .ToList();
 
-        //    var predict = predicates.GetPredicates(pocoType);
-
-        //    fragment.GetRecords()
-
-        //    fragment.get
-        //}
-
-
-
-        //return DataRepository.GetRecords(predict, limit, skip, sortExpression, sortAscending).Cast<IBrowsableDataObject>();
-
-        return new List<IBrowsableDataObject>();
+        return GetRecords(commonEntities).ToList();
     }
 
-    public IEnumerable<IBrowsableDataObject> GetEntityIds(PredicateContainer predicates, int limit, int skip, string sortExpression, bool sortAscending)
+    public IEnumerable<IBrowsableDataObject> GetRecords(List<string> identifiers)
+    {
+        return ((dynamic)Repository).GetRecords(identifiers);
+    }
+
+    public IEnumerable<string> GetEntityIds(PredicateContainer predicates, int limit, int skip, string sortExpression, bool sortAscending)
     {
         //var predict = predicates.GetPredicates<TPlain>();
 
         //if (predict != null)
         //{
-            return new List<IBrowsableDataObject>();
+        return new List<string>();
         //}
 
         //return DataRepository.GetRecords(predict, limit, skip, sortExpression, sortAscending).Cast<IBrowsableDataObject>();
@@ -559,7 +575,6 @@ public partial class AxoDataFragmentExchange
             Directory.CreateDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare");
 
             File.Delete(path);
-
 
             foreach (var fragment in DataFragments)
             {
