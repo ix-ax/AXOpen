@@ -5,17 +5,23 @@
 <!-- Line 1: ComboBox for properties -->
 <div>
     <label for="propertyDropdown">Select path:</label>
-    <select id="propertyDropdown" class="form-control" @bind="SelectedProperty">
-        @foreach (var property in CurrentLevelProperties)
+    <select id="propertyDropdown" class="form-control" @bind="this.SelectedRoot">
+        @foreach (var root in this.GetRootNames())
         {
-            <option value="@property">@property</option>
+            <option value="@root">@root</option>
         }
     </select>
 </div>
 
-<!-- Line 2: Display the current object path -->
-<div class="mt-2">
-    <strong>Current Path:</strong> @CurrentPath
-</div>
+<button onclick="@await AddFilterBuilderForType(this.SelectedRoot)">AddFilter</button>
+
+
+@if (SelectedBuilder != null)
+{
+    <PathFilterBuilder @key=SelectedBuilder
+                       builder="@SelectedBuilder"></PathFilterBuilder>
+
+}
+
 
 

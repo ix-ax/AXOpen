@@ -2,8 +2,10 @@
 using AXOpen.Data;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 
 namespace AXOpen.Data
@@ -16,113 +18,50 @@ namespace AXOpen.Data
         public IAxoDataExchange exchange;
         public Guid ViewGuid { get; } = new Guid();
 
-        public Dictionary<Type, List<string>> TypePropList = new();
-
-        public Dictionary<string, Type> roots = new();
-
-        private string _SelectedProperty;
-        public string SelectedProperty
-        {
-            set
-            {
-                _SelectedProperty = value;
-                CurrentPath = $"{CurrentPath}.{_SelectedProperty}";
-
-            }
-
-            get
-            {
-                return _SelectedProperty;
-            }
-        }
-
-
-        public string CurrentPath { set; get; }
-
-        public Type CurrentObjPath;
-
-        public List<string> CurrentLevelProperties { set; get; }
-
-
-
-        public string UserInput { get; set; }
-
         protected override void OnInitialized()
         {
             exchange = (IAxoDataExchange)Vm.Model;
+            InitializePropertySelector();
+        }
 
-            if (exchange is AxoDataFragmentExchange)
-            {
-                var s = (AxoDataFragmentExchange)exchange;
-            }
+        public string SelectedRoot { set; get; }
+        public PlainPathObjectBuilder SelectedBuilder { set; get; }
 
+        public List<PlainPathObjectBuilder> Roots = new();
+
+        protected void InitializePropertySelector()
+        {
             foreach (var rootType in exchange.GetPlainObjectType())
             {
-                roots.Add(rootType.Name, rootType);
-
-                CollectProperties(rootType, true);
+                Roots.Add(new PlainPathObjectBuilder(rootType));
             }
         }
 
-        private void CollectProperties(Type type, bool isRoot)
+        public async Task<bool> AddFilterBuilderForType(string rootName)
         {
-            if (TypePropList.ContainsKey(type)) return; // Prevent infinite loops
+            var r = Roots.Where(p => p.Name == rootName).First();
 
-            var propertyNames = new List<string>();
-
-            foreach (var prop in type.GetProperties())
+            if (r == null)
             {
-                propertyNames.Add(prop.Name);
-
-                if (typeof(IPlain).IsAssignableFrom(prop.PropertyType))
-                {
-                    CollectProperties(prop.PropertyType, false);
-                }
+                return false;
             }
 
-            if (isRoot) // remove not presentable fields
-            {
-                propertyNames.Remove("Hash");
-                propertyNames.Remove("Changes");
-                propertyNames.Remove("RecordId");
-            }
-
-            if (propertyNames.Count > 0)
-            {
-                TypePropList[type] = propertyNames;
-            }
+            SelectedBuilder = r;
+            return true;
         }
 
-
-        protected bool FillSelectedProperty() // return true if exist 
+        public List<String> GetRootNames()
         {
-            if (CurrentObjPath == null) // fill up roots
+            List<string> rootnames = new();
+
+            rootnames.Add("SELECT");
+
+            foreach (var r in this.Roots)
             {
-                this.CurrentLevelProperties.Clear();
-
-                this.CurrentLevelProperties.AddRange(this.roots.Keys);
-                return true;
+                rootnames.Add(r.Name);
             }
-            else
-            {
-                this.CurrentLevelProperties.Clear();
 
-                if (TypePropList.ContainsKey(CurrentObjPath))
-                {
-                    var innerProps = TypePropList[CurrentObjPath];
-
-                    this.CurrentLevelProperties.AddRange(innerProps);
-                    return true;
-                }
-
-            }
-            return false;
-        }
-
-
-        private Task<bool> AddAndValidate()
-        {
-            return Task.FromResult(true);
+            return rootnames;
         }
 
         public void Dispose()
