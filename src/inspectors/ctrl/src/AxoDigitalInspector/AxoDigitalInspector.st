@@ -15,15 +15,15 @@ NAMESPACE AXOpen.Inspectors
         /// </summary>  
         METHOD PUBLIC Inspect : IInspector
             VAR_INPUT
-                _parent: AXOpen.Core.IAxoObject;
+                inParent : AXOpen.Core.IAxoObject;
                 inData : REF_TO AxoDigitalInspectorData;
                 Status : BOOL;
             END_VAR
 
             _data := inData;
 
-            THIS.Initialize(_parent);
-            _inspectorTask.Initialize(_parent);
+            THIS.Initialize(inParent);
+            _inspectorTask.Initialize(inParent);
             
             //return this instance
             Inspect := THIS;
@@ -39,12 +39,9 @@ NAMESPACE AXOpen.Inspectors
 
             //invoke inspection task
             _inspectorTask.Invoke();
-    
-            RETURN;
 
             //execute inspection task
             IF (_inspectorTask.Execute()) THEN
-
                 // if data are bypassed, skip inspection
                 IF (_data^.IsByPassed) THEN
             

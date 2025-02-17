@@ -24,7 +24,7 @@ NAMESPACE AXOpen.Inspectors
         /// </summary>    
         METHOD PUBLIC Inspect : IInspector
             VAR_INPUT
-                _parent : AXOpen.Core.IAxoObject;
+                inParent : AXOpen.Core.IAxoObject;
                 inData : REF_TO AxoDataInspectorData;
                 Status : STRING;
             END_VAR
@@ -42,8 +42,8 @@ NAMESPACE AXOpen.Inspectors
 
             _data := inData;
 
-            THIS.Initialize(_parent);
-            _inspectorTask.Initialize(_parent);
+            THIS.Initialize(inParent);
+            _inspectorTask.Initialize(inParent);
 
             //return this instance
             Inspect := THIS;
