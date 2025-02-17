@@ -15,7 +15,7 @@ namespace AXOpen.Data
     {
         ITwinObject CloneDataObject();
 
-        Type PlainObjectType();
+        IEnumerable<Type> GetPlainObjectType();
 
         /// <summary>
         ///     Gets <see cref="AxoDataEntity" /> as <see cref="ITwinObject" /> that provides exchange mechanisms between this

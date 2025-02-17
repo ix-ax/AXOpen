@@ -17,7 +17,9 @@
 else
 {
     <div class="p-1">
+
         <div class="d-flex">
+            <DataExchangeFilter Vm="@Vm"></DataExchangeFilter>
             @if (Presentation.Equals("Command"))
             {
 
@@ -236,6 +238,8 @@ else
             </tbody>
         </table>
         <div class="d-flex">
+
+
             <div class="dropup">
                 Showing @(Vm.Page * Vm.Limit + 1) to @(((Vm.Page + 1) * Vm.Limit) > Vm.FilteredCount ? Vm.FilteredCount : ((Vm.Page + 1) * Vm.Limit)) of @Vm.FilteredCount rows
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.Limit</button>

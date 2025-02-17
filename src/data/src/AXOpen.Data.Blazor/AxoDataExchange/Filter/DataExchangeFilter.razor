@@ -1,0 +1,21 @@
+﻿@using AXSharp.Connector;
+@namespace AXOpen.Data
+
+
+<!-- Line 1: ComboBox for properties -->
+<div>
+    <label for="propertyDropdown">Select path:</label>
+    <select id="propertyDropdown" class="form-control" @bind="SelectedProperty">
+        @foreach (var property in CurrentLevelProperties)
+        {
+            <option value="@property">@property</option>
+        }
+    </select>
+</div>
+
+<!-- Line 2: Display the current object path -->
+<div class="mt-2">
+    <strong>Current Path:</strong> @CurrentPath
+</div>
+
+

@@ -34,9 +34,16 @@ public partial class AxoDataFragmentExchange
         return CreateDataFragments() as T;
     }
 
-    public Type PlainObjectType()
+    public IEnumerable<Type> GetPlainObjectType()
     {
-        throw new NotImplementedException();
+        var Plains = new List<Type>();
+
+        foreach (var fragment in DataFragments)
+        {
+            Plains.AddRange(fragment.GetPlainObjectType());
+        }
+
+        return Plains;
     }
 
     public bool ShouldVerifyHash { get; set; } = false;
@@ -484,7 +491,7 @@ public partial class AxoDataFragmentExchange
     {
         List<List<string>> fragmentEntities = new();
 
-        Parallel.ForEach(DataFragments.Where(fragment => predicates.ContainsType(fragment.PlainObjectType())), fragment =>
+        Parallel.ForEach(DataFragments.Where(fragment => predicates.ContainsType(fragment.GetPlainObjectType().First())), fragment =>
         {
             var ids = fragment.GetEntityIds(predicates, limit, skip, sortExpression, sortAscending).ToList();
             lock (fragmentEntities)
@@ -513,7 +520,7 @@ public partial class AxoDataFragmentExchange
 
     public IEnumerable<string> GetEntityIds(PredicateContainer predicates, int limit, int skip, string sortExpression, bool sortAscending)
     {
-       throw new NotImplementedException();
+        throw new NotImplementedException();
     }
 
     /// <inheritdoc />

@@ -36,9 +36,9 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
     private TOnline _dataEntity;
 
-    public Type PlainObjectType()
+    public IEnumerable<Type> GetPlainObjectType()
     {
-        return typeof(TPlain);
+        return new List<Type>() { typeof(TPlain) };
     }
 
     /// <summary>
