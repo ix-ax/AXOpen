@@ -22,7 +22,7 @@ if ! [[ -e $PLC_CERT ]]; then
 	printf "${RED}Certificate file $PLC_CERT not found!!!${NC}"
     exit 1
 fi
-apax plc-info set-mode STOP -t $PLC_IP_ADDRESS -y -C $PLC_CERT
+apax plc-info set-mode STOP -t $PLC_IP_ADDRESS --no-input -C $PLC_CERT
 if [[ $? -eq 0 ]]; then
 	printf "${GREEN}PLC was succesfully succesfully set to STOP mode.${NC}"
 else
@@ -30,7 +30,7 @@ else
 	printf "${RED}Please check the details above.${NC}\n"
 	exit 1
 fi
-apax plc-info set-mode RUN  -t $PLC_IP_ADDRESS -y -C $PLC_CERT
+apax plc-info set-mode RUN  -t $PLC_IP_ADDRESS --no-input -C $PLC_CERT
 if [[ $? -eq 0 ]]; then
 	printf "${GREEN}PLC was succesfully succesfully set to RUN mode.${NC}"
 else
