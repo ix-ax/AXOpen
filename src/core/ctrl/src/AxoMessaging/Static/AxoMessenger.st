@@ -52,7 +52,7 @@ NAMESPACE AXOpen.Messaging.Static
                 inContext : IAxoContext;
             END_VAR     
 
-            IF  _context_ = null THEN  
+            IF  _context = null THEN  
                 IF inContext = NULL THEN
                     RETURN;
                 END_IF;
@@ -107,13 +107,13 @@ NAMESPACE AXOpen.Messaging.Static
                 inObject : IAxoObject;
             END_VAR  
         
-            IF  _context_ = null THEN  
+            IF  _context = null THEN  
                 IF inObject.GetContext() = NULL THEN
                     RETURN;
                 END_IF;
 
                 THIS.Initialize(inObject);
-                Context := _context_; // Duplicity!!!
+                Context := _context; // Duplicity!!!
             END_IF;
 
             IF THIS.IsActive AND NOT THIS.AcknowledgedBeforeFallen THEN

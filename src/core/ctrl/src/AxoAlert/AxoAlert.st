@@ -88,7 +88,7 @@ NAMESPACE AXOpen.Core
             _timeToBurn := UINT#5;
             _PlcCycleSpaceCounter:=  UINT#0;
 
-            IF _context_ = NULL THEN
+            IF _context = NULL THEN
                 Status := eAxoTaskState#Ready;  //needed in case when dialog observation was interrupt
                 ErrorDetails := '';
             ELSE
