@@ -111,7 +111,7 @@ NAMESPACE AXOpen.Messaging.Static
                 IF inObject.GetContext() = NULL THEN
                     RETURN;
                 END_IF;
-
+                THIS.Initialize(inObject);
                 THIS.Initialize(inObject.GetContext());
                 Context := inObject.GetContext(); // Duplicity!!!
             END_IF;
