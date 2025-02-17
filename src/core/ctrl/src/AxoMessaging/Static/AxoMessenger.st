@@ -52,7 +52,7 @@ NAMESPACE AXOpen.Messaging.Static
                 inContext : IAxoContext;
             END_VAR     
 
-            IF  _context = NULL THEN  
+            IF  _context_ = NULL THEN  
                 IF inContext = NULL THEN
                     RETURN;
                 END_IF;
@@ -107,7 +107,7 @@ NAMESPACE AXOpen.Messaging.Static
                 inObject : IAxoObject;
             END_VAR  
 
-            IF  _context = NULL THEN  
+            IF  _context_ = NULL THEN  
                 IF inObject.GetContext() = NULL THEN
                     RETURN;
                 END_IF;

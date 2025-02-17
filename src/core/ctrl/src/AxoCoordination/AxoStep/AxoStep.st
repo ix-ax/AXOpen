@@ -114,8 +114,8 @@ NAMESPACE AXOpen.Core
                 // Selector : REF_TO Selector;
             END_VAR    
 
-            IF _context <> NULL THEN 
-                _currentlyOpenCycleCount := _context.OpenCycleCount();
+            IF _context_ <> NULL THEN 
+                _currentlyOpenCycleCount := _context_.OpenCycleCount();
                 _isCalledJustOnceInThisPlcCycle:= _openCycleCount = _currentlyOpenCycleCount - ULINT#1;
                 _multipleStepCallInThisPlcCycle := _openCycleCount >= _currentlyOpenCycleCount; // TODO: We will need to message this, when messaging ready.            
                 _noStepCallInPreviousPlcCycle := _openCycleCount < _currentlyOpenCycleCount - ULINT#1; // TODO: We will need to message this, when messaging ready.            
@@ -124,7 +124,7 @@ NAMESPACE AXOpen.Core
                 coordAsAxoObject ?= coord;
                IF(coordAsAxoObject <> NULL) THEN
                     THIS.Initialize(coordAsAxoObject); 
-                    _currentlyOpenCycleCount := _context.OpenCycleCount();
+                    _currentlyOpenCycleCount := _context_.OpenCycleCount();
                     _isCalledJustOnceInThisPlcCycle:= _openCycleCount = _currentlyOpenCycleCount - ULINT#1;
                     _multipleStepCallInThisPlcCycle := _openCycleCount >= _currentlyOpenCycleCount; // TODO: We will need to message this, when messaging ready.            
                     _noStepCallInPreviousPlcCycle := _openCycleCount < _currentlyOpenCycleCount - ULINT#1; // TODO: We will need to message this, when messaging ready.            
@@ -151,7 +151,7 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 Active : BOOL;
             END_VAR
-            IF(NOT THIS.IsActive AND Active) THEN _context.GetLogger().Log('At step:', AXOpen.Logging.eLogLevel#Verbose, THIS); END_IF;
+            IF(NOT THIS.IsActive AND Active) THEN _context_.GetLogger().Log('At step:', AXOpen.Logging.eLogLevel#Verbose, THIS); END_IF;
             IsActive := Active;
         END_METHOD
 
