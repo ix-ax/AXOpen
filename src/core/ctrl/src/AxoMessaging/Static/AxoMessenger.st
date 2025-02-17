@@ -49,16 +49,16 @@ NAMESPACE AXOpen.Messaging.Static
         ///</summary>
         METHOD PUBLIC Serve 
             VAR_INPUT
-                _context : IAxoContext;
+                inContext : IAxoContext;
             END_VAR     
 
             IF  _context_ = null THEN  
-                IF _context = NULL THEN
+                IF inContext = NULL THEN
                     RETURN;
                 END_IF;
 
-                THIS.Initialize(_context);
-                Context := _context; // Duplicity!!!
+                THIS.Initialize(inContext);
+                Context := inContext; // Duplicity!!!
             END_IF;
 
             IF THIS.IsActive AND NOT THIS.AcknowledgedBeforeFallen THEN
@@ -104,15 +104,15 @@ NAMESPACE AXOpen.Messaging.Static
         ///</summary>
         METHOD PUBLIC Serve 
             VAR_INPUT
-                _object : IAxoObject;
+                inObject : IAxoObject;
             END_VAR  
         
             IF  _context_ = null THEN  
-                IF _object.GetContext() = NULL THEN
+                IF inObject.GetContext() = NULL THEN
                     RETURN;
                 END_IF;
 
-                THIS.Initialize(_object);
+                THIS.Initialize(inObject);
                 Context := _context_; // Duplicity!!!
             END_IF;
 
