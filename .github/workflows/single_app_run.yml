@@ -1,10 +1,10 @@
-name: nightly
+name: single_app_run
 
 on:
   workflow_dispatch:
     inputs:
       folder:
-        description: "Select library folder (abstractions, components.abb.robotics, components.abstractions)"
+        description: "Select library folder"
         required: true
         default: "template.axolibrary"
         type: choice
@@ -36,6 +36,7 @@ on:
           - template.axolibrary
           - timers
           - utils
+
 jobs:
   app-run-manual-with-selected-folder:
     runs-on: [self-hosted, Windows, X64, L3, AX, APP]  
@@ -43,18 +44,19 @@ jobs:
     - name: Get Branch Name
       shell: pwsh
       run: |
-          if ($env:GITHUB_REF -like "refs/pull/*") {
-            $BRANCH_NAME = "${{ github.event.pull_request.head.ref }}"
-          } else {
-            $BRANCH_NAME = $env:GITHUB_REF -replace 'refs/heads/', ''
-          }
-          Write-Host "Triggered on branch: $BRANCH_NAME"
-          "BRANCH_NAME=$BRANCH_NAME" | Out-File -FilePath $env:GITHUB_ENV -Append
+        if ($env:GITHUB_REF -like "refs/pull/*") {
+          $BRANCH_NAME = "${{ github.event.pull_request.head.ref }}"
+        } else {
+          $BRANCH_NAME = $env:GITHUB_REF -replace 'refs/heads/', ''
+        }
+        Write-Host "Triggered on branch: $BRANCH_NAME"
+        "BRANCH_NAME=$BRANCH_NAME" | Out-File -FilePath $env:GITHUB_ENV -Append
 
-    - name: Print Inputs
+    - name: Print and store library folder
+      shell: pwsh
       run: |
-        $APP_FOLDER=${{ github.event.inputs.folder }}
-        echo "Selected folder: $APP_FOLDER"
+        $APP_FOLDER = "${{ inputs.folder }}"
+        Write-Host "Selected folder: $APP_FOLDER"
         "APP_FOLDER=$APP_FOLDER" | Out-File -FilePath $env:GITHUB_ENV -Append
 
     - name: Checkout
