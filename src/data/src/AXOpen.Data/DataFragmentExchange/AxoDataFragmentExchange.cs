@@ -79,9 +79,9 @@ public partial class AxoDataFragmentExchange
 
     private async Task Handle()
     {
-        await Operation.ReadAsync();
-        var operation = (eCrudOperation)Operation.CrudOperation.LastValue;
-        var identifier = Operation.DataEntityIdentifier.LastValue;
+        //await Operation.ReadAsync();
+        var operation = (eCrudOperation)await Operation.CrudOperation.GetAsync();
+        var identifier = await Operation.DataEntityIdentifier.GetAsync();
 
         switch (operation)
         {

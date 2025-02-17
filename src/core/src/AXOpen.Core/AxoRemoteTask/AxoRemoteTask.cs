@@ -143,7 +143,9 @@ namespace AXOpen.Core
 
         protected async void ExecuteAsync(AXSharp.Connector.ITwinPrimitive sender, AXSharp.Connector.ValueTypes.ValueChangedEventArgs args)
         {
-            await (this as ITwinObject).ReadAsync();
+            //await (this as ITwinObject).ReadAsync();
+            await this.StartSignature.GetAsync();
+            await this.DoneSignature.GetAsync();
 
             if (this.StartSignature.LastValue != 0 &&
                 !IsRunning &&
@@ -154,52 +156,65 @@ namespace AXOpen.Core
                     IsRunning = true;
                     RemoteExecutionException = null;
 
-                    switch (this._ActionType)
+                    switch (DeferredAction)
                     {
-                        case RemoteActionType.Func:
-                            await System.Threading.Tasks.Task.Run(() => { ((Func<object>)DeferredAction)(); });
+                        case Action action:
+                            await System.Threading.Tasks.Task.Run(() => { action(); });
                             break;
-
-                        case RemoteActionType.FuncRuturnTask:
-
-                            Func<Task> castedDeferredAction = (Func<Task>)DeferredAction;
-                            await System.Threading.Tasks.Task.Factory.StartNew<Task>(castedDeferredAction).Unwrap();
+                        case Func<Task> funcTask:
+                            await System.Threading.Tasks.Task.Run(async () => { await funcTask(); });
                             break;
-
-                        //await System.Threading.Tasks.Task.Run(async () => { await ((Func<Task>)DeferredAction)(); });
-                        //break;
-
-                        case RemoteActionType.Action:
-
-                            await System.Threading.Tasks.Task.Factory.StartNew(
-                               (Action)DeferredAction
-                               , TaskCreationOptions.AttachedToParent
-                               );
-
-                            //await System.Threading.Tasks.Task.Run(() => { ((Action)DeferredAction).Invoke(); });
-
-                            break;
-
-                        case RemoteActionType.Method:
-                            await Task.Factory.StartNew(
-                              (Action)DeferredAction
-                              , TaskCreationOptions.AttachedToParent
-                              );
-
-                            //await System.Threading.Tasks.Task.Run(() => { ((Action)DeferredAction).Invoke(); });
-
-                            break;
-
-                        default:
-                            await Task.Factory.StartNew(
-                             (Action)DeferredAction
-                             , TaskCreationOptions.AttachedToParent
-                             );
-
-                            //await System.Threading.Tasks.Task.Run(() => { ((Action)DeferredAction).Invoke(); });
-
+                        case Func<object> func:
+                            await System.Threading.Tasks.Task.Run(() => { func(); });
                             break;
                     }
+
+                    //switch (this._ActionType)
+                    //{
+                    //    case RemoteActionType.Func:
+                    //        await System.Threading.Tasks.Task.Run(() => { ((Func<object>)DeferredAction)(); });
+                    //        break;
+
+                    //    case RemoteActionType.FuncRuturnTask:
+
+                    //        Func<Task> castedDeferredAction = (Func<Task>)DeferredAction;
+                    //        await System.Threading.Tasks.Task.Factory.StartNew<Task>(castedDeferredAction).Unwrap();
+                    //        break;
+
+                    //    //await System.Threading.Tasks.Task.Run(async () => { await ((Func<Task>)DeferredAction)(); });
+                    //    //break;
+
+                    //    case RemoteActionType.Action:
+
+                    //        await System.Threading.Tasks.Task.Factory.StartNew(
+                    //           (Action)DeferredAction
+                    //           , TaskCreationOptions.AttachedToParent
+                    //           );
+
+                    //        //await System.Threading.Tasks.Task.Run(() => { ((Action)DeferredAction).Invoke(); });
+
+                    //        break;
+
+                    //    case RemoteActionType.Method:
+                    //        await Task.Factory.StartNew(
+                    //          (Action)DeferredAction
+                    //          , TaskCreationOptions.AttachedToParent
+                    //          );
+
+                    //        //await System.Threading.Tasks.Task.Run(() => { ((Action)DeferredAction).Invoke(); });
+
+                    //        break;
+
+                    //    default:
+                    //        await Task.Factory.StartNew(
+                    //         (Action)DeferredAction
+                    //         , TaskCreationOptions.AttachedToParent
+                    //         );
+
+                    //        //await System.Threading.Tasks.Task.Run(() => { ((Action)DeferredAction).Invoke(); });
+
+                    //        break;
+                    //}
                 }
                 catch (Exception ex)
                 {

@@ -37,13 +37,6 @@ namespace AXOpen.Core
             }
         }
 
-        protected override void OnInitialized()
-        {
-            base.OnInitialized();
-            UpdateValuesOnChange(Component);
-        }
-
-       
 
         [Parameter]
         public bool Disable { get; set; }
@@ -51,6 +44,11 @@ namespace AXOpen.Core
         public bool IsDisabled => Disable || Component.IsDisabled.Cyclic;
 
         public string Description => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName;
+        public override void ConfigurePolling()
+        {
+            this.StartPolling(Component.IsDisabled);
+            this.StartPolling(Component.State);
+        }
     }
 
     public class AxoToggleTaskCommandView : AxoToggleTaskView

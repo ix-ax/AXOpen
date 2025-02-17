@@ -1,4 +1,5 @@
 ﻿@namespace AXOpen.Inspectors
+@using AXSharp.Connector
 @inherits RenderableComplexComponentBase<AxoAnalogueInspector>
 
 
@@ -17,8 +18,9 @@
         return string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName;
     }
 
-    protected override void OnInitialized()
+
+    public override void ConfigurePolling()
     {
-        UpdateValuesOnChange(Component._data.Result);
+       this.StartPolling(this.Component._data, 500);
     }
 }

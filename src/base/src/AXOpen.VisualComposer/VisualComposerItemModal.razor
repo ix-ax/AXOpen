@@ -118,6 +118,12 @@
                                 </div>
                             </div>
 
+                            <div class="mb-1 row">
+                                <label class="col-sm-2 col-form-label">Polling [ms]</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" placeholder="Polling interval" @bind="Origin.PollingInterval" step="1">
+                                </div>
+                            </div>
                             @* <p>@Origin.TwinElement.GetType().FullName</p>
 
                             <select class="form-select" @bind="Origin.PresentationTemplate">

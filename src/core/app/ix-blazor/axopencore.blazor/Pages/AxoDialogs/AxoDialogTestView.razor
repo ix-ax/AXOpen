@@ -5,6 +5,7 @@
 @inherits RenderableComplexComponentBase<AxoDialogExamples.AxoDialogTest>
 @implements IDisposable;
 
+
 <div class="border border-2 m-1 rounded">
 <h5>@Component.Symbol</h5>
 
@@ -59,3 +60,10 @@
         </div>
     </div>
 </div>
+
+@code {
+    public override void ConfigurePolling()
+    {
+        throw new NotImplementedException();
+    }
+}

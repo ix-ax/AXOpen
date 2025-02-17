@@ -186,8 +186,11 @@ namespace AXOpen.Messaging.Static
                     p.MessengerState,
                 });
             
-
-            await Messengers?.FirstOrDefault()?.GetConnector()?.ReadBatchAsync(r)!;
+            var con = Messengers?.FirstOrDefault()?.GetConnector();
+            if (con != null)
+            {
+                await con.ReadBatchAsync(r)!;
+            }
         }
     }
 }

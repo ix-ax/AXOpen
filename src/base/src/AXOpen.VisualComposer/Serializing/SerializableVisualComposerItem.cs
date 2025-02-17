@@ -2,7 +2,20 @@
 {
     internal class SerializableVisualComposerItem
     {
-        public SerializableVisualComposerItem(string id, double left, double top, string transform, string presentation, double width, double height, int zIndex, double scale, string roles, string presentationTemplate, bool background, string backgroundColor)
+        public SerializableVisualComposerItem(string id, 
+            double left, 
+            double top, 
+            string transform, 
+            string presentation, 
+            double width, 
+            double height, 
+            int zIndex, 
+            double scale, 
+            string roles, 
+            string presentationTemplate, 
+            bool background, 
+            string backgroundColor, 
+            int pollingInterval)
         {
             Id = id;
             Left = left;
@@ -17,6 +30,7 @@
             PresentationTemplate = presentationTemplate;
             Background = background;
             BackgroundColor = backgroundColor;
+            PollingInterval = pollingInterval;
         }
 
         public string Id { get; set; }
@@ -32,5 +46,6 @@
         public string PresentationTemplate { get; set; }
         public bool Background { get; set; }
         public string BackgroundColor { get; set; }
+        public int PollingInterval { get; set; }
     }
 }

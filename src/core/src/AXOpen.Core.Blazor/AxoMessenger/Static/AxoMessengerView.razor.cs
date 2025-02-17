@@ -52,24 +52,15 @@ namespace AXOpen.Messaging.Static
             }
         }
         
-        public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+        public override void ConfigurePolling()
         {
-            base.AddToPolling(element);
+            StartPolling(Component.MessengerState, 500);
+            StartPolling(Component.MessageCode, 500);
+            StartPolling(Component.Category, 500);
+            StartPolling(Component.Risen, 500);
+            StartPolling(Component.Fallen, 500);
+            StartPolling(Component.Acknowledged, 500);
         }
-
-        protected override void OnInitialized()
-        {
-            base.OnInitialized();
-            UpdateValuesOnChange(Component.MessengerState);
-            UpdateValuesOnChange(Component.MessageCode);
-            UpdateValuesOnChange(Component.Category);
-            UpdateValuesOnChange(Component.Risen);
-            UpdateValuesOnChange(Component.Fallen);
-            UpdateValuesOnChange(Component.Acknowledged);
-            
-        }
-
-
 
         public override void Dispose()
         {

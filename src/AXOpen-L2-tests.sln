@@ -1,6 +1,38 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen-L2-tests", "AXOpen-L2-tests.proj", "{9A85BB89-8946-42C7-AEEC-C777BBE31FCA}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXSharp.Abstractions", "..\..\axsharp\src\AXSharp.abstractions\src\AXSharp.Abstractions\AXSharp.Abstractions.csproj", "{82F76434-AD1C-4DFE-92D6-4FBE0A5226A1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXSharp.Presentation.Blazor.Controls", "..\..\axsharp\src\AXSharp.blazor\src\AXSharp.Presentation.Blazor.Controls\AXSharp.Presentation.Blazor.Controls.csproj", "{E77B258D-BF43-4D9F-A8AE-79377183659B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXSharp.Presentation.Blazor", "..\..\axsharp\src\AXSharp.blazor\src\AXSharp.Presentation.Blazor\AXSharp.Presentation.Blazor.csproj", "{A584E300-69DB-4674-AAA0-173E8010B76E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXSharp.Connector.S71500.WebAPI", "..\..\axsharp\src\AXSharp.connectors\src\AXSharp.Connector.S71500.WebAPI\AXSharp.Connector.S71500.WebAPI.csproj", "{9C44BBD7-4A11-4417-91CE-7ECD3588B78B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXSharp.Connector", "..\..\axsharp\src\AXSharp.connectors\src\AXSharp.Connector\AXSharp.Connector.csproj", "{2EC63067-340A-476B-A783-23B002418D07}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXSharp.Abstractions", "..\..\axsharp\src\AXSharp.abstractions\src\AXSharp.Abstractions", "{9D9CBEF0-DD14-42C1-A386-06A3AEF834A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\..\axsharp\src\AXSharp.abstractions\src", "{6C06C4F3-C773-44DF-B51C-08B4B0A6C9EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXSharp.abstractions", "..\..\axsharp\src\AXSharp.abstractions", "{6AD1B363-FC14-4D97-A586-D12B71F24D43}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXSharp.Presentation.Blazor.Controls", "..\..\axsharp\src\AXSharp.blazor\src\AXSharp.Presentation.Blazor.Controls", "{01296E70-FAE1-44F7-99B4-42DA72E460FD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXSharp.Presentation.Blazor", "..\..\axsharp\src\AXSharp.blazor\src\AXSharp.Presentation.Blazor", "{1C4D999E-1F19-4046-8616-7B1293CF9195}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\..\axsharp\src\AXSharp.blazor\src", "{74C83F70-2A5D-4D89-BA9C-0554A56ACD2E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXSharp.blazor", "..\..\axsharp\src\AXSharp.blazor", "{85074E5D-712A-4146-A58E-75357158F9D4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXSharp.Connector.S71500.WebAPI", "..\..\axsharp\src\AXSharp.connectors\src\AXSharp.Connector.S71500.WebAPI", "{F5E7A694-A45D-4DA1-B614-5B3C67FF3395}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXSharp.Connector", "..\..\axsharp\src\AXSharp.connectors\src\AXSharp.Connector", "{ABFE9D1E-1F66-4E26-9267-48188CD9F56B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\..\axsharp\src\AXSharp.connectors\src", "{1A0800B2-552A-4FE1-80A7-7CE84D463314}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXSharp.connectors", "..\..\axsharp\src\AXSharp.connectors", "{893D7618-DE96-4C56-B2BC-5B8177238608}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -11,9 +43,44 @@ Global
 		{9A85BB89-8946-42C7-AEEC-C777BBE31FCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A85BB89-8946-42C7-AEEC-C777BBE31FCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A85BB89-8946-42C7-AEEC-C777BBE31FCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82F76434-AD1C-4DFE-92D6-4FBE0A5226A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82F76434-AD1C-4DFE-92D6-4FBE0A5226A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82F76434-AD1C-4DFE-92D6-4FBE0A5226A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82F76434-AD1C-4DFE-92D6-4FBE0A5226A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E77B258D-BF43-4D9F-A8AE-79377183659B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E77B258D-BF43-4D9F-A8AE-79377183659B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E77B258D-BF43-4D9F-A8AE-79377183659B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E77B258D-BF43-4D9F-A8AE-79377183659B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A584E300-69DB-4674-AAA0-173E8010B76E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A584E300-69DB-4674-AAA0-173E8010B76E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A584E300-69DB-4674-AAA0-173E8010B76E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A584E300-69DB-4674-AAA0-173E8010B76E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C44BBD7-4A11-4417-91CE-7ECD3588B78B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C44BBD7-4A11-4417-91CE-7ECD3588B78B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C44BBD7-4A11-4417-91CE-7ECD3588B78B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C44BBD7-4A11-4417-91CE-7ECD3588B78B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EC63067-340A-476B-A783-23B002418D07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EC63067-340A-476B-A783-23B002418D07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EC63067-340A-476B-A783-23B002418D07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EC63067-340A-476B-A783-23B002418D07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{82F76434-AD1C-4DFE-92D6-4FBE0A5226A1} = {9D9CBEF0-DD14-42C1-A386-06A3AEF834A8}
+		{9D9CBEF0-DD14-42C1-A386-06A3AEF834A8} = {6C06C4F3-C773-44DF-B51C-08B4B0A6C9EC}
+		{6C06C4F3-C773-44DF-B51C-08B4B0A6C9EC} = {6AD1B363-FC14-4D97-A586-D12B71F24D43}
+		{E77B258D-BF43-4D9F-A8AE-79377183659B} = {01296E70-FAE1-44F7-99B4-42DA72E460FD}
+		{01296E70-FAE1-44F7-99B4-42DA72E460FD} = {74C83F70-2A5D-4D89-BA9C-0554A56ACD2E}
+		{A584E300-69DB-4674-AAA0-173E8010B76E} = {1C4D999E-1F19-4046-8616-7B1293CF9195}
+		{1C4D999E-1F19-4046-8616-7B1293CF9195} = {74C83F70-2A5D-4D89-BA9C-0554A56ACD2E}
+		{74C83F70-2A5D-4D89-BA9C-0554A56ACD2E} = {85074E5D-712A-4146-A58E-75357158F9D4}
+		{9C44BBD7-4A11-4417-91CE-7ECD3588B78B} = {F5E7A694-A45D-4DA1-B614-5B3C67FF3395}
+		{F5E7A694-A45D-4DA1-B614-5B3C67FF3395} = {1A0800B2-552A-4FE1-80A7-7CE84D463314}
+		{2EC63067-340A-476B-A783-23B002418D07} = {ABFE9D1E-1F66-4E26-9267-48188CD9F56B}
+		{ABFE9D1E-1F66-4E26-9267-48188CD9F56B} = {1A0800B2-552A-4FE1-80A7-7CE84D463314}
+		{1A0800B2-552A-4FE1-80A7-7CE84D463314} = {893D7618-DE96-4C56-B2BC-5B8177238608}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6A9117A-C650-4DBC-BF60-069C5851A541}

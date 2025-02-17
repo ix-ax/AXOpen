@@ -53,9 +53,10 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
+    }
 
-        UpdateValuesOnChange(Entry.Plc.documentation._automat.Status);
-
-
+    public override void ConfigurePolling()
+    {
+        this.StartPolling(Entry.Plc.documentation._automat.Status);
     }
 }

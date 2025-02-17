@@ -35,22 +35,20 @@ namespace AXOpen.Core
         {
             header = null;
             detailsTabs = null;
-            this.RemovePolledElements();
+            this.StopPolling();
             this.OnInitialized();
         }
 
-        public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+        public override void ConfigurePolling()
         {
-            if (element is AxoComponent axoComponent)
+            if (this.Component is AxoComponent axoComponent)
             {
-                axoComponent._isManuallyControllable.StartPolling(pollingInterval, this);
-                PolledElements.Add(axoComponent._isManuallyControllable);               
+                this.StartPolling(axoComponent._isManuallyControllable);
             }
 
             Messengers?.Select(p => p.MessengerState).ToList().ForEach(messenger =>
             {
-                messenger.StartPolling(1500, this);
-                PolledElements.Add(messenger);
+                this.StartPolling(messenger, 1500);
             });
         }
 
@@ -123,9 +121,6 @@ namespace AXOpen.Core
             containsHeaderAttribute = this.Header.GetKids().Count() != 0;
             tabNames = GetAllTabNames(this.Component);
             containsDetailsAttribute = this.DetailsTabs.Count() != 0;
-            UpdateValuesOnChange(Component);
-
-
         }
 
         protected override async Task OnInitializedAsync()

@@ -529,24 +529,11 @@ NAMESPACE AXOpen.Core
             _taskTimer.OnDelay(THIS,  Execute, LT#99999D);
 
             IF(Execute) THEN Duration := _taskTimer.ElapsedTime;  END_IF;  
+            
                 
                 
         END_METHOD    
-
-        // METHOD PRIVATE LogTask 
-        //     VAR_INPUT
-        //         _message : STRING[80];
-        //         _level : eLogLevel;
-        //         _sender : IAxoObject;
-        //     END_VAR
-        //     VAR
-        //         _castIIAxoStep : IAxoStep;
-        //     END_VAR               
-        //     _castIIAxoStep ?= _sender;
-        //     IF(_castIIAxoStep <> NULL) THEN RETURN; END_IF;            
-        //     _context_.GetLogger().Log(_message, _level, THIS);       
-        // END_METHOD
-
+        
         ///<summary>
         /// Makes this task enter into `Error` state, when `HasErrorState` argument is `TRUE`
         /// task in error state stops its execution.
