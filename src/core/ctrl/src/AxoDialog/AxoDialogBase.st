@@ -11,7 +11,7 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC OVERRIDE Restore : IAxoTaskState
             Restore := THIS;
 
-            IF _context_ = NULL THEN
+            IF _context = NULL THEN
                 Status := eAxoTaskState#Ready;  //needed in case when dialog observation was interrupt
                 ErrorDetails := '';
                 THIS.OnRestore();

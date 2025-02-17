@@ -80,6 +80,12 @@ NAMESPACE AXOpen.Core
             {#ix-set:MessageText = "<#Execute method is called more then once inside one PLC cycle.#>"}
             {#ix-set:Help = "<#Check task calling in the code, task is called more then once.#>"}
             _MultipleExecuteIsCalled : AXOpen.Messaging.Static.AxoMessenger;  
+            ///<summary>
+            /// Enable error message when the `Execute()` method is called more then once inside one PLC cycle.            
+            ///</summary> 
+            {#ix-set:MessageText = "<#Invalid Rtm.#>"}
+            {#ix-set:Help = "<#Check the inicialization of the Rtm.#>"}
+            _RtmInvalid : AXOpen.Messaging.Static.AxoMessenger;  
         END_VAR    
         
         VAR PRIVATE
@@ -100,7 +106,7 @@ NAMESPACE AXOpen.Core
             _resumeCycleCount   :  ULINT;
 
         END_VAR 
-        
+
         ///<summary>
         /// Gets the actual state of this task.
         ///</summary>    
@@ -284,8 +290,8 @@ NAMESPACE AXOpen.Core
         // END_METHOD 
 
         METHOD PRIVATE IsNewInvokeCall : BOOL
-            IF _context_ <> NULL THEN
-                IsNewInvokeCall := _openCycleCountInvoke < _context_.OpenCycleCount() - ULINT#1;
+            IF _context <> NULL THEN
+                IsNewInvokeCall := _openCycleCountInvoke < _context.OpenCycleCount() - ULINT#1;
             ELSE
                 IsNewInvokeCall := FALSE;
             END_IF;     
@@ -308,24 +314,24 @@ NAMESPACE AXOpen.Core
         // END_METHOD 
         
         METHOD PRIVATE IsNewExecuteCall : BOOL
-            IF _context_ <> NULL THEN
-                IsNewExecuteCall := _openCycleCountExecute < _context_.OpenCycleCount() - ULINT#1;
+            IF _context <> NULL THEN
+                IsNewExecuteCall := _openCycleCountExecute < _context.OpenCycleCount() - ULINT#1;
             ELSE
                 IsNewExecuteCall := FALSE;
             END_IF;     
         END_METHOD 
 
         METHOD PRIVATE IsExecuteCalledInThisPlcCycle : BOOL
-            IF _context_ <> NULL THEN
-                IsExecuteCalledInThisPlcCycle := _openCycleCountExecute = _context_.OpenCycleCount();
+            IF _context <> NULL THEN
+                IsExecuteCalledInThisPlcCycle := _openCycleCountExecute = _context.OpenCycleCount();
             ELSE
                 IsExecuteCalledInThisPlcCycle := FALSE;
             END_IF;     
         END_METHOD 
         
         METHOD PRIVATE WasExecuteCalledInPreviousPlcCycle : BOOL
-            IF _context_ <> NULL THEN
-                WasExecuteCalledInPreviousPlcCycle := _openCycleCountExecute + ULINT#1 = _context_.OpenCycleCount();
+            IF _context <> NULL THEN
+                WasExecuteCalledInPreviousPlcCycle := _openCycleCountExecute + ULINT#1 = _context.OpenCycleCount();
             ELSE
                 WasExecuteCalledInPreviousPlcCycle := FALSE;
             END_IF;     
@@ -357,7 +363,7 @@ NAMESPACE AXOpen.Core
                 _isNullContext : BOOL;
             END_VAR;
             
-            _isNullContext := _context_ = NULL;
+            _isNullContext := _context = NULL;
 
 
             IF _isNullContext THEN
@@ -382,13 +388,13 @@ NAMESPACE AXOpen.Core
                 Status := eAxoTaskState#Ready; 
             END_IF;
 
-            _openCycleCountInvoke := _context_.OpenCycleCount();
+            _openCycleCountInvoke := _context.OpenCycleCount();
 
             // task should not be Invoked, if the execute method was not called in this or previous PLC cycle
             IF Status = eAxoTaskState#Ready THEN
                 IF (THIS.IsExecuteCalledInThisPlcCycle() OR THIS.WasExecuteCalledInPreviousPlcCycle()) THEN
                     Status := eAxoTaskState#Kicking;      
-                    _context_.GetLogger().Log('Task invoked', eLogLevel#Verbose, THIS);
+                    _context.GetLogger().Log('Task invoked', eLogLevel#Verbose, THIS);
                   ELSE                                         
                     IF(NOT _suspendExecuteCallAnalisis) THEN _CyclicExecuteIsNotCalled.Activate(eAxoMessageCategory#ProgrammingError); END_IF;                     
                  END_IF;     
@@ -402,8 +408,8 @@ NAMESPACE AXOpen.Core
         ///</summary>    
         METHOD PUBLIC Restore : IAxoTaskState
             IF(Status <> eAxoTaskState#Ready AND Status <> eAxoTaskState#Disabled) THEN
-                _context_.GetLogger().Log('Task restored', eLogLevel#Verbose, THIS);
-                _restoreCycleCount :=  _context_.OpenCycleCount();
+                _context.GetLogger().Log('Task restored', eLogLevel#Verbose, THIS);
+                _restoreCycleCount :=  _context.OpenCycleCount();
             END_IF;    
             Status := eAxoTaskState#Ready; 
             ErrorDetails := '';   
@@ -432,10 +438,10 @@ NAMESPACE AXOpen.Core
             END_VAR
               
             IF Condition AND Status = eAxoTaskState#Busy THEN   
-                _context_.GetLogger().Log('Task done.', eLogLevel#Verbose, THIS);
+                _context.GetLogger().Log('Task done.', eLogLevel#Verbose, THIS);
                 Status := eAxoTaskState#Done;
                 THIS.OnDone();
-                _doneCycleCount :=  _context_.OpenCycleCount();
+                _doneCycleCount :=  _context.OpenCycleCount();
             END_IF;    
         END_METHOD
 
@@ -449,7 +455,7 @@ NAMESPACE AXOpen.Core
                 _openCycleCount : ULINT;
             END_VAR
             
-            IF(_context_ = NULL) THEN RETURN; END_IF;
+            IF(_context = NULL) THEN RETURN; END_IF;
             IF( RemoteInvoke) THEN THIS.Invoke(); RemoteInvoke := FALSE; END_IF;
             IF _RemoteRestoreEnabled THEN
                 IF( RemoteRestore) THEN THIS.Restore(); RemoteRestore := FALSE; END_IF;
@@ -465,7 +471,8 @@ NAMESPACE AXOpen.Core
             
             _MultipleExecuteIsCalled.Serve(THIS);
 
-            _openCycleCount :=  _context_.OpenCycleCount();
+            _openCycleCount :=  _context.OpenCycleCount();
+
             IF NOT _SuspendMultipleExecuteCallCheck THEN
                 IF _openCycleCountExecute = _openCycleCount THEN
                     _MultipleExecuteIsCalled.Activate(eAxoMessageCategory#ProgrammingError);
@@ -497,16 +504,16 @@ NAMESPACE AXOpen.Core
                 Status := eAxoTaskState#Busy; 
 
                 // This null check is due to implementation of RTC in unit tests
-                IF(_context_.GetRtc() <> NULL) THEN
-                    StartTimeStamp := _context_.GetRtc().NowUTC();
+                IF(_context.GetRtc() <> NULL) THEN
+                    StartTimeStamp := _context.GetRtc().NowUTC();
                 END_IF;  
                   
                 // Don't touch this, it is used for remote execs.
                 StartSignature := _openCycleCountExecute;//_context_.OpenCycleCount();    
-                _context_.GetLogger().Log('Task started.', eLogLevel#Verbose, THIS);                       
+                _context.GetLogger().Log('Task started.', eLogLevel#Verbose, THIS);                       
                 THIS.OnStart();
                 _isFirstExecutionCycle := TRUE; 
-                _startCycleCount :=  _context_.OpenCycleCount();
+                _startCycleCount :=  _context.OpenCycleCount();
             END_IF;    
 
             IF(Status = eAxoTaskState#Error) THEN
@@ -524,16 +531,36 @@ NAMESPACE AXOpen.Core
             END_IF;
 
             THIS.UpdateState();
+
             Execute := Status = eAxoTaskState#Busy;
-            
+
             _taskTimer.OnDelay(THIS,  Execute, LT#99999D);
 
             IF(Execute) THEN Duration := _taskTimer.ElapsedTime;  END_IF;  
+
+            _RtmInvalid.Serve(THIS);
             
-                
-                
+            IF(NOT _suspendExecuteCallAnalisis) THEN _RtmInvalid.ActivateOnCondition(_context.GetRtm() = NULL , eAxoMessageCategory#ProgrammingError); END_IF;                     
+
         END_METHOD    
-        
+
+
+
+
+        // METHOD PRIVATE LogTask 
+        //     VAR_INPUT
+        //         _message : STRING[80];
+        //         _level : eLogLevel;
+        //         _sender : IAxoObject;
+        //     END_VAR
+        //     VAR
+        //         _castIIAxoStep : IAxoStep;
+        //     END_VAR               
+        //     _castIIAxoStep ?= _sender;
+        //     IF(_castIIAxoStep <> NULL) THEN RETURN; END_IF;            
+        //     _context_.GetLogger().Log(_message, _level, THIS);       
+        // END_METHOD
+
         ///<summary>
         /// Makes this task enter into `Error` state, when `HasErrorState` argument is `TRUE`
         /// task in error state stops its execution.
@@ -545,10 +572,10 @@ NAMESPACE AXOpen.Core
 
             IF(HasErrorState) THEN
                 Status := eAxoTaskState#Error;  
-                _context_.GetLogger().Log('Task failed', eLogLevel#Error, THIS);             
+                _context.GetLogger().Log('Task failed', eLogLevel#Error, THIS);             
                 THIS.OnError();  
                 THIS.WhileError();   
-                _errorCycleCount :=  _context_.OpenCycleCount();
+                _errorCycleCount :=  _context.OpenCycleCount();
             END_IF;    
         END_METHOD    
     
@@ -563,7 +590,7 @@ NAMESPACE AXOpen.Core
             END_VAR            
             IF(HasErrorState) THEN                
                 ErrorDetails :=  ErrorDescription; 
-                _context_.GetLogger().Log(ErrorDetails, eLogLevel#Error, THIS);  
+                _context.GetLogger().Log(ErrorDetails, eLogLevel#Error, THIS);  
             END_IF;    
             THIS.ThrowWhen(HasErrorState);        
         END_METHOD    
@@ -592,7 +619,7 @@ NAMESPACE AXOpen.Core
             IF THIS.Status = eAxoTaskState#Busy THEN
                 THIS.Status := eAxoTaskState#Aborted;
                 THIS.OnAbort();
-                _abortCycleCount :=  _context_.OpenCycleCount();
+                _abortCycleCount :=  _context.OpenCycleCount();
             END_IF;
         END_METHOD
     
@@ -603,7 +630,7 @@ NAMESPACE AXOpen.Core
             IF THIS.Status = eAxoTaskState#Aborted THEN
                 THIS.Status := eAxoTaskState#Busy;
                 THIS.OnResume();
-                _resumeCycleCount :=  _context_.OpenCycleCount();
+                _resumeCycleCount :=  _context.OpenCycleCount();
             END_IF;
         END_METHOD
     
@@ -720,42 +747,42 @@ NAMESPACE AXOpen.Core
         /// Returns `TRUE` when the task has been aborted in this or previous PLC cycle.
         ///</summary>
         METHOD PUBLIC AbortTriggered : BOOL
-            AbortTriggered := _abortCycleCount >= _context_.OpenCycleCount() - ULINT#1;
+            AbortTriggered := _abortCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
 
         ///<summary>
         /// Returns `TRUE` when the task has been resumed in this or previous PLC cycle.
         ///</summary>
         METHOD PUBLIC ResumeTriggered : BOOL
-            ResumeTriggered := _resumeCycleCount >= _context_.OpenCycleCount() - ULINT#1;
+            ResumeTriggered := _resumeCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
 
         ///<summary>
         /// Returns `TRUE` when the task has reached the `Done` state in this or previous PLC cycle.
         ///</summary>
         METHOD PUBLIC DoneReached : BOOL
-            DoneReached := _doneCycleCount >= _context_.OpenCycleCount() - ULINT#1;
+            DoneReached := _doneCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
     
         ///<summary>
         /// Returns `TRUE` when the task has reached the `Error` state in this or previous PLC cycle.
         ///</summary>
         METHOD PUBLIC ErrorOccured : BOOL
-            ErrorOccured := _errorCycleCount >= _context_.OpenCycleCount() - ULINT#1;
+            ErrorOccured := _errorCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
     
         ///<summary>
         /// Returns `TRUE` when the task has been restored in this or previous PLC cycle.
         ///</summary>
         METHOD PUBLIC RestoreTriggered : BOOL
-            RestoreTriggered := _restoreCycleCount >= _context_.OpenCycleCount() - ULINT#1;
+            RestoreTriggered := _restoreCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
     
         ///<summary>
         /// Returns `TRUE` when the task has been started in this or previous PLC cycle.
         ///</summary>
         METHOD PUBLIC StartTriggered : BOOL
-            StartTriggered := _startCycleCount >= _context_.OpenCycleCount() - ULINT#1;
+            StartTriggered := _startCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
     END_CLASS    
 END_NAMESPACE

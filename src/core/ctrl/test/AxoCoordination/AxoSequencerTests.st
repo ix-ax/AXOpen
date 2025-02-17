@@ -347,7 +347,7 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
         END_METHOD
 
         {Test}
-        METHOD PUBLIC RequestStep_should_not_affect_the_sequence_when_the_coordinator_is_in_idle
+        METHOD PUBLIC RequestStep_should_not_affect_the_sequence_when_the_coordinator_is_in_idle           
             Assert.Equal(TRUE, THIS.EqualAxoCoordinatorStates(AxoCoordinatorStates#Idle , _sequencer.GetCoordinatorState()));
             _sequencer.RequestStep(_step_3); 
             _sequencer.Open();

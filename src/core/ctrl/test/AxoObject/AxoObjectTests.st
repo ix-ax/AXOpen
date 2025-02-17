@@ -19,10 +19,10 @@ NAMESPACE AXOpen.Core.AxoObject_Tests
     {S7.extern=ReadWrite}
     CLASS AxoObjectUnitTests EXTENDS AxoObject
         VAR PRIVATE
-            _context : TestObjContext;
+            _testObjContext : TestObjContext;
          END_VAR  
          METHOD PUBLIC OVERRIDE GetContext : IAxoContext
-           GetContext := _context;
+           GetContext := _testObjContext;
          END_METHOD  
 
         VAR PROTECTED

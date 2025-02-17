@@ -21,7 +21,7 @@ NAMESPACE AXOpen.Core
 
         VAR PROTECTED           
             _parent     : IAxoObject;
-            _context_    : IAxoContext;
+            _context    : IAxoContext;
         END_VAR  
         
         VAR PRIVATE  
@@ -44,8 +44,8 @@ NAMESPACE AXOpen.Core
         /// Gets context in which this object was initialized.
         ///</summary>
         METHOD PUBLIC GetContext : IAxoContext
-            IF(_context_ <> NULL) THEN
-                GetContext := _context_;
+            IF(_context <> NULL) THEN
+                GetContext := _context;
             ELSE
                 GetContext := NULL_CONTEXT;                    
             END_IF;    
@@ -55,14 +55,14 @@ NAMESPACE AXOpen.Core
         /// Gets context in which this object was initialized.
         ///</summary>
         METHOD PUBLIC GetContextUnsafe : IAxoContext
-            GetContextUnsafe := _context_;
+            GetContextUnsafe := _context;
         END_METHOD
 
         ///<summary>
         /// Gets parent in which this object was initialized.
         ///</summary>
         METHOD PUBLIC GetParent : IAxoObject
-            IF(_context_ <> NULL) THEN
+            IF(_context <> NULL) THEN
                 GetParent := _parent;
             ELSE
                 GetParent := NULL_OBJECT;    
@@ -76,14 +76,12 @@ NAMESPACE AXOpen.Core
         ///</summary>
         METHOD PUBLIC Initialize
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR                           
-
-           
-            
-            IF(parent <> NULL) THEN
-                _context_    := parent.GetContext();                 
-                _parent     := parent;
+                       
+            IF(inParent <> NULL) THEN
+                _context    := inParent.GetContext();                 
+                _parent     := inParent;
                 RETURN;                 
             END_IF;            
         END_METHOD  
@@ -95,12 +93,12 @@ NAMESPACE AXOpen.Core
         ///</summary>
         METHOD PUBLIC Initialize
             VAR_INPUT
-                context : IAxoContext;
+                inContext : IAxoContext;
             END_VAR   
          
             
-            IF(context <> NULL) THEN
-                _context_    := context;                 
+            IF(inContext <> NULL) THEN
+                _context    := inContext;                 
             END_IF;
         END_METHOD   
         
@@ -116,7 +114,11 @@ NAMESPACE AXOpen.Core
                 inCount : LINT;
             END_VAR         
 
-            IF(_lastMessageAggregationCycle <> _context_.OpenCycleCount()) THEN
+            IF(_context = NULL) THEN                 
+                RETURN; 
+            END_IF;
+
+            IF(_lastMessageAggregationCycle <> _context.OpenCycleCount()) THEN
                 THIS.MsgCnt := LINT#0;
             END_IF;    
 
@@ -126,14 +128,14 @@ NAMESPACE AXOpen.Core
                 END_IF;    
                 RETURN;
             END_IF;    
-
+            
             THIS.MsgCnt := inCount + THIS.MsgCnt;    
                       
             IF(_parent <> NULL) THEN
                 THIS._parent.AggregateMessage(inCount);
             END_IF;    
 
-            _lastMessageAggregationCycle := _context_.OpenCycleCount();  
+            _lastMessageAggregationCycle := _context.OpenCycleCount();  
         END_METHOD    
     END_CLASS    
 END_NAMESPACE    

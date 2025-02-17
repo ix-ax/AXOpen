@@ -1,13 +1,12 @@
 ﻿@namespace AXOpen.Inspectors
 @using AXSharp.Connector
-@inherits RenderableComplexComponentBase<AxoDataInspector>
+@inherits RenderableComplexComponentBase<AxoDataInspectorData>
 
 
 
-
-<InspectorViewTemplate Data="Component._data"
+<InspectorViewTemplate Data="Component"
                        Name="@getNameOrSymbol()"
-                       Presentation="Display" />
+                       Presentation="ShadowDisplay"/>
 
 
 
@@ -22,6 +21,5 @@
 
     public override void ConfigurePolling()
     {
-        this.StartPolling(this.Component._data.Result, 500);
     }
 }
