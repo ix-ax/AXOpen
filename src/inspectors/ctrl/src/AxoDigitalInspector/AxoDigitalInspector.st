@@ -31,7 +31,6 @@ NAMESPACE AXOpen.Inspectors
             // set task inspection data, pass a reference (an address)
             // REF(_data) will get a reference of _data variable (like & in C)
             _inspectorTask.SetInspectionData(_data);
-
             
             //here i should check, if data are overinspected
             IF(THIS.IsOverInspected()) THEN
@@ -41,6 +40,8 @@ NAMESPACE AXOpen.Inspectors
             //invoke inspection task
             _inspectorTask.Invoke();
     
+            RETURN;
+
             //execute inspection task
             IF (_inspectorTask.Execute()) THEN
 
