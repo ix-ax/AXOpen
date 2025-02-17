@@ -76,14 +76,14 @@ NAMESPACE AXOpen.Core
         ///</summary>
         METHOD PUBLIC Initialize
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR                           
 
            
             
-            IF(parent <> NULL) THEN
-                _context_    := parent.GetContext();                 
-                _parent     := parent;
+            IF(inParent <> NULL) THEN
+                _context_    := inParent.GetContext();                 
+                _parent     := inParent;
                 RETURN;                 
             END_IF;            
         END_METHOD  
@@ -95,12 +95,12 @@ NAMESPACE AXOpen.Core
         ///</summary>
         METHOD PUBLIC Initialize
             VAR_INPUT
-                context : IAxoContext;
+                inContext : IAxoContext;
             END_VAR   
          
             
-            IF(context <> NULL) THEN
-                _context_    := context;                 
+            IF(inContext <> NULL) THEN
+                _context_    := inContext;                 
             END_IF;
         END_METHOD   
         
