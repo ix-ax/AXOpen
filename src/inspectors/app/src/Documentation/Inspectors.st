@@ -2,10 +2,8 @@
 CLASS InspectorsDoc EXTENDS AXOpen.Core.AxoObject
     //<AxoInspectorDeclaration>
     VAR PUBLIC
-        _digitalInspector: AXOpen.Inspectors.AxoDigitalInspector;
-        _analogueInspector: AXOpen.Inspectors.AxoAnalogueInspector;
-        _dataInspector: AXOpen.Inspectors.AxoDataInspector;
-
+        _inspector: AXOpen.Inspectors.AxoInspector;
+        
         _inspectionResult: BOOL;
         _inspectionValue: LREAL;
         _inspectionData: STRING;
@@ -32,9 +30,9 @@ CLASS InspectorsDoc EXTENDS AXOpen.Core.AxoObject
         //</AxoInspectorDataSet>
 
         //<AxoInspectorSimpleInspection>
-        _digitalInspector.Inspect(THIS, REF(_digitalInspectorData),_inspectionResult);
-        _analogueInspector.Inspect(THIS,REF(_analogueInspectorData), _inspectionValue);
-        _dataInspector.Inspect(THIS, REF(_dataInspectorData),_inspectionData);
+        _inspector.Inspect(THIS, REF(_digitalInspectorData),_inspectionResult);
+        _inspector.Inspect(THIS,REF(_analogueInspectorData), _inspectionValue);
+        _inspector.Inspect(THIS, REF(_dataInspectorData),_inspectionData);
         //</AxoInspectorSimpleInspection>
         
     END_METHOD

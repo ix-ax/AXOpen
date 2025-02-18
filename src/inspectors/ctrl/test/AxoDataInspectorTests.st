@@ -8,8 +8,8 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
     CLASS AxoDataInspectorTests
         VAR PROTECTED
             _context : TestContext;
-            _dataInspector    : AxoDataInspector;
-            _dataInspectorData    : AxoDataInspectorData;
+            _dataInspector          :  AxoInspector;
+            _dataInspectorData      : AxoDataInspectorData;
             _inspectedData : STRING;
             _sequencer  : AxoSequencer;
             _rtcMock :  AxoRtcMock;  
@@ -19,7 +19,7 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
 
         VAR
             _contextBlank : TestContext;
-            _dataInspectorBlank    : AxoDataInspector;            
+            _dataInspectorBlank    : AxoInspector;            
             _sequencerBlank  : AxoSequencer;                                                
         END_VAR  
 
