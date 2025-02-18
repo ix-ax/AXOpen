@@ -25,7 +25,7 @@
     }
 
     /// <inheritdoc />
-    public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+    public override void ConfigurePolling()
     {
         
     }
@@ -46,8 +46,7 @@
     {
         if (this.Data != null)
         {
-            base.AddToPolling(Data.Result, 1000);
-            UpdateValuesOnChange(Data.Result);
+            this.StartPolling(Data.Result, 1000);
         }
 
         return base.OnInitializedAsync();

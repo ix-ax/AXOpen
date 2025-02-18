@@ -22,20 +22,17 @@ namespace AXOpen.Core
             }
         }
 
-        protected override void OnInitialized()
-        {
-            base.OnInitialized();
-            UpdateValuesOnChange(Component);
-        }
-
-       
-
         [Parameter]
         public bool Disable { get; set; }
 
         public bool IsDisabled => Disable || Component.IsDisabled.Cyclic;
 
         public string Description => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName;
+        public override void ConfigurePolling()
+        {
+            StartPolling(Component.IsDisabled, 500);
+            StartPolling(Component.State, 500);
+        }
     }
 
     public class AxoMomentaryTaskCommandView : AxoMomentaryTaskView

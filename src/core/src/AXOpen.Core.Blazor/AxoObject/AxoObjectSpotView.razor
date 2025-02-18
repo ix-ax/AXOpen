@@ -30,11 +30,11 @@
     private IJSObjectReference? module;
     private AxoMessageProvider? observer; 
 
-    public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+    public override void ConfigurePolling()
     {
-        if (element is AxoObject o)
+        if (this.Component is AxoObject o)
         {
-            base.AddToPolling(o.MsgCnt,2500);
+            this.StartPolling(o.MsgCnt,2500);
         }
     }
 
@@ -69,7 +69,7 @@
     ///<inheritdoc/>
     protected override async Task OnInitializedAsync()
     {
-        if (observer != null) await observer.InitializeLightUpdate(this.UpdateValuesOnChange);
+        if (observer != null) await observer.InitializeLightUpdate(this.StartPolling);
         await base.OnInitializedAsync();
     }
 }

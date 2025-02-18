@@ -16,6 +16,7 @@ NAMESPACE AXOpen.Core
             BeforeStep : AxoStep;
             CurrentStep : AxoStep;
             AfterStep : AxoStep;
+            CollectDataTask : AxoRemoteTask;
         END_VAR   
         VAR PRIVATE
             _configurationFlowOrder : ULINT;   
@@ -39,6 +40,9 @@ NAMESPACE AXOpen.Core
             END_VAR
             Open := FALSE;
             
+            CollectDataTask.Initialize(THIS);
+            CollectDataTask.Execute();
+
             SUPER.SetSuspendMultipleExecuteCallCheck(TRUE);
 
             StepForwardCommand.SetSuspendMultipleExecuteCallCheck(TRUE);
@@ -198,7 +202,7 @@ NAMESPACE AXOpen.Core
                     _context_.GetLogger().Log('Step done :', AXOpen.Logging.eLogLevel#Verbose, _step);
                     _step.DoneWhen(_step.IsBusy());
                     _step.SetIsActive(FALSE);
-                    CurrentOrder := CurrentOrder + ULINT#1;
+                    CurrentOrder := CurrentOrder + ULINT#1;                                      
                     // Finalize the StepIn Command in a case of step mode
                     StepIn.DoneWhen(SteppingMode = eAxoSteppingMode#StepByStep);
                 END_IF;

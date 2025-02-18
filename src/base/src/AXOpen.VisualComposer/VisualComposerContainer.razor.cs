@@ -154,10 +154,20 @@ namespace AXOpen.VisualComposer
             await SaveAsync();
         }
 
-        public void AddChildren(ITwinElement item, double left, double top, TransformType transform, string presentation, double width, double height, int zIndex, double scale, string roles, string? presentationTemplate, bool background, string backgroundColor)
+        public void AddChildren(ITwinElement item, double left, double top, TransformType transform, 
+            string presentation, 
+            double width, 
+            double height, 
+            int zIndex, 
+            double scale, 
+            string roles, 
+            string? presentationTemplate, 
+            bool background, 
+            string backgroundColor,
+            int pollingInterval)
         {
-            _children.Add(new VisualComposerItemData(   EventCallback.Factory.Create(this, StateHasChanged),EventCallback.Factory.Create(this, SaveAsync), item, item.Symbol.ModalIdHelper(), 
-                                                        Guid.NewGuid(), left, top, transform, presentation, width, height, zIndex, scale, roles,  presentationTemplate, background, backgroundColor));
+            _children.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged),EventCallback.Factory.Create(this, SaveAsync), item, item.Symbol.ModalIdHelper(), 
+                                                        Guid.NewGuid(), left, top, transform, presentation, width, height, zIndex, scale, roles,  presentationTemplate, background, backgroundColor, pollingInterval));
         }
 
         public async Task RemoveChildrenAsync(VisualComposerItemData item)
@@ -208,7 +218,20 @@ namespace AXOpen.VisualComposer
             List<SerializableVisualComposerItem> serializableChildren = new List<SerializableVisualComposerItem>();
             foreach (var child in _children)
             {
-                serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.Left, child.Top, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex, child.Scale, child.Roles, child.PresentationTemplate, child.Background, child.BackgroundColor));
+                serializableChildren.Add(new SerializableVisualComposerItem(child.Id, 
+                    child.Left, 
+                    child.Top, 
+                    child.Transform.ToString(), 
+                    child.Presentation, 
+                    child.Width, 
+                    child.Height, 
+                    child.ZIndex, 
+                    child.Scale, 
+                    child.Roles, 
+                    child.PresentationTemplate, 
+                    child.Background, 
+                    child.BackgroundColor, 
+                    child.PollingInterval));
             }
 
             await _fileWriterBuffer.AddToBufferAsync("VisualComposerSerialize/" +
@@ -261,7 +284,24 @@ namespace AXOpen.VisualComposer
                     var childObject = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper() == item.Id);
                     if (childObject != null)
                     {
-                        _children.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), EventCallback.Factory.Create(this, SaveAsync), childObject, childObject.Symbol.ModalIdHelper(), Guid.NewGuid(), item.Left, item.Top, Types.TransformType.FromString(item.Transform), item.Presentation, item.Width, item.Height, item.ZIndex, item.Scale, item.Roles, item.PresentationTemplate, item.Background, item.BackgroundColor));
+                        _children.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), 
+                            EventCallback.Factory.Create(this, SaveAsync), 
+                            childObject, 
+                            childObject.Symbol.ModalIdHelper(), 
+                            Guid.NewGuid(), 
+                            item.Left, 
+                            item.Top, 
+                            Types.TransformType.FromString(item.Transform), 
+                            item.Presentation, 
+                            item.Width, 
+                            item.Height, 
+                            item.ZIndex, 
+                            item.Scale, 
+                            item.Roles, 
+                            item.PresentationTemplate, 
+                            item.Background, 
+                            item.BackgroundColor,
+                            item.PollingInterval));
                     }
                 }
 

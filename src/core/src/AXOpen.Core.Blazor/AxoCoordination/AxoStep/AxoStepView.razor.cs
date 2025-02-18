@@ -10,13 +10,14 @@ namespace AXOpen.Core
     {
         private bool IsActive => Component.IsActive.Cyclic == true;
 
-        protected override void OnInitialized()
-        {
-            UpdateValuesOnChange(Component,350);
-        }
-
         [Parameter]
         public bool IsControllable { get; set; }
+
+        public override void ConfigurePolling()
+        {
+            this.StartPolling(Component.StepDescription, 350);
+            this.StartPolling(Component.Status, 350);
+        }
     }
 
     public class AxoStepCommandView : AxoStepView

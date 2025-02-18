@@ -57,6 +57,7 @@ NAMESPACE AXOpen.Timers
             END_VAR    
            
             IF(Context = NULL) THEN RETURN; END_IF;
+            IF(Context.GetRtm() = NULL) THEN RETURN; END_IF;
 
 
             // if input signal is off and previous signal was off, no edge detected, return output false

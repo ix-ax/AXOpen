@@ -13,7 +13,7 @@
 {
     private DataExchangeViewModel _vm => new DataExchangeViewModel { Model = this.Component, AlertDialogService = _alertDialogService, AuthenticationProvider = _authenticationProvider };
 
-    public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+    public override void ConfigurePolling()
     {
         
     }

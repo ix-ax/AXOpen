@@ -4,10 +4,11 @@ NAMESPACE AXOpen.Core
     CLASS AxoStep EXTENDS AxoTask IMPLEMENTS IAxoStep       
         VAR PUBLIC
             {#ix-attr:[ReadOnly()]}
-            Order : ULINT;            
+            Order : ULINT;                      
             StepDescription : STRING[120];
             IsActive : BOOL;                        
-            IsEnabled : BOOL;
+            IsEnabled : BOOL;  
+            Analytics : AxoStepAnalytics;          
         END_VAR 
 
         VAR PROTECTED            
@@ -17,6 +18,15 @@ NAMESPACE AXOpen.Core
             _noStepCallInPreviousPlcCycle : BOOL;
         END_VAR 
        
+        ///<summary>
+        /// Gets duration of the current iteration of the step.
+        ///</summary>
+        METHOD PUBLIC UpdateStepAnalitics 
+            Analytics.Order := THIS.Order;
+            Analytics.Description := THIS.StepDescription;
+            Analytics.Duration := THIS.Duration;            
+        END_METHOD
+
         ///<summary>
         /// Returns the order of the execution.
         ///</summary>

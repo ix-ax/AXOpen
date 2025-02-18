@@ -22,11 +22,11 @@ namespace AXOpen.Core
         }
 
 
-        public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+        public override void ConfigurePolling()
         {
-            base.AddToPolling(element, pollingInterval); // call always "base"
+           this.StartPolling(this.Component, 250); // call always "base"
 
-            var dialog = (AxoDialog)element;
+            var dialog = (AxoDialog)this.Component;
 
             if (dialog != null)
             {
@@ -39,7 +39,7 @@ namespace AXOpen.Core
 
                 foreach (var item in selecedToPool)
                 {
-                    item.StartPolling(pollingInterval, this);
+                    StartPolling(item);
                     PolledElements.Add(item);
                 }
             }

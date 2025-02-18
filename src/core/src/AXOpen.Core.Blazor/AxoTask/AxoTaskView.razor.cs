@@ -27,21 +27,17 @@ namespace AXOpen.Core
             return authenticationState?.User?.Identity;
         }
 
-        public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+        public override void ConfigurePolling()
         {
-            var task = (AxoTask)element;
-            var kids = task.GetValueTags().ToList();
+            var task = (AxoTask)this.Component;
+            List<ITwinElement> kids = new List<ITwinElement>();
 
-            kids.Remove(task.Identity); 
-            kids.Remove(task.RemoteAbort); 
-            kids.Remove(task.RemoteInvoke);
-            kids.Remove(task.RemoteRestore);
-            kids.Remove(task.RemoteResume);
+            kids.Add(task.Status);
+            kids.Add(task.IsDisabled);
 
             kids.ForEach(p =>
             {
-                p.StartPolling(pollingInterval, this);
-                PolledElements.Add(p);
+                this.StartPolling(p, 250);
             });
         }
 
@@ -90,12 +86,6 @@ namespace AXOpen.Core
 
         private bool IsTaskRunning => Component.Status.Cyclic == (ushort)eAxoTaskState.Busy;
         private bool IsTaskAborted => Component.Status.Cyclic == (ushort)eAxoTaskState.Aborted;
-
-        protected override void OnInitialized()
-        {
-            base.OnInitialized();
-            UpdateValuesOnChange(Component);
-        }
 
         private Pocos.AXOpen.Core.AxoTask _lastPocoValue = new();
 

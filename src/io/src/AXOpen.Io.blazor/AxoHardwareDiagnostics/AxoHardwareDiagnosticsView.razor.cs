@@ -15,7 +15,11 @@ namespace AXOpen.Io
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            UpdateValuesOnChange(Component);
+        }
+
+        public override void ConfigurePolling()
+        {
+            this.StartPolling(Component);
         }
     }
 

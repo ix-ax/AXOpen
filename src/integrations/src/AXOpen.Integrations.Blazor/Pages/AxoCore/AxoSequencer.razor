@@ -31,6 +31,10 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        this.UpdateValuesOnChange(@Entry.Plc.AxoSequencers.Counter);
+    }
+
+    public override void ConfigurePolling()
+    {
+        this.StartPolling(@Entry.Plc.AxoSequencers.Counter);
     }
 }

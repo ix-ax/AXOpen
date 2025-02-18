@@ -80,6 +80,12 @@ NAMESPACE AXOpen.Core
             {#ix-set:MessageText = "<#Execute method is called more then once inside one PLC cycle.#>"}
             {#ix-set:Help = "<#Check task calling in the code, task is called more then once.#>"}
             _MultipleExecuteIsCalled : AXOpen.Messaging.Static.AxoMessenger;  
+            ///<summary>
+            /// Enable error message when the `Execute()` method is called more then once inside one PLC cycle.            
+            ///</summary> 
+            {#ix-set:MessageText = "<#Invalid Rtm.#>"}
+            {#ix-set:Help = "<#Check the inicialization of the Rtm.#>"}
+            _RtmInvalid : AXOpen.Messaging.Static.AxoMessenger;  
         END_VAR    
         
         VAR PRIVATE
@@ -100,7 +106,7 @@ NAMESPACE AXOpen.Core
             _resumeCycleCount   :  ULINT;
 
         END_VAR 
-        
+
         ///<summary>
         /// Gets the actual state of this task.
         ///</summary>    
@@ -466,6 +472,7 @@ NAMESPACE AXOpen.Core
             _MultipleExecuteIsCalled.Serve(THIS);
 
             _openCycleCount :=  _context_.OpenCycleCount();
+
             IF NOT _SuspendMultipleExecuteCallCheck THEN
                 IF _openCycleCountExecute = _openCycleCount THEN
                     _MultipleExecuteIsCalled.Activate(eAxoMessageCategory#ProgrammingError);
@@ -524,14 +531,21 @@ NAMESPACE AXOpen.Core
             END_IF;
 
             THIS.UpdateState();
+
             Execute := Status = eAxoTaskState#Busy;
-            
+
             _taskTimer.OnDelay(THIS,  Execute, LT#99999D);
 
             IF(Execute) THEN Duration := _taskTimer.ElapsedTime;  END_IF;  
-                
-                
+
+            _RtmInvalid.Serve(THIS);
+            
+            IF(NOT _suspendExecuteCallAnalisis) THEN _RtmInvalid.ActivateOnCondition(_context_.GetRtm() = NULL , eAxoMessageCategory#ProgrammingError); END_IF;                     
+
         END_METHOD    
+
+
+
 
         // METHOD PRIVATE LogTask 
         //     VAR_INPUT

@@ -11,7 +11,8 @@
                                               Context="@Origin.TwinElement"
                                               Presentation="@Origin.Presentation.ToString()"
                                               ParentContainer="@this"
-                                              PresentationTemplate="@Origin.PresentationTemplate" />
+                                              PresentationTemplate="@Origin.PresentationTemplate"
+                                              PollingInterval="@Origin.PollingInterval"/>
                 </div>
                 <a class="position-absolute text-decoration-none text-black" style="left: 97%; top: 0%; translate: -100% -50%; cursor: pointer;" data-bs-toggle="modal"
                    data-bs-target="#settings-@Origin.Id.Replace('.', '_')-@Origin.UniqueGuid">
@@ -26,7 +27,8 @@
                     <RenderableContentControl Context="@Origin.TwinElement"
                                               Presentation="@Origin.Presentation.ToString()"
                                               ParentContainer="@this"
-                                              PresentationTemplate="@Origin.PresentationTemplate" />
+                                              PresentationTemplate="@Origin.PresentationTemplate"
+                                              PollingInterval="@Origin.PollingInterval"/>
                 </div>
             </div>
         }
@@ -40,7 +42,8 @@
                         <RenderableContentControl Context="@Origin.TwinElement"
                                                   Presentation="@Origin.Presentation.ToString()"
                                                   ParentContainer="@this"
-                                                  PresentationTemplate="@Origin.PresentationTemplate" />
+                                                  PresentationTemplate="@Origin.PresentationTemplate"
+                                                  PollingInterval="@Origin.PollingInterval"/>
                     </div>
                 </div>
             </AuthorizeView>
@@ -52,7 +55,8 @@
                     <RenderableContentControl Context="@Origin.TwinElement"
                                               Presentation="@Origin.Presentation.ToString()"
                                               ParentContainer="@this"
-                                              PresentationTemplate="@Origin.PresentationTemplate" />
+                                              PresentationTemplate="@Origin.PresentationTemplate"
+                                              PollingInterval="@Origin.PollingInterval"/>
                 </div>
             </div>
         }

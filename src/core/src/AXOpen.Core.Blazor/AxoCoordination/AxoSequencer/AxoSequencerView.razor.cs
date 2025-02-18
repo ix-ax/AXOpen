@@ -42,22 +42,10 @@ namespace AXOpen.Core
 
         [Parameter] public bool HasStepDetails { get; set; } = true;
 
-        public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+        public override void ConfigurePolling()
         {
-            var sequencer = (AxoSequencer)element;
-            var firstLevelPrimitives = sequencer.GetValueTags().ToList();
-
-            firstLevelPrimitives.ForEach(p =>
-            {
-                p.StartPolling(pollingInterval, this);
-                PolledElements.Add(p);
-            });
-        }
-
-        protected override void OnInitialized()
-        {
-            base.OnInitialized();
-            this.UpdateValuesOnChange(Component);
+            this.StartPolling(this.Component.CurrentStep.StepDescription, 500);
+            this.StartPolling(this.Component.CurrentStep.Status, 500);
         }
 
         private void RefreshComponent()

@@ -259,8 +259,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
 
             //--Assert            
            
-            
-                             
+                                         
             Assert.Equal(_suti._nested._nestedObject_L2._nestedObject_L3.MsgCnt, LINT#1);       
             Assert.Equal(_suti._nested._nestedObject_L2.MsgCnt, LINT#2);       
             Assert.Equal(_suti._nested.MsgCnt, LINT#3);

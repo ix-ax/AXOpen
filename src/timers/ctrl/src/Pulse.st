@@ -48,6 +48,7 @@ NAMESPACE AXOpen.Timers
             END_VAR    
            
             IF(Context = NULL) THEN RETURN; END_IF;
+            IF(Context.GetRtm() = NULL) THEN RETURN; END_IF;
 
             // always, when input is false, outputs are false
             IF(NOT inSignal ) THEN

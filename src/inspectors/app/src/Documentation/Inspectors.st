@@ -9,6 +9,10 @@ CLASS InspectorsDoc EXTENDS AXOpen.Core.AxoObject
         _inspectionResult: BOOL;
         _inspectionValue: LREAL;
         _inspectionData: STRING;
+
+        _digitalInspectorData: AXOpen.Inspectors.AxoDigitalInspectorData;
+        _analogueInspectorData : AXOpen.Inspectors.AxoAnalogueInspectorData;
+        _dataInspectorData: AXOpen.Inspectors.AxoDataInspectorData;
     END_VAR
     //</AxoInspectorDeclaration>
 
@@ -18,19 +22,19 @@ CLASS InspectorsDoc EXTENDS AXOpen.Core.AxoObject
         THIS.Initialize(THIS);
 
         //<AxoInspectorDataSet>
-        _digitalInspector.Data()^.FailTime := TIME#3s;
-        _analogueInspector.Data()^.FailTime := TIME#3s;
-        _dataInspector.Data()^.FailTime := TIME#3s;
+        _digitalInspectorData.FailTime := TIME#3s;
+        _analogueInspectorData.FailTime := TIME#3s;
+        _dataInspectorData.FailTime := TIME#3s;
 
-        _digitalInspector.Data()^.PassTime := TIME#2s;
-        _analogueInspector.Data()^.PassTime := TIME#2s;
-        _dataInspector.Data()^.PassTime := TIME#2s;
+        _digitalInspectorData.PassTime := TIME#2s;
+        _analogueInspectorData.PassTime := TIME#2s;
+        _dataInspectorData.PassTime := TIME#2s;
         //</AxoInspectorDataSet>
 
         //<AxoInspectorSimpleInspection>
-        _digitalInspector.Inspect(THIS, _inspectionResult);
-        _analogueInspector.Inspect(THIS, _inspectionValue);
-        _dataInspector.Inspect(THIS, _inspectionData);
+        _digitalInspector.Inspect(THIS, REF(_digitalInspectorData),_inspectionResult);
+        _analogueInspector.Inspect(THIS,REF(_analogueInspectorData), _inspectionValue);
+        _dataInspector.Inspect(THIS, REF(_dataInspectorData),_inspectionData);
         //</AxoInspectorSimpleInspection>
         
     END_METHOD

@@ -75,11 +75,15 @@ scripts:
   hwu: | # copy and install gsd, copy templates, compile, copy the HwIds, copy the IoAddresses, download HW using certificate
     ..\\..\\scripts\\hw_update.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET 
   swfd: | # software build and full download
+    START=$(date +%s)
     ..\\..\\scripts\\sw_build_and_download_full.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT 
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
   swfdo: | # software full download only
     ..\\..\\scripts\\sw_download_full.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT 
   swdd: | # software build and delta download
+    START=$(date +%s)
     ..\\..\\scripts\\sw_build_and_download_delta.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT 
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
   swddo: | # software delta download only
     ..\\..\\scripts\\sw_download_delta.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT 
   alf: | #clear plc except ip and name and provide all actions for install all, build and initial download hw so as sw
