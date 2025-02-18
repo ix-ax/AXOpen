@@ -48,9 +48,28 @@ NAMESPACE AxoDataExchangeExample
             SomeString : STRING;
             {#ix-set:AttributeName = "Some int"}
             SomeInt : INT;
+
+        Nested_Prop : Nested_V2;
+
         END_VAR
     END_CLASS
     //</AxoProcessDataDeclaration>
+
+CLASS PUBLIC Nested_V1 
+    VAR PUBLIC
+        V1_String : STRING;
+        V1_SomeInt : INT;
+    END_VAR
+END_CLASS
+
+CLASS PUBLIC Nested_V2 
+    VAR PUBLIC
+        V2_String : STRING;
+        V2_Nest_V1 : Nested_V1;
+    END_VAR
+END_CLASS
+
+
 
     //<Usage>
     {S7.extern=ReadWrite}

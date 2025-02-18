@@ -14,9 +14,16 @@ namespace AXOpen.Data
 {
     public class PlainPathObjectBuilder
     {
-        public PlainPathObjectBuilder(Type root, string name = "Root")
+        public PlainPathObjectBuilder(Type root, string name = "")
         {
-            RootType = root;
+
+            this.Name = name;
+            if (string.IsNullOrEmpty(name))
+            {
+                this.Name = root.Name;
+            }
+
+            this.RootType = root;
             CollectProperties(root, true);
         }
 
@@ -28,7 +35,7 @@ namespace AXOpen.Data
 
         protected Type RootType { private set; get; }
 
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
         private void CollectProperties(Type type, bool isRoot)
         {
@@ -64,9 +71,16 @@ namespace AXOpen.Data
         {
             string path = "";
 
-            foreach (var prop in ObjPath)
+            for (int i = 0; i < ObjPath.Count; i++)
             {
-                path = $"{path}.{prop.Name}";
+                if (i == 0)
+                {
+                    path = $"{Name}.{ObjPath[i].Name}";
+                }
+                else
+                {
+                    path = $"{path}.{ObjPath[i].Name}";
+                }
             }
 
             return path;
@@ -79,13 +93,22 @@ namespace AXOpen.Data
 
             this.SelectedProperty = propertyName;
 
-            var last = ObjPath.Last();
+            if (ObjPath.Count == 0) // root prop
+            {
+                SelectPropertyOnObject(this.RootType, this.SelectedProperty);
+                return Task.FromResult(true);
+            }
+            else if (ObjPath.Count > 0)
+            {
 
-            if (last == null) return Task.FromResult(false);
+                var last = ObjPath.Last();
 
-            SelectPropertyOnObject(last.VariableType, this.SelectedProperty);
+                SelectPropertyOnObject(last.VariableType, this.SelectedProperty);
 
-            return Task.FromResult(true);
+                return Task.FromResult(true);
+            }
+
+            return Task.FromResult(false);
         }
 
         protected void SelectPropertyOnObject(Type newObj, string propName)
@@ -142,6 +165,12 @@ namespace AXOpen.Data
             }
 
             return propNames;
+        }
+
+        internal void Clean()
+        {
+            ObjPath.Clear();
+            SelectedProperty = "";
         }
     }
 }

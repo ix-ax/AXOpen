@@ -3,18 +3,35 @@
 
 
 <!-- Line 1: ComboBox for properties -->
-<div>
-    <label for="propertyDropdown">Select path:</label>
-    <select id="propertyDropdown" class="form-control" @bind="this.SelectedRoot">
+@* <div>
+    <label for="propertyDropdown">DataEntity:</label>
+    <select id="propertyDropdown" class="form-control" 
+    @bind="@this.SelectedRoot"
+            @onchange="async () => await AddFilterBuilderForType(this.SelectedRoot)"
+    >
+
         @foreach (var root in this.GetRootNames())
         {
             <option value="@root">@root</option>
         }
     </select>
+</div> *@
+
+<div class="btn-group">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        @(!string.IsNullOrEmpty(SelectedBuilder?.Name) ? SelectedBuilder?.Name : "Select DataEntity")
+    </button>
+    <ul class="dropdown-menu">
+        @foreach (var root in this.GetRootNames())
+        {
+            <li>
+                <a class="dropdown-item" href="#" @onclick="async () => await AddFilterBuilderForType(root)">
+                    @root
+                </a>
+            </li>
+        }
+    </ul>
 </div>
-
-<button onclick="@await AddFilterBuilderForType(this.SelectedRoot)">AddFilter</button>
-
 
 @if (SelectedBuilder != null)
 {

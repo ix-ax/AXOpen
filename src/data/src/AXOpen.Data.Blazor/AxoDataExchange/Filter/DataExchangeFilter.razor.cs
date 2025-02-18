@@ -2,6 +2,7 @@
 using AXOpen.Data;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,7 +25,9 @@ namespace AXOpen.Data
             InitializePropertySelector();
         }
 
-        public string SelectedRoot { set; get; }
+        private string _SelectedRoot = "";
+
+        
         public PlainPathObjectBuilder SelectedBuilder { set; get; }
 
         public List<PlainPathObjectBuilder> Roots = new();
@@ -36,18 +39,22 @@ namespace AXOpen.Data
                 Roots.Add(new PlainPathObjectBuilder(rootType));
             }
         }
-
-        public async Task<bool> AddFilterBuilderForType(string rootName)
+       
+        public Task<bool> AddFilterBuilderForType(string rootName)
         {
-            var r = Roots.Where(p => p.Name == rootName).First();
+            this.SelectedBuilder = null;
 
-            if (r == null)
+            if (string.IsNullOrEmpty(rootName) || !Roots.Any(p => p.Name == rootName))
             {
-                return false;
+             //   this.StateHasChanged();
+                return Task.FromResult(false);
             }
 
-            SelectedBuilder = r;
-            return true;
+            SelectedBuilder = Roots.Where(p => p.Name == rootName).First();
+            SelectedBuilder.Clean();
+            //this.StateHasChanged();
+
+            return Task.FromResult(true);
         }
 
         public List<String> GetRootNames()
