@@ -20,7 +20,12 @@ END_CLASS
 {S7.extern=ReadWrite}
 CLASS Inspectors EXTENDS AXOpen.Core.AxoObject
     VAR PUBLIC
-        _inspector: AXOpen.Inspectors.AxoInspector;
+        {#ix-set:AttributeName = "<#Digital Inspector Example#>"}
+        _inspector_A: AXOpen.Inspectors.AxoInspector;
+        {#ix-set:AttributeName = "<#Analog Inspector Example#>"}
+        _inspector_B: AXOpen.Inspectors.AxoInspector;
+        {#ix-set:AttributeName = "<#Data Inspector Example#>"}
+        _inspector_C: AXOpen.Inspectors.AxoInspector;
         
         _inspectionResult: BOOL;
         _inspectionValue: LREAL;
@@ -47,9 +52,9 @@ CLASS Inspectors EXTENDS AXOpen.Core.AxoObject
         IF _dataInspectorData.FailTime = TIME#0s THEN  _dataInspectorData.FailTime := TIME#1100MS; END_IF;
         IF _dataInspectorData.PassTime = TIME#0s THEN  _dataInspectorData.PassTime := TIME#1000MS; END_IF;
            
-        _inspector.Inspect(THIS, REF(_digitalInspectorData),_inspectionResult);
-        _inspector.Inspect(THIS,REF(_analogueInspectorData), _inspectionValue);
-        _inspector.Inspect(THIS, REF(_dataInspectorData),_inspectionData);
+        _inspector_A.Inspect(THIS, REF(_digitalInspectorData),_inspectionResult);
+        _inspector_B.Inspect(THIS,REF(_analogueInspectorData), _inspectionValue);
+        _inspector_C.Inspect(THIS, REF(_dataInspectorData),_inspectionData);
 
     END_METHOD
 

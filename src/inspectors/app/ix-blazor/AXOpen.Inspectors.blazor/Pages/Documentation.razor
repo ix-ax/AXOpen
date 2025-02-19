@@ -8,6 +8,7 @@
 @* <RenderableContentControl Context="@Entry.Plc.documentation" Presentation="Command-Control" PollingInterval="100"/> *@
 
 <RenderableContentControl Context="@Entry.Plc.documentation._startInspection" Presentation="Command-Control" PollingInterval="100" />
+<RenderableContentControl Context="@Entry.Plc.documentation._automat._continue" Presentation="Command-Control" PollingInterval="100" />
 <RenderableContentControl Context="@Entry.Plc.documentation._automat._comprehensiveResult" Presentation="Command-Control" PollingInterval="100" />
 
 <RenderableContentControl Context="@Entry.Plc.documentation._automat._analogueInspectorData" Presentation="Command-Control" PollingInterval="100"/>
@@ -47,6 +48,11 @@
 
 
 <AxoDialogLocator ObservedObjects="new[] {Entry.Plc.documentation._automat}" />
+
+<AxoObjectDiagnosticsView ObservedObjects="new[] {Entry.Plc.documentation._automat}"/>
+
+
+
 
 @* DialogLocatorPath="custation001" *@
 @code

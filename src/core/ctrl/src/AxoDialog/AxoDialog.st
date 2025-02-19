@@ -33,7 +33,9 @@ NAMESPACE AXOpen.Core
             END_VAR   
 
 
-            SUPER.SuspendExecuteAnalisis();       
+            // SUPER.SuspendExecuteAnalisis();       
+            SUPER.SetSuspendMultipleExecuteCallCheck(TRUE);
+            SUPER.SetSuspendCyclicExecuteIsNotCalledCheck(TRUE);
 
             Show := THIS;
 

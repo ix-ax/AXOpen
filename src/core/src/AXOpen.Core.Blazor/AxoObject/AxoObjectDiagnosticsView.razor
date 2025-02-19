@@ -34,7 +34,11 @@
            @{
             foreach (var message in MessageProvider.Messengers)
             {
+<<<<<<< HEAD
                 if (message.IsActive)
+=======
+                if (message.State > eAxoMessengerState.Idle )
+>>>>>>> 8178473f602b807a2e1fbc46602b59a5c35dfb76
                 {
                     Console.Write(message.Category.LastValue);
                     <AxoMessengerView Component="message"></AxoMessengerView>
