@@ -17,6 +17,7 @@ namespace AXOpen.Messaging.Static;
 
 public partial class AxoMessenger
 {
+    public bool IsActive => this.State == eAxoMessengerState.ActiveNoAck || this.State == eAxoMessengerState.ActiveAckn || this.State == eAxoMessengerState.Active;
 
     private List<KeyValuePair<ulong, AxoMessengerTextItem>> plcMessengerTextList;
     public List<KeyValuePair<ulong, AxoMessengerTextItem>> PlcMessengerTextList

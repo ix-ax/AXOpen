@@ -170,7 +170,8 @@ namespace AXOpen.Messaging.Static
                 return Component.State;
             }
         }
-        private bool IsActive => Component.State == eAxoMessengerState.ActiveNoAck || Component.State == eAxoMessengerState.ActiveAckn || Component.State == eAxoMessengerState.Active;
+
+        private bool IsActive => Component.IsActive;
 
         private bool AcknowledgedBeforeFallen => Component.State == eAxoMessengerState.ActiveAckn;
         private bool HideAcknowledgeButton => Component.State <= eAxoMessengerState.Idle || Component.State == eAxoMessengerState.Active;
