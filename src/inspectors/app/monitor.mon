@@ -1,3 +1,12 @@
-sandbox._inspectors._digitalInspector._inspectorTask.Status
-sandbox._inspectors._digitalInspector._inspectorTask.debug
-sandbox._inspectors._digitalInspector._inspectorTask.obj
+#sandbox._inspectors._inspector._inspectorTask
+documentation._automat.MsgCnt
+documentation._automat._inspector.MsgCnt
+documentation._automat._inspector._inspectorTask.MsgCnt
+documentation._automat._inspector._inspectorTask.Status
+documentation._automat._inspector._inspectorTask.ErrorDetails
+documentation._automat._inspector._inspectorTask._CyclicExecuteIsNotCalled.IsActive
+documentation._automat._inspector._inspectorTask._MultipleExecuteIsCalled.IsActive
+documentation._automat._inspector._inspectorTask._RtmInvalid.IsActive
+documentation._automat._inspector._inspectorTask._suspendCyclicExecuteIsNotCalledCheck
+documentation._automat._inspector._inspectorTask._suspendMultipleExecuteCallCheck
+documentation._automat._inspector._inspectorTask._suspendRtmCheck

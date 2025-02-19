@@ -2,13 +2,12 @@
 CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
         _startInspection : BOOL := FALSE;
-         _automat: AutomatSequence;
+        _automat: AutomatSequence;
         _inspectors : Inspectors;      
     END_VAR
 
 
-    METHOD PROTECTED OVERRIDE Main
-        _inspectors.Initialize(THIS);        
+    METHOD PROTECTED OVERRIDE Main                
         _automat.Initialize(THIS);
         _automat.Run(THIS);
         _automat.Execute();
@@ -26,6 +25,8 @@ END_CLASS
 CLASS PUBLIC AutomatSequence
     EXTENDS AXOpen.Core.AxoSequencerContainer
     VAR PUBLIC
+        _continue : BOOL := FALSE;
+
         Steps : ARRAY[0..50] OF AxoStep;
         _inspector: AXOpen.Inspectors.AxoInspector;
                 
@@ -89,11 +90,17 @@ CLASS PUBLIC AutomatSequence
                         .OnFail()
                         .CarryOn();
             // </ExampleInspectionWithCoordinatorExample>
-            END_IF;
+        END_IF;
+
+        // IF (Steps[31].Execute(THIS, TRUE, 'debug')) THEN         
+        //     IF _continue THEN
+        //         _continue := FALSE;
+        //         THIS.MoveNext(); 
+        //     END_IF;
+        // END_IF;
 
         IF (Steps[35].Execute(THIS, TRUE, 'Example Analog inspection')) THEN         
 
-            // _analogueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
             _inspector.WithCoordinator(THIS)
                         .Inspect(THIS,REF(_analogueInspectorData), _inspectionValue)
                         .UpdateComprehensiveResult(_comprehensiveResult)
@@ -102,6 +109,13 @@ CLASS PUBLIC AutomatSequence
 
         END_IF;
        // </PreservingOverallResultExample>
+
+        // IF (Steps[36].Execute(THIS, TRUE, 'debug')) THEN         
+        //     IF _continue THEN
+        //         _continue := FALSE;
+        //         THIS.MoveNext(); 
+        //     END_IF;
+        // END_IF;
 
         IF (Steps[40].Execute(THIS, TRUE, 'Example Data inspection')) THEN
         

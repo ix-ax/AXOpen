@@ -104,14 +104,5 @@ NAMESPACE AXOpen.Inspectors
 
             _onDoneFlag := TRUE;
         END_METHOD
-
     END_CLASS
-
-
-
- 
-
-
-
-
 END_NAMESPACE

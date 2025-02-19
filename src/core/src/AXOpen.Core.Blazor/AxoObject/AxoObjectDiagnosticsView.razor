@@ -34,7 +34,7 @@
            @{
             foreach (var message in MessageProvider.Messengers)
             {
-                if (message.State > eAxoMessengerState.Idle)
+                if (message.State > eAxoMessengerState.Idle )
                 {
                     <AxoMessengerView Component="message"></AxoMessengerView>
                 }

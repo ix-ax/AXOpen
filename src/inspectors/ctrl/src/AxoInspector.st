@@ -53,7 +53,6 @@ NAMESPACE AXOpen.Inspectors
             IsOverinspected := THIS.CheckOverInspection();
         END_METHOD
     
-    
         ///<summary>
         /// Sets the coordinator instance required by the inspector.
         /// </summary>
@@ -87,7 +86,6 @@ NAMESPACE AXOpen.Inspectors
 
         END_METHOD
 
-
         ///<summary>
         /// If inspection has failed, retries the inspection with the provided step.
         /// </summary>
@@ -103,12 +101,18 @@ NAMESPACE AXOpen.Inspectors
                 IF(THIS.Result() = eInspectorResult#Failed) THEN
                     IF(inRetryStep <> NULL) THEN
                         _coordinator.RequestStep(inRetryStep);
+                        THIS.RestoreInspectorTask();
                     END_IF;	
                 ELSE
                     _coordinator.MoveNext();
+                    THIS.Restore();
                 END_IF;	
-            END_IF;	
-            RetryWithStep:= THIS.Done();
+                RetryWithStep:= TRUE;
+            END_IF;	           
+        END_METHOD
+
+        METHOD PUBLIC Restore
+            _inspectorTask.Restore();
         END_METHOD
 
         ///<summary>
@@ -121,8 +125,9 @@ NAMESPACE AXOpen.Inspectors
             END_IF;
             IF(THIS.Done()) THEN
                 _coordinator.MoveNext();
-            END_IF;	
-            CarryOn := THIS.Done();
+                THIS.Restore();
+                CarryOn := TRUE;
+            END_IF;	            
         END_METHOD
 
         ///<summary>
@@ -140,22 +145,20 @@ NAMESPACE AXOpen.Inspectors
                 IF(THIS.Result() = eInspectorResult#Failed) THEN
                     IF(inTerminateStep <> NULL) THEN
                         _coordinator.RequestStep(inTerminateStep);
+                        THIS.RestoreInspectorTask();
                     END_IF;	
                 ELSE
-                    _coordinator.MoveNext();
+                    _coordinator.MoveNext();                    
+                    THIS.Restore();
                 END_IF;	
-            END_IF;	
-            TerminateWithStep := THIS.Done();
+                TerminateWithStep := TRUE;
+            END_IF;	            
         END_METHOD
-
-
-    
 
         ///<summary>        
         /// Updates comprehensive result. The comprehensive result is set to `Failed` when any inspection fails or is inconclusive.
         /// Any bypassed or excluded inspections are not taken into account.	
         ///</summary>
-
         METHOD PUBLIC UpdateComprehensiveResult : IInspector
             VAR_IN_OUT
                 inoResult : AxoComprehensiveResult;
@@ -244,7 +247,11 @@ NAMESPACE AXOpen.Inspectors
             END_VAR
             // Documentation: Initialize the parent context and the associated inspector task.
             THIS.Initialize(inParent);
-            _inspectorTask.Initialize(inParent);
+            _inspectorTask.Initialize(THIS);
+            _inspectorTask.SetSuspendMultipleExecuteCallCheck(TRUE);
+            _inspectorTask.SetSuspendCyclicExecuteIsNotCalledCheck(TRUE);
+            _inspectorTask.SetSuspendRtmCheck(FALSE);
+
             Inspect := THIS;
             _inspectorTask.SetInspectionData(inData);
             IF(THIS.IsOverInspected())THEN
@@ -303,11 +310,11 @@ NAMESPACE AXOpen.Inspectors
                 epsilon : REAL := 1;
             END_VAR
 
-           
-
             THIS.Initialize(inParent);
-            _inspectorTask.Initialize(inParent);
-
+            _inspectorTask.Initialize(THIS);
+            _inspectorTask.SetSuspendMultipleExecuteCallCheck(TRUE);
+            _inspectorTask.SetSuspendCyclicExecuteIsNotCalledCheck(TRUE);
+            _inspectorTask.SetSuspendRtmCheck(FALSE);
             
             Inspect := THIS;
             _inspectorTask.SetInspectionData(inData);
@@ -365,7 +372,6 @@ NAMESPACE AXOpen.Inspectors
                 END_IF;	
             END_IF;
         END_METHOD
-        
 
         /// <summary>
         /// Implements the digital inspection logic.
@@ -376,9 +382,12 @@ NAMESPACE AXOpen.Inspectors
                 inData : REF_TO AxoDigitalInspectorData;
                 Status : BOOL;
             END_VAR            
-
             THIS.Initialize(inParent);
-            _inspectorTask.Initialize(inParent);
+            _inspectorTask.Initialize(THIS);
+            _inspectorTask.SetSuspendMultipleExecuteCallCheck(TRUE);
+            _inspectorTask.SetSuspendCyclicExecuteIsNotCalledCheck(TRUE);
+            _inspectorTask.SetSuspendRtmCheck(FALSE);
+
             Inspect := THIS;
             _inspectorTask.SetInspectionData(inData);
             IF(THIS.IsOverInspected()) THEN
@@ -418,7 +427,7 @@ NAMESPACE AXOpen.Inspectors
             ;
         END_METHOD
 
-         ///<summary>
+        ///<summary>
         /// Determines if the provided character is numeric.
         /// </summary>
         METHOD IsCharNumber : BOOL
