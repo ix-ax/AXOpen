@@ -12,9 +12,9 @@ namespace AXOpen.Data.Query
 {
     public class QuerySymbolConfiguration
     {
-        public QuerySymbolConfiguration()
-        {
-        }
+        //public QuerySymbolConfiguration() // just for serialization
+        //{
+        //}
 
         public QuerySymbolConfiguration(string symbolPathWithParent, string symbolTypeName, string operation, object minOrValue, object max)
         {
@@ -33,8 +33,7 @@ namespace AXOpen.Data.Query
             {
                 if (string.IsNullOrEmpty(_ParentTypeName))
                 {
-                    int index = SymbolPathWithParent.IndexOf('.');
-                    _ParentTypeName = index != -1 ? SymbolPathWithParent.Substring(0, index) : SymbolPathWithParent;
+                    _ParentTypeName = GetParentTypeName(SymbolPathWithParent);
                 }
 
                 return _ParentTypeName;
@@ -67,8 +66,7 @@ namespace AXOpen.Data.Query
             {
                 if (string.IsNullOrEmpty(_Symbol))
                 {
-                    int index = SymbolPathWithParent.IndexOf('.');
-                    return index != -1 ? SymbolPathWithParent.Substring(index + 1) : SymbolPathWithParent;
+                    _Symbol = RemoveParentTypeName(SymbolPathWithParent);
                 }
                 return _Symbol;
             }
@@ -84,5 +82,18 @@ namespace AXOpen.Data.Query
 
         public object MinOrValue { set; get; }
         public object Max { set; get; }
+
+        public static string GetParentTypeName(string symbolPathWithParent)
+        {
+            int index = symbolPathWithParent.IndexOf('.');
+            return index != -1 ? symbolPathWithParent.Substring(0, index) : symbolPathWithParent;
+        }
+
+        public static string RemoveParentTypeName(string symbolPathWithParent)
+        {
+            int index = symbolPathWithParent.IndexOf('.');
+            return index != -1 ? symbolPathWithParent.Substring(index + 1) : symbolPathWithParent;
+        }
+
     }
 }

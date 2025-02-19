@@ -34,7 +34,9 @@
         { typeof(float), (float.MinValue, float.MaxValue) },
         { typeof(double), (double.MinValue, double.MaxValue) },
         { typeof(DateTime), (DateTime.MinValue, DateTime.MaxValue) },
-        { typeof(TimeSpan), (TimeSpan.MinValue, TimeSpan.MaxValue) }
+        { typeof(TimeSpan), (TimeSpan.MinValue, TimeSpan.MaxValue) },
+        { typeof(string), ("", "") }
+
     };
 
         public static List<string> GetOperationsForType(Type type)
@@ -46,6 +48,17 @@
         {
             return TypeRanges.ContainsKey(type) ? TypeRanges[type] : null;
         }
+
+        public static object? GetMinForType(Type type)
+        {
+            return TypeRanges.TryGetValue(type, out var range) ? range.Min : null;
+        }
+
+        public static object? GetMaxForType(Type type)
+        {
+            return TypeRanges.TryGetValue(type, out var range) ? range.Max : null;
+        }
+
     }
 
 }

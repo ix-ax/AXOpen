@@ -24,7 +24,7 @@ namespace AXOpen.Data.Query
             InitializeSymbols();
         }
 
-        public List<PlainSymbolBuilder> PlainPathContainers { private set; get; } = new List<PlainSymbolBuilder>();
+        public List<PlainSymbolBuilder> PlainBuilders { private set; get; } = new List<PlainSymbolBuilder>();
         public List<string> Symbols { private set; get; } = new List<string>();// whole available symbols
 
         private string _SymbolsQueryFilter = "";
@@ -44,7 +44,7 @@ namespace AXOpen.Data.Query
             {
                 return _SymbolsQueryFilter;
             }
-        } 
+        }
 
         public int SymbolsQueryCount { set; get; } // all symbols from query
         public int SymbolsQueryPage { set; get; }// displaing only selected page
@@ -58,6 +58,8 @@ namespace AXOpen.Data.Query
 
         public PredicateContainer PredicateContainer { private set; get; } = new PredicateContainer();
 
+        public List<QuerySymbolConfiguration> Queries { private set; get; } = new();
+
         protected void InitializeSymbols()
         {
             foreach (var rootType in exchange.GetPlainObjectType())
@@ -67,7 +69,7 @@ namespace AXOpen.Data.Query
                 var s = plainPathContainer.GetSymbols();
 
                 Symbols.AddRange(s);
-                PlainPathContainers.Add(plainPathContainer);
+                PlainBuilders.Add(plainPathContainer);
             }
         }
 
@@ -77,7 +79,7 @@ namespace AXOpen.Data.Query
             SymbolsQueryPageLimit = limit;
 
             SymbolsQueryPage = SymbolsQueryPage * oldLimit / SymbolsQueryPageLimit;
-                       
+
             FillObservableSymbols();
         }
 
@@ -117,19 +119,21 @@ namespace AXOpen.Data.Query
             FillObservableSymbols();
         }
 
+        public Task<bool> AddSymbolToQuery(string symbol)
+        {
+            this.Queries.Add( new  QuerySymbolConfiguration(,) );
+
+
+
+            return Task.FromResult(true);
+        }
+
+
+
         public Task<bool> ExecuteFilter()
         {
             return Task.FromResult(true);
         }
-
-        public Task<bool> AddSymbolToPredicate(string symbol)
-        { 
-        
-        
-            return Task.FromResult(true);
-
-        }
-                
 
         public void Dispose()
         {

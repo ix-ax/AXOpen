@@ -185,5 +185,39 @@
 
             Assert.Equal(1, records.Count());
         }
+
+        [Fact]
+        public void should_build_create_symbolconfiguration()
+        {
+            var plainBuilders = _exchange.GetPlainObjectType().Select(p => new PlainSymbolBuilder(p)).ToList();
+
+            var plainTypeHeaderName = plainBuilders.First().RootTypeName;
+
+            string varNameHeader = "vString";
+            string varValueMinHeader = "3";
+            string varOperationHeader = "Contains";
+
+
+            Type requiredSymbolTypeHeader = typeof(string);
+
+            string RequiredSymbolPathWithParent = $"{plainTypeHeaderName}.{varNameHeader}";
+
+            var config = plainBuilders.CreateNewConfiguration(RequiredSymbolPathWithParent);
+
+            config.MinOrValue = varValueMinHeader;
+            config.Operation = varOperationHeader;
+
+            // check right set up
+            Assert.Equal(RequiredSymbolPathWithParent, config.SymbolPathWithParent);
+            Assert.Equal(plainTypeHeaderName, config.ParentTypeName);
+            Assert.Equal(varNameHeader, config.Symbol);
+
+            var pc = new PredicateContainer().AddQuerySymbolToPredicates(plainBuilders, config);
+
+            var records = _exchange.GetRecords(pc, 100, 0, "", false);
+
+            Assert.Equal(1, records.Count());
+        }
+
     }
 }
