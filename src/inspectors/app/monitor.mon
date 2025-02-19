@@ -1,2 +1,3 @@
 sandbox._inspectors._digitalInspector._inspectorTask.Status
-sandbox._inspectors._digitalInspector._inspectorTask._RtmInvalid
+sandbox._inspectors._digitalInspector._inspectorTask.debug
+sandbox._inspectors._digitalInspector._inspectorTask.obj

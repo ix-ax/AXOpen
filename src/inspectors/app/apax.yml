@@ -106,3 +106,8 @@ scripts:
   cicb: |
     apax clean
     apax icb
+  mm: |
+    apax mon -t 10.10.10.120 -f monitor.mon -C .\\certs\\plc_line\\plc_line.cer -c
+  m: |
+    apax swfd
+    apax mm
