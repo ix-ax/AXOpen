@@ -1,0 +1,23 @@
+﻿@using AXSharp.Connector;
+@namespace AXOpen.Data.Query
+
+<div class="card p-3">
+
+    <div class="mb-2">
+        <label> @SymbolConfiguration.SymbolPathWithParent</label>
+
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@SymbolConfiguration.Operation</button>
+        <ul class="dropdown-menu">
+
+            @foreach (var operation in OperationProvider.GetOperationsForType(SymbolConfiguration.SymbolType))
+                {
+                <li><a class="dropdown-item @(@SymbolConfiguration.Operation == operation ? "active" : "")" style="cursor: pointer" @onclick="() => {SymbolConfiguration.Operation = operation;}">@operation</a></li>
+                }
+
+        </ul>
+
+
+
+    </div>
+
+</div>

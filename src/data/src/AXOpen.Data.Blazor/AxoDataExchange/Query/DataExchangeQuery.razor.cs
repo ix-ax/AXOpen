@@ -121,13 +121,16 @@ namespace AXOpen.Data.Query
 
         public Task<bool> AddSymbolToQuery(string symbol)
         {
-            this.Queries.Add( new  QuerySymbolConfiguration(,) );
-
-
+            this.Queries.Add( this.PlainBuilders.CreateNewConfiguration(symbol));
 
             return Task.FromResult(true);
         }
+        public Task<bool> RemoveSymbolFromQuery(string symbol)
+        {
+            this.Queries.Remove(this.Queries.Where(p => p.SymbolPathWithParent == symbol).First());
 
+            return Task.FromResult(true);
+        }
 
 
         public Task<bool> ExecuteFilter()

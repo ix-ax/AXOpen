@@ -2,7 +2,7 @@
 @namespace AXOpen.Data.Query
 
 
- <label>Symbol count : @this.Symbols.Count</label>
+<label>Symbol count : @this.Symbols.Count</label>
 
 <input @bind="SymbolsQueryFilter" @bind:event="oninput" placeholder="Type to filter..." class="form-control" />
 
@@ -11,10 +11,25 @@
     {
         <li>
             @symbol
-            <button @onclick="() => AddSymbolToQuery(symbol)">+</button>
+            <button class="btn btn-secondary" type="button" @onclick="() => AddSymbolToQuery(symbol)">+</button>
         </li>
     }
 </ul>
+
+
+<ul>
+@foreach (var querySymbol in Queries)
+{
+    <li>
+        <div>
+            <button class="btn btn-secondary" type="button" @onclick="() => RemoveSymbolFromQuery(querySymbol.SymbolPathWithParent)">-</button>
+            <QuerySymbolConfigurationView SymbolConfiguration="@querySymbol"></QuerySymbolConfigurationView>
+        </div>
+    </li>
+}
+</ul>
+
+
 
 <div class="d-flex">
 

@@ -80,6 +80,9 @@ namespace AXOpen.Data.Query
             set { _Operation = value; }
         }
 
+        public bool IsRangeOperation { get => Operation.Contains("Range")}
+
+
         public object MinOrValue { set; get; }
         public object Max { set; get; }
 
