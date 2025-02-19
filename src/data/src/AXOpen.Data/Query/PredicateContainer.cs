@@ -1,4 +1,4 @@
-﻿namespace AXOpen.Data
+﻿namespace AXOpen.Data.Query
 {
     using System;
     using System.Linq;
@@ -16,6 +16,16 @@
             }
 
             this._predicates[typeof(T)].Add(predicate);
+        } 
+        
+        public void AddPredicates(Type type, LambdaExpression predicate )
+        {
+            if (!this._predicates.ContainsKey(type))
+            {
+                this._predicates[type] = new List<LambdaExpression>();
+            }
+
+            this._predicates[type].Add(predicate);
         }
 
         public void AddPredicates<T>(IEnumerable<Expression<Func<T, bool>>> predicates)

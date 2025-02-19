@@ -6,13 +6,14 @@
     using Xunit;
     using Pocos.FragmentExchange_Test_L4;
     using System.Net.NetworkInformation;
+    using AXOpen.Data.Query;
 
     [Collection("DatabaseTests")]
-    public class FragmentDataExchange_MongoTests : IClassFixture<FragmentDataExchangeMongoFixture>
+    public class MultipleRepository_MongoTests : IClassFixture<MultipleRepository_MongoFixture>
     {
-        private readonly FragmentDataExchangeMongoFixture _fixture;
+        private readonly MultipleRepository_MongoFixture _fixture;
 
-        public FragmentDataExchange_MongoTests(FragmentDataExchangeMongoFixture fixture)
+        public MultipleRepository_MongoTests(MultipleRepository_MongoFixture fixture)
         {
             _fixture = fixture;
         }

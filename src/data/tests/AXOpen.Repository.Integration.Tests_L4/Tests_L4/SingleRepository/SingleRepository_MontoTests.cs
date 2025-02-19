@@ -7,11 +7,11 @@
     using Xunit;
 
     [Collection("DatabaseTests")]
-    public class DataExchange_MongoTests : IClassFixture<DataExchangeMongoFixture>
+    public class SingleRepository_MontoTests : IClassFixture<SingleRepository_MongoFixture>
     {
-        private readonly DataExchangeMongoFixture _fixture;
+        private readonly SingleRepository_MongoFixture _fixture;
 
-        public DataExchange_MongoTests(DataExchangeMongoFixture fixture)
+        public SingleRepository_MontoTests(SingleRepository_MongoFixture fixture)
         {
             _fixture = fixture;
         }

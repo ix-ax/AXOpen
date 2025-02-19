@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Security.Principal;
 using System.Xml;
 using AXOpen.Base.Data;
+using AXOpen.Data.Query;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components.Authorization;
 

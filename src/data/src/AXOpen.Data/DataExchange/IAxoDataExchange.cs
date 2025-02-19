@@ -196,10 +196,10 @@ namespace AXOpen.Data
         IEnumerable<IBrowsableDataObject> GetRecords(string identifier, int limit, int skip,
             eSearchMode searchMode, string sortExpression, bool sortAscending);
 
-        IEnumerable<IBrowsableDataObject> GetRecords(PredicateContainer predicates,
+        IEnumerable<IBrowsableDataObject> GetRecords(Query.PredicateContainer predicates,
             int limit, int skip, string sortExpression, bool sortAscending);
 
-        IEnumerable<string> GetEntityIds(PredicateContainer predicates,
+        IEnumerable<string> GetEntityIds(Query.PredicateContainer predicates,
             int limit, int skip, string sortExpression, bool sortAscending);
 
         /// <summary>

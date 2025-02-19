@@ -6,12 +6,12 @@ namespace Tests_L4
 {
     using Pocos.FragmentExchange_Test_L4;
 
-    public class FragmentDataExchangeMongoFixture : IDisposable
+    public class MultipleRepository_MongoFixture : IDisposable
     {
         internal IRepository<HeaderData> _headerRepository;
         internal IRepository<StationData> _stationRepository;
 
-        public FragmentDataExchangeMongoFixture()
+        public MultipleRepository_MongoFixture()
         {
             // Initialize shared resource (e.g., open a database connection)
             var headerParameters = new MongoDbRepositorySettings<HeaderData>("mongodb://localhost:27017", "AxOpen_L4", "FragmentHeader");

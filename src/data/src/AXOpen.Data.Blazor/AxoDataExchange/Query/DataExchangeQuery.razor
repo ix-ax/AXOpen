@@ -1,0 +1,79 @@
+﻿@using AXSharp.Connector;
+@namespace AXOpen.Data.Query
+
+
+ <label>Symbol count : @this.Symbols.Count</label>
+
+<input @bind="SymbolsQueryFilter" @bind:event="oninput" placeholder="Type to filter..." class="form-control" />
+
+<ul>
+    @foreach (var symbol in FilteredSymbols)
+    {
+        <li>
+            @symbol
+            <button @onclick="() => AddSymbolToPredicate(symbol)">+</button>
+        </li>
+    }
+</ul>
+
+<div class="d-flex">
+
+    <div class="dropup">
+        Showing @(SymbolsQueryPage * SymbolsQueryPageLimit + 1) to @(((SymbolsQueryPage + 1) * SymbolsQueryPageLimit) > SymbolsQueryCount ? SymbolsQueryCount : ((SymbolsQueryPage + 1) * SymbolsQueryPageLimit)) of @SymbolsQueryCount rows
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@SymbolsQueryPageLimit</button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item @(SymbolsQueryPageLimit == 5 ? "active" : "")" style="cursor: pointer" @onclick="() => SetLimitAsync(5)">5</a></li>
+            <li><a class="dropdown-item @(SymbolsQueryPageLimit == 10 ? "active" : "")" style="cursor: pointer" @onclick="() => SetLimitAsync(10)">10</a></li>
+            <li><a class="dropdown-item @(SymbolsQueryPageLimit == 25 ? "active" : "")" style="cursor: pointer" @onclick="() => SetLimitAsync(25)">25</a></li>
+            <li><a class="dropdown-item @(SymbolsQueryPageLimit == 50 ? "active" : "")" style="cursor: pointer" @onclick="() => SetLimitAsync(50)">50</a></li>
+        </ul>
+        rows per page
+    </div>
+    <nav class="ms-auto">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(Modulo(SymbolsQueryPage - 1, MaxPage + 1))" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+
+            @if (MaxPage < 7)
+            {
+                @for (var i = 0; i < MaxPage + 1; i++)
+                {
+                    var j = i;
+                    <li class="page-item @(SymbolsQueryPage == i ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(j)">@(i + 1)</a></li>
+                }
+            }
+            else
+            {
+                <li class="page-item @(SymbolsQueryPage == 0 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(0)">1</a></li>
+
+                @if (SymbolsQueryPage < 4)
+                {
+                    <li class="page-item @(SymbolsQueryPage == 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(1)">2</a></li>
+                    <li class="page-item @(SymbolsQueryPage == 2 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(2)">3</a></li>
+                    <li class="page-item @(SymbolsQueryPage == 3 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(3)">4</a></li>
+                    <li class="page-item @(SymbolsQueryPage == 4 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(4)">5</a></li>
+                    <li class="page-item disabled"><a class="page-link">...</a></li>
+                }
+                else if (SymbolsQueryPage > MaxPage - 4)
+                {
+                    <li class="page-item disabled"><a class="page-link">...</a></li>
+                    <li class="page-item @(SymbolsQueryPage == @MaxPage - 4 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(MaxPage - 4)">@(MaxPage - 3)</a></li>
+                    <li class="page-item @(SymbolsQueryPage == @MaxPage - 3 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(MaxPage - 3)">@(MaxPage - 2)</a></li>
+                    <li class="page-item @(SymbolsQueryPage == @MaxPage - 2 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(MaxPage - 2)">@(MaxPage - 1)</a></li>
+                    <li class="page-item @(SymbolsQueryPage == @MaxPage - 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(MaxPage - 1)">@(MaxPage)</a></li>
+                }
+                else
+                {
+                    <li class="page-item disabled"><a class="page-link">...</a></li>
+                    <li class="page-item @(SymbolsQueryPage == SymbolsQueryPage - 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(SymbolsQueryPage - 1)">@(SymbolsQueryPage)</a></li>
+                    <li class="page-item @(SymbolsQueryPage == SymbolsQueryPage ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(SymbolsQueryPage)">@(SymbolsQueryPage + 1)</a></li>
+                    <li class="page-item @(SymbolsQueryPage == SymbolsQueryPage + 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(SymbolsQueryPage + 1)">@(SymbolsQueryPage + 2)</a></li>
+                    <li class="page-item disabled"><a class="page-link">...</a></li>
+                }
+
+                <li class="page-item @(SymbolsQueryPage == @MaxPage ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(MaxPage)">@(MaxPage + 1)</a></li>
+            }
+
+            <li class="page-item"><a class="page-link" style="cursor: pointer" @onclick="async () => { if (MaxPage != -1) await SetPageAsync((SymbolsQueryPage + 1) % (MaxPage + 1)); }" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+        </ul>
+    </nav>
+</div>

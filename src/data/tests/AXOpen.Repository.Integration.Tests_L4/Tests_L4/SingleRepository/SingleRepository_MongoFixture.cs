@@ -6,11 +6,11 @@ namespace Tests_L4
 {
     using Pocos.Exchange_Test_L4;
 
-    public class DataExchangeMongoFixture : IDisposable
+    public class SingleRepository_MongoFixture : IDisposable
     {
         internal IRepository<ProcessData> _repository;
 
-        public DataExchangeMongoFixture()
+        public SingleRepository_MongoFixture()
         {
             // Initialize shared resource (e.g., open a database connection)
             var parameters = new MongoDbRepositorySettings<ProcessData>("mongodb://localhost:27017", "AxOpen_L4", "DataTestObject");

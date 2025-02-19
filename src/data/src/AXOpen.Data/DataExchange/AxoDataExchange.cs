@@ -17,6 +17,7 @@ using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
 using AXOpen.Base.Data;
+using AXOpen.Data.Query;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components.Authorization;
 using static System.Runtime.InteropServices.JavaScript.JSType;

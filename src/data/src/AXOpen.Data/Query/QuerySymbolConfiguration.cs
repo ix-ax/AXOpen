@@ -1,0 +1,88 @@
+﻿using AXOpen.Data;
+using AXOpen.Base.Data;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AXOpen.Data.Query
+{
+    public class QuerySymbolConfiguration
+    {
+        public QuerySymbolConfiguration()
+        {
+        }
+
+        public QuerySymbolConfiguration(string symbolPathWithParent, string symbolTypeName, string operation, object minOrValue, object max)
+        {
+            this.SymbolPathWithParent = symbolPathWithParent;
+            this.SymbolTypeFullName = symbolTypeName;
+            this.Operation = operation;
+            this.MinOrValue = minOrValue;
+            this.Max = max;
+        }
+
+        private string _ParentTypeName = string.Empty;
+
+        public string ParentTypeName
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_ParentTypeName))
+                {
+                    int index = SymbolPathWithParent.IndexOf('.');
+                    _ParentTypeName = index != -1 ? SymbolPathWithParent.Substring(0, index) : SymbolPathWithParent;
+                }
+
+                return _ParentTypeName;
+            }
+        }
+
+        public string SymbolPathWithParent { get; set; }
+        public string SymbolTypeFullName { get; set; }
+
+        private Type _SymbolType;
+
+        public Type SymbolType
+        {
+            get
+            {
+                if (_SymbolType == null)
+                {
+                    _SymbolType = Type.GetType(SymbolTypeFullName);
+                }
+
+                return _SymbolType;
+            }
+        }
+
+        private string _Symbol = string.Empty;
+
+        public string Symbol
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_Symbol))
+                {
+                    int index = SymbolPathWithParent.IndexOf('.');
+                    return index != -1 ? SymbolPathWithParent.Substring(index + 1) : SymbolPathWithParent;
+                }
+                return _Symbol;
+            }
+        }
+
+        private string _Operation;
+
+        public string Operation
+        {
+            get { return _Operation; }
+            set { _Operation = value; }
+        }
+
+        public object MinOrValue { set; get; }
+        public object Max { set; get; }
+    }
+}
