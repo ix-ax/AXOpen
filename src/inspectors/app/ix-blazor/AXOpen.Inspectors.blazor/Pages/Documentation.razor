@@ -10,9 +10,9 @@
 <RenderableContentControl Context="@Entry.Plc.documentation._startInspection" Presentation="Command-Control" PollingInterval="100" />
 <RenderableContentControl Context="@Entry.Plc.documentation._automat._comprehensiveResult" Presentation="Command-Control" PollingInterval="100" />
 
-<RenderableContentControl Context="@Entry.Plc.documentation._automat._analogueInspector" Presentation="Command-Control" PollingInterval="100"/>
-<RenderableContentControl Context="@Entry.Plc.documentation._automat._digitalInspector" Presentation="Command-Control" PollingInterval="100" />
-<RenderableContentControl Context="@Entry.Plc.documentation._automat._dataInspector" Presentation="Command-Control" PollingInterval="100" />
+<RenderableContentControl Context="@Entry.Plc.documentation._automat._analogueInspectorData" Presentation="Command-Control" PollingInterval="100"/>
+<RenderableContentControl Context="@Entry.Plc.documentation._automat._digitalInspectorData" Presentation="Command-Control" PollingInterval="100" />
+<RenderableContentControl Context="@Entry.Plc.documentation._automat._dataInspectorData" Presentation="Command-Control" PollingInterval="100" />
 
 <div class="container">
  <!-- TOP LEVEL TASKS -->
@@ -46,15 +46,11 @@
 <RenderableContentControl Context="@Entry.Plc.documentation._automat._inspectionData" Presentation="Command-Control" PollingInterval="100" />
 
 
-<AxoDialogLocator DialogLocatorPath="custation001" ObservedObjects="new[] {Entry.Plc.documentation._automat}" />
+<AxoDialogLocator ObservedObjects="new[] {Entry.Plc.documentation._automat}" />
 
+@* DialogLocatorPath="custation001" *@
 @code
 {
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
-    }
-
     public override void ConfigurePolling()
     {
         this.StartPolling(Entry.Plc.documentation._automat.Status);

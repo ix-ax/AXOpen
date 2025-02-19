@@ -42,6 +42,29 @@ NAMESPACE AXOpen.Inspectors
             END_VAR
 
         END_METHOD
-        
+                
+        METHOD Inspect : IInspector
+            VAR_INPUT
+                inParent : AXOpen.Core.IAxoObject;
+                inData : REF_TO AxoAnalogueInspectorData;
+                Status : LREAL;
+            END_VAR           
+        END_METHOD
+
+        METHOD Inspect : IInspector
+            VAR_INPUT
+                inParent : AXOpen.Core.IAxoObject;
+                inData : REF_TO AxoDigitalInspectorData;
+                Status : BOOL;
+            END_VAR           
+        END_METHOD
+
+        METHOD Inspect : IInspector
+            VAR_INPUT
+                inParent : AXOpen.Core.IAxoObject;
+                inData : REF_TO AxoDataInspectorData;
+                Status : STRING;
+            END_VAR           
+        END_METHOD
     END_INTERFACE
 END_NAMESPACE

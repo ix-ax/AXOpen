@@ -14,7 +14,8 @@ NAMESPACE AXOpen.Inspectors
             _dialogueRetry : BOOL;	
             _dialogueTerminate : BOOL;	
             _dialogueOverride : BOOL;
-            _inspectorIndentity : ULINT; //try display inspector inside dialog.
+            _inspectorIndentity : ULINT; //try display inspector inside dialog.    
+            _inspectionDetails : STRING;        
         END_VAR
 
         VAR PRIVATE
@@ -130,7 +131,7 @@ NAMESPACE AXOpen.Inspectors
             _dialogueOverride := FALSE;
         END_METHOD
 
-      
+        
 
     END_CLASS
 
