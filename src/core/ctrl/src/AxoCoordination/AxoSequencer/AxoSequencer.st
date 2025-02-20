@@ -61,9 +61,9 @@ NAMESPACE AXOpen.Core
                         tContext := StepForwardCommand.GetContextUnsafe();
                         
                         IF  tContext = NULL THEN
-                            StepForwardCommand.Initialize(_context_);
-                            StepIn.Initialize(_context_);
-                            StepBackwardCommand.Initialize(_context_);
+                            StepForwardCommand.Initialize(THIS);
+                            StepIn.Initialize(THIS);
+                            StepBackwardCommand.Initialize(THIS);
                         END_IF;
 
                         // IF(StepForwardCommand.GetContext() = NULL) THEN // asi to robi problem

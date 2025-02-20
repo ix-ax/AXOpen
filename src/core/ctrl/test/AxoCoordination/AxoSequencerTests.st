@@ -1,3 +1,4 @@
+USING AXOpen.AxoMessagingStatic_UnitTests;
 USING AxUnit;
 USING AXOpen.Core;
 USING AXOpen.Rtc;
@@ -39,6 +40,7 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
     CLASS SequencerTests
         VAR PROTECTED        
             _context   : TestContext;
+            _rootObject : TestObject;
             _sequencer : MySequencer;
             _step_1    : AxoStep;
             _step_2    : AxoStep;
@@ -85,15 +87,16 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
         END_METHOD
                 
         METHOD PRIVATE InitializeSequence
+            _rootObject.InitializeWithContext(_context);
             _context.Open();
-            _sequencer.Initialize(_context);
+            _sequencer.Initialize(_rootObject);
         END_METHOD
        
         METHOD PRIVATE InvokeSequence
             THIS.InitializeSequence();
-            _step_1.Initialize(_context);
-            _step_2.Initialize(_context);
-            _step_3.Initialize(_context);        
+            _step_1.Initialize(_rootObject);
+            _step_2.Initialize(_rootObject);
+            _step_3.Initialize(_rootObject);        
             _sequencer.Invoke();
         END_METHOD
        
@@ -518,10 +521,10 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
         END_METHOD
 
         METHOD MAIN_12x 
-            _step_1.Initialize(_context);
-            _step_2.Initialize(_context);
-            _step_3.Initialize(_context);
-            _sequencer.Initialize(_context);
+            _step_1.Initialize(_rootObject);
+            _step_2.Initialize(_rootObject);
+            _step_3.Initialize(_rootObject);
+            _sequencer.Initialize(_rootObject);
             _sequencer.Invoke();
 
             _sequencer.Open();
@@ -1727,10 +1730,10 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
                 count :ULINT;
             END_VAR
             _context.Open();
-            _sequencer.Initialize(_context);
-            _step_1.Initialize(_context);
-            _step_2.Initialize(_context);
-            _step_3.Initialize(_context);        
+            _sequencer.Initialize(_rootObject);
+            _step_1.Initialize(_rootObject);
+            _step_2.Initialize(_rootObject);
+            _step_3.Initialize(_rootObject);        
 
             IF _sequencer.Open() THEN
                 _step_1.Execute(_sequencer);
@@ -1748,10 +1751,10 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
                 count :ULINT;
             END_VAR
             _context.Open();
-            _sequencer.Initialize(_context);
-            _step_1.Initialize(_context);
-            _step_2.Initialize(_context);
-            _step_3.Initialize(_context);        
+            _sequencer.Initialize(_rootObject);
+            _step_1.Initialize(_rootObject);
+            _step_2.Initialize(_rootObject);
+            _step_3.Initialize(_rootObject);        
 
             _sequencer.Invoke();
 
@@ -1931,14 +1934,14 @@ END_NAMESPACE
                 
 //         METHOD PRIVATE InitializeSequence
 //             _context.Open();
-//             _sequencer.Initialize(_context);
+//             _sequencer.Initialize(_rootObject);
 //         END_METHOD
        
 //         METHOD PRIVATE InvokeSequence
 //             THIS.InitializeSequence();
-//             _step_1.Initialize(_context);
-//             _step_2.Initialize(_context);
-//             _step_3.Initialize(_context);        
+//             _step_1.Initialize(_rootObject);
+//             _step_2.Initialize(_rootObject);
+//             _step_3.Initialize(_rootObject);        
 //             _sequencer.Invoke();
 //         END_METHOD
        
@@ -2319,10 +2322,10 @@ END_NAMESPACE
 //         END_METHOD
 
 //         METHOD MAIN_12x 
-//             _step_1.Initialize(_context);
-//             _step_2.Initialize(_context);
-//             _step_3.Initialize(_context);
-//             _sequencer.Initialize(_context);
+//             _step_1.Initialize(_rootObject);
+//             _step_2.Initialize(_rootObject);
+//             _step_3.Initialize(_rootObject);
+//             _sequencer.Initialize(_rootObject);
 //             _sequencer.Invoke();
 
 //             _sequencer.Open();
@@ -3527,10 +3530,10 @@ END_NAMESPACE
 //                 count :ULINT;
 //             END_VAR
 //             _context.Open();
-//             _sequencer.Initialize(_context);
-//             _step_1.Initialize(_context);
-//             _step_2.Initialize(_context);
-//             _step_3.Initialize(_context);        
+//             _sequencer.Initialize(_rootObject);
+//             _step_1.Initialize(_rootObject);
+//             _step_2.Initialize(_rootObject);
+//             _step_3.Initialize(_rootObject);        
 
 //             IF _sequencer.Open() THEN
 //                 _step_1.Execute(_sequencer);
@@ -3548,10 +3551,10 @@ END_NAMESPACE
 //                 count :ULINT;
 //             END_VAR
 //             _context.Open();
-//             _sequencer.Initialize(_context);
-//             _step_1.Initialize(_context);
-//             _step_2.Initialize(_context);
-//             _step_3.Initialize(_context);        
+//             _sequencer.Initialize(_rootObject);
+//             _step_1.Initialize(_rootObject);
+//             _step_2.Initialize(_rootObject);
+//             _step_3.Initialize(_rootObject);        
 
 //             _sequencer.Invoke();
 

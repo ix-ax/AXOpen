@@ -50,7 +50,7 @@ NAMESPACE AXOpen.Messaging.Static
             ActiveContextCount : ULINT;
             Context : IAxoContext;         
         END_VAR
-       
+                     
         ///<summary>
         /// Ensures the inicialization of the instance, so as the deactivation of the message. Must be called cyclically.
         ///</summary>
@@ -98,8 +98,7 @@ NAMESPACE AXOpen.Messaging.Static
                 THIS.MessengerState := eAxoMessengerState#NotActiveWaitingAckn;  
             END_IF;                     
 
-            
-            IF(THIS.ShouldAggregate()) THEN
+            IF(THIS.MessengerState <> eAxoMessengerState#Idle && THIS.Category >= eAxoMessageCategory#Error) THEN
                 THIS.AggregateMessage(LINT#1); 
             ELSE
                 THIS.AggregateMessage(LINT#0); 
@@ -107,11 +106,6 @@ NAMESPACE AXOpen.Messaging.Static
 
         END_METHOD
         
-        METHOD PRIVATE ShouldAggregate : BOOL
-            ShouldAggregate := ((MessengerState = eAxoMessengerState#ActiveNoAck || MessengerState = eAxoMessengerState#ActiveAckn || MessengerState = eAxoMessengerState#Active) 
-            && THIS.Category >= eAxoMessageCategory#Error);
-        END_METHOD
-
         ///<summary>
         /// Ensures the inicialization of the instance, so as the deactivation of the message. Must be called cyclically.
         ///</summary>
@@ -125,8 +119,7 @@ NAMESPACE AXOpen.Messaging.Static
                     RETURN;
                 END_IF;
 
-                THIS.Initialize(inObject);
-                THIS.Initialize(inObject.GetContext());                
+                THIS.Initialize(inObject);                
                 Context := inObject.GetContext(); // Duplicity!!!
             END_IF;
 

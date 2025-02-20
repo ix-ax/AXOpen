@@ -1,16 +1,6 @@
 NAMESPACE AXOpen.Core
     {S7.extern=ReadWrite}
-    CLASS ABSTRACT AxoSequencerContainer EXTENDS AxoSequencer
-        METHOD PUBLIC FINAL Run 
-            VAR_INPUT
-                context : IAxoContext;
-            END_VAR
-            THIS.Initialize(context);
-            IF THIS.Open() THEN
-                THIS.Main();
-            END_IF;
-        END_METHOD 
-
+    CLASS ABSTRACT AxoSequencerContainer EXTENDS AxoSequencer       
         METHOD PUBLIC FINAL Run 
             VAR_INPUT
                 object : IAxoObject;

@@ -18,6 +18,7 @@ NAMESPACE AXOpen.Core
     CLASS IxRemoteTaskTests 
         VAR PROTECTED
            _context : TestContext;
+           _rootObject : MockAxoObject;
            myTask : AxoRemoteTask;
            expState:  eAxoTaskState;
            actState:  eAxoTaskState;
@@ -25,7 +26,8 @@ NAMESPACE AXOpen.Core
         END_VAR    
 
         METHOD PRIVATE Initialize
-            myTask.Initialize(_context);           
+            _rootObject.InitializeWithContext(_context);
+            myTask.Initialize(_rootObject);           
         END_METHOD     
 
         METHOD Equal : BOOL

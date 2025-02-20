@@ -1,3 +1,4 @@
+USING AXOpen.AxoMessagingStatic_UnitTests;
 USING AXOpen.Logging;
 USING AXOpen.Core;
 USING AXOpen.Rtc;
@@ -29,16 +30,18 @@ NAMESPACE AXOpen.Core.AxoStep_Tests
     CLASS StepTests
         VAR PROTECTED
             _context    : TestContext;
+            _rootObject : TestObject;
             _stepOne    : AxoStep;
             _stepTwo    : AxoStep;
             _stepThree  : AxoStep;
             _sequencer  : AxoSequencer;
         END_VAR  
         METHOD PRIVATE Initialize
-            _sequencer.Initialize(_context);
-            _stepOne.Initialize(_context);
-            _stepTwo.Initialize(_context);
-            _stepThree.Initialize(_context);
+            _rootObject.InitializeWithContext(_context);
+            _sequencer.Initialize(_rootObject);
+            _stepOne.Initialize(_rootObject);
+            _stepTwo.Initialize(_rootObject);
+            _stepThree.Initialize(_rootObject);
         END_METHOD
         METHOD Equal : BOOL
             VAR_INPUT
