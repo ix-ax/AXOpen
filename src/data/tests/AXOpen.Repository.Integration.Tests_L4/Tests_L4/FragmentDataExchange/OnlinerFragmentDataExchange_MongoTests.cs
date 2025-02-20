@@ -64,8 +64,8 @@
             var builder = new PredicateContainer();
 
             builder.AddPredicates<HeaderData>(p => (p.vString.Contains("odd 4")));
-            builder.AddPredicates<StationData>(p => (p.vInt == 2));
-            //builder.AddPredicates<HeaderData>(p => (p.vInt == 4));
+            builder.AddPredicates<HeaderData>(p => (p.vInt == 4));
+            builder.AddPredicates<StationData>(p => (p.vInt == 4));
 
             var result = _exchange.GetRecords(builder, 1000, 0, "", false).ToList();
 
@@ -100,17 +100,17 @@
 
             Assert.Equal(11, result.Count());
 
-            Assert.Equal("SharedHeader.vString", result[0]);
-            Assert.Equal("SharedHeader.vInt", result[1]);
-            Assert.Equal("SharedHeader.vBool", result[2]);
-            Assert.Equal("SharedHeader.DataEntityId", result[3]);
-            Assert.Equal("Station.vString", result[4]);
-            Assert.Equal("Station.vInt", result[5]);
-            Assert.Equal("Station.vBool", result[6]);
-            Assert.Equal("Station.NestObj.vString", result[7]);
-            Assert.Equal("Station.NestObj.vInt", result[8]);
-            Assert.Equal("Station.NestObj.vBool", result[9]);
-            Assert.Equal("Station.DataEntityId", result[10]);
+            Assert.Equal("HeaderData.vString", result[0]);
+            Assert.Equal("HeaderData.vInt", result[1]);
+            Assert.Equal("HeaderData.vBool", result[2]);
+            Assert.Equal("HeaderData.DataEntityId", result[3]);
+            Assert.Equal("StationData.vString", result[4]);
+            Assert.Equal("StationData.vInt", result[5]);
+            Assert.Equal("StationData.vBool", result[6]);
+            Assert.Equal("StationData.NestObj.vString", result[7]);
+            Assert.Equal("StationData.NestObj.vInt", result[8]);
+            Assert.Equal("StationData.NestObj.vBool", result[9]);
+            Assert.Equal("StationData.DataEntityId", result[10]);
         }
 
         [Fact]
