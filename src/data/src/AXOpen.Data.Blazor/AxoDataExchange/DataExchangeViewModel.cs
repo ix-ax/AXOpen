@@ -187,14 +187,14 @@ namespace AXOpen.Data
             await FillObservableRecordsAsync();
         }
 
-        public async Task RefreshFilter()
-        {
-            Limit = 10;
-            FilterById = "";
-            SearchMode = eSearchMode.Exact;
-            Page = 0;
-            await FillObservableRecordsAsync();
-        }
+        //public async Task RefreshFilter()
+        //{
+        //    Limit = 10;
+        //    FilterById = "";
+        //    SearchMode = eSearchMode.Exact;
+        //    Page = 0;
+        //    await FillObservableRecordsAsync();
+        //}
 
         public IBrowsableDataObject FindById(string id)
         {

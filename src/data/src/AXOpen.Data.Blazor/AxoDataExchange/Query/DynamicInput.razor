@@ -1,0 +1,178 @@
+﻿@using AXSharp.Connector;
+@namespace AXOpen.Data.Query
+@using System.ComponentModel
+
+@if (IsString)
+{
+    <input type="text" @bind="BoundString" class="form-control" />
+}
+else if (IsByte)
+{
+    <input type="number" @bind="BoundByte" class="form-control" />
+}
+else if (IsShort)
+{
+    <input type="number" @bind="BoundShort" class="form-control" />
+}
+else if (IsInt)
+{
+    <input type="number" @bind="BoundInt" class="form-control" />
+}
+else if (IsLong)
+{
+    <input type="number" @bind="BoundLong" class="form-control" />
+}
+else if (IsFloat)
+{
+    <input type="number" @bind="BoundFloat" class="form-control" step="any" />
+}
+else if (IsDouble)
+{
+    <input type="number" @bind="BoundDouble" class="form-control" step="any" />
+}
+else if (IsEnum)
+{
+    <select @bind="BoundEnum" class="form-control">
+        @foreach (var option in EnumOptions)
+        {
+            <option value="@option">@option</option>
+        }
+    </select>
+}
+else if (IsDateTime)
+{
+    @*<input type="datetime" @bind="BoundDateTimeString" class="form-control" /> *@
+}
+else if (IsTimeSpan)
+{
+    @* <input type="time" @bind="BoundTimeSpanString" class="form-control" step="1" /> *@
+}
+else
+{
+    <p>Unsupported type</p>
+}
+
+@code {
+    [Parameter] public object Value { get; set; }
+    [Parameter] public EventCallback<object> ValueChanged { get; set; }
+    [Parameter] public Type ValueType { get; set; }
+
+    bool IsString => ValueType == typeof(string);
+    bool IsByte => ValueType == typeof(byte);
+    bool IsShort => ValueType == typeof(short);
+    bool IsInt => ValueType == typeof(int);
+    bool IsLong => ValueType == typeof(long);
+    bool IsFloat => ValueType == typeof(float);
+    bool IsDouble => ValueType == typeof(double);
+    bool IsEnum => ValueType.IsEnum;
+    bool IsDateTime => ValueType == typeof(DateTime);
+    bool IsTimeSpan => ValueType == typeof(TimeSpan);
+
+    List<object> EnumOptions => IsEnum ? Enum.GetValues(ValueType).Cast<object>().ToList() : new List<object>();
+
+    string BoundString
+    {
+        get => Value as string ?? string.Empty;
+        set
+        {
+            Value = value;
+            ValueChanged.InvokeAsync(Value);
+        }
+    }
+
+    byte BoundByte
+    {
+        get => Value is byte b ? b : default;
+        set
+        {
+            Value = value;
+            ValueChanged.InvokeAsync(Value);
+        }
+    }
+
+    short BoundShort
+    {
+        get => Value is short s ? s : default;
+        set
+        {
+            Value = value;
+            ValueChanged.InvokeAsync(Value);
+        }
+    }
+
+    int BoundInt
+    {
+        get => Value is int i ? i : default;
+        set
+        {
+            Value = value;
+            ValueChanged.InvokeAsync(Value);
+        }
+    }
+
+    long BoundLong
+    {
+        get => Value is long l ? l : default;
+        set
+        {
+            Value = value;
+            ValueChanged.InvokeAsync(Value);
+        }
+    }
+
+    float BoundFloat
+    {
+        get => Value is float f ? f : default;
+        set
+        {
+            Value = value;
+            ValueChanged.InvokeAsync(Value);
+        }
+    }
+
+    double BoundDouble
+    {
+        get => Value is double d ? d : default;
+        set
+        {
+            Value = value;
+            ValueChanged.InvokeAsync(Value);
+        }
+    }
+
+    Enum BoundEnum
+    {
+        get => (Enum)Value;
+        set
+        {
+            Value = Enum.Parse(ValueType, value.ToString());
+            ValueChanged.InvokeAsync(Value);
+        }
+    }
+
+    string BoundDateTimeString
+    {
+        get => Value is DateTime dt ? dt.ToString("yyyy-MM-ddTHH:mm") : "";
+        set
+        {
+            if (DateTime.TryParse(value, out DateTime newDate))
+            {
+                Value = newDate;
+                ValueChanged.InvokeAsync(Value);
+            }
+        }
+    }
+
+    string BoundTimeSpanString
+    {
+        get => Value is TimeSpan ts ? ts.ToString(@"hh\:mm") : "00:00";
+        set
+        {
+            if (TimeSpan.TryParse(value, out TimeSpan newTime))
+            {
+                Value = newTime;
+                ValueChanged.InvokeAsync(Value);
+            }
+        }
+    }
+}

@@ -135,6 +135,9 @@ namespace AXOpen.Data.Query
 
         public Task<bool> ExecuteFilter()
         {
+
+           
+            
             return Task.FromResult(true);
         }
 
