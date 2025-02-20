@@ -61,6 +61,7 @@ NAMESPACE AXOpen.Inspectors
                 inCoordinator : IAxoCoordinator;
             END_VAR
             // Documentation: Assign the provided coordinator and return the current instance.
+            return;
             _coordinator := inCoordinator;
             WithCoordinator := THIS;
         END_METHOD
@@ -245,13 +246,14 @@ NAMESPACE AXOpen.Inspectors
             VAR CONSTANT
                 epsilon : REAL := 10000;
             END_VAR
+            return;
             // Documentation: Initialize the parent context and the associated inspector task.
             THIS.Initialize(inParent);
             _inspectorTask.Initialize(THIS);
             _inspectorTask.SetSuspendMultipleExecuteCallCheck(TRUE);
             _inspectorTask.SetSuspendCyclicExecuteIsNotCalledCheck(TRUE);
             _inspectorTask.SetSuspendRtmCheck(FALSE);
-
+return;
             Inspect := THIS;
             _inspectorTask.SetInspectionData(inData);
             IF(THIS.IsOverInspected())THEN
@@ -381,9 +383,12 @@ NAMESPACE AXOpen.Inspectors
                 inParent : AXOpen.Core.IAxoObject;
                 inData : REF_TO AxoDigitalInspectorData;
                 Status : BOOL;
-            END_VAR            
+            END_VAR      
+
             THIS.Initialize(inParent);
+            RETURN;
             _inspectorTask.Initialize(THIS);
+            RETURN;
             _inspectorTask.SetSuspendMultipleExecuteCallCheck(TRUE);
             _inspectorTask.SetSuspendCyclicExecuteIsNotCalledCheck(TRUE);
             _inspectorTask.SetSuspendRtmCheck(FALSE);

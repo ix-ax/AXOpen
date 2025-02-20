@@ -50,6 +50,8 @@ NAMESPACE AXOpen.Core.AxoStep_Tests
 
         VAR PRIVATE
             _contextClean   : TestContext;
+            _rtc            :   AXOpen.Core.Dummies.MockAxoRtc;
+            _rtm            :   AXOpen.Core.Dummies.MockAxoRtm;
             _stepOneClean   : AxoStep;
             _stepTwoClean   : AxoStep;
             _stepThreeClean : AxoStep;
@@ -59,6 +61,10 @@ NAMESPACE AXOpen.Core.AxoStep_Tests
         {TestSetup}
         METHOD PUBLIC TestSetup
             _context    :=  _contextClean;
+            _rtm.SetElapsed(LTIME#2s);
+            _context.InjectRtm(_rtm);
+            _rtc.SetNowUTC(LDATE_AND_TIME#2012-01-12-15:58:12.123);
+            _context.InjectRtc(_rtc);
             _stepOne    :=  _stepOneClean;
             _stepTwo    :=  _stepTwoClean;
             _stepThree  :=  _stepThreeClean;

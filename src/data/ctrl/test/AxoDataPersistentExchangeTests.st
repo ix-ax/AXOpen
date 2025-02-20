@@ -11,23 +11,23 @@ NAMESPACE AXOpen.Data
             END_METHOD                 
         END_CLASS
 
-        {S7.extern=ReadWrite}
-        CLASS AxoRtcMock IMPLEMENTS IAxoRtc
-            VAR PRIVATE 
-                _NowUTC : LDATE_AND_TIME;
-            END_VAR
+        // {S7.extern=ReadWrite}
+        // CLASS AxoRtcMock IMPLEMENTS IAxoRtc
+        //     VAR PRIVATE 
+        //         _NowUTC : LDATE_AND_TIME;
+        //     END_VAR
     
-            METHOD INTERNAL SetNowUTC : LDATE_AND_TIME
-                VAR_INPUT
-                    Set :  LDATE_AND_TIME;
-                END_VAR;
-                _NowUTC := Set;
-            END_METHOD
+        //     METHOD INTERNAL SetNowUTC : LDATE_AND_TIME
+        //         VAR_INPUT
+        //             Set :  LDATE_AND_TIME;
+        //         END_VAR;
+        //         _NowUTC := Set;
+        //     END_METHOD
     
-            METHOD PUBLIC NowUTC : LDATE_AND_TIME
-                NowUTC := _NowUTC;
-            END_METHOD    
-        END_CLASS
+        //     METHOD PUBLIC NowUTC : LDATE_AND_TIME
+        //         NowUTC := _NowUTC;
+        //     END_METHOD    
+        // END_CLASS
 
 
         {TestFixture}
@@ -35,7 +35,8 @@ NAMESPACE AXOpen.Data
         CLASS AxoDataExchange_Tests
             VAR PROTECTED
                 _context : TestContext;
-                _rtc : AxoRtcMock;
+                _rtc : AXOpen.Core.Dummies.MockAxoRtc;
+                _rtm : AXOpen.Core.Dummies.MockAxoRtm;
 
                 _dataExchange : AxoDataPersistentExchange;
 
@@ -55,6 +56,10 @@ NAMESPACE AXOpen.Data
             METHOD PUBLIC TestSetup
             // Will be called before MyTest_A AND before Test_B are executed
                 _context := _contextBlank;
+                _rtm.SetElapsed(LTIME#2s);
+                _context.InjectRtm(_rtm);
+                _rtc.SetNowUTC(LDATE_AND_TIME#2012-01-12-15:58:12.123);
+                _context.InjectRtc(_rtc);
                 _dataExchange := _dataExchangeBlank;
                 caller_1 := caller_1Blank;
                 caller_2 := caller_2Blank;

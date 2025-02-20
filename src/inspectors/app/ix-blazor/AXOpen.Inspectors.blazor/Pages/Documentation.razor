@@ -36,7 +36,7 @@
     <div class="row">
        @if (Entry.Plc.documentation._automat.Status.Cyclic == (ushort)eAxoTaskState.Busy)
         {
-        <AxoSequencerView Component="Entry.Plc.documentation._automat" HasTaskControlButton="false" PollingInterval="20" ></AxoSequencerView>
+        <AxoSequencerView Component="Entry.Plc.documentation._automat" HasTaskControlButton="true" IsControllable="true" PollingInterval="20" ></AxoSequencerView>
         }
         
     </div>

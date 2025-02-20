@@ -71,24 +71,25 @@ CLASS PUBLIC AutomatSequence
         END_IF;
     
 
-        IF (Steps[20].Execute(THIS, TRUE, 'RETRY STEP 90')) THEN
+        // IF (Steps[20].Execute(THIS, TRUE, 'RETRY STEP 90')) THEN
             
-            IF(Steps[20].Duration > T#2000ms) THEN
-                THIS.MoveNext(); 
-            END_IF;	
+        //     IF(Steps[20].Duration > T#2000ms) THEN
+        //         THIS.MoveNext(); 
+        //     END_IF;	
             
             
-        END_IF;
+        // END_IF;
 
         // <PreservingOverallResultExample>
         IF (Steps[30].Execute(THIS, TRUE, 'Example Digital inspection')) THEN
-
+            _inspector.Inspect(THIS,REF(_digitalInspectorData),_inspectionResult);
             // <ExampleInspectionWithCoordinatorExample>
-            _inspector.WithCoordinator(THIS)
-                        .Inspect(THIS,REF(_digitalInspectorData),_inspectionResult)
-                        .UpdateComprehensiveResult(_comprehensiveResult)
-                        .OnFail()
-                        .CarryOn();
+            // _inspector.WithCoordinator(THIS)
+            //             .Inspect(THIS,REF(_digitalInspectorData),_inspectionResult)
+            //             .UpdateComprehensiveResult(_comprehensiveResult)
+            //             .OnFail()
+            //             .CarryOn();
+            ;
             // </ExampleInspectionWithCoordinatorExample>
         END_IF;
 
