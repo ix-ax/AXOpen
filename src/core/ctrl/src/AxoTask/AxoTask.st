@@ -69,23 +69,13 @@ NAMESPACE AXOpen.Core
             ErrorDetails : STRING[254];
 
             ///<summary>
-            /// Enable error message when task is not calling cyclically .            
+            /// Provides some error messages.            
             ///</summary> 
-            {#ix-set:MessageText = "<#Cyclic Execute is not called.#>"}
-            {#ix-set:Help = "<#Check task calling in the code, task is not calling cyclically #>"}
-            _CyclicExecuteIsNotCalled : AXOpen.Messaging.Static.AxoMessenger;  
-            ///<summary>
-            /// Enable error message when the `Execute()` method is called more then once inside one PLC cycle.            
-            ///</summary> 
-            {#ix-set:MessageText = "<#Execute method is called more then once inside one PLC cycle.#>"}
-            {#ix-set:Help = "<#Check task calling in the code, task is called more then once.#>"}
-            _MultipleExecuteIsCalled : AXOpen.Messaging.Static.AxoMessenger;  
-            ///<summary>
-            /// Enable error message when the `Execute()` method is called more then once inside one PLC cycle.            
-            ///</summary> 
-            {#ix-set:MessageText = "<#Invalid Rtm.#>"}
-            {#ix-set:Help = "<#Check the inicialization of the Rtm.#>"}
-            _RtmInvalid : AXOpen.Messaging.Static.AxoMessenger;  
+            {#ix-set:AttributeName = "<#Messenger#>"}
+            {#ix-set:MessageText = "<#Message text#>"}
+            {#ix-set:Help = "<#Help text#>"}
+            {#ix-set:PlcTextList = "[1]:'<#Execute method is not called cyclically.#>':'<#Check task calling in the code, task is not calling cyclically.#>'[2]:'<#Execute method is called more then once inside one PLC cycle.#>':'<#Check task calling in the code, task is called more then once.#>'[3]:'<#Invalid Rtm.#>':'<#Check the inicialization of the Rtm.#>'"}
+            _messenger : AXOpen.Messaging.Static.AxoMessenger;
         END_VAR    
         
         VAR PRIVATE
@@ -107,6 +97,7 @@ NAMESPACE AXOpen.Core
             _abortCycleCount    :  ULINT;
             _resumeCycleCount   :  ULINT;
 
+            NULL_RTM : _NULL_RTM;
         END_VAR 
 
         ///<summary>
@@ -383,6 +374,7 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC Invoke : IAxoTaskState
             VAR
                 _isNullContext : BOOL;
+                _cyclicExecuteIsNotCalled : BOOL;
             END_VAR;
             
             _isNullContext := _context_ = NULL;
@@ -404,7 +396,7 @@ NAMESPACE AXOpen.Core
                 END_IF;
             END_IF;
 
-            _CyclicExecuteIsNotCalled.Serve(THIS); 
+            _messenger.Serve(THIS); 
            
             IF Status = eAxoTaskState#Done AND THIS.IsNewInvokeCall() THEN
                 Status := eAxoTaskState#Ready; 
@@ -419,13 +411,14 @@ NAMESPACE AXOpen.Core
                         _context_.GetLogger().Log('Task invoked', eLogLevel#Verbose, THIS);
                 ELSE                                         
                     IF(NOT _suspendCyclicExecuteIsNotCalledCheck) THEN 
-                        _CyclicExecuteIsNotCalled.Activate(eAxoMessageCategory#ProgrammingError); 
+                        // _CyclicExecuteIsNotCalled.Activate(eAxoMessageCategory#ProgrammingError); 
+                        _cyclicExecuteIsNotCalled := TRUE;
                         Status := eAxoTaskState#Error;
                         ErrorDetails := 'CyclicExecuteIsNotCalled'; 
                     END_IF;                     
                 END_IF;     
             END_IF;     
-
+            _messenger.ActivateOnCondition(ULINT#1,_cyclicExecuteIsNotCalled,eAxoMessageCategory#ProgrammingError);
             Invoke := THIS;
         END_METHOD    
 
@@ -439,6 +432,7 @@ NAMESPACE AXOpen.Core
             END_IF;    
             Status := eAxoTaskState#Ready; 
             ErrorDetails := '';   
+            _messenger.Restore();   //TODO check the behavior 
 
             IF IsDisabled THEN 
                 IF Status <> eAxoTaskState#Error THEN
@@ -479,6 +473,8 @@ NAMESPACE AXOpen.Core
             VAR 
                 _stateKicking : BOOL;
                 _openCycleCount : ULINT;
+                _multipleExecuteIsCalled : BOOL;
+                _rtmInvalid : BOOL;
             END_VAR
             
             IF(_context_ = NULL) THEN RETURN; END_IF;
@@ -495,17 +491,19 @@ NAMESPACE AXOpen.Core
             END_IF;
             IF( RemoteResume) THEN THIS.Resume(); RemoteResume := FALSE; END_IF;
             
-            _MultipleExecuteIsCalled.Serve(THIS);
+            _messenger.Serve(THIS);
 
             _openCycleCount :=  _context_.OpenCycleCount();
 
             IF NOT _suspendMultipleExecuteCallCheck THEN
                 IF _openCycleCountExecute = _openCycleCount THEN
-                    _MultipleExecuteIsCalled.Activate(eAxoMessageCategory#ProgrammingError);
+                    _multipleExecuteIsCalled := TRUE;
                     Status := eAxoTaskState#Error;
                     ErrorDetails := 'MultipleExecuteIsCalled';   
                 END_IF;
             END_IF;
+            _messenger.ActivateOnCondition(ULINT#2,_multipleExecuteIsCalled,eAxoMessageCategory#ProgrammingError);
+
             _openCycleCountExecute := _openCycleCount;
         
             _stateKicking :=  Status = eAxoTaskState#Kicking;
@@ -559,15 +557,14 @@ NAMESPACE AXOpen.Core
 
             IF(Execute) THEN Duration := _taskTimer.ElapsedTime;  END_IF;  
 
-            _RtmInvalid.Serve(THIS);
-            
             IF(NOT _suspendRtmCheck) THEN 
-                IF(_context_.GetRtm() = NULL) THEN
-                    _RtmInvalid.Activate(eAxoMessageCategory#ProgrammingError); 
+                IF(_context_.GetRtm() = NULL || _context_.GetRtm().Elapsed() = NULL_RTM.Elapsed()) THEN
+                    _rtmInvalid := TRUE;
                     Status := eAxoTaskState#Error;
                     ErrorDetails := 'RtmInvalid'; 
                 END_IF;                     
-            END_IF;                     
+            END_IF;                
+            _messenger.ActivateOnCondition(ULINT#3,_rtmInvalid,eAxoMessageCategory#ProgrammingError);
         END_METHOD    
 
         ///<summary>

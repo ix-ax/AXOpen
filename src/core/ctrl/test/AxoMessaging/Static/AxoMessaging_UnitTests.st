@@ -2,6 +2,7 @@ USING AXOpen.Core;
 USING AXOpen.Core;
 USING AxUnit;
 USING AXOpen.Rtc;
+USING AXOpen.Rtm;
 USING AXOpen.Core;
 USING AXOpen.Logging;
 USING AXOpen.Messaging;
@@ -19,11 +20,12 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _object : TestObject;     
             _nested : NestedObject_L1;            
         END_VAR      
+
         VAR PRIVATE            
             NULL_RTC : _NULL_RTC;
-           
             _rtc : IAxoRtc;
-         END_VAR       
+            _NowUTC : LDATE_AND_TIME;
+        END_VAR       
 
         METHOD PUBLIC Open : ULINT
             _openCounter := _openCounter + ULINT#1;
@@ -61,6 +63,17 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _rtc := Rtc;
         END_METHOD
         
+        METHOD INTERNAL SetNowUTC : LDATE_AND_TIME
+            VAR_INPUT
+                Set :  LDATE_AND_TIME;
+            END_VAR;
+            _NowUTC := Set;
+        END_METHOD
+
+        METHOD PUBLIC NowUTC : LDATE_AND_TIME    
+            NowUTC := _NowUTC;
+        END_METHOD       
+
         VAR PRIVATE
             NULL_LOGGER : _NULL_LOGGER;
         END_VAR    
@@ -69,11 +82,36 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
 
         VAR PRIVATE
             NULL_RTM : _NULL_RTM;
+            _rtm : IAxoRtm;
+            _elapsed : LTIME;
         END_VAR    
-        METHOD PUBLIC GetRtm : AXOpen.Rtm.IAxoRtm GetRtm := NULL_RTM; END_METHOD
-        METHOD PUBLIC InjectRtm VAR_INPUT inRtm : AXOpen.Rtm.IAxoRtm; END_VAR ; END_METHOD    
+        METHOD PUBLIC GetRtm : AXOpen.Rtm.IAxoRtm 
+            IF(_rtm <> NULL) THEN
+                GetRtm := _rtm;
+            ELSE
+                GetRtm := NULL_RTM;    
+            END_IF;   
+        END_METHOD
+        METHOD PUBLIC InjectRtm 
+            VAR_INPUT 
+                inRtm : AXOpen.Rtm.IAxoRtm; 
+            END_VAR 
+            _rtm := inRtm;
+        END_METHOD    
+        METHOD INTERNAL Elapsed : LTIME
+            Elapsed := _elapsed;
+        END_METHOD
+
+        METHOD PUBLIC SetElapsed : LTIME    
+            VAR_INPUT
+                Set :  LTIME;
+            END_VAR;
+            _elapsed := Set;
+        END_METHOD       
     END_CLASS  
 
+
+    
     {S7.extern=ReadWrite}
     CLASS TestContextE EXTENDS Dummies.MockAxoContext
   

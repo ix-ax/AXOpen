@@ -7,17 +7,41 @@ NAMESPACE MyTest
     CLASS MyTestFixture
         VAR
             sandbox : SandboxContext;
-            S71500Rtc :  AXOpen.S71500.Rtc;   
-            S71500Rtm : AXOpen.S71500.Rtm;
+            documentation : DocumentationContext;
+            _rtc :  AXOpen.Core.Dummies.MockAxoRtc;
+            _rtm :  AXOpen.Core.Dummies.MockAxoRtm;
         END_VAR    
         {Test}
-        METHOD PUBLIC MyTestMethod
-            sandbox.InjectRtc(S71500Rtc);
-            sandbox.InjectRtm(S71500Rtm);
+        METHOD PUBLIC SandboxTest
+            VAR 
+                i : UINT;
+            END_VAR
+            _rtm.SetElapsed(LTIME#2s);
+            sandbox.InjectRtm(_rtm);
+            _rtc.SetNowUTC(LDATE_AND_TIME#2012-01-12-15:58:12.123);
+            sandbox.InjectRtc(_rtc);            
             sandbox._startInspection := TRUE;
-            sandbox.Run();               
+            FOR i := UINT#0 TO UINT#3 DO
+                sandbox.Run();               
+            END_FOR;
             Assert.Equal(actual := TRUE, expected := TRUE);
         END_METHOD
+
+        {Test}
+        METHOD PUBLIC DocumentationTest
+            VAR 
+                i : UINT;
+            END_VAR
+            _rtm.SetElapsed(LTIME#2s);
+            documentation.InjectRtm(_rtm);
+            _rtc.SetNowUTC(LDATE_AND_TIME#2012-01-12-15:58:12.123);
+            documentation.InjectRtc(_rtc);            
+            documentation._startInspection := TRUE;
+            FOR i := UINT#0 TO UINT#3 DO
+                documentation.Run();               
+            END_FOR;
+            Assert.Equal(actual := documentation._automat.CurrentStep.Order, expected := ULINT#3);
+        END_METHOD        
     END_CLASS
 
 END_NAMESPACE

@@ -138,6 +138,8 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
        
         VAR PROTECTED        
             _contextClean       :   TestContext;
+            _rtc                :   AXOpen.Core.Dummies.MockAxoRtc;
+            _rtm                :   AXOpen.Core.Dummies.MockAxoRtm;
             _sequencerClean     :   MySequencer;
             _step_1Clean        :   AxoStep;
             _step_2Clean        :   AxoStep;
@@ -150,6 +152,10 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
         {TestSetup}
         METHOD PUBLIC TestSetup
             _context        :=  _contextClean;
+            _rtm.SetElapsed(LTIME#2s);
+            _context.InjectRtm(_rtm);
+            _rtc.SetNowUTC(LDATE_AND_TIME#2012-01-12-15:58:12.123);
+            _context.InjectRtc(_rtc);
             _sequencer      :=  _sequencerClean;
             _step_1         :=  _step_1Clean;
             _step_2         :=  _step_2Clean;

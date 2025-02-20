@@ -9,7 +9,8 @@ NAMESPACE AXOpen.Core
      CLASS TestContext EXTENDS AXOpen.Core.Dummies.MockAxoContext                    
             METHOD PROTECTED OVERRIDE Main
                 ;
-            END_METHOD               
+            END_METHOD      
+                     
     END_CLASS         
    
     {TestFixture}
@@ -37,15 +38,24 @@ NAMESPACE AXOpen.Core
 
         VAR
             _contextClean   :   TestContext;
+            _rtm            :   AXOpen.Core.Dummies.MockAxoRtm;
+            _rtc            :   AXOpen.Core.Dummies.MockAxoRtc;
             myTaskClean     :   AxoRemoteTask;
             expStateClean   :   eAxoTaskState;
             actStateClean   :   eAxoTaskState;
             initValueClean  :   ULINT;           
          END_VAR    
     
+
+
+         
         {TestSetup}
         METHOD PUBLIC TestSetup
             _context := _contextClean;
+            _rtm.SetElapsed(LTIME#2s);
+            _context.InjectRtm(_rtm);
+            _rtc.SetNowUTC(LDATE_AND_TIME#2012-01-12-15:58:12.123);
+            _context.InjectRtc(_rtc);
             myTask := myTaskClean;
             expState    :=  expStateClean;
             actState    :=  actStateClean;

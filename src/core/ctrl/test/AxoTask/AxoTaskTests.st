@@ -82,19 +82,24 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
     {S7.extern=ReadWrite}
     CLASS AxoTaskUnitTests 
         VAR PROTECTED
-           _context     :   TestContext;
-           myTask       :   MyTask;
-           expState     :   eAxoTaskState;
-           actState     :   eAxoTaskState;
-           initValue    :   ULINT;
+           _context         :   TestContext;
+           myTask           :   MyTask;
+           expState         :   eAxoTaskState;
+           actState         :   eAxoTaskState;
+           initValue        :   ULINT;
+           reqStringValue   : STRING[254];
         END_VAR    
 
         METHOD PRIVATE Initialize
+            _rtm.SetElapsed(LTIME#2s);
+            _context.InjectRtm(_rtm);
+            _rtc.SetNowUTC(LDATE_AND_TIME#2012-01-12-15:58:12.123);
+            _context.InjectRtc(_rtc);
             myTask.Initialize(_context);
         END_METHOD
 
         METHOD PRIVATE InitializeInvokeExecute
-            myTask.Initialize(_context);
+            THIS.Initialize();
             _context.Open();
             myTask.Invoke();
             myTask.Execute();
@@ -102,7 +107,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
         END_METHOD
 
         METHOD PRIVATE InitializeInvokeExecuteAbort
-            myTask.Initialize(_context);
+            THIS.Initialize();
             _context.Open();
             myTask.Invoke();
             myTask.Execute();
@@ -111,7 +116,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
         END_METHOD
 
         METHOD PRIVATE InitializeInvokeExecuteThrowWhen
-            myTask.Initialize(_context);
+            THIS.Initialize();
             _context.Open();
             myTask.Invoke();
             myTask.Execute();
@@ -120,7 +125,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
         END_METHOD
         
         METHOD PRIVATE InitializeInvokeExecuteDoneWhen
-            myTask.Initialize(_context);
+            THIS.Initialize();
             _context.Open();
             myTask.Invoke();
             myTask.Execute();
@@ -136,8 +141,18 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             Equal := expected = actual;
         END_METHOD 
 
+        METHOD AreEqual : BOOL
+            VAR_INPUT
+                 expected:  STRING[254];
+                 actual:  STRING[254];
+            END_VAR
+            AreEqual := expected = actual;
+        END_METHOD    
+
         VAR PRIVATE
             _contextClean    :   TestContext;
+            _rtc             :   AXOpen.Core.Dummies.MockAxoRtc;
+            _rtm             :   AXOpen.Core.Dummies.MockAxoRtm;
             myTaskClean      :   MyTask;
             expStateClean    :   eAxoTaskState;
             actStateClean    :   eAxoTaskState;
@@ -1294,5 +1309,171 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             myTask.Execute();
             Assert.Equal(FALSE, myTask.ResumeTriggered());           
         END_METHOD
+
+        {Test}
+        METHOD PUBLIC invoke_call_without_execute_call_should_return_an_error
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            _context.Close();
+
+             // Act
+            _context.Open();
+            myTask.Invoke();          
+            _context.Close();
+
+           //Assert 
+            Assert.Equal(TRUE, myTask.HasError());           
+        END_METHOD     
+
+        {Test}
+        METHOD PUBLIC invoke_call_without_execute_call_should_return_CyclicExecuteIsNotCalled_as_an_error_detail
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            _context.Close();
+
+             // Act
+            _context.Open();
+            myTask.Invoke();          
+            _context.Close();
+
+           //Assert 
+            Assert.Equal(TRUE, THIS.AreEqual('CyclicExecuteIsNotCalled', myTask.ErrorDetails));           
+        END_METHOD     
+        
+        {Test}
+        METHOD PUBLIC invoke_call_without_execute_call_should_change_messenger_state_to_IsActive
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            _context.Close();
+
+             // Act
+            _context.Open();
+            myTask.Invoke();          
+            _context.Close();
+
+           //Assert 
+            Assert.Equal(TRUE, myTask._messenger.IsActive);           
+        END_METHOD     
+        
+        {Test}
+        METHOD PUBLIC invoke_call_without_execute_call_should_change_messenger_code_to_1
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            _context.Close();
+
+             // Act
+            _context.Open();
+            myTask.Invoke();          
+            _context.Close();
+
+           //Assert 
+            Assert.Equal(ULINT#1, myTask._messenger.MessageCode);           
+        END_METHOD     
+        
+        {Test}
+        METHOD PUBLIC multiple_execute_call_should_return_an_error
+            // Arrange/Act
+            THIS.Initialize();
+            _context.Open();
+            myTask.Execute();          
+            myTask.Execute();          
+            _context.Close();
+
+           //Assert 
+            Assert.Equal(TRUE, myTask.HasError());           
+        END_METHOD     
+
+        {Test}
+        METHOD PUBLIC multiple_execute_call_should_return_MultipleExecuteIsCalled_as_an_error_detail
+            // Arrange/Act
+            THIS.Initialize();
+            _context.Open();
+            myTask.Execute();          
+            myTask.Execute();          
+            _context.Close();
+
+           //Assert 
+            Assert.Equal(TRUE, THIS.AreEqual('MultipleExecuteIsCalled', myTask.ErrorDetails));           
+        END_METHOD     
+        
+        {Test}
+        METHOD PUBLIC multiple_execute_call_should_change_messenger_state_to_IsActive
+            // Arrange/Act
+            THIS.Initialize();
+            _context.Open();
+            myTask.Execute();          
+            myTask.Execute();          
+            _context.Close();
+
+           //Assert 
+            Assert.Equal(TRUE, myTask._messenger.IsActive);           
+        END_METHOD     
+        
+        {Test}
+        METHOD PUBLIC multiple_execute_call_should_change_messenger_code_to_2
+            // Arrange/Act
+            THIS.Initialize();
+            _context.Open();
+            myTask.Execute();          
+            myTask.Execute();          
+            _context.Close();
+
+           //Assert 
+            Assert.Equal(ULINT#2, myTask._messenger.MessageCode);           
+        END_METHOD     
+        
+        {Test}
+        METHOD PUBLIC execute_call_without_valid_rtm_should_return_an_error
+            // Arrange/Act
+            myTask.Initialize(_context);
+            _context.Open();
+            myTask.Execute();          
+            _context.Close();
+
+           //Assert 
+            Assert.Equal(TRUE, myTask.HasError());           
+        END_METHOD     
+
+        {Test}
+        METHOD PUBLIC execute_call_without_valid_rtm_should_return_RtmInvalid_as_an_error_detail
+            // Arrange/Act
+            myTask.Initialize(_context);
+            _context.Open();
+            myTask.Execute();          
+            _context.Close();
+
+           //Assert 
+            Assert.Equal(TRUE, THIS.AreEqual('RtmInvalid', myTask.ErrorDetails));           
+        END_METHOD     
+        
+        {Test}
+        METHOD PUBLIC execute_call_without_valid_rtm_should_change_messenger_state_to_IsActive
+            // Arrange/Act
+            myTask.Initialize(_context);
+            _context.Open();
+            myTask.Execute();          
+            _context.Close();
+
+           //Assert 
+            Assert.Equal(TRUE, myTask._messenger.IsActive);           
+        END_METHOD     
+        
+        {Test}
+        METHOD PUBLIC execute_call_without_valid_rtm_should_change_messenger_code_to_3
+            // Arrange/Act
+            myTask.Initialize(_context);
+            _context.Open();
+            myTask.Execute();          
+            _context.Close();
+
+           //Assert 
+            Assert.Equal(ULINT#3, myTask._messenger.MessageCode);           
+        END_METHOD     
+        
+        
     END_CLASS
 END_NAMESPACE

@@ -158,10 +158,10 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
     {S7.extern=ReadWrite}
     CLASS SequencerContainerTests
         VAR PROTECTED        
-            _context   : TestContext;
-            _sequencer : MySequencer;
+            _context    : TestContext;
+            _sequencer  : MySequencer;
             _stepState  :   eAxoTaskState;
-            _counter : ULINT;
+            _counter    : ULINT;
         END_VAR    
 
         METHOD EqualeAxoTaskState : BOOL
@@ -241,15 +241,21 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         END_METHOD
 
         VAR PROTECTED       
-            _contextClean    :   TestContext;
-            _sequencerClean  :   MySequencer;
-            _stepStateClean  :   eAxoTaskState;
-            _counterClean    :   ULINT;
+            _contextClean   :   TestContext;
+            _rtc            :   AXOpen.Core.Dummies.MockAxoRtc;
+            _rtm            :   AXOpen.Core.Dummies.MockAxoRtm;
+            _sequencerClean :   MySequencer;
+            _stepStateClean :   eAxoTaskState;
+            _counterClean   :   ULINT;
         END_VAR    
 
         {TestSetup}
         METHOD PUBLIC TestSetup
             _context    :=  _contextClean;
+            _rtm.SetElapsed(LTIME#2s);
+            _context.InjectRtm(_rtm);
+            _rtc.SetNowUTC(LDATE_AND_TIME#2012-01-12-15:58:12.123);
+            _context.InjectRtc(_rtc);
             _sequencer  :=  _sequencerClean;
             _stepState  :=  _stepStateClean;
             _counter    :=  _counterClean;

@@ -94,7 +94,18 @@ NAMESPACE AXOpen.Core.Dummies
             NULL_RTM : _NULL_RTM;
             _rtm : IAxoRtm;
         END_VAR    
-        METHOD PUBLIC GetRtm : AXOpen.Rtm.IAxoRtm IF(_rtm = NULL) THEN GetRtm := NULL_RTM; ELSE GetRtm := _rtm; END_IF; END_METHOD
-        METHOD PUBLIC InjectRtm VAR_INPUT inRtm : AXOpen.Rtm.IAxoRtm; END_VAR _rtm := inRtm; END_METHOD            
+        METHOD PUBLIC GetRtm : AXOpen.Rtm.IAxoRtm 
+            IF(_rtm = NULL) THEN 
+                GetRtm := NULL_RTM; 
+            ELSE 
+                GetRtm := _rtm; 
+            END_IF; 
+        END_METHOD
+        METHOD PUBLIC InjectRtm 
+            VAR_INPUT 
+                inRtm : AXOpen.Rtm.IAxoRtm;
+            END_VAR 
+            _rtm := inRtm; 
+        END_METHOD            
     END_CLASS          
 END_NAMESPACE
