@@ -77,6 +77,10 @@ NAMESPACE AXOpen.Inspectors
                     END_IF;
 
                     _inspectorIndentity := _parentInspectorRef^.GetIdentity();
+                    THIS.SetSuspendCyclicExecuteIsNotCalledCheck(TRUE);
+                    THIS.SetSuspendMultipleExecuteCallCheck(TRUE);
+                    THIS.SetSuspendRtmCheck(TRUE);
+                    
                     THIS.Invoke();
                     SUPER.Execute();
 
