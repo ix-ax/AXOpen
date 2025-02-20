@@ -43,62 +43,7 @@ NAMESPACE AXOpen.Messaging.Static
             ActiveContextCount : ULINT;
             Context : IAxoContext;         
         END_VAR
-       
-        ///<summary>
-        /// Ensures the inicialization of the instance, so as the deactivation of the message. Must be called cyclically.
-        ///</summary>
-        METHOD PUBLIC Serve 
-            VAR_INPUT
-                inContext : IAxoContext;
-            END_VAR     
-
-            IF  _context_ = NULL THEN  
-                IF inContext = NULL THEN
-                    RETURN;
-                END_IF;
-
-                THIS.Initialize(inContext);
-                Context := inContext; // Duplicity!!!
-            END_IF;
-
-            IF THIS.IsActive AND NOT THIS.AcknowledgedBeforeFallen THEN
-                IF AcknowledgementRequired THEN
-                    THIS.MessengerState := eAxoMessengerState#ActiveNoAck;                 
-                ELSE
-                    THIS.MessengerState := eAxoMessengerState#Active;                 
-                END_IF;
-            END_IF;
-
-            IF MessageCode = ULINT#0 THEN
-                IF IsActive THEN
-                    IF Context.OpenCycleCount() - ActiveContextCount > UINT#1 THEN
-                        THIS.Deactivate();
-                    END_IF;
-                ELSIF AcknowledgedBeforeFallen THEN
-                    AcknowledgedBeforeFallen := FALSE;
-                    THIS.MessengerState := eAxoMessengerState#ActiveAckn;       
-                END_IF;                
-                IF AcknowledgeRequest THEN
-                    THIS.Acknowledge();                    
-                END_IF;
-            ELSE
-                IF AcknowledgeRequest THEN
-                    THIS.Acknowledge(MessageCode);                    
-                END_IF;
-            END_IF;
-
-            IF(THIS.WaitingForAcknowledge) THEN
-                THIS.MessengerState := eAxoMessengerState#NotActiveWaitingAckn;  
-            END_IF;                     
-
-            IF(THIS.MessengerState <> eAxoMessengerState#Idle && THIS.Category >= eAxoMessageCategory#Error) THEN
-                THIS.AggregateMessage(LINT#1); 
-            ELSE
-                THIS.AggregateMessage(LINT#0); 
-            END_IF;    
-
-        END_METHOD
-        
+                     
         ///<summary>
         /// Ensures the inicialization of the instance, so as the deactivation of the message. Must be called cyclically.
         ///</summary>
@@ -112,8 +57,7 @@ NAMESPACE AXOpen.Messaging.Static
                     RETURN;
                 END_IF;
 
-                THIS.Initialize(inObject);
-                THIS.Initialize(inObject.GetContext());                
+                THIS.Initialize(inObject);                
                 Context := inObject.GetContext(); // Duplicity!!!
             END_IF;
 

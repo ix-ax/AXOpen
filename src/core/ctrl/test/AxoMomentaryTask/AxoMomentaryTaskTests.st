@@ -68,12 +68,14 @@ NAMESPACE AXOpen.Core.AxoMomentaryTask_Tests
     CLASS AxoMomentaryTaskUnitTests 
         VAR PROTECTED
            _context : TestContext;
+           _rootObject : MockAxoObject;
            myTask : MyTask;
             initValue : ULINT;
         END_VAR    
 
         METHOD PRIVATE Initialize
-            myTask.Initialize(_context);
+            _rootObject.InitializeWithContext(_context);
+            myTask.Initialize(_rootObject);
         END_METHOD
         
         VAR

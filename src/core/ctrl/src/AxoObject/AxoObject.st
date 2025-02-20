@@ -91,7 +91,7 @@ NAMESPACE AXOpen.Core
         /// This method should be called only once upon the program start.
         /// Any subsequent call are ignored.
         ///</summary>
-        METHOD PUBLIC Initialize
+        METHOD PUBLIC InitializeWithContext
             VAR_INPUT
                 inContext : IAxoContext;
             END_VAR   

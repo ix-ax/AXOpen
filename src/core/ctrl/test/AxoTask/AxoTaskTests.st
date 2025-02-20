@@ -83,6 +83,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
     CLASS AxoTaskUnitTests 
         VAR PROTECTED
            _context         :   TestContext;
+           _rootObject : MockAxoObject;
            myTask           :   MyTask;
            expState         :   eAxoTaskState;
            actState         :   eAxoTaskState;
@@ -95,7 +96,8 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             _context.InjectRtm(_rtm);
             _rtc.SetNowUTC(LDATE_AND_TIME#2012-01-12-15:58:12.123);
             _context.InjectRtc(_rtc);
-            myTask.Initialize(_context);
+            _rootObject.InitializeWithContext(_context);
+            myTask.Initialize(_rootObject);
         END_METHOD
 
         METHOD PRIVATE InitializeInvokeExecute
@@ -1429,7 +1431,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
         {Test}
         METHOD PUBLIC execute_call_without_valid_rtm_should_return_an_error
             // Arrange/Act
-            myTask.Initialize(_context);
+            myTask.Initialize(_rootObject);
             _context.Open();
             myTask.Execute();          
             _context.Close();
@@ -1441,7 +1443,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
         {Test}
         METHOD PUBLIC execute_call_without_valid_rtm_should_return_RtmInvalid_as_an_error_detail
             // Arrange/Act
-            myTask.Initialize(_context);
+            myTask.Initialize(_rootObject);
             _context.Open();
             myTask.Execute();          
             _context.Close();
@@ -1453,7 +1455,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
         {Test}
         METHOD PUBLIC execute_call_without_valid_rtm_should_change_messenger_state_to_IsActive
             // Arrange/Act
-            myTask.Initialize(_context);
+            myTask.Initialize(_rootObject);
             _context.Open();
             myTask.Execute();          
             _context.Close();
@@ -1465,7 +1467,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
         {Test}
         METHOD PUBLIC execute_call_without_valid_rtm_should_change_messenger_code_to_3
             // Arrange/Act
-            myTask.Initialize(_context);
+            myTask.Initialize(_rootObject);
             _context.Open();
             myTask.Execute();          
             _context.Close();

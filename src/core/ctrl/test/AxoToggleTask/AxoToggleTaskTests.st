@@ -67,12 +67,14 @@ NAMESPACE AXOpen.Core.AxoToggleTask_Tests
     CLASS AxoToggleTaskUnitTests 
         VAR PROTECTED
            _context : TestContext;
+           _rootObject : MockAxoObject;
            myTask : MyTask;
             initValue : ULINT;
         END_VAR    
 
         METHOD PRIVATE Initialize
-            myTask.Initialize(_context);
+            _rootObject.InitializeWithContext(_context);
+            myTask.Initialize(_rootObject);
         END_METHOD
 
         METHOD PRIVATE SwitchOn
