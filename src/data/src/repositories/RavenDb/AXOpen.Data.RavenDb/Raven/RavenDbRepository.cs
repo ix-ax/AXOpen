@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using AXOpen.Base;
 using AXOpen.Base.Data;
+using AXOpen.Base.Data.Query;
 using Raven.Client.Documents;
 using Raven.Client.Documents.Operations;
 using Raven.Client.Exceptions;
@@ -220,17 +221,17 @@ namespace AXOpen.Data.RavenDb
             }
         }
 
-        protected override IEnumerable<T> GetRecordsNvi(IEnumerable<Expression<Func<T, bool>>> predicates, int limit, int skip, string sortExpresion, bool sortAscending)
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override IEnumerable<string> GetEntityIdsNvi(IEnumerable<Expression<Func<T, bool>>> predicates, int limit, int skip, string sortExpresion, bool sortAscending)
+        protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates, int limit, int skip)
         {
             throw new NotImplementedException();
         }
 
         protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates, int limit, int skip)
         {
             throw new NotImplementedException();
         }

@@ -6,12 +6,13 @@
 // Third party licenses: https://github.com/inxton/axsharp/blob/dev/notices.md
 
 using AXOpen.Base.Data;
+using AXOpen.Base.Data.Query;
+using System.Linq.Expressions;
 
 namespace AXOpen.Data;
 
 public class AxoCompoundRepository : IRepository
 {
-
     public AxoCompoundRepository(IEnumerable<IAxoDataExchange> dataFragments)
     {
         DataFragments = dataFragments;
@@ -20,6 +21,7 @@ public class AxoCompoundRepository : IRepository
     private IEnumerable<IAxoDataExchange> DataFragments { get; }
 
     public long Count { get; }
+
     public void Create(string identifier, object data)
     {
         foreach (var dataFragment in DataFragments)
@@ -49,7 +51,7 @@ public class AxoCompoundRepository : IRepository
     public dynamic Read(string identifier)
     {
         foreach (var dataFragment in DataFragments)
-        { 
+        {
             //dataFragment.RefUIData.PlainToShadow(dataFragment.Repository.Read(identifier));
         }
 
@@ -69,13 +71,22 @@ public class AxoCompoundRepository : IRepository
         return ((dynamic)DataFragments.First().Repository).GetRecords(identifier, limit, skip, searchMode, sortExpresion, sortAscending);
     }
 
-    public IEnumerable<IBrowsableDataObject> GetRecords(List<string> identifiers)
+    public IEnumerable<IBrowsableDataObject> GetRecords(IEnumerable<string> identifiers)
     {
+        var repo  = DataFragments.First().Repository;
+
+        //var data = repo.GetRecords(identifiers);
+
         return ((dynamic)DataFragments.First().Repository).GetRecords(identifiers);
     }
 
     public IEnumerable<IBrowsableDataObject> GetRecords(string identifier)
     {
         return ((dynamic)DataFragments.First().Repository).GetRecords(identifier);
+    }
+
+    public long FilteredCount(PredicateContainer predicates)
+    {
+        throw new NotImplementedException();
     }
 }

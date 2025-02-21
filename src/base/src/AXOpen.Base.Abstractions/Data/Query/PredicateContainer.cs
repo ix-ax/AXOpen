@@ -1,12 +1,51 @@
-﻿namespace AXOpen.Data.Query
+﻿namespace AXOpen.Base.Data.Query
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Linq.Expressions;
 
     public class PredicateContainer
     {
         private readonly Dictionary<Type, List<LambdaExpression>> _predicates = new();
+
+        private readonly Dictionary<Type, List<SortSettings>> _sorting = new();
+
+        public void AddSortMember<T>(MemberExpression sortingMember, bool isAscending)
+        {
+            var type = typeof(T);
+
+            var settings = new SortSettings()
+            {
+                MemberName = sortingMember.Member.Name,
+                IsAscending = isAscending
+            };
+
+            if (!_sorting.ContainsKey(type))
+            {
+                _sorting[type] = new List<SortSettings>() { settings };
+            }
+
+            _sorting[type].Add(settings);
+        }
+
+        public void AddSortMember<T>(MemberExpression sortingMember, bool isAscending, T pocoType)
+        {
+            var type = typeof(T);
+
+            var settings = new SortSettings()
+            {
+                MemberName = sortingMember.Member.Name,
+                IsAscending = isAscending
+            };
+
+            if (!_sorting.ContainsKey(type))
+            {
+                _sorting[type] = new List<SortSettings>() { settings };
+            }
+
+            _sorting[type].Add(settings);
+        }
 
         public void AddPredicates<T>(Expression<Func<T, bool>> predicate)
         {
@@ -16,9 +55,9 @@
             }
 
             this._predicates[typeof(T)].Add(predicate);
-        } 
-        
-        public void AddPredicates(Type type, LambdaExpression predicate )
+        }
+
+        public void AddPredicates(Type type, LambdaExpression predicate)
         {
             if (!this._predicates.ContainsKey(type))
             {
@@ -43,9 +82,34 @@
             return this._predicates.ContainsKey(typeof(T));
         }
 
+        public int ContainsTypeCount()
+        {
+            return this._predicates.Count;
+        }
+
         public bool ContainsType(Type targetType)
         {
             return this._predicates.ContainsKey(targetType);
+        }
+
+        public List<SortSettings>? GetSorting<T>()
+        {
+            if (!_sorting.ContainsKey(typeof(T)))
+            {
+                return null;
+            }
+
+            return _sorting[typeof(T)].ToList();
+        }
+
+        public List<SortSettings>? GetSorting<T>(T pocoType)
+        {
+            if (!_sorting.ContainsKey(typeof(T)))
+            {
+                return null;
+            }
+
+            return _sorting[typeof(T)].ToList();
         }
 
         public List<Expression<Func<T, bool>>> GetPredicates<T>()

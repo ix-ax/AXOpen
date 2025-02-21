@@ -6,6 +6,7 @@ using System.Linq;
 using AXOpen.Base.Data;
 using AXOpen.Data;
 using System.Linq.Expressions;
+using AXOpen.Base.Data.Query;
 
 namespace AXOpen.Data.MongoDb
 {
@@ -46,7 +47,9 @@ namespace AXOpen.Data.MongoDb
         }
 
         private bool RecordExists(string identifier)
-        { return collection.Find(p => p.DataEntityId == identifier).Count() >= 1; }
+        {
+            return collection.Find(p => p.DataEntityId == identifier).Count() >= 1;
+        }
 
         protected override void CreateNvi(string identifier, T data)
         {
@@ -175,29 +178,55 @@ namespace AXOpen.Data.MongoDb
         }
 
         protected override IEnumerable<T> GetRecordsNvi(
-            IEnumerable<Expression<Func<T, bool>>> predicates,
+            PredicateContainer predicates,
             int limit = 100,
-            int skip = 0,
-            string sortExpression = "Default",
-            bool sortAscending = false)
+            int skip = 0
+            )
         {
-            // 1. Set up sorting.
+            var sortSettings = predicates.GetSorting<T>();
             var sortBuilder = new SortDefinitionBuilder<T>();
-            SortDefinition<T> sortDefinition = string.IsNullOrWhiteSpace(sortExpression) ||
-                                                 sortExpression.Equals("Default", StringComparison.OrdinalIgnoreCase)
-                ? (sortAscending
-                    ? sortBuilder.Ascending("$natural")
-                    : sortBuilder.Descending("$natural"))
-                : (sortAscending
-                    ? sortBuilder.Ascending(sortExpression)
-                    : sortBuilder.Descending(sortExpression));
+
+            SortDefinition<T> sortDefinition;
+
+            if (sortSettings == null || sortSettings.Count == 0)
+            {
+                sortDefinition = sortBuilder.Descending("$natural");
+            }
+            else
+            {
+                var sortDefinitions = new List<SortDefinition<T>>();
+
+                foreach (var sortSet in sortSettings)
+                {
+                    string sortExpression = sortSet.MemberName;
+                    bool sortAscending = sortSet.IsAscending;
+
+                    SortDefinition<T> singleSort = string.IsNullOrWhiteSpace(sortExpression) ||
+                                                   sortExpression.Equals("Default", StringComparison.OrdinalIgnoreCase)
+                        ? (sortAscending
+                            ? sortBuilder.Ascending("$natural")
+                            : sortBuilder.Descending("$natural"))
+                        : (sortAscending
+                            ? sortBuilder.Ascending(sortExpression)
+                            : sortBuilder.Descending(sortExpression));
+
+                    sortDefinitions.Add(singleSort);
+                }
+
+                sortDefinition = sortDefinitions.Count == 1
+                    ? sortDefinitions[0]
+                    : sortBuilder.Combine(sortDefinitions);
+            }
 
             // 2. Build filter from predicates.
             FilterDefinition<T> filter = Builders<T>.Filter.Empty;
-            if (predicates != null && predicates.Any())
+
+            var predict = predicates.GetPredicates<T>();
+
+            if (predict != null && predict.Any())
             {
                 // Each predicate is now an Expression<Func<T, bool>>, which is what Filter.Where expects.
-                var filters = predicates.Select(predicate => Builders<T>.Filter.Where(predicate));
+                var filters = predict.Select(predicate => Builders<T>.Filter.Where(predicate));
                 filter = Builders<T>.Filter.And(filters);
             }
 
@@ -225,29 +254,55 @@ namespace AXOpen.Data.MongoDb
         }
 
         protected override IEnumerable<string> GetEntityIdsNvi(
-            IEnumerable<Expression<Func<T, bool>>> predicates,
+            PredicateContainer predicates,
             int limit = 100,
-            int skip = 0,
-            string sortExpression = "Default",
-            bool sortAscending = false)
+            int skip = 0
+            )
         {
-            // 1. Set up sorting.
+            var sortSettings = predicates.GetSorting<T>();
             var sortBuilder = new SortDefinitionBuilder<T>();
-            SortDefinition<T> sortDefinition = string.IsNullOrWhiteSpace(sortExpression) ||
-                                                 sortExpression.Equals("Default", StringComparison.OrdinalIgnoreCase)
-                ? (sortAscending
-                    ? sortBuilder.Ascending("$natural")
-                    : sortBuilder.Descending("$natural"))
-                : (sortAscending
-                    ? sortBuilder.Ascending(sortExpression)
-                    : sortBuilder.Descending(sortExpression));
+
+            SortDefinition<T> sortDefinition;
+
+            if (sortSettings == null || sortSettings.Count == 0)
+            {
+                sortDefinition = sortBuilder.Descending("$natural");
+            }
+            else
+            {
+                var sortDefinitions = new List<SortDefinition<T>>();
+
+                foreach (var sortSet in sortSettings)
+                {
+                    string sortExpression = sortSet.MemberName;
+                    bool sortAscending = sortSet.IsAscending;
+
+                    SortDefinition<T> singleSort = string.IsNullOrWhiteSpace(sortExpression) ||
+                                                   sortExpression.Equals("Default", StringComparison.OrdinalIgnoreCase)
+                        ? (sortAscending
+                            ? sortBuilder.Ascending("$natural")
+                            : sortBuilder.Descending("$natural"))
+                        : (sortAscending
+                            ? sortBuilder.Ascending(sortExpression)
+                            : sortBuilder.Descending(sortExpression));
+
+                    sortDefinitions.Add(singleSort);
+                }
+
+                sortDefinition = sortDefinitions.Count == 1
+                    ? sortDefinitions[0]
+                    : sortBuilder.Combine(sortDefinitions);
+            }
 
             // 2. Build filter from predicates.
             FilterDefinition<T> filter = Builders<T>.Filter.Empty;
-            if (predicates != null && predicates.Any())
+
+            var predict = predicates.GetPredicates<T>();
+
+            if (predict != null && predict.Any())
             {
                 // Each predicate is now an Expression<Func<T, bool>>, which is what Filter.Where expects.
-                var filters = predicates.Select(predicate => Builders<T>.Filter.Where(predicate));
+                var filters = predict.Select(predicate => Builders<T>.Filter.Where(predicate));
                 filter = Builders<T>.Filter.And(filters);
             }
 

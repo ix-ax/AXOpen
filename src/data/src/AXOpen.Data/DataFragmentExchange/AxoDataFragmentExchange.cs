@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Security.Principal;
 using System.Xml;
 using AXOpen.Base.Data;
+using AXOpen.Base.Data.Query;
 using AXOpen.Data.Query;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -23,6 +24,8 @@ public partial class AxoDataFragmentExchange
 
     private IRepository? _repository;
     protected IAxoDataExchange[] DataFragments { get; private set; }
+
+    public long LastFragmentQueryCount { set; get; }
 
     /// <summary>
     /// Creates data fragments from properties annotated with <see cref="AxoDataFragmentAttribute" />
@@ -488,13 +491,13 @@ public partial class AxoDataFragmentExchange
     }
 
     public IEnumerable<IBrowsableDataObject> GetRecords(PredicateContainer predicates,
-        int limit, int skip, string sortExpression, bool sortAscending)
+        int limit, int skip)
     {
         List<List<string>> fragmentEntities = new();
 
         Parallel.ForEach(DataFragments.Where(fragment => predicates.ContainsType(fragment.GetPlainObjectType().First())), fragment =>
         {
-            var ids = fragment.GetEntityIds(predicates, limit, skip, sortExpression, sortAscending).ToList();
+            var ids = fragment.GetEntityIds(predicates, limit, skip).ToList();
             lock (fragmentEntities)
             {
                 fragmentEntities.Add(ids);
@@ -511,15 +514,21 @@ public partial class AxoDataFragmentExchange
                 .ToList()
             : fragmentEntities.FirstOrDefault() ?? new List<string>();
 
-        return GetRecords(commonEntities).ToList();
+        this.LastFragmentQueryCount = commonEntities.Count;
+
+        commonEntities.Sort();
+
+        var toFind = commonEntities.Skip(skip).Take(limit).ToList();
+
+        return GetRecords(toFind).ToList();
     }
 
-    public IEnumerable<IBrowsableDataObject> GetRecords(List<string> identifiers)
+    public IEnumerable<IBrowsableDataObject> GetRecords(IEnumerable<string> identifiers)
     {
         return ((dynamic)Repository).GetRecords(identifiers);
     }
 
-    public IEnumerable<string> GetEntityIds(PredicateContainer predicates, int limit, int skip, string sortExpression, bool sortAscending)
+    public IEnumerable<string> GetEntityIds(PredicateContainer predicates, int limit, int skip)
     {
         throw new NotImplementedException();
     }

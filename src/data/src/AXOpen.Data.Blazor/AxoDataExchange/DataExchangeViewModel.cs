@@ -20,6 +20,8 @@ using Newtonsoft.Json.Linq;
 using System.ComponentModel;
 using Microsoft.AspNetCore.Components.Authorization;
 using System.Security.Claims;
+using AXOpen.Data.Query;
+using AXOpen.Base.Data.Query;
 
 namespace AXOpen.Data
 {
@@ -37,8 +39,8 @@ namespace AXOpen.Data
             set => this.DataExchange = (IAxoDataExchange)value;
         }
 
-
         private ITwinObject _refUIData;
+
         public ITwinObject RefUIData
         {
             get
@@ -142,14 +144,17 @@ namespace AXOpen.Data
             return false;
         }
 
-        public Task FillObservableRecordsAsync()
+        public Task FillObservableRecordsAsync(PredicateContainer? externalPredicates = null)
         {
-            //let another thread to load records, we need main thread to show loading symbol in blazor page
             return Task.Run(() =>
             {
                 IsBusy = true;
-                UpdateObservableRecords();
+               
+
+                UpdateObservableRecords(externalPredicates);
+
                 IsBusy = false;
+               
             });
         }
 
@@ -171,14 +176,40 @@ namespace AXOpen.Data
             return Records;
         }
 
+        public IEnumerable<IBrowsableDataObject> Filter(PredicateContainer predicates, int limit = 10, int skip = 0, string sortExpresion = "Default", bool sortAscending = false)
+        {
+            var records = this.DataExchange.GetRecords(predicates, limit, skip);
+
+            lock (_viewRefreshMutex)
+            {
+                Records.Clear();
+                foreach (var item in records)
+                {
+                    this.Records.Add(item);
+                }
+
+                FilteredCount = DataExchange.LastFragmentQueryCount;
+            }
+
+            return Records;
+        }
+
         public long CountFiltered(string id, eSearchMode searchMode = eSearchMode.Exact)
         {
             return this.DataExchange.Repository.FilteredCount(id, searchMode);
         }
+               
 
-        public void UpdateObservableRecords()
+        public void UpdateObservableRecords(PredicateContainer? externalPredicates = null)
         {
-            Filter(FilterById, Limit, Page * Limit, SearchMode, SortExpresion, SortAscending).ToList();
+            if (externalPredicates != null)
+            {
+                Filter(externalPredicates, Limit, Page * Limit, SortExpresion, SortAscending);
+            }
+            else
+            {
+                Filter(FilterById, Limit, Page * Limit, SearchMode, SortExpresion, SortAscending);
+            }
         }
 
         public async Task Filter()

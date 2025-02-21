@@ -241,7 +241,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
         StateHasChanged();
     }
 
-
+    //-inject
     protected void ReloadRecordAfterEditWithoutModal()
     {
         if (this.ModalDataView) return; // make a sense when is not modal window

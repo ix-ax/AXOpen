@@ -1,5 +1,6 @@
 ﻿namespace Tests_L4
 {
+    using AXOpen.Base.Data.Query;
     using Pocos.Exchange_Test_L4;
     using System;
     using System.Linq;
@@ -25,13 +26,13 @@
         [Fact]
         public void should_return_entities()
         {
-            IEnumerable<Expression<Func<ProcessData, bool>>> predicates = new List<Expression<Func<ProcessData, bool>>>
-                {
-                    p => (p.vInt > 2 && (p.NestObj.vInt > 3 && p.NestObj.vInt <= 8)),
-                    p => (p.vBool == true),
-                };
 
-            var result = _fixture._repository.GetRecords(predicates);
+            var pc = new PredicateContainer();
+
+            pc.AddPredicates<ProcessData>(p => (p.vInt > 2 && (p.NestObj.vInt > 3 && p.NestObj.vInt <= 8)));
+            pc.AddPredicates<ProcessData>(p => (p.vBool == true));
+
+            var result = _fixture._repository.GetRecords(pc,100,0);
 
             Assert.Equal( 3, result.Count());
         }
@@ -39,13 +40,14 @@
         [Fact]
         public void should_return_entity_ids()
         {
-            IEnumerable<Expression<Func<ProcessData, bool>>> predicates = new List<Expression<Func<ProcessData, bool>>>
-                {
-                    p => (p.vInt > 2 && (p.NestObj.vInt > 3 && p.NestObj.vInt <= 8)),
-                    p => (p.vBool == true),
-                };
 
-            IEnumerable<string> result = _fixture._repository.GetEntityIds(predicates);
+            var pc = new PredicateContainer();
+
+            pc.AddPredicates<ProcessData>(p => (p.vInt > 2 && (p.NestObj.vInt > 3 && p.NestObj.vInt <= 8)));
+            pc.AddPredicates<ProcessData>(p => (p.vBool == true));
+
+
+            IEnumerable<string> result = _fixture._repository.GetEntityIds(pc);
 
             Assert.Equal(3, result.Count());
         }

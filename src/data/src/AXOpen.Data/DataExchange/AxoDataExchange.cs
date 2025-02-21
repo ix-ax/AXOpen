@@ -17,7 +17,7 @@ using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
 using AXOpen.Base.Data;
-using AXOpen.Data.Query;
+using AXOpen.Base.Data.Query;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components.Authorization;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -36,6 +36,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     public ITwinObject? DataExchangeTwinObject => DataEntity as ITwinObject;
 
     private TOnline _dataEntity;
+    public long LastFragmentQueryCount { set; get; }
 
     public IEnumerable<Type> GetPlainObjectType()
     {
@@ -204,36 +205,19 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     }
 
     public IEnumerable<IBrowsableDataObject> GetRecords(
-        PredicateContainer predicates,
-        int limit, int skip, string sortExpression, bool sortAscending)
+        PredicateContainer predicates, int limit, int skip)
     {
-        var predict = predicates.GetPredicates<TPlain>();
-
-        if (predict == null)
-        {
-            return new List<IBrowsableDataObject>();
-        }
-
-        return DataRepository.GetRecords(predict, limit, skip, sortExpression, sortAscending).Cast<IBrowsableDataObject>();
+        return DataRepository.GetRecords(predicates, limit, skip).Cast<IBrowsableDataObject>();
     }
 
-
-    public IEnumerable<IBrowsableDataObject> GetRecords(List<string> identifiers)
+    public IEnumerable<IBrowsableDataObject> GetRecords(IEnumerable<string> identifiers)
     {
         return DataRepository.GetRecords(identifiers).Cast<IBrowsableDataObject>();
     }
 
-    public IEnumerable<string> GetEntityIds(PredicateContainer predicates,
-        int limit, int skip, string sortExpression, bool sortAscending)
+    public IEnumerable<string> GetEntityIds(PredicateContainer predicates, int limit, int skip)
     {
-        var predict = predicates.GetPredicates<TPlain>();
-
-        if (predict == null)
-        {
-            return new List<string>();
-        }
-
-        return DataRepository.GetEntityIds(predict, limit, skip, sortExpression, sortAscending).ToList();
+        return DataRepository.GetEntityIds(predicates, limit, skip).ToList();
     }
 
     /// <inheritdoc />

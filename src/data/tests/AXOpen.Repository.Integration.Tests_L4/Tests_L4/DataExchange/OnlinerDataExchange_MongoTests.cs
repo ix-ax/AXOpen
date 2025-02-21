@@ -1,5 +1,6 @@
 ﻿namespace Tests_L4
 {
+    using AXOpen.Base.Data.Query;
     using AXOpen.Data;
     using AXOpen.Data.Query;
     using Exchange_Test_L4;
@@ -49,7 +50,7 @@
 
             c.AddPredicates<Pocos.Exchange_Test_L4.ProcessData>(predicates);
 
-            var result = _exchange.GetRecords(c, 100, 0, "", false);
+            var result = _exchange.GetRecords(c, 100, 0);
 
             Assert.Equal(3, result.Count());
         }
@@ -102,7 +103,7 @@
 
             c.AddPredicates(plainSymbolBuilder.RootType, lambda);
 
-            var records = _exchange.GetRecords(c, 100, 0, "", false);
+            var records = _exchange.GetRecords(c, 100, 0);
 
             Assert.Equal(1, records.Count());
         }
@@ -146,7 +147,7 @@
 
             c.AddPredicates(plainSymbolBuilder.RootType, lambda);
 
-            var records = _exchange.GetRecords(c, 100, 0, "", false);
+            var records = _exchange.GetRecords(c, 100, 0);
 
             Assert.Equal(4, records.Count());
         }
@@ -181,7 +182,7 @@
 
             var pc = new PredicateContainer().AddQuerySymbolToPredicates(plainBuilders,config);
 
-             var records = _exchange.GetRecords(pc, 100, 0, "", false);
+             var records = _exchange.GetRecords(pc, 100, 0);
 
             Assert.Equal(1, records.Count());
         }
@@ -214,7 +215,7 @@
 
             var pc = new PredicateContainer().AddQuerySymbolToPredicates(plainBuilders, config);
 
-            var records = _exchange.GetRecords(pc, 100, 0, "", false);
+            var records = _exchange.GetRecords(pc, 100, 0);
 
             Assert.Equal(1, records.Count());
         }

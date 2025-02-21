@@ -1,12 +1,8 @@
-﻿using AngleSharp.Dom;
-using AXOpen.Data;
-using AXSharp.Connector;
+﻿
+using AXOpen.Base.Data.Query;
 using Microsoft.AspNetCore.Components;
-using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics.CodeAnalysis;
-using System.Reflection.Emit;
+using System.Diagnostics.Metrics;
+
 
 namespace AXOpen.Data.Query
 {
@@ -121,7 +117,7 @@ namespace AXOpen.Data.Query
 
         public Task<bool> AddSymbolToQuery(string symbol)
         {
-            this.Queries.Add( this.PlainBuilders.CreateNewConfiguration(symbol));
+            this.Queries.Add(this.PlainBuilders.CreateNewConfiguration(symbol));
 
             return Task.FromResult(true);
         }
@@ -133,13 +129,33 @@ namespace AXOpen.Data.Query
         }
 
 
-        public Task<bool> ExecuteFilter()
+        public async Task ExecuteFilter()
         {
+            PredicateContainer = null;
+            PredicateContainer = new PredicateContainer();
 
-           
-            
-            return Task.FromResult(true);
+            foreach (var symbolConfig in this.Queries)
+            {
+                this.PredicateContainer.AddQuerySymbolToPredicates(PlainBuilders, symbolConfig);
+            }
+
+            await Vm.FillObservableRecordsAsync(PredicateContainer);
+
+            if (Vm.StateHasChangedDelegate != null)
+                Vm.StateHasChangedDelegate.Invoke();
         }
+
+        public int Counter { set; get; } = 0;
+
+        public async Task SimulateDelay()
+        {
+            Counter++;
+            await Task.Delay(3000);
+            Counter++;
+            await Task.Delay(3000);
+            Counter++;
+        }
+
 
         public void Dispose()
         {

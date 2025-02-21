@@ -8,6 +8,7 @@ using AXOpen.Base.Data;
 using System.Linq.Expressions;
 using Microsoft.AspNetCore.Components.Authorization;
 using System.Security.Principal;
+using AXOpen.Base.Data.Query;
 
 namespace AXOpen.Data
 {
@@ -29,6 +30,7 @@ namespace AXOpen.Data
         IRepository? Repository { get; }
 
         bool ShouldVerifyHash { get; set; }
+        long LastFragmentQueryCount { get; set; }
 
         /// <summary>
         /// Stop observing changes of the data object with changeTracker.
@@ -196,11 +198,11 @@ namespace AXOpen.Data
         IEnumerable<IBrowsableDataObject> GetRecords(string identifier, int limit, int skip,
             eSearchMode searchMode, string sortExpression, bool sortAscending);
 
-        IEnumerable<IBrowsableDataObject> GetRecords(Query.PredicateContainer predicates,
-            int limit, int skip, string sortExpression, bool sortAscending);
+        IEnumerable<IBrowsableDataObject> GetRecords(PredicateContainer predicates,
+            int limit, int skip);
 
-        IEnumerable<string> GetEntityIds(Query.PredicateContainer predicates,
-            int limit, int skip, string sortExpression, bool sortAscending);
+        IEnumerable<string> GetEntityIds(PredicateContainer predicates,
+            int limit, int skip);
 
         /// <summary>
         /// Gets record meeting criteria from the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/> where the data entity id matches exactly the argument.
@@ -209,7 +211,7 @@ namespace AXOpen.Data
         /// <returns>Record from the associated repository meeting criteria.</returns>
         IEnumerable<IBrowsableDataObject> GetRecords(string identifier);
 
-        IEnumerable<IBrowsableDataObject> GetRecords(List<string> identifiers);
+        IEnumerable<IBrowsableDataObject> GetRecords(IEnumerable<string> identifiers);
 
         /// <summary>
         /// Export data from the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>.

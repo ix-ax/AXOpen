@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AXOpen.Base.Data.Query;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -278,13 +279,13 @@ namespace AXOpen.Base.Data
         /// <returns></returns>
         protected abstract IEnumerable<T> GetRecordsNvi(string identifierContent, int limit, int skip, eSearchMode searchMode, string sortExpresion, bool sortAscending);
 
-        protected abstract IEnumerable<T> GetRecordsNvi(IEnumerable<Expression<Func<T, bool>>> predicates,
-            int limit, int skip, string sortExpresion, bool sortAscending);
+        protected abstract IEnumerable<T> GetRecordsNvi(PredicateContainer predicates,
+            int limit, int skip);
 
         protected abstract IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids);
 
-        protected abstract IEnumerable<string> GetEntityIdsNvi(IEnumerable<Expression<Func<T, bool>>> predicates,
-           int limit, int skip, string sortExpresion, bool sortAscending);
+        protected abstract IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates,
+           int limit, int skip);
 
         /// <summary>
         /// Counts records that contain given string in the id. (Concrete implementation of given repository type)
@@ -305,7 +306,7 @@ namespace AXOpen.Base.Data
         /// <param name="identifierContent">String required to be contained in the identifier of the records/documents.</param>
         /// <returns></returns>
         public long FilteredCount(string identifierContent, eSearchMode searchMode) => FilteredCountNvi(identifierContent, searchMode);
-
+       
         private volatile object mutex = new object();
 
         public bool Exists(string identifier)
@@ -453,7 +454,7 @@ namespace AXOpen.Base.Data
             }
         }
 
-        public IEnumerable<T> GetRecords(List<string> identifiers)
+        public IEnumerable<T> GetRecords(IEnumerable<string> identifiers)
         {
             try
             {
@@ -465,11 +466,11 @@ namespace AXOpen.Base.Data
             }
         }
 
-        public IEnumerable<T> GetRecords(IEnumerable<Expression<Func<T, bool>>> predicates, int limit = 100, int skip = 0, string sortExpresion = "Default", bool sortAscending = false)
+        public IEnumerable<T> GetRecords(PredicateContainer predicates, int limit = 100, int skip = 0)
         {
             try
             {
-                return GetRecordsNvi(predicates, limit, skip, sortExpresion, sortAscending);
+                return GetRecordsNvi(predicates, limit, skip);
             }
             catch (Exception e)
             {
@@ -477,17 +478,28 @@ namespace AXOpen.Base.Data
             }
         }
 
-        public IEnumerable<string> GetEntityIds(IEnumerable<Expression<Func<T, bool>>> predicates, int limit = 100, int skip = 0, string sortExpresion = "Default", bool sortAscending = false)
+        public IEnumerable<string> GetEntityIds(PredicateContainer predicates, int limit = 100, int skip = 0)
         {
             try
             {
-                return GetEntityIdsNvi(predicates, limit, skip, sortExpresion, sortAscending);
+                return GetEntityIdsNvi(predicates, limit, skip);
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
+
+        public long FilteredCount(PredicateContainer predicates)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<T> GetRecords(PredicateContainer predicates)
+        {
+            throw new NotImplementedException();
+        }
+
 
         /// <summary>
         /// Gets <see cref="IQueryable"/> of given repository.
