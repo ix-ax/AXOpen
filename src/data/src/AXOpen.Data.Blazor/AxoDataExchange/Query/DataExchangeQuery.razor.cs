@@ -1,8 +1,6 @@
-﻿
-using AXOpen.Base.Data.Query;
+﻿using AXOpen.Base.Data.Query;
 using Microsoft.AspNetCore.Components;
 using System.Diagnostics.Metrics;
-
 
 namespace AXOpen.Data.Query
 {
@@ -32,7 +30,7 @@ namespace AXOpen.Data.Query
                 if (_SymbolsQueryFilter != value)
                 {
                     _SymbolsQueryFilter = value;
-                    FilterSymbolsAsync();
+                    UpdateSymbolList();
                 }
             }
 
@@ -42,15 +40,36 @@ namespace AXOpen.Data.Query
             }
         }
 
+        public async Task UpdateSymbolList()
+        {
+            await FilterSymbolsAsync();
+            this.StateHasChanged();
+        }
+
         public int SymbolsQueryCount { set; get; } // all symbols from query
         public int SymbolsQueryPage { set; get; }// displaing only selected page
-        public int SymbolsQueryPageLimit { set; get; } = 10;// displaing only selected page
+        public int SymbolsQueryPageLimit { set; get; } = 5;// displaing only selected page
 
         private int MaxPage =>
        (int)(SymbolsQueryCount % SymbolsQueryPageLimit == 0 ? SymbolsQueryCount / SymbolsQueryPageLimit - 1 : SymbolsQueryCount / SymbolsQueryPageLimit);
 
         public List<string> FilteredSymbols { private set; get; } = new List<string>(); // symbols for qery on selected pagge and display to te user
-        public List<string> DisplyedSymbols { private set; get; } = new List<string>(); // symbols for qery on selected pagge and display to te user
+
+        private volatile object _displaySymbolLock = new object();
+
+        private List<string> _DisplyedSymbols = new List<string>(); // symbols for qery on selected pagge and display to te user
+
+        public List<string> GetDisplaySymbols()
+        {
+            var symbolList = new List<string>();
+
+            lock (_displaySymbolLock)
+            {
+                symbolList.AddRange(_DisplyedSymbols);
+            }
+
+            return symbolList;
+        }
 
         public PredicateContainer PredicateContainer { private set; get; } = new PredicateContainer();
 
@@ -76,24 +95,25 @@ namespace AXOpen.Data.Query
 
             SymbolsQueryPage = SymbolsQueryPage * oldLimit / SymbolsQueryPageLimit;
 
-            FillObservableSymbols();
+            await FillObservableSymbols();
         }
 
         private async Task SetPageAsync(int page)
         {
             SymbolsQueryPage = page;
-            FillObservableSymbols();
+            await FillObservableSymbols();
         }
 
-        private void FillObservableSymbols()
+        private Task FillObservableSymbols()
         {
-            DisplyedSymbols.Clear();
+            return Task.Run(() =>
+            {
+                _DisplyedSymbols.Clear();
 
-            DisplyedSymbols.AddRange(
-                FilteredSymbols.Skip(SymbolsQueryPage * SymbolsQueryPageLimit).Take(SymbolsQueryPageLimit)
-                );
-
-            this.StateHasChanged();
+                _DisplyedSymbols.AddRange(
+                    FilteredSymbols.Skip(SymbolsQueryPage * SymbolsQueryPageLimit).Take(SymbolsQueryPageLimit)
+                    );
+            });
         }
 
         private int Modulo(int x, int m)
@@ -112,7 +132,7 @@ namespace AXOpen.Data.Query
                 FilteredSymbols = query;
             });
 
-            FillObservableSymbols();
+            await FillObservableSymbols();
         }
 
         public Task<bool> AddSymbolToQuery(string symbol)
@@ -121,13 +141,13 @@ namespace AXOpen.Data.Query
 
             return Task.FromResult(true);
         }
+
         public Task<bool> RemoveSymbolFromQuery(string symbol)
         {
             this.Queries.Remove(this.Queries.Where(p => p.SymbolPathWithParent == symbol).First());
 
             return Task.FromResult(true);
         }
-
 
         public async Task ExecuteFilter()
         {
@@ -144,18 +164,6 @@ namespace AXOpen.Data.Query
             if (Vm.StateHasChangedDelegate != null)
                 Vm.StateHasChangedDelegate.Invoke();
         }
-
-        public int Counter { set; get; } = 0;
-
-        public async Task SimulateDelay()
-        {
-            Counter++;
-            await Task.Delay(3000);
-            Counter++;
-            await Task.Delay(3000);
-            Counter++;
-        }
-
 
         public void Dispose()
         {

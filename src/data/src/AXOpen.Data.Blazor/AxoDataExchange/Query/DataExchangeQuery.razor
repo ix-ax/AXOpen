@@ -14,7 +14,7 @@
 
 <div class="card p-1 my-2">
 
-    @foreach (var symbol in FilteredSymbols)
+    @foreach (var symbol in GetDisplaySymbols())
     {
         <p class="m-1">
             <button class="btn btn-secondary px-2 py-1" type="button" @onclick="() => AddSymbolToQuery(symbol)">+</button>
@@ -87,18 +87,18 @@
 </div>
 
 @* <div class="card p-1 m-0"> *@
-    @foreach (var querySymbol in Queries)
-    {
-        <div class="card p-1 m-1">
-            <div class="d-flex align-items-center gap-2">
-                <button type="button" class="btn btn-danger px-3 py-0" title="Delete"
-                        @onclick="() => RemoveSymbolFromQuery(querySymbol.SymbolPathWithParent)">
-                    <i class="oi oi-trash"></i>
-                </button>
-                <QuerySymbolConfigurationView SymbolConfiguration="@querySymbol"></QuerySymbolConfigurationView>
-            </div>
+@foreach (var querySymbol in Queries)
+{
+    <div class="card p-1 m-1">
+        <div class="d-flex align-items-center gap-2">
+            <button type="button" class="btn btn-danger px-3 py-0" title="Delete"
+                    @onclick="() => RemoveSymbolFromQuery(querySymbol.SymbolPathWithParent)">
+                <i class="oi oi-trash"></i>
+            </button>
+            <QuerySymbolConfigurationView SymbolConfiguration="@querySymbol"></QuerySymbolConfigurationView>
         </div>
-    }
+    </div>
+}
 @* </div> *@
 
 @if (Queries.Count > 0)
