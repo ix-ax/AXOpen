@@ -23,13 +23,13 @@ NAMESPACE AXOpen.Probers
             THIS.Run();
         END_METHOD
 
-        METHOD PUBLIC Run            
-            VAR_INPUT
-                Context : IAxoContext;
-            END_VAR    
-            THIS.Initialize(Context);
-            THIS.Run();
-        END_METHOD
+        // METHOD PUBLIC Run            
+        //     VAR_INPUT
+        //         Context : IAxoContext;
+        //     END_VAR    
+        //     THIS.Initialize(Context);
+        //     THIS.Run();
+        // END_METHOD
 
         METHOD PROTECTED ABSTRACT Test
              
@@ -57,13 +57,13 @@ NAMESPACE AXOpen.Probers
             THIS.Run();
         END_METHOD
 
-        METHOD PUBLIC Run            
-            VAR_INPUT
-                Context : IAxoContext;
-            END_VAR    
-            THIS.Initialize(Context);
-            THIS.Run();
-        END_METHOD
+        // METHOD PUBLIC Run            
+        //     VAR_INPUT
+        //         Context : IAxoContext;
+        //     END_VAR    
+        //     THIS.Initialize(Context);
+        //     THIS.Run();
+        // END_METHOD
 
         METHOD PROTECTED ABSTRACT Test : BOOL
              

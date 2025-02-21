@@ -109,9 +109,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _elapsed := Set;
         END_METHOD       
     END_CLASS  
-
-
-    
+   
     {S7.extern=ReadWrite}
     CLASS TestContextE EXTENDS Dummies.MockAxoContext
   
@@ -192,7 +190,10 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
 
         VAR
             _sutiClean : TestContextI;
-            _suteClean : TestContextE;            
+            _suteClean : TestContextE;      
+            _rootIObject : TestObject;
+            _rootEObject : TestObject;
+    
         END_VAR    
     
         {TestSetup}
@@ -202,9 +203,12 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             // _rtc.SetNowUTC(LDATE_AND_TIME#2012-01-12-15:58:12.123);
             // _suti.InjectRtc(_rtc);
             _suti.InjectRtm(_rtm);
+            _rootIObject.InitializeWithContext(_suti);
+
             _sute := _suteClean;     
             // _sute.InjectRtc(_rtc);
             _sute.InjectRtm(_rtm);
+            _rootEObject.InitializeWithContext(_suti);
         END_METHOD
 
         {TestTearDown}
@@ -247,7 +251,6 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //Arrange
             expected := LDATE_AND_TIME#2012-01-12-15:58:12.123;
             _rtc.SetNowUTC(expected);
-            // _sute.InjectRtc(_rtc);
             actual := _sute.GetRtc().NowUTC();
             Assert.Equal(FALSE, THIS.AreEqual(expected,actual));
             //Act
@@ -281,7 +284,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             FOR i := 0 TO 2 DO
                 _suti.Open();
-                // _suti._nested.Initialize(_suti);
+                _suti._nested.Initialize(_rootIObject);
                 _suti._nested._nestedObject_L2.Initialize(_suti._nested);
                 _suti._nested._nestedObject_L2._nestedObject_L3.Initialize(_suti._nested._nestedObject_L2);            
     
@@ -317,7 +320,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st PLC cycle
             _suti.Open();
-            ////_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Activate();
             _suti._object._messenger.Serve(_suti._object);
             _suti.Close();
@@ -336,7 +339,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
         METHOD PUBLIC isactive_should_be_false_after_ActivateOnCondition_false_call
             //--Act
             _suti.Open();
-            ////_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(FALSE);
             _suti.Close();
@@ -349,7 +352,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
         METHOD PUBLIC isactive_should_be_true_after_ActivateOnCondition_true_call
             //--Act
             _suti.Open();
-            ////_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE);
             _suti.Close();
@@ -363,7 +366,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st PLC cycle
             _suti.Open();
-            ////_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.ActivateOnCondition(TRUE);
             _suti._object._messenger.Serve(_suti._object);
             _suti.Close();
@@ -396,7 +399,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _rtc.SetNowUTC(expMessage.Risen);
             _suti.InjectRtc(_rtc);
             _suti.Open();
-           // //_suti._object.Initialize(_suti);
+           _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
             _suti.Close();
@@ -434,7 +437,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _rtc.SetNowUTC(expMessage.Risen);
             _suti.InjectRtc(_rtc);
             _suti.Open();
-            ////_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.Activate(expMessage.Category);
             _suti.Close();
@@ -474,7 +477,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             _suti.InjectRtc(_rtc);
             _suti.Open();
-            ////_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.Activate(expMessage.Category);
             _suti.Close();
@@ -501,7 +504,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             _suti.InjectRtc(_rtc);
             _suti.Open();
-           // //_suti._object.Initialize(_suti);
+           _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.Activate(expMessage.Category);
             _suti.Close();
@@ -528,7 +531,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             _suti.InjectRtc(_rtc);
             _suti.Open();
-            ////_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.Activate(expMessage.Category);
             _suti.Close();
@@ -555,7 +558,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             _suti.InjectRtc(_rtc);
             _suti.Open();
-            ////_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.Activate(expMessage.Category);
             _suti.Close();
@@ -582,7 +585,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             _suti.InjectRtc(_rtc);
             _suti.Open();
-            ////_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.Activate(expMessage.Category);
             _suti.Close();
@@ -609,7 +612,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             _suti.InjectRtc(_rtc);
             _suti.Open();
-            ////_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.Activate(expMessage.Category);
             _suti.Close();
@@ -636,7 +639,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             _suti.InjectRtc(_rtc);
             _suti.Open();
-            ////_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.Activate(expMessage.Category);
             _suti.Close();
@@ -663,7 +666,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             _suti.InjectRtc(_rtc);
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.Activate(expMessage.Category);
             _suti.Close();
@@ -690,7 +693,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             _suti.InjectRtc(_rtc);
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.Activate(expMessage.Category);
             _suti.Close();
@@ -713,7 +716,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
             _suti.Close();
@@ -740,7 +743,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).RequireAcknowledgement();
             _suti.Close();
@@ -767,7 +770,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
             _suti.Close();
@@ -794,7 +797,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).RequireAcknowledgement();
             _suti.Close();
@@ -821,7 +824,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
             _suti.Close();
@@ -848,7 +851,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).RequireAcknowledgement();
             _suti.Close();
@@ -875,7 +878,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
             _suti.Close();
@@ -902,7 +905,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).RequireAcknowledgement();
             _suti.Close();
@@ -929,7 +932,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
             _suti.Close();
@@ -956,7 +959,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).RequireAcknowledgement();
             _suti.Close();
@@ -983,7 +986,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
             _suti.Close();
@@ -1010,7 +1013,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).RequireAcknowledgement();
             _suti.Close();
@@ -1037,7 +1040,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
             _suti.Close();
@@ -1064,7 +1067,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).DoNotRequireAcknowledgement();
             _suti.Close();
@@ -1091,7 +1094,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
             _suti.Close();
@@ -1118,7 +1121,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).DoNotRequireAcknowledgement();
             _suti.Close();
@@ -1145,7 +1148,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
             _suti.Close();
@@ -1172,7 +1175,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).DoNotRequireAcknowledgement();
             _suti.Close();
@@ -1199,7 +1202,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
             _suti.Close();
@@ -1226,7 +1229,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).DoNotRequireAcknowledgement();
             _suti.Close();
@@ -1253,7 +1256,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
             _suti.Close();
@@ -1280,7 +1283,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).DoNotRequireAcknowledgement();
             _suti.Close();
@@ -1302,7 +1305,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Act
             //1st-PLC cycle: Rising of the message
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE).RequireAcknowledgement();
             _suti.Close();
@@ -1334,7 +1337,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _rtc.SetNowUTC(expMessage.Risen);
             _suti.InjectRtc(_rtc);
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).RequireAcknowledgement();
             _suti.Close();
@@ -1376,7 +1379,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _rtc.SetNowUTC(expMessage.Risen);
             _suti.InjectRtc(_rtc);
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).RequireAcknowledgement();
             _suti.Close();
@@ -1422,7 +1425,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _rtc.SetNowUTC(expMessage.Risen);
             _suti.InjectRtc(_rtc);
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).RequireAcknowledgement();
             _suti.Close();
@@ -1461,7 +1464,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _rtc.SetNowUTC(expMessage.Risen);
             _suti.InjectRtc(_rtc);
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).RequireAcknowledgement();
             _suti.Close();
@@ -1499,9 +1502,9 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             END_VAR
             //--Arrange
             _suti.Open();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category).RequireAcknowledgement();
-            //_suti._object.Initialize(_suti);
+            _suti._object.Initialize(_rootIObject);
             _suti._object._messenger.Serve(_suti._object);
             _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category).RequireAcknowledgement();
             _suti.Close(); 

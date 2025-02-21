@@ -311,6 +311,7 @@ return;
             VAR CONSTANT
                 epsilon : REAL := 1;
             END_VAR
+            return;
 
             THIS.Initialize(inParent);
             _inspectorTask.Initialize(THIS);
@@ -384,6 +385,7 @@ return;
                 inData : REF_TO AxoDigitalInspectorData;
                 Status : BOOL;
             END_VAR      
+            return;
 
             THIS.Initialize(inParent);
             RETURN;

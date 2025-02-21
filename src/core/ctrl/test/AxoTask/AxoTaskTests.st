@@ -83,7 +83,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
     CLASS AxoTaskUnitTests 
         VAR PROTECTED
            _context         :   TestContext;
-           _rootObject : MockAxoObject;
+           _rootObject      :   MockAxoObject;
            myTask           :   MyTask;
            expState         :   eAxoTaskState;
            actState         :   eAxoTaskState;
