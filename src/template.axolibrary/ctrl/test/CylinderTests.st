@@ -12,23 +12,42 @@ NAMESPACE Template.Axolibrary.Tests
     {TestFixture}
     {S7.extern=ReadWrite}
     CLASS CylinderTests 
-        VAR 
-            context : TestContext;
-            cylinder : TemplateComponent;
+        VAR PROTECTED
+            _context         :   TestContext;
+            _rootObject      :   MockAxoObject;
+            _cylinder : TemplateComponent;
             _homeSensor : BOOL;
             _workSensor : BOOL;
             _moveHomeSignal : BOOL;
             _moveWorkSignal : BOOL;
             _done : BOOL;
-        END_VAR           
+        END_VAR        
+                
+        VAR PRIVATE
+            _contextClean    :   TestContext;
+            _rtc             :   AXOpen.Core.Dummies.MockAxoRtc;
+            _rtm             :   AXOpen.Core.Dummies.MockAxoRtm;
+        END_VAR    
+
+        {TestSetup}
+        METHOD PUBLIC TestSetup
+            _context    :=  _contextClean;  
+            _rootObject.InitializeWithContext(_context);
+            _rtm.SetElapsed(LTIME#2s);
+            _context.InjectRtm(_rtm);
+            _rtc.SetNowUTC(LDATE_AND_TIME#2012-01-12-15:58:12.123);
+            _context.InjectRtc(_rtc);
+            _rootObject.InitializeWithContext(_context);
+        END_METHOD
+    
         {Test}
         METHOD PUBLIC MoveHome
             WHILE _done DO
-                context.Open();
-                _done := Cylinder.MoveToHome().IsDone();
-                cylinder.Run(context, WORD#64, REF(_homeSensor), REF(_workSensor), REF(_moveHomeSignal), REF(_moveWorkSignal));
+                _context.Open();
+                _done := _cylinder.MoveToHome().IsDone();
+                _cylinder.Run(_rootObject, WORD#64, REF(_homeSensor), REF(_workSensor), REF(_moveHomeSignal), REF(_moveWorkSignal));
                 AxUnit.Assert.Equal(_moveHomeSignal, _moveHomeSignal);   
-                context.Close();            
+                _context.Close();            
             END_WHILE;
         END_METHOD
     END_CLASS    

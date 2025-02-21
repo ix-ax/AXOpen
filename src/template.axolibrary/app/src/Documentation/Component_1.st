@@ -21,7 +21,7 @@ NAMESPACE Template.Axolibrary
 
         METHOD PUBLIC Run
             VAR_INPUT
-                parent : IAxoContext;
+                parent : IAxoObject;
             END_VAR    
 
             THIS.Initialize(parent);

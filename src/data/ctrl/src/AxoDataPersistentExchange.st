@@ -98,34 +98,34 @@ NAMESPACE AXOpen.Data
             END_IF;
         END_METHOD
 
-        ///<summary>
-        /// Runs intialization and cyclical handling of this AxoDataPersistentExchange.
-        /// </summary> 
-        /// <param name="context">Root context of this object</param>
-        METHOD PUBLIC Run 
-            VAR_INPUT            
-                context : IAxoContext;
-            END_VAR    
+        // ///<summary>
+        // /// Runs intialization and cyclical handling of this AxoDataPersistentExchange.
+        // /// </summary> 
+        // /// <param name="context">Root context of this object</param>
+        // METHOD PUBLIC Run 
+        //     VAR_INPUT            
+        //         context : IAxoContext;
+        //     END_VAR    
             
-            IF _context_ = NULL THEN 
-                THIS.Initialize(context);
-                Operation.Initialize(THIS);
-            END_IF;
+        //     IF _context_ = NULL THEN 
+        //         THIS.Initialize(context);
+        //         Operation.Initialize(THIS);
+        //     END_IF;
 
-            Operation.Execute();
+        //     Operation.Execute();
             
-            IF NOT _IsFirstReadAllDone THEN 
-                IF Operation.IsInitialized AND (Operation.Identity <> ULINT#0) THEN // MUST BE INITIALIZED AND WITH IDENTITY
-                    IF Operation.IsReady() THEN // read all after startup
-                        Operation.Invoke('', ePersistentOperation#ReadAll);
-                        LastOperation := ePersistentOperation#ReadAll;
+        //     IF NOT _IsFirstReadAllDone THEN 
+        //         IF Operation.IsInitialized AND (Operation.Identity <> ULINT#0) THEN // MUST BE INITIALIZED AND WITH IDENTITY
+        //             IF Operation.IsReady() THEN // read all after startup
+        //                 Operation.Invoke('', ePersistentOperation#ReadAll);
+        //                 LastOperation := ePersistentOperation#ReadAll;
 
-                    ELSIF Operation.IsDone() AND (LastOperation = ePersistentOperation#ReadAll) THEN 
-                         _IsFirstReadAllDone := TRUE;
-                    END_IF;
-                END_IF;
-            END_IF;
-        END_METHOD
+        //             ELSIF Operation.IsDone() AND (LastOperation = ePersistentOperation#ReadAll) THEN 
+        //                  _IsFirstReadAllDone := TRUE;
+        //             END_IF;
+        //         END_IF;
+        //     END_IF;
+        // END_METHOD
 
         ///<summary>
         /// Executes the restore Operation for the AxoDataPersistentExchange component.

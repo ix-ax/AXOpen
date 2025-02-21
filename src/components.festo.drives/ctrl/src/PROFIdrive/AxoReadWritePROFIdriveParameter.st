@@ -65,15 +65,15 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
         END_METHOD
 
-        METHOD PUBLIC Run
-            VAR_INPUT
-                parent          :   IAxoContext; 
-            END_VAR            
+        // METHOD PUBLIC Run
+        //     VAR_INPUT
+        //         parent          :   IAxoContext; 
+        //     END_VAR            
 
-            THIS.Initialize(parent);
-            THIS.Execute();
+        //     THIS.Initialize(parent);
+        //     THIS.Execute();
 
-        END_METHOD
+        // END_METHOD
 
         METHOD PUBLIC Execute
             

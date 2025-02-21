@@ -156,44 +156,44 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             THIS.Execute();
         END_METHOD
 
-        ///<summary>
-        /// Runs tasks and logic of this component.
-        /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
-        ///</summary>
-        METHOD PUBLIC Run 
-            VAR_INPUT
-                parent          :   IAxoContext;
-                hwID            :   WORD;   
-                hwIdDI_64_bytes :   WORD;   //  Hardware Id of the input data of the robot
-                hwIdDO_64_bytes :   WORD;   //  Hardware Id of the output data of the robot
-            END_VAR
+        // ///<summary>
+        // /// Runs tasks and logic of this component.
+        // /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
+        // ///</summary>
+        // METHOD PUBLIC Run 
+        //     VAR_INPUT
+        //         parent          :   IAxoContext;
+        //         hwID            :   WORD;   
+        //         hwIdDI_64_bytes :   WORD;   //  Hardware Id of the input data of the robot
+        //         hwIdDO_64_bytes :   WORD;   //  Hardware Id of the output data of the robot
+        //     END_VAR
 
-            THIS.Initialize(parent);
+        //     THIS.Initialize(parent);
 
-            Messenger.Serve(THIS);
+        //     Messenger.Serve(THIS);
 
-            Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#701,hwIdDI_64_bytes = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#702,hwIdDO_64_bytes = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#701,hwIdDI_64_bytes = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#702,hwIdDO_64_bytes = WORD#0, eAxoMessageCategory#ProgrammingError);
 
-            IF parent = NULL THEN
-                RobotStatus.Error.Id := UINT#700;
-                RETURN;
-            ELSIF hwIdDI_64_bytes = WORD#0 THEN
-                RobotStatus.Error.Id := UINT#701;
-                RETURN;
-            ELSIF hwIdDO_64_bytes = WORD#0 THEN
-                RobotStatus.Error.Id := UINT#702;
-                RETURN;
-            END_IF;
+        //     IF parent = NULL THEN
+        //         RobotStatus.Error.Id := UINT#700;
+        //         RETURN;
+        //     ELSIF hwIdDI_64_bytes = WORD#0 THEN
+        //         RobotStatus.Error.Id := UINT#701;
+        //         RETURN;
+        //     ELSIF hwIdDO_64_bytes = WORD#0 THEN
+        //         RobotStatus.Error.Id := UINT#702;
+        //         RETURN;
+        //     END_IF;
 
-            _hwID            :=  hwID           ;
-            _hwIdDI_64_bytes :=  hwIdDI_64_bytes;
-            _hwIdDO_64_bytes :=  hwIdDO_64_bytes;
+        //     _hwID            :=  hwID           ;
+        //     _hwIdDI_64_bytes :=  hwIdDI_64_bytes;
+        //     _hwIdDO_64_bytes :=  hwIdDO_64_bytes;
 
 
-            THIS.Execute();
-        END_METHOD
+        //     THIS.Execute();
+        // END_METHOD
 
         METHOD PRIVATE Execute 
             VAR 
