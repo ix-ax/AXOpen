@@ -204,6 +204,12 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         return DataRepository.GetRecords(identifier, limit, skip, searchMode, sortExpression, sortAscending).Cast<IBrowsableDataObject>();
     }
 
+    /// <inheritdoc />
+    public IEnumerable<IBrowsableDataObject> GetRecords(string identifier)
+    {
+        return DataRepository.GetRecords(identifier).Cast<IBrowsableDataObject>();
+    }
+
     public IEnumerable<IBrowsableDataObject> GetRecords(
         PredicateContainer predicates, int limit, int skip)
     {
@@ -215,15 +221,9 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         return DataRepository.GetRecords(identifiers).Cast<IBrowsableDataObject>();
     }
 
-    public IEnumerable<string> GetEntityIds(PredicateContainer predicates, int limit, int skip)
+    public IEnumerable<string> GetEntityIds(PredicateContainer predicates)
     {
-        return DataRepository.GetEntityIds(predicates, limit, skip).ToList();
-    }
-
-    /// <inheritdoc />
-    public IEnumerable<IBrowsableDataObject> GetRecords(string identifier)
-    {
-        return DataRepository.GetRecords(identifier).Cast<IBrowsableDataObject>();
+        return DataRepository.GetEntityIds(predicates).ToList();
     }
 
     private Stopwatch sw = new Stopwatch();

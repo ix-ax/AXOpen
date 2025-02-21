@@ -36,6 +36,8 @@ namespace AXOpen.Data.MongoDb
         private IMongoCollection<T> collection;
         private readonly string location;
 
+        public override long LastFragmentQueryCount { get; protected set; }
+
         /// <summary>
         /// Creates new instance of <see cref="MongoDbRepository{T}"/>.
         /// </summary>
@@ -179,8 +181,8 @@ namespace AXOpen.Data.MongoDb
 
         protected override IEnumerable<T> GetRecordsNvi(
             PredicateContainer predicates,
-            int limit = 100,
-            int skip = 0
+            int limit,
+            int skip
             )
         {
             var sortSettings = predicates.GetSorting<T>();
@@ -241,6 +243,24 @@ namespace AXOpen.Data.MongoDb
             return results;
         }
 
+        protected override long FilteredCountNvi(PredicateContainer predicates)
+        {
+            FilterDefinition<T> filter = Builders<T>.Filter.Empty;
+
+            var predict = predicates.GetPredicates<T>();
+
+            if (predict != null && predict.Any())
+            {
+                // Each predicate is now an Expression<Func<T, bool>>, which is what Filter.Where expects.
+                var filters = predict.Select(predicate => Builders<T>.Filter.Where(predicate));
+                filter = Builders<T>.Filter.And(filters);
+            }
+
+            this.LastFragmentQueryCount = collection.Count(filter);
+
+            return this.LastFragmentQueryCount;
+        }
+
         protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids)
         {
             if (ids == null || !ids.Any())
@@ -254,9 +274,7 @@ namespace AXOpen.Data.MongoDb
         }
 
         protected override IEnumerable<string> GetEntityIdsNvi(
-            PredicateContainer predicates,
-            int limit = 100,
-            int skip = 0
+            PredicateContainer predicates
             )
         {
             var sortSettings = predicates.GetSorting<T>();
@@ -310,8 +328,6 @@ namespace AXOpen.Data.MongoDb
             var results = collection
                 .Find(filter)
                 .Sort(sortDefinition)
-                .Skip(skip)
-                .Limit(limit)
                 .Project(Builders<T>.Projection.Expression(x => x.DataEntityId)) // Projection for DataEntityId
                 .ToList();
 

@@ -231,7 +231,13 @@ namespace AXOpen.Data.RavenDb
             throw new NotImplementedException();
         }
 
-        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates, int limit, int skip)
+
+        protected override long FilteredCountNvi(PredicateContainer predicates)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates)
         {
             throw new NotImplementedException();
         }
@@ -246,5 +252,7 @@ namespace AXOpen.Data.RavenDb
                 }
             }
         }
+
+        public override long LastFragmentQueryCount { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
     }
 }

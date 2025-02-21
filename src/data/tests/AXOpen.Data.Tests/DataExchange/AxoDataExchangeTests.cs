@@ -270,7 +270,7 @@ namespace AXOpen.Data.Tests
 
             await sut.FromRepositoryToControllerAsync(new Pocos.axosimple.SharedProductionData() { DataEntityId = "hey remote create" }, sut.Set);
 
-            var records = repo.GetRecords("*").ToList();
+            var records = repo.GetRecords("*",100,0,eSearchMode.Exact).ToList();
 
             var a = await sut.WriteAsync();
 

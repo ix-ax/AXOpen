@@ -38,6 +38,12 @@
         }
 
         [Fact]
+        public void ContainsInitialRecords_fragmentQuery()
+        {
+            Assert.Equal(10, _exchange.Repository.FilteredCount(new PredicateContainer()));
+        }
+
+        [Fact]
         public void should_return_entities()
         {
             IEnumerable<Expression<Func<Pocos.Exchange_Test_L4.ProcessData, bool>>> predicates = new List<Expression<Func<Pocos.Exchange_Test_L4.ProcessData, bool>>>
@@ -155,7 +161,7 @@
         [Fact]
         public void should_build_lambda_from_symbolconfiguration()
         {
-            var plainBuilders = _exchange.GetPlainObjectType().Select(p=> new PlainSymbolBuilder(p)).ToList();
+            var plainBuilders = _exchange.GetPlainObjectType().Select(p => new PlainSymbolBuilder(p)).ToList();
 
             var plainTypeHeaderName = plainBuilders.First().RootTypeName;
 
@@ -169,10 +175,10 @@
             string RequiredSymbolPathWithParent = $"{plainTypeHeaderName}.{varNameHeader}";
 
             var config = new QuerySymbolConfiguration(
-                RequiredSymbolPathWithParent, 
-                requiredSymbolTypeHeader.FullName, 
-                varOperationHeader, 
-                varValueMinHeader, 
+                RequiredSymbolPathWithParent,
+                requiredSymbolTypeHeader.FullName,
+                varOperationHeader,
+                varValueMinHeader,
                 varValueMaxHeader);
 
             // check right set up
@@ -180,9 +186,9 @@
             Assert.Equal(plainTypeHeaderName, config.ParentTypeName);
             Assert.Equal(varNameHeader, config.Symbol);
 
-            var pc = new PredicateContainer().AddQuerySymbolToPredicates(plainBuilders,config);
+            var pc = new PredicateContainer().AddQuerySymbolToPredicates(plainBuilders, config);
 
-             var records = _exchange.GetRecords(pc, 100, 0);
+            var records = _exchange.GetRecords(pc, 100, 0);
 
             Assert.Equal(1, records.Count());
         }
@@ -197,7 +203,6 @@
             string varNameHeader = "vString";
             string varValueMinHeader = "3";
             string varOperationHeader = "Contains";
-
 
             Type requiredSymbolTypeHeader = typeof(string);
 
@@ -219,6 +224,5 @@
 
             Assert.Equal(1, records.Count());
         }
-
     }
 }

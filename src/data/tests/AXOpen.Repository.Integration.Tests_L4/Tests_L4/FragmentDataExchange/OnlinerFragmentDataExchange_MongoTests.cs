@@ -38,6 +38,12 @@
         }
 
         [Fact]
+        public void ContainsInitialRecords_fragmentQuery()
+        {
+            Assert.Equal(10, _exchange.Repository.FilteredCount(new PredicateContainer()));
+        }
+
+        [Fact]
         public void should_return_entities_from_framgents()
         {
             var pc = new PredicateContainer();
@@ -75,6 +81,19 @@
             Assert.Equal("4", result[0].DataEntityId);
         }
 
+        [Fact]
+        public void should_return_entities_count_framgents_query()
+        {
+            var pc = new PredicateContainer();
+
+            pc.AddPredicates<HeaderData>(p => (p.vString.Contains("odd")));
+            pc.AddPredicates<StationData>(p => (p.vInt >= 4) && (p.vInt <= 8));
+
+            var result = _exchange.GetRecords(pc,100, 0).ToList();
+
+            Assert.Equal(3, result.Count);
+            Assert.Equal(3, _exchange.LastFragmentQueryCount);
+        }
 
         [Fact]
         public void should_create_symbol_list()
@@ -130,8 +149,8 @@
 
             string requiredSymbolNameHeader = $"{plainTypeHeader.Name}.{varNameHeader}";
             string requiredSymbolNameStation = $"{plainTypeStation.Name}.{varNameStation}";
-            
-            var plainSymbolBuilder_header  = new PlainSymbolBuilder(plainTypeHeader );
+
+            var plainSymbolBuilder_header = new PlainSymbolBuilder(plainTypeHeader);
             var plainSymbolBuilder_station = new PlainSymbolBuilder(plainTypeStation);
 
             List<string> symbols = new();
@@ -164,8 +183,5 @@
 
             Assert.Equal(1, records.Count());
         }
-
-       
-
     }
 }

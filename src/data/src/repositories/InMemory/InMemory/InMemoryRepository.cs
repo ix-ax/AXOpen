@@ -209,12 +209,19 @@ namespace AXOpen.Data.InMemory
             throw new NotImplementedException();
         }
 
-        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates, int limit, int skip)
+        protected override long FilteredCountNvi(PredicateContainer predicates)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates)
         {
             throw new NotImplementedException();
         }
 
         public override IQueryable<T> Queryable
         { get { return this._repository.AsQueryable().Select(p => p.Value); } }
+
+        public override long LastFragmentQueryCount { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
     }
 }

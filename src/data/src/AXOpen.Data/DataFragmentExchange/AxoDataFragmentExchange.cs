@@ -5,6 +5,7 @@
 // https://github.com/inxton/axsharp/blob/dev/LICENSE
 // Third party licenses: https://github.com/inxton/axsharp/blob/dev/notices.md
 
+using System.Collections.Generic;
 using System.IO.Compression;
 using System.Reflection;
 using System.Security.Principal;
@@ -485,6 +486,12 @@ public partial class AxoDataFragmentExchange
     }
 
     /// <inheritdoc />
+    public IEnumerable<IBrowsableDataObject> GetRecords(string identifier)
+    {
+        return ((dynamic)Repository).GetRecords(identifier);
+    }
+
+    /// <inheritdoc />
     public IEnumerable<IBrowsableDataObject> GetRecords(string identifier, int limit, int skip, eSearchMode searchMode, string sortExpression, bool sortAscending)
     {
         return ((dynamic)Repository)?.GetRecords(identifier, limit, skip, searchMode, sortExpression, sortAscending);
@@ -497,7 +504,7 @@ public partial class AxoDataFragmentExchange
 
         Parallel.ForEach(DataFragments.Where(fragment => predicates.ContainsType(fragment.GetPlainObjectType().First())), fragment =>
         {
-            var ids = fragment.GetEntityIds(predicates, limit, skip).ToList();
+            var ids = fragment.GetEntityIds(predicates).ToList();
             lock (fragmentEntities)
             {
                 fragmentEntities.Add(ids);
@@ -516,8 +523,6 @@ public partial class AxoDataFragmentExchange
 
         this.LastFragmentQueryCount = commonEntities.Count;
 
-        commonEntities.Sort();
-
         var toFind = commonEntities.Skip(skip).Take(limit).ToList();
 
         return GetRecords(toFind).ToList();
@@ -528,16 +533,39 @@ public partial class AxoDataFragmentExchange
         return ((dynamic)Repository).GetRecords(identifiers);
     }
 
-    public IEnumerable<string> GetEntityIds(PredicateContainer predicates, int limit, int skip)
+    public IEnumerable<string> GetEntityIds(PredicateContainer predicates)
     {
-        throw new NotImplementedException();
+        List<List<string>> fragmentEntities = new();
+
+        Parallel.ForEach(DataFragments.Where(fragment => predicates.ContainsType(fragment.GetPlainObjectType().First())), fragment =>
+        {
+            var ids = fragment.GetEntityIds(predicates).ToList();
+            lock (fragmentEntities)
+            {
+                fragmentEntities.Add(ids);
+            }
+        });
+
+        List<string> commonEntities = fragmentEntities.Count > 1
+            ? fragmentEntities.Skip(1)
+                .Aggregate(new HashSet<string>(fragmentEntities.First()), (common, next) =>
+                {
+                    common.IntersectWith(next);
+                    return common;
+                })
+                .ToList()
+            : fragmentEntities.FirstOrDefault() ?? new List<string>();
+
+        this.LastFragmentQueryCount = commonEntities.Count;
+
+        var toFind = commonEntities;
+
+        this.LastFragmentQueryCount = commonEntities.Count();
+
+        return commonEntities;
     }
 
-    /// <inheritdoc />
-    public IEnumerable<IBrowsableDataObject> GetRecords(string identifier)
-    {
-        return ((dynamic)Repository).GetRecords(identifier);
-    }
+   
 
     private IEnumerable<PropertyInfo>? GetDataSetPropertyInfo<TA>() where TA : Attribute
     {

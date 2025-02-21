@@ -284,8 +284,7 @@ namespace AXOpen.Base.Data
 
         protected abstract IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids);
 
-        protected abstract IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates,
-           int limit, int skip);
+        protected abstract IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates);
 
         /// <summary>
         /// Counts records that contain given string in the id. (Concrete implementation of given repository type)
@@ -294,11 +293,15 @@ namespace AXOpen.Base.Data
         /// <returns></returns>
         protected abstract long FilteredCountNvi(string identifierContent, eSearchMode searchMode);
 
+        protected abstract long FilteredCountNvi(PredicateContainer predicates);
+
         /// <summary>
         /// Gets the number of records/documents in the repository.
         /// </summary>
         public long Count
         { get { return this.CountNvi; } }
+
+        public abstract long LastFragmentQueryCount { protected set; get; }
 
         /// <summary>
         /// Gets the count of the records/documents that contain given string in the identifier.
@@ -306,7 +309,9 @@ namespace AXOpen.Base.Data
         /// <param name="identifierContent">String required to be contained in the identifier of the records/documents.</param>
         /// <returns></returns>
         public long FilteredCount(string identifierContent, eSearchMode searchMode) => FilteredCountNvi(identifierContent, searchMode);
-       
+
+        public long FilteredCount(PredicateContainer predicates) => FilteredCountNvi(predicates);
+
         private volatile object mutex = new object();
 
         public bool Exists(string identifier)
@@ -442,7 +447,7 @@ namespace AXOpen.Base.Data
         /// <summary>
         /// Gets <see cref="IEnumerable{T}"/> of repository entries that match the identifier.
         /// </summary>
-        public IEnumerable<T> GetRecords(string identifier, int limit = 10, int skip = 0, eSearchMode searchMode = eSearchMode.Exact, string sortExpresion = "Default", bool sortAscending = false)
+        public IEnumerable<T> GetRecords(string identifier, int limit, int skip, eSearchMode searchMode, string sortExpresion = "Default", bool sortAscending = false)
         {
             try
             {
@@ -466,7 +471,7 @@ namespace AXOpen.Base.Data
             }
         }
 
-        public IEnumerable<T> GetRecords(PredicateContainer predicates, int limit = 100, int skip = 0)
+        public IEnumerable<T> GetRecords(PredicateContainer predicates, int limit, int skip)
         {
             try
             {
@@ -478,11 +483,11 @@ namespace AXOpen.Base.Data
             }
         }
 
-        public IEnumerable<string> GetEntityIds(PredicateContainer predicates, int limit = 100, int skip = 0)
+        public IEnumerable<string> GetEntityIds(PredicateContainer predicates)
         {
             try
             {
-                return GetEntityIdsNvi(predicates, limit, skip);
+                return GetEntityIdsNvi(predicates);
             }
             catch (Exception e)
             {
@@ -490,16 +495,10 @@ namespace AXOpen.Base.Data
             }
         }
 
-        public long FilteredCount(PredicateContainer predicates)
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<T> GetRecords(PredicateContainer predicates)
         {
             throw new NotImplementedException();
         }
-
 
         /// <summary>
         /// Gets <see cref="IQueryable"/> of given repository.

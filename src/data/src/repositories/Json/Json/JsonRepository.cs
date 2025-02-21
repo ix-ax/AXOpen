@@ -275,14 +275,21 @@ namespace AXOpen.Data.Json
             throw new NotImplementedException();
         }
 
-        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates, int limit, int skip)
+        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override long FilteredCountNvi(PredicateContainer predicates)
         {
             throw new NotImplementedException();
         }
 
         public override IQueryable<T> Queryable
         {
-            get { return this.GetRecords("*").AsQueryable(); }
+            get { return this.GetRecords("*",int.MaxValue,0,eSearchMode.Exact).AsQueryable(); }
         }
+
+        public override long LastFragmentQueryCount { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
     }
 }
