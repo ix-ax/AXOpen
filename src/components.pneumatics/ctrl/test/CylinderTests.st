@@ -36,7 +36,9 @@ NAMESPACE Cylinder.Tests
             context : TestContext;
             cylinder : AxoCylinder;
             cylinderParent : AXOpen.Core.AxoObject;
-            _rtc : AxoRtcMock;
+            // _rtc : AxoRtcMock;
+            _rtc             :   AXOpen.Core.Dummies.MockAxoRtc;
+            _rtm             :   AXOpen.Core.Dummies.MockAxoRtm;
             _homeSensor : BOOL;
             _workSensor : BOOL;
             _moveHomeSignal : BOOL;
@@ -53,6 +55,10 @@ NAMESPACE Cylinder.Tests
         {TestSetup}
         METHOD PUBLIC TestSetup
             context := contextBlank;
+            _rtm.SetElapsed(LTIME#2s);
+            context.InjectRtm(_rtm);
+            _rtc.SetNowUTC(LDATE_AND_TIME#2012-01-12-15:58:12.123);
+            context.InjectRtc(_rtc);
             cylinder := cylinderBlank;
             cylinderParent := cylinderParentBlank;
             cylinderParent.InitializeWithContext(context);
@@ -98,8 +104,6 @@ NAMESPACE Cylinder.Tests
 
         {Test}
         METHOD PUBLIC MoveHome    
-            AxUnit.Assert.Equal(TRUE,TRUE);
-            return; //TODO
             THIS.Init();  
 
             context.Open();                                                              
@@ -118,8 +122,6 @@ NAMESPACE Cylinder.Tests
         
         {Test}
         METHOD PUBLIC MoveWork       
-            AxUnit.Assert.Equal(TRUE,TRUE);
-            return; //TODO  
             THIS.Init();  
 
             context.Open();                                                              
@@ -189,8 +191,6 @@ NAMESPACE Cylinder.Tests
             VAR
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2023-01-12-15:49:12.123;
             END_VAR
-            AxUnit.Assert.Equal(TRUE,TRUE);
-            return; //TODO
             THIS.Init(dt);  
 
             context.Open();                                                              
@@ -224,8 +224,6 @@ NAMESPACE Cylinder.Tests
             VAR
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2021-01-11-15:49:12.123;
             END_VAR
-            AxUnit.Assert.Equal(TRUE,TRUE);
-            return; //TODO
             THIS.Init(dt);    
 
             context.Open();                                                              
@@ -259,8 +257,6 @@ NAMESPACE Cylinder.Tests
             VAR
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2021-01-11-13:49:12.123;
             END_VAR
-            AxUnit.Assert.Equal(TRUE,TRUE);
-            return; //TODO
             THIS.Init(dt);   
 
             context.Open();                                                              
@@ -294,8 +290,6 @@ NAMESPACE Cylinder.Tests
             VAR
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2021-01-11-05:49:12.123;
             END_VAR
-            AxUnit.Assert.Equal(TRUE,TRUE);
-            return; //TODO
             THIS.Init(dt); 
 
             context.Open();                                                              
@@ -329,8 +323,6 @@ NAMESPACE Cylinder.Tests
             VAR
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2021-01-11-05:49:12.123;
             END_VAR
-            AxUnit.Assert.Equal(TRUE,TRUE);
-            return; //TODO
             THIS.Init(dt); 
             AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
@@ -354,8 +346,6 @@ NAMESPACE Cylinder.Tests
             VAR
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2021-01-11-05:41:12.123;
             END_VAR
-            AxUnit.Assert.Equal(TRUE,TRUE);
-            return; //TODO
             THIS.Init(dt); 
             AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
@@ -379,8 +369,6 @@ NAMESPACE Cylinder.Tests
             VAR
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2023-01-12-15:49:12.123;
             END_VAR
-            AxUnit.Assert.Equal(TRUE,TRUE);
-            return; //TODO
             THIS.Init(dt);  
             AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
@@ -414,8 +402,6 @@ NAMESPACE Cylinder.Tests
             VAR
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2021-01-11-15:49:12.123;
             END_VAR
-            AxUnit.Assert.Equal(TRUE,TRUE);
-            return; //TODO
             THIS.Init(dt);    
 
             context.Open();                                                              
@@ -449,8 +435,6 @@ NAMESPACE Cylinder.Tests
             VAR
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2021-01-11-13:49:12.123;
             END_VAR
-            AxUnit.Assert.Equal(TRUE,TRUE);
-            return; //TODO
             THIS.Init(dt);   
 
             context.Open();                                                              
@@ -484,8 +468,6 @@ NAMESPACE Cylinder.Tests
             VAR
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2021-01-11-05:49:12.123;
             END_VAR
-            AxUnit.Assert.Equal(TRUE,TRUE);
-            return; //TODO
             THIS.Init(dt); 
 
             context.Open();                                                              
@@ -569,8 +551,6 @@ NAMESPACE Cylinder.Tests
             VAR
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2021-01-11-05:41:12.123;
             END_VAR 
-            AxUnit.Assert.Equal(TRUE,TRUE);
-            return; //TODO  
             THIS.Init(dt); 
             context.Open();                                                              
             cylinder.SuspendMoveToHomeWhile(TRUE);
