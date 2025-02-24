@@ -9,7 +9,7 @@ devDependencies:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.4
+  "@ax/simatic-ax" : 2411.1.0
 dependencies:
   "@ax/simatic-1500-clocks": 8.0.8
   "@ax/system-bitaccess": 8.0.7
