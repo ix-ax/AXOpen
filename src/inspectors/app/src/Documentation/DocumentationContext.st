@@ -1,15 +1,18 @@
+USING AXOpen.Core;
 {S7.extern=ReadWrite}
 CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
         _startInspection : BOOL := FALSE;
         _automat: AutomatSequence;
         _inspectors : Inspectors;      
+        _rootObject : AxoObject;
     END_VAR
 
 
-    METHOD PROTECTED OVERRIDE Main                
-        _automat.Initialize(THIS);
-        _automat.Run(THIS);
+    METHOD PROTECTED OVERRIDE Main           
+        _rootObject.InitializeWithContext(THIS); 
+        _automat.Initialize(_rootObject);
+        _automat.Run(_rootObject);
         _automat.Execute();
 
         IF _startInspection THEN
@@ -89,7 +92,7 @@ CLASS PUBLIC AutomatSequence
             //             .UpdateComprehensiveResult(_comprehensiveResult)
             //             .OnFail()
             //             .CarryOn();
-            ;
+             ;
             // </ExampleInspectionWithCoordinatorExample>
         END_IF;
 

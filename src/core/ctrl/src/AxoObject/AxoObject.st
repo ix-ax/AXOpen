@@ -22,6 +22,7 @@ NAMESPACE AXOpen.Core
         VAR PROTECTED           
             _parent         : IAxoObject;
             _context_       : IAxoContext;
+            _isProperlyInitialized: BOOL;
         END_VAR  
         
         VAR PRIVATE  
@@ -69,22 +70,88 @@ NAMESPACE AXOpen.Core
             END_IF;    
         END_METHOD
 
+
+        METHOD PUBLIC Initialize
+            VAR_INPUT
+                inParent : IAxoObject;
+            END_VAR  
+              
+            VAR
+                _tmpParent : REF_TO AxoObject;
+            END_VAR
+
+            IF _isProperlyInitialized THEN
+                RETURN;
+            END_IF;
+
+            _tmpParent ?= inParent;
+            IF(_tmpParent <> NULL) THEN
+                _context_    := _tmpParent^.GetContext();                 
+                _parent     := _tmpParent^;
+                _isProperlyInitialized := TRUE;
+            END_IF;      
+
+        END_METHOD
+
+
+
         ///<summary>
         /// Initializes this object associating it given parent. 
         /// This method should be called only once upon the program start.
         /// Any subsequent call are ignored.
         ///</summary>
-        METHOD PUBLIC Initialize
-            VAR_INPUT
-                inParent : IAxoObject;
-            END_VAR                           
-                       
-            IF(inParent <> NULL) THEN
-                _context_    := inParent.GetContext();                 
-                _parent     := inParent;
-                RETURN;                 
-            END_IF;            
-        END_METHOD  
+        // METHOD PUBLIC Initialize
+        //     VAR_INPUT
+        //         inParent : IAxoObject;
+        //     END_VAR    
+//             VAR
+//                 NULL_IAXO_CONTEXT : IAxoContext;
+//                 NULL_IAXO_OBJECT : IAxoObject;
+//                 actualContext : IAxoContext;
+//             END_VAR
+
+//             NULL_IAXO_CONTEXT ?= NULL_CONTEXT;    
+//             NULL_IAXO_OBJECT ?= NULL_OBJECT;    
+
+//             NULL_IAXO_CONTEXT := NULL_CONTEXT;    
+//             NULL_IAXO_OBJECT := NULL_OBJECT;    
+
+//             IF(inParent = NULL) THEN
+//                 RETURN; //TODO provide some message for this issue
+//             END_IF;   
+
+
+//             RETURN;
+
+//             IF(inParent = NULL_IAXO_OBJECT) THEN
+//                 RETURN; //TODO provide some message for this issue
+//             END_IF;   
+//             return;
+//             IF(inParent = _parent) THEN
+//                 RETURN; //TODO provide some message for this issue
+//             END_IF;  
+
+//             _parent     := inParent;
+            
+// RETURN;
+//             actualContext := inParent.GetContext();
+
+// RETURN;
+//             IF(inParent.GetContext() = NULL_IAXO_CONTEXT) THEN
+//                 RETURN; //TODO provide some message for this issue
+//             END_IF;            
+// return;
+
+//             IF(inParent.GetContext() = NULL) THEN
+//                 RETURN; //TODO provide some message for this issue
+//             END_IF;            
+// return;
+
+        //     IF(inParent <> NULL) THEN
+        //         _context_    := inParent.GetContext();                 
+        //         _parent     := inParent;
+        //     END_IF;            
+        // END_METHOD  
         
         ///<summary>
         /// Initializes this object associating it given context. 
@@ -95,7 +162,6 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 inContext : IAxoContext;
             END_VAR   
-         
             
             IF(inContext <> NULL) THEN
                 _context_    := inContext;                 

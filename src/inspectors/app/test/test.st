@@ -12,6 +12,7 @@ NAMESPACE MyTest
             _rtm :  AXOpen.Core.Dummies.MockAxoRtm;
         END_VAR    
         {Test}
+
         METHOD PUBLIC SandboxTest
             VAR 
                 i : UINT;

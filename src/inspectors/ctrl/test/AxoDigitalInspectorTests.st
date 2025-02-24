@@ -63,9 +63,14 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
 
 
         METHOD PRIVATE Initialize
+            _context := _contextBlank;
+            _rootObject.InitializeWithContext(_context);
+            _digitalInspector := _digitalInspectorBlank;
+            _sequencer := _sequencerBlank;
             _context.InjectRtc(_rtcMock);
             _context.InjectRtm(_rtmMock);
-            _sequencer.Initialize(_rootObject);          
+            _sequencer.Initialize(_rootObject);  
+            _digitalInspector.Initialize(_sequencer);    
             
             _digitalInspectorData.FailTime := T#10s;
             _digitalInspectorData.PassTime := T#2s;
@@ -92,8 +97,6 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:31.0);
             _rtmMock.SetElapsed(LT#31S);
             _digitalInspector.Inspect(_sequencer,REF(_digitalInspectorData),_inspectedBool);
-            Assert.Equal(true,true);
-            RETURN; //TODO
             Assert.Equal(eInspectorResult#Running, _digitalInspector.Result());
             _context.Close();
             //+2s
@@ -126,8 +129,6 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:31.0);
             _rtmMock.SetElapsed(LT#31S);
             _digitalInspector.Inspect(_sequencer,REF(_digitalInspectorData),_inspectedBool);
-            Assert.Equal(true,true);
-            RETURN; //TODO
             Assert.Equal(eInspectorResult#Running, _digitalInspector.Result());
             _context.Close();
             //+2s
@@ -160,8 +161,6 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:35.0);
             _rtmMock.SetElapsed(LT#31S);
             _digitalInspector.Inspect(_sequencer,REF(_digitalInspectorData),_inspectedBool);
-            Assert.Equal(true,true);
-            RETURN; //TODO
             Assert.Equal(eInspectorResult#Running, _digitalInspector.Result());
             _context.Close();
             //+11s
@@ -194,8 +193,6 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:35.0);
             _rtmMock.SetElapsed(LT#35S);
             _digitalInspector.Inspect(_sequencer,REF(_digitalInspectorData),_inspectedBool);
-            Assert.Equal(true,true);
-            RETURN; //TODO
             Assert.Equal(eInspectorResult#Running, _digitalInspector.Result());
             _context.Close();
             //+11s
@@ -212,7 +209,6 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
         METHOD PUBLIC digital_inspection_coordinator_inspection_ok
             THIS.Initialize();
             
-
             //Arrange
             _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:30.0);
@@ -221,8 +217,6 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             _digitalInspectorData.RequiredStatus := TRUE;
 
             //Act & Assert
-            Assert.Equal(true,true);
-            RETURN; //TODO
             _digitalInspector.WithCoordinator(_sequencer).Inspect(_sequencer,REF(_digitalInspectorData),_inspectedBool).OnFail().CarryOn();            
             _context.Close();
 
@@ -246,7 +240,6 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
         {Test}        
         METHOD PUBLIC digital_inspection_update_comprehensive_inspection_fail
             THIS.Initialize();
-            
 
             //Arrange
             _context.Open();
@@ -256,8 +249,6 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             _digitalInspectorData.RequiredStatus := TRUE;
 
             //Act & Assert
-            Assert.Equal(true,true);
-            RETURN; //TODO
             _digitalInspector.WithCoordinator(_sequencer).Inspect(_sequencer,REF(_digitalInspectorData),_inspectedBool).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();            
             _context.Close();
 
@@ -266,8 +257,6 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:35.0);
             _rtmMock.SetElapsed(LT#35S);
             _digitalInspector.WithCoordinator(_sequencer).Inspect(_sequencer,REF(_digitalInspectorData),_inspectedBool).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
-            Assert.Equal(true,true);
-            RETURN; //TODO
             Assert.Equal(eInspectorResult#Running, _digitalInspector.Result());
             _context.Close();
             //+11s

@@ -246,12 +246,39 @@ NAMESPACE AXOpen.Inspectors
                 epsilon : REAL := 10000;
             END_VAR
 
-            // Documentation: Initialize the parent context and the associated inspector task.
+            VAR
+                am_I_null : BOOL;
+                me_as_an_IAxoObject : IAxoObject;
+                is_me_as_an_IAxoObject_null : BOOL;
+                me_as_a_REF_TO_AxoObject : REF_TO AxoObject;
+                is_me_as_a_REF_TO_AxoObject_null : BOOL;
+                me_as_an_IAxoObject_after_ref_deref : IAxoObject;
+                is_me_as_an_IAxoObject_after_ref_deref_null : BOOL;
+
+            END_VAR;
+
             THIS.Initialize(inParent);
-            _inspectorTask.Initialize(THIS);
+            // _inspectorTask.Initialize(THIS);
+
+            
+            // am_I_null := THIS = NULL;   // NFI why this cause compiled
+            me_as_an_IAxoObject := THIS;
+            is_me_as_an_IAxoObject_null := me_as_an_IAxoObject = NULL;
+
+            me_as_a_REF_TO_AxoObject ?= REF(THIS);
+            is_me_as_a_REF_TO_AxoObject_null := me_as_a_REF_TO_AxoObject = NULL;
+
+            me_as_an_IAxoObject_after_ref_deref := me_as_a_REF_TO_AxoObject^;
+            is_me_as_an_IAxoObject_after_ref_deref_null := me_as_an_IAxoObject_after_ref_deref = NULL;
+
+            _inspectorTask.Initialize(me_as_an_IAxoObject_after_ref_deref);
             _inspectorTask.SetSuspendMultipleExecuteCallCheck(TRUE);
             _inspectorTask.SetSuspendCyclicExecuteIsNotCalledCheck(TRUE);
             _inspectorTask.SetSuspendRtmCheck(FALSE);
+
+            _DL.SetSuspendMultipleExecuteCallCheck(TRUE);
+            _DL.SetSuspendCyclicExecuteIsNotCalledCheck(TRUE);
+            _DL.SetSuspendRtmCheck(FALSE);
 
             Inspect := THIS;
             _inspectorTask.SetInspectionData(inData);
@@ -312,8 +339,32 @@ NAMESPACE AXOpen.Inspectors
             END_VAR
 
 
+            VAR
+                am_I_null : BOOL;
+                me_as_an_IAxoObject : IAxoObject;
+                is_me_as_an_IAxoObject_null : BOOL;
+                me_as_a_REF_TO_AxoObject : REF_TO AxoObject;
+                is_me_as_a_REF_TO_AxoObject_null : BOOL;
+                me_as_an_IAxoObject_after_ref_deref : IAxoObject;
+                is_me_as_an_IAxoObject_after_ref_deref_null : BOOL;
+
+            END_VAR;
+
             THIS.Initialize(inParent);
-            _inspectorTask.Initialize(THIS);
+            // _inspectorTask.Initialize(THIS);
+
+            
+            // am_I_null := THIS = NULL;   // NFI why this is not compiled
+            me_as_an_IAxoObject := THIS;
+            is_me_as_an_IAxoObject_null := me_as_an_IAxoObject = NULL;
+
+            me_as_a_REF_TO_AxoObject ?= REF(THIS);
+            is_me_as_a_REF_TO_AxoObject_null := me_as_a_REF_TO_AxoObject = NULL;
+
+            me_as_an_IAxoObject_after_ref_deref := me_as_a_REF_TO_AxoObject^;
+            is_me_as_an_IAxoObject_after_ref_deref_null := me_as_an_IAxoObject_after_ref_deref = NULL;
+
+            _inspectorTask.Initialize(me_as_an_IAxoObject_after_ref_deref);
             _inspectorTask.SetSuspendMultipleExecuteCallCheck(TRUE);
             _inspectorTask.SetSuspendCyclicExecuteIsNotCalledCheck(TRUE);
             _inspectorTask.SetSuspendRtmCheck(FALSE);
@@ -385,9 +436,32 @@ NAMESPACE AXOpen.Inspectors
                 Status : BOOL;
             END_VAR      
 
+            VAR
+                am_I_null : BOOL;
+                me_as_an_IAxoObject : IAxoObject;
+                is_me_as_an_IAxoObject_null : BOOL;
+                me_as_a_REF_TO_AxoObject : REF_TO AxoObject;
+                is_me_as_a_REF_TO_AxoObject_null : BOOL;
+                me_as_an_IAxoObject_after_ref_deref : IAxoObject;
+                is_me_as_an_IAxoObject_after_ref_deref_null : BOOL;
+
+            END_VAR;
 
             THIS.Initialize(inParent);
-            _inspectorTask.Initialize(THIS);
+            // _inspectorTask.Initialize(THIS);
+
+            
+            // am_I_null := THIS = NULL;   // NFI why this is not compiled
+            me_as_an_IAxoObject := THIS;
+            is_me_as_an_IAxoObject_null := me_as_an_IAxoObject = NULL;
+
+            me_as_a_REF_TO_AxoObject ?= REF(THIS);
+            is_me_as_a_REF_TO_AxoObject_null := me_as_a_REF_TO_AxoObject = NULL;
+
+            me_as_an_IAxoObject_after_ref_deref := me_as_a_REF_TO_AxoObject^;
+            is_me_as_an_IAxoObject_after_ref_deref_null := me_as_an_IAxoObject_after_ref_deref = NULL;
+
+            _inspectorTask.Initialize(me_as_an_IAxoObject_after_ref_deref);
             _inspectorTask.SetSuspendMultipleExecuteCallCheck(TRUE);
             _inspectorTask.SetSuspendCyclicExecuteIsNotCalledCheck(TRUE);
             _inspectorTask.SetSuspendRtmCheck(FALSE);

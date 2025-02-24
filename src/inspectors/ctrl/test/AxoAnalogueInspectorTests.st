@@ -59,10 +59,15 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
         END_METHOD
 
         METHOD PRIVATE Initialize
+            _context := _contextBlank;
+            _rootObject.InitializeWithContext(_context);
+            _analogueInspector := _analogueInspectorBlank;
+            _sequencer := _sequencerBlank;
             _context.InjectRtc(_rtcMock);
             _context.InjectRtm(_rtmMock);
-            _sequencer.Initialize(_rootObject);          
-            
+            _sequencer.Initialize(_rootObject);  
+            _analogueInspector.Initialize(_sequencer);
+
             _analogueInspectorData.FailTime := T#10s;
             _analogueInspectorData.PassTime := T#2s;
         END_METHOD
@@ -92,12 +97,10 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             _rtmMock.SetElapsed(LT#31S);
             _context.InjectRtm(_rtmMock);
             _analogueInspector.Inspect(_sequencer,REF(_analogueInspectorData),_inspectedINT);
-            Assert.Equal(true,true);
-            RETURN; //TODO
             Assert.Equal(eInspectorResult#Running, _analogueInspector.Result());
             _context.Close();
 
-            RETURN;
+            
             //+3s.
             _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:33.0);
@@ -132,8 +135,6 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             _rtmMock.SetElapsed(LT#31S);
             _context.InjectRtm(_rtmMock);
             _analogueInspector.Inspect(_sequencer,REF(_analogueInspectorData),_inspectedINT);
-            Assert.Equal(true,true);
-            RETURN; //TODO
             Assert.Equal(eInspectorResult#Running, _analogueInspector.Result());
             _context.Close();
             //+11s

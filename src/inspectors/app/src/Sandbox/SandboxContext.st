@@ -7,7 +7,7 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     END_VAR
 
     METHOD PROTECTED OVERRIDE Main
-        _inspectors.Initialize(THIS);
+        _inspectors.InitializeWithContext(THIS);
 
         IF _startInspection THEN
             _inspectors.Run();
