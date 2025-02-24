@@ -7,7 +7,7 @@
         <label for="filterText" class="col-form-label">Symbol Filter:</label>
     </div>
     <div class="col-auto">
-        <input id="filterText" @bind="SymbolsQueryFilter" @bind:event="oninput" placeholder="Type to filter..." class="form-control" />
+        <input id="filterText" @bind="SymbolsQueryFilter" @bind:event="oninput" placeholder="Type to filter..." class="form-control flex-grow-1" />
     </div>
 </div>
 
@@ -28,7 +28,7 @@
         <div class="dropup">
             Showing @(SymbolsQueryPage * SymbolsQueryPageLimit + 1) to @(((SymbolsQueryPage + 1) * SymbolsQueryPageLimit) > SymbolsQueryCount ? SymbolsQueryCount : ((SymbolsQueryPage + 1) * SymbolsQueryPageLimit)) of @SymbolsQueryCount rows
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@SymbolsQueryPageLimit</button>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu m-0">
                 <li><a class="dropdown-item @(SymbolsQueryPageLimit == 5 ? "active" : "")" style="cursor: pointer" @onclick="() => SetLimitAsync(5)">5</a></li>
                 <li><a class="dropdown-item @(SymbolsQueryPageLimit == 10 ? "active" : "")" style="cursor: pointer" @onclick="() => SetLimitAsync(10)">10</a></li>
                 <li><a class="dropdown-item @(SymbolsQueryPageLimit == 25 ? "active" : "")" style="cursor: pointer" @onclick="() => SetLimitAsync(25)">25</a></li>
@@ -37,7 +37,7 @@
             rows per page
         </div>
         <nav class="ms-auto">
-            <ul class="pagination">
+            <ul class="pagination m-0">
                 <li class="page-item"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(Modulo(SymbolsQueryPage - 1, MaxPage + 1))" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
 
                 @if (MaxPage < 7)
@@ -86,10 +86,12 @@
     </div>
 </div>
 
-@* <div class="card p-1 m-0"> *@
-@foreach (var querySymbol in Queries)
+@if (Queries.Count > 0)
 {
-    <div class="card p-1 m-1">
+    <div class="card p-1 m-0">
+    @foreach (var querySymbol in Queries)
+    {
+        @* <div class="card p-1 m-1"> *@
         <div class="d-flex align-items-center gap-2">
             <button type="button" class="btn btn-danger px-3 py-0" title="Delete"
                     @onclick="() => RemoveSymbolFromQuery(querySymbol.SymbolPathWithParent)">
@@ -97,12 +99,13 @@
             </button>
             <QuerySymbolConfigurationView SymbolConfiguration="@querySymbol"></QuerySymbolConfigurationView>
         </div>
+        @* </div> *@
+    }
     </div>
 }
-@* </div> *@
 
 @if (Queries.Count > 0)
 {
-    <button class="btn btn-primary" type="button" @onclick="async () =>await ExecuteFilter()">FILTER</button>
+    <button class="btn btn-primary m-1" type="button" @onclick="async () =>await ExecuteFilter()">FILTER</button>
 }
 
