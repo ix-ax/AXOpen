@@ -1,5 +1,5 @@
 name: "@inxton/ax.catalog"
-version: '0.0.4'
+version: '0.0.5'
 type: catalog
 keywords:
   - "catalog"
@@ -60,7 +60,7 @@ catalogDependencies:
   "@ax/system-datetime": 8.0.7                                                      # @ax/simatic-ax@2411.1.0 contained at the time of creation this catalog (3.2.2025) version 8.0.7
   "@ax/system-edgedetection": 8.0.7                                                 # @ax/simatic-ax@2411.1.0 contained at the time of creation this catalog (3.2.2025) version 8.0.7
   "@ax/system-fastmath": 8.0.7                                                      # @ax/simatic-ax@2411.1.0 contained at the time of creation this catalog (3.2.2025) version 8.0.7
-  "@ax/system-math": 8.0.7 		                                                      # @ax/simatic-ax@2411.1.0 contained at the time of creation this catalog (3.2.2025) version 8.0.7
+  "@ax/system-math": 8.0.8 		                                                      # @ax/simatic-ax@2411.1.0 contained at the time of creation this catalog (3.2.2025) version 8.0.7
   "@ax/system-selection": 8.0.7                                                     # @ax/simatic-ax@2411.1.0 contained at the time of creation this catalog (3.2.2025) version 8.0.7
   "@ax/system-serde": 8.0.7                                                         # @ax/simatic-ax@2411.1.0 contained at the time of creation this catalog (3.2.2025) version 8.0.7
   "@ax/system-strings": 8.0.7                                                       # @ax/simatic-ax@2411.1.0 contained at the time of creation this catalog (3.2.2025) version 8.0.7
