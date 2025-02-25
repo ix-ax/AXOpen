@@ -13,7 +13,7 @@ NAMESPACE AxoIO.Tests
         
             METHOD PUBLIC OVERRIDE Open : ULINT
                 SUPER.Open();
-                SignalParent.Initialize(THIS);
+                SignalParent.InitializeWithContext(THIS);
             END_METHOD
 
         METHOD PROTECTED OVERRIDE Main

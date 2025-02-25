@@ -2,16 +2,12 @@ USING AXOpen.Core;
 {S7.extern=ReadWrite}
 CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
-
         _startInspection : BOOL := FALSE;
-
-        _inspectors : Inspectors;
-      
+        _inspectors : Inspectors;      
     END_VAR
 
-
     METHOD PROTECTED OVERRIDE Main
-        _inspectors.Initialize(THIS);
+        _inspectors.InitializeWithContext(THIS);
 
         IF _startInspection THEN
             _inspectors.Run();
@@ -24,8 +20,11 @@ END_CLASS
 {S7.extern=ReadWrite}
 CLASS Inspectors EXTENDS AXOpen.Core.AxoObject
     VAR PUBLIC
+        {#ix-set:AttributeName = "<#Digital Inspector Example#>"}
         _digitalInspector: AXOpen.Inspectors.AxoDigitalInspector;
+        {#ix-set:AttributeName = "<#Analog Inspector Example#>"}
         _analogueInspector: AXOpen.Inspectors.AxoAnalogueInspector;
+        {#ix-set:AttributeName = "<#Data Inspector Example#>"}
         _dataInspector: AXOpen.Inspectors.AxoDataInspector;
 
         _inspectionResult: BOOL;

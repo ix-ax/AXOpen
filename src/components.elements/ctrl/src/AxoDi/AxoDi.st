@@ -35,7 +35,10 @@ NAMESPACE AXOpen.Elements
             
         END_VAR
        
-
+        VAR PRIVATE
+            _context : IAxoContext;
+        END_VAR
+        
         METHOD PUBLIC OVERRIDE Restore 
             _isFalseTask.Restore();
             _isTrueTask.Restore();
@@ -56,14 +59,17 @@ NAMESPACE AXOpen.Elements
                 inSignal: BOOL;
             END_VAR
 
-            IF (parent = NULL) THEN RETURN; END_IF;
+            IF (parent = NULL) THEN 
+                RETURN; 
+            END_IF;
 
-            IF THIS._context_ = NULL THEN
+            IF _context = NULL THEN
                 THIS.Initialize(parent);
                 _isTrueTask.Initialize(THIS);
                 _isFalseTask.Initialize(THIS);
-            end_if;
-          
+                _context := THIS.GetContext();
+            END_IF;
+
             _messengerInfoPositive.Serve(THIS); 
             _messengerInfoNegative.Serve(THIS); 
 

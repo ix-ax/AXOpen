@@ -1262,43 +1262,43 @@ NAMESPACE AXOpen.Components.Drives
             THIS.Close();            
         END_METHOD   
 
-        ///<summary>
-        /// Runs tasks and logic of this component.
-        /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
-        ///</summary>
-        METHOD PUBLIC Run
-            VAR_INPUT
-                parent          :   IAxoContext; 
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
-                Enable          :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
-                EnablePositive  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
-                EnableNegative  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
-            END_VAR
+        // ///<summary>
+        // /// Runs tasks and logic of this component.
+        // /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
+        // ///</summary>
+        // METHOD PUBLIC Run
+        //     VAR_INPUT
+        //         parent          :   IAxoContext; 
+        //         refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
+        //         refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
+        //         Enable          :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
+        //         EnablePositive  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
+        //         EnableNegative  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
+        //     END_VAR
 
-            Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
 
-            IF parent = NULL THEN
-                DriveStatus.Error.Id := UINT#700;
-                RETURN;
-            END_IF;
+        //     IF parent = NULL THEN
+        //         DriveStatus.Error.Id := UINT#700;
+        //         RETURN;
+        //     END_IF;
 
-            THIS.Initialize(parent);
-            // IF THIS._context_ = NULL THEN
-            //     THIS.Initialize(parent);
-            //     THIS.InitializeTasks();
-            // END_IF;
+        //     THIS.Initialize(parent);
+        //     // IF THIS._context_ = NULL THEN
+        //     //     THIS.Initialize(parent);
+        //     //     THIS.InitializeTasks();
+        //     // END_IF;
 
-            IF NOT THIS.IsValidReferences(refAxisIn,refAxisOut) THEN
-                RETURN;
-            END_IF;
+        //     IF NOT THIS.IsValidReferences(refAxisIn,refAxisOut) THEN
+        //         RETURN;
+        //     END_IF;
             
-            THIS.Open();
-            THIS.UpdateInputs(refAxisIn,_AxisRef);
-            THIS.Execute(_AxisRef,Enable,EnablePositive,EnableNegative);
-            THIS.UpdateOutputs(_AxisRef,refAxisIn);
-            THIS.Close();            
-        END_METHOD   
+        //     THIS.Open();
+        //     THIS.UpdateInputs(refAxisIn,_AxisRef);
+        //     THIS.Execute(_AxisRef,Enable,EnablePositive,EnableNegative);
+        //     THIS.UpdateOutputs(_AxisRef,refAxisIn);
+        //     THIS.Close();            
+        // END_METHOD   
 
         METHOD PRIVATE InitializeTasks
                 RestoreTask.Initialize(THIS);

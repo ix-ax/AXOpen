@@ -129,35 +129,35 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
             THIS.Execute();
         END_METHOD
 
-        ///<summary>
-        /// Runs tasks and logic of this component.
-        /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
-        ///</summary>
-        METHOD PUBLIC Run 
-            VAR_INPUT
-                parent          :   IAxoContext;
-                hwID                :   WORD;
-                hwIdInOut_64_byte   :   WORD;
-            END_VAR
-            THIS.Initialize(parent);
+        // ///<summary>
+        // /// Runs tasks and logic of this component.
+        // /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
+        // ///</summary>
+        // METHOD PUBLIC Run 
+        //     VAR_INPUT
+        //         parent          :   IAxoContext;
+        //         hwID                :   WORD;
+        //         hwIdInOut_64_byte   :   WORD;
+        //     END_VAR
+        //     THIS.Initialize(parent);
 
-            Messenger.Serve(THIS);
-            Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#701,hwIdInOut_64_byte = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.Serve(THIS);
+        //     Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#701,hwIdInOut_64_byte = WORD#0, eAxoMessageCategory#ProgrammingError);
 
-            IF parent = NULL THEN
-                RobotStatus.Error.Id := UINT#700;
-                RETURN;
-            ELSIF hwIdInOut_64_byte = WORD#0 THEN
-                RobotStatus.Error.Id := UINT#701;
-                RETURN;
-            END_IF;
+        //     IF parent = NULL THEN
+        //         RobotStatus.Error.Id := UINT#700;
+        //         RETURN;
+        //     ELSIF hwIdInOut_64_byte = WORD#0 THEN
+        //         RobotStatus.Error.Id := UINT#701;
+        //         RETURN;
+        //     END_IF;
 
-            _hwID               :=  hwID;
-            _hwIdInOut_64_byte  :=  hwIdInOut_64_byte;
+        //     _hwID               :=  hwID;
+        //     _hwIdInOut_64_byte  :=  hwIdInOut_64_byte;
 
-            THIS.Execute();
-        END_METHOD
+        //     THIS.Execute();
+        // END_METHOD
 
         METHOD PRIVATE Execute 
             VAR 

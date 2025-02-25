@@ -2,7 +2,7 @@ NAMESPACE AXOpen.Core
 
     {S7.extern=ReadWrite}
     CLASS PUBLIC ABSTRACT AxoComponent EXTENDS AxoObject IMPLEMENTS IAxoComponent     
-        VAR
+        VAR PRIVATE
             _context    :   IAxoContext;
         END_VAR
         ///<summary>

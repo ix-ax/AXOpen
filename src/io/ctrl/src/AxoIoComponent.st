@@ -39,18 +39,18 @@ NAMESPACE AXOpen.Io
             THIS.Execute(hwID);           
         END_METHOD
 
-        ///<summary>
-        /// Runs tasks and logic of this component.
-        /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
-        ///</summary>
-        METHOD PUBLIC Run 
-            VAR_INPUT
-                parent  : IAxoContext;
-                hwID    :   WORD;
-            END_VAR
-            THIS.Initialize(parent);    
-            THIS.Execute(hwID);           
-        END_METHOD
+        // ///<summary>
+        // /// Runs tasks and logic of this component.
+        // /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
+        // ///</summary>
+        // METHOD PUBLIC Run 
+        //     VAR_INPUT
+        //         parent  : IAxoContext;
+        //         hwID    :   WORD;
+        //     END_VAR
+        //     THIS.Initialize(parent);    
+        //     THIS.Execute(hwID);           
+        // END_METHOD
         
         METHOD PRIVATE Execute
             VAR_INPUT
