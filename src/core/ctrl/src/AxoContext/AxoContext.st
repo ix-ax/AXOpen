@@ -10,6 +10,7 @@ NAMESPACE AXOpen.Core
     ///</summary>
     {S7.extern=ReadWrite}
     CLASS PUBLIC ABSTRACT AxoContext IMPLEMENTS IAxoContext        
+
         VAR PRIVATE                        
             _openCounter : ULINT;
             _closeCounter : ULINT;
@@ -35,8 +36,18 @@ NAMESPACE AXOpen.Core
         ///<summary>
         /// Runs the cycle of this context. This method must be called cyclically in a PLC task.
         ///</summary>
+        VAR PUBLIC
+            me_as_IAxoContext : IAxoContext;
+            my_rtm : IAxoRtm;
+            my_elapsed_time : LTIME;
+            my_remaining_time : LTIME;  // only the God knows
+        END_VAR
+        
         METHOD PUBLIC Run
-            THIS.Open(); 
+            THIS.Open();
+            me_as_IAxoContext := THIS;
+            my_rtm := me_as_IAxoContext.GetRtm();
+            my_elapsed_time := my_rtm.Elapsed();
             THIS.Main();
             THIS.Close();
         END_METHOD   

@@ -46,9 +46,21 @@ CLASS PUBLIC AutomatSequence
     VAR PRIVATE
         
     END_VAR
+    // VAR PUBLIC
+
+    //     me_as_IAxoContext : IAxoContext;
+    //     my_rtm : AXOpen.Rtm.IAxoRtm;
+    //     my_elapsed_time : LTIME;
+    //     my_remaining_time : LTIME;  // only the God knows
+    // END_VAR
 
     METHOD OVERRIDE Main
-        
+        // me_as_IAxoContext ?= THIS;
+        // my_rtm := me_as_IAxoContext.GetRtm();
+        // my_elapsed_time := my_rtm.Elapsed();
+
+
+
         THIS.SequenceMode := eAxoSequenceMode#Cyclic;
 
         IF (Steps[0].Execute(THIS, TRUE, 'Move vertical cyclinder down.')) THEN
