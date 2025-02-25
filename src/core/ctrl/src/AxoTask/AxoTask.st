@@ -137,11 +137,13 @@ NAMESPACE AXOpen.Core
                 IF Status <> eAxoTaskState#Error THEN
                     Status := eAxoTaskState#Disabled; 
                 END_IF;
-                IsReady := false; RETURN;
+                IsReady := false; 
+                RETURN;
             ELSE
                 IF  Status = eAxoTaskState#Disabled THEN
                     Status := eAxoTaskState#Ready; 
-                    IsReady := TRUE; RETURN;
+                    IsReady := TRUE; 
+                    RETURN;
                 END_IF;
             END_IF;
 
@@ -156,11 +158,13 @@ NAMESPACE AXOpen.Core
                 IF Status <> eAxoTaskState#Error THEN
                     Status := eAxoTaskState#Disabled; 
                 END_IF;
-                IsDone := false; RETURN;
+                IsDone := false; 
+                RETURN;
             ELSE
                 IF  Status = eAxoTaskState#Disabled THEN
                     Status := eAxoTaskState#Ready; 
-                    IsDone := false; RETURN;
+                    IsDone := false; 
+                    RETURN;
                 END_IF;
             END_IF;
 
@@ -175,11 +179,13 @@ NAMESPACE AXOpen.Core
                 IF Status <> eAxoTaskState#Error THEN
                     Status := eAxoTaskState#Disabled; 
                 END_IF;
-                IsBusy := false; RETURN;
+                IsBusy := false; 
+                RETURN;
             ELSE
                 IF  Status = eAxoTaskState#Disabled THEN
                     Status := eAxoTaskState#Ready; 
-                    IsBusy := false; RETURN;
+                    IsBusy := false; 
+                    RETURN;
                 END_IF;
             END_IF;
 
@@ -194,11 +200,13 @@ NAMESPACE AXOpen.Core
                 IF Status <> eAxoTaskState#Error THEN
                     Status := eAxoTaskState#Disabled; 
                 END_IF;
-                IsAborted := false; RETURN;
+                IsAborted := false; 
+                RETURN;
             ELSE
                 IF  Status = eAxoTaskState#Disabled THEN
                     Status := eAxoTaskState#Ready; 
-                    IsAborted := false; RETURN; 
+                    IsAborted := false; 
+                    RETURN; 
                 END_IF;
             END_IF;
             
@@ -212,14 +220,17 @@ NAMESPACE AXOpen.Core
             IF IsDisabled THEN 
                 IF Status <> eAxoTaskState#Error THEN
                     Status := eAxoTaskState#Disabled; 
-                    HasError := FALSE; RETURN; 
+                    HasError := FALSE; 
+                    RETURN; 
                 ELSE
-                    HasError := TRUE; RETURN; 
+                    HasError := TRUE; 
+                    RETURN; 
                 END_IF;
             ELSE
                 IF  Status = eAxoTaskState#Disabled THEN
                     Status := eAxoTaskState#Ready; 
-                    HasError := FALSE; RETURN; 
+                    HasError := FALSE; 
+                    RETURN; 
                 END_IF;
             END_IF;
 
@@ -291,37 +302,45 @@ NAMESPACE AXOpen.Core
         // END_METHOD 
 
         METHOD PRIVATE IsNewInvokeCall : BOOL
+            IF(_context = NULL) THEN
+                _context := THIS.GetContext();
+            END_IF;      
             IF _context <> NULL THEN
                 IsNewInvokeCall := _openCycleCountInvoke < _context.OpenCycleCount() - ULINT#1;
             ELSE
-                _context := THIS.GetContext();
                 IsNewInvokeCall := FALSE;
             END_IF;     
         END_METHOD 
         
         METHOD PRIVATE IsNewExecuteCall : BOOL
+            IF(_context = NULL) THEN
+                _context := THIS.GetContext();
+            END_IF;      
             IF _context <> NULL THEN
                 IsNewExecuteCall := _openCycleCountExecute < _context.OpenCycleCount() - ULINT#1;
             ELSE
-                _context := THIS.GetContext();
                 IsNewExecuteCall := FALSE;
             END_IF;     
         END_METHOD 
 
         METHOD PRIVATE IsExecuteCalledInThisPlcCycle : BOOL
+            IF(_context = NULL) THEN
+                _context := THIS.GetContext();
+            END_IF;      
             IF _context <> NULL THEN
                 IsExecuteCalledInThisPlcCycle := _openCycleCountExecute = _context.OpenCycleCount();
             ELSE
-                _context := THIS.GetContext();
                 IsExecuteCalledInThisPlcCycle := FALSE;
             END_IF;     
         END_METHOD 
         
         METHOD PRIVATE WasExecuteCalledInPreviousPlcCycle : BOOL
+            IF(_context = NULL) THEN
+                _context := THIS.GetContext();
+            END_IF;      
             IF _context <> NULL THEN
                 WasExecuteCalledInPreviousPlcCycle := _openCycleCountExecute + ULINT#1 = _context.OpenCycleCount();
             ELSE
-                _context := THIS.GetContext();
                 WasExecuteCalledInPreviousPlcCycle := FALSE;
             END_IF;     
         END_METHOD 
@@ -401,11 +420,10 @@ NAMESPACE AXOpen.Core
         /// Restores this task.
         ///</summary>    
         METHOD PUBLIC Restore : IAxoTaskState
-            IF(_context = NULL) THEN
-                _context := THIS.GetContext();
-            END_IF;
-
             IF(Status <> eAxoTaskState#Ready AND Status <> eAxoTaskState#Disabled) THEN
+                IF(_context = NULL) THEN
+                    _context := THIS.GetContext();
+                END_IF;      
                 _context.GetLogger().Log('Task restored', eLogLevel#Verbose, THIS);
                 _restoreCycleCount :=  _context.OpenCycleCount();
             END_IF;    
@@ -434,11 +452,10 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 Condition : BOOL;
             END_VAR
-            IF(_context = NULL) THEN
-                _context := THIS.GetContext();
-            END_IF;  
-
-            IF Condition AND Status = eAxoTaskState#Busy THEN   
+            IF Condition AND Status = eAxoTaskState#Busy THEN 
+                IF(_context = NULL) THEN
+                    _context := THIS.GetContext();
+                END_IF;        
                 _context.GetLogger().Log('Task done.', eLogLevel#Verbose, THIS);
                 Status := eAxoTaskState#Done;
                 THIS.OnDone();
@@ -459,8 +476,13 @@ NAMESPACE AXOpen.Core
                 _context := THIS.GetContext();
             END_IF;
 
-            IF(_context = NULL) THEN RETURN; END_IF;
-            IF( RemoteInvoke) THEN THIS.Invoke(); RemoteInvoke := FALSE; END_IF;
+            IF(_context = NULL) THEN 
+                RETURN; 
+            END_IF;
+            IF( RemoteInvoke) THEN 
+                THIS.Invoke(); 
+                RemoteInvoke := FALSE; 
+            END_IF;
             IF _RemoteRestoreEnabled THEN
                 IF( RemoteRestore) THEN THIS.Restore(); RemoteRestore := FALSE; END_IF;
             ELSE
@@ -573,12 +595,10 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 HasErrorState : BOOL;
             END_VAR
-
-            IF(_context = NULL) THEN
-                _context := THIS.GetContext();
-            END_IF;
-
             IF(HasErrorState) THEN
+                IF(_context = NULL) THEN
+                    _context := THIS.GetContext();
+                END_IF;      
                 Status := eAxoTaskState#Error;  
                 _context.GetLogger().Log('Task failed', eLogLevel#Error, THIS);             
                 THIS.OnError();  
@@ -595,11 +615,11 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 HasErrorState : BOOL;
                 ErrorDescription : STRING[254];
-            END_VAR  
-            IF(_context = NULL) THEN
-                _context := THIS.GetContext();
-            END_IF;          
-            IF(HasErrorState) THEN                
+            END_VAR          
+            IF(HasErrorState) THEN      
+                IF(_context = NULL) THEN
+                    _context := THIS.GetContext();
+                END_IF;                
                 ErrorDetails :=  ErrorDescription; 
                 _context.GetLogger().Log(ErrorDetails, eLogLevel#Error, THIS);  
             END_IF;    
@@ -627,11 +647,10 @@ NAMESPACE AXOpen.Core
         /// Aborts the execution of the task if running and sets its state to aborted.
         ///</summary>
         METHOD PUBLIC Abort 
-            IF(_context = NULL) THEN
-                _context := THIS.GetContext();
-            END_IF;
-
             IF THIS.Status = eAxoTaskState#Busy THEN
+                IF(_context = NULL) THEN
+                    _context := THIS.GetContext();
+                END_IF;      
                 THIS.Status := eAxoTaskState#Aborted;
                 THIS.OnAbort();
                 _abortCycleCount :=  _context.OpenCycleCount();
@@ -643,6 +662,9 @@ NAMESPACE AXOpen.Core
         ///</summary>
         METHOD PUBLIC Resume 
             IF THIS.Status = eAxoTaskState#Aborted THEN
+                IF(_context = NULL) THEN
+                    _context := THIS.GetContext();
+                END_IF;      
                 THIS.Status := eAxoTaskState#Busy;
                 THIS.OnResume();
                 _resumeCycleCount :=  _context.OpenCycleCount();
@@ -762,6 +784,9 @@ NAMESPACE AXOpen.Core
         /// Returns `TRUE` when the task has been aborted in this or previous PLC cycle.
         ///</summary>
         METHOD PUBLIC AbortTriggered : BOOL
+            IF(_context = NULL) THEN
+                _context := THIS.GetContext();
+            END_IF;      
             AbortTriggered := _abortCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
 
@@ -769,6 +794,9 @@ NAMESPACE AXOpen.Core
         /// Returns `TRUE` when the task has been resumed in this or previous PLC cycle.
         ///</summary>
         METHOD PUBLIC ResumeTriggered : BOOL
+            IF(_context = NULL) THEN
+                _context := THIS.GetContext();
+            END_IF;      
             ResumeTriggered := _resumeCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
 
@@ -776,6 +804,9 @@ NAMESPACE AXOpen.Core
         /// Returns `TRUE` when the task has reached the `Done` state in this or previous PLC cycle.
         ///</summary>
         METHOD PUBLIC DoneReached : BOOL
+            IF(_context = NULL) THEN
+                _context := THIS.GetContext();
+            END_IF;      
             DoneReached := _doneCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
     
@@ -783,6 +814,9 @@ NAMESPACE AXOpen.Core
         /// Returns `TRUE` when the task has reached the `Error` state in this or previous PLC cycle.
         ///</summary>
         METHOD PUBLIC ErrorOccured : BOOL
+            IF(_context = NULL) THEN
+                _context := THIS.GetContext();
+            END_IF;      
             ErrorOccured := _errorCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
     
@@ -790,6 +824,9 @@ NAMESPACE AXOpen.Core
         /// Returns `TRUE` when the task has been restored in this or previous PLC cycle.
         ///</summary>
         METHOD PUBLIC RestoreTriggered : BOOL
+            IF(_context = NULL) THEN
+                _context := THIS.GetContext();
+            END_IF;      
             RestoreTriggered := _restoreCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
     
@@ -797,6 +834,9 @@ NAMESPACE AXOpen.Core
         /// Returns `TRUE` when the task has been started in this or previous PLC cycle.
         ///</summary>
         METHOD PUBLIC StartTriggered : BOOL
+            IF(_context = NULL) THEN
+                _context := THIS.GetContext();
+            END_IF;      
             StartTriggered := _startCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
     END_CLASS    

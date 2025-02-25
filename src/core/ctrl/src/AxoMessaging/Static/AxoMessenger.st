@@ -159,6 +159,9 @@ NAMESPACE AXOpen.Messaging.Static
             VAR_INPUT
                 _category : eAxoMessageCategory;
             END_VAR
+            IF _context = NULL THEN
+                _context := THIS.GetContext();
+            END_IF;     
 
             Activate := THIS;
             
@@ -192,6 +195,9 @@ NAMESPACE AXOpen.Messaging.Static
                 _messageCode : ULINT;
                 _category : eAxoMessageCategory;
             END_VAR
+            IF _context = NULL THEN
+                _context := THIS.GetContext();
+            END_IF;     
 
             Activate := THIS;
             
@@ -268,6 +274,9 @@ NAMESPACE AXOpen.Messaging.Static
             VAR_INPUT
                 _messageCode : ULINT;
             END_VAR
+            IF _context = NULL THEN
+                _context := THIS.GetContext();
+            END_IF;     
 
             IF _context = NULL THEN
                 RETURN;
@@ -290,6 +299,10 @@ NAMESPACE AXOpen.Messaging.Static
         END_METHOD   
 
         METHOD PRIVATE Deactivate
+            IF _context = NULL THEN
+                _context := THIS.GetContext();
+            END_IF;     
+
             IF _context = NULL THEN
                 RETURN;
             END_IF;
@@ -314,6 +327,10 @@ NAMESPACE AXOpen.Messaging.Static
                 _messageCode : ULINT;
             END_VAR
             IF _context = NULL THEN
+                _context := THIS.GetContext();
+            END_IF;     
+
+            IF _context = NULL THEN
                 RETURN;
             END_IF;
 
@@ -336,6 +353,10 @@ NAMESPACE AXOpen.Messaging.Static
         END_METHOD    
 
         METHOD PRIVATE Acknowledge
+            IF _context = NULL THEN
+                _context := THIS.GetContext();
+            END_IF;     
+
             IF _context = NULL THEN
                 RETURN;
             END_IF;
@@ -360,6 +381,10 @@ NAMESPACE AXOpen.Messaging.Static
         /// Restores all members of this instance to their initial states.
         ///</summary>
         METHOD PUBLIC Restore
+            IF _context = NULL THEN
+                _context := THIS.GetContext();
+            END_IF;     
+
             IF _context = NULL THEN
                 RETURN;
             END_IF;

@@ -153,8 +153,9 @@ NAMESPACE AXOpen.Core
                 inCount : LINT;
             END_VAR         
 
-            IF(_context = NULL) THEN                 
-                RETURN; 
+            IF(_context = NULL) THEN          
+                _context := THIS.GetContext();       
+                // RETURN; 
             END_IF;
 
             IF(_lastMessageAggregationCycle <> _context.OpenCycleCount()) THEN

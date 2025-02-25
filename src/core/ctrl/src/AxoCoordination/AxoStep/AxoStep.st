@@ -117,6 +117,7 @@ NAMESPACE AXOpen.Core
                 _currentlyOpenCycleCount : ULINT;
                 // Selector : REF_TO Selector;
             END_VAR    
+            THIS.Initialize(coord);
             IF _context = NULL THEN
                 _context := THIS.GetContext();
             END_IF;

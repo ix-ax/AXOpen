@@ -45,19 +45,25 @@ NAMESPACE AXOpen.Core
         END_METHOD
 
         METHOD PRIVATE IsRunCalledInThisPlcCycle : BOOL
+            IF _context = NULL THEN
+                _context := THIS.GetContext();
+            END_IF;     
+
             IF _context <> NULL THEN
                 IsRunCalledInThisPlcCycle := _openCycleCount = _context.OpenCycleCount();
             ELSE
-                _context := THIS.GetContext();
                 IsRunCalledInThisPlcCycle := FALSE;
             END_IF;     
         END_METHOD 
         
         METHOD PRIVATE WasRunCalledInPreviousPlcCycle : BOOL
+            IF _context = NULL THEN
+                _context := THIS.GetContext();
+            END_IF;     
+
             IF _context <> NULL THEN
                 WasRunCalledInPreviousPlcCycle := _openCycleCount + ULINT#1 = _context.OpenCycleCount();
             ELSE
-                _context := THIS.GetContext();
                 WasRunCalledInPreviousPlcCycle := FALSE;
             END_IF;     
         END_METHOD 

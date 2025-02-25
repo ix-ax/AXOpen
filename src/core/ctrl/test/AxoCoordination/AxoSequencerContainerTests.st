@@ -480,6 +480,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
             // _context.Open();
             // _sequencer.Initialize(_rootObject);
             // _sequencer.Invoke();
+            // Assert.Equal(TRUE, THIS.EqualAxoCoordinatorStates(AxoCoordinatorStates#Idle , _sequencer.GetCoordinatorState()));
             // _sequencer.Open();
             // _sequencer._step_1.Execute(_sequencer);
             // _sequencer._step_2.Execute(_sequencer);
