@@ -44,12 +44,12 @@ NAMESPACE AXOpen.Data
         METHOD Restore        
         END_METHOD 
         
-        METHOD Run 
-            VAR_INPUT
-                context : IAxoContext;
-            END_VAR
+        // METHOD Run 
+        //     VAR_INPUT
+        //         context : IAxoContext;
+        //     END_VAR
             
-        END_METHOD
+        // END_METHOD
 
         METHOD Run 
             VAR_INPUT

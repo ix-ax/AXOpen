@@ -13,6 +13,7 @@ PROGRAM MyProgram
     VAR_TEMP
 
     END_VAR
+
     sandbox.InjectRtc(S71500Rtc);
     sandbox.InjectRtm(S71500Rtm);
     sandbox.Run();    

@@ -24,18 +24,18 @@ NAMESPACE AXOpen.Data
             Operation.Execute();
         END_METHOD
 
-        ///<summary>
-        /// Runs intialization and cyclical handling of this AxoDataExchange.
-        /// </summary> 
-        /// <param name="context">Root context of this object</param>
-        METHOD PUBLIC Run 
-            VAR_INPUT            
-                context : IAxoContext;
-            END_VAR    
-            THIS.Initialize(context);
-            Operation.Initialize(THIS);
-            Operation.Execute();
-        END_METHOD
+        // ///<summary>
+        // /// Runs intialization and cyclical handling of this AxoDataExchange.
+        // /// </summary> 
+        // /// <param name="context">Root context of this object</param>
+        // METHOD PUBLIC Run 
+        //     VAR_INPUT            
+        //         context : IAxoContext;
+        //     END_VAR    
+        //     THIS.Initialize(context);
+        //     Operation.Initialize(THIS);
+        //     Operation.Execute();
+        // END_METHOD
 
         ///<summary>
         /// Creates new entry into the remote repository from data entity of this AxoDataExchange.

@@ -20,6 +20,10 @@ NAMESPACE AXOpen.Data
             
         END_VAR
 
+        VAR PRIVATE
+            _context : IAxoContext;
+        END_VAR
+
         ///<summary>
         /// This method determines if the current call is concurrent or not.
         ///  It takes an AXOpen.Core.IAxoObject as input and returns a BOOL. 
@@ -78,38 +82,14 @@ NAMESPACE AXOpen.Data
                 parent : IAxoObject;
             END_VAR    
 
-            if _context_ = NULL then 
+            IF parent = NULL THEN
+                RETURN;
+            END_IF;
+
+            IF _context = NULL THEN
                 THIS.Initialize(parent);
                 Operation.Initialize(THIS);
-            end_if;
-
-            Operation.Execute();
-            
-            IF NOT _IsFirstReadAllDone THEN 
-                IF Operation.IsInitialized AND (Operation.Identity <> ULINT#0) THEN // MUST BE INITIALIZED AND WITH IDENTITY
-                    IF Operation.IsReady() THEN // read all after startup
-                        Operation.Invoke('', ePersistentOperation#ReadAll);
-                        LastOperation := ePersistentOperation#ReadAll;
-
-                    ELSIF Operation.IsDone() AND (LastOperation = ePersistentOperation#ReadAll) THEN 
-                         _IsFirstReadAllDone := TRUE;
-                    END_IF;
-                END_IF;
-            END_IF;
-        END_METHOD
-
-        ///<summary>
-        /// Runs intialization and cyclical handling of this AxoDataPersistentExchange.
-        /// </summary> 
-        /// <param name="context">Root context of this object</param>
-        METHOD PUBLIC Run 
-            VAR_INPUT            
-                context : IAxoContext;
-            END_VAR    
-            
-            IF _context_ = NULL THEN 
-                THIS.Initialize(context);
-                Operation.Initialize(THIS);
+                _context := THIS.GetContext();
             END_IF;
 
             Operation.Execute();
@@ -126,6 +106,35 @@ NAMESPACE AXOpen.Data
                 END_IF;
             END_IF;
         END_METHOD
+
+        // ///<summary>
+        // /// Runs intialization and cyclical handling of this AxoDataPersistentExchange.
+        // /// </summary> 
+        // /// <param name="context">Root context of this object</param>
+        // METHOD PUBLIC Run 
+        //     VAR_INPUT            
+        //         context : IAxoContext;
+        //     END_VAR    
+            
+        //     IF _context_ = NULL THEN 
+        //         THIS.Initialize(context);
+        //         Operation.Initialize(THIS);
+        //     END_IF;
+
+        //     Operation.Execute();
+            
+        //     IF NOT _IsFirstReadAllDone THEN 
+        //         IF Operation.IsInitialized AND (Operation.Identity <> ULINT#0) THEN // MUST BE INITIALIZED AND WITH IDENTITY
+        //             IF Operation.IsReady() THEN // read all after startup
+        //                 Operation.Invoke('', ePersistentOperation#ReadAll);
+        //                 LastOperation := ePersistentOperation#ReadAll;
+
+        //             ELSIF Operation.IsDone() AND (LastOperation = ePersistentOperation#ReadAll) THEN 
+        //                  _IsFirstReadAllDone := TRUE;
+        //             END_IF;
+        //         END_IF;
+        //     END_IF;
+        // END_METHOD
 
         ///<summary>
         /// Executes the restore Operation for the AxoDataPersistentExchange component.

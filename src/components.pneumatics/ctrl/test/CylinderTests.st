@@ -36,7 +36,8 @@ NAMESPACE Cylinder.Tests
             context : TestContext;
             cylinder : AxoCylinder;
             cylinderParent : AXOpen.Core.AxoObject;
-            _rtc : AxoRtcMock;
+            _rtc             :   AXOpen.Core.Dummies.MockAxoRtc;
+            _rtm             :   AXOpen.Core.Dummies.MockAxoRtm;
             _homeSensor : BOOL;
             _workSensor : BOOL;
             _moveHomeSignal : BOOL;
@@ -52,10 +53,14 @@ NAMESPACE Cylinder.Tests
 
         {TestSetup}
         METHOD PUBLIC TestSetup
-        // Will be called before MyTest_A AND before Test_B are executed
             context := contextBlank;
+            _rtm.SetElapsed(LTIME#2s);
+            context.InjectRtm(_rtm);
+            _rtc.SetNowUTC(LDATE_AND_TIME#2012-01-12-15:58:12.123);
+            context.InjectRtc(_rtc);
             cylinder := cylinderBlank;
             cylinderParent := cylinderParentBlank;
+            cylinderParent.InitializeWithContext(context);
         END_METHOD
     
         {TestTearDown}
@@ -83,7 +88,7 @@ NAMESPACE Cylinder.Tests
             _rtc.SetNowUTC(dt);
             context.InjectRtc(_rtc);
             context.Open();   
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
             context.Close();                          
         END_METHOD
@@ -102,7 +107,7 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.MoveToHome();
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
@@ -115,12 +120,12 @@ NAMESPACE Cylinder.Tests
         END_METHOD
         
         {Test}
-        METHOD PUBLIC MoveWork         
+        METHOD PUBLIC MoveWork       
             THIS.Init();  
 
             context.Open();                                                              
             cylinder.MoveToWork();
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
@@ -138,13 +143,13 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.MoveToHome();
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             context.Open();                                                              
             cylinder._StopTask.Invoke();
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
 
@@ -162,13 +167,13 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.MoveToWork();
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             context.Open();                                                              
             cylinder._StopTask.Invoke();
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
@@ -185,12 +190,11 @@ NAMESPACE Cylinder.Tests
             VAR
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2023-01-12-15:49:12.123;
             END_VAR
-
             THIS.Init(dt);  
 
             context.Open();                                                              
             cylinder.MoveToWork();
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
@@ -202,7 +206,7 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.SuspendMoveToWorkWhile(TRUE);
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
@@ -219,12 +223,11 @@ NAMESPACE Cylinder.Tests
             VAR
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2021-01-11-15:49:12.123;
             END_VAR
-
             THIS.Init(dt);    
 
             context.Open();                                                              
             cylinder.MoveToWork();
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
@@ -235,7 +238,7 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             cylinder.SuspendMoveToWorkWhile(TRUE);
             context.Close();                          
@@ -253,12 +256,11 @@ NAMESPACE Cylinder.Tests
             VAR
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2021-01-11-13:49:12.123;
             END_VAR
-
             THIS.Init(dt);   
 
             context.Open();                                                              
             cylinder.MoveToHome();
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
@@ -270,7 +272,7 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.SuspendMoveToHomeWhile(TRUE);
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
@@ -287,12 +289,11 @@ NAMESPACE Cylinder.Tests
             VAR
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2021-01-11-05:49:12.123;
             END_VAR
-
             THIS.Init(dt); 
 
             context.Open();                                                              
             cylinder.MoveToHome();
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
@@ -303,7 +304,7 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             cylinder.SuspendMoveToHomeWhile(TRUE);
             context.Close();                          
@@ -321,14 +322,13 @@ NAMESPACE Cylinder.Tests
             VAR
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2021-01-11-05:49:12.123;
             END_VAR
-
             THIS.Init(dt); 
             AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
             cylinder.SuspendMoveToWorkWhile(TRUE);
             cylinder.MoveToWork();
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
@@ -345,14 +345,13 @@ NAMESPACE Cylinder.Tests
             VAR
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2021-01-11-05:41:12.123;
             END_VAR
-
             THIS.Init(dt); 
             AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
             cylinder.SuspendMoveToHomeWhile(TRUE);
             cylinder.MoveToHome();
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
@@ -369,13 +368,12 @@ NAMESPACE Cylinder.Tests
             VAR
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2023-01-12-15:49:12.123;
             END_VAR
-
             THIS.Init(dt);  
             AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
             cylinder.MoveToWork();
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
@@ -386,7 +384,7 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.AbortMoveToWorkWhen(TRUE);
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
@@ -403,12 +401,11 @@ NAMESPACE Cylinder.Tests
             VAR
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2021-01-11-15:49:12.123;
             END_VAR
-
             THIS.Init(dt);    
 
             context.Open();                                                              
             cylinder.MoveToWork();
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
@@ -419,7 +416,7 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             cylinder.AbortMoveToWorkWhen(TRUE);
             context.Close();                          
@@ -437,12 +434,11 @@ NAMESPACE Cylinder.Tests
             VAR
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2021-01-11-13:49:12.123;
             END_VAR
-
             THIS.Init(dt);   
 
             context.Open();                                                              
             cylinder.MoveToHome();
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
@@ -454,7 +450,7 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.AbortMoveToHomeWhen(TRUE);
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
@@ -471,12 +467,11 @@ NAMESPACE Cylinder.Tests
             VAR
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2021-01-11-05:49:12.123;
             END_VAR
-
             THIS.Init(dt); 
 
             context.Open();                                                              
             cylinder.MoveToHome();
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
@@ -487,7 +482,7 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             cylinder.AbortMoveToHomeWhen(TRUE);
             context.Close();                          
@@ -512,7 +507,7 @@ NAMESPACE Cylinder.Tests
             context.Open();                                                              
             cylinder.AbortMoveToWorkWhen(TRUE);
             cylinder.MoveToWork();
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
@@ -536,7 +531,7 @@ NAMESPACE Cylinder.Tests
             context.Open();                                                              
             cylinder.AbortMoveToHomeWhen(TRUE);
             cylinder.MoveToHome();
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
@@ -554,19 +549,19 @@ NAMESPACE Cylinder.Tests
         METHOD PUBLIC Messaging     
             VAR
                 dt : LDATE_AND_TIME := LDATE_AND_TIME#2021-01-11-05:41:12.123;
-            END_VAR   
+            END_VAR 
             THIS.Init(dt); 
             context.Open();                                                              
             cylinder.SuspendMoveToHomeWhile(TRUE);
             cylinder.MoveToHome();
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             context.Open();                                                              
             cylinder.SuspendMoveToHomeWhile(TRUE);
             AxUnit.Assert.Equal(TRUE, cylinder._Messenger.IsActive);
-            cylinderParent.Initialize(context);                                                        
+            cylinderParent.InitializeWithContext(context);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
 

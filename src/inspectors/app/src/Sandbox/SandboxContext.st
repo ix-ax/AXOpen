@@ -2,16 +2,12 @@ USING AXOpen.Core;
 {S7.extern=ReadWrite}
 CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
-
         _startInspection : BOOL := FALSE;
-
-        _inspectors : Inspectors;
-      
+        _inspectors : Inspectors;      
     END_VAR
 
-
     METHOD PROTECTED OVERRIDE Main
-        _inspectors.Initialize(THIS);
+        _inspectors.InitializeWithContext(THIS);
 
         IF _startInspection THEN
             _inspectors.Run();

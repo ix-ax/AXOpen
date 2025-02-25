@@ -19,9 +19,11 @@ NAMESPACE AXOpen.Core
             MsgCnt   : LINT := LINT#0;    
         END_VAR    
 
-        VAR PROTECTED           
+        VAR PRIVATE           
             _parent         : IAxoObject;
-            _context_       : IAxoContext;
+            _context        : IAxoContext;
+            _isInitialized  : BOOL;
+            _errorState     : UINT;  
         END_VAR  
         
         VAR PRIVATE  
@@ -44,9 +46,10 @@ NAMESPACE AXOpen.Core
         /// Gets context in which this object was initialized.
         ///</summary>
         METHOD PUBLIC GetContext : IAxoContext
-            IF(_context_ <> NULL) THEN
-                GetContext := _context_;
+            IF(_context <> NULL) THEN
+                GetContext := _context;
             ELSE
+                // TODO provide some message 
                 GetContext := NULL_CONTEXT;                    
             END_IF;    
         END_METHOD
@@ -55,16 +58,17 @@ NAMESPACE AXOpen.Core
         /// Gets context in which this object was initialized.
         ///</summary>
         METHOD PUBLIC GetContextUnsafe : IAxoContext
-            GetContextUnsafe := _context_;
+            GetContextUnsafe := _context;
         END_METHOD
 
         ///<summary>
         /// Gets parent in which this object was initialized.
         ///</summary>
         METHOD PUBLIC GetParent : IAxoObject
-            IF(_context_ <> NULL) THEN
+            IF(_context <> NULL) THEN
                 GetParent := _parent;
             ELSE
+                // TODO provide some message 
                 GetParent := NULL_OBJECT;    
             END_IF;    
         END_METHOD
@@ -78,12 +82,38 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 inParent : IAxoObject;
             END_VAR                           
-                       
-            IF(inParent <> NULL) THEN
-                _context_    := inParent.GetContext();                 
-                _parent     := inParent;
-                RETURN;                 
-            END_IF;            
+                     
+            VAR
+                NULL_CONTEXT_OBJ    : IAxoObject;
+            END_VAR
+
+            IF _isInitialized THEN
+                RETURN;
+            END_IF;
+
+            IF(inParent = NULL) THEN
+                // TODO provide some message 
+                _errorState := UINT#20;
+                RETURN;
+            END_IF;
+
+            NULL_CONTEXT_OBJ ?= NULL_CONTEXT;
+            IF(inParent.GetContext() = NULL_CONTEXT_OBJ) THEN
+                // TODO provide some message 
+                _errorState := UINT#30;
+                RETURN;
+            END_IF;
+
+            IF(inParent = _parent) THEN
+                // TODO provide some message 
+                _errorState := UINT#40;
+                RETURN;
+            END_IF;
+
+            _context        := inParent.GetContext();                 
+            _parent         := inParent;
+            _isInitialized  := TRUE;
+            
         END_METHOD  
         
         ///<summary>
@@ -91,15 +121,24 @@ NAMESPACE AXOpen.Core
         /// This method should be called only once upon the program start.
         /// Any subsequent call are ignored.
         ///</summary>
-        METHOD PUBLIC Initialize
+        METHOD PUBLIC InitializeWithContext
             VAR_INPUT
                 inContext : IAxoContext;
             END_VAR   
          
-            
-            IF(inContext <> NULL) THEN
-                _context_    := inContext;                 
+            IF _isInitialized THEN
+                RETURN;
             END_IF;
+
+            IF(inContext = NULL) THEN
+                // TODO provide some message 
+                _errorState := UINT#10;
+                RETURN;
+            END_IF;
+            
+            _context        := inContext;                 
+            _isInitialized  := TRUE;
+
         END_METHOD   
         
         VAR
@@ -114,11 +153,12 @@ NAMESPACE AXOpen.Core
                 inCount : LINT;
             END_VAR         
 
-            IF(_context_ = NULL) THEN                 
-                RETURN; 
+            IF(_context = NULL) THEN          
+                _context := THIS.GetContext();       
+                // RETURN; 
             END_IF;
 
-            IF(_lastMessageAggregationCycle <> _context_.OpenCycleCount()) THEN
+            IF(_lastMessageAggregationCycle <> _context.OpenCycleCount()) THEN
                 THIS.MsgCnt := LINT#0;
             END_IF;    
 
@@ -135,7 +175,7 @@ NAMESPACE AXOpen.Core
                 THIS._parent.AggregateMessage(inCount);
             END_IF;    
 
-            _lastMessageAggregationCycle := _context_.OpenCycleCount();  
-        END_METHOD        
+            _lastMessageAggregationCycle := _context.OpenCycleCount();  
+        END_METHOD    
     END_CLASS    
 END_NAMESPACE    

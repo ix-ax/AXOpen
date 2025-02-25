@@ -66,7 +66,7 @@ NAMESPACE AXOpen.Core
             END_VAR
             ;
         END_METHOD
-           
+    
         METHOD PUBLIC GetParent : IAxoObject
             GetParent := THIS;
         END_METHOD

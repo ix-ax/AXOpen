@@ -49,7 +49,11 @@ NAMESPACE AXOpen.Elements
             _signal : DINT;
 
         END_VAR   
-        
+
+        VAR PRIVATE
+            _context : IAxoContext;
+        END_VAR
+
         /// <summary>
         /// Method, which unscales input signal based on configuration and writes it to output
         /// </summary>
@@ -63,11 +67,15 @@ NAMESPACE AXOpen.Elements
                 oSignal: DINT;
             END_VAR
     
-            IF (parent = NULL) THEN RETURN; END_IF;
 
-            IF THIS._context_ = NULL THEN
+            IF (parent = NULL) THEN 
+                RETURN; 
+            END_IF;
+
+            IF _context = NULL THEN
                 THIS.Initialize(parent);
-            end_if;
+                _context := THIS.GetContext();
+            END_IF;
 
             _messengerDivisionByZero.Serve(THIS); 
             _messengerGainNotDefined.Serve(THIS); 
