@@ -179,13 +179,8 @@ namespace AXOpen.Data.MongoDb
             return filetered;
         }
 
-        protected override IEnumerable<T> GetRecordsNvi(
-            PredicateContainer predicates,
-            int limit,
-            int skip
-            )
+        protected SortDefinition<T> CreteSortDefinition(List<SortSettings> sortSettings)
         {
-            var sortSettings = predicates.GetSorting<T>();
             var sortBuilder = new SortDefinitionBuilder<T>();
 
             SortDefinition<T> sortDefinition;
@@ -203,16 +198,18 @@ namespace AXOpen.Data.MongoDb
                     string sortExpression = sortSet.MemberName;
                     bool sortAscending = sortSet.IsAscending;
 
-                    SortDefinition<T> singleSort = string.IsNullOrWhiteSpace(sortExpression) ||
-                                                   sortExpression.Equals("Default", StringComparison.OrdinalIgnoreCase)
-                        ? (sortAscending
-                            ? sortBuilder.Ascending("$natural")
-                            : sortBuilder.Descending("$natural"))
-                        : (sortAscending
+                    if (string.IsNullOrEmpty(sortSet.MemberName))
+                    {
+                        sortDefinitions.Add(sortAscending ? sortBuilder.Ascending("$natural") : sortBuilder.Descending("$natural"));
+                    }
+                    else
+                    {
+                        SortDefinition<T> singleSort = sortAscending
                             ? sortBuilder.Ascending(sortExpression)
-                            : sortBuilder.Descending(sortExpression));
+                            : sortBuilder.Descending(sortExpression);
 
-                    sortDefinitions.Add(singleSort);
+                        sortDefinitions.Add(singleSort);
+                    }
                 }
 
                 sortDefinition = sortDefinitions.Count == 1
@@ -220,17 +217,31 @@ namespace AXOpen.Data.MongoDb
                     : sortBuilder.Combine(sortDefinitions);
             }
 
-            // 2. Build filter from predicates.
+            return sortDefinition;
+        }
+
+        protected FilterDefinition<T> CreteFilterDefinition(List<Expression<Func<T, bool>>> predicates)
+        {
             FilterDefinition<T> filter = Builders<T>.Filter.Empty;
 
-            var predict = predicates.GetPredicates<T>();
-
-            if (predict != null && predict.Any())
+            if (predicates != null && predicates.Any())
             {
                 // Each predicate is now an Expression<Func<T, bool>>, which is what Filter.Where expects.
-                var filters = predict.Select(predicate => Builders<T>.Filter.Where(predicate));
+                var filters = predicates.Select(predicate => Builders<T>.Filter.Where(predicate));
                 filter = Builders<T>.Filter.And(filters);
             }
+
+            return filter;
+        }
+
+        protected override IEnumerable<T> GetRecordsNvi(
+            PredicateContainer predicates,
+            int limit,
+            int skip
+            )
+        {
+            SortDefinition<T> sortDefinition = CreteSortDefinition(predicates.GetSorting<T>());
+            FilterDefinition<T> filter = CreteFilterDefinition(predicates.GetPredicates<T>());
 
             // 3. Execute the query with filtering, sorting, skipping, and limiting.
             var results = collection
@@ -245,16 +256,7 @@ namespace AXOpen.Data.MongoDb
 
         protected override long FilteredCountNvi(PredicateContainer predicates)
         {
-            FilterDefinition<T> filter = Builders<T>.Filter.Empty;
-
-            var predict = predicates.GetPredicates<T>();
-
-            if (predict != null && predict.Any())
-            {
-                // Each predicate is now an Expression<Func<T, bool>>, which is what Filter.Where expects.
-                var filters = predict.Select(predicate => Builders<T>.Filter.Where(predicate));
-                filter = Builders<T>.Filter.And(filters);
-            }
+            FilterDefinition<T> filter = CreteFilterDefinition(predicates.GetPredicates<T>());
 
             this.LastFragmentQueryCount = collection.Count(filter);
 
@@ -277,52 +279,8 @@ namespace AXOpen.Data.MongoDb
             PredicateContainer predicates
             )
         {
-            var sortSettings = predicates.GetSorting<T>();
-            var sortBuilder = new SortDefinitionBuilder<T>();
-
-            SortDefinition<T> sortDefinition;
-
-            if (sortSettings == null || sortSettings.Count == 0)
-            {
-                sortDefinition = sortBuilder.Descending("$natural");
-            }
-            else
-            {
-                var sortDefinitions = new List<SortDefinition<T>>();
-
-                foreach (var sortSet in sortSettings)
-                {
-                    string sortExpression = sortSet.MemberName;
-                    bool sortAscending = sortSet.IsAscending;
-
-                    SortDefinition<T> singleSort = string.IsNullOrWhiteSpace(sortExpression) ||
-                                                   sortExpression.Equals("Default", StringComparison.OrdinalIgnoreCase)
-                        ? (sortAscending
-                            ? sortBuilder.Ascending("$natural")
-                            : sortBuilder.Descending("$natural"))
-                        : (sortAscending
-                            ? sortBuilder.Ascending(sortExpression)
-                            : sortBuilder.Descending(sortExpression));
-
-                    sortDefinitions.Add(singleSort);
-                }
-
-                sortDefinition = sortDefinitions.Count == 1
-                    ? sortDefinitions[0]
-                    : sortBuilder.Combine(sortDefinitions);
-            }
-
-            // 2. Build filter from predicates.
-            FilterDefinition<T> filter = Builders<T>.Filter.Empty;
-
-            var predict = predicates.GetPredicates<T>();
-
-            if (predict != null && predict.Any())
-            {
-                // Each predicate is now an Expression<Func<T, bool>>, which is what Filter.Where expects.
-                var filters = predict.Select(predicate => Builders<T>.Filter.Where(predicate));
-                filter = Builders<T>.Filter.And(filters);
-            }
+            SortDefinition<T> sortDefinition = CreteSortDefinition(predicates.GetSorting<T>());
+            FilterDefinition<T> filter = CreteFilterDefinition(predicates.GetPredicates<T>());
 
             // 3. Execute the query with filtering, sorting, skipping, limiting, and projection.
             var results = collection
@@ -331,7 +289,6 @@ namespace AXOpen.Data.MongoDb
                 .Project(Builders<T>.Projection.Expression(x => x.DataEntityId)) // Projection for DataEntityId
                 .ToList();
 
-            // Convert the projection result to a list of strings.
             return results.ToList();
         }
 
