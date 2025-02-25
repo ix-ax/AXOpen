@@ -1,15 +1,26 @@
 USING AxUnit;
-USING AxUnit;
 USING AXOpen.Core;
 USING AXOpen.Rtc;
+USING AXOpen.Rtm;
+USING AXOpen.Core.Dummies;
+USING AXOpen.Messaging;
+USING AXOpen.Messaging.Static;
 
 NAMESPACE AXOpen.Core.AxoMomentaryTask_Tests
-     {S7.extern=ReadWrite}
-     CLASS TestContext EXTENDS AXOpen.Core.Dummies.MockAxoContext                    
+    {S7.extern=ReadWrite}
+   CLASS TestContext EXTENDS MockAxoContext                    
             METHOD PROTECTED OVERRIDE Main
                 ;
             END_METHOD               
-    END_CLASS         
+    END_CLASS     
+
+
+    {S7.extern=ReadWrite}
+    CLASS TestObject EXTENDS MockAxoObject     
+        VAR PUBLIC 
+            _messenger : AxoMessenger;
+        END_VAR
+    END_CLASS
 
     {S7.extern=ReadWrite}
     CLASS MyTask Extends AxoMomentaryTask
@@ -68,12 +79,14 @@ NAMESPACE AXOpen.Core.AxoMomentaryTask_Tests
     CLASS AxoMomentaryTaskUnitTests 
         VAR PROTECTED
            _context : TestContext;
+           _rootObject : MockAxoObject;
            myTask : MyTask;
             initValue : ULINT;
         END_VAR    
 
         METHOD PRIVATE Initialize
-            myTask.Initialize(_context);
+            _rootObject.InitializeWithContext(_context);
+            myTask.Initialize(_rootObject);
         END_METHOD
         
         VAR

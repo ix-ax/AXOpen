@@ -70,6 +70,7 @@ NAMESPACE AXOpen.Core
             IF(_rtc <> NULL) THEN
                 GetRtc := _rtc;
             ELSE
+                // TODO provide some message 
                 GetRtc := NULL_RTC;    
             END_IF;    
         END_METHOD
@@ -98,6 +99,7 @@ NAMESPACE AXOpen.Core
             IF(_rtc <> NULL) THEN
                 GetRtm := _rtm;
             ELSE
+                // TODO provide some message 
                 GetRtm := NULL_RTM;    
             END_IF;    
         END_METHOD
@@ -111,6 +113,7 @@ NAMESPACE AXOpen.Core
             IF(_contextLogger <> NULL) THEN
                 GetLogger := _contextLogger;
             ELSE
+                // TODO provide some message 
                 GetLogger := NULL_LOGGER;    
             END_IF;    
         END_METHOD

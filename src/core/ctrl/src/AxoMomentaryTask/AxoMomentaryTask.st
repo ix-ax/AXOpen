@@ -33,7 +33,8 @@ NAMESPACE AXOpen.Core
         END_VAR    
         
         VAR PRIVATE
-            _openCycleCount : ULINT;
+            _openCycleCount :   ULINT;
+            _context        :   IAxoContext;
         END_VAR 
         
         ///<summary>
@@ -44,17 +45,19 @@ NAMESPACE AXOpen.Core
         END_METHOD
 
         METHOD PRIVATE IsRunCalledInThisPlcCycle : BOOL
-            IF _context_ <> NULL THEN
-                IsRunCalledInThisPlcCycle := _openCycleCount = _context_.OpenCycleCount();
+            IF _context <> NULL THEN
+                IsRunCalledInThisPlcCycle := _openCycleCount = _context.OpenCycleCount();
             ELSE
+                _context := THIS.GetContext();
                 IsRunCalledInThisPlcCycle := FALSE;
             END_IF;     
         END_METHOD 
         
         METHOD PRIVATE WasRunCalledInPreviousPlcCycle : BOOL
-            IF _context_ <> NULL THEN
-                WasRunCalledInPreviousPlcCycle := _openCycleCount + ULINT#1 = _context_.OpenCycleCount();
+            IF _context <> NULL THEN
+                WasRunCalledInPreviousPlcCycle := _openCycleCount + ULINT#1 = _context.OpenCycleCount();
             ELSE
+                _context := THIS.GetContext();
                 WasRunCalledInPreviousPlcCycle := FALSE;
             END_IF;     
         END_METHOD 
@@ -62,8 +65,12 @@ NAMESPACE AXOpen.Core
         ///<summary>
         ///	This method needs to be called cyclically.
         ///</summary>    
-        METHOD PUBLIC Run : BOOL            
-             _openCycleCount := _context_.OpenCycleCount();
+        METHOD PUBLIC Run : BOOL         
+            IF (_context = NULL) THEN
+                _context := THIS.GetContext();
+            END_IF;
+
+             _openCycleCount := _context.OpenCycleCount();
 
             IF IsDisabled THEN
                 RemoteSwitchOn := FALSE;

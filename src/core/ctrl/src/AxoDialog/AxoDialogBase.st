@@ -4,14 +4,22 @@ NAMESPACE AXOpen.Core
         VAR PUBLIC
             _closeSignal : BOOL;
         END_VAR
+
+        VAR PRIVATE
+            _context    : IAxoContext;
+        END_VAR
        
         ///<summary>
         /// Restore dialog. In special case context can be null.
         ///</summary>
         METHOD PUBLIC OVERRIDE Restore : IAxoTaskState
+            IF(_context = NULL) THEN
+                _context := THIS.GetContext();
+            END_IF;
+            
             Restore := THIS;
 
-            IF _context_ = NULL THEN
+            IF _context = NULL THEN
                 Status := eAxoTaskState#Ready;  //needed in case when dialog observation was interrupt
                 ErrorDetails := '';
                 THIS.OnRestore();
