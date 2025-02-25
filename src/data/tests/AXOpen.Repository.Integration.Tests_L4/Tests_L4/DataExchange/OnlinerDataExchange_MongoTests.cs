@@ -224,5 +224,81 @@
 
             Assert.Equal(1, records.Count());
         }
+
+        [Fact]
+        public void should_build_filter_and_sort_accesing()
+        {
+            var plains = _exchange.GetPlainObjectType();
+
+            var plainBuilders = plains.Select(p => new PlainSymbolBuilder(p)).ToList();
+
+            var plainTypeHeaderName = plainBuilders.First().RootTypeName;
+
+            string RequiredSymbolPathWithParent = $"{plainTypeHeaderName}.{Constants.MEMBER_NAME_ENTITY_ID}";
+
+            var config = plainBuilders.CreateNewConfiguration(RequiredSymbolPathWithParent);
+
+            config.MinOrValue = "";
+            config.Operation = "!="; // not empty
+
+            var pc = new PredicateContainer().AddQuerySymbolToPredicates(plainBuilders, config);
+
+            SortSettings sortSettings = new SortSettings() { IsAscending = true };
+
+            pc.AddSortMember(sortSettings, plains.First());
+
+            var records = _exchange.GetRecords(pc, 100, 0).ToList();
+
+            Assert.Equal(10, records.Count());
+
+            Assert.Equal("0", records[0].DataEntityId);
+            Assert.Equal("1", records[1].DataEntityId);
+            Assert.Equal("2", records[2].DataEntityId);
+            Assert.Equal("3", records[3].DataEntityId);
+            Assert.Equal("4", records[4].DataEntityId);
+            Assert.Equal("5", records[5].DataEntityId);
+            Assert.Equal("6", records[6].DataEntityId);
+            Assert.Equal("7", records[7].DataEntityId);
+            Assert.Equal("8", records[8].DataEntityId);
+            Assert.Equal("9", records[9].DataEntityId);
+        }
+
+        [Fact]
+        public void should_build_filter_and_sort_descesing()
+        {
+            var plains = _exchange.GetPlainObjectType();
+
+            var plainBuilders = plains.Select(p => new PlainSymbolBuilder(p)).ToList();
+
+            var plainTypeHeaderName = plainBuilders.First().RootTypeName;
+
+            string RequiredSymbolPathWithParent = $"{plainTypeHeaderName}.{Constants.MEMBER_NAME_ENTITY_ID}";
+
+            var config = plainBuilders.CreateNewConfiguration(RequiredSymbolPathWithParent);
+
+            config.MinOrValue = "";
+            config.Operation = "!="; // not empty
+
+            var pc = new PredicateContainer().AddQuerySymbolToPredicates(plainBuilders, config);
+
+            SortSettings sortSettings = new SortSettings() { IsAscending = false };
+
+            pc.AddSortMember(sortSettings, plains.First());
+
+            var records = _exchange.GetRecords(pc, 100, 0).ToList();
+
+            Assert.Equal(10, records.Count());
+
+            Assert.Equal("9", records[0].DataEntityId);
+            Assert.Equal("8", records[1].DataEntityId);
+            Assert.Equal("7", records[2].DataEntityId);
+            Assert.Equal("6", records[3].DataEntityId);
+            Assert.Equal("5", records[4].DataEntityId);
+            Assert.Equal("4", records[5].DataEntityId);
+            Assert.Equal("3", records[6].DataEntityId);
+            Assert.Equal("2", records[7].DataEntityId);
+            Assert.Equal("1", records[8].DataEntityId);
+            Assert.Equal("0", records[9].DataEntityId);
+        }
     }
 }

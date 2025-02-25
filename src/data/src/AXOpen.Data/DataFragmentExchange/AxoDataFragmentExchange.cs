@@ -7,6 +7,7 @@
 
 using System.Collections.Generic;
 using System.IO.Compression;
+using System.Linq;
 using System.Reflection;
 using System.Security.Principal;
 using System.Xml;
@@ -525,7 +526,12 @@ public partial class AxoDataFragmentExchange
 
         var toFind = commonEntities.Skip(skip).Take(limit).ToList();
 
-        return GetRecords(toFind).ToList();
+        var records = GetRecords(toFind).ToList();
+
+        var orderedRecords = records.OrderBy(record => toFind.IndexOf(record.DataEntityId))
+            .ToList();
+
+        return orderedRecords;
     }
 
     public IEnumerable<IBrowsableDataObject> GetRecords(IEnumerable<string> identifiers)
@@ -564,8 +570,6 @@ public partial class AxoDataFragmentExchange
 
         return commonEntities;
     }
-
-   
 
     private IEnumerable<PropertyInfo>? GetDataSetPropertyInfo<TA>() where TA : Attribute
     {

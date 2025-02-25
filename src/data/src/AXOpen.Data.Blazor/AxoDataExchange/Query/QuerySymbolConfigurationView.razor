@@ -3,9 +3,12 @@
 
 <div class="d-flex flex-row align-items-center gap-2">
 
-    <label> @SymbolConfiguration.SymbolPathWithParent</label>
-
+    @if (!HideDescripion)
+    {
+        <label> @SymbolConfiguration.SymbolPathWithParent</label>
+    }
     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@SymbolConfiguration.Operation</button>
+
     <ul class="dropdown-menu">
 
         @foreach (var operation in OperationProvider.GetOperationsForType(SymbolConfiguration.SymbolType))
@@ -17,15 +20,25 @@
 
     @if (SymbolConfiguration.IsRangeOperation)
     {
-        <label>Min</label>
+        if (!HideDescripion)
+        {
+            <label>@Localizer["Min"]</label>
+        }
         <DynamicInput ValueType="@SymbolConfiguration.SymbolType" Value="@SymbolConfiguration.MinOrValue" ValueChanged="@(v => SymbolConfiguration.MinOrValue = v)"></DynamicInput>
 
-        <label>Max</label>
+        if (!HideDescripion)
+        {
+            <label>@Localizer["Max"]</label>
+        }
         <DynamicInput ValueType="@SymbolConfiguration.SymbolType" Value="@SymbolConfiguration.Max" ValueChanged="@(v => SymbolConfiguration.Max = v)"></DynamicInput>
     }
     else
     {
-        <label for="minOrValue">Value</label>
+
+        if (!HideDescripion)
+        {
+            <label for="minOrValue">@Localizer["Value"]</label>
+        }
         <DynamicInput ValueType="@SymbolConfiguration.SymbolType" Value="@SymbolConfiguration.MinOrValue" ValueChanged="@(v => SymbolConfiguration.MinOrValue = v)"></DynamicInput>
     }
 

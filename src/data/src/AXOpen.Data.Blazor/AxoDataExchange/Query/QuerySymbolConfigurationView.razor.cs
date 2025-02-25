@@ -12,9 +12,11 @@ namespace AXOpen.Data.Query
 {
     public partial class QuerySymbolConfigurationView : IDisposable
     {
-        [Parameter]
+        [Parameter, EditorRequired]
         public QuerySymbolConfiguration SymbolConfiguration { get; set; }
 
+        [Parameter]
+        public bool HideDescripion { get; set; }
 
         public void Dispose()
         {

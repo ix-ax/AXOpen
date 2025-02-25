@@ -25,6 +25,8 @@ namespace AXOpen.Data.Query
             this.Max = max;
         }
 
+        public Guid TrackSymbolId { get; set; } = Guid.NewGuid();
+
         private string _ParentTypeName = string.Empty;
 
         public string ParentTypeName

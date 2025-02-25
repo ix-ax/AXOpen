@@ -119,6 +119,54 @@ namespace AXOpen.Data
             }
         }
 
+        private QuerySymbolConfiguration _DefaulQueryDataEntityId;
+
+        public QuerySymbolConfiguration DefaulQueryDataEntityId
+        {
+            get
+            {
+                if (_DefaulQueryDataEntityId == null)
+                {
+                    var poco = DataExchange.GetPlainObjectType().First();
+                    _DefaulQueryDataEntityId = new QuerySymbolConfiguration($"{poco.Name}.DataEntityId", typeof(string).FullName, "==", "", "");
+                }
+
+                return _DefaulQueryDataEntityId;
+            }
+        }
+
+        private SortSettings _DefaulSorting;
+
+        public SortSettings DefaulSorting
+        {
+            get
+            {
+                if (_DefaulSorting == null)
+                {
+                    _DefaulSorting = new SortSettings();
+                }
+
+                return _DefaulSorting;
+            }
+        }
+
+        private List<PlainSymbolBuilder> _PlainBuilders;
+
+        public List<PlainSymbolBuilder> PlainBuilders
+        {
+            get
+            {
+                if (_PlainBuilders == null)
+                {
+                    _PlainBuilders = DataExchange.GetPlainObjectType().Select(p => new PlainSymbolBuilder(p)).ToList();
+                }
+
+                return _PlainBuilders;
+            }
+        }
+
+        public PredicateContainer LastFilter;
+
         internal void Locked()
         {
             if (IsLockedByMeOrNull())
@@ -149,34 +197,14 @@ namespace AXOpen.Data
             return Task.Run(() =>
             {
                 IsBusy = true;
-               
 
                 UpdateObservableRecords(externalPredicates);
 
                 IsBusy = false;
-               
             });
         }
 
-        public IEnumerable<IBrowsableDataObject> Filter(string identifier, int limit = 10, int skip = 0, eSearchMode searchMode = eSearchMode.Exact, string sortExpresion = "Default", bool sortAscending = false)
-        {
-            var records = this.DataExchange.GetRecords(identifier, limit: limit, skip: skip, searchMode, sortExpresion,
-                sortAscending);
-
-            lock (_viewRefreshMutex)
-            {
-                Records.Clear();
-                foreach (var item in records)
-                {
-                    this.Records.Add(item);
-                }
-                FilteredCount = CountFiltered(FilterById, SearchMode);
-            }
-
-            return Records;
-        }
-
-        public IEnumerable<IBrowsableDataObject> Filter(PredicateContainer predicates, int limit = 10, int skip = 0, string sortExpresion = "Default", bool sortAscending = false)
+        public IEnumerable<IBrowsableDataObject> Filter(PredicateContainer predicates, int limit = 10, int skip = 0)
         {
             var records = this.DataExchange.GetRecords(predicates, limit, skip);
 
@@ -194,38 +222,38 @@ namespace AXOpen.Data
             return Records;
         }
 
-        public long CountFiltered(string id, eSearchMode searchMode = eSearchMode.Exact)
-        {
-            return this.DataExchange.Repository.FilteredCount(id, searchMode);
-        }
-               
-
         public void UpdateObservableRecords(PredicateContainer? externalPredicates = null)
         {
-            if (externalPredicates != null)
+            if (externalPredicates == null)
             {
-                Filter(externalPredicates, Limit, Page * Limit, SortExpresion, SortAscending);
+                if (LastFilter == null)
+                {
+                    LastFilter = new PredicateContainer();
+                }
+
+                externalPredicates = LastFilter;
             }
-            else
-            {
-                Filter(FilterById, Limit, Page * Limit, SearchMode, SortExpresion, SortAscending);
-            }
+
+            Filter(externalPredicates, Limit, Page * Limit);
         }
 
         public async Task Filter()
         {
             Page = 0;
-            await FillObservableRecordsAsync();
+
+            await FillObservableRecordsAsync(BuidDefaultPredicates());
         }
 
-        //public async Task RefreshFilter()
-        //{
-        //    Limit = 10;
-        //    FilterById = "";
-        //    SearchMode = eSearchMode.Exact;
-        //    Page = 0;
-        //    await FillObservableRecordsAsync();
-        //}
+        public PredicateContainer BuidDefaultPredicates()
+        {
+            var pc = new PredicateContainer().AddQuerySymbolToPredicates(PlainBuilders, DefaulQueryDataEntityId);
+
+            var poco = DataExchange.GetPlainObjectType().First();
+
+            pc.AddSortMember(DefaulSorting, poco);
+
+            return pc;
+        }
 
         public IBrowsableDataObject FindById(string id)
         {
@@ -404,11 +432,14 @@ namespace AXOpen.Data
 
         public ObservableCollection<IBrowsableDataObject> Records { get; set; } = new ObservableCollection<IBrowsableDataObject>();
         public int Limit { get; set; } = 10;
-        public string FilterById { get; set; } = "";
-        public eSearchMode SearchMode { get; set; } = eSearchMode.Exact;
-        public string SortExpresion { get; set; } = "Default";
-        public bool SortAscending { get; set; } = false;
+
+        // not used any more
+        //public string FilterById { get; set; } = "";
+        //public eSearchMode SearchMode { get; set; } = eSearchMode.Exact;
+        //public string SortExpresion { get; set; } = "Default";
+        //public bool SortAscending { get; set; } = false;
         public long FilteredCount { get; set; }
+
         public int Page { get; set; } = 0;
         public string CreateItemId { get; set; }
         public bool IsBusy { get; set; }

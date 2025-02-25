@@ -15,6 +15,12 @@ namespace AXOpen.Data.Query
     {
         public static PredicateContainer AddQuerySymbolToPredicates(this PredicateContainer pc, IEnumerable<PlainSymbolBuilder> plains, QuerySymbolConfiguration config)
         {
+
+            if (plains == null || config == null)
+            {
+                return pc;
+            }
+
             var targetPlain = plains.Where(p => p.RootTypeName == config.ParentTypeName).First();
 
             var lambda = PredicateBuilder.BuildLambdaPredicate(targetPlain.RootType, config.Symbol, config.Operation, config.MinOrValue, config.Max);

@@ -25,5 +25,8 @@ namespace AXOpen.Data.Query
         public bool IsPlainType { get; set; }
 
         public Type VariableType { get; set; }
+
+
+
     }
 }

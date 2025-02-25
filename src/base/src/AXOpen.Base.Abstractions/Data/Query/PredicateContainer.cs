@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Linq.Expressions;
+    using System.Reflection.Metadata.Ecma335;
 
     public class PredicateContainer
     {
@@ -45,6 +46,37 @@
             }
 
             _sorting[type].Add(settings);
+        }
+
+        public void AddSortMember(SortSettings settings, Type pocoType)
+        {
+            if (string.IsNullOrEmpty(settings.MemberName))
+            {
+                settings.MemberName = ""; // natural sorting
+            }
+            else
+            { // case of any member
+                MemberExpression memberExpression = null;
+
+                try
+                {
+                    memberExpression = SortExtension.GetMemberExpression(settings.MemberName, pocoType);
+                }
+                catch (Exception ex)
+                {
+                    //skip invalid member
+                }
+
+                if (memberExpression == null) { return; }
+            }
+
+            if (!_sorting.ContainsKey(pocoType))
+            {
+                _sorting[pocoType] = new List<SortSettings>();
+            }
+
+            _sorting[pocoType].Add(settings);
+
         }
 
         public void AddPredicates<T>(Expression<Func<T, bool>> predicate)

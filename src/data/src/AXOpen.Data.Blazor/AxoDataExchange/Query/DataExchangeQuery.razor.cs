@@ -142,9 +142,9 @@ namespace AXOpen.Data.Query
             return Task.FromResult(true);
         }
 
-        public Task<bool> RemoveSymbolFromQuery(string symbol)
+        public Task<bool> RemoveSymbolFromQuery(Guid trakSymbolId)
         {
-            this.Queries.Remove(this.Queries.Where(p => p.SymbolPathWithParent == symbol).First());
+            this.Queries.Remove(this.Queries.Where(p => p.TrackSymbolId == trakSymbolId).First());
 
             return Task.FromResult(true);
         }
@@ -165,6 +165,13 @@ namespace AXOpen.Data.Query
                 Vm.StateHasChangedDelegate.Invoke();
         }
 
+        public Task<bool> ClearFilter()
+        {
+            this.SymbolsQueryFilter = "";
+            FilteredSymbols.Clear();
+
+            return Task.FromResult(true);
+        }
         public void Dispose()
         {
             ;
