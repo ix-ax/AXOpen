@@ -179,64 +179,64 @@ NAMESPACE Template.Axolibrary
         END_METHOD
 
 
-        ///<summary>
-        /// Runs tasks and logic of this component.
-        /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
-        ///</summary>
-        METHOD PUBLIC Run 
-            VAR_INPUT
-                parent : IAxoContext;
-                hwID :   WORD;
-                homeSensor : REF_TO BOOL;
-                workSensor : REF_TO BOOL;    
-                moveHomeSignal : REF_TO BOOL;
-                moveWorkSignal : REF_TO BOOL;
-            END_VAR
+        // ///<summary>
+        // /// Runs tasks and logic of this component.
+        // /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
+        // ///</summary>
+        // METHOD PUBLIC Run 
+        //     VAR_INPUT
+        //         parent : IAxoContext;
+        //         hwID :   WORD;
+        //         homeSensor : REF_TO BOOL;
+        //         workSensor : REF_TO BOOL;    
+        //         moveHomeSignal : REF_TO BOOL;
+        //         moveWorkSignal : REF_TO BOOL;
+        //     END_VAR
 
-            THIS.Initialize(parent);
+        //     THIS.Initialize(parent);
 
-            THIS.Open();
+        //     THIS.Open();
 
-            Messenger.Serve(THIS);
-            Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#701,hwID = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#702,homeSensor = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#703,workSensor = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#704,moveHomeSignal = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#705,moveWorkSignal = NULL, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.Serve(THIS);
+        //     Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#701,hwID = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#702,homeSensor = NULL, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#703,workSensor = NULL, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#704,moveHomeSignal = NULL, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#705,moveWorkSignal = NULL, eAxoMessageCategory#ProgrammingError);
             
-            IF parent = NULL THEN
-                Status.Error.Id := UINT#700;
-                RETURN;
-            ELSIF hwID = WORD#0 THEN
-                Status.Error.Id := UINT#701;
-                RETURN;                
-            ELSIF homeSensor = NULL THEN
-                Status.Error.Id := UINT#702;
-                RETURN;
-            ELSIF workSensor = NULL THEN
-                Status.Error.Id := UINT#703;
-                RETURN;
-            ELSIF moveHomeSignal = NULL THEN
-                Status.Error.Id := UINT#704;
-                RETURN;
-            ELSIF moveWorkSignal = NULL THEN
-                Status.Error.Id := UINT#705;
-                RETURN;
-            END_IF;
+        //     IF parent = NULL THEN
+        //         Status.Error.Id := UINT#700;
+        //         RETURN;
+        //     ELSIF hwID = WORD#0 THEN
+        //         Status.Error.Id := UINT#701;
+        //         RETURN;                
+        //     ELSIF homeSensor = NULL THEN
+        //         Status.Error.Id := UINT#702;
+        //         RETURN;
+        //     ELSIF workSensor = NULL THEN
+        //         Status.Error.Id := UINT#703;
+        //         RETURN;
+        //     ELSIF moveHomeSignal = NULL THEN
+        //         Status.Error.Id := UINT#704;
+        //         RETURN;
+        //     ELSIF moveWorkSignal = NULL THEN
+        //         Status.Error.Id := UINT#705;
+        //         RETURN;
+        //     END_IF;
 
-            Inputs.Status.HomeSensor := homeSensor^;
-            Inputs.Status.WorkSensor := workSensor^;
-            _hwId := hwID;
+        //     Inputs.Status.HomeSensor := homeSensor^;
+        //     Inputs.Status.WorkSensor := workSensor^;
+        //     _hwId := hwID;
 
-            THIS.Execute();
+        //     THIS.Execute();
 
-            moveHomeSignal^  :=  Outputs.Control.MoveHomeSignal;
-            moveWorkSignal^  :=  Outputs.Control.MoveWorkSignal;
+        //     moveHomeSignal^  :=  Outputs.Control.MoveHomeSignal;
+        //     moveWorkSignal^  :=  Outputs.Control.MoveWorkSignal;
 
-            THIS.Close();
+        //     THIS.Close();
 
-        END_METHOD
+        // END_METHOD
 
         METHOD PRIVATE Execute 
 

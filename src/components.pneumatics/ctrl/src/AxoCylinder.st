@@ -51,6 +51,8 @@ NAMESPACE AXOpen.Components.Pneumatics
 
             _MoveToWorkIsBusy : BOOL;
             _MoveToHomeIsBusy : BOOL;
+
+            _context : IAxoContext;
         END_VAR
 
         ///<summary>
@@ -68,14 +70,17 @@ NAMESPACE AXOpen.Components.Pneumatics
                 moveWorkSignal : BOOL;
             END_VAR
 
-            IF (parent = NULL) THEN RETURN; END_IF;
+            IF (parent = NULL) THEN 
+                RETURN; 
+            END_IF;
 
-            IF THIS._context_ = NULL THEN
+            IF _context = NULL THEN
                 THIS.Initialize(parent);
                 _MoveToWorkTask.Initialize(THIS);
                 _MoveToHomeTask.Initialize(THIS);
                 _StopTask.Initialize(THIS);
-            end_if;
+                _context := THIS.GetContext();
+            END_IF;
 
             THIS.Open(); // inline representation save 1% of cpu by 40 pistons on 1516 Fw2.9
 

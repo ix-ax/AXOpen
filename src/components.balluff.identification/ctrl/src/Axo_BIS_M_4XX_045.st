@@ -180,34 +180,34 @@ NAMESPACE AXOpen.Components.Balluff.Identification
         /// Runs tasks and logic of this component.
         /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
         ///</summary>
-        METHOD PUBLIC Run 
-            VAR_INPUT
-                parent          :   IAxoContext;
-                hwID            :   WORD;   
-                hwId_BISM       :   WORD;   //  Hardware Id of the reader 
-            END_VAR
+        // METHOD PUBLIC Run 
+        //     VAR_INPUT
+        //         parent          :   IAxoContext;
+        //         hwID            :   WORD;   
+        //         hwId_BISM       :   WORD;   //  Hardware Id of the reader 
+        //     END_VAR
 
-            THIS.Initialize(parent);
+        //     THIS.Initialize(parent);
 
-            Messenger.Serve(THIS);
+        //     Messenger.Serve(THIS);
             
 
-            Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#701,hwId_BISM = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#701,hwId_BISM = WORD#0, eAxoMessageCategory#ProgrammingError);
 
-            IF parent = NULL THEN
-                ReaderStatus.Error.Id := UINT#700;
-                RETURN;
-            ELSIF hwId_BISM = WORD#0 THEN
-                ReaderStatus.Error.Id := UINT#701;
-                RETURN;
-            END_IF;
+        //     IF parent = NULL THEN
+        //         ReaderStatus.Error.Id := UINT#700;
+        //         RETURN;
+        //     ELSIF hwId_BISM = WORD#0 THEN
+        //         ReaderStatus.Error.Id := UINT#701;
+        //         RETURN;
+        //     END_IF;
 
-            _hwID       :=  hwID;
-            _hwId_BISM  :=  hwId_BISM;
+        //     _hwID       :=  hwID;
+        //     _hwId_BISM  :=  hwId_BISM;
 
-            THIS.Execute();
-        END_METHOD
+        //     THIS.Execute();
+        // END_METHOD
 
         METHOD PRIVATE Execute 
             VAR 

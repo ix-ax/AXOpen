@@ -1,26 +1,23 @@
+USING AXOpen.Core;
 {S7.extern=ReadWrite}
 CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
-
         _startInspection : BOOL := FALSE;
-         _automat: AutomatSequence;
-        _inspectors : Inspectors;
-      
+        _automat: AutomatSequence;
+        _inspectors : Inspectors;      
+        _rootObject : AxoObject;
     END_VAR
 
 
-    METHOD PROTECTED OVERRIDE Main
-        _inspectors.Initialize(THIS);
-        
-        _automat.Initialize(THIS);
-        _automat.Run(THIS);
+    METHOD PROTECTED OVERRIDE Main           
+        _rootObject.InitializeWithContext(THIS); 
+        _automat.Initialize(_rootObject);
+        _automat.Run(_rootObject);
         _automat.Execute();
 
         IF _startInspection THEN
             _automat.Invoke();
-        END_IF;
-      
-     
+        END_IF;           
     END_METHOD
 
 END_CLASS
@@ -31,17 +28,11 @@ END_CLASS
 CLASS PUBLIC AutomatSequence
     EXTENDS AXOpen.Core.AxoSequencerContainer
     VAR PUBLIC
+        _continue : BOOL := FALSE;
+
         Steps : ARRAY[0..50] OF AxoStep;
-        _digitalInspector: AXOpen.Inspectors.AxoDigitalInspector;
-        _analogueInspector: AXOpen.Inspectors.AxoAnalogueInspector;
-        _dataInspector: AXOpen.Inspectors.AxoDataInspector;
-
-
-        _digitalInspectorDialog       : AXOpen.Inspectors.AxoInspectorDialog;
-        _analogueInspectorDialog      : AXOpen.Inspectors.AxoInspectorDialog;
-        _dataInspectorDialog          : AXOpen.Inspectors.AxoInspectorDialog;
-
-
+        _inspector: AXOpen.Inspectors.AxoInspector;
+                
         _inspectionResult: BOOL;
         _inspectionValue: LREAL;
         _inspectionData: STRING;
@@ -50,15 +41,11 @@ CLASS PUBLIC AutomatSequence
         _analogueInspectorData : AXOpen.Inspectors.AxoAnalogueInspectorData;
         _dataInspectorData: AXOpen.Inspectors.AxoDataInspectorData;
 
-
         _comprehensiveResult: AXOpen.Inspectors.AxoComprehensiveResult;
-    END_VAR
-    VAR PRIVATE
-        
     END_VAR
 
     METHOD OVERRIDE Main
-        
+
         THIS.SequenceMode := eAxoSequenceMode#Cyclic;
 
         IF (Steps[0].Execute(THIS, TRUE, 'Move vertical cyclinder down.')) THEN
@@ -85,7 +72,7 @@ CLASS PUBLIC AutomatSequence
     
 
         IF (Steps[20].Execute(THIS, TRUE, 'RETRY STEP 90')) THEN
-            
+         
             IF(Steps[20].Duration > T#2000ms) THEN
                 THIS.MoveNext(); 
             END_IF;	
@@ -95,24 +82,50 @@ CLASS PUBLIC AutomatSequence
 
         // <PreservingOverallResultExample>
         IF (Steps[30].Execute(THIS, TRUE, 'Example Digital inspection')) THEN
-
+            _inspector.Inspect(THIS,REF(_digitalInspectorData),_inspectionResult);
             // <ExampleInspectionWithCoordinatorExample>
-            _digitalInspector.WithCoordinator(THIS).Inspect(THIS,REF(_digitalInspectorData),_inspectionResult).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
+            // _inspector.WithCoordinator(THIS)
+            //             .Inspect(THIS,REF(_digitalInspectorData),_inspectionResult)
+            //             .UpdateComprehensiveResult(_comprehensiveResult)
+            //             .OnFail()
+            //             .CarryOn();
+             ;
             // </ExampleInspectionWithCoordinatorExample>
+        END_IF;
+
+        IF (Steps[31].Execute(THIS, TRUE, 'debug')) THEN         
+            IF _continue THEN
+                _continue := FALSE;
+                THIS.MoveNext(); 
             END_IF;
+        END_IF;
 
         IF (Steps[35].Execute(THIS, TRUE, 'Example Analog inspection')) THEN         
 
-            // _analogueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
-            _analogueInspector.WithCoordinator(THIS).Inspect(THIS,REF(_analogueInspectorData), _inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
+            _inspector.WithCoordinator(THIS)
+                        .Inspect(THIS,REF(_analogueInspectorData), _inspectionValue)
+                        .UpdateComprehensiveResult(_comprehensiveResult)
+                        .OnFail()
+                        .CarryOn();
 
         END_IF;
        // </PreservingOverallResultExample>
 
+        IF (Steps[36].Execute(THIS, TRUE, 'debug')) THEN         
+             IF _continue THEN
+                 _continue := FALSE;
+                 THIS.MoveNext(); 
+             END_IF;
+         END_IF;
+
         IF (Steps[40].Execute(THIS, TRUE, 'Example Data inspection')) THEN
         
         // <HandlingFailureExample>
-        _dataInspector.WithCoordinator(THIS).Inspect(THIS,REF(_dataInspectorData),_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[45]);
+        _inspector.WithCoordinator(THIS)
+                    .Inspect(THIS,REF(_dataInspectorData),_inspectionData)
+                    .UpdateComprehensiveResult(_comprehensiveResult)
+                    .OnFail()
+                    .Dialog(Steps[20], Steps[45]);
         // </HandlingFailureExample>
         END_IF;
 
@@ -123,7 +136,6 @@ CLASS PUBLIC AutomatSequence
             END_IF;	
 
         END_IF;
-
 
         THIS.Close(Steps[50]);
     END_METHOD

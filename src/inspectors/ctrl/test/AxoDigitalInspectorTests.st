@@ -61,7 +61,7 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
         METHOD PRIVATE Initialize
             _context.InjectRtc(_rtcMock);
             _context.InjectRtm(_rtmMock);
-            _sequencer.Initialize(_context);          
+            _sequencer.InitializeWithContext(_context);          
             
             _digitalInspectorData.FailTime := T#10s;
             _digitalInspectorData.PassTime := T#2s;
