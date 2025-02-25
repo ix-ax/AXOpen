@@ -15,6 +15,7 @@ NAMESPACE AXOpen.Inspectors
             _dialogueTerminate : BOOL;	
             _dialogueOverride : BOOL;
             _inspectorIndentity : ULINT; //try display inspector inside dialog.
+            _inspectionDetails : STRING[254];
         END_VAR
 
         VAR PRIVATE

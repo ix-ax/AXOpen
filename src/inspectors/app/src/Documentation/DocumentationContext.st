@@ -32,10 +32,8 @@ CLASS PUBLIC AutomatSequence
     EXTENDS AXOpen.Core.AxoSequencerContainer
     VAR PUBLIC
         Steps : ARRAY[0..50] OF AxoStep;
-        _digitalInspector: AXOpen.Inspectors.AxoInspector;
-        _analogueInspector: AXOpen.Inspectors.AxoInspector;
-        _dataInspector: AXOpen.Inspectors.AxoInspector;
-
+        _inspector: AXOpen.Inspectors.AxoInspector;
+        
 
         _digitalInspectorDialog       : AXOpen.Inspectors.AxoInspectorDialog;
         _analogueInspectorDialog      : AXOpen.Inspectors.AxoInspectorDialog;
@@ -97,14 +95,14 @@ CLASS PUBLIC AutomatSequence
         IF (Steps[30].Execute(THIS, TRUE, 'Example Digital inspection')) THEN
 
             // <ExampleInspectionWithCoordinatorExample>
-            _digitalInspector.WithCoordinator(THIS).Inspect(THIS,REF(_digitalInspectorData),_inspectionResult).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
+            _inspector.WithCoordinator(THIS).Inspect(THIS,REF(_digitalInspectorData),_inspectionResult).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
             // </ExampleInspectionWithCoordinatorExample>
             END_IF;
 
         IF (Steps[35].Execute(THIS, TRUE, 'Example Analog inspection')) THEN         
 
             // _analogueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
-            _analogueInspector.WithCoordinator(THIS).Inspect(THIS,REF(_analogueInspectorData), _inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
+            _inspector.WithCoordinator(THIS).Inspect(THIS,REF(_analogueInspectorData), _inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
 
         END_IF;
        // </PreservingOverallResultExample>
@@ -112,7 +110,7 @@ CLASS PUBLIC AutomatSequence
         IF (Steps[40].Execute(THIS, TRUE, 'Example Data inspection')) THEN
         
         // <HandlingFailureExample>
-        _dataInspector.WithCoordinator(THIS).Inspect(THIS,REF(_dataInspectorData),_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[45]);
+        _inspector.WithCoordinator(THIS).Inspect(THIS,REF(_dataInspectorData),_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[45]);
         // </HandlingFailureExample>
         END_IF;
 

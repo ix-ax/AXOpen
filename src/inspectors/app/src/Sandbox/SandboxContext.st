@@ -53,7 +53,7 @@ CLASS Inspectors EXTENDS AXOpen.Core.AxoObject
         IF _dataInspectorData.FailTime = TIME#0s THEN  _dataInspectorData.FailTime := TIME#1100MS; END_IF;
         IF _dataInspectorData.PassTime = TIME#0s THEN  _dataInspectorData.PassTime := TIME#1000MS; END_IF;
            
-        _digitalInspector.Inspect(THIS, REF(_digitalInspectorData),_inspectionResult);
+        _digitalInspector.Inspect(THIS, REF(_digitalInspectorData),_inspectionResult);                
         _analogueInspector.Inspect(THIS,REF(_analogueInspectorData), _inspectionValue);
         _dataInspector.Inspect(THIS, REF(_dataInspectorData),_inspectionData);
 

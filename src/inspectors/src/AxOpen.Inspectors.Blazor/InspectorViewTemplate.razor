@@ -1,4 +1,5 @@
 ﻿@namespace AXOpen.Inspectors
+@inherits RenderableComponentBase;
 
 <div class="accordion my-3">
     <div class="accordion-item">
@@ -47,7 +48,7 @@
                 <RenderableContentControl Context="@Data.IsExcluded" Presentation="@Presentation" />
             </div>
             <div class="p-2">
-                <GenericIconView Result="result" />
+                <GenericIconView Result="@result" />
             </div>
 
         </div>
@@ -84,7 +85,14 @@
     [Parameter]
     public string Name { get; set; }
 
-    private short result;
+    private short result
+    {
+        get
+        {
+            return ((Presentation == "Control") || (Presentation == "Display")) ? Data.Result.Cyclic : Data.Result.Shadow;
+        }
+    }
+
     private string ID = "M" + Guid.NewGuid().ToString();
 
     private bool IsAnalogInspectorData() => Data is AxoAnalogueInspectorData ? true : false;
@@ -101,12 +109,42 @@
         return (Data.NumberOfAllowedRetries.Cyclic > 0) && (Data.NumberOfAllowedRetries.Cyclic < Data.RetryAttemptsCount.Cyclic); ;
     }
 
-
-    protected override void OnParametersSet()
+    public override void ConfigurePolling()
     {
-        result = ((Presentation == "Control") || (Presentation == "Display")) ? Data.Result.Cyclic : Data.Result.Shadow;
+
+        if (!((Presentation == "Control") || (Presentation == "Display")))
+        {
+            return;
+        }
+
+        if (Data is AxoAnalogueInspectorData)
+        {
+            var d = Data as AxoAnalogueInspectorData;
+
+            this.StartPolling(d.Result);
+            this.StartPolling(d.RequiredMin);
+            this.StartPolling(d.DetectedStatus);
+            this.StartPolling(d.RequiredMax);
+        }
+        else if (Data is AxoDigitalInspectorData)
+        {
+            var d = Data as AxoDigitalInspectorData;
+
+            this.StartPolling(d.Result);
+            this.StartPolling(d.DetectedStatus);
+            this.StartPolling(d.RequiredStatus);
+        }
+        else if (Data is AxoDataInspectorData)
+        {
+            var d = Data as AxoDataInspectorData;
+
+            this.StartPolling(d.Result);
+            this.StartPolling(d.DetectedStatus);
+            this.StartPolling(d.RequiredStatus);
+            this.StartPolling(d.StarNotationEnabled);
+        }
+
     }
 
 }
-
 
