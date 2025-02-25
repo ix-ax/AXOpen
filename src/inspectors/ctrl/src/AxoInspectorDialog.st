@@ -28,7 +28,7 @@ NAMESPACE AXOpen.Inspectors
             _isAnswerProvided : BOOL;
         END_VAR
 
-     
+            
         ///<summary>
         /// Method for showing inspector dialog and handling interaction
         ///</summary>

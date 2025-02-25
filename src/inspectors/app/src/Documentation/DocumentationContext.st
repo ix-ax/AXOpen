@@ -32,9 +32,9 @@ CLASS PUBLIC AutomatSequence
     EXTENDS AXOpen.Core.AxoSequencerContainer
     VAR PUBLIC
         Steps : ARRAY[0..50] OF AxoStep;
-        _digitalInspector: AXOpen.Inspectors.AxoDigitalInspector;
-        _analogueInspector: AXOpen.Inspectors.AxoAnalogueInspector;
-        _dataInspector: AXOpen.Inspectors.AxoDataInspector;
+        _digitalInspector: AXOpen.Inspectors.AxoInspector;
+        _analogueInspector: AXOpen.Inspectors.AxoInspector;
+        _dataInspector: AXOpen.Inspectors.AxoInspector;
 
 
         _digitalInspectorDialog       : AXOpen.Inspectors.AxoInspectorDialog;
