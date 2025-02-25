@@ -7,14 +7,15 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace AXOpen.Data.Query
 {
     public class QuerySymbolConfiguration
     {
-        //public QuerySymbolConfiguration() // just for serialization
-        //{
-        //}
+        public QuerySymbolConfiguration() // just for serialization
+        {
+        }
 
         public QuerySymbolConfiguration(string symbolPathWithParent, string symbolTypeName, string operation, object minOrValue, object max)
         {
@@ -47,6 +48,8 @@ namespace AXOpen.Data.Query
 
         private Type _SymbolType;
 
+        [Newtonsoft.Json.JsonIgnoreAttribute]
+        [System.Text.Json.Serialization.JsonIgnore]
         public Type SymbolType
         {
             get
@@ -85,8 +88,11 @@ namespace AXOpen.Data.Query
         public bool IsRangeOperation { get => Operation.Contains("Range"); }
 
 
-        public object MinOrValue { set; get; }
-        public object Max { set; get; }
+        [JsonConverter(typeof(QuerySymbolJsonValueConverter))]
+        public object MinOrValue { get; set; }
+
+        [JsonConverter(typeof(QuerySymbolJsonValueConverter))]
+        public object Max { get; set; }
 
         public static string GetParentTypeName(string symbolPathWithParent)
         {

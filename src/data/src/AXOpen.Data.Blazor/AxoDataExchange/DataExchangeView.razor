@@ -30,13 +30,11 @@ else
                     </Authorized>
                 </AuthorizeView>
 
-
                 <AuthorizeView Roles="@DataExchangeRoleNames.can_data_load_from_plc">
                     <Authorized>
                         <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "LoadFromPLC"'>@Localizer["Load from PLC"]</button>
                     </Authorized>
                 </AuthorizeView>
-
 
                 @if (EnableExport)
                 {

@@ -1,5 +1,6 @@
 ﻿using AXOpen.Base.Data.Query;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using System.Diagnostics.Metrics;
 
 namespace AXOpen.Data.Query
@@ -9,13 +10,46 @@ namespace AXOpen.Data.Query
         [Parameter]
         public DataExchangeViewModel Vm { get; set; }
 
+        [Inject]
+        private ProtectedLocalStorage ProtectedLocalStorage { set; get; }
+
         public IAxoDataExchange exchange;
         public Guid ViewGuid { get; } = new Guid();
+
+        public bool SymbolsWasInitialize { get; set; }
 
         protected override void OnInitialized()
         {
             exchange = (IAxoDataExchange)Vm.Model;
-            InitializeSymbols();
+            SymbolsWasInitialize = false;
+        }
+
+        protected override async Task OnInitializedAsync()
+        {
+            await base.OnInitializedAsync();
+
+            await InitializeSymbols();
+
+            await LoadData();
+        }
+
+        protected Task InitializeSymbols()
+        {
+            Task initTask = Task.Run(() =>
+            {
+                foreach (var rootType in exchange.GetPlainObjectType())
+                {
+                    var plainPathContainer = new PlainSymbolBuilder(rootType);
+
+                    var s = plainPathContainer.GetSymbols();
+
+                    Symbols.AddRange(s);
+
+                    PlainBuilders.Add(plainPathContainer);
+                }
+                SymbolsWasInitialize = true;
+            });
+            return initTask;
         }
 
         public List<PlainSymbolBuilder> PlainBuilders { private set; get; } = new List<PlainSymbolBuilder>();
@@ -59,6 +93,22 @@ namespace AXOpen.Data.Query
 
         private List<string> _DisplyedSymbols = new List<string>(); // symbols for qery on selected pagge and display to te user
 
+        private string _StorageKey;
+
+        public string StorageKey
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_StorageKey))
+                {
+                    _StorageKey = string.Empty;
+                    _StorageKey = string.Join("-", Vm.DataExchange.GetPlainObjectType().Select(t => t.FullName));
+                }
+
+                return _StorageKey;
+            }
+        }
+
         public List<string> GetDisplaySymbols()
         {
             var symbolList = new List<string>();
@@ -74,19 +124,6 @@ namespace AXOpen.Data.Query
         public PredicateContainer PredicateContainer { private set; get; } = new PredicateContainer();
 
         public List<QuerySymbolConfiguration> Queries { private set; get; } = new();
-
-        protected void InitializeSymbols()
-        {
-            foreach (var rootType in exchange.GetPlainObjectType())
-            {
-                var plainPathContainer = new PlainSymbolBuilder(rootType);
-
-                var s = plainPathContainer.GetSymbols();
-
-                Symbols.AddRange(s);
-                PlainBuilders.Add(plainPathContainer);
-            }
-        }
 
         private async Task SetLimitAsync(int limit)
         {
@@ -163,6 +200,8 @@ namespace AXOpen.Data.Query
 
             if (Vm.StateHasChangedDelegate != null)
                 Vm.StateHasChangedDelegate.Invoke();
+
+            await SaveData();
         }
 
         public Task<bool> ClearFilter()
@@ -172,6 +211,23 @@ namespace AXOpen.Data.Query
 
             return Task.FromResult(true);
         }
+
+        private async Task SaveData()
+        {
+            await ProtectedLocalStorage.SetAsync(this.StorageKey, new SymbolQueryConfigHistory() { Config = Queries, Modified = DateTime.Now, Name = DateTime.Now.ToString() });
+        }
+
+        private async Task LoadData()
+        {
+            var existingConfig = await ProtectedLocalStorage.GetAsync<SymbolQueryConfigHistory>(this.StorageKey);
+
+            if (existingConfig.Success)
+            {
+                this.Queries.Clear();
+                this.Queries.AddRange(existingConfig.Value.Config);
+            }
+        }
+
         public void Dispose()
         {
             ;
