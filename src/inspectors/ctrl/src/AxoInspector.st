@@ -16,7 +16,7 @@ NAMESPACE AXOpen.Inspectors
             _isOverInspected: BOOL;
             _busy : BOOL;
             _commonData: REF_TO AxoInspectorData;
-            _originalOverallResult : IAxoComprehensiveResult;              
+            _originalOverallResult : IAxoComprehensiveResult;             
         END_VAR
     
         VAR PUBLIC
@@ -83,7 +83,6 @@ NAMESPACE AXOpen.Inspectors
             END_VAR
             // Documentation: Ensure the coordinator is set before showing the dialog.
             _DL.Show(REF(THIS), inRetryStep, inTerminateStep);
-
         END_METHOD
 
         ///<summary>
@@ -225,6 +224,18 @@ NAMESPACE AXOpen.Inspectors
             Result := _inspectorTask.InspectionData()^.Result;	
         END_METHOD
           
+        METHOD PRIVATE UpdateDialogInfo
+            VAR
+                _step : REF_TO AxoStep;
+            END_VAR    
+            IF(_coordinator <> NULL) THEN
+                _step ?= _coordinator.GetCurrentStep();
+                IF(_step <> NULL) THEN
+                    _DL._inspectionDetails := _step^.StepDescription;
+                END_IF;    
+            END_IF;   
+        END_METHOD            
+
         /// <summary>
         /// Implements the analog inspection logic.
         /// </summary>
@@ -241,11 +252,15 @@ NAMESPACE AXOpen.Inspectors
                 _value : LREAL;
                 _maximum : LREAL;	
                 _lastOutValue : LREAL;
+                _step : REF_TO AxoStep;
             END_VAR
             VAR CONSTANT
                 epsilon : REAL := 10000;
             END_VAR
-
+                         
+            _DL._inspectorType := eInspectorType#Analogue;
+            _DL._analogInspectorData := inData^;
+           
             // Documentation: Initialize the parent context and the associated inspector task.
             THIS.Initialize(inParent);
             _inspectorTask.Initialize(inParent);
@@ -284,6 +299,7 @@ NAMESPACE AXOpen.Inspectors
                         _DL._inspectionDetails := System.Strings.Concat(_DL._inspectionDetails, ' but was: ', ToString(inData^.DetectedStatus));                        
                     END_IF;
                     THIS.OnDone();
+                    THIS.UpdateDialogInfo();
                 END_IF;	
             END_IF;
         END_METHOD
@@ -309,8 +325,10 @@ NAMESPACE AXOpen.Inspectors
             VAR CONSTANT
                 epsilon : REAL := 1;
             END_VAR
-
-
+            
+            _DL._inspectorType := eInspectorType#Data;
+            _DL._dataInspectorData := inData^;
+            
             THIS.Initialize(inParent);
             _inspectorTask.Initialize(inParent);
             _inspectorTask.SetSuspendMultipleExecuteCallCheck(TRUE);
@@ -369,6 +387,7 @@ NAMESPACE AXOpen.Inspectors
                         _DL._inspectionDetails := System.Strings.Concat(_DL._inspectionDetails, 'Actual: ', inData^.RequiredStatus); 
                     END_IF;
                     THIS.OnDone();
+                    THIS.UpdateDialogInfo();
                 END_IF;	
             END_IF;
         END_METHOD
@@ -383,6 +402,8 @@ NAMESPACE AXOpen.Inspectors
                 Status : BOOL;
             END_VAR      
 
+            _DL._inspectorType := eInspectorType#Analogue;
+            _DL._digitalInspectorData := inData^;
 
             THIS.Initialize(inParent);
             _inspectorTask.Initialize(inParent);
@@ -417,6 +438,7 @@ NAMESPACE AXOpen.Inspectors
                         _DL._inspectionDetails := System.Strings.Concat(_DL._inspectionDetails, 'Actual: ', ToString(inData^.RequiredStatus)); 
                     END_IF;
                     THIS.OnDone();
+                    THIS.UpdateDialogInfo();
                 END_IF;	
             END_IF;
         END_METHOD
