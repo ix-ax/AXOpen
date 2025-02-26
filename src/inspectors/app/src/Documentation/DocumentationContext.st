@@ -48,11 +48,9 @@ CLASS PUBLIC AutomatSequence
         _dataInspectorData: AXOpen.Inspectors.AxoDataInspectorData;
 
         _comprehensiveResult: AXOpen.Inspectors.AxoComprehensiveResult;
-        _rootObject :   AxoObject;
     END_VAR
 
     METHOD OVERRIDE Main
-        _rootObject.InitializeWithContext(THIS);
         
         THIS.SequenceMode := eAxoSequenceMode#Cyclic;
 

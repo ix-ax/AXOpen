@@ -14,12 +14,12 @@ NAMESPACE AxoToggleTaskExamples
         METHOD PUBLIC Initialize
             // Initialization of the context needs to be called first
             // It does not need to be called cyclically, just once
-            _myToggleTask.Initialize(THIS);
+            _myToggleTask.InitializeWithContext(THIS);
         END_METHOD
 
         METHOD PROTECTED OVERRIDE Main
             // Cyclicall call of the Run method
-            _myToggleTask.Initialize(THIS);
+            _myToggleTask.InitializeWithContext(THIS);
             _myToggleTask.Run();
         END_METHOD
 

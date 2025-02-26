@@ -11,6 +11,7 @@ NAMESPACE IntegrationLightDirect
             ReadTest : DataReadTest;
             UpdateTest : DataUpdateTest;     
             DeleteTest : DataDeleteTest;       
+            _rootObject : AxoObject;
         END_VAR 
       
         METHOD PUBLIC InjectDM
@@ -21,17 +22,18 @@ NAMESPACE IntegrationLightDirect
         END_METHOD    
 
         METHOD PROTECTED OVERRIDE Main
+            _rootObject.InitializeWithContext(THIS);
             CreateTest.InjectManger(DM);
-            CreateTest.Run(THIS);
+            CreateTest.Run(_rootObject);
 
             ReadTest.InjectManger(DM);
-            ReadTest.Run(THIS);
+            ReadTest.Run(_rootObject);
 
             DeleteTest.InjectManger(DM);
-            DeleteTest.Run(THIS);
+            DeleteTest.Run(_rootObject);
 
             UpdateTest.InjectManger(DM);
-            UpdateTest.Run(THIS);
+            UpdateTest.Run(_rootObject);
                     
         END_METHOD    
     END_CLASS

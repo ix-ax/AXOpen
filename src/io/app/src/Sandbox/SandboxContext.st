@@ -4,10 +4,12 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         _manualControl : BOOL;
         _hwID   : WORD;
         _testComponent : AXOpen.Io.AxoIoComponent;
+        _rootObject :   AxoObject;
     END_VAR    
 
     METHOD PROTECTED OVERRIDE Main
-        _testComponent.Run(THIS,_hwID);
+        _rootObject.InitializeWithContext(THIS);
+        _testComponent.Run(_rootObject,_hwID);
 
         IF(_manualControl) THEN
             _testComponent.ActivateManualControl();
