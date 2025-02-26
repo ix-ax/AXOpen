@@ -7,8 +7,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
     CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC              
             {#ix-set:AttributeName = "<#Activate manual control#>"}
-            ActivateManualControl : BOOL;         
-            Insight_7600 : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight;            
+            ActivateManualControl   :   BOOL;         
+            _rootObject             :   AxoObject;
+            Insight_7600            :   AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight;            
         END_VAR
     
         VAR PRIVATE
@@ -18,14 +19,15 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
 
         METHOD PROTECTED OVERRIDE Main
             RETURN;
+            _rootObject.InitializeWithContext(THIS);
 
-            Insight_7600.Initialize(THIS);
+            Insight_7600.Initialize(_rootObject);
 
             IF(ActivateManualControl) THEN
                 Insight_7600.ActivateManualControl();
             END_IF;    
 
-            Insight_7600.Run(   parent                  :=  THIS,  
+            Insight_7600.Run(   parent                  :=  _rootObject,  
                                 ResultDataSize          :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_ResultDataSize#RESULT_DATA_64B,
                                 UserDataSize            :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_UserDataSize#USER_DATA_64B,
                                 hwID                    :=  HwIdentifiers#is7600_HwID,
