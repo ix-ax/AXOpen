@@ -21,7 +21,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 parent : IAxoContext;
             END_VAR    
 
-            THIS.Initialize(parent);
+            THIS.InitializeWithContext(parent);
 
             IF(manualControl) THEN            
                 ExampleScrewdriver.ActivateManualControl();
