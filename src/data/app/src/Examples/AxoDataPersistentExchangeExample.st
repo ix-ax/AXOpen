@@ -1,3 +1,4 @@
+USING AXOpen.Core;
 USING AXOpen;
 using AXOpen.Data;
 
@@ -13,10 +14,12 @@ NAMESPACE AxoDataPersistentExchangeExample
             ManagerUsage : ManagerUsage; 
             // Object that propertie will be tracked by persistent manager
             PersistentRootObject : PersistentRootObject; 
+            _rootObject :   AxoObject;
         END_VAR
         
         METHOD OVERRIDE Main
-            DataManager.Run(THIS);
+            _rootObject.InitializeWithContext(THIS);
+            DataManager.Run(_rootObject);
             ManagerUsage.Use(DataManager);
         END_METHOD
     END_CLASS

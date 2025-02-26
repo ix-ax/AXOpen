@@ -33,7 +33,7 @@ NAMESPACE AxoRemoteTaskExamples
         END_VAR    
     
         METHOD PROTECTED OVERRIDE Main
-            _remoteTask.Initialize(THIS); 
+            _remoteTask.InitializeWithContext(THIS); 
             
             IF(_remoteTaskInvokeFromPlc) THEN
                 IF(_remoteTask.Invoke('hello', _doneCounter).IsDone()) THEN

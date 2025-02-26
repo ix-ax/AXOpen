@@ -3,11 +3,13 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
     CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             ActivateManualControl : BOOL;         
+            _rootObject :   AxoObject;
             ExampleRobot : AXOpen.Components.Kuka.Robotics.AxoKrc4_v_5_x_x;          
         END_VAR
 
         METHOD PROTECTED OVERRIDE Main
-            ExampleRobot.Run(THIS,
+            _rootObject.InitializeWithContext(THIS);
+            ExampleRobot.Run(_rootObject,
                                 HwIdentifiers#KRC4_HwID,
                                 HwIdentifiers#KRC4_DIO512_512_digital_in__and_outputs_HwID);
 

@@ -108,7 +108,7 @@ NAMESPACE AxoDataExchangeExample
             VAR_INPUT
                 _parent : IAxoContext;
             END_VAR
-            THIS.Initialize(_parent);
+            THIS.InitializeWithContext(_parent);
             THIS.Execute();
         END_METHOD
 

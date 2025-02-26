@@ -8,11 +8,14 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             movementParams : AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams;
 
             _testRobot     :  AXOpen.Components.Ur.Robotics.AxoUrCb3_v_3_x_x;
+            _rootObject :   AxoObject;
         END_VAR
 
         METHOD PROTECTED OVERRIDE Main
             RETURN;
-            _testRobot.Run(     parent                                                  := THIS,
+            _rootObject.InitializeWithContext(THIS);
+
+            _testRobot.Run(     parent                                                  := _rootObject,
                                 hwID                                                    := HwIdentifiers#ureol2l_HwID,
                                 hwIdAxoUrRobotics_T2O_State                             := HwIdentifiers#ureol2l_1_T2O_State_1_T2O_State_HwID,
                                 hwIdAxoUrRobotics_T2O_IO                                := HwIdentifiers#ureol2l_2_T2O_IO_2_T2O_IO_HwID,
