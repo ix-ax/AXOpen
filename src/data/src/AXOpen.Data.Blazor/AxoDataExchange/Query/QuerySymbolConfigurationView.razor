@@ -24,13 +24,13 @@
         {
             <label>@Localizer["Min"]</label>
         }
-        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" Value="@SymbolConfiguration.MinOrValue" ValueChanged="@(v => SymbolConfiguration.MinOrValue = v)"></DynamicInput>
+        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="SymbolConfiguration.MinOrValue"></DynamicInput>
 
         if (!HideDescripion)
         {
             <label>@Localizer["Max"]</label>
         }
-        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" Value="@SymbolConfiguration.Max" ValueChanged="@(v => SymbolConfiguration.Max = v)"></DynamicInput>
+        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="@SymbolConfiguration.Max"></DynamicInput>
     }
     else
     {
@@ -39,7 +39,7 @@
         {
             <label for="minOrValue">@Localizer["Value"]</label>
         }
-        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" Value="@SymbolConfiguration.MinOrValue" ValueChanged="@(v => SymbolConfiguration.MinOrValue = v)"></DynamicInput>
+        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="@SymbolConfiguration.MinOrValue"></DynamicInput>
     }
 
 </div>

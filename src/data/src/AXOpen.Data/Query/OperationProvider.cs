@@ -51,10 +51,10 @@
         public static (object Min, object Max)? GetRangeForType(Type type) =>
             TypeRanges.TryGetValue(type, out var range) ? range : null;
 
-        public static object? GetMinForType(Type type) =>
+        public static object GetMinForType(Type type) =>
             TypeRanges.TryGetValue(type, out var range) ? range.Min : null;
 
-        public static object? GetMaxForType(Type type) =>
+        public static object GetMaxForType(Type type) =>
             TypeRanges.TryGetValue(type, out var range) ? range.Max : null;
     }
 }

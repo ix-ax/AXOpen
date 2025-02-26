@@ -1,34 +1,38 @@
 ﻿@using AXSharp.Connector;
+@using System.ComponentModel;
 @namespace AXOpen.Data.Query
-@using System.ComponentModel
 
 @if (IsString)
 {
     <input type="text" @bind="BoundString" class="form-control" />
 }
-else if (IsByte)
+else if (IsBool)
 {
-    <input type="number" @bind="BoundByte" class="form-control" />
+    <input type="checkbox" @bind="BoundBool" class="form-check-input" />
 }
-else if (IsShort)
+else if (IsNumeric)
 {
-    <input type="number" @bind="BoundShort" class="form-control" />
+    <input type="number" @bind="BoundNumber" class="form-control" min="@MinValue" max="@MaxValue" step="@StepValue" />
 }
-else if (IsInt)
+else if (IsChar)
 {
-    <input type="number" @bind="BoundInt" class="form-control" />
+    <input type="text" maxlength="1" @bind="BoundChar" class="form-control" />
 }
-else if (IsLong)
+else if (IsDateTime)
 {
-    <input type="number" @bind="BoundLong" class="form-control" />
+    <input type="datetime-local" @bind="BoundDateTime" class="form-control" min="@MinDateTime" max="@MaxDateTime" />
 }
-else if (IsFloat)
+else if (IsDateOnly)
 {
-    <input type="number" @bind="BoundFloat" class="form-control" step="any" />
+    <input type="date" @bind="BoundDateOnly" class="form-control" min="@MinDate" max="@MaxDate" />
 }
-else if (IsDouble)
+else if (IsTimeOnly)
 {
-    <input type="number" @bind="BoundDouble" class="form-control" step="any" />
+    <input type="time" @bind="BoundTimeOnly" class="form-control" min="@MinTime" max="@MaxTime" />
+}
+else if (IsTimeSpan)
+{
+    <input type="text" placeholder="hh:mm:ss" @bind="BoundTimeSpan" class="form-control" />
 }
 else if (IsEnum)
 {
@@ -39,34 +43,89 @@ else if (IsEnum)
         }
     </select>
 }
-else if (IsDateTime)
-{
-    @*<input type="datetime" @bind="BoundDateTimeString" class="form-control" /> *@
-}
-else if (IsTimeSpan)
-{
-    @* <input type="time" @bind="BoundTimeSpanString" class="form-control" step="1" /> *@
-}
 else
 {
     <p>Unsupported type</p>
 }
 
 @code {
-    [Parameter] public object Value { get; set; }
-    [Parameter] public EventCallback<object> ValueChanged { get; set; }
     [Parameter] public Type ValueType { get; set; }
 
+    private object _Value;
+    [Parameter]
+    public object Value
+    {
+        get
+        {
+            if (_Value == null)
+            {
+                _Value = Activator.CreateInstance(ValueType);
+            }
+            return _Value;
+        }
+        set
+        {
+
+            if (ValueType != value.GetType())
+            {
+                ;
+            }
+            try
+            {
+                var converted = Convert.ChangeType(value, ValueType);
+
+                if (converted != null)
+                {
+                    if (!Equals(_Value, value))
+                    {
+                        _Value = value;
+                        ValueChanged.InvokeAsync(value);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+        }
+    }
+
+    [Parameter] public EventCallback<object> ValueChanged { get; set; }
+
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        if (IsNumeric)
+        {
+            MinDecimalValue = GetDecimalValue(OperationProvider.GetMinForType(ValueType).ToString());
+            MaxDecimalValue = GetDecimalValue(OperationProvider.GetMaxForType(ValueType).ToString());
+        }
+    }
+
+    decimal GetDecimalValue(string val)
+    {
+        decimal retValue = 0;
+        decimal.TryParse(val, out retValue);
+        return retValue;
+    }
+
+
     bool IsString => ValueType == typeof(string);
-    bool IsByte => ValueType == typeof(byte);
-    bool IsShort => ValueType == typeof(short);
-    bool IsInt => ValueType == typeof(int);
-    bool IsLong => ValueType == typeof(long);
-    bool IsFloat => ValueType == typeof(float);
-    bool IsDouble => ValueType == typeof(double);
-    bool IsEnum => ValueType.IsEnum;
+    bool IsBool => ValueType == typeof(bool);
+    bool IsNumeric => ValueType == typeof(byte) || ValueType == typeof(sbyte) || ValueType == typeof(short) ||
+                      ValueType == typeof(ushort) || ValueType == typeof(int) || ValueType == typeof(uint) ||
+                      ValueType == typeof(long) || ValueType == typeof(ulong) || ValueType == typeof(float) ||
+                      ValueType == typeof(double) || ValueType == typeof(decimal);
+    bool IsChar => ValueType == typeof(char);
     bool IsDateTime => ValueType == typeof(DateTime);
+    bool IsDateOnly => ValueType == typeof(DateOnly);
+    bool IsTimeOnly => ValueType == typeof(TimeOnly);
     bool IsTimeSpan => ValueType == typeof(TimeSpan);
+    bool IsEnum => ValueType.IsEnum;
 
     List<object> EnumOptions => IsEnum ? Enum.GetValues(ValueType).Cast<object>().ToList() : new List<object>();
 
@@ -80,9 +139,9 @@ else
         }
     }
 
-    byte BoundByte
+    bool BoundBool
     {
-        get => Value is byte b ? b : default;
+        get => Value is bool b ? b : default;
         set
         {
             Value = value;
@@ -90,9 +149,27 @@ else
         }
     }
 
-    short BoundShort
+    string BoundNumber
     {
-        get => Value is short s ? s : default;
+        get => Value?.ToString() ?? "0";
+        set
+        {
+            if (IsNumeric && decimal.TryParse(value.ToString(), out decimal parsedValue))
+            {
+                if (parsedValue > MaxDecimalValue) parsedValue = MaxDecimalValue;
+                if (parsedValue < MinDecimalValue) parsedValue = MinDecimalValue;
+
+                Value = Convert.ChangeType(parsedValue, ValueType);
+
+                ValueChanged.InvokeAsync(Value);
+            }
+
+        }
+    }
+
+    char BoundChar
+    {
+        get => Value is char c ? c : default;
         set
         {
             Value = value;
@@ -100,9 +177,9 @@ else
         }
     }
 
-    int BoundInt
+    DateTime BoundDateTime
     {
-        get => Value is int i ? i : default;
+        get => Value is DateTime dt ? dt : DateTime.Now;
         set
         {
             Value = value;
@@ -110,9 +187,9 @@ else
         }
     }
 
-    long BoundLong
+    DateOnly BoundDateOnly
     {
-        get => Value is long l ? l : default;
+        get => Value is DateOnly d ? d : DateOnly.FromDateTime(DateTime.Now);
         set
         {
             Value = value;
@@ -120,9 +197,9 @@ else
         }
     }
 
-    float BoundFloat
+    TimeOnly BoundTimeOnly
     {
-        get => Value is float f ? f : default;
+        get => Value is TimeOnly t ? t : TimeOnly.FromDateTime(DateTime.Now);
         set
         {
             Value = value;
@@ -130,9 +207,9 @@ else
         }
     }
 
-    double BoundDouble
+    TimeSpan BoundTimeSpan
     {
-        get => Value is double d ? d : default;
+        get => Value is TimeSpan ts ? ts : TimeSpan.Zero;
         set
         {
             Value = value;
@@ -150,29 +227,51 @@ else
         }
     }
 
-    string BoundDateTimeString
+    // Min and Max values based on type
+    string MinValue => GetMinValue();
+    string MaxValue => GetMaxValue();
+
+    decimal MinDecimalValue;
+    decimal MaxDecimalValue;
+
+    string StepValue => IsFloatingPoint ? "any" : "1";
+
+    bool IsFloatingPoint => ValueType == typeof(float) || ValueType == typeof(double) || ValueType == typeof(decimal);
+
+    private string GetMinValue()
     {
-        get => Value is DateTime dt ? dt.ToString("yyyy-MM-ddTHH:mm") : "";
-        set
+        var min = OperationProvider.GetMinForType(ValueType);
+        if (min == null) return "0";
+
+        return min switch
         {
-            if (DateTime.TryParse(value, out DateTime newDate))
-            {
-                Value = newDate;
-                ValueChanged.InvokeAsync(Value);
-            }
-        }
+            float f => f.ToString("R"),  // "R" ensures round-trip precision
+            double d => d.ToString("R"),
+            decimal dec => dec.ToString(), // Ensure no precision issues
+            _ => min.ToString()
+        };
     }
 
-    string BoundTimeSpanString
+    private string GetMaxValue()
     {
-        get => Value is TimeSpan ts ? ts.ToString(@"hh\:mm") : "00:00";
-        set
+        var max = OperationProvider.GetMaxForType(ValueType);
+        if (max == null) return "100";
+
+        return max switch
         {
-            if (TimeSpan.TryParse(value, out TimeSpan newTime))
-            {
-                Value = newTime;
-                ValueChanged.InvokeAsync(Value);
-            }
-        }
+            float f => f.ToString("R"),
+            double d => d.ToString("R"),
+            decimal dec => dec.ToString(),
+            _ => max.ToString()
+        };
     }
+
+    string MinDateTime => ((DateTime)OperationProvider.GetMinForType(ValueType)!).ToString("yyyy-MM-ddTHH:mm");
+    string MaxDateTime => ((DateTime)OperationProvider.GetMaxForType(ValueType)!).ToString("yyyy-MM-ddTHH:mm");
+
+    string MinDate => ((DateOnly)OperationProvider.GetMinForType(ValueType)!).ToString("yyyy-MM-dd");
+    string MaxDate => ((DateOnly)OperationProvider.GetMaxForType(ValueType)!).ToString("yyyy-MM-dd");
+
+    string MinTime => ((TimeOnly)OperationProvider.GetMinForType(ValueType)!).ToString("HH:mm");
+    string MaxTime => ((TimeOnly)OperationProvider.GetMaxForType(ValueType)!).ToString("HH:mm");
 }
