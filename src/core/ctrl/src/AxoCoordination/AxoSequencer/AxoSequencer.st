@@ -412,5 +412,9 @@ NAMESPACE AXOpen.Core
                THIS.CompleteSequence();               
             END_IF;  
         END_METHOD
+    
+        METHOD PUBLIC GetCurrentStep : IAxoStep
+            GetCurrentStep := CurrentStep;
+        END_METHOD
     END_CLASS    
 END_NAMESPACE

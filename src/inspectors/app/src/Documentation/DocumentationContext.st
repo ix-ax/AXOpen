@@ -32,7 +32,13 @@ CLASS PUBLIC AutomatSequence
 
         Steps : ARRAY[0..50] OF AxoStep;
         _inspector: AXOpen.Inspectors.AxoInspector;
-                
+        
+
+        _digitalInspectorDialog       : AXOpen.Inspectors.AxoInspectorDialog;
+        _analogueInspectorDialog      : AXOpen.Inspectors.AxoInspectorDialog;
+        _dataInspectorDialog          : AXOpen.Inspectors.AxoInspectorDialog;
+
+
         _inspectionResult: BOOL;
         _inspectionValue: LREAL;
         _inspectionData: STRING;
@@ -86,12 +92,7 @@ CLASS PUBLIC AutomatSequence
         IF (Steps[30].Execute(THIS, TRUE, 'Example Digital inspection')) THEN
             _inspector.Inspect(THIS,REF(_digitalInspectorData),_inspectionResult);
             // <ExampleInspectionWithCoordinatorExample>
-            // _inspector.WithCoordinator(THIS)
-            //             .Inspect(THIS,REF(_digitalInspectorData),_inspectionResult)
-            //             .UpdateComprehensiveResult(_comprehensiveResult)
-            //             .OnFail()
-            //             .CarryOn();
-             ;
+            _inspector.WithCoordinator(THIS).Inspect(THIS,REF(_digitalInspectorData),_inspectionResult).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
             // </ExampleInspectionWithCoordinatorExample>
         END_IF;
 
@@ -104,11 +105,8 @@ CLASS PUBLIC AutomatSequence
 
         IF (Steps[35].Execute(THIS, TRUE, 'Example Analog inspection')) THEN         
 
-            _inspector.WithCoordinator(THIS)
-                        .Inspect(THIS,REF(_analogueInspectorData), _inspectionValue)
-                        .UpdateComprehensiveResult(_comprehensiveResult)
-                        .OnFail()
-                        .CarryOn();
+            // _analogueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
+            _inspector.WithCoordinator(THIS).Inspect(THIS,REF(_analogueInspectorData), _inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
 
         END_IF;
        // </PreservingOverallResultExample>
@@ -123,11 +121,7 @@ CLASS PUBLIC AutomatSequence
         IF (Steps[40].Execute(THIS, TRUE, 'Example Data inspection')) THEN
         
         // <HandlingFailureExample>
-        _inspector.WithCoordinator(THIS)
-                    .Inspect(THIS,REF(_dataInspectorData),_inspectionData)
-                    .UpdateComprehensiveResult(_comprehensiveResult)
-                    .OnFail()
-                    .Dialog(Steps[20], Steps[45]);
+        _inspector.WithCoordinator(THIS).Inspect(THIS,REF(_dataInspectorData),_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[45]);
         // </HandlingFailureExample>
         END_IF;
 

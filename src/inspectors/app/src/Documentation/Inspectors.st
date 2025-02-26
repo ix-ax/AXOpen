@@ -2,9 +2,9 @@
 CLASS InspectorsDoc EXTENDS AXOpen.Core.AxoObject
     //<AxoInspectorDeclaration>
     VAR PUBLIC
-        _digitalInspector: AXOpen.Inspectors.AxoDigitalInspector;
-        _analogueInspector: AXOpen.Inspectors.AxoAnalogueInspector;
-        _dataInspector: AXOpen.Inspectors.AxoDataInspector;
+        _digitalInspector: AXOpen.Inspectors.AxoInspector;
+        _analogueInspector: AXOpen.Inspectors.AxoInspector;
+        _dataInspector: AXOpen.Inspectors.AxoInspector;
 
         _inspectionResult: BOOL;
         _inspectionValue: LREAL;
