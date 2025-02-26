@@ -15,6 +15,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             {#ix-set:AttributeName = "<#Enable in positive negative signal#>"}
             EnableNegative   : BOOL := TRUE;        
 
+            _rootObject :   AxoObject;
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-set:AttributeName = "<#AxoCmmtAs#>"}
             AxoCmmtAs  : AXOpen.Components.Festo.Drives.AxoCmmtAs;
@@ -41,11 +42,12 @@ NAMESPACE AXOpen.Components.Festo.Drives
         METHOD PROTECTED OVERRIDE Main  
 
             RETURN;
-        
+            _rootObject.InitializeWithContext(THIS);
+
             IF(_manualControl) THEN            
                 AxoCmmtAs.ActivateManualControl();
             END_IF;   
-            AxoCmmtAs.Run(parent            :=  THIS,
+            AxoCmmtAs.Run(parent            :=  _rootObject,
                                 hwID                  :=    HwIdentifiers#cmmtas_HwID,
                                 hwIdTelegram111       :=    HwIdentifiers#cmmtas_SiemensTelegram111_PZD_12_12_HwID,
                                 hwIdTelegram750       :=    HwIdentifiers#cmmtas_SiemensTelegram750_PZD_4_1_HwID,
@@ -62,7 +64,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
         METHOD PRIVATE UseInSequencer   
 
-            Sequencer.Initialize(THIS);
+            Sequencer.InitializeWithContext(THIS);
             Sequencer.Open();
             Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
         

@@ -25,7 +25,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             END_VAR    
             // RETURN;
 
-            THIS.Initialize(parent);
+            THIS.InitializeWithContext(parent);
 
             IF(manualControl) THEN            
                 AxoCmmtAs.ActivateManualControl();
