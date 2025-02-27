@@ -193,20 +193,22 @@ namespace AXOpen.Data.MongoDb
             {
                 var sortDefinitions = new List<SortDefinition<T>>();
 
+                if (sortSettings.All(p => string.IsNullOrEmpty(p.MemberName)))
+                {
+                    var naturalSort = sortSettings.First();
+                    return naturalSort.IsAscending ? sortBuilder.Ascending("$natural") : sortBuilder.Descending("$natural");
+                }
+
                 foreach (var sortSet in sortSettings)
                 {
                     string sortExpression = sortSet.MemberName;
                     bool sortAscending = sortSet.IsAscending;
 
-                    if (string.IsNullOrEmpty(sortSet.MemberName))
-                    {
-                        sortDefinitions.Add(sortAscending ? sortBuilder.Ascending("$natural") : sortBuilder.Descending("$natural"));
-                    }
-                    else
+                    if (!string.IsNullOrEmpty(sortSet.MemberName))
                     {
                         SortDefinition<T> singleSort = sortAscending
-                            ? sortBuilder.Ascending(sortExpression)
-                            : sortBuilder.Descending(sortExpression);
+                               ? sortBuilder.Ascending(sortExpression)
+                               : sortBuilder.Descending(sortExpression);
 
                         sortDefinitions.Add(singleSort);
                     }
@@ -241,6 +243,7 @@ namespace AXOpen.Data.MongoDb
             )
         {
             SortDefinition<T> sortDefinition = CreteSortDefinition(predicates.GetSorting<T>());
+
             FilterDefinition<T> filter = CreteFilterDefinition(predicates.GetPredicates<T>());
 
             // 3. Execute the query with filtering, sorting, skipping, and limiting.

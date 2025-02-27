@@ -167,6 +167,9 @@ namespace AXOpen.Data
 
         public PredicateContainer LastFilter;
 
+        // injected from view or other service
+        public PredicateContainer InjectedPredicateContainer { get; set; }
+
         internal void Locked()
         {
             if (IsLockedByMeOrNull())
@@ -192,13 +195,13 @@ namespace AXOpen.Data
             return false;
         }
 
-        public Task FillObservableRecordsAsync(PredicateContainer? externalPredicates = null)
+        public Task FillObservableRecordsAsync(PredicateContainer? predicates = null)
         {
             return Task.Run(() =>
             {
                 IsBusy = true;
 
-                UpdateObservableRecords(externalPredicates);
+                UpdateObservableRecords(predicates);
 
                 IsBusy = false;
             });
@@ -229,19 +232,19 @@ namespace AXOpen.Data
             return Records;
         }
 
-        public void UpdateObservableRecords(PredicateContainer? externalPredicates = null)
+        public void UpdateObservableRecords(PredicateContainer? predicates = null)
         {
-            if (externalPredicates == null)
+            if (predicates == null)
             {
                 if (LastFilter == null)
                 {
                     LastFilter = new PredicateContainer();
                 }
 
-                externalPredicates = LastFilter;
+                predicates = LastFilter;
             }
 
-            Filter(externalPredicates, Limit, Page * Limit);
+            Filter(predicates, Limit, Page * Limit);
         }
 
         public async Task Filter()
@@ -253,13 +256,23 @@ namespace AXOpen.Data
 
         public PredicateContainer BuidDefaultPredicates()
         {
-            var pc = new PredicateContainer().AddQuerySymbolToPredicates(PlainBuilders, DefaulQueryDataEntityId);
+            try
+            {
+                PredicateContainer pc = new PredicateContainer();
+                if (InjectedPredicateContainer != null) pc.AddPredicatesFrom(InjectedPredicateContainer);
 
-            var poco = DataExchange.GetPlainObjectType().First();
+                pc.AddQuerySymbolToPredicates(PlainBuilders, DefaulQueryDataEntityId);
 
-            pc.AddSortMember(DefaulSorting, poco);
+                var poco = DataExchange.GetPlainObjectType().First();
 
-            return pc;
+                pc.AddSortMember(DefaulSorting, poco);
+
+                return pc;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public IBrowsableDataObject FindById(string id)

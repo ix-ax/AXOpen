@@ -55,9 +55,9 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     [Parameter] public List<string> SortElements { get; set; } = new();
 
+    [Parameter] public PredicateContainer ExternalPredicates { get; set; }
 
-   public bool AdvanceFilterConfig { get; set; } = false;
-
+    public bool AdvanceFilterConfig { get; set; } = false;
 
     [Inject]
     private IAlertService _alertDialogService { get; set; }
@@ -71,8 +71,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     private eOperationStatus _fileLoadingStatus = eOperationStatus.Ready;
 
-    private PredicateContainer _lastPredicates ;
-
+    private PredicateContainer _lastPredicates;
 
     private string _ClientFolder = string.Empty;
 
@@ -120,7 +119,6 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     private string Create { get; set; } = "";
 
-
     private int MaxPage =>
         (int)(Vm.FilteredCount % Vm.Limit == 0 ? Vm.FilteredCount / Vm.Limit - 1 : Vm.FilteredCount / Vm.Limit);
 
@@ -153,19 +151,18 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     private async Task setSortExpresionAsync(string sortExpresion)
     {
-
         Vm.DefaulSorting.MemberName = sortExpresion;
         if (sortExpresion == "Default")
         {
             Vm.DefaulSorting.MemberName = ""; // natural
         }
 
-        await Vm.FillObservableRecordsAsync( Vm.BuidDefaultPredicates());
+        await Vm.FillObservableRecordsAsync(Vm.BuidDefaultPredicates());
     }
 
     private async Task setSortAscendingAsync()
     {
-        Vm.DefaulSorting.IsAscending= !Vm.DefaulSorting.IsAscending;
+        Vm.DefaulSorting.IsAscending = !Vm.DefaulSorting.IsAscending;
 
         await Vm.FillObservableRecordsAsync(Vm.BuidDefaultPredicates());
     }
@@ -192,10 +189,12 @@ public partial class DataExchangeView : ComponentBase, IDisposable
         EnableSorting = true;
         EnableExport = true;
 
+        Vm.InjectedPredicateContainer = ExternalPredicates;
+
         await Vm.FillObservableRecordsAsync();
+
         Vm.StateHasChangedDelegate = StateHasChanged;
     }
-
 
     private async Task LoadFile(InputFileChangeEventArgs e)
     {
@@ -206,7 +205,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
             if (!Directory.Exists(ClientFolder))
                 Directory.CreateDirectory(ClientFolder);
 
-            Console.WriteLine( $"willl be imported to {ImportPath}");
+            Console.WriteLine($"willl be imported to {ImportPath}");
             await using FileStream fs = new(ImportPath, FileMode.Create);
 
             await e.File.OpenReadStream().CopyToAsync(fs);
@@ -218,7 +217,6 @@ public partial class DataExchangeView : ComponentBase, IDisposable
             _alertDialogService.AddAlertDialog(eAlertType.Danger, "Error!", ex.Message, 10);
             _fileLoadingStatus = eOperationStatus.Failed;
         }
-
     }
 
     private void ClearFiles(string path)

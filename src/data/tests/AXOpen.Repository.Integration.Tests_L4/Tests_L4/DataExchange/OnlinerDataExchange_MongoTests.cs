@@ -316,8 +316,8 @@
 
             querySymbol.MinOrValue = "";
             querySymbol.Operation = "!="; // not empty
-            
-            SortSymbolConfiguration sortSymbol = new (RequiredSymbolPathWithParent, typeof(string).FullName, false);
+
+            SortSymbolConfiguration sortSymbol = new SortSymbolConfiguration(RequiredSymbolPathWithParent, typeof(string).FullName, false);
 
             var pc = new PredicateContainer();
 
@@ -340,6 +340,6 @@
             Assert.Equal("1", records[8].DataEntityId);
             Assert.Equal("0", records[9].DataEntityId);
         }
-
+        
     }
 }

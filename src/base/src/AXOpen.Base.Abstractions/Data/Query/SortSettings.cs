@@ -6,5 +6,10 @@
     {
         public string MemberName { get; set; } = ""; // empty string => natural sorting 
         public bool IsAscending { get; set; }
+
+        public override string ToString()
+        {
+            return $"Member = {MemberName}, IsAscending = {IsAscending}";
+        }
     }
 }

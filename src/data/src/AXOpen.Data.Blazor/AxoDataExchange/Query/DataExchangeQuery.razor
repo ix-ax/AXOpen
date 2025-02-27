@@ -26,7 +26,6 @@
     </div>
 
 
-
     @if (FilteredSymbols.Count > 0)
     {
         <div class="card flex p-1 my-2">
@@ -111,8 +110,7 @@
         </div>
     }
 
-
-
+   
 
     @if (Queries.Count > 0)
     {
@@ -187,7 +185,12 @@
                             }
                             else
                             {
-                                <i class="oi oi-sort-descending">@Localizer["Descending"]</i>
+                                <i class="oi oi-sort-descending">
+                                    <span class="ms-2">
+                                        @Localizer["Descending"]
+                                    </span>
+
+                                </i>
                             }
                         </label>
                         <input id="sortSymbolName" type="checkbox" @bind="sortSymbol.IsAscending" class="form-check-input" />
@@ -198,6 +201,33 @@
         </div>
     }
 
+    @if (InjectedQueries.Count > 0)
+    {
+        <button class="btn btn-warning dropdown-toggle m-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            @Localizer["Injected query parameters will be used!"]
+        </button>
+
+        <ul class="dropdown-menu">
+            @foreach (var element in InjectedQueries)
+            {
+                <li><a class="dropdown-item">@element</a></li>
+            }
+        </ul>
+    }
+
+    @if (InjectedSorting.Count > 0)
+    {
+        <button class="btn btn-warning dropdown-toggle m-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            @Localizer["Injected sorting parameters will be used!"]
+        </button>
+
+        <ul class="dropdown-menu">
+            @foreach (var element in InjectedSorting)
+            {
+                <li><a class="dropdown-item">@element</a></li>
+            }
+        </ul>
+    }
 
     @if (Queries.Count > 0)
     {

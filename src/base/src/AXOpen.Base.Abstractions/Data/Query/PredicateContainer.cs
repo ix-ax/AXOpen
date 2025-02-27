@@ -12,40 +12,78 @@
 
         private readonly Dictionary<Type, List<SortSettings>> _sorting = new();
 
-        public void AddSortMember<T>(MemberExpression sortingMember, bool isAscending)
+        public void AddPredicatesFrom(PredicateContainer newPredicates)
         {
-            var type = typeof(T);
-
-            var settings = new SortSettings()
+            foreach (var predicatelist in newPredicates._predicates)
             {
-                MemberName = sortingMember.Member.Name,
-                IsAscending = isAscending
-            };
+                if (!this._predicates.ContainsKey(predicatelist.Key))
+                {
+                    this._predicates[predicatelist.Key] = new List<LambdaExpression>();
+                }
 
-            if (!_sorting.ContainsKey(type))
-            {
-                _sorting[type] = new List<SortSettings>() { settings };
+                this._predicates[predicatelist.Key].AddRange(predicatelist.Value);
             }
 
-            _sorting[type].Add(settings);
+            foreach (var sortList in newPredicates._sorting)
+            {
+                if (!this._sorting.ContainsKey(sortList.Key))
+                {
+                    this._sorting[sortList.Key] = new List<SortSettings>();
+                }
+
+                this._sorting[sortList.Key].AddRange(sortList.Value);
+            }
         }
 
-        public void AddSortMember<T>(MemberExpression sortingMember, bool isAscending, T pocoType)
+        public void AddSortMember<T>(Expression<Func<T, object>> sortingMember, bool isAscending)
         {
             var type = typeof(T);
 
-            var settings = new SortSettings()
+            // Extract property name from expression
+            if (sortingMember.Body is MemberExpression memberExpression)
             {
-                MemberName = sortingMember.Member.Name,
-                IsAscending = isAscending
-            };
+                var settings = new SortSettings
+                {
+                    MemberName = memberExpression.Member.Name,
+                    IsAscending = isAscending
+                };
 
-            if (!_sorting.ContainsKey(type))
-            {
-                _sorting[type] = new List<SortSettings>() { settings };
+                if (!_sorting.ContainsKey(type))
+                {
+                    _sorting[type] = new List<SortSettings>();
+                }
+
+                _sorting[type].Add(settings);
             }
+            else
+            {
+                throw new ArgumentException("Invalid sorting member expression.");
+            }
+        }
 
-            _sorting[type].Add(settings);
+        public void AddSortMember<T>(Expression<Func<T, object>> sortingMember, bool isAscending, T pocoInstance)
+        {
+            var type = typeof(T);
+
+            if (sortingMember.Body is MemberExpression memberExpression)
+            {
+                var settings = new SortSettings()
+                {
+                    MemberName = memberExpression.Member.Name,
+                    IsAscending = isAscending
+                };
+
+                if (!_sorting.ContainsKey(type))
+                {
+                    _sorting[type] = new List<SortSettings>() { settings };
+                }
+
+                _sorting[type].Add(settings);
+            }
+            else
+            {
+                throw new ArgumentException("Invalid sorting member expression.");
+            }
         }
 
         public void AddSortMember(SortSettings settings, Type pocoType)
@@ -76,7 +114,6 @@
             }
 
             _sorting[pocoType].Add(settings);
-
         }
 
         public void AddPredicates<T>(Expression<Func<T, bool>> predicate)
@@ -114,9 +151,14 @@
             return this._predicates.ContainsKey(typeof(T));
         }
 
-        public int ContainsTypeCount()
+        public int PredicatesCount()
         {
             return this._predicates.Count;
+        }
+
+        public int SortingCount()
+        {
+            return this._sorting.Count;
         }
 
         public bool ContainsType(Type targetType)
@@ -134,7 +176,17 @@
             return _sorting[typeof(T)].ToList();
         }
 
-        public List<SortSettings>? GetSorting<T>(T pocoType)
+        public List<SortSettings>? GetSorting(Type pocoType)
+        {
+            if (!_sorting.ContainsKey(pocoType))
+            {
+                return null;
+            }
+
+            return _sorting[pocoType].ToList();
+        }
+
+        public List<SortSettings>? GetSorting<T>(T pocoInstance)
         {
             if (!_sorting.ContainsKey(typeof(T)))
             {
@@ -144,7 +196,7 @@
             return _sorting[typeof(T)].ToList();
         }
 
-        public List<Expression<Func<T, bool>>> GetPredicates<T>()
+        public List<Expression<Func<T, bool>>>? GetPredicates<T>()
         {
             if (!_predicates.ContainsKey(typeof(T)))
             {
@@ -156,16 +208,14 @@
                 .ToList();
         }
 
-        public List<Expression<Func<T, bool>>> GetPredicates<T>(T pocoType)
+        public List<LambdaExpression>? GetPredicates(Type pocoType)
         {
-            if (!_predicates.ContainsKey(typeof(T)))
+            if (!_predicates.ContainsKey(pocoType))
             {
                 return null;
             }
 
-            return _predicates[typeof(T)]
-                .Select(p => (Expression<Func<T, bool>>)p)
-                .ToList();
+            return _predicates[pocoType].ToList();
         }
     }
 }

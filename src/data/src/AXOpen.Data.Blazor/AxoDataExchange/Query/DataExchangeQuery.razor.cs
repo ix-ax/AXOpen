@@ -40,6 +40,8 @@ namespace AXOpen.Data.Query
         {
             Task initTask = Task.Run(() =>
             {
+                bool addExternalPredicates = Vm.InjectedPredicateContainer != null && (Vm.InjectedPredicateContainer.PredicatesCount() > 0 || Vm.InjectedPredicateContainer.SortingCount() > 0);
+
                 foreach (var rootType in exchange.GetPlainObjectType())
                 {
                     var plainPathContainer = new PlainSymbolBuilder(rootType);
@@ -49,6 +51,31 @@ namespace AXOpen.Data.Query
                     Symbols.AddRange(s);
 
                     PlainBuilders.Add(plainPathContainer);
+
+
+                    if (addExternalPredicates)
+                    {
+                        var extQueries = Vm.InjectedPredicateContainer.GetPredicates(rootType);
+
+                        if (extQueries != null)
+                        {
+                            foreach (var query in extQueries)
+                            {
+
+                                this.InjectedQueries.Add($"{rootType.Name}: {query.ToString()}");
+                            }
+                        }
+
+                        var extSorting = Vm.InjectedPredicateContainer.GetSorting(rootType);
+                        if (extSorting != null)
+                        {
+                            foreach (var sort in extSorting)
+                            {
+                                this.InjectedSorting.Add($"{rootType.Name}: {sort.ToString()}");
+                            }
+                        }
+                    }
+
                 }
                 SymbolsWasInitialize = true;
             });
@@ -90,7 +117,7 @@ namespace AXOpen.Data.Query
         private int MaxPage =>
        (int)(SymbolsQueryCount % SymbolsQueryPageLimit == 0 ? SymbolsQueryCount / SymbolsQueryPageLimit - 1 : SymbolsQueryCount / SymbolsQueryPageLimit);
 
-        public List<string> FilteredSymbols { private set; get; } = new List<string>(); // symbols for qery on selected pagge and display to te user
+        public List<string> FilteredSymbols { private set; get; } = new List<string>(); // symbols for qery on selected pagge and display to the user
 
         private volatile object _displaySymbolLock = new object();
 
@@ -125,6 +152,9 @@ namespace AXOpen.Data.Query
         }
 
         public PredicateContainer PredicateContainer { private set; get; } = new PredicateContainer();
+
+        public List<string> InjectedQueries { private set; get; } = new();
+        public List<string> InjectedSorting { private set; get; } = new();
 
         public List<QuerySymbolConfiguration> Queries { private set; get; } = new();
         public List<SortSymbolConfiguration> Sorting { private set; get; } = new();
@@ -268,9 +298,19 @@ namespace AXOpen.Data.Query
             PredicateContainer = null;
             PredicateContainer = new PredicateContainer();
 
+            if (Vm.InjectedPredicateContainer != null)
+            {
+                PredicateContainer.AddPredicatesFrom(Vm.InjectedPredicateContainer);
+            }
+
             foreach (var symbolConfig in this.Queries)
             {
                 this.PredicateContainer.AddQuerySymbolToPredicates(PlainBuilders, symbolConfig);
+            }
+
+            foreach (var symbolSorting in this.Sorting)
+            {
+                this.PredicateContainer.AddSortSymbolToPredicates(PlainBuilders, symbolSorting);
             }
 
             await Vm.FillObservableRecordsAsync(PredicateContainer);

@@ -88,7 +88,7 @@ public class AxoCompoundRepository : IRepository
     {
         List<List<string>> fragmentEntities = new();
 
-        if (predicates.ContainsTypeCount() == 0)
+        if (predicates.PredicatesCount() == 0)
         {
             this.LastFragmentQueryCount = DataFragments.First().Repository.FilteredCount(predicates);
         }
