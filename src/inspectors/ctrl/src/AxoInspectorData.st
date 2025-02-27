@@ -7,8 +7,7 @@ NAMESPACE AXOpen.Inspectors
     CLASS AxoInspectorData 
 
         VAR PUBLIC
-
-        //<CommonInspectorDataDeclaration>
+        //<CommonInspectorDataDeclaration>       
         //timestamp of inspection
         {#ix-set:AttributeName = "<#TimeStamp#>"}
         Timestamp: LDATE_AND_TIME;

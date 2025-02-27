@@ -10,6 +10,7 @@ NAMESPACE AxoCognexVisionInsightExamples
             MyInsight : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight;  
             {#ix-set:AttributeName = "<#Activate manual control#>"}
             ActivateManualControl : BOOL;  
+            _rootObject :   AxoObject;
         END_VAR
 
         METHOD PROTECTED OVERRIDE Main   
@@ -18,8 +19,9 @@ NAMESPACE AxoCognexVisionInsightExamples
                 MyInsight.ActivateManualControl();
             END_IF;
             // Calling the main method `Run` with respective input and output variables. 
+            _rootObject.InitializeWithContext(THIS);
             //<HWIO_Assignement>
-            MyInsight.Run(  parent                  :=  THIS,  
+            MyInsight.Run(  parent                  :=  _rootObject,  
                             ResultDataSize          :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_ResultDataSize#RESULT_DATA_64B,
                             UserDataSize            :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_UserDataSize#USER_DATA_64B,
                             hwID                    :=  HwIdentifiers#_7600,

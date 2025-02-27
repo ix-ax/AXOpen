@@ -15,14 +15,16 @@ NAMESPACE AXOpen.Components.Siem.Identification
             Duration   :   ULINT;
             NumberOfCycles  : UINT  := UINT#10;
             CurrentNumberOfCycles   : UINT;
+            _rootObject :   AxoObject;
         END_VAR
 
         METHOD PROTECTED OVERRIDE Main
+            _rootObject.InitializeWithContext(THIS);
             IF Mode = UINT#0 THEN
                 RETURN;
             END_IF;
             IF Mode = UINT#1 THEN
-                    IOlinkReader.Run(  parent      :=  THIS,
+                    IOlinkReader.Run(  parent      :=  _rootObject,
                                         HW_ID       :=  HwIdentifiers#et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_CM_4xIO_Link_V2_2_144I_128O_HwID, 
                                         portAddr    :=  INT#0,
                                         version     :=  USINT#11);
@@ -31,7 +33,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             END_IF;
 
             IF Mode = UINT#2 THEN
-                IdentProfileReader.Run(parent      :=  THIS,
+                IdentProfileReader.Run(parent      :=  _rootObject,
                                         HW_ID       :=  HwIdentifiers#rf186c_Reader_1__Reader__HwID,
                                         API         :=  DWORD#16#5B00,	
                                         SLOT 		:=  WORD#2,
@@ -56,7 +58,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             // 100 RW cycles of 56 chcracter long string
             // 39850 ms
 
-            Sequencer.Initialize(THIS);
+            Sequencer.InitializeWithContext(THIS);
             Sequencer.Open();
             Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
             
@@ -121,7 +123,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             // at 115.2 kBd does not work, NFI wfy
 
             
-            Sequencer.Initialize(THIS);
+            Sequencer.InitializeWithContext(THIS);
             Sequencer.Open();
             Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
             

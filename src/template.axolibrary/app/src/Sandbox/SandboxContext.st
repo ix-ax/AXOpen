@@ -1,3 +1,4 @@
+USING AXOpen.Core;
 NAMESPACE Template.Axolibrary
     {S7.extern=ReadWrite}
     CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
@@ -8,10 +9,12 @@ NAMESPACE Template.Axolibrary
             _workSensor : BOOL;    
             _moveHomeSignal : BOOL;
             _moveWorkSignal : BOOL;
+            _rootObject : AxoObject;
         END_VAR
 
         METHOD PROTECTED OVERRIDE Main
-            _testCyclinder.Run(THIS,  
+            _rootObject .InitializeWithContext(THIS);
+            _testCyclinder.Run(_rootObject,  
                                 WORD#64,                           
                                 REF(_homeSensor), 
                                 REF(_workSensor), 

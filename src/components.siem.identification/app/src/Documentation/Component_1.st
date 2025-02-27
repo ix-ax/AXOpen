@@ -38,7 +38,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 RETURN;
             END_IF;
 
-            THIS.Initialize(parent);
+            THIS.InitializeWithContext(parent);
 
             IF ActivateManualControl THEN
                 IdentProfileReader.ActivateManualControl();

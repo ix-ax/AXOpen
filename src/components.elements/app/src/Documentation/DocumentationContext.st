@@ -71,7 +71,7 @@ NAMESPACE AXOpen.Elements
                 parent  : IAxoContext;
             END_VAR
 
-            THIS.Initialize(parent);
+            THIS.InitializeWithContext(parent);
 
             
             //<AxoDiManualControl>

@@ -4,16 +4,18 @@ NAMESPACE AXOpen.Components.Drives
         VAR PUBLIC
             _manualControl : BOOL;          
             PlcInputs : ARRAY [0..10] OF BYTE;
-            PlcOutputs : ARRAY [0..10] OF BYTE;          
+            PlcOutputs : ARRAY [0..10] OF BYTE;         
+            _rootObject :   AxoObject; 
             _testDrive  : AXOpen.Components.Drives.AxoDriveExample;  
         END_VAR
         
 
         METHOD PROTECTED OVERRIDE Main  
+            _rootObject.InitializeWithContext(THIS);
             IF(_manualControl) THEN            
                 _testDrive.ActivateManualControl();
             END_IF;   
-            _testDrive.Run(parent:=THIS,
+            _testDrive.Run(parent:=_rootObject,
                             refAxisIn           :=  REF(PlcInputs),
                             refAxisOut          :=  REF(PlcOutputs),
                             Enable              :=  TRUE,

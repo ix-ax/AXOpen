@@ -12,7 +12,7 @@ NAMESPACE AXOpen.Components.Pneumatics
     //</DeclarationAndHWIO_Assignement>
     //<Pneumatic_Run>
         METHOD PROTECTED OVERRIDE Main        
-            CylinderParent.Initialize(THIS);
+            CylinderParent.InitializeWithContext(THIS);
             myAxoCylinder.Run(  CylinderParent, 
                             PlcInputs^.ET200SP_DI_8x24VDC_ST_V1_1_1.%X0, 
                             PlcInputs^.ET200SP_DI_8x24VDC_ST_V1_1_1.%X1, 

@@ -163,7 +163,7 @@ NAMESPACE AXOpen.Core
             END_IF;    
 
             IF(inCount = 0) THEN
-                IF(_parent <> NULL) THEN
+                IF(_parent <> NULL && THIS._parent <> THIS._parent.GetParent()) THEN                    
                     THIS._parent.AggregateMessage(inCount);
                 END_IF;    
                 RETURN;
@@ -171,7 +171,7 @@ NAMESPACE AXOpen.Core
             
             THIS.MsgCnt := inCount + THIS.MsgCnt;    
                       
-            IF(_parent <> NULL) THEN
+            IF(_parent <> NULL && THIS._parent <> THIS._parent.GetParent()) THEN
                 THIS._parent.AggregateMessage(inCount);
             END_IF;    
 
