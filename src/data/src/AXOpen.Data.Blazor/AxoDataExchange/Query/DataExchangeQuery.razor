@@ -117,7 +117,6 @@
         <div class="card p-1 m-0">
             @foreach (var querySymbol in Queries)
             {
-                @* <div class="card p-1 m-1"> *@
                 <div class="d-flex align-items-center gap-2">
                     <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Remove"]"
                             @onclick="() => RemoveSymbolFromQuery(querySymbol.TrackSymbolId)">
@@ -141,7 +140,6 @@
 
                     <QuerySymbolConfigurationView @key=querySymbol.TrackSymbolId SymbolConfiguration="@querySymbol"></QuerySymbolConfigurationView>
                 </div>
-                @* </div> *@
             }
         </div>
     }
@@ -151,7 +149,7 @@
         <div class="card p-1 mt-1">
             @foreach (var sortSymbol in Sorting)
             {
-                <div class="d-flex align-items-center gap-2">
+                <div class="d-flex align-items-center gap-2 my-1">
                     <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Remove"]"
                             @onclick="() => RemoveSymbolFromSorting(sortSymbol.TrackSymbolId)">
                         <i class="oi oi-trash"></i>
@@ -231,7 +229,15 @@
 
     @if (Queries.Count > 0)
     {
-        <button class="btn btn-primary m-1" type="button" @onclick="async () =>await ExecuteFilter()">FILTER</button>
+        <button class="btn btn-primary m-1" type="button" @onclick="async () =>await ExecuteFilter()">
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+            </svg>
+            <span>@Localizer["Filter"]</span>
+            
+        
+        </button>
     }
 
 </div>
