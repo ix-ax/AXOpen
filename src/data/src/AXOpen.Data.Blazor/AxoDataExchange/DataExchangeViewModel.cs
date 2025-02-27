@@ -216,7 +216,14 @@ namespace AXOpen.Data
                     this.Records.Add(item);
                 }
 
-                FilteredCount = DataExchange.LastFragmentQueryCount;
+                if (this.DataExchange.Repository is AxoCompoundRepository)
+                {
+                    FilteredCount = DataExchange.LastFragmentQueryCount;
+                }
+                else
+                {
+                    FilteredCount = this.DataExchange.Repository.FilteredCount(predicates);
+                }
             }
 
             return Records;

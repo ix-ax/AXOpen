@@ -145,7 +145,7 @@ namespace AXOpen.Data.Query
                     }
                     catch (Exception ex)
                     {
-                        ;
+                        // swallow;
                     }
                 }
             }
