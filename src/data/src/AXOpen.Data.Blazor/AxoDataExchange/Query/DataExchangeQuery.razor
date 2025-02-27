@@ -113,7 +113,7 @@
                             @onclick="() => RemoveSymbolFromQuery(querySymbol.TrackSymbolId)">
                         <i class="oi oi-trash"></i>
                     </button>
-                    <QuerySymbolConfigurationView SymbolConfiguration="@querySymbol"></QuerySymbolConfigurationView>
+                    <QuerySymbolConfigurationView @key=querySymbol.TrackSymbolId SymbolConfiguration="@querySymbol"></QuerySymbolConfigurationView>
                 </div>
                 @* </div> *@
             }
