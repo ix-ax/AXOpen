@@ -3,6 +3,7 @@ using AXOpen.Base.Data.Query;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using System.Diagnostics.Metrics;
+using System.Linq.Expressions;
 using System.Text.Json;
 
 namespace AXOpen.Data.Query
@@ -126,6 +127,7 @@ namespace AXOpen.Data.Query
         public PredicateContainer PredicateContainer { private set; get; } = new PredicateContainer();
 
         public List<QuerySymbolConfiguration> Queries { private set; get; } = new();
+        public List<SortSymbolConfiguration> Sorting { private set; get; } = new();
 
         private async Task SetLimitAsync(int limit)
         {
@@ -176,8 +178,16 @@ namespace AXOpen.Data.Query
 
         public Task<bool> AddSymbolToQuery(string symbol)
         {
-            this.Queries.Add(this.PlainBuilders.CreateNewConfiguration(symbol));
+            this.Queries.Add(this.PlainBuilders.CreateNewQuerySymbol(symbol));
+            return Task.FromResult(true);
+        }
 
+        public Task<bool> AddAllDisplayedToQuery()
+        {
+            foreach (var s in GetDisplaySymbols())
+            {
+                this.Queries.Add(this.PlainBuilders.CreateNewQuerySymbol(s));
+            }
             return Task.FromResult(true);
         }
 
@@ -185,6 +195,71 @@ namespace AXOpen.Data.Query
         {
             this.Queries.Remove(this.Queries.Where(p => p.TrackSymbolId == trakSymbolId).First());
 
+            return Task.FromResult(true);
+        }
+
+        public Task<bool> RemoveSymbolFromSorting(Guid trakSymbolId)
+        {
+            this.Sorting.Remove(this.Sorting.Where(p => p.TrackSymbolId == trakSymbolId).First());
+
+            return Task.FromResult(true);
+        }
+
+        public Task<bool> MoveQuerySymbolUp(Guid trackSymbolId)
+        {
+            var index = this.Queries.FindIndex(p => p.TrackSymbolId == trackSymbolId);
+            if (index > 0) // Ensure it is not already at the top
+            {
+                var temp = this.Queries[index];
+                this.Queries[index] = this.Queries[index - 1];
+                this.Queries[index - 1] = temp;
+                return Task.FromResult(true);
+            }
+            return Task.FromResult(false); // No movement possible
+        }
+
+        public Task<bool> MoveQuerySymbolDown(Guid trackSymbolId)
+        {
+            var index = this.Queries.FindIndex(p => p.TrackSymbolId == trackSymbolId);
+            if (index >= 0 && index < this.Queries.Count - 1) // Ensure it is not already at the bottom
+            {
+                var temp = this.Queries[index];
+                this.Queries[index] = this.Queries[index + 1];
+                this.Queries[index + 1] = temp;
+                return Task.FromResult(true);
+            }
+            return Task.FromResult(false); // No movement possible
+        }
+
+        public Task<bool> MoveSortingSymbolUp(Guid trackSymbolId)
+        {
+            var index = this.Sorting.FindIndex(p => p.TrackSymbolId == trackSymbolId);
+            if (index > 0) // Ensure it is not already at the top
+            {
+                var temp = this.Sorting[index];
+                this.Sorting[index] = this.Sorting[index - 1];
+                this.Sorting[index - 1] = temp;
+                return Task.FromResult(true);
+            }
+            return Task.FromResult(false); // No movement possible
+        }
+
+        public Task<bool> MoveSortingSymbolDown(Guid trackSymbolId)
+        {
+            var index = this.Sorting.FindIndex(p => p.TrackSymbolId == trackSymbolId);
+            if (index >= 0 && index < this.Sorting.Count - 1) // Ensure it is not already at the bottom
+            {
+                var temp = this.Sorting[index];
+                this.Sorting[index] = this.Sorting[index + 1];
+                this.Sorting[index + 1] = temp;
+                return Task.FromResult(true);
+            }
+            return Task.FromResult(false); // No movement possible
+        }
+
+        public Task<bool> AddSymbolToSorting(string symbol)
+        {
+            this.Sorting.Add(this.PlainBuilders.CreateNewSortSymbol(symbol));
             return Task.FromResult(true);
         }
 
@@ -206,18 +281,6 @@ namespace AXOpen.Data.Query
             await SaveData();
         }
 
-
-        public Task<bool> AddAllDisplayedToQuery()
-        {
-
-            foreach (var s in GetDisplaySymbols())
-            {
-                this.Queries.Add(this.PlainBuilders.CreateNewConfiguration(s));
-            }
-
-            return Task.FromResult(true);
-        }
-
         public Task<bool> ClearFilter()
         {
             this.SymbolsQueryFilter = "";
@@ -228,25 +291,35 @@ namespace AXOpen.Data.Query
 
         private async Task SaveData()
         {
-
-            var history = new SymbolQueryConfigHistory() { Config = Queries, Modified = DateTime.Now, Name = DateTime.Now.ToString() };
-
-            var json = JsonSerializer.Serialize(history);
-
-            var deserialized = JsonSerializer.Deserialize<SymbolQueryConfigHistory>(json);
-
-            await ProtectedLocalStorage.SetAsync(this.StorageKey, history);
+            try
+            {
+                var history = new SymbolQueryConfigHistory() { Queries = Queries, Sorting = Sorting, Modified = DateTime.Now, Name = DateTime.Now.ToString() };
+                await ProtectedLocalStorage.SetAsync(this.StorageKey, history);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         private async Task LoadData()
         {
-
-            var existingConfig = await ProtectedLocalStorage.GetAsync<SymbolQueryConfigHistory>(this.StorageKey);
-
-            if (existingConfig.Success)
+            try
             {
-                this.Queries.Clear();
-                this.Queries.AddRange(existingConfig.Value.Config);
+                var existingConfig = await ProtectedLocalStorage.GetAsync<SymbolQueryConfigHistory>(this.StorageKey);
+
+                if (existingConfig.Success)
+                {
+                    this.Queries.Clear();
+                    this.Queries.AddRange(existingConfig.Value.Queries);
+
+                    this.Sorting.Clear();
+                    this.Sorting.AddRange(existingConfig.Value.Sorting);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
         }
 

@@ -40,7 +40,6 @@ namespace Tests_L4
 
                 Assert.Equal(expected.MinOrValue, actual.MinOrValue);
                 Assert.Equal(expected.Max, actual.Max);
-
             }
         }
 

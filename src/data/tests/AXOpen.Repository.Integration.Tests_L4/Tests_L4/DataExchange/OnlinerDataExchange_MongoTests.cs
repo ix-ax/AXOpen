@@ -115,7 +115,7 @@
         }
 
         [Fact]
-        public void should_build_lambda_from_symbol_with_range()
+        public void should_build_lambda_from_query_symbol_with_range()
         {
             var plains = _exchange.GetPlainObjectType();
 
@@ -159,7 +159,7 @@
         }
 
         [Fact]
-        public void should_build_lambda_from_symbolconfiguration()
+        public void should_build_lambda_from_query_symbol()
         {
             var plainBuilders = _exchange.GetPlainObjectType().Select(p => new PlainSymbolBuilder(p)).ToList();
 
@@ -194,7 +194,7 @@
         }
 
         [Fact]
-        public void should_build_create_symbolconfiguration()
+        public void should_build_create_query_symbol()
         {
             var plainBuilders = _exchange.GetPlainObjectType().Select(p => new PlainSymbolBuilder(p)).ToList();
 
@@ -208,7 +208,7 @@
 
             string RequiredSymbolPathWithParent = $"{plainTypeHeaderName}.{varNameHeader}";
 
-            var config = plainBuilders.CreateNewConfiguration(RequiredSymbolPathWithParent);
+            var config = plainBuilders.CreateNewQuerySymbol(RequiredSymbolPathWithParent);
 
             config.MinOrValue = varValueMinHeader;
             config.Operation = varOperationHeader;
@@ -236,7 +236,7 @@
 
             string RequiredSymbolPathWithParent = $"{plainTypeHeaderName}.{Constants.MEMBER_NAME_ENTITY_ID}";
 
-            var config = plainBuilders.CreateNewConfiguration(RequiredSymbolPathWithParent);
+            var config = plainBuilders.CreateNewQuerySymbol(RequiredSymbolPathWithParent);
 
             config.MinOrValue = "";
             config.Operation = "!="; // not empty
@@ -274,7 +274,7 @@
 
             string RequiredSymbolPathWithParent = $"{plainTypeHeaderName}.{Constants.MEMBER_NAME_ENTITY_ID}";
 
-            var config = plainBuilders.CreateNewConfiguration(RequiredSymbolPathWithParent);
+            var config = plainBuilders.CreateNewQuerySymbol(RequiredSymbolPathWithParent);
 
             config.MinOrValue = "";
             config.Operation = "!="; // not empty
@@ -300,5 +300,46 @@
             Assert.Equal("1", records[8].DataEntityId);
             Assert.Equal("0", records[9].DataEntityId);
         }
+
+        [Fact]
+        public void should_build_filter_and_sort_from_sortsymbolConfiguraion()
+        {
+            var plains = _exchange.GetPlainObjectType();
+
+            var plainBuilders = plains.Select(p => new PlainSymbolBuilder(p)).ToList();
+
+            var plainTypeHeaderName = plainBuilders.First().RootTypeName;
+
+            string RequiredSymbolPathWithParent = $"{plainTypeHeaderName}.{Constants.MEMBER_NAME_ENTITY_ID}";
+
+            QuerySymbolConfiguration querySymbol = plainBuilders.CreateNewQuerySymbol(RequiredSymbolPathWithParent);
+
+            querySymbol.MinOrValue = "";
+            querySymbol.Operation = "!="; // not empty
+            
+            SortSymbolConfiguration sortSymbol = new (RequiredSymbolPathWithParent, typeof(string).FullName, false);
+
+            var pc = new PredicateContainer();
+
+            pc.AddQuerySymbolToPredicates(plainBuilders, querySymbol);
+
+            pc.AddSortSymbolToPredicates(plainBuilders, sortSymbol);
+
+            var records = _exchange.GetRecords(pc, 100, 0).ToList();
+
+            Assert.Equal(10, records.Count());
+
+            Assert.Equal("9", records[0].DataEntityId);
+            Assert.Equal("8", records[1].DataEntityId);
+            Assert.Equal("7", records[2].DataEntityId);
+            Assert.Equal("6", records[3].DataEntityId);
+            Assert.Equal("5", records[4].DataEntityId);
+            Assert.Equal("4", records[5].DataEntityId);
+            Assert.Equal("3", records[6].DataEntityId);
+            Assert.Equal("2", records[7].DataEntityId);
+            Assert.Equal("1", records[8].DataEntityId);
+            Assert.Equal("0", records[9].DataEntityId);
+        }
+
     }
 }

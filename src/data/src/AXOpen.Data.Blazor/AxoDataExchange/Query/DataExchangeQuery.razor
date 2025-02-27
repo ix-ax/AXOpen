@@ -4,6 +4,14 @@
 <div class="container-fluid p-0 m-1">
 
     <div class="col d-flex align-items-center gap-2 mb-1">
+
+        @if (FilteredSymbols.Count > 0)
+        {
+            <button class="btn btn-secondary px-2 py-1" type="button" @onclick="AddAllDisplayedToQuery">
+                <span class="oi oi-plus" aria-hidden="true">All</span>
+            </button>
+        }
+
         <input id="filterText" @bind="SymbolsQueryFilter" @bind:event="oninput"
                placeholder="Type symbol name here for filter..."
                class="form-control"
@@ -11,9 +19,6 @@
                data-bs-toggle="tooltip" />
 
 
-        <button class="btn btn-secondary px-2 py-1" type="button" @onclick="AddAllDisplayedToQuery">
-            <span class="oi oi-plus" aria-hidden="true">All</span>
-        </button>
 
         <button class="btn btn-secondary px-2 py-1" type="button" @onclick="ClearFilter">
             <span class="oi oi-x" aria-hidden="true">Clear</span>
@@ -29,7 +34,12 @@
             @foreach (var symbol in GetDisplaySymbols())
             {
                 <p class="m-1">
-                    <button class="btn btn-secondary px-2 py-1" type="button" @onclick="() => AddSymbolToQuery(symbol)">+</button>
+                    <button class="btn btn-secondary px-2 py-1" type="button" @onclick="() => AddSymbolToQuery(symbol)">
+                        <span class="oi oi-plus" aria-hidden="true"></span>
+                    </button>
+                    <button class="btn btn-secondary px-2 py-1" type="button" @onclick="() => AddSymbolToSorting(symbol)">
+                        <span class="oi oi-random" aria-hidden="true"></span>
+                    </button>
                     @symbol
                 </p>
             }
@@ -102,6 +112,8 @@
     }
 
 
+
+
     @if (Queries.Count > 0)
     {
         <div class="card p-1 m-0">
@@ -109,16 +121,83 @@
             {
                 @* <div class="card p-1 m-1"> *@
                 <div class="d-flex align-items-center gap-2">
-                    <button type="button" class="btn btn-danger px-3 py-0" title="Delete"
+                    <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Remove"]"
                             @onclick="() => RemoveSymbolFromQuery(querySymbol.TrackSymbolId)">
                         <i class="oi oi-trash"></i>
+
                     </button>
+
+                    @*  <label class="ms-2"> @Localizer["Move"]</label>
+ *@
+                    <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Up"]"
+                            @onclick="() => MoveQuerySymbolUp(querySymbol.TrackSymbolId)">
+                        <i class="oi oi-data-transfer-upload">
+                        </i>
+                    </button>
+
+                    <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Donw"]"
+                            @onclick="() => MoveQuerySymbolDown(querySymbol.TrackSymbolId)">
+                        <i class="oi oi-data-transfer-download">
+                        </i>
+                    </button>
+
                     <QuerySymbolConfigurationView @key=querySymbol.TrackSymbolId SymbolConfiguration="@querySymbol"></QuerySymbolConfigurationView>
                 </div>
                 @* </div> *@
             }
         </div>
     }
+
+    @if (Sorting.Count > 0)
+    {
+        <div class="card p-1 mt-1">
+            @foreach (var sortSymbol in Sorting)
+            {
+                <div class="d-flex align-items-center gap-2">
+                    <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Remove"]"
+                            @onclick="() => RemoveSymbolFromSorting(sortSymbol.TrackSymbolId)">
+                        <i class="oi oi-trash"></i>
+                    </button>
+                    @* 
+                    <label class="ms-2"> @Localizer["Move"]</label>
+ *@
+                    <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Up"]"
+                            @onclick="() => MoveSortingSymbolUp(sortSymbol.TrackSymbolId)">
+                        <i class="oi oi-data-transfer-upload"> </i>
+                    </button>
+
+                    <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Donw"]"
+                            @onclick="() => MoveSortingSymbolDown(sortSymbol.TrackSymbolId)">
+                        <i class="oi oi-data-transfer-download"></i>
+                    </button>
+
+                    <div class="d-flex flex-row align-items-center gap-2">
+                        <label> @sortSymbol.SymbolPathWithParent</label>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center gap-2">
+                        <label for="sortSymbolName">
+                            @if (sortSymbol.IsAscending)
+                            {
+                                <i class="oi oi-sort-ascending">
+                                    <span class="ms-2">
+                                        @Localizer["Ascending"]
+                                    </span>
+                                </i>
+                            }
+                            else
+                            {
+                                <i class="oi oi-sort-descending">@Localizer["Descending"]</i>
+                            }
+                        </label>
+                        <input id="sortSymbolName" type="checkbox" @bind="sortSymbol.IsAscending" class="form-check-input" />
+                    </div>
+
+                </div>
+            }
+        </div>
+    }
+
 
     @if (Queries.Count > 0)
     {
