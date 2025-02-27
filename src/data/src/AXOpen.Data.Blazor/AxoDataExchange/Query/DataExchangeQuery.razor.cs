@@ -1,7 +1,9 @@
-﻿using AXOpen.Base.Data.Query;
+﻿using AngleSharp.Text;
+using AXOpen.Base.Data.Query;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using System.Diagnostics.Metrics;
+using System.Text.Json;
 
 namespace AXOpen.Data.Query
 {
@@ -204,6 +206,18 @@ namespace AXOpen.Data.Query
             await SaveData();
         }
 
+
+        public Task<bool> AddAllDisplayedToQuery()
+        {
+
+            foreach (var s in GetDisplaySymbols())
+            {
+                this.Queries.Add(this.PlainBuilders.CreateNewConfiguration(s));
+            }
+
+            return Task.FromResult(true);
+        }
+
         public Task<bool> ClearFilter()
         {
             this.SymbolsQueryFilter = "";
@@ -214,11 +228,19 @@ namespace AXOpen.Data.Query
 
         private async Task SaveData()
         {
-            await ProtectedLocalStorage.SetAsync(this.StorageKey, new SymbolQueryConfigHistory() { Config = Queries, Modified = DateTime.Now, Name = DateTime.Now.ToString() });
+
+            var history = new SymbolQueryConfigHistory() { Config = Queries, Modified = DateTime.Now, Name = DateTime.Now.ToString() };
+
+            var json = JsonSerializer.Serialize(history);
+
+            var deserialized = JsonSerializer.Deserialize<SymbolQueryConfigHistory>(json);
+
+            await ProtectedLocalStorage.SetAsync(this.StorageKey, history);
         }
 
         private async Task LoadData()
         {
+
             var existingConfig = await ProtectedLocalStorage.GetAsync<SymbolQueryConfigHistory>(this.StorageKey);
 
             if (existingConfig.Success)

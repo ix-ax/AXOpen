@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json.Serialization;
+using Newtonsoft.Json.Linq;
 
 namespace AXOpen.Data.Query
 {
@@ -26,10 +27,53 @@ namespace AXOpen.Data.Query
             this.Max = max;
         }
 
+        public string SymbolPathWithParent { get; set; }
+        public string SymbolTypeFullName { get; set; }
+
+        private object _MinOrValue;
+        private object _Max;
+
+        [JsonConverter(typeof(QuerySymbolJsonValueConverter))]
+        public object MinOrValue
+        {
+            get
+            {
+                return this.CheckType(_MinOrValue);
+            }
+            set
+            {
+                var newVal = this.CheckType(value);
+
+                if (newVal != null)
+                {
+                    _MinOrValue = newVal;
+                }
+            }
+        }
+
+        [JsonConverter(typeof(QuerySymbolJsonValueConverter))]
+        public object Max
+        {
+            get
+            {
+                return this.CheckType(_Max);
+            }
+            set
+            {
+                var newVal = this.CheckType(value);
+
+                if (newVal != null)
+                {
+                    _Max = newVal;
+                }
+            }
+        }
+
         public Guid TrackSymbolId { get; set; } = Guid.NewGuid();
 
         private string _ParentTypeName = string.Empty;
 
+        [System.Text.Json.Serialization.JsonIgnore]
         public string ParentTypeName
         {
             get
@@ -43,12 +87,8 @@ namespace AXOpen.Data.Query
             }
         }
 
-        public string SymbolPathWithParent { get; set; }
-        public string SymbolTypeFullName { get; set; }
-
         private Type _SymbolType;
 
-        [Newtonsoft.Json.JsonIgnoreAttribute]
         [System.Text.Json.Serialization.JsonIgnore]
         public Type SymbolType
         {
@@ -65,6 +105,7 @@ namespace AXOpen.Data.Query
 
         private string _Symbol = string.Empty;
 
+        [System.Text.Json.Serialization.JsonIgnore]
         public string Symbol
         {
             get
@@ -85,14 +126,32 @@ namespace AXOpen.Data.Query
             set { _Operation = value; }
         }
 
+        [System.Text.Json.Serialization.JsonIgnore]
         public bool IsRangeOperation { get => Operation.Contains("Range"); }
 
-
-        [JsonConverter(typeof(QuerySymbolJsonValueConverter))]
-        public object MinOrValue { get; set; }
-
-        [JsonConverter(typeof(QuerySymbolJsonValueConverter))]
-        public object Max { get; set; }
+        internal object CheckType(object inputValue)
+        {
+            if (inputValue != null)
+            {
+                if (inputValue.GetType() == SymbolType)
+                {
+                    return inputValue;
+                }
+                else
+                {
+                    try
+                    {
+                        return Convert.ChangeType(inputValue, SymbolType);
+                    }
+                    catch (Exception ex)
+                    {
+                        ;
+                    }
+                }
+            }
+            
+            return OperationProvider.GetMinForType(SymbolType);
+        }
 
         public static string GetParentTypeName(string symbolPathWithParent)
         {
@@ -105,6 +164,5 @@ namespace AXOpen.Data.Query
             int index = symbolPathWithParent.IndexOf('.');
             return index != -1 ? symbolPathWithParent.Substring(index + 1) : symbolPathWithParent;
         }
-
     }
 }
