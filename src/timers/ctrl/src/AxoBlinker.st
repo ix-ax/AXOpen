@@ -58,10 +58,9 @@ NAMESPACE AXOpen.Timers
                 inOffTime : TIME;
             END_VAR   
 
-            IF Context = NULL THEN
-                RETURN;
-            END_IF;
-            
+            IF Context = NULL THEN RETURN; END_IF;
+            IF(Context.GetRtm() = NULL) THEN RETURN; END_IF;
+
             Blink := THIS.Execute(Context,inOnTime,inOffTime);
         END_METHOD
       

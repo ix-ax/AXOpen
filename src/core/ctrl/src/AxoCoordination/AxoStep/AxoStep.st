@@ -4,10 +4,11 @@ NAMESPACE AXOpen.Core
     CLASS AxoStep EXTENDS AxoTask IMPLEMENTS IAxoStep       
         VAR PUBLIC
             {#ix-attr:[ReadOnly()]}
-            Order : ULINT;            
+            Order : ULINT;                      
             StepDescription : STRING[120];
             IsActive : BOOL;                        
-            IsEnabled : BOOL;
+            IsEnabled : BOOL;  
+            Analytics : AxoStepAnalytics;          
         END_VAR 
 
         VAR PROTECTED            
@@ -17,6 +18,19 @@ NAMESPACE AXOpen.Core
             _noStepCallInPreviousPlcCycle : BOOL;
         END_VAR 
        
+        VAR PRIVATE
+            _context    :   IAxoContext;
+        END_VAR
+
+        ///<summary>
+        /// Gets duration of the current iteration of the step.
+        ///</summary>
+        METHOD PUBLIC UpdateStepAnalitics 
+            Analytics.Order := THIS.Order;
+            Analytics.Description := THIS.StepDescription;
+            Analytics.Duration := THIS.Duration;            
+        END_METHOD
+
         ///<summary>
         /// Returns the order of the execution.
         ///</summary>
@@ -103,9 +117,13 @@ NAMESPACE AXOpen.Core
                 _currentlyOpenCycleCount : ULINT;
                 // Selector : REF_TO Selector;
             END_VAR    
+            THIS.Initialize(coord);
+            IF _context = NULL THEN
+                _context := THIS.GetContext();
+            END_IF;
 
-            IF _context_ <> NULL THEN 
-                _currentlyOpenCycleCount := _context_.OpenCycleCount();
+            IF _context <> NULL THEN 
+                _currentlyOpenCycleCount := _context.OpenCycleCount();
                 _isCalledJustOnceInThisPlcCycle:= _openCycleCount = _currentlyOpenCycleCount - ULINT#1;
                 _multipleStepCallInThisPlcCycle := _openCycleCount >= _currentlyOpenCycleCount; // TODO: We will need to message this, when messaging ready.            
                 _noStepCallInPreviousPlcCycle := _openCycleCount < _currentlyOpenCycleCount - ULINT#1; // TODO: We will need to message this, when messaging ready.            
@@ -114,7 +132,7 @@ NAMESPACE AXOpen.Core
                 coordAsAxoObject ?= coord;
                IF(coordAsAxoObject <> NULL) THEN
                     THIS.Initialize(coordAsAxoObject); 
-                    _currentlyOpenCycleCount := _context_.OpenCycleCount();
+                    _currentlyOpenCycleCount := _context.OpenCycleCount();
                     _isCalledJustOnceInThisPlcCycle:= _openCycleCount = _currentlyOpenCycleCount - ULINT#1;
                     _multipleStepCallInThisPlcCycle := _openCycleCount >= _currentlyOpenCycleCount; // TODO: We will need to message this, when messaging ready.            
                     _noStepCallInPreviousPlcCycle := _openCycleCount < _currentlyOpenCycleCount - ULINT#1; // TODO: We will need to message this, when messaging ready.            
@@ -141,7 +159,12 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 Active : BOOL;
             END_VAR
-            IF(NOT THIS.IsActive AND Active) THEN _context_.GetLogger().Log('At step:', AXOpen.Logging.eLogLevel#Verbose, THIS); END_IF;
+            IF _context = NULL THEN
+                _context := THIS.GetContext();
+            END_IF;
+            IF(NOT THIS.IsActive AND Active) THEN 
+                _context.GetLogger().Log('At step:', AXOpen.Logging.eLogLevel#Verbose, THIS); 
+            END_IF;
             IsActive := Active;
         END_METHOD
 

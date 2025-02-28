@@ -1,7 +1,35 @@
 ﻿@namespace AXOpen.Core
 @inherits RenderableComplexComponentBase<AxoSequencer>
+
+@code {
+    private bool _isCollapsed = true;
+
+    private void Collapse()
+    {
+        _isCollapsed = !_isCollapsed;
+    }
+
+}
 @using AXOpen.Core.Blazor.Culture;
 @using Microsoft.AspNetCore.Components.Authorization;
+
+
+<div class="d-flex">
+    <div class="container rounded-3 @AxoStepHelper.StepRowColor(Component.CurrentStep)">
+        <div class="col fs-3">
+            @AxoStepHelper.Description(Component.CurrentStep)
+        </div>
+    </div>
+
+    <a class="btn btn-primary ms-1 d-flex align-items-center" role="button" @onclick="Collapse">
+        <span class="bi-chevron-down d-inline-block collapsible @(_isCollapsed ? "show" : "open")" />
+    </a>
+</div>
+
+@if (!_isCollapsed)
+{
+    
+
 
 <div class="card-body">
     <div class="row">
@@ -98,7 +126,7 @@
         </div>
     }
 </div>
-
+}
 @{
     void OnOpenModalWindow()
     {

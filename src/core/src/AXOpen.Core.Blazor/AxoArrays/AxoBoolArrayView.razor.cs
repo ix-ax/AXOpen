@@ -17,14 +17,14 @@ namespace AXOpen.Core
         public bool IsDisabled { get; set; }
 
         public IndexedData<bool>[] Data { get; private set; } 
-        public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+        public override void ConfigurePolling()
         {
-            
+            //TODO: Check this previously the whole component was polled. @TomKovac
+            StartPolling(Component.DataChanged);
         }
 
         protected override void OnInitialized()
         {
-            UpdateValuesOnChange(Component);
             base.OnInitialized();
             UpdateData(null, null);
             Component.DataChanged.Subscribe(UpdateData);

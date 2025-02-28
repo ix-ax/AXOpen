@@ -64,8 +64,11 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 inCount : LINT;
             END_VAR
-
             ;
+        END_METHOD
+    
+        METHOD PUBLIC GetParent : IAxoObject
+            GetParent := THIS;
         END_METHOD
     END_CLASS    
 

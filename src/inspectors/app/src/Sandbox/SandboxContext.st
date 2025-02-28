@@ -2,16 +2,12 @@ USING AXOpen.Core;
 {S7.extern=ReadWrite}
 CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
-
         _startInspection : BOOL := FALSE;
-
-        _inspectors : Inspectors;
-      
+        _inspectors : Inspectors;      
     END_VAR
 
-
     METHOD PROTECTED OVERRIDE Main
-        _inspectors.Initialize(THIS);
+        _inspectors.InitializeWithContext(THIS);
 
         IF _startInspection THEN
             _inspectors.Run();
@@ -24,35 +20,39 @@ END_CLASS
 {S7.extern=ReadWrite}
 CLASS Inspectors EXTENDS AXOpen.Core.AxoObject
     VAR PUBLIC
-        _digitalInspector: AXOpen.Inspectors.AxoDigitalInspector;
-        _analogueInspector: AXOpen.Inspectors.AxoAnalogueInspector;
-        _dataInspector: AXOpen.Inspectors.AxoDataInspector;
+        _digitalInspector: AXOpen.Inspectors.AxoInspector;
+        _analogueInspector: AXOpen.Inspectors.AxoInspector;
+        _dataInspector: AXOpen.Inspectors.AxoInspector;
 
         _inspectionResult: BOOL;
         _inspectionValue: LREAL;
         _inspectionData: STRING;
+
+        _digitalInspectorData: AXOpen.Inspectors.AxoDigitalInspectorData;
+        _analogueInspectorData : AXOpen.Inspectors.AxoAnalogueInspectorData;
+        _dataInspectorData: AXOpen.Inspectors.AxoDataInspectorData;
     END_VAR
 
 
 
 
     METHOD PUBLIC Run
+        
         THIS.Initialize(THIS);
 
-        IF _digitalInspector.Data()^.FailTime = TIME#0s THEN  _digitalInspector.Data()^.FailTime := TIME#1100MS; END_IF;
-        IF _digitalInspector.Data()^.PassTime = TIME#0s THEN  _digitalInspector.Data()^.PassTime := TIME#1000MS; END_IF;
+        IF _digitalInspectorData.FailTime = TIME#0s THEN  _digitalInspectorData.FailTime := TIME#1100MS; END_IF;
+        IF _digitalInspectorData.PassTime = TIME#0s THEN  _digitalInspectorData.PassTime := TIME#1000MS; END_IF;
             
-        IF _dataInspector.Data()^.FailTime = TIME#0s THEN  _dataInspector.Data()^.FailTime := TIME#1100MS; END_IF;
-        IF _dataInspector.Data()^.PassTime = TIME#0s THEN  _dataInspector.Data()^.PassTime := TIME#1000MS; END_IF;
+        IF _analogueInspectorData.FailTime = TIME#0s THEN  _analogueInspectorData.FailTime := TIME#1100MS; END_IF;
+        IF _analogueInspectorData.PassTime = TIME#0s THEN  _analogueInspectorData.PassTime := TIME#1000MS; END_IF;
+                              
+        IF _dataInspectorData.FailTime = TIME#0s THEN  _dataInspectorData.FailTime := TIME#1100MS; END_IF;
+        IF _dataInspectorData.PassTime = TIME#0s THEN  _dataInspectorData.PassTime := TIME#1000MS; END_IF;
            
-        IF _analogueInspector.Data()^.FailTime = TIME#0s THEN  _analogueInspector.Data()^.FailTime := TIME#1100MS; END_IF;
-        IF _analogueInspector.Data()^.PassTime = TIME#0s THEN  _analogueInspector.Data()^.PassTime := TIME#1000MS; END_IF;
-                       
-       
-        _digitalInspector.Inspect(THIS, _inspectionResult);
-        _analogueInspector.Inspect(THIS, _inspectionValue);
-        _dataInspector.Inspect(THIS, _inspectionData);
-        ;
+        _digitalInspector.Inspect(THIS, REF(_digitalInspectorData),_inspectionResult);                
+        _analogueInspector.Inspect(THIS,REF(_analogueInspectorData), _inspectionValue);
+        _dataInspector.Inspect(THIS, REF(_dataInspectorData),_inspectionData);
+
     END_METHOD
 
 END_CLASS

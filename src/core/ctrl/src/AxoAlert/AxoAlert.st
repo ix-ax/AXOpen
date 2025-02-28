@@ -15,6 +15,7 @@ NAMESPACE AXOpen.Core
             _createPlcCycleSpace :  BOOL;
             _PlcCycleSpaceCounter : UINT;
             _wasShow : BOOL;
+            _context    : IAxoContext;
         END_VAR    
 
         METHOD PUBLIC Show : IAxoAlertFormat
@@ -80,6 +81,10 @@ NAMESPACE AXOpen.Core
         /// Restore AlertDialog. In special case context can be null.
         ///</summary>
         METHOD PUBLIC OVERRIDE Restore : IAxoTaskState
+            IF(_context = NULL) THEN
+                _context := THIS.GetContext();
+            END_IF;
+                        
             Restore := THIS;
 
             _alertType := eDialogType#Undefined;
@@ -88,7 +93,7 @@ NAMESPACE AXOpen.Core
             _timeToBurn := UINT#5;
             _PlcCycleSpaceCounter:=  UINT#0;
 
-            IF _context_ = NULL THEN
+            IF _context = NULL THEN
                 Status := eAxoTaskState#Ready;  //needed in case when dialog observation was interrupt
                 ErrorDetails := '';
             ELSE

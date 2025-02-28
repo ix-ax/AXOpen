@@ -25,7 +25,7 @@ NAMESPACE AXOpen.Components.Drives
                 parent : IAxoContext;
             END_VAR    
 
-            THIS.Initialize(parent);
+            THIS.InitializeWithContext(parent);
 
             //<Initialization>        
             AxoDrive_.Run(THIS, REF(AxisIn), REF(AxisOut), Enable, EnablePositive, EnableNegative);        

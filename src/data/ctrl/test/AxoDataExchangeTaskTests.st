@@ -16,6 +16,7 @@ NAMESPACE AXOpen.Data
         CLASS AxoDataExchangeTask_Tests
             VAR PROTECTED
                 _context : TestContext;
+                _rootObject : AxoObject;
                 _dataExchangeTask : AxoDataCrudTask;
             END_VAR    
 
@@ -24,7 +25,8 @@ NAMESPACE AXOpen.Data
                 VAR
                     expected : STRING[254];
                 END_VAR    
-                _dataExchangeTask.Initialize(_context);
+                _rootObject.InitializeWithContext(_context);
+                _dataExchangeTask.Initialize(_rootObject);
                 _context.Open();
                 expected := 'CreateRecordIdentifier';
                 _dataExchangeTask.Invoke(expected);

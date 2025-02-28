@@ -210,95 +210,95 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             THIS.Execute(refPowerOnPulse);
         END_METHOD
 
-        ///<summary>
-        /// Runs tasks and logic of this component.
-        /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
-        ///</summary>
-        METHOD PUBLIC Run 
-            VAR_INPUT
-                parent                                                  : IAxoContext;
-                hwID                                                    : WORD;
-                hwIdAxoUrRobotics_T2O_State                             : WORD;
-                hwIdAxoUrRobotics_T2O_IO                                : WORD;
-                hwIdAxoUrRobotics_T2O_Joints                            : WORD;
-                hwIdAxoUrRobotics_T2O_TCP                               : WORD;
-                hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers     : WORD;
-                hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers     : WORD;
-                hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers   : WORD;
-                hwIdAxoUrRobotics_O2T_Robot_IO                          : WORD;
-                hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1       : WORD;
-                hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2       : WORD;
-                refPowerOnPulse                                         : REF_TO BOOL;
-            END_VAR
-            THIS.Initialize(parent);
+        // ///<summary>
+        // /// Runs tasks and logic of this component.
+        // /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
+        // ///</summary>
+        // METHOD PUBLIC Run 
+        //     VAR_INPUT
+        //         parent                                                  : IAxoContext;
+        //         hwID                                                    : WORD;
+        //         hwIdAxoUrRobotics_T2O_State                             : WORD;
+        //         hwIdAxoUrRobotics_T2O_IO                                : WORD;
+        //         hwIdAxoUrRobotics_T2O_Joints                            : WORD;
+        //         hwIdAxoUrRobotics_T2O_TCP                               : WORD;
+        //         hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers     : WORD;
+        //         hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers     : WORD;
+        //         hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers   : WORD;
+        //         hwIdAxoUrRobotics_O2T_Robot_IO                          : WORD;
+        //         hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1       : WORD;
+        //         hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2       : WORD;
+        //         refPowerOnPulse                                         : REF_TO BOOL;
+        //     END_VAR
+        //     THIS.Initialize(parent);
 
-            Messenger.Serve(THIS);
+        //     Messenger.Serve(THIS);
 
-            Messenger.ActivateOnCondition(ULINT#700, parent = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#701, hwIdAxoUrRobotics_T2O_State = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#702, hwIdAxoUrRobotics_T2O_IO = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#703, hwIdAxoUrRobotics_T2O_Joints = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#704, hwIdAxoUrRobotics_T2O_TCP = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#705, hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#706, hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#707, hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#708, hwIdAxoUrRobotics_O2T_Robot_IO = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#709, hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#710, hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#711, refPowerOnPulse = NULL, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#700, parent = NULL, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#701, hwIdAxoUrRobotics_T2O_State = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#702, hwIdAxoUrRobotics_T2O_IO = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#703, hwIdAxoUrRobotics_T2O_Joints = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#704, hwIdAxoUrRobotics_T2O_TCP = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#705, hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#706, hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#707, hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#708, hwIdAxoUrRobotics_O2T_Robot_IO = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#709, hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#710, hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#711, refPowerOnPulse = NULL, eAxoMessageCategory#ProgrammingError);
 
-            IF parent = NULL THEN
-                RobotStatus.Error.Id := UINT#700;
-                RETURN;
-            ELSIF hwIdAxoUrRobotics_T2O_State = WORD#0 THEN
-                RobotStatus.Error.Id := UINT#701;
-                RETURN;
-            ELSIF hwIdAxoUrRobotics_T2O_IO = WORD#0 THEN
-                RobotStatus.Error.Id := UINT#702;
-                RETURN;
-            ELSIF hwIdAxoUrRobotics_T2O_Joints = WORD#0 THEN
-                RobotStatus.Error.Id := UINT#703;
-                RETURN;
-            ELSIF hwIdAxoUrRobotics_T2O_TCP = WORD#0 THEN
-                RobotStatus.Error.Id := UINT#704;
-                RETURN;
-            ELSIF hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers = WORD#0 THEN
-                RobotStatus.Error.Id := UINT#705;
-                RETURN;
-            ELSIF hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers = WORD#0 THEN
-                RobotStatus.Error.Id := UINT#706;
-                RETURN;
-            ELSIF hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers = WORD#0 THEN
-                RobotStatus.Error.Id := UINT#707;
-                RETURN;
-            ELSIF hwIdAxoUrRobotics_O2T_Robot_IO = WORD#0 THEN
-                RobotStatus.Error.Id := UINT#708;
-                RETURN;
-            ELSIF hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 = WORD#0 THEN
-                RobotStatus.Error.Id := UINT#709;
-                RETURN;
-            ELSIF hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 = WORD#0 THEN
-                RobotStatus.Error.Id := UINT#710;
-                RETURN;
-            ELSIF refPowerOnPulse =  NULL THEN
-                RobotStatus.Error.Id := UINT#711;
-                RETURN;
-            END_IF;
+        //     IF parent = NULL THEN
+        //         RobotStatus.Error.Id := UINT#700;
+        //         RETURN;
+        //     ELSIF hwIdAxoUrRobotics_T2O_State = WORD#0 THEN
+        //         RobotStatus.Error.Id := UINT#701;
+        //         RETURN;
+        //     ELSIF hwIdAxoUrRobotics_T2O_IO = WORD#0 THEN
+        //         RobotStatus.Error.Id := UINT#702;
+        //         RETURN;
+        //     ELSIF hwIdAxoUrRobotics_T2O_Joints = WORD#0 THEN
+        //         RobotStatus.Error.Id := UINT#703;
+        //         RETURN;
+        //     ELSIF hwIdAxoUrRobotics_T2O_TCP = WORD#0 THEN
+        //         RobotStatus.Error.Id := UINT#704;
+        //         RETURN;
+        //     ELSIF hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers = WORD#0 THEN
+        //         RobotStatus.Error.Id := UINT#705;
+        //         RETURN;
+        //     ELSIF hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers = WORD#0 THEN
+        //         RobotStatus.Error.Id := UINT#706;
+        //         RETURN;
+        //     ELSIF hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers = WORD#0 THEN
+        //         RobotStatus.Error.Id := UINT#707;
+        //         RETURN;
+        //     ELSIF hwIdAxoUrRobotics_O2T_Robot_IO = WORD#0 THEN
+        //         RobotStatus.Error.Id := UINT#708;
+        //         RETURN;
+        //     ELSIF hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 = WORD#0 THEN
+        //         RobotStatus.Error.Id := UINT#709;
+        //         RETURN;
+        //     ELSIF hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 = WORD#0 THEN
+        //         RobotStatus.Error.Id := UINT#710;
+        //         RETURN;
+        //     ELSIF refPowerOnPulse =  NULL THEN
+        //         RobotStatus.Error.Id := UINT#711;
+        //         RETURN;
+        //     END_IF;
 
-            _hwID := hwID;
-            _hwIdAxoUrRobotics_T2O_State := hwIdAxoUrRobotics_T2O_State;
-            _hwIdAxoUrRobotics_T2O_IO := hwIdAxoUrRobotics_T2O_IO;
-            _hwIdAxoUrRobotics_T2O_Joints := hwIdAxoUrRobotics_T2O_Joints;
-            _hwIdAxoUrRobotics_T2O_TCP := hwIdAxoUrRobotics_T2O_TCP;
-            _hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers := hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers;
-            _hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers := hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers;
-            _hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers := hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers;
-            _hwIdAxoUrRobotics_O2T_Robot_IO := hwIdAxoUrRobotics_O2T_Robot_IO;
-            _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 := hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1;
-            _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 := hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2;
+        //     _hwID := hwID;
+        //     _hwIdAxoUrRobotics_T2O_State := hwIdAxoUrRobotics_T2O_State;
+        //     _hwIdAxoUrRobotics_T2O_IO := hwIdAxoUrRobotics_T2O_IO;
+        //     _hwIdAxoUrRobotics_T2O_Joints := hwIdAxoUrRobotics_T2O_Joints;
+        //     _hwIdAxoUrRobotics_T2O_TCP := hwIdAxoUrRobotics_T2O_TCP;
+        //     _hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers := hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers;
+        //     _hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers := hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers;
+        //     _hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers := hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers;
+        //     _hwIdAxoUrRobotics_O2T_Robot_IO := hwIdAxoUrRobotics_O2T_Robot_IO;
+        //     _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 := hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1;
+        //     _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 := hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2;
 
-            THIS.Execute(refPowerOnPulse);
-        END_METHOD
+        //     THIS.Execute(refPowerOnPulse);
+        // END_METHOD
 
         METHOD PRIVATE Execute 
             VAR_INPUT

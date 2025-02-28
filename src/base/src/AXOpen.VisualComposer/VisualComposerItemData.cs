@@ -236,6 +236,23 @@ namespace AXOpen.VisualComposer
             }
         }
 
+        public int _pollingInterval = 250;
+
+        public int PollingInterval
+        {
+            get => _pollingInterval;
+            set
+            {
+                _pollingInterval = value;
+
+                if (EventCallbackStateHasChanged.HasDelegate)
+                    EventCallbackStateHasChanged.InvokeAsync();
+
+                if (EventCallbackSave.HasDelegate)
+                    EventCallbackSave.InvokeAsync();
+            }
+        }
+
         public string _backgroundColor = "#FFFFFF";
         public string BackgroundColor
         {
@@ -258,7 +275,24 @@ namespace AXOpen.VisualComposer
 
         public EmptyDelegate DragElementDelegate;
 
-        public VisualComposerItemData(EventCallback eventCallbackStateHasChanged, EventCallback eventCallbackSave, ITwinElement? twinElement, string? id, Guid? uniqueGuid, double left, double top, TransformType transform, string presentation, double width, double height, int zIndex, double scale, string roles, string? presentationTemplate, bool background, string backgroundColor)
+        public VisualComposerItemData(EventCallback eventCallbackStateHasChanged, 
+            EventCallback eventCallbackSave, 
+            ITwinElement? twinElement, 
+            string? id, 
+            Guid? uniqueGuid, 
+            double left, 
+            double top, 
+            TransformType transform, 
+            string presentation, 
+            double width, 
+            double height, 
+            int zIndex, 
+            double scale, 
+            string roles, 
+            string? presentationTemplate, 
+            bool background, 
+            string backgroundColor,
+            int pollingInterval)
         {
             EventCallbackStateHasChanged = eventCallbackStateHasChanged;
             EventCallbackSave = eventCallbackSave;
@@ -277,9 +311,14 @@ namespace AXOpen.VisualComposer
             _presentationTemplate = presentationTemplate;
             _background = background;
             _backgroundColor = backgroundColor;
+            _pollingInterval = pollingInterval;
         }
 
-        public VisualComposerItemData(EventCallback eventCallbackStateHasChanged, EventCallback eventCallbackSave, ITwinElement? twinElement, string? id, Guid? uniqueGuid)
+        public VisualComposerItemData(EventCallback eventCallbackStateHasChanged, 
+            EventCallback eventCallbackSave, 
+            ITwinElement? twinElement, 
+            string? id, 
+            Guid? uniqueGuid)
         {
             EventCallbackStateHasChanged = eventCallbackStateHasChanged;
             EventCallbackSave = eventCallbackSave;

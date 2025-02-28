@@ -22,7 +22,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 parent : IAxoContext;
             END_VAR    
 
-            THIS.Initialize(parent);
+            THIS.InitializeWithContext(parent);
 
             IF ActivateManualControl THEN
                 ExampleRobot.ActivateManualControl();

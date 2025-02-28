@@ -12,11 +12,11 @@ NAMESPACE AxoTaskExamples
         METHOD PUBLIC Initialize
             // Initialization of the context needs to be called first
             // It does not need to be called cyclically, just once
-            _myTask.Initialize(THIS);
+            _myTask.InitializeWithContext(THIS);
         END_METHOD
 
         METHOD PROTECTED OVERRIDE Main
-            _myTask.Initialize(THIS);
+            _myTask.InitializeWithContext(THIS);
             // Cyclicall call of the Execute
             IF _myTask.Execute() THEN
                 _myCounter := _myCounter + ULINT#1;

@@ -53,7 +53,7 @@ NAMESPACE AxoDialogExamples
             _context : IAxoContext;
             END_VAR;
 
-            THIS.Initialize(_context);
+            THIS.InitializeWithContext(_context);
             
             IF(_restoreDialog) THEN
                 _restoreDialog := false;

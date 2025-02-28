@@ -46,15 +46,10 @@ namespace AXOpen.Core
         private OnlinerByte[] _data;
 
         public IndexedData<string>[] Data { get; set; } 
-        public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+        public override void ConfigurePolling()
         {
-            
-        }
-
-        protected override void OnInitialized()
-        {
-            UpdateValuesOnChange(Component);
-            base.OnInitialized();                      
+            //TODO: @TomKovac check if this is ok, previously the whole component was polled
+            this.StartPolling(Component.DataChanged);
         }
 
         protected override async Task OnInitializedAsync()

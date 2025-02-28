@@ -22,7 +22,7 @@ namespace AXOpen.Inspectors
             _inspector = null;
             try
             {
-                // _inspectorIndentity property is subscribed in the method base.AddToPolling()
+                // _inspectorIndentity property is subscribed in the method base.ConfigurePolling()
                 var parent = Component.GetParent();
 
                 if (parent != null)
@@ -41,10 +41,9 @@ namespace AXOpen.Inspectors
                 RetryDisabled = true;
         }
 
-        public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+        public override void ConfigurePolling()
         {
-            base.AddToPolling(element, pollingInterval);
-            
+            StartPolling(this.Component, 250);
         }
 
         public async Task Retry()
@@ -95,6 +94,8 @@ namespace AXOpen.Inspectors
             }
 
         }
+
+        
 
         public override void Dispose()
         {

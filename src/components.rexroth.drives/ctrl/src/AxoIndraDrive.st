@@ -93,61 +93,61 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             THIS.Close(); 
         END_METHOD   
 
-        ///<summary>
-        /// Runs tasks and logic of this component.
-        /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
-        ///</summary>
-        METHOD PUBLIC Run
-            VAR_INPUT
-                parent          :   IAxoContext; 
-                hwID                :   WORD;
-                hwIdParamCh_IDN     :   WORD;
-                hwIdInput_9_Words   :   WORD;
-                hwIdOutput_13_Words :   WORD;
-                Enable              :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
-                EnablePositive      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
-                EnableNegative      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
-            END_VAR
+        // ///<summary>
+        // /// Runs tasks and logic of this component.
+        // /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
+        // ///</summary>
+        // METHOD PUBLIC Run
+        //     VAR_INPUT
+        //         parent          :   IAxoContext; 
+        //         hwID                :   WORD;
+        //         hwIdParamCh_IDN     :   WORD;
+        //         hwIdInput_9_Words   :   WORD;
+        //         hwIdOutput_13_Words :   WORD;
+        //         Enable              :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
+        //         EnablePositive      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
+        //         EnableNegative      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
+        //     END_VAR
 
-            THIS.Initialize(parent);
+        //     THIS.Initialize(parent);
                
-            Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#703,hwID = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#704,hwIdParamCh_IDN = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#705,hwIdInput_9_Words = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#706,hwIdOutput_13_Words = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#703,hwID = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#704,hwIdParamCh_IDN = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#705,hwIdInput_9_Words = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#706,hwIdOutput_13_Words = WORD#0, eAxoMessageCategory#ProgrammingError);
 
-            IF parent = NULL THEN
-                DriveStatus.Error.Id := UINT#700;
-                RETURN;
-            ELSIF hwID = WORD#0 THEN
-                DriveStatus.Error.Id := UINT#703;
-                RETURN;
-            ELSIF hwIdParamCh_IDN = WORD#0 THEN
-                DriveStatus.Error.Id := UINT#704;
-                RETURN;
-            ELSIF hwIdInput_9_Words = WORD#0 THEN
-                DriveStatus.Error.Id := UINT#705;
-                RETURN;
-            ELSIF hwIdOutput_13_Words = WORD#0 THEN
-                DriveStatus.Error.Id := UINT#706;
-                RETURN;
-            END_IF;
+        //     IF parent = NULL THEN
+        //         DriveStatus.Error.Id := UINT#700;
+        //         RETURN;
+        //     ELSIF hwID = WORD#0 THEN
+        //         DriveStatus.Error.Id := UINT#703;
+        //         RETURN;
+        //     ELSIF hwIdParamCh_IDN = WORD#0 THEN
+        //         DriveStatus.Error.Id := UINT#704;
+        //         RETURN;
+        //     ELSIF hwIdInput_9_Words = WORD#0 THEN
+        //         DriveStatus.Error.Id := UINT#705;
+        //         RETURN;
+        //     ELSIF hwIdOutput_13_Words = WORD#0 THEN
+        //         DriveStatus.Error.Id := UINT#706;
+        //         RETURN;
+        //     END_IF;
     
-            _AxisRefExt.Data.hwID                := hwID;
-            _AxisRefExt.Data.hwIdParamCh_IDN     := hwIdParamCh_IDN;
-            _AxisRefExt.Data.hwIdInput_9_Words   := hwIdInput_9_Words;
-            _AxisRefExt.Data.hwIdOutput_13_Words := hwIdOutput_13_Words;
+        //     _AxisRefExt.Data.hwID                := hwID;
+        //     _AxisRefExt.Data.hwIdParamCh_IDN     := hwIdParamCh_IDN;
+        //     _AxisRefExt.Data.hwIdInput_9_Words   := hwIdInput_9_Words;
+        //     _AxisRefExt.Data.hwIdOutput_13_Words := hwIdOutput_13_Words;
 
-            Messenger.ActivateOnCondition(ULINT#300, Enable AND NOT EnablePositive, eAxoMessageCategory#Warning);
-            Messenger.ActivateOnCondition(ULINT#301, Enable AND NOT EnableNegative, eAxoMessageCategory#Warning);
+        //     Messenger.ActivateOnCondition(ULINT#300, Enable AND NOT EnablePositive, eAxoMessageCategory#Warning);
+        //     Messenger.ActivateOnCondition(ULINT#301, Enable AND NOT EnableNegative, eAxoMessageCategory#Warning);
 
-            THIS.Open();
-            THIS.PreExecute(_AxisRefExt);
-            SUPER.Execute(_AxisRefExt,Enable,EnablePositive,EnableNegative);
-            THIS.PostExecute(_AxisRefExt);
-            THIS.Close(); 
-        END_METHOD
+        //     THIS.Open();
+        //     THIS.PreExecute(_AxisRefExt);
+        //     SUPER.Execute(_AxisRefExt,Enable,EnablePositive,EnableNegative);
+        //     THIS.PostExecute(_AxisRefExt);
+        //     THIS.Close(); 
+        // END_METHOD
 
         ///<summary>
         /// Ensures swapping the hardware input data structure into the AxisRef data structure  

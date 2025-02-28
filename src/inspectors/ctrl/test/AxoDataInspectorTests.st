@@ -8,7 +8,8 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
     CLASS AxoDataInspectorTests
         VAR PROTECTED
             _context : TestContext;
-            _dataInspector    : AxoDataInspector;
+            _dataInspector    : AxoInspector;
+            _dataInspectorData    : AxoDataInspectorData;
             _inspectedData : STRING;
             _sequencer  : AxoSequencer;
             _rtcMock :  AxoRtcMock;  
@@ -18,7 +19,7 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
 
         VAR
             _contextBlank : TestContext;
-            _dataInspectorBlank    : AxoDataInspector;            
+            _dataInspectorBlank    : AxoInspector;            
             _sequencerBlank  : AxoSequencer;                                                
         END_VAR  
 
@@ -52,10 +53,10 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
         METHOD PRIVATE Initialize
             _context.InjectRtc(_rtcMock);
             _context.InjectRtm(_rtmMock);
-            _sequencer.Initialize(_context);          
+            _sequencer.InitializeWithContext(_context);          
             
-            _dataInspector.Data()^.FailTime := T#10s;
-            _dataInspector.Data()^.PassTime := T#2s;
+            _dataInspectorData.FailTime := T#10s;
+            _dataInspectorData.PassTime := T#2s;
         END_METHOD
  
         
@@ -68,24 +69,24 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:30.0);
             _rtmMock.SetElapsed(LT#30S);
             _inspectedData := 'hello';
-            _dataInspector.Data()^.RequiredStatus := 'hello';
+            _dataInspectorData.RequiredStatus := 'hello';
 
             //Act & Assert
 
-            _dataInspector.Inspect(_sequencer,_inspectedData);
+            _dataInspector.Inspect(_sequencer,REF(_dataInspectorData),_inspectedData);
             _context.Close();
             //+1s
             _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:31.0);
             _rtmMock.SetElapsed(LT#31S);
-            _dataInspector.Inspect(_sequencer,_inspectedData);
+            _dataInspector.Inspect(_sequencer,REF(_dataInspectorData),_inspectedData);
             Assert.Equal(eInspectorResult#Running, _dataInspector.Result());
             _context.Close();
             //+2s
             _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:32.0);
             _rtmMock.SetElapsed(LT#32S);
-            _dataInspector.Inspect(_sequencer,_inspectedData);
+            _dataInspector.Inspect(_sequencer,REF(_dataInspectorData),_inspectedData);
             Assert.Equal(eInspectorResult#Passed, _dataInspector.Result());
             
             _context.Close();
@@ -100,24 +101,24 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:30.0);
             _rtmMock.SetElapsed(LT#30S);
             _inspectedData := '3hellow';
-            _dataInspector.Data()^.RequiredStatus := '#hello*';
-            _dataInspector.Data()^.StarNotationEnabled := TRUE;
+            _dataInspectorData.RequiredStatus := '#hello*';
+            _dataInspectorData.StarNotationEnabled := TRUE;
             //Act & Assert
 
-            _dataInspector.Inspect(_sequencer,_inspectedData);
+            _dataInspector.Inspect(_sequencer,REF(_dataInspectorData),_inspectedData);
             _context.Close();
             //+1s
             _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:31.0);
             _rtmMock.SetElapsed(LT#31S);
-            _dataInspector.Inspect(_sequencer,_inspectedData);
+            _dataInspector.Inspect(_sequencer,REF(_dataInspectorData),_inspectedData);
             Assert.Equal(eInspectorResult#Running, _dataInspector.Result());
             _context.Close();
             //+2s
             _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:32.0);
             _rtmMock.SetElapsed(LT#32S);
-            _dataInspector.Inspect(_sequencer,_inspectedData);
+            _dataInspector.Inspect(_sequencer,REF(_dataInspectorData),_inspectedData);
             Assert.Equal(eInspectorResult#Passed, _dataInspector.Result());
             
             _context.Close();
@@ -132,24 +133,24 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:30.0);
             _rtmMock.SetElapsed(LT#30S);
             _inspectedData := '3he1llowww';
-            _dataInspector.Data()^.RequiredStatus := '#he#llo***';
-            _dataInspector.Data()^.StarNotationEnabled := TRUE;
+            _dataInspectorData.RequiredStatus := '#he#llo***';
+            _dataInspectorData.StarNotationEnabled := TRUE;
             //Act & Assert
 
-            _dataInspector.Inspect(_sequencer,_inspectedData);
+            _dataInspector.Inspect(_sequencer,REF(_dataInspectorData),_inspectedData);
             _context.Close();
             //+1s
             _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:31.0);
             _rtmMock.SetElapsed(LT#31S);
-            _dataInspector.Inspect(_sequencer,_inspectedData);
+            _dataInspector.Inspect(_sequencer,REF(_dataInspectorData),_inspectedData);
             Assert.Equal(eInspectorResult#Running, _dataInspector.Result());
             _context.Close();
             //+2s
             _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:32.0);
             _rtmMock.SetElapsed(LT#32S);
-            _dataInspector.Inspect(_sequencer,_inspectedData);
+            _dataInspector.Inspect(_sequencer,REF(_dataInspectorData),_inspectedData);
             Assert.Equal(eInspectorResult#Passed, _dataInspector.Result());
             
             _context.Close();
@@ -164,24 +165,24 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:30.0);
             _rtmMock.SetElapsed(LT#30S);
             _inspectedData := 'h3He1llow';
-            _dataInspector.Data()^.RequiredStatus := '*#*e#llo*';
-            _dataInspector.Data()^.StarNotationEnabled := TRUE;
+            _dataInspectorData.RequiredStatus := '*#*e#llo*';
+            _dataInspectorData.StarNotationEnabled := TRUE;
             //Act & Assert
 
-            _dataInspector.Inspect(_sequencer,_inspectedData);
+            _dataInspector.Inspect(_sequencer,REF(_dataInspectorData),_inspectedData);
             _context.Close();
             //+1s
             _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:31.0);
             _rtmMock.SetElapsed(LT#31S);
-            _dataInspector.Inspect(_sequencer,_inspectedData);
+            _dataInspector.Inspect(_sequencer,REF(_dataInspectorData),_inspectedData);
             Assert.Equal(eInspectorResult#Running, _dataInspector.Result());
             _context.Close();
             //+2s
             _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:32.0);
             _rtmMock.SetElapsed(LT#32S);
-            _dataInspector.Inspect(_sequencer,_inspectedData);
+            _dataInspector.Inspect(_sequencer,REF(_dataInspectorData),_inspectedData);
             Assert.Equal(eInspectorResult#Passed, _dataInspector.Result());
             
             _context.Close();
@@ -196,24 +197,24 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:30.0);
             _rtmMock.SetElapsed(LT#30S);
             _inspectedData := 'hello';
-            _dataInspector.Data()^.RequiredStatus := 'hellow';
+            _dataInspectorData.RequiredStatus := 'hellow';
 
             //Act & Assert
 
-            _dataInspector.Inspect(_sequencer,_inspectedData);
+            _dataInspector.Inspect(_sequencer,REF(_dataInspectorData),_inspectedData);
             _context.Close();
             //+1s
             _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:31.0);
             _rtmMock.SetElapsed(LT#31S);
-            _dataInspector.Inspect(_sequencer,_inspectedData);
+            _dataInspector.Inspect(_sequencer,REF(_dataInspectorData),_inspectedData);
             Assert.Equal(eInspectorResult#Running, _dataInspector.Result());
             _context.Close();
             //+11s
             _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:41.0);
             _rtmMock.SetElapsed(LT#41S);
-            _dataInspector.Inspect(_sequencer,_inspectedData);
+            _dataInspector.Inspect(_sequencer,REF(_dataInspectorData),_inspectedData);
             Assert.Equal(eInspectorResult#Failed, _dataInspector.Result());
             
             _context.Close();
@@ -228,24 +229,24 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:30.0);
             _rtmMock.SetElapsed(LT#30S);
             _inspectedData := 'hellow';
-            _dataInspector.Data()^.RequiredStatus := 'hello';
+            _dataInspectorData.RequiredStatus := 'hello';
 
             //Act & Assert
 
-            _dataInspector.Inspect(_sequencer,_inspectedData);
+            _dataInspector.Inspect(_sequencer,REF(_dataInspectorData),_inspectedData);
             _context.Close();
             //+1s
             _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:31.0);
             _rtmMock.SetElapsed(LT#31S);
-            _dataInspector.Inspect(_sequencer,_inspectedData);
+            _dataInspector.Inspect(_sequencer,REF(_dataInspectorData),_inspectedData);
             Assert.Equal(eInspectorResult#Running, _dataInspector.Result());
             _context.Close();
             //+11s
             _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:41.0);
             _rtmMock.SetElapsed(LT#41S);
-            _dataInspector.Inspect(_sequencer,_inspectedData);
+            _dataInspector.Inspect(_sequencer,REF(_dataInspectorData),_inspectedData);
             Assert.Equal(eInspectorResult#Failed, _dataInspector.Result());
             
             _context.Close();

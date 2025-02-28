@@ -5,7 +5,7 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 context : IAxoContext;
             END_VAR
-            THIS.Initialize(context);
+            THIS.InitializeWithContext(context);
             IF THIS.Open() THEN
                 THIS.Main();
             END_IF;

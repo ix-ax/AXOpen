@@ -114,7 +114,7 @@
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
-        _ = MessageProvider.InitializeLightUpdate(this.UpdateValuesOnChange);
+        _ = MessageProvider.InitializeLightUpdate(this.StartPolling);
         
         await LoadMessages();
 

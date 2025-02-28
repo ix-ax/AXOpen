@@ -1,22 +1,34 @@
 USING AxUnit;
 USING AXOpen.Core;
 USING AXOpen.Rtc;
-
+USING AXOpen.Rtm;
+USING AXOpen.Core.Dummies;
+USING AXOpen.Messaging;
+USING AXOpen.Messaging.Static;
 NAMESPACE AXOpen.Core
     NAMESPACE AxoRemoteTasksTests        
     
-     {S7.extern=ReadWrite}
-     CLASS TestContext EXTENDS AXOpen.Core.Dummies.MockAxoContext                    
+    {S7.extern=ReadWrite}
+   CLASS TestContext EXTENDS MockAxoContext                    
             METHOD PROTECTED OVERRIDE Main
                 ;
             END_METHOD               
-    END_CLASS         
+    END_CLASS     
+
+
+    {S7.extern=ReadWrite}
+    CLASS TestObject EXTENDS MockAxoObject     
+        VAR PUBLIC 
+            _messenger : AxoMessenger;
+        END_VAR
+    END_CLASS    
    
     {TestFixture}
     {S7.extern=ReadWrite}
     CLASS IxRemoteTaskTests 
         VAR PROTECTED
            _context : TestContext;
+           _rootObject : MockAxoObject;
            myTask : AxoRemoteTask;
            expState:  eAxoTaskState;
            actState:  eAxoTaskState;
@@ -24,7 +36,8 @@ NAMESPACE AXOpen.Core
         END_VAR    
 
         METHOD PRIVATE Initialize
-            myTask.Initialize(_context);           
+            _rootObject.InitializeWithContext(_context);
+            myTask.Initialize(_rootObject);           
         END_METHOD     
 
         METHOD Equal : BOOL
@@ -37,15 +50,24 @@ NAMESPACE AXOpen.Core
 
         VAR
             _contextClean   :   TestContext;
+            _rtm            :   AXOpen.Core.Dummies.MockAxoRtm;
+            _rtc            :   AXOpen.Core.Dummies.MockAxoRtc;
             myTaskClean     :   AxoRemoteTask;
             expStateClean   :   eAxoTaskState;
             actStateClean   :   eAxoTaskState;
             initValueClean  :   ULINT;           
          END_VAR    
     
+
+
+         
         {TestSetup}
         METHOD PUBLIC TestSetup
             _context := _contextClean;
+            _rtm.SetElapsed(LTIME#2s);
+            _context.InjectRtm(_rtm);
+            _rtc.SetNowUTC(LDATE_AND_TIME#2012-01-12-15:58:12.123);
+            _context.InjectRtc(_rtc);
             myTask := myTaskClean;
             expState    :=  expStateClean;
             actState    :=  actStateClean;

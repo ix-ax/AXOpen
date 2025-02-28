@@ -7,11 +7,11 @@ namespace AXOpen.Core
 {
     public partial class AxoObjectDiagnosticsView
     {
-        public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+        public override void ConfigurePolling()
         {
-            if (element is AxoObject o)
+            if (this.Component is AxoObject o)
             {
-                base.AddToPolling(o.MsgCnt,2500);
+                this.StartPolling(o.MsgCnt,2500);
             }
         }
 

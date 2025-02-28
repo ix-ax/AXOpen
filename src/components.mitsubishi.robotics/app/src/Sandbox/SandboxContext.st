@@ -6,16 +6,18 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
             _manualControl : BOOL;
             {#ix-attr:[Container(Layout.Stack)]}
             _testRobot : AXOpen.Components.Mitsubishi.Robotics.AxoCr800_v_1_x_x;
+            _rootObject :   AxoObject;
         END_VAR
 
         METHOD PROTECTED OVERRIDE Main
             RETURN;
+            _rootObject.InitializeWithContext(THIS);
 
             IF(_manualControl) THEN            
                 _testRobot.ActivateManualControl();
             END_IF;   
 
-            _testRobot.Run( parent              := THIS,
+            _testRobot.Run( parent              := _rootObject,
                             hwID                := HwIdentifiers#TZ535_PN_HwID,
                             hwIdInOut_64_byte   := HwIdentifiers#TZ535_PN_In_Out_64_byte_In_Out__64_byte_HwID);     
     END_METHOD

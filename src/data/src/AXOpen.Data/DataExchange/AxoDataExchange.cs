@@ -232,7 +232,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     public async Task<bool> RemoteCreate(string identifier)
     {
         sw.Restart();
-        await Operation.ReadAsync();
+        //await Operation.ReadAsync();
         await DataEntity.DataEntityId.SetAsync(identifier);
         var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>();
         Repository.Create(identifier, cloned);
@@ -247,7 +247,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         try
         {
             sw.Restart();
-            await Operation.ReadAsync();
+            //await Operation.ReadAsync();
             var record = Repository.Read(identifier);
             await ((ITwinObject)DataEntity).PlainToOnline(record);
             sw.Stop();
@@ -264,7 +264,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     public async Task<bool> RemoteUpdate(string identifier)
     {
         sw.Restart();
-        await Operation.ReadAsync();
+        //await Operation.ReadAsync();
         await DataEntity.DataEntityId.SetAsync(identifier);
 
         var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>();
@@ -280,7 +280,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     public async Task<bool> RemoteDelete(string identifier)
     {
         sw.Restart();
-        await Operation.ReadAsync();
+        //await Operation.ReadAsync();
         await DataEntity.DataEntityId.SetAsync(identifier);
         Repository.Delete(identifier);
         sw.Stop();
@@ -292,7 +292,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     public async Task<bool> RemoteEntityExist(string identifier)
     {
         sw.Restart();
-        await Operation.ReadAsync();
+        //await Operation.ReadAsync();
         await DataEntity.DataEntityId.SetAsync(identifier);
         var retVal = Repository.Exists(identifier);
         sw.Stop();
@@ -304,7 +304,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     public async Task<bool> RemoteCreateOrUpdate(string identifier)
     {
         sw.Restart();
-        await Operation.ReadAsync();
+       // await Operation.ReadAsync();
         await DataEntity.DataEntityId.SetAsync(identifier);
 
         var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>();
@@ -406,9 +406,8 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
     private async Task Handle()
     {
-        await Operation.ReadAsync();
-        var operation = (eCrudOperation)Operation.CrudOperation.LastValue;
-        var identifier = Operation.DataEntityIdentifier.LastValue;
+        var operation = (eCrudOperation)await Operation.CrudOperation.GetAsync();
+        var identifier = await Operation.DataEntityIdentifier.GetAsync();
 
         switch (operation)
         {

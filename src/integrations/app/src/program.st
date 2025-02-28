@@ -81,14 +81,16 @@ CLASS MyContext EXTENDS AxoContext
     VAR PUBLIC         
         process_data_manager: AxoDataExamples.AxoProcessDataManager;
         test_data_manager: AxoDataExamples.AxoTestDataManager;
+        _rootObject :   AxoObject;
     END_VAR
 
     METHOD PROTECTED OVERRIDE Main        
         THIS.DataExchangeTests();
     END_METHOD
 
-    METHOD DataExchangeTests : Int               
-        process_data_manager.Run(THIS);   
+    METHOD DataExchangeTests : Int              
+        _rootObject.InitializeWithContext(THIS) ;
+        process_data_manager.Run(_rootObject);   
         
         IF(process_data_manager._create) THEN
             IF(process_data_manager.Create(process_data_manager._identifier).IsDone()) THEN

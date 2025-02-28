@@ -1,16 +1,24 @@
 USING AxUnit;
-USING AxUnit;
 USING AXOpen.Core;
 USING AXOpen.Rtc;
+USING AXOpen.Rtm;
+USING AXOpen.Core.Dummies;
+USING AXOpen.Messaging;
+USING AXOpen.Messaging.Static;
 
 NAMESPACE AXOpen.Core.AxoToggleTask_Tests
      {S7.extern=ReadWrite}
-     CLASS TestContext EXTENDS AXOpen.Core.Dummies.MockAxoContext                    
+     CLASS TestContext EXTENDS MockAxoContext                    
             METHOD PROTECTED OVERRIDE Main
                 ;
             END_METHOD               
     END_CLASS         
-
+    {S7.extern=ReadWrite}
+    CLASS TestObject EXTENDS MockAxoObject     
+        VAR PUBLIC 
+            _messenger : AxoMessenger;
+        END_VAR
+    END_CLASS
     {S7.extern=ReadWrite}
     CLASS MyTask Extends AxoToggleTask
         VAR
@@ -67,12 +75,14 @@ NAMESPACE AXOpen.Core.AxoToggleTask_Tests
     CLASS AxoToggleTaskUnitTests 
         VAR PROTECTED
            _context : TestContext;
+           _rootObject : MockAxoObject;
            myTask : MyTask;
             initValue : ULINT;
         END_VAR    
 
         METHOD PRIVATE Initialize
-            myTask.Initialize(_context);
+            _rootObject.InitializeWithContext(_context);
+            myTask.Initialize(_rootObject);
         END_METHOD
 
         METHOD PRIVATE SwitchOn

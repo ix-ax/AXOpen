@@ -177,45 +177,45 @@ NAMESPACE AXOpen.Components.Siem.Identification
             THIS.Execute();
         END_METHOD
 
-        ///<summary>
-        /// Runs tasks and logic of this component.
-        /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
-        ///</summary>
-        METHOD PUBLIC Run 
-            VAR_INPUT
-                parent          :   IAxoContext;
-                HW_ID               :   WORD    :=  WORD#16#0; 			//Hardware identifier
-                API 				:   DWORD   :=  DWORD#16#0000_5B00; //API number 
-                SLOT 				:   WORD    :=  WORD#16#02;  		//Slot number  
-                SUB_SLOT 			:   WORD    :=  WORD#16#01; 		//Subslot number 
-                CM_CHANNEL 			:   UINT    :=  UINT#1; 		    //channel of communication module	
-            END_VAR
-            THIS.Initialize(parent);
+        // ///<summary>
+        // /// Runs tasks and logic of this component.
+        // /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
+        // ///</summary>
+        // METHOD PUBLIC Run 
+        //     VAR_INPUT
+        //         parent          :   IAxoContext;
+        //         HW_ID               :   WORD    :=  WORD#16#0; 			//Hardware identifier
+        //         API 				:   DWORD   :=  DWORD#16#0000_5B00; //API number 
+        //         SLOT 				:   WORD    :=  WORD#16#02;  		//Slot number  
+        //         SUB_SLOT 			:   WORD    :=  WORD#16#01; 		//Subslot number 
+        //         CM_CHANNEL 			:   UINT    :=  UINT#1; 		    //channel of communication module	
+        //     END_VAR
+        //     THIS.Initialize(parent);
 
-            Messenger.Serve(THIS);
-            TaskMessenger.Serve(THIS);
-            IdentProfileMessenger.Serve(THIS);
+        //     Messenger.Serve(THIS);
+        //     TaskMessenger.Serve(THIS);
+        //     IdentProfileMessenger.Serve(THIS);
 
 
-            Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#701,HW_ID = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#701,HW_ID = WORD#0, eAxoMessageCategory#ProgrammingError);
 
-            IF parent = NULL THEN
-                ReaderStatus.Error.Id := UINT#700;
-                RETURN;
-            ELSIF HW_ID = WORD#0 THEN
-                ReaderStatus.Error.Id := UINT#701;
-                RETURN;
-            END_IF;
+        //     IF parent = NULL THEN
+        //         ReaderStatus.Error.Id := UINT#700;
+        //         RETURN;
+        //     ELSIF HW_ID = WORD#0 THEN
+        //         ReaderStatus.Error.Id := UINT#701;
+        //         RETURN;
+        //     END_IF;
 
-            _identProfile_HwConnect.HW_ID       :=  HW_ID;
-            _identProfile_HwConnect.API         :=  API;
-            _identProfile_HwConnect.SLOT 	    :=  SLOT;
-            _identProfile_HwConnect.SUB_SLOT    :=  SUB_SLOT;
-            _identProfile_HwConnect.CM_CHANNEL  :=  CM_CHANNEL;
+        //     _identProfile_HwConnect.HW_ID       :=  HW_ID;
+        //     _identProfile_HwConnect.API         :=  API;
+        //     _identProfile_HwConnect.SLOT 	    :=  SLOT;
+        //     _identProfile_HwConnect.SUB_SLOT    :=  SUB_SLOT;
+        //     _identProfile_HwConnect.CM_CHANNEL  :=  CM_CHANNEL;
 
-            THIS.Execute();
-        END_METHOD
+        //     THIS.Execute();
+        // END_METHOD
 
         METHOD PRIVATE Execute 
             VAR 

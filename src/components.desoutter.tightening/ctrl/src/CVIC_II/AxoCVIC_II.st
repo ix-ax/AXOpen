@@ -206,76 +206,76 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 
         END_METHOD   
 
-        ///<summary>
-        /// Runs tasks and logic of this component.
-        /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
-        ///</summary>
-        METHOD PUBLIC Run
-            VAR_INPUT
-                parent                  :   IAxoContext; 
-                hwID                    :   WORD;
-                hwId_Input_1_byte_1     :   WORD;
-                hwId_Input_1_byte_2     :   WORD;
-                hwId_Input_2_word_1     :   WORD;
-                hwId_Input_1_word_1     :   WORD;
-                hwId_Input_2_word_2     :   WORD;
-                hwId_Input_1_word_2     :   WORD;
-                hwId_Output_1_byte_1    :   WORD;
-                hwId_Output_1_byte_2    :   WORD;
-            END_VAR
+        // ///<summary>
+        // /// Runs tasks and logic of this component.
+        // /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
+        // ///</summary>
+        // METHOD PUBLIC Run
+        //     VAR_INPUT
+        //         parent                  :   IAxoContext; 
+        //         hwID                    :   WORD;
+        //         hwId_Input_1_byte_1     :   WORD;
+        //         hwId_Input_1_byte_2     :   WORD;
+        //         hwId_Input_2_word_1     :   WORD;
+        //         hwId_Input_1_word_1     :   WORD;
+        //         hwId_Input_2_word_2     :   WORD;
+        //         hwId_Input_1_word_2     :   WORD;
+        //         hwId_Output_1_byte_1    :   WORD;
+        //         hwId_Output_1_byte_2    :   WORD;
+        //     END_VAR
 
-            THIS.Initialize(parent);
-            Messenger.Serve(THIS);
-            Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#701,hwId_Input_1_byte_1 = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#702,hwId_Input_1_byte_2 = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#703,hwId_Input_2_word_1 = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#704,hwId_Input_1_word_1 = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#705,hwId_Input_2_word_2 = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#706,hwId_Input_1_word_2 = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#707,hwId_Output_1_byte_1 = WORD#0, eAxoMessageCategory#ProgrammingError);            
-            Messenger.ActivateOnCondition(ULINT#708,hwId_Output_1_byte_2 = WORD#0, eAxoMessageCategory#ProgrammingError);            
+        //     THIS.Initialize(parent);
+        //     Messenger.Serve(THIS);
+        //     Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#701,hwId_Input_1_byte_1 = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#702,hwId_Input_1_byte_2 = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#703,hwId_Input_2_word_1 = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#704,hwId_Input_1_word_1 = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#705,hwId_Input_2_word_2 = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#706,hwId_Input_1_word_2 = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#707,hwId_Output_1_byte_1 = WORD#0, eAxoMessageCategory#ProgrammingError);            
+        //     Messenger.ActivateOnCondition(ULINT#708,hwId_Output_1_byte_2 = WORD#0, eAxoMessageCategory#ProgrammingError);            
 
-            IF parent = NULL THEN
-                Status.Error.Id := UINT#700;
-                RETURN;
-            ELSIF hwId_Input_1_byte_2 = WORD#0 THEN
-                Status.Error.Id := UINT#701;
-                RETURN;
-            ELSIF hwId_Input_1_byte_2 = WORD#0 THEN
-                Status.Error.Id := UINT#702;
-                RETURN;
-            ELSIF hwId_Input_2_word_1 = WORD#0 THEN
-                Status.Error.Id := UINT#703;
-                RETURN;
-            ELSIF hwId_Input_1_word_1 = WORD#0 THEN
-                Status.Error.Id := UINT#704;
-                RETURN;
-            ELSIF hwId_Input_2_word_2 = WORD#0 THEN
-                Status.Error.Id := UINT#705;
-                RETURN;
-            ELSIF hwId_Input_1_word_2 = WORD#0 THEN
-                Status.Error.Id := UINT#706;
-                RETURN;
-            ELSIF hwId_Output_1_byte_1 = WORD#0 THEN
-                Status.Error.Id := UINT#707;
-                RETURN;
-            ELSIF hwId_Output_1_byte_2 = WORD#0 THEN
-                Status.Error.Id := UINT#708;
-                RETURN;
-            END_IF;
+        //     IF parent = NULL THEN
+        //         Status.Error.Id := UINT#700;
+        //         RETURN;
+        //     ELSIF hwId_Input_1_byte_2 = WORD#0 THEN
+        //         Status.Error.Id := UINT#701;
+        //         RETURN;
+        //     ELSIF hwId_Input_1_byte_2 = WORD#0 THEN
+        //         Status.Error.Id := UINT#702;
+        //         RETURN;
+        //     ELSIF hwId_Input_2_word_1 = WORD#0 THEN
+        //         Status.Error.Id := UINT#703;
+        //         RETURN;
+        //     ELSIF hwId_Input_1_word_1 = WORD#0 THEN
+        //         Status.Error.Id := UINT#704;
+        //         RETURN;
+        //     ELSIF hwId_Input_2_word_2 = WORD#0 THEN
+        //         Status.Error.Id := UINT#705;
+        //         RETURN;
+        //     ELSIF hwId_Input_1_word_2 = WORD#0 THEN
+        //         Status.Error.Id := UINT#706;
+        //         RETURN;
+        //     ELSIF hwId_Output_1_byte_1 = WORD#0 THEN
+        //         Status.Error.Id := UINT#707;
+        //         RETURN;
+        //     ELSIF hwId_Output_1_byte_2 = WORD#0 THEN
+        //         Status.Error.Id := UINT#708;
+        //         RETURN;
+        //     END_IF;
 
-            _hwID                   :=  hwID;
-            _hwId_Input_1_byte_1    :=  hwId_Input_1_byte_1;
-            _hwId_Input_1_byte_2    :=  hwId_Input_1_byte_2;
-            _hwId_Input_2_word_1    :=  hwId_Input_2_word_1;
-            _hwId_Input_1_word_1    :=  hwId_Input_1_word_1;
-            _hwId_Input_2_word_2    :=  hwId_Input_2_word_2;
-            _hwId_Input_1_word_2    :=  hwId_Input_1_word_2;
-            _hwId_Output_1_byte_1   :=  hwId_Output_1_byte_1;
-            _hwId_Output_1_byte_2   :=  hwId_Output_1_byte_2;
-            THIS.Execute();
-        END_METHOD
+        //     _hwID                   :=  hwID;
+        //     _hwId_Input_1_byte_1    :=  hwId_Input_1_byte_1;
+        //     _hwId_Input_1_byte_2    :=  hwId_Input_1_byte_2;
+        //     _hwId_Input_2_word_1    :=  hwId_Input_2_word_1;
+        //     _hwId_Input_1_word_1    :=  hwId_Input_1_word_1;
+        //     _hwId_Input_2_word_2    :=  hwId_Input_2_word_2;
+        //     _hwId_Input_1_word_2    :=  hwId_Input_1_word_2;
+        //     _hwId_Output_1_byte_1   :=  hwId_Output_1_byte_1;
+        //     _hwId_Output_1_byte_2   :=  hwId_Output_1_byte_2;
+        //     THIS.Execute();
+        // END_METHOD
 
         METHOD PRIVATE Execute
 

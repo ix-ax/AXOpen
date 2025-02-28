@@ -206,7 +206,7 @@ NAMESPACE AxoComponentExamples
 
         METHOD PROTECTED OVERRIDE Main   
             // The `Initialize()` method must be called before any other method.
-            MyComponent.Initialize(THIS);
+            MyComponent.InitializeWithContext(THIS);
             // Example of the activation of the manual control. 
             IF ActivateManualControl THEN
                 MyComponent.ActivateManualControl();

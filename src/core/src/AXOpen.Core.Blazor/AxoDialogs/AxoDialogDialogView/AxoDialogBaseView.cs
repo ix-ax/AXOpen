@@ -19,18 +19,12 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         public bool EnableLoging { set; get; }
 
-        protected override void OnInitialized()
+        
+        public override void ConfigurePolling()
         {
-            base.OnInitialized();
-            
-            this.UpdateValuesOnChange(Component); 
-        }
+            var task = (AxoDialogBase)this.Component;
 
-        public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
-        {
-            var task = (AxoDialogBase)element;
-
-            task._closeSignal.StartPolling(pollingInterval, this);
+            StartPolling(task._closeSignal);
             PolledElements.Add(task._closeSignal);
         }
 

@@ -171,39 +171,39 @@ NAMESPACE AXOpen.Components.Siem.Identification
             THIS.Execute();
         END_METHOD
 
-        ///<summary>
-        /// Runs tasks and logic of this component.
-        /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
-        ///</summary>
-        METHOD PUBLIC Run 
-            VAR_INPUT
-                parent      :   IAxoContext;
-                HW_ID       :	WORD    :=  WORD#16#0;      //	Logic IO address of the IO-Link Master
-                portAddr    :	INT     :=  INT#0;          //  Start address of port
-                version     :	USINT   :=  USINT#11;       //	IO-Link version of the reader; 11: IO-Link V1.1, 10: IO-Link V1.0
-            END_VAR
+        // ///<summary>
+        // /// Runs tasks and logic of this component.
+        // /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
+        // ///</summary>
+        // METHOD PUBLIC Run 
+        //     VAR_INPUT
+        //         parent      :   IAxoContext;
+        //         HW_ID       :	WORD    :=  WORD#16#0;      //	Logic IO address of the IO-Link Master
+        //         portAddr    :	INT     :=  INT#0;          //  Start address of port
+        //         version     :	USINT   :=  USINT#11;       //	IO-Link version of the reader; 11: IO-Link V1.1, 10: IO-Link V1.0
+        //     END_VAR
 
-            THIS.Initialize(parent);
+        //     THIS.Initialize(parent);
 
-            Messenger.Serve(THIS);
+        //     Messenger.Serve(THIS);
 
-            Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#701,HW_ID = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#701,HW_ID = WORD#0, eAxoMessageCategory#ProgrammingError);
 
-            IF parent = NULL THEN
-                ReaderStatus.Error.Id := UINT#700;
-                RETURN;
-            ELSIF HW_ID = WORD#0 THEN
-                ReaderStatus.Error.Id := UINT#701;
-                RETURN;
-            END_IF;
+        //     IF parent = NULL THEN
+        //         ReaderStatus.Error.Id := UINT#700;
+        //         RETURN;
+        //     ELSIF HW_ID = WORD#0 THEN
+        //         ReaderStatus.Error.Id := UINT#701;
+        //         RETURN;
+        //     END_IF;
 
-            _HW_ID      :=  HW_ID;
-            _portAddr   :=  portAddr;
-            _version    :=  version;
+        //     _HW_ID      :=  HW_ID;
+        //     _portAddr   :=  portAddr;
+        //     _version    :=  version;
 
-            THIS.Execute();
-        END_METHOD
+        //     THIS.Execute();
+        // END_METHOD
 
         METHOD PRIVATE Execute 
             VAR 

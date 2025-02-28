@@ -1,9 +1,10 @@
 ﻿@namespace AXOpen.Inspectors
-@inherits RenderableComplexComponentBase<AxoAnalogueInspector>
+@using AXSharp.Connector
+@inherits RenderableComplexComponentBase<AxoAnalogueInspectorData>
 
 
 
-<InspectorViewTemplate Data="Component._data"
+<InspectorViewTemplate Data="Component"
                        Name="@getNameOrSymbol()"
                        Presentation="Control"/>
 
@@ -17,8 +18,9 @@
         return string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName;
     }
 
-    protected override void OnInitialized()
+
+    public override void ConfigurePolling()
     {
-        UpdateValuesOnChange(Component._data.Result);
+       this.StartPolling(this.Component, 500);
     }
 }

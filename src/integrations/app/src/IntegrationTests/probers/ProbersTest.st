@@ -9,10 +9,12 @@ CLASS ProbersTestContext EXTENDS AxoContext
     VAR PUBLIC
         ProbeWithCounterTests : ProbeWithCounterTests;
         ProbeWithEndConditionTests : ProberWithCompletedConditionTests;
+        _rootObject :   AxoObject;
     END_VAR
-    METHOD PROTECTED OVERRIDE Main              
-        ProbeWithCounterTests.Run(THIS);          
-        ProbeWithEndConditionTests.Run(THIS);
+    METHOD PROTECTED OVERRIDE Main      
+        _rootObject.InitializeWithContext(THIS);
+        ProbeWithCounterTests.Run(_rootObject);          
+        ProbeWithEndConditionTests.Run(_rootObject);
     END_METHOD
 END_CLASS
 

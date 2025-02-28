@@ -1,7 +1,10 @@
-USING AXOpen.Logging;
+USING AxUnit;
 USING AXOpen.Core;
 USING AXOpen.Rtc;
-USING AxUnit;
+USING AXOpen.Rtm;
+USING AXOpen.Core.Dummies;
+USING AXOpen.Messaging;
+USING AXOpen.Messaging.Static;
 
 NAMESPACE AxOpenCoreAssert
     FUNCTION Equal
@@ -24,21 +27,32 @@ NAMESPACE AXOpen.Core.AxoStep_Tests
             END_METHOD               
     END_CLASS         
 
+
+    {S7.extern=ReadWrite}
+    CLASS TestObject EXTENDS MockAxoObject     
+        VAR PUBLIC 
+            _messenger : AxoMessenger;
+        END_VAR
+    END_CLASS
+
+
     {TestFixture}
     {S7.extern=ReadWrite}
     CLASS StepTests
         VAR PROTECTED
             _context    : TestContext;
+            _rootObject : TestObject;
             _stepOne    : AxoStep;
             _stepTwo    : AxoStep;
             _stepThree  : AxoStep;
             _sequencer  : AxoSequencer;
         END_VAR  
         METHOD PRIVATE Initialize
-            _sequencer.Initialize(_context);
-            _stepOne.Initialize(_context);
-            _stepTwo.Initialize(_context);
-            _stepThree.Initialize(_context);
+            _rootObject.InitializeWithContext(_context);
+            _sequencer.Initialize(_rootObject);
+            _stepOne.Initialize(_rootObject);
+            _stepTwo.Initialize(_rootObject);
+            _stepThree.Initialize(_rootObject);
         END_METHOD
         METHOD Equal : BOOL
             VAR_INPUT
@@ -50,6 +64,8 @@ NAMESPACE AXOpen.Core.AxoStep_Tests
 
         VAR PRIVATE
             _contextClean   : TestContext;
+            _rtc            :   AXOpen.Core.Dummies.MockAxoRtc;
+            _rtm            :   AXOpen.Core.Dummies.MockAxoRtm;
             _stepOneClean   : AxoStep;
             _stepTwoClean   : AxoStep;
             _stepThreeClean : AxoStep;
@@ -59,6 +75,10 @@ NAMESPACE AXOpen.Core.AxoStep_Tests
         {TestSetup}
         METHOD PUBLIC TestSetup
             _context    :=  _contextClean;
+            _rtm.SetElapsed(LTIME#2s);
+            _context.InjectRtm(_rtm);
+            _rtc.SetNowUTC(LDATE_AND_TIME#2012-01-12-15:58:12.123);
+            _context.InjectRtc(_rtc);
             _stepOne    :=  _stepOneClean;
             _stepTwo    :=  _stepTwoClean;
             _stepThree  :=  _stepThreeClean;

@@ -53,6 +53,7 @@ NAMESPACE AXOpen.Timers
             END_VAR    
            
             IF(Context = NULL) THEN RETURN; END_IF;
+            IF(Context.GetRtm() = NULL) THEN RETURN; END_IF;
 
             // beggining, if all is turn off, return false
             IF(NOT inSignal AND NOT THIS._previousSignalStatus) THEN

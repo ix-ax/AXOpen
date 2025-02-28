@@ -9,11 +9,13 @@ NAMESPACE AxoDataFramentsExchangeDocuExample
     CLASS AxoDataFragmentExchangeContext EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             ProcessData : ProcessDataManager;           
+            _rootObject :   AxoObject;
         END_VAR
                 
         METHOD PROTECTED OVERRIDE Main
+            _rootObject.InitializeWithContext(THIS);
             // This is required to run cyclically. Method provides handling of data exchange tasks.
-            ProcessData.Run(THIS);                                     
+            ProcessData.Run(_rootObject);                                     
         END_METHOD
     END_CLASS
     //</ContextDeclaration>

@@ -23,7 +23,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 parent : IAxoContext;
             END_VAR    
 
-            THIS.Initialize(parent);
+            THIS.InitializeWithContext(parent);
 
             IF ActivateManualControl THEN
                 IOlinkReader.ActivateManualControl();

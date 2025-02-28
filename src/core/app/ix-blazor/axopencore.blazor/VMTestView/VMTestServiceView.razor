@@ -14,11 +14,6 @@
 @code {
     //public VMTestServiceViewModel ViewModel { get; set; }
 
-    protected override void OnInitialized()
-    {
-        //ViewModel = new VMTestServiceViewModel(_ts);
-        UpdateValuesOnChange(ViewModel.Component);
-    }
 
     public void CreateToast()
     {
@@ -26,5 +21,9 @@
         //_toastService.AddToast("Success", "Test", "test", 30);
     }
 
-    
+    public override void ConfigurePolling()
+    {
+        this.StartPolling(ViewModel.Component);
+    }
+
 }

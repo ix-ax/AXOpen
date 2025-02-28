@@ -36,7 +36,7 @@ NAMESPACE AXOpen.Components.Pneumatics
         END_VAR    
 
         METHOD PROTECTED OVERRIDE Main
-            CylinderParent.Initialize(THIS);
+            CylinderParent.InitializeWithContext(THIS);
             _testCylinder.SuspendMoveToWorkWhile(_suspendMoveToWork);
             _testCylinder.SuspendMoveToHomeWhile(_suspendMoveToHome);
             _testCylinder.AbortMoveToWorkWhen(_abortMoveToWork);

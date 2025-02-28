@@ -148,53 +148,53 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             THIS.Execute();
         END_METHOD   
 
-        ///<summary>
-        /// Runs tasks and logic of this component.
-        /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
-        ///</summary>
-        METHOD PUBLIC Run
-            VAR_INPUT
-                parent              :   IAxoContext; 
-                hwID                :   WORD;
-                hwIdParamCh_IDN     :   WORD;
-                hwIdInput_24_Words  :   WORD;
-                hwIdOutput_21_Words :   WORD;
-            END_VAR
+        // ///<summary>
+        // /// Runs tasks and logic of this component.
+        // /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
+        // ///</summary>
+        // METHOD PUBLIC Run
+        //     VAR_INPUT
+        //         parent              :   IAxoContext; 
+        //         hwID                :   WORD;
+        //         hwIdParamCh_IDN     :   WORD;
+        //         hwIdInput_24_Words  :   WORD;
+        //         hwIdOutput_21_Words :   WORD;
+        //     END_VAR
 
-            THIS.Initialize(parent);
+        //     THIS.Initialize(parent);
 
-            Messenger.Serve(THIS);
+        //     Messenger.Serve(THIS);
 
-            Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#701,hwID = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#702,hwIdParamCh_IDN = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#703,hwIdInput_24_Words = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#704,hwIdOutput_21_Words = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#701,hwID = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#702,hwIdParamCh_IDN = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#703,hwIdInput_24_Words = WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#704,hwIdOutput_21_Words = WORD#0, eAxoMessageCategory#ProgrammingError);
 
-            IF parent = NULL THEN
-                ComponentStatus.Error.Id := UINT#700;
-                RETURN;
-            ELSIF hwID = WORD#0 THEN
-                ComponentStatus.Error.Id := UINT#701;
-                RETURN;
-            ELSIF hwIdParamCh_IDN = WORD#0 THEN
-                ComponentStatus.Error.Id := UINT#702;
-                RETURN;
-            ELSIF hwIdInput_24_Words = WORD#0 THEN
-                ComponentStatus.Error.Id := UINT#703;
-                RETURN;
-            ELSIF hwIdInput_24_Words = WORD#0 THEN
-                ComponentStatus.Error.Id := UINT#704;
-                RETURN;
-            END_IF;
+        //     IF parent = NULL THEN
+        //         ComponentStatus.Error.Id := UINT#700;
+        //         RETURN;
+        //     ELSIF hwID = WORD#0 THEN
+        //         ComponentStatus.Error.Id := UINT#701;
+        //         RETURN;
+        //     ELSIF hwIdParamCh_IDN = WORD#0 THEN
+        //         ComponentStatus.Error.Id := UINT#702;
+        //         RETURN;
+        //     ELSIF hwIdInput_24_Words = WORD#0 THEN
+        //         ComponentStatus.Error.Id := UINT#703;
+        //         RETURN;
+        //     ELSIF hwIdInput_24_Words = WORD#0 THEN
+        //         ComponentStatus.Error.Id := UINT#704;
+        //         RETURN;
+        //     END_IF;
 
-            _hwID                       := hwID;
-            _hwIdParamCh_IDN            := hwIdParamCh_IDN;     
-            _hwIdInput_24_Words         := hwIdInput_24_Words;  
-            _hwIdOutput_21_Words        := hwIdOutput_21_Words;             
+        //     _hwID                       := hwID;
+        //     _hwIdParamCh_IDN            := hwIdParamCh_IDN;     
+        //     _hwIdInput_24_Words         := hwIdInput_24_Words;  
+        //     _hwIdOutput_21_Words        := hwIdOutput_21_Words;             
     
-            THIS.Execute();
-        END_METHOD 
+        //     THIS.Execute();
+        // END_METHOD 
         
         METHOD PRIVATE Execute
             VAR 
