@@ -73,10 +73,10 @@ namespace AXOpen.Data.Query
 
         private void CollectSymbols(Type type, string currentPath, List<string> symbols)
         {
-            if (!TypeDictionary.ContainsKey(type))
+            if (!TypeDictionary.TryGetValue(type, out var properties))
                 return;
 
-            foreach (var prop in TypeDictionary[type])
+            foreach (var prop in properties)
             {
                 string newPath = $"{currentPath}.{prop.Name}";
 
