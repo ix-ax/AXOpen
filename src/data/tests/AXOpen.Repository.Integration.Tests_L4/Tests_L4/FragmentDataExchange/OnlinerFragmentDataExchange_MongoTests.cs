@@ -61,8 +61,9 @@
 
             Assert.Equal(2, result.Count());
 
-            Assert.Equal("6", result[0].DataEntityId);
-            Assert.Equal("7", result[1].DataEntityId);
+
+            Assert.Equal("7", result[0].DataEntityId);
+            Assert.Equal("6", result[1].DataEntityId);
         }
 
         [Fact]
