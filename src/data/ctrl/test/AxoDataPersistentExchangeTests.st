@@ -11,6 +11,24 @@ NAMESPACE AXOpen.Data
             END_METHOD                 
         END_CLASS
 
+        // {S7.extern=ReadWrite}
+        // CLASS AxoRtcMock IMPLEMENTS IAxoRtc
+        //     VAR PRIVATE 
+        //         _NowUTC : LDATE_AND_TIME;
+        //     END_VAR
+    
+        //     METHOD INTERNAL SetNowUTC : LDATE_AND_TIME
+        //         VAR_INPUT
+        //             Set :  LDATE_AND_TIME;
+        //         END_VAR;
+        //         _NowUTC := Set;
+        //     END_METHOD
+    
+        //     METHOD PUBLIC NowUTC : LDATE_AND_TIME
+        //         NowUTC := _NowUTC;
+        //     END_METHOD    
+        // END_CLASS
+
 
         {TestFixture}
         {S7.extern=ReadWrite}

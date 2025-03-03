@@ -20,10 +20,6 @@ NAMESPACE AXOpen.Data
             
         END_VAR
 
-        VAR PRIVATE
-            _context : IAxoContext;
-        END_VAR
-
         ///<summary>
         /// This method determines if the current call is concurrent or not.
         ///  It takes an AXOpen.Core.IAxoObject as input and returns a BOOL. 
@@ -79,19 +75,12 @@ NAMESPACE AXOpen.Data
         /// <param name="parent">Parent of this object</param>
         METHOD PUBLIC Run 
             VAR_INPUT
-                parent : IAxoObject;
+                InParent : IAxoObject;
             END_VAR    
-
-            IF parent = NULL THEN
-                RETURN;
-            END_IF;
-
-            IF _context = NULL THEN
-                THIS.Initialize(parent);
-                Operation.Initialize(THIS);
-                _context := THIS.GetContext();
-            END_IF;
-
+            
+            THIS.Initialize(InParent);
+            Operation.Initialize(THIS);
+            
             Operation.Execute();
             
             IF NOT _IsFirstReadAllDone THEN 
