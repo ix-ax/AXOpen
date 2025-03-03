@@ -47,6 +47,7 @@ namespace AXOpen.Data.Json
         /// Get the location (directory) where the entries of this repository are placed.
         /// </summary>
         public string Location { get; private set; }
+
         public override long LastFragmentQueryCount { get; protected set; }
 
         protected override void CreateNvi(string identifier, T data)
@@ -155,6 +156,7 @@ namespace AXOpen.Data.Json
 
             return enumerable.Skip(skip).Take(limit).Select(x => this.Load(new FileInfo(x).Name, typeof(T)));
         }
+
         protected override long FilteredCountNvi(string id, eSearchMode searchMode)
         {
             if (string.IsNullOrEmpty(id) || string.IsNullOrWhiteSpace(id) || id == "*")
@@ -222,15 +224,49 @@ namespace AXOpen.Data.Json
         {
             return RecordExists(identifier);
         }
+
         public override IQueryable<T> Queryable
         {
             get { return this.GetRecords("*", int.MaxValue, 0, eSearchMode.Exact).AsQueryable(); }
         }
+
+        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates)
+        {
+            var query = Queryable;
+
+            if (predicates != null && predicates.ContainsType<T>())
+            {
+                foreach (var predicate in predicates.GetPredicates<T>())
+                {
+                    query = query.Where(p => predicate.Compile().Invoke(p));
+                }
+            }
+
+            var sorting = predicates.GetSorting<T>();
+
+            if (sorting != null && sorting.Any())
+            {
+                query = ApplySorting(query, sorting);
+            }
+            else
+            {
+                query = query.OrderBy(p => p.DataEntityId);
+            }
+
+            return query.Select(p => p.DataEntityId).ToList();
+        }
+
+        protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids)
+        {
+            if (ids == null || !ids.Any())
+                return Enumerable.Empty<T>();
+
+            return Queryable.Where(p => ids.Contains(p.DataEntityId)).ToList();
+        }
+
         protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates, int limit, int skip)
         {
-            var query = Directory.EnumerateFiles(Location)
-                                 .Select(file => Load(new FileInfo(file).Name, typeof(T)))
-                                 .AsQueryable();
+            var query = Queryable;
 
             if (predicates != null && predicates.ContainsType<T>())
             {
@@ -240,22 +276,23 @@ namespace AXOpen.Data.Json
                 }
             }
 
+            var sorting = predicates.GetSorting<T>();
+
+            if (sorting != null && sorting.Any())
+            {
+                query = ApplySorting(query, sorting);
+            }
+            else
+            {
+                query = query.OrderBy(p => p.DataEntityId);
+            }
+
             return query.Skip(skip).Take(limit).ToList();
-        }
-
-        protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids)
-        {
-            if (ids == null || !ids.Any())
-                return Enumerable.Empty<T>();
-
-            return ids.Where(RecordExists).Select(id => Load(id, typeof(T)));
         }
 
         protected override long FilteredCountNvi(PredicateContainer predicates)
         {
-            var query = Directory.EnumerateFiles(Location)
-                                 .Select(file => Load(new FileInfo(file).Name, typeof(T)))
-                                 .AsQueryable();
+            var query = Queryable;
 
             if (predicates != null && predicates.ContainsType<T>())
             {
@@ -268,24 +305,34 @@ namespace AXOpen.Data.Json
             return query.LongCount();
         }
 
-        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates)
+        private IQueryable<T> ApplySorting(IQueryable<T> query, List<SortSettings> sortSettings)
         {
-            var query = Directory.EnumerateFiles(Location)
-                                 .Select(file => new FileInfo(file).Name);
+            if (sortSettings == null || !sortSettings.Any())
+                return query; // Return unsorted if no settings
 
-            if (predicates != null && predicates.ContainsType<T>())
+            IOrderedQueryable<T> orderedQuery = null;
+
+            foreach (var setting in sortSettings)
             {
-                var records = query.Select(id => new { Id = id, Data = Load(id, typeof(T)) }).ToList();
-                foreach (var predicate in predicates.GetPredicates<T>())
-                {
-                    records = records.Where(record => predicate.Compile().Invoke(record.Data)).ToList();
-                }
-                return records.Select(record => record.Id);
+                if (string.IsNullOrEmpty(setting.MemberName))
+                    continue; // Skip invalid settings
+
+                var param = Expression.Parameter(typeof(T), "p");
+                var property = Expression.Property(param, setting.MemberName);
+                var keySelector = Expression.Lambda(property, param);
+
+                var methodName = orderedQuery == null
+                    ? (setting.IsAscending ? "OrderBy" : "OrderByDescending")
+                    : (setting.IsAscending ? "ThenBy" : "ThenByDescending");
+
+                var method = typeof(Queryable).GetMethods()
+                    .First(m => m.Name == methodName && m.GetParameters().Length == 2)
+                    .MakeGenericMethod(typeof(T), property.Type);
+
+                orderedQuery = (IOrderedQueryable<T>)method.Invoke(null, new object[] { orderedQuery ?? query, keySelector });
             }
 
-            return query;
+            return orderedQuery ?? query;
         }
-
-
     }
 }

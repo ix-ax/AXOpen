@@ -6,7 +6,7 @@
 
     public class SingleRepositoryFixture_Json : SingleRepositoryFixture_Base
     {
-        private string OutDir = Path.Combine(new FileInfo(Assembly.GetExecutingAssembly().Location).Directory.FullName, Constants.JSON_REPOSITORY_FOLDER_NAME);
+        private string OutDir = Path.Combine(new FileInfo(Assembly.GetExecutingAssembly().Location).Directory.FullName, Constants.JSON_REPO_PROCESS_DATA_FOLDER_NAME);
 
         public SingleRepositoryFixture_Json()
         {

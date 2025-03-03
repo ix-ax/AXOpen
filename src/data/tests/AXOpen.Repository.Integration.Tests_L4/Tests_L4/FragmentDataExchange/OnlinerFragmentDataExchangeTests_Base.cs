@@ -38,6 +38,7 @@
             pc.AddPredicates<HeaderData>(p => (p.vInt > 3 && p.vInt <= 8));
             pc.AddPredicates<StationData>(p => (p.vInt > 5 && p.vInt <= 7));
 
+
             var headerProdicates = pc.GetPredicates<HeaderData>();
             var stationProdicates = pc.GetPredicates<StationData>();
 

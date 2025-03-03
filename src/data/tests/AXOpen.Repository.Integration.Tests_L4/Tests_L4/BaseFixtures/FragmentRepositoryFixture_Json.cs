@@ -6,18 +6,25 @@
 
     public class FragmentRepositoryFixture_Json : FragmentRepositoryFixture_Base
     {
-        private string OutDir = Path.Combine(new FileInfo(Assembly.GetExecutingAssembly().Location).Directory.FullName, Constants.JSON_REPOSITORY_FOLDER_NAME);
+        private string OutDirHeader = Path.Combine(new FileInfo(Assembly.GetExecutingAssembly().Location).Directory.FullName, Constants.JSON_REPO_HEADER_DATA_FOLDER_NAME);
+
+        private string OutDirStation = Path.Combine(new FileInfo(Assembly.GetExecutingAssembly().Location).Directory.FullName, Constants.JSON_REPO_STATION_DATA_FOLDER_NAME);
 
         public FragmentRepositoryFixture_Json()
         {
-            if (Directory.Exists(OutDir))
+            if (Directory.Exists(OutDirHeader))
             {
-                Directory.Delete(OutDir, true);
+                Directory.Delete(OutDirHeader, true);
             }
 
-            this.RepositoryHeader = new JsonRepository<HeaderData>(new JsonRepositorySettings<HeaderData>(OutDir));
+            if (Directory.Exists(OutDirStation))
+            {
+                Directory.Delete(OutDirStation, true);
+            }
 
-            this.RepositoryStation = new JsonRepository<StationData>(new JsonRepositorySettings<StationData>(OutDir));
+            this.RepositoryHeader = new JsonRepository<HeaderData>(new JsonRepositorySettings<HeaderData>(OutDirHeader));
+
+            this.RepositoryStation = new JsonRepository<StationData>(new JsonRepositorySettings<StationData>(OutDirStation));
 
             InitializeData();
         }

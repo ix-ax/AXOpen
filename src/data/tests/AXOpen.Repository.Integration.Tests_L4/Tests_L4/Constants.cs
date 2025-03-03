@@ -21,7 +21,9 @@
         public const string MONGO_COMPOUD_HEADER_COLLECTION_NAME = "SharedHeader";
         public const string MONGO_COMPOUD_STATION_COLLECTION_NAME = "Station";
 
-        public const string JSON_REPOSITORY_FOLDER_NAME = "AxOpen_L4_JSON";
+        public const string JSON_REPO_PROCESS_DATA_FOLDER_NAME = "JSON_REPO_PROCESS_DATA_FOLDER_NAME";
+        public const string JSON_REPO_HEADER_DATA_FOLDER_NAME = "JSON_REPO_HEADER_DATA_FOLDER_NAME";
+        public const string JSON_REPO_STATION_DATA_FOLDER_NAME = "JSON_REPO_STATION_DATA_FOLDER_NAME";
 
 
         public const string MEMBER_NAME_ENTITY_ID = "DataEntityId";

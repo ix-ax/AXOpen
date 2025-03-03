@@ -232,44 +232,30 @@ namespace AXOpen.Data.RavenDb
             }
         }
 
-        protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates, int limit, int skip)
+        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates)
         {
-            using (var session = _store.OpenSession())
+            var query = Queryable;
+
+            if (predicates != null && predicates.ContainsType<T>())
             {
-                IQueryable<T> query = session.Query<T>();
-
-                if (predicates != null && predicates.ContainsType<T>())
+                foreach (var predicate in predicates.GetPredicates<T>())
                 {
-                    foreach (var predicate in predicates.GetPredicates<T>())
-                    {
-                        query = query.Where(predicate);
-                    }
+                    query = query.Where(p => predicate.Compile().Invoke(p));
                 }
-
-                var sortingList = predicates?.GetSorting<T>();
-                if (sortingList != null && sortingList.Any())
-                {
-                    IOrderedQueryable<T> orderedQuery = null;
-                    foreach (var sort in sortingList)
-                    {
-                        if (orderedQuery == null)
-                        {
-                            orderedQuery = sort.IsAscending
-                                ? query.OrderBy(x => PropertyHelper.GetPropertyValue(x, sort.MemberName))
-                                : query.OrderByDescending(x => PropertyHelper.GetPropertyValue(x, sort.MemberName));
-                        }
-                        else
-                        {
-                            orderedQuery = sort.IsAscending
-                                ? orderedQuery.ThenBy(x => PropertyHelper.GetPropertyValue(x, sort.MemberName))
-                                : orderedQuery.ThenByDescending(x => PropertyHelper.GetPropertyValue(x, sort.MemberName));
-                        }
-                    }
-                    query = orderedQuery ?? query;
-                }
-
-                return query.Skip(skip).Take(limit).ToList();
             }
+
+            var sorting = predicates.GetSorting<T>();
+
+            if (sorting != null && sorting.Any())
+            {
+                query = ApplySorting(query, sorting);
+            }
+            else
+            {
+                query = query.OrderBy(p => p.DataEntityId);
+            }
+
+            return query.Select(p => p.DataEntityId).ToList();
         }
 
         protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids)
@@ -277,46 +263,78 @@ namespace AXOpen.Data.RavenDb
             if (ids == null || !ids.Any())
                 return Enumerable.Empty<T>();
 
-            using (var session = _store.OpenSession())
+            return Queryable.Where(p => ids.Contains(p.DataEntityId)).ToList();
+        }
+
+        protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates, int limit, int skip)
+        {
+            var query = Queryable;
+
+            if (predicates != null && predicates.ContainsType<T>())
             {
-                return session.Load<T>(ids).Values.Where(entity => entity != null);
+                foreach (var predicate in predicates.GetPredicates<T>())
+                {
+                    query = query.Where(predicate);
+                }
             }
+
+            var sorting = predicates.GetSorting<T>();
+
+            if (sorting != null && sorting.Any())
+            {
+                query = ApplySorting(query, sorting);
+            }
+            else
+            {
+                query = query.OrderBy(p => p.DataEntityId);
+            }
+
+            return query.Skip(skip).Take(limit).ToList();
         }
 
         protected override long FilteredCountNvi(PredicateContainer predicates)
         {
-            using (var session = _store.OpenSession())
-            {
-                IQueryable<T> query = session.Query<T>();
+            var query = Queryable;
 
-                if (predicates != null && predicates.ContainsType<T>())
+            if (predicates != null && predicates.ContainsType<T>())
+            {
+                foreach (var predicate in predicates.GetPredicates<T>())
                 {
-                    foreach (var predicate in predicates.GetPredicates<T>())
-                    {
-                        query = query.Where(predicate);
-                    }
+                    query = query.Where(predicate);
                 }
-;
-                return Raven.Client.Documents.LinqExtensions.LongCount(query);
             }
+
+            return Raven.Client.Documents.LinqExtensions.LongCount(query);
         }
 
-        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates)
+        private IQueryable<T> ApplySorting(IQueryable<T> query, List<SortSettings> sortSettings)
         {
-            using (var session = _store.OpenSession())
+            if (sortSettings == null || !sortSettings.Any())
+                return query; // Return unsorted if no settings
+
+            IOrderedQueryable<T> orderedQuery = null;
+
+            foreach (var setting in sortSettings)
             {
-                IQueryable<T> query = session.Query<T>();
+                if (string.IsNullOrEmpty(setting.MemberName))
+                    continue; // Skip invalid settings
 
-                if (predicates != null && predicates.ContainsType<T>())
-                {
-                    foreach (var predicate in predicates.GetPredicates<T>())
-                    {
-                        query = query.Where(predicate);
-                    }
-                }
+                var param = Expression.Parameter(typeof(T), "p");
+                var property = Expression.Property(param, setting.MemberName);
+                var keySelector = Expression.Lambda(property, param);
 
-                return query.Select(x => x.DataEntityId).ToList();
+                var methodName = orderedQuery == null
+                    ? (setting.IsAscending ? "OrderBy" : "OrderByDescending")
+                    : (setting.IsAscending ? "ThenBy" : "ThenByDescending");
+
+                var method = typeof(Queryable).GetMethods()
+                    .First(m => m.Name == methodName && m.GetParameters().Length == 2)
+                    .MakeGenericMethod(typeof(T), property.Type);
+
+                orderedQuery = (IOrderedQueryable<T>)method.Invoke(null, new object[] { orderedQuery ?? query, keySelector });
             }
+
+            return orderedQuery ?? query;
         }
     }
 }

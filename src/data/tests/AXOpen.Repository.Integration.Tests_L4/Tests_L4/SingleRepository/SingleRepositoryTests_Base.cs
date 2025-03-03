@@ -7,7 +7,6 @@
     using System.Linq.Expressions;
     using Xunit;
 
-   
     public abstract class SingleRepositoryTests_Base
     {
         protected SingleRepositoryFixture_Base Fixture { set; get; }
@@ -26,9 +25,15 @@
             pc.AddPredicates<ProcessData>(p => (p.vInt > 2 && (p.NestObj.vInt > 3 && p.NestObj.vInt <= 8)));
             pc.AddPredicates<ProcessData>(p => (p.vBool == true));
 
-            var result = Fixture.Repository.GetRecords(pc, 100, 0);
+            pc.AddSortMember<ProcessData>(p => p.DataEntityId, false);
+
+            var result = Fixture.Repository.GetRecords(pc, 100, 0).ToList();
 
             Assert.Equal(3, result.Count());
+
+            Assert.Equal("7", result[0].DataEntityId);
+            Assert.Equal("5", result[1].DataEntityId);
+            Assert.Equal("3", result[2].DataEntityId);
         }
 
         [Fact]
@@ -39,9 +44,15 @@
             pc.AddPredicates<ProcessData>(p => (p.vInt > 2 && (p.NestObj.vInt > 3 && p.NestObj.vInt <= 8)));
             pc.AddPredicates<ProcessData>(p => (p.vBool == true));
 
-            IEnumerable<string> result = Fixture.Repository.GetEntityIds(pc);
+            pc.AddSortMember<ProcessData>(p => p.DataEntityId, false);
+
+            List<string> result = Fixture.Repository.GetEntityIds(pc).ToList();
 
             Assert.Equal(3, result.Count());
+
+            Assert.Equal("7", result[0]);
+            Assert.Equal("5", result[1]);
+            Assert.Equal("3", result[2]);
         }
     }
 }

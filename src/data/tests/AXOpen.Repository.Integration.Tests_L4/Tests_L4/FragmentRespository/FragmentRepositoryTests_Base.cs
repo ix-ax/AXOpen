@@ -29,7 +29,7 @@
             var stationProdicates = pc.GetPredicates<StationData>();
 
             IEnumerable<string> resultHeader = Fixture.RepositoryHeader.GetEntityIds(pc);
-            IEnumerable<string> resultStation = Fixture.RepositoryHeader.GetEntityIds(pc);
+            IEnumerable<string> resultStation = Fixture.RepositoryStation.GetEntityIds(pc);
 
             Assert.Equal(5, resultHeader.Count());
             Assert.Equal(2, resultStation.Count());

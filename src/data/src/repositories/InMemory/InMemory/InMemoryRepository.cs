@@ -39,6 +39,7 @@ namespace AXOpen.Data.InMemory
         {
             get { return this._repository; }
         }
+
         public override long LastFragmentQueryCount { get; protected set; }
 
         protected override void CreateNvi(string identifier, T data)
@@ -172,17 +173,43 @@ namespace AXOpen.Data.InMemory
         public override IQueryable<T> Queryable
         { get { return this._repository.AsQueryable().Select(p => p.Value); } }
 
+        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates)
+        {
+            var query = Queryable;
+
+            if (predicates != null && predicates.ContainsType<T>())
+            {
+                foreach (var predicate in predicates.GetPredicates<T>())
+                {
+                    query = query.Where(p => predicate.Compile().Invoke(p));
+                }
+            }
+
+            var sorting = predicates.GetSorting<T>();
+
+            if (sorting != null && sorting.Any())
+            {
+                query = ApplySorting(query, sorting);
+            }
+            else
+            {
+                query = query.OrderBy(p => p.DataEntityId);
+            }
+
+            return query.Select(p => p.DataEntityId).ToList();
+        }
 
         protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids)
         {
             if (ids == null || !ids.Any())
                 return Enumerable.Empty<T>();
 
-            return _repository.Where(p => ids.Contains(p.Key)).Select(p => p.Value);
+            return Queryable.Where(p => ids.Contains(p.DataEntityId)).ToList();
         }
+
         protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates, int limit, int skip)
         {
-            var query = _repository.Values.AsQueryable();
+            var query = Queryable;
 
             if (predicates != null && predicates.ContainsType<T>())
             {
@@ -192,13 +219,23 @@ namespace AXOpen.Data.InMemory
                 }
             }
 
+            var sorting = predicates.GetSorting<T>();
+
+            if (sorting != null && sorting.Any())
+            {
+                query = ApplySorting(query, sorting);
+            }
+            else
+            {
+                query = query.OrderBy(p => p.DataEntityId);
+            }
+
             return query.Skip(skip).Take(limit).ToList();
         }
 
-
         protected override long FilteredCountNvi(PredicateContainer predicates)
         {
-            var query = _repository.Values.AsQueryable();
+            var query = Queryable;
 
             if (predicates != null && predicates.ContainsType<T>())
             {
@@ -211,21 +248,34 @@ namespace AXOpen.Data.InMemory
             return query.LongCount();
         }
 
-        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates)
+        private IQueryable<T> ApplySorting(IQueryable<T> query, List<SortSettings> sortSettings)
         {
-            var query = _repository.AsQueryable();
+            if (sortSettings == null || !sortSettings.Any())
+                return query; // Return unsorted if no settings
 
-            if (predicates != null && predicates.ContainsType<T>())
+            IOrderedQueryable<T> orderedQuery = null;
+
+            foreach (var setting in sortSettings)
             {
-                foreach (var predicate in predicates.GetPredicates<T>())
-                {
-                    query = query.Where(p => predicate.Compile().Invoke(p.Value));
-                }
+                if (string.IsNullOrEmpty(setting.MemberName))
+                    continue; // Skip invalid settings
+
+                var param = Expression.Parameter(typeof(T), "p");
+                var property = Expression.Property(param, setting.MemberName);
+                var keySelector = Expression.Lambda(property, param);
+
+                var methodName = orderedQuery == null
+                    ? (setting.IsAscending ? "OrderBy" : "OrderByDescending")
+                    : (setting.IsAscending ? "ThenBy" : "ThenByDescending");
+
+                var method = typeof(Queryable).GetMethods()
+                    .First(m => m.Name == methodName && m.GetParameters().Length == 2)
+                    .MakeGenericMethod(typeof(T), property.Type);
+
+                orderedQuery = (IOrderedQueryable<T>)method.Invoke(null, new object[] { orderedQuery ?? query, keySelector });
             }
 
-            return query.Select(p => p.Key).ToList();
+            return orderedQuery ?? query;
         }
-
-
     }
 }
