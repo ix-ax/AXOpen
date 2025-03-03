@@ -4,7 +4,6 @@
     using AXOpen.Data;
     using AXOpen.Data.Query;
     using Exchange_Test_L4;
-    using Polly;
     using System;
     using System.Linq;
     using System.Linq.Expressions;
@@ -12,35 +11,24 @@
 
     using PredicateBuilder = AXOpen.Data.Query.PredicateBuilder;
 
-    [Collection("DatabaseTests")]
-    public class OnlinerDataExchange_MongoTests : IClassFixture<SingleRepository_MongoFixture>
+    public abstract class OnlinerDataExchange_BaseTests
     {
-        private readonly SingleRepository_MongoFixture _fixture;
+        protected SingleRepositoryFixture_Base Fixture { get; set; }
 
-        private AxoDataExchange<ProcessData, Pocos.Exchange_Test_L4.ProcessData> _processExchange;
-        private IAxoDataExchange _exchange;
+        protected AxoDataExchange<ProcessData, Pocos.Exchange_Test_L4.ProcessData> ProcessExchange { get; set; }
 
-        public OnlinerDataExchange_MongoTests(SingleRepository_MongoFixture fixture)
-        {
-            _fixture = fixture;
-
-            // initialize exchange
-            _processExchange = axopen_integration_tests_l4.Entry.Plc.ExchangeContext_Test_L4.DataManager;
-            _processExchange.SetRepository(_fixture._repository);
-
-            _exchange = _processExchange;
-        }
+        protected IAxoDataExchange Exchange { get; set; }
 
         [Fact]
         public void ContainsRecords()
         {
-            Assert.Equal(_fixture._repository.Count, 10);
+            Assert.Equal(Fixture.Repository.Count, 10);
         }
 
         [Fact]
         public void ContainsInitialRecords_fragmentQuery()
         {
-            Assert.Equal(10, _exchange.Repository.FilteredCount(new PredicateContainer()));
+            Assert.Equal(10, Exchange.Repository.FilteredCount(new PredicateContainer()));
         }
 
         [Fact]
@@ -56,7 +44,7 @@
 
             c.AddPredicates<Pocos.Exchange_Test_L4.ProcessData>(predicates);
 
-            var result = _exchange.GetRecords(c, 100, 0);
+            var result = Exchange.GetRecords(c, 100, 0);
 
             Assert.Equal(3, result.Count());
         }
@@ -64,7 +52,7 @@
         [Fact]
         public void should_create_symbol_list()
         {
-            var plains = _exchange.GetPlainObjectType();
+            var plains = Exchange.GetPlainObjectType();
 
             var plainSymbolBuilder = new PlainSymbolBuilder(plains.First());
 
@@ -84,7 +72,7 @@
         [Fact]
         public void should_build_lambda_from_symbol()
         {
-            var plains = _exchange.GetPlainObjectType();
+            var plains = Exchange.GetPlainObjectType();
 
             string requiredSymbolName = "ProcessData.vString";
             Type requiredSymbolType = typeof(string);
@@ -109,7 +97,7 @@
 
             c.AddPredicates(plainSymbolBuilder.RootType, lambda);
 
-            var records = _exchange.GetRecords(c, 100, 0);
+            var records = Exchange.GetRecords(c, 100, 0);
 
             Assert.Equal(1, records.Count());
         }
@@ -117,7 +105,7 @@
         [Fact]
         public void should_build_lambda_from_query_symbol_with_range()
         {
-            var plains = _exchange.GetPlainObjectType();
+            var plains = Exchange.GetPlainObjectType();
 
             string requiredSymbolName = "ProcessData.vInt";
             Type requiredSymbolType = typeof(Int16);
@@ -153,7 +141,7 @@
 
             c.AddPredicates(plainSymbolBuilder.RootType, lambda);
 
-            var records = _exchange.GetRecords(c, 100, 0);
+            var records = Exchange.GetRecords(c, 100, 0);
 
             Assert.Equal(4, records.Count());
         }
@@ -161,7 +149,7 @@
         [Fact]
         public void should_build_lambda_from_query_symbol()
         {
-            var plainBuilders = _exchange.GetPlainObjectType().Select(p => new PlainSymbolBuilder(p)).ToList();
+            var plainBuilders = Exchange.GetPlainObjectType().Select(p => new PlainSymbolBuilder(p)).ToList();
 
             var plainTypeHeaderName = plainBuilders.First().RootTypeName;
 
@@ -188,7 +176,7 @@
 
             var pc = new PredicateContainer().AddQuerySymbolToPredicates(plainBuilders, config);
 
-            var records = _exchange.GetRecords(pc, 100, 0);
+            var records = Exchange.GetRecords(pc, 100, 0);
 
             Assert.Equal(1, records.Count());
         }
@@ -196,7 +184,7 @@
         [Fact]
         public void should_build_create_query_symbol()
         {
-            var plainBuilders = _exchange.GetPlainObjectType().Select(p => new PlainSymbolBuilder(p)).ToList();
+            var plainBuilders = Exchange.GetPlainObjectType().Select(p => new PlainSymbolBuilder(p)).ToList();
 
             var plainTypeHeaderName = plainBuilders.First().RootTypeName;
 
@@ -220,7 +208,7 @@
 
             var pc = new PredicateContainer().AddQuerySymbolToPredicates(plainBuilders, config);
 
-            var records = _exchange.GetRecords(pc, 100, 0);
+            var records = Exchange.GetRecords(pc, 100, 0);
 
             Assert.Equal(1, records.Count());
         }
@@ -228,7 +216,7 @@
         [Fact]
         public void should_build_filter_and_sort_accesing()
         {
-            var plains = _exchange.GetPlainObjectType();
+            var plains = Exchange.GetPlainObjectType();
 
             var plainBuilders = plains.Select(p => new PlainSymbolBuilder(p)).ToList();
 
@@ -247,7 +235,7 @@
 
             pc.AddSortMember(sortSettings, plains.First());
 
-            var records = _exchange.GetRecords(pc, 100, 0).ToList();
+            var records = Exchange.GetRecords(pc, 100, 0).ToList();
 
             Assert.Equal(10, records.Count());
 
@@ -266,7 +254,7 @@
         [Fact]
         public void should_build_filter_and_sort_descesing()
         {
-            var plains = _exchange.GetPlainObjectType();
+            var plains = Exchange.GetPlainObjectType();
 
             var plainBuilders = plains.Select(p => new PlainSymbolBuilder(p)).ToList();
 
@@ -285,7 +273,7 @@
 
             pc.AddSortMember(sortSettings, plains.First());
 
-            var records = _exchange.GetRecords(pc, 100, 0).ToList();
+            var records = Exchange.GetRecords(pc, 100, 0).ToList();
 
             Assert.Equal(10, records.Count());
 
@@ -304,7 +292,7 @@
         [Fact]
         public void should_build_filter_and_sort_from_sortsymbolConfiguraion()
         {
-            var plains = _exchange.GetPlainObjectType();
+            var plains = Exchange.GetPlainObjectType();
 
             var plainBuilders = plains.Select(p => new PlainSymbolBuilder(p)).ToList();
 
@@ -325,7 +313,7 @@
 
             pc.AddSortSymbolToPredicates(plainBuilders, sortSymbol);
 
-            var records = _exchange.GetRecords(pc, 100, 0).ToList();
+            var records = Exchange.GetRecords(pc, 100, 0).ToList();
 
             Assert.Equal(10, records.Count());
 
@@ -340,6 +328,5 @@
             Assert.Equal("1", records[8].DataEntityId);
             Assert.Equal("0", records[9].DataEntityId);
         }
-        
     }
 }

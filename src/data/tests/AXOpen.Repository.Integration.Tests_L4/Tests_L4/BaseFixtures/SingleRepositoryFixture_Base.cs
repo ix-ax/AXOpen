@@ -6,13 +6,13 @@ namespace Tests_L4
 {
     using Pocos.Exchange_Test_L4;
 
-    public class BaseFixture_Simple : IDisposable
+    public class SingleRepositoryFixture_Base : IDisposable
     {
-        internal IRepository<ProcessData> _repository;
+        public IRepository<ProcessData> Repository;
 
-        public BaseFixture_Simple()
+        public SingleRepositoryFixture_Base()
         {
-            if (_repository != null)
+            if (Repository != null)
             {
                 InitializeData();
             }
@@ -26,7 +26,7 @@ namespace Tests_L4
 
                 this.FillUpData(item, i);
 
-                _repository.Create(item.DataEntityId, item);
+                Repository.Create(item.DataEntityId, item);
             }
         }
 

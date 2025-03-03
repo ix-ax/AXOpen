@@ -9,38 +9,25 @@
     using AXOpen.Data.Query;
     using AXOpen.Base.Data.Query;
 
-    [Collection("DatabaseTests")]
-    public class OnlinerFragmentDataExchange_MongoTests : IClassFixture<MultipleRepository_MongoFixture>
+    public abstract class OnlinerFragmentDataExchangeTests_Base
     {
-        private readonly MultipleRepository_MongoFixture _fixture;
-        private FragmentExchange_Test_L4.FragmentProcessDataManager _FramgentManager;
+        protected FragmentRepositoryFixture_Base Fixture { get; set; }
 
-        private IAxoDataExchange _exchange;
+        protected FragmentExchange_Test_L4.FragmentProcessDataManager FramgentManager
+        { get; set; }
 
-        public OnlinerFragmentDataExchange_MongoTests(MultipleRepository_MongoFixture fixture)
-        {
-            _fixture = fixture;
-
-            _FramgentManager = axopen_integration_tests_l4.Entry.Plc.FragmentsExchangeContext_Test_L4.DataManager;
-
-            _FramgentManager.CreateDataFragments<FragmentExchange_Test_L4.FragmentProcessDataManager>();
-
-            _FramgentManager.Header.SetRepository(_fixture._headerRepository);
-            _FramgentManager.St1.SetRepository(_fixture._stationRepository);
-
-            _exchange = _FramgentManager;
-        }
+        protected IAxoDataExchange Exchange { get; set; }
 
         [Fact]
         public void ContainsInitialRecords()
         {
-            Assert.Equal(10, _exchange.GetRecords("").Count());
+            Assert.Equal(10, Exchange.GetRecords("").Count());
         }
 
         [Fact]
         public void ContainsInitialRecords_fragmentQuery()
         {
-            Assert.Equal(10, _exchange.Repository.FilteredCount(new PredicateContainer()));
+            Assert.Equal(10, Exchange.Repository.FilteredCount(new PredicateContainer()));
         }
 
         [Fact]
@@ -54,13 +41,12 @@
             var headerProdicates = pc.GetPredicates<HeaderData>();
             var stationProdicates = pc.GetPredicates<StationData>();
 
-            IEnumerable<string> resultHeader = _fixture._headerRepository.GetEntityIds(pc);
-            IEnumerable<string> resultStation = _fixture._stationRepository.GetEntityIds(pc);
+            IEnumerable<string> resultHeader = Fixture.RepositoryHeader.GetEntityIds(pc);
+            IEnumerable<string> resultStation = Fixture.RepositoryStation.GetEntityIds(pc);
 
-            var result = _exchange.GetRecords(pc, 1000, 0).ToList();
+            var result = Exchange.GetRecords(pc, 1000, 0).ToList();
 
             Assert.Equal(2, result.Count());
-
 
             Assert.Equal("7", result[0].DataEntityId);
             Assert.Equal("6", result[1].DataEntityId);
@@ -75,7 +61,7 @@
             pc.AddPredicates<HeaderData>(p => (p.vInt == 4));
             pc.AddPredicates<StationData>(p => (p.vInt == 4));
 
-            var result = _exchange.GetRecords(pc, 1000, 0).ToList();
+            var result = Exchange.GetRecords(pc, 1000, 0).ToList();
 
             Assert.Equal(1, result.Count());
 
@@ -90,16 +76,16 @@
             pc.AddPredicates<HeaderData>(p => (p.vString.Contains("odd")));
             pc.AddPredicates<StationData>(p => (p.vInt >= 4) && (p.vInt <= 8));
 
-            var result = _exchange.GetRecords(pc,100, 0).ToList();
+            var result = Exchange.GetRecords(pc, 100, 0).ToList();
 
             Assert.Equal(3, result.Count);
-            Assert.Equal(3, _exchange.LastFragmentQueryCount);
+            Assert.Equal(3, Exchange.LastFragmentQueryCount);
         }
 
         [Fact]
         public void should_create_symbol_list()
         {
-            var plains = _exchange.GetPlainObjectType();
+            var plains = Exchange.GetPlainObjectType();
 
             var plainBuilder_Header = new PlainSymbolBuilder(plains.First());
             var plainBuilder_Station = new PlainSymbolBuilder(plains.Last());
@@ -137,7 +123,7 @@
         [Fact]
         public void should_build_lambda_from_symbol()
         {
-            var plains = _exchange.GetPlainObjectType();
+            var plains = Exchange.GetPlainObjectType();
 
             Type plainTypeHeader = plains.First();
             Type plainTypeStation = plains.Last();
@@ -180,7 +166,7 @@
             pc.AddPredicates(plainSymbolBuilder_header.RootType, lambdaHeader);
             pc.AddPredicates(plainSymbolBuilder_station.RootType, lambdaStation);
 
-            var records = _exchange.GetRecords(pc, 100, 0);
+            var records = Exchange.GetRecords(pc, 100, 0);
 
             Assert.Equal(1, records.Count());
         }

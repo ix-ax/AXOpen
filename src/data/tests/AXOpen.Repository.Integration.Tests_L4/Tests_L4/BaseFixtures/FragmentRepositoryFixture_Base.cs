@@ -1,18 +1,16 @@
-﻿using AXOpen.Base.Data;
-using AXOpen.Data.MongoDb;
-using MongoDB.Driver;
-using Pocos.FragmentExchange_Test_L4;
-
-namespace Tests_L4
+﻿namespace Tests_L4
 {
-    public class BaseFixture_Fragment : IDisposable
-    {
-        internal IRepository<HeaderData> _headerRepository;
-        internal IRepository<StationData> _stationRepository;
+    using AXOpen.Base.Data;
+    using Pocos.FragmentExchange_Test_L4;
 
-        public BaseFixture_Fragment()
+    public class FragmentRepositoryFixture_Base : IDisposable
+    {
+        internal IRepository<HeaderData> RepositoryHeader;
+        internal IRepository<StationData> RepositoryStation;
+
+        public FragmentRepositoryFixture_Base()
         {
-            if (_headerRepository != null && _stationRepository != null)
+            if (RepositoryHeader != null && RepositoryStation != null)
             {
                 InitializeData();
             }
@@ -24,11 +22,11 @@ namespace Tests_L4
             {
                 var h = new HeaderData();
                 FillUpData(h, i);
-                _headerRepository.Create(h.DataEntityId, h);
+                RepositoryHeader.Create(h.DataEntityId, h);
 
                 var station = new StationData();
                 FillUpData(station, i);
-                _stationRepository.Create(station.DataEntityId, station);
+                RepositoryStation.Create(station.DataEntityId, station);
             }
         }
 
