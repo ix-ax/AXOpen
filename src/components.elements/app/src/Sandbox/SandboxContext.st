@@ -34,9 +34,9 @@ NAMESPACE AXOpen.Elements
         METHOD PUBLIC Main
             VAR_INPUT
                 parent : IAxoContext;
-            end_var
+            END_VAR
 
-            THIS.Initialize(parent);
+            THIS.InitializeWithContext(parent);
 
             IF(_manualControl) THEN
                 _testDi.ActivateManualControl();

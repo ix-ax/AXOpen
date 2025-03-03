@@ -1,3 +1,4 @@
+USING AXOpen.Core;
 USING Siemens.Simatic.S71500.Clocks;
 USING System.Strings;
 USING System.BitAccess;
@@ -8,8 +9,9 @@ NAMESPACE AXOpen.Components.Balluff.Identification
     {S7.extern=ReadWrite}
     CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
-            _manualControl : BOOL;
-            _testReader : AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045;          
+            _manualControl  :   BOOL;
+            _rootObject     :   AxoObject;
+            _testReader     :   AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045;          
 
         END_VAR
 
@@ -18,7 +20,8 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                 i:int;
             END_VAR;
 
-            _testReader.Run(    parent := THIS,
+            _rootObject.InitializeWithContext(THIS);
+            _testReader.Run(    parent := _rootObject,
                                 hwID            := HwIdentifiers#BNIPNT507005Z040_HwID,
                                 hwId_BISM       := HwIdentifiers#BNIPNT507005Z040_BIS_M_4XX_045_1_BIS_M_4XX_045_HwID);
 

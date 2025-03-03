@@ -1,3 +1,4 @@
+USING AXOpen.Core;
 using AXOpen.Data;
 
 NAMESPACE AxoDataExamplesDocu
@@ -33,10 +34,12 @@ NAMESPACE AxoDataExamplesDocu
     CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             DataManager : AxoProcessDataManager;
+            _rootObject :   AxoObject;
         END_VAR
         
         METHOD OVERRIDE Main 
-            DataManager.Run(THIS);
+            _rootObject.InitializeWithContext(THIS);
+            DataManager.Run(_rootObject);
         END_METHOD          
     END_CLASS
     //</ContextDeclaration>

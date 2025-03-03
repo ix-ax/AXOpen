@@ -20,7 +20,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 parent : IAxoContext;
             END_VAR    
 
-            THIS.Initialize(parent);
+            THIS.InitializeWithContext(parent);
 
             IF(manualControl) THEN            
                 AxoOmnicore_v_1_x_x.ActivateManualControl();

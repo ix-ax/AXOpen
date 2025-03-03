@@ -18,7 +18,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
             parent : IAxoContext;
         END_VAR    
 
-        THIS.Initialize(parent);
+        THIS.InitializeWithContext(parent);
 
         //<Initialization>        
         ExampleComponent.Run(THIS, _hwID);        

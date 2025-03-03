@@ -8,7 +8,7 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
     CLASS AxoDigitalInspectorTests
         VAR PROTECTED
             _context : TestContext;
-            _digitalInspector    : AxoDigitalInspector;
+            _digitalInspector    : AxoInspector;
             _digitalInspectorData    : AxoDigitalInspectorData;
             _inspectedBool : BOOL;
             _sequencer  : AxoSequencer;
@@ -26,7 +26,7 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
         
         VAR
             _contextBlank : TestContext;
-            _digitalInspectorBlank    : AxoDigitalInspector;            
+            _digitalInspectorBlank    : AxoInspector;            
             _sequencerBlank  : AxoSequencer;                                                
         END_VAR  
 

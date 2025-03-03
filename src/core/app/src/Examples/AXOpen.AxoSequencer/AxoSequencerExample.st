@@ -36,17 +36,17 @@ NAMESPACE AxoSequencerExamples
         END_VAR
 
         METHOD PROTECTED OVERRIDE Main    
-            step_1.Initialize(THIS);
-            step_2.Initialize(THIS);
-            step_3.Initialize(THIS);
-            step_4.Initialize(THIS);
-            step_5.Initialize(THIS);
-            step_6.Initialize(THIS);
-            step_7.Initialize(THIS);
-            step_8.Initialize(THIS);
-            step_9.Initialize(THIS);
-            step_10.Initialize(THIS);
-            coord.Initialize(THIS);
+            step_1.InitializeWithContext(THIS);
+            step_2.InitializeWithContext(THIS);
+            step_3.InitializeWithContext(THIS);
+            step_4.InitializeWithContext(THIS);
+            step_5.InitializeWithContext(THIS);
+            step_6.InitializeWithContext(THIS);
+            step_7.InitializeWithContext(THIS);
+            step_8.InitializeWithContext(THIS);
+            step_9.InitializeWithContext(THIS);
+            step_10.InitializeWithContext(THIS);
+            coord.InitializeWithContext(THIS);
 
             IF coord.Open() THEN
             

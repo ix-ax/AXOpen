@@ -16,6 +16,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             EnableNegative   : BOOL := TRUE; 
             {#ix-attr:[Container(Layout.Stack)]}
             IndraDrive  : AXOpen.Components.Rexroth.Drives.AxoIndraDrive;
+            _rootObject :   AxoObject;
         END_VAR
         
         VAR PUBLIC    
@@ -38,12 +39,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
         METHOD PROTECTED OVERRIDE Main  
             RETURN;
-
+            _rootObject.InitializeWithContext(THIS);
             IF(_manualControl) THEN            
                 IndraDrive.ActivateManualControl();
             END_IF;   
 
-            IndraDrive.Run(parent               :=  THIS,
+            IndraDrive.Run(parent               :=  _rootObject,
                             hwID                :=  HwIdentifiers#ST3_indradrive_HwID,
                             hwIdParamCh_IDN     :=  HwIdentifiers#ST3_indradrive_ParamCh_5Words_ID_PaCh_5Words_HwID,
                             hwIdInput_9_Words   :=  HwIdentifiers#ST3_indradrive_Input_9_Words_ID_InMod_9Words_HwID,
@@ -57,7 +58,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         
         METHOD PRIVATE UseInSequencer   
 
-            Sequencer.Initialize(THIS);
+            Sequencer.InitializeWithContext(THIS);
             Sequencer.Open();
             Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
         

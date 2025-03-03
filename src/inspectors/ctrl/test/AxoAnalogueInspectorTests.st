@@ -8,7 +8,7 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
     CLASS AxoAnalogueInspectorTests
         VAR PROTECTED
             _context : TestContext;
-            _analogueInspector    : AxoAnalogueInspector;
+            _analogueInspector    : AxoInspector;
             _analogueInspectorData    : AxoAnalogueInspectorData;
             _inspectedInt : DINT;
             _sequencer  : AxoSequencer;
@@ -22,7 +22,7 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
 
         VAR
             _contextBlank : TestContext;
-            _analogueInspectorBlank    : AxoAnalogueInspector;            
+            _analogueInspectorBlank    : AxoInspector;            
             _sequencerBlank  : AxoSequencer;                                                
         END_VAR    
 

@@ -13,12 +13,12 @@ NAMESPACE AxoMomentaryTaskExamples
         METHOD PUBLIC Initialize
             // Initialization of the context needs to be called first
             // It does not need to be called cyclically, just once
-            _myMomentaryTask.Initialize(THIS);
+            _myMomentaryTask.InitializeWithContext(THIS);
         END_METHOD
 
         METHOD PROTECTED OVERRIDE Main
             // Cyclicall call of the Run method
-            _myMomentaryTask.Initialize(THIS);
+            _myMomentaryTask.InitializeWithContext(THIS);
             _myMomentaryTask.Run();
         END_METHOD
 

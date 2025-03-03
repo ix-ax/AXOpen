@@ -64,7 +64,6 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 inCount : LINT;
             END_VAR
-
             ;
         END_METHOD
     

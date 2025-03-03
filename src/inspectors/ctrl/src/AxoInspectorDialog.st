@@ -2,6 +2,10 @@ USING AXOpen.Core;
 
 NAMESPACE AXOpen.Inspectors
 
+    TYPE PUBLIC
+        eInspectorType : (Digital, Analogue, Data) := Digital;
+    END_TYPE
+
     ///<summary>
     /// AxoInspector base class with implemented evaluation methods
     /// Evaluation methods need IAxoCoordinator instance
@@ -15,6 +19,14 @@ NAMESPACE AXOpen.Inspectors
             _dialogueTerminate : BOOL;	
             _dialogueOverride : BOOL;
             _inspectorIndentity : ULINT; //try display inspector inside dialog.
+            _inspectionDetails : STRING[254];
+            _inspectorType : eInspectorType;
+            {#ix-set:AttributeName = "<#Data#>"}             
+            _analogInspectorData : AxoAnalogueInspectorData;       
+            {#ix-set:AttributeName = "<#Data#>"} 
+            _digitalInspectorData : AxoDigitalInspectorData;       
+            {#ix-set:AttributeName = "<#Data#>"} 
+            _dataInspectorData : AxoDataInspectorData;                                                       
         END_VAR
 
         VAR PRIVATE
@@ -28,7 +40,7 @@ NAMESPACE AXOpen.Inspectors
             _isAnswerProvided : BOOL;
         END_VAR
 
-     
+            
         ///<summary>
         /// Method for showing inspector dialog and handling interaction
         ///</summary>

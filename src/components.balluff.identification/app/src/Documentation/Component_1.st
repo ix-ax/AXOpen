@@ -21,7 +21,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                 parent : IAxoContext;
             END_VAR    
 
-            THIS.Initialize(parent);
+            THIS.InitializeWithContext(parent);
 
             IF ActivateManualControl THEN
                 ExampleReader.ActivateManualControl();

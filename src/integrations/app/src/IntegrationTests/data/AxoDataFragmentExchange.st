@@ -12,24 +12,26 @@ NAMESPACE IntegrationAxoDataFramentsExchange
             ReadTest : DataReadTest;
             UpdateTest : DataUpdateTest;
             DeleteTest : DataDeleteTest;
+            _rootObject :   AxoObject;
         END_VAR
         
         
         METHOD PROTECTED OVERRIDE Main
+            _rootObject.InitializeWithContext(THIS);
 
-            PD.Run(THIS); 
+            PD.Run(_rootObject); 
 
             CreateTest.InjectManger(PD);
-            CreateTest.Run(THIS);
+            CreateTest.Run(_rootObject);
 
             ReadTest.InjectManger(PD);
-            ReadTest.Run(THIS);
+            ReadTest.Run(_rootObject);
 
             DeleteTest.InjectManger(PD);
-            DeleteTest.Run(THIS);
+            DeleteTest.Run(_rootObject);
 
             UpdateTest.InjectManger(PD);
-            UpdateTest.Run(THIS);           
+            UpdateTest.Run(_rootObject);           
         END_METHOD
 
     END_CLASS
