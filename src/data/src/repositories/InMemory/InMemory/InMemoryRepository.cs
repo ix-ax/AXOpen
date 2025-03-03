@@ -39,6 +39,7 @@ namespace AXOpen.Data.InMemory
         {
             get { return this._repository; }
         }
+        public override long LastFragmentQueryCount { get; protected set; }
 
         protected override void CreateNvi(string identifier, T data)
         {
@@ -140,37 +141,6 @@ namespace AXOpen.Data.InMemory
             return enumerable.Skip(skip).Take(limit).Select(x => x.Value);
         }
 
-        //protected override IEnumerable<T> GetRecordsNvi(IEnumerable<Expression<Func<T, bool>>> predicates, int limit = 100, int skip = 0, string sortExpresion = "Default", bool sortAscending = false)
-        //{
-        //    // 1. Get all records.
-        //    IEnumerable<T> records = Records.Values.ToList();
-
-        //    // 2. Apply filtering predicates.
-        //    if (predicates != null && predicates.Any())
-        //    {
-        //        foreach (var predicate in predicates)
-        //        {
-        //            // Optionally, adjust predicate behavior based on searchMode here.
-        //            records = records.Where(record => predicate(record));
-        //        }
-        //    }
-
-        //    if (sortExpresion == null || string.IsNullOrWhiteSpace(sortExpresion) || sortExpresion.Equals("Default"))
-        //    {
-        //        if (!sortAscending)
-        //            records = records.Reverse();
-        //    }
-        //    else
-        //    {
-        //        if (sortAscending)
-        //            records = records.OrderBy(x => PropertyHelper.GetPropertyValue(x, sortExpresion));
-        //        else
-        //            records = records.OrderByDescending(x => PropertyHelper.GetPropertyValue(x, sortExpresion));
-        //    }
-
-        //    return records.Skip(skip).Take(limit);
-        //}
-
         protected override long FilteredCountNvi(string id, eSearchMode searchMode)
         {
             if (string.IsNullOrEmpty(id) || string.IsNullOrWhiteSpace(id) || id == "*")
@@ -199,29 +169,63 @@ namespace AXOpen.Data.InMemory
             return this.Records.Any(p => p.Key == identifier);
         }
 
-        protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates, int limit, int skip)
-        {
-            throw new NotImplementedException();
-        }
+        public override IQueryable<T> Queryable
+        { get { return this._repository.AsQueryable().Select(p => p.Value); } }
+
 
         protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids)
         {
-            throw new NotImplementedException();
+            if (ids == null || !ids.Any())
+                return Enumerable.Empty<T>();
+
+            return _repository.Where(p => ids.Contains(p.Key)).Select(p => p.Value);
         }
+        protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates, int limit, int skip)
+        {
+            var query = _repository.Values.AsQueryable();
+
+            if (predicates != null && predicates.ContainsType<T>())
+            {
+                foreach (var predicate in predicates.GetPredicates<T>())
+                {
+                    query = query.Where(predicate);
+                }
+            }
+
+            return query.Skip(skip).Take(limit).ToList();
+        }
+
 
         protected override long FilteredCountNvi(PredicateContainer predicates)
         {
-            throw new NotImplementedException();
+            var query = _repository.Values.AsQueryable();
+
+            if (predicates != null && predicates.ContainsType<T>())
+            {
+                foreach (var predicate in predicates.GetPredicates<T>())
+                {
+                    query = query.Where(predicate);
+                }
+            }
+
+            return query.LongCount();
         }
 
         protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates)
         {
-            throw new NotImplementedException();
+            var query = _repository.AsQueryable();
+
+            if (predicates != null && predicates.ContainsType<T>())
+            {
+                foreach (var predicate in predicates.GetPredicates<T>())
+                {
+                    query = query.Where(p => predicate.Compile().Invoke(p.Value));
+                }
+            }
+
+            return query.Select(p => p.Key).ToList();
         }
 
-        public override IQueryable<T> Queryable
-        { get { return this._repository.AsQueryable().Select(p => p.Value); } }
 
-        public override long LastFragmentQueryCount { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
     }
 }

@@ -23,6 +23,7 @@ namespace AXOpen.Data.RavenDb
         where T : IBrowsableDataObject
     {
         private readonly IDocumentStore _store;
+        public override long LastFragmentQueryCount { get; protected set; }
 
         protected void EnsureDatabaseExists(IDocumentStore store, string database = null, bool createDatabaseIfNotExists = true)
         {
@@ -179,7 +180,6 @@ namespace AXOpen.Data.RavenDb
             }
         }
 
-        
         protected override long FilteredCountNvi(string identifier, eSearchMode searchMode)
         {
             if (identifier == "*")
@@ -221,27 +221,6 @@ namespace AXOpen.Data.RavenDb
             }
         }
 
-        protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates, int limit, int skip)
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        protected override long FilteredCountNvi(PredicateContainer predicates)
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates)
-        {
-            throw new NotImplementedException();
-        }
-
         public override IQueryable<T> Queryable
         {
             get
@@ -253,6 +232,91 @@ namespace AXOpen.Data.RavenDb
             }
         }
 
-        public override long LastFragmentQueryCount { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
+        protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates, int limit, int skip)
+        {
+            using (var session = _store.OpenSession())
+            {
+                IQueryable<T> query = session.Query<T>();
+
+                if (predicates != null && predicates.ContainsType<T>())
+                {
+                    foreach (var predicate in predicates.GetPredicates<T>())
+                    {
+                        query = query.Where(predicate);
+                    }
+                }
+
+                var sortingList = predicates?.GetSorting<T>();
+                if (sortingList != null && sortingList.Any())
+                {
+                    IOrderedQueryable<T> orderedQuery = null;
+                    foreach (var sort in sortingList)
+                    {
+                        if (orderedQuery == null)
+                        {
+                            orderedQuery = sort.IsAscending
+                                ? query.OrderBy(x => PropertyHelper.GetPropertyValue(x, sort.MemberName))
+                                : query.OrderByDescending(x => PropertyHelper.GetPropertyValue(x, sort.MemberName));
+                        }
+                        else
+                        {
+                            orderedQuery = sort.IsAscending
+                                ? orderedQuery.ThenBy(x => PropertyHelper.GetPropertyValue(x, sort.MemberName))
+                                : orderedQuery.ThenByDescending(x => PropertyHelper.GetPropertyValue(x, sort.MemberName));
+                        }
+                    }
+                    query = orderedQuery ?? query;
+                }
+
+                return query.Skip(skip).Take(limit).ToList();
+            }
+        }
+
+        protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids)
+        {
+            if (ids == null || !ids.Any())
+                return Enumerable.Empty<T>();
+
+            using (var session = _store.OpenSession())
+            {
+                return session.Load<T>(ids).Values.Where(entity => entity != null);
+            }
+        }
+
+        protected override long FilteredCountNvi(PredicateContainer predicates)
+        {
+            using (var session = _store.OpenSession())
+            {
+                IQueryable<T> query = session.Query<T>();
+
+                if (predicates != null && predicates.ContainsType<T>())
+                {
+                    foreach (var predicate in predicates.GetPredicates<T>())
+                    {
+                        query = query.Where(predicate);
+                    }
+                }
+;
+                return Raven.Client.Documents.LinqExtensions.LongCount(query);
+            }
+        }
+
+        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates)
+        {
+            using (var session = _store.OpenSession())
+            {
+                IQueryable<T> query = session.Query<T>();
+
+                if (predicates != null && predicates.ContainsType<T>())
+                {
+                    foreach (var predicate in predicates.GetPredicates<T>())
+                    {
+                        query = query.Where(predicate);
+                    }
+                }
+
+                return query.Select(x => x.DataEntityId).ToList();
+            }
+        }
     }
 }

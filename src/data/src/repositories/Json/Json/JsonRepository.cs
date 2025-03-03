@@ -47,6 +47,7 @@ namespace AXOpen.Data.Json
         /// Get the location (directory) where the entries of this repository are placed.
         /// </summary>
         public string Location { get; private set; }
+        public override long LastFragmentQueryCount { get; protected set; }
 
         protected override void CreateNvi(string identifier, T data)
         {
@@ -154,49 +155,6 @@ namespace AXOpen.Data.Json
 
             return enumerable.Skip(skip).Take(limit).Select(x => this.Load(new FileInfo(x).Name, typeof(T)));
         }
-
-        //protected override IEnumerable<T> GetRecordsNvi(
-        //        IEnumerable<Expression<Func<T, bool>>> predicates,
-        //        int limit = 100,
-        //        int skip = 0,
-        //        string sortExpresion = "Default",
-        //        bool sortAscending = false)
-        //{
-        //    var filePaths = Directory.EnumerateFiles(this.Location);
-
-        //    var records = filePaths.Select(file =>
-        //    {
-        //        var fileName = new FileInfo(file).Name;
-        //        return (T)this.Load(fileName, typeof(T));
-        //    });
-
-        //    if (predicates != null && predicates.Any())
-        //    {
-        //        foreach (var predicate in predicates)
-        //        {
-        //            records = records.Where(predicate);
-        //        }
-        //    }
-
-        //    if (string.IsNullOrWhiteSpace(sortExpresion) || sortExpresion.Equals("Default", StringComparison.OrdinalIgnoreCase))
-        //    {
-        //        if (!sortAscending)
-        //        {
-        //            records = records.Reverse();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        // Use the sort expression to order the records by a given property.
-        //        // PropertyHelper.GetPropertyValue is assumed to use reflection to get the property value.
-        //        records = sortAscending
-        //            ? records.OrderBy(x => PropertyHelper.GetPropertyValue(x, sortExpresion))
-        //            : records.OrderByDescending(x => PropertyHelper.GetPropertyValue(x, sortExpresion));
-        //    }
-
-        //    return records.Skip(skip).Take(limit);
-        //}
-
         protected override long FilteredCountNvi(string id, eSearchMode searchMode)
         {
             if (string.IsNullOrEmpty(id) || string.IsNullOrWhiteSpace(id) || id == "*")
@@ -264,32 +222,70 @@ namespace AXOpen.Data.Json
         {
             return RecordExists(identifier);
         }
-
+        public override IQueryable<T> Queryable
+        {
+            get { return this.GetRecords("*", int.MaxValue, 0, eSearchMode.Exact).AsQueryable(); }
+        }
         protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates, int limit, int skip)
         {
-            throw new NotImplementedException();
+            var query = Directory.EnumerateFiles(Location)
+                                 .Select(file => Load(new FileInfo(file).Name, typeof(T)))
+                                 .AsQueryable();
+
+            if (predicates != null && predicates.ContainsType<T>())
+            {
+                foreach (var predicate in predicates.GetPredicates<T>())
+                {
+                    query = query.Where(predicate);
+                }
+            }
+
+            return query.Skip(skip).Take(limit).ToList();
         }
 
         protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids)
         {
-            throw new NotImplementedException();
-        }
+            if (ids == null || !ids.Any())
+                return Enumerable.Empty<T>();
 
-        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates)
-        {
-            throw new NotImplementedException();
+            return ids.Where(RecordExists).Select(id => Load(id, typeof(T)));
         }
 
         protected override long FilteredCountNvi(PredicateContainer predicates)
         {
-            throw new NotImplementedException();
+            var query = Directory.EnumerateFiles(Location)
+                                 .Select(file => Load(new FileInfo(file).Name, typeof(T)))
+                                 .AsQueryable();
+
+            if (predicates != null && predicates.ContainsType<T>())
+            {
+                foreach (var predicate in predicates.GetPredicates<T>())
+                {
+                    query = query.Where(predicate);
+                }
+            }
+
+            return query.LongCount();
         }
 
-        public override IQueryable<T> Queryable
+        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates)
         {
-            get { return this.GetRecords("*",int.MaxValue,0,eSearchMode.Exact).AsQueryable(); }
+            var query = Directory.EnumerateFiles(Location)
+                                 .Select(file => new FileInfo(file).Name);
+
+            if (predicates != null && predicates.ContainsType<T>())
+            {
+                var records = query.Select(id => new { Id = id, Data = Load(id, typeof(T)) }).ToList();
+                foreach (var predicate in predicates.GetPredicates<T>())
+                {
+                    records = records.Where(record => predicate.Compile().Invoke(record.Data)).ToList();
+                }
+                return records.Select(record => record.Id);
+            }
+
+            return query;
         }
 
-        public override long LastFragmentQueryCount { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
+
     }
 }
