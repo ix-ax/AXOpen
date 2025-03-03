@@ -14,7 +14,6 @@ namespace AXOpen.Data.Query
 {
     public class SymbolConfiguration
     {
-
         [JsonConstructor]
         public SymbolConfiguration(string symbolPathWithParent, string symbolTypeFullName)
         {

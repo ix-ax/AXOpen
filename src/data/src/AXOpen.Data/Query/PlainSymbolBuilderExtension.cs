@@ -33,6 +33,5 @@ namespace AXOpen.Data.Query
 
             return new SortSymbolConfiguration(symbol, t.FullName, false);
         }
-
     }
 }

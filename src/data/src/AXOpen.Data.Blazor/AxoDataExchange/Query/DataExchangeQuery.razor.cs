@@ -2,8 +2,13 @@
 using AXOpen.Base.Data.Query;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+using System.Collections.Generic;
 using System.Diagnostics.Metrics;
+using System.IO.Enumeration;
 using System.Linq.Expressions;
+using System.Security.Cryptography;
+using System.Security.Policy;
+using System.Text;
 using System.Text.Json;
 
 namespace AXOpen.Data.Query
@@ -21,6 +26,9 @@ namespace AXOpen.Data.Query
 
         public bool SymbolsWasInitialize { get; set; }
 
+        public QuerySortHistory History { get; set; } = new();
+        public QuerySortConfiguration CurrentQuery { get; set; } = new();
+
         protected override void OnInitialized()
         {
             exchange = (IAxoDataExchange)Vm.Model;
@@ -33,7 +41,7 @@ namespace AXOpen.Data.Query
 
             await InitializeSymbols();
 
-            await LoadData();
+            await LoadQueryHistoryData();
         }
 
         protected Task InitializeSymbols()
@@ -52,7 +60,6 @@ namespace AXOpen.Data.Query
 
                     PlainBuilders.Add(plainPathContainer);
 
-
                     if (addExternalPredicates)
                     {
                         var extQueries = Vm.InjectedPredicateContainer.GetPredicates(rootType);
@@ -61,7 +68,6 @@ namespace AXOpen.Data.Query
                         {
                             foreach (var query in extQueries)
                             {
-
                                 this.InjectedQueries.Add($"{rootType.Name}: {query.ToString()}");
                             }
                         }
@@ -75,7 +81,6 @@ namespace AXOpen.Data.Query
                             }
                         }
                     }
-
                 }
                 SymbolsWasInitialize = true;
             });
@@ -132,7 +137,16 @@ namespace AXOpen.Data.Query
                 if (string.IsNullOrEmpty(_StorageKey))
                 {
                     _StorageKey = string.Empty;
-                    _StorageKey = string.Join("-", Vm.DataExchange.GetPlainObjectType().Select(t => t.FullName));
+
+                    var joinName = string.Join("-", Vm.DataExchange.GetPlainObjectType().Select(t => t.FullName));
+
+                    using (SHA1 sha1 = SHA1.Create()) // Use SHA-1 instead of SHA-256
+                    {
+                        byte[] bytes = Encoding.UTF8.GetBytes(joinName);
+                        byte[] hashBytes = sha1.ComputeHash(bytes);
+
+                        return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+                    }
                 }
 
                 return _StorageKey;
@@ -155,9 +169,6 @@ namespace AXOpen.Data.Query
 
         public List<string> InjectedQueries { private set; get; } = new();
         public List<string> InjectedSorting { private set; get; } = new();
-
-        public List<QuerySymbolConfiguration> Queries { private set; get; } = new();
-        public List<SortSymbolConfiguration> Sorting { private set; get; } = new();
 
         private async Task SetLimitAsync(int limit)
         {
@@ -208,7 +219,7 @@ namespace AXOpen.Data.Query
 
         public Task<bool> AddSymbolToQuery(string symbol)
         {
-            this.Queries.Add(this.PlainBuilders.CreateNewQuerySymbol(symbol));
+            CurrentQuery.Queries.Add(this.PlainBuilders.CreateNewQuerySymbol(symbol));
             return Task.FromResult(true);
         }
 
@@ -216,33 +227,33 @@ namespace AXOpen.Data.Query
         {
             foreach (var s in GetDisplaySymbols())
             {
-                this.Queries.Add(this.PlainBuilders.CreateNewQuerySymbol(s));
+                CurrentQuery.Queries.Add(this.PlainBuilders.CreateNewQuerySymbol(s));
             }
             return Task.FromResult(true);
         }
 
         public Task<bool> RemoveSymbolFromQuery(Guid trakSymbolId)
         {
-            this.Queries.Remove(this.Queries.Where(p => p.TrackSymbolId == trakSymbolId).First());
+            CurrentQuery.Queries.Remove(CurrentQuery.Queries.Where(p => p.TrackSymbolId == trakSymbolId).First());
 
             return Task.FromResult(true);
         }
 
         public Task<bool> RemoveSymbolFromSorting(Guid trakSymbolId)
         {
-            this.Sorting.Remove(this.Sorting.Where(p => p.TrackSymbolId == trakSymbolId).First());
+            CurrentQuery.Sorting.Remove(CurrentQuery.Sorting.Where(p => p.TrackSymbolId == trakSymbolId).First());
 
             return Task.FromResult(true);
         }
 
         public Task<bool> MoveQuerySymbolUp(Guid trackSymbolId)
         {
-            var index = this.Queries.FindIndex(p => p.TrackSymbolId == trackSymbolId);
+            var index = CurrentQuery.Queries.FindIndex(p => p.TrackSymbolId == trackSymbolId);
             if (index > 0) // Ensure it is not already at the top
             {
-                var temp = this.Queries[index];
-                this.Queries[index] = this.Queries[index - 1];
-                this.Queries[index - 1] = temp;
+                var temp = CurrentQuery.Queries[index];
+                CurrentQuery.Queries[index] = CurrentQuery.Queries[index - 1];
+                CurrentQuery.Queries[index - 1] = temp;
                 return Task.FromResult(true);
             }
             return Task.FromResult(false); // No movement possible
@@ -250,12 +261,12 @@ namespace AXOpen.Data.Query
 
         public Task<bool> MoveQuerySymbolDown(Guid trackSymbolId)
         {
-            var index = this.Queries.FindIndex(p => p.TrackSymbolId == trackSymbolId);
-            if (index >= 0 && index < this.Queries.Count - 1) // Ensure it is not already at the bottom
+            var index = CurrentQuery.Queries.FindIndex(p => p.TrackSymbolId == trackSymbolId);
+            if (index >= 0 && index < CurrentQuery.Queries.Count - 1) // Ensure it is not already at the bottom
             {
-                var temp = this.Queries[index];
-                this.Queries[index] = this.Queries[index + 1];
-                this.Queries[index + 1] = temp;
+                var temp = CurrentQuery.Queries[index];
+                CurrentQuery.Queries[index] = CurrentQuery.Queries[index + 1];
+                CurrentQuery.Queries[index + 1] = temp;
                 return Task.FromResult(true);
             }
             return Task.FromResult(false); // No movement possible
@@ -263,12 +274,12 @@ namespace AXOpen.Data.Query
 
         public Task<bool> MoveSortingSymbolUp(Guid trackSymbolId)
         {
-            var index = this.Sorting.FindIndex(p => p.TrackSymbolId == trackSymbolId);
+            var index = CurrentQuery.Sorting.FindIndex(p => p.TrackSymbolId == trackSymbolId);
             if (index > 0) // Ensure it is not already at the top
             {
-                var temp = this.Sorting[index];
-                this.Sorting[index] = this.Sorting[index - 1];
-                this.Sorting[index - 1] = temp;
+                var temp = CurrentQuery.Sorting[index];
+                CurrentQuery.Sorting[index] = CurrentQuery.Sorting[index - 1];
+                CurrentQuery.Sorting[index - 1] = temp;
                 return Task.FromResult(true);
             }
             return Task.FromResult(false); // No movement possible
@@ -276,12 +287,12 @@ namespace AXOpen.Data.Query
 
         public Task<bool> MoveSortingSymbolDown(Guid trackSymbolId)
         {
-            var index = this.Sorting.FindIndex(p => p.TrackSymbolId == trackSymbolId);
-            if (index >= 0 && index < this.Sorting.Count - 1) // Ensure it is not already at the bottom
+            var index = CurrentQuery.Sorting.FindIndex(p => p.TrackSymbolId == trackSymbolId);
+            if (index >= 0 && index < CurrentQuery.Sorting.Count - 1) // Ensure it is not already at the bottom
             {
-                var temp = this.Sorting[index];
-                this.Sorting[index] = this.Sorting[index + 1];
-                this.Sorting[index + 1] = temp;
+                var temp = CurrentQuery.Sorting[index];
+                CurrentQuery.Sorting[index] = CurrentQuery.Sorting[index + 1];
+                CurrentQuery.Sorting[index + 1] = temp;
                 return Task.FromResult(true);
             }
             return Task.FromResult(false); // No movement possible
@@ -289,7 +300,7 @@ namespace AXOpen.Data.Query
 
         public Task<bool> AddSymbolToSorting(string symbol)
         {
-            this.Sorting.Add(this.PlainBuilders.CreateNewSortSymbol(symbol));
+            CurrentQuery.Sorting.Add(this.PlainBuilders.CreateNewSortSymbol(symbol));
             return Task.FromResult(true);
         }
 
@@ -303,12 +314,12 @@ namespace AXOpen.Data.Query
                 PredicateContainer.AddPredicatesFrom(Vm.InjectedPredicateContainer);
             }
 
-            foreach (var symbolConfig in this.Queries)
+            foreach (var symbolConfig in CurrentQuery.Queries)
             {
                 this.PredicateContainer.AddQuerySymbolToPredicates(PlainBuilders, symbolConfig);
             }
 
-            foreach (var symbolSorting in this.Sorting)
+            foreach (var symbolSorting in CurrentQuery.Sorting)
             {
                 this.PredicateContainer.AddSortSymbolToPredicates(PlainBuilders, symbolSorting);
             }
@@ -318,7 +329,7 @@ namespace AXOpen.Data.Query
             if (Vm.StateHasChangedDelegate != null)
                 Vm.StateHasChangedDelegate.Invoke();
 
-            await SaveData();
+            await UpdateQueryHistoryToStorage();
         }
 
         public Task<bool> ClearFilter()
@@ -329,12 +340,35 @@ namespace AXOpen.Data.Query
             return Task.FromResult(true);
         }
 
-        private async Task SaveData()
+        private async Task UpdateQueryHistoryToStorage()
         {
+            var updatename = "";
+
             try
             {
-                var history = new SymbolQueryConfigHistory() { Queries = Queries, Sorting = Sorting, Modified = DateTime.Now, Name = DateTime.Now.ToString() };
-                await ProtectedLocalStorage.SetAsync(this.StorageKey, history);
+                var existingConfig = await ProtectedLocalStorage.GetAsync<QuerySortHistory>(this.StorageKey);
+
+                if (existingConfig.Success)
+                {
+                    History = existingConfig.Value;
+
+                    var element = History.Items.Where(t => t.Name == CurrentQuery.Name).FirstOrDefault();
+
+                    if (element != null)
+                    {
+                        History.Items.Remove(element);
+                    }
+                }
+
+                CurrentQuery.Modified = DateTime.Now;
+
+                if (string.IsNullOrEmpty(CurrentQuery.Name))
+                    CurrentQuery.Name = CurrentQuery.Modified.ToString();
+
+                History.Items.Add(CurrentQuery);
+                History.LastSelectedItemName = CurrentQuery.Name;
+
+                await ProtectedLocalStorage.SetAsync(this.StorageKey, History);
             }
             catch (Exception ex)
             {
@@ -342,19 +376,35 @@ namespace AXOpen.Data.Query
             }
         }
 
-        private async Task LoadData()
+        private void SelectlElementFromHistory(string name)
+        {
+            var newItem = History.Items.Where(t => t.Name == name).First();
+
+            if (newItem != null)
+            {
+                this.CurrentQuery = newItem;
+            }
+        }
+
+        private async Task LoadQueryHistoryData()
         {
             try
             {
-                var existingConfig = await ProtectedLocalStorage.GetAsync<SymbolQueryConfigHistory>(this.StorageKey);
+                var existingConfig = await ProtectedLocalStorage.GetAsync<QuerySortHistory>(this.StorageKey);
 
                 if (existingConfig.Success)
                 {
-                    this.Queries.Clear();
-                    this.Queries.AddRange(existingConfig.Value.Queries);
+                    this.History = existingConfig.Value;
 
-                    this.Sorting.Clear();
-                    this.Sorting.AddRange(existingConfig.Value.Sorting);
+                    if (!string.IsNullOrEmpty(History.LastSelectedItemName))
+                    {
+                        var lastselected = History.Items.Where(h => h.Name == History.LastSelectedItemName).First();
+
+                        if (lastselected != null)
+                        {
+                            this.CurrentQuery = lastselected;
+                        }
+                    }
                 }
             }
             catch (Exception ex)

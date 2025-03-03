@@ -110,12 +110,12 @@
         </div>
     }
 
-   
 
-    @if (Queries.Count > 0)
+
+    @if (CurrentQuery.Queries.Count() > 0)
     {
         <div class="card p-1 m-0">
-            @foreach (var querySymbol in Queries)
+            @foreach (var querySymbol in CurrentQuery.Queries)
             {
                 <div class="d-flex align-items-center gap-2">
                     <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Remove"]"
@@ -144,10 +144,10 @@
         </div>
     }
 
-    @if (Sorting.Count > 0)
+    @if (CurrentQuery.Sorting.Count > 0)
     {
         <div class="card p-1 mt-1">
-            @foreach (var sortSymbol in Sorting)
+            @foreach (var sortSymbol in CurrentQuery.Sorting)
             {
                 <div class="d-flex align-items-center gap-2 my-1">
                     <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Remove"]"
@@ -227,17 +227,45 @@
         </ul>
     }
 
-    @if (Queries.Count > 0)
-    {
-        <button class="btn btn-primary m-1" type="button" @onclick="async () =>await ExecuteFilter()">
+    <div class="card d-flex flex-row align-items-center gap-2">
 
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-            </svg>
-            <span>@Localizer["Filter"]</span>
-            
-        
+        <div>
+            <button class="btn btn-secondary dropdown-toggle m-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                @CurrentQuery.Name
+            </button>
+
+            <ul class="dropdown-menu">
+                @foreach (var element in History.Items)
+                {
+                    <li>
+                        <a class="dropdown-item @(CurrentQuery.Name == element.Name ? "active" : "")"
+                           @onclick='() => SelectlElementFromHistory(element.Name)'>@element.Name (@element.Modified.ToString())</a>
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <input id="CurentQueryName" @bind="CurrentQuery.Name" @bind:event="oninput"
+               placeholder="Type query name "
+               class="form-control"
+               style="max-width: 300px;"
+               title="Query name"
+               data-bs-toggle="tooltip" />
+
+
+        <button class="btn btn-primary m-1" type="button" @onclick="async () =>await UpdateQueryHistoryToStorage()">
+            <span>Remember</span>
         </button>
-    }
 
+        @if (CurrentQuery.Queries.Count > 0)
+        {
+            <button class="btn btn-primary m-1 d-flex align-items-center gap-2 btn-block" type="button"
+                    @onclick="async () => await ExecuteFilter()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                </svg>
+                <span>@Localizer["Filter"]</span>
+            </button>
+        }
+    </div>
 </div>

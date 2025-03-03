@@ -19,14 +19,10 @@ namespace AXOpen.Data.Query
             this.IsPlainType = isPlainType;
         }
 
-
         public string Name { get; set; }
 
         public bool IsPlainType { get; set; }
 
         public Type VariableType { get; set; }
-
-
-
     }
 }

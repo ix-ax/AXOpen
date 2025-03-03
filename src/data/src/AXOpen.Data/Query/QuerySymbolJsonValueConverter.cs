@@ -36,7 +36,6 @@
                     if (DateTime.TryParse(stringValue, null, System.Globalization.DateTimeStyles.RoundtripKind, out DateTime dateTimeValue))
                         return dateTimeValue;
 
-
                     // Try parsing char (single character)
                     if (stringValue.Length == 1)
                         return stringValue[0];
@@ -50,7 +49,6 @@
 
             return JsonSerializer.Deserialize<object>(ref reader, options);
         }
-
 
         public override void Write(Utf8JsonWriter writer, object value, JsonSerializerOptions options)
         {

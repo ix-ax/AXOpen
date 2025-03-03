@@ -13,7 +13,6 @@ using AXOpen.Base.Data.Query;
 
 namespace AXOpen.Data.Query
 {
-
     // class that will handle sort configuration, it will be transromt to SortSettings
     public class SortSymbolConfiguration : SymbolConfiguration
     {
