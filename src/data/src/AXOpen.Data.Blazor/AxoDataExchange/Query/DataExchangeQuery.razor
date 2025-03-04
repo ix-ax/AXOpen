@@ -1,6 +1,16 @@
 ﻿@using AXSharp.Connector;
 @namespace AXOpen.Data.Query
 
+<style>
+    .custom-label {
+        font-weight: bold; /* Make text bold */
+        margin: 0; /* Remove margin */
+        padding: 0; /* Remove padding */
+        line-height: 0.5; /* Reduce height */
+        display: block; /* Ensures it respects height settings */
+    }
+</style>
+
 <div class="container-fluid p-0 m-1">
 
     <div class="col d-flex align-items-center gap-2 mb-1">
@@ -12,17 +22,43 @@
             </button>
         }
 
+        <button class="btn btn-secondary px-2 py-1" type="button" @onclick="ClearFilter">
+            <span class="oi oi-x" aria-hidden="true">Clear</span>
+        </button>
+
         <input id="filterText" @bind="SymbolsQueryFilter" @bind:event="oninput"
                placeholder="Type symbol name here for filter..."
                class="form-control"
                title="Enter a symbol name to filter the results"
                data-bs-toggle="tooltip" />
 
+        @if (InjectedQueries.Count > 0)
+        {
+            <button class="btn btn-warning dropdown-toggle m-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                @Localizer["Injected query !"]
+            </button>
 
+            <ul class="dropdown-menu">
+                @foreach (var element in InjectedQueries)
+                {
+                    <li><a class="dropdown-item">@element</a></li>
+                }
+            </ul>
+        }
 
-        <button class="btn btn-secondary px-2 py-1" type="button" @onclick="ClearFilter">
-            <span class="oi oi-x" aria-hidden="true">Clear</span>
-        </button>
+        @if (InjectedSorting.Count > 0)
+        {
+            <button class="btn btn-warning dropdown-toggle m-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                @Localizer["Injected sort!"]
+            </button>
+
+            <ul class="dropdown-menu">
+                @foreach (var element in InjectedSorting)
+                {
+                    <li><a class="dropdown-item">@element</a></li>
+                }
+            </ul>
+        }
     </div>
 
 
@@ -111,126 +147,118 @@
     }
 
 
-
     @if (CurrentQuery.Queries.Count() > 0)
     {
-        <div class="card p-1 m-0">
-            @foreach (var querySymbol in CurrentQuery.Queries)
-            {
-                <div class="d-flex align-items-center gap-2">
-                    <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Remove"]"
-                            @onclick="() => RemoveSymbolFromQuery(querySymbol.TrackSymbolId)">
-                        <i class="oi oi-trash"></i>
 
-                    </button>
+        <div class="card p-1 my-2" style="border: 4px solid lightskyblue;">
+            <div class="d-flex align-items-center gap-2">
+                <label class="custom-label" style="color: deepskyblue; min-width: 50px">@Localizer["Query"]</label>
+                <div>
 
-                    @*  <label class="ms-2"> @Localizer["Move"]</label>
+                    @foreach (var querySymbol in CurrentQuery.Queries)
+                    {
+                        <div class="d-flex align-items-center gap-2">
+                            <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Remove"]"
+                                    @onclick="() => RemoveSymbolFromQuery(querySymbol.TrackSymbolId)">
+                                <i class="oi oi-trash"></i>
+
+                            </button>
+
+                            @*  <label class="ms-2"> @Localizer["Move"]</label>
  *@
-                    <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Up"]"
-                            @onclick="() => MoveQuerySymbolUp(querySymbol.TrackSymbolId)">
-                        <i class="oi oi-data-transfer-upload">
-                        </i>
-                    </button>
+                            <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Up"]"
+                                    @onclick="() => MoveQuerySymbolUp(querySymbol.TrackSymbolId)">
+                                <i class="oi oi-data-transfer-upload">
+                                </i>
+                            </button>
 
-                    <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Donw"]"
-                            @onclick="() => MoveQuerySymbolDown(querySymbol.TrackSymbolId)">
-                        <i class="oi oi-data-transfer-download">
-                        </i>
-                    </button>
+                            <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Donw"]"
+                                    @onclick="() => MoveQuerySymbolDown(querySymbol.TrackSymbolId)">
+                                <i class="oi oi-data-transfer-download">
+                                </i>
+                            </button>
 
-                    <QuerySymbolConfigurationView @key=querySymbol.TrackSymbolId SymbolConfiguration="@querySymbol"></QuerySymbolConfigurationView>
+                            <QuerySymbolConfigurationView @key=querySymbol.TrackSymbolId SymbolConfiguration="@querySymbol"></QuerySymbolConfigurationView>
+                        </div>
+                    }
                 </div>
-            }
+
+            </div>
+
         </div>
     }
 
     @if (CurrentQuery.Sorting.Count > 0)
     {
-        <div class="card p-1 mt-1">
-            @foreach (var sortSymbol in CurrentQuery.Sorting)
-            {
-                <div class="d-flex align-items-center gap-2 my-1">
-                    <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Remove"]"
-                            @onclick="() => RemoveSymbolFromSorting(sortSymbol.TrackSymbolId)">
-                        <i class="oi oi-trash"></i>
-                    </button>
-                    @* 
+        <div class="card p-1 my-2" style="border: 4px solid yellowgreen;">
+
+            <div class="d-flex align-items-center gap-2">
+
+                <label class="custom-label" style="color: yellowgreen; min-width: 50px">@Localizer["Sort"]</label>
+                <div>
+                    @foreach (var sortSymbol in CurrentQuery.Sorting)
+                    {
+                        <div class="d-flex align-items-center gap-2 my-1">
+                            <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Remove"]"
+                                    @onclick="() => RemoveSymbolFromSorting(sortSymbol.TrackSymbolId)">
+                                <i class="oi oi-trash"></i>
+                            </button>
+                            @* 
                     <label class="ms-2"> @Localizer["Move"]</label>
  *@
-                    <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Up"]"
-                            @onclick="() => MoveSortingSymbolUp(sortSymbol.TrackSymbolId)">
-                        <i class="oi oi-data-transfer-upload"> </i>
-                    </button>
+                            <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Up"]"
+                                    @onclick="() => MoveSortingSymbolUp(sortSymbol.TrackSymbolId)">
+                                <i class="oi oi-data-transfer-upload"> </i>
+                            </button>
 
-                    <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Donw"]"
-                            @onclick="() => MoveSortingSymbolDown(sortSymbol.TrackSymbolId)">
-                        <i class="oi oi-data-transfer-download"></i>
-                    </button>
+                            <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Donw"]"
+                                    @onclick="() => MoveSortingSymbolDown(sortSymbol.TrackSymbolId)">
+                                <i class="oi oi-data-transfer-download"></i>
+                            </button>
 
-                    <div class="d-flex flex-row align-items-center gap-2">
-                        <label> @sortSymbol.SymbolPathWithParent</label>
-                    </div>
+                            <div class="d-flex flex-row align-items-center gap-2">
+                                <label> @sortSymbol.SymbolPathWithParent</label>
+                            </div>
 
-                    <div class="d-flex flex-row align-items-center gap-2">
-                        <label for="sortSymbolName">
-                            @if (sortSymbol.IsAscending)
-                            {
-                                <i class="oi oi-sort-ascending">
-                                    <span class="ms-2">
-                                        @Localizer["Ascending"]
-                                    </span>
-                                </i>
-                            }
-                            else
-                            {
-                                <i class="oi oi-sort-descending">
-                                    <span class="ms-2">
-                                        @Localizer["Descending"]
-                                    </span>
+                            <div class="d-flex flex-row align-items-center gap-2">
+                                <label for="sortSymbolName">
+                                    @if (sortSymbol.IsAscending)
+                                    {
+                                        <i class="oi oi-sort-ascending">
+                                            <span class="ms-2">
+                                                @Localizer["Ascending"]
+                                            </span>
+                                        </i>
+                                    }
+                                    else
+                                    {
+                                        <i class="oi oi-sort-descending">
+                                            <span class="ms-2">
+                                                @Localizer["Descending"]
+                                            </span>
 
-                                </i>
-                            }
-                        </label>
-                        <input id="sortSymbolName" type="checkbox" @bind="sortSymbol.IsAscending" class="form-check-input" />
-                    </div>
+                                        </i>
+                                    }
+                                </label>
+                                <input id="sortSymbolName" type="checkbox" @bind="sortSymbol.IsAscending" class="form-check-input" />
+                            </div>
 
+                        </div>
+                    }
                 </div>
-            }
+            </div>
         </div>
+
+
     }
 
-    @if (InjectedQueries.Count > 0)
-    {
-        <button class="btn btn-warning dropdown-toggle m-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            @Localizer["Injected query parameters will be used!"]
-        </button>
 
-        <ul class="dropdown-menu">
-            @foreach (var element in InjectedQueries)
-            {
-                <li><a class="dropdown-item">@element</a></li>
-            }
-        </ul>
-    }
+    <div class="card d-flex flex-row align-items-center gap-2 p-1 my-2" style="border: 4px solid lightgray;">
 
-    @if (InjectedSorting.Count > 0)
-    {
-        <button class="btn btn-warning dropdown-toggle m-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            @Localizer["Injected sorting parameters will be used!"]
-        </button>
-
-        <ul class="dropdown-menu">
-            @foreach (var element in InjectedSorting)
-            {
-                <li><a class="dropdown-item">@element</a></li>
-            }
-        </ul>
-    }
-
-    <div class="card d-flex flex-row align-items-center gap-2">
+        <label class="custom-label" style="color: darkgray; min-width: 50px">@Localizer["Filter"]</label>
 
         <div>
-            <button class="btn btn-secondary dropdown-toggle m-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 @CurrentQuery.Name
             </button>
 
@@ -267,5 +295,8 @@
                 <span>@Localizer["Filter"]</span>
             </button>
         }
+
+
+
     </div>
 </div>

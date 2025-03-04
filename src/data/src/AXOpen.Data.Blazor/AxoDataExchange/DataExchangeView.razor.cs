@@ -191,7 +191,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
         Vm.InjectedPredicateContainer = ExternalPredicates;
 
-        await Vm.FillObservableRecordsAsync();
+        await Vm.Filter();
 
         Vm.StateHasChangedDelegate = StateHasChanged;
     }
