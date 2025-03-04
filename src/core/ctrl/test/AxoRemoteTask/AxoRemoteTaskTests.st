@@ -37,7 +37,7 @@ NAMESPACE AXOpen.Core
 
         METHOD PRIVATE Initialize
             _rootObject.InitializeWithContext(_context);
-            myTask.Initialize(_rootObject);           
+            myTask.Run(_rootObject);           
         END_METHOD     
 
         METHOD Equal : BOOL

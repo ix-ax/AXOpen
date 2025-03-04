@@ -39,7 +39,7 @@ NAMESPACE AXOpen.Core
 
             IF(inParent = NULL) THEN RETURN; END_IF;
 
-            THIS.Initialize(inParent);
+            SUPER.Run(inParent);
 
             IF NOT THIS.IsInitialized THEN // dialog is not observed/monitored by server
                 
@@ -98,7 +98,7 @@ NAMESPACE AXOpen.Core
         ///</summary>
         METHOD PUBLIC ShowWithExternalClose : IAxoDialogFormat
             VAR_INPUT
-                _parent : IAxoObject;
+                inParent : IAxoObject;
                 inOkAnswerSignal : BOOL := FALSE;
                 inYesAnswerSignal : BOOL := FALSE;
                 inNoAnswerSignal : BOOL := FALSE;
@@ -112,9 +112,11 @@ NAMESPACE AXOpen.Core
 
             ShowWithExternalClose := THIS;
 
-            IF(_parent = NULL) THEN RETURN; END_IF;
+            IF(inParent = NULL) THEN 
+                RETURN; 
+            END_IF;
 
-            THIS.Initialize(_parent);
+            SUPER.Run(inParent);
 
             IF NOT THIS.IsInitialized THEN // dialog is not observed/monitored by server
                 _answer := eDialogAnswer#NoAnswer; // set default value

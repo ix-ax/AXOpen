@@ -48,11 +48,11 @@ NAMESPACE AXOpen.Core.AxoStep_Tests
             _sequencer  : AxoSequencer;
         END_VAR  
         METHOD PRIVATE Initialize
-            _rootObject.InitializeWithContext(_context);
-            _sequencer.Initialize(_rootObject);
-            _stepOne.Initialize(_rootObject);
-            _stepTwo.Initialize(_rootObject);
-            _stepThree.Initialize(_rootObject);
+            _context.InitializeRootObject(_rootObject);
+            _sequencer.Run(_rootObject);
+            // _stepOne.Initialize(_rootObject);
+            // _stepTwo.Initialize(_rootObject);
+            // _stepThree.Initialize(_rootObject);
         END_METHOD
         METHOD Equal : BOOL
             VAR_INPUT

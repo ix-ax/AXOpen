@@ -117,7 +117,7 @@ NAMESPACE AXOpen.Core
                 _currentlyOpenCycleCount : ULINT;
                 // Selector : REF_TO Selector;
             END_VAR    
-            THIS.Initialize(coord);
+            SUPER.Run(coord);
             IF _context = NULL THEN
                 _context := THIS.GetContext();
             END_IF;
@@ -131,7 +131,7 @@ NAMESPACE AXOpen.Core
             ELSE 
                 coordAsAxoObject ?= coord;
                IF(coordAsAxoObject <> NULL) THEN
-                    THIS.Initialize(coordAsAxoObject); 
+                    SUPER.Run(coordAsAxoObject); 
                     _currentlyOpenCycleCount := _context.OpenCycleCount();
                     _isCalledJustOnceInThisPlcCycle:= _openCycleCount = _currentlyOpenCycleCount - ULINT#1;
                     _multipleStepCallInThisPlcCycle := _openCycleCount >= _currentlyOpenCycleCount; // TODO: We will need to message this, when messaging ready.            
