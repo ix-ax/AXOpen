@@ -1,0 +1,45 @@
+﻿@using AXSharp.Connector;
+@namespace AXOpen.Data.Query
+
+<div class="d-flex flex-row align-items-center gap-2">
+
+    @if (!HideDescripion)
+    {
+        <label> @SymbolConfiguration.SymbolPathWithParent</label>
+    }
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@SymbolConfiguration.Operation</button>
+
+    <ul class="dropdown-menu">
+
+        @foreach (var operation in OperationProvider.GetOperationsForType(SymbolConfiguration.SymbolType))
+        {
+            <li><a class="dropdown-item @(@SymbolConfiguration.Operation == operation ? "active" : "")" style="cursor: pointer" @onclick="() => {SymbolConfiguration.Operation = operation;}">@operation</a></li>
+        }
+
+    </ul>
+
+    @if (SymbolConfiguration.IsRangeOperation)
+    {
+        if (!HideDescripion)
+        {
+            <label>@Localizer["Min"]</label>
+        }
+        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="SymbolConfiguration.MinOrValue"></DynamicInput>
+
+        if (!HideDescripion)
+        {
+            <label>@Localizer["Max"]</label>
+        }
+        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="@SymbolConfiguration.Max"></DynamicInput>
+    }
+    else
+    {
+
+        if (!HideDescripion)
+        {
+            <label for="minOrValue">@Localizer["Value"]</label>
+        }
+        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="@SymbolConfiguration.MinOrValue"></DynamicInput>
+    }
+
+</div>

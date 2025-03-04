@@ -1,18 +1,80 @@
 ﻿@page "/"
+@using AXOpen.Base.Data.Query
+@using AXOpen.Base.Dialogs
+@using AXOpen.Data
+@using Pocos.AxoDataExchangeExample
+@inject AuthenticationStateProvider _authenticationProvider
+@inject IAlertService _alertDialogService
 
-<PageTitle>Index</PageTitle>
+@* <PageTitle>Index</PageTitle>
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
+ *@
 
 <div class="card">
     <div class="card-header">
-        <h2>DataExchange PresentationType="Command"</h2>
+        <h2>Exchange</h2>
     </div>
     <div class="card-body">
-        <RenderableContentControl Context="@Entry.Plc.AxoDataExchangeContext.DataManager" Presentation="Command" />
+        <DataExchangeView Vm="@_vm_exchange"
+                          Presentation="Command"
+                          EnableExport="true"
+                          EnableSorting="true"
+                          ExternalPredicates="@ExternalPredicates">
+
+            <ColumnData HeaderName="SomeString" BindingValue="SomeString" Clickable="true" />
+            <ColumnData HeaderName="SomeInt" BindingValue="SomeInt" Clickable="true" />
+            @* <ColumnData HeaderName="SomeBool" BindingValue="SomeBool" Clickable="false" /> *@
+        </DataExchangeView>
     </div>
 </div>
+
+<div class="card">
+    <div class="card-header">
+        <h2>Fragment exchange</h2>
+    </div>
+    <div class="card-body">
+        <DataExchangeView Vm="@_vm_fragment_exchange" Presentation="Command" EnableExport="true" EnableSorting="true">
+            <ColumnData HeaderName="SomeString" BindingValue="SomeString" Clickable="true" />
+            <ColumnData HeaderName="SomeInt" BindingValue="SomeInt" Clickable="true" />
+            <ColumnData HeaderName="SomeBool" BindingValue="SomeBool" Clickable="true" />
+        </DataExchangeView>
+    </div>
+</div>
+
+
+
+
+@code {
+    private DataExchangeViewModel _vm_exchange;
+    private DataExchangeViewModel _vm_fragment_exchange;
+    public PredicateContainer ExternalPredicates = new();
+
+
+
+    protected override void OnInitialized()
+    {
+        _vm_exchange = new DataExchangeViewModel
+            {
+                Model = Entry.Plc.AxoDataExchangeContext.DataManager,
+                AlertDialogService = _alertDialogService,
+                AuthenticationProvider = _authenticationProvider
+            };
+
+
+        ExternalPredicates.AddPredicates<AxoProcessData>(p => p.SomeInt > 2);
+        ExternalPredicates.AddSortMember<AxoProcessData>(p => p.SomeString, false);
+
+        _vm_fragment_exchange = new DataExchangeViewModel
+            {
+                Model = Entry.Plc.AxoDataFragmentsExchangeContext.DataManager,
+                AlertDialogService = _alertDialogService,
+                AuthenticationProvider = _authenticationProvider
+            };
+
+    }
+}

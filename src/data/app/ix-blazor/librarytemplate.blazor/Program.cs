@@ -15,10 +15,11 @@ using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var jsonRepositoryLocation = CreateJsonRepositoryDirectory();
 
 // Add services to the container.
-builder.Services.ConfigureAxBlazorSecurity(SetUpJsonSecurityRepository(jsonRepositoryLocation), Roles.CreateRoles(), true);
+//var jsonRepositoryLocation = CreateJsonRepositoryDirectory();
+//builder.Services.ConfigureAxBlazorSecurity(SetUpJsonSecurityRepository(jsonRepositoryLocation), Roles.CreateRoles(), true);
+builder.Services.ConfigureAxBlazorSecurity(SetUpMongoSecurityRepository(), Roles.CreateRoles(), true);
 builder.Services.AddLocalization();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
@@ -39,7 +40,7 @@ Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()
     .MinimumLevel.Debug()
     .CreateLogger());
 
-await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
+//await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
 
 AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
     .WriteTo.Console().MinimumLevel.Verbose()
@@ -130,6 +131,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthorization();
+
+app.MapControllers();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
@@ -151,6 +155,16 @@ static (IRepository<User>, IRepository<Group>) SetUpJsonSecurityRepository(strin
     IRepository<User> userRepo = new JsonRepository<User>(new JsonRepositorySettings<User>(Path.Combine(repositoryDirectory, "Users")));
     IRepository<Group> groupRepo = new JsonRepository<Group>(new JsonRepositorySettings<Group>(Path.Combine(repositoryDirectory, "Groups")));
 
+    return (userRepo, groupRepo);
+}
+
+static (IRepository<User>, IRepository<Group>) SetUpMongoSecurityRepository(string databaseName = "AxOpenData")
+{
+    var MongoDatabaseName = databaseName;
+    var MongoConnectionString = "mongodb://localhost:27017";
+
+    IRepository<User> userRepo = AXOpen.Data.MongoDb.Repository.Factory<User>(new MongoDbRepositorySettings<User>(MongoConnectionString, MongoDatabaseName, "Users", idExpression: t => t.Id));
+    IRepository<Group> groupRepo = AXOpen.Data.MongoDb.Repository.Factory<Group>(new MongoDbRepositorySettings<Group>(MongoConnectionString, MongoDatabaseName, "Groups"));
     return (userRepo, groupRepo);
 }
 

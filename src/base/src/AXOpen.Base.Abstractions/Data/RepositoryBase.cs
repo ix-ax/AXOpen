@@ -1,6 +1,8 @@
-﻿using System;
+﻿using AXOpen.Base.Data.Query;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using System.Security;
 
@@ -13,6 +15,7 @@ namespace AXOpen.Base.Data
     public abstract class RepositoryBase<T> : IRepository<T>, IRepository where T : IBrowsableDataObject
     {
         #region On CRUD delegates
+
         /// <summary>
         /// Gets or sets delegate that executes prior to new entry into repository.
         /// </summary>
@@ -25,6 +28,7 @@ namespace AXOpen.Base.Data
                 onCreate = value;
             }
         }
+
         private OnCreateDelegate<T> onCreate;
 
         /// <summary>
@@ -39,6 +43,7 @@ namespace AXOpen.Base.Data
                 onRead = value;
             }
         }
+
         private OnReadDelegate onRead;
 
         /// <summary>
@@ -53,6 +58,7 @@ namespace AXOpen.Base.Data
                 onUpdate = value;
             }
         }
+
         private OnUpdateDelegate<T> onUpdate;
 
         /// <summary>
@@ -67,10 +73,13 @@ namespace AXOpen.Base.Data
                 onDelete = value;
             }
         }
+
         private OnDeleteDelegate onDelete;
-        #endregion
+
+        #endregion On CRUD delegates
 
         #region On CRUD Done delegates
+
         /// <summary>
         /// Gets or sets delegate that executes after a new entry has been added sucesfully.
         /// </summary>
@@ -83,6 +92,7 @@ namespace AXOpen.Base.Data
                 onCreateDone = value;
             }
         }
+
         private OnCreateDoneDelegate<T> onCreateDone;
 
         /// <summary>
@@ -97,6 +107,7 @@ namespace AXOpen.Base.Data
                 onReadDone = value;
             }
         }
+
         private OnReadDoneDelegate<T> onReadDone;
 
         /// <summary>
@@ -111,6 +122,7 @@ namespace AXOpen.Base.Data
                 onUpdateDone = value;
             }
         }
+
         private OnUpdateDoneDelegate<T> onUpdateDone;
 
         /// <summary>
@@ -125,10 +137,13 @@ namespace AXOpen.Base.Data
                 onDeleteDone = value;
             }
         }
+
         private OnDeleteDoneDelegate onDeleteDone;
-        #endregion
+
+        #endregion On CRUD Done delegates
 
         #region On CRUD Failed delegates
+
         /// <summary>
         /// Gets or sets delegate that executes after a new entry has NOT been added sucesfully.
         /// </summary>
@@ -141,6 +156,7 @@ namespace AXOpen.Base.Data
                 onCreateFailed = value;
             }
         }
+
         private OnCreateFailedDelegate<T> onCreateFailed;
 
         /// <summary>
@@ -155,6 +171,7 @@ namespace AXOpen.Base.Data
                 onReadFailed = value;
             }
         }
+
         private OnReadFailedDelegate onReadFailed;
 
         /// <summary>
@@ -169,6 +186,7 @@ namespace AXOpen.Base.Data
                 onUpdateFailed = value;
             }
         }
+
         private OnUpdateFailedDelegate<T> onUpdateFailed;
 
         /// <summary>
@@ -183,21 +201,23 @@ namespace AXOpen.Base.Data
                 onDeleteFailed = value;
             }
         }
+
         private OnDeleteFailedDelegate onDeleteFailed;
-        #endregion
+
+        #endregion On CRUD Failed delegates
 
         /// <summary>
         /// Gets or set validation delegate for updating data in this repository.
         /// </summary>
-        /// <remarks>			
+        /// <remarks>
         ///		<note type = "warning" >
         ///           Validation condition is executed only upon update from the user interface.
         ///           Direct call of <see cref="Update(string, T)"/> does not validate the data.
         ///           The data are also not validate when called from TcoCore.TcoRemoteTask/>
         ///		</note>
         /// </remarks>
-        /// <example>      
-        ///       repository.OnRecordUpdateValidation = (data) => 
+        /// <example>
+        ///       repository.OnRecordUpdateValidation = (data) =>
         ///       {
         ///           return new DataValidation[]
         ///               {
@@ -210,7 +230,6 @@ namespace AXOpen.Base.Data
         {
             get;
             set;
-
         } = (data) => new DataItemValidation[] { };
 
         /// <summary>
@@ -260,6 +279,13 @@ namespace AXOpen.Base.Data
         /// <returns></returns>
         protected abstract IEnumerable<T> GetRecordsNvi(string identifierContent, int limit, int skip, eSearchMode searchMode, string sortExpresion, bool sortAscending);
 
+        protected abstract IEnumerable<T> GetRecordsNvi(PredicateContainer predicates,
+            int limit, int skip);
+
+        protected abstract IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids);
+
+        protected abstract IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates);
+
         /// <summary>
         /// Counts records that contain given string in the id. (Concrete implementation of given repository type)
         /// </summary>
@@ -267,10 +293,15 @@ namespace AXOpen.Base.Data
         /// <returns></returns>
         protected abstract long FilteredCountNvi(string identifierContent, eSearchMode searchMode);
 
+        protected abstract long FilteredCountNvi(PredicateContainer predicates);
+
         /// <summary>
         /// Gets the number of records/documents in the repository.
         /// </summary>
-        public long Count { get { return this.CountNvi; } }
+        public long Count
+        { get { return this.CountNvi; } }
+
+        public abstract long LastFragmentQueryCount { protected set; get; }
 
         /// <summary>
         /// Gets the count of the records/documents that contain given string in the identifier.
@@ -279,6 +310,7 @@ namespace AXOpen.Base.Data
         /// <returns></returns>
         public long FilteredCount(string identifierContent, eSearchMode searchMode) => FilteredCountNvi(identifierContent, searchMode);
 
+        public long FilteredCount(PredicateContainer predicates) => FilteredCountNvi(predicates);
 
         private volatile object mutex = new object();
 
@@ -301,7 +333,6 @@ namespace AXOpen.Base.Data
             {
                 if (data != null)
                 {
-
                     if (string.IsNullOrEmpty(identifier))
                     {
                         identifier = DataHelpers.CreateUid().ToString();
@@ -416,7 +447,7 @@ namespace AXOpen.Base.Data
         /// <summary>
         /// Gets <see cref="IEnumerable{T}"/> of repository entries that match the identifier.
         /// </summary>
-        public IEnumerable<T> GetRecords(string identifier, int limit = 10, int skip = 0, eSearchMode searchMode = eSearchMode.Exact, string sortExpresion = "Default", bool sortAscending = false)
+        public IEnumerable<T> GetRecords(string identifier, int limit, int skip, eSearchMode searchMode, string sortExpresion = "Default", bool sortAscending = false)
         {
             try
             {
@@ -426,6 +457,47 @@ namespace AXOpen.Base.Data
             {
                 throw e;
             }
+        }
+
+        public IEnumerable<T> GetRecords(IEnumerable<string> identifiers)
+        {
+            try
+            {
+                return GetRecordsNvi(identifiers);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public IEnumerable<T> GetRecords(PredicateContainer predicates, int limit, int skip)
+        {
+            try
+            {
+                return GetRecordsNvi(predicates, limit, skip);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public IEnumerable<string> GetEntityIds(PredicateContainer predicates)
+        {
+            try
+            {
+                return GetEntityIdsNvi(predicates);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public IEnumerable<T> GetRecords(PredicateContainer predicates)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -439,7 +511,7 @@ namespace AXOpen.Base.Data
         /// <summary>
         /// When you try to set a delegate that has already been set elsewhere this exception will occur.
         /// Investigate what was the purpose of the delegate you want to override, and make sure that you don't need
-        /// the functionality anymore. 
+        /// the functionality anymore.
         /// If you need the functionality, be sure to include it in the new delegate.
         /// </summary>
         public DelegateAlreadySetException() : base(TrimMultiline(
@@ -453,19 +525,18 @@ namespace AXOpen.Base.Data
                              "\n",
                              multiline.Split('\n').Select(s => s.Trim()));
     }
+
     public class RepositoryNotInitializedException : Exception
     {
         /// <summary>Initializes a new instance of the <see cref="RepositoryNotInitializedException" /> class.</summary>
         public RepositoryNotInitializedException()
         {
-
         }
 
         /// <summary>Initializes a new instance of the <see cref="RepositoryNotInitializedException" /> class with a specified error message.</summary>
         /// <param name="message">The message that describes the error. </param>
         public RepositoryNotInitializedException(string message) : base(message)
         {
-            
         }
 
         /// <summary>Initializes a new instance of the <see cref="RepositoryNotInitializedException" /> class with a specified error message and a reference to the inner exception that is the cause of this exception.</summary>
@@ -473,7 +544,6 @@ namespace AXOpen.Base.Data
         /// <param name="innerException">The exception that is the cause of the current exception, or a null reference (<see langword="Nothing" /> in Visual Basic) if no inner exception is specified. </param>
         public RepositoryNotInitializedException(string message, Exception innerException) : base(message, innerException)
         {
-
         }
 
         /// <summary>Initializes a new instance of the <see cref="RepositoryNotInitializedException" /> class with serialized data.</summary>
@@ -484,8 +554,6 @@ namespace AXOpen.Base.Data
         [SecuritySafeCritical]
         protected RepositoryNotInitializedException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
-
         }
-
     }
 }
