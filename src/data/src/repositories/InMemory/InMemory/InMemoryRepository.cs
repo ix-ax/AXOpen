@@ -249,7 +249,7 @@ namespace AXOpen.Data.InMemory
                     continue; // Skip invalid settings
 
                 var param = Expression.Parameter(typeof(T), "p");
-                var property = Expression.Property(param, setting.MemberName);
+                var property = ExpressionHelper.GetNestedPropertyExpression(param, setting.MemberName);
                 var keySelector = Expression.Lambda(property, param);
 
                 var methodName = orderedQuery == null

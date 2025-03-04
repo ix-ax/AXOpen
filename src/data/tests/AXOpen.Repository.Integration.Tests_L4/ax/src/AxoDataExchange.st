@@ -33,19 +33,10 @@ NAMESPACE Exchange_Test_L4
             vString : STRING;
             vInt : INT;
             vBool : BOOL;
-            NestObj : NestedObject;
+            Primitives : BasePrimitives;
         END_VAR
     END_CLASS
-
-    {S7.extern=ReadWrite}
-    CLASS PUBLIC NestedObject 
-        VAR PUBLIC
-            vString : STRING;
-            vInt : INT;
-            vBool : BOOL;
-        END_VAR
-    END_CLASS
-
+ 
     {S7.extern=ReadWrite}
     CLASS PUBLIC NestedPrimitives_L3  //27 * 10 * 10 * 10 = 27 000 vars
         VAR PUBLIC

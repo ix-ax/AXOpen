@@ -98,7 +98,7 @@
 
                 try
                 {
-                    memberExpression = SortExtension.GetMemberExpression(settings.MemberName, pocoType);
+                    memberExpression = ExpressionHelper.GetMemberExpression(settings.MemberName, pocoType);
                 }
                 catch (Exception ex)
                 {

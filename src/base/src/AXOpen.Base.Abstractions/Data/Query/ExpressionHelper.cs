@@ -4,7 +4,7 @@
     using System.Linq.Expressions;
     using System.Reflection;
 
-    public static class SortExtension
+    public static class ExpressionHelper
     {
         public static MemberExpression GetMemberExpression(string memberPath, Type TargetType)
         {
@@ -27,6 +27,16 @@
             }
 
             return (MemberExpression)expression;
+        }
+
+        public static Expression GetNestedPropertyExpression(Expression parameter, string propertyName)
+        {
+            Expression property = parameter;
+            foreach (var part in propertyName.Split('.'))
+            {
+                property = Expression.Property(property, part);
+            }
+            return property;
         }
     }
 }

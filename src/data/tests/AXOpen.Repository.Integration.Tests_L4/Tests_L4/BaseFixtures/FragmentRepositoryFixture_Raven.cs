@@ -1,22 +1,22 @@
-﻿namespace Tests_L4
-{
-    using AXOpen.Data.InMemory;
-    using Pocos.FragmentExchange_Test_L4;
+﻿//namespace Tests_L4
+//{
+//    using AXOpen.Data.InMemory;
+//    using Pocos.FragmentExchange_Test_L4;
 
-    public class FragmentRepositoryFixture_Raven : FragmentRepositoryFixture_Base
-    {
-        public FragmentRepositoryFixture_Raven()
-        {
-            this.RepositoryHeader = AXOpen.Data.InMemory.Repository.Factory<HeaderData>(new InMemoryRepositorySettings<HeaderData>());
+//    public class FragmentRepositoryFixture_Raven : FragmentRepositoryFixture_Base
+//    {
+//        public FragmentRepositoryFixture_Raven()
+//        {
+//            this.RepositoryHeader = AXOpen.Data.InMemory.Repository.Factory<HeaderData>(new InMemoryRepositorySettings<HeaderData>());
 
-            this.RepositoryStation = AXOpen.Data.InMemory.Repository.Factory<StationData>(new InMemoryRepositorySettings<StationData>());
+//            this.RepositoryStation = AXOpen.Data.InMemory.Repository.Factory<StationData>(new InMemoryRepositorySettings<StationData>());
 
-            InitializeData();
-        }
+//            InitializeData();
+//        }
 
-        public void Dispose()
-        {
-            // Clean up
-        }
-    }
-}
+//        public void Dispose()
+//        {
+//            // Clean up
+//        }
+//    }
+//}

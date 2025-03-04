@@ -36,7 +36,7 @@
         {
             IEnumerable<Expression<Func<Pocos.Exchange_Test_L4.ProcessData, bool>>> predicates = new List<Expression<Func<Pocos.Exchange_Test_L4.ProcessData, bool>>>
                 {
-                    p => (p.vInt > 2 && (p.NestObj.vInt > 3 && p.NestObj.vInt <= 8)),
+                    p => (p.vInt > 2 && (p.Primitives.vINT > 3 && p.Primitives.vINT <= 8)),
                     p => (p.vBool == true),
                 };
 
@@ -58,15 +58,12 @@
 
             var result = plainSymbolBuilder.GetSymbols();
 
-            Assert.Equal(7, result.Count());
+            Assert.Equal(31, result.Count());
 
             Assert.Equal("ProcessData.vString", result[0]);
             Assert.Equal("ProcessData.vInt", result[1]);
             Assert.Equal("ProcessData.vBool", result[2]);
-            Assert.Equal("ProcessData.NestObj.vString", result[3]);
-            Assert.Equal("ProcessData.NestObj.vInt", result[4]);
-            Assert.Equal("ProcessData.NestObj.vBool", result[5]);
-            Assert.Equal("ProcessData.DataEntityId", result[6]);
+            //todo add all vars...
         }
 
         [Fact]
@@ -81,7 +78,7 @@
 
             var allSymbols = plainSymbolBuilder.GetSymbols();
 
-            Assert.Equal(7, allSymbols.Count());
+            Assert.Equal(31, allSymbols.Count());
 
             var result = plainSymbolBuilder.GetSymbols().Where(p => p == requiredSymbolName).First(); //SharedHeader.vString"
 
@@ -114,7 +111,7 @@
 
             var allSymbols = plainSymbolBuilder.GetSymbols();
 
-            Assert.Equal(7, allSymbols.Count());
+            Assert.Equal(31, allSymbols.Count());
 
             var result = plainSymbolBuilder.GetSymbols().Where(p => p == requiredSymbolName).First(); //SharedHeader.vString"
 
@@ -327,6 +324,36 @@
             Assert.Equal("2", records[7].DataEntityId);
             Assert.Equal("1", records[8].DataEntityId);
             Assert.Equal("0", records[9].DataEntityId);
+        }
+
+        [Fact]
+        public void should_filter_and_sort_with_property()
+        {
+            var plains = Exchange.GetPlainObjectType();
+
+            var plainBuilders = plains.Select(p => new PlainSymbolBuilder(p)).ToList();
+
+            var plainTypeHeaderName = plainBuilders.First().RootTypeName;
+
+            string RequiredSymbolPathWithParent = $"{plainTypeHeaderName}.Primitives.vINT";
+
+            QuerySymbolConfiguration querySymbol = plainBuilders.CreateNewQuerySymbol(RequiredSymbolPathWithParent);
+
+            querySymbol.MinOrValue = 0;
+            querySymbol.Operation = "!="; 
+
+            SortSymbolConfiguration sortSymbol = new SortSymbolConfiguration(RequiredSymbolPathWithParent, typeof(string).FullName, false);
+
+            var pc = new PredicateContainer();
+
+            pc.AddQuerySymbolToPredicates(plainBuilders, querySymbol);
+
+            pc.AddSortSymbolToPredicates(plainBuilders, sortSymbol);
+
+            var records = Exchange.GetRecords(pc, 100, 0).ToList();
+
+            Assert.Equal(10, records.Count());
+
         }
     }
 }

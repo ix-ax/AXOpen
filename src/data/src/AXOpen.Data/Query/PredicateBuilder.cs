@@ -1,10 +1,8 @@
 ﻿namespace AXOpen.Data.Query
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Linq.Expressions;
-    using System.Reflection;
+    using Base.Data.Query;
 
     public static class PredicateBuilder
     {
@@ -13,12 +11,14 @@
             // Parameter Expression (p => ...)
             var parameter = Expression.Parameter(targetType, "p");
 
-            // Property Expression (p.PropertyName)
-            var property = Expression.Property(parameter, propertyName);
+            // Get Property Expression, supporting nested properties
+            var property = ExpressionHelper.GetNestedPropertyExpression(parameter, propertyName);
 
+            if (property == null)
+                throw new ArgumentException($"Property '{propertyName}' not found on type '{targetType.Name}'.");
+
+            // Convert value to the correct type
             var convertedMinOrValue = Convert.ChangeType(minOrValue, property.Type);
-
-            // Convert Value to Correct Type
             var constant = Expression.Constant(convertedMinOrValue);
 
             // Create Binary Expression (p.PropertyName [operator] value)
@@ -42,7 +42,7 @@
             return Expression.Lambda(funcType, body, parameter);
         }
 
-        private static Expression BuildRangeExpression(Expression property, object min, object max)
+        public static Expression BuildRangeExpression(Expression property, object min, object max)
         {
             Expression minCheck = Expression.GreaterThanOrEqual(property, Expression.Constant(min, property.Type));
             Expression maxCheck = Expression.LessThanOrEqual(property, Expression.Constant(max, property.Type));
@@ -50,7 +50,7 @@
             return Expression.AndAlso(minCheck, maxCheck);
         }
 
-        private static Expression BuildOutOfRangeExpression(Expression property, object min, object max)
+        public static Expression BuildOutOfRangeExpression(Expression property, object min, object max)
         {
             Expression minCheck = Expression.LessThanOrEqual(property, Expression.Constant(min, property.Type));
             Expression maxCheck = Expression.GreaterThanOrEqual(property, Expression.Constant(max, property.Type));

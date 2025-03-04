@@ -22,7 +22,7 @@
         {
             var pc = new PredicateContainer();
 
-            pc.AddPredicates<ProcessData>(p => (p.vInt > 2 && (p.NestObj.vInt > 3 && p.NestObj.vInt <= 8)));
+            pc.AddPredicates<ProcessData>(p => (p.vInt > 2 && (p.Primitives.vINT > 3 && p.Primitives.vINT <= 8)));
             pc.AddPredicates<ProcessData>(p => (p.vBool == true));
 
             var result = Fixture.Repository.GetRecords(pc, 100, 0).ToList();
@@ -39,7 +39,7 @@
         {
             var pc = new PredicateContainer();
 
-            pc.AddPredicates<ProcessData>(p => (p.vInt > 2 && (p.NestObj.vInt > 3 && p.NestObj.vInt <= 8)));
+            pc.AddPredicates<ProcessData>(p => (p.vInt > 2 && (p.Primitives.vINT > 3 && p.Primitives.vINT <= 8)));
             pc.AddPredicates<ProcessData>(p => (p.vBool == true));
 
             List<string> result = Fixture.Repository.GetEntityIds(pc).ToList();
