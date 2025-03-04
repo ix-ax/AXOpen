@@ -13,12 +13,12 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
     END_VAR
     //</InitializationArgumentsDeclaration>            
 
-    METHOD PUBLIC Run
+    METHOD PUBLIC OVERRIDE Run
         VAR_INPUT
-            parent : IAxoContext;
-        END_VAR    
+            inParent : IAxoObject;
+        END_VAR     
 
-        THIS.InitializeWithContext(parent);
+        SUPER.Run(inParent);
 
         //<Initialization>        
         ExampleComponent.Run(THIS, _hwID);        
@@ -35,7 +35,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
 
     METHOD PRIVATE UseInSequencer   
 
-        Sequencer.Initialize(THIS);
+        Sequencer.Run(THIS);
         Sequencer.Open();
 
         IF(Steps[0].Execute(Sequencer, 'Update diagnostic task')) THEN
