@@ -49,27 +49,10 @@ NAMESPACE AxoDataExchangeExample
             {#ix-set:AttributeName = "Some int"}
             SomeInt : INT;
 
-        Nested_Prop : Nested_V2;
-
+            AllPrimitives : BasePrimitives;
         END_VAR
     END_CLASS
     //</AxoProcessDataDeclaration>
-
-CLASS PUBLIC Nested_V1 
-    VAR PUBLIC
-        V1_String : STRING;
-        V1_SomeInt : INT;
-    END_VAR
-END_CLASS
-
-CLASS PUBLIC Nested_V2 
-    VAR PUBLIC
-        V2_String : STRING;
-        V2_Nest_V1 : Nested_V1;
-    END_VAR
-END_CLASS
-
-
 
     //<Usage>
     {S7.extern=ReadWrite}
@@ -160,5 +143,38 @@ END_CLASS
         END_METHOD
     END_CLASS
     //</Run>
+
+    {S7.extern=ReadWrite}
+    CLASS PUBLIC BasePrimitives //27 vars
+        VAR PUBLIC
+            vBOOL           :       BOOL	      ;
+            vBYTE           :       BYTE	      ;
+            vWORD           :       WORD	      ;
+            vDWORD          :       DWORD	      ;
+            vLWORD	        :       LWORD	      ;
+            vSINT           :       SINT	      ;
+            vINT	        :       INT           ;
+            vDINT	        :       DINT	      ;
+            vLINT	        :       LINT	      ;
+            vUSINT	        :       USINT	      ;
+            vUINT	        :       UINT	      ;
+            vUDINT	        :       UDINT	      ;
+            vULINT	        :       ULINT	      ;
+            vREAL	        :       REAL	      ;
+            vLREAL	        :       LREAL	      ;
+            vTIME	        :       TIME	      ;
+            vLTIME	        :       LTIME	      ;
+            vDATE	        :       DATE	      ;
+            vLDATE	        :       LDATE	      ;
+            vTIME_OF_DAY	:       TIME_OF_DAY   ;
+            vLTIME_OF_DAY	:       LTIME_OF_DAY  ;
+            vDATE_AND_TIME  :      DATE_AND_TIME  ;
+            vLDATE_AND_TIME :      LDATE_AND_TIME ;
+            vCHAR	        :       CHAR	      ;
+            vWCHAR	        :       WCHAR	      ;
+            vSTRING         :       STRING	      ;
+            vWSTRING        :       WSTRING	      ;
+        END_VAR    
+    END_CLASS
 
 END_NAMESPACE

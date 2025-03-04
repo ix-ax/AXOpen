@@ -103,7 +103,7 @@ NAMESPACE Exchange_Test_L4
             vWORD           :       WORD	      ;
             vDWORD          :       DWORD	      ;
             vLWORD	        :       LWORD	      ;
-            vSINTMin        :       SINT	      ;
+            vSINT           :       SINT	      ;
             vINT	        :       INT           ;
             vDINT	        :       DINT	      ;
             vLINT	        :       LINT	      ;

@@ -128,7 +128,7 @@ namespace AXOpen.Data
                 if (_DefaulQueryDataEntityId == null)
                 {
                     var poco = DataExchange.GetPlainObjectType().First();
-                    _DefaulQueryDataEntityId = new QuerySymbolConfiguration($"{poco.Name}.DataEntityId", typeof(string).FullName, "==", "", "");
+                    _DefaulQueryDataEntityId = new QuerySymbolConfiguration($"{poco.Name}.DataEntityId", typeof(string).FullName, "!=", "", "");
                 }
 
                 return _DefaulQueryDataEntityId;
