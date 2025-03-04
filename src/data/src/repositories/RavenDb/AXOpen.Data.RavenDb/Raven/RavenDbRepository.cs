@@ -244,16 +244,7 @@ namespace AXOpen.Data.RavenDb
                 }
             }
 
-            var sorting = predicates.GetSorting<T>();
-
-            if (sorting != null && sorting.Any())
-            {
-                query = ApplySorting(query, sorting);
-            }
-            else
-            {
-                query = query.OrderBy(p => p.DataEntityId);
-            }
+            query = ApplySorting(query, predicates.GetSorting<T>());
 
             return query.Select(p => p.DataEntityId).ToList();
         }
@@ -278,16 +269,7 @@ namespace AXOpen.Data.RavenDb
                 }
             }
 
-            var sorting = predicates.GetSorting<T>();
-
-            if (sorting != null && sorting.Any())
-            {
-                query = ApplySorting(query, sorting);
-            }
-            else
-            {
-                query = query.OrderBy(p => p.DataEntityId);
-            }
+            query = ApplySorting(query, predicates.GetSorting<T>());
 
             return query.Skip(skip).Take(limit).ToList();
         }
@@ -310,9 +292,15 @@ namespace AXOpen.Data.RavenDb
         private IQueryable<T> ApplySorting(IQueryable<T> query, List<SortSettings> sortSettings)
         {
             if (sortSettings == null || !sortSettings.Any())
-                return query; // Return unsorted if no settings
+                return query.OrderByDescending(p => p.DataEntityId);
 
             IOrderedQueryable<T> orderedQuery = null;
+
+            if (sortSettings.All(p => string.IsNullOrEmpty(p.MemberName)))
+            {
+                var naturalSort = sortSettings.First();
+                return naturalSort.IsAscending ? query.OrderBy(p => p.DataEntityId) : query.OrderByDescending(p => p.DataEntityId);
+            }
 
             foreach (var setting in sortSettings)
             {

@@ -25,8 +25,6 @@
             pc.AddPredicates<ProcessData>(p => (p.vInt > 2 && (p.NestObj.vInt > 3 && p.NestObj.vInt <= 8)));
             pc.AddPredicates<ProcessData>(p => (p.vBool == true));
 
-            pc.AddSortMember<ProcessData>(p => p.DataEntityId, false);
-
             var result = Fixture.Repository.GetRecords(pc, 100, 0).ToList();
 
             Assert.Equal(3, result.Count());
@@ -43,8 +41,6 @@
 
             pc.AddPredicates<ProcessData>(p => (p.vInt > 2 && (p.NestObj.vInt > 3 && p.NestObj.vInt <= 8)));
             pc.AddPredicates<ProcessData>(p => (p.vBool == true));
-
-            pc.AddSortMember<ProcessData>(p => p.DataEntityId, false);
 
             List<string> result = Fixture.Repository.GetEntityIds(pc).ToList();
 
