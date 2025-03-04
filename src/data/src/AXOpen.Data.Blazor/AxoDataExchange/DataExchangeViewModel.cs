@@ -319,7 +319,7 @@ namespace AXOpen.Data
             }
             finally
             {
-                await FillObservableRecordsAsync();
+                await FillObservableRecordsAsync(BuidDefaultPredicates());
                 CreateItemId = null;
 
                 if (StateHasChangedDelegate != null)
@@ -341,7 +341,7 @@ namespace AXOpen.Data
             }
             finally
             {
-                UpdateObservableRecords();
+                UpdateObservableRecords(BuidDefaultPredicates());
             }
 
             if (StateHasChangedDelegate != null)
@@ -362,7 +362,7 @@ namespace AXOpen.Data
             }
             finally
             {
-                UpdateObservableRecords();
+                UpdateObservableRecords(BuidDefaultPredicates());
                 CreateItemId = null;
 
                 if (StateHasChangedDelegate != null)
@@ -374,7 +374,7 @@ namespace AXOpen.Data
         {
             await DataExchange.UpdateFromShadowsAsync(RefUIData);
             AlertDialogService?.AddAlertDialog(eAlertType.Success, "Edited!", "Item was successfully edited!", 10);
-            UpdateObservableRecords();
+            UpdateObservableRecords(BuidDefaultPredicates());
         }
 
         public async Task SendToPlc()
