@@ -2,6 +2,7 @@ name: "ix_axopencore"
 version: '0.0.0-dev.0'
 type: app
 targets:
+  - llvm
   - "1500"
 variables:
   APAX_BUILD_ARGS:
@@ -101,6 +102,10 @@ scripts:
   cicb: |
     apax clean
     apax icb
+  ibt: |
+    apax install
+    apax build
+    apax test
   mm1: |
     apax mon -t 10.10.10.120 -f messages1.mon -C .\\certs\\plc_line\\plc_line.cer -c
   mm2: |

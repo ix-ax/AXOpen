@@ -6,11 +6,11 @@ files:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.5
+  "@inxton/ax.catalog": 0.0.6
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
-  "@ax/system-strings": 8.0.7
+  "@ax/system-strings": 9.0.12
 installStrategy: strict
 apaxVersion: 3.4.2
 scripts:

@@ -29,7 +29,7 @@ NAMESPACE AxoRemoteTaskDocuExamples
         METHOD PROTECTED OVERRIDE Main
 
             //<AxoTaskIntitialization>
-            _remoteTask.InitializeWithContext(THIS); // THIS = IAxoContext 
+            THIS.InitializeRootObject(_remoteTask); // THIS = IAxoContext 
             //</AxoTaskIntitialization>
 
             //<AxoTaskInvoke>

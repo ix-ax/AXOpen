@@ -30,7 +30,7 @@ NAMESPACE AxoTaskExamples
         END_VAR    
     
         METHOD PROTECTED OVERRIDE Main
-            _commandTask.InitializeWithContext(THIS);    
+            THIS.InitializeRootObject(_commandTask);    
 
             _commandTask.SetRemoteAbortEnabled(_enableRemoteAbort);
             _commandTask.SetRemoteRestoreEnabled(_enableRemoteRestore);
