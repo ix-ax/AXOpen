@@ -13,7 +13,7 @@ NAMESPACE Template.Axolibrary
         END_VAR
 
         METHOD PROTECTED OVERRIDE Main
-            _rootObject .InitializeWithContext(THIS);
+            THIS.InitializeRootObject(_rootObject);
             _testCyclinder.Run(_rootObject,  
                                 WORD#64,                           
                                 REF(_homeSensor), 

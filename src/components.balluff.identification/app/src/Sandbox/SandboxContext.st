@@ -20,7 +20,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                 i:int;
             END_VAR;
 
-            _rootObject.InitializeWithContext(THIS);
+            THIS.InitializeRootObject(_rootObject);
             _testReader.Run(    parent := _rootObject,
                                 hwID            := HwIdentifiers#BNIPNT507005Z040_HwID,
                                 hwId_BISM       := HwIdentifiers#BNIPNT507005Z040_BIS_M_4XX_045_1_BIS_M_4XX_045_HwID);

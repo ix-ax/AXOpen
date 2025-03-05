@@ -11,7 +11,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
 
         METHOD PROTECTED OVERRIDE Main
             RETURN;
-            _rootObject.InitializeWithContext(THIS);
+            THIS.InitializeRootObject(_rootObject);
 
             IF(_manualControl) THEN            
                 _testRobot.ActivateManualControl();

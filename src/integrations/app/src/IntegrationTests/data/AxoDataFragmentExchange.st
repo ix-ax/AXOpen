@@ -17,7 +17,7 @@ NAMESPACE IntegrationAxoDataFramentsExchange
         
         
         METHOD PROTECTED OVERRIDE Main
-            _rootObject.InitializeWithContext(THIS);
+            THIS.InitializeRootObject(_rootObject);
 
             PD.Run(_rootObject); 
 

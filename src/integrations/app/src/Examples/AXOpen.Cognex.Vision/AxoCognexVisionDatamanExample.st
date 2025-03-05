@@ -23,7 +23,7 @@ NAMESPACE AxoCognexVisionDatamanExamples
                 MyDataman2.ActivateManualControl();
             END_IF;
             // Calling the main method `Run` with respective input and output variables. 
-            _rootObject.InitializeWithContext(THIS);
+            THIS.InitializeRootObject(_rootObject);
             //<HWIO_Assignement>
             MyDataman1.Run( parent                     :=  _rootObject,  
                             ResultDataSize             :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize#RESULT_DATA_128B,

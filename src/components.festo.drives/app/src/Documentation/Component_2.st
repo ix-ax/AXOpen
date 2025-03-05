@@ -19,19 +19,20 @@ NAMESPACE AXOpen.Components.Festo.Drives
         END_VAR
         //</InitializationArgumentsDeclaration>            
 
-        METHOD PUBLIC Run
+
+        METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoContext;
+                parent : IAxoObject;
             END_VAR    
 
-            THIS.InitializeWithContext(parent);
+            SUPER.Run(parent);
 
             IF(manualControl) THEN            
                 AxoCmmtAs.ActivateManualControl();
             END_IF;  
 
             //<Initialization>        
-            AxoCmmtAs.Run(parent            :=  THIS,
+            AxoCmmtAs.Run(parent                :=  THIS,
                             hwID                  :=    HwIdentifiers#cmmtas_HwID,
                             hwIdTelegram111       :=    HwIdentifiers#cmmtas_SiemensTelegram111_PZD_12_12_HwID,
                             hwIdTelegram750       :=    HwIdentifiers#cmmtas_SiemensTelegram750_PZD_4_1_HwID,
@@ -60,7 +61,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         END_VAR
         METHOD PRIVATE UseInSequencer   
 
-            Sequencer.Initialize(THIS);
+            Sequencer.Run(THIS);
             Sequencer.Open();
             Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
 

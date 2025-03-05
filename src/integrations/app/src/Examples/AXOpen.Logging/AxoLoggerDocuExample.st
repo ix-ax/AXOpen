@@ -29,7 +29,7 @@ NAMESPACE AxoLoggerExamples
             THIS.GetLogger().Log('Here I am logging an infomation.', eLogLevel#Information);
             
             // Logging from inner object
-            InnerObject.InitializeWithContext(THIS);
+            THIS.InitializeRootObject(InnerObject);
             InnerObject.Foo();
         END_METHOD            
         //</InjectLoggers> 

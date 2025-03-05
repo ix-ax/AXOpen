@@ -19,7 +19,7 @@ CLASS AxoS71500RtcContext EXTENDS AXOpen.Core.AxoContext
         
         ActualDateTime := _rtc.NowUTC();
         
-        SetUTC.InitializeWithContext(THIS);
+        THIS.InitializeRootObject(SetUTC);
 
         IF(SetUTC.Execute()) THEN
             retval := _rtc.SetUTC(SetupDateTime);

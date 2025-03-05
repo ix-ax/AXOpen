@@ -8,7 +8,7 @@ NAMESPACE AxoObjectExamples
             _myObject : AxoObject;
         END_VAR
         METHOD PROTECTED OVERRIDE Main
-            _myObject.InitializeWithContext(THIS);            
+            THIS.InitializeRootObject(_myObject);
         END_METHOD
     END_CLASS
 //</AxoContext>
@@ -19,7 +19,7 @@ NAMESPACE AxoObjectExamples
             _myChildObject  : AxoObject;
         END_VAR
         METHOD PROTECTED OVERRIDE Main
-            _myChildObject.InitializeWithContext(THIS);            
+            THIS.InitializeRootObject(_myChildObject);
         END_METHOD
     END_CLASS
 //</AxoObject>

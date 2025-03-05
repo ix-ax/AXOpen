@@ -1,7 +1,7 @@
 NAMESPACE AXOpen.Core
     INTERFACE IAxoTask EXTENDS IAxoObject,IAxoTaskInt
-        METHOD Execute : BOOL END_METHOD
-        METHOD Invoke : IAxoTaskState END_METHOD
+        METHOD Execute : BOOL VAR_INPUT inParent : IAxoObject; END_VAR END_METHOD
+        METHOD Invoke : IAxoTaskState VAR_INPUT inParent : IAxoObject; END_VAR END_METHOD
         METHOD Restore : IAxoTaskState END_METHOD
         METHOD Abort END_METHOD
         METHOD Resume END_METHOD

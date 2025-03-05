@@ -16,12 +16,12 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
         END_VAR
         //</InitializationArgumentsDeclaration>            
 
-        METHOD PUBLIC Run
+        METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoContext;
+                parent : IAxoObject;
             END_VAR    
 
-            THIS.InitializeWithContext(parent);
+            SUPER.Run(parent);
 
             IF(manualControl) THEN            
                 ExampleScrewdriver.ActivateManualControl();
@@ -51,7 +51,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
 
         METHOD PRIVATE UseInSequencer   
 
-            Sequencer.Initialize(THIS);
+            Sequencer.Run(THIS);
             Sequencer.Open();
             Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
 

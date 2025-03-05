@@ -12,7 +12,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
 
         METHOD PROTECTED OVERRIDE Main  
             RETURN;
-            _rootObject.InitializeWithContext(THIS);
+            THIS.InitializeRootObject(_rootObject);
             IF(_manualControl) THEN            
                 _testScrewdriver.ActivateManualControl();
             END_IF;   

@@ -1,4 +1,5 @@
 USING AXOpen.Core;
+USING AXOpen.Core;
 USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 USING Siemens.Simatic.S71500.Diagnostics.Hardware;
@@ -26,14 +27,15 @@ NAMESPACE AXOpen.Io
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                hwID    :   WORD;
+                inParent    :   IAxoObject;
+                hwID        :   WORD;
             END_VAR
             VAR
                 diagInfo : Siemens.Simatic.S71500.Diagnostics.Hardware.DiagnosticDetails;            
             END_VAR
                    
             
-            IF SUPER.Execute() THEN
+            IF SUPER.Execute(inParent) THEN
                 GetDiagnosticsReturnCode := GetDiagnostics(TO_UINT(hwID), diagInfo);
 
                 IF GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN

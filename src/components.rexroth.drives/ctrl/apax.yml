@@ -25,4 +25,7 @@ scripts:
   cicb: |
     apax clean
     apax icb
-...
+  ibt: |
+    apax install
+    apax build
+    apax test

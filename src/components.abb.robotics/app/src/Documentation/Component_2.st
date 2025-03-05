@@ -15,22 +15,21 @@ NAMESPACE AXOpen.Components.Abb.Robotics
         END_VAR
         //</InitializationArgumentsDeclaration>            
 
-        METHOD PUBLIC Run
+        METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoContext;
+                parent : IAxoObject;
             END_VAR    
-
-            THIS.InitializeWithContext(parent);
+            SUPER.Run(parent);
 
             IF(manualControl) THEN            
                 AxoOmnicore_v_1_x_x.ActivateManualControl();
             END_IF;
 
             //<Initialization>        
-            AxoOmnicore_v_1_x_x.Run(   parent      := THIS,
-                                hwID        := HwIdentifiers#OmniCore_HwID,
-                                hwIdDI_64_bytes := HwIdentifiers#OmniCore_DI_64_bytes_DI_64_bytes_HwID,      
-                                hwIdDO_64_bytes := HwIdentifiers#OmniCore_DO_64_bytes_DO_64_bytes_HwID);        
+            AxoOmnicore_v_1_x_x.Run(parent          := parent,
+                                    hwID            := HwIdentifiers#OmniCore_HwID,
+                                    hwIdDI_64_bytes := HwIdentifiers#OmniCore_DI_64_bytes_DI_64_bytes_HwID,      
+                                    hwIdDO_64_bytes := HwIdentifiers#OmniCore_DO_64_bytes_DO_64_bytes_HwID);        
             //</Initialization>
 
         THIS.UseInSequencer();
@@ -44,7 +43,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
 
         METHOD PRIVATE UseInSequencer   
 
-            Sequencer.Initialize(THIS);
+            Sequencer.Run(THIS);
             Sequencer.Open();
 
             IF(Steps[0].Execute(Sequencer, 'Start at main')) THEN

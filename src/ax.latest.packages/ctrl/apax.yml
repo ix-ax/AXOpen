@@ -5,21 +5,20 @@ files:
   - apax.yml
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
-  "@ax/sdk": 2411.1.0
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.5
+  "@inxton/ax.catalog": 0.0.6
 dependencies:
-  "@ax/simatic-1500-clocks": 8.0.8
-  "@ax/system-bitaccess": 8.0.7
-  "@ax/system-math": 8.0.8
-  "@ax/system-serde": 8.0.7
+  "@ax/simatic-1500-clocks": 9.0.1
+  "@ax/system-bitaccess": 9.0.12
+  "@ax/system-math": 9.0.12
+  "@ax/system-serde": 9.0.12
   "@ax/hwc": 2.0.65
   "@ax/hw-s7-1500": 2.0.65
   "@ax/hwld": 2.0.20
-  "@ax/stc": 8.0.31
-  "@ax/sld": 3.0.9
+  "@ax/stc": 9.0.72
+  "@ax/sld": 3.1.2
 installStrategy: strict
 apaxVersion: 3.4.2
 scripts:

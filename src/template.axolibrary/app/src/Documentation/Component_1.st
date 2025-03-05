@@ -19,12 +19,12 @@ NAMESPACE Template.Axolibrary
         END_VAR
         //</InitializationArgumentsDeclaration>            
 
-        METHOD PUBLIC Run
+        METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
                 parent : IAxoObject;
             END_VAR    
 
-            THIS.Initialize(parent);
+            SUPER.Run(parent);
 
             IF ActivateManualControl THEN
                 ExampleCylinder.ActivateManualControl();
@@ -50,7 +50,7 @@ NAMESPACE Template.Axolibrary
 
         METHOD PRIVATE UseInSequencer   
 
-            Sequencer.Initialize(THIS);
+            Sequencer.Run(THIS);
             Sequencer.Open();
 
             IF(Steps[0].Execute(Sequencer, 'Move to home position')) THEN

@@ -109,6 +109,13 @@ NAMESPACE AXOpen.Core
             _contextLogger : IAxoLogger;          
         END_VAR
 
+        METHOD PUBLIC InitializeRootObject
+            VAR_IN_OUT
+                inoRootObject : AxoObject;
+            END_VAR
+            inoRootObject.InitializeWithContext(THIS);
+        END_METHOD
+
         METHOD PUBLIC GetLogger : IAxoLogger
             IF(_contextLogger <> NULL) THEN
                 GetLogger := _contextLogger;

@@ -25,7 +25,6 @@ NAMESPACE AXOpen.Core.Dummies
         /// This method must be overridden in derived class.
         ///</summary>
         METHOD PROTECTED ABSTRACT Main END_METHOD
-        
             
         METHOD PUBLIC Open : ULINT
             _openCounter := _openCounter + ULINT#1;
@@ -73,6 +72,7 @@ NAMESPACE AXOpen.Core.Dummies
             IF(_rtc <> NULL) THEN
                 GetRtc := _rtc;
             ELSE
+                // TODO provide some message 
                 GetRtc := NULL_RTC;    
             END_IF;    
         END_METHOD
@@ -82,19 +82,56 @@ NAMESPACE AXOpen.Core.Dummies
                 Rtc : IAxoRtc;
             END_VAR
             _rtc := Rtc;
-        END_METHOD 
-        
-        VAR PRIVATE
-            NULL_LOGGER : _NULL_LOGGER;
-        END_VAR    
-        METHOD PUBLIC GetLogger : IAxoLogger GetLogger := NULL_LOGGER; END_METHOD
-        METHOD PUBLIC InjectLogger VAR_INPUT _logger : IAxoLogger; END_VAR ; END_METHOD    
-            
-        VAR PRIVATE
+        END_METHOD      
+
+
+        VAR PRIVATE            
             NULL_RTM : _NULL_RTM;
             _rtm : IAxoRtm;
-        END_VAR    
-        METHOD PUBLIC GetRtm : AXOpen.Rtm.IAxoRtm IF(_rtm = NULL) THEN GetRtm := NULL_RTM; ELSE GetRtm := _rtm; END_IF; END_METHOD
-        METHOD PUBLIC InjectRtm VAR_INPUT inRtm : AXOpen.Rtm.IAxoRtm; END_VAR _rtm := inRtm; END_METHOD            
+        END_VAR
+
+        METHOD PUBLIC InjectRtm
+            VAR_INPUT
+                inRtm : IAxoRtm;
+            END_VAR
+            _rtm := inRtm;
+        END_METHOD
+
+        METHOD PUBLIC GetRtm : IAxoRtm
+            IF(_rtc <> NULL) THEN
+                GetRtm := _rtm;
+            ELSE
+                // TODO provide some message 
+                GetRtm := NULL_RTM;    
+            END_IF;    
+        END_METHOD
+
+        VAR PRIVATE            
+            NULL_LOGGER : _NULL_LOGGER;
+            _contextLogger : IAxoLogger;          
+        END_VAR
+
+        METHOD PUBLIC InitializeRootObject
+            VAR_IN_OUT
+                inoRootObject : AxoObject;
+            END_VAR
+            inoRootObject.InitializeWithContext(THIS);
+        END_METHOD
+
+        METHOD PUBLIC GetLogger : IAxoLogger
+            IF(_contextLogger <> NULL) THEN
+                GetLogger := _contextLogger;
+            ELSE
+                // TODO provide some message 
+                GetLogger := NULL_LOGGER;    
+            END_IF;    
+        END_METHOD
+        
+        METHOD PUBLIC InjectLogger
+            VAR_INPUT
+                _logger : IAxoLogger;
+            END_VAR
+            _contextLogger := _logger;
+        END_METHOD            
     END_CLASS          
 END_NAMESPACE

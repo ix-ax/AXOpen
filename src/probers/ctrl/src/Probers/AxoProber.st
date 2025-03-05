@@ -15,21 +15,14 @@ NAMESPACE AXOpen.Probers
             END_IF;   
         END_METHOD    
 
-        METHOD PUBLIC Run            
+        METHOD PUBLIC OVERRIDE Run            
             VAR_INPUT
-                Parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
-            THIS.Initialize(Parent);
+            SUPER.Run(inParent);
             THIS.Run();
         END_METHOD
 
-        // METHOD PUBLIC Run            
-        //     VAR_INPUT
-        //         Context : IAxoContext;
-        //     END_VAR    
-        //     THIS.Initialize(Context);
-        //     THIS.Run();
-        // END_METHOD
 
         METHOD PROTECTED ABSTRACT Test
              
@@ -49,21 +42,14 @@ NAMESPACE AXOpen.Probers
             END_IF;    
         END_METHOD    
 
-        METHOD PUBLIC Run            
+        METHOD PUBLIC OVERRIDE Run            
             VAR_INPUT
-                Parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
-            THIS.Initialize(Parent);
+            SUPER.Run(inParent);
             THIS.Run();
         END_METHOD
 
-        // METHOD PUBLIC Run            
-        //     VAR_INPUT
-        //         Context : IAxoContext;
-        //     END_VAR    
-        //     THIS.Initialize(Context);
-        //     THIS.Run();
-        // END_METHOD
 
         METHOD PROTECTED ABSTRACT Test : BOOL
              

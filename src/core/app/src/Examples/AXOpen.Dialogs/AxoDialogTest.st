@@ -44,16 +44,13 @@ NAMESPACE AxoDialogExamples
             _alertDialog : AXOpen.Core.AxoAlert;
         END_VAR    
 
-
-        VAR 
-        END_VAR
-    
-        METHOD PUBLIC Run
-           VAR_INPUT
-            _context : IAxoContext;
+        METHOD PUBLIC OVERRIDE Run
+            VAR_INPUT
+                inParent : IAxoObject;
             END_VAR;
 
-            THIS.InitializeWithContext(_context);
+            SUPER.Run(inParent);
+            // THIS.InitializeWithContext(_context);
             
             IF(_restoreDialog) THEN
                 _restoreDialog := false;

@@ -24,7 +24,7 @@ NAMESPACE AxoTaskExamples
         END_VAR    
     
         METHOD PROTECTED OVERRIDE Main
-            _commandTask.InitializeWithContext(THIS);    
+            THIS.InitializeRootObject(_commandTask);
 
             IF(_commandTask.Execute()) THEN        
                 _commandTask._counter := _commandTask._counter + ULINT#1;        

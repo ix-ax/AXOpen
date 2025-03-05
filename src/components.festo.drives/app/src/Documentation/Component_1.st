@@ -19,13 +19,13 @@ NAMESPACE AXOpen.Components.Festo.Drives
         END_VAR
         //</InitializationArgumentsDeclaration>            
 
-        METHOD PUBLIC Run
+        METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoContext;
+                parent : IAxoObject;
             END_VAR    
             // RETURN;
 
-            THIS.InitializeWithContext(parent);
+            SUPER.Run(parent);
 
             IF(manualControl) THEN            
                 AxoCmmtAs.ActivateManualControl();
@@ -61,7 +61,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         END_VAR
         METHOD PRIVATE UseInSequencer   
 
-            Sequencer.Initialize(THIS);
+            Sequencer.Run(THIS);
             Sequencer.Open();
             Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
 

@@ -10,15 +10,14 @@ CLASS ComponentWithDiagnostics EXTENDS AXOpen.Core.AxoComponent
 
     METHOD PUBLIC Run
         VAR_INPUT
-            parent : IAxoObject;
+            inParent : IAxoObject;
             _hwID : WORD;
         END_VAR    
+        SUPER.Run(inParent);
 
-        THIS.Initialize(parent);
+        // HardwareDiagnosticsTask.Initialize(THIS);
 
-        HardwareDiagnosticsTask.Initialize(THIS);
-
-        HardwareDiagnosticsTask.Run(_hwID);        
+        HardwareDiagnosticsTask.Run(THIS,_hwID);        
     END_METHOD
 
 

@@ -8,7 +8,7 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     END_VAR    
 
     METHOD PROTECTED OVERRIDE Main
-        _rootObject.InitializeWithContext(THIS);
+        THIS.InitializeRootObject(_rootObject);
         _testComponent.Run(_rootObject,_hwID);
 
         IF(_manualControl) THEN
