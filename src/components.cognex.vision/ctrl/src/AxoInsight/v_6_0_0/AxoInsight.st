@@ -197,7 +197,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 hwIdUserData            :   WORD;
             END_VAR
 
-            THIS.Initialize(parent);
+            SUPER.Run(parent);
             
             Messenger.Serve(THIS);
 
@@ -257,86 +257,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             THIS.Close();            
         END_METHOD
 
-        // ///<summary>
-        // /// Runs tasks and logic of this component.
-        // /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
-        // ///</summary>
-        // METHOD PUBLIC Run
-        //     VAR_INPUT
-        //         parent                  :   IAxoContext; 
-        //         ResultDataSize          :   eAxoInsight_ResultDataSize;
-        //         UserDataSize            :   eAxoInsight_UserDataSize;
-        //         hwID                    :   WORD;
-        //         hwIdAcquisitionControl  :   WORD;
-        //         hwIdAcquisitionStatus   :   WORD;
-        //         hwIdInspectionControl   :   WORD;
-        //         hwIdInspectionStatus    :   WORD;
-        //         hwIdCommandControl      :   WORD;
-        //         hwIdSoftEventControl    :   WORD;
-        //         hwIdResultData          :   WORD;
-        //         hwIdUserData            :   WORD;
-        //     END_VAR
-
-        //     THIS.Initialize(parent);
-            
-        //     Messenger.Serve(THIS);
-
-        //     Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
-        //     Messenger.ActivateOnCondition(ULINT#701,hwIdAcquisitionControl = WORD#0, eAxoMessageCategory#ProgrammingError);
-        //     Messenger.ActivateOnCondition(ULINT#702,hwIdAcquisitionStatus = WORD#0, eAxoMessageCategory#ProgrammingError);
-        //     Messenger.ActivateOnCondition(ULINT#703,hwIdInspectionControl = WORD#0, eAxoMessageCategory#ProgrammingError);
-        //     Messenger.ActivateOnCondition(ULINT#704,hwIdInspectionStatus = WORD#0, eAxoMessageCategory#ProgrammingError);
-        //     Messenger.ActivateOnCondition(ULINT#705,hwIdCommandControl = WORD#0, eAxoMessageCategory#ProgrammingError);
-        //     Messenger.ActivateOnCondition(ULINT#706,hwIdSoftEventControl = WORD#0, eAxoMessageCategory#ProgrammingError);
-        //     Messenger.ActivateOnCondition(ULINT#707,hwIdResultData = WORD#0, eAxoMessageCategory#ProgrammingError);
-        //     Messenger.ActivateOnCondition(ULINT#708,hwIdUserData = WORD#0, eAxoMessageCategory#ProgrammingError);            
-
-        //     IF parent = NULL THEN
-        //         Status.Error.Id := UINT#700;
-        //         RETURN;
-        //     ELSIF hwIdAcquisitionControl = WORD#0 THEN
-        //         Status.Error.Id := UINT#701;
-        //         RETURN;
-        //     ELSIF hwIdAcquisitionStatus = WORD#0 THEN
-        //         Status.Error.Id := UINT#702;
-        //         RETURN;
-        //     ELSIF hwIdInspectionControl = WORD#0 THEN
-        //         Status.Error.Id := UINT#703;
-        //         RETURN;
-        //     ELSIF hwIdInspectionStatus = WORD#0 THEN
-        //         Status.Error.Id := UINT#704;
-        //         RETURN;
-        //     ELSIF hwIdCommandControl  = WORD#0 THEN
-        //         Status.Error.Id := UINT#705;
-        //         RETURN;
-        //     ELSIF hwIdSoftEventControl = WORD#0 THEN
-        //         Status.Error.Id := UINT#706;
-        //         RETURN;
-        //     ELSIF hwIdResultData = WORD#0 THEN
-        //         Status.Error.Id := UINT#707;
-        //         RETURN;
-        //     ELSIF hwIdUserData = WORD#0 THEN
-        //         Status.Error.Id := UINT#708;
-        //         RETURN;
-        //     END_IF;
-
-        //     _ResultDataSize         :=  ResultDataSize;
-        //     _UserDataSize           :=  UserDataSize;
-        //     _hwID                   :=  hwID;
-        //     _hwIdAcquisitionControl :=  hwIdAcquisitionControl;
-        //     _hwIdAcquisitionStatus  :=  hwIdAcquisitionStatus;
-        //     _hwIdInspectionControl  :=  hwIdInspectionControl;
-        //     _hwIdInspectionStatus   :=  hwIdInspectionStatus;
-        //     _hwIdCommandControl     :=  hwIdCommandControl;
-        //     _hwIdSoftEventControl   :=  hwIdSoftEventControl;
-        //     _hwIdResultData         :=  hwIdResultData;
-        //     _hwIdUserData           :=  hwIdUserData;
-
-        //     THIS.Open();
-        //     THIS.Execute();
-        //     THIS.Close();            
-        // END_METHOD
-               
         METHOD PRIVATE UpdateInputs : BOOL
             VAR
                 returnValue : WORD;
@@ -583,15 +503,15 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 returnValue : WORD;
             END_VAR
 
-            RestoreTask.Initialize(THIS);
-            ClearInspectionResultsTask.Initialize(THIS);
-            TriggerTask.Initialize(THIS);
-            ChangeJobByNameTask.Initialize(THIS);
-            ChangeJobByNumberTask.Initialize(THIS);
-            SoftEventTask.Initialize(THIS);
-            HardwareDiagnosticsTask.Initialize(THIS);
+            RestoreTask.Run(THIS);
+            ClearInspectionResultsTask.Run(THIS);
+            TriggerTask.Run(THIS);
+            ChangeJobByNameTask.Run(THIS);
+            ChangeJobByNumberTask.Run(THIS);
+            SoftEventTask.Run(THIS);
+            HardwareDiagnosticsTask.Run(THIS);
 
-            HardwareDiagnosticsTask.Run(_hwID);
+            HardwareDiagnosticsTask.Run(THIS,_hwID);
             //*************RESTORE********************
             RestoreTask.IsDisabled := FALSE;
             IF RestoreTask.Execute() THEN
