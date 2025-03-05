@@ -25,8 +25,8 @@ NAMESPACE AXOpen.Data
                 VAR
                     expected : STRING[254];
                 END_VAR    
-                _rootObject.InitializeWithContext(_context);
-                _dataExchangeTask.Initialize(_rootObject);
+                _context.InitializeRootObject(_rootObject);
+                _dataExchangeTask.Run(_rootObject);
                 _context.Open();
                 expected := 'UpdateIdentifier';
                 _dataExchangeTask.Invoke(expected);

@@ -43,8 +43,8 @@ NAMESPACE AXOpen.Data
                 _context.InjectRtm(_rtm);
                 _rtc.SetNowUTC(LDATE_AND_TIME#2012-01-12-15:58:12.123);
                 _context.InjectRtc(_rtc);
-                _rootObject.InitializeWithContext(_context);
-                _dataExchange.Initialize(_rootObject);
+                _context.InitializeRootObject(_rootObject);
+                _dataExchange.Run(_rootObject);
                 _dataExchange := _dataExchangeBlank;
                 caller_1 := caller_1Blank;
                 caller_2 := caller_2Blank;
@@ -96,7 +96,7 @@ NAMESPACE AXOpen.Data
                 startTime := LDATE_AND_TIME#2023-11-11-11:11:11.111;
                 _rtc.SetNowUTC(startTime);
                 _context.InjectRtc(_rtc);
-                caller_1.Initialize(_rootObject);
+                caller_1.Run(_rootObject);
                 caller_1.Identity :=  _context.CreateIdentity();
                 IdentifierCaller_1 := '1';
                 _dataExchange.Operation.IsInitialized := true; //simulate intit from .net side
@@ -151,7 +151,7 @@ NAMESPACE AXOpen.Data
                 startTime := LDATE_AND_TIME#2023-11-11-11:11:11.111;
                 _rtc.SetNowUTC(startTime);
                 _context.InjectRtc(_rtc);
-                caller_1.Initialize(_rootObject);
+                caller_1.Run(_rootObject);
                 caller_1.Identity :=  _context.CreateIdentity();
                 IdentifierCaller_1 := '1';
                 _dataExchange.Operation.IsInitialized := true; //simulate intit from .net side
@@ -211,7 +211,7 @@ NAMESPACE AXOpen.Data
                 startTime := LDATE_AND_TIME#2023-11-11-11:11:11.111;
                 _rtc.SetNowUTC(startTime);
                 _context.InjectRtc(_rtc);
-                caller_1.Initialize(_rootObject);
+                caller_1.Run(_rootObject);
                 caller_1.Identity := ulint#0;
                 IdentifierCaller_1 := '1';
                 _dataExchange.Operation.IsInitialized := true; //simulate intit from .net side
@@ -267,7 +267,7 @@ NAMESPACE AXOpen.Data
                 startTime := LDATE_AND_TIME#2023-11-11-11:11:11.111;
                 _rtc.SetNowUTC(startTime);
                 _context.InjectRtc(_rtc);
-                caller_1.Initialize(_rootObject);
+                caller_1.Run(_rootObject);
                 caller_1.Identity :=  _context.CreateIdentity();
                 IdentifierCaller_1 := '1';
                 _dataExchange.Operation.IsInitialized := true; //simulate intit from .net side
@@ -315,8 +315,8 @@ NAMESPACE AXOpen.Data
                 startTime := LDATE_AND_TIME#2023-11-11-11:11:11.111;
                 _rtc.SetNowUTC(startTime);
                 _context.InjectRtc(_rtc);
-                caller_1.Initialize(_rootObject);
-                caller_2.Initialize(_rootObject);
+                caller_1.Run(_rootObject);
+                caller_2.Run(_rootObject);
                 caller_1.Identity := _context.CreateIdentity();
                 caller_2.Identity := _context.CreateIdentity();
                 IdentifierCaller_1 := '1';
@@ -437,8 +437,8 @@ NAMESPACE AXOpen.Data
                 startTime := LDATE_AND_TIME#2023-11-11-11:11:11.111;
                 _rtc.SetNowUTC(startTime);
                 _context.InjectRtc(_rtc);
-                caller_1.Initialize(_rootObject);
-                caller_2.Initialize(_rootObject);
+                caller_1.Run(_rootObject);
+                caller_2.Run(_rootObject);
                 caller_1.Identity := _context.CreateIdentity();
                 caller_2.Identity := _context.CreateIdentity();
                 IdentifierCaller_1 := '1';

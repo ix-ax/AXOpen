@@ -20,8 +20,9 @@ NAMESPACE AxoDataExchangeExample
         METHOD OVERRIDE Main
             
             // DataManager.Run(THIS); - is called iside of controlle unit
+            THIS.InitializeRootObject(ControlledUnit);
             ControlledUnit.ProcessData := REF(DataManager);//Set REF to DataManager (reason depth of data structure)
-            ControlledUnit.Run(THIS);// run logic of controlled unit 
+            ControlledUnit.Run();// run logic of controlled unit 
 
             ManagerUsage.Use(DataManager);
         END_METHOD
@@ -105,10 +106,7 @@ NAMESPACE AxoDataExchangeExample
         END_VAR
 
         METHOD PUBLIC Run
-            VAR_INPUT
-                _parent : IAxoContext;
-            END_VAR
-            THIS.InitializeWithContext(_parent);
+            SUPER.Run(THIS); //??
             THIS.Execute();
         END_METHOD
 
