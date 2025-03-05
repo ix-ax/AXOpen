@@ -19,7 +19,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
         END_VAR
 
         METHOD PROTECTED OVERRIDE Main
-            _rootObject.InitializeWithContext(THIS);
+            THIS.InitializeRootObject(_rootObject);
             IF Mode = UINT#0 THEN
                 RETURN;
             END_IF;
@@ -58,7 +58,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             // 100 RW cycles of 56 chcracter long string
             // 39850 ms
 
-            Sequencer.InitializeWithContext(THIS);
+            Sequencer.Run(_rootObject);
             Sequencer.Open();
             Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
             
@@ -123,7 +123,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             // at 115.2 kBd does not work, NFI wfy
 
             
-            Sequencer.InitializeWithContext(THIS);
+            Sequencer.Run(_rootObject);
             Sequencer.Open();
             Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
             
