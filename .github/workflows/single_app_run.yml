@@ -78,11 +78,7 @@ jobs:
           $commitId = git rev-parse --short HEAD
           echo "sha=$commitId" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8
 
-    - name: "Running Job for Commit ${{ env.sha }}"
-      shell: pwsh
-      run: echo "Processing commit $env:sha"
-
-    - name: Display Commit SHA in Summary
+    - name: Display workflow details in Summary
       shell: pwsh
       run: |
-        echo "### Commit SHA: $env:sha ::: Branch name: $env:BRANCH_NAME ::: Library folder: $env:APP_FOLDER" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Encoding utf8        
+        echo "### Runner name: $env:RUNNER_NAME ::: Branch name: $env:BRANCH_NAME ::: Commit SHA: $env:sha ::: Library folder: $env:APP_FOLDER"  | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Encoding utf8        
