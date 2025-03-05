@@ -13,7 +13,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
 
         METHOD PROTECTED OVERRIDE Main
             RETURN;
-            _rootObject.InitializeWithContext(THIS);
+            THIS.InitializeRootObject(_rootObject);
 
             _testRobot.Run(     parent                                                  := _rootObject,
                                 hwID                                                    := HwIdentifiers#ureol2l_HwID,
