@@ -13,10 +13,10 @@ NAMESPACE AxoSequencerExamples
     
         //<Initialize>
         METHOD PUBLIC Initialize
-            _mySequencer.InitializeWithContext(THIS);
-            _step_1.InitializeWithContext(THIS);
-            _step_2.InitializeWithContext(THIS);
-            _step_3.InitializeWithContext(THIS);
+            THIS.InitializeRootObject(_mySequencer);
+            // _step_1.InitializeWithContext(THIS);
+            // _step_2.InitializeWithContext(THIS);
+            // _step_3.InitializeWithContext(THIS);
         END_METHOD
         //</Initialize>
 

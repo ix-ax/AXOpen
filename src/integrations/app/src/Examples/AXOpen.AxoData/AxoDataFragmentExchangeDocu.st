@@ -13,7 +13,7 @@ NAMESPACE AxoDataFramentsExchangeDocuExample
         END_VAR
                 
         METHOD PROTECTED OVERRIDE Main
-            _rootObject.InitializeWithContext(THIS);
+            THIS.InitializeRootObject(_rootObject);
             // This is required to run cyclically. Method provides handling of data exchange tasks.
             ProcessData.Run(_rootObject);                                     
         END_METHOD

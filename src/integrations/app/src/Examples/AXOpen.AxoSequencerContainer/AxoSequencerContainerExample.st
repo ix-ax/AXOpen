@@ -31,16 +31,6 @@ NAMESPACE AxoSequencerContainerExamples
 
 
         METHOD PROTECTED OVERRIDE Main 
-            step_1.Initialize(THIS);
-            step_2.Initialize(THIS);
-            step_3.Initialize(THIS);
-            step_4.Initialize(THIS);
-            step_5.Initialize(THIS);
-            step_6.Initialize(THIS);
-            step_7.Initialize(THIS);
-            step_8.Initialize(THIS);
-            step_9.Initialize(THIS);
-            step_10.Initialize(THIS);
 
             Counter := Counter + ULINT#1;
 
@@ -121,10 +111,12 @@ NAMESPACE AxoSequencerContainerExamples
         VAR PUBLIC
             {#ix-set:AttributeName = "<#Sequencer container example#>"}
             _SequencerContainerExample : AxoSequencerContainerExample;
+            _rootObject : AxoObject;
         END_VAR    
  
         METHOD PROTECTED OVERRIDE Main    
-            _SequencerContainerExample.Run(THIS);
+            THIS.InitializeRootObject(_rootObject);
+            _SequencerContainerExample.Run(_rootObject);
         END_METHOD
     END_CLASS    
 END_NAMESPACE
