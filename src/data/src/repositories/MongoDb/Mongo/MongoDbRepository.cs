@@ -5,24 +5,26 @@ using System.Collections.Generic;
 using System.Linq;
 using AXOpen.Base.Data;
 using AXOpen.Data;
+using System.Linq.Expressions;
+using AXOpen.Base.Data.Query;
 
 namespace AXOpen.Data.MongoDb
 {
     /// <summary>
     /// Provides access to basic operations for MongoDB.
     /// To use this code, mongo database must run somewhere. To start MongoDB locally you can use following code
-    /// 
-    /// Start MongoDB without authentication 
+    ///
+    /// Start MongoDB without authentication
     ///     <code>
-    ///         "C:\Program Files\MongoDB\Server\4.4\bin\mongod.exe"  --dbpath C:\DATA\DB446\ 
+    ///         "C:\Program Files\MongoDB\Server\4.4\bin\mongod.exe"  --dbpath C:\DATA\DB446\
     ///     </code>
-    ///     
-    /// Start MongoDB with authentication. You don't have to use the "--port" attribute or use a different "--dbpath". The only 
+    ///
+    /// Start MongoDB with authentication. You don't have to use the "--port" attribute or use a different "--dbpath". The only
     /// reason why would you want to run authenticated database on a different dbpath and port simultaneously is if they're running
     /// on the same machine.
-    /// 
+    ///
     /// More info about the use credentials <see cref="MongoDbCredentials"/>
-    /// 
+    ///
     ///     <code>
     ///         "C:\Program Files\MongoDB\Server\4.4\bin\mongod.exe"  --dbpath C:\DATA\DB446_AUTH\ --auth --port 27018
     ///     </code>
@@ -33,6 +35,8 @@ namespace AXOpen.Data.MongoDb
     {
         private IMongoCollection<T> collection;
         private readonly string location;
+
+        public override long LastFragmentQueryCount { get; protected set; }
 
         /// <summary>
         /// Creates new instance of <see cref="MongoDbRepository{T}"/>.
@@ -45,14 +49,16 @@ namespace AXOpen.Data.MongoDb
         }
 
         private bool RecordExists(string identifier)
-        { return collection.Find(p => p.DataEntityId == identifier).Count() >= 1; }
+        {
+            return collection.Find(p => p.DataEntityId == identifier).Count() >= 1;
+        }
 
         protected override void CreateNvi(string identifier, T data)
         {
             try
             {
                 var x = System.Threading.Thread.CurrentThread.GetApartmentState();
-              
+
                 if (RecordExists(identifier))
                 {
                     throw new DuplicateIdException($"Record with ID '{identifier}' already exists in this collection.",
@@ -62,7 +68,6 @@ namespace AXOpen.Data.MongoDb
                 data.RecordId = ObjectId.GenerateNewId();
 
                 collection.InsertOne(data);
-
             }
             catch (Exception ex)
             {
@@ -70,7 +75,8 @@ namespace AXOpen.Data.MongoDb
             }
         }
 
-        protected override void DeleteNvi(string identifier) { collection.DeleteOne(p => p.DataEntityId == identifier); }
+        protected override void DeleteNvi(string identifier)
+        { collection.DeleteOne(p => p.DataEntityId == identifier); }
 
         protected override long FilteredCountNvi(string id, eSearchMode searchMode)
         {
@@ -84,9 +90,11 @@ namespace AXOpen.Data.MongoDb
                 case eSearchMode.StartsWith:
                     filter = Builders<T>.Filter.Regex(p => p.DataEntityId, new BsonRegularExpression($"^{filterExpresion}", ""));
                     break;
+
                 case eSearchMode.Contains:
                     filter = Builders<T>.Filter.Regex(p => p.DataEntityId, new BsonRegularExpression($".*{filterExpresion}", ""));
                     break;
+
                 case eSearchMode.Exact:
                 default:
                     filter = Builders<T>.Filter.Eq(p => p.DataEntityId, id);
@@ -95,7 +103,7 @@ namespace AXOpen.Data.MongoDb
 
             if (id == "*" || string.IsNullOrWhiteSpace(id))
             {
-#pragma warning disable CS0618 // CountDocuments is very slow compared to Count() even though Count is obsolete. 
+#pragma warning disable CS0618 // CountDocuments is very slow compared to Count() even though Count is obsolete.
                 return collection
                     .Find(new BsonDocument())
                     .Count();
@@ -107,8 +115,8 @@ namespace AXOpen.Data.MongoDb
                     .Count();
             }
         }
-#pragma warning restore CS0618 
 
+#pragma warning restore CS0618
 
         protected override IEnumerable<T> GetRecordsNvi(string identifier, int limit, int skip, eSearchMode searchMode, string sortExpresion, bool sortAscending)
         {
@@ -118,14 +126,16 @@ namespace AXOpen.Data.MongoDb
             var filterExpresion = ParseIdentifierForRegularExpression(identifier);
 
             switch (searchMode)
-            {             
+            {
                 case eSearchMode.StartsWith:
                     filter = Builders<T>.Filter.Regex(p => p.DataEntityId, new BsonRegularExpression($"^{filterExpresion}", ""));
                     break;
+
                 case eSearchMode.Contains:
                     filter = Builders<T>.Filter.Regex(p => p.DataEntityId, new BsonRegularExpression($".*{filterExpresion}", ""));
                     break;
-                case eSearchMode.Exact:                    
+
+                case eSearchMode.Exact:
                 default:
                     filter = Builders<T>.Filter.Eq(p => p.DataEntityId, identifier);
                     break;
@@ -147,7 +157,6 @@ namespace AXOpen.Data.MongoDb
                     sortBuilder = new SortDefinitionBuilder<T>().Descending(sortExpresion);
             }
 
-            
             if (identifier == "*" || string.IsNullOrWhiteSpace(identifier))
             {
                 filetered = collection
@@ -168,6 +177,122 @@ namespace AXOpen.Data.MongoDb
             }
 
             return filetered;
+        }
+
+        protected SortDefinition<T> CreteSortDefinition(List<SortSettings> sortSettings)
+        {
+            var sortBuilder = new SortDefinitionBuilder<T>();
+
+            SortDefinition<T> sortDefinition;
+
+            if (sortSettings == null || sortSettings.Count == 0)
+            {
+                sortDefinition = sortBuilder.Descending("$natural");
+            }
+            else
+            {
+                var sortDefinitions = new List<SortDefinition<T>>();
+
+                if (sortSettings.All(p => string.IsNullOrEmpty(p.MemberName)))
+                {
+                    var naturalSort = sortSettings.First();
+                    return naturalSort.IsAscending ? sortBuilder.Ascending("$natural") : sortBuilder.Descending("$natural");
+                }
+
+                foreach (var sortSet in sortSettings)
+                {
+                    string sortExpression = sortSet.MemberName;
+                    bool sortAscending = sortSet.IsAscending;
+
+                    if (!string.IsNullOrEmpty(sortSet.MemberName))
+                    {
+                        SortDefinition<T> singleSort = sortAscending
+                               ? sortBuilder.Ascending(sortExpression)
+                               : sortBuilder.Descending(sortExpression);
+
+                        sortDefinitions.Add(singleSort);
+                    }
+                }
+
+                sortDefinition = sortDefinitions.Count == 1
+                    ? sortDefinitions[0]
+                    : sortBuilder.Combine(sortDefinitions);
+            }
+
+            return sortDefinition;
+        }
+
+        protected FilterDefinition<T> CreteFilterDefinition(List<Expression<Func<T, bool>>> predicates)
+        {
+            FilterDefinition<T> filter = Builders<T>.Filter.Empty;
+
+            if (predicates != null && predicates.Any())
+            {
+                // Each predicate is now an Expression<Func<T, bool>>, which is what Filter.Where expects.
+                var filters = predicates.Select(predicate => Builders<T>.Filter.Where(predicate));
+                filter = Builders<T>.Filter.And(filters);
+            }
+
+            return filter;
+        }
+
+        protected override IEnumerable<T> GetRecordsNvi(
+            PredicateContainer predicates,
+            int limit,
+            int skip
+            )
+        {
+            SortDefinition<T> sortDefinition = CreteSortDefinition(predicates.GetSorting<T>());
+
+            FilterDefinition<T> filter = CreteFilterDefinition(predicates.GetPredicates<T>());
+
+            // 3. Execute the query with filtering, sorting, skipping, and limiting.
+            var results = collection
+                .Find(filter)
+                .Sort(sortDefinition)
+                .Skip(skip)
+                .Limit(limit)
+                .ToList();
+
+            return results;
+        }
+
+        protected override long FilteredCountNvi(PredicateContainer predicates)
+        {
+            FilterDefinition<T> filter = CreteFilterDefinition(predicates.GetPredicates<T>());
+
+            this.LastFragmentQueryCount = collection.Count(filter);
+
+            return this.LastFragmentQueryCount;
+        }
+
+        protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids)
+        {
+            if (ids == null || !ids.Any())
+            {
+                return Enumerable.Empty<T>();
+            }
+
+            var filter = Builders<T>.Filter.In(p => p.DataEntityId, ids);
+
+            return collection.Find(filter).ToList();
+        }
+
+        protected override IEnumerable<string> GetEntityIdsNvi(
+            PredicateContainer predicates
+            )
+        {
+            SortDefinition<T> sortDefinition = CreteSortDefinition(predicates.GetSorting<T>());
+            FilterDefinition<T> filter = CreteFilterDefinition(predicates.GetPredicates<T>());
+
+            // 3. Execute the query with filtering, sorting, skipping, limiting, and projection.
+            var results = collection
+                .Find(filter)
+                .Sort(sortDefinition)
+                .Project(Builders<T>.Projection.Expression(x => x.DataEntityId)) // Projection for DataEntityId
+                .ToList();
+
+            return results.ToList();
         }
 
         /// <summary>

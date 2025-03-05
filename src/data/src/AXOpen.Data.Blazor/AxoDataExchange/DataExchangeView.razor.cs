@@ -31,6 +31,9 @@ using AXOpen.Core;
 using AXOpen.Data;
 
 using System.Data.Common;
+using AXOpen.Data.Query;
+using AXOpen.Base.Data.Query;
+using AXSharp.Presentation.Blazor.Controls.Templates;
 
 namespace AXOpen.Data;
 
@@ -44,13 +47,17 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     [Parameter] public bool ModalDataView { get; set; } = true;
 
-    [Parameter] public bool CanExport { get; set; } = false;
+    [Parameter] public bool EnableExport { get; set; } = false; // EnableExport
 
     [Parameter] public bool EnableSorting { get; set; } = false;
 
     [Parameter] public RenderFragment ChildContent { get; set; }
 
     [Parameter] public List<string> SortElements { get; set; } = new();
+
+    [Parameter] public PredicateContainer ExternalPredicates { get; set; }
+
+    public bool AdvanceFilterConfig { get; set; } = false;
 
     [Inject]
     private IAlertService _alertDialogService { get; set; }
@@ -64,6 +71,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     private eOperationStatus _fileLoadingStatus = eOperationStatus.Ready;
 
+    private PredicateContainer _lastPredicates;
 
     private string _ClientFolder = string.Empty;
 
@@ -111,7 +119,6 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     private string Create { get; set; } = "";
 
-
     private int MaxPage =>
         (int)(Vm.FilteredCount % Vm.Limit == 0 ? Vm.FilteredCount / Vm.Limit - 1 : Vm.FilteredCount / Vm.Limit);
 
@@ -142,25 +149,22 @@ public partial class DataExchangeView : ComponentBase, IDisposable
         return r < 0 ? r + m : r;
     }
 
-    private async Task setSearchModeAsync(eSearchMode searchMode)
-    {
-        Vm.SearchMode = searchMode;
-
-        await Vm.FillObservableRecordsAsync();
-    }
-
     private async Task setSortExpresionAsync(string sortExpresion)
     {
-        Vm.SortExpresion = sortExpresion;
+        Vm.DefaulSorting.MemberName = sortExpresion;
+        if (sortExpresion == "Default")
+        {
+            Vm.DefaulSorting.MemberName = ""; // natural
+        }
 
-        await Vm.FillObservableRecordsAsync();
+        await Vm.FillObservableRecordsAsync(Vm.BuidDefaultPredicates());
     }
 
     private async Task setSortAscendingAsync()
     {
-        Vm.SortAscending = !Vm.SortAscending;
+        Vm.DefaulSorting.IsAscending = !Vm.DefaulSorting.IsAscending;
 
-        await Vm.FillObservableRecordsAsync();
+        await Vm.FillObservableRecordsAsync(Vm.BuidDefaultPredicates());
     }
 
     private async Task setLimitAsync(int limit)
@@ -170,22 +174,27 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
         Vm.Page = Vm.Page * oldLimit / Vm.Limit;
 
-        await Vm.FillObservableRecordsAsync();
+        await Vm.FillObservableRecordsAsync(Vm.BuidDefaultPredicates());
     }
 
     private async Task setPageAsync(int page)
     {
         Vm.Page = page;
 
-        await Vm.FillObservableRecordsAsync();
+        await Vm.FillObservableRecordsAsync(Vm.BuidDefaultPredicates());
     }
 
     protected override async Task OnInitializedAsync()
     {
-        await Vm.FillObservableRecordsAsync();
+        EnableSorting = true;
+        EnableExport = true;
+
+        Vm.InjectedPredicateContainer = ExternalPredicates;
+
+        await Vm.Filter();
+
         Vm.StateHasChangedDelegate = StateHasChanged;
     }
-
 
     private async Task LoadFile(InputFileChangeEventArgs e)
     {
@@ -196,7 +205,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
             if (!Directory.Exists(ClientFolder))
                 Directory.CreateDirectory(ClientFolder);
 
-            Console.WriteLine( $"willl be imported to {ImportPath}");
+            Console.WriteLine($"willl be imported to {ImportPath}");
             await using FileStream fs = new(ImportPath, FileMode.Create);
 
             await e.File.OpenReadStream().CopyToAsync(fs);
@@ -208,7 +217,6 @@ public partial class DataExchangeView : ComponentBase, IDisposable
             _alertDialogService.AddAlertDialog(eAlertType.Danger, "Error!", ex.Message, 10);
             _fileLoadingStatus = eOperationStatus.Failed;
         }
-
     }
 
     private void ClearFiles(string path)
@@ -241,14 +249,14 @@ public partial class DataExchangeView : ComponentBase, IDisposable
         StateHasChanged();
     }
 
-
+    //-inject
     protected void ReloadRecordAfterEditWithoutModal()
     {
         if (this.ModalDataView) return; // make a sense when is not modal window
 
         string identifier = Vm.SelectedRecord.DataEntityId;
 
-        Vm.FillObservableRecordsAsync().GetAwaiter();
+        Vm.FillObservableRecordsAsync(Vm.BuidDefaultPredicates()).GetAwaiter();
 
         var rec = Vm.Records.Where(e => e.DataEntityId == identifier).First();
 

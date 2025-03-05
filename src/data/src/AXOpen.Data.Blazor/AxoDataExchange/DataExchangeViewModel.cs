@@ -20,6 +20,8 @@ using Newtonsoft.Json.Linq;
 using System.ComponentModel;
 using Microsoft.AspNetCore.Components.Authorization;
 using System.Security.Claims;
+using AXOpen.Data.Query;
+using AXOpen.Base.Data.Query;
 
 namespace AXOpen.Data
 {
@@ -37,8 +39,8 @@ namespace AXOpen.Data
             set => this.DataExchange = (IAxoDataExchange)value;
         }
 
-
         private ITwinObject _refUIData;
+
         public ITwinObject RefUIData
         {
             get
@@ -117,6 +119,57 @@ namespace AXOpen.Data
             }
         }
 
+        private QuerySymbolConfiguration _DefaulQueryDataEntityId;
+
+        public QuerySymbolConfiguration DefaulQueryDataEntityId
+        {
+            get
+            {
+                if (_DefaulQueryDataEntityId == null)
+                {
+                    var poco = DataExchange.GetPlainObjectType().First();
+                    _DefaulQueryDataEntityId = new QuerySymbolConfiguration($"{poco.Name}.DataEntityId", typeof(string).FullName, "!=", "", "");
+                }
+
+                return _DefaulQueryDataEntityId;
+            }
+        }
+
+        private SortSettings _DefaulSorting;
+
+        public SortSettings DefaulSorting
+        {
+            get
+            {
+                if (_DefaulSorting == null)
+                {
+                    _DefaulSorting = new SortSettings();
+                }
+
+                return _DefaulSorting;
+            }
+        }
+
+        private List<PlainSymbolBuilder> _PlainBuilders;
+
+        public List<PlainSymbolBuilder> PlainBuilders
+        {
+            get
+            {
+                if (_PlainBuilders == null)
+                {
+                    _PlainBuilders = DataExchange.GetPlainObjectType().Select(p => new PlainSymbolBuilder(p)).ToList();
+                }
+
+                return _PlainBuilders;
+            }
+        }
+
+        public PredicateContainer LastFilter;
+
+        // injected from view or other service
+        public PredicateContainer InjectedPredicateContainer { get; set; }
+
         internal void Locked()
         {
             if (IsLockedByMeOrNull())
@@ -142,21 +195,21 @@ namespace AXOpen.Data
             return false;
         }
 
-        public Task FillObservableRecordsAsync()
+        public Task FillObservableRecordsAsync(PredicateContainer? predicates = null)
         {
-            //let another thread to load records, we need main thread to show loading symbol in blazor page
             return Task.Run(() =>
             {
                 IsBusy = true;
-                UpdateObservableRecords();
+
+                UpdateObservableRecords(predicates);
+
                 IsBusy = false;
             });
         }
 
-        public IEnumerable<IBrowsableDataObject> Filter(string identifier, int limit = 10, int skip = 0, eSearchMode searchMode = eSearchMode.Exact, string sortExpresion = "Default", bool sortAscending = false)
+        public IEnumerable<IBrowsableDataObject> Filter(PredicateContainer predicates, int limit = 10, int skip = 0)
         {
-            var records = this.DataExchange.GetRecords(identifier, limit: limit, skip: skip, searchMode, sortExpresion,
-                sortAscending);
+            var records = this.DataExchange.GetRecords(predicates, limit, skip);
 
             lock (_viewRefreshMutex)
             {
@@ -165,35 +218,61 @@ namespace AXOpen.Data
                 {
                     this.Records.Add(item);
                 }
-                FilteredCount = CountFiltered(FilterById, SearchMode);
+
+                if (this.DataExchange.Repository is AxoCompoundRepository)
+                {
+                    FilteredCount = DataExchange.LastFragmentQueryCount;
+                }
+                else
+                {
+                    FilteredCount = this.DataExchange.Repository.FilteredCount(predicates);
+                }
             }
 
             return Records;
         }
 
-        public long CountFiltered(string id, eSearchMode searchMode = eSearchMode.Exact)
+        public void UpdateObservableRecords(PredicateContainer? predicates = null)
         {
-            return this.DataExchange.Repository.FilteredCount(id, searchMode);
-        }
+            if (predicates == null)
+            {
+                if (LastFilter == null)
+                {
+                    LastFilter = new PredicateContainer();
+                }
 
-        public void UpdateObservableRecords()
-        {
-            Filter(FilterById, Limit, Page * Limit, SearchMode, SortExpresion, SortAscending).ToList();
+                predicates = LastFilter;
+            }
+
+            Filter(predicates, Limit, Page * Limit);
         }
 
         public async Task Filter()
         {
             Page = 0;
-            await FillObservableRecordsAsync();
+
+            await FillObservableRecordsAsync(BuidDefaultPredicates());
         }
 
-        public async Task RefreshFilter()
+        public PredicateContainer BuidDefaultPredicates()
         {
-            Limit = 10;
-            FilterById = "";
-            SearchMode = eSearchMode.Exact;
-            Page = 0;
-            await FillObservableRecordsAsync();
+            try
+            {
+                PredicateContainer pc = new PredicateContainer();
+                if (InjectedPredicateContainer != null) pc.AddPredicatesFrom(InjectedPredicateContainer);
+
+                pc.AddQuerySymbolToPredicates(PlainBuilders, DefaulQueryDataEntityId);
+
+                var poco = DataExchange.GetPlainObjectType().First();
+
+                pc.AddSortMember(DefaulSorting, poco);
+
+                return pc;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public IBrowsableDataObject FindById(string id)
@@ -240,7 +319,7 @@ namespace AXOpen.Data
             }
             finally
             {
-                await FillObservableRecordsAsync();
+                await FillObservableRecordsAsync(BuidDefaultPredicates());
                 CreateItemId = null;
 
                 if (StateHasChangedDelegate != null)
@@ -262,7 +341,7 @@ namespace AXOpen.Data
             }
             finally
             {
-                UpdateObservableRecords();
+                UpdateObservableRecords(BuidDefaultPredicates());
             }
 
             if (StateHasChangedDelegate != null)
@@ -283,7 +362,7 @@ namespace AXOpen.Data
             }
             finally
             {
-                UpdateObservableRecords();
+                UpdateObservableRecords(BuidDefaultPredicates());
                 CreateItemId = null;
 
                 if (StateHasChangedDelegate != null)
@@ -295,7 +374,7 @@ namespace AXOpen.Data
         {
             await DataExchange.UpdateFromShadowsAsync(RefUIData);
             AlertDialogService?.AddAlertDialog(eAlertType.Success, "Edited!", "Item was successfully edited!", 10);
-            UpdateObservableRecords();
+            UpdateObservableRecords(BuidDefaultPredicates());
         }
 
         public async Task SendToPlc()
@@ -373,11 +452,14 @@ namespace AXOpen.Data
 
         public ObservableCollection<IBrowsableDataObject> Records { get; set; } = new ObservableCollection<IBrowsableDataObject>();
         public int Limit { get; set; } = 10;
-        public string FilterById { get; set; } = "";
-        public eSearchMode SearchMode { get; set; } = eSearchMode.Exact;
-        public string SortExpresion { get; set; } = "Default";
-        public bool SortAscending { get; set; } = false;
+
+        // not used any more
+        //public string FilterById { get; set; } = "";
+        //public eSearchMode SearchMode { get; set; } = eSearchMode.Exact;
+        //public string SortExpresion { get; set; } = "Default";
+        //public bool SortAscending { get; set; } = false;
         public long FilteredCount { get; set; }
+
         public int Page { get; set; } = 0;
         public string CreateItemId { get; set; }
         public bool IsBusy { get; set; }

@@ -5,10 +5,15 @@
 // https://github.com/inxton/axsharp/blob/dev/LICENSE
 // Third party licenses: https://github.com/inxton/axsharp/blob/dev/notices.md
 
+using System.Collections.Generic;
 using System.IO.Compression;
+using System.Linq;
 using System.Reflection;
 using System.Security.Principal;
+using System.Xml;
 using AXOpen.Base.Data;
+using AXOpen.Base.Data.Query;
+using AXOpen.Data.Query;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components.Authorization;
 
@@ -22,6 +27,8 @@ public partial class AxoDataFragmentExchange
     private IRepository? _repository;
     protected IAxoDataExchange[] DataFragments { get; private set; }
 
+    public long LastFragmentQueryCount { set; get; }
+
     /// <summary>
     /// Creates data fragments from properties annotated with <see cref="AxoDataFragmentAttribute" />
     /// and returns new instance of <see cref="AxoDataFragmentExchange"/>
@@ -32,7 +39,19 @@ public partial class AxoDataFragmentExchange
     {
         return CreateDataFragments() as T;
     }
-    
+
+    public IEnumerable<Type> GetPlainObjectType()
+    {
+        var Plains = new List<Type>();
+
+        foreach (var fragment in DataFragments)
+        {
+            Plains.AddRange(fragment.GetPlainObjectType());
+        }
+
+        return Plains;
+    }
+
     public bool ShouldVerifyHash { get; set; } = false;
 
     /// <summary>
@@ -88,22 +107,28 @@ public partial class AxoDataFragmentExchange
             case eCrudOperation.Create:
                 await this.RemoteCreate(identifier);
                 break;
+
             case eCrudOperation.Read:
                 await this.RemoteRead(identifier);
                 break;
+
             case eCrudOperation.Update:
                 await this.RemoteUpdate(identifier);
                 break;
+
             case eCrudOperation.Delete:
                 await this.RemoteDelete(identifier);
                 break;
+
             case eCrudOperation.CreateOrUpdate:
                 await this.RemoteCreateOrUpdate(identifier);
                 break;
+
             case eCrudOperation.EntityExist:
                 var result = await this.RemoteEntityExist(identifier);
                 await Operation._exist.SetAsync(result);
                 break;
+
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -117,7 +142,7 @@ public partial class AxoDataFragmentExchange
         get => _repository ?? throw new RepositoryNotInitializedException(this.Symbol);
         private set => _repository = value;
     }
-   
+
     /// <summary>
     /// Stop observing changes of the data object with changeTracker.
     /// </summary>
@@ -153,7 +178,6 @@ public partial class AxoDataFragmentExchange
         throw new NotImplementedException();
     }
 
- 
     /// <summary>
     /// Gets changes from changeTracker.
     /// </summary>
@@ -193,7 +217,6 @@ public partial class AxoDataFragmentExchange
         }
     }
 
-    
     //public async Task CreateNewAsync(string identifier)
     //{
     //    await Task.Run(() =>
@@ -241,9 +264,8 @@ public partial class AxoDataFragmentExchange
         return true;
     }
 
-    
     #region
-    
+
     private IEnumerable<(IAxoDataExchange Manager, IRepository Repository, ITwinObject Twin)> GetFragments(ITwinObject fragmentCompound)
     {
         if (fragmentCompound is not AxoFragmentedDataCompound)
@@ -256,7 +278,7 @@ public partial class AxoDataFragmentExchange
         foreach (var fragment in interfaceFragments)
         {
             var fr = DataFragments.FirstOrDefault(p => p.DataExchangeTwinObject.GetType() == fragment.GetType());
-            yield return (fr, fr.Repository, fragment); 
+            yield return (fr, fr.Repository, fragment);
         }
     }
 
@@ -349,14 +371,13 @@ public partial class AxoDataFragmentExchange
         var fragments = GetFragments(dataObject);
         await Task.Run(() =>
         {
-            
             foreach (var fragment in fragments)
             {
                 CreateNewPocoInFragmentRepository(identifier, fragment.Manager);
-            }          
+            }
         });
 
-        fragments.First().Repository.Read(identifier);       
+        fragments.First().Repository.Read(identifier);
     }
 
     /// <inheritdoc />
@@ -395,6 +416,7 @@ public partial class AxoDataFragmentExchange
             fragment.Repository.Create(source.DataEntityId, source);
         }
     }
+
     #endregion
 
     /// <inheritdoc />
@@ -413,7 +435,7 @@ public partial class AxoDataFragmentExchange
     {
         foreach (var fragment in DataFragments)
         {
-           await fragment?.RemoteRead(identifier);
+            await fragment?.RemoteRead(identifier);
         }
 
         return true;
@@ -424,7 +446,7 @@ public partial class AxoDataFragmentExchange
     {
         foreach (var fragment in DataFragments)
         {
-           await fragment?.RemoteUpdate(identifier);
+            await fragment?.RemoteUpdate(identifier);
         }
 
         return true;
@@ -446,7 +468,7 @@ public partial class AxoDataFragmentExchange
     {
         foreach (var fragment in DataFragments)
         {
-            if (! await fragment.RemoteEntityExist(identifier))
+            if (!await fragment.RemoteEntityExist(identifier))
                 return false;
         }
 
@@ -458,10 +480,16 @@ public partial class AxoDataFragmentExchange
     {
         foreach (var fragment in DataFragments)
         {
-           await fragment?.RemoteCreateOrUpdate(identifier);
+            await fragment?.RemoteCreateOrUpdate(identifier);
         }
 
         return true;
+    }
+
+    /// <inheritdoc />
+    public IEnumerable<IBrowsableDataObject> GetRecords(string identifier)
+    {
+        return ((dynamic)Repository).GetRecords(identifier);
     }
 
     /// <inheritdoc />
@@ -470,10 +498,77 @@ public partial class AxoDataFragmentExchange
         return ((dynamic)Repository)?.GetRecords(identifier, limit, skip, searchMode, sortExpression, sortAscending);
     }
 
-    /// <inheritdoc />
-    public IEnumerable<IBrowsableDataObject> GetRecords(string identifier)
+    public IEnumerable<IBrowsableDataObject> GetRecords(PredicateContainer predicates,
+        int limit, int skip)
     {
-        return ((dynamic)Repository).GetRecords(identifier);
+        List<List<string>> fragmentEntities = new();
+
+        Parallel.ForEach(DataFragments.Where(fragment => predicates.ContainsType(fragment.GetPlainObjectType().First())), fragment =>
+        {
+            var ids = fragment.GetEntityIds(predicates).ToList();
+            lock (fragmentEntities)
+            {
+                fragmentEntities.Add(ids);
+            }
+        });
+
+        List<string> commonEntities = fragmentEntities.Count > 1
+            ? fragmentEntities.Skip(1)
+                .Aggregate(new HashSet<string>(fragmentEntities.First()), (common, next) =>
+                {
+                    common.IntersectWith(next);
+                    return common;
+                })
+                .ToList()
+            : fragmentEntities.FirstOrDefault() ?? new List<string>();
+
+        this.LastFragmentQueryCount = commonEntities.Count;
+
+        var toFind = commonEntities.Skip(skip).Take(limit).ToList();
+
+        var records = GetRecords(toFind).ToList();
+
+        var orderedRecords = records.OrderBy(record => toFind.IndexOf(record.DataEntityId))
+            .ToList();
+
+        return orderedRecords;
+    }
+
+    public IEnumerable<IBrowsableDataObject> GetRecords(IEnumerable<string> identifiers)
+    {
+        return ((dynamic)Repository).GetRecords(identifiers);
+    }
+
+    public IEnumerable<string> GetEntityIds(PredicateContainer predicates)
+    {
+        List<List<string>> fragmentEntities = new();
+
+        Parallel.ForEach(DataFragments.Where(fragment => predicates.ContainsType(fragment.GetPlainObjectType().First())), fragment =>
+        {
+            var ids = fragment.GetEntityIds(predicates).ToList();
+            lock (fragmentEntities)
+            {
+                fragmentEntities.Add(ids);
+            }
+        });
+
+        List<string> commonEntities = fragmentEntities.Count > 1
+            ? fragmentEntities.Skip(1)
+                .Aggregate(new HashSet<string>(fragmentEntities.First()), (common, next) =>
+                {
+                    common.IntersectWith(next);
+                    return common;
+                })
+                .ToList()
+            : fragmentEntities.FirstOrDefault() ?? new List<string>();
+
+        this.LastFragmentQueryCount = commonEntities.Count;
+
+        var toFind = commonEntities;
+
+        this.LastFragmentQueryCount = commonEntities.Count();
+
+        return commonEntities;
     }
 
     private IEnumerable<PropertyInfo>? GetDataSetPropertyInfo<TA>() where TA : Attribute
@@ -523,7 +618,6 @@ public partial class AxoDataFragmentExchange
             Directory.CreateDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare");
 
             File.Delete(path);
-
 
             foreach (var fragment in DataFragments)
             {

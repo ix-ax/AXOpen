@@ -1,0 +1,308 @@
+﻿@using AXSharp.Connector;
+@using System.ComponentModel;
+@using System.Globalization;
+@namespace AXOpen.Data.Query
+
+@if (IsString)
+{
+    <input type="text" @bind="BoundString" class="form-control" />
+}
+else if (IsBool)
+{
+    <input type="checkbox" @bind="BoundBool" class="form-check-input" />
+}
+else if (IsInteger)
+{
+    <input type="number" @bind="BoundInteger" class="form-control" min="@MinValue" max="@MaxValue" step="1" />
+}
+else if (IsUnsignedInteger)
+{
+    <input type="number" @bind="BoundUnsignedInteger" class="form-control" min="@MinValue" max="@MaxValue" step="1" />
+}
+else if (IsFloatingPoint)
+{
+    <input type="number" @bind="BoundFloatingPoint" class="form-control" min="@MinValue" max="@MaxValue" step="any" />
+}
+else if (IsChar)
+{
+    <input type="text" maxlength="1" @bind="BoundChar" class="form-control" />
+}
+else if (IsDateTime)
+{
+    <input type="datetime-local" @bind="BoundDateTime" class="form-control" min="@MinDateTime" max="@MaxDateTime" />
+}
+else if (IsDateOnly)
+{
+    <input type="date" @bind="BoundDateOnly" class="form-control" min="@MinDate" max="@MaxDate" />
+}
+else if (IsTimeOnly)
+{
+    <input type="time" @bind="BoundTimeOnly" class="form-control" min="@MinTime" max="@MaxTime" />
+}
+else if (IsTimeSpan)
+{
+    <input type="text" placeholder="hh:mm:ss" @bind="BoundTimeSpan" class="form-control" />
+}
+else if (IsEnum)
+{
+    <select @bind="BoundEnum" class="form-control">
+        @foreach (var option in EnumOptions)
+        {
+            <option value="@option">@option</option>
+        }
+    </select>
+}
+else
+{
+    <p>Unsupported type</p>
+}
+
+@code {
+    [Parameter] public Type ValueType { get; set; }
+
+    private object _Value;
+    [Parameter]
+    public object Value
+    {
+        get
+        {
+            if (_Value == null)
+            {
+                _Value = Activator.CreateInstance(ValueType);
+            }
+            return _Value;
+        }
+        set
+        {
+            if (ValueType != value.GetType())
+            {
+                ;
+            }
+            try
+            {
+                var converted = Convert.ChangeType(value, ValueType);
+                if (converted != null && !Equals(_Value, value))
+                {
+                    _Value = value;
+                    ValueChanged.InvokeAsync(value);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+    }
+
+    [Parameter] public EventCallback<object> ValueChanged { get; set; }
+
+    private bool _isString;
+    private bool _isBool;
+    private bool _isInteger;
+    private bool _isUnsignedInteger;
+    private bool _isFloatingPoint;
+    private bool _isChar;
+    private bool _isDateTime;
+    private bool _isDateOnly;
+    private bool _isTimeOnly;
+    private bool _isTimeSpan;
+    private bool _isEnum;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        _isString = ValueType == typeof(string);
+        _isBool = ValueType == typeof(bool);
+        _isInteger = ValueType == typeof(sbyte) || ValueType == typeof(short) || ValueType == typeof(int) || ValueType == typeof(long);
+        _isUnsignedInteger = ValueType == typeof(byte) || ValueType == typeof(ushort) || ValueType == typeof(uint) || ValueType == typeof(ulong);
+        _isFloatingPoint = ValueType == typeof(float) || ValueType == typeof(double);
+        _isChar = ValueType == typeof(char);
+        _isDateTime = ValueType == typeof(DateTime);
+        _isDateOnly = ValueType == typeof(DateOnly);
+        _isTimeOnly = ValueType == typeof(TimeOnly);
+        _isTimeSpan = ValueType == typeof(TimeSpan);
+        _isEnum = ValueType.IsEnum;
+    }
+
+    public bool IsString => _isString;
+    public bool IsBool => _isBool;
+    public bool IsInteger => _isInteger;
+    public bool IsUnsignedInteger => _isUnsignedInteger;
+    public bool IsFloatingPoint => _isFloatingPoint;
+    public bool IsChar => _isChar;
+    public bool IsDateTime => _isDateTime;
+    public bool IsDateOnly => _isDateOnly;
+    public bool IsTimeOnly => _isTimeOnly;
+    public bool IsTimeSpan => _isTimeSpan;
+    public bool IsEnum => _isEnum;
+
+    List<object> EnumOptions => _isEnum ? Enum.GetValues(ValueType).Cast<object>().ToList() : new List<object>();
+
+    string BoundString
+    {
+        get => Value as string ?? string.Empty;
+        set
+        {
+            Value = value;
+            ValueChanged.InvokeAsync(Value);
+        }
+    }
+
+    bool BoundBool
+    {
+        get => Value is bool b ? b : default;
+        set
+        {
+            Value = value;
+            ValueChanged.InvokeAsync(Value);
+        }
+    }
+
+    string BoundInteger
+    {
+        get => Value?.ToString() ?? "0";
+        set
+        {
+            if (_isInteger && long.TryParse(value, out long parsedValue))
+            {
+                Value = Convert.ChangeType(parsedValue, ValueType);
+                ValueChanged.InvokeAsync(Value);
+            }
+        }
+    }
+
+    string BoundUnsignedInteger
+    {
+        get => Value?.ToString() ?? "0";
+        set
+        {
+            if (_isUnsignedInteger && ulong.TryParse(value, out ulong parsedValue))
+            {
+                Value = Convert.ChangeType(parsedValue, ValueType);
+                ValueChanged.InvokeAsync(Value);
+            }
+        }
+    }
+
+    string BoundFloatingPoint
+    {
+        get => Value?.ToString() ?? "0";
+        set
+        {
+            if (_isFloatingPoint && double.TryParse(value, NumberStyles.Float | NumberStyles.AllowExponent, CultureInfo.InvariantCulture, out double parsedValue))
+            {
+                Value = Convert.ChangeType(parsedValue, ValueType);
+                ValueChanged.InvokeAsync(Value);
+            }
+        }
+    }
+
+    char BoundChar
+    {
+        get => Value is char c ? c : default;
+        set
+        {
+            Value = value;
+            ValueChanged.InvokeAsync(Value);
+        }
+    }
+
+    DateTime BoundDateTime
+    {
+        get => Value is DateTime dt ? dt : DateTime.Now;
+        set
+        {
+            Value = value;
+            ValueChanged.InvokeAsync(Value);
+        }
+    }
+
+    DateOnly BoundDateOnly
+    {
+        get => Value is DateOnly d ? d : DateOnly.FromDateTime(DateTime.Now);
+        set
+        {
+            Value = value;
+            ValueChanged.InvokeAsync(Value);
+        }
+    }
+
+    TimeOnly BoundTimeOnly
+    {
+        get => Value is TimeOnly t ? t : TimeOnly.FromDateTime(DateTime.Now);
+        set
+        {
+            Value = value;
+            ValueChanged.InvokeAsync(Value);
+        }
+    }
+
+    TimeSpan BoundTimeSpan
+    {
+        get => Value is TimeSpan ts ? ts : TimeSpan.Zero;
+        set
+        {
+            Value = value;
+            ValueChanged.InvokeAsync(Value);
+        }
+    }
+
+    Enum BoundEnum
+    {
+        get => (Enum)Value;
+        set
+        {
+            Value = Enum.Parse(ValueType, value.ToString());
+            ValueChanged.InvokeAsync(Value);
+        }
+    }
+
+
+    public string MinValue => GetMinValue();
+    public string MaxValue => GetMaxValue();
+
+    private string _stepValue;
+    public string StepValue
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(_stepValue))
+            {
+                _stepValue = _isFloatingPoint ? "any" : "1";
+            }
+            return _stepValue;
+        }
+    }
+
+    private string? _minDateTime;
+    public string MinDateTime => _minDateTime ??= ((DateTime)OperationProvider.GetMinForType(ValueType)!).ToString("yyyy-MM-ddTHH:mm");
+
+    private string? _maxDateTime;
+    public string MaxDateTime => _maxDateTime ??= ((DateTime)OperationProvider.GetMaxForType(ValueType)!).ToString("yyyy-MM-ddTHH:mm");
+
+    private string? _minDate;
+    public string MinDate => _minDate ??= ((DateOnly)OperationProvider.GetMinForType(ValueType)!).ToString("yyyy-MM-dd");
+
+    private string? _maxDate;
+    public string MaxDate => _maxDate ??= ((DateOnly)OperationProvider.GetMaxForType(ValueType)!).ToString("yyyy-MM-dd");
+
+    private string? _minTime;
+    public string MinTime => _minTime ??= ((TimeOnly)OperationProvider.GetMinForType(ValueType)!).ToString("HH:mm");
+
+    private string? _maxTime;
+    public string MaxTime => _maxTime ??= ((TimeOnly)OperationProvider.GetMaxForType(ValueType)!).ToString("HH:mm");
+
+    private string GetMinValue()
+    {
+        var min = OperationProvider.GetMinForType(ValueType);
+        return min?.ToString() ?? "0";
+    }
+
+    private string GetMaxValue()
+    {
+        var max = OperationProvider.GetMaxForType(ValueType);
+        return max?.ToString() ?? "100";
+    }
+
+}

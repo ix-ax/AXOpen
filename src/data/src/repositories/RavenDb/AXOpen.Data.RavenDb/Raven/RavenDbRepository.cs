@@ -4,13 +4,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using AXOpen.Base;
 using AXOpen.Base.Data;
+using AXOpen.Base.Data.Query;
 using Raven.Client.Documents;
 using Raven.Client.Documents.Operations;
 using Raven.Client.Exceptions;
 using Raven.Client.Exceptions.Database;
 using Raven.Client.ServerWide;
 using Raven.Client.ServerWide.Operations;
-
 
 namespace AXOpen.Data.RavenDb
 {
@@ -23,7 +23,7 @@ namespace AXOpen.Data.RavenDb
         where T : IBrowsableDataObject
     {
         private readonly IDocumentStore _store;
-
+        public override long LastFragmentQueryCount { get; protected set; }
 
         protected void EnsureDatabaseExists(IDocumentStore store, string database = null, bool createDatabaseIfNotExists = true)
         {
@@ -53,7 +53,7 @@ namespace AXOpen.Data.RavenDb
         }
 
         public RavenDbRepository(RavenDbRepositorySettingsBase<T> parameters)
-        {           
+        {
             var existing = SharedData.Stores.SingleOrDefault(x => x.Database == parameters.Store.Database);
 
             if (existing != null)
@@ -130,7 +130,7 @@ namespace AXOpen.Data.RavenDb
         protected override long CountNvi => _store.Maintenance.Send(new GetStatisticsOperation()).CountOfDocuments;
 
         protected override IEnumerable<T> GetRecordsNvi(string identifier, int limit, int skip, eSearchMode searchMode, string sortExpresion, bool sortAscending)
-        {           
+        {
             using (var session = _store.OpenSession())
             {
                 IQueryable<T> query;
@@ -147,10 +147,12 @@ namespace AXOpen.Data.RavenDb
                             query = session.Query<T>()
                                            .Where(x => x.DataEntityId.StartsWith(identifier));
                             break;
+
                         case eSearchMode.Contains:
                             query = session.Query<T>()
                                            .Search(x => x.DataEntityId, $"*{identifier}*");
                             break;
+
                         case eSearchMode.Exact:
                         default:
                             query = session.Query<T>()
@@ -189,18 +191,20 @@ namespace AXOpen.Data.RavenDb
                 using (var session = _store.OpenSession())
                 {
                     switch (searchMode)
-                    {                     
+                    {
                         case eSearchMode.StartsWith:
-                            return session.Query<T>()                             
+                            return session.Query<T>()
                                  .Where(x => x.DataEntityId.StartsWith(identifier))
                                  .Count();
-                        case eSearchMode.Contains:                           
-                            return session.Query<T>()                            
+
+                        case eSearchMode.Contains:
+                            return session.Query<T>()
                                 .Search(x => x.DataEntityId, $"*{identifier}*")
                                 .Count();
+
                         case eSearchMode.Exact:
                         default:
-                            return session.Query<T>()                               
+                            return session.Query<T>()
                                    .Where(x => x.DataEntityId == identifier)
                                    .Count();
                     }
@@ -212,7 +216,7 @@ namespace AXOpen.Data.RavenDb
         {
             using (var session = _store.OpenSession())
             {
-                T entity = session.Load<T>(identifier);               
+                T entity = session.Load<T>(identifier);
                 return entity != null;
             }
         }
@@ -226,6 +230,99 @@ namespace AXOpen.Data.RavenDb
                     return session.Query<T>().ToList().AsQueryable();
                 }
             }
+        }
+
+        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates)
+        {
+            var query = Queryable;
+
+            if (predicates != null && predicates.ContainsType<T>())
+            {
+                foreach (var predicate in predicates.GetPredicates<T>())
+                {
+                    query = query.Where(p => predicate.Compile().Invoke(p));
+                }
+            }
+
+            query = ApplySorting(query, predicates.GetSorting<T>());
+
+            return query.Select(p => p.DataEntityId).ToList();
+        }
+
+        protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids)
+        {
+            if (ids == null || !ids.Any())
+                return Enumerable.Empty<T>();
+
+            return Queryable.Where(p => ids.Contains(p.DataEntityId)).ToList();
+        }
+
+        protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates, int limit, int skip)
+        {
+            var query = Queryable;
+
+            if (predicates != null && predicates.ContainsType<T>())
+            {
+                foreach (var predicate in predicates.GetPredicates<T>())
+                {
+                    query = query.Where(predicate);
+                }
+            }
+
+            query = ApplySorting(query, predicates.GetSorting<T>());
+
+            return query.Skip(skip).Take(limit).ToList();
+        }
+
+        protected override long FilteredCountNvi(PredicateContainer predicates)
+        {
+            var query = Queryable;
+
+            if (predicates != null && predicates.ContainsType<T>())
+            {
+                foreach (var predicate in predicates.GetPredicates<T>())
+                {
+                    query = query.Where(predicate);
+                }
+            }
+
+            return Raven.Client.Documents.LinqExtensions.LongCount(query);
+        }
+
+        private IQueryable<T> ApplySorting(IQueryable<T> query, List<SortSettings> sortSettings)
+        {
+            if (sortSettings == null || !sortSettings.Any())
+                return query.OrderByDescending(p => p.DataEntityId);
+
+            IOrderedQueryable<T> orderedQuery = null;
+
+            if (sortSettings.All(p => string.IsNullOrEmpty(p.MemberName)))
+            {
+                var naturalSort = sortSettings.First();
+                return naturalSort.IsAscending ? query.OrderBy(p => p.DataEntityId) : query.OrderByDescending(p => p.DataEntityId);
+            }
+
+            foreach (var setting in sortSettings)
+            {
+                if (string.IsNullOrEmpty(setting.MemberName))
+                    continue; // Skip invalid settings
+
+                var param = Expression.Parameter(typeof(T), "p");
+                var property = Expression.Property(param, setting.MemberName);
+                var keySelector = Expression.Lambda(property, param);
+
+                var methodName = orderedQuery == null
+                    ? (setting.IsAscending ? "OrderBy" : "OrderByDescending")
+                    : (setting.IsAscending ? "ThenBy" : "ThenByDescending");
+
+                var method = typeof(Queryable).GetMethods()
+                    .First(m => m.Name == methodName && m.GetParameters().Length == 2)
+                    .MakeGenericMethod(typeof(T), property.Type);
+
+                orderedQuery = (IOrderedQueryable<T>)method.Invoke(null, new object[] { orderedQuery ?? query, keySelector });
+            }
+
+            return orderedQuery ?? query;
         }
     }
 }
