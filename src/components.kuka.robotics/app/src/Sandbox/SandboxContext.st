@@ -8,7 +8,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
         END_VAR
 
         METHOD PROTECTED OVERRIDE Main
-            _rootObject.InitializeWithContext(THIS);
+            THIS.InitializeRootObject(_rootObject);
             ExampleRobot.Run(_rootObject,
                                 HwIdentifiers#KRC4_HwID,
                                 HwIdentifiers#KRC4_DIO512_512_digital_in__and_outputs_HwID);
