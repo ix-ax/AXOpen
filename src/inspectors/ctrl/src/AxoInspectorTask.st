@@ -43,9 +43,12 @@ NAMESPACE AXOpen.Inspectors
         /// Execute inspection task.
         ///</summary>
         METHOD PUBLIC OVERRIDE Execute : BOOL
+            VAR_INPUT
+                inParent : IAxoObject;
+            END_VAR;
             
             _onDoneFlag := FALSE;
-            Execute := SUPER.Execute();
+            Execute := SUPER.Execute(inParent);
         END_METHOD
 
         ////<summary>

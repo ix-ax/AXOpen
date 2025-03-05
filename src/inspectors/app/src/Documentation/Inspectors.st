@@ -19,7 +19,6 @@ CLASS InspectorsDoc EXTENDS AXOpen.Core.AxoObject
 
 
     METHOD PUBLIC Run
-        THIS.Initialize(THIS);
 
         //<AxoInspectorDataSet>
         _digitalInspectorData.FailTime := TIME#3s;

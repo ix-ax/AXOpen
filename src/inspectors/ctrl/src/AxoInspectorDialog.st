@@ -58,7 +58,7 @@ NAMESPACE AXOpen.Inspectors
                 RETURN;
             END_IF;
 
-            THIS.Initialize(_parentInspectorRef^);
+            THIS.Run(_parentInspectorRef^);
   
             IF _createPlcCycleSpace THEN // create cycle space AFTER RESPONSE
                 _createPlcCycleSpace := FALSE;

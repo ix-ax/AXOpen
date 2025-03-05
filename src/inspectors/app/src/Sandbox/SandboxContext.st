@@ -7,7 +7,7 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     END_VAR
 
     METHOD PROTECTED OVERRIDE Main
-        _inspectors.InitializeWithContext(THIS);
+        THIS.InitializeRootObject(_inspectors);
 
         IF _startInspection THEN
             _inspectors.Run();
@@ -33,13 +33,8 @@ CLASS Inspectors EXTENDS AXOpen.Core.AxoObject
         _dataInspectorData: AXOpen.Inspectors.AxoDataInspectorData;
     END_VAR
 
-
-
-
     METHOD PUBLIC Run
         
-        THIS.Initialize(THIS);
-
         IF _digitalInspectorData.FailTime = TIME#0s THEN  _digitalInspectorData.FailTime := TIME#1100MS; END_IF;
         IF _digitalInspectorData.PassTime = TIME#0s THEN  _digitalInspectorData.PassTime := TIME#1000MS; END_IF;
             
