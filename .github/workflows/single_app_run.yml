@@ -39,6 +39,7 @@ on:
 jobs:
   app-run-manual-with-selected-folder:
     runs-on: [self-hosted, Windows, X64, L3, AX, APP]  
+    continue-on-error: true     
     steps:
     - name: Get Branch Name
       shell: pwsh

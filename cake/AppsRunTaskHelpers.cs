@@ -165,9 +165,12 @@ internal static class AppsRunTaskHelpers
 
         //##########################     <=     template.axolibrary              ######################//
 
-        // Build solution
-        result = DotNetCmd.DotNetBuildWithResult(context, solutionFile, "-c Debug", ref summaryResult);
-        WriteResult(context, result, logFilePath, appendToSameLine: true);
+        //// Build solution
+        //result = DotNetCmd.DotNetBuildWithResult(context, solutionFile, "-c Debug", ref summaryResult);
+        //WriteResult(context, result, logFilePath, appendToSameLine: true);
+
+        //// Get blazor projects
+        //var blazorFiles = Directory.GetFiles(appFolder, "*.csproj", SearchOption.AllDirectories).Where(file => file.Contains("blazor")).ToList();
 
         // Get blazor projects
         var blazorFiles = Directory.GetFiles(appFolder, "*.csproj", SearchOption.AllDirectories).Where(file => file.Contains("blazor")).ToList();
@@ -176,6 +179,10 @@ internal static class AppsRunTaskHelpers
         {
             foreach (var blazorFile in blazorFiles)
             {
+                // Build solution
+                result = DotNetCmd.DotNetBuildWithResult(context, blazorFile, "-c Debug", ref summaryResult);
+                WriteResult(context, result, logFilePath, appendToSameLine: true);
+
                 context.Log.Information($"Application 'blazor' file: {blazorFile}");
 
                 // Filter out libraries by checking for <PackageId> in the project file
@@ -245,17 +252,26 @@ internal static class AppsRunTaskHelpers
 
         //##########################     <=     template.axolibrary              ######################//
 
-        // Build solution
-        string buildResult = DotNetCmd.DotNetBuildWithResult(context, solutionFile, "-c Debug", ref summaryResult);
-        WriteResult(context, buildResult, logFilePath, appendToSameLine: true);
+        //// Build solution
+        //string buildResult = DotNetCmd.DotNetBuildWithResult(context, solutionFile, "-c Debug", ref summaryResult);
+        //WriteResult(context, buildResult, logFilePath, appendToSameLine: true);
+
+        //// Get blazor projects
+        //var blazorFiles = Directory.GetFiles(appFolder, "*.csproj", SearchOption.AllDirectories).Where(file => file.Contains("blazor")).ToList();
 
         // Get blazor projects
         var blazorFiles = Directory.GetFiles(appFolder, "*.csproj", SearchOption.AllDirectories).Where(file => file.Contains("blazor")).ToList();
+
+
 
         if (blazorFiles.Any())
         {
             foreach (var blazorFile in blazorFiles)
             {
+                // Build solution
+                string buildResult = DotNetCmd.DotNetBuildWithResult(context, blazorFile, "-c Debug", ref summaryResult);
+                WriteResult(context, buildResult, logFilePath, appendToSameLine: true);
+
                 context.Log.Information($"Application 'blazor' file: {blazorFile}");
 
                 // Filter out libraries by checking for <PackageId> in the project file

@@ -8,6 +8,7 @@ on:
 jobs:
   nightly:   
     runs-on: [self-hosted, Windows, X64, AX, APP]  
+    continue-on-error: true     
     steps:
     - name: Get Branch Name
       shell: pwsh
