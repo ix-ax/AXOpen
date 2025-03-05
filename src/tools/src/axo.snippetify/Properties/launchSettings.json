@@ -7,6 +7,11 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "https://localhost:65065;http://localhost:65066"
+    },
+    "Profile 1": {
+      "commandName": "Project",
+      "commandLineArgs": ".\\test\\AxoDataLocalExchangeTest.st .\\snippets\\jejo hello",
+      "workingDirectory": "c:\\W\\Develop\\gh\\inxton\\simatic-ax\\trash\\hello\\axopen\\src\\data\\ctrl\\"
     }
   }
 }

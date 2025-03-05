@@ -99,9 +99,9 @@ NAMESPACE AXOpen.Data
         /// <param name="parent">Parent of this object</param>
         METHOD PUBLIC Run 
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR
-            THIS.Initialize(parent);
+            THIS.Initialize(inParent);
             Operation.Initialize(THIS);
             Operation.Execute();
         END_METHOD

@@ -5,16 +5,15 @@ USING AXOpen.Data;
 
 
 
-NAMESPACE AXOpen.Data  
-    
-    CLASS SomeDataStorage EXTENDS AxoDataLocalExchange    
+NAMESPACE AXOpen.Data      
+    CLASS _DataStorage_template EXTENDS AxoDataLocalExchange    
         VAR CONSTANT
             LOWBOUND : DINT := 0;
             HIGHBOUND : DINT := 10;
         END_VAR    
         VAR PUBLIC  
-            Payload : SomeAxoDataEntity;           
-            Storage : ARRAY[LOWBOUND..HIGHBOUND] OF SomeAxoDataEntity;                          
+            Payload : _EntityTemplate_;           
+            Storage : ARRAY[LOWBOUND..HIGHBOUND] OF _EntityTemplate_;                          
         END_VAR        
            
         METHOD PUBLIC OVERRIDE Create : IAxoTaskState
@@ -145,8 +144,7 @@ NAMESPACE AXOpen.Data
                      RETURN;
                 END_IF;                
             END_FOR;       
-        END_METHOD
-                  
+        END_METHOD                  
     END_CLASS
 
     {TestFixture}
@@ -155,8 +153,8 @@ NAMESPACE AXOpen.Data
         VAR
             context : Context;
             rootObject : MockAxoObject;         
-            storageController : SomeDataStorage;                           
-            s : ARRAY[0..10] OF SomeAxoDataEntity;       
+            storageController : _DataStorage_template;                           
+            s : ARRAY[0..10] OF _EntityTemplate_;       
             rtm : MockAxoRtm;
             rtc : MockAxoRtc;
         END_VAR    
@@ -247,7 +245,7 @@ NAMESPACE AXOpen.Data
         END_METHOD
     END_CLASS
 
-    CLASS SomeAxoDataEntity EXTENDS AxoDataEntity
+    CLASS _EntityTemplate_ EXTENDS AxoDataEntity
         VAR PUBLIC
             _hello : STRING;
             _someNumber : INT;
