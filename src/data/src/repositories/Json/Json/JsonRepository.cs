@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using AXOpen.Base;
 using AXOpen.Base.Data;
+using AXOpen.Base.Data.Query;
 using AXOpen.Data;
-
 
 namespace AXOpen.Data.Json
 {
     /// <summary>
     /// Provides repository for storing data in files with `Json` format.
     /// <note type="warning">
-    /// This repository type is not suitable for large data collections.   
+    /// This repository type is not suitable for large data collections.
     /// Use this repository for settings, recipes or data persistence with limited number of records.
     /// </note>
     /// </summary>
@@ -37,10 +38,8 @@ namespace AXOpen.Data.Json
                 }
                 catch (Exception)
                 {
-
                     throw;
                 }
-
             }
         }
 
@@ -48,6 +47,9 @@ namespace AXOpen.Data.Json
         /// Get the location (directory) where the entries of this repository are placed.
         /// </summary>
         public string Location { get; private set; }
+
+        public override long LastFragmentQueryCount { get; protected set; }
+
         protected override void CreateNvi(string identifier, T data)
         {
             try
@@ -63,8 +65,8 @@ namespace AXOpen.Data.Json
             {
                 throw ex;
             }
-
         }
+
         protected override T ReadNvi(string identifier)
         {
             try
@@ -75,14 +77,13 @@ namespace AXOpen.Data.Json
                 }
 
                 return this.Load(identifier, typeof(T));
-
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-
         }
+
         protected override void UpdateNvi(string identifier, T data)
         {
             try
@@ -96,11 +97,10 @@ namespace AXOpen.Data.Json
             }
             catch (Exception ex)
             {
-
                 throw new UnableToUpdateRecord($"Unable to update record ID:{identifier} in {Location}.", ex);
             }
-
         }
+
         protected override void DeleteNvi(string identifier)
         {
             if (this.RecordExists(identifier))
@@ -108,6 +108,7 @@ namespace AXOpen.Data.Json
                 File.Delete(Path.Combine(this.Location, identifier));
             }
         }
+
         protected override long CountNvi
         {
             get { return Directory.EnumerateFiles(Location).Count(); }
@@ -128,9 +129,11 @@ namespace AXOpen.Data.Json
                     case eSearchMode.StartsWith:
                         enumerable = Directory.EnumerateFiles(this.Location).Where(p => new FileInfo(p).Name.StartsWith(identifier));
                         break;
+
                     case eSearchMode.Contains:
                         enumerable = Directory.EnumerateFiles(this.Location).Where(p => new FileInfo(p).Name.Contains(identifier));
                         break;
+
                     case eSearchMode.Exact:
                     default:
                         enumerable = Directory.EnumerateFiles(this.Location).Select(p => new FileInfo(p)).Where(p => p.Name == identifier).Select(p => p.FullName);
@@ -166,8 +169,10 @@ namespace AXOpen.Data.Json
                 {
                     case eSearchMode.StartsWith:
                         return Directory.EnumerateFiles(this.Location).Where(p => new FileInfo(p).Name.StartsWith(id)).Count();
+
                     case eSearchMode.Contains:
                         return Directory.EnumerateFiles(this.Location).Where(p => new FileInfo(p).Name.Contains(id)).Count();
+
                     case eSearchMode.Exact:
                     default:
                         return Directory.EnumerateFiles(this.Location).Select(p => new FileInfo(p)).Where(p => p.Name == id).Select(p => p.FullName).Count();
@@ -203,6 +208,7 @@ namespace AXOpen.Data.Json
                 serializer.Serialize(jw, obj, obj.GetType());
             }
         }
+
         internal T Load(string identifier, Type objtype)
         {
             var path = Path.Combine(this.Location, identifier);
@@ -221,7 +227,101 @@ namespace AXOpen.Data.Json
 
         public override IQueryable<T> Queryable
         {
-            get { return this.GetRecords("*").AsQueryable(); }
+            get { return this.GetRecords("*", int.MaxValue, 0, eSearchMode.Exact).AsQueryable(); }
         }
+
+        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates)
+        {
+            var query = Queryable;
+
+            if (predicates != null && predicates.ContainsType<T>())
+            {
+                foreach (var predicate in predicates.GetPredicates<T>())
+                {
+                    query = query.Where(p => predicate.Compile().Invoke(p));
+                }
+            }
+
+            query = ApplySorting(query, predicates.GetSorting<T>());
+
+            return query.Select(p => p.DataEntityId).ToList();
+        }
+
+        protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids)
+        {
+            if (ids == null || !ids.Any())
+                return Enumerable.Empty<T>();
+
+            return Queryable.Where(p => ids.Contains(p.DataEntityId)).ToList();
+        }
+
+        protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates, int limit, int skip)
+        {
+            var query = Queryable;
+
+            if (predicates != null && predicates.ContainsType<T>())
+            {
+                foreach (var predicate in predicates.GetPredicates<T>())
+                {
+                    query = query.Where(predicate);
+                }
+            }
+
+            query = ApplySorting(query, predicates.GetSorting<T>());
+
+            return query.Skip(skip).Take(limit).ToList();
+        }
+
+        protected override long FilteredCountNvi(PredicateContainer predicates)
+        {
+            var query = Queryable;
+
+            if (predicates != null && predicates.ContainsType<T>())
+            {
+                foreach (var predicate in predicates.GetPredicates<T>())
+                {
+                    query = query.Where(predicate);
+                }
+            }
+
+            return query.LongCount();
+        }
+
+        private IQueryable<T> ApplySorting(IQueryable<T> query, List<SortSettings> sortSettings)
+        {
+            if (sortSettings == null || !sortSettings.Any())
+                return query.OrderByDescending(p => p.DataEntityId);
+
+            IOrderedQueryable<T> orderedQuery = null;
+
+            if (sortSettings.All(p => string.IsNullOrEmpty(p.MemberName)))
+            {
+                var naturalSort = sortSettings.First();
+                return naturalSort.IsAscending ? query.OrderBy(p => p.DataEntityId) : query.OrderByDescending(p => p.DataEntityId);
+            }
+
+            foreach (var setting in sortSettings)
+            {
+                if (string.IsNullOrEmpty(setting.MemberName))
+                    continue; // Skip invalid settings
+
+                var param = Expression.Parameter(typeof(T), "p");
+                var property = ExpressionHelper.GetNestedPropertyExpression(param, setting.MemberName);
+                var keySelector = Expression.Lambda(property, param);
+
+                var methodName = orderedQuery == null
+                    ? (setting.IsAscending ? "OrderBy" : "OrderByDescending")
+                    : (setting.IsAscending ? "ThenBy" : "ThenByDescending");
+
+                var method = typeof(Queryable).GetMethods()
+                    .First(m => m.Name == methodName && m.GetParameters().Length == 2)
+                    .MakeGenericMethod(typeof(T), property.Type);
+
+                orderedQuery = (IOrderedQueryable<T>)method.Invoke(null, new object[] { orderedQuery ?? query, keySelector });
+            }
+
+            return orderedQuery ?? query;
+        }
+
     }
 }

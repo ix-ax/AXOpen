@@ -20,8 +20,9 @@ NAMESPACE AxoDataExchangeExample
         METHOD OVERRIDE Main
             
             // DataManager.Run(THIS); - is called iside of controlle unit
+            THIS.InitializeRootObject(ControlledUnit);
             ControlledUnit.ProcessData := REF(DataManager);//Set REF to DataManager (reason depth of data structure)
-            ControlledUnit.Run(THIS);// run logic of controlled unit 
+            ControlledUnit.Run();// run logic of controlled unit 
 
             ManagerUsage.Use(DataManager);
         END_METHOD
@@ -48,6 +49,8 @@ NAMESPACE AxoDataExchangeExample
             SomeString : STRING;
             {#ix-set:AttributeName = "Some int"}
             SomeInt : INT;
+
+            AllPrimitives : BasePrimitives;
         END_VAR
     END_CLASS
     //</AxoProcessDataDeclaration>
@@ -105,10 +108,7 @@ NAMESPACE AxoDataExchangeExample
         END_VAR
 
         METHOD PUBLIC Run
-            VAR_INPUT
-                _parent : IAxoContext;
-            END_VAR
-            THIS.InitializeWithContext(_parent);
+            SUPER.Run(THIS); //??
             THIS.Execute();
         END_METHOD
 
@@ -141,5 +141,38 @@ NAMESPACE AxoDataExchangeExample
         END_METHOD
     END_CLASS
     //</Run>
+
+    {S7.extern=ReadWrite}
+    CLASS PUBLIC BasePrimitives //27 vars
+        VAR PUBLIC
+            vBOOL           :       BOOL	      ;
+            vBYTE           :       BYTE	      ;
+            vWORD           :       WORD	      ;
+            vDWORD          :       DWORD	      ;
+            vLWORD	        :       LWORD	      ;
+            vSINT           :       SINT	      ;
+            vINT	        :       INT           ;
+            vDINT	        :       DINT	      ;
+            vLINT	        :       LINT	      ;
+            vUSINT	        :       USINT	      ;
+            vUINT	        :       UINT	      ;
+            vUDINT	        :       UDINT	      ;
+            vULINT	        :       ULINT	      ;
+            vREAL	        :       REAL	      ;
+            vLREAL	        :       LREAL	      ;
+            vTIME	        :       TIME	      ;
+            vLTIME	        :       LTIME	      ;
+            vDATE	        :       DATE	      ;
+            vLDATE	        :       LDATE	      ;
+            vTIME_OF_DAY	:       TIME_OF_DAY   ;
+            vLTIME_OF_DAY	:       LTIME_OF_DAY  ;
+            vDATE_AND_TIME  :      DATE_AND_TIME  ;
+            vLDATE_AND_TIME :      LDATE_AND_TIME ;
+            vCHAR	        :       CHAR	      ;
+            vWCHAR	        :       WCHAR	      ;
+            vSTRING         :       STRING	      ;
+            vWSTRING        :       WSTRING	      ;
+        END_VAR    
+    END_CLASS
 
 END_NAMESPACE

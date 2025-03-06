@@ -79,31 +79,18 @@ NAMESPACE AXOpen.Data
         METHOD PUBLIC Restore  
             Operation.Restore(); 
         END_METHOD 
-        
-        // ///<summary>
-        // /// Runs intialization and cyclical handling of this AxoDataExchange.
-        // /// </summary> 
-        // /// <param name="context">Root context of this object</param>
-        // METHOD PUBLIC Run 
-        //     VAR_INPUT
-        //         context : IAxoContext;
-        //     END_VAR
-        //     THIS.Initialize(context);
-        //     Operation.Initialize(THIS);
-        //     Operation.Execute();
-        // END_METHOD
 
         ///<summary>
         /// Runs intialization and cyclical handling of this AxoDataExchange.        
         /// </summary>                 
         /// <param name="parent">Parent of this object</param>
-        METHOD PUBLIC Run 
+        METHOD PUBLIC OVERRIDE Run 
             VAR_INPUT
                 inParent : IAxoObject;
             END_VAR
-            THIS.Initialize(inParent);
-            Operation.Initialize(THIS);
-            Operation.Execute();
+            SUPER.Run(inParent);
+            // Operation.Run(THIS);
+            Operation.Execute(THIS);
         END_METHOD
 
     END_CLASS 

@@ -14,9 +14,9 @@ NAMESPACE AxoToggleTaskExamples
        END_VAR    
     
         METHOD PROTECTED OVERRIDE Main
-            _toggleTask1.InitializeWithContext(THIS);    
+            THIS.InitializeRootObject(_toggleTask1);    
             _toggleTask1.Run();
-            _toggleTask2.InitializeWithContext(THIS);    
+            THIS.InitializeRootObject(_toggleTask2);    
             _toggleTask2.Run();
         END_METHOD
     END_CLASS    

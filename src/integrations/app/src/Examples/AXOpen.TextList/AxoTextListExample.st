@@ -29,8 +29,8 @@ NAMESPACE AxoTextListExample
         END_VAR    
     
         METHOD PROTECTED OVERRIDE Main
-            _incrementTask.InitializeWithContext(THIS);    
-            _set2zeroTask.InitializeWithContext(THIS);    
+            THIS.InitializeRootObject(_incrementTask);
+            THIS.InitializeRootObject(_set2zeroTask);
 
             IF(_incrementTask.Execute()) THEN  
                 _myTextList1.Id := _myTextList1.Id + UINT#1;

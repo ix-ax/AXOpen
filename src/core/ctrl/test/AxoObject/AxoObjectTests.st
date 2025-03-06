@@ -64,7 +64,7 @@ NAMESPACE AXOpen.Core.AxoObject_Tests
             expectedIdentity := THIS.GetContext().CreateIdentity() + ULINT#1;
 
             // Act/Assert           
-            sut^.Initialize(THIS);
+            sut^.Run(THIS);
             Assert.Equal(true, sut^.GetContext() = THIS.GetContext());            
         END_METHOD
 

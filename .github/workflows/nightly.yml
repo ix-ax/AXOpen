@@ -1,5 +1,4 @@
 name: nightly
-
 on: 
   workflow_dispatch :
     branches :  
@@ -9,18 +8,108 @@ on:
 jobs:
   nightly:   
     runs-on: [self-hosted, Windows, X64, AX, APP]  
-    
+    continue-on-error: true     
     steps:
+    - name: Get Branch Name
+      shell: pwsh
+      run: |
+        if ($env:GITHUB_REF -like "refs/pull/*") {
+          $BRANCH_NAME = "${{ github.event.pull_request.head.ref }}"
+        } else {
+          $BRANCH_NAME = $env:GITHUB_REF -replace 'refs/heads/', ''
+        }
+        Write-Host "Triggered on branch: $BRANCH_NAME"
+        "BRANCH_NAME=$BRANCH_NAME" | Out-File -FilePath $env:GITHUB_ENV -Append
+
     - name: Checkout
       uses: actions/checkout@v3
       with:
         fetch-depth: '0'   
-                   
+
+    - name: Set default value for SKIP_STEPS
+      shell: pwsh
+      run: |
+            echo "SKIP_STEPS=false" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8
+
+    - name: Get Current Commit SHA
+      shell: pwsh
+      run: |
+          $currentSHA = git rev-parse --short HEAD
+          echo "CURRENT_SHA=$currentSHA" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8
+
+    - name: Fetch Stored Commit SHA from Repository Variable
+      if: github.ref == 'refs/heads/dev' && github.event_name != 'workflow_dispatch'  
+      shell: pwsh
+      run: |
+          $storedSHA = gh variable get LAST_DEV_COMMIT_SHA --json value | ConvertFrom-Json | Select-Object -ExpandProperty value
+          echo "STORED_SHA=$storedSHA" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8
+      env:
+          GH_TOKEN : ${{ secrets.GH_TOKEN }}
+    
+    - name: Compare Commit SHAs
+      if: github.ref == 'refs/heads/dev' && github.event_name != 'workflow_dispatch'  
+      shell: pwsh
+      run: |
+          if ($env:CURRENT_SHA -eq $env:STORED_SHA) {
+            echo "SHA Match: Skipping Steps"
+            echo "SKIP_STEPS=true" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8
+          } 
+
+    - name: Reset APP_RUN_RESULT in Repository Variable
+      if: env.SKIP_STEPS == 'false'
+      shell: pwsh
+      run: |
+        gh variable set APP_RUN_RESULT --body "0"
+      env:
+          GH_TOKEN : ${{ secrets.GH_TOKEN }}
+
     - name: "Build  script"  
+      if: env.SKIP_STEPS == 'false'
       run: dotnet build cake/Build.csproj
                        
     - name: "Run build script"
+      if: env.SKIP_STEPS == 'false'
       env:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}
           GH_USER : ${{ secrets.GH_USER }}
-      run: dotnet run --project cake/Build.csproj --apps-run
+      run: |
+        dotnet run --project cake/Build.csproj --apps-run
+        echo "TEST_EXIT_CODE=$LASTEXITCODE" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8
+
+    - name: Display Commit SHA in Summary
+      shell: pwsh
+      run: |
+        echo "### Commit SHA: $env:CURRENT_SHA" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Encoding utf8    
+       
+    - name: Store Commit SHA in Repository Variable
+      if: env.SKIP_STEPS == 'false'
+      shell: pwsh
+      run: |
+        gh variable set LAST_DEV_COMMIT_SHA --body "$env:CURRENT_SHA"
+      env:
+          GH_TOKEN : ${{ secrets.GH_TOKEN }}
+
+    - name: Set APP_RUN_RESULT
+      if: env.SKIP_STEPS == 'false'
+      shell: pwsh
+      run: |
+        if ($env:TEST_EXIT_CODE -eq "0") {
+            echo "Tests passed. Setting APP_RUN_RESULT=1"
+            gh variable set APP_RUN_RESULT --body "1"
+        } else {
+            echo "Tests failed. APP_RUN_RESULT not set."
+            exit 1  # Mark job as failed
+        }
+      env:
+          GH_TOKEN : ${{ secrets.GH_TOKEN }}            
+
+    - name: Get Short Commit SHA
+      shell: pwsh
+      run: |
+          $commitId = git rev-parse --short HEAD
+          echo "sha=$commitId" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8
+
+    - name: Display workflow details in Summary
+      shell: pwsh
+      run: |
+        echo "### Runner name: $env:RUNNER_NAME ::: Branch name: $env:BRANCH_NAME ::: Commit SHA: $env:sha"  | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Encoding utf8        

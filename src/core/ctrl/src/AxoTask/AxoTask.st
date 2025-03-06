@@ -346,13 +346,7 @@ NAMESPACE AXOpen.Core
         END_METHOD 
         
         METHOD PRIVATE UpdateState 
-            // IF Status <> eAxoTaskState#Error AND IsDisabled THEN
-            //     Status := eAxoTaskState#Disabled; 
-            // ELSIF Status = eAxoTaskState#Disabled AND NOT IsDisabled THEN
-            //     Status := eAxoTaskState#Ready; 
-            // END_IF;
-
-            IF IsDisabled THEN // on 1515 1ms for 5000 cals
+            IF IsDisabled THEN 
                 IF Status <> eAxoTaskState#Error THEN
                     Status := eAxoTaskState#Disabled; 
                 END_IF;
@@ -367,17 +361,16 @@ NAMESPACE AXOpen.Core
         /// Invokes this task.
         ///</summary>    
         METHOD PUBLIC Invoke : IAxoTaskState
-            VAR
-                _isNullContext : BOOL;
-            END_VAR;
+            VAR_INPUT
+                inParent    :   IAxoObject;
+            END_VAR
+            SUPER.Run(inParent);
             
             IF(_context = NULL) THEN
                 _context := THIS.GetContext();
             END_IF;
-            _isNullContext := _context = NULL;
 
-
-            IF _isNullContext THEN
+            IF _context = NULL THEN
                 Status := eAxoTaskState#Error;
                 ErrorDetails := 'NULL CONTEXT'; 
                 RETURN;               
@@ -467,11 +460,17 @@ NAMESPACE AXOpen.Core
         /// Returns `TRUE` if the task is Busy, otherwise false.
         ///	This method needs to be called cyclically.
         ///</summary>    
-        METHOD PUBLIC Execute : BOOL            
+        METHOD PUBLIC Execute : BOOL    
+            VAR_INPUT
+                inParent    :   IAxoObject;
+            END_VAR
             VAR 
                 _stateKicking : BOOL;
                 _openCycleCount : ULINT;
             END_VAR
+
+            SUPER.Run(inParent);                    
+
             IF(_context = NULL) THEN
                 _context := THIS.GetContext();
             END_IF;
@@ -569,9 +568,6 @@ NAMESPACE AXOpen.Core
             IF(NOT _suspendExecuteCallAnalisis) THEN _RtmInvalid.ActivateOnCondition(_context.GetRtm() = NULL , eAxoMessageCategory#ProgrammingError); END_IF;                     
 
         END_METHOD    
-
-
-
 
         // METHOD PRIVATE LogTask 
         //     VAR_INPUT

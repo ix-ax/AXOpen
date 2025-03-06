@@ -32,25 +32,117 @@
       "commandName": "Project",
       "commandLineArgs": ""
     },
+    "test-L3-apps_run": {
+      "commandName": "Project",
+      "commandLineArgs": "--do-test --test-level 10 --apps-run"
+    },
     "apps_run_only": {
       "commandName": "Project",
       "commandLineArgs": "--skip-build --apps-run"
+    },
+    "abstractions_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name abstractions"
+    },
+    "components.abb.robotics_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name components.abb.robotics"
+    },
+    "components.abstractions_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name components.abstractions"
+    },
+    "components.balluff.identification_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name components.balluff.identification"
+    },
+    "components.cognex.vision_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name components.cognex.vision"
+    },
+    "components.desoutter.tightening_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name components.desoutter.tightening"
+    },
+    "components.drives_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name components.drives"
+    },
+    "components.elements_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name components.elements"
+    },
+    "components.festo.drives_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name components.festo.drives"
+    },
+    "components.kuka.robotics_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name components.kuka.robotics"
+    },
+    "components.mitsubishi.robotics_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name components.mitsubishi.robotics"
+    },
+    "components.pneumatics_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name components.pneumatics"
+    },
+    "components.rexroth.drives_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name components.rexroth.drives"
+    },
+    "components.rexroth.press_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name components.rexroth.press"
+    },
+    "components.robotics_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name components.robotics"
+    },
+    "components.siem.identification_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name components.siem.identification"
+    },
+    "components.ur.robotics_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name components.ur.robotics"
+    },
+    "core_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name core"
     },
     "data_app_run_only": {
       "commandName": "Project",
       "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name data"
     },
-    "abb_app_run_only": {
+    "inspectors_app_run_only": {
       "commandName": "Project",
-      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name components.abb.robotics"
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name inspectors"
     },
-    "templib_app_run_only": {
+    "io_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name io"
+    },
+    "probers_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name probers"
+    },
+    "simatic1500_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name simatic1500"
+    },
+    "template.axolibrary_app_run_only": {
       "commandName": "Project",
       "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name template.axolibrary"
     },
-    "test-L3-apps_run": {
+    "timers_app_run_only": {
       "commandName": "Project",
-      "commandLineArgs": "--do-test --test-level 10 --apps-run"
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name timers"
+    },
+    "utils_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name utils"
     }
   }
 }

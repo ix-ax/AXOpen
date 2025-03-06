@@ -19,5 +19,7 @@ namespace AXOpen.Data
         public const string can_data_export = nameof(can_data_export);
         public const string can_data_import = nameof(can_data_import);
 
+        public const string can_data_filter_advanced = nameof(can_data_filter_advanced);
+
     }
 }

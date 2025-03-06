@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using AXOpen.Base;
 using AXOpen.Base.Data;
+using AXOpen.Base.Data.Query;
 
 namespace AXOpen.Data.InMemory
 {
@@ -22,7 +24,6 @@ namespace AXOpen.Data.InMemory
         /// <param name="parameters">Repository settings</param>
         public InMemoryRepository(InMemoryRepositorySettings<T> parameters)
         {
-
         }
 
         /// <summary>
@@ -30,32 +31,34 @@ namespace AXOpen.Data.InMemory
         /// </summary>
         public InMemoryRepository()
         {
-
         }
 
         private readonly Dictionary<string, T> _repository = new Dictionary<string, T>();
+
         internal Dictionary<string, T> Records
         {
             get { return this._repository; }
         }
-      
-        protected override void CreateNvi(string identifier, T data) 
+
+        public override long LastFragmentQueryCount { get; protected set; }
+
+        protected override void CreateNvi(string identifier, T data)
         {
             try
-            {                
+            {
                 if (_repository.Any(p => p.Value.Equals(data)))
                 {
                     throw new SameObjectReferenceException($"InMemory repository cannot contain two object with the same reference. You must create as new instance of '{nameof(T)}'");
                 }
-                                
-                _repository.Add(identifier, data);                                                   
+
+                _repository.Add(identifier, data);
             }
             catch (ArgumentException argumentException)
             {
                 throw new DuplicateIdException($"Record with ID '{identifier}' already exists in this collection.", argumentException);
             }
-                                              
         }
+
         protected override T ReadNvi(string identifier)
         {
             try
@@ -64,17 +67,15 @@ namespace AXOpen.Data.InMemory
             }
             catch (Exception ex)
             {
-
                 throw new UnableToLocateRecordId($"Unable to locate record with ID: {identifier} in {this.GetType()}.", ex);
             }
-            
         }
-        
+
         protected override void UpdateNvi(string identifier, T data)
         {
             try
             {
-                if(data == null)
+                if (data == null)
                 {
                     throw new Exception("Data object cannot be 'null'");
                 }
@@ -84,11 +85,10 @@ namespace AXOpen.Data.InMemory
             }
             catch (Exception ex)
             {
-
                 throw new UnableToUpdateRecord($"Unable to update record ID:{identifier} in {this.GetType()}.", ex);
             }
-           
         }
+
         protected override void DeleteNvi(string identifier)
         {
             this._repository.Remove(identifier);
@@ -114,9 +114,11 @@ namespace AXOpen.Data.InMemory
                     case eSearchMode.StartsWith:
                         enumerable = this.Records.Where(p => p.Key.StartsWith(identifier));
                         break;
+
                     case eSearchMode.Contains:
-                        enumerable = this.Records.Where(p =>p.Key.Contains(identifier));
+                        enumerable = this.Records.Where(p => p.Key.Contains(identifier));
                         break;
+
                     case eSearchMode.Exact:
                     default:
                         enumerable = this.Records.Where(p => p.Key == identifier);
@@ -152,8 +154,10 @@ namespace AXOpen.Data.InMemory
                 {
                     case eSearchMode.StartsWith:
                         return this.Records.Where(p => p.Key.StartsWith(id)).LongCount();
+
                     case eSearchMode.Contains:
                         return this.Records.Where(p => p.Key.Contains(id)).LongCount();
+
                     case eSearchMode.Exact:
                     default:
                         return this.Records.Where(p => p.Key == id).LongCount();
@@ -165,7 +169,101 @@ namespace AXOpen.Data.InMemory
         {
             return this.Records.Any(p => p.Key == identifier);
         }
-        
-        public override IQueryable<T> Queryable { get { return this._repository.AsQueryable().Select(p => p.Value); } }
-    }    
+
+        public override IQueryable<T> Queryable
+        { get { return this._repository.AsQueryable().Select(p => p.Value); } }
+
+        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates)
+        {
+            var query = Queryable;
+
+            if (predicates != null && predicates.ContainsType<T>())
+            {
+                foreach (var predicate in predicates.GetPredicates<T>())
+                {
+                    query = query.Where(p => predicate.Compile().Invoke(p));
+                }
+            }
+
+            query = ApplySorting(query, predicates.GetSorting<T>());
+
+            return query.Select(p => p.DataEntityId).ToList();
+        }
+
+        protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids)
+        {
+            if (ids == null || !ids.Any())
+                return Enumerable.Empty<T>();
+
+            return Queryable.Where(p => ids.Contains(p.DataEntityId)).ToList();
+        }
+
+        protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates, int limit, int skip)
+        {
+            var query = Queryable;
+
+            if (predicates != null && predicates.ContainsType<T>())
+            {
+                foreach (var predicate in predicates.GetPredicates<T>())
+                {
+                    query = query.Where(predicate);
+                }
+            }
+
+            query = ApplySorting(query, predicates.GetSorting<T>());
+
+            return query.Skip(skip).Take(limit).ToList();
+        }
+
+        protected override long FilteredCountNvi(PredicateContainer predicates)
+        {
+            var query = Queryable;
+
+            if (predicates != null && predicates.ContainsType<T>())
+            {
+                foreach (var predicate in predicates.GetPredicates<T>())
+                {
+                    query = query.Where(predicate);
+                }
+            }
+
+            return query.LongCount();
+        }
+
+        private IQueryable<T> ApplySorting(IQueryable<T> query, List<SortSettings> sortSettings)
+        {
+            if (sortSettings == null || !sortSettings.Any())
+                return query.OrderByDescending(p => p.DataEntityId);
+
+            IOrderedQueryable<T> orderedQuery = null;
+
+            if (sortSettings.All(p => string.IsNullOrEmpty(p.MemberName)))
+            {
+                var naturalSort = sortSettings.First();
+                return naturalSort.IsAscending ? query.OrderBy(p => p.DataEntityId) : query.OrderByDescending(p => p.DataEntityId);
+            }
+
+            foreach (var setting in sortSettings)
+            {
+                if (string.IsNullOrEmpty(setting.MemberName))
+                    continue; // Skip invalid settings
+
+                var param = Expression.Parameter(typeof(T), "p");
+                var property = ExpressionHelper.GetNestedPropertyExpression(param, setting.MemberName);
+                var keySelector = Expression.Lambda(property, param);
+
+                var methodName = orderedQuery == null
+                    ? (setting.IsAscending ? "OrderBy" : "OrderByDescending")
+                    : (setting.IsAscending ? "ThenBy" : "ThenByDescending");
+
+                var method = typeof(Queryable).GetMethods()
+                    .First(m => m.Name == methodName && m.GetParameters().Length == 2)
+                    .MakeGenericMethod(typeof(T), property.Type);
+
+                orderedQuery = (IOrderedQueryable<T>)method.Invoke(null, new object[] { orderedQuery ?? query, keySelector });
+            }
+
+            return orderedQuery ?? query;
+        }
+    }
 }

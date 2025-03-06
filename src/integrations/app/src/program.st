@@ -88,8 +88,8 @@ CLASS MyContext EXTENDS AxoContext
         THIS.DataExchangeTests();
     END_METHOD
 
-    METHOD DataExchangeTests : Int              
-        _rootObject.InitializeWithContext(THIS) ;
+    METHOD DataExchangeTests : Int            
+        THIS.InitializeRootObject(_rootObject);
         process_data_manager.Run(_rootObject);   
         
         IF(process_data_manager._create) THEN

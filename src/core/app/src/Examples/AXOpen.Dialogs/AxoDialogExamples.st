@@ -23,6 +23,9 @@ NAMESPACE AxoDialogExamples
 
              init_done : bool := false;
         END_VAR    
+        VAR PRIVATE
+            _rootObject : AxoObject;
+        END_VAR
     
         METHOD PROTECTED OVERRIDE Main  
 
@@ -55,8 +58,9 @@ NAMESPACE AxoDialogExamples
                 _invokeSequnceAll := FALSE;
             END_IF;
 
-            AA.Run(THIS);
-            BB.Run(THIS);
+            THIS.InitializeRootObject(_rootObject);
+            AA.Run(_rootObject);
+            BB.Run(_rootObject);
 
         END_METHOD
     END_CLASS    

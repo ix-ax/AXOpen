@@ -106,7 +106,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             _rtc.SetNowUTC(LDATE_AND_TIME#2012-01-12-15:58:12.123);
             _context.InjectRtc(_rtc);
             _rootObject.InitializeWithContext(_context);
-            myTask.Initialize(_rootObject);
+            myTask.Run(_rootObject);
         END_METHOD
 
         METHOD PRIVATE InitializeInvokeExecute

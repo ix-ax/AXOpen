@@ -9,6 +9,7 @@
 @using AXOpen.Data.Interfaces;
 @using AXOpen.Core;
 @using AXOpen.Data;
+@using AXOpen.Data.Query;
 
 @if (Vm == null)
 {
@@ -17,6 +18,8 @@
 else
 {
     <div class="p-1">
+
+
         <div class="d-flex">
             @if (Presentation.Equals("Command"))
             {
@@ -27,15 +30,13 @@ else
                     </Authorized>
                 </AuthorizeView>
 
-
                 <AuthorizeView Roles="@DataExchangeRoleNames.can_data_load_from_plc">
                     <Authorized>
                         <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "LoadFromPLC"'>@Localizer["Load from PLC"]</button>
                     </Authorized>
                 </AuthorizeView>
 
-
-                @if (CanExport)
+                @if (EnableExport)
                 {
                     <AuthorizeView Roles="@DataExchangeRoleNames.can_data_export">
                         <Authorized>
@@ -52,43 +53,73 @@ else
             }
 
             <div class="btn-group ms-auto" role="group">
-                @if (EnableSorting)
+
+                @if (!AdvanceFilterConfig)
                 {
-                    <div class="btn-group" role="group">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.SortExpresion.ToString()</button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item @(Vm.SortExpresion == "Default" ? "active" : "")" @onclick='() => setSortExpresionAsync("Default")'>Default</a></li>
-                            @foreach (var element in SortElements)
-                            {
-                                <li><a class="dropdown-item @(Vm.SortExpresion == element ? "active" : "")" @onclick='() => setSortExpresionAsync(element)'>@element</a></li>
-                            }
-                        </ul>
-                    </div>
-                    <button class="btn btn-outline-secondary" type="button" name="sort" aria-label="@(Vm.SortAscending ? "Sort ascending" : "Sort descending")" title="@(Vm.SortAscending ? "Sort ascending" : "Sort descending")" @onclick="() => setSortAscendingAsync()">
-                        <i class="bi bi-filter @(Vm.SortAscending ? "rotate" : "")"></i>
-                    </button>
+
+                    @if (EnableSorting || true)
+                    {
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.DefaulSorting.MemberName.ToString()</button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item @(Vm.DefaulSorting.MemberName == "Default" ? "active" : "")" @onclick='() => setSortExpresionAsync("Default")'>Default</a></li>
+                                @foreach (var element in SortElements)
+                                {
+                                    <li><a class="dropdown-item @(Vm.DefaulSorting.MemberName == element ? "active" : "")" @onclick='() => setSortExpresionAsync(element)'>@element</a></li>
+                                }
+                            </ul>
+                        </div>
+                        <button class="btn btn-outline-secondary" type="button" name="sort" aria-label="@(Vm.DefaulSorting.IsAscending ? "Sorting ascending" : "Sorting descending")" title="@(Vm.DefaulSorting.IsAscending ? "Sorting ascending" : "Sorting descending")" @onclick="() => setSortAscendingAsync()">
+                            <i class="bi bi-filter @(Vm.DefaulSorting.IsAscending ? "rotate" : "")"></i>
+                        </button>
+                    }
+
+
+                    <QuerySymbolConfigurationView SymbolConfiguration="@Vm.DefaulQueryDataEntityId" HideDescripion="false"></QuerySymbolConfigurationView>
+                    <form @onsubmit="() => Vm.Filter()" class="btn-group">
+                        <button class="btn btn-secondary" type="submit" name="searchbutton">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                            </svg>
+                        </button>
+                    </form>
+
                 }
-                <div class="btn-group" role="group">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Localizer[Vm.SearchMode.ToString()]</button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item @(Vm.SearchMode == AXOpen.Base.Data.eSearchMode.Exact ? "active" : "")" @onclick="() => setSearchModeAsync(AXOpen.Base.Data.eSearchMode.Exact)">@Localizer["Exact"]</a></li>
-                        <li><a class="dropdown-item @(Vm.SearchMode == AXOpen.Base.Data.eSearchMode.Contains ? "active" : "")" @onclick="() => setSearchModeAsync(AXOpen.Base.Data.eSearchMode.Contains)">@Localizer["Contains"]</a></li>
-                        <li><a class="dropdown-item @(Vm.SearchMode == AXOpen.Base.Data.eSearchMode.StartsWith ? "active" : "")" @onclick="() => setSearchModeAsync(AXOpen.Base.Data.eSearchMode.StartsWith)">@Localizer["StartsWith"]</a></li>
-                    </ul>
-                </div>
-                <form @onsubmit="() => Vm.Filter()" class="btn-group">
-                    <input type="search" class="form-control" placeholder="Search" aria-label="Search" @bind="Vm.FilterById">
-                    <button class="btn btn-secondary" type="submit" name="searchbutton">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                        </svg>
-                    </button>
-                </form>
-                <button class="btn btn-secondary" type="button" name="refresh" aria-label="Refresh" title="Refresh" @onclick="() => Vm.FillObservableRecordsAsync()">
-                    <i class="oi oi-loop-circular"></i>
-                </button>
+
+                <AuthorizeView Roles="@DataExchangeRoleNames.can_data_filter_advanced">
+                    <Authorized>
+
+                        <button class="btn btn-secondary mx-2" name="advanceConfig" @onclick="()=>{AdvanceFilterConfig = !AdvanceFilterConfig;}">
+                            @if (AdvanceFilterConfig)
+                            {
+                                @*  icons come from:a https://icon-sets.iconify.design/oi/ *@
+                                <span>
+                                    <span class="oi oi-eject me-1" aria-hidden="true"></span>
+                                    <span>@Localizer["Hide advanced"]</span>
+                                </span>
+                            }
+                            else
+                            {
+                                <span>
+                                    <span class="oi oi-cog me-1" aria-hidden="true"></span>
+                                    <span>@Localizer["Advanced"]</span>
+                                </span>
+                            }
+                        </button>
+                    </Authorized>
+                </AuthorizeView>
+
+                @*  <button class="btn btn-secondary" type="button" name="refresh" aria-label="Refresh" title="Refresh" @onclick="() => Vm.FillObservableRecordsAsync()">
+                        <i class="oi oi-loop-circular"></i>
+                    </button> *@
             </div>
         </div>
+
+        @if (AdvanceFilterConfig)
+        {
+            <DataExchangeQuery Vm="@Vm"></DataExchangeQuery>
+        }
+
         <table class="table table-hover">
             <thead>
                 <tr class="text-start">
@@ -148,7 +179,7 @@ else
 
                                 @foreach (ColumnData column in Columns.ToList())
                                 {
-                                    
+
                                     try
                                     {
                                         var propertyValue = PropertyHelper.GetPropertyValue(item, column.BindingValue);
@@ -163,7 +194,7 @@ else
                                         }
                                     }
                                     catch (Exception ex)
-                                    {                                        
+                                    {
                                         <td>@ex.Message</td>
                                     }
                                 }
@@ -190,7 +221,7 @@ else
                                     {
                                         <td>@ex.Message</td>
                                     }
-                                    
+
                                 }
                             }
 
@@ -236,6 +267,8 @@ else
             </tbody>
         </table>
         <div class="d-flex">
+
+
             <div class="dropup">
                 Showing @(Vm.Page * Vm.Limit + 1) to @(((Vm.Page + 1) * Vm.Limit) > Vm.FilteredCount ? Vm.FilteredCount : ((Vm.Page + 1) * Vm.Limit)) of @Vm.FilteredCount rows
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.Limit</button>
@@ -248,7 +281,7 @@ else
                 rows per page
             </div>
             <nav class="ms-auto">
-                <ul class="pagination">
+                <ul class="pagination m-0">
                     <li class="page-item"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(mod(Vm.Page - 1, MaxPage + 1))" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
 
                     @if (MaxPage < 7)

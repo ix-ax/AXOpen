@@ -75,10 +75,10 @@ NAMESPACE AXOpen.Components.Pneumatics
             END_IF;
 
             IF _context = NULL THEN
-                THIS.Initialize(parent);
-                _MoveToWorkTask.Initialize(THIS);
-                _MoveToHomeTask.Initialize(THIS);
-                _StopTask.Initialize(THIS);
+                SUPER.Run(parent);
+                // _MoveToWorkTask.Initialize(THIS);
+                // _MoveToHomeTask.Initialize(THIS);
+                // _StopTask.Initialize(THIS);
                 _context := THIS.GetContext();
             END_IF;
 
@@ -88,7 +88,7 @@ NAMESPACE AXOpen.Components.Pneumatics
 
            _Messenger.ActivateOnCondition(UINT#3, workSensor AND homeSensor, eAxoMessageCategory#Error);
 
-            IF(_StopTask.Execute()) THEN
+            IF(_StopTask.Execute(THIS)) THEN
                 moveHomeSignal := FALSE;
                 moveWorkSignal := FALSE;
                 _MoveToHomeTask.Restore();
@@ -96,7 +96,7 @@ NAMESPACE AXOpen.Components.Pneumatics
                 _StopTask.DoneWhen(TRUE);
             END_IF;    
 
-            IF(_MoveToWorkTask.Execute()) THEN                
+            IF(_MoveToWorkTask.Execute(THIS)) THEN                
                 moveHomeSignal := FALSE;
                 moveWorkSignal := TRUE;                
                 _MoveToWorkTask.DoneWhen(workSensor);
@@ -109,7 +109,7 @@ NAMESPACE AXOpen.Components.Pneumatics
            _Messenger.ActivateOnCondition(UINT#9, (_MoveToWorkTask.IsDone() AND NOT workSensor), eAxoMessageCategory#Warning); 
             
 
-            IF(_MoveToHomeTask.Execute()) THEN                
+            IF(_MoveToHomeTask.Execute(THIS)) THEN                
                 moveHomeSignal := TRUE;
                 moveWorkSignal := FALSE;
                 _MoveToHomeTask.DoneWhen(homeSensor);
@@ -160,21 +160,21 @@ NAMESPACE AXOpen.Components.Pneumatics
 		/// Invokes the movement to the work position and returns the task state. 	
         ///</summary>       
         METHOD PUBLIC MoveToWork : IAxoTaskState
-            MoveToWork := _MoveToWorkTask.Invoke();
+            MoveToWork := _MoveToWorkTask.Invoke(THIS);
         END_METHOD
 
         ///<summary>
 		/// Invokes the movement to the home position and returns the task state. 	
         ///</summary>       
         METHOD PUBLIC MoveToHome : IAxoTaskState
-            MoveToHome := _MoveToHomeTask.Invoke();
+            MoveToHome := _MoveToHomeTask.Invoke(THIS);
         END_METHOD
 
         ///<summary>
 		/// Stops any movement. 	
         ///</summary>       
         METHOD PUBLIC Stop : IAxoTaskState
-            Stop := _StopTask.Invoke();
+            Stop := _StopTask.Invoke(THIS);
         END_METHOD
 
         ///<summary>

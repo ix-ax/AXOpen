@@ -63,7 +63,7 @@ NAMESPACE AXOpen.Elements
             END_IF;
 
             IF _context = NULL THEN
-                THIS.Initialize(parent);
+                SUPER.Run(parent);
                 _context := THIS.GetContext();
             END_IF;
 

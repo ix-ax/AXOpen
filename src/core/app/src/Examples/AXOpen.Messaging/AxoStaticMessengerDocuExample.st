@@ -35,18 +35,22 @@ NAMESPACE AxoStaticMessengerDocuExample
             _messenger4condition_10 : BOOL;
             {#ix-set:AttributeName = "<#Set to high to activate the messenger 4 with message code 20#>"}
             _messenger4condition_20 : BOOL;
-       END_VAR    
+        END_VAR    
     
-       METHOD PROTECTED OVERRIDE Main
+        VAR PRIVATE
+            _rootObject :   AxoObject;
+        END_VAR
+        METHOD PROTECTED OVERRIDE Main
+            THIS.InitializeRootObject(_rootObject);
             //<Activate>
-            _messenger1.Serve(THIS);    
+            _messenger1.Serve(_rootObject);    
             IF _messenger1condition THEN
                 _messenger1.Activate(eAxoMessageCategory#Error);
             END_IF;
             //</Activate>
 
             //<ActivateOnCondition>
-            _messenger2.Serve(THIS);    
+            _messenger2.Serve(_rootObject);    
             _messenger2.ActivateOnCondition(_messenger2condition,eAxoMessageCategory#Warning);
             //</ActivateOnCondition>
 
@@ -59,13 +63,13 @@ NAMESPACE AxoStaticMessengerDocuExample
             //</DoNotRequireAcknowledgement>
 
             //<ActivateOnConditionWithMessageCodeTextListDeclaredInThePlcCode>
-            _messenger3.Serve(THIS);
+            _messenger3.Serve(_rootObject);
             _messenger3.ActivateOnCondition(ULINT#10,_messenger3condition_10,eAxoMessageCategory#Warning);
             _messenger3.ActivateOnCondition(ULINT#20,_messenger3condition_20,eAxoMessageCategory#Warning);
             //</ActivateOnConditionWithMessageCodeTextListDeclaredInThePlcCode>
 
             //<ActivateOnConditionWithMessageCodeTextListDeclaredInDotNet>
-            _messenger4.Serve(THIS);    
+            _messenger4.Serve(_rootObject);    
             _messenger4.ActivateOnCondition(ULINT#10,_messenger4condition_10,eAxoMessageCategory#Warning);
             _messenger4.ActivateOnCondition(ULINT#20,_messenger4condition_20,eAxoMessageCategory#Warning);
             //</ActivateOnConditionWithMessageCodeTextListDeclaredInDotNet>
@@ -100,22 +104,25 @@ NAMESPACE AxoStaticMessengerDocuExample
             _messenger4condition_10 : BOOL;
             {#ix-set:AttributeName = "<#Set to high to activate the messenger 4 with message code 20#>"}
             _messenger4condition_20 : BOOL;
-       END_VAR    
-    
-       METHOD PROTECTED OVERRIDE Main
-            _messenger1.Serve(THIS);    
+        END_VAR    
+        VAR PRIVATE
+            _rootObject :   AxoObject;
+        END_VAR
+        METHOD PROTECTED OVERRIDE Main
+            THIS.InitializeRootObject(_rootObject);
+            _messenger1.Serve(_rootObject);    
             IF _messenger1condition THEN
                 _messenger1.Activate(eAxoMessageCategory#Error);
             END_IF;
 
-            _messenger2.Serve(THIS);    
+            _messenger2.Serve(_rootObject);    
             _messenger2.ActivateOnCondition(_messenger2condition,eAxoMessageCategory#Warning);
 
-            _messenger3.Serve(THIS);
+            _messenger3.Serve(_rootObject);
             _messenger3.ActivateOnCondition(ULINT#10,_messenger3condition_10,eAxoMessageCategory#Error).DoNotRequireAcknowledgement();
             _messenger3.ActivateOnCondition(ULINT#20,_messenger3condition_20,eAxoMessageCategory#Warning).RequireAcknowledgement();
 
-            _messenger4.Serve(THIS);    
+            _messenger4.Serve(_rootObject);    
             _messenger4.ActivateOnCondition(ULINT#10,_messenger4condition_10,eAxoMessageCategory#Warning);
             _messenger4.ActivateOnCondition(ULINT#20,_messenger4condition_20,eAxoMessageCategory#Warning);
 

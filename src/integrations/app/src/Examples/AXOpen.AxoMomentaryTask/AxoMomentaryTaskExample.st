@@ -48,7 +48,7 @@ NAMESPACE AxoMomentaryTaskExamples
        END_VAR    
     
         METHOD PROTECTED OVERRIDE Main
-            MomentaryTaskExample.InitializeWithContext(THIS);    
+            THIS.InitializeRootObject(MomentaryTaskExample);
             MomentaryTaskExample.SetIsDisabled(MomentaryTaskExample.Disable);
             MomentaryTaskExample.Run();
         

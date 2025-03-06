@@ -18,12 +18,13 @@ NAMESPACE AXOpen.Components.Drives
         ///</summary>
         METHOD PUBLIC Run 
             VAR_INPUT
+                inParent        : IAxoObject;
                 Enable          :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
                 EnablePositive  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
                 EnableNegative  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
             END_VAR
 
-            SUPER.Run();
+            SUPER.Run(inParent);
 
             // Enables manually switch off and switch on the power in case of enable is 'TRUE'
             IF _manualOverride THEN
@@ -37,8 +38,7 @@ NAMESPACE AXOpen.Components.Drives
                 END_IF;
             END_IF;
 
-            _EnablePositive.Initialize(THIS);
-            _EnablePositive.Run();
+            _EnablePositive.Run(THIS);
             _EnablePositive.SetIsDisabled(SUPER.IsSwitchedOn());
             IF EnablePositive THEN
                 _EnablePositive.SwitchOn();
@@ -46,8 +46,7 @@ NAMESPACE AXOpen.Components.Drives
                 _EnablePositive.SwitchOff();
             END_IF;
 
-            _EnableNegative.Initialize(THIS);
-            _EnableNegative.Run();
+            _EnableNegative.Run(THIS);
             _EnableNegative.SetIsDisabled(SUPER.IsSwitchedOn());
             IF EnableNegative THEN
                 _EnableNegative.SwitchOn();

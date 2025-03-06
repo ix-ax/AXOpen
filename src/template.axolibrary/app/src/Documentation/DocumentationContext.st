@@ -8,7 +8,7 @@ NAMESPACE Template.Axolibrary
         END_VAR
 
         METHOD PROTECTED OVERRIDE Main
-            rootObject.InitializeWithContext(THIS);
+            THIS.InitializeRootObject(rootObject);
             componentOne.Run(rootObject);
             componentTwo.Run(rootObject);
         END_METHOD

@@ -3,6 +3,7 @@ version: '0.0.0-dev.0'
 type: app
 targets:
   - "1500"
+  - llvm
 variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
@@ -101,3 +102,7 @@ scripts:
   cicb: |
     apax clean
     apax icb
+  ibt: |
+    apax install
+    apax build    
+    apax test    

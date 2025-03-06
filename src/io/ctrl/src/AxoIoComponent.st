@@ -31,27 +31,16 @@ NAMESPACE AXOpen.Io
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent  : IAxoObject;
+                inParent  : IAxoObject;
                 hwID    :   WORD;
             END_VAR
-            IF (parent = NULL) THEN RETURN; END_IF;
-            THIS.Initialize(parent);    
+            IF (inParent = NULL) THEN 
+                RETURN; 
+            END_IF;
+            SUPER.Run(inParent);    
             THIS.Execute(hwID);           
         END_METHOD
 
-        // ///<summary>
-        // /// Runs tasks and logic of this component.
-        // /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
-        // ///</summary>
-        // METHOD PUBLIC Run 
-        //     VAR_INPUT
-        //         parent  : IAxoContext;
-        //         hwID    :   WORD;
-        //     END_VAR
-        //     THIS.Initialize(parent);    
-        //     THIS.Execute(hwID);           
-        // END_METHOD
-        
         METHOD PRIVATE Execute
             VAR_INPUT
                 hwID    :   WORD;
@@ -59,10 +48,9 @@ NAMESPACE AXOpen.Io
             VAR
                 diagInfo : Siemens.Simatic.S71500.Diagnostics.Hardware.DiagnosticDetails;            
             END_VAR
-                   
-            UpdateHardwareDiagnosticsTask.Initialize(THIS);
 
-            IF UpdateHardwareDiagnosticsTask.Execute() THEN
+
+            IF UpdateHardwareDiagnosticsTask.Execute(THIS) THEN
                 GetDiagnosticsReturnCode := GetDiagnostics(TO_UINT(hwID), diagInfo);
                 UpdateHardwareDiagnosticsTask.DoneWhen(UpdateHardwareDiagnosticsTask.Duration >= T#250ms AND GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError);
                 UpdateHardwareDiagnosticsTask.ThrowWhen(UpdateHardwareDiagnosticsTask.Duration >= T#250ms AND GetDiagnosticsReturnCode<>GetDiagnosticsReturnCode#NoError);

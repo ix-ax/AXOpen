@@ -5,7 +5,7 @@ USING AXOpen.Logging;
 
 NAMESPACE AXOpen.Components.Robotics.Tests
     {S7.extern=ReadWrite}
-  CLASS TestContext EXTENDS AXOpen.Core.Dummies.MockAxoContext                    
+    CLASS TestContext EXTENDS AXOpen.Core.Dummies.MockAxoContext                    
             METHOD PROTECTED OVERRIDE Main
                 ;
             END_METHOD               

@@ -8,12 +8,15 @@ using AXOpen.Base.Data;
 using System.Linq.Expressions;
 using Microsoft.AspNetCore.Components.Authorization;
 using System.Security.Principal;
+using AXOpen.Base.Data.Query;
 
 namespace AXOpen.Data
 {
     public partial interface IAxoDataExchange
     {
         ITwinObject CloneDataObject();
+
+        IEnumerable<Type> GetPlainObjectType();
 
         /// <summary>
         ///     Gets <see cref="AxoDataEntity" /> as <see cref="ITwinObject" /> that provides exchange mechanisms between this
@@ -27,6 +30,7 @@ namespace AXOpen.Data
         IRepository? Repository { get; }
 
         bool ShouldVerifyHash { get; set; }
+        long LastFragmentQueryCount { get; set; }
 
         /// <summary>
         /// Stop observing changes of the data object with changeTracker.
@@ -194,12 +198,19 @@ namespace AXOpen.Data
         IEnumerable<IBrowsableDataObject> GetRecords(string identifier, int limit, int skip,
             eSearchMode searchMode, string sortExpression, bool sortAscending);
 
+        IEnumerable<IBrowsableDataObject> GetRecords(PredicateContainer predicates,
+            int limit, int skip);
+
+        IEnumerable<string> GetEntityIds(PredicateContainer predicates);
+
         /// <summary>
         /// Gets record meeting criteria from the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/> where the data entity id matches exactly the argument.
         /// </summary>
         /// <param name="identifier">Record identifier. Use of '*' will provide no filter to the query. <see cref="Pocos.AXOpen.Data.IAxoDataEntity.DataEntityId"/></param>
         /// <returns>Record from the associated repository meeting criteria.</returns>
         IEnumerable<IBrowsableDataObject> GetRecords(string identifier);
+
+        IEnumerable<IBrowsableDataObject> GetRecords(IEnumerable<string> identifiers);
 
         /// <summary>
         /// Export data from the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>.
@@ -227,8 +238,6 @@ namespace AXOpen.Data
             if (Directory.Exists(path))
                 Directory.Delete(path, true);
         }
-
-        
     }
 }
 

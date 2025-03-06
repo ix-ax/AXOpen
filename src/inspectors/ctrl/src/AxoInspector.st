@@ -262,8 +262,8 @@ NAMESPACE AXOpen.Inspectors
             _DL._analogInspectorData := inData^;
            
             // Documentation: Initialize the parent context and the associated inspector task.
-            THIS.Initialize(inParent);
-            _inspectorTask.Initialize(inParent);
+            THIS.Run(inParent);
+            _inspectorTask.Run(inParent);
             _inspectorTask.SetSuspendMultipleExecuteCallCheck(TRUE);
            
 
@@ -329,8 +329,8 @@ NAMESPACE AXOpen.Inspectors
             _DL._inspectorType := eInspectorType#Data;
             _DL._dataInspectorData := inData^;
             
-            THIS.Initialize(inParent);
-            _inspectorTask.Initialize(inParent);
+            THIS.Run(inParent);
+            _inspectorTask.Run(inParent);
             _inspectorTask.SetSuspendMultipleExecuteCallCheck(TRUE);
         
             
@@ -405,8 +405,8 @@ NAMESPACE AXOpen.Inspectors
             _DL._inspectorType := eInspectorType#Analogue;
             _DL._digitalInspectorData := inData^;
 
-            THIS.Initialize(inParent);
-            _inspectorTask.Initialize(inParent);
+            THIS.Run(inParent);
+            _inspectorTask.Run(inParent);
             _inspectorTask.SetSuspendMultipleExecuteCallCheck(TRUE);
             
 

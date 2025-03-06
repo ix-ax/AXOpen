@@ -11,10 +11,6 @@ NAMESPACE AxoSequencerContainerExamples
         END_VAR
         //<MAIN>
         METHOD PROTECTED OVERRIDE MAIN 
-            _step_1.Initialize(THIS);
-            _step_2.Initialize(THIS);
-            _step_3.Initialize(THIS);
-
             _myCounter := _myCounter + ULINT#1;
 
             IF(_step_1.Execute(THIS)) THEN  
@@ -47,13 +43,15 @@ NAMESPACE AxoSequencerContainerExamples
         //<InstanceDeclaration>
         VAR PUBLIC
             _mySequencerContainer : AxoSequencerContainerDocuExample;
+            _rootObject : AxoObject;
         END_VAR
         //</InstanceDeclaration>
     
 
         METHOD PROTECTED OVERRIDE Main
+            THIS.InitializeRootObject(_rootObject);
             //<InstanceRunning>
-            _mySequencerContainer.Run(THIS);
+            _mySequencerContainer.Run(_rootObject);
             //</InstanceRunning>
         END_METHOD   
 

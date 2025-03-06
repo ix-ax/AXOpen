@@ -17,12 +17,12 @@ NAMESPACE AXOpen.Components.Rexroth.Press
         END_VAR
         //</InitializationArgumentsDeclaration>            
 
-        METHOD PUBLIC Run
+        METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoContext;
+                parent : IAxoObject;
             END_VAR    
 
-            THIS.InitializeWithContext(parent);
+            SUPER.Run(parent);
 
             IF ActivateManualControl THEN
                 AxoSmartFunctionKit.ActivateManualControl();
@@ -54,7 +54,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
 
         METHOD PRIVATE UseInSequencer   
 
-            Sequencer.Initialize(THIS);
+            Sequencer.Run(THIS);
             Sequencer.Open();
             Sequencer.SequenceMode:= eAxoSequenceMode#RunOnce;
 
