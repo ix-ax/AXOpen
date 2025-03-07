@@ -16,12 +16,11 @@ namespace AXOpen.Data.Query
     public partial class DataExchangeQuery : IDisposable
     {
         [Parameter]
-        public DataExchangeViewModel Vm { get; set; }
+        public IDataExchangeQueryViewModel Exchange { get; set; }
 
         [Inject]
         private ProtectedLocalStorage ProtectedLocalStorage { set; get; }
 
-        public IAxoDataExchange exchange;
         public Guid ViewGuid { get; } = new Guid();
 
         public bool SymbolsWasInitialize { get; set; }
@@ -31,7 +30,6 @@ namespace AXOpen.Data.Query
 
         protected override void OnInitialized()
         {
-            exchange = (IAxoDataExchange)Vm.Model;
             SymbolsWasInitialize = false;
         }
 
@@ -48,9 +46,10 @@ namespace AXOpen.Data.Query
         {
             Task initTask = Task.Run(() =>
             {
-                bool addExternalPredicates = Vm.InjectedPredicateContainer != null && (Vm.InjectedPredicateContainer.PredicatesCount() > 0 || Vm.InjectedPredicateContainer.SortingCount() > 0);
+                bool addExternalPredicates = Exchange.InjectedPredicateContainer != null && (Exchange.InjectedPredicateContainer.PredicatesCount() > 0
+                || Exchange.InjectedPredicateContainer.SortingCount() > 0);
 
-                foreach (var rootType in exchange.GetPlainObjectType())
+                foreach (var rootType in Exchange.GetPlainTypes())
                 {
                     var plainPathContainer = new PlainSymbolBuilder(rootType);
 
@@ -62,7 +61,7 @@ namespace AXOpen.Data.Query
 
                     if (addExternalPredicates)
                     {
-                        var extQueries = Vm.InjectedPredicateContainer.GetPredicates(rootType);
+                        var extQueries = Exchange.InjectedPredicateContainer.GetPredicates(rootType);
 
                         if (extQueries != null)
                         {
@@ -72,7 +71,7 @@ namespace AXOpen.Data.Query
                             }
                         }
 
-                        var extSorting = Vm.InjectedPredicateContainer.GetSorting(rootType);
+                        var extSorting = Exchange.InjectedPredicateContainer.GetSorting(rootType);
                         if (extSorting != null)
                         {
                             foreach (var sort in extSorting)
@@ -138,7 +137,7 @@ namespace AXOpen.Data.Query
                 {
                     _StorageKey = string.Empty;
 
-                    var joinName = string.Join("-", Vm.DataExchange.GetPlainObjectType().Select(t => t.FullName));
+                    var joinName = string.Join("-", Exchange.GetPlainTypes().Select(t => t.FullName));
 
                     using (SHA1 sha1 = SHA1.Create()) // Use SHA-1 instead of SHA-256
                     {
@@ -219,8 +218,16 @@ namespace AXOpen.Data.Query
 
         public Task<bool> AddSymbolToQuery(string symbol)
         {
-            CurrentQuery.Queries.Add(this.PlainBuilders.CreateNewQuerySymbol(symbol));
-            return Task.FromResult(true);
+            var querySymbol = this.PlainBuilders.CreateNewQuerySymbol(symbol);
+
+            if (querySymbol != null)
+            {
+                CurrentQuery.Queries.Add(querySymbol);
+                return Task.FromResult(true);
+            }
+
+            return Task.FromResult(false);
+
         }
 
         public Task<bool> AddAllDisplayedToQuery()
@@ -309,9 +316,9 @@ namespace AXOpen.Data.Query
             PredicateContainer = null;
             PredicateContainer = new PredicateContainer();
 
-            if (Vm.InjectedPredicateContainer != null)
+            if (Exchange.InjectedPredicateContainer != null)
             {
-                PredicateContainer.AddPredicatesFrom(Vm.InjectedPredicateContainer);
+                PredicateContainer.AddPredicatesFrom(Exchange.InjectedPredicateContainer);
             }
 
             foreach (var symbolConfig in CurrentQuery.Queries)
@@ -324,10 +331,9 @@ namespace AXOpen.Data.Query
                 this.PredicateContainer.AddSortSymbolToPredicates(PlainBuilders, symbolSorting);
             }
 
-            await Vm.FillObservableRecordsAsync(PredicateContainer);
+            await Exchange.FillObservableRecordsAsync(PredicateContainer);
 
-            if (Vm.StateHasChangedDelegate != null)
-                Vm.StateHasChangedDelegate.Invoke();
+            Exchange.InvokeStateHasChanged();
 
             await UpdateQueryHistoryToStorage();
         }
