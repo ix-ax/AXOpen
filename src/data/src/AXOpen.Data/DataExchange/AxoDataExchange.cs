@@ -38,7 +38,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     private TOnline _dataEntity;
     public long LastFragmentQueryCount { set; get; }
 
-    public IEnumerable<Type> GetPlainObjectType()
+    public IEnumerable<Type> GetPlainTypes()
     {
         return new List<Type>() { typeof(TPlain) };
     }
