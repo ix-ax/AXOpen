@@ -43,11 +43,20 @@ namespace AXOpen.Data.Query
                     }
                 }
 
-                var p = new PlainFilterVariable(prop.Name, prop.PropertyType, typeof(IPlain).IsAssignableFrom(prop.PropertyType));
+               
+                var isNullableType = Nullable.GetUnderlyingType(prop.PropertyType) != null;
+                var isPlainType = typeof(IPlain).IsAssignableFrom(prop.PropertyType);
+
+                var p = new PlainFilterVariable(prop.Name, prop.PropertyType, isPlainType);
+
+                if (isNullableType && !isPlainType)
+                {
+                    continue;
+                }
 
                 objectProperties.Add(p);
 
-                if (p.IsPlainType)
+                if (isPlainType)
                 {
                     CollectProperties(prop.PropertyType, false);
                 }
