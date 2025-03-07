@@ -78,7 +78,7 @@ NAMESPACE AXOpen.Core
         /// This method should be called only once upon the program start.
         /// Any subsequent call are ignored.
         ///</summary>
-        METHOD PUBLIC Initialize
+        METHOD PRIVATE Initialize
             VAR_INPUT
                 inParent : IAxoObject;
             END_VAR                           
@@ -116,12 +116,19 @@ NAMESPACE AXOpen.Core
             
         END_METHOD  
         
+        METHOD PUBLIC Run
+            VAR_INPUT
+                inParent : IAxoObject;
+            END_VAR       
+            THIS.Initialize(inParent);             
+        END_METHOD 
+
         ///<summary>
         /// Initializes this object associating it given context. 
         /// This method should be called only once upon the program start.
         /// Any subsequent call are ignored.
         ///</summary>
-        METHOD PUBLIC InitializeWithContext
+        METHOD INTERNAL InitializeWithContext
             VAR_INPUT
                 inContext : IAxoContext;
             END_VAR   

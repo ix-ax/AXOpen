@@ -11,16 +11,16 @@ NAMESPACE AXOpen.Components.Drives
         
 
         METHOD PROTECTED OVERRIDE Main  
-            _rootObject.InitializeWithContext(THIS);
+            THIS.InitializeRootObject(_rootObject);
             IF(_manualControl) THEN            
                 _testDrive.ActivateManualControl();
             END_IF;   
-            _testDrive.Run(parent:=_rootObject,
-                            refAxisIn           :=  REF(PlcInputs),
-                            refAxisOut          :=  REF(PlcOutputs),
-                            Enable              :=  TRUE,
-                            EnablePositive      :=  TRUE,
-                            EnableNegative      :=  TRUE);
+            _testDrive.Run(parent           :=  _rootObject,
+                            refAxisIn       :=  REF(PlcInputs),
+                            refAxisOut      :=  REF(PlcOutputs),
+                            Enable          :=  TRUE,
+                            EnablePositive  :=  TRUE,
+                            EnableNegative  :=  TRUE);
         END_METHOD
     END_CLASS
 END_NAMESPACE            

@@ -18,7 +18,7 @@ NAMESPACE AxoDataPersistentExchangeExample
         END_VAR
         
         METHOD OVERRIDE Main
-            _rootObject.InitializeWithContext(THIS);
+            THIS.InitializeRootObject(_rootObject);
             DataManager.Run(_rootObject);
             ManagerUsage.Use(DataManager);
         END_METHOD

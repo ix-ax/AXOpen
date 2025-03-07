@@ -24,6 +24,17 @@ jobs:
     runs-on: [self-hosted, Windows, X64, L3,AX]  # For a list of available runner types, refer to
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on    
     steps:
+    - name: Get Branch Name
+      shell: pwsh
+      run: |
+        if ($env:GITHUB_REF -like "refs/pull/*") {
+          $BRANCH_NAME = "${{ github.event.pull_request.head.ref }}"
+        } else {
+          $BRANCH_NAME = $env:GITHUB_REF -replace 'refs/heads/', ''
+        }
+        Write-Host "Triggered on branch: $BRANCH_NAME"
+        "BRANCH_NAME=$BRANCH_NAME" | Out-File -FilePath $env:GITHUB_ENV -Append
+
     - name: Checkout
       uses: actions/checkout@v3
       with:
@@ -36,4 +47,15 @@ jobs:
       env:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}
       run: dotnet run --project cake/Build.csproj --do-test --do-pack --test-level 100 --do-publish  --do-publish-release        
+
+    - name: Get Short Commit SHA
+      shell: pwsh
+      run: |
+          $commitId = git rev-parse --short HEAD
+          echo "sha=$commitId" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8
+
+    - name: Display workflow details in Summary
+      shell: pwsh
+      run: |
+        echo "### Runner name: $env:RUNNER_NAME ::: Branch name: $env:BRANCH_NAME ::: Commit SHA: $env:sha "  | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Encoding utf8        
 

@@ -11,10 +11,10 @@ NAMESPACE AxoIO.Tests
         END_VAR
 
         
-            METHOD PUBLIC OVERRIDE Open : ULINT
-                SUPER.Open();
-                SignalParent.InitializeWithContext(THIS);
-            END_METHOD
+        METHOD PUBLIC OVERRIDE Open : ULINT
+            SUPER.Open();
+            THIS.InitializeRootObject(SignalParent);
+        END_METHOD
 
         METHOD PROTECTED OVERRIDE Main
                ;

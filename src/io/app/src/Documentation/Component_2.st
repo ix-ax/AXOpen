@@ -13,15 +13,15 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
     END_VAR
     //</InitializationArgumentsDeclaration>            
 
-    METHOD PUBLIC Run
+    METHOD PUBLIC OVERRIDE Run
         VAR_INPUT
-            parent : IAxoContext;
-        END_VAR    
-
-        THIS.InitializeWithContext(parent);
-
+            inParent : IAxoObject;
+        END_VAR     
+    
+        SUPER.Run(inParent);
+    
         //<Initialization>        
-        ExampleComponent.Run(THIS,_hwID);  
+        ExampleComponent.Run(THIS, _hwID);        
         //</Initialization>
 
     END_METHOD

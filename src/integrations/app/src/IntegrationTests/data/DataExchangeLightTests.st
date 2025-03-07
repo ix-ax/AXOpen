@@ -22,7 +22,7 @@ NAMESPACE IntegrationLightDirect
         END_METHOD    
 
         METHOD PROTECTED OVERRIDE Main
-            _rootObject.InitializeWithContext(THIS);
+            THIS.InitializeRootObject(_rootObject);
             CreateTest.InjectManger(DM);
             CreateTest.Run(_rootObject);
 

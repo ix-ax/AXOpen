@@ -17,12 +17,12 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
         END_VAR
         //</InitializationArgumentsDeclaration>            
 
-        METHOD PUBLIC Run
+        METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoContext;
+                parent : IAxoObject;
             END_VAR    
 
-            THIS.InitializeWithContext(parent);
+            SUPER.Run(parent);
 
             IF ActivateManualControl THEN
                 ExampleRobot.ActivateManualControl();
@@ -45,7 +45,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
 
         METHOD PRIVATE UseInSequencer   
 
-            Sequencer.Initialize(THIS);
+            Sequencer.Run(THIS);
             Sequencer.Open();
 
             IF(Steps[0].Execute(Sequencer, 'Start at main')) THEN

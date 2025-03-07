@@ -15,19 +15,18 @@ NAMESPACE AXOpen.Components.Abb.Robotics
         END_VAR
         //</InitializationArgumentsDeclaration>            
 
-        METHOD PUBLIC Run
+        METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoContext;
+                parent : IAxoObject;
             END_VAR    
-
-            THIS.InitializeWithContext(parent);
+            SUPER.Run(parent);
 
             IF(manualControl) THEN            
                 AxoIrc5_v_1_x_x.ActivateManualControl();
             END_IF;
 
             //<Initialization>        
-            AxoIrc5_v_1_x_x.Run(   parent          := THIS,
+            AxoIrc5_v_1_x_x.Run(parent          := parent,
                                 hwID            := HwIdentifiers#RobotBasicIO_HwID,
                                 hwIdDI_64_bytes := HwIdentifiers#RobotBasicIO_DI_64_bytes_DI_64_bytes_HwID,      
                                 hwIdDO_64_bytes := HwIdentifiers#RobotBasicIO_DO_64_bytes_DO_64_bytes_HwID);        
@@ -44,7 +43,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
 
         METHOD PRIVATE UseInSequencer   
 
-            Sequencer.Initialize(THIS);
+            Sequencer.Run(THIS);
             Sequencer.Open();
 
             IF(Steps[0].Execute(Sequencer, 'Start at main')) THEN

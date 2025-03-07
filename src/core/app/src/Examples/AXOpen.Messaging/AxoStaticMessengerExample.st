@@ -1,3 +1,4 @@
+USING AXOpen.Core;
 USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 
@@ -67,22 +68,25 @@ NAMESPACE AxoStaticMessengerExample
             _messenger5condition_10 : BOOL;
             {#ix-set:AttributeName = "<#Set to high to call the messenger 5#>"}
             _messenger5callcondition : BOOL;
-       END_VAR    
-    
+        END_VAR    
+        VAR PRIVATE
+            _rootObject :   AxoObject;
+        END_VAR
         METHOD PROTECTED OVERRIDE Main
-            _messenger1.Serve(THIS);    
+            THIS.InitializeRootObject(_rootObject);
+            _messenger1.Serve(_rootObject);    
             IF _messenger1condition AND NOT _messenger1conditionWithCode THEN
                 _messenger1.Activate(eAxoMessageCategory#Error);
             END_IF;
             IF NOT _messenger1condition THEN
                 _messenger1.ActivateOnCondition(_messenger1code, _messenger1conditionWithCode,eAxoMessageCategory#Error);
             END_IF;
-            _messenger2.Serve(THIS);    
+            _messenger2.Serve(_rootObject);    
             _messenger2.ActivateOnCondition(_messenger2code,_messenger2condition,eAxoMessageCategory#Warning).RequireAcknowledgement();
             _messenger3.ActivateOnCondition(_messenger3condition,eAxoMessageCategory#Info);
-            _messenger3.Serve(THIS);    
+            _messenger3.Serve(_rootObject);    
             _messenger4.ActivateOnCondition(_messenger4condition,eAxoMessageCategory#Info).RequireAcknowledgement();
-            _messenger4.Serve(THIS);    
+            _messenger4.Serve(_rootObject);    
             IF _messenger5callcondition THEN
                 _messenger5.ActivateOnCondition(ULINT#1,_messenger5condition_1,eAxoMessageCategory#Error).RequireAcknowledgement();
                 _messenger5.ActivateOnCondition(ULINT#2,_messenger5condition_2,eAxoMessageCategory#Error).RequireAcknowledgement();
@@ -94,7 +98,7 @@ NAMESPACE AxoStaticMessengerExample
                 _messenger5.ActivateOnCondition(ULINT#8,_messenger5condition_8,eAxoMessageCategory#Error).RequireAcknowledgement();
                 _messenger5.ActivateOnCondition(ULINT#9,_messenger5condition_9,eAxoMessageCategory#Error).RequireAcknowledgement();
                 _messenger5.ActivateOnCondition(ULINT#10,_messenger5condition_10,eAxoMessageCategory#Error).RequireAcknowledgement();
-                _messenger5.Serve(THIS);    
+                _messenger5.Serve(_rootObject);    
             ELSE
                 _messenger5.Restore();
             END_IF;

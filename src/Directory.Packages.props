@@ -9,11 +9,11 @@
     <GlobalPackageReference Include="GitVersion.MsBuild" Version="5.10.3" />
 
     <!-- AX# START -->
-    <PackageVersion Include="AXSharp.Abstractions" Version="0.23.0-alpha.359" />
-    <PackageVersion Include="AXSharp.Connector" Version="0.23.0-alpha.359" />
-    <PackageVersion Include="AXSharp.Connector.S71500.WebAPI" Version="0.23.0-alpha.359" />
-    <PackageVersion Include="AXSharp.Presentation.Blazor" Version="0.23.0-alpha.359" />
-    <PackageVersion Include="AXSharp.Presentation.Blazor.Controls" Version="0.23.0-alpha.359" />
+    <PackageVersion Include="AXSharp.Abstractions" Version="0.23.0-alpha.362" />
+    <PackageVersion Include="AXSharp.Connector" Version="0.23.0-alpha.362" />
+    <PackageVersion Include="AXSharp.Connector.S71500.WebAPI" Version="0.23.0-alpha.362" />
+    <PackageVersion Include="AXSharp.Presentation.Blazor" Version="0.23.0-alpha.362" />
+    <PackageVersion Include="AXSharp.Presentation.Blazor.Controls" Version="0.23.0-alpha.362" />
     <!-- AX# END -->
 
     <PackageVersion Include="ClosedXML" Version="0.104.2" />
@@ -28,7 +28,7 @@
     <PackageVersion Include="MongoDB.Bson" Version="3.0.0" />
     <PackageVersion Include="MongoDB.Driver" Version="3.0.0" />
     <PackageVersion Include="MongoDB.Driver.Core" Version="2.30.0" />
-    <PackageVersion Include="Siemens.Simatic.S7.Webserver.API" Version="2.2.26" />    
+    <PackageVersion Include="Siemens.Simatic.S7.Webserver.API" Version="3.2.1" />    
     <PackageVersion Include="AXOpen.KristofferStrube.Blazor.SVGEditor" Version="0.4.4-alpha.296" />
     <PackageVersion Include="MSTest.TestAdapter" Version="3.6.3" />
     <PackageVersion Include="MSTest.TestFramework" Version="3.1.1" />

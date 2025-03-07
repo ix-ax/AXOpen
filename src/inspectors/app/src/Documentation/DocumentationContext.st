@@ -10,10 +10,8 @@ CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
 
 
     METHOD PROTECTED OVERRIDE Main           
-        _rootObject.InitializeWithContext(THIS); 
-        _automat.Initialize(_rootObject);
-        _automat.Run(_rootObject);
-        _automat.Execute();
+        THIS.InitializeRootObject(_rootObject);
+        _automat.Execute(_rootObject);
 
         IF _startInspection THEN
             _automat.Invoke();

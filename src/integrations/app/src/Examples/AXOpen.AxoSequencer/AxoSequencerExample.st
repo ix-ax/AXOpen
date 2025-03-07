@@ -33,18 +33,8 @@ NAMESPACE AxoSequencerExamples
             step_10 : AxoStep;
         END_VAR
 
-        METHOD PROTECTED OVERRIDE Main    
-            step_1.InitializeWithContext(THIS);
-            step_2.InitializeWithContext(THIS);
-            step_3.InitializeWithContext(THIS);
-            step_4.InitializeWithContext(THIS);
-            step_5.InitializeWithContext(THIS);
-            step_6.InitializeWithContext(THIS);
-            step_7.InitializeWithContext(THIS);
-            step_8.InitializeWithContext(THIS);
-            step_9.InitializeWithContext(THIS);
-            step_10.InitializeWithContext(THIS);
-            coord.InitializeWithContext(THIS);
+        METHOD PROTECTED OVERRIDE Main  
+            THIS.InitializeRootObject(coord);
 
             IF coord.Open() THEN
             

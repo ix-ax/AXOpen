@@ -9,7 +9,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
         END_VAR
 
         METHOD PROTECTED OVERRIDE Main
-            _rootObject.InitializeWithContext(THIS);
+            THIS.InitializeRootObject(_rootObject);
             AxoSmartFunctionKit.Run(parent              :=  _rootObject,                             
                                     hwID                :=  HwIdentifiers#SFK_HwID,
                                     hwIdParamCh_IDN     :=  HwIdentifiers#SFK_ParamCh_5Words_ID_PaCh_5Words_HwID,

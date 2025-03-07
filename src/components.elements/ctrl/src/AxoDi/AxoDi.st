@@ -64,9 +64,9 @@ NAMESPACE AXOpen.Elements
             END_IF;
 
             IF _context = NULL THEN
-                THIS.Initialize(parent);
-                _isTrueTask.Initialize(THIS);
-                _isFalseTask.Initialize(THIS);
+                SUPER.Run(parent);
+                // _isTrueTask.Initialize(THIS);
+                // _isFalseTask.Initialize(THIS);
                 _context := THIS.GetContext();
             END_IF;
 
@@ -76,11 +76,11 @@ NAMESPACE AXOpen.Elements
             THIS._inSignal := inSignal;	
 
 
-            IF(_isTrueTask.Execute())THEN
+            IF(_isTrueTask.Execute(THIS))THEN
                 _isTrueTask.DoneWhen(THIS.IsTrue());
             END_IF;
             
-            IF(_isFalseTask.Execute())THEN
+            IF(_isFalseTask.Execute(THIS))THEN
                 _isFalseTask.DoneWhen(THIS.IsFalse());
             END_IF;
         END_METHOD

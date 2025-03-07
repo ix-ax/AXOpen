@@ -39,7 +39,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
         METHOD PROTECTED OVERRIDE Main  
             RETURN;
-            _rootObject.InitializeWithContext(THIS);
+            THIS.InitializeRootObject(_rootObject);
             IF(_manualControl) THEN            
                 IndraDrive.ActivateManualControl();
             END_IF;   
@@ -58,7 +58,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         
         METHOD PRIVATE UseInSequencer   
 
-            Sequencer.InitializeWithContext(THIS);
+            Sequencer.Run(_rootObject);
             Sequencer.Open();
             Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
         

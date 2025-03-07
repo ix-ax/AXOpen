@@ -16,12 +16,12 @@ NAMESPACE AXOpen.Components.Balluff.Identification
         END_VAR
         //</InitializationArgumentsDeclaration>            
 
-        METHOD PUBLIC Run
+        METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoContext;
+                parent : IAxoObject;
             END_VAR    
 
-            THIS.InitializeWithContext(parent);
+            SUPER.Run(parent);
 
             IF ActivateManualControl THEN
                 ExampleReader.ActivateManualControl();
@@ -44,7 +44,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
 
         METHOD PRIVATE UseInSequencer   
 
-            Sequencer.Initialize(THIS);
+            Sequencer.Run(THIS);
             Sequencer.Open();
 
             IF(Steps[0].Execute(Sequencer, 'Read')) THEN

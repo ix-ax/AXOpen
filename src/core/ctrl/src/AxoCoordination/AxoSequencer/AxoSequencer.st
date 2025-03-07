@@ -37,17 +37,13 @@ NAMESPACE AXOpen.Core
         /// sequencer.
         ///</summary>
         METHOD PUBLIC Open : BOOL
-            // VAR
-            //     tContext : IAxoContext;
-            // END_VAR
             IF _context = NULL THEN 
                 _context := THIS.GetContext(); 
             END_IF;
 
             Open := FALSE;
             
-            CollectDataTask.Initialize(THIS);
-            CollectDataTask.Execute();
+            CollectDataTask.Execute(THIS);
 
             SUPER.SetSuspendMultipleExecuteCallCheck(TRUE);
 
@@ -65,23 +61,10 @@ NAMESPACE AXOpen.Core
                         _configurationFlowOrder := ULINT#0;
                         _numberOfConfiguredSteps := ULINT#0;
                         _coordinatorState := AxoCoordinatorStates#Configuring;
-
-                        // tContext := StepForwardCommand.GetContextUnsafe();
-                        
-                        // IF  tContext = NULL THEN
-                            // StepForwardCommand.Initialize(_context);
-                            // StepIn.Initialize(_context);
-                            // StepBackwardCommand.Initialize(_context);
-                        // END_IF;
-
-                        // IF(StepForwardCommand.GetContext() = NULL) THEN // asi to robi problem
-                        //     StepForwardCommand.Initialize(_context_);
-                        //     StepIn.Initialize(_context_);
-                        //     StepBackwardCommand.Initialize(_context_);
-                        // END_IF;    
-                            StepForwardCommand.Initialize(THIS);
-                            StepIn.Initialize(THIS);
-                            StepBackwardCommand.Initialize(THIS);
+ 
+                        StepForwardCommand.Run(THIS);
+                        StepIn.Run(THIS);
+                        StepBackwardCommand.Run(THIS);
 
                     AxoCoordinatorStates#Configuring :
                         THIS.OnBeforeSequenceStart();

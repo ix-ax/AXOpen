@@ -71,7 +71,12 @@ NAMESPACE AXOpen.Core
         ///<summary>
         ///	This method needs to be called cyclically.
         ///</summary>    
-        METHOD PUBLIC Run : BOOL         
+        METHOD PUBLIC OVERRIDE Run             
+            VAR_INPUT
+                inParent : IAxoObject;
+            END_VAR       
+            SUPER.Run(inParent);             
+                 
             IF (_context = NULL) THEN
                 _context := THIS.GetContext();
             END_IF;

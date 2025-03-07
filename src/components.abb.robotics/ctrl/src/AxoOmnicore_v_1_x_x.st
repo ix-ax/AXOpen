@@ -129,7 +129,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 hwIdDO_64_bytes :   WORD;   //  Hardware Id of the output data of the robot
             END_VAR
 
-            THIS.Initialize(parent);
+            SUPER.Run(parent);
 
             Messenger.Serve(THIS);
 
@@ -331,23 +331,23 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             _errorTime := Config.ErrorTime;
 
             //*************INITIALIZATION*************
-            RestoreTask.Initialize(THIS);
-            StopMovementsTask.Initialize(THIS);
-            StopMovementsAndProgramTask.Initialize(THIS);
-            StopProgramTask.Initialize(THIS);
-            StopMotorsTask.Initialize(THIS);
-            StartAtMainTask.Initialize(THIS);
-            StartMotorsAndProgramTask.Initialize(THIS);
-            StartProgramTask.Initialize(THIS);
-            StartMotorsTask.Initialize(THIS);
-            StartMovementsTask.Initialize(THIS);
-            StartMotorsProgramAndMovementsTask.Initialize(THIS);
-            HardwareDiagnosticsTask.Initialize(THIS);
+            RestoreTask.Run(THIS);
+            StopMovementsTask.Run(THIS);
+            StopMovementsAndProgramTask.Run(THIS);
+            StopProgramTask.Run(THIS);
+            StopMotorsTask.Run(THIS);
+            StartAtMainTask.Run(THIS);
+            StartMotorsAndProgramTask.Run(THIS);
+            StartProgramTask.Run(THIS);
+            StartMotorsTask.Run(THIS);
+            StartMovementsTask.Run(THIS);
+            StartMotorsProgramAndMovementsTask.Run(THIS);
+            HardwareDiagnosticsTask.Run(THIS);
 
             _stopTasksAreActive := StopMovementsTask.IsBusy() OR StopMovementsAndProgramTask.IsBusy() OR StopProgramTask.IsBusy() OR StopMotorsTask.IsBusy();
             //****************************************
             //********************Diagnostics*********        
-            HardwareDiagnosticsTask.Run(_hwID);
+            HardwareDiagnosticsTask.Run(THIS,_hwID);
             //****************************************
 
             //*************RESTORE********************

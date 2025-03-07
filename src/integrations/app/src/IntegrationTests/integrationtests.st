@@ -11,7 +11,7 @@ NAMESPACE IntegrationTests
         END_VAR
         
         METHOD PUBLIC Run 
-            _rootObject.InitializeWithContext(DataExchangeLightTestsContext);
+            DataExchangeLightTestsContext.InitializeRootObject(_rootObject);
             Probers.Run();
             DM.Run(_rootObject);                     
             DataExchangeLightTestsContext.InjectDM(DM);

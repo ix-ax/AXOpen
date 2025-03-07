@@ -140,7 +140,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 refPowerOnPulse                                         : REF_TO BOOL;
             END_VAR
 
-            THIS.Initialize(parent);
+            SUPER.Run(parent);
 
             Messenger.Serve(THIS);
 
@@ -210,96 +210,6 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             THIS.Execute(refPowerOnPulse);
         END_METHOD
 
-        // ///<summary>
-        // /// Runs tasks and logic of this component.
-        // /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
-        // ///</summary>
-        // METHOD PUBLIC Run 
-        //     VAR_INPUT
-        //         parent                                                  : IAxoContext;
-        //         hwID                                                    : WORD;
-        //         hwIdAxoUrRobotics_T2O_State                             : WORD;
-        //         hwIdAxoUrRobotics_T2O_IO                                : WORD;
-        //         hwIdAxoUrRobotics_T2O_Joints                            : WORD;
-        //         hwIdAxoUrRobotics_T2O_TCP                               : WORD;
-        //         hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers     : WORD;
-        //         hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers     : WORD;
-        //         hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers   : WORD;
-        //         hwIdAxoUrRobotics_O2T_Robot_IO                          : WORD;
-        //         hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1       : WORD;
-        //         hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2       : WORD;
-        //         refPowerOnPulse                                         : REF_TO BOOL;
-        //     END_VAR
-        //     THIS.Initialize(parent);
-
-        //     Messenger.Serve(THIS);
-
-        //     Messenger.ActivateOnCondition(ULINT#700, parent = NULL, eAxoMessageCategory#ProgrammingError);
-        //     Messenger.ActivateOnCondition(ULINT#701, hwIdAxoUrRobotics_T2O_State = WORD#0, eAxoMessageCategory#ProgrammingError);
-        //     Messenger.ActivateOnCondition(ULINT#702, hwIdAxoUrRobotics_T2O_IO = WORD#0, eAxoMessageCategory#ProgrammingError);
-        //     Messenger.ActivateOnCondition(ULINT#703, hwIdAxoUrRobotics_T2O_Joints = WORD#0, eAxoMessageCategory#ProgrammingError);
-        //     Messenger.ActivateOnCondition(ULINT#704, hwIdAxoUrRobotics_T2O_TCP = WORD#0, eAxoMessageCategory#ProgrammingError);
-        //     Messenger.ActivateOnCondition(ULINT#705, hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers = WORD#0, eAxoMessageCategory#ProgrammingError);
-        //     Messenger.ActivateOnCondition(ULINT#706, hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers = WORD#0, eAxoMessageCategory#ProgrammingError);
-        //     Messenger.ActivateOnCondition(ULINT#707, hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers = WORD#0, eAxoMessageCategory#ProgrammingError);
-        //     Messenger.ActivateOnCondition(ULINT#708, hwIdAxoUrRobotics_O2T_Robot_IO = WORD#0, eAxoMessageCategory#ProgrammingError);
-        //     Messenger.ActivateOnCondition(ULINT#709, hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 = WORD#0, eAxoMessageCategory#ProgrammingError);
-        //     Messenger.ActivateOnCondition(ULINT#710, hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 = WORD#0, eAxoMessageCategory#ProgrammingError);
-        //     Messenger.ActivateOnCondition(ULINT#711, refPowerOnPulse = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF parent = NULL THEN
-        //         RobotStatus.Error.Id := UINT#700;
-        //         RETURN;
-        //     ELSIF hwIdAxoUrRobotics_T2O_State = WORD#0 THEN
-        //         RobotStatus.Error.Id := UINT#701;
-        //         RETURN;
-        //     ELSIF hwIdAxoUrRobotics_T2O_IO = WORD#0 THEN
-        //         RobotStatus.Error.Id := UINT#702;
-        //         RETURN;
-        //     ELSIF hwIdAxoUrRobotics_T2O_Joints = WORD#0 THEN
-        //         RobotStatus.Error.Id := UINT#703;
-        //         RETURN;
-        //     ELSIF hwIdAxoUrRobotics_T2O_TCP = WORD#0 THEN
-        //         RobotStatus.Error.Id := UINT#704;
-        //         RETURN;
-        //     ELSIF hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers = WORD#0 THEN
-        //         RobotStatus.Error.Id := UINT#705;
-        //         RETURN;
-        //     ELSIF hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers = WORD#0 THEN
-        //         RobotStatus.Error.Id := UINT#706;
-        //         RETURN;
-        //     ELSIF hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers = WORD#0 THEN
-        //         RobotStatus.Error.Id := UINT#707;
-        //         RETURN;
-        //     ELSIF hwIdAxoUrRobotics_O2T_Robot_IO = WORD#0 THEN
-        //         RobotStatus.Error.Id := UINT#708;
-        //         RETURN;
-        //     ELSIF hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 = WORD#0 THEN
-        //         RobotStatus.Error.Id := UINT#709;
-        //         RETURN;
-        //     ELSIF hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 = WORD#0 THEN
-        //         RobotStatus.Error.Id := UINT#710;
-        //         RETURN;
-        //     ELSIF refPowerOnPulse =  NULL THEN
-        //         RobotStatus.Error.Id := UINT#711;
-        //         RETURN;
-        //     END_IF;
-
-        //     _hwID := hwID;
-        //     _hwIdAxoUrRobotics_T2O_State := hwIdAxoUrRobotics_T2O_State;
-        //     _hwIdAxoUrRobotics_T2O_IO := hwIdAxoUrRobotics_T2O_IO;
-        //     _hwIdAxoUrRobotics_T2O_Joints := hwIdAxoUrRobotics_T2O_Joints;
-        //     _hwIdAxoUrRobotics_T2O_TCP := hwIdAxoUrRobotics_T2O_TCP;
-        //     _hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers := hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers;
-        //     _hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers := hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers;
-        //     _hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers := hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers;
-        //     _hwIdAxoUrRobotics_O2T_Robot_IO := hwIdAxoUrRobotics_O2T_Robot_IO;
-        //     _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 := hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1;
-        //     _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 := hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2;
-
-        //     THIS.Execute(refPowerOnPulse);
-        // END_METHOD
-
         METHOD PRIVATE Execute 
             VAR_INPUT
                 refPowerOnPulse : REF_TO BOOL;
@@ -321,27 +231,27 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             _errorTime := Config.ErrorTime;
 
             //*************INITIALIZATION*************
-            RestoreTask.Initialize(THIS);
-            PowerOnTask.Initialize(THIS);
-            StopMovementsTask.Initialize(THIS);
-            StopMovementsAndProgramTask.Initialize(THIS);
+            // RestoreTask.Run(THIS);
+            // PowerOnTask.Run(THIS);
+            // StopMovementsTask.Run(THIS);
+            // StopMovementsAndProgramTask.Run(THIS);
             
-            StartAtMainTask.Initialize(THIS);
-            StartMotorsAndProgramTask.Initialize(THIS);
-            StartMovementsTask.Initialize(THIS);
-            HardwareDiagnosticsTask.Initialize(THIS);
-            RebootControllerTask.Initialize(THIS);
+            // StartAtMainTask.Run(THIS);
+            // StartMotorsAndProgramTask.Run(THIS);
+            // StartMovementsTask.Run(THIS);
+            // HardwareDiagnosticsTask.Run(THIS);
+            // RebootControllerTask.Run(THIS);
 
             _stopTasksAreActive := StopMovementsTask.IsBusy() OR StopMovementsAndProgramTask.IsBusy();
             //****************************************
             //********************Diagnostics*********        
-            HardwareDiagnosticsTask.Run(_hwID);
-            RebootControllerTask.Execute();
+            HardwareDiagnosticsTask.Run(THIS,_hwID);
+            RebootControllerTask.Execute(THIS);
             //****************************************
 
             //*************RESTORE********************
             RestoreTask.IsDisabled := FALSE;
-            IF RestoreTask.Execute() THEN
+            IF RestoreTask.Execute(THIS) THEN
                 THIS.Restore();
             END_IF;
             //****************************************
@@ -1251,7 +1161,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             END_IF;
             Messenger.ActivateOnCondition(ULINT#100,StartAtMainTask.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#101,StartAtMainTask.IsDone(), eAxoMessageCategory#Info);
-            IF StartAtMainTask.Execute() THEN
+            IF StartAtMainTask.Execute(THIS) THEN
                 _blink.Blink(Context := _context, inOnTime:=T#500MS,inOffTime:=T#500MS);
                 IF _power_progress = 0 THEN
                     RobotStatus.Error.Id := UINT#0;
@@ -1329,7 +1239,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             END_IF;
             Messenger.ActivateOnCondition(ULINT#110,StartMotorsAndProgramTask.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#111,StartMotorsAndProgramTask.IsDone(), eAxoMessageCategory#Info);
-            IF StartMotorsAndProgramTask.Execute() THEN
+            IF StartMotorsAndProgramTask.Execute(THIS) THEN
                 _blink.Blink(Context := _context, inOnTime:=T#500MS,inOffTime:=T#500MS);
 
                 IF _power_progress = 0 THEN
@@ -1504,7 +1414,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             END_IF;
             Messenger.ActivateOnCondition(ULINT#180,StartMovementsTask.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#181,StartMovementsTask.IsDone(), eAxoMessageCategory#Info);
-            IF StartMovementsTask.Execute() THEN
+            IF StartMovementsTask.Execute(THIS) THEN
                 IF _movement_progress = 0 THEN
                     RobotStatus.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
@@ -1685,7 +1595,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             END_IF;
             Messenger.ActivateOnCondition(ULINT#210,StopMovementsAndProgramTask.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#211,StopMovementsAndProgramTask.IsDone(), eAxoMessageCategory#Info);
-            IF StopMovementsAndProgramTask.Execute() THEN
+            IF StopMovementsAndProgramTask.Execute(THIS) THEN
                 IF _power_progress = 0 THEN
                     RobotStatus.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
@@ -1764,7 +1674,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             END_IF;
             Messenger.ActivateOnCondition(ULINT#220,StopMovementsAndProgramTask.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#221,StopMovementsAndProgramTask.IsDone(), eAxoMessageCategory#Info);
-            IF StopMovementsTask.Execute() THEN
+            IF StopMovementsTask.Execute(THIS) THEN
                 IF _power_progress = 0 THEN
                     RobotStatus.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
@@ -1837,7 +1747,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
 
             //*************POWER ON********************
             PowerOnTask.IsDisabled := NOT(Inputs.RobotMode=eAxoUrRoboticsRobotMode#DISCONNECTED AND Config.RemotePowerOnEnabled);
-            IF PowerOnTask.Execute() THEN
+            IF PowerOnTask.Execute(THIS) THEN
                 refPowerOnPulse^ :=TRUE;
                 RobotStatus.Action.Id :=  UINT#420;//('<#POWER ON PULSE WAS SEND TO CONTROLER#>');
                 PowerOnTask.DoneWhen(PowerOnTask.Duration > Config.RemotePowerOnPulse);
@@ -2367,11 +2277,11 @@ NAMESPACE AXOpen.Components.Ur.Robotics
         END_METHOD        
     
         METHOD PUBLIC StartAtMain : IAxoTaskState
-            StartAtMain := StartAtMainTask.Invoke();
+            StartAtMain := StartAtMainTask.Invoke(THIS);
         END_METHOD
 
         METHOD PUBLIC StartMotorsAndProgram : IAxoTaskState
-            StartMotorsAndProgram := StartMotorsAndProgramTask.Invoke();
+            StartMotorsAndProgram := StartMotorsAndProgramTask.Invoke(THIS);
         END_METHOD
    
         METHOD PUBLIC StartMovements : IAxoTaskState
@@ -2380,7 +2290,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             END_VAR
             RobotStatus.CurrentMovementParameters := inData;
 
-            StartMovements := StartMovementsTask.Invoke();
+            StartMovements := StartMovementsTask.Invoke(THIS);
         END_METHOD
     
         METHOD PUBLIC StopMovements : IAxoTaskState
@@ -2388,7 +2298,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 inStopType : eAxoRoboticsStopType;
             END_VAR
             _stopType := inStopType;
-            StopMovements := StopMovementsTask.Invoke();           
+            StopMovements := StopMovementsTask.Invoke(THIS);           
         END_METHOD
 
         METHOD PUBLIC StopMovementsAndProgram : IAxoTaskState
@@ -2396,7 +2306,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 inStopType : eAxoRoboticsStopType;
             END_VAR
             _stopType := inStopType;
-            StopMovementsAndProgram := StopMovementsAndProgramTask.Invoke();
+            StopMovementsAndProgram := StopMovementsAndProgramTask.Invoke(THIS);
         END_METHOD
         
         METHOD PRIVATE CallTimers
