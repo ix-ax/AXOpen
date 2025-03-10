@@ -56,6 +56,10 @@ CONFIGURATION MyConfiguration
 
         {S7.extern=ReadWrite}
         AxoS71500Rtc : AxoS71500RtcContext;
+        
+        {S7.extern=ReadWrite}
+        Simatic1500Alarming : Simatic1500AlarmingContext;
 
+       
     END_VAR   
 END_CONFIGURATION

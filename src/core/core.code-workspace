@@ -7,5 +7,10 @@
 			"path": "app"
 		}
 	],
-	"settings": {}
+	"settings": {},
+	"extensions": {
+		"recommendations": [
+			"siemens.alarming-s7-1500"
+		]
+	}
 }

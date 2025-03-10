@@ -25,6 +25,7 @@ PROGRAM MyProgram
         //Dialogs : AxoDialogExamples.Dialogs;              
         AxoRtc : AxoRtc.AxoS71500Rtc;
         AxoS71500Rtc : AxoS71500RtcContext;
+        Simatic1500Alarming : Simatic1500AlarmingContext;       
     END_VAR    
     
     I_am_alive := I_am_alive + ULINT#1;
@@ -60,4 +61,7 @@ PROGRAM MyProgram
     D_222.Run();  
 
     AxoS71500Rtc.Run();
+
+    Simatic1500Alarming.Run();
+ 
 END_PROGRAM

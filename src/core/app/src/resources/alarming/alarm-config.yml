@@ -1,0 +1,37 @@
+alarms:
+  - refId: 7c6140ac
+    text: Alarm_1 - message text
+    type: noAck
+    priority: 1
+    group: 2
+    displayClass: 3
+    report: false
+    addTexts:
+      - Alarm_1 - additional text 1
+      - Alarm_1 - additional text 2
+      - Alarm_1 - additional text 3
+      - Alarm_1 - additional text 4
+  - refId: 94b21ab4
+    text: Alarm_2 - message text
+    type: noAck
+    priority: 4
+    group: 5
+    displayClass: 6
+    report: false
+    addTexts:
+      - Alarm_2 - additional text 1
+      - Alarm_2 - additional text 2
+      - Alarm_2 - additional text 3
+      - Alarm_2 - additional text 4
+  - refId: d9c769a7
+    text: Alarm_3 - message text
+    type: noAck
+    priority: 7
+    group: 8
+    displayClass: 9
+    report: false
+    addTexts:
+      - Alarm_3 - additional text 1
+      - Alarm_3 - additional text 2
+      - Alarm_3 - additional text 3
+      - Alarm_3 - additional text 4
