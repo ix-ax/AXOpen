@@ -112,12 +112,12 @@ scripts:
     mod -t $AXTARGET -s Simatic1500Alarming.alarm1_Sig -v 1 -C .\\certs\\plc_line\\plc_line.cer 
     mod -t $AXTARGET -s Simatic1500Alarming.alarm2_Sig -v 1 -C .\\certs\\plc_line\\plc_line.cer 
     mod -t $AXTARGET -s Simatic1500Alarming.alarm3_Sig -v 1 -C .\\certs\\plc_line\\plc_line.cer 
-    mod -t $AXTARGET -s Simatic1500Alarming.alarm4_Sig -v 1 -C .\\certs\\plc_line\\plc_line.cer 
     mod -t $AXTARGET -s Simatic1500Alarming.alarm4_SD1 -v 4 -C .\\certs\\plc_line\\plc_line.cer 
     mod -t $AXTARGET -s Simatic1500Alarming.alarm4_SD2 -v 5 -C .\\certs\\plc_line\\plc_line.cer 
-    mod -t $AXTARGET -s Simatic1500Alarming.alarm5_Sig -v 1 -C .\\certs\\plc_line\\plc_line.cer 
+    mod -t $AXTARGET -s Simatic1500Alarming.alarm4_Sig -v 1 -C .\\certs\\plc_line\\plc_line.cer 
     mod -t $AXTARGET -s Simatic1500Alarming.alarm5_SD1 -v 6 -C .\\certs\\plc_line\\plc_line.cer 
     mod -t $AXTARGET -s Simatic1500Alarming.alarm5_SD2 -v 7 -C .\\certs\\plc_line\\plc_line.cer 
+    mod -t $AXTARGET -s Simatic1500Alarming.alarm5_Sig -v 1 -C .\\certs\\plc_line\\plc_line.cer 
   alm_deact: | # deactivate alarms
     mod -t $AXTARGET -s Simatic1500Alarming.alarm1_Sig -v 0 -C .\\certs\\plc_line\\plc_line.cer 
     mod -t $AXTARGET -s Simatic1500Alarming.alarm2_Sig -v 0 -C .\\certs\\plc_line\\plc_line.cer 
