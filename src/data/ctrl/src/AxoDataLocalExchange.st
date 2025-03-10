@@ -10,14 +10,7 @@ NAMESPACE AXOpen.Data
             operation : eCrudOperation;                              
             dataExchangeTask : AxoTask; 
         END_VAR
-                                               
-        METHOD PUBLIC Run 
-            VAR_INPUT
-                inParent : IAxoObject;
-            END_VAR  
-            ;          
-        END_METHOD
-    
+                                                           
         METHOD PUBLIC ABSTRACT Create : IAxoTaskState
             VAR_INPUT
                 Identifier : STRING[254];
