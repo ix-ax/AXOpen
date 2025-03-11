@@ -848,7 +848,7 @@ NAMESPACE AXOpen.Core
             IF(_context = NULL) THEN
                 _context := THIS.GetContext();
             END_IF;      
-            AbortTriggered := _abortCycleCount >= _context.OpenCycleCount() - ULINT#1;
+            AbortTriggered := _abortCycleCount > ULINT#0 AND _abortCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
 
         ///<summary>
@@ -858,7 +858,7 @@ NAMESPACE AXOpen.Core
             IF(_context = NULL) THEN
                 _context := THIS.GetContext();
             END_IF;      
-            ResumeTriggered := _resumeCycleCount >= _context.OpenCycleCount() - ULINT#1;
+            ResumeTriggered := _resumeCycleCount> ULINT#0 AND _resumeCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
 
         ///<summary>
@@ -868,7 +868,7 @@ NAMESPACE AXOpen.Core
             IF(_context = NULL) THEN
                 _context := THIS.GetContext();
             END_IF;      
-            DoneReached := _doneCycleCount >= _context.OpenCycleCount() - ULINT#1;
+            DoneReached := _doneCycleCount > ULINT#0 AND _doneCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
     
         ///<summary>
@@ -878,7 +878,7 @@ NAMESPACE AXOpen.Core
             IF(_context = NULL) THEN
                 _context := THIS.GetContext();
             END_IF;      
-            ErrorOccured := _errorCycleCount >= _context.OpenCycleCount() - ULINT#1;
+            ErrorOccured := _errorCycleCount > ULINT#0 AND _errorCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
     
         ///<summary>
@@ -888,7 +888,7 @@ NAMESPACE AXOpen.Core
             IF(_context = NULL) THEN
                 _context := THIS.GetContext();
             END_IF;      
-            RestoreTriggered := _restoreCycleCount >= _context.OpenCycleCount() - ULINT#1;
+            RestoreTriggered := _restoreCycleCount > ULINT#0 AND _restoreCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
     
         ///<summary>
@@ -898,7 +898,7 @@ NAMESPACE AXOpen.Core
             IF(_context = NULL) THEN
                 _context := THIS.GetContext();
             END_IF;      
-            StartTriggered := _startCycleCount >= _context.OpenCycleCount() - ULINT#1;
+            StartTriggered := _startCycleCount > ULINT#0 AND _startCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
     END_CLASS    
 END_NAMESPACE
