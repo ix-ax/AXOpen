@@ -69,10 +69,6 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         END_METHOD
     
         METHOD PROTECTED OVERRIDE Main
-            // _step_1.Initialize(THIS);
-            // _step_2.Initialize(THIS);
-            // _step_3.Initialize(THIS); 
-
             CASE _stepLogic OF
                 eStepLogic#JustExecuteCall: 
                     _step_1.Execute(THIS);
@@ -214,7 +210,6 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         END_METHOD
                 
         METHOD PRIVATE InitializeSequence
-            // _rootObject.InitializeWithContext(_context);
             _context.InitializeRootObject(_rootObject);
             _context.Open();
             _sequencer.Run(_rootObject);
@@ -228,10 +223,8 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         METHOD PRIVATE PrepareSequence
             _context.Open();
             _sequencer._stepLogic := eStepLogic#JustExecuteCall;
-            // _rootObject.InitializeWithContext(_context);
             _context.InitializeRootObject(_rootObject);
-            // _sequencer.Run(_rootObject);
-            _sequencer.Invoke();
+            _sequencer.Invoke(_rootObject);
             _sequencer.Run(_rootObject);
             _context.Close();
         END_METHOD
