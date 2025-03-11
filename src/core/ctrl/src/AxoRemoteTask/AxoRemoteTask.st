@@ -34,7 +34,10 @@ NAMESPACE AXOpen.Core
         END_VAR
         
         METHOD PUBLIC OVERRIDE Execute : BOOL
-            Execute := SUPER.Execute();            
+            VAR_INPUT 
+                inParent : IAxoObject;
+            END_VAR
+            Execute := SUPER.Execute(inParent);            
             TaskNotInitialized.Serve(THIS);    
             TaskHasRemoteException.Serve(THIS);
 

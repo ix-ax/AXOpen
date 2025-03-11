@@ -64,9 +64,9 @@ NAMESPACE AXOpen.Elements
             END_IF;
 
             IF _context = NULL THEN
-                THIS.Initialize(parent);
-                _setTask.Initialize(THIS);
-                _resetTask.Initialize(THIS);
+                SUPER.Run(parent);
+                // _setTask.Initialize(THIS);
+                // _resetTask.Initialize(THIS);
                 _context := THIS.GetContext();
             END_IF;
 
@@ -75,11 +75,11 @@ NAMESPACE AXOpen.Elements
 
             oSignal := _signal;		
 
-            IF(_setTask.Execute())THEN
+            IF(_setTask.Execute(THIS))THEN
                 _setTask.DoneWhen(THIS.Set());
             END_IF;
             
-            IF(_resetTask.Execute())THEN
+            IF(_resetTask.Execute(THIS))THEN
                 _resetTask.DoneWhen(THIS.Reset());
             END_IF;
 

@@ -42,7 +42,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         METHOD PROTECTED OVERRIDE Main  
 
             RETURN;
-            _rootObject.InitializeWithContext(THIS);
+            THIS.InitializeRootObject(_rootObject);
 
             IF(_manualControl) THEN            
                 AxoCmmtAs.ActivateManualControl();
@@ -64,7 +64,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
         METHOD PRIVATE UseInSequencer   
 
-            Sequencer.InitializeWithContext(THIS);
+            THIS.InitializeRootObject(Sequencer);
             Sequencer.Open();
             Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
         

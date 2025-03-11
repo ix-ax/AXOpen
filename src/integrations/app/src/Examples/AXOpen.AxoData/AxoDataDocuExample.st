@@ -38,7 +38,7 @@ NAMESPACE AxoDataExamplesDocu
         END_VAR
         
         METHOD OVERRIDE Main 
-            _rootObject.InitializeWithContext(THIS);
+            THIS.InitializeRootObject(_rootObject);
             DataManager.Run(_rootObject);
         END_METHOD          
     END_CLASS

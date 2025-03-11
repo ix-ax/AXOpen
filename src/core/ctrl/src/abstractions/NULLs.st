@@ -25,8 +25,7 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC InjectLogger VAR_INPUT _logger : IAxoLogger; END_VAR ; END_METHOD           
         METHOD PUBLIC GetRtm : IAxoRtm GetRtm :=  NULL_RTM; END_METHOD
         METHOD PUBLIC InjectRtm VAR_INPUT rtm : IAxoRtm; END_VAR ; END_METHOD           
-                
-      
+        METHOD PUBLIC InitializeRootObject VAR_IN_OUT inoRootObject : AxoObject; END_VAR ; END_METHOD
     END_CLASS    
 
     ///<summary>

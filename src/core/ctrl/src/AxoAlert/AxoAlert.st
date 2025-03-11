@@ -20,7 +20,7 @@ NAMESPACE AXOpen.Core
 
         METHOD PUBLIC Show : IAxoAlertFormat
             VAR_INPUT
-                _parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR
 
             VAR_TEMP
@@ -30,9 +30,11 @@ NAMESPACE AXOpen.Core
             Show := THIS;
             _wasShow := FALSE;
 
-            IF(_parent = NULL) THEN RETURN; END_IF;
+            IF(inParent = NULL) THEN 
+                RETURN; 
+            END_IF;
 
-            THIS.Initialize(_parent);
+            SUPER.Run(inParent);
 
             IF NOT THIS.IsInitialized THEN // dialog is not observed/monitored by server
                 IF (THIS.Status <> eAxoTaskState#Ready) THEN //needed in case when dialog observation was interrupt

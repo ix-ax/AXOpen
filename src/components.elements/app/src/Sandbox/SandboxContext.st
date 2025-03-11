@@ -6,9 +6,12 @@ NAMESPACE AXOpen.Elements
         VAR PUBLIC
             Cu : SandboxControllUnit;
         END_VAR
-
+        VAR
+            _rootObject : AxoObject;
+        END_VAR
         METHOD PROTECTED OVERRIDE Main
-            Cu.Main(THIS);
+            THIS.InitializeRootObject(_rootObject);
+            Cu.Main(_rootObject);
         END_METHOD
     END_CLASS
 
@@ -31,12 +34,14 @@ NAMESPACE AXOpen.Elements
         
         END_VAR
 
+
+
         METHOD PUBLIC Main
             VAR_INPUT
-                parent : IAxoContext;
+                parent : IAxoObject;
             END_VAR
 
-            THIS.InitializeWithContext(parent);
+            SUPER.Run(parent);
 
             IF(_manualControl) THEN
                 _testDi.ActivateManualControl();

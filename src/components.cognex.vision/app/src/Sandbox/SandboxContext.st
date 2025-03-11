@@ -19,9 +19,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
 
         METHOD PROTECTED OVERRIDE Main
             RETURN;
-            _rootObject.InitializeWithContext(THIS);
-
-            Insight_7600.Initialize(_rootObject);
+            THIS.InitializeRootObject(_rootObject);
 
             IF(ActivateManualControl) THEN
                 Insight_7600.ActivateManualControl();

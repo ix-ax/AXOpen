@@ -17,12 +17,12 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
         END_VAR
         //</InitializationArgumentsDeclaration>            
 
-        METHOD PUBLIC Run
+        METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoContext;
+                parent : IAxoObject;
             END_VAR    
-
-            THIS.InitializeWithContext(parent);
+            
+            SUPER.Run(parent);
 
             IF ActivateManualControl THEN
                 //<DatamanManualControl>
@@ -59,7 +59,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
 
         METHOD PRIVATE UseInSequencer   
 
-            Sequencer.Initialize(THIS);
+            Sequencer.Run(THIS);
             Sequencer.Open();
 
             

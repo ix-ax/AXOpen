@@ -19,7 +19,7 @@ NAMESPACE AxoCognexVisionInsightExamples
                 MyInsight.ActivateManualControl();
             END_IF;
             // Calling the main method `Run` with respective input and output variables. 
-            _rootObject.InitializeWithContext(THIS);
+            THIS.InitializeRootObject(_rootObject);
             //<HWIO_Assignement>
             MyInsight.Run(  parent                  :=  _rootObject,  
                             ResultDataSize          :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_ResultDataSize#RESULT_DATA_64B,
