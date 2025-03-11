@@ -49,6 +49,7 @@ dependencies:
   '@inxton/axopen.core': 0.0.0-dev.0
   axopen.data-app: 0.0.0-dev.0
   '@inxton/axopen.data': 0.0.0-dev.0
+  axopen.integration.tests_l4: 0.0.0-dev.0
   axopen.inspectors: 0.0.0-dev.0
   '@inxton/axopen.inspectors': 0.0.0-dev.0
   axopen.integrations: 0.0.0-dev.0
