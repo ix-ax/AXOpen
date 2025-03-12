@@ -157,14 +157,14 @@ public partial class DataExchangeView : ComponentBase, IDisposable
             Vm.DefaulSorting.MemberName = ""; // natural
         }
 
-        await Vm.FillObservableRecordsAsync(Vm.BuidDefaultPredicates());
+        await Vm.FillObservableRecordsAsync();
     }
 
     private async Task setSortAscendingAsync()
     {
         Vm.DefaulSorting.IsAscending = !Vm.DefaulSorting.IsAscending;
 
-        await Vm.FillObservableRecordsAsync(Vm.BuidDefaultPredicates());
+        await Vm.FillObservableRecordsAsync();
     }
 
     private async Task setLimitAsync(int limit)
@@ -174,14 +174,14 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
         Vm.Page = Vm.Page * oldLimit / Vm.Limit;
 
-        await Vm.FillObservableRecordsAsync(Vm.BuidDefaultPredicates());
+        await Vm.FillObservableRecordsAsync();
     }
 
     private async Task setPageAsync(int page)
     {
         Vm.Page = page;
 
-        await Vm.FillObservableRecordsAsync(Vm.BuidDefaultPredicates());
+        await Vm.FillObservableRecordsAsync();
     }
 
     protected override async Task OnInitializedAsync()
