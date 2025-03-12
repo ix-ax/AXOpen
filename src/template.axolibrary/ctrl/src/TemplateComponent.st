@@ -175,7 +175,6 @@ NAMESPACE Template.Axolibrary
             MoveToWorkTask.Run(THIS);
             MoveToHomeTask.Run(THIS);
             StopTask.Run(THIS);
-            HardwareDiagnosticsTask.Run(THIS);
     
             TemplateTask_10steps_1.Run(THIS);
             TemplateTask_10steps_2.Run(THIS);
