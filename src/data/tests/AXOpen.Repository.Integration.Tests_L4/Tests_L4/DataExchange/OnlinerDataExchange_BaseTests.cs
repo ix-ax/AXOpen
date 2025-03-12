@@ -52,7 +52,7 @@
         [Fact]
         public void should_create_symbol_list()
         {
-            var plains = Exchange.GetPlainObjectType();
+            var plains = Exchange.GetPlainTypes();
 
             var plainSymbolBuilder = new PlainSymbolBuilder(plains.First());
 
@@ -69,7 +69,7 @@
         [Fact]
         public void should_build_lambda_from_symbol()
         {
-            var plains = Exchange.GetPlainObjectType();
+            var plains = Exchange.GetPlainTypes();
 
             string requiredSymbolName = "ProcessData.vString";
             Type requiredSymbolType = typeof(string);
@@ -102,7 +102,7 @@
         [Fact]
         public void should_build_lambda_from_query_symbol_with_range()
         {
-            var plains = Exchange.GetPlainObjectType();
+            var plains = Exchange.GetPlainTypes();
 
             string requiredSymbolName = "ProcessData.vInt";
             Type requiredSymbolType = typeof(Int16);
@@ -146,7 +146,7 @@
         [Fact]
         public void should_build_lambda_from_query_symbol()
         {
-            var plainBuilders = Exchange.GetPlainObjectType().Select(p => new PlainSymbolBuilder(p)).ToList();
+            var plainBuilders = Exchange.GetPlainTypes().Select(p => new PlainSymbolBuilder(p)).ToList();
 
             var plainTypeHeaderName = plainBuilders.First().RootTypeName;
 
@@ -181,7 +181,7 @@
         [Fact]
         public void should_build_create_query_symbol()
         {
-            var plainBuilders = Exchange.GetPlainObjectType().Select(p => new PlainSymbolBuilder(p)).ToList();
+            var plainBuilders = Exchange.GetPlainTypes().Select(p => new PlainSymbolBuilder(p)).ToList();
 
             var plainTypeHeaderName = plainBuilders.First().RootTypeName;
 
@@ -213,7 +213,7 @@
         [Fact]
         public void should_build_filter_and_sort_accesing()
         {
-            var plains = Exchange.GetPlainObjectType();
+            var plains = Exchange.GetPlainTypes();
 
             var plainBuilders = plains.Select(p => new PlainSymbolBuilder(p)).ToList();
 
@@ -251,7 +251,7 @@
         [Fact]
         public void should_build_filter_and_sort_descesing()
         {
-            var plains = Exchange.GetPlainObjectType();
+            var plains = Exchange.GetPlainTypes();
 
             var plainBuilders = plains.Select(p => new PlainSymbolBuilder(p)).ToList();
 
@@ -289,7 +289,7 @@
         [Fact]
         public void should_build_filter_and_sort_from_sortsymbolConfiguraion()
         {
-            var plains = Exchange.GetPlainObjectType();
+            var plains = Exchange.GetPlainTypes();
 
             var plainBuilders = plains.Select(p => new PlainSymbolBuilder(p)).ToList();
 
@@ -329,7 +329,7 @@
         [Fact]
         public void should_filter_and_sort_with_property()
         {
-            var plains = Exchange.GetPlainObjectType();
+            var plains = Exchange.GetPlainTypes();
 
             var plainBuilders = plains.Select(p => new PlainSymbolBuilder(p)).ToList();
 

@@ -36,7 +36,7 @@ namespace Tests_L4
 
             var symbols = _fixture.builder.GetSymbols();
 
-            Assert.Equal(27000, symbols.Count());
+            Assert.Equal(27001, symbols.Count());
         }
     }
 }
