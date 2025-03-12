@@ -379,18 +379,7 @@ NAMESPACE AXOpen.Core
                 WasExecuteCalledInPreviousPlcCycle := FALSE;
             END_IF;     
         END_METHOD 
-        
-        METHOD PRIVATE UpdateState 
-            IF IsDisabled THEN 
-                IF Status <> eAxoTaskState#Error THEN
-                    Status := eAxoTaskState#Disabled; 
-                END_IF;
-            ELSE
-                IF  Status = eAxoTaskState#Disabled THEN
-                    Status := eAxoTaskState#Ready; 
-                END_IF;
-            END_IF;
-        END_METHOD        
+  
 
         ///<summary>
         /// Invokes this task.
@@ -441,7 +430,6 @@ NAMESPACE AXOpen.Core
                         _context.GetLogger().Log('Task invoked', eLogLevel#Verbose, THIS);
                 ELSE                                         
                     IF(NOT _suspendCyclicExecuteIsNotCalledCheck) THEN 
-                        // _CyclicExecuteIsNotCalled.Activate(eAxoMessageCategory#ProgrammingError); 
                         _cyclicExecuteIsNotCalled := TRUE;
                         Status := eAxoTaskState#Error;
                         ErrorDetails := 'CyclicExecuteIsNotCalled'; 
@@ -612,8 +600,6 @@ NAMESPACE AXOpen.Core
                     Status := eAxoTaskState#Ready; 
                 END_IF;
             END_IF;
-
-            // THIS.UpdateState(); // duplicate
 
             Execute := Status = eAxoTaskState#Busy;
 

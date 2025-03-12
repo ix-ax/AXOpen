@@ -14,7 +14,7 @@ variables:
   AXTARGETPLATFORMINPUT: .\bin\1500\
   AX_USERNAME: "adm"
   AX_TARGET_PWD: "123ABCDabcd$#!"
-  USE_PLC_SIM_ADVANCED: "true"
+  USE_PLC_SIM_ADVANCED: "false"
   # <= Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build.
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
@@ -110,3 +110,8 @@ scripts:
     apax test
   mm: |
     apax mon -t $AXTARGET -f monitor.mon -C .\\certs\\plc_line\\plc_line.cer -c
+
+  x: |
+    apax install
+    apax swfd
+    apax mm

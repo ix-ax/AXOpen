@@ -58,6 +58,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
         END_VAR
 
         METHOD PRIVATE UseInSequencer   
+            IF Sequencer.GetContext().OpenCycleCount() = ULINT#0 THEN
+                Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
+            END_IF;
 
             Sequencer.Run(THIS);
             Sequencer.Open();
@@ -69,7 +72,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 END_IF;    
             END_IF;  
 
-            IF(Steps[1].Execute(Sequencer, 'Change job')) THEN
+            IF(Steps[1].Execute(Sequencer, 'Read data')) THEN
                 IF(Dataman_280.Read().IsDone()) THEN                
                     Sequencer.MoveNext();                
                 END_IF;    
@@ -77,7 +80,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
 
             IF(Steps[2].Execute(Sequencer, 'Evaluate data')) THEN
                 _ResultData := Dataman_280.ResultData;
-                Sequencer.MoveNext();                
+                Sequencer.CompleteSequence();                               
             END_IF;       
     
 
