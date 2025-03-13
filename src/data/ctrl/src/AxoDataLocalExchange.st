@@ -5,7 +5,7 @@ NAMESPACE AXOpen.Data
     /// Base class for any exchangable data in <see cref="AxoDataExchange"/>.  
     /// </summary>
     {S7.extern=ReadWrite}
-    CLASS PUBLIC ABSTRACT AxoDataLocalExchange EXTENDS AxoObject IMPLEMENTS IAxoDataExchange                 
+    CLASS PUBLIC ABSTRACT AxoDataLocalExchange EXTENDS AXOpen.Core.AxoObject IMPLEMENTS IAxoDataExchange                 
         VAR  PROTECTED                              
             operation : eCrudOperation;                              
             dataExchangeTask : AxoTask; 

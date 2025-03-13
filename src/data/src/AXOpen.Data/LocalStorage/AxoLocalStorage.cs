@@ -5,6 +5,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using AXOpen.Base.Data;
+using AXOpen.Base.Data.Query;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components.Authorization;
 
@@ -17,9 +18,16 @@ namespace AXOpen.Data
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Type> GetPlainObjectType()
+        {
+            throw new NotImplementedException();
+        }
+
         public ITwinObject DataExchangeTwinObject { get; }
         public IRepository? Repository { get; }
         public bool ShouldVerifyHash { get; set; }
+        public long LastFragmentQueryCount { get; set; }
+
         public void ChangeTrackerStopObservingChanges(ITwinObject dataObject)
         {
             throw new NotImplementedException();
@@ -142,7 +150,22 @@ namespace AXOpen.Data
             throw new NotImplementedException();
         }
 
+        public IEnumerable<IBrowsableDataObject> GetRecords(PredicateContainer predicates, int limit, int skip)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<string> GetEntityIds(PredicateContainer predicates)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<IBrowsableDataObject> GetRecords(string identifier)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<IBrowsableDataObject> GetRecords(IEnumerable<string> identifiers)
         {
             throw new NotImplementedException();
         }

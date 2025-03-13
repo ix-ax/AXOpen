@@ -82,10 +82,9 @@ NAMESPACE AXOpen.Data
                 RETURN;
             END_IF;
 
-            IF _context = NULL THEN
+            IF THIS.GetContext() = NULL THEN
                 SUPER.Run(inParent);
-                Operation.Run(THIS);
-                _context := THIS.GetContext();
+                Operation.Run(THIS);                
             END_IF;
 
             Operation.Execute(THIS);

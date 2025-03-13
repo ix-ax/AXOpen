@@ -164,7 +164,7 @@ NAMESPACE AXOpen.Data
             VAR
                 index : INT;
             END_VAR    
-            rootObject.InitializeWithContext(context);
+            context.InitializeRootObject(rootObject);
             context.InjectRtc(rtc);
             context.InjectRtm(rtm);                                
         END_METHOD
