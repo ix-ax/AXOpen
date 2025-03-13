@@ -1,7 +1,7 @@
 Devices:
-- Name: reader-st1
+- Name: dm_280
   Modules:
-  - Name: reader-st1
+  - Name: dm_280
     TypeIdentifier:
       GsdId: DAP46
       FileName: GSDML-V2.42-COGNEX-DATAMANCLASSB-20220124.XML
@@ -11,7 +11,7 @@ Devices:
       Addresses:
         Configured:
         - IPv4: 10.10.10.13/24
-        - ProfinetDeviceName: reader-st1
+        - ProfinetDeviceName: dm_280
   - Name: Acquisition_Control
     TypeIdentifier:
       GsdId: '101'

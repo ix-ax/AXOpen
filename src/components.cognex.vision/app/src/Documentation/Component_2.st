@@ -34,14 +34,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             Dataman_280.Run(parent                     :=  THIS,  
                             ResultDataSize             :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize#RESULT_DATA_128B,
                             UserDataSize               :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_UserDataSize#USER_DATA_128B,
-                            hwID                       :=  HwIdentifiers#reader_st1_HwID,
-                            hwIdAcquisitionControl     :=  HwIdentifiers#reader_st1_Acquisition_Control_Acquisition_Control_HwID,
-                            hwIdAcquisitionStatus      :=  HwIdentifiers#reader_st1_Acquisition_Status_Acquisition_Status_HwID,
-                            hwIdResultsControl         :=  HwIdentifiers#reader_st1_Results_Control_Results_Control_HwID,
-                            hwIdResultsStatus          :=  HwIdentifiers#reader_st1_Results_Status_Results_Status_HwID,
-                            hwIdSoftEventControl       :=  HwIdentifiers#reader_st1_Soft_Event_Control_Soft_Event_Control_HwID,
-                            hwIdResultData             :=  HwIdentifiers#reader_st1_Result_Data_128_bytes_Result_Data___128_bytes_HwID,
-                            hwIdUserData               :=  HwIdentifiers#reader_st1_User_Data_128_bytes_User_Data___128_bytes_HwID);
+                            hwID                       :=  HwIdentifiers#dm_280_HwID,
+                            hwIdAcquisitionControl     :=  HwIdentifiers#dm_280_Acquisition_Control_Acquisition_Control_HwID,
+                            hwIdAcquisitionStatus      :=  HwIdentifiers#dm_280_Acquisition_Status_Acquisition_Status_HwID,
+                            hwIdResultsControl         :=  HwIdentifiers#dm_280_Results_Control_Results_Control_HwID,
+                            hwIdResultsStatus          :=  HwIdentifiers#dm_280_Results_Status_Results_Status_HwID,
+                            hwIdSoftEventControl       :=  HwIdentifiers#dm_280_Soft_Event_Control_Soft_Event_Control_HwID,
+                            hwIdResultData             :=  HwIdentifiers#dm_280_Result_Data_128_bytes_Result_Data___128_bytes_HwID,
+                            hwIdUserData               :=  HwIdentifiers#dm_280_User_Data_128_bytes_User_Data___128_bytes_HwID);
             //</Initialization>
 
             THIS.UseInSequencer();
