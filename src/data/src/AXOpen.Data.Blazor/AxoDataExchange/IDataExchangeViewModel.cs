@@ -7,34 +7,31 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AXOpen.Base.Data.Query;
 
 namespace AXOpen.Data.Interfaces
 {
-    public interface IDataViewModel
+    public interface IDataExchangeViewModel
     {
         ObservableCollection<IBrowsableDataObject> Records { get; set; }
         IBrowsableDataObject SelectedRecord { get; set; }
-        Task FillObservableRecordsAsync();
-        Task Filter();
-        Task RefreshFilter();
-        int Limit { get; set; }
-        string FilterById { get; set; }
-        eSearchMode SearchMode { get; set; }
-        long FilteredCount { get; set; }
-        int Page { get; set; }
-        string CreateItemId { get; set; }
 
-        bool IsBusy { get; set; }
+        public Task FillObservableRecordsAsync(PredicateContainer? predicates = null);
+
+        Task Filter();
 
         Task CreateNew();
-        void Delete();
-        Task Copy();
-        Task Edit();
-        Task SendToPlc();
-        Task LoadFromPlc();
-        void ExportData();
-        void ImportData();
 
-        event PropertyChangedEventHandler? PropertyChanged;
+        Task Delete();
+
+        Task Copy();
+
+        Task Edit();
+
+        Task SendToPlc();
+
+        Task LoadFromPlc();
+
+        public void InvokeStateHasChanged();
     }
 }

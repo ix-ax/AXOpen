@@ -86,7 +86,7 @@
         [Fact]
         public void should_create_symbol_list()
         {
-            var plains = Exchange.GetPlainObjectType();
+            var plains = Exchange.GetPlainTypes();
 
             var plainBuilder_Header = new PlainSymbolBuilder(plains.First());
             var plainBuilder_Station = new PlainSymbolBuilder(plains.Last());
@@ -124,7 +124,7 @@
         [Fact]
         public void should_build_lambda_from_symbol()
         {
-            var plains = Exchange.GetPlainObjectType();
+            var plains = Exchange.GetPlainTypes();
 
             Type plainTypeHeader = plains.First();
             Type plainTypeStation = plains.Last();
