@@ -94,7 +94,7 @@ public class AxoCompoundRepository : IRepository
         }
         else
         {
-            Parallel.ForEach(DataFragments.Where(fragment => predicates.ContainsType(fragment.GetPlainObjectType().First())), fragment =>
+            Parallel.ForEach(DataFragments.Where(fragment => predicates.ContainsType(fragment.GetPlainTypes().First())), fragment =>
            {
                var ids = fragment.GetEntityIds(predicates).ToList();
                lock (fragmentEntities)

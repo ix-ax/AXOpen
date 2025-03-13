@@ -40,13 +40,13 @@ public partial class AxoDataFragmentExchange
         return CreateDataFragments() as T;
     }
 
-    public IEnumerable<Type> GetPlainObjectType()
+    public IEnumerable<Type> GetPlainTypes()
     {
         var Plains = new List<Type>();
 
         foreach (var fragment in DataFragments)
         {
-            Plains.AddRange(fragment.GetPlainObjectType());
+            Plains.AddRange(fragment.GetPlainTypes());
         }
 
         return Plains;
@@ -503,7 +503,7 @@ public partial class AxoDataFragmentExchange
     {
         List<List<string>> fragmentEntities = new();
 
-        Parallel.ForEach(DataFragments.Where(fragment => predicates.ContainsType(fragment.GetPlainObjectType().First())), fragment =>
+        Parallel.ForEach(DataFragments.Where(fragment => predicates.ContainsType(fragment.GetPlainTypes().First())), fragment =>
         {
             var ids = fragment.GetEntityIds(predicates).ToList();
             lock (fragmentEntities)
@@ -543,7 +543,7 @@ public partial class AxoDataFragmentExchange
     {
         List<List<string>> fragmentEntities = new();
 
-        Parallel.ForEach(DataFragments.Where(fragment => predicates.ContainsType(fragment.GetPlainObjectType().First())), fragment =>
+        Parallel.ForEach(DataFragments.Where(fragment => predicates.ContainsType(fragment.GetPlainTypes().First())), fragment =>
         {
             var ids = fragment.GetEntityIds(predicates).ToList();
             lock (fragmentEntities)

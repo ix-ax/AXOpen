@@ -25,7 +25,7 @@ using AXOpen.Base.Data.Query;
 
 namespace AXOpen.Data
 {
-    public class DataExchangeViewModel : RenderableViewModelBase
+    public partial class DataExchangeViewModel : RenderableViewModelBase, IDataExchangeViewModel, IDataExchangeQueryViewModel
     {
         public IAxoDataExchange DataExchange
         {
@@ -127,8 +127,8 @@ namespace AXOpen.Data
             {
                 if (_DefaulQueryDataEntityId == null)
                 {
-                    var poco = DataExchange.GetPlainObjectType().First();
-                    _DefaulQueryDataEntityId = new QuerySymbolConfiguration($"{poco.Name}.DataEntityId", typeof(string).FullName, "!=", "", "");
+                    var poco = DataExchange.GetPlainTypes().First();
+                    _DefaulQueryDataEntityId = new QuerySymbolConfiguration($"{poco.Name}.DataEntityId", typeof(string).FullName, "StartsWith", "", "");
                 }
 
                 return _DefaulQueryDataEntityId;
@@ -158,14 +158,14 @@ namespace AXOpen.Data
             {
                 if (_PlainBuilders == null)
                 {
-                    _PlainBuilders = DataExchange.GetPlainObjectType().Select(p => new PlainSymbolBuilder(p)).ToList();
+                    _PlainBuilders = DataExchange.GetPlainTypes().Select(p => new PlainSymbolBuilder(p)).ToList();
                 }
 
                 return _PlainBuilders;
             }
         }
 
-        public PredicateContainer LastFilter;
+        public PredicateContainer LastFilter { set; get; }
 
         // injected from view or other service
         public PredicateContainer InjectedPredicateContainer { get; set; }
@@ -195,7 +195,14 @@ namespace AXOpen.Data
             return false;
         }
 
-        public Task FillObservableRecordsAsync(PredicateContainer? predicates = null)
+        public virtual async Task Filter()
+        {
+            Page = 0;
+
+            await FillObservableRecordsAsync(BuidDefaultPredicates());
+        }
+
+        public virtual Task FillObservableRecordsAsync(PredicateContainer? predicates = null)
         {
             return Task.Run(() =>
             {
@@ -207,7 +214,24 @@ namespace AXOpen.Data
             });
         }
 
-        public IEnumerable<IBrowsableDataObject> Filter(PredicateContainer predicates, int limit = 10, int skip = 0)
+        public virtual void UpdateObservableRecords(PredicateContainer? predicates = null)
+        {
+            if (predicates == null)
+            {
+                if (LastFilter == null)
+                {
+                    LastFilter = new PredicateContainer();
+                }
+
+                predicates = LastFilter;
+            }
+
+            LastFilter = predicates;
+
+            Filter(predicates, Limit, Page * Limit);
+        }
+
+        public virtual IEnumerable<IBrowsableDataObject> Filter(PredicateContainer predicates, int limit = 10, int skip = 0)
         {
             var records = this.DataExchange.GetRecords(predicates, limit, skip);
 
@@ -232,28 +256,6 @@ namespace AXOpen.Data
             return Records;
         }
 
-        public void UpdateObservableRecords(PredicateContainer? predicates = null)
-        {
-            if (predicates == null)
-            {
-                if (LastFilter == null)
-                {
-                    LastFilter = new PredicateContainer();
-                }
-
-                predicates = LastFilter;
-            }
-
-            Filter(predicates, Limit, Page * Limit);
-        }
-
-        public async Task Filter()
-        {
-            Page = 0;
-
-            await FillObservableRecordsAsync(BuidDefaultPredicates());
-        }
-
         public PredicateContainer BuidDefaultPredicates()
         {
             try
@@ -263,7 +265,7 @@ namespace AXOpen.Data
 
                 pc.AddQuerySymbolToPredicates(PlainBuilders, DefaulQueryDataEntityId);
 
-                var poco = DataExchange.GetPlainObjectType().First();
+                var poco = DataExchange.GetPlainTypes().First();
 
                 pc.AddSortMember(DefaulSorting, poco);
 
@@ -322,12 +324,11 @@ namespace AXOpen.Data
                 await FillObservableRecordsAsync(BuidDefaultPredicates());
                 CreateItemId = null;
 
-                if (StateHasChangedDelegate != null)
-                    StateHasChangedDelegate.Invoke();
+                InvokeStateHasChanged();
             }
         }
 
-        public async void Delete()
+        public async Task Delete()
         {
             try
             {
@@ -344,8 +345,7 @@ namespace AXOpen.Data
                 UpdateObservableRecords(BuidDefaultPredicates());
             }
 
-            if (StateHasChangedDelegate != null)
-                StateHasChangedDelegate.Invoke();
+            InvokeStateHasChanged();
         }
 
         public async Task Copy()
@@ -365,8 +365,7 @@ namespace AXOpen.Data
                 UpdateObservableRecords(BuidDefaultPredicates());
                 CreateItemId = null;
 
-                if (StateHasChangedDelegate != null)
-                    StateHasChangedDelegate.Invoke();
+                InvokeStateHasChanged();
             }
         }
 
@@ -466,16 +465,6 @@ namespace AXOpen.Data
 
         public ExportSettings ExportSet { get; set; } = new();
 
-        public class ExportSettings
-        {
-            public Dictionary<string, ExportData> CustomExportData { get; set; } = new();
-            public eExportMode ExportMode { get; set; } = eExportMode.First;
-            public uint FirstNumber { get; set; } = 50;
-            public uint SecondNumber { get; set; } = 100;
-            public string ExportFileType { get; set; } = "CSV";
-            public char Separator { get; set; } = ';';
-        }
-
         public IEnumerable<ITwinElement> GetValueTags(Type type)
         {
             var prototype = Activator.CreateInstance(type, new object[] { ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(new object[] { }), "_data", "_data" }) as ITwinObject;
@@ -512,7 +501,8 @@ namespace AXOpen.Data
                     ExportSet.CustomExportData[fragmentKey].Data[key] = (bool)__e.Value;
                 }
             }
-            StateHasChangedDelegate.Invoke();
+
+            InvokeStateHasChanged();
         }
 
         public Action StateHasChangedDelegate { get; set; }
@@ -558,5 +548,22 @@ namespace AXOpen.Data
             }
             return true;
         }
+
+        #region IDataExchangeQueryViewModel implementation
+
+        public IEnumerable<Type> GetPlainTypes()
+        {
+            return DataExchange.GetPlainTypes();
+        }
+
+        public void InvokeStateHasChanged()
+        {
+            if (this.StateHasChangedDelegate != null)
+            {
+                this.StateHasChangedDelegate.Invoke();
+            }
+        }
+
+        #endregion IDataExchangeQueryViewModel implementation
     }
 }

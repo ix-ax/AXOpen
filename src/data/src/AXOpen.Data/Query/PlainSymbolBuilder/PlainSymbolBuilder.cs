@@ -22,6 +22,8 @@ namespace AXOpen.Data.Query
 
         public Dictionary<Type, List<PlainFilterVariable>> TypeDictionary = new();
 
+        public List<string> IgnoredRootTypeProperties = new List<string>() { "Hash", "Changes", "RecordId" };
+
         public Type RootType { get; private set; }
 
         public string RootTypeName { get => RootType.Name; } // presentable reason
@@ -37,17 +39,30 @@ namespace AXOpen.Data.Query
             {
                 if (isRoot) // remove not presentable fields
                 {
-                    if (prop.Name == ("Hash") || prop.Name == "Changes" || prop.Name == "RecordId")
+                    if (IgnoredRootTypeProperties.Contains( prop.Name ))
                     {
                         continue;
                     }
                 }
 
-                var p = new PlainFilterVariable(prop.Name, prop.PropertyType, typeof(IPlain).IsAssignableFrom(prop.PropertyType));
+                if (Attribute.IsDefined(prop, typeof(PlainSymbolIgnoreAttribute)))
+                {
+                    continue;
+                }
+
+                var isNullableType = Nullable.GetUnderlyingType(prop.PropertyType) != null;
+                var isPlainType = typeof(IPlain).IsAssignableFrom(prop.PropertyType);
+
+                var p = new PlainFilterVariable(prop.Name, prop.PropertyType, isPlainType);
+
+                if (isNullableType && !isPlainType)
+                {
+                    continue;
+                }
 
                 objectProperties.Add(p);
 
-                if (p.IsPlainType)
+                if (isPlainType)
                 {
                     CollectProperties(prop.PropertyType, false);
                 }
