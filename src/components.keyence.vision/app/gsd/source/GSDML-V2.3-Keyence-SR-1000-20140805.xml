@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-V2.3.xsd">
+  <ProfileHeader>
+    <ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for PROFINET Devices</ProfileName>
+    <ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>4</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>GSDML</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity VendorID="0x01FD" DeviceID="0x03EC">
+      <InfoText TextId="s_top_information"/>
+      <VendorName Value="KEYENCE CORPORATION."/>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Family MainFamily="Sensors" ProductFamily="Keyence Code Readers"/>
+    </DeviceFunction>
+    <ApplicationProcess>
+      <DeviceAccessPointList>
+        <DeviceAccessPointItem ExtendedAddressAssignmentSupported="true" AddressAssignment="DCP;LOCAL" PhysicalSlots="0..14" ModuleIdentNumber="0x00000001" MinDeviceInterval="256" DNS_CompatibleName="sr-1000" FixedInSlots="0" ObjectUUID_LocalIndex="1" ID="DAP1" RequiredSchemaVersion="V2.2" DeviceAccessSupported="false" PNIO_Version="V2.2"><!-- TBD: Set PNIO_Version to the PROFINET IO version that this device is based on -->
+          <ModuleInfo>
+            <Name TextId="s_SR-1000"/>
+            <InfoText TextId="s_SR-1000_series"/>
+            <VendorName Value="Keyence"/>
+            <OrderNumber Value="SR-1000X"/>
+            <HardwareRelease Value="1.0"/>
+            <SoftwareRelease Value="1.0"/>
+          </ModuleInfo>
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="s_x1"/>
+            <SubslotItem SubslotNumber="32769" TextId="s_x1_p1"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="1440" MaxOutputLength="1440"/>
+          <UseableModules>
+            <ModuleItemRef ModuleItemTarget="101" AllowedInSlots="1" UsedInSlots="1"/>
+            <ModuleItemRef ModuleItemTarget="102" AllowedInSlots="2" UsedInSlots="2"/>
+            <ModuleItemRef ModuleItemTarget="103" AllowedInSlots="3" UsedInSlots="3"/>
+            <ModuleItemRef ModuleItemTarget="104" AllowedInSlots="4" UsedInSlots="4"/>
+            <ModuleItemRef ModuleItemTarget="105" AllowedInSlots="5" UsedInSlots="5"/>
+            <ModuleItemRef ModuleItemTarget="106" AllowedInSlots="6" UsedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="107" AllowedInSlots="7" UsedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="108" AllowedInSlots="8" UsedInSlots="8"/>
+            <ModuleItemRef ModuleItemTarget="109" AllowedInSlots="9"/>
+            <ModuleItemRef ModuleItemTarget="110" AllowedInSlots="9"/>
+            <ModuleItemRef ModuleItemTarget="111" AllowedInSlots="9" UsedInSlots="9"/>
+            <ModuleItemRef ModuleItemTarget="112" AllowedInSlots="9"/>
+            <ModuleItemRef ModuleItemTarget="201" AllowedInSlots="10" UsedInSlots="10"/>
+            <ModuleItemRef ModuleItemTarget="202" AllowedInSlots="11" UsedInSlots="11"/>
+            <ModuleItemRef ModuleItemTarget="203" AllowedInSlots="12" UsedInSlots="12"/>
+            <ModuleItemRef ModuleItemTarget="204" AllowedInSlots="13" UsedInSlots="13"/>
+            <ModuleItemRef ModuleItemTarget="205" AllowedInSlots="14"/>
+            <ModuleItemRef ModuleItemTarget="206" AllowedInSlots="14"/>
+            <ModuleItemRef ModuleItemTarget="207" AllowedInSlots="14" UsedInSlots="14"/>
+            <ModuleItemRef ModuleItemTarget="208" AllowedInSlots="14"/>
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DIM 1" SubmoduleIdentNumber="0x00000000">
+              <IOData/>
+              <RecordDataList/>
+              <ModuleInfo>
+                <Name TextId="s_SR-1000"/>
+                <InfoText TextId="s_SR-1000_series"/>
+                <SoftwareRelease Value="1.0"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_DAP1I" SubslotNumber="32768" SubmoduleIdentNumber="0x0001" SupportedRT_Class="Class1" TextId="s_interface" IsochroneModeSupported="false" SupportedProtocols="LLDP" SupportedMibs="">
+              <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0">
+                <TimingProperties SendClock="32 64 128" ReductionRatio="8 16 32 64 128 256 512"/>
+              </ApplicationRelations>
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_DAP1P" SubslotNumber="32769" SubmoduleIdentNumber="0x0002" MAUType="100BASETXFD" TextId="s_Port1"/>
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="1"/>
+          </Graphics>
+        </DeviceAccessPointItem>
+      </DeviceAccessPointList>
+      <ModuleList>
+        <ModuleItem ID="101" ModuleIdentNumber="0x00000101">
+          <ModuleInfo CategoryRef="status_modules">
+            <Name TextId="s_handshake_and_general_error_status"/>
+            <InfoText TextId="s_handshake_and_general_error_status_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="1" SubmoduleIdentNumber="0x00000000">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned8" TextId="s_handshake_and_general_error_status_register" UseAsBits="true">
+                    <BitDataItem BitOffset="0" TextId="s_error"/>
+                    <BitDataItem BitOffset="1" TextId="s_result_data_available"/>
+                    <BitDataItem BitOffset="2" TextId="s_result_data_strobe"/>
+                    <BitDataItem BitOffset="6" TextId="s_buffer_overflow"/>
+                    <BitDataItem BitOffset="7" TextId="s_general_error"/>
+                  </DataItem>
+                </Input>
+              </IOData>
+              <RecordDataList/>
+              <ModuleInfo>
+                <Name TextId="s_handshake_and_general_error_status"/>
+                <InfoText TextId="s_handshake_and_general_error_status_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="102" ModuleIdentNumber="0x00000102">
+          <ModuleInfo CategoryRef="status_modules">
+            <Name TextId="s_busy_status"/>
+            <InfoText TextId="s_busy_status_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="2" SubmoduleIdentNumber="0x00000000">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned8" TextId="s_busy_status_register" UseAsBits="true">
+                    <BitDataItem BitOffset="0" TextId="s_busy"/>
+                    <BitDataItem BitOffset="1" TextId="s_trg_busy"/>
+                    <BitDataItem BitOffset="2" TextId="s_lock_busy"/>
+                    <BitDataItem BitOffset="3" TextId="s_mode_busy"/>
+                    <BitDataItem BitOffset="4" TextId="s_err_busy"/>
+                  </DataItem>
+                </Input>
+              </IOData>
+              <RecordDataList/>
+              <ModuleInfo>
+                <Name TextId="s_busy_status"/>
+                <InfoText TextId="s_busy_status_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="103" ModuleIdentNumber="0x00000103">
+          <ModuleInfo CategoryRef="status_modules">
+            <Name TextId="s_completion_status"/>
+            <InfoText TextId="s_completion_status_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="3" SubmoduleIdentNumber="0x00000000">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned8" TextId="s_completion_status_register" UseAsBits="true">
+                    <BitDataItem BitOffset="0" TextId="s_read_complete"/>
+                    <BitDataItem BitOffset="1" TextId="s_preset_complete"/>
+                    <BitDataItem BitOffset="2" TextId="s_register_preset_data_complete"/>
+                    <BitDataItem BitOffset="3" TextId="s_tune_complete"/>
+                    <BitDataItem BitOffset="7" TextId="s_ext_request_complete"/>
+                  </DataItem>
+                </Input>
+              </IOData>
+              <RecordDataList/>
+              <ModuleInfo>
+                <Name TextId="s_completion_status"/>
+                <InfoText TextId="s_completion_status_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="104" ModuleIdentNumber="0x00000104">
+          <ModuleInfo CategoryRef="status_modules">
+            <Name TextId="s_error_status"/>
+            <InfoText TextId="s_error_status_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="4" SubmoduleIdentNumber="0x00000000">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned8" TextId="s_error_status_register" UseAsBits="true">
+                    <BitDataItem BitOffset="0" TextId="s_read_failure"/>
+                    <BitDataItem BitOffset="1" TextId="s_preset_failure"/>
+                    <BitDataItem BitOffset="2" TextId="s_register_preset_data_failure"/>
+                    <BitDataItem BitOffset="3" TextId="s_tune_failure"/>
+                    <BitDataItem BitOffset="7" TextId="s_ext_request_failure"/>
+                  </DataItem>
+                </Input>
+              </IOData>
+              <RecordDataList/>
+              <ModuleInfo>
+                <Name TextId="s_error_status"/>
+                <InfoText TextId="s_error_status_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="105" ModuleIdentNumber="0x00000105">
+          <ModuleInfo CategoryRef="status_modules">
+            <Name TextId="s_term_io_status"/>
+            <InfoText TextId="s_term_io_status_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="5" SubmoduleIdentNumber="0x00000000">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned8" TextId="s_term_io_status_register" UseAsBits="true">
+                    <BitDataItem BitOffset="0" TextId="s_in_1_status"/>
+                    <BitDataItem BitOffset="1" TextId="s_in_2_status"/>
+                    <BitDataItem BitOffset="4" TextId="s_out_1_status"/>
+                    <BitDataItem BitOffset="5" TextId="s_out_2_status"/>
+                    <BitDataItem BitOffset="6" TextId="s_out_3_status"/>
+                  </DataItem>
+                </Input>
+              </IOData>
+              <RecordDataList/>
+              <ModuleInfo>
+                <Name TextId="s_term_io_status"/>
+                <InfoText TextId="s_term_io_status_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="106" ModuleIdentNumber="0x00000106">
+          <ModuleInfo CategoryRef="status_modules">
+            <Name TextId="s_unstable_status"/>
+            <InfoText TextId="s_unstable_status_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="6" SubmoduleIdentNumber="0x00000000">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned8" TextId="s_unstable_status_register" UseAsBits="true">
+                    <BitDataItem BitOffset="0" TextId="s_unstable"/>
+                    <BitDataItem BitOffset="1" TextId="s_unstable_matching_level"/>
+                    <BitDataItem BitOffset="2" TextId="s_unstable_iso_iec_15415"/>
+                    <BitDataItem BitOffset="3" TextId="s_unstable_aim_dpm"/>
+                    <BitDataItem BitOffset="4" TextId="s_unstable_sae_as9132"/>
+                  </DataItem>
+                </Input>
+              </IOData>
+              <RecordDataList/>
+              <ModuleInfo>
+                <Name TextId="s_unstable_status"/>
+                <InfoText TextId="s_unstable_status_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="107" ModuleIdentNumber="0x00000107">
+          <ModuleInfo CategoryRef="status_modules">
+            <Name TextId="s_matching_level_and_total_evaluation_grade"/>
+            <InfoText TextId="s_matching_level_and_total_evaluation_grade_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="7" SubmoduleIdentNumber="0x00000000">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="s_matching_level"/>
+                  <DataItem DataType="Unsigned16" TextId="s_iso_iec_15415_grade"/>
+                  <DataItem DataType="Unsigned16" TextId="s_aim_dpm_grade"/>
+                  <DataItem DataType="Unsigned16" TextId="s_reserved"/>
+                </Input>
+              </IOData>
+              <RecordDataList/>
+              <ModuleInfo>
+                <Name TextId="s_matching_level_and_total_evaluation_grade"/>
+                <InfoText TextId="s_matching_level_and_total_evaluation_grade_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="108" ModuleIdentNumber="0x00000108">
+          <ModuleInfo CategoryRef="status_modules">
+            <Name TextId="s_operation_result"/>
+            <InfoText TextId="s_operation_result_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="8" SubmoduleIdentNumber="0x00000000">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="s_read_result_code"/>
+                  <DataItem DataType="Unsigned16" TextId="s_preset_result_code"/>
+                  <DataItem DataType="Unsigned16" TextId="s_register_preset_data_result_code"/>
+                  <DataItem DataType="Unsigned16" TextId="s_tune_result_code"/>
+                  <DataItem DataType="Unsigned16" TextId="s_reserved"/>
+                  <DataItem DataType="Unsigned16" TextId="s_reserved"/>
+                  <DataItem DataType="Unsigned16" TextId="s_reserved"/>
+                  <DataItem DataType="Unsigned16" TextId="s_ext_request_result_code"/>
+                  <DataItem DataType="Unsigned16" TextId="s_general_error_code"/>
+                  <DataItem DataType="Unsigned16" TextId="s_reserved"/>
+                </Input>
+              </IOData>
+              <RecordDataList/>
+              <ModuleInfo>
+                <Name TextId="s_operation_result"/>
+                <InfoText TextId="s_operation_result_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="109" ModuleIdentNumber="0x00000109">
+          <ModuleInfo CategoryRef="status_modules">
+            <Name TextId="s_read_data_32"/>
+            <InfoText TextId="s_result_data_info_32"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="9" SubmoduleIdentNumber="0x00000000">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="s_result_data_ready_count"/>
+                  <DataItem DataType="Unsigned16" TextId="s_result_data_update_count"/>
+                  <DataItem DataType="Unsigned16" TextId="s_reserved"/>
+                  <DataItem DataType="Unsigned16" TextId="s_result_data_size"/>
+                  <DataItem DataType="OctetString" TextId="s_result_data" Length="32"/>
+                </Input>
+              </IOData>
+              <RecordDataList/>
+              <ModuleInfo>
+                <Name TextId="s_read_data_32"/>
+                <InfoText TextId="s_result_data_info_32"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="110" ModuleIdentNumber="0x00000110">
+          <ModuleInfo CategoryRef="status_modules">
+            <Name TextId="s_read_data_64"/>
+            <InfoText TextId="s_result_data_info_64"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="10" SubmoduleIdentNumber="0x00000000">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="s_result_data_ready_count"/>
+                  <DataItem DataType="Unsigned16" TextId="s_result_data_update_count"/>
+                  <DataItem DataType="Unsigned16" TextId="s_reserved"/>
+                  <DataItem DataType="Unsigned16" TextId="s_result_data_size"/>
+                  <DataItem DataType="OctetString" TextId="s_result_data" Length="64"/>
+                </Input>
+              </IOData>
+              <RecordDataList/>
+              <ModuleInfo>
+                <Name TextId="s_read_data_64"/>
+                <InfoText TextId="s_result_data_info_64"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="111" ModuleIdentNumber="0x00000111">
+          <ModuleInfo CategoryRef="status_modules">
+            <Name TextId="s_read_data_128"/>
+            <InfoText TextId="s_result_data_info_128"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="11" SubmoduleIdentNumber="0x00000000">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="s_result_data_ready_count"/>
+                  <DataItem DataType="Unsigned16" TextId="s_result_data_update_count"/>
+                  <DataItem DataType="Unsigned16" TextId="s_reserved"/>
+                  <DataItem DataType="Unsigned16" TextId="s_result_data_size"/>
+                  <DataItem DataType="OctetString" TextId="s_result_data" Length="128"/>
+                </Input>
+              </IOData>
+              <RecordDataList/>
+              <ModuleInfo>
+                <Name TextId="s_read_data_128"/>
+                <InfoText TextId="s_result_data_info_128"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="112" ModuleIdentNumber="0x00000112">
+          <ModuleInfo CategoryRef="status_modules">
+            <Name TextId="s_read_data_246"/>
+            <InfoText TextId="s_result_data_info_246"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="12" SubmoduleIdentNumber="0x00000000">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="s_result_data_ready_count"/>
+                  <DataItem DataType="Unsigned16" TextId="s_result_data_update_count"/>
+                  <DataItem DataType="Unsigned16" TextId="s_reserved"/>
+                  <DataItem DataType="Unsigned16" TextId="s_result_data_size"/>
+                  <DataItem DataType="OctetString" TextId="s_result_data" Length="246"/>
+                </Input>
+              </IOData>
+              <RecordDataList/>
+              <ModuleInfo>
+                <Name TextId="s_read_data_246"/>
+                <InfoText TextId="s_result_data_info_246"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="201" ModuleIdentNumber="0x00000201">
+          <ModuleInfo CategoryRef="control_modules">
+            <Name TextId="s_latch_and_error_clear_control"/>
+            <InfoText TextId="s_latch_and_error_clear_control_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="13" SubmoduleIdentNumber="0x00000000">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned8" TextId="s_latch_and_error_clear_control_register" UseAsBits="true">
+                    <BitDataItem BitOffset="1" TextId="s_result_data_latch"/>
+                    <BitDataItem BitOffset="7" TextId="s_error_clear"/>
+                  </DataItem>
+                </Output>
+              </IOData>
+              <RecordDataList/>
+              <ModuleInfo>
+                <Name TextId="s_latch_and_error_clear_control"/>
+                <InfoText TextId="s_latch_and_error_clear_control_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="202" ModuleIdentNumber="0x00000202">
+          <ModuleInfo CategoryRef="control_modules">
+            <Name TextId="s_operation_instruction"/>
+            <InfoText TextId="s_operation_instruction_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="14" SubmoduleIdentNumber="0x00000000">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned8" TextId="s_operation_instruction_register" UseAsBits="true">
+                    <BitDataItem BitOffset="0" TextId="s_read_request"/>
+                    <BitDataItem BitOffset="1" TextId="s_preset_request"/>
+                    <BitDataItem BitOffset="2" TextId="s_register_preset_data_request"/>
+                    <BitDataItem BitOffset="3" TextId="s_tune_request"/>
+                  </DataItem>
+                </Output>
+              </IOData>
+              <RecordDataList/>
+              <ModuleInfo>
+                <Name TextId="s_operation_instruction"/>
+                <InfoText TextId="s_operation_instruction_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="203" ModuleIdentNumber="0x00000203">
+          <ModuleInfo CategoryRef="control_modules">
+            <Name TextId="s_completion_clear"/>
+            <InfoText TextId="s_completion_clear_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="15" SubmoduleIdentNumber="0x00000000">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned8" TextId="s_completion_clear_register" UseAsBits="true">
+                    <BitDataItem BitOffset="0" TextId="s_read_complete_clear"/>
+                    <BitDataItem BitOffset="1" TextId="s_preset_complete_clear"/>
+                    <BitDataItem BitOffset="2" TextId="s_register_preset_data_complete_clear"/>
+                    <BitDataItem BitOffset="3" TextId="s_tune_complete_clear"/>
+                    <BitDataItem BitOffset="7" TextId="s_ext_req_complete_clear"/>
+                  </DataItem>
+                </Output>
+              </IOData>
+              <RecordDataList/>
+              <ModuleInfo>
+                <Name TextId="s_completion_clear"/>
+                <InfoText TextId="s_completion_clear_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="204" ModuleIdentNumber="0x00000204">
+          <ModuleInfo CategoryRef="control_modules">
+            <Name TextId="s_bank_number"/>
+            <InfoText TextId="s_bank_number_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="16" SubmoduleIdentNumber="0x00000000">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="s_bank_number_register"/>
+                </Output>
+              </IOData>
+              <RecordDataList/>
+              <ModuleInfo>
+                <Name TextId="s_bank_number"/>
+                <InfoText TextId="s_bank_number_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="205" ModuleIdentNumber="0x00000205">
+          <ModuleInfo CategoryRef="control_modules">
+            <Name TextId="s_user_data_32"/>
+            <InfoText TextId="s_user_data_info_32"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="17" SubmoduleIdentNumber="0x00000000">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="s_user_data_size"/>
+                  <DataItem DataType="OctetString" TextId="s_user_data" Length="32"/>
+                </Output>
+              </IOData>
+              <RecordDataList/>
+              <ModuleInfo>
+                <Name TextId="s_user_data_32"/>
+                <InfoText TextId="s_user_data_info_32"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="206" ModuleIdentNumber="0x00000206">
+          <ModuleInfo CategoryRef="control_modules">
+            <Name TextId="s_user_data_64"/>
+            <InfoText TextId="s_user_data_info_64"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="18" SubmoduleIdentNumber="0x00000000">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="s_user_data_size"/>
+                  <DataItem DataType="OctetString" TextId="s_user_data" Length="64"/>
+                </Output>
+              </IOData>
+              <RecordDataList/>
+              <ModuleInfo>
+                <Name TextId="s_user_data_64"/>
+                <InfoText TextId="s_user_data_info_64"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="207" ModuleIdentNumber="0x00000207">
+          <ModuleInfo CategoryRef="control_modules">
+            <Name TextId="s_user_data_128"/>
+            <InfoText TextId="s_user_data_info_128"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="19" SubmoduleIdentNumber="0x00000000">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="s_user_data_size"/>
+                  <DataItem DataType="OctetString" TextId="s_user_data" Length="128"/>
+                </Output>
+              </IOData>
+              <RecordDataList/>
+              <ModuleInfo>
+                <Name TextId="s_user_data_128"/>
+                <InfoText TextId="s_user_data_info_128"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="208" ModuleIdentNumber="0x00000208">
+          <ModuleInfo CategoryRef="control_modules">
+            <Name TextId="s_user_data_252"/>
+            <InfoText TextId="s_user_data_info_252"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="20" SubmoduleIdentNumber="0x00000000">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="s_user_data_size"/>
+                  <DataItem DataType="OctetString" TextId="s_user_data" Length="252"/>
+                </Output>
+              </IOData>
+              <RecordDataList/>
+              <ModuleInfo>
+                <Name TextId="s_user_data_252"/>
+                <InfoText TextId="s_user_data_info_252"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+      </ModuleList>
+      <GraphicsList>
+        <GraphicItem ID="1" GraphicFile="GSDML-01FD-03EC-SR-1000"/>
+      </GraphicsList>
+      <CategoryList>
+        <CategoryItem TextId="s_status_modules" ID="status_modules"/>
+        <CategoryItem TextId="s_control_modules" ID="control_modules"/>
+      </CategoryList>
+      <ExternalTextList>
+        <PrimaryLanguage>
+          <!-- General Text -->
+          <Text TextId="s_top_information" Value="SR Series Code Reader"/>
+          <Text TextId="s_SR-1000" Value="SR-1000X"/>
+          <Text TextId="s_SR-1000_series" Value="SR-1000 Series Code Reader"/>
+          <Text TextId="s_x1" Value="X1"/>
+          <Text TextId="s_x1_p1" Value="X1 P1"/>
+          <Text TextId="s_interface" Value="Interface"/>
+          <Text TextId="s_Port1" Value="Port 1"/>
+          <!-- Module Info -->
+          <Text TextId="s_reserved" Value="_Reserved"/>
+          <Text TextId="s_handshake_and_general_error_status" Value="Handshake and General Error Status Bits"/>
+          <Text TextId="s_handshake_and_general_error_status_info" Value="Status bits of data handshake and general error notifications"/>
+          <Text TextId="s_handshake_and_general_error_status_register" Value="Handshake and General Error Status Bits Register"/>
+          <Text TextId="s_error" Value="Error"/>
+          <Text TextId="s_result_data_available" Value="Result Data Available"/>
+          <Text TextId="s_result_data_strobe" Value="Result Data Strobe"/>
+          <Text TextId="s_buffer_overflow" Value="Buffer Overflow Error"/>
+          <Text TextId="s_general_error" Value="General Error"/>
+          <Text TextId="s_busy_status" Value="BUSY Status Bits"/>
+          <Text TextId="s_busy_status_info" Value="Status bits of device busy"/>
+          <Text TextId="s_busy_status_register" Value="BUSY Status Bits Register"/>
+          <Text TextId="s_busy" Value="BUSY"/>
+          <Text TextId="s_trg_busy" Value="TRG BUSY"/>
+          <Text TextId="s_lock_busy" Value="LOCK BUSY"/>
+          <Text TextId="s_mode_busy" Value="MODE BUSY"/>
+          <Text TextId="s_err_busy" Value="ERR BUSY"/>
+          <Text TextId="s_completion_status" Value="Completion Status Bits"/>
+          <Text TextId="s_completion_status_info" Value="Status bits of completion notification of each operation"/>
+          <Text TextId="s_completion_status_register" Value="Completion Status Bits Register"/>
+          <Text TextId="s_read_complete" Value="Read Complete"/>
+          <Text TextId="s_preset_complete" Value="Preset Complete"/>
+          <Text TextId="s_register_preset_data_complete" Value="Register Preset Data Complete"/>
+          <Text TextId="s_tune_complete" Value="Tune Complete"/>
+          <Text TextId="s_ext_request_complete" Value="EXT. Request Complete"/>
+          <Text TextId="s_error_status" Value="Error Status Bits"/>
+          <Text TextId="s_error_status_info" Value="Status bits of failure notification of each operation"/>
+          <Text TextId="s_error_status_register" Value="Error Status Bits Register"/>
+          <Text TextId="s_read_failure" Value="Read Failure"/>
+          <Text TextId="s_preset_failure" Value="Preset Failure"/>
+          <Text TextId="s_register_preset_data_failure" Value="Register Preset Data Failure"/>
+          <Text TextId="s_tune_failure" Value="Tune Failure"/>
+          <Text TextId="s_ext_request_failure" Value="EXT. Request Failure"/>
+          <Text TextId="s_term_io_status" Value="Terminal Status Bits"/>
+          <Text TextId="s_term_io_status_info" Value="Status bits of I/O terminals"/>
+          <Text TextId="s_term_io_status_register" Value="Terminal Status Bits Register"/>
+          <Text TextId="s_in_1_status" Value="IN1 Status"/>
+          <Text TextId="s_in_2_status" Value="IN2 Status"/>
+          <Text TextId="s_out_1_status" Value="OUT1 Status"/>
+          <Text TextId="s_out_2_status" Value="OUT2 Status"/>
+          <Text TextId="s_out_3_status" Value="OUT3 Status"/>
+          <Text TextId="s_unstable_status" Value="Unstable Read Status Bits"/>
+          <Text TextId="s_unstable_status_info" Value="Status bits of reading stability"/>
+          <Text TextId="s_unstable_status_register" Value="Unstable Read Status Bits Register"/>
+          <Text TextId="s_unstable" Value="Unstable"/>
+          <Text TextId="s_unstable_matching_level" Value="Matching Level Unstable"/>
+          <Text TextId="s_unstable_iso_iec_15415" Value="ISO/IEC 15415 Unstable"/>
+          <Text TextId="s_unstable_aim_dpm" Value="ISO/IEC TR 29158(AIM DPM-1-2006) Unstable"/>
+          <Text TextId="s_unstable_sae_as9132" Value="SAE AS9132 Unstable"/>
+          <Text TextId="s_matching_level_and_total_evaluation_grade" Value="Matching Level and Total Evaluation Grade Status"/>
+          <Text TextId="s_matching_level_and_total_evaluation_grade_info" Value="Status words of matching level and total evaluation grade"/>
+          <Text TextId="s_matching_level" Value="Matching Level"/>
+          <Text TextId="s_iso_iec_15415_grade" Value="ISO/IEC 15415 Grade"/>
+          <Text TextId="s_aim_dpm_grade" Value="ISO/IEC TR 29158(AIM DPM-1-2006) Grade"/>
+          <Text TextId="s_operation_result" Value="Operation Result Status"/>
+          <Text TextId="s_operation_result_info" Value="Status words of each operation result"/>
+          <Text TextId="s_read_result_code" Value="Read Result Code"/>
+          <Text TextId="s_preset_result_code" Value="Preset Result Code"/>
+          <Text TextId="s_register_preset_data_result_code" Value="Register Preset Data Result Code"/>
+          <Text TextId="s_tune_result_code" Value="Tune Result Code"/>
+          <Text TextId="s_ext_request_result_code" Value="EXT. Request Result Code"/>
+          <Text TextId="s_general_error_code" Value="General Error Code"/>
+          <Text TextId="s_read_data_32" Value="Read Data 32Byte"/>
+          <Text TextId="s_read_data_64" Value="Read Data 64Byte"/>
+          <Text TextId="s_read_data_128" Value="Read Data 128Byte"/>
+          <Text TextId="s_read_data_246" Value="Read Data 246Byte"/>
+          <Text TextId="s_result_data_info_32" Value="Reads 32bytes result data from SR"/>
+          <Text TextId="s_result_data_info_64" Value="Reads 64bytes result data from SR"/>
+          <Text TextId="s_result_data_info_128" Value="Reads 128bytes result data from SR"/>
+          <Text TextId="s_result_data_info_246" Value="Reads 246bytes result data from SR"/>
+          <Text TextId="s_result_data_ready_count" Value="Result Data Ready Count"/>
+          <Text TextId="s_result_data_update_count" Value="Result Data Update Count"/>
+          <Text TextId="s_result_data_size" Value="Result Data Size"/>
+          <Text TextId="s_result_data" Value="Result Data"/>
+          <Text TextId="s_latch_and_error_clear_control" Value="Latch and Error Clear Control Bits"/>
+          <Text TextId="s_latch_and_error_clear_control_info" Value="Control bits of result data latch and general error clear"/>
+          <Text TextId="s_latch_and_error_clear_control_register" Value="Latch and Error Clear Control Bits Register"/>
+          <Text TextId="s_result_data_latch" Value="Result Data Latch"/>
+          <Text TextId="s_error_clear" Value="Error Clear"/>
+          <Text TextId="s_operation_instruction" Value="Operation instruction Control Bits"/>
+          <Text TextId="s_operation_instruction_info" Value="Control bits of each operation instruction"/>
+          <Text TextId="s_operation_instruction_register" Value="Operation Instruction Control Bits Register"/>
+          <Text TextId="s_read_request" Value="Read Request"/>
+          <Text TextId="s_preset_request" Value="Preset Request"/>
+          <Text TextId="s_register_preset_data_request" Value="Register Preset Data Request"/>
+          <Text TextId="s_tune_request" Value="Tune Request"/>
+          <Text TextId="s_completion_clear" Value="Completion Clear Control Bits"/>
+          <Text TextId="s_completion_clear_info" Value="Control bits of completion clear"/>
+          <Text TextId="s_completion_clear_register" Value="Completion Clear Control Bits Register"/>
+          <Text TextId="s_read_complete_clear" Value="Read Complete Clear"/>
+          <Text TextId="s_preset_complete_clear" Value="Preset Complete Clear"/>
+          <Text TextId="s_register_preset_data_complete_clear" Value="Register Preset Data Complete Clear"/>
+          <Text TextId="s_tune_complete_clear" Value="Tune Complete Clear"/>
+          <Text TextId="s_ext_req_complete_clear" Value="EXT. Request Complete Clear"/>
+          <Text TextId="s_bank_number" Value="Parameter Bank Number"/>
+          <Text TextId="s_bank_number_info" Value="Reading or tuning in the specified parameter bank"/>
+          <Text TextId="s_bank_number_register" Value="Bank Number Register"/>
+          <Text TextId="s_user_data" Value="User Data"/>
+          <Text TextId="s_user_data_size" Value="User Data Size"/>
+          <Text TextId="s_user_data_32" Value="User Data 32Byte"/>
+          <Text TextId="s_user_data_64" Value="User Data 64Byte"/>
+          <Text TextId="s_user_data_128" Value="User Data 128Byte"/>
+          <Text TextId="s_user_data_252" Value="User Data 252Byte"/>
+          <Text TextId="s_user_data_info_32" Value="Writes 32bytes user data to SR"/>
+          <Text TextId="s_user_data_info_64" Value="Writes 64bytes user data to SR"/>
+          <Text TextId="s_user_data_info_128" Value="Writes 128bytes user data to SR"/>
+          <Text TextId="s_user_data_info_252" Value="Writes 252bytes user data to SR"/>
+          <Text TextId="s_user_data_register" Value="User Data Register"/>
+          <Text TextId="s_status_modules" Value="Status Modules"/>
+          <Text TextId="s_control_modules" Value="Control Modules"/>
+        </PrimaryLanguage>
+      </ExternalTextList>
+    </ApplicationProcess>
+  </ProfileBody>
+</ISO15745Profile>
