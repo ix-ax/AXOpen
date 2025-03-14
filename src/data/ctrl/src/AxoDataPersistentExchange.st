@@ -20,6 +20,10 @@ NAMESPACE AXOpen.Data
             
         END_VAR
 
+        VAR PRIVATE
+            _context : IAxoContext;
+        END_VAR
+
         ///<summary>
         /// This method determines if the current call is concurrent or not.
         ///  It takes an AXOpen.Core.IAxoObject as input and returns a BOOL. 
@@ -82,9 +86,10 @@ NAMESPACE AXOpen.Data
                 RETURN;
             END_IF;
 
-            IF THIS.GetContext() = NULL THEN
+            IF _context = NULL THEN
                 SUPER.Run(inParent);
-                Operation.Run(THIS);                
+                Operation.Run(THIS);
+                _context := THIS.GetContext();
             END_IF;
 
             Operation.Execute(THIS);
