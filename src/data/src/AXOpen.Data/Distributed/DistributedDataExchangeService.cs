@@ -10,31 +10,31 @@ namespace AXOpen.Data
         {
         }
 
-        private Dictionary<string, List<IAxoDataExchange>> _DataManagers = new();
+        private Dictionary<string, List<IAxoDataExchange>> _Exchanges = new();
 
-        public Dictionary<string, List<IAxoDataExchange>> DataManagers
+        public Dictionary<string, List<IAxoDataExchange>> Exchanges
         {
             get
             {
-                return _DataManagers;
+                return _Exchanges;
             }
         }
 
-        private List<string> _DataManagerGroupNames = new();
+        private List<string> _ExistingGroupNames = new();
 
-        public List<string> DataManagerGroupNames
+        public List<string> ExistingGroupNames
         {
-            get { return _DataManagerGroupNames; }
-            set { _DataManagerGroupNames = value; }
+            get { return _ExistingGroupNames; }
+            set { _ExistingGroupNames = value; }
         }
 
         public List<IAxoDataExchange> GetMangersForGroup(string groupName, bool onlyOnePerType = true)
         {
             var managerList = new List<IAxoDataExchange>();
 
-            if (DataManagers.ContainsKey(groupName))
+            if (Exchanges.ContainsKey(groupName))
             {
-                var groups = DataManagers[groupName].GroupBy((p) => p.ManagerDataTypeName);
+                var groups = Exchanges[groupName].GroupBy((p) => p.ManagerDataTypeName);
 
                 foreach (var groupList in groups)
                 {
@@ -59,7 +59,7 @@ namespace AXOpen.Data
 
         public bool IsExistManagerGroup(string groupName)
         {
-            return DataManagerGroupNames.Any(t => t == groupName);
+            return ExistingGroupNames.Any(t => t == groupName);
         }
 
         public void Add(IAxoDataExchange exchange, List<string> groups = null)
@@ -73,17 +73,17 @@ namespace AXOpen.Data
             {
                 foreach (var group in groups)
                 {
-                    if (_DataManagers.ContainsKey(group))
+                    if (_Exchanges.ContainsKey(group))
                     {
-                        _DataManagers[group].Add(exchange as IAxoDataExchange);
+                        _Exchanges[group].Add(exchange as IAxoDataExchange);
                     }
                     else
                     {
                         var collection = new List<IAxoDataExchange>();
                         collection.Add(exchange as IAxoDataExchange);
-                        _DataManagers.Add(group, collection);
+                        _Exchanges.Add(group, collection);
 
-                        this.DataManagerGroupNames.Add(group);
+                        this.ExistingGroupNames.Add(group);
                     }
                 }
             }

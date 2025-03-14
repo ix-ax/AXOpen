@@ -2,11 +2,11 @@
 {
     public interface IDistributedDataExchangeService
     {
-        Dictionary<string, List<IAxoDataExchange>> DataManagers { get; }
+        Dictionary<string, List<IAxoDataExchange>> Exchanges { get; }
 
-        List<string> DataManagerGroupNames { get; }
+        List<string> ExistingGroupNames { get; }
 
-        void Add(IAxoDataExchange crudManager, List<string> groups = null);
+        void Add(IAxoDataExchange exchange, List<string> groupNames = null);
 
         bool IsExistManagerGroup(string groupName);
 
