@@ -7,6 +7,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             componentOne : Component_1;
             componentTwo : Component_2;
             componentThree : Component_3;
+            componentFour : Component_4;
         END_VAR
     
         METHOD PROTECTED OVERRIDE Main
@@ -14,6 +15,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             componentOne.Run(_rootObject);
             componentTwo.Run(_rootObject);
             componentThree.Run(_rootObject);
+            componentFour.Run(_rootObject);
         END_METHOD
     END_CLASS
 END_NAMESPACE

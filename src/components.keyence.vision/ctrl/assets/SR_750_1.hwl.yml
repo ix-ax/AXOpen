@@ -1,0 +1,120 @@
+Devices:
+- Name: sr-750_1
+  Modules:
+  - Name: sr-750_1
+    TypeIdentifier:
+      FileName: GSDML-V2.25-KEYENCE-SR-750-20121220.XML
+      GsdId: DAP1
+    Interfaces:
+    - Name: profinet
+      Label: X1
+      Addresses:
+        Configured:
+        - IPv4: 10.10.10.30/24
+        - ProfinetDeviceName: sr-750_1
+      Parameters:
+        # IECV22LLDPMode: True
+        # TsnDomainName: 
+    Ports:
+      - Name: Port_1
+        Label: X1 P1
+  - Name: HandshakeAndGeneralErrorStatus
+    TypeIdentifier:
+      GsdId: '101'
+      FileName: GSDML-V2.25-KEYENCE-SR-750-20121220.XML
+    Slot: 1
+  - Name: BusyStatus
+    TypeIdentifier:
+      GsdId: '102'
+      FileName: GSDML-V2.25-KEYENCE-SR-750-20121220.XML
+    Slot: 2
+  - Name: CompletionStatus
+    TypeIdentifier:
+      GsdId: '103'
+      FileName: GSDML-V2.25-KEYENCE-SR-750-20121220.XML
+    Slot: 3
+  - Name: ErrorStatus
+    TypeIdentifier:
+      GsdId: '104'
+      FileName: GSDML-V2.25-KEYENCE-SR-750-20121220.XML
+    Slot: 4
+  - Name: TerminalStatus
+    TypeIdentifier:
+      GsdId: '105'
+      FileName: GSDML-V2.25-KEYENCE-SR-750-20121220.XML
+    Slot: 5
+  - Name: UnstableReadStatus
+    TypeIdentifier:
+      GsdId: '106'
+      FileName: GSDML-V2.25-KEYENCE-SR-750-20121220.XML
+    Slot: 6
+  - Name: MatchingLevelAndTotalEvaluationGradeStatus
+    TypeIdentifier:
+      GsdId: '107'
+      FileName: GSDML-V2.25-KEYENCE-SR-750-20121220.XML
+    Slot: 7
+  - Name: OperationResultStatus
+    TypeIdentifier:
+      GsdId: '108'
+      FileName: GSDML-V2.25-KEYENCE-SR-750-20121220.XML
+    Slot: 8
+  # - Name: ReadData-32_bytes
+  #   TypeIdentifier:
+  #     GsdId: '109'
+  #     FileName: GSDML-V2.25-KEYENCE-SR-750-20121220.XML
+  #   Slot: 9
+  # - Name: ReadData-64_bytes
+  #   TypeIdentifier:
+  #     GsdId: '110'
+  #     FileName: GSDML-V2.25-KEYENCE-SR-750-20121220.XML
+  #   Slot: 9
+  - Name: ReadData-128_bytes
+    TypeIdentifier:
+      GsdId: '111'
+      FileName: GSDML-V2.25-KEYENCE-SR-750-20121220.XML
+    Slot: 9
+  # - Name: ReadData-246_bytes
+  #   TypeIdentifier:
+  #     GsdId: '112'
+  #     FileName: GSDML-V2.25-KEYENCE-SR-750-20121220.XML
+  #   Slot: 9
+  - Name: LatchAndErrorClearControl
+    TypeIdentifier:
+      GsdId: '201'
+      FileName: GSDML-V2.25-KEYENCE-SR-750-20121220.XML
+    Slot: 10
+  - Name: OperationInstructionControl
+    TypeIdentifier:
+      GsdId: '202'
+      FileName: GSDML-V2.25-KEYENCE-SR-750-20121220.XML
+    Slot: 11
+  - Name: CompletionClearControl
+    TypeIdentifier:
+      GsdId: '203'
+      FileName: GSDML-V2.25-KEYENCE-SR-750-20121220.XML
+    Slot: 12
+  - Name: ParameterBank
+    TypeIdentifier:
+      GsdId: '204'
+      FileName: GSDML-V2.25-KEYENCE-SR-750-20121220.XML
+    Slot: 13
+  # - Name: UserData-32_bytes
+  #   TypeIdentifier:
+  #     GsdId: '205'
+  #     FileName: GSDML-V2.25-KEYENCE-SR-750-20121220.XML
+  #   Slot: 14
+  # - Name: UserData-64_bytes
+  #   TypeIdentifier:
+  #     GsdId: '206'
+  #     FileName: GSDML-V2.25-KEYENCE-SR-750-20121220.XML
+  #   Slot: 14
+  - Name: UserData-128_bytes
+    TypeIdentifier:
+      GsdId: '207'
+      FileName: GSDML-V2.25-KEYENCE-SR-750-20121220.XML
+    Slot: 14
+  # - Name: UserData-252_bytes
+  #   TypeIdentifier:
+  #     GsdId: '208'
+  #     FileName: GSDML-V2.25-KEYENCE-SR-750-20121220.XML
+  #   Slot: 14

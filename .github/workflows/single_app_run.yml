@@ -68,10 +68,13 @@ jobs:
       run: dotnet build cake/Build.csproj
                        
     - name: "Run cake with single app"
+      continue-on-error: true     
       env:
         GH_TOKEN : ${{ secrets.GH_TOKEN }}
         GH_USER : ${{ secrets.GH_USER }}
-      run: dotnet run --project cake/Build.csproj --skip-build --apps-run --single-app-run-folder-name $env:APP_FOLDER
+      run: |
+        dotnet run --project cake/Build.csproj --skip-build --apps-run --single-app-run-folder-name $env:APP_FOLDER
+        echo "TEST_EXIT_CODE=$LASTEXITCODE" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8
 
     - name: Get Short Commit SHA
       shell: pwsh
@@ -82,4 +85,19 @@ jobs:
     - name: Display workflow details in Summary
       shell: pwsh
       run: |
-        echo "### Runner name: $env:RUNNER_NAME ::: Branch name: $env:BRANCH_NAME ::: Commit SHA: $env:sha ::: Library folder: $env:APP_FOLDER"  | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Encoding utf8        
+        if ($env:TEST_EXIT_CODE -ne "0") {
+          echo "### Runner name: $env:RUNNER_NAME ::: Branch name: $env:BRANCH_NAME ::: Commit SHA: $env:sha:::Overall result: FAILED"  | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Encoding utf8        
+        } else {
+          echo "### Runner name: $env:RUNNER_NAME ::: Branch name: $env:BRANCH_NAME ::: Commit SHA: $env:sha:::Overall result: PASSED"  | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Encoding utf8        
+        }      
+
+    - name: Evaluate Result
+      continue-on-error: false
+      if: env.SKIP_STEPS == 'false'
+      shell: pwsh
+      run: |
+          if ($env:TEST_EXIT_CODE -ne "0") {
+            echo "Tests failed."
+            Exit 1
+          }
+          

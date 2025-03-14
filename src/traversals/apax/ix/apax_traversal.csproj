@@ -73,6 +73,9 @@
 	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\inxton_axopen_timers.csproj" />
 	  <ProjectReference Include="..\..\..\utils\app\ix\utils_app.csproj" />
 	  <ProjectReference Include="..\..\..\utils\src\AXOpen.Utils\inxton_axopen_utils.csproj" />
+	  <ProjectReference Include="..\..\..\data\tests\AXOpen.Repository.Integration.Tests_L4\ix\axopen_integration_tests_l4.csproj" />
+	  <ProjectReference Include="..\..\..\components.keyence.vision\app\ix\app_axopen_components_keyence_vision.csproj" />
+	  <ProjectReference Include="..\..\..\components.keyence.vision\src\AXOpen.Components.Keyence.Vision\inxton_axopen_components_keyence_vision.csproj" />
 	</ItemGroup>
 	
 </Project>

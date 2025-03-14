@@ -29,6 +29,8 @@ dependencies:
   '@inxton/axopen.components.elements': 0.0.0-dev.0
   app_axopen.components.festo.drives: 0.0.0-dev.0
   '@inxton/axopen.components.festo.drives': 0.0.0-dev.0
+  app_axopen_components_keyence_vision: 0.0.0-dev.0
+  '@inxton/axopen_components_keyence_vision': 0.0.0-dev.0
   app_axopen.components.kuka.robotics: 0.0.0-dev.0
   '@inxton/axopen.components.kuka.robotics': 0.0.0-dev.0
   app_axopen.components.mitsubishi.robotics: 0.0.0-dev.0
@@ -49,6 +51,7 @@ dependencies:
   '@inxton/axopen.core': 0.0.0-dev.0
   axopen.data-app: 0.0.0-dev.0
   '@inxton/axopen.data': 0.0.0-dev.0
+  axopen.integration.tests_l4: 0.0.0-dev.0
   axopen.inspectors: 0.0.0-dev.0
   '@inxton/axopen.inspectors': 0.0.0-dev.0
   axopen.integrations: 0.0.0-dev.0
