@@ -1,0 +1,6 @@
+﻿@page "/testing"
+@using AXOpen.Components.Keyence.Vision
+
+<PageTitle>Testing</PageTitle>
+
+<RenderableContentControl Context="@Entry.Plc.sandbox" Presentation="Command-Control" PollingInterval="100"/>

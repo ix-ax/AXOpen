@@ -12,6 +12,7 @@ IoSystems:
   ControllerInterfaces:
   - Ref: plc_line/plc_line/profinet_x1
   DeviceInterfaces:
-  - Ref: reader-st1/reader-st1/profinet
-  - Ref: reader-st2/reader-st2/profinet
+  - Ref: dm_280/dm_280/profinet
+  - Ref: dm_300/dm_300/profinet
   - Ref: is7600/is7600/profinet
+  - Ref: is2800/is2800/profinet

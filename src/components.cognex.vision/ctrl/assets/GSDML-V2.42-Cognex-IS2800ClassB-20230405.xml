@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-V2.42.xsd">
+  <ProfileHeader>
+    <ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for PROFINET Devices</ProfileName>
+    <ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>4</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>GSDML</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity VendorID="0x0137" DeviceID="0x0E01">
+      <InfoText TextId="T_FamilyDescription"/>
+      <VendorName Value="Cognex Corp."/>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Family MainFamily="Sensors" ProductFamily="Cognex Vision Systems"/>
+    </DeviceFunction>
+    <ApplicationProcess>
+      <DeviceAccessPointList>
+        <DeviceAccessPointItem AddressAssignment="DCP;LOCAL" MultipleWriteSupported="true" PhysicalSlots="0..14" ModuleIdentNumber="0x00000001" MinDeviceInterval="64" DNS_CompatibleName="InSight" FixedInSlots="0" ObjectUUID_LocalIndex="1" ID="DAP1" RequiredSchemaVersion="V2.0" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PNIO_Version="V2.42" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="true" LLDP_NoD_Supported="true" ResetToFactoryModes="1 2 4">
+          <ModuleInfo>
+            <Name TextId="T_InSight2800"/>
+            <InfoText TextId="T_InSight2800Description"/>
+            <VendorName Value="Cognex Corp."/>
+            <OrderNumber Value="IS28XX-XX"/>
+            <SoftwareRelease Value="23.1.1"/>
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" NetloadClass="III" ApplicationClass=""/>
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="IDT_SS_Interface"/>
+            <SubslotItem SubslotNumber="32769" TextId="IDT_SS_Port1"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="1400" MaxOutputLength="1400"/>
+          <UseableModules>
+            <ModuleItemRef ModuleItemTarget="101" AllowedInSlots="1" UsedInSlots="1"/>
+            <ModuleItemRef ModuleItemTarget="204" AllowedInSlots="2" UsedInSlots="2"/>
+            <ModuleItemRef ModuleItemTarget="102" AllowedInSlots="3" UsedInSlots="3"/>
+            <ModuleItemRef ModuleItemTarget="203" AllowedInSlots="4" UsedInSlots="4"/>
+            <ModuleItemRef ModuleItemTarget="108" AllowedInSlots="5" UsedInSlots="5"/>
+            <ModuleItemRef ModuleItemTarget="106" AllowedInSlots="6" UsedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="301" AllowedInSlots="7..10"/>
+            <ModuleItemRef ModuleItemTarget="302" AllowedInSlots="7..10"/>
+            <ModuleItemRef ModuleItemTarget="303" AllowedInSlots="7..10" UsedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="304" AllowedInSlots="7..10"/>
+            <ModuleItemRef ModuleItemTarget="305" AllowedInSlots="7..10"/>
+            <ModuleItemRef ModuleItemTarget="401" AllowedInSlots="11"/>
+            <ModuleItemRef ModuleItemTarget="402" AllowedInSlots="11"/>
+            <ModuleItemRef ModuleItemTarget="403" AllowedInSlots="11" UsedInSlots="11"/>
+            <ModuleItemRef ModuleItemTarget="404" AllowedInSlots="11"/>
+            <ModuleItemRef ModuleItemTarget="405" AllowedInSlots="11"/>
+            <ModuleItemRef ModuleItemTarget="406" AllowedInSlots="12..14"/>
+            <ModuleItemRef ModuleItemTarget="407" AllowedInSlots="12..14"/>
+            <ModuleItemRef ModuleItemTarget="408" AllowedInSlots="12..14"/>
+            <ModuleItemRef ModuleItemTarget="409" AllowedInSlots="12..14"/>
+            <ModuleItemRef ModuleItemTarget="40a" AllowedInSlots="12..14"/>
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DIM1" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" Writeable_IM_Records="1 2 3">
+              <IOData/>
+              <ModuleInfo>
+                <Name TextId="T_InSight2800"/>
+                <InfoText TextId="T_InSight2800Description"/>
+                <SoftwareRelease Value="23.1.1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_DAP1I" SubslotNumber="32768" SubmoduleIdentNumber="0x8000" SupportedRT_Classes="RT_CLASS_1" SupportedProtocols="LLDP;SNMP" TextId="T_DAP_InterfaceModule" IsochroneModeSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true">
+              <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" StartupMode="Advanced;Legacy">
+                <TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+              </ApplicationRelations>
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_DAP1P" SubslotNumber="32769" SubmoduleIdentNumber="0x8001" MAUType="1000BASETFD" TextId="T_Port1">
+              <MAUTypeList>
+              <MAUTypeItem Value="16"/>
+              <MAUTypeItem Value="30"/>
+              </MAUTypeList>
+              </PortSubmoduleItem>
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="1"/>
+          </Graphics>
+        </DeviceAccessPointItem>
+      </DeviceAccessPointList>
+      <ModuleList>
+        <ModuleItem ID="101" ModuleIdentNumber="0x00000101">
+          <ModuleInfo CategoryRef="Control">
+            <Name TextId="T_acquisition_control_module"/>
+            <InfoText TextId="T_acquisition_control_info"/>
+            <SoftwareRelease Value="23.1.1"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="1" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" SupportedSubstitutionModes="0 1 2">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned8" TextId="T_AcquisitionRegister" UseAsBits="true">
+                    <BitDataItem BitOffset="0" TextId="T_AcquisitionTriggerEnable"/>
+                    <BitDataItem BitOffset="1" TextId="T_AcquisitionTrigger"/>
+                    <BitDataItem BitOffset="2" TextId="T_ClearExposureComplete"/>
+                    <BitDataItem BitOffset="7" TextId="T_SetOffline"/>
+                  </DataItem>
+                </Output>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_acquisition_control_module"/>
+                <InfoText TextId="T_acquisition_control_info"/>
+                <SoftwareRelease Value="23.1.1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="102" ModuleIdentNumber="0x00000102">
+          <ModuleInfo CategoryRef="Control">
+            <Name TextId="T_inspection_control_module"/>
+            <InfoText TextId="T_inspection_control_info"/>
+            <SoftwareRelease Value="23.1.1"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="2" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" SupportedSubstitutionModes="0 1 2">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned8" TextId="T_InspectionRegister" UseAsBits="true">
+                    <BitDataItem BitOffset="0" TextId="T_ResultsBufferingEnable"/>
+                    <BitDataItem BitOffset="1" TextId="T_InspectionResultsAck"/>
+                    <BitDataItem BitOffset="2" TextId="T_UserDataSet"/>
+                    <BitDataItem BitOffset="3" TextId="T_ExecuteCommand"/>
+                    <BitDataItem BitOffset="7" TextId="T_ClearError"/>
+                  </DataItem>
+                </Output>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_inspection_control_module"/>
+                <InfoText TextId="T_inspection_control_info"/>
+                <SoftwareRelease Value="23.1.1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="106" ModuleIdentNumber="0x00000106">
+          <ModuleInfo CategoryRef="Control">
+            <Name TextId="T_externalevents_module"/>
+            <InfoText TextId="T_externalevents_info"/>
+            <SoftwareRelease Value="23.1.1"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="3" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned8" TextId="T_ExternalEventAckRegister" UseAsBits="true">
+                    <BitDataItem BitOffset="0" TextId="T_ExternalEventAck0"/>
+                    <BitDataItem BitOffset="1" TextId="T_ExternalEventAck1"/>
+                    <BitDataItem BitOffset="2" TextId="T_ExternalEventAck2"/>
+                    <BitDataItem BitOffset="3" TextId="T_ExternalEventAck3"/>
+                    <BitDataItem BitOffset="4" TextId="T_ExternalEventAck4"/>
+                    <BitDataItem BitOffset="5" TextId="T_ExternalEventAck5"/>
+                    <BitDataItem BitOffset="6" TextId="T_ExternalEventAck6"/>
+                    <BitDataItem BitOffset="7" TextId="T_ExternalEventAck7"/>
+                  </DataItem>
+                </Input>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned8" TextId="T_ExternalEventRegister" UseAsBits="true">
+                    <BitDataItem BitOffset="0" TextId="T_ExternalEvent0"/>
+                    <BitDataItem BitOffset="1" TextId="T_ExternalEvent1"/>
+                    <BitDataItem BitOffset="2" TextId="T_ExternalEvent2"/>
+                    <BitDataItem BitOffset="3" TextId="T_ExternalEvent3"/>
+                    <BitDataItem BitOffset="4" TextId="T_ExternalEvent4"/>
+                    <BitDataItem BitOffset="5" TextId="T_ExternalEvent5"/>
+                    <BitDataItem BitOffset="6" TextId="T_ExternalEvent6"/>
+                    <BitDataItem BitOffset="7" TextId="T_ExternalEvent7"/>
+                  </DataItem>
+                </Output>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_externalevents_module"/>
+                <InfoText TextId="T_externalevents_info"/>
+                <SoftwareRelease Value="23.1.1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="108" ModuleIdentNumber="0x00000108">
+          <ModuleInfo CategoryRef="Control">
+            <Name TextId="T_command_control_module"/>
+            <InfoText TextId="T_command_control_info"/>
+            <SoftwareRelease Value="23.1.1"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="5" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="T_CurrentJobID"/>
+                  <DataItem DataType="Unsigned16" TextId="T_CommandResultCode"/>
+                </Input>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="T_CommandID"/>
+                </Output>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_command_control_module"/>
+                <InfoText TextId="T_command_control_info"/>
+                <SoftwareRelease Value="23.1.1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="204" ModuleIdentNumber="0x00000204">
+          <ModuleInfo CategoryRef="Status">
+            <Name TextId="T_acquisition_status_module"/>
+            <InfoText TextId="T_acquisition_status_info"/>
+            <SoftwareRelease Value="23.1.1"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="6" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="T_AcquisitionStatus" UseAsBits="true">
+                    <BitDataItem BitOffset="0" TextId="T_AcquisitionTriggerReady"/>
+                    <BitDataItem BitOffset="1" TextId="T_AcquisitionTriggerAck"/>
+                    <BitDataItem BitOffset="2" TextId="T_ExposureComplete"/>
+                    <BitDataItem BitOffset="3" TextId="T_AcquisitionError"/>
+                    <BitDataItem BitOffset="4" TextId="T_Offline0"/>
+                    <BitDataItem BitOffset="5" TextId="T_Offline1"/>
+                    <BitDataItem BitOffset="6" TextId="T_Offline2"/>
+                    <BitDataItem BitOffset="7" TextId="T_Online"/>
+                  </DataItem>
+                  <DataItem DataType="Unsigned16" TextId="T_AcquisitionID"/>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_acquisition_status_module"/>
+                <InfoText TextId="T_acquisition_status_info"/>
+                <SoftwareRelease Value="23.1.1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="203" ModuleIdentNumber="0x00000203">
+          <ModuleInfo CategoryRef="Status">
+            <Name TextId="T_inspection_status_module"/>
+            <InfoText TextId="T_inspection_status_info"/>
+            <SoftwareRelease Value="23.1.1"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="7" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="T_InspectionStatus" UseAsBits="true">
+                    <BitDataItem BitOffset="1" TextId="T_InspectionCompleted"/>
+                    <BitDataItem BitOffset="2" TextId="T_ResultsBufferOverrun"/>
+                    <BitDataItem BitOffset="3" TextId="T_ResultsValid"/>
+                    <BitDataItem BitOffset="4" TextId="T_CommandExecuting"/>
+                    <BitDataItem BitOffset="5" TextId="T_CommandCompleted"/>
+                    <BitDataItem BitOffset="6" TextId="T_CommandFailed"/>
+                    <BitDataItem BitOffset="7" TextId="T_UserDataSetAck"/>
+                    <BitDataItem BitOffset="8" TextId="T_JobPass"/>
+                    <BitDataItem BitOffset="15" TextId="T_Error"/>
+                  </DataItem>
+                  <DataItem DataType="Unsigned16" TextId="T_ErrorID"/>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_inspection_status_module"/>
+                <InfoText TextId="T_inspection_status_info"/>
+                <SoftwareRelease Value="23.1.1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="301" ModuleIdentNumber="0x00000301">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_userdata_16_module"/>
+            <InfoText TextId="T_userdata_16_info"/>
+            <SoftwareRelease Value="23.1.1"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="8" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" SupportedSubstitutionModes="0 1 2">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="OctetString" TextId="T_UserData" Length="16"/>
+                </Output>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_userdata_16_module"/>
+                <InfoText TextId="T_userdata_16_info"/>
+                <SoftwareRelease Value="23.1.1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="401" ModuleIdentNumber="0x00000401">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_inspection_results_16_module"/>
+            <InfoText TextId="T_inspection_results_16_info"/>
+            <SoftwareRelease Value="23.1.1"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="9" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="T_InspectionCount"/>
+                  <DataItem DataType="Unsigned16" TextId="T_ResultCode"/>
+                  <!-- T_InspectionResultCode bits: 0=T_LimitTestPassed, 1=T_HardwareTestPassed, 2=T_ImageTestPassed -->
+                  <DataItem DataType="OctetString" TextId="T_InspectionResults" Length="16"/>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_inspection_results_16_module"/>
+                <InfoText TextId="T_inspection_results_16_info"/>
+                <SoftwareRelease Value="23.1.1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="302" ModuleIdentNumber="0x00000302">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_userdata_32_module"/>
+            <InfoText TextId="T_userdata_32_info"/>
+            <SoftwareRelease Value="23.1.1"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="10" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" SupportedSubstitutionModes="0 1 2">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="OctetString" TextId="T_UserData" Length="32"/>
+                </Output>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_userdata_32_module"/>
+                <InfoText TextId="T_userdata_32_info"/>
+                <SoftwareRelease Value="23.1.1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="402" ModuleIdentNumber="0x00000402">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_inspection_results_32_module"/>
+            <InfoText TextId="T_inspection_results_32_info"/>
+            <SoftwareRelease Value="23.1.1"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="11" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="T_InspectionCount"/>
+                  <DataItem DataType="Unsigned16" TextId="T_ResultCode"/>
+                  <!-- T_InspectionResultCode bits: 0=T_LimitTestPassed, 1=T_HardwareTestPassed, 2=T_ImageTestPassed -->
+                  <DataItem DataType="OctetString" TextId="T_InspectionResults" Length="32"/>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_inspection_results_32_module"/>
+                <InfoText TextId="T_inspection_results_32_info"/>
+                <SoftwareRelease Value="23.1.1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="303" ModuleIdentNumber="0x00000303">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_userdata_64_module"/>
+            <InfoText TextId="T_userdata_64_info"/>
+            <SoftwareRelease Value="23.1.1"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="12" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" SupportedSubstitutionModes="0 1 2">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="OctetString" TextId="T_UserData" Length="64"/>
+                </Output>
+              </IOData>
+              <ModuleInfo CategoryRef="Data">
+                <Name TextId="T_userdata_64_module"/>
+                <InfoText TextId="T_userdata_64_info"/>
+                <SoftwareRelease Value="23.1.1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="403" ModuleIdentNumber="0x00000403">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_inspection_results_64_module"/>
+            <InfoText TextId="T_inspection_results_64_info"/>
+            <SoftwareRelease Value="23.1.1"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="13" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="T_InspectionCount"/>
+                  <DataItem DataType="Unsigned16" TextId="T_ResultCode"/>
+                  <!-- T_InspectionResultCode bits: 0=T_LimitTestPassed, 1=T_HardwareTestPassed, 2=T_ImageTestPassed -->
+                  <DataItem DataType="OctetString" TextId="T_InspectionResults" Length="64"/>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_inspection_results_64_module"/>
+                <InfoText TextId="T_inspection_results_64_info"/>
+                <SoftwareRelease Value="23.1.1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="304" ModuleIdentNumber="0x00000304">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_userdata_128_module"/>
+            <InfoText TextId="T_userdata_128_info"/>
+            <SoftwareRelease Value="23.1.1"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="14" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" SupportedSubstitutionModes="0 1 2">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="OctetString" TextId="T_UserData" Length="128"/>
+                </Output>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_userdata_128_module"/>
+                <InfoText TextId="T_userdata_128_info"/>
+                <SoftwareRelease Value="23.1.1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="404" ModuleIdentNumber="0x00000404">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_inspection_results_128_module"/>
+            <InfoText TextId="T_inspection_results_128_info"/>
+            <SoftwareRelease Value="23.1.1"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="15" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="T_InspectionCount"/>
+                  <DataItem DataType="Unsigned16" TextId="T_ResultCode"/>
+                  <!-- T_InspectionResultCode bits: 0=T_LimitTestPassed, 1=T_HardwareTestPassed, 2=T_ImageTestPassed -->
+                  <DataItem DataType="OctetString" TextId="T_InspectionResults" Length="128"/>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_inspection_results_128_module"/>
+                <InfoText TextId="T_inspection_results_128_info"/>
+                <SoftwareRelease Value="23.1.1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="305" ModuleIdentNumber="0x00000305">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_userdata_254_module"/>
+            <InfoText TextId="T_userdata_254_info"/>
+            <SoftwareRelease Value="23.1.1"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="16" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" SupportedSubstitutionModes="0 1 2">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="OctetString" TextId="T_UserData" Length="254"/>
+                </Output>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_userdata_254_module"/>
+                <InfoText TextId="T_userdata_254_info"/>
+                <SoftwareRelease Value="23.1.1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="405" ModuleIdentNumber="0x00000405">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_inspection_results_250_module"/>
+            <InfoText TextId="T_inspection_results_250_info"/>
+            <SoftwareRelease Value="23.1.1"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="18" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="T_InspectionCount"/>
+                  <DataItem DataType="Unsigned16" TextId="T_ResultCode"/>
+                  <!-- T_InspectionResultCode bits: 0=T_LimitTestPassed, 1=T_HardwareTestPassed, 2=T_ImageTestPassed -->
+                  <DataItem DataType="OctetString" TextId="T_InspectionResults" Length="250"/>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_inspection_results_250_module"/>
+                <InfoText TextId="T_inspection_results_250_info"/>
+                <SoftwareRelease Value="23.1.1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="406" ModuleIdentNumber="0x00000406">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_inspection_results_16_module"/>
+            <InfoText TextId="T_inspection_results_16_info"/>
+            <SoftwareRelease Value="23.1.1"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="20" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="OctetString" TextId="T_InspectionResults" Length="16"/>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_inspection_results_16_module"/>
+                <InfoText TextId="T_inspection_results_16_info"/>
+                <SoftwareRelease Value="23.1.1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="407" ModuleIdentNumber="0x00000407">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_inspection_results_32_module"/>
+            <InfoText TextId="T_inspection_results_32_info"/>
+            <SoftwareRelease Value="23.1.1"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="22" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="OctetString" TextId="T_InspectionResults" Length="32"/>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_inspection_results_32_module"/>
+                <InfoText TextId="T_inspection_results_32_info"/>
+                <SoftwareRelease Value="23.1.1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="408" ModuleIdentNumber="0x00000408">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_inspection_results_64_module"/>
+            <InfoText TextId="T_inspection_results_64_info"/>
+            <SoftwareRelease Value="23.1.1"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="24" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="OctetString" TextId="T_InspectionResults" Length="64"/>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_inspection_results_64_module"/>
+                <InfoText TextId="T_inspection_results_64_info"/>
+                <SoftwareRelease Value="23.1.1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="409" ModuleIdentNumber="0x00000409">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_inspection_results_128_module"/>
+            <InfoText TextId="T_inspection_results_128_info"/>
+            <SoftwareRelease Value="23.1.1"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="26" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="OctetString" TextId="T_InspectionResults" Length="128"/>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_inspection_results_128_module"/>
+                <InfoText TextId="T_inspection_results_128_info"/>
+                <SoftwareRelease Value="23.1.1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="40a" ModuleIdentNumber="0x0000040a">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_inspection_results_250_module"/>
+            <InfoText TextId="T_inspection_results_250_info"/>
+            <SoftwareRelease Value="23.1.1"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="28" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="OctetString" TextId="T_InspectionResults" Length="250"/>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_inspection_results_250_module"/>
+                <InfoText TextId="T_inspection_results_250_info"/>
+                <SoftwareRelease Value="23.1.1"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+      </ModuleList>
+      <ChannelDiagList>
+        <ChannelDiagItem ErrorType="16">
+          <Name TextId="T_UserDataError"/>
+          <Help TextId="T_UserDataHelp"/>
+        </ChannelDiagItem>
+      </ChannelDiagList>
+      <GraphicsList>
+        <GraphicItem ID="1" GraphicFile="GSDML-0137-0E01-InSight2800"/>
+      </GraphicsList>
+      <CategoryList>
+        <CategoryItem TextId="T_ControlCategory" ID="Control"/>
+        <CategoryItem TextId="T_StatusCategory" ID="Status"/>
+        <CategoryItem TextId="T_DataCategory" ID="Data"/>
+      </CategoryList>
+      <ExternalTextList>
+        <PrimaryLanguage>
+          <!-- General Text -->
+          <Text TextId="T_FamilyDescription" Value="In-Sight Vision Systems"/>
+          <Text TextId="T_InSight2800" Value="In-Sight IS28XX CC-B"/>
+          <Text TextId="T_InSight2800Description" Value="In-Sight IS28XX Vision System"/>
+          <Text TextId="IDT_SS_Interface" Value="X1"/>
+          <Text TextId="IDT_SS_Port1" Value="X1 P1"/>
+          <Text TextId="T_DAP_InterfaceModule" Value="Interface"/>
+          <Text TextId="T_Port1" Value="Port 1"/>
+          <!-- Module Info -->
+          <Text TextId="T_ControlCategory" Value="In-Sight Control Modules"/>
+          <Text TextId="T_acquisition_control_module" Value="Acquisition Control"/>
+          <Text TextId="T_acquisition_control_info" Value="Controls acquisition and Online/Pause"/>
+          <Text TextId="T_AcquisitionRegister" Value="Acquisition Control Register"/>
+          <Text TextId="T_AcquisitionTriggerEnable" Value="Acquisition Trigger Enable"/>
+          <Text TextId="T_AcquisitionTrigger" Value="Acquisition Trigger"/>
+          <Text TextId="T_StatusCategory" Value="In-Sight Status Modules"/>
+          <Text TextId="T_acquisition_status_module" Value="Acquisition Status"/>
+          <Text TextId="T_acquisition_status_info" Value="Status of acquisition and Online/Pause state"/>
+          <Text TextId="T_AcquisitionStatus" Value="Acquisition Status Register"/>
+          <Text TextId="T_AcquisitionTriggerReady" Value="Acquisition Trigger Ready"/>
+          <Text TextId="T_AcquisitionTriggerAck" Value="Acquisition Trigger Acknowledge"/>
+          <Text TextId="T_AcquisitionError" Value="Acquisition Error"/>
+          <Text TextId="T_AcquisitionID" Value="Acquisition ID"/>
+          <Text TextId="T_inspection_status_module" Value="Inspection Status"/>
+          <Text TextId="T_inspection_status_info" Value="Status of the inspection"/>
+          <Text TextId="T_InspectionStatus" Value="Inspection Status Register"/>
+          <Text TextId="T_InspectionCompleted" Value="Inspection Completed"/>
+          <Text TextId="T_ResultsBufferOverrun" Value="Results Buffer Overrun"/>
+          <Text TextId="T_ResultsValid" Value="Results Valid"/>
+          <Text TextId="T_inspection_control_module" Value="Inspection Control"/>
+          <Text TextId="T_inspection_control_info" Value="Controls the inspection"/>
+          <Text TextId="T_InspectionRegister" Value="Inspection Control Register"/>
+          <Text TextId="T_ResultsBufferingEnable" Value="Enable Results Buffering"/>
+          <Text TextId="T_InspectionResultsAck" Value="Acknowledge Inspection Results"/>
+          <Text TextId="T_UserDataSet" Value="Extended User Data Set"/>
+          <Text TextId="T_SetOffline" Value="Set In-Sight Offline"/>
+          <Text TextId="T_Offline0" Value="Offline Reason 0"/>
+          <Text TextId="T_Offline1" Value="Offline Reason 1"/>
+          <Text TextId="T_Offline2" Value="Offline Reason 2"/>
+          <Text TextId="T_Online" Value="Online"/>
+          <Text TextId="T_ClearExposureComplete" Value="Clear Exposure Complete"/>
+          <Text TextId="T_ExposureComplete" Value="Exposure Complete"/>
+          <Text TextId="T_CommandID" Value="Command ID"/>
+          <Text TextId="T_ExecuteCommand" Value="Execute Command"/>
+          <Text TextId="T_CommandExecuting" Value="Command Executing"/>
+          <Text TextId="T_CommandCompleted" Value="Command Completed"/>
+          <Text TextId="T_CommandFailed" Value="Command Failed"/>
+          <Text TextId="T_Error" Value="Error"/>
+          <Text TextId="T_ClearError" Value="Clear Error"/>
+          <Text TextId="T_ErrorID" Value="Error ID"/>
+          <Text TextId="T_externalevents_module" Value="ExternalEvent Control"/>
+          <Text TextId="T_externalevents_info" Value="Trigger ExternalEvents"/>
+          <Text TextId="T_ExternalEventRegister" Value="ExternalEvent Control"/>
+          <Text TextId="T_ExternalEvent0" Value="Trigger ExternalEvent 0"/>
+          <Text TextId="T_ExternalEvent1" Value="Trigger ExternalEvent 1"/>
+          <Text TextId="T_ExternalEvent2" Value="Trigger ExternalEvent 2"/>
+          <Text TextId="T_ExternalEvent3" Value="Trigger ExternalEvent 3"/>
+          <Text TextId="T_ExternalEvent4" Value="Trigger ExternalEvent 4"/>
+          <Text TextId="T_ExternalEvent5" Value="Trigger ExternalEvent 5"/>
+          <Text TextId="T_ExternalEvent6" Value="Trigger ExternalEvent 6"/>
+          <Text TextId="T_ExternalEvent7" Value="Trigger ExternalEvent 7"/>
+          <Text TextId="T_ExternalEventAckRegister" Value="ExternalEvent Status"/>
+          <Text TextId="T_ExternalEventAck0" Value="Trigger ExternalEvent 0 Acknowledge"/>
+          <Text TextId="T_ExternalEventAck1" Value="Trigger ExternalEvent 1 Acknowledge"/>
+          <Text TextId="T_ExternalEventAck2" Value="Trigger ExternalEvent 2 Acknowledge"/>
+          <Text TextId="T_ExternalEventAck3" Value="Trigger ExternalEvent 3 Acknowledge"/>
+          <Text TextId="T_ExternalEventAck4" Value="Trigger ExternalEvent 4 Acknowledge"/>
+          <Text TextId="T_ExternalEventAck5" Value="Trigger ExternalEvent 5 Acknowledge"/>
+          <Text TextId="T_ExternalEventAck6" Value="Trigger ExternalEvent 6 Acknowledge"/>
+          <Text TextId="T_ExternalEventAck7" Value="Trigger ExternalEvent 7 Acknowledge"/>
+          <Text TextId="T_command_control_module" Value="Command Control"/>
+          <Text TextId="T_command_control_info" Value="Controls Command Execution"/>
+          <Text TextId="T_command_control_legacy_info" Value="Controls Command Execution Legacy"/>
+          <Text TextId="T_command_control_legacy_module" Value="Command Control Legacy"/>
+          <Text TextId="T_CommandResultCode" Value="Command Result Code"/>
+          <Text TextId="T_CurrentJobID" Value="Current Job ID"/>
+          <Text TextId="T_UserDataError" Value="User Data Error"/>
+          <Text TextId="T_UserDataHelp" Value="User Data Help"/>
+          <Text TextId="T_UserDataSetAck" Value="User Data Set Acknowledge"/>
+          <Text TextId="T_JobPass" Value="Job Pass"/>
+          <Text TextId="T_DataCategory" Value="In-Sight Data Modules"/>
+          <Text TextId="T_userdata_16_module" Value="User Data - 16 bytes"/>
+          <Text TextId="T_userdata_16_info" Value="Writes 16 bytes to In-Sight spreadsheet"/>
+          <Text TextId="T_userdata_32_module" Value="User Data - 32 bytes"/>
+          <Text TextId="T_userdata_32_info" Value="Writes 32 bytes to In-Sight spreadsheet"/>
+          <Text TextId="T_userdata_64_module" Value="User Data - 64 bytes"/>
+          <Text TextId="T_userdata_64_info" Value="Writes 64 bytes to In-Sight spreadsheet"/>
+          <Text TextId="T_userdata_128_module" Value="User Data - 128 bytes"/>
+          <Text TextId="T_userdata_128_info" Value="Writes 128 bytes to In-Sight spreadsheet"/>
+          <Text TextId="T_userdata_254_module" Value="User Data - 254 bytes"/>
+          <Text TextId="T_userdata_254_info" Value="Writes 254 bytes to In-Sight spreadsheet"/>
+          <Text TextId="T_UserData" Value="User Data"/>
+          <Text TextId="T_inspection_results_16_module" Value="Results - 16 bytes"/>
+          <Text TextId="T_inspection_results_16_info" Value="Reads 16 bytes from In-Sight spreadsheet"/>
+          <Text TextId="T_inspection_results_32_module" Value="Results - 32 bytes"/>
+          <Text TextId="T_inspection_results_32_info" Value="Reads 32 bytes from In-Sight spreadsheet"/>
+          <Text TextId="T_inspection_results_64_module" Value="Results - 64 bytes"/>
+          <Text TextId="T_inspection_results_64_info" Value="Reads 64 bytes from In-Sight spreadsheet"/>
+          <Text TextId="T_inspection_results_128_module" Value="Results - 128 bytes"/>
+          <Text TextId="T_inspection_results_128_info" Value="Reads 128 bytes from In-Sight spreadsheet"/>
+          <Text TextId="T_inspection_results_250_module" Value="Results - 250 bytes"/>
+          <Text TextId="T_inspection_results_250_info" Value="Reads 250 bytes from In-Sight spreadsheet"/>
+          <Text TextId="T_InspectionResults" Value="Inspection Results"/>
+          <Text TextId="T_ResultCode" Value="Inspection Result Code"/>
+          <Text TextId="T_InspectionCount" Value="Inspection ID"/>
+        </PrimaryLanguage>
+      </ExternalTextList>
+    </ApplicationProcess>
+  </ProfileBody>
+</ISO15745Profile>

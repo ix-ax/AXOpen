@@ -21,8 +21,8 @@
             { typeof(TimeSpan), new List<string> { "==", "!=", ">", "<", ">=", "<=", "InRange", "OutOfRange" } },
             { typeof(DateTime), new List<string> { "==", "!=", ">", "<", ">=", "<=", "InRange", "OutOfRange" } },
             { typeof(DateOnly), new List<string> { "==", "!=", ">", "<", ">=", "<=", "InRange", "OutOfRange" } },
-            { typeof(char), new List<string> { "!=", "==",  "Contains" } },
-            { typeof(string), new List<string> {  "!=", "==", "Contains", "StartsWith", "EndsWith" } }
+            { typeof(char), new List<string> { "==", "!=", "Contains" } },
+            { typeof(string), new List<string> { "==", "StartsWith", "Contains",  "EndsWith", "!=", } }
         };
 
         public static Dictionary<Type, (object Min, object Max)> TypeRanges = new()

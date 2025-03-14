@@ -1,7 +1,7 @@
 Devices:
-- Name: reader-st2
+- Name: dm_300
   Modules:
-  - Name: reader-st2
+  - Name: dm_300
     TypeIdentifier:
       GsdId: DAP8
       FileName: GSDML-V2.31-COGNEX-DATAMAN-20170215.XML
@@ -11,7 +11,7 @@ Devices:
       Addresses:
         Configured:
         - IPv4: 10.10.10.50/24
-        - ProfinetDeviceName: reader-st2
+        - ProfinetDeviceName: dm_300
   - Name: Acquisition_Control
     TypeIdentifier:
       GsdId: '101'

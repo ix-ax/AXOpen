@@ -1,0 +1,36 @@
+name: "@inxton/axopen_components_keyence_vision"
+version: '0.0.0-dev.0'
+type: lib
+targets:
+  - llvm
+files:
+  - src
+  - axsharp.companion.json
+devDependencies:
+  "@inxton/ax-sdk": '0.0.0-dev.0'
+dependencies:
+  "@inxton/axopen.io": '0.0.0-dev.0'
+installStrategy: strict
+apaxVersion: 3.4.2
+scripts:
+  postbuild:
+    - dotnet ixc
+  ib: |
+    apax install
+    apax build
+  icb: |
+    apax install --catalog
+    apax ib
+  cib: |
+    apax clean
+    apax ib
+  cicb: |
+    apax clean
+    apax icb
+  ibt: |
+    apax install
+    apax build
+    apax test
+publicKeys:
+  "@inxton": 30c06ef7830b4dfd8f16e003508da1ac2d187714d0e1f38279a9332cbe4e4e17
+...

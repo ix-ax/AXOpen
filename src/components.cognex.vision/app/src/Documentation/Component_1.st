@@ -58,6 +58,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
         END_VAR
 
         METHOD PRIVATE UseInSequencer   
+            IF Sequencer.GetContext().OpenCycleCount() = ULINT#0 THEN
+                Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
+            END_IF;
 
             Sequencer.Run(THIS);
             Sequencer.Open();

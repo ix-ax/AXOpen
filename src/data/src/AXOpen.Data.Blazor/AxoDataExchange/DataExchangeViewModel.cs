@@ -128,7 +128,7 @@ namespace AXOpen.Data
                 if (_DefaulQueryDataEntityId == null)
                 {
                     var poco = DataExchange.GetPlainTypes().First();
-                    _DefaulQueryDataEntityId = new QuerySymbolConfiguration($"{poco.Name}.DataEntityId", typeof(string).FullName, "!=", "", "");
+                    _DefaulQueryDataEntityId = new QuerySymbolConfiguration($"{poco.Name}.DataEntityId", typeof(string).FullName, "StartsWith", "", "");
                 }
 
                 return _DefaulQueryDataEntityId;
@@ -225,6 +225,8 @@ namespace AXOpen.Data
 
                 predicates = LastFilter;
             }
+
+            LastFilter = predicates;
 
             Filter(predicates, Limit, Page * Limit);
         }

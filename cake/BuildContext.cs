@@ -192,6 +192,7 @@ public partial class BuildContext : FrostingContext
         ("components.kuka.robotics", "axopen.components.kuka.robotics", true, true),
         ("components.siem.identification", "axopen.components.siem.identification", true, true),
         ("components.balluff.identification", "axopen.components.balluff.identification", true, true),
+        ("components.keyence.vision", "axopen.components.keyence.vision", true, true),
         ("integrations", "ix.integrations", false,false),
         ("template.axolibrary", "template.axolibrary", false, true)
     };
