@@ -239,9 +239,7 @@ NAMESPACE AXOpen.Data
 
             storageController.Read('DELETE-ID');
 
-            AxUnit.Assert.Equal(storageController.Payload._hello = '' , TRUE);
-            AxUnit.Assert.Equal(storageController.Payload.DataEntityId = '' , TRUE);
-            AxUnit.Assert.Equal(storageController.Payload._someNumber , 0);
+            AxUnit.Assert.Equal( storageController.Read('DELETE-ID').HasError() , TRUE);           
         END_METHOD
     END_CLASS
 
