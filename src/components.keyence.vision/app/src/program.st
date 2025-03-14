@@ -1,0 +1,19 @@
+USING AXOpen.Components.Keyence.Vision;
+
+PROGRAM MyProgram
+    VAR_EXTERNAL
+        sandbox : AXOpen.Components.Keyence.Vision.SandboxContext;
+        documentation : AXOpen.Components.Keyence.Vision.DocumentationContext;
+        _rtc : AXOpen.S71500.Rtc;
+        _rtm : AXOpen.S71500.Rtm;
+    END_VAR
+
+    sandbox.InjectRtc(_rtc);
+    sandbox.InjectRtm(_rtm);
+    sandbox.Run();    
+
+
+    documentation.InjectRtc(_rtc);
+    documentation.InjectRtm(_rtm);
+    documentation.Run();
+END_PROGRAM

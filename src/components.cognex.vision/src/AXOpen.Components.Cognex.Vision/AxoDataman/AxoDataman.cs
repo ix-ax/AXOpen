@@ -72,7 +72,7 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 new KeyValuePair<ulong, AxoMessengerTextItem>(717, new AxoMessengerTextItem("Error writing the 16bytes of the UserData in the UpdateOutputs method!",       "Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(718, new AxoMessengerTextItem("Error writing the 32bytes of the UserData in the UpdateOutputs method!",       "Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(719, new AxoMessengerTextItem("Error writing the 64bytes of the UserData in the UpdateOutputs method!",       "Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(720, new AxoMessengerTextItem("Error writing the 1286bytes of the UserData in the UpdateOutputs method!",     "Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(720, new AxoMessengerTextItem("Error writing the 128bytes of the UserData in the UpdateOutputs method!",     "Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(721, new AxoMessengerTextItem("Error writing the 250bytes of the UserData in the UpdateOutputs method!",      "Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(800, new AxoMessengerTextItem("Clearing of the result data finished with error!",                             "Check the details.")),
@@ -214,27 +214,27 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     actionDescriptionDict.Add(101,"Clear reasult data finished succesfully.");
                     actionDescriptionDict.Add(102,"Clear reasult data restored.");
 
-                    actionDescriptionDict.Add(110,"Reading started.");
-                    actionDescriptionDict.Add(310, "Clear reasult data running.");
-                    actionDescriptionDict.Add(311, "Clear reasult data running.");
-                    actionDescriptionDict.Add(312, "Clear reasult data running.");
-                    actionDescriptionDict.Add(313, "Clear reasult data running.");
-                    actionDescriptionDict.Add(314, "Clear reasult data running.");
-                    actionDescriptionDict.Add(315, "Clear reasult data running.");
-                    actionDescriptionDict.Add(316, "Clear reasult data running.");
-                    actionDescriptionDict.Add(317, "Clear reasult data running.");
-                    actionDescriptionDict.Add(318, "Clear reasult data running.");
-                    actionDescriptionDict.Add(319, "Clear reasult data running.");
-                    actionDescriptionDict.Add(320, "Clear reasult data running.");
-                    actionDescriptionDict.Add(321, "Clear reasult data running.");
-                    actionDescriptionDict.Add(322, "Clear reasult data running.");
-                    actionDescriptionDict.Add(323, "Clear reasult data running.");
-                    actionDescriptionDict.Add(324, "Clear reasult data running.");
-                    actionDescriptionDict.Add(325, "Clear reasult data running.");
-                    actionDescriptionDict.Add(326, "Clear reasult data running.");
-                    actionDescriptionDict.Add(327, "Clear reasult data running.");
-                    actionDescriptionDict.Add(328, "Clear reasult data running.");
-                    actionDescriptionDict.Add(329, "Clear reasult data running.");
+                    actionDescriptionDict.Add(110, "Reading started.");
+                    actionDescriptionDict.Add(310, "Reading running.");
+                    actionDescriptionDict.Add(311, "Reading running.");
+                    actionDescriptionDict.Add(312, "Reading running.");
+                    actionDescriptionDict.Add(313, "Reading running.");
+                    actionDescriptionDict.Add(314, "Reading running.");
+                    actionDescriptionDict.Add(315, "Reading running.");
+                    actionDescriptionDict.Add(316, "Reading running.");
+                    actionDescriptionDict.Add(317, "Reading running.");
+                    actionDescriptionDict.Add(318, "Reading running.");
+                    actionDescriptionDict.Add(319, "Reading running.");
+                    actionDescriptionDict.Add(320, "Reading running.");
+                    actionDescriptionDict.Add(321, "Reading running.");
+                    actionDescriptionDict.Add(322, "Reading running.");
+                    actionDescriptionDict.Add(323, "Reading running.");
+                    actionDescriptionDict.Add(324, "Reading running.");
+                    actionDescriptionDict.Add(325, "Reading running.");
+                    actionDescriptionDict.Add(326, "Reading running.");
+                    actionDescriptionDict.Add(327, "Reading running.");
+                    actionDescriptionDict.Add(328, "Reading running.");
+                    actionDescriptionDict.Add(329, "Reading running.");
 
                     actionDescriptionDict.Add(111,"Reading finished succesfully.");
                     actionDescriptionDict.Add(112,"Reading restored.");

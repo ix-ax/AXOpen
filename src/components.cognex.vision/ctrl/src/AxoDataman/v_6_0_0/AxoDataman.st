@@ -297,14 +297,11 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             Results.Extended.%B0    :=  _data_in[5];     
             Results.Length.%B1      :=  _data_in[6];     
             Results.Length.%B0      :=  _data_in[7];     
-            //****************************************
-//            THIS.Execute();
-            //************Execute inline**************
 
-            // RestoreTask.Run(THIS);
-            // ClearResultDataTask.Run(THIS);
-            // ReadTask.Run(THIS);
-            // HardwareDiagnosticsTask.Run(THIS);
+            //************Execute inline**************
+            RestoreTask.Run(THIS);
+            ClearResultDataTask.Run(THIS);
+            ReadTask.Run(THIS);
             HardwareDiagnosticsTask.Run(THIS,_hwID);
 
             TaskMessenger.Serve(THIS);
@@ -669,477 +666,477 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             THIS.Close();                   
         END_METHOD
 
-        METHOD PRIVATE UpdateInputs : BOOL
-            VAR
-                _returnValue : WORD;
-                _invalidDataSize : BOOL;
-            END_VAR
+        // METHOD PRIVATE UpdateInputs : BOOL
+        //     VAR
+        //         _returnValue : WORD;
+        //         _invalidDataSize : BOOL;
+        //     END_VAR
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdAcquisitionStatus ,_data_in);
-            Messenger.ActivateOnCondition(ULINT#708,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                Status.Error.Id := UINT#708;
-                RETURN;
-            END_IF;
+        //     _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdAcquisitionStatus ,_data_in);
+        //     Messenger.ActivateOnCondition(ULINT#708,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     IF _returnValue > WORD#0 THEN
+        //         Status.Error.Id := UINT#708;
+        //         RETURN;
+        //     END_IF;
 
-            AcquisitionStatus.TriggerReady                  :=      _data_in[0].%X0;
-            AcquisitionStatus.TriggerAcknowledge            :=      _data_in[0].%X1;
-            AcquisitionStatus.MissedAcquisition             :=      _data_in[0].%X3;
-            AcquisitionStatus.TriggerID.%B1                 :=      _data_in[1];	 
-            AcquisitionStatus.TriggerID.%B0                 :=      _data_in[2];	 
+        //     AcquisitionStatus.TriggerReady                  :=      _data_in[0].%X0;
+        //     AcquisitionStatus.TriggerAcknowledge            :=      _data_in[0].%X1;
+        //     AcquisitionStatus.MissedAcquisition             :=      _data_in[0].%X3;
+        //     AcquisitionStatus.TriggerID.%B1                 :=      _data_in[1];	 
+        //     AcquisitionStatus.TriggerID.%B0                 :=      _data_in[2];	 
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdResultsStatus ,_data_in);
-            Messenger.ActivateOnCondition(ULINT#709,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                Status.Error.Id := UINT#709;
-                RETURN;
-            END_IF;
+        //     _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdResultsStatus ,_data_in);
+        //     Messenger.ActivateOnCondition(ULINT#709,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     IF _returnValue > WORD#0 THEN
+        //         Status.Error.Id := UINT#709;
+        //         RETURN;
+        //     END_IF;
 
-            ResultsStatus.Decoding                          :=      _data_in[0].%X0;
-            ResultsStatus.DecodeComplete                    :=      _data_in[0].%X1;
-            ResultsStatus.ResultsBufferOverrun              :=      _data_in[0].%X2;
-            ResultsStatus.ResultsAvailable                  :=      _data_in[0].%X3;
-            ResultsStatus.ErrorDetected                     :=      _data_in[0].%X7;
+        //     ResultsStatus.Decoding                          :=      _data_in[0].%X0;
+        //     ResultsStatus.DecodeComplete                    :=      _data_in[0].%X1;
+        //     ResultsStatus.ResultsBufferOverrun              :=      _data_in[0].%X2;
+        //     ResultsStatus.ResultsAvailable                  :=      _data_in[0].%X3;
+        //     ResultsStatus.ErrorDetected                     :=      _data_in[0].%X7;
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdSoftEventControl ,_data_in);
-            Messenger.ActivateOnCondition(ULINT#710,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                Status.Error.Id := UINT#710;
-                RETURN;
-            END_IF;
+        //     _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdSoftEventControl ,_data_in);
+        //     Messenger.ActivateOnCondition(ULINT#710,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     IF _returnValue > WORD#0 THEN
+        //         Status.Error.Id := UINT#710;
+        //         RETURN;
+        //     END_IF;
 
-            SoftEventStatus.TrainCodeAcknowledge            :=      _data_in[0].%X0;
-            SoftEventStatus.TrainMatchStringAcknowledge     :=      _data_in[0].%X1;
-            SoftEventStatus.TrainFocusAcknowledge           :=      _data_in[0].%X2;
-            SoftEventStatus.TrainBrightnessAcknowledge      :=      _data_in[0].%X3;
-            SoftEventStatus.UntrainAcknowledge              :=      _data_in[0].%X4;
-            SoftEventStatus.ExecuteDmccAcknowledge          :=      _data_in[0].%X5;
-            SoftEventStatus.Reserved06                      :=      _data_in[0].%X6;
-            SoftEventStatus.SetMatchStringAcknowledge       :=      _data_in[0].%X7;
+        //     SoftEventStatus.TrainCodeAcknowledge            :=      _data_in[0].%X0;
+        //     SoftEventStatus.TrainMatchStringAcknowledge     :=      _data_in[0].%X1;
+        //     SoftEventStatus.TrainFocusAcknowledge           :=      _data_in[0].%X2;
+        //     SoftEventStatus.TrainBrightnessAcknowledge      :=      _data_in[0].%X3;
+        //     SoftEventStatus.UntrainAcknowledge              :=      _data_in[0].%X4;
+        //     SoftEventStatus.ExecuteDmccAcknowledge          :=      _data_in[0].%X5;
+        //     SoftEventStatus.Reserved06                      :=      _data_in[0].%X6;
+        //     SoftEventStatus.SetMatchStringAcknowledge       :=      _data_in[0].%X7;
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdResultData ,_data_in);
-            Messenger.ActivateOnCondition(ULINT#711,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                Status.Error.Id := UINT#711;
-                RETURN;
-            END_IF;
+        //     _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdResultData ,_data_in);
+        //     Messenger.ActivateOnCondition(ULINT#711,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     IF _returnValue > WORD#0 THEN
+        //         Status.Error.Id := UINT#711;
+        //         RETURN;
+        //     END_IF;
 
-            _invalidDataSize := NOT (_ResultDataSize = eAxoDataman_ResultDataSize#RESULT_DATA_16B OR
-            _ResultDataSize = eAxoDataman_ResultDataSize#RESULT_DATA_32B OR
-            _ResultDataSize = eAxoDataman_ResultDataSize#RESULT_DATA_64B OR
-            _ResultDataSize = eAxoDataman_ResultDataSize#RESULT_DATA_128B OR
-            _ResultDataSize = eAxoDataman_ResultDataSize#RESULT_DATA_246B);
+        //     _invalidDataSize := NOT (_ResultDataSize = eAxoDataman_ResultDataSize#RESULT_DATA_16B OR
+        //     _ResultDataSize = eAxoDataman_ResultDataSize#RESULT_DATA_32B OR
+        //     _ResultDataSize = eAxoDataman_ResultDataSize#RESULT_DATA_64B OR
+        //     _ResultDataSize = eAxoDataman_ResultDataSize#RESULT_DATA_128B OR
+        //     _ResultDataSize = eAxoDataman_ResultDataSize#RESULT_DATA_246B);
 
-            Messenger.ActivateOnCondition(ULINT#712,_invalidDataSize, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#712,_invalidDataSize, eAxoMessageCategory#ProgrammingError);
 
-            IF _invalidDataSize THEN
-                Status.Error.Id := UINT#712;
-                RETURN;
-            END_IF;
+        //     IF _invalidDataSize THEN
+        //         Status.Error.Id := UINT#712;
+        //         RETURN;
+        //     END_IF;
 
-            Config.ResultDataSize := _ResultDataSize;
+        //     Config.ResultDataSize := _ResultDataSize;
 
 
-            Results.Id.%B1          :=  _data_in[0];     
-            Results.Id.%B0          :=  _data_in[1];     
-            Results.Code.%B1        :=  _data_in[2];     
-            Results.Code.%B0        :=  _data_in[3];     
-            Results.Extended.%B1    :=  _data_in[4];     
-            Results.Extended.%B0    :=  _data_in[5];     
-            Results.Length.%B1      :=  _data_in[6];     
-            Results.Length.%B0      :=  _data_in[7];     
-            UpdateInputs := TRUE;
+        //     Results.Id.%B1          :=  _data_in[0];     
+        //     Results.Id.%B0          :=  _data_in[1];     
+        //     Results.Code.%B1        :=  _data_in[2];     
+        //     Results.Code.%B0        :=  _data_in[3];     
+        //     Results.Extended.%B1    :=  _data_in[4];     
+        //     Results.Extended.%B0    :=  _data_in[5];     
+        //     Results.Length.%B1      :=  _data_in[6];     
+        //     Results.Length.%B0      :=  _data_in[7];     
+        //     UpdateInputs := TRUE;
 
-        END_METHOD  
+        // END_METHOD  
 
-        METHOD PRIVATE UpdateOutputs : BOOL
-            VAR
-                _index                   :   INT;
-                _invalidDataSize        :   BOOL;
-                _returnValue             :   WORD;
-                _data_1                 :   ARRAY[0..0] OF BYTE;
-                _data_16                :   ARRAY[0..15] OF BYTE;
-                _data_32                :   ARRAY[0..31] OF BYTE;
-                _data_64                :   ARRAY[0..63] OF BYTE;
-                _data_128               :   ARRAY[0..127] OF BYTE;
-                _data_250               :   ARRAY[0..249] OF BYTE;                
-            END_VAR
+        // METHOD PRIVATE UpdateOutputs : BOOL
+        //     VAR
+        //         _index                   :   INT;
+        //         _invalidDataSize        :   BOOL;
+        //         _returnValue             :   WORD;
+        //         _data_1                 :   ARRAY[0..0] OF BYTE;
+        //         _data_16                :   ARRAY[0..15] OF BYTE;
+        //         _data_32                :   ARRAY[0..31] OF BYTE;
+        //         _data_64                :   ARRAY[0..63] OF BYTE;
+        //         _data_128               :   ARRAY[0..127] OF BYTE;
+        //         _data_250               :   ARRAY[0..249] OF BYTE;                
+        //     END_VAR
 
-            UpdateOutputs := TRUE;
+        //     UpdateOutputs := TRUE;
 
-            _data_1[0].%X0                  :=      AcquisitionControl.TriggerEnable;
-            _data_1[0].%X1                  :=      AcquisitionControl.Trigger;
+        //     _data_1[0].%X0                  :=      AcquisitionControl.TriggerEnable;
+        //     _data_1[0].%X1                  :=      AcquisitionControl.Trigger;
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdAcquisitionControl,_data_1);
-            Messenger.ActivateOnCondition(ULINT#713,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                Status.Error.Id := UINT#713;
-                RETURN;
-            END_IF;
+        //     _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdAcquisitionControl,_data_1);
+        //     Messenger.ActivateOnCondition(ULINT#713,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     IF _returnValue > WORD#0 THEN
+        //         Status.Error.Id := UINT#713;
+        //         RETURN;
+        //     END_IF;
 
-            _data_1[0].%X0                  :=      ResultsControl.EnableResultBuffering;
-            _data_1[0].%X1                  :=      ResultsControl.ResultsAcknowledge;
+        //     _data_1[0].%X0                  :=      ResultsControl.EnableResultBuffering;
+        //     _data_1[0].%X1                  :=      ResultsControl.ResultsAcknowledge;
             
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdResultsControl,_data_1);
-            Messenger.ActivateOnCondition(ULINT#714,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                Status.Error.Id := UINT#714;
-                RETURN;
-            END_IF;
+        //     _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdResultsControl,_data_1);
+        //     Messenger.ActivateOnCondition(ULINT#714,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     IF _returnValue > WORD#0 THEN
+        //         Status.Error.Id := UINT#714;
+        //         RETURN;
+        //     END_IF;
 
-            _data_1[0].%X0                  :=      SoftEventControl.TrainCode;
-            _data_1[0].%X1                  :=      SoftEventControl.TrainMatchString;
-            _data_1[0].%X2                  :=      SoftEventControl.TrainFocus;
-            _data_1[0].%X3                  :=      SoftEventControl.TrainBrightness;
-            _data_1[0].%X4                  :=      SoftEventControl.Untrain;
-            _data_1[0].%X5                  :=      SoftEventControl.ExecuteDMCC;
-            _data_1[0].%X6                  :=      SoftEventControl.Reserved06;
-            _data_1[0].%X7                  :=      SoftEventControl.SetMatchString;
+        //     _data_1[0].%X0                  :=      SoftEventControl.TrainCode;
+        //     _data_1[0].%X1                  :=      SoftEventControl.TrainMatchString;
+        //     _data_1[0].%X2                  :=      SoftEventControl.TrainFocus;
+        //     _data_1[0].%X3                  :=      SoftEventControl.TrainBrightness;
+        //     _data_1[0].%X4                  :=      SoftEventControl.Untrain;
+        //     _data_1[0].%X5                  :=      SoftEventControl.ExecuteDMCC;
+        //     _data_1[0].%X6                  :=      SoftEventControl.Reserved06;
+        //     _data_1[0].%X7                  :=      SoftEventControl.SetMatchString;
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdSoftEventControl,_data_1);
-            Messenger.ActivateOnCondition(ULINT#715,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                Status.Error.Id := UINT#715;
-                RETURN;
-            END_IF;
+        //     _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdSoftEventControl,_data_1);
+        //     Messenger.ActivateOnCondition(ULINT#715,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
+        //     IF _returnValue > WORD#0 THEN
+        //         Status.Error.Id := UINT#715;
+        //         RETURN;
+        //     END_IF;
 
-            _invalidDataSize := NOT (_UserDataSize = eAxoDataman_UserDataSize#USER_DATA_16B OR
-                                     _UserDataSize = eAxoDataman_UserDataSize#USER_DATA_32B OR
-                                     _UserDataSize = eAxoDataman_UserDataSize#USER_DATA_64B OR
-                                     _UserDataSize = eAxoDataman_UserDataSize#USER_DATA_128B OR
-                                     _UserDataSize = eAxoDataman_UserDataSize#USER_DATA_250B);
+        //     _invalidDataSize := NOT (_UserDataSize = eAxoDataman_UserDataSize#USER_DATA_16B OR
+        //                              _UserDataSize = eAxoDataman_UserDataSize#USER_DATA_32B OR
+        //                              _UserDataSize = eAxoDataman_UserDataSize#USER_DATA_64B OR
+        //                              _UserDataSize = eAxoDataman_UserDataSize#USER_DATA_128B OR
+        //                              _UserDataSize = eAxoDataman_UserDataSize#USER_DATA_250B);
 
-            Messenger.ActivateOnCondition(ULINT#716,_invalidDataSize, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#716,_invalidDataSize, eAxoMessageCategory#ProgrammingError);
 
-            IF _invalidDataSize THEN
-                Status.Error.Id := UINT#716;
-                RETURN;
-            END_IF;
+        //     IF _invalidDataSize THEN
+        //         Status.Error.Id := UINT#716;
+        //         RETURN;
+        //     END_IF;
 
-            Config.UserDataSize := _UserDataSize;
+        //     Config.UserDataSize := _UserDataSize;
 
-            IF (UserData.DataChanged <> _UserDataChanged) THEN
-                IF Config.UserDataSize = eAxoDataman_UserDataSize#USER_DATA_16B THEN
-                    FOR _index := 0 TO 15 DO
-                        _data_16[_index] := UserData.Data[_index];
-                    END_FOR;
-                    _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_16);
-                    Messenger.ActivateOnCondition(ULINT#717,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-                    IF _returnValue > WORD#0 THEN
-                        Status.Error.Id := UINT#717;
-                        RETURN;
-                    END_IF;
-                ELSIF Config.UserDataSize = eAxoDataman_UserDataSize#USER_DATA_32B THEN
-                    FOR _index := 0 TO 31 DO
-                        _data_32[_index] := UserData.Data[_index];
-                    END_FOR;
-                    _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_32);
-                    Messenger.ActivateOnCondition(ULINT#718,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-                    IF _returnValue > WORD#0 THEN
-                        Status.Error.Id := UINT#718;
-                        RETURN;
-                    END_IF;
-                ELSIF Config.UserDataSize = eAxoDataman_UserDataSize#USER_DATA_64B THEN
-                    FOR _index := 0 TO 63 DO
-                        _data_64[_index] := UserData.Data[_index];
-                    END_FOR;
-                    _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_64);
-                    Messenger.ActivateOnCondition(ULINT#719,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-                    IF _returnValue > WORD#0 THEN
-                        Status.Error.Id := UINT#719;
-                        RETURN;
-                    END_IF;
-                ELSIF Config.UserDataSize = eAxoDataman_UserDataSize#USER_DATA_128B THEN
-                    FOR _index := 0 TO 127 DO
-                        _data_128[_index] := UserData.Data[_index];
-                    END_FOR;
-                    _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_128);
-                    Messenger.ActivateOnCondition(ULINT#720,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-                    IF _returnValue > WORD#0 THEN
-                        Status.Error.Id := UINT#720;
-                        RETURN;
-                    END_IF;
-                ELSIF Config.UserDataSize = eAxoDataman_UserDataSize#USER_DATA_250B THEN
-                    FOR _index := 0 TO 253 DO
-                        _data_250[_index] := UserData.Data[_index];
-                    END_FOR;
-                    _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_250);
-                    Messenger.ActivateOnCondition(ULINT#721,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-                    IF _returnValue > WORD#0 THEN
-                        Status.Error.Id := UINT#721;
-                        RETURN;
-                    END_IF;
-                END_IF;
-                _UserDataChanged := UserData.DataChanged;
-            END_IF;
-        END_METHOD  
+        //     IF (UserData.DataChanged <> _UserDataChanged) THEN
+        //         IF Config.UserDataSize = eAxoDataman_UserDataSize#USER_DATA_16B THEN
+        //             FOR _index := 0 TO 15 DO
+        //                 _data_16[_index] := UserData.Data[_index];
+        //             END_FOR;
+        //             _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_16);
+        //             Messenger.ActivateOnCondition(ULINT#717,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
+        //             IF _returnValue > WORD#0 THEN
+        //                 Status.Error.Id := UINT#717;
+        //                 RETURN;
+        //             END_IF;
+        //         ELSIF Config.UserDataSize = eAxoDataman_UserDataSize#USER_DATA_32B THEN
+        //             FOR _index := 0 TO 31 DO
+        //                 _data_32[_index] := UserData.Data[_index];
+        //             END_FOR;
+        //             _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_32);
+        //             Messenger.ActivateOnCondition(ULINT#718,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
+        //             IF _returnValue > WORD#0 THEN
+        //                 Status.Error.Id := UINT#718;
+        //                 RETURN;
+        //             END_IF;
+        //         ELSIF Config.UserDataSize = eAxoDataman_UserDataSize#USER_DATA_64B THEN
+        //             FOR _index := 0 TO 63 DO
+        //                 _data_64[_index] := UserData.Data[_index];
+        //             END_FOR;
+        //             _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_64);
+        //             Messenger.ActivateOnCondition(ULINT#719,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
+        //             IF _returnValue > WORD#0 THEN
+        //                 Status.Error.Id := UINT#719;
+        //                 RETURN;
+        //             END_IF;
+        //         ELSIF Config.UserDataSize = eAxoDataman_UserDataSize#USER_DATA_128B THEN
+        //             FOR _index := 0 TO 127 DO
+        //                 _data_128[_index] := UserData.Data[_index];
+        //             END_FOR;
+        //             _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_128);
+        //             Messenger.ActivateOnCondition(ULINT#720,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
+        //             IF _returnValue > WORD#0 THEN
+        //                 Status.Error.Id := UINT#720;
+        //                 RETURN;
+        //             END_IF;
+        //         ELSIF Config.UserDataSize = eAxoDataman_UserDataSize#USER_DATA_250B THEN
+        //             FOR _index := 0 TO 253 DO
+        //                 _data_250[_index] := UserData.Data[_index];
+        //             END_FOR;
+        //             _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_250);
+        //             Messenger.ActivateOnCondition(ULINT#721,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
+        //             IF _returnValue > WORD#0 THEN
+        //                 Status.Error.Id := UINT#721;
+        //                 RETURN;
+        //             END_IF;
+        //         END_IF;
+        //         _UserDataChanged := UserData.DataChanged;
+        //     END_IF;
+        // END_METHOD  
 
-        METHOD PRIVATE Execute
-            VAR
-                _index          :   INT;
-                _returnValue : WORD;
-            END_VAR
+        // METHOD PRIVATE Execute
+        //     VAR
+        //         _index          :   INT;
+        //         _returnValue : WORD;
+        //     END_VAR
 
-            THIS.UpdateInputs();
+        //     THIS.UpdateInputs();
 
-            RestoreTask.Run(THIS);
-            ClearResultDataTask.Run(THIS);
-            ReadTask.Run(THIS);
-            HardwareDiagnosticsTask.Run(THIS);
-            HardwareDiagnosticsTask.Run(THIS,_hwID);
+        //     RestoreTask.Run(THIS);
+        //     ClearResultDataTask.Run(THIS);
+        //     ReadTask.Run(THIS);
+        //     HardwareDiagnosticsTask.Run(THIS);
+        //     HardwareDiagnosticsTask.Run(THIS,_hwID);
 
-            TaskMessenger.Serve(THIS);
+        //     TaskMessenger.Serve(THIS);
 
-            IF Config.ContinuousReading THEN
-	            THIS.ContinuousReading();
-            END_IF;
+        //     IF Config.ContinuousReading THEN
+	    //         THIS.ContinuousReading();
+        //     END_IF;
 
             
-            //*************RESTORE********************
-            RestoreTask.IsDisabled := FALSE;
-            IF RestoreTask.Execute(THIS) THEN
-                THIS.Restore();
-            END_IF;
-            //****************************************
+        //     //*************RESTORE********************
+        //     RestoreTask.IsDisabled := FALSE;
+        //     IF RestoreTask.Execute(THIS) THEN
+        //         THIS.Restore();
+        //     END_IF;
+        //     //****************************************
 
-            //*************CLEAR*DATA*****************
-            ClearResultDataTask.IsDisabled := RestoreTask.IsBusy() OR ReadTask.IsBusy();
-            IF ClearResultDataTask.StartTriggered() THEN
-                Status.Action.Id :=  UINT#100;
-            END_IF;            
-            Messenger.ActivateOnCondition(ULINT#100,ClearResultDataTask.IsBusy(), eAxoMessageCategory#Info);
-            Messenger.ActivateOnCondition(ULINT#101,ClearResultDataTask.IsDone(), eAxoMessageCategory#Info);
-            IF ClearResultDataTask.Execute(THIS) THEN
-                IF _progress = 0 THEN
-                    Status.Error.Id := UINT#0;
-                    TaskMessenger.Restore();
-                    THIS.CallTimers(FALSE);
-                    _progress := 300;
-                END_IF;
+        //     //*************CLEAR*DATA*****************
+        //     ClearResultDataTask.IsDisabled := RestoreTask.IsBusy() OR ReadTask.IsBusy();
+        //     IF ClearResultDataTask.StartTriggered() THEN
+        //         Status.Action.Id :=  UINT#100;
+        //     END_IF;            
+        //     Messenger.ActivateOnCondition(ULINT#100,ClearResultDataTask.IsBusy(), eAxoMessageCategory#Info);
+        //     Messenger.ActivateOnCondition(ULINT#101,ClearResultDataTask.IsDone(), eAxoMessageCategory#Info);
+        //     IF ClearResultDataTask.Execute(THIS) THEN
+        //         IF _progress = 0 THEN
+        //             Status.Error.Id := UINT#0;
+        //             TaskMessenger.Restore();
+        //             THIS.CallTimers(FALSE);
+        //             _progress := 300;
+        //         END_IF;
                 
-                IF _progress = 300 THEN
-                    AcquisitionControl.TriggerEnable := FALSE;
-                    AcquisitionControl.Trigger := FALSE;
-                    ResultsControl.ResultsAcknowledge := TRUE;
-                    Results.Id := UINT#0; 
-                    Results.Code := UINT#0; 
-                    Results.Extended := UINT#0; 
-                    Results.Length := UINT#0; 
+        //         IF _progress = 300 THEN
+        //             AcquisitionControl.TriggerEnable := FALSE;
+        //             AcquisitionControl.Trigger := FALSE;
+        //             ResultsControl.ResultsAcknowledge := TRUE;
+        //             Results.Id := UINT#0; 
+        //             Results.Code := UINT#0; 
+        //             Results.Extended := UINT#0; 
+        //             Results.Length := UINT#0; 
 
-                    FOR _index := 0 TO 245 DO
-                        ResultData.Data[_index] := BYTE#0;
-                    END_FOR;
-                    THIS.CallTimers(FALSE);
-                    _progress := 301;
-                END_IF;
+        //             FOR _index := 0 TO 245 DO
+        //                 ResultData.Data[_index] := BYTE#0;
+        //             END_FOR;
+        //             THIS.CallTimers(FALSE);
+        //             _progress := 301;
+        //         END_IF;
                 
-                IF _progress = 301 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#600, _infoTimer.output, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#600;
-                    END_IF;
-                    IF NOT ResultsStatus.ResultsAvailable THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 302;
-                    END_IF;
-                END_IF;
+        //         IF _progress = 301 THEN
+        //             TaskMessenger.ActivateOnCondition(ULINT#600, _infoTimer.output, eAxoMessageCategory#Warning);
+        //             IF _infoTimer.output THEN
+        //                 Status.Error.Id := UINT#600;
+        //             END_IF;
+        //             IF NOT ResultsStatus.ResultsAvailable THEN
+        //                 THIS.CallTimers(FALSE);
+        //                 _progress := 302;
+        //             END_IF;
+        //         END_IF;
                 
-                IF _progress = 302 THEN
-                    ResultsControl.ResultsAcknowledge := FALSE;
-                    ClearResultDataTask.DoneWhen(TRUE);
-                    THIS.CallTimers(FALSE);
-                    _progress := 0;
-                END_IF;
+        //         IF _progress = 302 THEN
+        //             ResultsControl.ResultsAcknowledge := FALSE;
+        //             ClearResultDataTask.DoneWhen(TRUE);
+        //             THIS.CallTimers(FALSE);
+        //             _progress := 0;
+        //         END_IF;
                 
-                THIS.CallTimers(TRUE);
+        //         THIS.CallTimers(TRUE);
                 
-                ClearResultDataTask.ThrowWhen(_errorTimer.output);
-                Status.Action.Id := TO_UINT(_progress);                
-            END_IF;
-            IF ClearResultDataTask.DoneReached() THEN
-                Status.Action.Id :=  UINT#101;
-                Status.Error.Id :=  UINT#0;
-            ELSIF ClearResultDataTask.ErrorOccured() THEN
-                Status.Action.Id :=  UINT#800;
-                Status.Error.Id  :=  UINT#800;
-            ELSIF ClearResultDataTask.AbortTriggered()THEN
-                Status.Action.Id :=  UINT#801;
-                Status.Error.Id  :=  UINT#801;
-            END_IF;            
-            Messenger.ActivateOnCondition(ULINT#800,ClearResultDataTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#801,ClearResultDataTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#102,ClearResultDataTask.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF ClearResultDataTask.RestoreTriggered() AND _progress >= 300 AND _progress <= 309  THEN
-                Status.Action.Id :=  UINT#102;
-                _progress := 0;
-            END_IF;
-            //****************************************
+        //         ClearResultDataTask.ThrowWhen(_errorTimer.output);
+        //         Status.Action.Id := TO_UINT(_progress);                
+        //     END_IF;
+        //     IF ClearResultDataTask.DoneReached() THEN
+        //         Status.Action.Id :=  UINT#101;
+        //         Status.Error.Id :=  UINT#0;
+        //     ELSIF ClearResultDataTask.ErrorOccured() THEN
+        //         Status.Action.Id :=  UINT#800;
+        //         Status.Error.Id  :=  UINT#800;
+        //     ELSIF ClearResultDataTask.AbortTriggered()THEN
+        //         Status.Action.Id :=  UINT#801;
+        //         Status.Error.Id  :=  UINT#801;
+        //     END_IF;            
+        //     Messenger.ActivateOnCondition(ULINT#800,ClearResultDataTask.HasError(), eAxoMessageCategory#Error);
+        //     Messenger.ActivateOnCondition(ULINT#801,ClearResultDataTask.IsAborted(), eAxoMessageCategory#Error);
+        //     Messenger.ActivateOnCondition(ULINT#102,ClearResultDataTask.RestoreTriggered() , eAxoMessageCategory#Error);
+        //     IF ClearResultDataTask.RestoreTriggered() AND _progress >= 300 AND _progress <= 309  THEN
+        //         Status.Action.Id :=  UINT#102;
+        //         _progress := 0;
+        //     END_IF;
+        //     //****************************************
 
-            //*************READ***********************
-            ReadTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearResultDataTask.IsBusy();
-            IF ReadTask.StartTriggered() THEN
-                Status.Action.Id :=  UINT#110;
-            END_IF;            
-            Messenger.ActivateOnCondition(ULINT#110,ReadTask.IsBusy(), eAxoMessageCategory#Info);
-            Messenger.ActivateOnCondition(ULINT#111,ReadTask.IsDone(), eAxoMessageCategory#Info);
-            IF ReadTask.Execute(THIS) THEN
-                IF _progress = 0 THEN
-                    Status.Error.Id := UINT#0;
-                    TaskMessenger.Restore();
-                    THIS.CallTimers(FALSE);
-                    IF ResultsStatus.ErrorDetected THEN
-                        _progress := 319;
-                    ELSE
-                        _progress := 310;
-                    END_IF;
-                END_IF;
+        //     //*************READ***********************
+        //     ReadTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearResultDataTask.IsBusy();
+        //     IF ReadTask.StartTriggered() THEN
+        //         Status.Action.Id :=  UINT#110;
+        //     END_IF;            
+        //     Messenger.ActivateOnCondition(ULINT#110,ReadTask.IsBusy(), eAxoMessageCategory#Info);
+        //     Messenger.ActivateOnCondition(ULINT#111,ReadTask.IsDone(), eAxoMessageCategory#Info);
+        //     IF ReadTask.Execute(THIS) THEN
+        //         IF _progress = 0 THEN
+        //             Status.Error.Id := UINT#0;
+        //             TaskMessenger.Restore();
+        //             THIS.CallTimers(FALSE);
+        //             IF ResultsStatus.ErrorDetected THEN
+        //                 _progress := 319;
+        //             ELSE
+        //                 _progress := 310;
+        //             END_IF;
+        //         END_IF;
 
-                IF _progress = 310 THEN
-                    AcquisitionControl.TriggerEnable := TRUE;
-                    AcquisitionControl.Trigger := FALSE;
-                    ResultsControl.EnableResultBuffering := FALSE;
-                    ResultsControl.ResultsAcknowledge := ResultsStatus.ResultsAvailable;
-                    TaskMessenger.ActivateOnCondition(ULINT#610, _infoTimer.output, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#610;
-                    END_IF;
-                    IF NOT ResultsStatus.ResultsAvailable THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 311;
-                    END_IF;
-                END_IF;
+        //         IF _progress = 310 THEN
+        //             AcquisitionControl.TriggerEnable := TRUE;
+        //             AcquisitionControl.Trigger := FALSE;
+        //             ResultsControl.EnableResultBuffering := FALSE;
+        //             ResultsControl.ResultsAcknowledge := ResultsStatus.ResultsAvailable;
+        //             TaskMessenger.ActivateOnCondition(ULINT#610, _infoTimer.output, eAxoMessageCategory#Warning);
+        //             IF _infoTimer.output THEN
+        //                 Status.Error.Id := UINT#610;
+        //             END_IF;
+        //             IF NOT ResultsStatus.ResultsAvailable THEN
+        //                 THIS.CallTimers(FALSE);
+        //                 _progress := 311;
+        //             END_IF;
+        //         END_IF;
                 
-                IF _progress = 311 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#611, _infoTimer.output, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#611;
-                    END_IF;
-                    IF AcquisitionStatus.TriggerReady THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 312;
-                    END_IF;
-                END_IF;
+        //         IF _progress = 311 THEN
+        //             TaskMessenger.ActivateOnCondition(ULINT#611, _infoTimer.output, eAxoMessageCategory#Warning);
+        //             IF _infoTimer.output THEN
+        //                 Status.Error.Id := UINT#611;
+        //             END_IF;
+        //             IF AcquisitionStatus.TriggerReady THEN
+        //                 THIS.CallTimers(FALSE);
+        //                 _progress := 312;
+        //             END_IF;
+        //         END_IF;
                 
-                IF _progress = 312 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#612, _infoTimer.output, eAxoMessageCategory#Warning);
-                    AcquisitionControl.Trigger := TRUE;
-                    IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#612;
-                    END_IF;
-                    IF AcquisitionStatus.TriggerAcknowledge THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 313;
-                    END_IF;
-                END_IF;
+        //         IF _progress = 312 THEN
+        //             TaskMessenger.ActivateOnCondition(ULINT#612, _infoTimer.output, eAxoMessageCategory#Warning);
+        //             AcquisitionControl.Trigger := TRUE;
+        //             IF _infoTimer.output THEN
+        //                 Status.Error.Id := UINT#612;
+        //             END_IF;
+        //             IF AcquisitionStatus.TriggerAcknowledge THEN
+        //                 THIS.CallTimers(FALSE);
+        //                 _progress := 313;
+        //             END_IF;
+        //         END_IF;
                 
-                IF _progress = 313 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#613, _infoTimer.output, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#613;
-                    END_IF;
-                    IF ResultsStatus.ResultsAvailable THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 314;
-                    END_IF;
-                END_IF;
+        //         IF _progress = 313 THEN
+        //             TaskMessenger.ActivateOnCondition(ULINT#613, _infoTimer.output, eAxoMessageCategory#Warning);
+        //             IF _infoTimer.output THEN
+        //                 Status.Error.Id := UINT#613;
+        //             END_IF;
+        //             IF ResultsStatus.ResultsAvailable THEN
+        //                 THIS.CallTimers(FALSE);
+        //                 _progress := 314;
+        //             END_IF;
+        //         END_IF;
                 
-                IF _progress = 314 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#614, Results.Length > TO_UINT(Config.ResultDataSize), eAxoMessageCategory#Error);
-                    IF Results.Code = UINT#0 OR Results.Length=UINT#0 OR Results.Length > TO_UINT(Config.ResultDataSize) THEN
-                        ReadTask.ThrowWhen(TRUE);
-                        IF Results.Length > TO_UINT(Config.ResultDataSize) THEN
-                            Status.Error.Id := UINT#614;
-                        END_IF;
-                    ELSE
-                        THIS.CallTimers(FALSE);
-                        _progress := 315;
-                    END_IF;
-                END_IF;
+        //         IF _progress = 314 THEN
+        //             TaskMessenger.ActivateOnCondition(ULINT#614, Results.Length > TO_UINT(Config.ResultDataSize), eAxoMessageCategory#Error);
+        //             IF Results.Code = UINT#0 OR Results.Length=UINT#0 OR Results.Length > TO_UINT(Config.ResultDataSize) THEN
+        //                 ReadTask.ThrowWhen(TRUE);
+        //                 IF Results.Length > TO_UINT(Config.ResultDataSize) THEN
+        //                     Status.Error.Id := UINT#614;
+        //                 END_IF;
+        //             ELSE
+        //                 THIS.CallTimers(FALSE);
+        //                 _progress := 315;
+        //             END_IF;
+        //         END_IF;
                 
-                IF _progress = 315 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#615, _infoTimer.output, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#615;
-                    END_IF;
+        //         IF _progress = 315 THEN
+        //             TaskMessenger.ActivateOnCondition(ULINT#615, _infoTimer.output, eAxoMessageCategory#Warning);
+        //             IF _infoTimer.output THEN
+        //                 Status.Error.Id := UINT#615;
+        //             END_IF;
 
-                    FOR _index := 0 TO (TO_INT(Results.Length) - INT#1) DO
-                        ResultData.Data[_index] := _data_in[_index + 8];
-                    END_FOR;
-                    FOR _index := TO_INT(Results.Length) TO 245 DO
-                        ResultData.Data[_index] := BYTE#0;
-                    END_FOR;
-                    ResultData.DataChanged := NOT ResultData.DataChanged ;
-                    _progress := 316;
-                END_IF;
+        //             FOR _index := 0 TO (TO_INT(Results.Length) - INT#1) DO
+        //                 ResultData.Data[_index] := _data_in[_index + 8];
+        //             END_FOR;
+        //             FOR _index := TO_INT(Results.Length) TO 245 DO
+        //                 ResultData.Data[_index] := BYTE#0;
+        //             END_FOR;
+        //             ResultData.DataChanged := NOT ResultData.DataChanged ;
+        //             _progress := 316;
+        //         END_IF;
                 
-                IF _progress = 316 THEN
-                    AcquisitionControl.Trigger := FALSE;
-                    ResultsControl.EnableResultBuffering := FALSE;
-                    ResultsControl.ResultsAcknowledge := TRUE;
-                    ReadTask.DoneWhen(TRUE);
-                    _progress := 0;
-                END_IF;
+        //         IF _progress = 316 THEN
+        //             AcquisitionControl.Trigger := FALSE;
+        //             ResultsControl.EnableResultBuffering := FALSE;
+        //             ResultsControl.ResultsAcknowledge := TRUE;
+        //             ReadTask.DoneWhen(TRUE);
+        //             _progress := 0;
+        //         END_IF;
                 
-                IF _progress = 319 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#619, _infoTimer.output, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#619;
-                    END_IF;
-                    AcquisitionControl.TriggerEnable :=FALSE;
-                    AcquisitionControl.Trigger := FALSE;
-                    ResultsControl.EnableResultBuffering := FALSE;
-                    ResultsControl.ResultsAcknowledge := FALSE;
-                    IF NOT AcquisitionStatus.TriggerReady THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 320;
-                    END_IF;
-                END_IF;
+        //         IF _progress = 319 THEN
+        //             TaskMessenger.ActivateOnCondition(ULINT#619, _infoTimer.output, eAxoMessageCategory#Warning);
+        //             IF _infoTimer.output THEN
+        //                 Status.Error.Id := UINT#619;
+        //             END_IF;
+        //             AcquisitionControl.TriggerEnable :=FALSE;
+        //             AcquisitionControl.Trigger := FALSE;
+        //             ResultsControl.EnableResultBuffering := FALSE;
+        //             ResultsControl.ResultsAcknowledge := FALSE;
+        //             IF NOT AcquisitionStatus.TriggerReady THEN
+        //                 THIS.CallTimers(FALSE);
+        //                 _progress := 320;
+        //             END_IF;
+        //         END_IF;
 
-                IF _progress = 320 THEN
-                    TaskMessenger.ActivateOnCondition(ULINT#620, _infoTimer.output, eAxoMessageCategory#Warning);
-                    IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#620;
-                    END_IF;
-                    AcquisitionControl.TriggerEnable :=TRUE;
-                    IF NOT ResultsStatus.ErrorDetected THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 321;
-                    END_IF;
-                END_IF;
+        //         IF _progress = 320 THEN
+        //             TaskMessenger.ActivateOnCondition(ULINT#620, _infoTimer.output, eAxoMessageCategory#Warning);
+        //             IF _infoTimer.output THEN
+        //                 Status.Error.Id := UINT#620;
+        //             END_IF;
+        //             AcquisitionControl.TriggerEnable :=TRUE;
+        //             IF NOT ResultsStatus.ErrorDetected THEN
+        //                 THIS.CallTimers(FALSE);
+        //                 _progress := 321;
+        //             END_IF;
+        //         END_IF;
 
-                IF _progress = 321 THEN
-                    AcquisitionControl.TriggerEnable :=FALSE;
-                    IF _infoTimer.elapsedTime >= T#1s THEN
-                        THIS.CallTimers(FALSE);
-                        _progress :=  310;
-                    END_IF;
-                END_IF;
+        //         IF _progress = 321 THEN
+        //             AcquisitionControl.TriggerEnable :=FALSE;
+        //             IF _infoTimer.elapsedTime >= T#1s THEN
+        //                 THIS.CallTimers(FALSE);
+        //                 _progress :=  310;
+        //             END_IF;
+        //         END_IF;
                 
-                THIS.CallTimers(TRUE);
+        //         THIS.CallTimers(TRUE);
                 
-                ReadTask.ThrowWhen(_errorTimer.output);
-                Status.Action.Id := TO_UINT(_progress);
-            END_IF;
-            IF ReadTask.DoneReached() THEN
-                Status.Action.Id :=  UINT#111;
-                Status.Error.Id :=  UINT#0;
-            ELSIF ReadTask.ErrorOccured() THEN
-                Status.Action.Id :=  UINT#810;
-                Status.Error.Id  :=  UINT#810;
-            ELSIF ReadTask.AbortTriggered()THEN
-                Status.Action.Id :=  UINT#811;
-                Status.Error.Id  :=  UINT#811;
-            END_IF;            
-            Messenger.ActivateOnCondition(ULINT#810,ReadTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#811,ReadTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#112,ReadTask.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF ReadTask.RestoreTriggered() AND _progress >= 300 AND _progress <= 329  THEN
-                Status.Action.Id :=  UINT#112;
-                _progress := 0;
-            END_IF;
-            //****************************************
-            THIS.UpdateOutputs();
-        END_METHOD    
+        //         ReadTask.ThrowWhen(_errorTimer.output);
+        //         Status.Action.Id := TO_UINT(_progress);
+        //     END_IF;
+        //     IF ReadTask.DoneReached() THEN
+        //         Status.Action.Id :=  UINT#111;
+        //         Status.Error.Id :=  UINT#0;
+        //     ELSIF ReadTask.ErrorOccured() THEN
+        //         Status.Action.Id :=  UINT#810;
+        //         Status.Error.Id  :=  UINT#810;
+        //     ELSIF ReadTask.AbortTriggered()THEN
+        //         Status.Action.Id :=  UINT#811;
+        //         Status.Error.Id  :=  UINT#811;
+        //     END_IF;            
+        //     Messenger.ActivateOnCondition(ULINT#810,ReadTask.HasError(), eAxoMessageCategory#Error);
+        //     Messenger.ActivateOnCondition(ULINT#811,ReadTask.IsAborted(), eAxoMessageCategory#Error);
+        //     Messenger.ActivateOnCondition(ULINT#112,ReadTask.RestoreTriggered() , eAxoMessageCategory#Error);
+        //     IF ReadTask.RestoreTriggered() AND _progress >= 300 AND _progress <= 329  THEN
+        //         Status.Action.Id :=  UINT#112;
+        //         _progress := 0;
+        //     END_IF;
+        //     //****************************************
+        //     THIS.UpdateOutputs();
+        // END_METHOD    
         
         ///<summary>
 		/// Custom component logic running before any other component logic.

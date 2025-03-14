@@ -1,0 +1,5 @@
+﻿<Project Sdk="Microsoft.Build.Traversal/4.1.0">
+	<ItemGroup>    
+    <ProjectReference Include="**\*.csproj"  Exclude="**\.apax\**;**\app_axopen_components_keyence_vision.csproj"/>     
+  </ItemGroup>
+</Project>

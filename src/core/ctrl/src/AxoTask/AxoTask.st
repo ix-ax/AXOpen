@@ -69,23 +69,13 @@ NAMESPACE AXOpen.Core
             ErrorDetails : STRING[254];
 
             ///<summary>
-            /// Enable error message when task is not calling cyclically .            
+            /// Provides some error messages.            
             ///</summary> 
-            {#ix-set:MessageText = "<#Cyclic Execute is not called.#>"}
-            {#ix-set:Help = "<#Check task calling in the code, task is not calling cyclically #>"}
-            _CyclicExecuteIsNotCalled : AXOpen.Messaging.Static.AxoMessenger;  
-            ///<summary>
-            /// Enable error message when the `Execute()` method is called more then once inside one PLC cycle.            
-            ///</summary> 
-            {#ix-set:MessageText = "<#Execute method is called more then once inside one PLC cycle.#>"}
-            {#ix-set:Help = "<#Check task calling in the code, task is called more then once.#>"}
-            _MultipleExecuteIsCalled : AXOpen.Messaging.Static.AxoMessenger;  
-            ///<summary>
-            /// Enable error message when the `Execute()` method is called more then once inside one PLC cycle.            
-            ///</summary> 
-            {#ix-set:MessageText = "<#Invalid Rtm.#>"}
-            {#ix-set:Help = "<#Check the inicialization of the Rtm.#>"}
-            _RtmInvalid : AXOpen.Messaging.Static.AxoMessenger;  
+            {#ix-set:AttributeName = "<#Messenger#>"}
+            {#ix-set:MessageText = "<#Message text#>"}
+            {#ix-set:Help = "<#Help text#>"}
+            {#ix-set:PlcTextList = "[1]:'<#Execute method is not called cyclically.#>':'<#Check task calling in the code, task is not calling cyclically.#>'[2]:'<#Execute method is called more then once inside one PLC cycle.#>':'<#Check task calling in the code, task is called more then once.#>'[3]:'<#Invalid Rtm.#>':'<#Check the inicialization of the Rtm.#>'"}
+            _messenger : AXOpen.Messaging.Static.AxoMessenger;
         END_VAR    
         
         VAR PRIVATE
@@ -94,9 +84,11 @@ NAMESPACE AXOpen.Core
             _taskTimer : AXOpen.Timers.OnDelayTimer;          
             _isFirstExecutionCycle   : BOOL;
             
-            _SuspendMultipleExecuteCallCheck : BOOL :=  FALSE;
-            _RemoteRestoreEnabled   : BOOL := TRUE;
-            _RemoteAbortEnabled     : BOOL := FALSE;
+            _suspendCyclicExecuteIsNotCalledCheck   : BOOL := FALSE;
+            _suspendMultipleExecuteCallCheck        : BOOL := FALSE;
+            _suspendRtmCheck                        : BOOL := FALSE;
+            _RemoteRestoreEnabled                   : BOOL := TRUE;
+            _RemoteAbortEnabled                     : BOOL := FALSE;
 
             _restoreCycleCount  :  ULINT;
             _doneCycleCount     :  ULINT;
@@ -106,6 +98,7 @@ NAMESPACE AXOpen.Core
             _resumeCycleCount   :  ULINT;
 
             _context            :  IAxoContext;
+            NULL_RTM : _NULL_RTM;
         END_VAR 
 
         ///<summary>
@@ -263,7 +256,7 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 Suspend : BOOL; // Input parameter to suspend or resume multiple execute check operations.
             END_VAR
-            _SuspendMultipleExecuteCallCheck := Suspend; // Assign the input value to the variable.
+            _suspendMultipleExecuteCallCheck := Suspend; // Assign the input value to the variable.
         END_METHOD
 
         ///<summary>
@@ -276,30 +269,72 @@ NAMESPACE AXOpen.Core
         /// It returns FALSE if multiple execute check operations are resumed, allowing normal processing to occur.
         ///</remarks>
         METHOD PUBLIC GetSuspendMultipleExecuteCallCheckState : BOOL
-            GetSuspendMultipleExecuteCallCheckState := _SuspendMultipleExecuteCallCheck; // Returns the current state of the flag.
+            GetSuspendMultipleExecuteCallCheckState := _suspendMultipleExecuteCallCheck; // Returns the current state of the flag.
         END_METHOD
 
-
-        VAR PRIVATE
-            _suspendExecuteCallAnalisis : BOOL;
-        END_VAR    
-
-        //<summary>
-        /// Sets the flag to suspend execute call analisis to prevent false positives in tasks where the cyclic execution is not required or mutliple execute calls are allowed.
-        ///</summary>       
-        METHOD PUBLIC SuspendExecuteAnalisis
-            _suspendExecuteCallAnalisis := TRUE;
-            _SuspendMultipleExecuteCallCheck := TRUE;
-        END_METHOD    
-
+        ///<summary>
+        /// Sets the flag to suspend or resume Rtm check.
+        ///</summary>
+        ///<param name="Suspend">A boolean value indicating whether Rtm check operations should be suspended (TRUE) or resumed (FALSE).</param>
+        ///<remarks>
+        /// This method allows dynamic control over the Rtm check operations.
+        /// When suspended (TRUE), the system stops processing Rtm check operations.
+        /// When resumed (FALSE), the system resumes processing Rtm check operations.
+        ///</remarks>
+        METHOD PUBLIC SetSuspendRtmCheck
+            VAR_INPUT
+                Suspend : BOOL; // Input parameter to suspend or resume Rtm check operations.
+            END_VAR
+            _suspendRtmCheck := Suspend; // Assign the input value to the variable.
+        END_METHOD
 
         ///<summary>
-        /// Returns true when the `Invoke() method of the task is called in this PLC cycle
-        /// or was called in the previous-one.
+        /// Retrieves the current state of the flag indicating whether Rtm check operations are suspended or resumed.
         ///</summary>
-        // METHOD PUBLIC IsInvokeCalled : BOOL
-        //     IsInvokeCalled := THIS.IsInvokeCalledInThisPlcCycle() OR THIS.WasInvokeCalledInPreviousPlcCycle();
-        // END_METHOD 
+        ///<returns>A boolean value indicating whether Rtm check operations are suspended (TRUE) or resumed (FALSE).</returns>
+        ///<remarks>
+        /// This method provides the current state of the flag controlling Rtm check operations.
+        /// It returns TRUE if Rtm check operations are suspended, indicating that processing is halted.
+        /// It returns FALSE if Rtm check operations are resumed, allowing normal processing to occur.
+        ///</remarks>
+        METHOD PUBLIC GetSuspendRtmCheckState : BOOL
+            GetSuspendRtmCheckState := _suspendRtmCheck; // Returns the current state of the flag.
+        END_METHOD
+
+        ///<summary>
+        /// Enables or disables the suspension of cyclic execute check operations.
+        ///</summary>
+        ///<param name="Suspend">
+        /// A boolean value that controls the execution state:
+        /// - TRUE: Suspends execute check operations, preventing further execution.
+        /// - FALSE: Resumes execute check operations, allowing normal execution.
+        ///</param>
+        ///<remarks>
+        /// This method allows dynamic control over cyclic execution checks.
+        /// Setting the flag to TRUE halts execution, while setting it to FALSE resumes normal operation.
+        ///</remarks>
+        METHOD PUBLIC SetSuspendCyclicExecuteIsNotCalledCheck
+            VAR_INPUT
+                Suspend : BOOL; // TRUE to suspend execution, FALSE to resume.
+            END_VAR
+            _suspendCyclicExecuteIsNotCalledCheck := Suspend; // Update the system state based on input.
+        END_METHOD
+
+        ///<summary>
+        /// Retrieves the current state of the cyclic execute check suspension flag.
+        ///</summary>
+        ///<returns>
+        /// A boolean value indicating whether execution checks are suspended:
+        /// - TRUE: Execution checks are suspended.
+        /// - FALSE: Execution checks are active.
+        ///</returns>
+        ///<remarks>
+        /// This method provides visibility into the current execution state.
+        /// It returns TRUE if execution is suspended and FALSE if execution is running normally.
+        ///</remarks>
+        METHOD PUBLIC GetSuspendCyclicExecuteIsNotCalledCheckState : BOOL
+            GetSuspendCyclicExecuteIsNotCalledCheckState := _suspendCyclicExecuteIsNotCalledCheck; // Return the current flag state.
+        END_METHOD
 
         METHOD PRIVATE IsNewInvokeCall : BOOL
             IF(_context = NULL) THEN
@@ -344,18 +379,7 @@ NAMESPACE AXOpen.Core
                 WasExecuteCalledInPreviousPlcCycle := FALSE;
             END_IF;     
         END_METHOD 
-        
-        METHOD PRIVATE UpdateState 
-            IF IsDisabled THEN 
-                IF Status <> eAxoTaskState#Error THEN
-                    Status := eAxoTaskState#Disabled; 
-                END_IF;
-            ELSE
-                IF  Status = eAxoTaskState#Disabled THEN
-                    Status := eAxoTaskState#Ready; 
-                END_IF;
-            END_IF;
-        END_METHOD        
+  
 
         ///<summary>
         /// Invokes this task.
@@ -364,6 +388,11 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 inParent    :   IAxoObject;
             END_VAR
+            VAR
+                _isNullContext : BOOL;
+                _cyclicExecuteIsNotCalled : BOOL;
+            END_VAR;
+
             SUPER.Run(inParent);
             
             IF(_context = NULL) THEN
@@ -386,7 +415,7 @@ NAMESPACE AXOpen.Core
                 END_IF;
             END_IF;
 
-            _CyclicExecuteIsNotCalled.Serve(THIS); 
+            _messenger.Serve(THIS); 
            
             IF Status = eAxoTaskState#Done AND THIS.IsNewInvokeCall() THEN
                 Status := eAxoTaskState#Ready; 
@@ -397,15 +426,17 @@ NAMESPACE AXOpen.Core
             // task should not be Invoked, if the execute method was not called in this or previous PLC cycle
             IF Status = eAxoTaskState#Ready THEN
                 IF (THIS.IsExecuteCalledInThisPlcCycle() OR THIS.WasExecuteCalledInPreviousPlcCycle()) THEN
-                    Status := eAxoTaskState#Kicking;      
-                    _context.GetLogger().Log('Task invoked', eLogLevel#Verbose, THIS);
-                  ELSE                                         
-                    IF(NOT _suspendExecuteCallAnalisis) THEN 
-                        _CyclicExecuteIsNotCalled.Activate(eAxoMessageCategory#ProgrammingError); 
+                        Status := eAxoTaskState#Kicking;      
+                        _context.GetLogger().Log('Task invoked', eLogLevel#Verbose, THIS);
+                ELSE                                         
+                    IF(NOT _suspendCyclicExecuteIsNotCalledCheck) THEN 
+                        _cyclicExecuteIsNotCalled := TRUE;
+                        Status := eAxoTaskState#Error;
+                        ErrorDetails := 'CyclicExecuteIsNotCalled'; 
                     END_IF;                     
-                 END_IF;     
+                END_IF;     
             END_IF;     
-
+            _messenger.ActivateOnCondition(ULINT#1,_cyclicExecuteIsNotCalled,eAxoMessageCategory#ProgrammingError);
             Invoke := THIS;
         END_METHOD    
 
@@ -422,6 +453,7 @@ NAMESPACE AXOpen.Core
             END_IF;    
             Status := eAxoTaskState#Ready; 
             ErrorDetails := '';   
+            _messenger.Restore();   //TODO check the behavior 
 
             IF IsDisabled THEN 
                 IF Status <> eAxoTaskState#Error THEN
@@ -467,6 +499,8 @@ NAMESPACE AXOpen.Core
             VAR 
                 _stateKicking : BOOL;
                 _openCycleCount : ULINT;
+                _multipleExecuteIsCalled : BOOL;
+                _rtmInvalid : BOOL;
             END_VAR
 
             SUPER.Run(inParent);                    
@@ -483,27 +517,39 @@ NAMESPACE AXOpen.Core
                 RemoteInvoke := FALSE; 
             END_IF;
             IF _RemoteRestoreEnabled THEN
-                IF( RemoteRestore) THEN THIS.Restore(); RemoteRestore := FALSE; END_IF;
+                IF( RemoteRestore) THEN 
+                    THIS.Restore(); 
+                    RemoteRestore := FALSE; 
+                END_IF;
             ELSE
                 RemoteRestore := FALSE;
             END_IF;
             IF _RemoteAbortEnabled THEN
-                IF( RemoteAbort ) THEN THIS.Abort(); RemoteAbort := FALSE; END_IF;
+                IF( RemoteAbort ) THEN 
+                    THIS.Abort(); 
+                    RemoteAbort := FALSE; 
+                END_IF;
             ELSE
                 RemoteAbort := FALSE;
             END_IF;
-            IF( RemoteResume) THEN THIS.Resume(); RemoteResume := FALSE; END_IF;
+            IF( RemoteResume) THEN 
+                THIS.Resume(); 
+                RemoteResume := FALSE; 
+            END_IF;
             
-            _MultipleExecuteIsCalled.Serve(THIS);
+            _messenger.Serve(THIS);
 
             _openCycleCount :=  _context.OpenCycleCount();
 
-            IF NOT _SuspendMultipleExecuteCallCheck THEN
+            IF NOT _suspendMultipleExecuteCallCheck THEN
                 IF _openCycleCountExecute = _openCycleCount THEN
-                    _MultipleExecuteIsCalled.Activate(eAxoMessageCategory#ProgrammingError);
+                    _multipleExecuteIsCalled := TRUE;
                     Status := eAxoTaskState#Error;
+                    ErrorDetails := 'MultipleExecuteIsCalled';   
                 END_IF;
             END_IF;
+            _messenger.ActivateOnCondition(ULINT#2,_multipleExecuteIsCalled,eAxoMessageCategory#ProgrammingError);
+
             _openCycleCountExecute := _openCycleCount;
         
                 
@@ -555,18 +601,22 @@ NAMESPACE AXOpen.Core
                 END_IF;
             END_IF;
 
-            THIS.UpdateState();
-
             Execute := Status = eAxoTaskState#Busy;
 
             _taskTimer.OnDelay(THIS,  Execute, LT#99999D);
 
-            IF(Execute) THEN Duration := _taskTimer.ElapsedTime;  END_IF;  
+            IF(Execute) THEN 
+                Duration := _taskTimer.ElapsedTime;  
+            END_IF;  
 
-            _RtmInvalid.Serve(THIS);
-            
-            IF(NOT _suspendExecuteCallAnalisis) THEN _RtmInvalid.ActivateOnCondition(_context.GetRtm() = NULL , eAxoMessageCategory#ProgrammingError); END_IF;                     
-
+            IF(NOT _suspendRtmCheck) THEN 
+                IF(_context.GetRtm() = NULL || _context.GetRtm().Elapsed() = NULL_RTM.Elapsed()) THEN
+                    _rtmInvalid := TRUE;
+                    Status := eAxoTaskState#Error;
+                    ErrorDetails := 'RtmInvalid'; 
+                END_IF;                     
+            END_IF;                
+            _messenger.ActivateOnCondition(ULINT#3,_rtmInvalid,eAxoMessageCategory#ProgrammingError);
         END_METHOD    
 
         // METHOD PRIVATE LogTask 
@@ -591,6 +641,7 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 HasErrorState : BOOL;
             END_VAR
+
             IF(HasErrorState) THEN
                 IF(_context = NULL) THEN
                     _context := THIS.GetContext();
@@ -783,7 +834,7 @@ NAMESPACE AXOpen.Core
             IF(_context = NULL) THEN
                 _context := THIS.GetContext();
             END_IF;      
-            AbortTriggered := _abortCycleCount >= _context.OpenCycleCount() - ULINT#1;
+            AbortTriggered := _abortCycleCount > ULINT#0 AND _abortCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
 
         ///<summary>
@@ -793,7 +844,7 @@ NAMESPACE AXOpen.Core
             IF(_context = NULL) THEN
                 _context := THIS.GetContext();
             END_IF;      
-            ResumeTriggered := _resumeCycleCount >= _context.OpenCycleCount() - ULINT#1;
+            ResumeTriggered := _resumeCycleCount> ULINT#0 AND _resumeCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
 
         ///<summary>
@@ -803,7 +854,7 @@ NAMESPACE AXOpen.Core
             IF(_context = NULL) THEN
                 _context := THIS.GetContext();
             END_IF;      
-            DoneReached := _doneCycleCount >= _context.OpenCycleCount() - ULINT#1;
+            DoneReached := _doneCycleCount > ULINT#0 AND _doneCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
     
         ///<summary>
@@ -813,7 +864,7 @@ NAMESPACE AXOpen.Core
             IF(_context = NULL) THEN
                 _context := THIS.GetContext();
             END_IF;      
-            ErrorOccured := _errorCycleCount >= _context.OpenCycleCount() - ULINT#1;
+            ErrorOccured := _errorCycleCount > ULINT#0 AND _errorCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
     
         ///<summary>
@@ -823,7 +874,7 @@ NAMESPACE AXOpen.Core
             IF(_context = NULL) THEN
                 _context := THIS.GetContext();
             END_IF;      
-            RestoreTriggered := _restoreCycleCount >= _context.OpenCycleCount() - ULINT#1;
+            RestoreTriggered := _restoreCycleCount > ULINT#0 AND _restoreCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
     
         ///<summary>
@@ -833,7 +884,7 @@ NAMESPACE AXOpen.Core
             IF(_context = NULL) THEN
                 _context := THIS.GetContext();
             END_IF;      
-            StartTriggered := _startCycleCount >= _context.OpenCycleCount() - ULINT#1;
+            StartTriggered := _startCycleCount > ULINT#0 AND _startCycleCount >= _context.OpenCycleCount() - ULINT#1;
         END_METHOD
     END_CLASS    
 END_NAMESPACE

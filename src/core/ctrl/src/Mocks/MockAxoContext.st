@@ -97,7 +97,7 @@ NAMESPACE AXOpen.Core.Dummies
         END_METHOD
 
         METHOD PUBLIC GetRtm : IAxoRtm
-            IF(_rtc <> NULL) THEN
+            IF(_rtm <> NULL) THEN
                 GetRtm := _rtm;
             ELSE
                 // TODO provide some message 
