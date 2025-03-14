@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
+    <ProjectReference Include="..\..\..\Security\src\AXOpen.Security\AXOpen.Security.csproj" />
     <ProjectReference Include="..\AXOpen.Data\inxton_axopen_data.csproj" />
   </ItemGroup>
 
