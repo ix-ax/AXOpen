@@ -3,8 +3,96 @@
 
 
 <div class="d-flex flex-row align-items-center gap-2">
-    CONTENT THAT WILL BE SETUP REQUESTED VIEW  IN GLOBAL
+
+
+    <button type="button" class="btn btn-secondary px-3 py-0"
+    @onclick="DistributedVM.TogleLocalEntityIdsInjection">
+        @if (DistributedVM.EnableInjectLocalIds)
+        {
+            @Localizer["Do not concat query"]
+        }
+        else
+        {
+            @Localizer["Concat query"]
+        }
+    </button>
+
+    @if (DistributedVM.EnableInjectLocalIds)
+    {
+        <span class="me-3">(@DistributedVM.TransmitedEntities.Count)</span>
+    }
+
+
+    @if (DistributedVM.InjectedEntities != null && DistributedVM.InjectedEntities.Count > 0)
+    {
+        <button type="button" class="btn btn-secondary px-3 py-0"
+        @onclick="() => DistributedVM.TogleExternalEntityIdsInjection()">
+
+            @if (DistributedVM.EnableInjectedExternalIds)
+            {
+                @Localizer["Disable Injected Ids"]
+            }
+            else
+            {
+                @Localizer["Enable injected Ids"]
+            }
+
+        </button>
+        <span>(@DistributedVM.InjectedEntities.Count)</span>
+
+    }
+
+    <button class="btn btn-secondary mx-2" name="advanceConfig" @onclick="()=>{AdvanceFilterConfig = !AdvanceFilterConfig;}">
+        @if (AdvanceFilterConfig)
+        {
+            @*  icons come from:a https://icon-sets.iconify.design/oi/ *@
+            <span>
+                <span class="oi oi-eject me-1" aria-hidden="true"></span>
+                <span>@Localizer["Hide advanced filter"]</span>
+            </span>
+        }
+        else
+        {
+            <span>
+                <span class="oi oi-cog me-1" aria-hidden="true"></span>
+                <span>@Localizer["Advanced filter"]</span>
+            </span>
+        }
+    </button>
 </div>
 
+
+@if (AdvanceFilterConfig)
+{
+    <AXOpen.Data.Query.DataExchangeQuery Exchange="@this.DistributedVM"></AXOpen.Data.Query.DataExchangeQuery>
+}
+
+
+@if (DistributedVM == null)
+{
+    <p>Initializing ...</p>
+}
+else
+{
+    if (DistributedVM.DataFragments != null)
+    {
+        <ul class="nav nav-tabs mb-3">
+            @foreach (var exchange in DistributedVM.DataFragments)
+            {
+                <li class="nav-item">
+                    <button type="button"
+                            class="nav-link @((DistributedVM?.SelectedManagerVm?.Model == exchange) ? "active" : "")"
+                            @onclick="async () => {
+                                await DistributedVM.SelectManager(exchange);
+                            }">
+                        @DistributedVM.SelectedManagerVm.RefUIData.AttributeName
+                    </button>
+                </li>
+            }
+        </ul>
+    }
+}
+
+<DataExchangeView Vm="@DistributedVM.SelectedManagerVm"> </DataExchangeView>
 
 

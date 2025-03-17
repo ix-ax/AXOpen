@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
+using Pocos.AXOpen.Data;
 using System.Globalization;
 
 namespace AXOpen.Data
@@ -36,9 +37,9 @@ namespace AXOpen.Data
         [Inject]
         public IDataExchangeConfigurationProvider? ConfigurationProvider { set; get; }
 
-        public List<IAxoDataExchange> DataFragments { set; get; }
+        public bool AdvanceFilterConfig { get; set; } = false;
 
-        public DistributedDataViewModel DistributedViewModel { set; get; }
+        public DistributedDataViewModel DistributedVM { set; get; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -51,24 +52,25 @@ namespace AXOpen.Data
                 GroupName = "default";
             }
 
-            if (DataFragments != null) this.DataFragments.Clear();
-
             if (DistributedExchangeService.Exchanges.ContainsKey(GroupName))
             {
+                IEnumerable<IAxoDataExchange> DataFragments;
+
                 if (DisplayOnePerDataType)
                 {
-                    this.DataFragments = DistributedExchangeService.GetMangersForGroup(GroupName);
+                    DataFragments = DistributedExchangeService.GetMangersForGroup(GroupName);
                 }
                 else
                 {
-                    this.DataFragments = DistributedExchangeService.Exchanges[GroupName];
+                    DataFragments = DistributedExchangeService.Exchanges[GroupName];
                 }
 
-                var firstManager = DataFragments.First();
+                if (DataFragments != null)
+                {
+                    this.DistributedVM = new DistributedDataViewModel(DataFragments, this.AlertService, this.Authentication);
+                    this.DistributedVM.StateHasChangedDelegate = StateHasChanged;
+                }
             }
-
-            this.DistributedViewModel = new DistributedDataViewModel();
         }
-
     }
 }

@@ -6,15 +6,30 @@ using AXSharp.Connector;
 using AXSharp.Presentation;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
+using Serilog.Core;
+using System.Collections.Frozen;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 
 namespace AXOpen.Data
 {
     public partial class DistributedDataViewModel : IDataExchangeQueryViewModel
     {
-        public DistributedDataViewModel(IEnumerable<IAxoDataExchange> dataFragments)
+        protected readonly IAlertService AlertService;
+
+        protected readonly AuthenticationStateProvider Authentication;
+
+        public DistributedDataViewModel(
+            IEnumerable<IAxoDataExchange> dataFragments,
+            IAlertService alertService,
+            AuthenticationStateProvider authentication
+            )
         {
             DataFragments = dataFragments;
+            AlertService = alertService;
+            Authentication = authentication;
+            InitializeViewModel(DataFragments.First());
         }
 
         #region IDataExchangeQueryViewModel
@@ -26,9 +41,17 @@ namespace AXOpen.Data
             if (_PlainerTypes == null)
             {
                 _PlainerTypes = new List<Type>();
-                foreach (var exchange in DataFragments)
+
+                if (DataFragments == null)
                 {
-                    _PlainerTypes.Add(exchange.GetPlainTypes().First());
+                    _PlainerTypes = new List<Type>();
+                }
+                else
+                {
+                    foreach (var exchange in DataFragments)
+                    {
+                        _PlainerTypes.Add(exchange.GetPlainTypes().First());
+                    }
                 }
             }
             return _PlainerTypes;
@@ -36,20 +59,156 @@ namespace AXOpen.Data
 
         public Task FillObservableRecordsAsync(PredicateContainer? predicates = null)
         {
-            throw new NotImplementedException();
+            List<List<string>> fragmentEntities = new();
+
+            Parallel.ForEach(DataFragments.Where(fragment => predicates.ContainsType(fragment.GetPlainTypes().First())), fragment =>
+            {
+                var ids = fragment.GetEntityIds(predicates).ToList();
+                lock (fragmentEntities)
+                {
+                    fragmentEntities.Add(ids);
+                }
+            });
+
+            List<string> commonEntities = fragmentEntities.Count > 1
+                ? fragmentEntities.Skip(1)
+                    .Aggregate(new HashSet<string>(fragmentEntities.First()), (common, next) =>
+                    {
+                        common.IntersectWith(next);
+                        return common;
+                    })
+                    .ToList()
+                : fragmentEntities.FirstOrDefault() ?? new List<string>();
+
+            LastFragmentQueryCount = commonEntities.Count;
+
+            EnableInjectLocalIds = true;
+            TransmitedEntities.Clear();
+            TransmitedEntities.AddRange(commonEntities);
+
+            if (this.SelectedManagerVm != null)
+            {
+                SelectedManagerVm.SetInjectedEntityIds(MergeInjectedEntities());
+                return this.SelectedManagerVm.FillObservableRecordsAsync(predicates);
+            }
+            else
+            {
+                return Task.CompletedTask;
+            }
         }
+
+        internal Action StateHasChangedDelegate { get; set; }
 
         public void InvokeStateHasChanged()
         {
-            throw new NotImplementedException();
+            if (this.StateHasChangedDelegate != null)
+            {
+                this.StateHasChangedDelegate.Invoke();
+            }
+
+            if (this.SelectedManagerVm != null)
+            {
+                this.SelectedManagerVm.InvokeStateHasChanged();
+            }
         }
 
         #endregion IDataExchangeQueryViewModel
 
+        public List<string> InjectedEntities { set; get; } = new();
+        public List<string> FragmentFileredEntities { set; get; } = new();
+
+        public List<string> TransmitedEntities { set; get; } = new();
+
+        public bool EnableInjectLocalIds { get; private set; } = false;
+
+        public bool EnableInjectedExternalIds { get; private set; } = true;
+
+        public async Task SelectManager(IAxoDataExchange exchange)
+        {
+            this.TransmitedEntities.Clear();
+
+            // collect previous filtered ids...
+            if (SelectedManagerVm != null)
+            {
+                this.TransmitedEntities.AddRange(SelectedManagerVm.EntityIdsIntersected);
+            }
+
+            if (exchange != null)
+            {
+                InitializeViewModel(exchange);
+
+                SelectedManagerVm.SetInjectedEntityIds(MergeInjectedEntities());
+
+                await SelectedManagerVm.FillObservableRecordsAsync();
+            }
+        }
+
+        protected void InitializeViewModel(IAxoDataExchange exchange)
+        {
+            if (this.SelectedManagerVm != null)
+            {
+                this.SelectedManagerVm = null;
+            }
+
+            SelectedManagerVm = new DataExchangeViewModel();
+            SelectedManagerVm.AuthenticationProvider = Authentication;
+            SelectedManagerVm.AlertDialogService = AlertService;
+
+            SelectedManagerVm.Model = exchange;
+        }
+
+        protected List<string> MergeInjectedEntities()
+        {
+            var ids = new List<string>();
+
+            if (this.EnableInjectedExternalIds && this.EnableInjectLocalIds)
+            {
+                ids.AddRange(this.InjectedEntities);
+                ids.AddRange(this.TransmitedEntities);
+                ids = ids.Distinct().ToList();
+            }
+            else if (!this.EnableInjectedExternalIds && this.EnableInjectLocalIds)
+            {
+                ids.AddRange(this.TransmitedEntities);
+                ids = ids.Distinct().ToList();
+            }
+            else if (this.EnableInjectedExternalIds && !this.EnableInjectLocalIds)
+            {
+                ids.AddRange(this.InjectedEntities);
+                ids = ids.Distinct().ToList();
+            }
+
+            return ids;
+        }
+
+        public async Task TogleLocalEntityIdsInjection()
+        {
+            EnableInjectLocalIds = !EnableInjectLocalIds;
+            await RefreshInjectedIds();
+        }
+
+        public async Task TogleExternalEntityIdsInjection()
+        {
+            EnableInjectedExternalIds = !EnableInjectedExternalIds;
+            await RefreshInjectedIds();
+        }
+
+        public async Task RefreshInjectedIds()
+        {
+            SelectedManagerVm.ReadAllEntityIdsForConcatQuery = EnableInjectLocalIds;
+
+            SelectedManagerVm.SetInjectedEntityIds(this.MergeInjectedEntities());
+
+            await SelectedManagerVm.FillObservableRecordsAsync();
+            SelectedManagerVm.InvokeStateHasChanged();
+        }
+
+        public DataExchangeViewModel SelectedManagerVm { get; set; }
+
         public int LastFragmentQueryCount { set; get; }
 
-        protected IEnumerable<IAxoDataExchange> DataFragments { get; private set; }
-        public PredicateContainer InjectedPredicateContainer { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IEnumerable<IAxoDataExchange> DataFragments { get; private set; }
+        public PredicateContainer InjectedPredicateContainer { set; get; }
 
         public Dictionary<string, List<IBrowsableDataObject>> GetRecords(PredicateContainer predicates,
             int limit, int skip)
@@ -81,10 +240,7 @@ namespace AXOpen.Data
 
             var records = GetRecords(toFind).ToList();
 
-            var orderedRecords = records.OrderBy(record => toFind.IndexOf(record.DataEntityId))
-                .ToList();
-
-            return orderedRecords;
+            return new Dictionary<string, List<IBrowsableDataObject>>();
         }
 
         public Dictionary<string, List<IBrowsableDataObject>> GetRecords(IEnumerable<string> identifiers)
