@@ -80,6 +80,10 @@
       "commandName": "Project",
       "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name components.kuka.robotics"
     },
+    "components.keyence.vision_app_run_only": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name components.keyence.vision"
+    },
     "components.mitsubishi.robotics_app_run_only": {
       "commandName": "Project",
       "commandLineArgs": "--skip-build --apps-run --single-app-run-folder-name components.mitsubishi.robotics"
