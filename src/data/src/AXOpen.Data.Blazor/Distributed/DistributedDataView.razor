@@ -8,14 +8,14 @@
         {
             @*  icons come from:a https://icon-sets.iconify.design/oi/ *@
             <span>
-                <span class="oi oi-cog me-1" aria-hidden="true"></span>
+                <i class="bi bi-funnel-fill"></i>
                 <span>@Localizer["Hide global filter"]</span>
             </span>
         }
         else
         {
             <span>
-                <span class="oi oi-cog me-1" aria-hidden="true"></span>
+                <i class="bi bi-funnel"></i>
                 <span>@Localizer["Global filter"]</span>
             </span>
         }
@@ -26,14 +26,14 @@
         @if (DistributedVM.EnableInjectLocalIds)
         {
 
-            <span class="oi oi-loop me-1" aria-hidden="true"></span>
+            <i class="bi bi-inboxes"></i>
             <span>@Localizer["Do not concat query"]</span>
             <span class="ms-2">@DistributedVM.TransmitedEntities.Count</span>
 
         }
         else
         {
-            <span class="oi oi-loop me-1" aria-hidden="true"></span>
+            <i class="bi bi-inbox"></i>
             <span>@Localizer["Concat query"]</span>
         }
     </button>
