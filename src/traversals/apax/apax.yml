@@ -30,7 +30,7 @@ dependencies:
   app_axopen.components.festo.drives: 0.0.0-dev.0
   '@inxton/axopen.components.festo.drives': 0.0.0-dev.0
   app_axopen_components_keyence_vision: 0.0.0-dev.0
-  '@inxton/axopen_components_keyence_vision': 0.0.0-dev.0
+  '@inxton/axopen.components.keyence.vision': 0.0.0-dev.0
   app_axopen.components.kuka.robotics: 0.0.0-dev.0
   '@inxton/axopen.components.kuka.robotics': 0.0.0-dev.0
   app_axopen.components.mitsubishi.robotics: 0.0.0-dev.0
@@ -61,8 +61,8 @@ dependencies:
   '@inxton/axopen.probers': 0.0.0-dev.0
   simatic1500-app: 0.0.0-dev.0
   '@inxton/axopen.simatic1500': 0.0.0-dev.0
-  app_apaxappname: 0.0.0-dev.0
-  '@inxton/apaxlibname': 0.0.0-dev.0
+  app_apaxappname_app_yml: 0.0.0-dev.0
+  '@inxton/apaxlibname_ctrl_yml': 0.0.0-dev.0
   timers-app: 0.0.0-dev.0
   '@inxton/axopen.timers': 0.0.0-dev.0
   utils-app: 0.0.0-dev.0
