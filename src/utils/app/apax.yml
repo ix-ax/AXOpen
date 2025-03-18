@@ -115,4 +115,4 @@ scripts:
     apax build
     apax test
   mm: |
-    apax mon -t $AXTARGET -f monitor.mon -C .\\certs\\plc_line\\plc_line.cer -c
+    apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously

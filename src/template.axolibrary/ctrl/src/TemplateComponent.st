@@ -3087,7 +3087,40 @@ NAMESPACE Template.Axolibrary
         /// Restores this component into intial state.        
         ///</summary>
         METHOD PUBLIC OVERRIDE Restore
-            Status.Action.Id :=  UINT#50;
+            VAR
+                _index : INT;
+            END_VAR
+            Status.Action.Id := UINT#0;
+            Status.Error.Id  := UINT#0;
+
+            _progress       :=   INT#0;
+            _returnValue    :=   WORD#0;
+
+            _data_out_1[0] := BYTE#0;
+            _data_out_2[0] := BYTE#0;
+            _data_out_2[1] := BYTE#0;
+
+            FOR _index := 0 TO 3 DO
+                _data_in[_index] := BYTE#0;
+                _data_out_4[_index] := BYTE#0;
+                _data_out_8[_index] := BYTE#0;
+                _data_out_255[_index] := BYTE#0;
+            END_FOR;
+
+            FOR _index := 4 TO 7 DO
+                _data_in[_index] := BYTE#0;
+                _data_out_8[_index] := BYTE#0;
+                _data_out_255[_index] := BYTE#0;
+            END_FOR;
+
+            FOR _index := 8 TO 254 DO
+                _data_in[_index] := BYTE#0;
+                _data_out_255[_index] := BYTE#0;
+            END_FOR;
+
+            _word           :=   WORD#0;
+            _dword          :=   DWORD#0;
+
 
             TemplateTask_10steps_1.Restore();
             TemplateTask_10steps_2.Restore();
@@ -3101,6 +3134,10 @@ NAMESPACE Template.Axolibrary
             TemplateTask_20steps_4.Restore();
             TemplateTask_20steps_5.Restore();
             TemplateTask_20steps_6.Restore();
+            HardwareDiagnosticsTask.Restore();
+
+            Status.Action.Id := UINT#50;
+            RestoreTask.DoneWhen(TRUE);
 
         END_METHOD        
 

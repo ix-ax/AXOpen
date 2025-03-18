@@ -62,6 +62,9 @@ NAMESPACE Template.Axolibrary
         END_VAR
 
         METHOD PRIVATE UseInSequencer   
+            IF Sequencer.GetContext().OpenCycleCount() = ULINT#0 THEN
+                Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
+            END_IF;
 
             Sequencer.Run(THIS);
             Sequencer.Open();

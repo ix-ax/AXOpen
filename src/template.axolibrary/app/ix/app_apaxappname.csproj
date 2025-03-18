@@ -43,6 +43,5 @@
 	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\inxton_axopen_timers.csproj" />
 	  <ProjectReference Include="..\..\..\simatic1500\ctrl\ix\inxton_axopen_simatic1500.csproj" />
 	  <ProjectReference Include="..\..\src\projname\inxton_apaxlibname.csproj" />
-	  <ProjectReference Include="app_appconnectorname.csproj" />
 	</ItemGroup>
 </Project>
