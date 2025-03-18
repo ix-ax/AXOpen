@@ -5,7 +5,7 @@ Templates:
     - Name: PLCName
       Value: PLCName
     - Name: IpAddress_X1
-      Value: 10.222.6.1/24
+      Value: 10.10.10.1/24
     - Name: ProfinetDeviceName_X1
       Value: plcname_profinet_interface_x1
     Content:
@@ -59,7 +59,7 @@ Templates:
         Addresses:
           Configured:
           - IPv4: '0.0.0.0/0'
-          - ProfinetDeviceName: 'plc_1.virtual communication interface'
+          - ProfinetDeviceName: "${PLCName}"
         Parameters:
           IECV22LLDPMode: False
       Ports:
@@ -156,9 +156,9 @@ Templates:
             - 'QueryDiagnostics'
             - 'FlashLed'
             # - 'AccessProtectionFailsafeAccess'
-            # - 'AccessProtectionFullAccess'
-            # - 'AccessProtectionHMIAccess'
-            # - 'AccessProtectionReadAccess'
+            - 'AccessProtectionFullAccess'
+            - 'AccessProtectionHMIAccess'
+            - 'AccessProtectionReadAccess'
             - 'OpcUAServerAccess'
             - 'OpcUAManageCertificates'
           - Name: 'WebServerAccessRole'

@@ -1,6 +1,6 @@
 Templates:
   Modules:
-  - Name: '6ES7516-3AP03-0AB0_v3_0'
+  - Name: '6ES7515-2AN03-0AB0_v3_1'
     Placeholders:
     - Name: PLCName
       Value: PLCName
@@ -19,11 +19,19 @@ Templates:
     Content:
       Name: "${PLCName}"
       TypeIdentifier:
-        OrderNumber: '6ES7 516-3AP03-0AB0'
-        Version: 'V3.0'
-      AccessProtection:
-        AccessLevel: 'FullAccess'
+        OrderNumber: '6ES7 515-2AN03-0AB0'
+        Version: 'V3.1'
       Services:
+      - Type: 'Syslog'
+        Enabled: False
+        Parameters:
+          Address: '0.0.0.0'
+          Port: 65535
+          # Possible values: None | TLSServerAndClientAuthentication | TLSOnlyServerAuthentication | UDP
+          TransportProtocolType: 'TLSServerAndClientAuthentication'
+          AutoAcceptServer: False
+          # TrustedServerCertificates:
+          # - 'TrustedSyslogServer.cer'
       - Type: 'OpcUaServer'
         Enabled: False
         Parameters:
@@ -32,7 +40,6 @@ Templates:
           - 'NoSecurity'
           - 'Basic256Sha256Sign'
           - 'Basic256Sha256SignEncrypt'
-          # GuestAuthentication: True
           # AlarmsAndConditionsAcknowledgeActive: False
           # AlarmsAndConditionsEnable: False
       - Type: 'WebServer'
@@ -85,6 +92,7 @@ Templates:
         # Possible values: 0 - Deactivated | 4 - Device | 1 - Project | 2 - Remotely
         PnDnsConfigNameResolve: 0
         SNMPActive: False
+        # SNMPReadOnlyActive: False
         SNMPReadOnlyCommunityName: 'public'
         SNMPReadWriteCommunityName: 'private'
         AdditionalInformation: ""
@@ -151,6 +159,7 @@ Templates:
         # HostnameConfiguration: 3
         # HostnameIdenticalToDeviceNameActive: False
         # Domain: ""
+        # AccessForLegacyHMI: null
       UserManagement:
         Users:
         # UserManagement parameters listed below are intended as a sample. It is essential to adjust these settings according to your specific requirements before using them in your project.

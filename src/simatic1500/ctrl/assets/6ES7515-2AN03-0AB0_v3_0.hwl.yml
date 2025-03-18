@@ -1,6 +1,6 @@
 Templates:
   Modules:
-  - Name: '6ES7516-3AP03-0AB0_v3_0'
+  - Name: '6ES7515-2AN03-0AB0_v3_0'
     Placeholders:
     - Name: PLCName
       Value: PLCName
@@ -19,10 +19,10 @@ Templates:
     Content:
       Name: "${PLCName}"
       TypeIdentifier:
-        OrderNumber: '6ES7 516-3AP03-0AB0'
+        OrderNumber: '6ES7 515-2AN03-0AB0'
         Version: 'V3.0'
       AccessProtection:
-        AccessLevel: 'FullAccess'
+        AccessLevel: 'NoAccess'
       Services:
       - Type: 'OpcUaServer'
         Enabled: False

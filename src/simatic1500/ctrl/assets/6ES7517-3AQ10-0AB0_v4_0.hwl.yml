@@ -5,19 +5,19 @@ Templates:
     - Name: PLCName
       Value: PLCName
     - Name: IpAddress_X1
-      Value: 10.222.6.1/24
+      Value: 10.10.10.1/24
     - Name: ProfinetDeviceName_X1
       Value: plcname_profinet_interface_x1
     - Name: IpAddress_X2
-      Value: 10.222.7.1/24
+      Value: 10.10.11.1/24
     - Name: ProfinetDeviceName_X2
       Value: plcname_profinet_interface_x2
     - Name: IpAddress_X3
-      Value: 10.222.8.1/24
+      Value: 10.10.12.1/24
     - Name: ProfinetDeviceName_X3
       Value: plcname_profinet_interface_x3
     Content:
-      Name: 'PLC_1'
+      Name: "${PLCName}"
       TypeIdentifier:
         OrderNumber: '6ES7 517-3AQ10-0AB0'
         Version: 'V4.0'
@@ -92,7 +92,7 @@ Templates:
         Addresses:
           Configured:
           - IPv4: '0.0.0.0/0'
-          - ProfinetDeviceName: 'plc_1.virtual communication interface'
+          - ProfinetDeviceName: "${PLCName}"
         Parameters:
           IECV22LLDPMode: False
       Ports:
@@ -195,9 +195,9 @@ Templates:
             - 'QueryDiagnostics'
             - 'FlashLed'
             # - 'AccessProtectionFailsafeAccess'
-            # - 'AccessProtectionFullAccess'
-            # - 'AccessProtectionHMIAccess'
-            # - 'AccessProtectionReadAccess'
+            - 'AccessProtectionFullAccess'
+            - 'AccessProtectionHMIAccess'
+            - 'AccessProtectionReadAccess'
             - 'OpcUAServerAccess'
             - 'OpcUAManageCertificates'
           - Name: 'WebServerAccessRole'

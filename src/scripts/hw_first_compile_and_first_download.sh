@@ -3,8 +3,8 @@ export RED='\033[0;31m'
 export YELLOW='\033[0;33m'
 export NC='\033[0m\r\n' # No Color+CRLF
 
-if [ "$#" -ne 4 ]; then
-	printf "${RED}Usage: $0 <NAMESPACE> <PLC_NAME> <PLC_IP_ADDRESS> <PASSWORD>.${NC}"
+if [ "$#" -ne 5 ]; then
+	printf "${RED}Usage: $0 <NAMESPACE> <PLC_NAME> <PLC_IP_ADDRESS> <USERNAME> <PASSWORD>.${NC}"
     exit 1
 fi
 
@@ -27,9 +27,15 @@ if ! $validate_script "$PLC_IP_ADDRESS"; then
     exit 1
 fi
 
-PASSWORD=$4
+USERNAME=$4
+if [ -z $USERNAME ]; then
+    printf "${RED}The USERNAME could not be an empty string.\r\n${NC}"
+    exit 1
+fi
+
+PASSWORD=$5
 if [ -z $PASSWORD ]; then
-	printf "${RED}The PASSWORD could not be an empty string.${NC}"
+    printf "${RED}The PASSWORD could not be an empty string.\r\n${NC}"
     exit 1
 fi
 
@@ -65,7 +71,7 @@ else
 	printf "${RED}Please check the details above.${NC}\n"
 	exit 1
 fi
-apax hwld -i bin/hwc/$PLC_NAME -t $PLC_IP_ADDRESS -M:$PASSWORD --accept-security-disclaimer -l Information
+apax hwld --input bin/hwc/$PLC_NAME --target $PLC_IP_ADDRESS --master-password $PASSWORD --accept-security-disclaimer --log Information
 if [[ $? -eq 0 ]]; then
 	printf "${GREEN}Hardware configuration has been succesfully downloaded.${NC}"
 else
@@ -74,7 +80,7 @@ else
 	exit 1
 fi
 certfile="./certs/$PLC_NAME/$PLC_NAME.cer" 
-apax plc-cert -t $PLC_IP_ADDRESS -o $certfile
+apax plc-cert --targetIP $PLC_IP_ADDRESS --output-file $certfile
 if [[ $? -eq 0 ]]; then
 	printf "${GREEN}Security  certificate has been succesfully uploaded.${NC}"
 else

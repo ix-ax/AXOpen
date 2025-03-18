@@ -1,4 +1,4 @@
-name: "@inxton/axopen_components_keyence_vision"
+name: "@inxton/axopen.components.keyence.vision"
 version: '0.0.0-dev.0'
 type: lib
 targets:

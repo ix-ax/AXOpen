@@ -5,15 +5,15 @@ Templates:
     - Name: PLCName
       Value: PLCName
     - Name: IpAddress_X1
-      Value: 10.222.6.1/24
+      Value: 10.10.10.1/24
     - Name: ProfinetDeviceName_X1
       Value: plcname_profinet_interface_x1
     - Name: IpAddress_X2
-      Value: 10.222.7.1/24
+      Value: 10.10.11.1/24
     - Name: ProfinetDeviceName_X2
       Value: plcname_profinet_interface_x2
     - Name: IpAddress_X3
-      Value: 10.222.8.1/24
+      Value: 10.10.12.1/24
     - Name: ProfinetDeviceName_X3
       Value: plcname_profinet_interface_x3
     Content:
@@ -198,9 +198,9 @@ Templates:
             - 'QueryDiagnostics'
             - 'FlashLed'
             # - 'AccessProtectionFailsafeAccess'
-            # - 'AccessProtectionFullAccess'
-            # - 'AccessProtectionHMIAccess'
-            # - 'AccessProtectionReadAccess'
+            - 'AccessProtectionFullAccess'
+            - 'AccessProtectionHMIAccess'
+            - 'AccessProtectionReadAccess'
             - 'OpcUAServerAccess'
             - 'OpcUAManageCertificates'
           - Name: 'WebServerAccessRole'

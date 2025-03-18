@@ -1,6 +1,6 @@
 Templates:
   Modules:
-  - Name: '6ES7516-3AP03-0AB0_v3_0'
+  - Name: '6ES7513-1AM03-0AB0_v3_0'
     Placeholders:
     - Name: PLCName
       Value: PLCName
@@ -8,21 +8,13 @@ Templates:
       Value: 10.10.10.1/24
     - Name: ProfinetDeviceName_X1
       Value: plcname_profinet_interface_x1
-    - Name: IpAddress_X2
-      Value: 10.10.11.1/24
-    - Name: ProfinetDeviceName_X2
-      Value: plcname_profinet_interface_x2
-    - Name: IpAddress_X3
-      Value: 10.10.12.1/24
-    - Name: ProfinetDeviceName_X3
-      Value: plcname_profinet_interface_x3
     Content:
       Name: "${PLCName}"
       TypeIdentifier:
-        OrderNumber: '6ES7 516-3AP03-0AB0'
+        OrderNumber: '6ES7 513-1AM03-0AB0'
         Version: 'V3.0'
       AccessProtection:
-        AccessLevel: 'FullAccess'
+        AccessLevel: 'NoAccess'
       Services:
       - Type: 'OpcUaServer'
         Enabled: False
@@ -50,21 +42,9 @@ Templates:
           OverwriteDeviceNames: False
           # Possible values: 250000 | 375000 | 500000 | 625000 | 750000 | 875000 | 1000000 | 1125000 | 1250000 | 1375000 | 1500000 | 1625000 | 1750000 | 1875000 | 2000000 | 2125000 | 2250000 | 2375000 | 2500000 | 2625000 | 2750000 | 2875000 | 3000000 | 3125000 | 3250000 | 3375000 | 3500000 | 3625000 | 3750000 | 3875000 | 4000000
           PnSendClock: 1000000
-          UseWebServerForInterface: True
+          UseWebServerForInterface: False
           # Possible values: 0 - Disabled | 1 - SetServersAtDevice | 2 - SetServersInProject | 3 - SetServersRemotely
           TimeSynchronizationNtpV2: 0
-          IECV22LLDPMode: False
-      - Name: profinet_x2
-        Label: X2
-        Addresses:
-          Configured:
-          - IPv4: "${IpAddress_X2}"
-          - ProfinetDeviceName:  "${ProfinetDeviceName_X2}"
-        Parameters:
-          OverwriteDeviceNames: False
-          PnSendClock: 1000000
-          UseWebServerForInterface: False
-          # TimeSynchronizationNtpV2: 0
           IECV22LLDPMode: False
       - Name: 'Virtual_communication_interface'
         Label: 'W1'
@@ -79,8 +59,6 @@ Templates:
         Label: 'X1 P1'
       - Name: 'Port_2'
         Label: 'X1 P2'
-      - Name: 'Port_3'
-        Label: 'X2 P1'
       Parameters:
         # Possible values: 0 - Deactivated | 4 - Device | 1 - Project | 2 - Remotely
         PnDnsConfigNameResolve: 0
