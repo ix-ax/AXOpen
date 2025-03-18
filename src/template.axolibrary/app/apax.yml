@@ -1,4 +1,4 @@
-name: "app_apaxappname"
+name: "app_apaxappname_app_yml"
 version: '0.0.0-dev.0'
 type: app
 targets:
@@ -9,7 +9,7 @@ variables:
     - "--debug" # Generate debug information for target "1500"
   # Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build. =>
   PLC_NAME: "plc_line"
-  DEFAULT_NAMESPACE: "app_apaxappname"
+  DEFAULT_NAMESPACE: "Template.Axolibrary"
   AXTARGET: 10.10.10.120
   AXTARGETPLATFORMINPUT: .\bin\1500\
   AX_USERNAME: "adm"
@@ -23,7 +23,7 @@ catalogs:
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
-  "@inxton/apaxlibname": '0.0.0-dev.0'
+  "@inxton/apaxlibname_ctrl_yml": '0.0.0-dev.0'
   "@inxton/ax.axopen.app": '0.0.0-dev.0'
   "@inxton/axopen.simatic1500": '0.0.0-dev.0'
 installStrategy: strict

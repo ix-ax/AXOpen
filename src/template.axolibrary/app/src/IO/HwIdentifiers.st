@@ -1,4 +1,4 @@
-NAMESPACE app_apaxappname
+NAMESPACE Template.Axolibrary
     TYPE
         HwIdentifiers : WORD
         (

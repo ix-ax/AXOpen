@@ -57,6 +57,14 @@
       "fileRename": "librarytemplate",
       "description": "A value derived from the 'axlibname' prop, used to rename librarytemplate"
     }, 
+    "apaxlibname_ctrl_yml": {
+      "type": "derived",
+      "valueSource": "projname",
+      "valueTransform": "ConvertToLower",
+      "datatype": "text",
+      "defaultValue": "apaxlibname_ctrl_yml",
+      "replaces": "apaxlibname_ctrl_yml"
+    },   
     "apaxlibname": {
       "type": "derived",
       "valueSource": "projname",
@@ -65,6 +73,14 @@
       "defaultValue": "apaxlibname",
       "replaces": "apaxlibname"
     },   
+    "apaxappname_app_yml": {
+      "type": "derived",
+      "valueSource": "projname",
+      "valueTransform": "ConvertToLower",
+      "datatype": "text",
+      "defaultValue": "apaxappname_app_yml",
+      "replaces": "apaxappname_app_yml"
+    },  
     "apaxappname": {
       "type": "derived",
       "valueSource": "projname",
