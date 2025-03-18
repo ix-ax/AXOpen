@@ -382,6 +382,36 @@ namespace AXOpen.Data.Query
             }
         }
 
+        private async Task RemoveItemFromHistory()
+        {
+            var updatename = "";
+
+            try
+            {
+                var existingConfig = await ProtectedLocalStorage.GetAsync<QuerySortHistory>(this.StorageKey);
+
+                if (existingConfig.Success)
+                {
+                    History = existingConfig.Value;
+
+                    var element = History.Items.Where(t => t.Name == CurrentQuery.Name).FirstOrDefault();
+
+                    if (element != null)
+                    {
+                        History.Items.Remove(element);
+
+                        await ProtectedLocalStorage.SetAsync(this.StorageKey, History);
+                        await LoadQueryHistoryData();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         private void SelectlElementFromHistory(string name)
         {
             var newItem = History.Items.Where(t => t.Name == name).First();
