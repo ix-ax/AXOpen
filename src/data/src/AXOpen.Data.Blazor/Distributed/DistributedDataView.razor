@@ -1,64 +1,60 @@
 ﻿@namespace AXOpen.Data
 @using System.Reflection
 
-
 <div class="d-flex flex-row align-items-center gap-2">
 
-
-    <button type="button" class="btn btn-secondary px-3 py-0"
-    @onclick="DistributedVM.TogleLocalEntityIdsInjection">
-        @if (DistributedVM.EnableInjectLocalIds)
-        {
-            @Localizer["Do not concat query"]
-        }
-        else
-        {
-            @Localizer["Concat query"]
-        }
-    </button>
-
-    @if (DistributedVM.EnableInjectLocalIds)
-    {
-        <span class="me-3">(@DistributedVM.TransmitedEntities.Count)</span>
-    }
-
-
-    @if (DistributedVM.InjectedEntities != null && DistributedVM.InjectedEntities.Count > 0)
-    {
-        <button type="button" class="btn btn-secondary px-3 py-0"
-        @onclick="() => DistributedVM.TogleExternalEntityIdsInjection()">
-
-            @if (DistributedVM.EnableInjectedExternalIds)
-            {
-                @Localizer["Disable Injected Ids"]
-            }
-            else
-            {
-                @Localizer["Enable injected Ids"]
-            }
-
-        </button>
-        <span>(@DistributedVM.InjectedEntities.Count)</span>
-
-    }
-
-    <button class="btn btn-secondary mx-2" name="advanceConfig" @onclick="()=>{AdvanceFilterConfig = !AdvanceFilterConfig;}">
+    <button class="btn btn-secondary px-1 py-1" name="advanceConfig" @onclick="()=>{AdvanceFilterConfig = !AdvanceFilterConfig;}">
         @if (AdvanceFilterConfig)
         {
             @*  icons come from:a https://icon-sets.iconify.design/oi/ *@
             <span>
-                <span class="oi oi-eject me-1" aria-hidden="true"></span>
-                <span>@Localizer["Hide advanced filter"]</span>
+                <span class="oi oi-cog me-1" aria-hidden="true"></span>
+                <span>@Localizer["Hide global filter"]</span>
             </span>
         }
         else
         {
             <span>
                 <span class="oi oi-cog me-1" aria-hidden="true"></span>
-                <span>@Localizer["Advanced filter"]</span>
+                <span>@Localizer["Global filter"]</span>
             </span>
         }
     </button>
+
+    <button type="button" class="btn btn-secondary px-1 py-1"
+    @onclick="DistributedVM.TogleLocalEntityIdsInjection">
+        @if (DistributedVM.EnableInjectLocalIds)
+        {
+
+            <span class="oi oi-loop me-1" aria-hidden="true"></span>
+            <span>@Localizer["Do not concat query"]</span>
+            <span class="ms-2">@DistributedVM.TransmitedEntities.Count</span>
+
+        }
+        else
+        {
+            <span class="oi oi-loop me-1" aria-hidden="true"></span>
+            <span>@Localizer["Concat query"]</span>
+        }
+    </button>
+        
+
+    @if (DistributedVM.InjectedEntities != null && DistributedVM.InjectedEntities.Count > 0)
+    {
+        <button type="button" class="btn btn-secondary px-1 py-1"
+                @onclick="() => DistributedVM.TogleExternalEntityIdsInjection()">
+
+            @if (DistributedVM.EnableInjectedExternalIds)
+            {
+                 <span> @Localizer["Disable Injected Ids"]</span>
+                 <span>(@DistributedVM.InjectedEntities.Count)</span>
+            }
+            else
+            {
+                <span>@Localizer["Enable injected Ids"]</span>
+            }
+        </button>
+    }
 </div>
 
 
@@ -77,18 +73,16 @@ else
     if (DistributedVM.DataFragments != null)
     {
         <ul class="nav nav-tabs mb-3">
-            @foreach (var exchange in DistributedVM.DataFragments)
-            {
-                <li class="nav-item">
-                    <button type="button"
-                            class="nav-link @((DistributedVM?.SelectedManagerVm?.Model == exchange) ? "active" : "")"
-                            @onclick="async () => {
-                                await DistributedVM.SelectManager(exchange);
-                            }">
-                        @DistributedVM.SelectedManagerVm.RefUIData.AttributeName
-                    </button>
-                </li>
-            }
+        @foreach (var exchange in DistributedVM.DataFragments)
+        {
+            <li class="nav-item">
+                <button type="button"
+                        class="nav-link @((DistributedVM?.SelectedManagerVm?.Model == exchange) ? "active" : "")"
+                        @onclick="async () => {await DistributedVM.SelectManager(exchange);}">
+                    @DistributedVM.SelectedManagerVm.RefUIData.AttributeName
+                </button>
+            </li>
+        }
         </ul>
     }
 }
