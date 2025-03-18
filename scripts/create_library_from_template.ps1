@@ -26,10 +26,14 @@ if (Test-Path "..\src") {
 
 dotnet new install .\template.axolibrary\ --force
 
-$FolderNameApp = ".\template.axolibrary\app\.apax"
-$FolderNameCtrl = ".\template.axolibrary\ctrl\.apax"
-Remove-Item $FolderNameApp -r -force -ErrorAction Ignore
-Remove-Item $FolderNameCtrl -r -force -ErrorAction Ignore
+$item = ".\template.axolibrary\app\.apax"
+Remove-Item $item -r -force -ErrorAction Ignore
+$item = ".\template.axolibrary\ctrl\.apax"
+Remove-Item $item -r -force -ErrorAction Ignore
+$item = ".\template.axolibrary\app\apax-lock.json"
+Remove-Item $item -r -force -ErrorAction Ignore
+$item = ".\template.axolibrary\ctrl\apax-lock.json"
+Remove-Item $item -r -force -ErrorAction Ignore
 
 
 dotnet new axolibrary -o $_outputDirectory -p $_projectNamespace
@@ -38,15 +42,13 @@ if (Test-Path $_outputDirectory) {
     Set-Location $_outputDirectory
 }
 
-#Remove source items
-$item = ".\app\ix\app_apaxappname.csproj"
-Remove-Item $item -r -force -ErrorAction Ignore
-$item = ".\src\"+ $_projectNamespace + "\inxton_apaxlibname.csproj"
-Remove-Item $item -r -force -ErrorAction Ignore
-$item = ".\app\apax-lock.json"
-Remove-Item $item -r -force -ErrorAction Ignore
-$item = ".\ctrl\apax-lock.json"
-Remove-Item $item -r -force -ErrorAction Ignore
+#Rename items
+$item_old = ".\app\ix\app_apaxappname.csproj"
+$item_new = "app_" + $_projectNamespace.ToLower().Replace(".","_") + ".csproj"
+Rename-Item -Path $item_old -NewName $item_new -Force -ErrorAction Ignore
+$item_old = ".\src\"+ $_projectNamespace + "\inxton_apaxlibname.csproj"
+$item_new = "inxton_"+ $_projectNamespace.ToLower().Replace(".","_") + ".csproj"
+Rename-Item -Path $item_old -NewName $item_new -Force -ErrorAction Ignore
 
 Set-Location app
 apax clean
