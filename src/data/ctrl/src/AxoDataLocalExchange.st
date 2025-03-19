@@ -6,9 +6,9 @@ NAMESPACE AXOpen.Data
     /// </summary>
     {S7.extern=ReadWrite}
     CLASS PUBLIC ABSTRACT AxoDataLocalExchange EXTENDS AXOpen.Core.AxoObject IMPLEMENTS IAxoDataExchange                 
-        VAR  PROTECTED                              
-            operation : eCrudOperation;                              
-            dataExchangeTask : AxoTask; 
+        VAR  PUBLIC                              
+            dataExchangeTask : AxoDataCrudTask; 
+            operation : eCrudOperation;
         END_VAR
                                                            
         METHOD PUBLIC ABSTRACT Create : IAxoTaskState
