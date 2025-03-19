@@ -29,6 +29,37 @@
       "replaces": "projname",
       "fileRename" : "projname"
     },    
+    "inxton_apaxlibname_csproj": {
+      "type": "parameter",
+      "description": "library dotnet twin csproj name",
+      "datatype": "text",
+      "defaultValue": "inxton_apaxlibname.csproj",
+      "replaces": "inxton_apaxlibname.csproj"
+    },    
+    "app_apaxappname_csproj": {
+      "type": "parameter",
+      "description": "application dotnet twin csproj name",
+      "datatype": "text",
+      "defaultValue": "app_apaxappname.csproj",
+      "replaces": "app_apaxappname.csproj"
+    },    
+    "apaxlibname": {
+      "type": "derived",
+      "valueSource": "projname",
+      "valueTransform": "ConvertToLower",
+      "datatype": "text",
+      "defaultValue": "apaxlibname",
+      "replaces": "apaxlibname"
+    },  
+    "namespace": {
+      "type": "derived",
+      "valueSource": "projname",
+      "valueTransform": "notTransform",
+      "datatype": "text",
+      "defaultValue": "Template.Axolibrary",
+      "replaces": "Template.Axolibrary"
+    }, 
+
     "axlibname":{
       "type": "generated",
       "generator": "casing",
@@ -39,14 +70,9 @@
       "defaultValue": "axolib",
       "replaces": "axolib"
     },
-    "namespace": {
-      "type": "derived",
-      "valueSource": "projname",
-      "valueTransform": "notTransform",
-      "datatype": "text",
-      "defaultValue": "Template.Axolibrary",
-      "replaces": "Template.Axolibrary"
-    }, 
+
+
+
     "name": {
       "type": "derived",
       "valueSource": "axlibname",
@@ -57,18 +83,20 @@
       "fileRename": "librarytemplate",
       "description": "A value derived from the 'axlibname' prop, used to rename librarytemplate"
     }, 
-    "apaxlibname": {
+
+ 
+    "apaxappname.csproj": {
       "type": "derived",
       "valueSource": "projname",
-      "valueTransform": "ConvertToLowerAndReplaceTheDots",
+      "valueTransform": "ConvertToLowerReplaceTheDotsAndAppendCsproj",
       "datatype": "text",
-      "defaultValue": "apaxlibname",
-      "replaces": "apaxlibname"
-    },   
+      "defaultValue": "apaxappname.csproj",
+      "replaces": "apaxappname.csproj"
+    },  
     "apaxappname": {
       "type": "derived",
       "valueSource": "projname",
-      "valueTransform": "ConvertToLowerAndReplaceTheDots",
+      "valueTransform": "ConvertToLower",
       "datatype": "text",
       "defaultValue": "apaxappname",
       "replaces": "apaxappname"
@@ -146,7 +174,30 @@
         "ConvertToLower",
         "ReplaceDots"
       ]
+    },
+    "ConvertToLowerReplaceTheDotsAndAppendCsproj": {
+      "identifier": "chain",
+      "steps": [
+        "ConvertToLowerAndReplaceTheDots",
+        "AppendCsproj"
+      ]
+    },    
+    "AppendCsproj": {
+      "identifier": "postfix",
+      "postfix": ".csproj"
+    },
+    "AddInxtonPrefix": {
+      "identifier": "prefix",
+      "prefix": "inxton_"
+    },
+    "AddInxtonPrefixConvertToLowerReplaceTheDotsAndAppendCsproj": {
+      "identifier": "chain",
+      "steps": [
+        "ConvertToLowerAndReplaceTheDots",
+        "AddInxtonPrefix",
+        "AppendCsproj"
+      ]
     }
-
   } 
 }
+

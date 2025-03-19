@@ -23,7 +23,7 @@ catalogs:
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
-  "@inxton/apaxlibname_ctrl_yml": '0.0.0-dev.0'
+  "@inxton/apaxlibname": '0.0.0-dev.0'
   "@inxton/ax.axopen.app": '0.0.0-dev.0'
   "@inxton/axopen.simatic1500": '0.0.0-dev.0'
 installStrategy: strict

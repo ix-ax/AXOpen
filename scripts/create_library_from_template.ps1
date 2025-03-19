@@ -15,7 +15,12 @@ $_formattedParts = $_namespaceParts | ForEach-Object {
 }
 $_projectNamespace = "AXOpen." + ($_formattedParts -join '.')
 
+$_inxton_apaxlibname_csproj = "inxton_axopen_" + ($_outputDirectory -replace "\.", "_") + ".csproj" 
+$_app_apaxappname_csproj = "app_axopen_" + ($_outputDirectory -replace "\.", "_") + ".csproj" 
+
 write-host "Creating new library template in folder src\$_outputDirectory with name $_projectNamespace" 
+write-host "inxton_apaxlibname_csproj name: $_inxton_apaxlibname_csproj" 
+write-host "app_apaxappname_csproj name: $_app_apaxappname_csproj" 
 write-host "-----------------------------------------------------------" 
 if (Test-Path ".\src") {
     Set-Location .\src
@@ -36,25 +41,21 @@ $item = ".\template.axolibrary\ctrl\apax-lock.json"
 Remove-Item $item -r -force -ErrorAction Ignore
 
 
-dotnet new axolibrary -o $_outputDirectory -p $_projectNamespace
+dotnet new axolibrary -o $_outputDirectory --projname $_projectNamespace --inxton_apaxlibname_csproj $_inxton_apaxlibname_csproj --app_apaxappname_csproj $_app_apaxappname_csproj --force
+
 
 if (Test-Path $_outputDirectory) {
     Set-Location $_outputDirectory
 }
 
 #Rename items
-$item_old = ".\app\ix\app_apaxappname.csproj"
-$item_new = "app_" + $_projectNamespace.ToLower().Replace(".","_") + ".csproj"
-Rename-Item -Path $item_old -NewName $item_new -Force -ErrorAction Ignore
-$item_old = ".\src\"+ $_projectNamespace + "\inxton_apaxlibname.csproj"
-$item_new = "inxton_"+ $_projectNamespace.ToLower().Replace(".","_") + ".csproj"
-Rename-Item -Path $item_old -NewName $item_new -Force -ErrorAction Ignore
+$item = ".\app\ix\app_apaxappname.csproj"
+Rename-Item -Path $item -NewName $_app_apaxappname_csproj -Force -ErrorAction Ignore
+$item = ".\src\"+ $_projectNamespace + "\inxton_apaxlibname.csproj"
+Rename-Item -Path $item -NewName $_inxton_apaxlibname_csproj -Force -ErrorAction Ignore
 
-#Remove items
-$item = ".\app\ix\app_apaxappname_app_yml.csproj"
-Remove-Item -Path $item -Force -ErrorAction Ignore
-$item = ".\src\"+ $_projectNamespace + "\inxton_apaxlibname_ctrl_yml.csproj"
-Remove-Item -Path $item -Force -ErrorAction Ignore
+$item = ".\src\"+ $_projectNamespace + "\inxton_apaxlibname.csproj.Backup.tmp"
+Remove-Item $item -r -force -ErrorAction Ignore
 
 Set-Location app
 apax clean
