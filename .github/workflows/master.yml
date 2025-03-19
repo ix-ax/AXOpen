@@ -60,7 +60,6 @@ jobs:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}
       run: |
         dotnet run --project cake/Build.csproj --do-test --do-pack --test-level 100 --do-publish  --do-publish-release   
-        $LASTEXITCODE = 1    
         "TEST_EXIT_CODE=$LASTEXITCODE" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
 
     - name: Display workflow details in Summary

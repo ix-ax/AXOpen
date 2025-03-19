@@ -56,7 +56,6 @@ jobs:
           GH_USER : ${{ secrets.GH_USER }}
       run: |
         dotnet run --project cake/Build.csproj --do-test --do-pack --test-level 1  
-        $LASTEXITCODE = 1    
         "TEST_EXIT_CODE=$LASTEXITCODE" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
 
     - name: Display workflow details in Summary

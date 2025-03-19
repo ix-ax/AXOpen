@@ -80,7 +80,6 @@ jobs:
           GH_USER : ${{ secrets.GH_USER }}
       run: |
         dotnet run --project cake/Build.csproj --apps-run
-        $LASTEXITCODE = 1    
         "TEST_EXIT_CODE=$LASTEXITCODE" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
 
     - name: Store Commit SHA in Repository Variable
