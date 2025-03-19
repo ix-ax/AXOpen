@@ -18,6 +18,7 @@ on:
           - components.elements
           - components.festo.drives
           - components.kuka.robotics
+          - components.keyence.vision
           - components.mitsubishi.robotics
           - components.pneumatics
           - components.rexroth.drives
@@ -39,8 +40,12 @@ on:
 jobs:
   app-run-manual-with-selected-folder:
     runs-on: [self-hosted, Windows, X64, L3, AX, APP]  
-    continue-on-error: true     
     steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: '0'   
+
     - name: Get Branch Name
       shell: pwsh
       run: |
@@ -52,17 +57,23 @@ jobs:
         Write-Host "Triggered on branch: $BRANCH_NAME"
         "BRANCH_NAME=$BRANCH_NAME" | Out-File -FilePath $env:GITHUB_ENV -Append
 
+    - name: Get Short Commit SHA
+      shell: pwsh
+      run: |
+          $currentSHA = git rev-parse --short HEAD
+          "CURRENT_SHA=$currentSHA" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8  
+
+    - name: Setup
+      shell: pwsh
+      run: |
+        "TEST_EXIT_CODE=123" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+
     - name: Print and store library folder
       shell: pwsh
       run: |
         $APP_FOLDER = "${{ inputs.folder }}"
         Write-Host "Selected folder: $APP_FOLDER"
         "APP_FOLDER=$APP_FOLDER" | Out-File -FilePath $env:GITHUB_ENV -Append
-
-    - name: Checkout
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: '0'   
 
     - name: "Build cake"  
       run: dotnet build cake/Build.csproj
@@ -74,30 +85,39 @@ jobs:
         GH_USER : ${{ secrets.GH_USER }}
       run: |
         dotnet run --project cake/Build.csproj --skip-build --apps-run --single-app-run-folder-name $env:APP_FOLDER
-        echo "TEST_EXIT_CODE=$LASTEXITCODE" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8
-
-    - name: Get Short Commit SHA
-      shell: pwsh
-      run: |
-          $commitId = git rev-parse --short HEAD
-          echo "sha=$commitId" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8
+        "TEST_EXIT_CODE=$LASTEXITCODE" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
 
     - name: Display workflow details in Summary
       shell: pwsh
       run: |
-        if ($env:TEST_EXIT_CODE -ne "0") {
-          echo "### Runner name: $env:RUNNER_NAME ::: Branch name: $env:BRANCH_NAME ::: Commit SHA: $env:sha:::Overall result: FAILED"  | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Encoding utf8        
-        } else {
-          echo "### Runner name: $env:RUNNER_NAME ::: Branch name: $env:BRANCH_NAME ::: Commit SHA: $env:sha:::Overall result: PASSED"  | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Encoding utf8        
-        }      
+        if($env:TEST_EXIT_CODE -eq "123")
+        {
+          $TEST_RESULT = "SKIPPED"
+        }
+        elseif($env:TEST_EXIT_CODE -eq "0")
+        {
+          $TEST_RESULT = "PASSED"
+        }
+        else
+        {
+          $TEST_RESULT = "FAILED"
+        }
+        "### Runner name: $env:RUNNER_NAME ::: Branch name: $env:BRANCH_NAME ::: Library folder: $env:APP_FOLDER ::: Commit SHA: $env:CURRENT_SHA ::: Test result: $TEST_RESULT"  | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
 
-    - name: Evaluate Result
-      continue-on-error: false
-      if: env.SKIP_STEPS == 'false'
+    - name: Evaluate final result
       shell: pwsh
       run: |
-          if ($env:TEST_EXIT_CODE -ne "0") {
+          if($env:TEST_EXIT_CODE -eq "123")
+          {
+            echo "Tests skipped."
+          }
+          elseif($env:TEST_EXIT_CODE -eq "0")
+          {
+            echo "Tests passed."
+          }
+          else
+          {
             echo "Tests failed."
             Exit 1
-          }
-          
+          }      
+

@@ -111,7 +111,7 @@ else
 
 		#hw_update                                    # copy and install gsd, copy templates, compile, copy the HwIds, download HW using certificate
 		hw_update=$( dirname ${BASH_SOURCE[0]})"\\hw_update.sh"
-		$hw_update $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS 
+		$hw_update $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS $USERNAME $PASSWORD 
 		if [[ $? -eq 0 ]]; then
 			printf "${GREEN}Hardware configuration has been succesfully compiled and downloaded.${NC}"
 		else
@@ -122,7 +122,7 @@ else
 
 		#sw_build_and_download_full                   # software build and full download
 		sw_build_and_download_full=$( dirname ${BASH_SOURCE[0]})"\\sw_build_and_download_full.sh"
-		$sw_build_and_download_full $PLC_NAME $PLC_IP_ADDRESS $PLATFORM
+		$sw_build_and_download_full $PLC_NAME $PLC_IP_ADDRESS $PLATFORM $USERNAME $PASSWORD 
 		if [[ $? -eq 0 ]]; then
 			printf "${GREEN}Software has been succesfully compiled and downloaded.${NC}"
 		else

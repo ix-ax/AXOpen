@@ -1,5 +1,7 @@
 name: "inxton"
 version: 0.0.0-dev.0
+registries:
+  "@inxton": "https://npm.pkg.github.com/"
 type: workspace
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'

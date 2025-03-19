@@ -1,4 +1,4 @@
-name: "@inxton/axopen_components_keyence_vision"
+name: "@inxton/axopen.components.keyence.vision"
 version: '0.0.0-dev.0'
 type: lib
 targets:
@@ -6,6 +6,8 @@ targets:
 files:
   - src
   - axsharp.companion.json
+registries:
+  "@inxton": "https://npm.pkg.github.com/"
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:

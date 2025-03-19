@@ -29,16 +29,36 @@
       "replaces": "projname",
       "fileRename" : "projname"
     },    
-    "axlibname":{
-      "type": "generated",
-      "generator": "casing",
-      "parameters": {
-        "source":"projname",
-        "toLower": true
-      },
-      "defaultValue": "axolib",
-      "replaces": "axolib"
-    },
+    "inxton_apaxlibname_csproj": {
+      "type": "parameter",
+      "description": "library dotnet twin csproj name",
+      "datatype": "text",
+      "defaultValue": "inxton_apaxlibname.csproj",
+      "replaces": "inxton_apaxlibname.csproj"
+    },    
+    "app_apaxappname_csproj": {
+      "type": "parameter",
+      "description": "application dotnet twin csproj name",
+      "datatype": "text",
+      "defaultValue": "app_apaxappname.csproj",
+      "replaces": "app_apaxappname.csproj"
+    },    
+    "apaxlibname": {
+      "type": "derived",
+      "valueSource": "projname",
+      "valueTransform": "ConvertToLower",
+      "datatype": "text",
+      "defaultValue": "apaxlibname",
+      "replaces": "apaxlibname"
+    },  
+    "apaxappname": {
+      "type": "derived",
+      "valueSource": "projname",
+      "valueTransform": "ConvertToLower",
+      "datatype": "text",
+      "defaultValue": "apaxappname",
+      "replaces": "apaxappname"
+    },  
     "namespace": {
       "type": "derived",
       "valueSource": "projname",
@@ -46,90 +66,19 @@
       "datatype": "text",
       "defaultValue": "Template.Axolibrary",
       "replaces": "Template.Axolibrary"
-    }, 
-    "name": {
-      "type": "derived",
-      "valueSource": "axlibname",
-      "valueTransform": "DeleteDotsInFileName",
-      "datatype": "text",
-      "defaultValue": "librarytemplate",
-      "replaces": "librarytemplate",
-      "fileRename": "librarytemplate",
-      "description": "A value derived from the 'axlibname' prop, used to rename librarytemplate"
-    }, 
-    "apaxlibname": {
-      "type": "derived",
-      "valueSource": "projname",
-      "valueTransform": "ConvertToLowerAndReplaceTheDots",
-      "datatype": "text",
-      "defaultValue": "apaxlibname",
-      "replaces": "apaxlibname"
-    },   
-    "apaxappname": {
-      "type": "derived",
-      "valueSource": "projname",
-      "valueTransform": "ConvertToLowerAndReplaceTheDots",
-      "datatype": "text",
-      "defaultValue": "apaxappname",
-      "replaces": "apaxappname"
-    },  
+    },
     "appconnectorname": {
       "type": "derived",
-      "valueSource": "axlibname",
-      "valueTransform": "ReplaceDotsInFileName",
+      "valueSource": "projname",
+      "valueTransform": "ConvertToLowerAndReplaceTheDots",
       "datatype": "text",
       "defaultValue": "appconnectorname",
       "replaces": "appconnectorname",
       "fileRename": "appconnectorname",
       "description": "AX# connector name for testing application."
-    },
-    "renameDotNetTwinCsProjFileName": {
-      "include" : "*.csproj",
-      "exclude" : "apax.yml",
-      "type": "derived",  
-      "valueSource": "axlibname",  
-      "valueTransform": "ReplaceDotsInFileName",  
-      "fileRename": "axolib",  
-      "description": "A value derived from the 'name' param, used to rename Application1.cs"
-    },
-    "renameDotNetTwinCsProjReferences": {
-      "include" : "*.csproj",
-      "exclude" : "apax.yml", 
-      "type": "derived",  
-      "valueSource": "axlibname",  
-      "valueTransform": "ReplaceDotsInFileName",  
-      "replaces": "axolib",  
-      "description": "A value derived from the 'name' param, used to rename Application1.cs"
-    },   
-    "projnameLower":{
-      "type": "generated",
-      "generator": "casing",
-      "parameters": {
-        "source":"projname",
-        "toLower": true
-      }
-    }, 
-    
-    "nameUpper":{
-      "type": "generated",
-      "generator": "casing",
-      "parameters": {
-        "source":"projname",
-        "toLower": false
-      }
     }
   },
   "forms": {
-    "ReplaceDotsInFileName": {
-      "identifier": "replace",
-      "pattern": "\\.",        
-      "replacement": "_"  
-    },
-    "DeleteDotsInFileName": {
-      "identifier": "replace",
-      "pattern": "\\.",        
-      "replacement": ""  
-    },
     "notTransform":{    
     },
     "ReplaceDots": {
@@ -147,6 +96,6 @@
         "ReplaceDots"
       ]
     }
-
   } 
 }
+

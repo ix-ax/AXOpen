@@ -13,7 +13,7 @@
     <ProjectReference Include="..\..\..\data\src\repositories\Json\AXOpen.Data.Json.csproj" />
     <ProjectReference Include="..\..\..\security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj" />
     <ProjectReference Include="..\..\src\projname.blazor\projname.blazor.csproj" />
-    <ProjectReference Include="..\ix\app_appconnectorname.csproj" />
+    <ProjectReference Include="..\ix\app_apaxappname.csproj" />
   </ItemGroup>
 
 </Project>

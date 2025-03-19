@@ -106,6 +106,8 @@ public static class ApaxTraversal
                                                                 version = "0.0.0-dev.0", 
                                                                 type = "app",
                                                                 targets = new string[] {"llvm"},
+                                                                registries = new Dictionary<string, string>()
+                                                                    { {"@inxton", "https://npm.pkg.github.com/"} },
                                                                 devDependencies = new Dictionary<string, string>() 
                                                                     { {"@inxton/ax-sdk", dependencies.First(p => p.Name == "@inxton/ax-sdk").Version} },
                                                                 dependencies = dependenciesDictionary,
