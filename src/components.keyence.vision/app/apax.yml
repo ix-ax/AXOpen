@@ -1,4 +1,4 @@
-name: "app_axopen_components_keyence_vision"
+name: "app_axopen.components.keyence.vision"
 version: '0.0.0-dev.0'
 type: app
 targets:
@@ -23,7 +23,7 @@ catalogs:
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
-  "@inxton/axopen_components_keyence_vision": '0.0.0-dev.0'
+  "@inxton/axopen.components.keyence.vision": '0.0.0-dev.0'
   "@inxton/ax.axopen.app": '0.0.0-dev.0'
   "@inxton/axopen.simatic1500": '0.0.0-dev.0'
 installStrategy: strict
