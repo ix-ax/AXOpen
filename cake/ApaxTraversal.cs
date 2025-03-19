@@ -111,7 +111,7 @@ public static class ApaxTraversal
                                                                 devDependencies = new Dictionary<string, string>() 
                                                                     { {"@inxton/ax-sdk", dependencies.First(p => p.Name == "@inxton/ax-sdk").Version} },
                                                                 dependencies = dependenciesDictionary,
-                                                                installStrategy = "strict"});
+                                                                installStrategy = "overridable"});
 
         File.WriteAllText(filePath, yamlContent);
     }

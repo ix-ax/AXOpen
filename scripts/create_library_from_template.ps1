@@ -50,6 +50,12 @@ $item_old = ".\src\"+ $_projectNamespace + "\inxton_apaxlibname.csproj"
 $item_new = "inxton_"+ $_projectNamespace.ToLower().Replace(".","_") + ".csproj"
 Rename-Item -Path $item_old -NewName $item_new -Force -ErrorAction Ignore
 
+#Remove items
+$item = ".\app\ix\app_apaxappname_app_yml.csproj"
+Remove-Item -Path $item -Force -ErrorAction Ignore
+$item = ".\src\"+ $_projectNamespace + "\inxton_apaxlibname_ctrl_yml.csproj"
+Remove-Item -Path $item -Force -ErrorAction Ignore
+
 Set-Location app
 apax clean
 apax install --catalog

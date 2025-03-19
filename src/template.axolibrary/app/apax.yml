@@ -1,4 +1,4 @@
-name: "app_apaxappname_app_yml"
+name: "app_apaxappname"
 version: '0.0.0-dev.0'
 type: app
 targets:

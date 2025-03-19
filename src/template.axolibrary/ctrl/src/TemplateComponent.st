@@ -82,7 +82,7 @@ NAMESPACE Template.Axolibrary
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
-            Status     :   TemplateComponent_Component_Status;
+            Status              :   TemplateComponent_Component_Status;
             Messenger           :   AXOpen.Messaging.Static.AxoMessenger;
             TaskMessenger       :   AXOpen.Messaging.Static.AxoMessenger;
         END_VAR    

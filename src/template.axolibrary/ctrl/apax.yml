@@ -1,4 +1,4 @@
-name: "@inxton/apaxlibname_ctrl_yml"
+name: "@inxton/apaxlibname"
 version: '0.0.0-dev.0'
 type: lib
 targets:
