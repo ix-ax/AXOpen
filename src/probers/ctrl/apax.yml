@@ -8,6 +8,8 @@ files:
   - axsharp.companion.json
 variables:
   APAX_BUILD_ARGS: [ -d ]
+registries:
+  "@inxton": "https://npm.pkg.github.com/"
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:

@@ -11,6 +11,8 @@ variables:
     - "--debug"
   AXUNIT_TARGET_IP: "172.20.30.110"
   SIM_ENABLED: "true"
+registries:
+  "@inxton": "https://npm.pkg.github.com/"
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
