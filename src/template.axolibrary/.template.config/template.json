@@ -51,48 +51,6 @@
       "defaultValue": "apaxlibname",
       "replaces": "apaxlibname"
     },  
-    "namespace": {
-      "type": "derived",
-      "valueSource": "projname",
-      "valueTransform": "notTransform",
-      "datatype": "text",
-      "defaultValue": "Template.Axolibrary",
-      "replaces": "Template.Axolibrary"
-    }, 
-
-    "axlibname":{
-      "type": "generated",
-      "generator": "casing",
-      "parameters": {
-        "source":"projname",
-        "toLower": true
-      },
-      "defaultValue": "axolib",
-      "replaces": "axolib"
-    },
-
-
-
-    "name": {
-      "type": "derived",
-      "valueSource": "axlibname",
-      "valueTransform": "DeleteDotsInFileName",
-      "datatype": "text",
-      "defaultValue": "librarytemplate",
-      "replaces": "librarytemplate",
-      "fileRename": "librarytemplate",
-      "description": "A value derived from the 'axlibname' prop, used to rename librarytemplate"
-    }, 
-
- 
-    "apaxappname.csproj": {
-      "type": "derived",
-      "valueSource": "projname",
-      "valueTransform": "ConvertToLowerReplaceTheDotsAndAppendCsproj",
-      "datatype": "text",
-      "defaultValue": "apaxappname.csproj",
-      "replaces": "apaxappname.csproj"
-    },  
     "apaxappname": {
       "type": "derived",
       "valueSource": "projname",
@@ -101,63 +59,26 @@
       "defaultValue": "apaxappname",
       "replaces": "apaxappname"
     },  
+    "namespace": {
+      "type": "derived",
+      "valueSource": "projname",
+      "valueTransform": "notTransform",
+      "datatype": "text",
+      "defaultValue": "Template.Axolibrary",
+      "replaces": "Template.Axolibrary"
+    },
     "appconnectorname": {
       "type": "derived",
-      "valueSource": "axlibname",
-      "valueTransform": "ReplaceDotsInFileName",
+      "valueSource": "projname",
+      "valueTransform": "ConvertToLowerAndReplaceTheDots",
       "datatype": "text",
       "defaultValue": "appconnectorname",
       "replaces": "appconnectorname",
       "fileRename": "appconnectorname",
       "description": "AX# connector name for testing application."
-    },
-    "renameDotNetTwinCsProjFileName": {
-      "include" : "*.csproj",
-      "exclude" : "apax.yml",
-      "type": "derived",  
-      "valueSource": "axlibname",  
-      "valueTransform": "ReplaceDotsInFileName",  
-      "fileRename": "axolib",  
-      "description": "A value derived from the 'name' param, used to rename Application1.cs"
-    },
-    "renameDotNetTwinCsProjReferences": {
-      "include" : "*.csproj",
-      "exclude" : "apax.yml", 
-      "type": "derived",  
-      "valueSource": "axlibname",  
-      "valueTransform": "ReplaceDotsInFileName",  
-      "replaces": "axolib",  
-      "description": "A value derived from the 'name' param, used to rename Application1.cs"
-    },   
-    "projnameLower":{
-      "type": "generated",
-      "generator": "casing",
-      "parameters": {
-        "source":"projname",
-        "toLower": true
-      }
-    }, 
-    
-    "nameUpper":{
-      "type": "generated",
-      "generator": "casing",
-      "parameters": {
-        "source":"projname",
-        "toLower": false
-      }
     }
   },
   "forms": {
-    "ReplaceDotsInFileName": {
-      "identifier": "replace",
-      "pattern": "\\.",        
-      "replacement": "_"  
-    },
-    "DeleteDotsInFileName": {
-      "identifier": "replace",
-      "pattern": "\\.",        
-      "replacement": ""  
-    },
     "notTransform":{    
     },
     "ReplaceDots": {
@@ -173,29 +94,6 @@
       "steps": [
         "ConvertToLower",
         "ReplaceDots"
-      ]
-    },
-    "ConvertToLowerReplaceTheDotsAndAppendCsproj": {
-      "identifier": "chain",
-      "steps": [
-        "ConvertToLowerAndReplaceTheDots",
-        "AppendCsproj"
-      ]
-    },    
-    "AppendCsproj": {
-      "identifier": "postfix",
-      "postfix": ".csproj"
-    },
-    "AddInxtonPrefix": {
-      "identifier": "prefix",
-      "prefix": "inxton_"
-    },
-    "AddInxtonPrefixConvertToLowerReplaceTheDotsAndAppendCsproj": {
-      "identifier": "chain",
-      "steps": [
-        "ConvertToLowerAndReplaceTheDots",
-        "AddInxtonPrefix",
-        "AppendCsproj"
       ]
     }
   } 

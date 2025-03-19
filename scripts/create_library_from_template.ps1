@@ -41,7 +41,7 @@ $item = ".\template.axolibrary\ctrl\apax-lock.json"
 Remove-Item $item -r -force -ErrorAction Ignore
 
 
-dotnet new axolibrary -o $_outputDirectory --projname $_projectNamespace --inxton_apaxlibname_csproj $_inxton_apaxlibname_csproj --app_apaxappname_csproj $_app_apaxappname_csproj --force
+dotnet new axolibrary -o $_outputDirectory --projname $_projectNamespace --inxton_apaxlibname_csproj $_inxton_apaxlibname_csproj --app_apaxappname_csproj $_app_apaxappname_csproj
 
 
 if (Test-Path $_outputDirectory) {
