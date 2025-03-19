@@ -25,13 +25,7 @@
 
         @if (FilteredSymbols.Count > 0)
         {
-            @*  <button class="btn btn-secondary px-2 py-1" type="button" style="width" @onclick="AddAllDisplayedToQuery">
-                 <span>
-                    <i class="bi bi-funnel"></i> All
-                </span>
-            </button>   *@ 
-
-                <button class="btn btn-secondary px-2 py-1"
+            <button class="btn btn-secondary px-2 py-1"
                     type="button"
                     style="width:100px;"
                     @onclick="AddAllDisplayedToQuery">
@@ -302,7 +296,7 @@
         </button>
 
 
-        <button class="btn btn-secondary m-1 py-0" type="button" @onclick ="async () =>await RemoveItemFromHistory()"
+        <button class="btn btn-secondary m-1 py-0" type="button" @onclick="async () =>await RemoveItemFromHistory()"
                 data-bs-toggle="tooltip" title="@Localizer["Delete query"]">
             <i class="bi bi-trash custom-icon"></i>
         </button>

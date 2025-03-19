@@ -155,6 +155,7 @@ namespace AXOpen.Data
             SelectedManagerVm.AlertDialogService = AlertService;
 
             SelectedManagerVm.Model = exchange;
+            SelectedManagerVm.SetInjectedEntityIds(MergeInjectedEntities());
         }
 
         protected List<string> MergeInjectedEntities()
@@ -163,9 +164,9 @@ namespace AXOpen.Data
 
             if (this.EnableInjectedExternalIds && this.EnableInjectLocalIds)
             {
-                ids.AddRange(this.InjectedEntities);
-                ids.AddRange(this.TransmitedEntities);
-                ids = ids.Distinct().ToList();
+                ids = this.InjectedEntities
+                  .Intersect(this.TransmitedEntities.Distinct())
+                  .ToList();
             }
             else if (!this.EnableInjectedExternalIds && this.EnableInjectLocalIds)
             {
