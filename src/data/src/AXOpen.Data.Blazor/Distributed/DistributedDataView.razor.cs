@@ -35,7 +35,9 @@ namespace AXOpen.Data
         public IJSRuntime JSRuntime { set; get; }
 
         [Inject]
-        public IDataExchangeConfigurationProvider? ConfigurationProvider { set; get; }
+        public IAxoDataExchangeConfigurationService? ExchangeConfigService { set; get; }
+
+
 
         public bool AdvanceFilterConfig { get; set; } = false;
 
@@ -67,7 +69,7 @@ namespace AXOpen.Data
 
                 if (DataFragments != null)
                 {
-                    this.DistributedVM = new DistributedDataViewModel(DataFragments, this.AlertService, this.Authentication);
+                    this.DistributedVM = new DistributedDataViewModel(DataFragments, this.AlertService, this.Authentication, this.ExchangeConfigService);
                     this.DistributedVM.StateHasChangedDelegate = StateHasChanged;
                 }
             }

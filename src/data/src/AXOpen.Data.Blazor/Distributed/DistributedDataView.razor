@@ -87,6 +87,17 @@ else
     }
 }
 
-<DataExchangeView Vm="@DistributedVM.SelectedManagerVm"> </DataExchangeView>
+<DataExchangeView 
+    @key="@DistributedVM.SelectedManagerVm.Model"
+    Vm="@DistributedVM.SelectedManagerVm"> 
+
+    @foreach (var column in DistributedVM.ExchangeConfig.Collumns)
+    {
+        <ColumnData HeaderName="@column.ColumnName"
+                    BindingValue="@column.BindingValuePath"
+                    Clickable="@column.ClickEnabled" />
+    }
+
+</DataExchangeView>
 
 

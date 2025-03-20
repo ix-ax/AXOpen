@@ -1,5 +1,6 @@
 ﻿namespace AXOpen.Data
 {
+    
     /// <summary>
     /// Represents the configuration for a column in a data grid or similar UI component.
     /// </summary>
@@ -20,5 +21,7 @@
         /// Gets or sets a value indicating whether clicking on the column item will trigger a detailed view.
         /// </summary>
         public bool ClickEnabled { get; set; }
+       
+        //public  PresentableConverter { get; set; }
     }
 }

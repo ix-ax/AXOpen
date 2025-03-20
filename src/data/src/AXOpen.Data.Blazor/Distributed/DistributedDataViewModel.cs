@@ -6,6 +6,7 @@ using AXSharp.Connector;
 using AXSharp.Presentation;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.Extensions.Configuration;
 using Serilog.Core;
 using System.Collections.Frozen;
 using System.Collections.Generic;
@@ -20,15 +21,23 @@ namespace AXOpen.Data
 
         protected readonly AuthenticationStateProvider Authentication;
 
+        protected readonly IAxoDataExchangeConfigurationService ConfigurationService;
+
+        protected readonly string ConfiguraionSuffix = "";
+
         public DistributedDataViewModel(
             IEnumerable<IAxoDataExchange> dataFragments,
             IAlertService alertService,
-            AuthenticationStateProvider authentication
+            AuthenticationStateProvider authentication,
+            IAxoDataExchangeConfigurationService configuraionService,
+            string configuraionSuffix = ""
             )
         {
             DataFragments = dataFragments;
             AlertService = alertService;
             Authentication = authentication;
+            ConfigurationService = configuraionService;
+            ConfiguraionSuffix = configuraionSuffix;
             InitializeViewModel(DataFragments.First());
         }
 
@@ -123,6 +132,9 @@ namespace AXOpen.Data
 
         public bool EnableInjectedExternalIds { get; private set; } = true;
 
+        public AxoDataExchangeConfiguration ExchangeConfig { get; set; } = new();
+
+
         public async Task SelectManager(IAxoDataExchange exchange)
         {
             this.TransmitedEntities.Clear();
@@ -136,12 +148,29 @@ namespace AXOpen.Data
             if (exchange != null)
             {
                 InitializeViewModel(exchange);
+                SelectCongiguration(exchange);
 
                 SelectedManagerVm.SetInjectedEntityIds(MergeInjectedEntities());
 
                 await SelectedManagerVm.FillObservableRecordsAsync();
             }
         }
+
+        private void SelectCongiguration(IAxoDataExchange exchange)
+        {
+            if (ConfigurationService != null)
+            {
+                var c = ConfigurationService.GetConfigution(exchange.GetPlainTypes().First().FullName + ConfiguraionSuffix );
+
+                if (c != null)
+                {
+                    this.ExchangeConfig = c;
+                }
+                else
+                    this.ExchangeConfig = new AxoDataExchangeConfiguration();
+            }
+        }
+
 
         protected void InitializeViewModel(IAxoDataExchange exchange)
         {

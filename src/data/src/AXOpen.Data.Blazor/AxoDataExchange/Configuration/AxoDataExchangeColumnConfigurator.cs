@@ -5,32 +5,16 @@
     using System.Linq.Expressions;
     using System.Collections.Generic;
 
-    public static class DataExchangeViewConfigurationProviderExtesion
+    public class AxoDataExchangeColumnConfigurator<T>
     {
-        public static DataExchangeConfigurationProvider AddConfiguration<T>(
-            this DataExchangeConfigurationProvider exchangeConfig,
-            string suffix,
-            Action<ColumnConfigurator<T>> configAction)
-        {
+        private readonly AxoDataExchangeConfiguration _config;
 
-            var config = new DataExchangeViewConfiguration();
-            var columnConfigurator = new ColumnConfigurator<T>(config);
-            configAction(columnConfigurator);
-            exchangeConfig.AddManagerConfiguration($"{typeof(T).FullName}{suffix}", config);  // Add suffix here
-            return exchangeConfig;
-        }
-    }
-
-    public class ColumnConfigurator<T>
-    {
-        private readonly DataExchangeViewConfiguration _config;
-
-        public ColumnConfigurator(DataExchangeViewConfiguration config)
+        public AxoDataExchangeColumnConfigurator(AxoDataExchangeConfiguration config)
         {
             _config = config;
         }
 
-        public ColumnConfigurator<T> AddColumn(
+        public AxoDataExchangeColumnConfigurator<T> AddColumn(
             string columnName,
             Expression<Func<T, object>> bindingValuePath,
             bool clickEnabled = false)
@@ -46,20 +30,20 @@
             return this;
         }
 
-        public ColumnConfigurator<T> EnableSorting()
+        public AxoDataExchangeColumnConfigurator<T> EnableSorting()
         {
             _config.EnableSorting = true;
             return this;
         }
 
-        public ColumnConfigurator<T> AddSorting(Expression<Func<T, object>> sortingExpression)
+        public AxoDataExchangeColumnConfigurator<T> AddSorting(Expression<Func<T, object>> sortingExpression)
         {
             var memberName = GetMemberName(sortingExpression);
             _config.SortingExpressions.Add(memberName);
             return this;
         }
 
-        public ColumnConfigurator<T> AddSorting(string memberExpression)
+        public AxoDataExchangeColumnConfigurator<T> AddSorting(string memberExpression)
         {
             _config.SortingExpressions.Add(memberExpression);
             return this;
@@ -67,7 +51,7 @@
 
         private string GetMemberName(Expression<Func<T, object>> expression)
         {
-            var memberExpression = GetMemberExpression(expression.Body);
+            var memberExpression = this.GetMemberExpression(expression.Body);
 
             if (memberExpression == null)
                 throw new InvalidOperationException("Invalid expression");

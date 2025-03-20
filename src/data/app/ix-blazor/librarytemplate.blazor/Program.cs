@@ -115,6 +115,52 @@ Entry.Plc.AxoDataExchangeContext.DataManager.InitializeRemoteDataExchange(AxoPro
 AXOpen.Data.IAxoDataExchange.CleanUp();
 //</CleanUp>
 
+var distributedDataService = new DistributedDataExchangeService();
+builder.Services.AddSingleton<IDistributedDataExchangeService>(distributedDataService);
+
+//distributedDataService.Add(Entry.Plc.AxoDataExchangeContext.DataManager, new List<string>() { "default" });
+distributedDataService.Add(Entry.Plc.AxoDataExchangeContext.DataManager, new List<string>() { "default" });
+distributedDataService.Add(Entry.Plc.AxoDataFragmentsExchangeContext.DataManager.SharedHeader, new List<string>() { "default" });
+distributedDataService.Add(Entry.Plc.AxoDataFragmentsExchangeContext.DataManager.Station_1, new List<string>() { "default" });
+
+
+var exchangeConfigurationService = new AxoDataExchangeConfigurationService();
+builder.Services.AddSingleton<IAxoDataExchangeConfigurationService>(exchangeConfigurationService);
+
+exchangeConfigurationService.AddConfiguration<Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData>(
+    suffix: "",
+    configAction: a =>
+    {
+        a.AddColumn("bool", x => x.SomeBool, clickEnabled: true)
+         .AddColumn("int", x => x.SomeInt, clickEnabled: true)
+         .EnableSorting()
+         .AddSorting(x => x.SomeString);
+    });
+
+exchangeConfigurationService.AddConfiguration<Pocos.AxoDataFramentsExchangeExample.Station_1_Data>(
+    suffix: "",
+    configAction: a =>
+    {
+        a.AddColumn("string", x => x.SomeString, clickEnabled: true)
+         .AddColumn("int", x => x.SomeInt, clickEnabled: true)
+         .EnableSorting()
+         .AddSorting(x => x.SomeBool);
+    });
+
+exchangeConfigurationService.AddConfiguration<Pocos.AxoDataExchangeExample.AxoProcessData>(
+    suffix: "",
+    configAction: a =>
+    {
+        a.AddColumn("primi - bool", x => x.AllPrimitives.vBOOL, clickEnabled: true)
+         .AddColumn("int", x => x.SomeInt, clickEnabled: true)
+         .AddColumn("primi - int", x => x.AllPrimitives.vINT, clickEnabled: true)
+         .EnableSorting()
+         .AddSorting(x => x.SomeString);
+    });
+
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

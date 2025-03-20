@@ -1,7 +1,8 @@
 ﻿namespace AXOpen.Data
 {
+    using AXOpen.Data.Blazor;
 
-    public class DataExchangeViewConfiguration
+    public class AxoDataExchangeConfiguration
     {
         public List<ColumnDataContent> Collumns { set; get; } = new();
 
