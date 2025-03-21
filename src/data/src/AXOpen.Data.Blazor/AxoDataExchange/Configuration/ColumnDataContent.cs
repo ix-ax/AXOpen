@@ -1,4 +1,6 @@
-﻿namespace AXOpen.Data
+﻿using Microsoft.AspNetCore.Components;
+
+namespace AXOpen.Data
 {
     
     /// <summary>
@@ -21,7 +23,7 @@
         /// Gets or sets a value indicating whether clicking on the column item will trigger a detailed view.
         /// </summary>
         public bool ClickEnabled { get; set; }
-       
-        //public  PresentableConverter { get; set; }
-    }
+
+        public Type TemplateType { set; get; }
+}
 }

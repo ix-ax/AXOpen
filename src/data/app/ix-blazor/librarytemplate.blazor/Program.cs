@@ -131,8 +131,8 @@ exchangeConfigurationService.AddConfiguration<Pocos.AxoDataFramentsExchangeExamp
     suffix: "",
     configAction: a =>
     {
-        a.AddColumn("bool", x => x.SomeBool, clickEnabled: true)
-         .AddColumn("int", x => x.SomeInt, clickEnabled: true)
+        a.AddColumn("bool", x => x.SomeBool,  true, null)
+         .AddColumn("int", x => x.SomeInt, false, typeof(CustomIntTemplate))
          .EnableSorting()
          .AddSorting(x => x.SomeString);
     });
@@ -141,8 +141,8 @@ exchangeConfigurationService.AddConfiguration<Pocos.AxoDataFramentsExchangeExamp
     suffix: "",
     configAction: a =>
     {
-        a.AddColumn("string", x => x.SomeString, clickEnabled: true)
-         .AddColumn("int", x => x.SomeInt, clickEnabled: true)
+        a.AddColumn("string", x => x.SomeString,  true, null)
+         .AddColumn("int", x => x.SomeInt,  true, typeof(CustomIntTemplate))
          .EnableSorting()
          .AddSorting(x => x.SomeBool);
     });
@@ -151,9 +151,9 @@ exchangeConfigurationService.AddConfiguration<Pocos.AxoDataExchangeExample.AxoPr
     suffix: "",
     configAction: a =>
     {
-        a.AddColumn("primi - bool", x => x.AllPrimitives.vBOOL, clickEnabled: true)
-         .AddColumn("int", x => x.SomeInt, clickEnabled: true)
-         .AddColumn("primi - int", x => x.AllPrimitives.vINT, clickEnabled: true)
+        a.AddColumn("primi - bool", x => x.AllPrimitives.vBOOL,  true, null)
+         .AddColumn("int", x => x.SomeInt,  true, null)
+         .AddColumn("primi - int", x => x.AllPrimitives.vINT,  true, typeof(CustomIntTemplate))
          .EnableSorting()
          .AddSorting(x => x.SomeString);
     });

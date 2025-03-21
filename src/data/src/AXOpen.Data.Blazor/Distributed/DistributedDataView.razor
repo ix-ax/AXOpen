@@ -88,14 +88,15 @@ else
 }
 
 <DataExchangeView 
-    @key="@DistributedVM.SelectedManagerVm.Model"
-    Vm="@DistributedVM.SelectedManagerVm"> 
+    @key="@DistributedVM.SelectedManagerVm.Model" 
+    Vm="@DistributedVM.SelectedManagerVm" > 
 
     @foreach (var column in DistributedVM.ExchangeConfig.Collumns)
     {
         <ColumnData HeaderName="@column.ColumnName"
                     BindingValue="@column.BindingValuePath"
-                    Clickable="@column.ClickEnabled" />
+                    Clickable="@column.ClickEnabled" 
+                    TemplateBuilder="@ColumnDataCellBaseExtension.GetRenderFragment(column.TemplateType)"></ColumnData>
     }
 
 </DataExchangeView>

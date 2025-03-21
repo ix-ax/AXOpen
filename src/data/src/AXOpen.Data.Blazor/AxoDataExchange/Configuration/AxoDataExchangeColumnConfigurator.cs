@@ -17,14 +17,16 @@
         public AxoDataExchangeColumnConfigurator<T> AddColumn(
             string columnName,
             Expression<Func<T, object>> bindingValuePath,
-            bool clickEnabled = false)
+            bool clickEnabled,
+            Type templateType)
         {
             var memberName = GetMemberName(bindingValuePath);
             _config.Collumns.Add(new ColumnDataContent
             {
                 ColumnName = columnName,
                 BindingValuePath = memberName,
-                ClickEnabled = clickEnabled
+                ClickEnabled = clickEnabled,
+                TemplateType = templateType
             });
 
             return this;

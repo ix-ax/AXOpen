@@ -183,11 +183,31 @@ else
 
                                         if (column.Clickable)
                                         {
-                                            <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@(propertyValue)</td>
+
+                                            @if (column.TemplateBuilder != null)
+                                            {
+                                                // insert template
+                                                <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@column.TemplateBuilder.Invoke(propertyValue)</td>
+
+                                            }
+                                            else
+                                            {
+                                                <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@(propertyValue)</td>
+                                            }
+
                                         }
                                         else
                                         {
-                                            <td>@(propertyValue)</td>
+                                            @if (column.TemplateBuilder != null)
+                                            {
+                                                // insert template
+                                                <td> @column.TemplateBuilder.Invoke(propertyValue)</td>
+                                            }
+                                            else
+                                            {
+                                                <td>@(propertyValue)</td>
+                                            }
+
                                         }
                                     }
                                     catch (Exception ex)
@@ -207,11 +227,28 @@ else
                                         var propertyValue = PropertyHelper.GetPropertyValue(item, column.BindingValue);
                                         if (column.Clickable)
                                         {
-                                            <td style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@(propertyValue)</td>
+                                            @if (column.TemplateBuilder != null)
+                                            {
+                                                // insert template
+                                                <td style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@column.TemplateBuilder.Invoke(propertyValue)</td>
+                                            }
+                                            else
+                                            {
+                                                <td style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@(propertyValue)</td>
+                                            }
                                         }
                                         else
                                         {
-                                            <td>@(propertyValue)</td>
+
+                                            @if (column.TemplateBuilder != null)
+                                            {
+                                                // insert template
+                                                <td> @column.TemplateBuilder.Invoke(propertyValue)</td>
+                                            }
+                                            else
+                                            {
+                                                <td>@(propertyValue)</td>
+                                            }
                                         }
                                     }
                                     catch (Exception ex)
