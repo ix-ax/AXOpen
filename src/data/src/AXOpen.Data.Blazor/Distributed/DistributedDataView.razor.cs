@@ -11,7 +11,7 @@ namespace AXOpen.Data
     public partial class DistributedDataView
     {
         [Parameter, EditorRequired]
-        public string Presentation { get; set; }
+        public string Presentation { get; set; } = "Command";
 
         [Parameter, EditorRequired]
         public bool DisplayOnePerDataType { get; set; }
@@ -21,6 +21,12 @@ namespace AXOpen.Data
 
         [Parameter]
         public string ConfigSuffix { get; set; } = "";
+
+        [Parameter]
+        public bool EnableExport { get; set; } = true;
+
+        [Parameter]
+        public bool EnableSorting { get; set; } = true;
 
         [Inject]
         public IAlertService AlertService { get; set; }
@@ -37,7 +43,8 @@ namespace AXOpen.Data
         [Inject]
         public IAxoDataExchangeConfigurationService? ExchangeConfigService { set; get; }
 
-
+        public string BtnOperation {  get; set; } = string.Empty;
+        public string OperationRecordName {  get; set; } = string.Empty;
 
         public bool AdvanceFilterConfig { get; set; } = false;
 

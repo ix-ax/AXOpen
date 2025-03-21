@@ -1,5 +1,6 @@
 ﻿@namespace AXOpen.Data
 @using System.Reflection
+@using Microsoft.AspNetCore.Components.Authorization
 
 <div class="d-flex flex-row align-items-center gap-2">
 
@@ -22,7 +23,7 @@
     </button>
 
     <button type="button" class="btn btn-secondary px-1 py-1"
-    @onclick="DistributedVM.TogleLocalEntityIdsInjection">
+            @onclick="DistributedVM.TogleLocalEntityIdsInjection">
         @if (DistributedVM.EnableInjectLocalIds)
         {
 
@@ -37,7 +38,6 @@
             <span>@Localizer["Concat query"]</span>
         }
     </button>
-        
 
     @if (DistributedVM.InjectedEntities != null && DistributedVM.InjectedEntities.Count > 0)
     {
@@ -46,8 +46,8 @@
 
             @if (DistributedVM.EnableInjectedExternalIds)
             {
-                 <span> @Localizer["Disable Injected Ids"]</span>
-                 <span>(@DistributedVM.InjectedEntities.Count)</span>
+                <span> @Localizer["Disable Injected Ids"]</span>
+                <span>(@DistributedVM.InjectedEntities.Count)</span>
             }
             else
             {
@@ -55,8 +55,70 @@
             }
         </button>
     }
+
+
+    @if (string.IsNullOrEmpty(BtnOperation)) // no operation selected
+    {
+        <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_create">
+            <Authorized>
+                <button type="button" class="btn btn-primary"
+                        @onclick='() => BtnOperation = "Create"'>
+                    @Localizer["Create"]
+                </button>
+            </Authorized>
+        </AuthorizeView>
+
+        <AuthorizeView Roles="@DataExchangeRoleNames.can_data_load_from_plc">
+            <Authorized>
+                <button type="button" class="btn btn-primary ms-2"
+                        @onclick='() => BtnOperation = "LoadFromPlc"'>
+                    @Localizer["Load from PLC"]
+                </button>
+            </Authorized>
+        </AuthorizeView>
+
+        @if (EnableExport)
+        {
+            <AuthorizeView Roles="@DataExchangeRoleNames.can_data_export">
+                <Authorized>
+                    <button type="button" class="btn btn-primary ms-2"
+                            @onclick='() => BtnOperation = "Export"'>
+                        @Localizer["Export"]
+                    </button>
+                </Authorized>
+            </AuthorizeView>
+
+            <AuthorizeView Roles="@DataExchangeRoleNames.can_data_import">
+                <Authorized>
+                    <button type="button" class="btn btn-primary ms-2"
+                            @onclick='() => BtnOperation = "Import"'>
+                        @Localizer["Import"]
+                    </button>
+                </Authorized>
+            </AuthorizeView>
+        }
+        @Localizer["Acknowledge operation below"]
+    }
+
 </div>
 
+@if (this.BtnOperation == "Create")
+{
+    <div class="col d-flex align-items-center gap-2 mb-1">
+
+        <input id="newRecName" @bind="OperationRecordName" @bind:event="oninput"
+               placeholder="New record name"
+               class="form-control"
+               title="New record name"
+               data-bs-toggle="tooltip" />
+        @if (!string.IsNullOrEmpty(OperationRecordName))
+        {
+            <button type="button" class="btn btn-secondary px-1 py-1" onclick="@DistributedVM.CreateNewRecord(OperationRecordName)">
+                @Localizer["Create"]
+            </button>
+        }
+    </div>
+}
 
 @if (AdvanceFilterConfig)
 {
@@ -73,29 +135,31 @@ else
     if (DistributedVM.DataFragments != null)
     {
         <ul class="nav nav-tabs mb-3">
-        @foreach (var exchange in DistributedVM.DataFragments)
-        {
-            <li class="nav-item">
-                <button type="button"
-                        class="nav-link @((DistributedVM?.SelectedManagerVm?.Model == exchange) ? "active" : "")"
-                        @onclick="async () => {await DistributedVM.SelectManager(exchange);}">
-                    @DistributedVM.SelectedManagerVm.RefUIData.AttributeName
-                </button>
-            </li>
-        }
+            @foreach (var exchange in DistributedVM.DataFragments)
+            {
+                <li class="nav-item">
+                    <button type="button"
+                            class="nav-link @((DistributedVM?.SelectedManagerVm?.Model == exchange) ? "active" : "")"
+                            @onclick="async () => {await DistributedVM.SelectManager(exchange);}">
+                        @DistributedVM.SelectedManagerVm.RefUIData.AttributeName
+                    </button>
+                </li>
+            }
         </ul>
     }
 }
 
-<DataExchangeView 
-    @key="@DistributedVM.SelectedManagerVm.Model" 
-    Vm="@DistributedVM.SelectedManagerVm" > 
+<DataExchangeView @key="@DistributedVM.SelectedManagerVm.Model"
+                  Vm="@DistributedVM.SelectedManagerVm"
+                  Presentation=@this.Presentation
+                  EnableExport=@this.EnableExport
+                  EnableSorting=@this.EnableSorting>
 
     @foreach (var column in DistributedVM.ExchangeConfig.Collumns)
     {
         <ColumnData HeaderName="@column.ColumnName"
                     BindingValue="@column.BindingValuePath"
-                    Clickable="@column.ClickEnabled" 
+                    Clickable="@column.ClickEnabled"
                     TemplateBuilder="@ColumnDataCellBaseExtension.GetRenderFragment(column.TemplateType)"></ColumnData>
     }
 

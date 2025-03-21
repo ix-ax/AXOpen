@@ -134,6 +134,11 @@ namespace AXOpen.Data
 
         public AxoDataExchangeConfiguration ExchangeConfig { get; set; } = new();
 
+        public async Task CreateNewRecord(string identifier)
+        {
+            ;
+        }
+
 
         public async Task SelectManager(IAxoDataExchange exchange)
         {
@@ -148,7 +153,6 @@ namespace AXOpen.Data
             if (exchange != null)
             {
                 InitializeViewModel(exchange);
-                SelectCongiguration(exchange);
 
                 SelectedManagerVm.SetInjectedEntityIds(MergeInjectedEntities());
 
@@ -185,6 +189,8 @@ namespace AXOpen.Data
 
             SelectedManagerVm.Model = exchange;
             SelectedManagerVm.SetInjectedEntityIds(MergeInjectedEntities());
+
+            SelectCongiguration(exchange);
         }
 
         protected List<string> MergeInjectedEntities()
