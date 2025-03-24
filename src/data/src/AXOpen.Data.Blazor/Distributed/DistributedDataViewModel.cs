@@ -139,7 +139,6 @@ namespace AXOpen.Data
             ;
         }
 
-
         public async Task SelectManager(IAxoDataExchange exchange)
         {
             this.TransmitedEntities.Clear();
@@ -154,8 +153,6 @@ namespace AXOpen.Data
             {
                 InitializeViewModel(exchange);
 
-                SelectedManagerVm.SetInjectedEntityIds(MergeInjectedEntities());
-
                 await SelectedManagerVm.FillObservableRecordsAsync();
             }
         }
@@ -164,7 +161,7 @@ namespace AXOpen.Data
         {
             if (ConfigurationService != null)
             {
-                var c = ConfigurationService.GetConfigution(exchange.GetPlainTypes().First().FullName + ConfiguraionSuffix );
+                var c = ConfigurationService.GetConfigution(exchange.GetPlainTypes().First().FullName + ConfiguraionSuffix);
 
                 if (c != null)
                 {
@@ -174,7 +171,6 @@ namespace AXOpen.Data
                     this.ExchangeConfig = new AxoDataExchangeConfiguration();
             }
         }
-
 
         protected void InitializeViewModel(IAxoDataExchange exchange)
         {
@@ -199,9 +195,17 @@ namespace AXOpen.Data
 
             if (this.EnableInjectedExternalIds && this.EnableInjectLocalIds)
             {
-                ids = this.InjectedEntities
-                  .Intersect(this.TransmitedEntities.Distinct())
-                  .ToList();
+                if (InjectedEntities.Count > 0)
+                {
+                    ids = this.InjectedEntities
+                      .Intersect(this.TransmitedEntities.Distinct())
+                      .ToList();
+                }
+                else
+                {
+                    ids.AddRange(this.TransmitedEntities);
+                    ids = ids.Distinct().ToList();
+                }
             }
             else if (!this.EnableInjectedExternalIds && this.EnableInjectLocalIds)
             {

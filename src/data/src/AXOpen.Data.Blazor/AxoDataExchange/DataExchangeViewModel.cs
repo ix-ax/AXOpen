@@ -253,35 +253,39 @@ namespace AXOpen.Data
         {
             IEnumerable<IBrowsableDataObject> filtered = null;
 
-            if (EntityIdsInjected != null && EntityIdsInjected.Count > 0)
+            lock (_lockInjectEntities)
             {
-                this.EntityIdsLastQuery.Clear();
-                this.EntityIdsIntersected.Clear();
 
-                EntityIdsLastQuery.AddRange(DataExchange.GetEntityIds(predicates).ToList());
-                EntityIdsIntersected.AddRange(EntityIdsInjected.Intersect(EntityIdsLastQuery).ToList());
-
-                this.FilteredCount = EntityIdsIntersected.Count;
-
-                var toFind = EntityIdsIntersected.Skip(skip).Take(limit).ToList();
-
-                filtered = DataExchange.GetRecords(toFind).ToList();
-            }
-            else
-            {
-                this.EntityIdsLastQuery.Clear();
-                this.EntityIdsIntersected.Clear();
-
-                if (this.ReadAllEntityIdsForConcatQuery)
+                if (EntityIdsInjected != null && EntityIdsInjected.Count > 0)
                 {
-                    var ids = DataExchange.GetEntityIds(predicates).ToList();
-                    EntityIdsLastQuery.AddRange(ids);
-                    EntityIdsIntersected.AddRange(ids);
+                    this.EntityIdsLastQuery.Clear();
+                    this.EntityIdsIntersected.Clear();
+
+                    EntityIdsLastQuery.AddRange(DataExchange.GetEntityIds(predicates).ToList());
+                    EntityIdsIntersected.AddRange(EntityIdsInjected.Intersect(EntityIdsLastQuery).ToList());
+
+                    this.FilteredCount = EntityIdsIntersected.Count;
+
+                    var toFind = EntityIdsIntersected.Skip(skip).Take(limit).ToList();
+
+                    filtered = DataExchange.GetRecords(toFind).ToList();
                 }
+                else
+                {
+                    this.EntityIdsLastQuery.Clear();
+                    this.EntityIdsIntersected.Clear();
 
-                FilteredCount = this.DataExchange.Repository.FilteredCount(predicates);
+                    if (this.ReadAllEntityIdsForConcatQuery)
+                    {
+                        var ids = DataExchange.GetEntityIds(predicates).ToList();
+                        EntityIdsLastQuery.AddRange(ids);
+                        EntityIdsIntersected.AddRange(ids);
+                    }
 
-                filtered = this.DataExchange.GetRecords(predicates, limit, skip);
+                    FilteredCount = this.DataExchange.Repository.FilteredCount(predicates);
+
+                    filtered = this.DataExchange.GetRecords(predicates, limit, skip);
+                }
             }
 
             lock (_viewRefreshMutex)
