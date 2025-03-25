@@ -83,7 +83,7 @@ NAMESPACE AxoStaticMessengerExample
             END_IF;
             _messenger2.Serve(_rootObject);    
             _messenger2.ActivateOnCondition(_messenger2code,_messenger2condition,eAxoMessageCategory#Warning).RequireAcknowledgement();
-            _messenger3.ActivateOnCondition(_messenger3condition,eAxoMessageCategory#Info);
+            _messenger3.ActivateOnCondition(_messenger3condition,eAxoMessageCategory#Info).RequireAcknowledgement();
             _messenger3.Serve(_rootObject);    
             _messenger4.ActivateOnCondition(_messenger4condition,eAxoMessageCategory#Info).RequireAcknowledgement();
             _messenger4.Serve(_rootObject);    
