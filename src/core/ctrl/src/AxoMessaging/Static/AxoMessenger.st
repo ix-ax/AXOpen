@@ -3,8 +3,13 @@ USING AXOpen.Core;
 
 NAMESPACE AXOpen.Messaging.Static    
 
-    TYPE
-        eAxoMessengerState : (ActiveAckn,Idle, Active, ActiveNoAck, NotActiveWaitingAckn) := Idle;
+    TYPE                    
+        eAxoMessengerState : (  ActiveAckn,             // 1 - Is still active, but already acknowledged, after acknowledgement goes to 2
+                                Idle,                   // 2 - Not active
+                                Active,                 // 3 - Active and required acknowledgement. If acknowledged before deactivation, it goes to 1, if deactivated before acknowledgement, ti goes to 5
+                                ActiveNoAck,            // 4 - Active without acknowledgement required. After deactivation it goes to 2.
+                                NotActiveWaitingAckn    // 5 - Not active waiting for acknowledgement. After acknowledgement it goes to 2.
+                                ) := Idle;
     END_TYPE
 
     {#ix-prop: public string MessageText }
