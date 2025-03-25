@@ -45,6 +45,7 @@ namespace AXOpen.Data
 
         public string BtnOperation {  get; set; } = string.Empty;
         public string OperationRecordName {  get; set; } = string.Empty;
+        public string SelectedEntityId { get; set; } = "";
 
         public bool AdvanceFilterConfig { get; set; } = false;
 

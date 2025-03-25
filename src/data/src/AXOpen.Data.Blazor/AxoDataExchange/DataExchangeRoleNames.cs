@@ -14,7 +14,8 @@ namespace AXOpen.Data
         public const string can_data_item_delete = nameof(can_data_item_delete);
 
         public const string can_data_send_to_plc = nameof(can_data_send_to_plc);
-        public const string can_data_load_from_plc = nameof(can_data_send_to_plc);
+        public const string can_data_load_from_plc = nameof(can_data_load_from_plc);
+        public const string can_data_update_from_plc = nameof(can_data_update_from_plc);
 
         public const string can_data_export = nameof(can_data_export);
         public const string can_data_import = nameof(can_data_import);

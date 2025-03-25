@@ -134,9 +134,235 @@ namespace AXOpen.Data
 
         public AxoDataExchangeConfiguration ExchangeConfig { get; set; } = new();
 
-        public async Task CreateNewRecord(string identifier)
+        public async Task CreateNew(string identifier)
         {
-            ;
+            if (string.IsNullOrEmpty(identifier))
+            {
+                AlertService?.AddAlertDialog(eAlertType.Warning, "Create error", "Please enter valid source identifier!", 20);
+                return;
+            }
+
+            List<string> created = new List<string>();
+            List<string> alreadyExistInDb = new List<string>();
+
+            foreach (var exchange in DataFragments.DistinctBy(p => p.ManagerDataTypeName))
+            {
+                if (!exchange.Repository.Exists(identifier))
+                {
+                    var plain = Activator.CreateInstance(exchange.GetPlainTypes().First());
+
+                    exchange.Repository.Create(identifier, plain);
+                    created.Add(exchange.ManagerDataTypeName);
+                }
+                else
+                {
+                    alreadyExistInDb.Add(exchange.ManagerDataTypeName);
+                }
+            }
+
+            if (created.Count > 0)
+            {
+                string createdRecords = string.Join(", ", created);
+                AlertService?.AddAlertDialog(eAlertType.Info, "Create record", $"Data with ID: \"{identifier}\"  was created for: {createdRecords}!", 7);
+            }
+
+            if (alreadyExistInDb.Count > 0)
+            {
+                string notCreatedRecords = string.Join(", ", alreadyExistInDb);
+                AlertService?.AddAlertDialog(eAlertType.Warning, "Create record error", $"Record already exist for: {notCreatedRecords}!", 14);
+            }
+        }
+
+        public async Task CreateNewFromPlc(string identifier)
+        {
+            if (string.IsNullOrEmpty(identifier))
+            {
+                AlertService?.AddAlertDialog(eAlertType.Warning, "Create data error", "Please enter valid identifier!", 20);
+                return;
+            }
+
+            List<string> Created = new List<string>();
+            List<string> NotCreated = new List<string>();
+
+            foreach (var exchange in DataFragments.DistinctBy(p => p.ManagerDataTypeName))
+            {
+                if (!exchange.Repository.Exists(identifier))
+                {
+                    await exchange.CreateDataFromControllerAsync(identifier, exchange.DataExchangeTwinObject);
+                    Created.Add(exchange.ManagerDataTypeName);
+                }
+                else
+                {
+                    NotCreated.Add(exchange.ManagerDataTypeName);
+                }
+            }
+
+            if (Created.Count > 0)
+            {
+                string createdRecords = string.Join(", ", Created);
+                AlertService?.AddAlertDialog(eAlertType.Info, "Create record", $"Data with ID: \"{identifier}\"  was created for: {createdRecords}!", 7);
+            }
+
+            if (NotCreated.Count > 0)
+            {
+                string notCreatedRecords = string.Join(", ", NotCreated);
+                AlertService?.AddAlertDialog(eAlertType.Warning, "Create record error", $"Record already exist for: {notCreatedRecords}!", 14);
+            }
+        }
+
+        public async Task UpdateFromPlc(string identifier)
+        {
+            if (string.IsNullOrEmpty(identifier))
+            {
+                AlertService?.AddAlertDialog(eAlertType.Warning, "Update data error", "Please enter valid identifier!", 20);
+                return;
+            }
+
+            List<string> updated = new List<string>();
+            List<string> notExitInDb = new List<string>();
+            List<string> notSameIdInPlc = new List<string>();
+
+            foreach (var exchange in DataFragments.DistinctBy(p => p.ManagerDataTypeName))
+            {
+                if (exchange.Repository.Exists(identifier))
+                {
+                    //TODO optimalize -> clone only EntityId
+                    var refdata = exchange.CloneDataObject();
+
+                    var DataEntityId = (refdata as IAxoDataEntity).DataEntityId;
+
+                    List<ITwinPrimitive> batchRedElements = new();
+
+                    batchRedElements.Add(DataEntityId);
+
+                    await refdata.GetConnector().ReadBatchAsync(batchRedElements);
+
+                    if (DataEntityId.Cyclic != identifier)
+                    {
+                        notSameIdInPlc.Add(exchange.ManagerDataTypeName);
+                        continue;
+                    }
+
+                    await exchange.RemoteUpdate(identifier);
+                    updated.Add(exchange.ManagerDataTypeName);
+                }
+                else
+                {
+                    notExitInDb.Add(exchange.ManagerDataTypeName);
+                }
+            }
+
+            if (updated.Count > 0)
+            {
+                string createdRecords = string.Join(", ", updated);
+                AlertService?.AddAlertDialog(eAlertType.Info, "Update record", $"Data with ID: \"{identifier}\"  was created for: {createdRecords}!", 7);
+            }
+
+            if (notExitInDb.Count > 0)
+            {
+                string notCreatedRecords = string.Join(", ", notExitInDb);
+                AlertService?.AddAlertDialog(eAlertType.Warning, "Update error", $"Record not exist in Database for: {notCreatedRecords}!", 14);
+            }
+
+            if (notSameIdInPlc.Count > 0)
+            {
+                string notEqualEntityIds = string.Join(", ", notSameIdInPlc);
+                AlertService?.AddAlertDialog(eAlertType.Warning, "Update error", $"Online record has different ID that requested to update: {notEqualEntityIds}!", 14);
+            }
+        }
+
+        public async Task CopyRecord(string identifier, string newIdentifier)
+        {
+            if (string.IsNullOrEmpty(identifier))
+            {
+                AlertService?.AddAlertDialog(eAlertType.Warning, "Copy error", "Please enter valid source identifier!", 20);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(newIdentifier))
+            {
+                AlertService?.AddAlertDialog(eAlertType.Warning, "Copy record error", "Data cannot be deleted. Please enter valid new identifier!", 20);
+                return;
+            }
+
+            List<string> copied = new List<string>();
+            List<string> notExist = new List<string>();
+            List<string> alreadyExist = new List<string>();
+
+            foreach (var exchange in DataFragments.DistinctBy(p => p.ManagerDataTypeName))
+            {
+                if (exchange.Repository.Exists(identifier))
+                {
+                    if (!exchange.Repository.Exists(newIdentifier))
+                    {
+                        var newPlain = exchange.Repository.Read(identifier);
+                        (newPlain as dynamic).DataEntityId = newIdentifier;
+                        exchange.Repository.Create(newIdentifier, newPlain);
+                    }
+                    else
+                    {
+                        alreadyExist.Add(exchange.ManagerDataTypeName);
+                    }
+                }
+                else
+                {
+                    notExist.Add(exchange.ManagerDataTypeName);
+                }
+            }
+
+            if (copied.Count > 0)
+            {
+                string createdRecords = string.Join(", ", copied);
+                AlertService?.AddAlertDialog(eAlertType.Info, "Copied record", $"Data with ID: \"{identifier}\"  was created for: {createdRecords}!", 7);
+            }
+
+            if (alreadyExist.Count > 0)
+            {
+                string notCreatedRecords = string.Join(", ", notExist);
+                AlertService?.AddAlertDialog(eAlertType.Warning, "Copied error", $"Record already exist for: {notCreatedRecords}!", 14);
+            }
+
+            if (notExist.Count > 0)
+            {
+                string notCreatedRecords = string.Join(", ", notExist);
+                AlertService?.AddAlertDialog(eAlertType.Warning, "Copied error", $"Source Record not exist for: {notCreatedRecords}!", 14);
+            }
+        }
+
+        public async Task DeleteRecord(string identifier)
+        {
+            if (string.IsNullOrEmpty(identifier))
+            {
+                AlertService?.AddAlertDialog(eAlertType.Warning, "Delete error", "Please enter valid source identifier!", 20);
+                return;
+            }
+
+            List<string> notExist = new List<string>();
+            List<string> deleted = new List<string>();
+
+            foreach (var exchange in DataFragments.DistinctBy(p => p.ManagerDataTypeName))
+            {
+                if (exchange.Repository.Exists(identifier))
+                {
+                    exchange.Repository.Delete(identifier);
+                    deleted.Add(exchange.ManagerDataTypeName);
+                }
+                else
+                {
+                    notExist.Add(exchange.ManagerDataTypeName);
+                }
+            }
+
+            if (deleted.Count > 0)
+            {
+                string createdRecords = string.Join(", ", deleted);
+                AlertService?.AddAlertDialog(eAlertType.Info, "Delete record", $"Data with ID: \"{identifier}\"  was deleted for: {createdRecords}!", 7);
+            }
+            if (notExist.Count > 0)
+            {
+                string notCreatedRecords = string.Join(", ", notExist);
+                AlertService?.AddAlertDialog(eAlertType.Warning, "Delete error", $"Source Record not exist for: {notCreatedRecords}!", 14);
+            }
         }
 
         public async Task SelectManager(IAxoDataExchange exchange)
@@ -318,6 +544,12 @@ namespace AXOpen.Data
             this.LastFragmentQueryCount = commonEntities.Count();
 
             return commonEntities;
+        }
+
+        public IEnumerable<string> GetFromFirstExchageExistingIds()
+        {
+            List<string> Entities = DataFragments.First().GetEntityIds(new PredicateContainer()).ToList();
+            return Entities;
         }
     }
 }
