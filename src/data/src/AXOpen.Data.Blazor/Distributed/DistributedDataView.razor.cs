@@ -90,5 +90,14 @@ namespace AXOpen.Data
             this.SelectedEntityId = "";
             this.OperationRecordName = "";
         }
+
+        public bool IsAnyActiveOperation()
+        {
+            return !string.IsNullOrEmpty(this.BtnOperation);
+        }
+        public bool IsNoActiveOperation()
+        {
+            return string.IsNullOrEmpty(this.BtnOperation);
+        }
     }
 }

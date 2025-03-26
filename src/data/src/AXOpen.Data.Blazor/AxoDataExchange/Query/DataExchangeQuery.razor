@@ -163,7 +163,7 @@
     @if (CurrentQuery.Queries.Count() > 0)
     {
 
-        <div class="card p-1 my-0" style="border: 2px solid lightskyblue;">
+        <div class="card p-1 my-1" style="border: 2px solid lightskyblue;">
             <div class="d-flex align-items-center gap-2">
                 <label class="custom-label" style="color: deepskyblue; min-width: 50px">@Localizer["Query"]</label>
                 <div>
@@ -183,7 +183,7 @@
                                 <i class="bi bi-arrow-bar-up custom-icon"></i>
                             </button>
 
-                            <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Donw"]"
+                            <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Down"]"
                                     @onclick="() => MoveQuerySymbolDown(querySymbol.TrackSymbolId)">
                                 <i class="bi bi-arrow-bar-down custom-icon"></i>
                             </button>
@@ -200,7 +200,7 @@
 
     @if (CurrentQuery.Sorting.Count > 0)
     {
-        <div class="card p-1 my-2" style="border: 2px solid yellowgreen;">
+        <div class="card p-1 my-1" style="border: 2px solid yellowgreen;">
 
             <div class="d-flex align-items-center gap-2">
 
@@ -221,7 +221,7 @@
                                 <i class="bi bi-arrow-bar-up custom-icon"></i>
                             </button>
 
-                            <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Donw"]"
+                            <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Down"]"
                                     @onclick="() => MoveSortingSymbolDown(sortSymbol.TrackSymbolId)">
                                 <i class="bi bi-arrow-bar-down custom-icon"></i>
                             </button>

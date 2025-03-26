@@ -115,15 +115,6 @@ namespace AXOpen.Data
             }
         }
 
-
-        public void UpdateSelectedView()
-        {
-            if (SelectedManagerVm != null)
-            {
-                this.SelectedManagerVm.UpdateObservableRecords();
-            }
-        }
-
         internal Action StateHasChangedDelegate { get; set; }
 
         public void InvokeStateHasChanged()
