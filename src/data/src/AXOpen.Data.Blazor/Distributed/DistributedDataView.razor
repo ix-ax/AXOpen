@@ -30,7 +30,7 @@
             }
         </button>
 
-        <button type="button" class="btn btn-secondary px-1 py-1"
+        <button type="button" class="btn @(DistributedVM.EnableInjectLocalIds ? "btn-warning" : "btn-primary") px-1 py-1"
                 @onclick="DistributedVM.TogleLocalEntityIdsInjection">
             @if (DistributedVM.EnableInjectLocalIds)
             {
@@ -181,9 +181,7 @@
 
                 </div>
             </div>
-
         }
-
 
         @if (this.BtnOperation == "Create-Ack")
         {
@@ -428,7 +426,6 @@
         }
 
 
-
         @if (this.BtnOperation == "UpdateFromPlc")
         {
             <div class="row mb-3">
@@ -635,7 +632,7 @@ else
 {
     @if (AdvanceFilterConfig)
     {
-        <div class="d-flex flex-row align-items-center gap-2 bg-info bg-opacity-10 border rounded mb-1">
+        <div class="d-flex flex-row align-items-center gap-2 bg-warning bg-opacity-25 border rounded mb-1">
             <AXOpen.Data.Query.DataExchangeQuery Exchange="@this.DistributedVM"></AXOpen.Data.Query.DataExchangeQuery>
         </div>
     }
@@ -654,7 +651,7 @@ else
                 {
                     <li class="nav-item">
                         <button type="button"
-                                class="nav-link @((DistributedVM?.SelectedManagerVm?.Model == exchange) ? "active" : "")"
+                                class="nav-link fw-bold @((DistributedVM?.SelectedManagerVm?.Model == exchange) ? "active" : "")"
                                 @onclick="async () => {await DistributedVM.SelectManager(exchange);}">
                             @DistributedVM.SelectedManagerVm.RefUIData.AttributeName
                         </button>

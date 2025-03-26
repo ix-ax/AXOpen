@@ -19,11 +19,9 @@ else
 {
     <div class="p-1">
 
-
         <div class="d-flex">
             @if (Presentation.Equals("Command"))
             {
-
                 <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_create">
                     <Authorized>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "Create"'>@Localizer["Create"]</button>
@@ -89,20 +87,19 @@ else
                 <AuthorizeView Roles="@DataExchangeRoleNames.can_data_filter_advanced">
                     <Authorized>
 
-                        <button class="btn btn-secondary mx-2" name="advanceConfig" @onclick="()=>{AdvanceFilterConfig = !AdvanceFilterConfig;}">
+                        <button class="btn @(AdvanceFilterConfig ? "btn-warning" : "btn-primary") mx-2" name="advanceConfig" @onclick="()=>{AdvanceFilterConfig = !AdvanceFilterConfig;}">
                             @if (AdvanceFilterConfig)
                             {
-                                @*  icons come from:a https://icon-sets.iconify.design/oi/ *@
                                 <span>
-                                    <span class="oi oi-eject me-1" aria-hidden="true"></span>
-                                    <span>@Localizer["Hide advanced"]</span>
+                                    <i class="bi bi-funnel-fill"></i>
+                                    <span>@Localizer["Hide filter"]</span>
                                 </span>
                             }
                             else
                             {
                                 <span>
-                                    <span class="oi oi-cog me-1" aria-hidden="true"></span>
-                                    <span>@Localizer["Advanced"]</span>
+                                    <i class="bi bi-funnel"></i>
+                                    <span>@Localizer["Filter"]</span>
                                 </span>
                             }
                         </button>
@@ -114,7 +111,9 @@ else
 
         @if (AdvanceFilterConfig)
         {
-            <DataExchangeQuery Exchange="@Vm"></DataExchangeQuery>
+            <div class="d-flex flex-row align-items-center gap-2 bg-warning bg-opacity-25 border rounded m-1">
+                <DataExchangeQuery Exchange="@Vm"></DataExchangeQuery>
+            </div>
         }
 
         <table class="table table-hover">
