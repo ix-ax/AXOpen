@@ -35,11 +35,9 @@
 
             @foreach (var element in GetDisplaySymbols())
             {
-                <p class="m-1">
-                    <button class="btn bg-transparent w-100 text-start" type="button" @onclick="() => SelectElement(element)">
-                        @element
-                    </button>
-                </p>
+                <div class="list-group">
+                    <button type="button" class="list-group-item list-group-item-action @(SelectdValue==@element ? "active" : "")" @onclick="() => SelectElement(element)">@element</button>
+                </div>
             }
 
             @if (FilteredElements.Count > 5)
