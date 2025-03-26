@@ -104,7 +104,7 @@
             </Authorized>
         </AuthorizeView>
 
-        @if (EnableExport)
+        @*  @if (EnableExport)
         {
             <AuthorizeView Roles="@DataExchangeRoleNames.can_data_export">
                 <Authorized>
@@ -123,11 +123,11 @@
                     </button>
                 </Authorized>
             </AuthorizeView>
-        }
-        else
-        {
-            @Localizer["Acknowledge operation below"]
-        }
+        } *@
+    }
+    else
+    {
+        @* @Localizer["Acknowledge operation below"] *@
     }
 
 </div>
@@ -231,6 +231,34 @@
             </div>
         }
 
+        @if (this.BtnOperation == "Delete")
+        {
+            <div class="col d-flex align-items-center gap-2 mb-1">
+
+                <select @bind="SelectedEntityId" class="form-select form-select-lg" aria-label="Default select example">
+                    @foreach (var entityId in DistributedVM.GetFromFirstExchageExistingIds())
+                    {
+                        <option value="@entityId">@entityId</option>
+                    }
+                </select>
+
+                @if (!string.IsNullOrEmpty(SelectedEntityId))
+                {
+                    <button type="button" class="btn btn-secondary px-1 py-1"
+                            @onclick="async () => await DistributedVM.DeleteRecord(SelectedEntityId)">
+                        @Localizer["Delete"]
+                    </button>
+                }
+                <button type="button" class="btn btn-secondary ms-2"
+                        @onclick='() => BtnOperation = ""'>
+                    <div class="d-flex flex-row">
+                        <i class="bi bi-x-circle mx-2"></i>
+                        <span>@Localizer["Close"]</span>
+                    </div>
+                </button>
+            </div>
+        }
+
 
         @if (this.BtnOperation == "UpdateFromPlc")
         {
@@ -261,18 +289,11 @@
         }
 
 
-
+        @* 
         @if (this.BtnOperation == "Export")
         {
             <div class="col d-flex align-items-center gap-2 mb-1">
 
-                @* @if (!string.IsNullOrEmpty(OperationRecordName))
-                {
-                    <button type="button" class="btn btn-secondary px-1 py-1"
-                            @onclick="async () => await DistributedVM.LoadFromPlc(OperationRecordName)">
-                        @Localizer["Load from PLC"]
-                    </button>
-                } *@
                 <button type="button" class="btn btn-secondary ms-2"
                         @onclick='() => BtnOperation = ""'>
                     <div class="d-flex flex-row">
@@ -287,13 +308,6 @@
         {
             <div class="col d-flex align-items-center gap-2 mb-1">
 
-                @* @if (!string.IsNullOrEmpty(OperationRecordName))
-                {
-                    <button type="button" class="btn btn-secondary px-1 py-1"
-                            @onclick="async () => await DistributedVM.LoadFromPlc(OperationRecordName)">
-                        @Localizer["Load from PLC"]
-                    </button>
-                } *@
                 <button type="button" class="btn btn-secondary ms-2"
                         @onclick='() => BtnOperation = ""'>
                     <div class="d-flex flex-row">
@@ -303,6 +317,7 @@
                 </button>
             </div>
         }
+ *@
     </div>
 }
 
