@@ -2,12 +2,16 @@
 @using System.Reflection
 @using Microsoft.AspNetCore.Components.Authorization
 
+@*  
+  icons : https://icon-sets.iconify.design/oi/ 
+  icons : https://icons.getbootstrap.com/ 
+*@
+
 <div class="d-flex flex-row align-items-center gap-2">
 
     <button class="btn btn-secondary px-1 py-1" name="advanceConfig" @onclick="()=>{AdvanceFilterConfig = !AdvanceFilterConfig;}">
         @if (AdvanceFilterConfig)
         {
-            @*  icons come from:a https://icon-sets.iconify.design/oi/ *@
             <span>
                 <i class="bi bi-funnel-fill"></i>
                 <span>@Localizer["Hide global filter"]</span>
@@ -81,7 +85,7 @@
             <Authorized>
                 <button type="button" class="btn btn-primary ms-2"
                         @onclick='() => BtnOperation = "CreateNewFromPlc"'>
-                    @Localizer["Load from PLC"]
+                    @Localizer["New from PLC"]
                 </button>
             </Authorized>
         </AuthorizeView>
@@ -138,155 +142,373 @@
 
         @if (this.BtnOperation == "Create")
         {
-            <div class="col d-flex align-items-center gap-2 mb-1">
+            <div class="row mb-1 align-items-center g-2">
 
-                @Localizer["New record name:"]
+                <!-- Label -->
+                <div class="col-auto">
+                    <label for="newRecName" class="col-form-label fw-bold">
+                        @Localizer["New record name:"]
+                    </label>
+                </div>
 
-                <input id="newRecName" @bind="OperationRecordName" @bind:event="oninput"
-                       placeholder="New record name"
-                       class="form-control"
-                       title="New record name"
-                       data-bs-toggle="tooltip" />
-
+                <!-- Input -->
+                <div class="col">
+                    <input id="newRecName"
+                           class="form-control"
+                           placeholder="New record name"
+                           title="New record name"
+                           data-bs-toggle="tooltip"
+                           @bind="OperationRecordName"
+                           @bind:event="oninput" />
+                </div>
+                <!-- Create Button -->
                 @if (!string.IsNullOrEmpty(OperationRecordName))
                 {
-                    <button type="button" class="btn btn-secondary px-1 py-1"
-                            @onclick="async () => await DistributedVM.CreateNew(OperationRecordName)">
-                        @Localizer["Create"]
-                    </button>
-                }
-
-                <button type="button" class="btn btn-secondary ms-2"
-                        @onclick='() => BtnOperation = ""'>
-                    <div class="d-flex flex-row">
-                        <i class="bi bi-x-circle mx-2"></i>
-                        <span>@Localizer["Close"]</span>
+                    <div class="col-auto">
+                        <button type="button"
+                                class="btn btn-secondary px-3 py-1"
+                                @onclick="async () =>
+                    {
+                        await DistributedVM.CreateNew(OperationRecordName);
+                        DistributedVM.UpdateSelectedView();
+                        EndBtnOperation();
+                    }">
+                            <i class="bi bi-plus-circle me-2"></i>
+                            <span>@Localizer["Create"]</span>
+                        </button>
                     </div>
-                </button>
+                }
+                <!-- Close Button -->
+                <div class="col-auto">
+                    <button type="button"
+                            class="btn btn-secondary px-3 py-1"
+                            @onclick="EndBtnOperation">
+                        <i class="bi bi-x-circle me-2"></i>
+                        <span>@Localizer["Close"]</span>
+                    </button>
+                </div>
             </div>
         }
 
 
         @if (this.BtnOperation == "Copy")
         {
-            <div class="col d-flex align-items-center gap-2 mb-1">
+            <div class="row mb-2 align-items-start">
 
-                <select @bind="SelectedEntityId" class="form-select form-select-lg" aria-label="Default select example">
-                    @foreach (var entityId in DistributedVM.GetFromFirstExchageExistingIds().Take(10))
+                <!-- Label: Select source -->
+                <div class="col align-items-start">
+                    <label class="col-form-label fw-bold">
+                        @Localizer["Select source"]:
+                    </label>
+
+                    <DataEntitySelector Elements="@DistributedVM.GetFromFirstExchageExistingIds()"
+                                        @bind-SelectdValue="SelectedEntityId" />
+                </div>
+
+                <!-- Buttons -->
+                <div class="col-auto d-flex flex-column gap-2 align-items-start">
+
+                    @if (!string.IsNullOrEmpty(SelectedEntityId))
                     {
-                        <option value="@entityId">@entityId</option>
+                        <!-- Label -->
+                        <label class="form-label fw-bold mt-1">
+                            @Localizer["New name for "] "@SelectedEntityId" :
+                        </label>
+
+                        <!-- Input -->
+                        <input id="newRecName"
+                               class="form-control"
+                               placeholder="New record name"
+                               title="New record name"
+                               data-bs-toggle="tooltip"
+                               @bind="OperationRecordName"
+                               @bind:event="oninput" />
+
+                        <!-- Copy Button -->
+                        @if (!string.IsNullOrEmpty(OperationRecordName))
+                        {
+                            <button type="button"
+                                    class="btn btn-secondary px-3 py-1 w-100"
+                                    @onclick='() => BtnOperation = "Copy-Ack"'>
+                                <i class="bi bi-cloud-plus me-2"></i>
+                                <span>
+                                    @Localizer["Copy"] "@SelectedEntityId"
+                                    @Localizer["with new name"] "@OperationRecordName"
+                                </span>
+                            </button>
+                        }
                     }
-                </select>
 
-
-                @Localizer["New record name:"]
-                <input id="newRecName" @bind="OperationRecordName" @bind:event="oninput"
-                       placeholder="New record name"
-                       class="form-control"
-                       title="New record name"
-                       data-bs-toggle="tooltip" />
-
-                @if (!string.IsNullOrEmpty(SelectedEntityId) && !string.IsNullOrEmpty(OperationRecordName))
-                {
-                    <button type="button" class="btn btn-secondary px-1 py-1"
-                            @onclick="async () => await DistributedVM.CopyRecord(SelectedEntityId, OperationRecordName)">
-                        @Localizer["Copy"]
-                    </button>
-                }
-                <button type="button" class="btn btn-secondary ms-2"
-                        @onclick='() => BtnOperation = ""'>
-                    <div class="d-flex flex-row">
-                        <i class="bi bi-x-circle mx-2"></i>
+                    <!-- Close Button (always shown) -->
+                    <button type="button"
+                            class="btn btn-secondary px-3 py-1 w-100"
+                            @onclick='EndBtnOperation'>
+                        <i class="bi bi-x-circle me-2"></i>
                         <span>@Localizer["Close"]</span>
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        }
+
+        @if (this.BtnOperation == "Copy-Ack")
+        {
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex gap-2 w-100">
+
+                        <div class="flex-fill">
+                            <button type="button" class="btn btn-primary w-100 px-1 py-1"
+                                    @onclick="async () => {
+                                        await DistributedVM.CopyRecord(SelectedEntityId, OperationRecordName);
+                                        DistributedVM.UpdateSelectedView();
+                                        EndBtnOperation();}">
+                                <div class="d-flex flex-row justify-content-center align-items-center">
+                                    <i class="bi bi-cloud-plus mx-2"></i>
+                                    <span>@Localizer["Copy"] "@SelectedEntityId" @Localizer["with new name"] "@OperationRecordName"</span>
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="flex-fill">
+                            <button type="button" class="btn btn-secondary w-100"
+                                    @onclick='() => {BtnOperation = "Copy";SelectedEntityId=string.Empty;}'>
+                                <div class="d-flex flex-row justify-content-center align-items-center">
+                                    <i class="bi bi-backspace mx-2"></i>
+                                    <span>@Localizer["Back"]</span>
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="flex-fill">
+                            <button type="button" class="btn btn-secondary w-100"
+                                    @onclick='EndBtnOperation'>
+                                <div class="d-flex flex-row justify-content-center align-items-center">
+                                    <i class="bi bi-x-circle mx-2"></i>
+                                    <span>@Localizer["Close"]</span>
+                                </div>
+                            </button>
+                        </div>
+
                     </div>
-                </button>
+                </div>
             </div>
         }
 
 
         @if (this.BtnOperation == "CreateNewFromPlc")
         {
-            <div class="col d-flex align-items-center gap-2 mb-1">
+            <div class="row mb-2 align-items-center g-3">
 
-                <input id="newRecName" @bind="OperationRecordName" @bind:event="oninput"
-                       placeholder="New record name"
-                       class="form-control"
-                       title="New record name"
-                       data-bs-toggle="tooltip" />
+                <!-- Label -->
+                <div class="col-auto">
+                    <label for="newRecName" class="col-form-label fw-bold">
+                        @Localizer["New record name:"]
+                    </label>
+                </div>
 
+                <!-- Input -->
+                <div class="col">
+                    <input id="newRecName"
+                           class="form-control"
+                           placeholder="New record name"
+                           title="New record name"
+                           data-bs-toggle="tooltip"
+                           @bind="OperationRecordName"
+                           @bind:event="oninput" />
+                </div>
+
+                <!-- Load from PLC button -->
                 @if (!string.IsNullOrEmpty(OperationRecordName))
                 {
-                    <button type="button" class="btn btn-secondary px-1 py-1"
-                            @onclick="async () => await DistributedVM.CreateNewFromPlc(OperationRecordName)">
-                        @Localizer["Load from PLC"]
-                    </button>
-                }
-                <button type="button" class="btn btn-secondary ms-2"
-                        @onclick='() => BtnOperation = ""'>
-                    <div class="d-flex flex-row">
-                        <i class="bi bi-x-circle mx-2"></i>
-                        <span>@Localizer["Close"]</span>
+                    <div class="col-auto">
+                        <button type="button"
+                                class="btn btn-secondary px-3 py-1"
+                                @onclick="async () => {
+                                    await DistributedVM.CreateNewFromPlc(OperationRecordName);
+                                    DistributedVM.UpdateSelectedView();
+                                    EndBtnOperation();}">
+                            <i class="bi bi-cloud-upload me-2"></i>
+                            <span>@Localizer["New from PLC"]</span>
+                        </button>
                     </div>
-                </button>
-            </div>
-        }
-
-        @if (this.BtnOperation == "Delete")
-        {
-            <div class="col d-flex align-items-center gap-2 mb-1">
-
-                <select @bind="SelectedEntityId" class="form-select form-select-lg" aria-label="Default select example">
-                    @foreach (var entityId in DistributedVM.GetFromFirstExchageExistingIds())
-                    {
-                        <option value="@entityId">@entityId</option>
-                    }
-                </select>
-
-                @if (!string.IsNullOrEmpty(SelectedEntityId))
-                {
-                    <button type="button" class="btn btn-secondary px-1 py-1"
-                            @onclick="async () => await DistributedVM.DeleteRecord(SelectedEntityId)">
-                        @Localizer["Delete"]
-                    </button>
                 }
-                <button type="button" class="btn btn-secondary ms-2"
-                        @onclick='() => BtnOperation = ""'>
-                    <div class="d-flex flex-row">
-                        <i class="bi bi-x-circle mx-2"></i>
+
+                <!-- Close button -->
+                <div class="col-auto">
+                    <button type="button"
+                            class="btn btn-secondary px-3 py-1"
+                            @onclick="EndBtnOperation">
+                        <i class="bi bi-x-circle me-2"></i>
                         <span>@Localizer["Close"]</span>
-                    </div>
-                </button>
+                    </button>
+                </div>
+
             </div>
+
         }
 
 
         @if (this.BtnOperation == "UpdateFromPlc")
         {
-            <div class="col d-flex align-items-center gap-2 mb-1">
+            <div class="row mb-1 g-2 align-items-stretch">
 
-                <select @bind="SelectedEntityId" class="form-select form-select-lg" aria-label="Default select example">
-                    @foreach (var entityId in DistributedVM.GetFromFirstExchageExistingIds().Take(10))
+                <div class="col">
+                    <DataEntitySelector Elements="@DistributedVM.GetFromFirstExchageExistingIds()"
+                                        @bind-SelectdValue="SelectedEntityId" />
+                </div>
+
+                <div class="col-auto d-flex flex-column justify-content-start gap-2">
+
+                    @if (!string.IsNullOrEmpty(SelectedEntityId))
                     {
-                        <option value="@entityId">@entityId</option>
-                    }
-                </select>
+                        <button type="button" class="btn btn-warning"
+                                @onclick='() => BtnOperation = "UpdateFromPlc-Ack"'>
 
-                @if (!string.IsNullOrEmpty(SelectedEntityId))
-                {
-                    <button type="button" class="btn btn-secondary px-1 py-1"
-                            @onclick="async () => await DistributedVM.UpdateFromPlc(SelectedEntityId)">
-                        @Localizer["Load from PLC"]
-                    </button>
-                }
-                <button type="button" class="btn btn-secondary ms-2"
-                        @onclick='() => BtnOperation = ""'>
-                    <div class="d-flex flex-row">
-                        <i class="bi bi-x-circle mx-2"></i>
+                            <div class="d-flex flex-row justify-content-center align-items-center">
+                                <i class="bi bi-cloud-upload mx-2"></i>
+                                <span>@Localizer["Update from PLC"] "@SelectedEntityId"</span>
+                            </div>
+
+                        </button>
+                    }
+
+                    <button type="button" class="btn btn-secondary"
+                            @onclick='EndBtnOperation'>
+                        <i class="bi bi-x-circle me-2"></i>
                         <span>@Localizer["Close"]</span>
-                    </div>
-                </button>
+                    </button>
+
+                </div>
             </div>
         }
+
+        @if (this.BtnOperation == "UpdateFromPlc-Ack")
+        {
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex gap-2 w-100">
+
+                        <div class="flex-fill">
+                            <button type="button" class="btn btn-warning w-100 px-1 py-1"
+                                    @onclick="async () => {
+                                        await DistributedVM.UpdateFromPlc(SelectedEntityId);
+                                        DistributedVM.UpdateSelectedView();
+                                        EndBtnOperation();}">
+                                <div class="d-flex flex-row justify-content-center align-items-center">
+                                    <i class="bi bi-cloud-upload mx-2"></i>
+                                    <span>@Localizer["Update from PLC"] "@SelectedEntityId"</span>
+                                </div>
+
+                            </button>
+                        </div>
+
+                        <div class="flex-fill">
+                            <button type="button" class="btn btn-secondary w-100"
+                                    @onclick='() => {BtnOperation = "UpdateFromPlc";SelectedEntityId=string.Empty;}'>
+                                <div class="d-flex flex-row justify-content-center align-items-center">
+                                    <i class="bi bi-backspace mx-2"></i>
+                                    <span>@Localizer["Back"]</span>
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="flex-fill">
+                            <button type="button" class="btn btn-secondary w-100"
+                                    @onclick='EndBtnOperation'>
+                                <div class="d-flex flex-row justify-content-center align-items-center">
+                                    <i class="bi bi-x-circle mx-2"></i>
+                                    <span>@Localizer["Close"]</span>
+                                </div>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+
+
+        @if (this.BtnOperation == "Delete")
+        {
+            <div class="row mb-1 g-2 align-items-stretch">
+
+                <div class="col">
+                    <DataEntitySelector Elements="@DistributedVM.GetFromFirstExchageExistingIds()"
+                                        @bind-SelectdValue="SelectedEntityId" />
+                </div>
+
+                <div class="col-auto d-flex flex-column justify-content-start gap-2">
+
+                    @if (!string.IsNullOrEmpty(SelectedEntityId))
+                    {
+                        <button type="button" class="btn btn-danger"
+                                @onclick='() => BtnOperation = "Delete-Ack"'>
+
+                            <div class="d-flex flex-row justify-content-center align-items-center">
+                                <i class="bi bi-trash3 mx-2"></i>
+                                <span>@Localizer["Delete"] "@SelectedEntityId"</span>
+                            </div>
+
+                        </button>
+                    }
+
+                    <button type="button" class="btn btn-secondary"
+                            @onclick='EndBtnOperation'>
+                        <i class="bi bi-x-circle me-2"></i>
+                        <span>@Localizer["Close"]</span>
+                    </button>
+                </div>
+            </div>
+        }
+
+        @if (this.BtnOperation == "Delete-Ack")
+        {
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex gap-2 w-100">
+
+                        <div class="flex-fill">
+                            <button type="button" class="btn btn-danger w-100 px-1 py-1"
+                                    @onclick="async () => {
+                                        await DistributedVM.DeleteRecord(SelectedEntityId);
+                                        DistributedVM.UpdateSelectedView();
+                                        EndBtnOperation();}">
+                                <div class="d-flex flex-row justify-content-center align-items-center">
+                                    <i class="bi bi-trash3 mx-2"></i>
+                                    <span>@Localizer["Delete"] "@SelectedEntityId"</span>
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="flex-fill">
+                            <button type="button" class="btn btn-secondary w-100"
+                                    @onclick='() => {BtnOperation = "Delete";SelectedEntityId=string.Empty;}'>
+                                <div class="d-flex flex-row justify-content-center align-items-center">
+                                    <i class="bi bi-backspace mx-2"></i>
+                                    <span>@Localizer["Back"]</span>
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="flex-fill">
+                            <button type="button" class="btn btn-secondary w-100"
+                                    @onclick='EndBtnOperation'>
+                                <div class="d-flex flex-row justify-content-center align-items-center">
+                                    <i class="bi bi-x-circle mx-2"></i>
+                                    <span>@Localizer["Close"]</span>
+                                </div>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+
 
 
         @* 
@@ -318,6 +540,7 @@
             </div>
         }
  *@
+
     </div>
 }
 

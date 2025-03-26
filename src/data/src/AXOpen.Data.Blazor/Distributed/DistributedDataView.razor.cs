@@ -1,4 +1,5 @@
 ﻿using AXOpen.Base.Dialogs;
+using Humanizer.DateTimeHumanizeStrategy;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
@@ -44,8 +45,8 @@ namespace AXOpen.Data
         public IAxoDataExchangeConfigurationService? ExchangeConfigService { set; get; }
 
         public string BtnOperation {  get; set; } = string.Empty;
+        public string SelectedEntityId { get; set; } = string.Empty;
         public string OperationRecordName {  get; set; } = string.Empty;
-        public string SelectedEntityId { get; set; } = "";
 
         public bool AdvanceFilterConfig { get; set; } = false;
 
@@ -81,6 +82,13 @@ namespace AXOpen.Data
                     this.DistributedVM.StateHasChangedDelegate = StateHasChanged;
                 }
             }
+        }
+
+        public void EndBtnOperation()
+        {
+            this.BtnOperation = "";
+            this.SelectedEntityId = "";
+            this.OperationRecordName = "";
         }
     }
 }

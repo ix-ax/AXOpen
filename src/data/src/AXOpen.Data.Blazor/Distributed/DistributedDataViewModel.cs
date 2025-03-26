@@ -68,6 +68,15 @@ namespace AXOpen.Data
 
         public Task FillObservableRecordsAsync(PredicateContainer? predicates = null)
         {
+
+            if (predicates == null)
+            {
+                if (this.SelectedManagerVm != null)
+                {
+                    return SelectedManagerVm.FillObservableRecordsAsync();
+                }
+            }
+
             List<List<string>> fragmentEntities = new();
 
             Parallel.ForEach(DataFragments.Where(fragment => predicates.ContainsType(fragment.GetPlainTypes().First())), fragment =>
@@ -103,6 +112,15 @@ namespace AXOpen.Data
             else
             {
                 return Task.CompletedTask;
+            }
+        }
+
+
+        public void UpdateSelectedView()
+        {
+            if (SelectedManagerVm != null)
+            {
+                this.SelectedManagerVm.UpdateObservableRecords();
             }
         }
 
@@ -219,49 +237,51 @@ namespace AXOpen.Data
             }
 
             List<string> updated = new List<string>();
-            List<string> notExitInDb = new List<string>();
+            List<string> created = new List<string>();
             List<string> notSameIdInPlc = new List<string>();
 
             foreach (var exchange in DataFragments.DistinctBy(p => p.ManagerDataTypeName))
             {
+                //TODO optimalize -> clone only EntityId
+                var refdata = exchange.CloneDataObject();
+
+                var DataEntityId = (refdata as IAxoDataEntity).DataEntityId;
+
+                List<ITwinPrimitive> batchRedElements = new();
+
+                batchRedElements.Add(DataEntityId);
+
+                await refdata.GetConnector().ReadBatchAsync(batchRedElements);
+
+                if (DataEntityId.Cyclic != identifier)
+                {
+                    notSameIdInPlc.Add(exchange.ManagerDataTypeName);
+                    continue;
+                }
+
                 if (exchange.Repository.Exists(identifier))
                 {
-                    //TODO optimalize -> clone only EntityId
-                    var refdata = exchange.CloneDataObject();
-
-                    var DataEntityId = (refdata as IAxoDataEntity).DataEntityId;
-
-                    List<ITwinPrimitive> batchRedElements = new();
-
-                    batchRedElements.Add(DataEntityId);
-
-                    await refdata.GetConnector().ReadBatchAsync(batchRedElements);
-
-                    if (DataEntityId.Cyclic != identifier)
-                    {
-                        notSameIdInPlc.Add(exchange.ManagerDataTypeName);
-                        continue;
-                    }
-
                     await exchange.RemoteUpdate(identifier);
                     updated.Add(exchange.ManagerDataTypeName);
                 }
                 else
                 {
-                    notExitInDb.Add(exchange.ManagerDataTypeName);
+                    await exchange.RemoteCreate(identifier);
+                    created.Add(exchange.ManagerDataTypeName);
                 }
+
             }
 
             if (updated.Count > 0)
             {
-                string createdRecords = string.Join(", ", updated);
-                AlertService?.AddAlertDialog(eAlertType.Info, "Update record", $"Data with ID: \"{identifier}\"  was created for: {createdRecords}!", 7);
+                string updatedRecords = string.Join(", ", updated);
+                AlertService?.AddAlertDialog(eAlertType.Info, "Update record", $"Data with ID: \"{identifier}\"  was created for: {updatedRecords}!", 7);
             }
 
-            if (notExitInDb.Count > 0)
+            if (created.Count > 0)
             {
-                string notCreatedRecords = string.Join(", ", notExitInDb);
-                AlertService?.AddAlertDialog(eAlertType.Warning, "Update error", $"Record not exist in Database for: {notCreatedRecords}!", 14);
+                string createdRecords = string.Join(", ", created);
+                AlertService?.AddAlertDialog(eAlertType.Info, "Crete record", $"Data with ID: \"{identifier}\"  was created for: {createdRecords}!", 7);
             }
 
             if (notSameIdInPlc.Count > 0)
@@ -318,14 +338,14 @@ namespace AXOpen.Data
 
             if (alreadyExist.Count > 0)
             {
-                string notCreatedRecords = string.Join(", ", notExist);
-                AlertService?.AddAlertDialog(eAlertType.Warning, "Copied error", $"Record already exist for: {notCreatedRecords}!", 14);
+                string alreadyExistRecords = string.Join(", ", alreadyExist);
+                AlertService?.AddAlertDialog(eAlertType.Warning, "Copied error", $"Record already exist for: {alreadyExistRecords}!", 14);
             }
 
             if (notExist.Count > 0)
             {
-                string notCreatedRecords = string.Join(", ", notExist);
-                AlertService?.AddAlertDialog(eAlertType.Warning, "Copied error", $"Source Record not exist for: {notCreatedRecords}!", 14);
+                string notExistRecords = string.Join(", ", notExist);
+                AlertService?.AddAlertDialog(eAlertType.Warning, "Copied error", $"Source Record not exist for: {notExistRecords}!", 14);
             }
         }
 
