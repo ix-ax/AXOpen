@@ -170,10 +170,10 @@ namespace AXOpen.Messaging.Static
                 return Component.State;
             }
         }
-        private bool IsActive => Component.State == eAxoMessengerState.ActiveNoAck || Component.State == eAxoMessengerState.ActiveAckn || Component.State == eAxoMessengerState.Active;
+        private bool IsActive => Component.State == eAxoMessengerState.ActiveAcknowledgeRequired || Component.State == eAxoMessengerState.ActiveAcknowledgeNotRequired || Component.State == eAxoMessengerState.ActiveAlreadyAcknowledged;
 
-        private bool AcknowledgedBeforeFallen => Component.State == eAxoMessengerState.ActiveAckn;
-        private bool HideAcknowledgeButton => Component.State <= eAxoMessengerState.Idle || Component.State == eAxoMessengerState.Active;
+        private bool AcknowledgedBeforeFallen => Component.State == eAxoMessengerState.ActiveAlreadyAcknowledged;
+        private bool HideAcknowledgeButton => Component.State <= eAxoMessengerState.Idle || Component.State == eAxoMessengerState.ActiveAcknowledgeNotRequired || Component.State == eAxoMessengerState.ActiveAlreadyAcknowledged;
         private bool HideHelpButton => MessengerState == eAxoMessengerState.Idle || !HelpTextDefined;
 
         private bool HideRepairButton => (!IsActive || this.Component.GetParent() is not AxoTask);
@@ -183,38 +183,41 @@ namespace AXOpen.Messaging.Static
         {
             ulong messageCode = Component.MessageCode.Cyclic;
             string retVal = "";
-
-            //Just one static text defined inside the `Help` attribute in the PLC code is used
+            string prefix = "";
+            if (this.MessengerState.Equals(eAxoMessengerState.InvalidImplementation))
+            {
+                prefix = "Invalid implementation (message code: " + messageCode.ToString() + "). Check if the AxoMessenger has a valid AxoContext so as the valid AxoRtm. Check also the order of the methods called. The 'Serve' method must be calle before any other 'Activate' or 'ActivateOnCondition' method's call. ";
+            }
             if (Component.MessageCode.Cyclic == 0)
-                retVal = string.IsNullOrEmpty(Component.Help) ? "Help text not defined!" : Component.Help;
+                retVal = "";
             else
             {
                 try
                 {
-                    //Several static texts defined inside the `PlcTextsList` attribute in the PLC code are used
+                    //Static texts defined inside the `PlcTextsList` attribute in the PLC code are used
                     if (Component.PlcMessengerTextList != null && Component.PlcMessengerTextList.Count > 0)
                     {
                         string _helpText = (from item in Component.PlcMessengerTextList where item.Key == messageCode select item.Value.HelpText.ToString()).FirstOrDefault();
-                        retVal = string.IsNullOrEmpty(_helpText) ? "Help text not defined for the message code: " + messageCode.ToString() + " !" : _helpText;
+                        retVal = string.IsNullOrEmpty(_helpText) ? prefix + "Help text not defined for the message code: " + messageCode.ToString() + " !" : prefix + _helpText;
                     }
                     //Message texts are written in .NET and passed into the component
                     else if (Component.DotNetMessengerTextList != null && Component.DotNetMessengerTextList.Count > 0)
                     {
                         string _helpText = (from item in Component.DotNetMessengerTextList where item.Key == messageCode select item.Value.HelpText.ToString()).FirstOrDefault();
-                        retVal = string.IsNullOrEmpty(_helpText) ? "Help text not defined for the message code: " + messageCode.ToString() + " !" : _helpText;
+                        retVal = string.IsNullOrEmpty(_helpText) ? prefix + "Help text not defined for the message code: " + messageCode.ToString() + " !" : prefix + _helpText;
                     }
                     else
                     {
-                        retVal = "Help text not defined for the message code: " + messageCode.ToString() + " !";
+                        retVal = prefix + "Help text not defined for the message code: " + messageCode.ToString() + " !";
                     }
                 }
                 catch (Exception)
                 {
-                    retVal = "Help text not defined for the message code: " + messageCode.ToString() + " !";
+                    retVal = prefix + "Help text not defined for the message code: " + messageCode.ToString() + " !";
                     return retVal;
                     throw;
                 }
-            }
+        }
             return retVal;
         }
 

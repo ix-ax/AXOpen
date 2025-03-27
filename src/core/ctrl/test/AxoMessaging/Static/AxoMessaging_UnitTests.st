@@ -1,3 +1,6 @@
+USING AXOpen.Messaging.Static;
+USING AXOpen.Messaging.Static;
+USING AXOpen.Messaging.Static;
 USING AXOpen.Core;
 USING AXOpen.Core.Dummies;
 USING AxUnit;
@@ -147,9 +150,22 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
     END_CLASS
 
     {S7.extern=ReadWrite}
+    CLASS AxoMessengerTest EXTENDS AxoMessenger
+        METHOD INTERNAL IsActive : BOOL
+            IsActive := THIS.MessengerState=eAxoMessengerState#ActiveAcknowledgeNotRequired OR 
+                        THIS.MessengerState=eAxoMessengerState#ActiveAcknowledgeRequired OR 
+                        THIS.MessengerState=eAxoMessengerState#ActiveAlreadyAcknowledged;
+                        
+        END_METHOD
+        METHOD INTERNAL WaitingForAcknowledge : BOOL
+            WaitingForAcknowledge := THIS.MessengerState=eAxoMessengerState#InactiveWaitingForAcknowledge;
+        END_METHOD
+    END_CLASS
+
+    {S7.extern=ReadWrite}
     CLASS TestObject EXTENDS MockAxoObject
         VAR PUBLIC 
-            _messenger : AxoMessenger;
+            _messenger : AxoMessengerTest;
         END_VAR
  
     END_CLASS
@@ -157,20 +173,20 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
     CLASS NestedObject_L1 EXTENDS MockAxoObject
         VAR PUBLIC 
             _nestedObject_L2 : NestedObject_L2;
-            _messenger : AxoMessenger;
+            _messenger : AxoMessengerTest;
         END_VAR
     END_CLASS    
 
     CLASS NestedObject_L2 EXTENDS MockAxoObject
         VAR PUBLIC 
             _nestedObject_L3 : NestedObject_L3;
-            _messenger : AxoMessenger;
+            _messenger : AxoMessengerTest;
         END_VAR
     END_CLASS    
 
     CLASS NestedObject_L3 EXTENDS MockAxoObject
         VAR PUBLIC 
-            _messenger : AxoMessenger;
+            _messenger : AxoMessengerTest;
         END_VAR
     END_CLASS
 
@@ -212,8 +228,8 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
         VAR PRIVATE
             _suti : TestContextI;
             _sute : TestContextE;
-            // _rtc : AXOpen.Core.Dummies.MockAxoRtc;
-            _rtc : AxoRtcMock;
+            _rtc : AXOpen.Core.Dummies.MockAxoRtc;
+            // _rtc : AxoRtcMock;
             _rtm : AXOpen.Core.Dummies.MockAxoRtm;
         END_VAR
 
@@ -229,13 +245,13 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
         METHOD PUBLIC TestSetup
             _suti := _sutiClean;
             _rtm.SetElapsed(LTIME#2s);
-            // _rtc.SetNowUTC(LDATE_AND_TIME#2012-01-12-15:58:12.123);
-            // _suti.InjectRtc(_rtc);
+            _rtc.SetNowUTC(LDATE_AND_TIME#2012-01-12-15:58:12.123);
+            _suti.InjectRtc(_rtc);
             _suti.InjectRtm(_rtm);
             _suti.InitializeRootObject(_rootIObject);
 
             _sute := _suteClean;     
-            // _sute.InjectRtc(_rtc);
+            _sute.InjectRtc(_rtc);
             _sute.InjectRtm(_rtm);
             _sute.InitializeRootObject(_rootEObject);
         END_METHOD
@@ -278,9 +294,9 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
                 actual : LDATE_AND_TIME;
             END_VAR
             //Arrange
-            expected := LDATE_AND_TIME#2012-01-12-15:58:12.123;
-            _rtc.SetNowUTC(expected);
             actual := _sute.GetRtc().NowUTC();
+            expected := LDATE_AND_TIME#2014-01-12-15:58:12.123;
+            _rtc.SetNowUTC(expected);
             Assert.Equal(FALSE, THIS.AreEqual(expected,actual));
             //Act
             _sute.InjectRtc(_rtc);
@@ -295,11 +311,11 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject(_suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.Activate();
+            _suti._object._messenger.Activate(UINT#1);
             _suti.Close();
 
             //--Assert            
-            Assert.Equal(TRUE, _suti._object._messenger.IsActive);
+            Assert.Equal(TRUE, _suti._object._messenger.IsActive());
                            
         END_METHOD
 
@@ -321,13 +337,13 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
                 _suti._nested._nestedObject_L2._nestedObject_L3.Run(_suti._nested._nestedObject_L2);            
     
                 _suti._nested._messenger.Serve(_suti._nested);
-                _suti._nested._messenger.Activate(eAxoMessageCategory#Error);
+                _suti._nested._messenger.Activate(UINT#1,eAxoMessageCategory#Error);
                                        
                 _suti._nested._nestedObject_L2._messenger.Serve(_suti._nested._nestedObject_L2);
-                _suti._nested._nestedObject_L2._messenger.Activate(eAxoMessageCategory#Error);
+                _suti._nested._nestedObject_L2._messenger.Activate(UINT#1,eAxoMessageCategory#Error);
                 
                 _suti._nested._nestedObject_L2._nestedObject_L3._messenger.Serve(_suti._nested._nestedObject_L2._nestedObject_L3);
-                _suti._nested._nestedObject_L2._nestedObject_L3._messenger.Activate(eAxoMessageCategory#Error);
+                _suti._nested._nestedObject_L2._nestedObject_L3._messenger.Activate(UINT#1,eAxoMessageCategory#Error);
                 
     
                 // _suti._nested._messenger.Serve(_suti._nested);
@@ -348,23 +364,14 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
 
 
         {Test}
-        METHOD PUBLIC isactive_should_be_true_in_the_next_PLC_cycle_in_case_of_activate_method_is_called_before_serve_method
+        METHOD PUBLIC MessengerState_should_be_InvalidImplementation_in_case_of_activate_method_is_called_before_serve_method
             //--Act
-            //1st PLC cycle
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
-            _suti._object._messenger.Activate();
+            _suti._object._messenger.Activate(UINT#1);
             _suti._object._messenger.Serve(_suti._object);
             _suti.Close();
-            Assert.Equal(TRUE, _suti._object._messenger.IsActive);
-
-            // //--Assert
-            // //2nd
-            // _suti.Open();
-            // _suti._object._messenger.Activate();
-            // _suti._object._messenger.Serve(_suti._object);
-            // _suti.Close();
-            // Assert.Equal(TRUE, _suti._object._messenger.IsActive);
+            Assert.Equal(TRUE, _suti._object._messenger.MessengerState = eAxoMessengerState#InvalidImplementation);
         END_METHOD
 
         {Test}
@@ -373,11 +380,11 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
         END_METHOD
 
         {Test}
@@ -386,31 +393,22 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(TRUE, _suti._object._messenger.IsActive);
+            Assert.Equal(TRUE, _suti._object._messenger.IsActive());
         END_METHOD
 
         {Test}
-        METHOD PUBLIC isactive_should_be_true_in_the_next_PLC_cycle_in_case_of_activateoncondition_method_is_called_before_serve_method
+        METHOD PUBLIC MessengerState_should_be_InvalidImplementation_in_case_of_activateoncondition_method_is_called_before_serve_method
             //--Act
-            //1st PLC cycle
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE);
             _suti._object._messenger.Serve(_suti._object);
             _suti.Close();
-            Assert.Equal(TRUE, _suti._object._messenger.IsActive);
-
-            // //--Assert
-            // //2nd
-            // _suti.Open();
-            // _suti._object._messenger.ActivateOnCondition(TRUE);
-            // _suti._object._messenger.Serve(_suti._object);
-            // _suti.Close();
-            // Assert.Equal(TRUE, _suti._object._messenger.IsActive);
+            Assert.Equal(TRUE, _suti._object._messenger.MessengerState = eAxoMessengerState#InvalidImplementation);
         END_METHOD
 
         {Test}
@@ -433,18 +431,18 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category);
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _rtc.SetNowUTC(expMessage.Fallen);
             _suti.InjectRtc(_rtc);
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE,THIS.AreEqual(_suti._object._messenger.Category,expMessage.Category));
             Assert.Equal(TRUE,THIS.AreEqual(expMessage.Risen,_suti._object._messenger.Risen));
             Assert.Equal(TRUE,THIS.AreEqual(expMessage.Fallen,_suti._object._messenger.Fallen));
@@ -471,23 +469,23 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.Activate(expMessage.Category);
+            _suti._object._messenger.Activate(UINT#1,expMessage.Category);
             _suti.Close();
             //2nd-PLC cycle: Stop calling of the Activate method
             _rtc.SetNowUTC(expMessage.Fallen);
             _suti.InjectRtc(_rtc);
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            //_suti._object._messenger.Activate(expMessage.Category);   --- No Active method call in this PLC cycle
+            //_suti._object._messenger.Activate(UINT#1,expMessage.Category);   --- No Active method call in this PLC cycle
             _suti.Close();
             //3rd-PLC cycle: Falling of the message detection
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            //_suti._object._messenger.Activate(expMessage.Category);   --- No Active method call in this PLC cycle
+            //_suti._object._messenger.Activate(UINT#1,expMessage.Category);   --- No Active method call in this PLC cycle
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE,THIS.AreEqual(_suti._object._messenger.Category,expMessage.Category));
             Assert.Equal(TRUE,THIS.AreEqual(expMessage.Risen,_suti._object._messenger.Risen));
             Assert.Equal(TRUE,THIS.AreEqual(expMessage.Fallen,_suti._object._messenger.Fallen));
@@ -511,11 +509,11 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.Activate(expMessage.Category);
+            _suti._object._messenger.Activate(UINT#1,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(TRUE, _suti._object._messenger.IsActive);
+            Assert.Equal(TRUE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE,THIS.AreEqual(_suti._object._messenger.Category,expMessage.Category));
             Assert.Equal(TRUE,THIS.AreEqual(expMessage.Risen,_suti._object._messenger.Risen));
 
@@ -538,11 +536,11 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.Activate(expMessage.Category);
+            _suti._object._messenger.Activate(UINT#1,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(TRUE, _suti._object._messenger.IsActive);
+            Assert.Equal(TRUE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE,THIS.AreEqual(_suti._object._messenger.Category,expMessage.Category));
             Assert.Equal(TRUE,THIS.AreEqual(expMessage.Risen,_suti._object._messenger.Risen));
 
@@ -565,11 +563,11 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.Activate(expMessage.Category);
+            _suti._object._messenger.Activate(UINT#1,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(TRUE, _suti._object._messenger.IsActive);
+            Assert.Equal(TRUE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE,THIS.AreEqual(_suti._object._messenger.Category,expMessage.Category));
             Assert.Equal(TRUE,THIS.AreEqual(expMessage.Risen,_suti._object._messenger.Risen));
 
@@ -592,11 +590,11 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.Activate(expMessage.Category);
+            _suti._object._messenger.Activate(UINT#1,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(TRUE, _suti._object._messenger.IsActive);
+            Assert.Equal(TRUE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE,THIS.AreEqual(_suti._object._messenger.Category,expMessage.Category));
             Assert.Equal(TRUE,THIS.AreEqual(expMessage.Risen,_suti._object._messenger.Risen));
 
@@ -619,11 +617,11 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.Activate(expMessage.Category);
+            _suti._object._messenger.Activate(UINT#1,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(TRUE, _suti._object._messenger.IsActive);
+            Assert.Equal(TRUE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE,THIS.AreEqual(_suti._object._messenger.Category,expMessage.Category));
             Assert.Equal(TRUE,THIS.AreEqual(expMessage.Risen,_suti._object._messenger.Risen));
 
@@ -646,11 +644,11 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.Activate(expMessage.Category);
+            _suti._object._messenger.Activate(UINT#1,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(TRUE, _suti._object._messenger.IsActive);
+            Assert.Equal(TRUE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE,THIS.AreEqual(_suti._object._messenger.Category,expMessage.Category));
             Assert.Equal(TRUE,THIS.AreEqual(expMessage.Risen,_suti._object._messenger.Risen));
 
@@ -673,11 +671,11 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.Activate(expMessage.Category);
+            _suti._object._messenger.Activate(UINT#1,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(TRUE, _suti._object._messenger.IsActive);
+            Assert.Equal(TRUE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE,THIS.AreEqual(_suti._object._messenger.Category,expMessage.Category));
             Assert.Equal(TRUE,THIS.AreEqual(expMessage.Risen,_suti._object._messenger.Risen));
 
@@ -700,11 +698,11 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.Activate(expMessage.Category);
+            _suti._object._messenger.Activate(UINT#1,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(TRUE, _suti._object._messenger.IsActive);
+            Assert.Equal(TRUE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE,THIS.AreEqual(_suti._object._messenger.Category,expMessage.Category));
             Assert.Equal(TRUE,THIS.AreEqual(expMessage.Risen,_suti._object._messenger.Risen));
 
@@ -727,11 +725,11 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.Activate(expMessage.Category);
+            _suti._object._messenger.Activate(UINT#1,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(TRUE, _suti._object._messenger.IsActive);
+            Assert.Equal(TRUE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE,THIS.AreEqual(_suti._object._messenger.Category,expMessage.Category));
             Assert.Equal(TRUE,THIS.AreEqual(expMessage.Risen,_suti._object._messenger.Risen));
 
@@ -750,16 +748,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category);
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(FALSE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
@@ -777,16 +775,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).RequireAcknowledgement();
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category).RequireAcknowledgement();
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
@@ -804,16 +802,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category);
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(FALSE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
@@ -831,16 +829,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).RequireAcknowledgement();
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category).RequireAcknowledgement();
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
@@ -858,16 +856,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category);
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(FALSE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
@@ -885,16 +883,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).RequireAcknowledgement();
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category).RequireAcknowledgement();
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
@@ -912,16 +910,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category);
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(FALSE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
@@ -939,16 +937,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).RequireAcknowledgement();
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category).RequireAcknowledgement();
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
@@ -966,16 +964,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category);
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(FALSE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
@@ -993,16 +991,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).RequireAcknowledgement();
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category).RequireAcknowledgement();
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
@@ -1020,16 +1018,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category);
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(FALSE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
@@ -1047,16 +1045,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).RequireAcknowledgement();
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category).RequireAcknowledgement();
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
@@ -1074,16 +1072,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category);
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
@@ -1101,16 +1099,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).DoNotRequireAcknowledgement();
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category).DoNotRequireAcknowledgement();
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(FALSE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
@@ -1128,16 +1126,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category);
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
@@ -1155,16 +1153,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).DoNotRequireAcknowledgement();
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category).DoNotRequireAcknowledgement();
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(FALSE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
@@ -1182,16 +1180,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category);
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
@@ -1209,16 +1207,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).DoNotRequireAcknowledgement();
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category).DoNotRequireAcknowledgement();
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(FALSE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
@@ -1236,16 +1234,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category);
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
@@ -1263,16 +1261,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).DoNotRequireAcknowledgement();
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category).DoNotRequireAcknowledgement();
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(FALSE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
@@ -1290,16 +1288,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category);
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
@@ -1317,16 +1315,16 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).DoNotRequireAcknowledgement();
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category).DoNotRequireAcknowledgement();
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(FALSE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
@@ -1339,17 +1337,17 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE).RequireAcknowledgement();
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE).RequireAcknowledgement();
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE);
             _suti.Close();
 
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
-            Assert.Equal(TRUE, _suti._object._messenger.WaitingForAcknowledge);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
+            Assert.Equal(TRUE, _suti._object._messenger.WaitingForAcknowledge());
  
         END_METHOD
 
@@ -1371,28 +1369,28 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).RequireAcknowledgement();
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category).RequireAcknowledgement();
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _rtc.SetNowUTC(expMessage.Fallen);
             _suti.InjectRtc(_rtc);
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
             //3rd-PLC cycle: Rising of the message again
             _rtc.SetNowUTC(Risen2);
             _suti.InjectRtc(_rtc);
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).RequireAcknowledgement();
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category).RequireAcknowledgement();
             _suti.Close();
             //--Assert
-            Assert.Equal(TRUE, _suti._object._messenger.IsActive);
+            Assert.Equal(TRUE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE,THIS.AreEqual(_suti._object._messenger.Category,expMessage.Category));
             Assert.Equal(TRUE,THIS.AreEqual(Risen2,_suti._object._messenger.Risen));
             Assert.Equal(TRUE,THIS.AreEqual(LDATE_AND_TIME#1970-01-01-00:00:00.000,_suti._object._messenger.Fallen));
-            Assert.Equal(FALSE, _suti._object._messenger.WaitingForAcknowledge);
+            Assert.Equal(FALSE, _suti._object._messenger.WaitingForAcknowledge());
  
         END_METHOD
          
@@ -1413,14 +1411,14 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).RequireAcknowledgement();
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category).RequireAcknowledgement();
             _suti.Close();
             //2nd-PLC cycle: Falling of the message
             _rtc.SetNowUTC(expMessage.Fallen);
             _suti.InjectRtc(_rtc);
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
             //3rd-PLC cycle: Acknowledge of the message
             _rtc.SetNowUTC(expMessage.Acknowledged);
@@ -1430,15 +1428,15 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti._object._messenger.Serve(_suti._object);
             _suti.Close();
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
-            Assert.Equal(FALSE, _suti._object._messenger.WaitingForAcknowledge);
+            Assert.Equal(FALSE, _suti._object._messenger.WaitingForAcknowledge());
             Assert.Equal(FALSE, _suti._object._messenger.AcknowledgeRequest);
             Assert.Equal(TRUE,THIS.AreEqual(_suti._object._messenger.Category,expMessage.Category));
             Assert.Equal(TRUE,THIS.AreEqual(expMessage.Risen,_suti._object._messenger.Risen));
             Assert.Equal(TRUE,THIS.AreEqual(expMessage.Fallen,_suti._object._messenger.Fallen));
             Assert.Equal(TRUE,THIS.AreEqual(expMessage.Acknowledged,_suti._object._messenger.Acknowledged));
-            Assert.Equal(FALSE, _suti._object._messenger.WaitingForAcknowledge);
+            Assert.Equal(FALSE, _suti._object._messenger.WaitingForAcknowledge());
  
         END_METHOD
 
@@ -1459,7 +1457,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).RequireAcknowledgement();
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category).RequireAcknowledgement();
             _suti.Close();
             //2nd-PLC cycle: Acknowledge of the message 
             _rtc.SetNowUTC(expMessage.Acknowledged);
@@ -1469,15 +1467,15 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti._object._messenger.Serve(_suti._object);
             _suti.Close();
             //--Assert
-            Assert.Equal(TRUE, _suti._object._messenger.IsActive);
+            Assert.Equal(TRUE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
-            Assert.Equal(FALSE, _suti._object._messenger.WaitingForAcknowledge);
+            Assert.Equal(FALSE, _suti._object._messenger.WaitingForAcknowledge());
             Assert.Equal(FALSE, _suti._object._messenger.AcknowledgeRequest);
             Assert.Equal(TRUE,THIS.AreEqual(_suti._object._messenger.Category,expMessage.Category));
             Assert.Equal(TRUE,THIS.AreEqual(expMessage.Risen,_suti._object._messenger.Risen));
             Assert.Equal(TRUE,THIS.AreEqual( LDATE_AND_TIME#1970-01-01-00:00:00.000,_suti._object._messenger.Fallen));
             Assert.Equal(TRUE,THIS.AreEqual(expMessage.Acknowledged,_suti._object._messenger.Acknowledged));
-            Assert.Equal(FALSE, _suti._object._messenger.WaitingForAcknowledge);
+            Assert.Equal(FALSE, _suti._object._messenger.WaitingForAcknowledge());
  
         END_METHOD
 
@@ -1498,7 +1496,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(TRUE,expMessage.Category).RequireAcknowledgement();
+            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category).RequireAcknowledgement();
             _suti.Close();
             //2nd-PLC cycle: Acknowledge of the message 
             _rtc.SetNowUTC(expMessage.Acknowledged);
@@ -1512,18 +1510,18 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _suti.InjectRtc(_rtc);
             _suti.Open();
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category);
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
             _suti.Close();
             //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive);
+            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
             Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
-            Assert.Equal(FALSE, _suti._object._messenger.WaitingForAcknowledge);
+            Assert.Equal(FALSE, _suti._object._messenger.WaitingForAcknowledge());
             Assert.Equal(FALSE, _suti._object._messenger.AcknowledgeRequest);
             Assert.Equal(TRUE,THIS.AreEqual(_suti._object._messenger.Category,expMessage.Category));
             Assert.Equal(TRUE,THIS.AreEqual(expMessage.Risen,_suti._object._messenger.Risen));
             Assert.Equal(TRUE,THIS.AreEqual( expMessage.Fallen,_suti._object._messenger.Fallen));
             Assert.Equal(TRUE,THIS.AreEqual(expMessage.Acknowledged,_suti._object._messenger.Acknowledged));
-            Assert.Equal(FALSE, _suti._object._messenger.WaitingForAcknowledge);
+            Assert.Equal(FALSE, _suti._object._messenger.WaitingForAcknowledge());
  
         END_METHOD
 
@@ -1535,10 +1533,10 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Arrange
             _suti.Open();
             _suti.InitializeRootObject( _suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category).RequireAcknowledgement();
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category).RequireAcknowledgement();
             _suti.InitializeRootObject( _suti._object);
             _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(FALSE,expMessage.Category).RequireAcknowledgement();
+            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category).RequireAcknowledgement();
             _suti.Close(); 
         END_METHOD
     END_CLASS

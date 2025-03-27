@@ -114,4 +114,16 @@ scripts:
     apax build
     apax test
   mm: |
-    apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
+    apax mon --targetIP $AXTARGET --file messages.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
+  mm1: |
+    apax mon --targetIP $AXTARGET --file messages1.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
+  mm2: |
+    apax mon --targetIP $AXTARGET --file messages2.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
+  mm3: |
+    apax mon --targetIP $AXTARGET --file messages3.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
+  mm4: |
+    apax mon --targetIP $AXTARGET --file messages4.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
+  mm5: |
+    apax mon --targetIP $AXTARGET --file messages5.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
+  mm6: |
+    apax mon --targetIP $AXTARGET --file messages6.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously

@@ -8,7 +8,6 @@ NAMESPACE AXOpen.Elements
     CLASS AxoAo EXTENDS AXOpen.Core.AxoComponent
         
         VAR PUBLIC
-
             /// required value
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-set:AttributeName = "<#SetPoint#>"}
@@ -28,21 +27,13 @@ NAMESPACE AXOpen.Elements
             {#ix-set:AttributeName = "<#Status#>"}
             _status : AxoAoStatus;	
     
-
             _rawRange  : REAL;
             _realRange : REAL;
             _unscaled  : REAL;
-    
-    
-            {#ix-set:MessageText = "<#Division by zero: Verify values defined in config! (RawHigh,RawLow)#>"}
-            _messengerDivisionByZero : AXOpen.Messaging.Static.AxoMessenger;
-    
-            {#ix-set:MessageText = "<#Invalid data: Gain is not defined!#>"}
-            _messengerGainNotDefined : AXOpen.Messaging.Static.AxoMessenger;
-    
-            {#ix-set:MessageText = "<#Out of boundaries,check correction parameters (Gain,Ofset) in config!#>"}
-            {#ix-set:Help = "<#Check your signal input.#>"}
-            _messengerOutOfBoundaries : AXOpen.Messaging.Static.AxoMessenger;
+
+            {#ix-set:AttributeName = "<#MessengerInfo#>"}
+            {#ix-set:PlcTextList = "[1]:'<#Division by zero: Verify values defined in config! (RawHigh,RawLow)':'<#Check the scaling parameters.#>';[2]:'<#Invalid data: Gain is not defined!#>':'<#Check the scaling parameters.#>';[3]:'<#Out of boundaries,check correction parameters (Gain,Ofset) in config!#>':'<#Check your signal output.#>'"}
+            _messengerInfo : AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
     
         VAR
@@ -77,9 +68,7 @@ NAMESPACE AXOpen.Elements
                 _context := THIS.GetContext();
             END_IF;
 
-            _messengerDivisionByZero.Serve(THIS); 
-            _messengerGainNotDefined.Serve(THIS); 
-            _messengerOutOfBoundaries.Serve(THIS);
+            _messengerInfo.Serve(THIS); 
     
             //unscaling
             _rawRange  := TO_REAL(_config.RawHigh - _config.RawLow);
@@ -87,23 +76,22 @@ NAMESPACE AXOpen.Elements
             _unscaled  := 0;
     
             IF (_rawRange = 0) THEN
-                _messengerDivisionByZero.Activate(AXOpen.Messaging.eAxoMessageCategory#Error);
+                _messengerInfo.Activate(UINT#1,AXOpen.Messaging.eAxoMessageCategory#Error);
                 RETURN;
             END_IF;
             
             IF (_config.Gain = 0) THEN
-                _messengerGainNotDefined.Activate(AXOpen.Messaging.eAxoMessageCategory#Error);
+                _messengerInfo.Activate(UINT#2,AXOpen.Messaging.eAxoMessageCategory#Error);
             END_IF;
-    
-
+            
             IF (_requiredValue > _config.RealHigh) THEN
                 _requiredValue := _config.RealHigh;
-                _messengerOutOfBoundaries.Activate(AXOpen.Messaging.eAxoMessageCategory#Error);
+                _messengerInfo.Activate(UINT#3,AXOpen.Messaging.eAxoMessageCategory#Error);
             END_IF;
             
             IF (_requiredValue < _config.RealLow) THEN
                 _requiredValue := _config.RealLow;
-                _messengerOutOfBoundaries.Activate(AXOpen.Messaging.eAxoMessageCategory#Error);
+                _messengerInfo.Activate(UINT#3,AXOpen.Messaging.eAxoMessageCategory#Error);
             END_IF;
 
             _unscaled := (_requiredValue - _config.RealLow) / _realRange;
@@ -115,9 +103,9 @@ NAMESPACE AXOpen.Elements
             _unscaled := _unscaled * _config.Gain + _config.Offset;
             
             IF (_unscaled > TO_REAL(_config.RawHigh)) AND (_config.Gain <> 1 OR _config.Offset <> 0) THEN
-                _messengerOutOfBoundaries.Activate(AXOpen.Messaging.eAxoMessageCategory#Error);
+                _messengerInfo.Activate(UINT#3,AXOpen.Messaging.eAxoMessageCategory#Error);
             ELSIF (_unscaled < TO_REAL(_config.RawLow)) AND (_config.Gain <> 1 OR _config.Offset <> 0) THEN
-                _messengerOutOfBoundaries.Activate(AXOpen.Messaging.eAxoMessageCategory#Error);
+                _messengerInfo.Activate(UINT#3,AXOpen.Messaging.eAxoMessageCategory#Error);
             END_IF;
     
             _signal := TO_DINT(_unscaled);

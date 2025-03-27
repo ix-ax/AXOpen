@@ -132,8 +132,8 @@
         {
             foreach (var messenger in 
                      MessageProvider.Messengers
-                         .Where(p =>p.State == eAxoMessengerState.ActiveNoAck || 
-                                                p.State == eAxoMessengerState.NotActiveWaitingAckn))
+                         .Where(p =>p.State == eAxoMessengerState.ActiveAcknowledgeRequired || 
+                                                p.State == eAxoMessengerState.InactiveWaitingForAcknowledge))
             {
                 messenger.Acknowledge(ast.User.Identity);
             }
