@@ -2140,7 +2140,8 @@ NAMESPACE AXOpen.Components.Drives
                 _category   :=  eAxoMessageCategory#Warning;
             END_IF;
             Messenger.ActivateOnCondition(_messageCode, (_error OR _warning) AND _messageCode = _lastMessageCode ,_category);
-            IF NOT Messenger.IsActive THEN
+            // IF NOT Messenger.IsActive THEN
+            IF Messenger.MessengerState = eAxoMessengerState#Idle THEN
                 IF _error OR _warning THEN
                     _lastMessageCode := _messageCode;
                 ELSE

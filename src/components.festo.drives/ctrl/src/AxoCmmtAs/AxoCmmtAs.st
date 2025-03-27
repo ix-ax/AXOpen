@@ -4722,7 +4722,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
             MC_ReadAxisErrorEnable_PV := Enable;	          
 
             Messenger.ActivateOnCondition(LastMessageCode,Enable AND Valid AND LastMessageCode = TO_ULINT(MC_ReadAxisErrorValue), eAxoMessageCategory#Error);
-            IF NOT Messenger.IsActive THEN
+            // IF NOT Messenger.IsActive THEN
+            IF Messenger.MessengerState = eAxoMessengerState#Idle THEN
                 LastMessageCode := TO_ULINT(MC_ReadAxisErrorValue);
             END_IF;
         END_METHOD

@@ -241,7 +241,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
    
             Messenger.ActivateOnCondition(_messageCode, _error AND _messageCode = _lastMessageCode ,eAxoMessageCategory#Error);
 
-            IF NOT Messenger.IsActive THEN
+            // IF NOT Messenger.IsActive THEN
+            IF Messenger.MessengerState = eAxoMessengerState#Idle THEN
                 IF _error THEN
                     _lastMessageCode := _messageCode;
                     RETURN;

@@ -4247,7 +4247,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
 
             Messenger.ActivateOnCondition(LastMessageCode,Enable AND Valid AND LastMessageCode = TO_ULINT(AxisErrorID), _category);
-            IF NOT Messenger.IsActive THEN
+            // IF NOT Messenger.IsActive THEN
+            IF Messenger.MessengerState = eAxoMessengerState#Idle THEN
                 LastMessageCode := TO_ULINT(AxisErrorID);
             END_IF;
         END_METHOD
