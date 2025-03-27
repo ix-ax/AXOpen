@@ -1,22 +1,19 @@
 ﻿@namespace librarytemplate
 @inherits AXOpen.Data.ColumnDataCellBase
 
-@PropertyValue.ToString() - 
 
-@if (CastedValue <= 100)
+@if (CastedValue == true)
 {
-    <i class="bi bi-arrow-bar-left"></i>
-    <span>over</span>
+    <i class="bi bi-check-circle text-success"> Pass </i>
 }
 else
 {
-    <i class="bi bi-arrow-bar-right"></i>
-    <span>below</span>
+    <i class="bi bi-x-octagon text-danger"> Failed </i>
 }
 
 @code {
 
-    public short CastedValue { set; get; }
+    public bool CastedValue { set; get; }
 
     protected override void OnParametersSet()
     {
@@ -24,8 +21,7 @@ else
 
         try
         {
-            CastedValue = (short)PropertyValue;
-
+            CastedValue = (bool)PropertyValue;
         }
         catch (Exception ex)
         {

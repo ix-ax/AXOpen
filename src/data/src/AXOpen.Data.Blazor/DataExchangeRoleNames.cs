@@ -4,10 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace AXOpen.Data
 {
     public static class DataExchangeRoleNames
     {
+        // insert all new role names in the middle of documentation tag
+        //<DataExchangeRoleNames>
+
         public const string can_data_item_create = nameof(can_data_item_create);
         public const string can_data_item_edit = nameof(can_data_item_edit);
         public const string can_data_item_copy = nameof(can_data_item_copy);
@@ -22,5 +26,6 @@ namespace AXOpen.Data
 
         public const string can_data_filter_advanced = nameof(can_data_filter_advanced);
 
+        //</DataExchangeRoleNames>
     }
 }

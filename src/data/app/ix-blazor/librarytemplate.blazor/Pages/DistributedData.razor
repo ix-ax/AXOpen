@@ -1,0 +1,17 @@
+﻿@page "/DistributedData"
+@using AXOpen.Base.Dialogs;
+@using AXOpen.Data;
+@using librarytemplate
+@inject AuthenticationStateProvider _authenticationProvider
+@inject IAlertService _alertDialogService
+
+<div class="card">
+    <div class="card-header">
+        <h2>Distributed Data View</h2>
+    </div>
+    <div class="card-body">
+         //<BlazorViewDistributedData> 
+            <DistributedDataView GroupName="default"  Presentation="Command" ConfigSuffix="" EnableExport=true EnableSorting=true DisplayOnePerDataType=true />
+         //</BlazorViewDistributedData>
+    </div>
+</div>

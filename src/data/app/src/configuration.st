@@ -10,5 +10,7 @@ CONFIGURATION MyConfiguration
         AxoDataFragmentsExchangeContext : AxoDataFramentsExchangeExample.Context;
         {S7.extern=ReadWrite}
         AxoDataPersistentContext : AxoDataPersistentExchangeExample.Context;
+        {S7.extern=ReadWrite}
+        AxoDataDistributedContext : AxoDataDistributedExample.Context;
     END_VAR
 END_CONFIGURATION

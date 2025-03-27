@@ -3,6 +3,7 @@ using AxOpen.Security.Entities;
 using AxOpen.Security.Services;
 using AXOpen;
 using AXOpen.Base.Data;
+using AXOpen.Data;
 using AXOpen.Data.Json;
 using AXOpen.Data.MongoDb;
 using AXOpen.Logging;
@@ -64,9 +65,11 @@ Entry.Plc.AxoDataPersistentContext.DataManager.InitializeRemoteDataExchange(
         Entry.Plc.AxoDataPersistentContext.PersistentRootObject,
         persistentRepository
         );
+
 //</SetUpAxoDataPersistentExchange>
 
 //<SetUpAxoDataFragmentExchange>
+
 IRepository<Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData> SharedDataHeaderDataRepository;
 IRepository<Pocos.AxoDataFramentsExchangeExample.Station_1_Data> Station_1_DataRepository;
 
@@ -90,6 +93,7 @@ var AxoProcessDataManager = Entry.Plc.AxoDataFragmentsExchangeContext.DataManage
 AxoProcessDataManager.SharedHeader.SetRepository(SharedDataHeaderDataRepository);
 AxoProcessDataManager.Station_1.SetRepository(Station_1_DataRepository);
 AxoProcessDataManager.InitializeRemoteDataExchange();
+
 //</SetUpAxoDataFragmentExchange>
 
 //<SetUpAxoDataExchange>
@@ -104,7 +108,6 @@ IRepository<Pocos.AxoDataExchangeExample.AxoProcessData> AxoProcessDataRepositor
 //AxoProcessDataRepository = new JsonRepositorySettings<Pocos.AxoDataExchangeExample.AxoProcessData>(ProcessDataLocation).Factory();
 
 // *** MONGO REPOSITORY ***
-
 AxoProcessDataRepository = AXOpen.Data.MongoDb.Repository.Factory<Pocos.AxoDataExchangeExample.AxoProcessData>(new MongoDbRepositorySettings<Pocos.AxoDataExchangeExample.AxoProcessData>("mongodb://localhost:27017", "AxOpenData", "AxoDataExchangeExample"));
 
 Entry.Plc.AxoDataExchangeContext.DataManager.InitializeRemoteDataExchange(AxoProcessDataRepository);
@@ -115,50 +118,68 @@ Entry.Plc.AxoDataExchangeContext.DataManager.InitializeRemoteDataExchange(AxoPro
 AXOpen.Data.IAxoDataExchange.CleanUp();
 //</CleanUp>
 
+
+IRepository<Pocos.AxoDataDistributedExample.SharedHeader_Data> distributedHeaderRepository;
+IRepository<Pocos.AxoDataDistributedExample.Station_Data> distributedStationRepository;
+
+
+distributedHeaderRepository = AXOpen.Data.MongoDb.Repository.Factory<Pocos.AxoDataDistributedExample.SharedHeader_Data>(new MongoDbRepositorySettings<Pocos.AxoDataDistributedExample.SharedHeader_Data>("mongodb://localhost:27017", "AxOpenData", "DistributedHeader"));
+
+distributedStationRepository = AXOpen.Data.MongoDb.Repository.Factory<Pocos.AxoDataDistributedExample.Station_Data>(new MongoDbRepositorySettings<Pocos.AxoDataDistributedExample.Station_Data>("mongodb://localhost:27017", "AxOpenData", "DistributedStation"));
+
+Entry.Plc.AxoDataDistributedContext.ControlledUnit_1.EntityHeader.SetRepository(distributedHeaderRepository);
+Entry.Plc.AxoDataDistributedContext.ControlledUnit_2.EntityHeader.SetRepository(distributedHeaderRepository);
+Entry.Plc.AxoDataDistributedContext.ControlledUnit_1.ProcessData.SetRepository(distributedStationRepository);
+Entry.Plc.AxoDataDistributedContext.ControlledUnit_2.ProcessData.SetRepository(distributedStationRepository);
+
+Entry.Plc.AxoDataDistributedContext.ControlledUnit_1.EntityHeader.InitializeRemoteDataExchange();
+Entry.Plc.AxoDataDistributedContext.ControlledUnit_2.EntityHeader.InitializeRemoteDataExchange();
+Entry.Plc.AxoDataDistributedContext.ControlledUnit_1.ProcessData. InitializeRemoteDataExchange();
+Entry.Plc.AxoDataDistributedContext.ControlledUnit_2.ProcessData.InitializeRemoteDataExchange();
+
+
+//<DistributedDataServices>
+// DistributedDataExchangeService - will handle all instances of IAxoDataExchanges 
 var distributedDataService = new DistributedDataExchangeService();
 builder.Services.AddSingleton<IDistributedDataExchangeService>(distributedDataService);
 
-//distributedDataService.Add(Entry.Plc.AxoDataExchangeContext.DataManager, new List<string>() { "default" });
-distributedDataService.Add(Entry.Plc.AxoDataExchangeContext.DataManager, new List<string>() { "default" });
-distributedDataService.Add(Entry.Plc.AxoDataFragmentsExchangeContext.DataManager.SharedHeader, new List<string>() { "default" });
-distributedDataService.Add(Entry.Plc.AxoDataFragmentsExchangeContext.DataManager.Station_1, new List<string>() { "default" });
-
-
+// AxoDataExchangeConfigurationService - handle configuraion for any IAxoDataExchange
 var exchangeConfigurationService = new AxoDataExchangeConfigurationService();
 builder.Services.AddSingleton<IAxoDataExchangeConfigurationService>(exchangeConfigurationService);
+//</DistributedDataServices>
 
-exchangeConfigurationService.AddConfiguration<Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData>(
+//<DistributedDataService>
+distributedDataService.Add(Entry.Plc.AxoDataDistributedContext.ControlledUnit_1.ProcessData, new() { "default" });
+distributedDataService.Add(Entry.Plc.AxoDataDistributedContext.ControlledUnit_1.EntityHeader, new() { "default" });
+
+distributedDataService.Add(Entry.Plc.AxoDataDistributedContext.ControlledUnit_2.ProcessData, new() { "default" });
+distributedDataService.Add(Entry.Plc.AxoDataDistributedContext.ControlledUnit_2.EntityHeader, new() { "default" });
+
+//</DistributedDataService>
+
+//<AxoDataExchangeConfigurationService>
+exchangeConfigurationService.AddConfiguration<Pocos.AxoDataDistributedExample.SharedHeader_Data>(
     suffix: "",
     configAction: a =>
     {
-        a.AddColumn("bool", x => x.SomeBool,  true, null)
-         .AddColumn("int", x => x.SomeInt, false, typeof(CustomIntTemplate))
+        a.AddColumn("Global Result", x => x.HeaderGlogalPass, true, typeof(CustomBoolTemplate))
+         .AddColumn("Index", x => x.HeaderIndex, false, typeof(CustomIntTemplate))
          .EnableSorting()
-         .AddSorting(x => x.SomeString);
+         .AddSorting(x => x.HeaderPartialName);
     });
 
-exchangeConfigurationService.AddConfiguration<Pocos.AxoDataFramentsExchangeExample.Station_1_Data>(
+
+exchangeConfigurationService.AddConfiguration<Pocos.AxoDataDistributedExample.Station_Data>(
     suffix: "",
     configAction: a =>
     {
-        a.AddColumn("string", x => x.SomeString,  true, null)
-         .AddColumn("int", x => x.SomeInt,  true, typeof(CustomIntTemplate))
-         .EnableSorting()
-         .AddSorting(x => x.SomeBool);
+        a.AddColumn("Station Result", x => x.StationPass, true, typeof(CustomBoolTemplate))
+         .AddColumn("Name", x => x.StationName, true, null)
+         .AddColumn("Operation", x => x.StaionOperation, true, null)
+         .EnableSorting();
     });
 
-exchangeConfigurationService.AddConfiguration<Pocos.AxoDataExchangeExample.AxoProcessData>(
-    suffix: "",
-    configAction: a =>
-    {
-        a.AddColumn("primi - bool", x => x.AllPrimitives.vBOOL,  true, null)
-         .AddColumn("int", x => x.SomeInt,  true, null)
-         .AddColumn("primi - int", x => x.AllPrimitives.vINT,  true, typeof(CustomIntTemplate))
-         .EnableSorting()
-         .AddSorting(x => x.SomeString);
-    });
-
-
+//</AxoDataExchangeConfigurationService>
 
 
 var app = builder.Build();
@@ -216,9 +237,10 @@ static (IRepository<User>, IRepository<Group>) SetUpMongoSecurityRepository(stri
 
 public static class Roles
 {
+    //<CollectAllDataExchangeRoles>
     public static List<Role> CreateRoles()
     {
-        var roles = new List<Role>
+        var roles = new List<Role> // your custom application roles
         {
             new Role(process_settings_access),
             new Role(process_traceability_access),
@@ -228,9 +250,7 @@ public static class Roles
             new Role(can_skip_steps_in_sequence),
         };
 
-        //roles.Add(new Role(AXOpen.Data.DataExchangeRoleNames.can_data_item_create));
-        // ...
-
+        //add all roles from AXOpen.Data
         foreach (var item in typeof(AXOpen.Data.DataExchangeRoleNames).
            GetFields(BindingFlags.Public | BindingFlags.Static).
            Where(f => f.FieldType == typeof(string)))
@@ -240,6 +260,7 @@ public static class Roles
 
         return roles;
     }
+    //</CollectAllDataExchangeRoles>
 
     public const string can_run_ground_mode = nameof(can_run_ground_mode);
     public const string can_run_automat_mode = nameof(can_run_automat_mode);

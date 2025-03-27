@@ -1,48 +1,30 @@
 USING AXOpen.Core;
 USING AXOpen.Data;
 
-NAMESPACE AxoDataFramentsExchangeExample  
+NAMESPACE AxoDataDistributedExample  
 
     //<ContextDeclaration>
     {S7.extern=ReadWrite}
     CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             //Controlled unit that needs to manipulate with data
-            ControlledUnit : ControlledUnit;
-            //DataManager instance
-            DataManager  : AxoProcessDataManager;
+            {#ix-set:AttributeName = "Unit 1"}
+            ControlledUnit_1 : ControlledUnit;
 
-            //Testing usage of the manager
-            ManagerUsage : ManagerUsage;
+            {#ix-set:AttributeName = "Unit 2"}
+            ControlledUnit_2 : ControlledUnit;
         END_VAR
         
         METHOD OVERRIDE Main
-            
-            // DataManager.Run(THIS); - is called iside of controlle unit
             THIS.InitializeRootObject(ControlledUnit);
-            ControlledUnit.ProcessData := REF(DataManager);//Set REF to DataManager (reason depth of data structure)
             ControlledUnit.Run();// run logic of controlled unit 
-
-            ManagerUsage.Use(DataManager);
         END_METHOD
     END_CLASS
     //</ContextDeclaration>
-
-    //<AxoProcessDataManagerDeclaration>
-    {S7.extern=ReadWrite}
-    CLASS PUBLIC AxoProcessDataManager
-        EXTENDS AXOpen.Data.AxoDataFragmentExchange
-        VAR PUBLIC                    
-            {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
-            SharedHeader : SharedDataHeaderManager;            
-            {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
-            Station_1 : Station_1_ProcessDataManager;
-        END_VAR
-    END_CLASS
-    //</AxoProcessDataManagerDeclaration>
+    
 
     {S7.extern=ReadWrite}
-    CLASS PUBLIC SharedDataHeaderManager
+    CLASS PUBLIC SharedHeader_Manager
         EXTENDS AXOpen.Data.AxoDataExchange
         VAR PUBLIC
             {#ix-generic:TOnline}
@@ -50,45 +32,39 @@ NAMESPACE AxoDataFramentsExchangeExample
             {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}
             {#ix-attr:[Container(Layout.Stack)]} 
             {#ix-set:AttributeName = "Shared Header"}
-            Set : SharedDataHeaderData;
+            Set : SharedHeader_Data;
         END_VAR
     END_CLASS
 
     {S7.extern=ReadWrite}
-    CLASS PUBLIC SharedDataHeaderData
+    CLASS PUBLIC SharedHeader_Data
         EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
-            {#ix-set:AttributeName = "Some string"}
-            SomeString : STRING;
-            {#ix-set:AttributeName = "Some int"}
-            SomeInt : INT;
-            {#ix-set:AttributeName = "Some bool"}
-            SomeBool : BOOL;
+            HeaderPartialName : STRING;
+            HeaderIndex : INT;
+            HeaderGlogalPass : BOOL;
         END_VAR      
     END_CLASS
         
     {S7.extern=ReadWrite}
-    CLASS PUBLIC Station_1_ProcessDataManager
+    CLASS PUBLIC StationData_Manager
         EXTENDS AXOpen.Data.AxoDataExchange
         VAR PUBLIC
             {#ix-generic:TOnline}
             {#ix-generic:TPlain as POCO}
             {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}        
             {#ix-attr:[Container(Layout.Stack)]}    
-            {#ix-set:AttributeName = "Station 1"}    
-            Set : Station_1_Data;
+            {#ix-set:AttributeName = "Station"}    
+            Set : Station_Data;
         END_VAR
     END_CLASS
 
     {S7.extern=ReadWrite}
-    CLASS PUBLIC Station_1_Data EXTENDS AXOpen.Data.AxoDataEntity
+    CLASS PUBLIC Station_Data EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
-            {#ix-set:AttributeName = "Some string st"}
-            SomeString : STRING;
-            {#ix-set:AttributeName = "Some int st"}
-            SomeInt : INT;
-            {#ix-set:AttributeName = "Some bool st"}
-            SomeBool : BOOL;
+            StationName : STRING;
+            StaionOperation : INT;
+            StationPass : BOOL;
         END_VAR
     END_CLASS
 
@@ -105,7 +81,7 @@ NAMESPACE AxoDataFramentsExchangeExample
 
         METHOD PUBLIC Use
             VAR_IN_OUT
-                DataManager : AxoProcessDataManager;
+                DataManager : AXOpen.Data.AxoDataExchange;
             END_VAR    
             IF(_create) THEN
                 IF(DataManager.Create(_id).IsDone()) THEN
@@ -140,8 +116,12 @@ NAMESPACE AxoDataFramentsExchangeExample
     {S7.extern=ReadWrite}
     CLASS PUBLIC ControlledUnit EXTENDS AXOpen.Core.AxoObject
         VAR PUBLIC
-            //Reference to ProcessDataManager
-            ProcessData : REF_TO AxoProcessDataManager;
+            EntityHeader : SharedHeader_Manager;            
+            ProcessData : StationData_Manager;
+
+            HeaderUsage : ManagerUsage;
+            ProcessUsage : ManagerUsage;
+
             //Automatic sequence. Contains logic for automatic operations of this unit.
             AutomatSequence : AutomatSequence;
         END_VAR
@@ -149,12 +129,18 @@ NAMESPACE AxoDataFramentsExchangeExample
 
         METHOD PUBLIC Run
             SUPER.Run(THIS); //??
+            THIS.EntityHeader.Run(THIS)
+            THIS.ProcessData.Run(THIS)
+
+            HeaderUsage.Run(THIS);
+            ProcessUsage.Run(THIS);
+
             THIS.Execute();
         END_METHOD
 
         METHOD PRIVATE Execute
             ProcessData^.Run(THIS); // cyclic call of AxoProcessDataManager
-            AutomatSequence.Run(THIS, ProcessData);
+            AutomatSequence.Run(THIS, ^ProcessData);
         END_METHOD
     END_CLASS
     //</Execute>
@@ -164,16 +150,19 @@ NAMESPACE AxoDataFramentsExchangeExample
     CLASS PUBLIC AutomatSequence EXTENDS AXOpen.Core.AxoSequencerContainer
         VAR PRIVATE
             // private reference is used in Main()
-            ProcessData : REF_TO AxoProcessDataManager;
+            HeaderData : REF_TO SharedHeader_Manager;
+            ProcessData : REF_TO StationData_Manager;
         END_VAR
 
         METHOD INTERNAL Run
             VAR_INPUT
                 _parent : IAxoObject;
-                _processData : REF_TO AxoProcessDataManager;
+                _processData : REF_TO StationData_Manager;
+                _headerData : REF_TO SharedHeader_Manager;
             END_VAR
 
             ProcessData := _processData;
+            HeaderData := _headerData;
         END_METHOD
 
         METHOD OVERRIDE Main

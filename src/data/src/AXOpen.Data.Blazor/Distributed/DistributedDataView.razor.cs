@@ -82,6 +82,10 @@ namespace AXOpen.Data
                     this.DistributedVM.StateHasChangedDelegate = StateHasChanged;
                 }
             }
+            else
+            {
+                throw new Exception($"DistributedExchangeService does not contain requested group \"{GroupName}\"!");
+            }
         }
 
         public void EndBtnOperation()
