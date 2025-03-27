@@ -4,8 +4,8 @@ USING AXOpen.Core;
 NAMESPACE AXOpen.Messaging.Static    
 
     TYPE                    
-        eAxoMessengerState : (  ActiveAlreadyAcknowledged,      // 0 - Is still active, but already acknowledged, after acknowledgement goes to 1
-                                Idle,                           // 1 - Not active
+        eAxoMessengerState : (  Idle,                           // 0 - Not active
+                                ActiveAlreadyAcknowledged,      // 1 - Is still active, but already acknowledged, after acknowledgement goes to 1                               
                                 ActiveAcknowledgeRequired,      // 2 - Active and required acknowledgement. If acknowledged before deactivation, it goes to 0, if deactivated before acknowledgement, it goes to 4
                                 ActiveAcknowledgeNotRequired,   // 3 - Active without acknowledgement required. After deactivation it goes to 1.
                                 InactiveWaitingForAcknowledge,  // 4 - Not active waiting for acknowledgement. After acknowledgement it goes to 1.
