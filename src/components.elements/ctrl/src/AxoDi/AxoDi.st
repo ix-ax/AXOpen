@@ -24,15 +24,9 @@ NAMESPACE AXOpen.Elements
             {#ix-attr:[ComponentHeader()]}
             _isFalseTask : AxoTask;
 
-            {#ix-set:MessageText = "<#Expecting positive signal.#>"}
-            {#ix-set:Help = "<#Check your signal input.#>"}
-            _messengerInfoPositive : AXOpen.Messaging.Static.AxoMessenger;
-
-            {#ix-set:MessageText = "<#Expecting negative signal.#>"}
-            {#ix-set:Help = "<#Check your signal input.#>"}
-            _messengerInfoNegative : AXOpen.Messaging.Static.AxoMessenger;
-
-            
+            {#ix-set:AttributeName = "<#MessengerInfo#>"}
+            {#ix-set:PlcTextList = "[1]:'<#Expecting positive signal.#>':'<#Check your signal input.#>';[2]:'<#Expecting negative signal.#>':'<#Check your signal input.#>'"}
+            _messengerInfo : AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
        
         VAR PRIVATE
@@ -65,16 +59,14 @@ NAMESPACE AXOpen.Elements
 
             IF _context = NULL THEN
                 SUPER.Run(parent);
-                // _isTrueTask.Initialize(THIS);
-                // _isFalseTask.Initialize(THIS);
+                _isTrueTask.Run(THIS);
+                _isFalseTask.Run(THIS);
                 _context := THIS.GetContext();
             END_IF;
 
-            _messengerInfoPositive.Serve(THIS); 
-            _messengerInfoNegative.Serve(THIS); 
+            _messengerInfo.Serve(THIS); 
 
             THIS._inSignal := inSignal;	
-
 
             IF(_isTrueTask.Execute(THIS))THEN
                 _isTrueTask.DoneWhen(THIS.IsTrue());
@@ -90,24 +82,14 @@ NAMESPACE AXOpen.Elements
         /// </summary>
         METHOD PUBLIC IsTrue : BOOL
             IsTrue := _inSignal;
-
-            IF NOT IsTrue THEN
-                _messengerInfoPositive.Activate(AXOpen.Messaging.eAxoMessageCategory#Warning);
-            END_IF;
-
-
+            _messengerInfo.ActivateOnCondition(UINT#1,IsTrue,AXOpen.Messaging.eAxoMessageCategory#Warning);
         END_METHOD
         /// <summary>
         /// Returns TRUE if signal is off. It creates alarm otherwise.
         /// </summary>
         METHOD PUBLIC IsFalse : BOOL
             IsFalse := NOT _inSignal;
-
-            IF NOT IsFalse THEN
-                _messengerInfoNegative.Activate(AXOpen.Messaging.eAxoMessageCategory#Warning);
-            END_IF;
-
+            _messengerInfo.ActivateOnCondition(UINT#2,IsFalse,AXOpen.Messaging.eAxoMessageCategory#Warning);
         END_METHOD
     END_CLASS
-
 END_NAMESPACE 
