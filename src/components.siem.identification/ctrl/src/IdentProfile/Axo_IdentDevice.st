@@ -213,7 +213,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 _category   :=  eAxoMessageCategory#Warning;
             END_IF;
             IdentProfileMessenger.ActivateOnCondition(_messageCode, (_identProfile_Error OR _identProfile_Warning) AND _messageCode = _lastMessageCode ,_category);
-            IF NOT Messenger.IsActive THEN
+            // IF NOT Messenger.IsActive THEN
+            IF Messenger.MessengerState = eAxoMessengerState#Idle THEN
                 IF (_identProfile_Error OR _identProfile_Warning) THEN
                     _lastMessageCode := _messageCode;
                 ELSE

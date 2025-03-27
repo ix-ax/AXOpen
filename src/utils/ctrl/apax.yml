@@ -20,6 +20,10 @@ scripts:
   ib: |
     apax install
     apax build
+  ibt: |
+    apax install
+    apax build
+    apax test    
   icb: |
     apax install --catalog
     apax ib
