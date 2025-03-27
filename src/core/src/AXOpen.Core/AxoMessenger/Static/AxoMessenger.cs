@@ -106,8 +106,8 @@ public partial class AxoMessenger
 
         return messages;
     }
-    
-    private Dictionary<ulong, AxoMessengerTextItem> plcMessengerTextList = new();
+
+    private Dictionary<ulong, AxoMessengerTextItem> plcMessengerTextList;
     public Dictionary<ulong, AxoMessengerTextItem> PlcMessengerTextList
     {
         get
@@ -121,6 +121,7 @@ public partial class AxoMessenger
             }
             catch (Exception)
             {
+                //plcMessengerTextList = new Dictionary<ulong, AxoMessengerTextItem>();
                 //swallow 
             }
             
