@@ -24,11 +24,11 @@ NAMESPACE AXOpen.Core
         METHOD PROTECTED ABSTRACT Main END_METHOD
         
             
-        METHOD PRIVATE Open : ULINT
+        METHOD PROTECTED Open : ULINT
             _openCounter := _openCounter + ULINT#1;
         END_METHOD    
 
-        METHOD PRIVATE Close : ULINT
+        METHOD PROTECTED Close : ULINT
             _closeCounter := _closeCounter + ULINT#1;
         END_METHOD
            

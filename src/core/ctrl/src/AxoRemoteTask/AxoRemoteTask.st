@@ -34,7 +34,8 @@ NAMESPACE AXOpen.Core
 
 
             {#ix-set:AttributeName = "<#RemoteTaskMessenger#>"}
-            {#ix-set:PlcTextList = "[1]:'<#Remote task is not initialized by remote partner.#>':'<#Make sure the remote application that should handle this remote request is running and is available in the network.#>'[2]:'<#During the execution or remote task an error occured.#> |[[1]RemoteExceptionDetails]|':'<#Check detail of this remote task for more information about the problem.#>"}
+            {#ix-set:PlcTextList =  "[1]:'<#Remote task is not initialized by remote partner.#>':'<#Make sure the remote application that should handle this remote request is running and is available in the network.#>'';
+                                    '[2]:'<#During the execution or remote task an error occured.#> |[[1]RemoteExceptionDetails]|':'<#Check detail of this remote task for more information about the problem.#>'"}
             _remoteTaskMessenger : AXOpen.Messaging.Static.AxoMessenger;
 
         END_VAR
