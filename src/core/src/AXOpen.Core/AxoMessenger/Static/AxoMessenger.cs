@@ -1,4 +1,4 @@
-﻿// AXOpen.Core
+// AXOpen.Core
 // Copyright (c)2022 MTS spol. s r.o. and Contributors All Rights Reserved.
 // Contributors: https://github.com/inxton/AXOpen/graphs/contributors
 // See the LICENSE file in the repository root for more information.
@@ -34,6 +34,9 @@ public partial class AxoMessenger
     {
         var messages = new Dictionary<ulong, AxoMessengerTextItem>();
 
+        if(string.IsNullOrEmpty(input))
+            return messages;
+        
         // Split the input by semicolon and remove any empty entries.
         string[] entries = input.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
 
