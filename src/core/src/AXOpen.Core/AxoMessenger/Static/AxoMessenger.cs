@@ -1,4 +1,4 @@
-﻿// AXOpen.Core
+// AXOpen.Core
 // Copyright (c)2022 MTS spol. s r.o. and Contributors All Rights Reserved.
 // Contributors: https://github.com/inxton/AXOpen/graphs/contributors
 // See the LICENSE file in the repository root for more information.
@@ -8,18 +8,110 @@
 using AXOpen.Base.Data;
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Security.Principal;
+using System.Text.RegularExpressions;
 using AXOpen.Core;
 using AXSharp.Connector;
+using Serilog;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace AXOpen.Messaging.Static;
 
 public partial class AxoMessenger
 {
+    /// <summary>
+    /// Parses a string containing multiple message entries into a dictionary.
+    /// Each entry is expected to have the format:
+    /// [number]:'<#message text#>':'<#help text#>'
+    /// Entries should be separated by a semicolon (;).
+    /// Throws an exception if no matches are found, the format is invalid, or a duplicate key exists.
+    /// </summary>
+    /// <param name="input">The string to parse.</param>
+    /// <param name="messenger">Messenger to which the list of messages belongs.</param>
+    /// <returns>A dictionary mapping the key (number) to a MessageEntry instance.</returns>
+    private static Dictionary<ulong, AxoMessengerTextItem> ParseMessages(string input, AxoMessenger messenger)
+    {
+        var messages = new Dictionary<ulong, AxoMessengerTextItem>();
 
-    private List<KeyValuePair<ulong, AxoMessengerTextItem>> plcMessengerTextList;
-    public List<KeyValuePair<ulong, AxoMessengerTextItem>> PlcMessengerTextList
+        if(string.IsNullOrEmpty(input))
+            return messages;
+        
+        // Split the input by semicolon and remove any empty entries.
+        string[] entries = input.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+
+        foreach (string entry in entries)
+        {
+            string trimmedEntry = entry.Trim();
+            if (trimmedEntry.Length == 0)
+                continue;
+
+            // Extract key: look for the text between '[' and ']'
+            int startBracket = trimmedEntry.IndexOf('[');
+            int endBracket = trimmedEntry.IndexOf(']', startBracket + 1);
+            if (startBracket == -1 || endBracket == -1)
+            {
+                Log.Error($"Invalid format: missing '[' or ']' for key in `{messenger.Symbol}`");
+                //throw new ArgumentException("Invalid format: missing '[' or ']' for key.");
+            }
+
+            string keyString = trimmedEntry.Substring(startBracket + 1, endBracket - startBracket - 1).Trim();
+            if (!ulong.TryParse(keyString, out ulong key))
+            {
+                Log.Error($"Invalid key format: `{keyString}` in `{messenger.Symbol}`");
+                //throw new ArgumentException($"Invalid key format: {keyString}");
+            }
+            if (messages.ContainsKey(key))
+            {
+                Log.Error($"Duplicate key found: `{key} `in `{messenger.Symbol}`");
+                //throw new ArgumentException($"Duplicate key found: {key}");
+            }
+
+            // After the key, the format should be :'<# ... #>':'<# ... #>'
+            // We'll locate the message and help texts using the positions of single quotes.
+            int firstQuote = trimmedEntry.IndexOf('\'', endBracket);
+            if (firstQuote == -1)
+            {
+                Log.Error($"Invalid format: missing opening quote for message text in `{messenger.Symbol}`");
+                //throw new ArgumentException("Invalid format: missing opening quote for message text.");
+            }
+
+            int secondQuote = trimmedEntry.IndexOf('\'', firstQuote + 1);
+            if (secondQuote == -1)
+            {
+                Log.Error($"Invalid format: missing closing quote for message text. `{messenger.Symbol}`");
+                //throw new ArgumentException("Invalid format: missing closing quote for message text.");
+            }
+
+            // Extract the message text (including the literal <# and #>).
+            string messageText = trimmedEntry.Substring(firstQuote + 1, secondQuote - firstQuote - 1).Trim();
+
+            // Locate the next pair of quotes for the help text.
+            int thirdQuote = trimmedEntry.IndexOf('\'', secondQuote + 1);
+            if (thirdQuote == -1)
+            {
+                Log.Error($"Invalid format: missing opening quote for message text in `{messenger.Symbol}`");
+                //throw new ArgumentException("Invalid format: missing opening quote for message text.");
+            }
+
+            int fourthQuote = trimmedEntry.IndexOf('\'', thirdQuote + 1);
+            if (fourthQuote == -1)
+            {
+                Log.Error($"Invalid format: missing closing quote for message text. `{messenger.Symbol}`");
+                //throw new ArgumentException("Invalid format: missing closing quote for message text.");
+            }
+
+            string helpText = trimmedEntry.Substring(thirdQuote + 1, fourthQuote - thirdQuote - 1).Trim();
+
+            // Add the entry to the dictionary.
+            messages.Add(key, new AxoMessengerTextItem(messageText, helpText));
+        }
+
+        return messages;
+    }
+
+    private Dictionary<ulong, AxoMessengerTextItem> plcMessengerTextList;
+    public Dictionary<ulong, AxoMessengerTextItem> PlcMessengerTextList
     {
         get
         {
@@ -27,72 +119,16 @@ public partial class AxoMessenger
             {
                 if (plcMessengerTextList == null)
                 {
-                    plcMessengerTextList = new List<KeyValuePair<ulong, AxoMessengerTextItem>>();
-                    if (PlcTextList != null)
-                    {
-                        string[] items = PlcTextList.Split('\n');
-                        //All message texts and help texts are in one line
-                        if (items.Length == 1)
-                        {
-                            string[] delimiters = { "[", "]:'", "':'", "';", "'" };
-                            string[] itemSeparated = items[0].Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
-                            try
-                            {
-                                if (itemSeparated.Length >= 3 && itemSeparated.Length % 3 == 0)
-                                {
-                                    int itemsCount = itemSeparated.Length / 3;
-                                    for (int i = 0; i < itemsCount; i++)
-                                    {
-                                        ulong messageCode = 0;
-                                        if (ulong.TryParse(itemSeparated[3 * i], out messageCode))
-                                        {
-                                            string messageText = string.IsNullOrEmpty(itemSeparated[3 * i + 1]) ? "Message text not defined for the message code: " + messageCode.ToString() + "!" : itemSeparated[3 * i + 1];
-                                            string helpText = string.IsNullOrEmpty(itemSeparated[3 * i + 2]) ? "Help text not defined for the message code: " + messageCode.ToString() + "!" : itemSeparated[3 * i + 2];
-                                            plcMessengerTextList.Add(new KeyValuePair<ulong, AxoMessengerTextItem>(messageCode, new AxoMessengerTextItem(messageText, helpText)));
-                                        }
-                                    }
-                                }
-                            }
-                            catch (Exception)
-                            {
-                                throw;
-                            }
-                        }
-                        //Each pair of the  Id message text and help text are in the separate line (change on the compilator side needs to be implemented)
-                        else if (items.Length > 1)
-                        {
-                            foreach (string item in items)
-                            {
-                                string[] delimiters = { "[", "]:'", "':'", "'" };
-                                string[] itemSeparated = item.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
-                                try
-                                {
-                                    ulong messageCode = 0;
-                                    if (ulong.TryParse(itemSeparated[0], out messageCode))
-                                    {
-                                        string messageText = string.IsNullOrEmpty(itemSeparated[1]) ? "Message text not defined for the message code: " + messageCode.ToString() + "!" : itemSeparated[1];
-                                        string helpText = string.IsNullOrEmpty(itemSeparated[2]) ? "Help text not defined for the message code: " + messageCode.ToString() + "!" : itemSeparated[2];
-                                        plcMessengerTextList.Add(new KeyValuePair<ulong, AxoMessengerTextItem>(messageCode, new AxoMessengerTextItem(messageText, helpText)));
-                                    }
-                                }
-                                catch (Exception)
-                                {
-                                    throw;
-                                }
-                            }
-                        }
-
-                    }
+                    plcMessengerTextList = ParseMessages(this.PlcTextList, this);
                 }
-                return plcMessengerTextList;
             }
-
             catch (Exception)
             {
-
-                throw;
+                //plcMessengerTextList = new Dictionary<ulong, AxoMessengerTextItem>();
+                //swallow 
             }
-
+            
+            return plcMessengerTextList;
         }
     }
 

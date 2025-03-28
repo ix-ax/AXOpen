@@ -72,7 +72,9 @@ NAMESPACE AXOpen.Core
             /// Provides some error messages.            
             ///</summary> 
             {#ix-set:AttributeName = "<#Messenger#>"}
-            {#ix-set:PlcTextList = "[1]:'<#Execute method is not called cyclically.#>':'<#Check task calling in the code, task is not calling cyclically.#>;'[2]:'<#Execute method is called more then once inside one PLC cycle.#>':'<#Check task calling in the code, task is called more then once.#>';[3]:'<#Invalid Rtm.#>':'<#Check the inicialization of the Rtm.#>'"}
+            {#ix-set:PlcTextList = "[1]:'<#Execute method is not called cyclically.#>':'<#Check task calling in the code, task is not calling cyclically.#>'';
+                                    [2]:'<#Execute method is called more then once inside one PLC cycle.#>':'<#Check task calling in the code, task is called more then once.#>';
+                                    [3]:'<#Invalid Rtm.#>':'<#Check the inicialization of the Rtm.#>'"}
             _messenger : AXOpen.Messaging.Static.AxoMessenger;
         END_VAR    
         
