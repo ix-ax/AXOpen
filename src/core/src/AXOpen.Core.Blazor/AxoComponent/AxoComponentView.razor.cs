@@ -198,7 +198,7 @@ namespace AXOpen.Core
                             break;
                     }
                 }
-                else if (_messengers.Any(p => p.State > eAxoMessengerState.NotActiveWaitingAckn))
+                else if (_messengers.Any(p => p.State > eAxoMessengerState.InactiveWaitingForAcknowledge))
                 {
                     return eAlarmLevel.Unacknowledged;
                 }

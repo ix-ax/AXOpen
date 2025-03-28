@@ -131,7 +131,7 @@ public partial class AxoMessenger
 
     public async Task ReadDetailsAsync()
     {
-        var r = new ITwinPrimitive[] {this.MessageCode, Category, MessageCode, AcknowledgedBeforeFallen, MessengerState};
+        var r = new ITwinPrimitive[] { this.MessageCode, Category, MessageCode,  MessengerState };
         await this.GetConnector()?.ReadBatchAsync(r)!;
     }
     
@@ -152,10 +152,14 @@ public partial class AxoMessenger
     {
         ulong messageCode = this.MessageCode.LastValue;
         string retVal = "";
+        string prefix = "";
+        if (this.MessengerState.Equals(eAxoMessengerState.InvalidImplementation) || this.MessengerState.LastValue.Equals((short)eAxoMessengerState.InvalidImplementation))
+        {
+            prefix = "Invalid implementation (message code: " + messageCode.ToString() + ") ";
+        }
 
-        //Just one static text defined inside the `MessageText` attribute in the PLC code is used
         if (messageCode == 0)
-            retVal = string.IsNullOrEmpty(this.MessageText) || this.MessageText == this.GetSymbolTail() ? "Message text not defined!" : this.MessageText;
+            retVal = "";
         else
         {
             try
@@ -164,22 +168,22 @@ public partial class AxoMessenger
                 if (this.PlcMessengerTextList != null && this.PlcMessengerTextList.Count > 0)
                 {
                     string _messageText = (from item in this.PlcMessengerTextList where item.Key == messageCode select item.Value.MessageText.ToString()).FirstOrDefault();
-                    retVal = string.IsNullOrEmpty(_messageText) ? "Message text not defined for the message code: " + messageCode.ToString() + " !" : _messageText;
+                    retVal = string.IsNullOrEmpty(_messageText) ? prefix + "Message text not defined for the message code: " + messageCode.ToString() + " !" : prefix + _messageText;
                 }
                 //Message texts are written in .NET and passed into the component
                 else if (this.DotNetMessengerTextList != null && this.DotNetMessengerTextList.Count > 0)
                 {
                     string _messageText = (from item in this.DotNetMessengerTextList where item.Key == messageCode select item.Value.MessageText.ToString()).FirstOrDefault();
-                    retVal = string.IsNullOrEmpty(_messageText) ? "Message text not defined for the message code: " + messageCode.ToString() + " !" : _messageText;
+                    retVal = string.IsNullOrEmpty(_messageText) ? prefix + "Message text not defined for the message code: " + messageCode.ToString() + " !" : prefix + _messageText;
                 }
                 else
                 {
-                    retVal = "Message text not defined for the message code: " + messageCode.ToString() + " !";
+                    retVal = prefix + "Message text not defined for the message code: " + messageCode.ToString() + " !";
                 }
             }
             catch (Exception)
             {
-                retVal = "Message text not defined for the message code: " + messageCode.ToString() + " !";
+                retVal = prefix + "Message text not defined for the message code: " + messageCode.ToString() + " !";
                 return retVal;
                 throw;
             }
@@ -195,7 +199,8 @@ public partial class AxoMessenger
 
         //Just one static text defined inside the `MessageText` attribute in the PLC code is used
         if (messageCode == 0)
-            HelpTextDefined = !(string.IsNullOrEmpty(this.Help) || this.Help == this.GetSymbolTail());
+            //HelpTextDefined = !(string.IsNullOrEmpty(this.Help) || this.Help == this.GetSymbolTail());
+            HelpTextDefined = false;
         else
         {
             try
@@ -222,6 +227,6 @@ public partial class AxoMessenger
                 HelpTextDefined = false;
                 throw;
             }
-        }
     }
+}
 }

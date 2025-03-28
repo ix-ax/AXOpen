@@ -1,3 +1,4 @@
+USING AXOpen.Messaging.Static;
 USING AxUnit;
 USING AXOpen.Core;
 USING AXOpen.Rtc;
@@ -1354,7 +1355,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
         END_METHOD     
         
         {Test}
-        METHOD PUBLIC invoke_call_without_execute_call_should_change_messenger_state_to_IsActive
+        METHOD PUBLIC invoke_call_without_execute_call_should_change_messenger_state_to_ActiveAcknowledgeRequired
             // Arrange
             THIS.Initialize();
             _context.Open();
@@ -1366,7 +1367,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             _context.Close();
 
            //Assert 
-            Assert.Equal(TRUE, myTask._messenger.IsActive);           
+            Assert.Equal(TRUE, myTask._messenger.MessengerState = eAxoMessengerState#ActiveAcknowledgeRequired);           
         END_METHOD     
         
         {Test}
@@ -1412,7 +1413,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
         END_METHOD     
         
         {Test}
-        METHOD PUBLIC multiple_execute_call_should_change_messenger_state_to_IsActive
+        METHOD PUBLIC multiple_execute_call_should_change_messenger_state_to_ActiveAcknowledgeRequired
             // Arrange/Act
             THIS.Initialize();
             _context.Open();
@@ -1421,7 +1422,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             _context.Close();
 
            //Assert 
-            Assert.Equal(TRUE, myTask._messenger.IsActive);           
+            Assert.Equal(TRUE, myTask._messenger.MessengerState = eAxoMessengerState#ActiveAcknowledgeRequired);           
         END_METHOD     
         
         {Test}
@@ -1462,7 +1463,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
         END_METHOD     
         
         {Test}
-        METHOD PUBLIC execute_call_without_valid_rtm_should_change_messenger_state_to_IsActive
+        METHOD PUBLIC execute_call_without_valid_rtm_should_change_messenger_state_to_ActiveAcknowledgeRequired
             // Arrange/Act
             myTask.Run(_rootObject);
             _context.Open();
@@ -1470,7 +1471,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             _context.Close();
 
            //Assert 
-            Assert.Equal(TRUE, myTask._messenger.IsActive);           
+            Assert.Equal(TRUE, myTask._messenger.MessengerState = eAxoMessengerState#ActiveAcknowledgeRequired);           
         END_METHOD     
         
         {Test}
