@@ -68,7 +68,6 @@ NAMESPACE AxoDataDistributedExample
         END_VAR
     END_CLASS
 
-     //<Usage>
      {S7.extern=ReadWrite}
      CLASS PUBLIC ManagerUsage
         VAR PUBLIC
@@ -108,16 +107,18 @@ NAMESPACE AxoDataDistributedExample
             END_IF;
         END_METHOD        
     END_CLASS
-    //</Usage>
-
 
     
-    //<Execute>
     {S7.extern=ReadWrite}
     CLASS PUBLIC ControlledUnit EXTENDS AXOpen.Core.AxoObject
         VAR PUBLIC
+            
+            //<UseDistributedDataAttribute>
+            {#ix-attr:[AXOpen.Data.DistributedDataAttribute("default", "headers")]}
             EntityHeader : SharedHeader_Manager;            
+            {#ix-attr:[AXOpen.Data.DistributedDataAttribute("default", "headers")]}
             ProcessData : StationData_Manager;
+            //</UseDistributedDataAttribute>
 
             HeaderUsage : ManagerUsage;
             ProcessUsage : ManagerUsage;
@@ -143,7 +144,6 @@ NAMESPACE AxoDataDistributedExample
             AutomatSequence.Run(THIS, ^ProcessData);
         END_METHOD
     END_CLASS
-    //</Execute>
 
     //<Run>
     {S7.extern=ReadWrite}

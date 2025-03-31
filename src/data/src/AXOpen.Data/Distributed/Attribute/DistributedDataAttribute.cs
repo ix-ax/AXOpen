@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AXOpen.Data.Distributed
+namespace AXOpen.Data
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public class DistributedDataExchangeGroupAttribute : Attribute
+    public class DistributedDataAttribute : Attribute
     {
-        public DistributedDataExchangeGroupAttribute(params string[] groups)
+        public DistributedDataAttribute(params string[] groups)
         {
             ArgumentNullException.ThrowIfNull(groups);
             Groups = groups;

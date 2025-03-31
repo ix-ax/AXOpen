@@ -7,7 +7,7 @@ To use filtering, the user must have the permission: `can_data_filter_advanced`.
 The same filtering principle is used as described in the  
 [Filter documentation](Filter.md).
 
-![Distributed Filter](assets/DistributedView_Filter.gif)
+![Distributed Filter](assets/DistributedData_Filtering.gif)
 
 ---
 

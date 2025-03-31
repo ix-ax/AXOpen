@@ -1,7 +1,6 @@
 ﻿@namespace librarytemplate
 @inherits AXOpen.Data.ColumnDataCellBase
 
-
 @if (CastedValue == true)
 {
     <i class="bi bi-check-circle text-success"> Pass </i>
@@ -12,22 +11,11 @@ else
 }
 
 @code {
-
     public bool CastedValue { set; get; }
 
     protected override void OnParametersSet()
     {
         base.OnParametersSet();
-
-        try
-        {
-            CastedValue = (bool)PropertyValue;
-        }
-        catch (Exception ex)
-        {
-            ;
-            //swallow
-        }
+       CastedValue = (bool)PropertyValue; 
     }
-
 }

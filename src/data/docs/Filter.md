@@ -33,7 +33,7 @@ To use filtering, the user must have the permission: `can_data_filter_advanced`.
 
 ## 🛠️ Procedure
 
-![FilterConfigurationProcedure](assets/FilterConfigurationProcedure.png)
+![FilterConfigurationProcedure](assets/FilterConfiguration_Procedure.png)
 
 > [!IMPORTANT]  
 > The filtering mechanism applies an **AND** condition across all defined items in the query area.  

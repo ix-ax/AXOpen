@@ -1,37 +1,36 @@
-# 📦 Distributed Data View (Blazor)
+# 📦 Column Data in a DistributedDataView (Blazor)
 
-![Custom columns](assets/DistributedView.png)
+The `DistributedDataView` displays data fragments dynamically.  
+To control how each fragment's columns are displayed, you must define configurations using the `AxoDataExchangeConfigurationService`.
 
-The `DistributedDataView` is dynamic component for dispalying data from IDistributedDataExchangeService in a Blazor application.
+To use the `DistributedDataView`, you must register and configure the required services.
+
 ---
 
-# Usage (Blazor)
+### ✅ Register Services
 
-[!code-smalltalk[](../app/ix-blazor/librarytemplate.blazor/Pages/DistributedData.razor?name=BlazorViewDistributedData)]
+Register the exchange configuration service along with the distributed data service in your `Program.cs` file:
 
-
-### Parameters:
-- GroupName: Group of data fragments to display ("default").
-
-- ConfigSuffix: Enable extend the name of AxoDataExchange configuration for the same type (Usable in a case, you need special columns,sorting ...).
-
-- Presentation: Data rendering mode ("Command", "Status", etc.).
-
-- EnableExport: Allows exporting data from fragments.
-
-- EnableSorting: Enables sorting in .
-
-- DisplayOnePerDataType: Only one fragment per DataExchange type.
-
-# Prerequisites (.Net)
-
-### Register services
-Register services in your 'Program.cs' file
 [!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=DistributedDataServices)]
 
-### Collect AxoDataExchanges
-[!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=DistributedDataService)]
-     
-### Fill up exchange configuration
-[!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=AxoDataExchangeConfigurationService)]
-     
+---
+
+### ⚙️ Configure Exchange Columns
+
+Define how columns should be displayed for each POCO type.  
+As shown in the example below, you can also specify a custom template for each column:
+
+[!code-csharp[ConfigurationOfColumnService](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=AxoDataExchangeConfigurationService)]
+
+> [!IMPORTANT]  
+> Column templates receive the value via the `PropertyValue` parameter, which is of type `object`.  
+> To safely work with the expected type, cast the value inside the component’s `OnParametersSet()` method.
+
+---
+
+### 🎨 Custom Column Template
+
+When creating column configurations, you can assign a custom Razor component to render a specific column.  
+The component will receive the property value of the POCO and display it as needed:
+
+[!code-csharp[ColumnRazorTemplate](../app/ix-blazor/librarytemplate.blazor/Templates/CustomBoolTemplate.razor)]

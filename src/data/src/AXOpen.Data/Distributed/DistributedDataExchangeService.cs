@@ -1,5 +1,4 @@
-﻿using AXOpen.Data.Distributed;
-using AXSharp.Connector;
+﻿using AXSharp.Connector;
 using System.Reflection;
 
 namespace AXOpen.Data
@@ -115,7 +114,7 @@ namespace AXOpen.Data
 
                 if (propertyValue is IAxoDataExchange axoDataExchange)
                 {
-                    var attribute = property.GetCustomAttribute<DistributedDataExchangeGroupAttribute>();
+                    var attribute = property.GetCustomAttribute<DistributedDataAttribute>();
                     var groups = attribute?.GetType()
                                            .GetProperty("Groups", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance)?
                                            .GetValue(attribute) as IEnumerable<string> ?? Enumerable.Empty<string>();

@@ -6,22 +6,21 @@ using AXSharp.Connector.Localizations;
 using AXSharp.Abstractions.Presentation;
 using AXOpen.Core;
 using AXOpen.Data;
-using AXOpen.Data.Distributed;
 
 namespace DistributedDataTest
 {
     public partial class Context : AXOpen.Core.AxoContext
     {
-        [DistributedDataExchangeGroup("Group_1")]
+        [DistributedData("Group_1")]
         public DistributedDataTest.HeaderManager HeaderManager_1 { get; }
 
-        [DistributedDataExchangeGroup("Group_1", "Group_2")]
+        [DistributedData("Group_1", "Group_2")]
         public DistributedDataTest.HeaderManager HeaderManager_2 { get; }
 
-        [DistributedDataExchangeGroup("Group_1", "Group_2", "Group_3")]
+        [DistributedData("Group_1", "Group_2", "Group_3")]
         public DistributedDataTest.StationManager StationManager_1 { get; }
 
-        [DistributedDataExchangeGroup("Group_1", "Group_2", "Group_3", "Group_4")]
+        [DistributedData("Group_1", "Group_2", "Group_3", "Group_4")]
         public DistributedDataTest.StationManager StationManager_2 { get; }
 
         partial void PreConstruct(AXSharp.Connector.ITwinObject parent, string readableTail, string symbolTail);

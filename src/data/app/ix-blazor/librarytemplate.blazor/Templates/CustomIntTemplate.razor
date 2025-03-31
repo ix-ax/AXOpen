@@ -1,7 +1,7 @@
 ﻿@namespace librarytemplate
 @inherits AXOpen.Data.ColumnDataCellBase
 
-@PropertyValue.ToString() - 
+@PropertyValue.ToString() -
 
 @if (CastedValue <= 100)
 {
@@ -22,16 +22,6 @@ else
     {
         base.OnParametersSet();
 
-        try
-        {
-            CastedValue = (short)PropertyValue;
-
-        }
-        catch (Exception ex)
-        {
-            ;
-            //swallow
-        }
+        CastedValue = (short)PropertyValue;
     }
-
 }

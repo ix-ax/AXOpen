@@ -148,14 +148,17 @@ var exchangeConfigurationService = new AxoDataExchangeConfigurationService();
 builder.Services.AddSingleton<IAxoDataExchangeConfigurationService>(exchangeConfigurationService);
 //</DistributedDataServices>
 
-//<DistributedDataService>
-distributedDataService.Add(Entry.Plc.AxoDataDistributedContext.ControlledUnit_1.ProcessData, new() { "default" });
-distributedDataService.Add(Entry.Plc.AxoDataDistributedContext.ControlledUnit_1.EntityHeader, new() { "default" });
+//<CollectingExchanges>
 
-distributedDataService.Add(Entry.Plc.AxoDataDistributedContext.ControlledUnit_2.ProcessData, new() { "default" });
-distributedDataService.Add(Entry.Plc.AxoDataDistributedContext.ControlledUnit_2.EntityHeader, new() { "default" });
+// You can manually add AxoDataExchanges to the service:
+// distributedDataService.Add(Entry.Plc.AxoDataDistributedContext.ControlledUnit_1.ProcessData, new() { "default" });
+// distributedDataService.Add(Entry.Plc.AxoDataDistributedContext.ControlledUnit_1.EntityHeader, new() { "default" });
+// ...
 
-//</DistributedDataService>
+// Or collect them automatically using reflection:
+distributedDataService.CollectAxoDataExchanges(Entry.Plc.AxoDataDistributedContext);
+
+//</CollectingExchanges>
 
 //<AxoDataExchangeConfigurationService>
 exchangeConfigurationService.AddConfiguration<Pocos.AxoDataDistributedExample.SharedHeader_Data>(

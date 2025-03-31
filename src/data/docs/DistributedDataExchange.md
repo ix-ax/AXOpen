@@ -23,6 +23,7 @@ The `DistributedDataView` is dynamic component for dispalying data from IDistrib
 
 - DisplayOnePerDataType: Only one fragment per DataExchange type.
 
+---
 # Prerequisites (.Net)
 
 ### Register services
@@ -30,8 +31,14 @@ Register services in your 'Program.cs' file
 [!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=DistributedDataServices)]
 
 ### Collect AxoDataExchanges
-[!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=DistributedDataService)]
-     
+[!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=CollectingExchanges)]
+
 ### Fill up exchange configuration
 [!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=AxoDataExchangeConfigurationService)]
+     
+---
+# Prerequisites (Ax)
+To enable automatic collection of data exchanges, you must use the appropriate attribute in your PLC code, like this:  
+[!code-csharp[](../app/src/Examples/AxoDataDistributedExample.st?name=UseDistributedDataAttribute)]
+
      
