@@ -16,8 +16,10 @@ NAMESPACE AxoDataDistributedExample
         END_VAR
         
         METHOD OVERRIDE Main
-            THIS.InitializeRootObject(ControlledUnit);
-            ControlledUnit.Run();// run logic of controlled unit 
+            THIS.InitializeRootObject(ControlledUnit_1);
+            ControlledUnit_1.Run();// run logic of controlled unit 
+
+            ControlledUnit_2.Run();// run logic of controlled unit 
         END_METHOD
     END_CLASS
     //</ContextDeclaration>
@@ -130,18 +132,21 @@ NAMESPACE AxoDataDistributedExample
 
         METHOD PUBLIC Run
             SUPER.Run(THIS); //??
-            THIS.EntityHeader.Run(THIS)
-            THIS.ProcessData.Run(THIS)
+            EntityHeader.Run(THIS);
+            ProcessData.Run(THIS);
 
-            HeaderUsage.Run(THIS);
-            ProcessUsage.Run(THIS);
+            // HeaderUsage.Use(THIS);
+            // ProcessUsage.Use(THIS);
 
             THIS.Execute();
         END_METHOD
 
         METHOD PRIVATE Execute
-            ProcessData^.Run(THIS); // cyclic call of AxoProcessDataManager
-            AutomatSequence.Run(THIS, ^ProcessData);
+            AutomatSequence.Run(
+                _parent         := THIS,   
+                _headerData     := REF(EntityHeader),
+                _processData    := REF(ProcessData) 
+            );
         END_METHOD
     END_CLASS
 
@@ -157,8 +162,8 @@ NAMESPACE AxoDataDistributedExample
         METHOD INTERNAL Run
             VAR_INPUT
                 _parent : IAxoObject;
-                _processData : REF_TO StationData_Manager;
                 _headerData : REF_TO SharedHeader_Manager;
+                _processData : REF_TO StationData_Manager;
             END_VAR
 
             ProcessData := _processData;
