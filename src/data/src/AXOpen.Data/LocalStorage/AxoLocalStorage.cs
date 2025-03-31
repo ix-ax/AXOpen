@@ -13,6 +13,8 @@ namespace AXOpen.Data
 {
     public partial class AxoDataLocalExchange
     {
+        public string ManagerDataTypeName { get => GetPlainTypes().FirstOrDefault().FullName; }
+
         public ITwinObject CloneDataObject()
         {
             throw new NotSupportedException();
