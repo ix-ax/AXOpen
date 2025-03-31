@@ -1,3 +1,4 @@
+USING AXOpen.Core;
 NAMESPACE AXOpen.Data 
     ///<summary>
     /// Base class for any exchangable data in <see cref="AxoDataExchange"/>.  
@@ -10,6 +11,17 @@ NAMESPACE AXOpen.Data
             /// </summary>
             {#ix-attr:[RenderIgnore()]}            
             DataEntityId : STRING[254];
-        END_VAR        
+        END_VAR 
+
+        METHOD PUBLIC SetId
+            VAR_INPUT
+                Id : STRING[254];
+            END_VAR  
+            DataEntityId := Id;          
+        END_METHOD               
+    
+        METHOD PUBLIC GetId : STRING[254]
+            GetId := DataEntityId;
+        END_METHOD
     END_CLASS
 END_NAMESPACE    

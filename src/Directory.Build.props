@@ -13,5 +13,5 @@
 	  <ProjectReference Include="$(AxSharpRoot)\AXSharp.connectors\src\AXSharp.Connector\AXSharp.Connector.csproj" />	 	 
     <ProjectReference Include="$(AxSharpRoot)\AXSharp.blazor\src\AXSharp.Presentation.Blazor.Controls\AXSharp.Presentation.Blazor.Controls.csproj" />
 	  <ProjectReference Include="$(AxSharpRoot)\AXSharp.blazor\src\AXSharp.Presentation.Blazor\AXSharp.Presentation.Blazor.csproj" />	  	  
-  </ItemGroup>   -->
+  </ItemGroup> -->
 </Project>

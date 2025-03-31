@@ -7,11 +7,10 @@ USING AXOpen.Rtc;
 
 NAMESPACE AXOpen.Core.Dummies
     ///<summary>
-    /// Provides base for contextualized entry of `AXOpen` application.
-    /// This class is abstract and must be inherited.
+    /// Provides base for contextualized entry of `AXOpen` application.    
     ///</summary>
     {S7.extern=ReadWrite}
-    CLASS PUBLIC ABSTRACT MockAxoContext IMPLEMENTS IAxoContext        
+    CLASS PUBLIC MockAxoContext IMPLEMENTS IAxoContext        
         VAR PRIVATE                        
             _openCounter : ULINT;
             _closeCounter : ULINT;
@@ -24,7 +23,7 @@ NAMESPACE AXOpen.Core.Dummies
         /// must be placed here.  
         /// This method must be overridden in derived class.
         ///</summary>
-        METHOD PROTECTED ABSTRACT Main END_METHOD
+        METHOD PROTECTED Main ; END_METHOD
             
         METHOD PUBLIC Open : ULINT
             _openCounter := _openCounter + ULINT#1;

@@ -34,7 +34,7 @@
            @{
             foreach (var message in MessageProvider.Messengers)
             {
-                if (message.State > eAxoMessengerState.Idle)
+                if (message.State != eAxoMessengerState.Idle)
                 {
                     <AxoMessengerView Component="message"></AxoMessengerView>
                 }
@@ -129,8 +129,8 @@
         {
             foreach (var messenger in 
                      MessageProvider.Messengers
-                         .Where(p =>p.State == eAxoMessengerState.ActiveNoAck || 
-                                                p.State == eAxoMessengerState.NotActiveWaitingAckn))
+                         .Where(p =>p.State == eAxoMessengerState.ActiveAcknowledgeRequired || 
+                                                p.State == eAxoMessengerState.InactiveWaitingForAcknowledge))
             {
                 messenger.Acknowledge(ast.User.Identity);
             }

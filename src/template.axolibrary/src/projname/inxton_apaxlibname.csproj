@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		
 		<ImplicitUsings>enable</ImplicitUsings>
@@ -78,11 +78,7 @@
 	  </None>
 	</ItemGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\inxton_axopen_core.csproj" />
-	  <ProjectReference Include="..\..\..\components.abstractions\src\AXOpen.Components.Abstractions\inxton_axopen_components_abstractions.csproj" />
-	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\inxton_axopen_timers.csproj" />
-	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\inxton_axopen_abstractions.csproj" />
+	<ItemGroup>	
 	  <ProjectReference Include="..\..\..\io\src\AXOpen.Io\inxton_axopen_io.csproj" />
 	</ItemGroup>
 </Project>

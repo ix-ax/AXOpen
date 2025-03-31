@@ -3,8 +3,8 @@ export RED='\033[0;31m'
 export YELLOW='\033[0;33m'
 export NC='\033[0m\r\n' # No Color+CRLF
 
-if [ "$#" -ne 4 ]; then
-	printf "${RED}Usage: $0 <NAMESPACE> <PLC_NAME> <PLC_IP_ADDRESS> <PASSWORD>.${NC}"
+if [ "$#" -ne 5 ]; then
+	printf "${RED}Usage: $0 <NAMESPACE> <PLC_NAME> <PLC_IP_ADDRESS> <USERNAME> <PASSWORD>.${NC}"
     exit 1
 fi
 
@@ -27,9 +27,15 @@ if ! $validate_script "$PLC_IP_ADDRESS"; then
     exit 1
 fi
 
-PASSWORD=$4
+USERNAME=$4
+if [ -z $USERNAME ]; then
+    printf "${RED}The USERNAME could not be an empty string.\r\n${NC}"
+    exit 1
+fi
+
+PASSWORD=$5
 if [ -z $PASSWORD ]; then
-	printf "${RED}The PASSWORD could not be an empty string.${NC}"
+    printf "${RED}The PASSWORD could not be an empty string.\r\n${NC}"
     exit 1
 fi
 
@@ -57,7 +63,7 @@ fi
 
 #hw_first_compile_and_first_download          # compile, copy the HwIds, first download HW using password and upload certificate       
 hw_first_compile_and_first_download=$( dirname ${BASH_SOURCE[0]})"\\hw_first_compile_and_first_download.sh"
-$hw_first_compile_and_first_download $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS $PASSWORD
+$hw_first_compile_and_first_download $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS $USERNAME $PASSWORD 
 if [[ $? -eq 0 ]]; then
 	printf "${GREEN}Hardware configuration has been succesfully compiled and downloaded.${NC}"
 else

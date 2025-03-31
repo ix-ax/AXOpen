@@ -62,6 +62,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
     <ProjectReference Include="..\..\..\io\src\AXOpen.Io.blazor\AXOpen.Io.blazor.csproj" />
-    <ProjectReference Include="..\projname\inxton_axolib.csproj" />
+    <ProjectReference Include="..\projname\\inxton_apaxlibname.csproj" />
   </ItemGroup>
 </Project>

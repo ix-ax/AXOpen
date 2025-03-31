@@ -94,7 +94,7 @@ apax install
 
 #clean_plc                                    # total reset of the PLC excluding IP and name
 clean_plc=$( dirname ${BASH_SOURCE[0]})"\\clean_plc.sh"
-$clean_plc $PLC_IP_ADDRESS
+$clean_plc $PLC_IP_ADDRESS $USERNAME $PASSWORD
 
 #copy_and_install_gsd                         # copy and install all gsdml files from library           
 copy_and_install_gsd=$( dirname ${BASH_SOURCE[0]})"\\copy_and_install_gsd.sh"
@@ -131,7 +131,7 @@ fi
 
 #hw_first_compile_and_first_download          # compile, copy the HwIds, first download HW using password and upload certificate       
 hw_first_compile_and_first_download=$( dirname ${BASH_SOURCE[0]})"\\hw_first_compile_and_first_download.sh"
-$hw_first_compile_and_first_download $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS $PASSWORD
+$hw_first_compile_and_first_download $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS $USERNAME $PASSWORD 
 if [[ $? -eq 0 ]]; then
 	printf "${GREEN}Hardware configuration has been succesfully compiled and downloaded.${NC}"
 else
@@ -142,7 +142,7 @@ fi
 
 #sw_build_and_download_full                   # software build and full download
 sw_build_and_download_full=$( dirname ${BASH_SOURCE[0]})"\\sw_build_and_download_full.sh"
-$sw_build_and_download_full $PLC_NAME $PLC_IP_ADDRESS $PLATFORM
+$sw_build_and_download_full $PLC_NAME $PLC_IP_ADDRESS $PLATFORM $USERNAME $PASSWORD 
 if [[ $? -eq 0 ]]; then
 	printf "${GREEN}Software has been succesfully compiled and downloaded.${NC}"
 else

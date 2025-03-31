@@ -5,7 +5,10 @@ targets:
   - llvm
 files:
   - src
+  - snippets
   - axsharp.companion.json
+registries:
+  "@inxton": "https://npm.pkg.github.com/"
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:

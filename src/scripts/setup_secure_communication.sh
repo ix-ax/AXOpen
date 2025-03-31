@@ -132,7 +132,8 @@ if [ -e "$seconfile" ]; then
   rm "$seconfile"
 fi
 
-apax hwc setup-secure-communication -n $PLC_NAME -i ".\hwc" -p $PASSWORD
-apax hwc import-certificate -n $PLC_NAME -i ".\hwc" -C "./certs/$PLC_NAME/pkcs12ForCertificateImport.p12" -p $PASSWORD --purpose "TLS"
-apax hwc import-certificate -n $PLC_NAME -i ".\hwc" -C "./certs/$PLC_NAME/pkcs12ForCertificateImport.p12" -p $PASSWORD --purpose "WebServer"
-apax hwc manage-users -n $PLC_NAME -i ".\hwc" set-password -u $USERNAME -p $PASSWORD
+apax hwc setup-secure-communication --name $PLC_NAME --no-input --input ".\hwc" --master-password $PASSWORD
+apax hwc import-certificate --name $PLC_NAME --input ".\hwc" --certificate "./certs/$PLC_NAME/pkcs12ForCertificateImport.p12" --passphrase $PASSWORD --purpose "TLS"
+apax hwc import-certificate --name $PLC_NAME --input ".\hwc" --certificate "./certs/$PLC_NAME/pkcs12ForCertificateImport.p12" --passphrase $PASSWORD --purpose "WebServer"
+apax hwc set-accessprotection-password --name $PLC_NAME --input ".\hwc" --level "FullAccess" --password $PASSWORD
+apax hwc manage-users --module-name $PLC_NAME --input ".\hwc" set-password --username $USERNAME --password $PASSWORD

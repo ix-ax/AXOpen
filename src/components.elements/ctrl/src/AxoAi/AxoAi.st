@@ -7,7 +7,6 @@ NAMESPACE AXOpen.Elements
     CLASS AxoAi EXTENDS AXOpen.Core.AxoComponent
 
         VAR PUBLIC
-
             /// configuration for calculations
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Config")]}
@@ -22,21 +21,13 @@ NAMESPACE AXOpen.Elements
             _status : AxoAiStatus;	
 
             {#ix-attr:[Container(Layout.Wrap)]}
-        
             _rawRange : REAL;
             _realRange : REAL;
             _scaled : REAL;
 
-
-            {#ix-set:MessageText = "<#Division by zero: Verify values defined in config! (RawHigh,RawLow)#>"}
-            _messengerDivisionByZero : AXOpen.Messaging.Static.AxoMessenger;
-
-            {#ix-set:MessageText = "<#Invalid data: Gain is not defined!#>"}
-            _messengerGainNotDefined : AXOpen.Messaging.Static.AxoMessenger;
-
-            {#ix-set:MessageText = "<#Out of boundaries,check correction parameters (Gain,Ofset) in config!#>"}
-            {#ix-set:Help = "<#Check your signal input.#>"}
-            _messengerOutOfBoundaries : AXOpen.Messaging.Static.AxoMessenger;
+            {#ix-set:AttributeName = "<#MessengerInfo#>"}
+            {#ix-set:PlcTextList = "[1]:'<#Division by zero: Verify values defined in config! (RawHigh,RawLow)':'<#Check the scaling parameters.#>';[2]:'<#Invalid data: Gain is not defined!#>':'<#Check the scaling parameters.#>';[3]:'<#Out of boundaries,check correction parameters (Gain,Ofset) in config!#>':'<#Check your signal input.#>'"}
+            _messengerInfo : AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
 
         VAR
@@ -67,10 +58,8 @@ NAMESPACE AXOpen.Elements
                 _context := THIS.GetContext();
             END_IF;
 
-            _messengerDivisionByZero.Serve(THIS); 
-            _messengerGainNotDefined.Serve(THIS); 
-            _messengerOutOfBoundaries.Serve(THIS);
-
+            _messengerInfo.Serve(THIS); 
+ 
             _signal := inSignal;
             //scaling
             _rawRange  := TO_REAL(_config.RawHigh - _config.RawLow);
@@ -78,12 +67,12 @@ NAMESPACE AXOpen.Elements
             _scaled    := 0;
 
             IF (_rawRange = 0) THEN
-                _messengerDivisionByZero.Activate(AXOpen.Messaging.eAxoMessageCategory#Error);
+                _messengerInfo.Activate(UINT#1,AXOpen.Messaging.eAxoMessageCategory#Error);
                 RETURN;
             END_IF;
             
             IF (_config.Gain = 0) THEN
-                _messengerGainNotDefined.Activate(AXOpen.Messaging.eAxoMessageCategory#Error);
+                _messengerInfo.Activate(UINT#2,AXOpen.Messaging.eAxoMessageCategory#Error);
             END_IF;
 
             _scaled := TO_REAL(_signal - _config.RawLow) / _rawRange;
@@ -94,9 +83,9 @@ NAMESPACE AXOpen.Elements
             _scaled := _scaled * _config.Gain + _config.Offset;
             
             IF (_scaled > _config.RealHigh) AND (_config.Gain <> 1 OR _config.Offset <> 0) THEN
-                _messengerOutOfBoundaries.Activate(AXOpen.Messaging.eAxoMessageCategory#Error);
+                _messengerInfo.Activate(UINT#3,AXOpen.Messaging.eAxoMessageCategory#Error);
             ELSIF (_scaled < _config.RealLow) AND (_config.Gain <> 1 OR _config.Offset <> 0) THEN
-                _messengerOutOfBoundaries.Activate(AXOpen.Messaging.eAxoMessageCategory#Error);
+                _messengerInfo.Activate(UINT#3,AXOpen.Messaging.eAxoMessageCategory#Error);
             END_IF;
 
             _status.RawRange  := _rawRange;

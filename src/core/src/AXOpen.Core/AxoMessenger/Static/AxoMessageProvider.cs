@@ -155,8 +155,7 @@ namespace AXOpen.Messaging.Static
                 foreach (var axoMessenger in this.Messengers?
                              .SelectMany(p => new ITwinElement[] { p.MessengerState, 
                                  p.Category, 
-                                 p.MessageCode,
-                                 p.AcknowledgedBeforeFallen
+                                 p.MessageCode
                              })!)
                 {
                     update(axoMessenger, 2500);
@@ -166,15 +165,14 @@ namespace AXOpen.Messaging.Static
         
         public async Task ReadDetails()
         {
+
             var r = Messengers?.Where(p => p.State > eAxoMessengerState.Idle)
                 .SelectMany(p => new ITwinPrimitive[]
                 {
                     p.MessengerState,
                     p.Category,
-                    p.MessageCode,
-                    p.AcknowledgedBeforeFallen
+                    p.MessageCode
                 });
-
             await Messengers?.FirstOrDefault()?.GetConnector()?.ReadBatchAsync(r)!;
         }
         

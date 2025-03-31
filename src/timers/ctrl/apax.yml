@@ -6,6 +6,8 @@ targets:
 files:
   - src
   - axsharp.companion.json
+registries:
+  "@inxton": "https://npm.pkg.github.com/"
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
@@ -16,6 +18,10 @@ scripts:
   ib: |
     apax install
     apax build
+  ibt: |
+    apax install
+    apax build
+    apax test
   icb: |
     apax install --catalog
     apax ib

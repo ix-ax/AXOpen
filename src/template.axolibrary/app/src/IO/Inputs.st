@@ -1,4 +1,4 @@
-NAMESPACE app_apaxappname
+NAMESPACE Template.Axolibrary
     TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}

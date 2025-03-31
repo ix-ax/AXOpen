@@ -2,8 +2,8 @@ export GREEN='\033[0;32m'
 export RED='\033[0;31m'
 export YELLOW='\033[0;33m'
 export NC='\033[0m\r\n' # No Color+CRLF
-if [ "$#" -ne 3 ]; then
-	printf "${RED}Usage: $0 <NAMESPACE> <PLC_NAME> <PLC_IP_ADDRESS>.${NC}"
+if [ "$#" -ne 5 ]; then
+	printf "${RED}Usage: $0 <NAMESPACE> <PLC_NAME> <PLC_IP_ADDRESS> <USERNAME> <PASSWORD>.${NC}"
     exit 1
 fi
 
@@ -23,6 +23,18 @@ PLC_IP_ADDRESS=$3
 validate_script=$( dirname ${BASH_SOURCE[0]})"\\validate_ip.sh"
 if ! $validate_script "$PLC_IP_ADDRESS"; then
 	printf "${RED}The PLC_IP_ADDRESS '$PLC_IP_ADDRESS' is not a valid IP address.${NC}"
+    exit 1
+fi
+
+USERNAME=$4
+if [ -z $USERNAME ]; then
+    printf "${RED}The USERNAME could not be an empty string.\r\n${NC}"
+    exit 1
+fi
+
+PASSWORD=$5
+if [ -z $PASSWORD ]; then
+    printf "${RED}The PASSWORD could not be an empty string.\r\n${NC}"
     exit 1
 fi
 
@@ -66,7 +78,7 @@ else
 fi
 
 hw_download_only=$( dirname ${BASH_SOURCE[0]})"\\hw_download_only.sh"
-$hw_download_only $PLC_NAME $PLC_IP_ADDRESS 
+$hw_download_only $PLC_NAME $PLC_IP_ADDRESS $USERNAME $PASSWORD 
 if [[ $? -eq 0 ]]; then
 	printf "${GREEN}Hardware configuration downloaded succesfully.${NC}"
 else
