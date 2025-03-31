@@ -696,7 +696,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     IF NOT InspectionStatus.Error THEN
                         THIS.CallTimers(FALSE);
                         _progress := 324;
-                        _jobName := THIS.AppendSuffix(_jobName);
                     END_IF;
                 END_IF;
                 
@@ -1280,22 +1279,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             
             _infoTimer.OnDelay(THIS, signal , Config.InfoTime);
             _errorTimer.OnDelay(THIS, signal , Config.ErrorTime );
-        END_METHOD
-
-        METHOD INTERNAL AppendSuffix :STRING
-            VAR_INPUT
-                jobName : STRING;
-            END_VAR
-            VAR 
-                position : INT;
-            END_VAR
-            position := LengthOf(jobName) - 4;
-            // Status.CurrentJobName := EndOf(jobName, 4);
-            IF EndOf(jobName, 4) <> '.job' THEN
-                AppendSuffix := Concat(jobName,'.job');
-            ELSE
-                AppendSuffix := jobName;
-            END_IF;
         END_METHOD
 
         METHOD INTERNAL SetUserDataAsString :   BOOL
