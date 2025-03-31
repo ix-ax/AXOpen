@@ -461,7 +461,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 
                 IF _progress = 314 THEN
                     TaskMessenger.ActivateOnCondition(ULINT#614, Results.Length > TO_UINT(Config.ResultDataSize), eAxoMessageCategory#Error);
-                    IF Results.Code = UINT#0 OR Results.Length=UINT#0 OR Results.Length > TO_UINT(Config.ResultDataSize) THEN
+                    IF Results.Length=UINT#0 OR Results.Length > TO_UINT(Config.ResultDataSize) THEN
                         ReadTask.ThrowWhen(TRUE);
                         IF Results.Length > TO_UINT(Config.ResultDataSize) THEN
                             Status.Error.Id := UINT#614;
