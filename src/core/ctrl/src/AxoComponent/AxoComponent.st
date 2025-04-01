@@ -99,7 +99,11 @@ NAMESPACE AXOpen.Core
             END_IF;  
         END_METHOD  
         
-        METHOD PUBLIC Run
+        METHOD PUBLIC OVERRIDE Run
+            VAR_INPUT
+                inParent : IAxoObject;
+            END_VAR    
+            SUPER.Run(inParent);
             THIS.Open();
             // Place the custom logic here
             THIS.Close();
