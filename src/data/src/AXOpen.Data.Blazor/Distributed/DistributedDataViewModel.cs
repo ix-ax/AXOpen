@@ -282,6 +282,51 @@ namespace AXOpen.Data
             }
         }
 
+        public async Task SendToPlc(string identifier)
+        {
+            if (string.IsNullOrEmpty(identifier))
+            {
+                AlertService?.AddAlertDialog(eAlertType.Warning, "Update data error", "Please enter valid identifier!", 20);
+                return;
+            }
+
+            List<string> sentToPlc = new List<string>();
+            List<string> notExistInDb = new List<string>();
+
+            foreach (var exchangeGroup in DataFragments.GroupBy( p => p.GetPlainTypes().First().FullName))
+            {
+               
+                if (!exchangeGroup.First().Repository.Exists(identifier))
+                {
+                    foreach (var exchange in exchangeGroup)
+                    {
+                        notExistInDb.Add(exchange.DataExchangeTwinObject.Symbol);
+                    }
+                    continue; // record not exist, continue 
+                }
+
+                foreach (var exchange in exchangeGroup)
+                {
+                    await exchange.RemoteRead(identifier);
+                    sentToPlc.Add(exchange.DataExchangeTwinObject.Symbol);
+                }
+
+            }
+
+            if (sentToPlc.Count > 0)
+            {
+                string updatedRecords = string.Join(", ", sentToPlc);
+                AlertService?.AddAlertDialog(eAlertType.Info, "Send record", $"Data with ID: \"{identifier}\"  was send for: {updatedRecords}!", 7);
+            }
+
+            if (notExistInDb.Count > 0)
+            {
+                string notEqualEntityIds = string.Join(", ", notExistInDb);
+                AlertService?.AddAlertDialog(eAlertType.Warning, "Send error", $"Rrecord has not exist in a Database for: {notEqualEntityIds}!", 14);
+            }
+        }
+
+
         public async Task CopyRecord(string identifier, string newIdentifier)
         {
             if (string.IsNullOrEmpty(identifier))

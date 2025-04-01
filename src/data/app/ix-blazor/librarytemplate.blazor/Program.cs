@@ -201,6 +201,14 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+var supportedCultures = new[] { "en-US", "sk-SK", "es-ES" };
+var localizationOptions = new RequestLocalizationOptions()
+    .AddSupportedCultures(supportedCultures)
+    .AddSupportedUICultures(supportedCultures);
+
+app.UseRequestLocalization(localizationOptions);
+
+
 app.UseAuthorization();
 
 app.MapControllers();

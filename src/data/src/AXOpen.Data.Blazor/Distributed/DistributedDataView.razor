@@ -17,7 +17,7 @@
         <AuthorizeView Roles="@DataExchangeRoleNames.can_data_filter_advanced">
             <Authorized>
 
-                <button class="btn @(AdvanceFilterConfig ? "btn-warning" : "btn-primary") btn-secondary px-1 py-1" name="advanceConfig" @onclick="()=>{AdvanceFilterConfig = !AdvanceFilterConfig;}">
+                <button class="btn @(AdvanceFilterConfig ? "btn-warning" : "btn-primary") btn-secondary" name="advanceConfig" @onclick="()=>{AdvanceFilterConfig = !AdvanceFilterConfig;}">
                     @if (AdvanceFilterConfig)
                     {
                         <span>
@@ -36,7 +36,7 @@
             </Authorized>
         </AuthorizeView>
 
-        <button type="button" class="btn @(DistributedVM.EnableInjectLocalIds ? "btn-warning" : "btn-primary") px-1 py-1"
+        <button type="button" class="btn @(DistributedVM.EnableInjectLocalIds ? "btn-warning" : "btn-primary")"
                 @onclick="DistributedVM.TogleLocalEntityIdsInjection">
             @if (DistributedVM.EnableInjectLocalIds)
             {
@@ -88,9 +88,20 @@
             </Authorized>
         </AuthorizeView>
 
-        <AuthorizeView Roles="@DataExchangeRoleNames.can_data_load_from_plc">
+
+        <AuthorizeView Roles="@DataExchangeRoleNames.can_data_send_to_plc">
             <Authorized>
                 <button type="button" class="btn btn-primary ms-2"
+                        @onclick='() => BtnOperation = "SendToPlc"'>
+                    @Localizer["Send to PLC"]
+                </button>
+            </Authorized>
+        </AuthorizeView>
+
+
+        <AuthorizeView Roles="@DataExchangeRoleNames.can_data_load_from_plc">
+            <Authorized>
+                <button type="button" class="btn btn-primary"
                         @onclick='() => BtnOperation = "CreateNewFromPlc"'>
                     @Localizer["New from PLC"]
                 </button>
@@ -99,7 +110,7 @@
 
         <AuthorizeView Roles="@DataExchangeRoleNames.can_data_update_from_plc">
             <Authorized>
-                <button type="button" class="btn btn-primary ms-2"
+                <button type="button" class="btn btn-primary"
                         @onclick='() => BtnOperation = "UpdateFromPlc"'>
                     @Localizer["Update from PLC"]
                 </button>
@@ -108,7 +119,7 @@
 
         <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_delete">
             <Authorized>
-                <button type="button" class="btn btn-primary"
+                <button type="button" class="btn btn-primary ms-4"
                         @onclick='() => BtnOperation = "Delete"'>
                     @Localizer["Delete"]
                 </button>
@@ -340,6 +351,92 @@
                 </div>
             </div>
         }
+
+
+        @if (this.BtnOperation == "SendToPlc")
+        {
+            <div class="row mb-3">
+                <div class="col d-flex flex-column gap-3 align-items-start">
+
+                    <!-- Label + Selector -->
+                    <div class="w-100">
+                        <label class="form-label fw-bold">
+                            @Localizer["Select a record to send"]:
+                        </label>
+                        <DataEntitySelector Elements="@DistributedVM.GetFromFirstExchageExistingIds()"
+                                            @bind-SelectdValue="SelectedEntityId" />
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex flex-row gap-2 w-100">
+
+                        @if (!string.IsNullOrEmpty(SelectedEntityId))
+                        {
+                            <button type="button"
+                                    class="btn btn-primary px-3 py-1 w-100"
+                                    @onclick='() => BtnOperation = "SendToPlc-Ack"'>
+                                <i class="bi bi-cloud-download me-2"></i>
+                                <span>@Localizer["Send record to PLC"]: "@SelectedEntityId"</span>
+                            </button>
+                        }
+
+                        <button type="button"
+                                class="btn btn-secondary px-3 py-1 w-100"
+                                @onclick="EndBtnOperation">
+                            <i class="bi bi-x-circle me-2"></i>
+                            <span>@Localizer["Close"]</span>
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+        }
+
+        @if (this.BtnOperation == "SendToPlc-Ack")
+        {
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex gap-2 w-100">
+
+                        <div class="flex-fill">
+                            <button type="button" class="btn btn-warning w-100 px-1 py-1"
+                                    @onclick="async () => {
+                                        await DistributedVM.SendToPlc(SelectedEntityId);
+                                        EndBtnOperation();}">
+                                <div class="d-flex flex-row justify-content-center align-items-center">
+                                    <i class="bi bi-cloud-upload me-2"></i>
+                                    <span>@Localizer["Send to the PLC"]: "@SelectedEntityId"</span>
+                                </div>
+
+                            </button>
+                        </div>
+
+                        <div class="flex-fill">
+                            <button type="button" class="btn btn-secondary w-100"
+                                    @onclick='() => {BtnOperation = "SendToPlc";SelectedEntityId=string.Empty;}'>
+                                <div class="d-flex flex-row justify-content-center align-items-center">
+                                    <i class="bi bi-backspace mx-2"></i>
+                                    <span>@Localizer["Back"]</span>
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="flex-fill">
+                            <button type="button" class="btn btn-secondary w-100"
+                                    @onclick='EndBtnOperation'>
+                                <div class="d-flex flex-row justify-content-center align-items-center">
+                                    <i class="bi bi-x-circle mx-2"></i>
+                                    <span>@Localizer["Close"]</span>
+                                </div>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+
 
 
         @if (this.BtnOperation == "CreateNewFromPlc")
