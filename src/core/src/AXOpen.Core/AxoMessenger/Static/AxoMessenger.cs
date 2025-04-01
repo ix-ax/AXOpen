@@ -171,14 +171,14 @@ public partial class AxoMessenger
         var r = new ITwinPrimitive[] { this.MessageCode, Category, MessageCode,  MessengerState };
         await this.GetConnector()?.ReadBatchAsync(r)!;
     }
-    
-    static T? FindParentOfType<T>(ITwinElement node) where T : ITwinObject
+
+    static T? FindParentOfType<T>(ITwinElement node, int depth = 0) where T : ITwinObject
     {
-        if (node == null || node is AXSharp.Connector.Connector) return default(T);
+        if (depth > 10 || node == null || node is AXSharp.Connector.Connector) return default(T);
 
         if (node is T) return (T)node;
 
-        return FindParentOfType<T>(node.GetParent());
+        return FindParentOfType<T>(node.GetParent(), depth++);
     }
 
     /// <summary>

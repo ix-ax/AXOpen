@@ -32,6 +32,9 @@ namespace AXOpen.Data;
 public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEntity
     where TPlain : Pocos.AXOpen.Data.IAxoDataEntity, new()
 {
+
+    public string ManagerDataTypeName { get=> GetPlainTypes().FirstOrDefault().FullName; }
+
     /// <inheritdoc />
     public ITwinObject? DataExchangeTwinObject => DataEntity as ITwinObject;
 
@@ -304,7 +307,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     public async Task<bool> RemoteCreateOrUpdate(string identifier)
     {
         sw.Restart();
-       // await Operation.ReadAsync();
+        // await Operation.ReadAsync();
         await DataEntity.DataEntityId.SetAsync(identifier);
 
         var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>();

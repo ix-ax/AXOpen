@@ -1,8 +1,13 @@
 # Export/Import
 
-If you want to be able to export data, you must add `CanExport` attribute with `true` value. Like this:
+If you want to enable data export, you must add the `EnableExport` attribute with the value `true`, and the user must have the roles `can_data_export` and `can_data_import`.
+
+Like this:
 
 [!code-smalltalk[](../app/ix-blazor/librarytemplate.blazor/Pages/Rendering.razor?name=Export)]
+
+[See all user roles from AxOpen.Data](Security.md#-authorization).
+
 
 With this option, buttons for export and import data will appear. After clicking on the export button, the `.zip` file will be created, which contains all existing records. If you want to import data, you must upload `.zip` file with an equal data structure as we get in the export file.
 

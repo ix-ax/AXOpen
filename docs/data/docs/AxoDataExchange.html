@@ -124,6 +124,8 @@ CLASS PUBLIC AxoProcessData EXTENDS AXOpen.Data.AxoDataEntity
         SomeString : STRING;
         {#ix-set:AttributeName = &quot;Some int&quot;}
         SomeInt : INT;
+
+        AllPrimitives : BasePrimitives;
     END_VAR
 END_CLASS
 </code></pre><h3 id="data-exchange-initialization-in-plc">Data exchange initialization in PLC</h3>
@@ -143,8 +145,9 @@ CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
     METHOD OVERRIDE Main
         
         // DataManager.Run(THIS); - is called iside of controlle unit
+        THIS.InitializeRootObject(ControlledUnit);
         ControlledUnit.ProcessData := REF(DataManager);//Set REF to DataManager (reason depth of data structure)
-        ControlledUnit.Run(THIS);// run logic of controlled unit 
+        ControlledUnit.Run();// run logic of controlled unit 
 
         ManagerUsage.Use(DataManager);
     END_METHOD
@@ -161,10 +164,7 @@ CLASS PUBLIC ControlledUnit EXTENDS AXOpen.Core.AxoObject
     END_VAR
 
     METHOD PUBLIC Run
-        VAR_INPUT
-            _parent : IAxoContext;
-        END_VAR
-        THIS.Initialize(_parent);
+        SUPER.Run(THIS); //??
         THIS.Execute();
     END_METHOD
 
@@ -210,7 +210,6 @@ END_CLASS
 //AxoProcessDataRepository = new JsonRepositorySettings&lt;Pocos.AxoDataExchangeExample.AxoProcessData&gt;(ProcessDataLocation).Factory();
 
 // *** MONGO REPOSITORY ***
-
 AxoProcessDataRepository = AXOpen.Data.MongoDb.Repository.Factory&lt;Pocos.AxoDataExchangeExample.AxoProcessData&gt;(new MongoDbRepositorySettings&lt;Pocos.AxoDataExchangeExample.AxoProcessData&gt;(&quot;mongodb://localhost:27017&quot;, &quot;AxOpenData&quot;, &quot;AxoDataExchangeExample&quot;));
 
 Entry.Plc.AxoDataExchangeContext.DataManager.InitializeRemoteDataExchange(AxoProcessDataRepository);

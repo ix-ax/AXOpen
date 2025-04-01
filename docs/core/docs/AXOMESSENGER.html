@@ -113,13 +113,11 @@ Contrariwise, the acknowledgement is required for the levels <code>Error</code>,
 <p><strong>Attributes <code>MessageText</code>, <code>Help</code> and <code>PlcTextList</code></strong></p>
 <p>These attributes are used to set the values of the static texts of the messenger. These values are read out at the compilation time, transferred to .NET counterpart and set as constant strings. Therefore, they can't be changed at the runtime.</p>
 <p>Example of declaration of the instance and defining the attributes <code>MessageText</code> and <code>Help</code>.</p>
-<pre><code class="lang-smalltalk">{#ix-set:MessageText = &quot;&lt;#Static message text for messenger 1 declared in the PLC code#&gt;&quot;}
-{#ix-set:Help = &quot;&lt;#Static help text for messenger 1 declared in the PLC code#&gt;&quot;}
-_messenger1 : AXOpen.Messaging.Static.AxoMessenger;
-</code></pre>
+<pre><code class="lang-smalltalk"></code></pre>
 <p>Example of declaration of the instance and defining the attribute <code>PlcTextList</code>.</p>
-<pre><code class="lang-smalltalk">{#ix-set:PlcTextList = &quot;[10]:'&lt;#Messenger 3: static message text for message code 10 declared in the PLC code#&gt;':'&lt;#Messenger 3: static help text for message code 10 declared in the PLC code#&gt;';[20]:'&lt;#Messenger 3: static message text for message code 20 declared in the PLC code#&gt;':'&lt;#Messenger 3: static help text for message code 20 declared in the PLC code#&gt;'&quot;}
-_messenger3 : AXOpen.Messaging.Static.AxoMessenger;
+<pre><code class="lang-smalltalk">{#ix-set:AttributeName = &quot;&lt;#Messenger 4 - textlist in PLC#&gt;&quot;}
+{#ix-set:PlcTextList = &quot;[1]:'&lt;#Messenger 4: static message text for message code 1 declared in the PLC code#&gt;':'&lt;#Messenger 4: static help text for message code 1 declared in the PLC code#&gt;'[2]:'&lt;#Messenger 4: static message text for message code 2 declared in the PLC code#&gt;':'&lt;#Messenger 4: static help text for message code 2 declared in the PLC code#&gt;'&quot;}
+_messenger4 : AXOpen.Messaging.Static.AxoMessenger;
 </code></pre>
 <p><strong>How to use <code>AxoMessenger</code></strong></p>
 <p>The instance of the <code>AxoMessenger</code> must be defined inside the <code>AxoContext</code> or <code>AxoObject</code>.
@@ -148,11 +146,11 @@ In the case of <code>PlcTextList</code> attribute is defined, the parsed values 
         List&lt;KeyValuePair&lt;ulong, AxoMessengerTextItem&gt;&gt; messengerTextList = new List&lt;KeyValuePair&lt;ulong, AxoMessengerTextItem&gt;&gt;
         {
             new KeyValuePair&lt;ulong, AxoMessengerTextItem&gt;(0, new AxoMessengerTextItem(&quot;  &quot;, &quot;  &quot;)),
-            new KeyValuePair&lt;ulong, AxoMessengerTextItem&gt;(10, new AxoMessengerTextItem(&quot;Messenger 4: static message text for message code 10 declared in .NET&quot;, &quot;Messenger 5: static help text for message code 10 declared in .NET&quot;)),
-            new KeyValuePair&lt;ulong, AxoMessengerTextItem&gt;(20, new AxoMessengerTextItem(&quot;Messenger 4: static message text for message code 20 declared in .NET&quot;, &quot;Messenger 5: static help text for message code 20 declared in .NET&quot;)),
-            new KeyValuePair&lt;ulong, AxoMessengerTextItem&gt;(30, new AxoMessengerTextItem(&quot;Messenger 4: static message text for message code 30 declared in .NET&quot;, &quot;Messenger 5: static help text for message code 30 declared in .NET&quot;)),
-            new KeyValuePair&lt;ulong, AxoMessengerTextItem&gt;(40, new AxoMessengerTextItem(&quot;Messenger 4: static message text for message code 40 declared in .NET&quot;, &quot;Messenger 5: static help text for message code 40 declared in .NET&quot;)),
-            new KeyValuePair&lt;ulong, AxoMessengerTextItem&gt;(50, new AxoMessengerTextItem(&quot;Messenger 4: static message text for message code 50 declared in .NET&quot;, &quot;Messenger 5: static help text for message code 50 declared in .NET&quot;))
+            new KeyValuePair&lt;ulong, AxoMessengerTextItem&gt;(10, new AxoMessengerTextItem(&quot;Messenger 4: static message text for message code 10 declared in .NET&quot;, &quot;Messenger 4: static help text for message code 10 declared in .NET&quot;)),
+            new KeyValuePair&lt;ulong, AxoMessengerTextItem&gt;(20, new AxoMessengerTextItem(&quot;Messenger 4: static message text for message code 20 declared in .NET&quot;, &quot;Messenger 4: static help text for message code 20 declared in .NET&quot;)),
+            new KeyValuePair&lt;ulong, AxoMessengerTextItem&gt;(30, new AxoMessengerTextItem(&quot;Messenger 4: static message text for message code 30 declared in .NET&quot;, &quot;Messenger 4: static help text for message code 30 declared in .NET&quot;)),
+            new KeyValuePair&lt;ulong, AxoMessengerTextItem&gt;(40, new AxoMessengerTextItem(&quot;Messenger 4: static message text for message code 40 declared in .NET&quot;, &quot;Messenger 4: static help text for message code 40 declared in .NET&quot;)),
+            new KeyValuePair&lt;ulong, AxoMessengerTextItem&gt;(50, new AxoMessengerTextItem(&quot;Messenger 4: static message text for message code 50 declared in .NET&quot;, &quot;Messenger 4: static help text for message code 50 declared in .NET&quot;))
         };
 
         _messenger4.DotNetMessengerTextList = messengerTextList;
@@ -162,10 +160,12 @@ In the case of <code>PlcTextList</code> attribute is defined, the parsed values 
 <p>Avoid mixing several activation principles with the same instance.</p>
 <pre><code class="lang-smalltalk"></code></pre>
 <p>If necessary, the default behaviour of the acknowledgeable messenger should be changed as follows.</p>
-<pre><code class="lang-smalltalk">_messenger2.ActivateOnCondition(_messenger2condition,eAxoMessageCategory#Error).DoNotRequireAcknowledgement();
+<pre><code class="lang-smalltalk">_messenger3.Serve(_rootObject);    
+_messenger3.ActivateOnCondition(UINT#1,_messenger3condition,eAxoMessageCategory#Error).DoNotRequireAcknowledgement();
 </code></pre>
 <p>Contrariwise, the default behaviour of the unacknowledgeable messenger should be changed as follows.</p>
-<pre><code class="lang-smalltalk">_messenger2.ActivateOnCondition(_messenger2condition,eAxoMessageCategory#Warning).RequireAcknowledgement();
+<pre><code class="lang-smalltalk">_messenger2.Serve(_rootObject);    
+_messenger2.ActivateOnCondition(_messenger2code,_messenger2condition,eAxoMessageCategory#Warning).RequireAcknowledgement();
 </code></pre>
 <p><strong>How to visualize <code>AxoMessenger</code></strong></p>
 <p>On the UI side, use the <code>RenderableContentControl</code> and set its Context according to the placement of the instance of the <code>AxoMessenger</code>.</p>

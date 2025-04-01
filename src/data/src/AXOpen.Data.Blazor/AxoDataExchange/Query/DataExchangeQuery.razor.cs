@@ -382,6 +382,36 @@ namespace AXOpen.Data.Query
             }
         }
 
+        private async Task RemoveItemFromHistory()
+        {
+            var updatename = "";
+
+            try
+            {
+                var existingConfig = await ProtectedLocalStorage.GetAsync<QuerySortHistory>(this.StorageKey);
+
+                if (existingConfig.Success)
+                {
+                    History = existingConfig.Value;
+
+                    var element = History.Items.Where(t => t.Name == CurrentQuery.Name).FirstOrDefault();
+
+                    if (element != null)
+                    {
+                        History.Items.Remove(element);
+
+                        await ProtectedLocalStorage.SetAsync(this.StorageKey, History);
+                        await LoadQueryHistoryData();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         private void SelectlElementFromHistory(string name)
         {
             var newItem = History.Items.Where(t => t.Name == name).First();
@@ -401,22 +431,33 @@ namespace AXOpen.Data.Query
                 if (existingConfig.Success)
                 {
                     this.History = existingConfig.Value;
-
-                    if (!string.IsNullOrEmpty(History.LastSelectedItemName))
-                    {
-                        var lastselected = History.Items.Where(h => h.Name == History.LastSelectedItemName).First();
-
-                        if (lastselected != null)
-                        {
-                            this.CurrentQuery = lastselected;
-                        }
-                    }
                 }
             }
-            catch (Exception ex)
+            catch (Exception ex) // can be exception with deserialization -> configuration was changed
             {
-                throw;
+                try
+                {
+                    await ProtectedLocalStorage.DeleteAsync(this.StorageKey);
+                }
+                catch (Exception exi)
+                {
+                    // swallow
+                }
             }
+            if (this.History == null) History = new QuerySortHistory();
+
+            if (!string.IsNullOrEmpty(History.LastSelectedItemName))
+            {
+                var lastselected = History.Items.Where(h => h.Name == History.LastSelectedItemName);
+
+                if (lastselected != null)
+                {
+                    CurrentQuery = lastselected.FirstOrDefault();
+                }
+            }
+
+            if (CurrentQuery == null) CurrentQuery = new();
+
         }
 
         public void Dispose()
