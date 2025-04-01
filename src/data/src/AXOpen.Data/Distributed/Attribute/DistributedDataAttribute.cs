@@ -15,6 +15,6 @@ namespace AXOpen.Data
             Groups = groups;
         }
 
-        private IEnumerable<string> Groups { set; get; } = new List<string>();
+        public IEnumerable<string> Groups { private set; get; } = new List<string>();
     }
 }

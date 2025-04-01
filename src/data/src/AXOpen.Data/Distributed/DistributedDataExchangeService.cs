@@ -1,4 +1,5 @@
 ﻿using AXSharp.Connector;
+using System;
 using System.Reflection;
 
 namespace AXOpen.Data
@@ -63,6 +64,8 @@ namespace AXOpen.Data
 
         public void Add(IAxoDataExchange exchange, List<string> groups = null)
         {
+            ArgumentNullException.ThrowIfNull(exchange);
+
             if (groups == null)
             {
                 groups = new List<string>() { "default" };
@@ -88,46 +91,28 @@ namespace AXOpen.Data
             }
         }
 
-        public void CollectAxoDataExchanges(object target)
+        public void CollectAxoDataExchanges(ITwinObject target)
         {
-            CollectAxoDataExchangesRecursive(target, new HashSet<object>());
-        }
+            var dataEx = target.GetChildren().Where(p => p is IAxoDataExchange);
 
-        private void CollectAxoDataExchangesRecursive(object target, HashSet<object> visited)
-        {
-            if (target == null || visited.Contains(target))
-                return;
-
-            visited.Add(target);
-
-            var type = target.GetType();
-
-            var properties = type.GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
-                                 .Where(p => p.GetIndexParameters().Length == 0 && p.CanRead
-                                             && typeof(ITwinObject).IsAssignableFrom(p.PropertyType)
-                                             && !typeof(AXSharp.Connector.Connector).IsAssignableFrom(p.PropertyType)
-                                             );
-
-            foreach (var property in properties)
+            foreach (var item in dataEx)
             {
-                var propertyValue = property.GetValue(target);
+                DistributedDataAttribute? hasAttribute = target.GetType()
+                    .GetProperty(item.GetSymbolTail())?
+                    .GetCustomAttribute<DistributedDataAttribute>();
 
-                if (propertyValue is IAxoDataExchange axoDataExchange)
+
+                if (hasAttribute != null)
                 {
-                    var attribute = property.GetCustomAttribute<DistributedDataAttribute>();
-                    var groups = attribute?.GetType()
-                                           .GetProperty("Groups", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance)?
-                                           .GetValue(attribute) as IEnumerable<string> ?? Enumerable.Empty<string>();
+                    var groups = hasAttribute?.GetType()
+                           .GetProperty("Groups", BindingFlags.Public | BindingFlags.Instance)?
+                           .GetValue(hasAttribute) as IEnumerable<string> ?? Enumerable.Empty<string>();
 
-                    this.Add(axoDataExchange, groups.ToList());
-                }
-
-                if (propertyValue is ITwinObject)
-                {
-                    CollectAxoDataExchangesRecursive(propertyValue, visited);
+                    this.Add((item as IAxoDataExchange), groups.ToList());
                 }
             }
         }
+
 
     }
 }
