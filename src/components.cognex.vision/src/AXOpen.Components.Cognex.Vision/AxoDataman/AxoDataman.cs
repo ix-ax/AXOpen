@@ -155,7 +155,7 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     errorDescriptionDict.Add(717, "Error writing the 16bytes of the UserData in the UpdateOutputs method!");
                     errorDescriptionDict.Add(718, "Error writing the 32bytes of the UserData in the UpdateOutputs method!");
                     errorDescriptionDict.Add(719, "Error writing the 64bytes of the UserData in the UpdateOutputs method!");
-                    errorDescriptionDict.Add(720, "Error writing the 1286bytes of the UserData in the UpdateOutputs method!");
+                    errorDescriptionDict.Add(720, "Error writing the 128bytes of the UserData in the UpdateOutputs method!");
                     errorDescriptionDict.Add(721, "Error writing the 250bytes of the UserData in the UpdateOutputs method!");
 
 

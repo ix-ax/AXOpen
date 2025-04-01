@@ -91,11 +91,15 @@ NAMESPACE AXOpen.Core
                 //When component.Service() is called "before" invoking its task _serviceContextCycle is equal to GetContext().OpenCycleCount()
                 _isManuallyControllable := _manualControlContextCycle = _myContextCycleCount OR 
                 //When component.Service() is called "after" invoking its task (_serviceContextCycle + 1) is equal to GetContext().OpenCycleCount()
-                                (_manualControlContextCycle + ULINT#1) = _myContextCycleCount;        
+                                (_manualControlContextCycle + ULINT#1) = _myContextCycleCount;      
+                IF  _myContextCycleCount <= ULINT#2 THEN
+                    THIS.Restore();
+                END_IF; 
             ELSE
                 _context := THIS.GetContext();
                 _isManuallyControllable := FALSE;              // TODO: some message should inform about this issue
                 _myContextCycleCount := ULINT#0;
+                THIS.Restore();
             END_IF;  
         END_METHOD  
         
