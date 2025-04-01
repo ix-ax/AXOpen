@@ -186,10 +186,12 @@ CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
         ManagerUsage : ManagerUsage; 
         // Object that propertie will be tracked by persistent manager
         PersistentRootObject : PersistentRootObject; 
+        _rootObject :   AxoObject;
     END_VAR
     
     METHOD OVERRIDE Main
-        DataManager.Run(THIS);
+        THIS.InitializeRootObject(_rootObject);
+        DataManager.Run(_rootObject);
         ManagerUsage.Use(DataManager);
     END_METHOD
 END_CLASS
@@ -225,6 +227,7 @@ Entry.Plc.AxoDataPersistentContext.DataManager.InitializeRemoteDataExchange(
         Entry.Plc.AxoDataPersistentContext.PersistentRootObject,
         persistentRepository
         );
+
 </code></pre><h3 id="data-view">Data view</h3>
 <p>The DataExchange view is connected to an instance. Therefore, you need to pass the instance through the Context property.</p>
 <p>Usage:</p>

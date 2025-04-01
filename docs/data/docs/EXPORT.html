@@ -89,9 +89,11 @@
         <article data-uid="">
 <h1 id="exportimport">Export/Import</h1>
 
-<p>If you want to be able to export data, you must add <code>CanExport</code> attribute with <code>true</code> value. Like this:</p>
-<pre><code class="lang-smalltalk">&lt;DataExchangeView Vm=&quot;@_vm_export&quot; Presentation=&quot;Command&quot; CanExport=&quot;true&quot; /&gt;
+<p>If you want to enable data export, you must add the <code>EnableExport</code> attribute with the value <code>true</code>, and the user must have the roles <code>can_data_export</code> and <code>can_data_import</code>.</p>
+<p>Like this:</p>
+<pre><code class="lang-smalltalk">&lt;DataExchangeView Vm=&quot;@_vm_export&quot; Presentation=&quot;Command&quot; EnableExport=&quot;true&quot; /&gt;
 </code></pre>
+<p><a href="SECURITY.html#-authorization">See all user roles from AxOpen.Data</a>.</p>
 <p>With this option, buttons for export and import data will appear. After clicking on the export button, the <code>.zip</code> file will be created, which contains all existing records. If you want to import data, you must upload <code>.zip</code> file with an equal data structure as we get in the export file.</p>
 <p><img src="assets/Export.png" alt="Export"></p>
 <h2 id="custom-export">Custom export</h2>

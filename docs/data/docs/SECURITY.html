@@ -130,7 +130,50 @@ Its important to note that modifications originating from the PLC are not logged
 <h2 id="hashing">Hashing</h2>
 <p>Data are hashed each time they are created or updated.
 To enable hash verification, you can add the attribute: <code>{#ix-attr:[AXOpen.Data.AxoDataVerifyHashAttribute]}</code> above the data manager. With this attribute in place, the hash will be checked whenever you interact with the data. In case the verification process fails, a log will be generated, and the user will be warned about external modifications to the record.</p>
-</article>
+<h2 id="-authorization">🔐 Authorization</h2>
+<p>All data views require authorized access to perform control-related operations.</p>
+<h3 id="-existing-role-names">📛 Existing Role Names</h3>
+<p>You can find the list of predefined role names here:</p>
+<pre><code class="lang-csharp">
+public const string can_data_item_create = nameof(can_data_item_create);
+public const string can_data_item_edit = nameof(can_data_item_edit);
+public const string can_data_item_copy = nameof(can_data_item_copy);
+public const string can_data_item_delete = nameof(can_data_item_delete);
+
+public const string can_data_send_to_plc = nameof(can_data_send_to_plc);
+public const string can_data_load_from_plc = nameof(can_data_load_from_plc);
+public const string can_data_update_from_plc = nameof(can_data_update_from_plc);
+
+public const string can_data_export = nameof(can_data_export);
+public const string can_data_import = nameof(can_data_import);
+
+public const string can_data_filter_advanced = nameof(can_data_filter_advanced);
+
+</code></pre><h3 id="-adding-roles-to-your-custom-role-list">🧩 Adding Roles to Your Custom Role List</h3>
+<p>Use the following code to register all required roles in your application's role system:</p>
+<pre><code class="lang-csharp">public static List&lt;Role&gt; CreateRoles()
+{
+    var roles = new List&lt;Role&gt; // your custom application roles
+    {
+        new Role(process_settings_access),
+        new Role(process_traceability_access),
+        new Role(can_run_ground_mode),
+        new Role(can_run_automat_mode),
+        new Role(can_run_service_mode),
+        new Role(can_skip_steps_in_sequence),
+    };
+
+    //add all roles from AXOpen.Data
+    foreach (var item in typeof(AXOpen.Data.DataExchangeRoleNames).
+       GetFields(BindingFlags.Public | BindingFlags.Static).
+       Where(f =&gt; f.FieldType == typeof(string)))
+    {
+        roles.Add(new Role(item.Name));
+    }
+
+    return roles;
+}
+</code></pre></article>
 
         <div class="contribution d-print-none">
           <a href="https://github.com/Inxton/AXOpen/blob/dev/src/data/docs/SECURITY.md/#L1" class="edit-link">Edit this page</a>

@@ -107,32 +107,36 @@
 <li>Declare variables</li>
 </ol>
 <pre><code class="lang-smalltalk">VAR PUBLIC
-    _digitalInspector: AXOpen.Inspectors.AxoDigitalInspector;
-    _analogueInspector: AXOpen.Inspectors.AxoAnalogueInspector;
-    _dataInspector: AXOpen.Inspectors.AxoDataInspector;
+    _digitalInspector: AXOpen.Inspectors.AxoInspector;
+    _analogueInspector: AXOpen.Inspectors.AxoInspector;
+    _dataInspector: AXOpen.Inspectors.AxoInspector;
 
     _inspectionResult: BOOL;
     _inspectionValue: LREAL;
     _inspectionData: STRING;
+
+    _digitalInspectorData: AXOpen.Inspectors.AxoDigitalInspectorData;
+    _analogueInspectorData : AXOpen.Inspectors.AxoAnalogueInspectorData;
+    _dataInspectorData: AXOpen.Inspectors.AxoDataInspectorData;
 END_VAR
 </code></pre>
 <ol start="2">
 <li>Set initial inspection pass and fail timers</li>
 </ol>
-<pre><code class="lang-smalltalk">_digitalInspector.Data()^.FailTime := TIME#3s;
-_analogueInspector.Data()^.FailTime := TIME#3s;
-_dataInspector.Data()^.FailTime := TIME#3s;
+<pre><code class="lang-smalltalk">_digitalInspectorData.FailTime := TIME#3s;
+_analogueInspectorData.FailTime := TIME#3s;
+_dataInspectorData.FailTime := TIME#3s;
 
-_digitalInspector.Data()^.PassTime := TIME#2s;
-_analogueInspector.Data()^.PassTime := TIME#2s;
-_dataInspector.Data()^.PassTime := TIME#2s;
+_digitalInspectorData.PassTime := TIME#2s;
+_analogueInspectorData.PassTime := TIME#2s;
+_dataInspectorData.PassTime := TIME#2s;
 </code></pre>
 <ol start="3">
 <li>Run inspections</li>
 </ol>
-<pre><code class="lang-smalltalk">_digitalInspector.Inspect(THIS, _inspectionResult);
-_analogueInspector.Inspect(THIS, _inspectionValue);
-_dataInspector.Inspect(THIS, _inspectionData);
+<pre><code class="lang-smalltalk">_digitalInspector.Inspect(THIS, REF(_digitalInspectorData),_inspectionResult);
+_analogueInspector.Inspect(THIS,REF(_analogueInspectorData), _inspectionValue);
+_dataInspector.Inspect(THIS, REF(_dataInspectorData),_inspectionData);
 </code></pre>
 <ol start="4">
 <li>Check each inspector's data for results</li>
@@ -143,7 +147,7 @@ _dataInspector.Inspect(THIS, _inspectionData);
 </div>
 <h2 id="example-inspection-with-coordinator">Example inspection with Coordinator</h2>
 <p>Example of inspection within a sequencer in PLC:</p>
-<pre><code class="lang-smalltalk">_digitalInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
+<pre><code class="lang-smalltalk">_inspector.WithCoordinator(THIS).Inspect(THIS,REF(_digitalInspectorData),_inspectionResult).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
 </code></pre>
 <ol>
 <li>A _presenceInspector is created instance of <code>AxoDigitalInspector</code></li>
@@ -251,7 +255,7 @@ DetectedStatus : BOOL;
 </tbody>
 </table>
 <p>The following example specify, that when inspection fails, dialog is shown and is requesting user decision.</p>
-<pre><code class="lang-smalltalk">_dataInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[45]);
+<pre><code class="lang-smalltalk">_inspector.WithCoordinator(THIS).Inspect(THIS,REF(_dataInspectorData),_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[45]);
 </code></pre>
 <p><img src="assets/inspection-failure-dialog.png" alt="Inspection failure"></p>
 <h2 id="over-inspection">Over-inspection</h2>
@@ -260,13 +264,21 @@ DetectedStatus : BOOL;
 <h2 id="preserving-overall-result">Preserving overall result</h2>
 <p>Overall result of a series of inspections can be preserved in <code>AxoComprehensiveResult</code>. Each inspector has <code>UpdateComprehensiveResult</code> method that provides the update function. Once the <code>UpdateComprehensiveResult</code> marks the overall result as Failed, successive inspection will not overwrite the result.</p>
 <pre><code class="lang-smalltalk">IF (Steps[30].Execute(THIS, TRUE, 'Example Digital inspection')) THEN
+    _inspector.Inspect(THIS,REF(_digitalInspectorData),_inspectionResult);
+    _inspector.WithCoordinator(THIS).Inspect(THIS,REF(_digitalInspectorData),_inspectionResult).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
+END_IF;
 
-    _digitalInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
+IF (Steps[31].Execute(THIS, TRUE, 'debug')) THEN         
+    IF _continue THEN
+        _continue := FALSE;
+        THIS.MoveNext(); 
     END_IF;
+END_IF;
 
 IF (Steps[35].Execute(THIS, TRUE, 'Example Analog inspection')) THEN         
 
-_analogueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
+    // _analogueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
+    _inspector.WithCoordinator(THIS).Inspect(THIS,REF(_analogueInspectorData), _inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
 
 END_IF;
 </code></pre></article>
