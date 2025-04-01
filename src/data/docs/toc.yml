@@ -2,23 +2,32 @@
   href: index.md
   items:
   - name: Data exchange
-    href: AXODATAEXCHANGE.md
+    href: AxoDataExchange.md
   - name: Data fragment exchange
-    href: AXODATAFRAGMENTEXCHANGE.md
+    href: AxoDataFragmentExchange.md
   - name: Data Persistent exchange
     href: AxoDataPersistentExchange.md
   - name: Usage
-    href: USAGE.md
+    href: Usage.md
   - name: Security
-    href: SECURITY.md
+    href: Security.md
   - name: Data visualization
-    href: VISUALIZATION.md
+    href: Visualization.md
     items:
     - name: Custom columns
-      href: COLUMNS.md
+      href: Columns.md
     - name: Export/Import
-      href: EXPORT.md
+      href: Export.md
     - name: Modal detail view
-      href: MODALVIEW.md
+      href: ModalView.md
     - name: Sorting
-      href: SORT.md
+      href: Sort.md
+    - name: Filtering
+      href: Filter.md
+  - name: Distributed Data
+    href: DistributedDataExchange.md
+    items:
+    - name: Filtering
+      href: DistributedDataExchange_Filter.md
+    - name: ColumnData
+      href: DistributedDataExchange_ColumnData.md

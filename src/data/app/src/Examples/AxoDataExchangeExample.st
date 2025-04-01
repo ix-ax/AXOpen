@@ -142,6 +142,56 @@ NAMESPACE AxoDataExchangeExample
     END_CLASS
     //</Run>
 
+    
+    {S7.extern=ReadWrite}
+    CLASS PUBLIC NestedPrimitives_L3  //27 * 10 * 10 * 10 = 27 000 vars
+        VAR PUBLIC
+            Instance_0 : AxoDataExchangeExample.NestedPrimitives_L2;
+            Instance_1 : AxoDataExchangeExample.NestedPrimitives_L2;
+            Instance_2 : AxoDataExchangeExample.NestedPrimitives_L2;
+            Instance_3 : AxoDataExchangeExample.NestedPrimitives_L2;
+            Instance_4 : AxoDataExchangeExample.NestedPrimitives_L2;
+            Instance_5 : AxoDataExchangeExample.NestedPrimitives_L2;
+            Instance_6 : AxoDataExchangeExample.NestedPrimitives_L2;
+            Instance_7 : AxoDataExchangeExample.NestedPrimitives_L2;
+            Instance_8 : AxoDataExchangeExample.NestedPrimitives_L2;
+            Instance_9 : AxoDataExchangeExample.NestedPrimitives_L2;
+
+        END_VAR
+    END_CLASS
+
+    {S7.extern=ReadWrite}
+    CLASS PUBLIC NestedPrimitives_L2  //27 * 10 * 10 = 2700 vars
+        VAR PUBLIC
+            Instance_0 : AxoDataExchangeExample.NestedPrimitives_L1;
+            Instance_1 : AxoDataExchangeExample.NestedPrimitives_L1;
+            Instance_2 : AxoDataExchangeExample.NestedPrimitives_L1;
+            Instance_3 : AxoDataExchangeExample.NestedPrimitives_L1;
+            Instance_4 : AxoDataExchangeExample.NestedPrimitives_L1;
+            Instance_5 : AxoDataExchangeExample.NestedPrimitives_L1;
+            Instance_6 : AxoDataExchangeExample.NestedPrimitives_L1;
+            Instance_7 : AxoDataExchangeExample.NestedPrimitives_L1;
+            Instance_8 : AxoDataExchangeExample.NestedPrimitives_L1;
+            Instance_9 : AxoDataExchangeExample.NestedPrimitives_L1;
+        END_VAR
+    END_CLASS
+
+    {S7.extern=ReadWrite}
+    CLASS PUBLIC NestedPrimitives_L1 //27 * 10 = 270 vars
+        VAR PUBLIC
+            Instance_0 : AxoDataExchangeExample.BasePrimitives;
+            Instance_1 : AxoDataExchangeExample.BasePrimitives;
+            Instance_2 : AxoDataExchangeExample.BasePrimitives;
+            Instance_3 : AxoDataExchangeExample.BasePrimitives;
+            Instance_4 : AxoDataExchangeExample.BasePrimitives;
+            Instance_5 : AxoDataExchangeExample.BasePrimitives;
+            Instance_6 : AxoDataExchangeExample.BasePrimitives;
+            Instance_7 : AxoDataExchangeExample.BasePrimitives;
+            Instance_8 : AxoDataExchangeExample.BasePrimitives;
+            Instance_9 : AxoDataExchangeExample.BasePrimitives;
+        END_VAR
+    END_CLASS
+
     {S7.extern=ReadWrite}
     CLASS PUBLIC BasePrimitives //27 vars
         VAR PUBLIC

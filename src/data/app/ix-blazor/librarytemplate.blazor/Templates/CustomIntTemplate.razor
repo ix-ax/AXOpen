@@ -1,0 +1,27 @@
+﻿@namespace librarytemplate
+@inherits AXOpen.Data.ColumnDataCellBase
+
+@PropertyValue.ToString() -
+
+@if (CastedValue <= 100)
+{
+    <i class="bi bi-arrow-bar-left"></i>
+    <span>over</span>
+}
+else
+{
+    <i class="bi bi-arrow-bar-right"></i>
+    <span>below</span>
+}
+
+@code {
+
+    public short CastedValue { set; get; }
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+
+        CastedValue = (short)PropertyValue;
+    }
+}

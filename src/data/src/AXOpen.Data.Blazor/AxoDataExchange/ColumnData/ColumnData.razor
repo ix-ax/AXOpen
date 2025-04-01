@@ -13,6 +13,9 @@
     [CascadingParameter]
     public DataExchangeView DataView { get; set; }
 
+    [Parameter]
+    public Func<object, RenderFragment> TemplateBuilder { get; set; }
+
     protected override void OnInitialized()
     {
         DataView.AddLine(this);
