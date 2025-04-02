@@ -8,6 +8,7 @@ using AXSharp.Connector.S71500.WebApi;
 using System.Net.Security;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
+using System.Net.Http;
 
 namespace librarytemplate
 {
@@ -38,8 +39,8 @@ namespace librarytemplate
 
         public static axopen_data_appTwinController SecurePlc { get; }
             = new(ConnectorAdapterBuilder.Build()
-                .CreateDummy()
-            //.CreateWebApi(TargetIp, UserName, Pass, CertificateValidation, IgnoreSslErrors)
+             //   .CreateDummy()
+            .CreateWebApi(TargetIp, UserName, Pass, CertificateValidation, IgnoreSslErrors)
                 );
     }
 

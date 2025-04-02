@@ -125,7 +125,7 @@ END_VAR
 
 METHOD PRIVATE UseInSequencer   
 
-    Sequencer.Initialize(THIS);
+    Sequencer.Run(THIS);
     Sequencer.Open();
 
     IF(Steps[0].Execute(Sequencer, 'Update diagnostic task')) THEN

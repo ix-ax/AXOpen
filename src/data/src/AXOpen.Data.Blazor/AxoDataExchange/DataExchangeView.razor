@@ -19,11 +19,9 @@ else
 {
     <div class="p-1">
 
-
         <div class="d-flex">
             @if (Presentation.Equals("Command"))
             {
-
                 <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_create">
                     <Authorized>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "Create"'>@Localizer["Create"]</button>
@@ -69,7 +67,8 @@ else
                                 }
                             </ul>
                         </div>
-                        <button class="btn btn-outline-secondary" type="button" name="sort" aria-label="@(Vm.DefaulSorting.IsAscending ? "Sorting ascending" : "Sorting descending")" title="@(Vm.DefaulSorting.IsAscending ? "Sorting ascending" : "Sorting descending")" @onclick="() => setSortAscendingAsync()">
+
+                        <button class="btn btn-outline-secondary me-1" type="button" name="sort" aria-label="@(Vm.DefaulSorting.IsAscending ? "Sorting ascending" : "Sorting descending")" title="@(Vm.DefaulSorting.IsAscending ? "Sorting ascending" : "Sorting descending")" @onclick="() => setSortAscendingAsync()">
                             <i class="bi bi-filter @(Vm.DefaulSorting.IsAscending ? "rotate" : "")"></i>
                         </button>
                     }
@@ -89,35 +88,33 @@ else
                 <AuthorizeView Roles="@DataExchangeRoleNames.can_data_filter_advanced">
                     <Authorized>
 
-                        <button class="btn btn-secondary mx-2" name="advanceConfig" @onclick="()=>{AdvanceFilterConfig = !AdvanceFilterConfig;}">
+                        <button class="btn @(AdvanceFilterConfig ? "btn-warning" : "btn-primary") mx-2" name="advanceConfig" @onclick="()=>{AdvanceFilterConfig = !AdvanceFilterConfig;}">
                             @if (AdvanceFilterConfig)
                             {
-                                @*  icons come from:a https://icon-sets.iconify.design/oi/ *@
                                 <span>
-                                    <span class="oi oi-eject me-1" aria-hidden="true"></span>
-                                    <span>@Localizer["Hide advanced"]</span>
+                                    <i class="bi bi-funnel-fill"></i>
+                                    <span>@Localizer["Hide filter"]</span>
                                 </span>
                             }
                             else
                             {
                                 <span>
-                                    <span class="oi oi-cog me-1" aria-hidden="true"></span>
-                                    <span>@Localizer["Advanced"]</span>
+                                    <i class="bi bi-funnel"></i>
+                                    <span>@Localizer["Filter"]</span>
                                 </span>
                             }
                         </button>
                     </Authorized>
                 </AuthorizeView>
 
-                @*  <button class="btn btn-secondary" type="button" name="refresh" aria-label="Refresh" title="Refresh" @onclick="() => Vm.FillObservableRecordsAsync()">
-                        <i class="oi oi-loop-circular"></i>
-                    </button> *@
             </div>
         </div>
 
         @if (AdvanceFilterConfig)
         {
-            <DataExchangeQuery Exchange="@Vm"></DataExchangeQuery>
+            <div class="d-flex flex-row align-items-center gap-2 bg-warning bg-opacity-25 border rounded m-1">
+                <DataExchangeQuery Exchange="@Vm"></DataExchangeQuery>
+            </div>
         }
 
         <table class="table table-hover">
@@ -186,11 +183,31 @@ else
 
                                         if (column.Clickable)
                                         {
-                                            <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@(propertyValue)</td>
+
+                                            @if (column.TemplateBuilder != null)
+                                            {
+                                                // insert template
+                                                <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@column.TemplateBuilder.Invoke(propertyValue)</td>
+
+                                            }
+                                            else
+                                            {
+                                                <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@(propertyValue)</td>
+                                            }
+
                                         }
                                         else
                                         {
-                                            <td>@(propertyValue)</td>
+                                            @if (column.TemplateBuilder != null)
+                                            {
+                                                // insert template
+                                                <td> @column.TemplateBuilder.Invoke(propertyValue)</td>
+                                            }
+                                            else
+                                            {
+                                                <td>@(propertyValue)</td>
+                                            }
+
                                         }
                                     }
                                     catch (Exception ex)
@@ -210,11 +227,28 @@ else
                                         var propertyValue = PropertyHelper.GetPropertyValue(item, column.BindingValue);
                                         if (column.Clickable)
                                         {
-                                            <td style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@(propertyValue)</td>
+                                            @if (column.TemplateBuilder != null)
+                                            {
+                                                // insert template
+                                                <td style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@column.TemplateBuilder.Invoke(propertyValue)</td>
+                                            }
+                                            else
+                                            {
+                                                <td style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@(propertyValue)</td>
+                                            }
                                         }
                                         else
                                         {
-                                            <td>@(propertyValue)</td>
+
+                                            @if (column.TemplateBuilder != null)
+                                            {
+                                                // insert template
+                                                <td> @column.TemplateBuilder.Invoke(propertyValue)</td>
+                                            }
+                                            else
+                                            {
+                                                <td>@(propertyValue)</td>
+                                            }
                                         }
                                     }
                                     catch (Exception ex)

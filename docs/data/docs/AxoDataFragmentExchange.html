@@ -131,8 +131,9 @@ CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
     METHOD OVERRIDE Main
         
         // DataManager.Run(THIS); - is called iside of controlle unit
+        THIS.InitializeRootObject(ControlledUnit);
         ControlledUnit.ProcessData := REF(DataManager);//Set REF to DataManager (reason depth of data structure)
-        ControlledUnit.Run(THIS);// run logic of controlled unit 
+        ControlledUnit.Run();// run logic of controlled unit 
 
         ManagerUsage.Use(DataManager);
     END_METHOD
@@ -149,10 +150,7 @@ CLASS PUBLIC ControlledUnit EXTENDS AXOpen.Core.AxoObject
     END_VAR
 
     METHOD PUBLIC Run
-        VAR_INPUT
-            _parent : IAxoContext;
-        END_VAR
-        THIS.Initialize(_parent);
+        SUPER.Run(THIS); //??
         THIS.Execute();
     END_METHOD
 
@@ -186,7 +184,8 @@ END_CLASS
 </code></pre><h3 id="data-exchange-initialization-in-net">Data exchange initialization in .NET</h3>
 <p>At this point, we have everything ready in the PLC.</p>
 <p>If the nested data exchange object does not have the repository set previously, we will need to tell the to fragment manager wich repositories we be used by in data exchange. We will work with data stored in files in JSON format.</p>
-<pre><code class="lang-csharp">IRepository&lt;Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData&gt; SharedDataHeaderDataRepository;
+<pre><code class="lang-csharp">
+IRepository&lt;Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData&gt; SharedDataHeaderDataRepository;
 IRepository&lt;Pocos.AxoDataFramentsExchangeExample.Station_1_Data&gt; Station_1_DataRepository;
 
 // *** IN MEMORY REPOSITORY ***
@@ -209,6 +208,7 @@ var AxoProcessDataManager = Entry.Plc.AxoDataFragmentsExchangeContext.DataManage
 AxoProcessDataManager.SharedHeader.SetRepository(SharedDataHeaderDataRepository);
 AxoProcessDataManager.Station_1.SetRepository(Station_1_DataRepository);
 AxoProcessDataManager.InitializeRemoteDataExchange();
+
 </code></pre>
 <div class="NOTE">
 <h5>Note</h5>

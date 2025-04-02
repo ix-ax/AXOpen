@@ -124,7 +124,7 @@ To accomplish this, call the <code>Run</code> method cyclically with the proper 
 END_VAR
 </code></pre><h4 id="initialize--run">Initialize &amp; Run</h4>
 <pre><code class="lang-smalltalk">METHOD PROTECTED OVERRIDE Main        
-    CylinderParent.Initialize(THIS);
+    THIS.InitializeRootObject(CylinderParent);
     myAxoCylinder.Run(  CylinderParent, 
                     PlcInputs^.ET200SP_DI_8x24VDC_ST_V1_1_1.%X0, 
                     PlcInputs^.ET200SP_DI_8x24VDC_ST_V1_1_1.%X1, 

@@ -48,3 +48,18 @@ When a client is in the process of editing, copying, or attempting to delete a r
 
 Data are hashed each time they are created or updated.
 To enable hash verification, you can add the attribute: `{#ix-attr:[AXOpen.Data.AxoDataVerifyHashAttribute]}` above the data manager. With this attribute in place, the hash will be checked whenever you interact with the data. In case the verification process fails, a log will be generated, and the user will be warned about external modifications to the record.
+
+
+## 🔐 Authorization
+
+All data views require authorized access to perform control-related operations.
+
+### 📛 Existing Role Names
+You can find the list of predefined role names here:
+
+[!code-csharp[](../src/AXOpen.Data.Blazor/DataExchangeRoleNames.cs?name=DataExchangeRoleNames)]
+
+### 🧩 Adding Roles to Your Custom Role List
+Use the following code to register all required roles in your application's role system:
+
+[!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=CollectAllDataExchangeRoles)]

@@ -96,7 +96,7 @@
 <p>The deferred execution in .NET environment is not hard-real time nor deterministic. You would typically use the AxoRemoteTask when it would be hard to achieve a goal in the PLC, but you can delegate the access to the non-hard-real and nondeterministic environment. Examples of such use would be database access, complex calculations, and email sending.</p>
 </div>
 <p><strong>AxoTask initialization within a AxoContext</strong></p>
-<pre><code class="lang-smalltalk">_remoteTask.Initialize(THIS); // THIS = IAxoContext 
+<pre><code class="lang-smalltalk">THIS.InitializeRootObject(_remoteTask); // THIS = IAxoContext 
 </code></pre>
 <p>There are two key methods for managing the AxoRemoteTask:</p>
 <ul>

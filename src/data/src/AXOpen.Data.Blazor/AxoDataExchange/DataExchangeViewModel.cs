@@ -27,6 +27,13 @@ namespace AXOpen.Data
 {
     public partial class DataExchangeViewModel : RenderableViewModelBase, IDataExchangeViewModel, IDataExchangeQueryViewModel
     {
+        protected volatile object _viewRefreshMutex = new object();
+        protected volatile object _lockInjectEntities = new object();
+
+        public DataExchangeViewModel()
+        {
+        }
+
         public IAxoDataExchange DataExchange
         {
             get;
@@ -54,9 +61,15 @@ namespace AXOpen.Data
             }
         }
 
-        public DataExchangeViewModel()
-        {
-        }
+        public ObservableCollection<IBrowsableDataObject> Records { get; set; } = new ObservableCollection<IBrowsableDataObject>();
+        public bool IsBusy { get; set; }
+
+        public long FilteredCount { get; set; }
+        public int Page { get; set; } = 0;
+        public int Limit { get; set; } = 10;
+        public string CreateItemId { get; set; }
+
+        public ExportSettings ExportSet { get; set; } = new();
 
         private AuthenticationStateProvider _authenticationProvider;
 
@@ -170,6 +183,11 @@ namespace AXOpen.Data
         // injected from view or other service
         public PredicateContainer InjectedPredicateContainer { get; set; }
 
+        private List<string> EntityIdsInjected = new();
+        internal List<string> EntityIdsLastQuery = new();
+        internal List<string> EntityIdsIntersected = new();
+        public bool ReadAllEntityIdsForConcatQuery { set; get; }
+
         internal void Locked()
         {
             if (IsLockedByMeOrNull())
@@ -233,23 +251,50 @@ namespace AXOpen.Data
 
         public virtual IEnumerable<IBrowsableDataObject> Filter(PredicateContainer predicates, int limit = 10, int skip = 0)
         {
-            var records = this.DataExchange.GetRecords(predicates, limit, skip);
+            IEnumerable<IBrowsableDataObject> filtered = null;
+
+            lock (_lockInjectEntities)
+            {
+
+                if (EntityIdsInjected != null && EntityIdsInjected.Count > 0)
+                {
+                    this.EntityIdsLastQuery.Clear();
+                    this.EntityIdsIntersected.Clear();
+
+                    EntityIdsLastQuery.AddRange(DataExchange.GetEntityIds(predicates).ToList());
+                    EntityIdsIntersected.AddRange(EntityIdsInjected.Intersect(EntityIdsLastQuery).ToList());
+
+                    this.FilteredCount = EntityIdsIntersected.Count;
+
+                    var toFind = EntityIdsIntersected.Skip(skip).Take(limit).ToList();
+
+                    filtered = DataExchange.GetRecords(toFind).ToList();
+                }
+                else
+                {
+                    this.EntityIdsLastQuery.Clear();
+                    this.EntityIdsIntersected.Clear();
+
+                    if (this.ReadAllEntityIdsForConcatQuery)
+                    {
+                        var ids = DataExchange.GetEntityIds(predicates).ToList();
+                        EntityIdsLastQuery.AddRange(ids);
+                        EntityIdsIntersected.AddRange(ids);
+                    }
+
+                    FilteredCount = this.DataExchange.Repository.FilteredCount(predicates);
+
+                    filtered = this.DataExchange.GetRecords(predicates, limit, skip);
+                }
+            }
 
             lock (_viewRefreshMutex)
             {
                 Records.Clear();
-                foreach (var item in records)
+
+                foreach (var item in filtered)
                 {
                     this.Records.Add(item);
-                }
-
-                if (this.DataExchange.Repository is AxoCompoundRepository)
-                {
-                    FilteredCount = DataExchange.LastFragmentQueryCount;
-                }
-                else
-                {
-                    FilteredCount = this.DataExchange.Repository.FilteredCount(predicates);
                 }
             }
 
@@ -447,24 +492,6 @@ namespace AXOpen.Data
             });
         }
 
-        protected volatile object _viewRefreshMutex = new object();
-
-        public ObservableCollection<IBrowsableDataObject> Records { get; set; } = new ObservableCollection<IBrowsableDataObject>();
-        public int Limit { get; set; } = 10;
-
-        // not used any more
-        //public string FilterById { get; set; } = "";
-        //public eSearchMode SearchMode { get; set; } = eSearchMode.Exact;
-        //public string SortExpresion { get; set; } = "Default";
-        //public bool SortAscending { get; set; } = false;
-        public long FilteredCount { get; set; }
-
-        public int Page { get; set; } = 0;
-        public string CreateItemId { get; set; }
-        public bool IsBusy { get; set; }
-
-        public ExportSettings ExportSet { get; set; } = new();
-
         public IEnumerable<ITwinElement> GetValueTags(Type type)
         {
             var prototype = Activator.CreateInstance(type, new object[] { ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(new object[] { }), "_data", "_data" }) as ITwinObject;
@@ -565,5 +592,15 @@ namespace AXOpen.Data
         }
 
         #endregion IDataExchangeQueryViewModel implementation
+
+        public void SetInjectedEntityIds(List<string> ids)
+        {
+            lock (_lockInjectEntities)
+            {
+                this.EntityIdsInjected.Clear();
+
+                this.EntityIdsInjected.AddRange(ids);
+            }
+        }
     }
 }

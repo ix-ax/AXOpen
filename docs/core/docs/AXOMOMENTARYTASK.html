@@ -103,7 +103,7 @@ CLASS AxoMomentaryTaskDocuExample EXTENDS  AXOpen.Core.AxoContext
     METHOD PUBLIC Initialize
         // Initialization of the context needs to be called first
         // It does not need to be called cyclically, just once
-        _myMomentaryTask.Initialize(THIS);
+        THIS.InitializeRootObject(_myMomentaryTask);
     END_METHOD
 </code></pre>
 <p>To check the state of the task there are two methods:</p>

@@ -142,7 +142,7 @@ VAR PRIVATE
 END_VAR
 METHOD PRIVATE UseInSequencer   
 
-    Sequencer.Initialize(THIS);
+    Sequencer.Run(THIS);
     Sequencer.Open();
     Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
 

@@ -104,9 +104,9 @@ CLASS AxoSequencerContainerDocuExample EXTENDS  AXOpen.Core.AxoSequencerContaine
 </code></pre><h4 id="example-of-implementation-main-method-inside-the-user-defined-class-that-extends-from-axosequencercontainer">Example of implementation MAIN method inside the user-defined class that extends from AxoSequencerContainer</h4>
 <p>All the custom logic of the sequencer needs to be placed here.</p>
 <pre><code class="lang-smalltalk">METHOD PROTECTED OVERRIDE MAIN 
-    _step_1.Initialize(THIS);
-    _step_2.Initialize(THIS);
-    _step_3.Initialize(THIS);
+    // _step_1.Initialize(THIS);
+    // _step_2.Initialize(THIS);
+    // _step_3.Initialize(THIS);
 
     _myCounter := _myCounter + ULINT#1;
 
@@ -137,7 +137,7 @@ END_METHOD
     _mySequencerContainer : AxoSequencerContainerDocuExample;
 END_VAR
 </code></pre><h4 id="example-of-calling-of-the-instance-of-the-user-defined-class-that-extends-from-axosequencercontainer">Example of calling of the instance of the user-defined class that extends from AxoSequencerContainer</h4>
-<pre><code class="lang-smalltalk">_mySequencerContainer.Run(THIS);
+<pre><code class="lang-smalltalk">_mySequencerContainer.Run(_rootObject);
 </code></pre></article>
 
         <div class="contribution d-print-none">
