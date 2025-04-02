@@ -609,30 +609,16 @@ NAMESPACE AXOpen.Core
                 Duration := _taskTimer.ElapsedTime;  
             END_IF;  
 
-            IF(NOT _suspendRtmCheck) THEN 
-                IF(_context.GetRtm() = NULL || _context.GetRtm().Elapsed() = NULL_RTM.Elapsed()) THEN
-                    _rtmInvalid := TRUE;
-                    Status := eAxoTaskState#Error;
-                    ErrorDetails := 'RtmInvalid'; 
-                END_IF;                     
-            END_IF;                
-            _messenger.ActivateOnCondition(ULINT#3,_rtmInvalid,eAxoMessageCategory#ProgrammingError);
+            // IF(NOT _suspendRtmCheck) THEN 
+            //     IF(_context.GetRtm() = NULL) THEN
+            //         _rtmInvalid := TRUE;
+            //         Status := eAxoTaskState#Error;
+            //         ErrorDetails := 'RtmInvalid'; 
+            //     END_IF;                     
+            // END_IF;                
+            // _messenger.ActivateOnCondition(ULINT#3,_rtmInvalid,eAxoMessageCategory#ProgrammingError);
         END_METHOD    
-
-        // METHOD PRIVATE LogTask 
-        //     VAR_INPUT
-        //         _message : STRING[80];
-        //         _level : eLogLevel;
-        //         _sender : IAxoObject;
-        //     END_VAR
-        //     VAR
-        //         _castIIAxoStep : IAxoStep;
-        //     END_VAR               
-        //     _castIIAxoStep ?= _sender;
-        //     IF(_castIIAxoStep <> NULL) THEN RETURN; END_IF;            
-        //     _context.GetLogger().Log(_message, _level, THIS);       
-        // END_METHOD
-
+        
         ///<summary>
         /// Makes this task enter into `Error` state, when `HasErrorState` argument is `TRUE`
         /// task in error state stops its execution.

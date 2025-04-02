@@ -333,8 +333,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             _hwIdParameterBankNumber                            :=  hwIdParameterBankNumber;
             _hwIdUserData                                       :=  hwIdUserData;  
 
-            
-            THIS.Open();
             //****************************************
             //***********Update inputs ***************
             _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdHandshakeAndGeneralErrorStatus ,_data_in);
@@ -1435,24 +1433,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 END_IF;
                 _UserDataChanged := UserData.DataChanged;
             END_IF;
-
-            THIS.Close();                   
         END_METHOD
        
-        ///<summary>
-		/// Custom component logic running before any other component logic.
-        ///</summary>   
-        METHOD PROTECTED OVERRIDE Open
-            SUPER.Open();
-        END_METHOD  
-
-        ///<summary>
-		/// Custom component logic running after any other component logic.
-        ///</summary>   
-        METHOD PROTECTED OVERRIDE Close
-            SUPER.Close();
-        END_METHOD  
-
         ///<summary>
 		/// Clears the result data. 	
         ///</summary>       

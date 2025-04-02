@@ -10,7 +10,7 @@ Devices:
       Label: X1
       Addresses:
         Configured:
-        - IPv4: 10.10.10.31/24
+        - IPv4: 192.168.100.31/24
         - ProfinetDeviceName: sr-1000_1
       Parameters:
         # IECV22LLDPMode: True

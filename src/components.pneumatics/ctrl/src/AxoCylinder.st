@@ -76,17 +76,14 @@ NAMESPACE AXOpen.Components.Pneumatics
 
             IF _context = NULL THEN
                 SUPER.Run(parent);
-                // _MoveToWorkTask.Initialize(THIS);
-                // _MoveToHomeTask.Initialize(THIS);
-                // _StopTask.Initialize(THIS);
                 _context := THIS.GetContext();
             END_IF;
 
-            THIS.Open(); // inline representation save 1% of cpu by 40 pistons on 1516 Fw2.9
+            SUPER.Run(parent);
 
             _Messenger.Serve(THIS);
 
-           _Messenger.ActivateOnCondition(UINT#3, workSensor AND homeSensor, eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(UINT#3, workSensor AND homeSensor, eAxoMessageCategory#Error);
 
             IF(_StopTask.Execute(THIS)) THEN
                 moveHomeSignal := FALSE;
@@ -140,7 +137,6 @@ NAMESPACE AXOpen.Components.Pneumatics
             _MoveHomeSignal := moveHomeSignal;
             _MoveWorkSignal := moveWorkSignal;      
 
-            THIS.Close();                      
         END_METHOD
 
         METHOD PROTECTED OVERRIDE ManualControl

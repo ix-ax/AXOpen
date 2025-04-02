@@ -10,7 +10,7 @@ Devices:
       Label: X1
       Addresses:
         Configured:
-        - IPv4: 10.10.10.98/24
+        - IPv4: 192.168.100.98/24
         - ProfinetDeviceName: et200sp_CM_4xIO_Link_RF200
       # Parameters:
       #   IECV22LLDPMode: False

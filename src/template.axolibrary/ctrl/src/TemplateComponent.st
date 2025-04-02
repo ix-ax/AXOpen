@@ -177,8 +177,6 @@ NAMESPACE Template.Axolibrary
 
             SUPER.Run(parent);
 
-            THIS.Open();
-
             Messenger.Serve(THIS);
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(ULINT#701,hwID = WORD#0, eAxoMessageCategory#ProgrammingError);
@@ -3026,7 +3024,6 @@ NAMESPACE Template.Axolibrary
             END_IF;
             
             //******************************************      
-            THIS.Close();
 
         END_METHOD
 

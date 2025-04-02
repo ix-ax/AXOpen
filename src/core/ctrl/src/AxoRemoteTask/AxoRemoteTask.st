@@ -34,7 +34,8 @@ NAMESPACE AXOpen.Core
 
 
             {#ix-set:AttributeName = "<#RemoteTaskMessenger#>"}
-            {#ix-set:PlcTextList = "[1]:'<#Remote task is not initialized by remote partner.#>':'<#Make sure the remote application that should handle this remote request is running and is available in the network.#>'[2]:'<#During the execution or remote task an error occured.#> |[[1]RemoteExceptionDetails]|':'<#Check detail of this remote task for more information about the problem.#>"}
+            {#ix-set:PlcTextList =  "[1]:'<#Remote task is not initialized by remote partner.#>':'<#Make sure the remote application that should handle this remote request is running and is available to the controller.#>'';
+                                    '[2]:'<#During the execution or remote task an error occured.#> |[[1]RemoteExceptionDetails]|':'<#Check detail of this remote task for more information about the problem.#>'"}
             _remoteTaskMessenger : AXOpen.Messaging.Static.AxoMessenger;
 
         END_VAR
@@ -44,21 +45,17 @@ NAMESPACE AXOpen.Core
                 inParent : IAxoObject;
             END_VAR
             Execute := SUPER.Execute(inParent);            
-            // TaskNotInitialized.Serve(THIS);    
-            // TaskHasRemoteException.Serve(THIS);
-
+            
             _remoteTaskMessenger.Serve(THIS);
 
-            IF(Execute) THEN
-                // TaskNotInitialized.ActivateOnCondition(NOT IsInitialized, AXOpen.Messaging.eAxoMessageCategory#Error).RequireAcknowledgement();
-                _remoteTaskMessenger.ActivateOnCondition(UINT#1,NOT IsInitialized, AXOpen.Messaging.eAxoMessageCategory#Error).RequireAcknowledgement();
-                SUPER.ThrowWhen(NOT IsInitialized, 'THE REMOTE TASK IS NOT INITIALIZED');     
-                SUPER.ThrowWhen(HasRemoteException, ErrorDetails);                
-                SUPER.DoneWhen(StartSignature = DoneSignature);       
-                IsBeingCalledCounter := IsBeingCalledCounter + 1;     
+            IF(Execute) THEN                
+                _remoteTaskMessenger.ActivateOnCondition(UINT#1,NOT IsInitialized, AXOpen.Messaging.eAxoMessageCategory#Warning);
+                //SUPER.ThrowWhen(NOT IsInitialized, 'THE REMOTE TASK IS NOT INITIALIZED');     
+                SUPER.ThrowWhen(HasRemoteException, ErrorDetails);                                
+                SUPER.DoneWhen(StartSignature = DoneSignature);     
+                IsBeingCalledCounter := IsBeingCalledCounter + 1;                       
             END_IF;                
-
-            // TaskHasRemoteException.ActivateOnCondition(HasRemoteException, AXOpen.Messaging.eAxoMessageCategory#Error).RequireAcknowledgement();        
+                                    
             _remoteTaskMessenger.ActivateOnCondition(UINT#2,HasRemoteException, AXOpen.Messaging.eAxoMessageCategory#Error).RequireAcknowledgement();        
         END_METHOD  
                       

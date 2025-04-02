@@ -10,7 +10,7 @@ Devices:
       Label: X1
       Addresses:
         Configured:
-        - IPv4: "10.10.10.55/24"
+        - IPv4: "192.168.100.55/24"
         - ProfinetDeviceName: TZ535-PN
       # Parameters:
       #   IECV22LLDPMode: True

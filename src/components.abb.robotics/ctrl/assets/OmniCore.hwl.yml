@@ -11,7 +11,7 @@ Devices:
       Label: X1
       Addresses:
         Configured:
-        - IPv4: 10.10.10.2/24
+        - IPv4: 192.168.100.2/24
         - ProfinetDeviceName: OmniCore
   - Name: DI_64_bytes
     TypeIdentifier:

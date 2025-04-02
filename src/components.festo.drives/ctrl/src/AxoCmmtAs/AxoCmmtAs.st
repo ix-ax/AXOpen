@@ -133,8 +133,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 RETURN;
             END_IF;
         
-            THIS.Open();
-
             _AxisRefExt.Data.hwID                := hwID;
             _AxisRefExt.Data.hwIdTelegram111     := hwIdTelegram111;
             _AxisRefExt.Data.hwIdTelegram750     := hwIdTelegram750;
@@ -367,8 +365,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
             ELSIF _AxisReference^.Telegram111_In.ZSW1.driveStopped THEN
                 DriveState := AXOpen.Components.Drives.eAxoDriveState#Standstill;
             END_IF;
-
-            THIS.Close();               
         END_METHOD
 
         ///<summary>
