@@ -1251,11 +1251,9 @@ NAMESPACE AXOpen.Components.Drives
                 RETURN;
             END_IF;
             
-            THIS.Open();
             THIS.UpdateInputs(refAxisIn,_AxisRef);
             THIS.Execute(_AxisRef,Enable,EnablePositive,EnableNegative);
             THIS.UpdateOutputs(_AxisRef,refAxisIn);
-            THIS.Close();            
         END_METHOD   
 
 

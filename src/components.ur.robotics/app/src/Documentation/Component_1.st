@@ -46,7 +46,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                                 hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1       := HwIdentifiers#ureol2l_9_O2T_General_Purpose_Registers_1_9_O2T_General_Purpose_Registers_1_HwID,
                                 hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2       := HwIdentifiers#ureol2l_10_O2T_General_Purpose_Registers_2_10_O2T_General_Purpose_Registers_2_HwID,
                                 refPowerOnPulse                                         := REF (PowerOnImpulse));
-            ExampleRobot.Config.IpAddress := '10.10.10.61';
+            ExampleRobot.Config.IpAddress := '192.168.100.61';
             //</Initialization>
 
         THIS.UseInSequencer();

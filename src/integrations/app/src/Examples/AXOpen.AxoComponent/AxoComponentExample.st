@@ -22,8 +22,7 @@ NAMESPACE AxoComponentExamples
                 outReal : REAL;
                 outDint : DINT;
             END_VAR
-            // This must be called first.
-            SUPER.Open();
+
             // Place the custom logic here.
             Status.SomeStatusValue1  := Status.SomeStatusValue1  * inReal;
             Status.SomeStatusValue2 := Status.SomeStatusValue2 + inDint;

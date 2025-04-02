@@ -223,7 +223,6 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _data100 : ARRAY[0..99] OF BYTE;
             END_VAR
 
-            THIS.Open();
             //*******************************************
             _context := THIS.GetContext();
 
@@ -2235,7 +2234,6 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             END_IF;
 
             //*******************************************
-            THIS.Close();
         END_METHOD
 
         METHOD PROTECTED OVERRIDE ManualControl

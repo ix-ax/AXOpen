@@ -10,7 +10,7 @@ Devices:
       Label: X1
       Addresses:
         Configured:
-        - IPv4: 10.10.10.13/24
+        - IPv4: 192.168.100.13/24
         - ProfinetDeviceName: dm_280
   - Name: Acquisition_Control
     TypeIdentifier:
