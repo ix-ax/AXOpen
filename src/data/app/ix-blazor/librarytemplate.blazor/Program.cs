@@ -156,7 +156,8 @@ builder.Services.AddSingleton<IAxoDataExchangeConfigurationService>(exchangeConf
 // ...
 
 // Or collect them automatically using reflection:
-distributedDataService.CollectAxoDataExchanges(Entry.Plc.AxoDataDistributedContext);
+distributedDataService.CollectAxoDataExchanges(Entry.Plc.AxoDataDistributedContext.ControlledUnit_1);
+distributedDataService.CollectAxoDataExchanges(Entry.Plc.AxoDataDistributedContext.ControlledUnit_2);
 
 //</CollectingExchanges>
 
