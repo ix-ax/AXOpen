@@ -1,6 +1,13 @@
-# Custom columns
+# Custom Columns
 
-There is a possibility to add custom columns if it is needed. You must add `AXOpen.Data.ColumnData` view as a child in `DataView`. The `BindingValue` must be set in `ColumnData` and contains a string representing the attribute name of custom columns. If you want to add a custom header name, you can set the name in `HeaderName` attribute. Also, there is an attribute to make the column not clickable, which is clickable by default. The example using all attributes:
+It is possible to add custom columns if needed. Add an `AXOpen.Data.ColumnData` view as a child of the `DataView`.
+
+- `BindingValue` (required): A string representing the member path in the POCO object.
+- `HeaderName`: Sets the column header text. The default value is equal to `BindingValue`.
+- `PresentationTemplate`: The type of presentation template used to display the value. Template must inherits from AXOpen.Data.ColumnDataCellBase. It will be populated with the POCO value. By default, the value is presented as a string.
+- `Clickable`: Determines whether the column is clickable. The default is **clickable**.
+
+---
 
 [!code-smalltalk[](../app/ix-blazor/librarytemplate.blazor/Pages/Rendering.razor?name=CustomColumns)]
 
@@ -15,3 +22,7 @@ When adding data view manually, you will need to create ViewModel:
 
 > [!NOTE]
 > In `AxoDataFragmentExchange`, `Custom columns` can only be added from master fragment (the first declared repository).
+
+
+
+[!include[](ColumnCellTemplate.md)]

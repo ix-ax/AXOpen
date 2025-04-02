@@ -1,11 +1,11 @@
 ﻿@namespace AXOpen.Data
 
 @code {
-    [Parameter]
-    public string HeaderName { get; set; }
+    [Parameter, EditorRequired]
+    public string BindingValue { get; set; }
 
     [Parameter]
-    public string BindingValue { get; set; }
+    public string HeaderName { get; set; }
 
     [Parameter]
     public bool Clickable { get; set; } = true;

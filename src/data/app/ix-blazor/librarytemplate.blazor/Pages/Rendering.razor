@@ -42,10 +42,10 @@
     </div>
     <div class="card-body">
         //<CustomColumns>
-            <DataExchangeView Vm="@_vm_columndata" Presentation="Command">
-                <ColumnData HeaderName="Some data" BindingValue="SomeString" Clickable="false" />
-                <ColumnData HeaderName="A number" BindingValue="SomeInt" Clickable="false" />
-                <ColumnData HeaderName="Yes/No" BindingValue="SomeBool" Clickable="false" PresentationTemplate="@typeof(CustomBoolTemplate)" />
+         <DataExchangeView Vm="@_vm_columndata" Presentation="Command">
+            <ColumnData HeaderName="Some data" BindingValue="SomeString" Clickable="false" />
+            <ColumnData HeaderName="A number" BindingValue="SomeInt" Clickable="false" />
+            <ColumnData HeaderName="Yes/No" BindingValue="SomeBool" Clickable="false" PresentationTemplate="@typeof(CustomBoolTemplate)" />
         </DataExchangeView>
         //</CustomColumns>
     </div>
@@ -80,9 +80,9 @@
     <div class="card-body">
         //<Sorting>
          <DataExchangeView Vm="@_vm_columndata" Presentation="Command" EnableSorting="true" SortElements='new() {"SomeData"}'>
-                <ColumnData HeaderName="Some data" BindingValue="SomeString" Clickable="false" />
+            <ColumnData HeaderName="Some data" BindingValue="SomeString" Clickable="false" />
             <ColumnData HeaderName="A number" BindingValue="SomeInt" Clickable="false" />
-                <ColumnData HeaderName="Yes/No" BindingValue="SomeBool" PresentationTemplate="@typeof(CustomBoolTemplate)" />
+            <ColumnData HeaderName="Yes/No" BindingValue="SomeBool" PresentationTemplate="@typeof(CustomBoolTemplate)" />
         </DataExchangeView>
         //</Sorting>
     </div>
