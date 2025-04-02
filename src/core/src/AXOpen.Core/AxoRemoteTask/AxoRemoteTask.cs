@@ -155,7 +155,7 @@ namespace AXOpen.Core
                 {
                     IsRunning = true;
                     RemoteExecutionException = null;
-
+                    
                     switch (DeferredAction)
                     {
                         case Action action:

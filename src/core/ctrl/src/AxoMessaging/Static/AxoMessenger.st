@@ -33,10 +33,11 @@ NAMESPACE AXOpen.Messaging.Static
             Acknowledged : LDATE_AND_TIME; 
             {#ix-attr:[ReadOnly()]}
             MessengerState : eAxoMessengerState; 
+            {#ix-attr:[ReadOnly()]}
+            ActiveContextCount : ULINT;
         END_VAR
 
-        VAR PRIVATE
-            ActiveContextCount : ULINT;
+        VAR PRIVATE            
             _context : IAxoContext;         
         END_VAR
        

@@ -45,9 +45,9 @@ NAMESPACE AXOpen.Core
         ///<summary>
         /// Gets context in which this object was initialized.
         ///</summary>
-        METHOD PUBLIC GetContext : IAxoContext
-            IF(_context <> NULL) THEN
-                GetContext := _context;
+        METHOD PUBLIC GetContext : IAxoContext             
+            IF(_context <> NULL) THEN                
+                GetContext := _context;                
             ELSE
                 // TODO provide some message 
                 GetContext := NULL_CONTEXT;                    
