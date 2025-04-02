@@ -14,7 +14,20 @@
     public DataExchangeView DataView { get; set; }
 
     [Parameter]
-    public Func<object, RenderFragment> TemplateBuilder { get; set; }
+    public Type PresentationTemplate { get; set; }
+
+
+    private  Func<object, RenderFragment> _builder;
+
+    public RenderFragment RenderTemplateWithValue(object value)
+    {
+        if (_builder == null)
+        {
+            _builder = ColumnDataCellBaseExtension.GetRenderFragment(PresentationTemplate);
+        }
+
+        return _builder.Invoke(value);
+    }
 
     protected override void OnInitialized()
     {
