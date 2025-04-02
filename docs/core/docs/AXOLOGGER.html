@@ -141,7 +141,7 @@ END_VAR
     THIS.GetLogger().Log('Here I am logging an infomation.', eLogLevel#Information);
     
     // Logging from inner object
-    InnerObject.Initialize(THIS);
+    THIS.InitializeRootObject(InnerObject);
     InnerObject.Foo();
 END_METHOD            
 </code></pre><h2 id="logging-from-nested-objects">Logging from nested objects</h2>

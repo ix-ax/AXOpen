@@ -92,9 +92,9 @@
 <p>To enable sorting options, set the attribute <code>EnableSorting</code> to true and specify the list <code>SortElements</code> with the names of the attributes as strings.</p>
 <p>If you are using custom columns and <code>EnableSorting</code> is set to true, these columns will be automatically added to <code>SortElements</code>.</p>
 <p>The example of usage:</p>
-<pre><code class="lang-smalltalk">    &lt;DataExchangeView Vm=&quot;@_vm_columndata&quot; Presentation=&quot;Command&quot; EnableSorting=&quot;true&quot; SortElements='new() {&quot;SomeData&quot;}'&gt;
-    &lt;ColumnData HeaderName=&quot;Some data&quot; BindingValue=&quot;SomeData&quot; Clickable=&quot;false&quot; /&gt;
-    &lt;ColumnData HeaderName=&quot;A number&quot; BindingValue=&quot;SomeNumber&quot; Clickable=&quot;false&quot; /&gt;
+<pre><code class="lang-smalltalk"> &lt;DataExchangeView Vm=&quot;@_vm_columndata&quot; Presentation=&quot;Command&quot; EnableSorting=&quot;true&quot; SortElements='new() {&quot;SomeData&quot;}'&gt;
+        &lt;ColumnData HeaderName=&quot;Some data&quot; BindingValue=&quot;SomeString&quot; Clickable=&quot;false&quot; /&gt;
+    &lt;ColumnData HeaderName=&quot;A number&quot; BindingValue=&quot;SomeInt&quot; Clickable=&quot;false&quot; /&gt;
     &lt;ColumnData HeaderName=&quot;Yes/No&quot; BindingValue=&quot;SomeBool&quot; Clickable=&quot;false&quot; /&gt;
 &lt;/DataExchangeView&gt;
 </code></pre>

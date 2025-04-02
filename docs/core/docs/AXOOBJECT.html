@@ -103,7 +103,7 @@ CLASS PUBLIC MyContext EXTENDS  AXOpen.Core.AxoContext
         _myObject : AxoObject;
     END_VAR
     METHOD PROTECTED OVERRIDE Main
-        _myObject.Initialize(THIS);            
+        THIS.InitializeRootObject(_myObject);            
     END_METHOD
 END_CLASS
 </code></pre>
@@ -114,7 +114,7 @@ CLASS PUBLIC MyParentObject  EXTENDS AxoContext
         _myChildObject  : AxoObject;
     END_VAR
     METHOD PROTECTED OVERRIDE Main
-        _myChildObject.Initialize(THIS);            
+        THIS.InitializeRootObject(_myChildObject);            
     END_METHOD
 END_CLASS
 </code></pre></article>

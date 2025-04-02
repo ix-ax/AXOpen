@@ -141,8 +141,11 @@ VAR PRIVATE
 END_VAR
 
 METHOD PRIVATE UseInSequencer   
+    IF Sequencer.GetContext().OpenCycleCount() = ULINT#0 THEN
+        Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
+    END_IF;
 
-    Sequencer.Initialize(THIS);
+    Sequencer.Run(THIS);
     Sequencer.Open();
 
     IF(Steps[0].Execute(Sequencer, 'Change job')) THEN

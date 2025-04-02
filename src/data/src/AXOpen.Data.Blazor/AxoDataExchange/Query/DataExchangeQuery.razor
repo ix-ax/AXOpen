@@ -1,6 +1,8 @@
 ﻿@using AXSharp.Connector;
 @namespace AXOpen.Data.Query
 
+@* ICONS FROM https://icons.getbootstrap.com/ *@
+
 <style>
     .custom-label {
         font-weight: bold; /* Make text bold */
@@ -11,20 +13,33 @@
     }
 </style>
 
+<style>
+    .custom-icon {
+        font-size: 1.3rem;
+    }
+</style>
+
 <div class="container-fluid p-0 m-1">
 
     <div class="col d-flex align-items-center gap-2 mb-1">
 
         @if (FilteredSymbols.Count > 0)
         {
-            <button class="btn btn-secondary px-2 py-1" type="button" @onclick="AddAllDisplayedToQuery">
-                <span class="oi oi-plus" aria-hidden="true">All</span>
+            <button class="btn btn-secondary px-2 py-1"
+                    type="button"
+                    style="width:100px;"
+                    @onclick="AddAllDisplayedToQuery">
+                <i class="bi bi-funnel"></i>
+                @Localizer["All"]
             </button>
         }
-
-        <button class="btn btn-secondary px-2 py-1" type="button" @onclick="ClearFilter">
-            <span class="oi oi-x" aria-hidden="true">Clear</span>
-        </button>
+        @if (FilteredSymbols.Count > 0)
+        {
+            <button class="btn btn-secondary px-2 py-1" type="button" style="width:100px;" @onclick="ClearFilter">
+                <i class="bi bi-x-circle"></i>
+                @Localizer["Clean"]
+            </button>
+        }
 
         <input id="filterText" @bind="SymbolsQueryFilter" @bind:event="oninput"
                placeholder="Type symbol name here for filter..."
@@ -63,16 +78,16 @@
 
     @if (FilteredSymbols.Count > 0)
     {
-        <div class="card flex p-1 my-2">
+        <div class="card flex p-1 my-1">
 
             @foreach (var symbol in GetDisplaySymbols())
             {
                 <p class="m-1">
                     <button class="btn btn-secondary px-2 py-1" type="button" @onclick="() => AddSymbolToQuery(symbol)">
-                        <span class="oi oi-plus" aria-hidden="true"></span>
+                        <i class="bi bi-funnel"></i>
                     </button>
                     <button class="btn btn-secondary px-2 py-1" type="button" @onclick="() => AddSymbolToSorting(symbol)">
-                        <span class="oi oi-random" aria-hidden="true"></span>
+                        <i class="bi bi-sort-alpha-down"></i>
                     </button>
                     @symbol
                 </p>
@@ -148,7 +163,7 @@
     @if (CurrentQuery.Queries.Count() > 0)
     {
 
-        <div class="card p-1 my-2" style="border: 4px solid lightskyblue;">
+        <div class="card p-1 my-1" style="border: 2px solid lightskyblue;">
             <div class="d-flex align-items-center gap-2">
                 <label class="custom-label" style="color: deepskyblue; min-width: 50px">@Localizer["Query"]</label>
                 <div>
@@ -158,22 +173,19 @@
                         <div class="d-flex align-items-center gap-2">
                             <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Remove"]"
                                     @onclick="() => RemoveSymbolFromQuery(querySymbol.TrackSymbolId)">
-                                <i class="oi oi-trash"></i>
-
+                                <i class="bi bi-trash custom-icon"></i>
                             </button>
 
                             @*  <label class="ms-2"> @Localizer["Move"]</label>
  *@
                             <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Up"]"
                                     @onclick="() => MoveQuerySymbolUp(querySymbol.TrackSymbolId)">
-                                <i class="oi oi-data-transfer-upload">
-                                </i>
+                                <i class="bi bi-arrow-bar-up custom-icon"></i>
                             </button>
 
-                            <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Donw"]"
+                            <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Down"]"
                                     @onclick="() => MoveQuerySymbolDown(querySymbol.TrackSymbolId)">
-                                <i class="oi oi-data-transfer-download">
-                                </i>
+                                <i class="bi bi-arrow-bar-down custom-icon"></i>
                             </button>
 
                             <QuerySymbolConfigurationView @key=querySymbol.TrackSymbolId SymbolConfiguration="@querySymbol"></QuerySymbolConfigurationView>
@@ -188,7 +200,7 @@
 
     @if (CurrentQuery.Sorting.Count > 0)
     {
-        <div class="card p-1 my-2" style="border: 4px solid yellowgreen;">
+        <div class="card p-1 my-1" style="border: 2px solid yellowgreen;">
 
             <div class="d-flex align-items-center gap-2">
 
@@ -199,19 +211,19 @@
                         <div class="d-flex align-items-center gap-2 my-1">
                             <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Remove"]"
                                     @onclick="() => RemoveSymbolFromSorting(sortSymbol.TrackSymbolId)">
-                                <i class="oi oi-trash"></i>
+                                <i class="bi bi-trash custom-icon"></i>
                             </button>
                             @* 
                     <label class="ms-2"> @Localizer["Move"]</label>
  *@
                             <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Up"]"
                                     @onclick="() => MoveSortingSymbolUp(sortSymbol.TrackSymbolId)">
-                                <i class="oi oi-data-transfer-upload"> </i>
+                                <i class="bi bi-arrow-bar-up custom-icon"></i>
                             </button>
 
-                            <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Donw"]"
+                            <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Down"]"
                                     @onclick="() => MoveSortingSymbolDown(sortSymbol.TrackSymbolId)">
-                                <i class="oi oi-data-transfer-download"></i>
+                                <i class="bi bi-arrow-bar-down custom-icon"></i>
                             </button>
 
                             <div class="d-flex flex-row align-items-center gap-2">
@@ -222,7 +234,7 @@
                                 <label for="sortSymbolName">
                                     @if (sortSymbol.IsAscending)
                                     {
-                                        <i class="oi oi-sort-ascending">
+                                        <i class="bi bi-sort-up-alt">
                                             <span class="ms-2">
                                                 @Localizer["Ascending"]
                                             </span>
@@ -230,7 +242,7 @@
                                     }
                                     else
                                     {
-                                        <i class="oi oi-sort-descending">
+                                        <i class="bi bi-sort-down-alt">
                                             <span class="ms-2">
                                                 @Localizer["Descending"]
                                             </span>
@@ -250,7 +262,8 @@
 
     }
 
-    <div class="card d-flex flex-row align-items-center gap-2 p-1 my-2" style="border: 4px solid lightgray;">
+
+    <div class="card d-flex flex-row align-items-center gap-2 p-1 m-0" style="border: 2px solid lightgray;">
 
         <label class="custom-label" style="color: darkgray; min-width: 50px">@Localizer["Filter"]</label>
 
@@ -277,23 +290,24 @@
                title="Query name"
                data-bs-toggle="tooltip" />
 
+        <button class="btn btn-secondary m-1 py-0" type="button" @onclick="async () => await UpdateQueryHistoryToStorage()"
+                data-bs-toggle="tooltip" title="@Localizer["Save query"]">
+            <i class="bi bi-floppy custom-icon"></i>
+        </button>
 
-        <button class="btn btn-primary m-1" type="button" @onclick="async () =>await UpdateQueryHistoryToStorage()">
-            <span>Remember</span>
+
+        <button class="btn btn-secondary m-1 py-0" type="button" @onclick="async () =>await RemoveItemFromHistory()"
+                data-bs-toggle="tooltip" title="@Localizer["Delete query"]">
+            <i class="bi bi-trash custom-icon"></i>
         </button>
 
         @if (CurrentQuery.Queries.Count > 0)
         {
-            <button class="btn btn-primary m-1 d-flex align-items-center gap-2 btn-block" type="button"
-                    @onclick="async () => await ExecuteFilter()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                </svg>
+            <button class="btn btn-primary m-1 px-5 py-0 d-flex align-items-center gap-2 btn-block" type="button" @onclick="async () => await ExecuteFilter()">
+                <i class="bi bi-search custom-icon"></i>
                 <span>@Localizer["Filter"]</span>
             </button>
         }
-
-
 
     </div>
 </div>

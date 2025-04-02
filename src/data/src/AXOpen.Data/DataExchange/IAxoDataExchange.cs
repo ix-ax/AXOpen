@@ -14,6 +14,13 @@ namespace AXOpen.Data
 {
     public partial interface IAxoDataExchange
     {
+        #region Distributed data managment
+
+        string ManagerDataTypeName { get; }
+
+
+        #endregion
+
         ITwinObject CloneDataObject();
 
         IEnumerable<Type> GetPlainTypes();

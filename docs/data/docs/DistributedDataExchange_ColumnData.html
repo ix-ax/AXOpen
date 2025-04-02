@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>&#128230; Column Data in a DistributedDataView (Blazor) | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="&#128230; Column Data in a DistributedDataView (Blazor) | System.Dynamic.ExpandoObject ">
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Inxton/AXOpen/blob/dev/src/data/docs/DistributedDataExchange_ColumnData.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../public/main.js'
+    import { init } from './../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="-column-data-in-a-distributeddataview-blazor">📦 Column Data in a DistributedDataView (Blazor)</h1>
+
+<p>The <code>DistributedDataView</code> displays data fragments dynamically.<br>
+To control how each fragment's columns are displayed, you must define configurations using the <code>AxoDataExchangeConfigurationService</code>.</p>
+<p>To use the <code>DistributedDataView</code>, you must register and configure the required services.</p>
+<hr>
+<h3 id="-register-services">✅ Register Services</h3>
+<p>Register the exchange configuration service along with the distributed data service in your <code>Program.cs</code> file:</p>
+<pre><code class="lang-csharp">// DistributedDataExchangeService - will handle all instances of IAxoDataExchanges 
+var distributedDataService = new DistributedDataExchangeService();
+builder.Services.AddSingleton&lt;IDistributedDataExchangeService&gt;(distributedDataService);
+
+// AxoDataExchangeConfigurationService - handle configuraion for any IAxoDataExchange
+var exchangeConfigurationService = new AxoDataExchangeConfigurationService();
+builder.Services.AddSingleton&lt;IAxoDataExchangeConfigurationService&gt;(exchangeConfigurationService);
+</code></pre><hr>
+<h3 id="-configure-exchange-columns">⚙️ Configure Exchange Columns</h3>
+<p>Define how columns should be displayed for each POCO type.<br>
+As shown in the example below, you can also specify a custom template for each column:</p>
+<pre><code class="lang-csharp" name="ConfigurationOfColumnService">exchangeConfigurationService.AddConfiguration&lt;Pocos.AxoDataDistributedExample.SharedHeader_Data&gt;(
+    suffix: &quot;&quot;,
+    configAction: a =&gt;
+    {
+        a.AddColumn(&quot;Global Result&quot;, x =&gt; x.HeaderGlogalPass, true, typeof(CustomBoolTemplate))
+         .AddColumn(&quot;Index&quot;, x =&gt; x.HeaderIndex, false, typeof(CustomIntTemplate))
+         .EnableSorting()
+         .AddSorting(x =&gt; x.HeaderPartialName);
+    });
+
+
+exchangeConfigurationService.AddConfiguration&lt;Pocos.AxoDataDistributedExample.Station_Data&gt;(
+    suffix: &quot;&quot;,
+    configAction: a =&gt;
+    {
+        a.AddColumn(&quot;Station Result&quot;, x =&gt; x.StationPass, true, typeof(CustomBoolTemplate))
+         .AddColumn(&quot;Name&quot;, x =&gt; x.StationName, true, null)
+         .AddColumn(&quot;Operation&quot;, x =&gt; x.StaionOperation, true, null)
+         .EnableSorting();
+    });
+
+</code></pre>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Column templates receive the value via the <code>PropertyValue</code> parameter, which is of type <code>object</code>.<br>
+To safely work with the expected type, cast the value inside the component’s <code>OnParametersSet()</code> method.</p>
+</div>
+<hr>
+<h3 id="-custom-column-template">🎨 Custom Column Template</h3>
+<p>When creating column configurations, you can assign a custom Razor component to render a specific column.<br>
+The component will receive the property value of the POCO and display it as needed:</p>
+<pre><code class="lang-csharp" name="ColumnRazorTemplate">@namespace librarytemplate
+@inherits AXOpen.Data.ColumnDataCellBase
+
+@if (CastedValue == true)
+{
+    &lt;i class=&quot;bi bi-check-circle text-success&quot;&gt; Pass &lt;/i&gt;
+}
+else
+{
+    &lt;i class=&quot;bi bi-x-octagon text-danger&quot;&gt; Failed &lt;/i&gt;
+}
+
+@code {
+    public bool CastedValue { set; get; }
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+       CastedValue = (bool)PropertyValue; 
+    }
+}
+</code></pre></article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Inxton/AXOpen/blob/dev/src/data/docs/DistributedDataExchange_ColumnData.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © 2023 MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
