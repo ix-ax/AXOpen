@@ -1,3 +1,6 @@
+USING AXOpen.Messaging.Static;
+USING AXOpen.Messaging.Static;
+USING AXOpen.Messaging.Static;
 USING AXOpen.Messaging;
 USING AXOpen.Rtc;
 USING AXOpen.Logging;
@@ -13,7 +16,12 @@ NAMESPACE AXOpen.Core
         VAR PRIVATE                        
             _openCounter : ULINT;
             _closeCounter : ULINT;
-            _identityCounter : ULINT;                             
+            _identityCounter : ULINT; 
+            {#ix-set:AttributeName = "<#Messenger 1 - activate using 'Activate' method called inside the if statement#>"}
+            {#ix-set:PlcTextList = "[1]:'<#Invalid Rtm.#>':'<#This is most likely programming error. Make sure the context is injected with valid Rtm instance.#>';
+                                    [2]:'<#Invalid Logger.#>':'<#This is most likely programming error. Make sure the context is injected with valid Logger instance.#>';
+                                    [3]:'<#Invalid Rtc.#>':'<#This is most likely programming error. Make sure the context is injected with valid Logger instance.#>';"}                                   
+            _messenger : AxoMessenger;
          END_VAR       
 
         ///<summary>
@@ -24,11 +32,11 @@ NAMESPACE AXOpen.Core
         METHOD PROTECTED ABSTRACT Main END_METHOD
         
             
-        METHOD PRIVATE Open : ULINT
+        METHOD PROTECTED Open : ULINT
             _openCounter := _openCounter + ULINT#1;
         END_METHOD    
 
-        METHOD PRIVATE Close : ULINT
+        METHOD PROTECTED Close : ULINT
             _closeCounter := _closeCounter + ULINT#1;
         END_METHOD
            
@@ -70,7 +78,7 @@ NAMESPACE AXOpen.Core
             IF(_rtc <> NULL) THEN
                 GetRtc := _rtc;
             ELSE
-                // TODO provide some message 
+                _messenger.Activate(ULINT#3, AXOpen.Messaging.eAxoMessageCategory#ProgrammingError);
                 GetRtc := NULL_RTC;    
             END_IF;    
         END_METHOD
@@ -99,7 +107,7 @@ NAMESPACE AXOpen.Core
             IF(_rtc <> NULL) THEN
                 GetRtm := _rtm;
             ELSE
-                // TODO provide some message 
+                _messenger.Activate(ULINT#1, AXOpen.Messaging.eAxoMessageCategory#ProgrammingError);
                 GetRtm := NULL_RTM;    
             END_IF;    
         END_METHOD
@@ -120,7 +128,7 @@ NAMESPACE AXOpen.Core
             IF(_contextLogger <> NULL) THEN
                 GetLogger := _contextLogger;
             ELSE
-                // TODO provide some message 
+                _messenger.Activate(ULINT#2, AXOpen.Messaging.eAxoMessageCategory#ProgrammingError);
                 GetLogger := NULL_LOGGER;    
             END_IF;    
         END_METHOD

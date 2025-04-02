@@ -72,7 +72,7 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 new KeyValuePair<ulong, AxoMessengerTextItem>(717, new AxoMessengerTextItem("Error writing the 16bytes of the UserData in the UpdateOutputs method!",       "Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(718, new AxoMessengerTextItem("Error writing the 32bytes of the UserData in the UpdateOutputs method!",       "Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(719, new AxoMessengerTextItem("Error writing the 64bytes of the UserData in the UpdateOutputs method!",       "Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(720, new AxoMessengerTextItem("Error writing the 128bytes of the UserData in the UpdateOutputs method!",     "Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(720, new AxoMessengerTextItem("Error writing the 128bytes of the UserData in the UpdateOutputs method!",      "Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(721, new AxoMessengerTextItem("Error writing the 250bytes of the UserData in the UpdateOutputs method!",      "Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(800, new AxoMessengerTextItem("Clearing of the result data finished with error!",                             "Check the details.")),
@@ -155,7 +155,7 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     errorDescriptionDict.Add(717, "Error writing the 16bytes of the UserData in the UpdateOutputs method!");
                     errorDescriptionDict.Add(718, "Error writing the 32bytes of the UserData in the UpdateOutputs method!");
                     errorDescriptionDict.Add(719, "Error writing the 64bytes of the UserData in the UpdateOutputs method!");
-                    errorDescriptionDict.Add(720, "Error writing the 1286bytes of the UserData in the UpdateOutputs method!");
+                    errorDescriptionDict.Add(720, "Error writing the 128bytes of the UserData in the UpdateOutputs method!");
                     errorDescriptionDict.Add(721, "Error writing the 250bytes of the UserData in the UpdateOutputs method!");
 
 

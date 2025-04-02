@@ -50,7 +50,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
         //<Usage>    
         VAR PUBLIC                       
             Sequencer : AxoSequencer;       
-            Steps : ARRAY[0..4] OF AXOpen.Core.AxoStep;
+            Steps : ARRAY[0..10] OF AXOpen.Core.AxoStep;
         END_VAR
 
         VAR PRIVATE
@@ -58,31 +58,39 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
         END_VAR
 
         METHOD PRIVATE UseInSequencer   
-            IF Sequencer.GetContext().OpenCycleCount() = ULINT#0 THEN
+            IF Sequencer.GetContext().OpenCycleCount() <= ULINT#10 THEN
                 Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
             END_IF;
 
             Sequencer.Run(THIS);
             Sequencer.Open();
 
+            IF(Steps[0].Execute(Sequencer, 'Restore')) THEN
+                Dataman_280.Restore();
+                Sequencer.MoveNext();                
+            END_IF;
             
-            IF(Steps[0].Execute(Sequencer, 'Clear result data')) THEN
+            IF(Steps[1].Execute(Sequencer, 'Clear result data')) THEN
                 IF(Dataman_280.ClearResultData().IsDone()) THEN                
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;  
 
-            IF(Steps[1].Execute(Sequencer, 'Read data')) THEN
+            IF(Steps[2].Execute(Sequencer, 'Read data')) THEN
                 IF(Dataman_280.Read().IsDone()) THEN                
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;
 
-            IF(Steps[2].Execute(Sequencer, 'Evaluate data')) THEN
+            IF(Steps[3].Execute(Sequencer, 'Evaluate data')) THEN
                 _ResultData := Dataman_280.ResultData;
-                Sequencer.CompleteSequence();                               
+                Sequencer.MoveNext();                
             END_IF;       
     
+            IF(Steps[4].Execute(Sequencer, 'Restore')) THEN
+                Dataman_280.Restore();
+                Sequencer.CompleteSequence();                               
+            END_IF;
 
         END_METHOD
         

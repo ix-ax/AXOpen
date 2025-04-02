@@ -11,7 +11,7 @@ Devices:
       Label: X1
       Addresses:
         Configured:
-        - IPv4: 10.10.10.3/24
+        - IPv4: 192.168.100.3/24
         - ProfinetDeviceName: BNIPNT507005Z040
   - Name: BIS_M-4XX-045_1
     TypeIdentifier:
