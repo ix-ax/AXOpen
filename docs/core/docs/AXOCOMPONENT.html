@@ -174,7 +174,7 @@ CLASS ComponentHeaderOnlyExampleContext EXTENDS AxoContext
 
      METHOD PROTECTED OVERRIDE Main   
          // The `Initialize()` method must be called before any other method.
-         MyComponentWithHeaderOnly.Initialize(THIS);
+         THIS.InitializeRootObject(MyComponentWithHeaderOnly);
          // Example of the activation of the manual control. 
          IF ActivateManualControl THEN
              MyComponentWithHeaderOnly.ActivateManualControl();
@@ -402,7 +402,7 @@ CLASS ComponentExampleContext EXTENDS AxoContext
 
     METHOD PROTECTED OVERRIDE Main   
         // The `Initialize()` method must be called before any other method.
-        MyComponent.Initialize(THIS);
+        THIS.InitializeRootObject(MyComponent);
         // Example of the activation of the manual control. 
         IF ActivateManualControl THEN
             MyComponent.ActivateManualControl();

@@ -8,17 +8,18 @@ using AXSharp.Connector.S71500.WebApi;
 using System.Net.Security;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
+using System.Net.Http;
 
 namespace librarytemplate
 {
-    //public class ConnectionConfig
-    //{
-    //    public string TargetIp { get; set; } = string.Empty;
-    //    public string UserName { get; set; } = string.Empty;
-    //    public string Password { get; set; } = string.Empty;
-    //    public Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>? CertificateValidationCallback { get; set; }
-    //    public bool IgnoreSslErrors { get; set; } = true;
-    //}
+    public class ConnectionConfig
+    {
+        public string TargetIp { get; set; } = string.Empty;
+        public string UserName { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+        public Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>? CertificateValidationCallback { get; set; }
+        public bool IgnoreSslErrors { get; set; } = true;
+    }
 
     public class TwinConnectorSelector
     {
@@ -30,16 +31,17 @@ namespace librarytemplate
         //private static string CertificatePath = "..\\..\\certs\\plc_line\\plc_line.cer"; //NFI why, but it works
         //// <= Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build.
 
-        //static readonly X509Certificate2 Certificate = new X509Certificate2(CertificatePath);
-        //private static bool CertificateValidation(HttpRequestMessage requestMessage, X509Certificate2 certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
-        //{
-        //    return certificate.Thumbprint == Certificate.Thumbprint;
-        //}
+
+        static readonly X509Certificate2 Certificate = new X509Certificate2(CertificatePath);
+        private static bool CertificateValidation(HttpRequestMessage requestMessage, X509Certificate2 certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        {
+            return certificate.Thumbprint == Certificate.Thumbprint;
+        }
 
         public static axopen_data_appTwinController SecurePlc { get; }
             = new(ConnectorAdapterBuilder.Build()
-                .CreateDummy()
-            //.CreateWebApi(TargetIp, UserName, Pass, CertificateValidation, IgnoreSslErrors)
+             //   .CreateDummy()
+            .CreateWebApi(TargetIp, UserName, Pass, CertificateValidation, IgnoreSslErrors)
                 );
     }
 

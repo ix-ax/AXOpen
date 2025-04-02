@@ -132,14 +132,10 @@ CLASS AxoSequencerDocuExample EXTENDS  AXOpen.Core.AxoContext
         _step_2 : AxoStep;
         _step_3 : AxoStep;
         _myCounter : ULINT;
-    END_METHOD   
 </code></pre><h4 id="initialization">Initialization</h4>
 <p>Initialization of the context needs to be called first. It does not need to be called cyclically, just once.</p>
 <pre><code class="lang-smalltalk">METHOD PUBLIC Initialize
-    _mySequencer.Initialize(THIS);
-    _step_1.Initialize(THIS);
-    _step_2.Initialize(THIS);
-    _step_3.Initialize(THIS);
+    THIS.InitializeRootObject(_mySequencer);
 END_METHOD
 </code></pre><h4 id="open">Open</h4>
 <p>The <code>Open()</code> method must be called cyclically before any logic. All the logic of the sequencers must be placed inside the <code>if</code> condition, as follows.</p>

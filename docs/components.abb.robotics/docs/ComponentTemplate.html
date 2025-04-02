@@ -114,7 +114,7 @@ END_VAR
     manualControl   :   BOOL;  
 END_VAR
 </code></pre><h2 id="initialize--run">Initialize &amp; Run</h2>
-<pre><code class="lang-pascal">AxoIrc5_v_1_x_x.Run(   parent          := THIS,
+<pre><code class="lang-pascal">AxoIrc5_v_1_x_x.Run(parent          := parent,
                     hwID            := HwIdentifiers#RobotBasicIO_HwID,
                     hwIdDI_64_bytes := HwIdentifiers#RobotBasicIO_DI_64_bytes_DI_64_bytes_HwID,      
                     hwIdDO_64_bytes := HwIdentifiers#RobotBasicIO_DO_64_bytes_DO_64_bytes_HwID);        
@@ -130,7 +130,7 @@ END_VAR
 
 METHOD PRIVATE UseInSequencer   
 
-    Sequencer.Initialize(THIS);
+    Sequencer.Run(THIS);
     Sequencer.Open();
 
     IF(Steps[0].Execute(Sequencer, 'Start at main')) THEN

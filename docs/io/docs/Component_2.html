@@ -112,7 +112,7 @@ END_VAR
     _hwID : WORD;
 END_VAR
 </code></pre><h2 id="initialize--run">Initialize &amp; Run</h2>
-<pre><code class="lang-pascal">ExampleComponent.Run(THIS,_hwID);  
+<pre><code class="lang-pascal">ExampleComponent.Run(THIS, _hwID);        
 </code></pre><div class="IMPORTANT">
 <h5>Important</h5>
 <p>This component requires cyclic data updates, which are typically sourced from the I/O system. Before using the component, make sure you invoke the <code>Run</code> method. Additionally, it's crucial to ensure that the <code>Run</code> method is positioned within a call tree that operates cyclically. Failing to initiate the <code>Run</code> method or not guaranteeing its cyclic execution can lead to malfunctions and unpredictable component behavior. In extreme circumstances, this could cause erratic controller behavior, potentially leading to equipment damage.</p>

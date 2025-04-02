@@ -3,6 +3,7 @@ using AxOpen.Security.Entities;
 using AxOpen.Security.Services;
 using AXOpen;
 using AXOpen.Base.Data;
+using AXOpen.Data;
 using AXOpen.Data.Json;
 using AXOpen.Data.MongoDb;
 using AXOpen.Logging;
@@ -40,7 +41,7 @@ Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()
     .MinimumLevel.Debug()
     .CreateLogger());
 
-//await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
+await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
 
 AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
     .WriteTo.Console().MinimumLevel.Verbose()
@@ -64,9 +65,11 @@ Entry.Plc.AxoDataPersistentContext.DataManager.InitializeRemoteDataExchange(
         Entry.Plc.AxoDataPersistentContext.PersistentRootObject,
         persistentRepository
         );
+
 //</SetUpAxoDataPersistentExchange>
 
 //<SetUpAxoDataFragmentExchange>
+
 IRepository<Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData> SharedDataHeaderDataRepository;
 IRepository<Pocos.AxoDataFramentsExchangeExample.Station_1_Data> Station_1_DataRepository;
 
@@ -90,6 +93,7 @@ var AxoProcessDataManager = Entry.Plc.AxoDataFragmentsExchangeContext.DataManage
 AxoProcessDataManager.SharedHeader.SetRepository(SharedDataHeaderDataRepository);
 AxoProcessDataManager.Station_1.SetRepository(Station_1_DataRepository);
 AxoProcessDataManager.InitializeRemoteDataExchange();
+
 //</SetUpAxoDataFragmentExchange>
 
 //<SetUpAxoDataExchange>
@@ -104,7 +108,6 @@ IRepository<Pocos.AxoDataExchangeExample.AxoProcessData> AxoProcessDataRepositor
 //AxoProcessDataRepository = new JsonRepositorySettings<Pocos.AxoDataExchangeExample.AxoProcessData>(ProcessDataLocation).Factory();
 
 // *** MONGO REPOSITORY ***
-
 AxoProcessDataRepository = AXOpen.Data.MongoDb.Repository.Factory<Pocos.AxoDataExchangeExample.AxoProcessData>(new MongoDbRepositorySettings<Pocos.AxoDataExchangeExample.AxoProcessData>("mongodb://localhost:27017", "AxOpenData", "AxoDataExchangeExample"));
 
 Entry.Plc.AxoDataExchangeContext.DataManager.InitializeRemoteDataExchange(AxoProcessDataRepository);
@@ -114,6 +117,73 @@ Entry.Plc.AxoDataExchangeContext.DataManager.InitializeRemoteDataExchange(AxoPro
 // Clean Temp directory
 AXOpen.Data.IAxoDataExchange.CleanUp();
 //</CleanUp>
+
+
+IRepository<Pocos.AxoDataDistributedExample.SharedHeader_Data> distributedHeaderRepository;
+IRepository<Pocos.AxoDataDistributedExample.Station_Data> distributedStationRepository;
+
+
+distributedHeaderRepository = AXOpen.Data.MongoDb.Repository.Factory<Pocos.AxoDataDistributedExample.SharedHeader_Data>(new MongoDbRepositorySettings<Pocos.AxoDataDistributedExample.SharedHeader_Data>("mongodb://localhost:27017", "AxOpenData", "DistributedHeader"));
+
+distributedStationRepository = AXOpen.Data.MongoDb.Repository.Factory<Pocos.AxoDataDistributedExample.Station_Data>(new MongoDbRepositorySettings<Pocos.AxoDataDistributedExample.Station_Data>("mongodb://localhost:27017", "AxOpenData", "DistributedStation"));
+
+Entry.Plc.AxoDataDistributedContext.ControlledUnit_1.EntityHeader.SetRepository(distributedHeaderRepository);
+Entry.Plc.AxoDataDistributedContext.ControlledUnit_2.EntityHeader.SetRepository(distributedHeaderRepository);
+Entry.Plc.AxoDataDistributedContext.ControlledUnit_1.ProcessData.SetRepository(distributedStationRepository);
+Entry.Plc.AxoDataDistributedContext.ControlledUnit_2.ProcessData.SetRepository(distributedStationRepository);
+
+Entry.Plc.AxoDataDistributedContext.ControlledUnit_1.EntityHeader.InitializeRemoteDataExchange();
+Entry.Plc.AxoDataDistributedContext.ControlledUnit_2.EntityHeader.InitializeRemoteDataExchange();
+Entry.Plc.AxoDataDistributedContext.ControlledUnit_1.ProcessData. InitializeRemoteDataExchange();
+Entry.Plc.AxoDataDistributedContext.ControlledUnit_2.ProcessData.InitializeRemoteDataExchange();
+
+
+//<DistributedDataServices>
+// DistributedDataExchangeService - will handle all instances of IAxoDataExchanges 
+var distributedDataService = new DistributedDataExchangeService();
+builder.Services.AddSingleton<IDistributedDataExchangeService>(distributedDataService);
+
+// AxoDataExchangeConfigurationService - handle configuraion for any IAxoDataExchange
+var exchangeConfigurationService = new AxoDataExchangeConfigurationService();
+builder.Services.AddSingleton<IAxoDataExchangeConfigurationService>(exchangeConfigurationService);
+//</DistributedDataServices>
+
+//<CollectingExchanges>
+
+// You can manually add AxoDataExchanges to the service:
+// distributedDataService.Add(Entry.Plc.AxoDataDistributedContext.ControlledUnit_1.ProcessData, new() { "default" });
+// distributedDataService.Add(Entry.Plc.AxoDataDistributedContext.ControlledUnit_1.EntityHeader, new() { "default" });
+// ...
+
+// Or collect them automatically using reflection:
+distributedDataService.CollectAxoDataExchanges(Entry.Plc.AxoDataDistributedContext);
+
+//</CollectingExchanges>
+
+//<AxoDataExchangeConfigurationService>
+exchangeConfigurationService.AddConfiguration<Pocos.AxoDataDistributedExample.SharedHeader_Data>(
+    suffix: "",
+    configAction: a =>
+    {
+        a.AddColumn("Global Result", x => x.HeaderGlogalPass, true, typeof(CustomBoolTemplate))
+         .AddColumn("Index", x => x.HeaderIndex, false, typeof(CustomIntTemplate))
+         .EnableSorting()
+         .AddSorting(x => x.HeaderPartialName);
+    });
+
+
+exchangeConfigurationService.AddConfiguration<Pocos.AxoDataDistributedExample.Station_Data>(
+    suffix: "",
+    configAction: a =>
+    {
+        a.AddColumn("Station Result", x => x.StationPass, true, typeof(CustomBoolTemplate))
+         .AddColumn("Name", x => x.StationName, true, null)
+         .AddColumn("Operation", x => x.StaionOperation, true, null)
+         .EnableSorting();
+    });
+
+//</AxoDataExchangeConfigurationService>
+
 
 var app = builder.Build();
 
@@ -130,6 +200,14 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+var supportedCultures = new[] { "en-US", "sk-SK", "es-ES" };
+var localizationOptions = new RequestLocalizationOptions()
+    .AddSupportedCultures(supportedCultures)
+    .AddSupportedUICultures(supportedCultures);
+
+app.UseRequestLocalization(localizationOptions);
+
 
 app.UseAuthorization();
 
@@ -170,9 +248,10 @@ static (IRepository<User>, IRepository<Group>) SetUpMongoSecurityRepository(stri
 
 public static class Roles
 {
+    //<CollectAllDataExchangeRoles>
     public static List<Role> CreateRoles()
     {
-        var roles = new List<Role>
+        var roles = new List<Role> // your custom application roles
         {
             new Role(process_settings_access),
             new Role(process_traceability_access),
@@ -182,9 +261,7 @@ public static class Roles
             new Role(can_skip_steps_in_sequence),
         };
 
-        //roles.Add(new Role(AXOpen.Data.DataExchangeRoleNames.can_data_item_create));
-        // ...
-
+        //add all roles from AXOpen.Data
         foreach (var item in typeof(AXOpen.Data.DataExchangeRoleNames).
            GetFields(BindingFlags.Public | BindingFlags.Static).
            Where(f => f.FieldType == typeof(string)))
@@ -194,6 +271,7 @@ public static class Roles
 
         return roles;
     }
+    //</CollectAllDataExchangeRoles>
 
     public const string can_run_ground_mode = nameof(can_run_ground_mode);
     public const string can_run_automat_mode = nameof(can_run_automat_mode);

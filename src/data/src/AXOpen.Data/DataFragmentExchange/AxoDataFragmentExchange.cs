@@ -21,6 +21,9 @@ namespace AXOpen.Data;
 
 public partial class AxoDataFragmentExchange
 {
+    public string ManagerDataTypeName { get => GetPlainTypes().FirstOrDefault().FullName; }
+
+
     /// <inheritdoc />
     public ITwinObject? DataExchangeTwinObject { get; private set; }
 

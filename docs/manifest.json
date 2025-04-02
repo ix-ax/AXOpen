@@ -5,7 +5,7 @@
     "priority": 0.1
   },
   "homepages": [],
-  "source_base_path": "C:/W/Develop/gh/inxton/ax/_axopen/axopen/docfx",
+  "source_base_path": "C:/W/Develop/gh/inxton/simatic-ax/AXOpen/docfx",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -1563,6 +1563,185 @@
       "output": {
         ".html": {
           "relative_path": "components.festo.drives/src/AXOpen.Components.Festo.Drives/README.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "../src/components.keyence.vision/CHANGES_CHECKLIST.md",
+      "output": {
+        ".html": {
+          "relative_path": "components.keyence.vision/CHANGES_CHECKLIST.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "../src/components.keyence.vision/CREATION_CHECKLIST.md",
+      "output": {
+        ".html": {
+          "relative_path": "components.keyence.vision/CREATION_CHECKLIST.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../src/components.keyence.vision/app/ix-blazor/wwwroot/css/open-iconic/README.md",
+      "output": {
+        ".html": {
+          "relative_path": "components.keyence.vision/app/ix-blazor/wwwroot/css/open-iconic/README.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../src/components.keyence.vision/app/ix-blazor/wwwroot/css/open-iconic/font/fonts/open-iconic.svg",
+      "output": {
+        "resource": {
+          "relative_path": "components.keyence.vision/app/ix-blazor/wwwroot/css/open-iconic/font/fonts/open-iconic.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../src/components.keyence.vision/app/ix-blazor/wwwroot/favicon.png",
+      "output": {
+        "resource": {
+          "relative_path": "components.keyence.vision/app/ix-blazor/wwwroot/favicon.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../src/components.keyence.vision/ctrl/README.md",
+      "output": {
+        ".html": {
+          "relative_path": "components.keyence.vision/ctrl/README.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../src/components.keyence.vision/docs/CHANGELOG.md",
+      "output": {
+        ".html": {
+          "relative_path": "components.keyence.vision/docs/CHANGELOG.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../src/components.keyence.vision/docs/ComponentTemplate.md",
+      "output": {
+        ".html": {
+          "relative_path": "components.keyence.vision/docs/ComponentTemplate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../src/components.keyence.vision/docs/Component_1.md",
+      "output": {
+        ".html": {
+          "relative_path": "components.keyence.vision/docs/Component_1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../src/components.keyence.vision/docs/Component_2.md",
+      "output": {
+        ".html": {
+          "relative_path": "components.keyence.vision/docs/Component_2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../src/components.keyence.vision/docs/README.md",
+      "output": {
+        ".html": {
+          "relative_path": "components.keyence.vision/docs/README.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../src/components.keyence.vision/docs/TROUBLES.md",
+      "output": {
+        ".html": {
+          "relative_path": "components.keyence.vision/docs/TROUBLES.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../src/components.keyence.vision/docs/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "components.keyence.vision/docs/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "../src/components.keyence.vision/docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "components.keyence.vision/docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "components.keyence.vision/docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../src/components.keyence.vision/src/AXOpen.Components.Keyence.Vision.blazor/README.md",
+      "output": {
+        ".html": {
+          "relative_path": "components.keyence.vision/src/AXOpen.Components.Keyence.Vision.blazor/README.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../src/components.keyence.vision/src/AXOpen.Components.Keyence.Vision.blazor/wwwroot/background.png",
+      "output": {
+        "resource": {
+          "relative_path": "components.keyence.vision/src/AXOpen.Components.Keyence.Vision.blazor/wwwroot/background.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../src/components.keyence.vision/src/AXOpen.Components.Keyence.Vision/README.md",
+      "output": {
+        ".html": {
+          "relative_path": "components.keyence.vision/src/AXOpen.Components.Keyence.Vision/README.html"
         }
       },
       "version": ""
@@ -3445,10 +3624,50 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "../src/data/docs/DistributedDataExchange.md",
+      "output": {
+        ".html": {
+          "relative_path": "data/docs/DistributedDataExchange.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../src/data/docs/DistributedDataExchange_ColumnData.md",
+      "output": {
+        ".html": {
+          "relative_path": "data/docs/DistributedDataExchange_ColumnData.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../src/data/docs/DistributedDataExchange_Filter.md",
+      "output": {
+        ".html": {
+          "relative_path": "data/docs/DistributedDataExchange_Filter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "../src/data/docs/EXPORT.md",
       "output": {
         ".html": {
           "relative_path": "data/docs/EXPORT.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../src/data/docs/Filter.md",
+      "output": {
+        ".html": {
+          "relative_path": "data/docs/Filter.html"
         }
       },
       "version": ""
@@ -3538,10 +3757,80 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "../src/data/docs/assets/DistributedData_Filtering.gif",
+      "output": {
+        "resource": {
+          "relative_path": "data/docs/assets/DistributedData_Filtering.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../src/data/docs/assets/DistributedView.png",
+      "output": {
+        "resource": {
+          "relative_path": "data/docs/assets/DistributedView.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "../src/data/docs/assets/Export.png",
       "output": {
         "resource": {
           "relative_path": "data/docs/assets/Export.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../src/data/docs/assets/FilterButton.png",
+      "output": {
+        "resource": {
+          "relative_path": "data/docs/assets/FilterButton.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../src/data/docs/assets/FilterConfiguration.png",
+      "output": {
+        "resource": {
+          "relative_path": "data/docs/assets/FilterConfiguration.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../src/data/docs/assets/FilterConfiguration_HighlitedArea.png",
+      "output": {
+        "resource": {
+          "relative_path": "data/docs/assets/FilterConfiguration_HighlitedArea.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../src/data/docs/assets/FilterConfiguration_MemberSearch.png",
+      "output": {
+        "resource": {
+          "relative_path": "data/docs/assets/FilterConfiguration_MemberSearch.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../src/data/docs/assets/FilterConfiguration_Procedure.png",
+      "output": {
+        "resource": {
+          "relative_path": "data/docs/assets/FilterConfiguration_Procedure.png"
         }
       },
       "version": ""

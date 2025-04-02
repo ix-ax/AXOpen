@@ -142,7 +142,7 @@ ExampleRobot.Config.IpAddress := '10.10.10.61';
 END_VAR
 
 METHOD PRIVATE UseInSequencer   
-    Sequencer.Initialize(THIS);
+    Sequencer.Run(THIS);
     Sequencer.Open();
     Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
     // Sequencer.SteppingMode := eAxoSteppingMode#Continous;
