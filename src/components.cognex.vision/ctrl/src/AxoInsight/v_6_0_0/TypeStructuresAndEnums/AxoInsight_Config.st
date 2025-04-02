@@ -5,9 +5,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
         AxoInsight_Config : 
         STRUCT
             {#ix-set:AttributeName = "<#Info time#>"}
-            InfoTime : LTIME := LT#2S;
+            InfoTime : LTIME := LT#10S;
             {#ix-set:AttributeName = "<#Error time#>"}
-            ErrorTime : LTIME := LT#5S;
+            ErrorTime : LTIME := LT#50S;
             {#ix-set:AttributeName = "<#Max job number#>"}
             MaxJobNumber : UINT := UINT#999;
             {#ix-set:AttributeName = "<#Result data size#>"}

@@ -8,6 +8,8 @@ Templates:
       Value: 10.10.10.1/24
     - Name: ProfinetDeviceName_X1
       Value: plcname_profinet_interface_x1
+    - Name: AdminName
+      Value: adm
     Content:
       Name: "${PLCName}"
       TypeIdentifier:
@@ -142,7 +144,7 @@ Templates:
         Users:
         # UserManagement parameters listed below are intended as a sample. It is essential to adjust these settings according to your specific requirements before using them in your project.
         # To fully configure the user account, you must set a password for the user defined below. Please refer to the user documentation for instructions on setting passwords.
-          - Name: 'adm'
+          - Name: "${AdminName}"
             AssignedRoles:
             - 'AdminRole'
         Roles:

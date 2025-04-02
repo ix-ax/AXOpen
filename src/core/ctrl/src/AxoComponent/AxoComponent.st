@@ -38,7 +38,7 @@ NAMESPACE AXOpen.Core
                 _isManuallyControllable := FALSE;              // TODO: some message should inform about this issue
                 _myContextCycleCount := ULINT#0;
             END_IF;  
-                IsManuallyControllable := _isManuallyControllable;
+            IsManuallyControllable := _isManuallyControllable;
         END_METHOD
         
         ///<summary>
@@ -64,54 +64,29 @@ NAMESPACE AXOpen.Core
             _isManuallyControllable : BOOL;	
         END_VAR
 
-        METHOD PRIVATE CheckIfManualControlIsActivatedInlined 
-            VAR
-                _myContextCycleCount : ULINT;
-            END_VAR
-            IF THIS._context <> NULL THEN
-                _myContextCycleCount := _context.OpenCycleCount();
-                //When component.Service() is called "before" invoking its task _serviceContextCycle is equal to GetContext().OpenCycleCount()
-                _isManuallyControllable := _manualControlContextCycle = _myContextCycleCount OR 
-                //When component.Service() is called "after" invoking its task (_serviceContextCycle + 1) is equal to GetContext().OpenCycleCount()
-                                (_manualControlContextCycle + ULINT#1) = _myContextCycleCount;        
-            ELSE
-                _context := THIS.GetContext();
-                _isManuallyControllable := FALSE;              // TODO: some message should inform about this issue
-                _myContextCycleCount := ULINT#0;
-            END_IF;  
-        END_METHOD     
-
-        METHOD PROTECTED Open
-            //[INLINE]THIS.CheckIfManualControlIsActivated();            
-            VAR
-                _myContextCycleCount : ULINT;
-            END_VAR
-            IF THIS._context <> NULL THEN
-                _myContextCycleCount := _context.OpenCycleCount();
-                //When component.Service() is called "before" invoking its task _serviceContextCycle is equal to GetContext().OpenCycleCount()
-                _isManuallyControllable := _manualControlContextCycle = _myContextCycleCount OR 
-                //When component.Service() is called "after" invoking its task (_serviceContextCycle + 1) is equal to GetContext().OpenCycleCount()
-                                (_manualControlContextCycle + ULINT#1) = _myContextCycleCount;        
-            ELSE
-                _context := THIS.GetContext();
-                _isManuallyControllable := FALSE;              // TODO: some message should inform about this issue
-                _myContextCycleCount := ULINT#0;
-            END_IF;  
-        END_METHOD  
-        
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
                 inParent : IAxoObject;
             END_VAR    
-            SUPER.Run(inParent);
-            THIS.Open();
-            // Place the custom logic here
-            THIS.Close();
-        END_METHOD    
 
-        
-        METHOD PROTECTED Close
-            ;
-        END_METHOD  
+            VAR
+                _myContextCycleCount : ULINT;
+            END_VAR
+
+            SUPER.Run(inParent);
+
+            //[INLINE]THIS.CheckIfManualControlIsActivated();            
+            IF THIS._context <> NULL THEN
+                _myContextCycleCount := _context.OpenCycleCount();
+                //When component.Service() is called "before" invoking its task _serviceContextCycle is equal to GetContext().OpenCycleCount()
+                _isManuallyControllable := _manualControlContextCycle = _myContextCycleCount OR 
+                //When component.Service() is called "after" invoking its task (_serviceContextCycle + 1) is equal to GetContext().OpenCycleCount()
+                                (_manualControlContextCycle + ULINT#1) = _myContextCycleCount;      
+            ELSE
+                _context := THIS.GetContext();
+                _isManuallyControllable := FALSE;              // TODO: some message should inform about this issue
+                _myContextCycleCount := ULINT#0;
+            END_IF;  
+        END_METHOD    
     END_CLASS    
 END_NAMESPACE

@@ -51,11 +51,20 @@ jobs:
       env:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}
     
-    - name: Compare Commit SHAs
+    - name: Fetch Stored APP_RUN_RESULT from Repository Variable
       if: github.ref == 'refs/heads/dev' && github.event_name != 'workflow_dispatch'  
       shell: pwsh
       run: |
-          if ($env:CURRENT_SHA -eq $env:STORED_SHA) {
+          $appRunResult = gh variable get APP_RUN_RESULT --json value | ConvertFrom-Json | Select-Object -ExpandProperty value
+          "APP_RUN_RESULT=$appRunResult" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+      env:
+          GH_TOKEN : ${{ secrets.GH_TOKEN }}
+    
+    - name: Compare Commit SHAs and previous result
+      if: github.ref == 'refs/heads/dev' && github.event_name != 'workflow_dispatch'  
+      shell: pwsh
+      run: |
+          if ($env:CURRENT_SHA -eq $env:STORED_SHA && $env:APP_RUN_RESULT -eq "0") {
             echo "SHA Match: Skipping Steps"
             "SKIP_STEPS=true" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
           } 

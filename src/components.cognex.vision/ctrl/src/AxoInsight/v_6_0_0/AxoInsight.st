@@ -264,7 +264,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             _hwIdResultData         :=  hwIdResultData;
             _hwIdUserData           :=  hwIdUserData;
 
-            THIS.Open();
             //**************************************Update Inputs inline**************
             _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdAcquisitionStatus ,_data_in);
             
@@ -363,7 +362,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             Results.ResultCode.%B0          :=  _data_in[3];     
             
             //**************************************Execute inline********************
-            // THIS.Execute();
             RestoreTask.Run(THIS);
             ClearInspectionResultsTask.Run(THIS);
             TriggerTask.Run(THIS);
@@ -696,7 +694,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     IF NOT InspectionStatus.Error THEN
                         THIS.CallTimers(FALSE);
                         _progress := 324;
-                        _jobName := THIS.AppendSuffix(_jobName);
+                        // _jobName := THIS.AppendSuffix(_jobName);
                     END_IF;
                 END_IF;
                 
@@ -1208,23 +1206,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 _UserDataChanged := UserData.DataChanged;
             END_IF;
 
-            THIS.Close();            
         END_METHOD
-
-        ///<summary>
-		/// Custom component logic running before any other component logic.
-        ///</summary>   
-        METHOD PROTECTED OVERRIDE Open
-            SUPER.Open();
-        END_METHOD  
-
-
-        ///<summary>
-		/// Custom component logic running after any other component logic.
-        ///</summary>   
-        METHOD PROTECTED OVERRIDE Close
-            SUPER.Close();
-        END_METHOD 
 
         ///<summary>
 		/// Clears the inspection results. 	
@@ -1290,7 +1272,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 position : INT;
             END_VAR
             position := LengthOf(jobName) - 4;
-            // Status.CurrentJobName := EndOf(jobName, 4);
             IF EndOf(jobName, 4) <> '.job' THEN
                 AppendSuffix := Concat(jobName,'.job');
             ELSE
@@ -1371,6 +1352,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             TriggerTask.Restore();
             ChangeJobByNameTask.Restore();
             ChangeJobByNumberTask.Restore();
+            SoftEventTask.Restore();
+            HardwareDiagnosticsTask.Restore();
 
             RequiredJobName := '';
             RequiredJobNumber := UINT#0;
