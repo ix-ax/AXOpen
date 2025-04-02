@@ -750,7 +750,6 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 _progress := 0;
             END_IF;  
             //*******************************************
-            THIS.Close();
         END_METHOD
 
         METHOD PROTECTED OVERRIDE ManualControl
