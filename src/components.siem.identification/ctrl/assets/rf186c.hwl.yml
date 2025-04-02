@@ -10,7 +10,7 @@ Devices:
       Label: X1
       Addresses:
         Configured:
-        - IPv4: 10.10.10.99/24
+        - IPv4: 192.168.100.99/24
         - ProfinetDeviceName: rf186c
       # Parameters:
       #   IECV22LLDPMode: False

@@ -37,7 +37,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
 
             AxoSmartFunctionKit.Config.InfoTime := T#10s;             
             AxoSmartFunctionKit.Config.ErrorTime := T#30s;             
-            AxoSmartFunctionKit.Config.IpAddress := '10.10.10.240';             
+            AxoSmartFunctionKit.Config.IpAddress := '192.168.100.240';             
             AxoSmartFunctionKit.Config.CurveExportLocation := 'D:\Export';             
             //</Initialization>
 

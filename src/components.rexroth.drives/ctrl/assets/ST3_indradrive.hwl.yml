@@ -10,7 +10,7 @@ Devices:
       Label: X1
       Addresses:
         Configured:
-        - IPv4: "10.10.10.40/24"
+        - IPv4: "192.168.100.40/24"
         - ProfinetDeviceName: ST3_indradrive
       # Parameters:
       #   IECV22LLDPMode: True

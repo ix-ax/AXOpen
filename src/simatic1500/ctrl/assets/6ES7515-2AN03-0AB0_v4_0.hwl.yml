@@ -5,11 +5,11 @@ Templates:
     - Name: PLCName
       Value: PLCName
     - Name: IpAddress_X1
-      Value: 10.10.10.1/24
+      Value: 192.168.100.120/24
     - Name: ProfinetDeviceName_X1
       Value: plcname_profinet_interface_x1
     - Name: IpAddress_X2
-      Value: 10.10.11.1/24
+      Value: '0.0.0.0'
     - Name: ProfinetDeviceName_X2
     - Name: AdminName
       Value: adm

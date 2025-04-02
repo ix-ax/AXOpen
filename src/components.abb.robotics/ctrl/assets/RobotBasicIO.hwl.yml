@@ -11,7 +11,7 @@ Devices:
       Label: X1
       Addresses:
         Configured:
-        - IPv4: 10.10.10.1/24
+        - IPv4: 192.168.100.1/24
         - ProfinetDeviceName: RobotBasicIO
   - Name: DI_64_bytes
     TypeIdentifier:
