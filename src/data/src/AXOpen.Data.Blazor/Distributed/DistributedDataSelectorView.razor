@@ -1,0 +1,161 @@
+﻿@namespace AXOpen.Data
+@using System.Reflection
+@using AXOpen.Base
+@using Microsoft.AspNetCore.Components.Authorization
+
+@*  
+  icons : https://icon-sets.iconify.design/oi/ 
+  icons : https://icons.getbootstrap.com/ 
+*@   
+@if (IsNoActiveOperation())
+{
+    <div class="d-flex gap-2 align-items-start">
+        <!-- Selector -->
+        <div class="position-relative flex-grow-1">
+            <button class="btn btn-outline-primary w-100 text-start" @onclick="ToggleDropdown">
+                <div class="d-flex flex-row align-items-center gap-3 flex-wrap">
+                    @if (SelectedEntity != null)
+                    {
+                        <span><strong>@SelectedEntity.DataEntityId</strong></span>
+
+                        @foreach (var col in ExchangeConfig.Collumns)
+                        {
+                            var val = PropertyHelper.GetPropertyValue(SelectedEntity, col.BindingValuePath);
+                            <span class="text-muted">
+                                <strong>@(string.IsNullOrWhiteSpace(col.ColumnName) ? col.BindingValuePath : col.ColumnName):</strong>
+                                @if (col.TemplateType != null)
+                                {
+                                    @ColumnDataCellBaseExtension.GetRenderFragment(col.TemplateType)?.Invoke(val)
+                                }
+                                else
+                                {
+                                    @val
+                                }
+                            </span>
+                        }
+                    }
+                    else
+                    {
+                        <span class="text-muted">Select an option</span>
+                    }
+                </div>
+            </button>
+
+            @if (IsDropdownOpen)
+            {
+                <div class="shadow border bg-white p-2"
+                     style="position: absolute; z-index: 1000; width: 100%; max-height: 400px; overflow-y: auto;">
+
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>DataEntityId</th>
+                                @foreach (var col in ExchangeConfig.Collumns)
+                                {
+                                    <th>@(string.IsNullOrWhiteSpace(col.ColumnName) ? col.BindingValuePath : col.ColumnName)</th>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var rec in DistributedVM.Records)
+                            {
+                                <tr @onclick="() => SelectEntity(rec)" style="cursor: pointer;">
+                                    <td>@rec.DataEntityId</td>
+                                    @foreach (var col in ExchangeConfig.Collumns)
+                                    {
+                                        var val = PropertyHelper.GetPropertyValue(rec, col.BindingValuePath);
+                                        <td>
+                                            @if (col.TemplateType != null)
+                                            {
+                                                @ColumnDataCellBaseExtension.GetRenderFragment(col.TemplateType)?.Invoke(val)
+                                            }
+                                            else
+                                            {
+                                                @val
+                                            }
+                                        </td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                    @if (DistributedVM.FilteredCount > 5)
+                    {
+                        <div class="d-flex">
+
+                            <div class="dropup">
+                                Showing @(FilteredPage * FilteredPageLimit + 1) to @(((FilteredPage + 1) * FilteredPageLimit) > TotalCount ? TotalCount : ((FilteredPage + 1) * FilteredPageLimit)) of @TotalCount rows
+                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@FilteredPageLimit</button>
+                                <ul class="dropdown-menu m-0">
+                                    <li><a class="dropdown-item @(FilteredPageLimit == 5 ? "active" : "")" style="cursor: pointer" @onclick="() => SetLimitAsync(5)">5</a></li>
+                                    <li><a class="dropdown-item @(FilteredPageLimit == 10 ? "active" : "")" style="cursor: pointer" @onclick="() => SetLimitAsync(10)">10</a></li>
+                                    <li><a class="dropdown-item @(FilteredPageLimit == 25 ? "active" : "")" style="cursor: pointer" @onclick="() => SetLimitAsync(25)">25</a></li>
+                                    <li><a class="dropdown-item @(FilteredPageLimit == 50 ? "active" : "")" style="cursor: pointer" @onclick="() => SetLimitAsync(50)">50</a></li>
+                                </ul>
+                                rows per page
+                            </div>
+                            <nav class="ms-auto">
+                                <ul class="pagination m-0">
+                                    <li class="page-item"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(Modulo(FilteredPage - 1, MaxPage + 1))" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+
+                                    @if (MaxPage < 7)
+                                    {
+                                        @for (var i = 0; i < MaxPage + 1; i++)
+                                        {
+                                            var j = i;
+                                            <li class="page-item @(FilteredPage == i ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(j)">@(i + 1)</a></li>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <li class="page-item @(FilteredPage == 0 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(0)">1</a></li>
+
+                                        @if (FilteredPage < 4)
+                                        {
+                                            <li class="page-item @(FilteredPage == 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(1)">2</a></li>
+                                            <li class="page-item @(FilteredPage == 2 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(2)">3</a></li>
+                                            <li class="page-item @(FilteredPage == 3 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(3)">4</a></li>
+                                            <li class="page-item @(FilteredPage == 4 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(4)">5</a></li>
+                                            <li class="page-item disabled"><a class="page-link">...</a></li>
+                                        }
+                                        else if (FilteredPage > MaxPage - 4)
+                                        {
+                                            <li class="page-item disabled"><a class="page-link">...</a></li>
+                                            <li class="page-item @(FilteredPage == @MaxPage - 4 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(MaxPage - 4)">@(MaxPage - 3)</a></li>
+                                            <li class="page-item @(FilteredPage == @MaxPage - 3 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(MaxPage - 3)">@(MaxPage - 2)</a></li>
+                                            <li class="page-item @(FilteredPage == @MaxPage - 2 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(MaxPage - 2)">@(MaxPage - 1)</a></li>
+                                            <li class="page-item @(FilteredPage == @MaxPage - 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(MaxPage - 1)">@(MaxPage)</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="page-item disabled"><a class="page-link">...</a></li>
+                                            <li class="page-item @(FilteredPage == FilteredPageLimit - 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(FilteredPage - 1)">@(FilteredPage)</a></li>
+                                            <li class="page-item @(FilteredPage == FilteredPageLimit ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(FilteredPage)">@(FilteredPage + 1)</a></li>
+                                            <li class="page-item @(FilteredPage == FilteredPageLimit + 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(FilteredPage + 1)">@(FilteredPage + 2)</a></li>
+                                            <li class="page-item disabled"><a class="page-link">...</a></li>
+                                        }
+
+                                        <li class="page-item @(FilteredPage == @MaxPage ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(MaxPage)">@(MaxPage + 1)</a></li>
+                                    }
+
+                                    <li class="page-item"><a class="page-link" style="cursor: pointer" @onclick="async () => { if (MaxPage != -1) await SetPageAsync((FilteredPage + 1) % (MaxPage + 1)); }" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    }
+
+                </div>
+            }
+        </div>
+
+        <!-- Send to PLC button -->
+        <div>
+            <button class="btn btn-primary" @onclick="SendToPlc">
+                @Localizer["Send To Plc"]
+            </button>
+        </div>
+    </div>
+
+
+}
