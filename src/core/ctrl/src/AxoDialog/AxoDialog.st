@@ -31,9 +31,8 @@ NAMESPACE AXOpen.Core
             VAR_TEMP
                 callCounter : ULINT;
             END_VAR   
-
-            // SUPER.SuspendExecuteAnalisis();       
-            SUPER.SetSuspendMultipleExecuteCallCheck(TRUE);
+            
+            //SUPER.SetSuspendMultipleExecuteCallCheck(TRUE);
             SUPER.SetSuspendCyclicExecuteIsNotCalledCheck(TRUE); 
 
             Show := THIS;
