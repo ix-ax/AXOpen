@@ -775,7 +775,7 @@ else
                 <ColumnData HeaderName="@column.ColumnName"
                             BindingValue="@column.BindingValuePath"
                             Clickable="@column.ClickEnabled"
-                            TemplateBuilder="@ColumnDataCellBaseExtension.GetRenderFragment(column.TemplateType)"></ColumnData>
+                            PresentationTemplate="@column.TemplateType"></ColumnData>
             }
 
         </DataExchangeView>
