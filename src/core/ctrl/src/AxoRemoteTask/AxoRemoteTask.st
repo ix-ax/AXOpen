@@ -24,15 +24,7 @@ NAMESPACE AXOpen.Core
             HasRemoteException : BOOL;
 
             IsBeingCalledCounter : INT;
-            // {#ix-set:MessageText = "<#Remote task is not initialized by remote partner.#>"}
-            // {#ix-set:Help = "<#Make sure the remote application that should handle this remote request is running and is available in the network.#>"}
-            // TaskNotInitialized : AXOpen.Messaging.Static.AxoMessenger;
-
-            // {#ix-set:MessageText = "<#During the execution or remote task an error occured.#> |[[1]RemoteExceptionDetails]|"}
-            // {#ix-set:Help = "<#Check detail of this remote task for more information about the problem.#>"}
-            // TaskHasRemoteException : AXOpen.Messaging.Static.AxoMessenger;
-
-
+            
             {#ix-set:AttributeName = "<#RemoteTaskMessenger#>"}
             {#ix-set:PlcTextList =  "[1]:'<#Remote task is not initialized by remote partner.#>':'<#Make sure the remote application that should handle this remote request is running and is available to the controller.#>'';
                                     '[2]:'<#During the execution or remote task an error occured.#> |[[1]RemoteExceptionDetails]|':'<#Check detail of this remote task for more information about the problem.#>'"}
