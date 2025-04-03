@@ -4,64 +4,49 @@ using System.Reflection;
 
 namespace AXOpen.Data
 {
+    /// <summary>
+    /// Provides a service for collecting, grouping, and sorting distributed data exchanges
+    /// that implement the <see cref="IAxoDataExchange"/> interface.
+    /// </summary>
     public class DistributedDataExchangeService : IDistributedDataExchangeService
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DistributedDataExchangeService"/> class.
+        /// </summary>
         public DistributedDataExchangeService()
         {
         }
 
         private Dictionary<string, List<IAxoDataExchange>> _Exchanges = new();
 
-        public Dictionary<string, List<IAxoDataExchange>> Exchanges
-        {
-            get
-            {
-                return _Exchanges;
-            }
-        }
+        /// <summary>
+        /// Gets the internal dictionary of data exchanges, grouped by group name.
+        /// </summary>
+        internal Dictionary<string, List<IAxoDataExchange>> Exchanges => _Exchanges;
 
         private List<string> _ExistingGroupNames = new();
 
+        /// <summary>
+        /// Gets the list of existing group names that have registered exchanges.
+        /// </summary>
         public List<string> ExistingGroupNames
         {
-            get { return _ExistingGroupNames; }
-            set { _ExistingGroupNames = value; }
+            get => _ExistingGroupNames;
         }
 
-        public List<IAxoDataExchange> GetMangersForGroup(string groupName, bool onlyOnePerType = true)
-        {
-            var managerList = new List<IAxoDataExchange>();
+        private List<Type> _PrioritizedTypes = new();
 
-            if (Exchanges.ContainsKey(groupName))
-            {
-                var groups = Exchanges[groupName].GroupBy((p) => p.ManagerDataTypeName);
+        /// <summary>
+        /// Gets the list of types that are prioritized when sorting exchanges within groups.
+        /// </summary>
+        internal List<Type> PrioritizedTypes => _PrioritizedTypes;
 
-                foreach (var groupList in groups)
-                {
-                    if (onlyOnePerType)
-                    {
-                        managerList.Add(groupList.First());
-                    }
-                    else
-                    {
-                        foreach (var manager in groupList)
-                        {
-                            managerList.Add(manager);
-                        }
-                    }
-                }
-            }
-
-            managerList = managerList.OrderBy(p => p.ManagerDataTypeName).ToList();
-
-            return managerList;
-        }
-
-        public bool IsExistManagerGroup(string groupName)
-        {
-            return ExistingGroupNames.Any(t => t == groupName);
-        }
-
+        /// <summary>
+        /// Adds a data exchange instance to the specified groups.
+        /// If no group is specified, the exchange is added to the "default" group.
+        /// </summary>
+        /// <param name="exchange">The data exchange to add.</param>
+        /// <param name="groups">The list of group names to which the exchange should be added.</param>
         public void Add(IAxoDataExchange exchange, List<string> groups = null)
         {
             ArgumentNullException.ThrowIfNull(exchange);
@@ -81,16 +66,19 @@ namespace AXOpen.Data
                     }
                     else
                     {
-                        var collection = new List<IAxoDataExchange>();
-                        collection.Add(exchange as IAxoDataExchange);
+                        var collection = new List<IAxoDataExchange> { exchange as IAxoDataExchange };
                         _Exchanges.Add(group, collection);
-
                         this.ExistingGroupNames.Add(group);
                     }
                 }
             }
         }
 
+        /// <summary>
+        /// Automatically collects all <see cref="IAxoDataExchange"/> instances from the children
+        /// of the specified <see cref="ITwinObject"/>, and adds them to groups defined in their attributes.
+        /// </summary>
+        /// <param name="target">The Twin object to inspect.</param>
         public void CollectAxoDataExchanges(ITwinObject target)
         {
             var dataEx = target.GetChildren().Where(p => p is IAxoDataExchange);
@@ -101,18 +89,93 @@ namespace AXOpen.Data
                     .GetProperty(item.GetSymbolTail())?
                     .GetCustomAttribute<DistributedDataAttribute>();
 
-
                 if (hasAttribute != null)
                 {
                     var groups = hasAttribute?.GetType()
-                           .GetProperty("Groups", BindingFlags.Public | BindingFlags.Instance)?
-                           .GetValue(hasAttribute) as IEnumerable<string> ?? Enumerable.Empty<string>();
+                        .GetProperty("Groups", BindingFlags.Public | BindingFlags.Instance)?
+                        .GetValue(hasAttribute) as IEnumerable<string> ?? Enumerable.Empty<string>();
 
-                    this.Add((item as IAxoDataExchange), groups.ToList());
+                    this.Add(item as IAxoDataExchange, groups.ToList());
                 }
             }
         }
 
+        /// <summary>
+        /// Adds the specified type to the list of prioritized types for sorting.
+        /// </summary>
+        /// <param name="exchangePocoType">The POCO type to prioritize.</param>
+        public void SetPrioritizedType(Type exchangePocoType)
+        {
+            if (!_PrioritizedTypes.Contains(exchangePocoType))
+                _PrioritizedTypes.Add(exchangePocoType);
+        }
 
+        /// <summary>
+        /// Sorts the exchanges within each group so that prioritized types appear first,
+        /// followed by other types ordered by <see cref="IAxoDataExchange.ManagerDataTypeName"/>.
+        /// </summary>
+        public void SortGroupsByPriorizedTypes()
+        {
+            foreach (var key in _Exchanges.Keys.ToList())
+            {
+                var sortedList = _Exchanges[key]
+                    .OrderBy(p =>
+                    {
+                        int index = _PrioritizedTypes
+                            .Select((type, idx) => new { type, idx })
+                            .FirstOrDefault(t => t.type.FullName == p.ManagerDataTypeName)?.idx
+                            ?? int.MaxValue;
+
+                        return index - _PrioritizedTypes.Count;
+                    })
+                    .ThenBy(p => p.ManagerDataTypeName)
+                    .ToList();
+
+                _Exchanges[key] = sortedList;
+            }
+        }
+
+        /// <summary>
+        /// Determines whether a group with the specified name exists.
+        /// </summary>
+        /// <param name="groupName">The name of the group to check.</param>
+        /// <returns><c>true</c> if the group exists; otherwise, <c>false</c>.</returns>
+        public bool IsExistGroup(string groupName)
+        {
+            return ExistingGroupNames.Any(t => t == groupName);
+        }
+
+        /// <summary>
+        /// Retrieves a list of data exchanges for the specified group.
+        /// Optionally limits the result to one exchange per unique type.
+        /// </summary>
+        /// <param name="groupName">The name of the group to retrieve.</param>
+        /// <param name="onlyOnePerType">
+        /// If set to <c>true</c>, only one exchange per type will be included.
+        /// If <c>false</c>, all exchanges are returned.
+        /// </param>
+        /// <returns>A list of <see cref="IAxoDataExchange"/> objects.</returns>
+        public List<IAxoDataExchange> GetExchanges(string groupName, bool onlyOnePerType = true)
+        {
+            var exchangeList = new List<IAxoDataExchange>();
+
+            if (Exchanges.ContainsKey(groupName))
+            {
+                var groups = Exchanges[groupName].GroupBy(p => p.ManagerDataTypeName);
+
+                foreach (var groupList in groups)
+                {
+                    if (onlyOnePerType)
+                    {
+                        exchangeList.Add(groupList.First());
+                    }
+                    else
+                    {
+                        exchangeList.AddRange(groupList);
+                    }
+                }
+            }
+            return exchangeList;
+        }
     }
 }

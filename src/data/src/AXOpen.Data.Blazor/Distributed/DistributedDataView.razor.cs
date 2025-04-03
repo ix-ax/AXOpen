@@ -69,7 +69,7 @@ namespace AXOpen.Data
 
                 if (DisplayOnePerDataType)
                 {
-                    DataFragments = DistributedExchangeService.GetMangersForGroup(GroupName);
+                    DataFragments = DistributedExchangeService.GetExchanges(GroupName);
                 }
                 else
                 {
