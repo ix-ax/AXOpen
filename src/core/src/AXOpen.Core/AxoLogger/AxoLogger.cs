@@ -32,7 +32,7 @@ namespace AXOpen.Logging
 
         public void SetLogger(ILogger targetLogger) { _logger = targetLogger; }
 
-        private async Task Dequeue()
+        public async Task Dequeue()
         {
             await Task.Run(async () =>
             {
