@@ -48,7 +48,7 @@ NAMESPACE AXOpen.MessagingTests
         {Test}
         METHOD PUBLIC Log_should_log_info_message_2
             VAR 
-                _message : STRING[80];
+                _message : STRING[254];
                 _isInformation : BOOL;
                 _isToDequeue : BOOL;
             END_VAR     

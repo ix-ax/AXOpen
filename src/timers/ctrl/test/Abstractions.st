@@ -13,7 +13,7 @@ NAMESPACE AXOpen.Timers_tests
     CLASS INTERNAL _NULL_LOGGER IMPLEMENTS IAxoLogger                   
         METHOD PUBLIC Log 
             VAR_INPUT
-                _message : STRING[80];
+                _message : STRING[254];
                 _level : eLogLevel;
                 _sender : IAxoObject;
             END_VAR   
@@ -22,7 +22,7 @@ NAMESPACE AXOpen.Timers_tests
                
         METHOD PUBLIC Log 
             VAR_INPUT
-                _message : STRING[80];
+                _message : STRING[254];
                 _level : eLogLevel;             
             END_VAR
             ;                         
