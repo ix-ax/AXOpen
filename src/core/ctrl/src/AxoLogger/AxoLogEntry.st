@@ -8,7 +8,7 @@ NAMESPACE AXOpen.Logging
             /// <summary>
             /// The message of the log entry. The maximum length of the message is 80 characters.
             /// </summary>
-            Message : STRING[80];
+            Message : STRING[254];
 
             /// <summary>
             /// The severity level of the log entry.
