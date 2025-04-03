@@ -30,23 +30,23 @@ namespace AXOpen.Data
         public bool EnableSorting { get; set; } = true;
 
         [Inject]
-        public IAlertService AlertService { get; set; }
+        public IJSRuntime JSRuntime { set; get; }
 
         [Inject]
         public AuthenticationStateProvider Authentication { set; get; }
 
         [Inject]
-        public IDistributedDataExchangeService DistributedExchangeService { set; get; }
+        public IAlertService AlertService { get; set; }
 
         [Inject]
-        public IJSRuntime JSRuntime { set; get; }
+        public IDistributedDataExchangeService DistributedExchangeService { set; get; }
 
         [Inject]
         public IAxoDataExchangeConfigurationService? ExchangeConfigService { set; get; }
 
-        public string BtnOperation {  get; set; } = string.Empty;
+        public string BtnOperation { get; set; } = string.Empty;
         public string SelectedEntityId { get; set; } = string.Empty;
-        public string OperationRecordName {  get; set; } = string.Empty;
+        public string OperationRecordName { get; set; } = string.Empty;
 
         public bool AdvanceFilterConfig { get; set; } = false;
 
@@ -63,18 +63,11 @@ namespace AXOpen.Data
                 GroupName = "default";
             }
 
-            if (DistributedExchangeService.Exchanges.ContainsKey(GroupName))
+            if (DistributedExchangeService.IsExistGroup(GroupName))
             {
                 IEnumerable<IAxoDataExchange> DataFragments;
 
-                if (DisplayOnePerDataType)
-                {
-                    DataFragments = DistributedExchangeService.GetExchanges(GroupName);
-                }
-                else
-                {
-                    DataFragments = DistributedExchangeService.Exchanges[GroupName];
-                }
+                DataFragments = DistributedExchangeService.GetExchanges(GroupName, DisplayOnePerDataType);
 
                 if (DataFragments != null)
                 {
@@ -99,6 +92,7 @@ namespace AXOpen.Data
         {
             return !string.IsNullOrEmpty(this.BtnOperation);
         }
+
         public bool IsNoActiveOperation()
         {
             return string.IsNullOrEmpty(this.BtnOperation);
