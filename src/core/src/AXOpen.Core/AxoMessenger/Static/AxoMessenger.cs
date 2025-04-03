@@ -120,7 +120,7 @@ public partial class AxoMessenger
             {
                 if (plcMessengerTextList == null)
                 {
-                    plcMessengerTextList = ParseMessages(this.PlcTextList, this);
+                    plcMessengerTextList = ParseMessages(this.PlcTextList_raw, this);
                 }
             }
             catch (Exception)
