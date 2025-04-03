@@ -130,9 +130,7 @@ NAMESPACE AXOpen.Core
             Invoke := THIS;
         END_METHOD    
 
-            
-       
-
+                   
         ///<summary>
         /// Returns `TRUE` if the task is Busy, otherwise false.
         ///	This method needs to be called cyclically.
@@ -248,115 +246,6 @@ NAMESPACE AXOpen.Core
         ///</remarks>
         METHOD PUBLIC GetRemoteAbortEnabled : BOOL
             GetRemoteAbortEnabled := _RemoteAbortEnabled; // Returns the current status of remote abort functionality.
-        END_METHOD
-
-        ///<summary>
-        /// Executes once when the task is aborted.
-        ///</summary>
-        METHOD PROTECTED OVERRIDE OnAbort 
-            ;
-        END_METHOD
-
-        ///<summary>
-        /// Executes once when the task is resumed.
-        ///</summary>
-        METHOD PROTECTED OVERRIDE OnResume 
-            ;
-        END_METHOD
-
-        ///<summary>
-        /// Executes once when the task reaches the `Done` state.
-        ///</summary>
-        METHOD PROTECTED OVERRIDE OnDone 
-            ;
-        END_METHOD
-    
-        ///<summary>
-        /// Executes once when the task reaches the `Error` state.
-        ///</summary>
-        METHOD PROTECTED OVERRIDE OnError 
-            ;
-        END_METHOD
-    
-        ///<summary>
-        /// Executes once when the task is restored.
-        ///</summary>
-        METHOD PROTECTED OVERRIDE OnRestore 
-            ;
-        END_METHOD
-    
-        ///<summary>
-        /// Executes once when the task starts (at the moment of transition from the `Kicking` state into the `Busy` state).
-        ///</summary>
-        METHOD PROTECTED OVERRIDE OnStart 
-            ;
-        END_METHOD
-    
-        ///<summary>
-        /// Executes repeatedly while the task is in `Error` state (and `Execute()` method is called).
-        ///</summary>
-        METHOD PROTECTED OVERRIDE WhileError 
-            ;
-        END_METHOD    
-
-        // ///<summary>
-        // /// Returns `TRUE` when the task has been aborted in this or previous PLC cycle.
-        // ///</summary>
-        // METHOD PUBLIC OVERRIDE AbortTriggered : BOOL
-        //     IF(_context = NULL) THEN
-        //         _context := THIS.GetContext();
-        //     END_IF;      
-        //     AbortTriggered := _abortCycleCount > ULINT#0 AND _abortCycleCount >= _context.OpenCycleCount() - ULINT#1;
-        // END_METHOD
-
-        // ///<summary>
-        // /// Returns `TRUE` when the task has been resumed in this or previous PLC cycle.
-        // ///</summary>
-        // METHOD PUBLIC OVERRIDE ResumeTriggered : BOOL
-        //     IF(_context = NULL) THEN
-        //         _context := THIS.GetContext();
-        //     END_IF;      
-        //     ResumeTriggered := _resumeCycleCount> ULINT#0 AND _resumeCycleCount >= _context.OpenCycleCount() - ULINT#1;
-        // END_METHOD
-
-        // ///<summary>
-        // /// Returns `TRUE` when the task has reached the `Done` state in this or previous PLC cycle.
-        // ///</summary>
-        // METHOD PUBLIC OVERRIDE DoneReached : BOOL
-        //     IF(_context = NULL) THEN
-        //         _context := THIS.GetContext();
-        //     END_IF;      
-        //     DoneReached := _doneCycleCount > ULINT#0 AND _doneCycleCount >= _context.OpenCycleCount() - ULINT#1;
-        // END_METHOD
-    
-        // ///<summary>
-        // /// Returns `TRUE` when the task has reached the `Error` state in this or previous PLC cycle.
-        // ///</summary>
-        // METHOD PUBLIC OVERRIDE ErrorOccured : BOOL
-        //     IF(_context = NULL) THEN
-        //         _context := THIS.GetContext();
-        //     END_IF;      
-        //     ErrorOccured := _errorCycleCount > ULINT#0 AND _errorCycleCount >= _context.OpenCycleCount() - ULINT#1;
-        // END_METHOD
-    
-        // ///<summary>
-        // /// Returns `TRUE` when the task has been restored in this or previous PLC cycle.
-        // ///</summary>
-        // METHOD PUBLIC OVERRIDE RestoreTriggered : BOOL
-        //     IF(_context = NULL) THEN
-        //         _context := THIS.GetContext();
-        //     END_IF;      
-        //     RestoreTriggered := _restoreCycleCount > ULINT#0 AND _restoreCycleCount >= _context.OpenCycleCount() - ULINT#1;
-        // END_METHOD
-    
-        // ///<summary>
-        // /// Returns `TRUE` when the task has been started in this or previous PLC cycle.
-        // ///</summary>
-        // METHOD PUBLIC OVERRIDE StartTriggered : BOOL
-        //     IF(_context = NULL) THEN
-        //         _context := THIS.GetContext();
-        //     END_IF;      
-        //     StartTriggered := _startCycleCount > ULINT#0 AND _startCycleCount >= _context.OpenCycleCount() - ULINT#1;
-        // END_METHOD
+        END_METHOD      
     END_CLASS    
 END_NAMESPACE
