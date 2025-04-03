@@ -9,7 +9,7 @@ Templates:
     - Name: ProfinetDeviceName_X1
       Value: plcname_profinet_interface_x1
     - Name: IpAddress_X2
-      Value: 0.0.0.0/24
+      Value: 192.168.101.120/24
     - Name: ProfinetDeviceName_X2
       Value: plcname_profinet_interface_x2    
     - Name: AdminName
