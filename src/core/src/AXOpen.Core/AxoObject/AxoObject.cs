@@ -12,7 +12,7 @@ namespace AXOpen.Core
         partial void PostConstruct(ITwinObject parent, string readableTail, string symbolTail)
         {
             parent?.GetConnector()?.IdentityProvider?.AddIdentity(this);
-            AxoApplication.Current.SystemDiagnostics.AddDiagnosticsFlag(this.DG);
+            AxoApplication.Current.SystemDiagnostics.AddDiagnosticsFlag(this._dg_);
         }
     }
 }

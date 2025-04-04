@@ -22,7 +22,7 @@ NAMESPACE AXOpen.Core
             {#ix-attr:[IgnoreOnPocoOperation()]}  
             {#ix-attr:[RenderIgnore()]}
             {#ix-attr:[ReadOnly()]}
-            DG   : BYTE;            
+            _dg_   : BYTE;            
         END_VAR    
 
         VAR PRIVATE           
@@ -54,9 +54,9 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC GetContext : IAxoContext             
             IF(_context <> NULL) THEN                
                 GetContext := _context;                                
-                DG.%X0 := FALSE;
+                _dg_.%X0 := FALSE;
             ELSE
-                DG.%X0 := TRUE;
+                _dg_.%X0 := TRUE;
                 GetContext := NULL_CONTEXT;                    
             END_IF;    
         END_METHOD
@@ -74,9 +74,9 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC GetParent : IAxoObject
             IF(_context <> NULL) THEN
                 GetParent := _parent;
-                DG.%X1 := FALSE;
+                _dg_.%X1 := FALSE;
             ELSE                
-                DG.%X1 := TRUE;
+                _dg_.%X1 := TRUE;
                 GetParent := NULL_OBJECT;    
             END_IF;    
         END_METHOD
