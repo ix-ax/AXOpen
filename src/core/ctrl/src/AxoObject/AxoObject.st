@@ -21,6 +21,7 @@ NAMESPACE AXOpen.Core
             {#ix-attr:[CompilerOmits("POCO")]}     
             {#ix-attr:[IgnoreOnPocoOperation()]}  
             {#ix-attr:[RenderIgnore()]}
+            {#ix-attr:[ReadOnly()]}
             DG   : BYTE;            
         END_VAR    
 
@@ -73,9 +74,9 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC GetParent : IAxoObject
             IF(_context <> NULL) THEN
                 GetParent := _parent;
-            ELSE
-                // TODO provide some message 
-                
+                DG.%X1 := FALSE;
+            ELSE                
+                DG.%X1 := TRUE;
                 GetParent := NULL_OBJECT;    
             END_IF;    
         END_METHOD
