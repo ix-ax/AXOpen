@@ -1,4 +1,5 @@
 USING AXOpen.Messaging;
+USING AXOpen.Messaging.Static;
 USING AXOpen.Logging;
 USING AXOpen.Rtc;
 USING AXOpen.Rtm;
@@ -15,8 +16,17 @@ NAMESPACE AXOpen.Core
             NULL_LOGGER : _NULL_LOGGER;
             {S7.extern=Hidden}
             NULL_RTM : _NULL_RTM;
+            {S7.extern=ReadWrite}
+            _SYSTEM_LOGGER_ : AxoLogger;
         END_VAR
 
+        ///<summary>
+        /// Gets whether this context is valid.
+        ///</summary>
+        METHOD PUBLIC IsValid : BOOL
+            IsValid := FALSE;            
+        END_METHOD
+    
         METHOD PUBLIC CreateIdentity : ULINT CreateIdentity := ULINT#0; END_METHOD
         METHOD PUBLIC OpenCycleCount : ULINT OpenCycleCount := ULINT#0; END_METHOD                                         
         METHOD PUBLIC GetRtc : IAxoRtc GetRtc := NULL_RTC; END_METHOD
@@ -26,8 +36,18 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC GetRtm : IAxoRtm GetRtm :=  NULL_RTM; END_METHOD
         METHOD PUBLIC InjectRtm VAR_INPUT rtm : IAxoRtm; END_VAR ; END_METHOD           
         METHOD PUBLIC InitializeRootObject VAR_IN_OUT inoRootObject : AxoObject; END_VAR ; END_METHOD
+
+        METHOD PUBLIC Detector 
+            VAR_INPUT
+                object : IAxoObject;
+            END_VAR                
+            _SYSTEM_LOGGER_.Log('Attemt to acccess context', AXOpen.Logging.eLogLevel#Fatal, object);
+        END_METHOD    
+
     END_CLASS    
 
+
+    
     ///<summary>
     /// Provides an empty object for uninitialized objects.
     ///</summary>    
@@ -68,6 +88,13 @@ NAMESPACE AXOpen.Core
     
         METHOD PUBLIC GetParent : IAxoObject
             GetParent := THIS;
+        END_METHOD
+    
+        ///<summary>
+        /// Gets whether this object is valid.
+        ///</summary>
+        METHOD PUBLIC IsValid : BOOL
+            IsValid := FALSE;
         END_METHOD
     END_CLASS    
 

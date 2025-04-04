@@ -50,6 +50,13 @@ NAMESPACE AXOpen.Core
         END_METHOD   
         
         ///<summary>
+        /// Gets whether this context is valid.
+        ///</summary>
+        METHOD PUBLIC IsValid : BOOL
+            IsValid := TRUE;            
+        END_METHOD
+
+        ///<summary>
         /// Gets the value of current context cycle counter.
         ///</summary>
         METHOD PUBLIC OpenCycleCount : ULINT

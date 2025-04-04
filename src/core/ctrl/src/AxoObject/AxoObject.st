@@ -49,7 +49,7 @@ NAMESPACE AXOpen.Core
             IF(_context <> NULL) THEN                
                 GetContext := _context;                
             ELSE
-                // TODO provide some message 
+                NULL_CONTEXT.Detector(THIS);
                 GetContext := NULL_CONTEXT;                    
             END_IF;    
         END_METHOD
@@ -69,6 +69,7 @@ NAMESPACE AXOpen.Core
                 GetParent := _parent;
             ELSE
                 // TODO provide some message 
+                
                 GetParent := NULL_OBJECT;    
             END_IF;    
         END_METHOD
@@ -184,5 +185,13 @@ NAMESPACE AXOpen.Core
 
             _lastMessageAggregationCycle := _context.OpenCycleCount();  
         END_METHOD    
+    
+
+        ///<summary>
+        /// Gets whether this object is valid.
+        ///</summary>
+        METHOD PUBLIC IsValid : BOOL
+            IsValid := TRUE;
+        END_METHOD
     END_CLASS    
 END_NAMESPACE    

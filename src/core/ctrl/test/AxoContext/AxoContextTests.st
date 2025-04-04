@@ -10,6 +10,7 @@ NAMESPACE AXOpen.Core.AxoContext_Tests
                 ;
             END_METHOD
     END_CLASS  
+    
 
     {TestFixture}
     {S7.extern=ReadWrite}
@@ -49,6 +50,20 @@ NAMESPACE AXOpen.Core.AxoContext_Tests
             _context.Run();
             Assert.Equal(actual := ULINT#1, expected := _context.OpenCycleCount());
             Assert.Equal(actual := ULINT#1, expected := _context.ClosedCycleCount());
+        END_METHOD
+
+         
+        VAR
+            _nullContext : _NULL_CONTEXT;
+        END_VAR    
+        {Test}
+        METHOD PUBLIC null_contex_should_be_invalid            
+            Assert.Equal(actual := _nullContext.IsValid(), expected := FALSE);            
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC contex_should_be_valid            
+            Assert.Equal(actual := _context.IsValid(), expected := TRUE);            
         END_METHOD
 
         {Test}

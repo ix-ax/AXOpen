@@ -1,16 +1,12 @@
 {
 	"folders": [
 		{
-			"name": "templates.simple",
-			"path": "templates.simple/ctrl"
+			"name": "abstractions",
+			"path": "abstractions/ctrl"
 		},
 		{
 			"name": "core",
 			"path": "core/ctrl"
-		},
-		{
-			"name": "integrations",
-			"path": "integrations/ctrl"
 		},
 		{
 			"name": "simatic1500",
@@ -29,17 +25,12 @@
 			"path": "probers/ctrl"
 		},
 		{
-			"name": "abstractions",
-			"path": "abstractions/ctrl"
-		},
-		{
-
 			"name": "timers",
 			"path": "timers/ctrl"
-    },
-    {
+		},
+		{
 			"name": "inspectors",
-			"path": "inspectors/ctrl"			
+			"path": "inspectors/ctrl"
 		},
 		{
 			"name": "components.abstractions",
