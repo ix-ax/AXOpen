@@ -33,7 +33,7 @@ NAMESPACE AXOpen.Logging
         /// <param name="_sender">The object that sends the log.</param>
         METHOD PUBLIC Log
             VAR_INPUT
-                _message : STRING[254];
+                _message : STRING[80];
                 _level : eLogLevel;  
                 _sender : IAxoObject;              
             END_VAR
@@ -62,7 +62,7 @@ NAMESPACE AXOpen.Logging
         /// <param name="_level">The severity level of the log.</param>
         METHOD PUBLIC Log
             VAR_INPUT
-                _message : STRING[254];
+                _message : STRING[80];
                 _level : eLogLevel;
             END_VAR
             

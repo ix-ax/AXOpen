@@ -7,7 +7,7 @@ USING AXOpen.Rtm;
 NAMESPACE AXOpen.Core
     ///<summary>
     /// Provides an empty context for uninitialized objects.
-    ///</summary>    
+    ///</summary>       
     CLASS PUBLIC _NULL_CONTEXT IMPLEMENTS IAxoContext
         VAR PRIVATE
             {S7.extern=Hidden}            
@@ -15,9 +15,7 @@ NAMESPACE AXOpen.Core
             {S7.extern=Hidden}
             NULL_LOGGER : _NULL_LOGGER;
             {S7.extern=Hidden}
-            NULL_RTM : _NULL_RTM;
-            {S7.extern=ReadWrite}
-            _SYSTEM_LOGGER_ : AxoLogger;
+            NULL_RTM : _NULL_RTM;           
         END_VAR
 
         ///<summary>
@@ -35,15 +33,7 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC InjectLogger VAR_INPUT _logger : IAxoLogger; END_VAR ; END_METHOD           
         METHOD PUBLIC GetRtm : IAxoRtm GetRtm :=  NULL_RTM; END_METHOD
         METHOD PUBLIC InjectRtm VAR_INPUT rtm : IAxoRtm; END_VAR ; END_METHOD           
-        METHOD PUBLIC InitializeRootObject VAR_IN_OUT inoRootObject : AxoObject; END_VAR ; END_METHOD
-
-        METHOD PUBLIC Detector 
-            VAR_INPUT
-                object : IAxoObject;
-            END_VAR                
-            _SYSTEM_LOGGER_.Log('Attemt to acccess context', AXOpen.Logging.eLogLevel#Fatal, object);
-        END_METHOD    
-
+        METHOD PUBLIC InitializeRootObject VAR_IN_OUT inoRootObject : AxoObject; END_VAR ; END_METHOD         
     END_CLASS    
 
 
@@ -102,11 +92,11 @@ NAMESPACE AXOpen.Core
     /// Provides an empty RTC object for uninitialized RTC.
     ///</summary>
     {S7.extern=ReadWrite}
-    CLASS PUBLIC _NULL_RTC IMPLEMENTS IAxoRtc
-        VAR PRIVATE
-            _null_time : LDATE_AND_TIME := LDATE_AND_TIME#1970-01-01-00:00:00.000;
-        END_VAR
+    CLASS PUBLIC _NULL_RTC IMPLEMENTS IAxoRtc       
         METHOD PUBLIC NowUTC : LDATE_AND_TIME
+            VAR
+                _null_time : LDATE_AND_TIME := LDATE_AND_TIME#1970-01-01-00:00:00.000;
+            END_VAR    
             NowUTC := _null_time;
         END_METHOD
     END_CLASS    
@@ -118,7 +108,7 @@ NAMESPACE AXOpen.Core
     CLASS PUBLIC _NULL_LOGGER IMPLEMENTS IAxoLogger                   
         METHOD PUBLIC Log 
             VAR_INPUT
-                _message : STRING[254];
+                _message : STRING[80];
                 _level : eLogLevel;
                 _sender : IAxoObject;
             END_VAR   
@@ -127,7 +117,7 @@ NAMESPACE AXOpen.Core
                
         METHOD PUBLIC Log 
             VAR_INPUT
-                _message : STRING[254];
+                _message : STRING[80];
                 _level : eLogLevel;             
             END_VAR
             ;                         
@@ -146,12 +136,11 @@ NAMESPACE AXOpen.Core
     /// Provides an empty RTC object for uninitialized RTC.
     ///</summary>
     {S7.extern=ReadWrite}
-    CLASS PUBLIC _NULL_RTM IMPLEMENTS IAxoRtm
-        VAR PRIVATE
-            _null_time : LTIME;
-        END_VAR
-           
+    CLASS PUBLIC _NULL_RTM IMPLEMENTS IAxoRtm                 
         METHOD PUBLIC Elapsed : LTIME
+            VAR
+                _null_time : LTIME;
+            END_VAR    
             Elapsed := _null_time;
         END_METHOD
     END_CLASS 
