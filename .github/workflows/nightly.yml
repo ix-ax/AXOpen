@@ -64,7 +64,7 @@ jobs:
       if: github.ref == 'refs/heads/dev' && github.event_name != 'workflow_dispatch'  
       shell: pwsh
       run: |
-          if ($env:CURRENT_SHA -eq $env:STORED_SHA && $env:APP_RUN_RESULT -eq "0") {
+          if ($env:CURRENT_SHA -eq $env:STORED_SHA && $env:APP_RUN_RESULT -eq "1") {
             echo "SHA Match: Skipping Steps"
             "SKIP_STEPS=true" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
           } 
