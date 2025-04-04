@@ -1,8 +1,38 @@
-﻿using System.Security.Principal;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Security.Principal;
+using System.Threading.Tasks;
 using AXOpen.Logging;
+using AXSharp.Connector;
 
 namespace AXOpen
 {
+
+    public class SystemDiagnostics
+    {
+        private IList<ITwinPrimitive> DiagnosticsFlags { get; } = new List<ITwinPrimitive>();
+        
+        public void AddDiagnosticsFlag(ITwinPrimitive diagnosticsFlag)
+        {
+            DiagnosticsFlags.Add(diagnosticsFlag);
+        }
+        
+        public async Task RunDiagnostics()
+        {
+            var diagIdentity = new GenericIdentity("Diagnostics");
+            AxoApplication.Current.Logger.Information($"System diagnostics requested.", diagIdentity);
+            await DiagnosticsFlags.FirstOrDefault()?.GetParent()?.GetConnector().ReadBatchAsync(DiagnosticsFlags)!;
+            foreach (dynamic flag in DiagnosticsFlags)
+            {
+                if (flag.LastValue > 0)
+                {
+                    AxoApplication.Current.Logger.Fatal($"{flag.Symbol} is in error state code '{flag.LastValue}'.", diagIdentity);
+                }
+            }
+            AxoApplication.Current.Logger.Information($"System diagnostics done.", diagIdentity);
+        }
+    }
+    
     /// <summary>
     /// Provides application services and configuration builder for an AxoApplication.
     /// </summary>
@@ -42,5 +72,7 @@ namespace AXOpen
         public static IAxoApplication Current => _current;
 
         public IIdentity ControllerIdentity { get; } = new ControllerIdentity();
+        
+        public SystemDiagnostics SystemDiagnostics { get; } = new SystemDiagnostics();
     }
 }

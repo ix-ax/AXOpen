@@ -16,7 +16,12 @@ NAMESPACE AXOpen.Core
             {#ix-attr:[CompilerOmits("POCO")]}     
             {#ix-attr:[IgnoreOnPocoOperation()]}  
             {#ix-attr:[RenderIgnore()]}
-            MsgCnt   : LINT := LINT#0;    
+            MsgCnt   : LINT := LINT#0; 
+            
+            {#ix-attr:[CompilerOmits("POCO")]}     
+            {#ix-attr:[IgnoreOnPocoOperation()]}  
+            {#ix-attr:[RenderIgnore()]}
+            DG   : BYTE;            
         END_VAR    
 
         VAR PRIVATE           
@@ -47,9 +52,10 @@ NAMESPACE AXOpen.Core
         ///</summary>
         METHOD PUBLIC GetContext : IAxoContext             
             IF(_context <> NULL) THEN                
-                GetContext := _context;                
+                GetContext := _context;                                
+                DG.%X0 := FALSE;
             ELSE
-                NULL_CONTEXT.Detector(THIS);
+                DG.%X0 := TRUE;
                 GetContext := NULL_CONTEXT;                    
             END_IF;    
         END_METHOD

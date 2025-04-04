@@ -24,4 +24,9 @@ public interface IAxoApplication
     /// Provides identity for the logging operation for controller provenience.
     /// </summary>
     IIdentity ControllerIdentity { get; }
+    
+    /// <summary>
+    /// Provides access to AXOpen the system diagnostics.
+    /// </summary>
+    SystemDiagnostics SystemDiagnostics { get; }
 }
