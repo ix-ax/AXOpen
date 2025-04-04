@@ -37,9 +37,40 @@ namespace AXOpen.Data
 
         public int FilteredCount { get; set; }
         public int FilteredPage { get; set; } = 0;
-        public int FilteredPageLimit { get; set; } = 10;
+        public int FilteredPageLimit { get; set; } = 5; // default value
 
         public ObservableCollection<IBrowsableDataObject> Records { get; set; } = new ObservableCollection<IBrowsableDataObject>();
+
+        private QuerySymbolConfiguration _DefaulQueryDataEntityId;
+
+        public QuerySymbolConfiguration DefaulQueryDataEntityId
+        {
+            get
+            {
+                if (_DefaulQueryDataEntityId == null)
+                {
+                    var poco = MainExchange.GetPlainTypes().First();
+                    _DefaulQueryDataEntityId = new QuerySymbolConfiguration($"{poco.Name}.DataEntityId", typeof(string).FullName, "StartsWith", "", "");
+                }
+
+                return _DefaulQueryDataEntityId;
+            }
+        }
+
+        private List<PlainSymbolBuilder> _PlainBuilders;
+
+        public List<PlainSymbolBuilder> PlainBuilders
+        {
+            get
+            {
+                if (_PlainBuilders == null)
+                {
+                    _PlainBuilders = MainExchange.GetPlainTypes().Select(p => new PlainSymbolBuilder(p)).ToList();
+                }
+
+                return _PlainBuilders;
+            }
+        }
 
         public DistributedDataSelectorViewModel(IDistributedDataExchangeService distributedExchangeService, string exchangeGroup, IAlertService alertService, PredicateContainer injectePredicateContainer)
         {
@@ -60,9 +91,26 @@ namespace AXOpen.Data
             FillObservableRecordsAsync();
         }
 
+        public PredicateContainer BuidDefaultPredicates()
+        {
+            try
+            {
+                PredicateContainer pc = new PredicateContainer();
+                if (InjectedPredicateContainer != null) pc.AddPredicatesFrom(InjectedPredicateContainer);
+
+                pc.AddQuerySymbolToPredicates(PlainBuilders, DefaulQueryDataEntityId);
+
+                return pc;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         public Task FillObservableRecordsAsync()
         {
-            PredicateContainer? predicates = InjectedPredicateContainer;
+            PredicateContainer? predicates = BuidDefaultPredicates();
 
             List<List<string>> fragmentEntities = new();
 
