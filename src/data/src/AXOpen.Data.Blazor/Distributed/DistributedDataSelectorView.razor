@@ -49,15 +49,11 @@
 
                     <div class="d-flex flex-row align-items-center gap-2">
 
-                        <div class="flex-grow-1">
-                            <QuerySymbolConfigurationView SymbolConfiguration="@DistributedVM.DefaulQueryDataEntityId"
-                                                          HideDescripion="true" />
-                        </div>
+                        <QuerySymbolConfigurationView SymbolConfiguration="@DistributedVM.DefaulQueryDataEntityId"
+                                                      HideDescripion="true"
+                                                      SymbolConfigurationChanged="
+                             () =>{ DistributedVM.FilteredPage = 0 ;DistributedVM.FillObservableRecordsAsync();}" />
 
-                        <button class="btn btn-secondary"
-                                @onclick="() => DistributedVM.FillObservableRecordsAsync()">
-                            <i class="bi bi-search"></i>
-                        </button>
 
                     </div>
 

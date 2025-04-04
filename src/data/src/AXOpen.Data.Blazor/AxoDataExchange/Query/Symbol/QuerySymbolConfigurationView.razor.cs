@@ -18,6 +18,55 @@ namespace AXOpen.Data.Query
         [Parameter]
         public bool HideDescripion { get; set; }
 
+
+        [Parameter] 
+        public EventCallback SymbolConfigurationChanged { get; set; }
+
+        public object MinOrValue
+        {
+            get => SymbolConfiguration.MinOrValue;
+            set
+            {
+                if (SymbolConfiguration.MinOrValue != value)
+                {
+                    SymbolConfiguration.MinOrValue = value;
+                    this.OnAnyValueChange();
+                }
+            }
+        }
+
+        public object Max
+        {
+            get => SymbolConfiguration.Max;
+            set
+            {
+                if (SymbolConfiguration.Max != value)
+                {
+                    SymbolConfiguration.Max = value;
+                    this.OnAnyValueChange();
+                }
+            }
+        }
+
+        public string Operation
+        {
+            get => SymbolConfiguration.Operation;
+            set
+            {
+                if (SymbolConfiguration.Operation != value)
+                {
+                    SymbolConfiguration.Operation = value;
+                    this.OnAnyValueChange();
+                }
+            }
+        }
+
+
+        protected void OnAnyValueChange()
+        {
+            SymbolConfigurationChanged.InvokeAsync().Wait();
+        }
+
         public void Dispose()
         {
             ;
