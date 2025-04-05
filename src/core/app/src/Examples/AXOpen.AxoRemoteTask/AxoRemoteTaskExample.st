@@ -5,14 +5,14 @@ NAMESPACE AxoRemoteTaskExamples
     {S7.extern=ReadWrite}
     CLASS MyRemoteTask EXTENDS AXOpen.Core.AxoRemoteTask
         VAR PUBLIC        
-            Message : STRING[254];
+            Message : STRING[80];
             Counter : INT;
         END_VAR
 
         
         METHOD PUBLIC Invoke : IAxoTaskState
             VAR_INPUT
-                LogMessage : STRING[254];
+                LogMessage : STRING[80];
                 LogCounter : INT;
             END_VAR;  
             Counter := LogCounter;

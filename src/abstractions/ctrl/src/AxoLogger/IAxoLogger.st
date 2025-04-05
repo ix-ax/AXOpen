@@ -24,7 +24,7 @@ NAMESPACE AXOpen.Logging
                 /// <summary>
                 /// _message is a string of maximum 80 characters that represents the log message
                 /// </summary>
-                _message : STRING[254];
+                _message : STRING[80];
                 
                 /// <summary>
                 /// _level is an instance of eLogLevel that represents the level of the log
@@ -47,7 +47,7 @@ NAMESPACE AXOpen.Logging
                 /// <summary>
                 /// _message is a string of maximum 80 characters that represents the log message
                 /// </summary>
-                _message : STRING[254];
+                _message : STRING[80];
                 
                 /// <summary>
                 /// _level is an instance of eLogLevel that represents the level of the log

@@ -68,7 +68,22 @@ NAMESPACE AXOpen.Core.AxoObject_Tests
             Assert.Equal(true, sut^.GetContext() = THIS.GetContext());            
         END_METHOD
 
+        VAR
+            validObject : AxoObject;
+        END_VAR    
+        {Test}
+        METHOD PUBLIC should_return_object_is_value_true                                           
+            Assert.Equal(validObject.IsValid(), TRUE);            
+        END_METHOD
        
+        VAR
+            invalidObject : _NULL_OBJECT;
+        END_VAR  
+        {Test}
+        METHOD PUBLIC should_return_null_object_is_value_false                                           
+            Assert.Equal(invalidObject.IsValid(), FALSE);            
+        END_METHOD
+
         {Test}
         METHOD PUBLIC should_not_crush_uninitialized_object
             VAR

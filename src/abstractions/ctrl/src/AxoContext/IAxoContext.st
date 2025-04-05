@@ -12,6 +12,7 @@ NAMESPACE AXOpen.Core
         METHOD InjectLogger VAR_INPUT _logger : IAxoLogger; END_VAR END_METHOD    
         METHOD InjectRtm VAR_INPUT Rtm : IAxoRtm; END_VAR END_METHOD         
         METHOD GetRtm : IAxoRtm  END_METHOD      
+        METHOD IsValid : BOOL END_METHOD    
     END_INTERFACE    
 END_NAMESPACE
 

@@ -34,6 +34,14 @@ NAMESPACE AXOpen.Core.Dummies
         END_METHOD
            
         ///<summary>
+        /// Gets whether this context is valid.
+        ///</summary>
+        METHOD PUBLIC IsValid : BOOL
+            IsValid := TRUE;            
+        END_METHOD
+    
+
+        ///<summary>
         /// Runs the cycle of this context. This method must be called cyclically in a PLC task.
         ///</summary>
         METHOD PUBLIC Run

@@ -82,6 +82,8 @@ NAMESPACE AXOpen.Inspectors
                 inTerminateStep: IAxoStep;
             END_VAR
             // Documentation: Ensure the coordinator is set before showing the dialog.
+            _DL.SetSuspendCyclicExecuteIsNotCalledCheck(TRUE);
+            _DL.SetSuspendMultipleExecuteCallCheck(TRUE);
             _DL.Show(REF(THIS), inRetryStep, inTerminateStep);
         END_METHOD
 
@@ -263,10 +265,10 @@ NAMESPACE AXOpen.Inspectors
            
             // Documentation: Initialize the parent context and the associated inspector task.
             THIS.Run(inParent);
-            _inspectorTask.Run(inParent);
             _inspectorTask.SetSuspendMultipleExecuteCallCheck(TRUE);
-           
-
+            _inspectorTask.SetSuspendCyclicExecuteIsNotCalledCheck(TRUE);
+            _inspectorTask.Run(inParent);            
+                       
             Inspect := THIS;
             _inspectorTask.SetInspectionData(inData);
             IF(THIS.IsOverInspected())THEN
@@ -330,8 +332,9 @@ NAMESPACE AXOpen.Inspectors
             _DL._dataInspectorData := inData^;
             
             THIS.Run(inParent);
-            _inspectorTask.Run(inParent);
             _inspectorTask.SetSuspendMultipleExecuteCallCheck(TRUE);
+            _inspectorTask.SetSuspendCyclicExecuteIsNotCalledCheck(TRUE);
+            _inspectorTask.Run(inParent);
         
             
             Inspect := THIS;
@@ -406,8 +409,9 @@ NAMESPACE AXOpen.Inspectors
             _DL._digitalInspectorData := inData^;
 
             THIS.Run(inParent);
-            _inspectorTask.Run(inParent);
             _inspectorTask.SetSuspendMultipleExecuteCallCheck(TRUE);
+            _inspectorTask.SetSuspendCyclicExecuteIsNotCalledCheck(TRUE);
+            _inspectorTask.Run(inParent);
             
 
             Inspect := THIS;

@@ -30,6 +30,13 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _NowUTC : LDATE_AND_TIME;
         END_VAR       
 
+        ///<summary>
+        /// Gets whether this context is valid.
+        ///</summary>
+        METHOD PUBLIC IsValid : BOOL
+            IsValid := TRUE;            
+        END_METHOD
+
         METHOD PUBLIC Open : ULINT
             _openCounter := _openCounter + ULINT#1;
         END_METHOD    
