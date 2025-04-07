@@ -11,7 +11,57 @@
 @if (IsNoActiveOperation())
 {
     <div class="d-flex gap-2 align-items-start">
+
         <!-- Selector -->
+        <div class="position-relative flex-grow-1">
+            <button class="btn btn-outline-primary w-100 text-start" @onclick="ToggleCurrentIdsDropdown">
+                <div class="d-flex flex-row align-items-center gap-3 flex-wrap">
+
+                    @if (!string.IsNullOrEmpty(GetCurrentDataEntityId(DistributedVM.MainExchange)))
+                    {
+                        <span>@Localizer["In Plc"]: <strong>@GetCurrentDataEntityId(DistributedVM.MainExchange)</strong></span>
+                    }
+                    else
+                    {
+                        <span class="text-muted">Reload?</span>
+                    }
+                </div>
+            </button>
+
+            @if (IsCurrentIdsDropdownOpen)
+            {
+                <div class="shadow border bg-white p-2"
+                     style="position: absolute; z-index: 1000; width: 100%; min-width:600px; max-height: 600px; overflow-y: auto;">
+
+                    <div class="d-flex flex-column align-items-center gap-2">
+                        <button class="btn btn-primary" @onclick="DistributedVM.ReadAllCurrentEntityIds">Reload All</button>
+
+
+                        <table class="table table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>DataEntityId</th>
+                                    <th>@Localizer["In DataExchange"]</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach (var ex in DistributedVM.AllExchanges)
+                                {
+                                    <tr>
+                                        <td> <span> <strong>@GetCurrentDataEntityId(ex)</strong> </span></td>
+                                        <td>@ex.DataExchangeTwinObject.Symbol </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            }
+        </div>
+
+
         <div class="position-relative flex-grow-1">
             <button class="btn btn-outline-primary w-100 text-start" @onclick="ToggleDropdown">
                 <div class="d-flex flex-row align-items-center gap-3 flex-wrap">
@@ -45,19 +95,21 @@
             @if (IsDropdownOpen)
             {
                 <div class="shadow border bg-white p-2"
-                     style="position: absolute; z-index: 1000; width: 100%; max-height: 400px; overflow-y: auto;">
+                     style="position: absolute; z-index: 1000; width: 100%; min-width:600px;  max-height: 600px; overflow-y: auto;">
 
                     <div class="d-flex flex-row align-items-center gap-2">
 
                         <QuerySymbolConfigurationView SymbolConfiguration="@DistributedVM.DefaulQueryDataEntityId"
                                                       HideDescripion="true"
                                                       SymbolConfigurationChanged="
-                             () =>{ DistributedVM.FilteredPage = 0 ;DistributedVM.FillObservableRecordsAsync();}" />
+                                              ()=>
+                    { DistributedVM.FilteredPage = 0 ;DistributedVM.FillObservableRecordsAsync();}" />
 
+                        <button class="btn btn-secondary" @onclick="DistributedVM.FillObservableRecordsAsync">
+                            <i class="bi bi-search"></i>
+                        </button>
 
                     </div>
-
-
 
                     <table class="table table-hover mb-0">
                         <thead>
@@ -69,6 +121,7 @@
                                 }
                             </tr>
                         </thead>
+
                         <tbody>
                             @foreach (var rec in DistributedVM.Records)
                             {
@@ -162,13 +215,61 @@
             }
         </div>
 
+
         <!-- Send to PLC button -->
-        <div>
-            <button class="btn btn-primary" @onclick="SendToPlc">
-                @Localizer["Send To Plc"]
-            </button>
-        </div>
+        @if (!string.IsNullOrEmpty(SelectedEntity?.DataEntityId))
+        {
+            <div>
+                <button class="btn btn-primary" @onclick='()=> this.BtnOperation ="SendToPlc-Ack"'>
+                    @Localizer["Send To Plc"]
+                </button>
+            </div>
+        }
     </div>
+}
+else
+{
+
+    @if (this.BtnOperation == "SendToPlc-Ack")
+    {
+        <div class="row">
+            <div class="col">
+                <div class="d-flex gap-2 w-100">
+
+                    <div class="flex-fill">
+                        <button type="button" class="btn btn-warning w-100 px-1 py-1"
+                                @onclick="async () => {
+                                        await DistributedVM.SendToPlc(SelectedEntity.DataEntityId);
+                                        EndBtnOperation();}">
+                            <div class="d-flex flex-row justify-content-center align-items-center">
+                                <i class="bi bi-cloud-upload me-2"></i>
+                                <span>@Localizer["Send to the PLC"]: "@SelectedEntity.DataEntityId"</span>
+                            </div>
+
+                        </button>
+                    </div>
+
+
+                    <div class="flex-fill">
+                        <button type="button" class="btn btn-secondary w-100"
+                                @onclick='EndBtnOperation'>
+                            <div class="d-flex flex-row justify-content-center align-items-center">
+                                <i class="bi bi-x-circle mx-2"></i>
+                                <span>@Localizer["Close"]</span>
+                            </div>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+
+
+
+
 
 
 }
+
+

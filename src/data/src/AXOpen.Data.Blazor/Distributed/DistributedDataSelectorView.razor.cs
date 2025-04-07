@@ -41,6 +41,7 @@ namespace AXOpen.Data
         public AxoDataExchangeConfiguration ExchangeConfig { get; set; } = new();
 
         public bool IsDropdownOpen { set; get; } = false;
+        public bool IsCurrentIdsDropdownOpen { set; get; } = false;
         public string BtnOperation { get; set; } = string.Empty;
         public IBrowsableDataObject SelectedEntity { get; set; }
 
@@ -57,7 +58,17 @@ namespace AXOpen.Data
 
                 if (DataFragments != null)
                 {
-                    this.DistributedVM = new DistributedDataSelectorViewModel(DistributedExchangeService, GroupName, this.AlertService, this.InjectedPredicateContainer);
+                    DistributedVM = new DistributedDataSelectorViewModel(DistributedExchangeService, GroupName, AlertService, InjectedPredicateContainer);
+
+
+                    await DistributedVM.ReadAllCurrentEntityIds();
+                    await DistributedVM.FillObservableRecordsAsync();
+
+                    if (DistributedVM.AllExchangesHasTheSameId())
+                    {
+                        var id = (DistributedVM.MainExchange.DataExchangeTwinObject as IAxoDataEntity).DataEntityId.Cyclic;
+                        this.SelectedEntity = DistributedVM.MainExchange.GetRecords(id, 1, 0, eSearchMode.Exact, "", false).First();
+                    }
 
                     ExchangeConfig = ExchangeConfigService.GetConfigution(DistributedVM.MainExchange);
                 }
@@ -68,20 +79,40 @@ namespace AXOpen.Data
             }
         }
 
+        public string GetCurrentDataEntityId(IAxoDataExchange ex)
+        {
+            string ret = "";
+
+            if (ex != null)
+            {
+                IAxoDataEntity entity = (ex.DataExchangeTwinObject as IAxoDataEntity);
+
+                if (entity != null)
+                {
+                    ret = entity.DataEntityId.Cyclic;
+                }
+            }
+
+            return ret;
+        }
+
+
         private void ToggleDropdown()
         {
+            IsCurrentIdsDropdownOpen = false; // enable only one
             IsDropdownOpen = !IsDropdownOpen;
+        }
+
+        private void ToggleCurrentIdsDropdown()
+        {
+            IsDropdownOpen = false; // enable only one
+            IsCurrentIdsDropdownOpen = !IsCurrentIdsDropdownOpen;
         }
 
         private void SelectEntity(IBrowsableDataObject rec)
         {
             SelectedEntity = rec;
             IsDropdownOpen = false;
-        }
-
-        public async Task RefreshEntityIds()
-        {
-            await DistributedVM.FillObservableRecordsAsync();
         }
 
         public void EndBtnOperation()

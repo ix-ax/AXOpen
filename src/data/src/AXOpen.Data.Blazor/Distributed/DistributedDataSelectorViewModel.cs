@@ -27,6 +27,7 @@ namespace AXOpen.Data
 
         protected readonly PredicateContainer InjectedPredicateContainer;
         protected IEnumerable<IAxoDataExchange> RepresentativeExchanges { get; set; } // one per type
+        public IEnumerable<IAxoDataExchange> AllExchanges { get; set; } // all
         public IAxoDataExchange MainExchange { get; private set; } // firs from group, main pivot
 
         public long LastFragmentQueryCount { get; set; }
@@ -85,10 +86,9 @@ namespace AXOpen.Data
         private void InitializeViewModel()
         {
             RepresentativeExchanges = distributedExchangeService.GetExchanges(this.ExchangeGroup, true);
-
+            AllExchanges = distributedExchangeService.GetExchanges(this.ExchangeGroup, false);
             MainExchange = RepresentativeExchanges.First();
 
-            FillObservableRecordsAsync();
         }
 
         public PredicateContainer BuidDefaultPredicates()
@@ -110,53 +110,55 @@ namespace AXOpen.Data
 
         public Task FillObservableRecordsAsync()
         {
-            PredicateContainer? predicates = BuidDefaultPredicates();
-
-            List<List<string>> fragmentEntities = new();
-
-            List<string> commonEntities = new();
-
-            if (predicates != null)
+            return Task.Run(() =>
             {
-                Parallel.ForEach(RepresentativeExchanges.Where(fragment => predicates.ContainsType(fragment.GetPlainTypes().First())), fragment =>
-                {
-                    var ids = fragment.GetEntityIds(predicates).ToList();
+                PredicateContainer? predicates = BuidDefaultPredicates();
 
-                    lock (_fragmentEntityIdsLock)
+                List<List<string>> fragmentEntities = new();
+
+                List<string> commonEntities = new();
+
+                if (predicates != null)
+                {
+                    Parallel.ForEach(RepresentativeExchanges.Where(fragment => predicates.ContainsType(fragment.GetPlainTypes().First())), fragment =>
                     {
-                        fragmentEntities.Add(ids);
-                    }
-                });
+                        var ids = fragment.GetEntityIds(predicates).ToList();
 
-                commonEntities.AddRange(fragmentEntities.Count > 1
-                     ? fragmentEntities.Skip(1)
-                         .Aggregate(new HashSet<string>(fragmentEntities.First()), (common, next) =>
-                         {
-                             common.IntersectWith(next);
-                             return common;
-                         })
-                         .ToList()
-                     : fragmentEntities.FirstOrDefault() ?? new List<string>()
-                     );
+                        lock (_fragmentEntityIdsLock)
+                        {
+                            fragmentEntities.Add(ids);
+                        }
+                    });
 
-                LastFragmentQueryCount = commonEntities.Count;
-            }
+                    commonEntities.AddRange(fragmentEntities.Count > 1
+                         ? fragmentEntities.Skip(1)
+                             .Aggregate(new HashSet<string>(fragmentEntities.First()), (common, next) =>
+                             {
+                                 common.IntersectWith(next);
+                                 return common;
+                             })
+                             .ToList()
+                         : fragmentEntities.FirstOrDefault() ?? new List<string>()
+                         );
 
-            lock (_transmitedEntityIdsLock)
-            {
-                EntityIdsTransmited.Clear();
-                if (commonEntities.Count > 0)
-                {
-                    EntityIdsTransmited.AddRange(commonEntities);
+                    LastFragmentQueryCount = commonEntities.Count;
                 }
-            }
 
-            if (predicates == null)
-                predicates = new PredicateContainer();
+                lock (_transmitedEntityIdsLock)
+                {
+                    EntityIdsTransmited.Clear();
+                    if (commonEntities.Count > 0)
+                    {
+                        EntityIdsTransmited.AddRange(commonEntities);
+                    }
+                }
 
-            var res  = this.Filter(predicates, FilteredPageLimit, FilteredPage * FilteredPageLimit);
+                if (predicates == null)
+                    predicates = new PredicateContainer();
 
-            return Task.CompletedTask;
+                var res = this.Filter(predicates, FilteredPageLimit, FilteredPage * FilteredPageLimit);
+
+            });
         }
 
         public virtual IEnumerable<IBrowsableDataObject> Filter(PredicateContainer predicates, int limit = 10, int skip = 0)
@@ -222,7 +224,7 @@ namespace AXOpen.Data
                     {
                         notExistInDb.Add(exchange.DataExchangeTwinObject.Symbol);
                     }
-                    continue; // record not exist, continue 
+                    continue; // record not exist, continue
                 }
 
                 foreach (var exchange in exchangeGroup)
@@ -244,6 +246,34 @@ namespace AXOpen.Data
                 string notEqualEntityIds = string.Join(", ", notExistInDb);
                 AlertService?.AddAlertDialog(eAlertType.Warning, "Send error", $"Rrecord has not exist in a Database for: {notEqualEntityIds}!", 14);
             }
+        }
+
+        public async Task ReadAllCurrentEntityIds()
+        {
+            foreach (var ExsOnConnector in AllExchanges.GroupBy(p => p.DataExchangeTwinObject.GetConnector()))
+            {
+                List<ITwinPrimitive> toRead = new();
+                Connector connector = ExsOnConnector.First().DataExchangeTwinObject.GetConnector();
+
+                foreach (var exchange in ExsOnConnector)
+                {
+                    toRead.Add((exchange.DataExchangeTwinObject as IAxoDataEntity).DataEntityId);
+                }
+
+                await connector.ReadBatchAsync(toRead);
+            }
+        }
+
+        public bool AllExchangesHasTheSameId()
+        {
+            if (MainExchange.DataExchangeTwinObject is not IAxoDataEntity mainEntity)
+                return false;
+
+            var mainId = mainEntity.DataEntityId.Cyclic;
+
+            return !string.IsNullOrEmpty(mainId) &&
+                   AllExchanges.All(ex =>
+                       (ex.DataExchangeTwinObject as IAxoDataEntity)?.DataEntityId.Cyclic == mainId);
         }
 
     }
