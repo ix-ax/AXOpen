@@ -69,6 +69,23 @@ NAMESPACE AXOpen.Elements
         END_VAR
         //</AxoAoInitializationArgumentsDeclaration>
 
+        //<AxoCarouselDeclaration>
+        VAR PUBLIC
+            _testCarousel : AXOpen.Elements.AxoCarousel;
+        END_VAR
+        //</AxoCarouselDeclaration>
+
+        //<AxoCarouselInitializationArgumentsDeclaration>
+        VAR PUBLIC
+                _testCarouselSafetyCondition    :   BOOL;
+            	_testCarouselInPosition         :   BOOL;
+            	_testCarouselInPrecisePosition  :   BOOL;                
+                _testCarouselCodingPosition     :   UINT;
+                _testCarouselEnableTurn         :   BOOL;
+                _testCarouselStartTurn          :   BOOL;
+        END_VAR
+        //</AxoCarouselInitializationArgumentsDeclaration>
+
         METHOD PUBLIC Main
             VAR_INPUT
                 parent  : IAxoObject;
@@ -121,6 +138,26 @@ NAMESPACE AXOpen.Elements
             //<AxoAoInitialization>
             _testAo.Run(THIS, _testAoOutput);
             //</AxoAoInitialization>
+
+            //<AxoCarouselManualControl>
+            _testCarousel.ActivateManualControl();
+            //</AxoCarouselManualControl>
+
+            //<AxoCarouselInitialization>
+            _testCarousel.Config.ErrorTime:=T#10S;
+            _testCarousel.Config.InfoTime:=T#2S;
+            _testCarousel.Config.Direction:=eAxoCarouselDirection#Cw;
+            _testCarousel.Config.NumberOfPositions:=UINT#8;
+            _testCarousel.Config.Offset:=UINT#2;
+
+            _testCarousel.Run(  parent              :=  THIS,
+                                SafetyCondition     :=  _testCarouselSafetyCondition,
+                                InPosition          :=  _testCarouselInPosition,
+                                InPrecisePosition   :=  _testCarouselInPrecisePosition,
+                                CodingPosition      :=  _testCarouselCodingPosition,
+                                EnableTurn          =>  _testCarouselEnableTurn,
+                                StartTurn           =>  _testCarouselStartTurn);
+            //</AxoCarouselInitialization>
         END_METHOD
     END_CLASS
 END_NAMESPACE
