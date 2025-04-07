@@ -36,7 +36,7 @@
             @if (IsCurrentIdsDropdownOpen)
             {
                 <div class="shadow border bg-white p-2"
-                style="position: absolute; z-index: 1000; width: 100%; min-width:600px; max-height: 600px; overflow-y: auto;">
+                     style="position: absolute; z-index: 1000; width: 100%; min-width:600px; max-height: 600px; overflow-y: auto;">
 
                     <div class="d-flex flex-column align-items-center gap-2">
                         <button class="btn btn-primary w-100" @onclick="DistributedVM.ReadAllCurrentEntityIds">Reload All</button>
@@ -232,11 +232,15 @@
         <!-- Send to PLC button -->
         @if (!string.IsNullOrEmpty(SelectedEntity?.DataEntityId))
         {
-            <div>
-                <button class="btn btn-primary" @onclick='()=> this.BtnOperation ="SendToPlc-Ack"'>
-                    @Localizer["Send To Plc"]
-                </button>
-            </div>
+            <AuthorizeView Roles="@DataExchangeRoleNames.can_data_send_to_plc">
+                <Authorized>
+                    <div>
+                        <button class="btn btn-primary" @onclick='()=> this.BtnOperation ="SendToPlc-Ack"'>
+                            @Localizer["Send To Plc"]
+                        </button>
+                    </div>
+                </Authorized>
+            </AuthorizeView>
         }
     </div>
 }
@@ -250,17 +254,21 @@ else
                 <div class="d-flex gap-2 w-100">
 
                     <div class="flex-fill">
-                        <button type="button" class="btn btn-warning w-100 px-1 py-1"
-                                @onclick="async () => {
+                        <AuthorizeView Roles="@DataExchangeRoleNames.can_data_send_to_plc">
+                            <Authorized>
+                                <button type="button" class="btn btn-warning w-100 px-1 py-1"
+                                        @onclick="async () => {
                                         await DistributedVM.SendToPlc(SelectedEntity.DataEntityId);
                                         await DistributedVM.ReadAllCurrentEntityIds();
                                         EndBtnOperation();}">
-                            <div class="d-flex flex-row justify-content-center align-items-center">
-                                <i class="bi bi-cloud-upload me-2"></i>
-                                <span>@Localizer["Send to the PLC"]: "@SelectedEntity.DataEntityId"</span>
-                            </div>
+                                    <div class="d-flex flex-row justify-content-center align-items-center">
+                                        <i class="bi bi-cloud-upload me-2"></i>
+                                        <span>@Localizer["Send to the PLC"]: "@SelectedEntity.DataEntityId"</span>
+                                    </div>
 
-                        </button>
+                                </button>
+                            </Authorized>
+                        </AuthorizeView>
                     </div>
 
 

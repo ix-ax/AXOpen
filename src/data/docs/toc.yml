@@ -31,3 +31,5 @@
       href: DistributedDataExchange_Filter.md
     - name: ColumnData
       href: DistributedDataExchange_ColumnData.md
+    - name: Data Selector
+      href: DistributedDataExchange_DataSelector.md
