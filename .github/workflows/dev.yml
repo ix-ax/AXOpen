@@ -30,7 +30,6 @@ jobs:
         fetch-depth: '0'   
 
     - name: Get Branch Name
-      shell: pwsh
       run: |
         if ($env:GITHUB_REF -like "refs/pull/*") {
           $BRANCH_NAME = "${{ github.event.pull_request.head.ref }}"
@@ -39,21 +38,23 @@ jobs:
         }
         Write-Host "Triggered on branch: $BRANCH_NAME"
         "BRANCH_NAME=$BRANCH_NAME" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+      shell: pwsh
 
     - name: Get Short Commit SHA
-      shell: pwsh
       run: |
           $currentSHA = git rev-parse --short HEAD
           "CURRENT_SHA=$currentSHA" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8  
+      shell: pwsh
 
     - name: Setup
-      shell: pwsh
       run: |
         "TEST_EXIT_CODE=123" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
         "PACK_EXIT_CODE=123" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+      shell: pwsh
 
     - name: "Build  script"  
       run: dotnet build cake/Build.csproj
+      shell: pwsh
                        
     - name: "Run build script"
       continue-on-error: true     
@@ -63,6 +64,7 @@ jobs:
       run: |
         dotnet run --project cake/Build.csproj --do-test --do-pack --test-level 2
         "TEST_EXIT_CODE=$LASTEXITCODE" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+      shell: pwsh
       
     - name: "Publish packages"
       continue-on-error: true     
@@ -73,9 +75,9 @@ jobs:
       run: |
         dotnet run --project cake/Build.csproj --do-publish-only --do-publish --do-publish-release
         "PACK_EXIT_CODE=$LASTEXITCODE" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+      shell: pwsh
 
     - name: Display workflow details in Summary
-      shell: pwsh
       run: |
         if($env:TEST_EXIT_CODE -eq "123")
         {
@@ -102,9 +104,9 @@ jobs:
           $PACK_RESULT = "FAILED"
         }
         "### Runner name: $env:RUNNER_NAME ::: Branch name: $env:BRANCH_NAME ::: Commit SHA: $env:CURRENT_SHA ::: Test result: $TEST_RESULT ::: Pack result: $Pack_RESULT"  | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
+      shell: pwsh
 
     - name: Evaluate final result
-      shell: pwsh
       run: |
           if($env:TEST_EXIT_CODE -eq "123")
           {
@@ -132,5 +134,6 @@ jobs:
             echo "Packaging failed."
             Exit 1
           }      
+      shell: pwsh
        
           
