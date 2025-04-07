@@ -5,47 +5,47 @@
 
 @if (IsString)
 {
-    <input type="text" @bind="BoundString" class="form-control" />
+    <input type="text" @bind="BoundString" @bind:event="oninput" class="form-control" />
 }
 else if (IsBool)
 {
-    <input type="checkbox" @bind="BoundBool" class="form-check-input" />
+    <input type="checkbox" @bind="BoundBool" @bind:event="oninput" class="form-check-input" />
 }
-else if (IsInteger)
+else if (IsInteger) 
 {
-    <input type="number" @bind="BoundInteger" class="form-control" min="@MinValueInteger" max="@MaxValueInteger" step="1" />
+    <input type="number" @bind="BoundInteger" @bind:event="oninput" class="form-control" min="@MinValueInteger" max="@MaxValueInteger" step="1" />
 }
 else if (IsUnsignedInteger)
 {
-    <input type="number" @bind="BoundUnsignedInteger" class="form-control" min="@MinValueUnsignedInteger" max="@MaxValueUnsignedInteger" step="1" />
+    <input type="number" @bind="BoundUnsignedInteger" @bind:event="oninput" class="form-control" min="@MinValueUnsignedInteger" max="@MaxValueUnsignedInteger" step="1" />
 }
 else if (IsFloatingPoint)
 {
-    <input type="number" @bind="BoundFloatingPoint" class="form-control" min="@MinValueFloatingNumber" max="@MaxValueFloatingNumber" step="any" />
+    <input type="number" @bind="BoundFloatingPoint" @bind:event="oninput" class="form-control" min="@MinValueFloatingNumber" max="@MaxValueFloatingNumber" step="any" />
 }
 else if (IsChar)
 {
-    <input type="text" maxlength="1" @bind="BoundChar" class="form-control" />
+    <input type="text" maxlength="1" @bind="BoundChar" @bind:event="oninput" class="form-control" />
 }
 else if (IsDateTime)
 {
-    <input type="datetime-local" @bind="BoundDateTime" class="form-control" min="@MinDateTime" max="@MaxDateTime" />
+    <input type="datetime-local" @bind="BoundDateTime" @bind:event="oninput" class="form-control" min="@MinDateTime" max="@MaxDateTime" />
 }
 else if (IsDateOnly)
 {
-    <input type="date" @bind="BoundDateOnly" class="form-control" min="@MinDate" max="@MaxDate" />
+    <input type="date" @bind="BoundDateOnly" @bind:event="oninput" class="form-control" min="@MinDate" max="@MaxDate" />
 }
 else if (IsTimeOnly)
 {
-    <input type="time" @bind="BoundTimeOnly" class="form-control" min="@MinTime" max="@MaxTime" />
+    <input type="time" @bind="BoundTimeOnly" @bind:event="oninput" class="form-control" min="@MinTime" max="@MaxTime" />
 }
 else if (IsTimeSpan)
 {
-    <input type="text" placeholder="hh:mm:ss" @bind="BoundTimeSpan" class="form-control" />
+    <input type="text" placeholder="hh:mm:ss" @bind="BoundTimeSpan" @bind:event="oninput"  class="form-control" />
 }
 else if (IsEnum)
 {
-    <select @bind="BoundEnum" class="form-control">
+    <select @bind="BoundEnum" @bind:event="oninput" class="form-control">
         @foreach (var option in EnumOptions)
         {
             <option value="@option">@option</option>

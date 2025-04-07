@@ -156,9 +156,16 @@ builder.Services.AddSingleton<IAxoDataExchangeConfigurationService>(exchangeConf
 // ...
 
 // Or collect them automatically using reflection:
+
 distributedDataService.CollectAxoDataExchanges(Entry.Plc.AxoDataDistributedContext.ControlledUnit_1);
 distributedDataService.CollectAxoDataExchanges(Entry.Plc.AxoDataDistributedContext.ControlledUnit_2);
 
+
+//Set up prioritized exchange type
+distributedDataService.SetPrioritizedType(typeof(Pocos.AxoDataDistributedExample.SharedHeader_Data));
+
+// sort all collected groups
+distributedDataService.SortGroupsByPriorizedTypes();
 //</CollectingExchanges>
 
 //<AxoDataExchangeConfigurationService>

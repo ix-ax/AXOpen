@@ -381,7 +381,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     public async Task InitializeRemoteDataExchange()
     {
         Operation.InitializeExclusively(Handle);
-        await this.WriteAsync();
+        await Operation.WriteAsync();
         //_idExistsTask.InitializeExclusively(Exists);
         //_createOrUpdateTask.Initialize(CreateOrUpdate);
     }

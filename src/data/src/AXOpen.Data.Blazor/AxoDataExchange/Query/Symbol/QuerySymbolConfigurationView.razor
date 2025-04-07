@@ -7,13 +7,13 @@
     {
         <label> @SymbolConfiguration.SymbolPathWithParent</label>
     }
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@SymbolConfiguration.Operation</button>
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Operation</button>
 
     <ul class="dropdown-menu">
 
         @foreach (var operation in OperationProvider.GetOperationsForType(SymbolConfiguration.SymbolType))
         {
-            <li><a class="dropdown-item @(@SymbolConfiguration.Operation == operation ? "active" : "")" style="cursor: pointer" @onclick="() => {SymbolConfiguration.Operation = operation;}">@operation</a></li>
+            <li><a class="dropdown-item @(@SymbolConfiguration.Operation == operation ? "active" : "")" style="cursor: pointer" @onclick="() => {Operation = operation;}">@operation</a></li>
         }
 
     </ul>
@@ -24,13 +24,13 @@
         {
             <label>@Localizer["Min"]</label>
         }
-        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="SymbolConfiguration.MinOrValue"></DynamicInput>
+        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="MinOrValue"></DynamicInput>
 
         if (!HideDescripion)
         {
             <label>@Localizer["Max"]</label>
         }
-        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="@SymbolConfiguration.Max"></DynamicInput>
+        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="@Max"></DynamicInput>
     }
     else
     {
@@ -39,7 +39,7 @@
         {
             <label for="minOrValue">@Localizer["Value"]</label>
         }
-        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="@SymbolConfiguration.MinOrValue"></DynamicInput>
+        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="@MinOrValue"></DynamicInput>
     }
 
 </div>
