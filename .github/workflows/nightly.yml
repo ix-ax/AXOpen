@@ -15,7 +15,6 @@ jobs:
         fetch-depth: '0'   
 
     - name: Get Branch Name
-      shell: pwsh
       run: |
         if ($env:GITHUB_REF -like "refs/pull/*") {
           $BRANCH_NAME = "${{ github.event.pull_request.head.ref }}"
@@ -24,62 +23,64 @@ jobs:
         }
         Write-Host "Triggered on branch: $BRANCH_NAME"
         "BRANCH_NAME=$BRANCH_NAME" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+      shell: pwsh
 
     - name: Get Short Commit SHA
-      shell: pwsh
       run: |
           $currentSHA = git rev-parse --short HEAD
           "CURRENT_SHA=$currentSHA" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+      shell: pwsh
 
     - name: Setup
-      shell: pwsh
       run: |
         "TEST_EXIT_CODE=123" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
         "PACK_EXIT_CODE=123" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+      shell: pwsh
 
     - name: Set default value for SKIP_STEPS
-      shell: pwsh
       run: |
             "SKIP_STEPS=false" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+      shell: pwsh
 
     - name: Fetch Stored Commit SHA from Repository Variable
       if: github.ref == 'refs/heads/dev' && github.event_name != 'workflow_dispatch'  
-      shell: pwsh
       run: |
           $storedSHA = gh variable get LAST_DEV_COMMIT_SHA --json value | ConvertFrom-Json | Select-Object -ExpandProperty value
           "STORED_SHA=$storedSHA" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
       env:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}
+      shell: pwsh
     
     - name: Fetch Stored APP_RUN_RESULT from Repository Variable
       if: github.ref == 'refs/heads/dev' && github.event_name != 'workflow_dispatch'  
-      shell: pwsh
       run: |
           $appRunResult = gh variable get APP_RUN_RESULT --json value | ConvertFrom-Json | Select-Object -ExpandProperty value
           "APP_RUN_RESULT=$appRunResult" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
       env:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}
+      shell: pwsh
     
     - name: Compare Commit SHAs and previous result
       if: github.ref == 'refs/heads/dev' && github.event_name != 'workflow_dispatch'  
-      shell: pwsh
       run: |
           if ($env:CURRENT_SHA -eq $env:STORED_SHA && $env:APP_RUN_RESULT -eq "1") {
             echo "SHA Match: Skipping Steps"
             "SKIP_STEPS=true" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
           } 
+      shell: pwsh
 
     - name: Reset APP_RUN_RESULT in Repository Variable
       if: env.SKIP_STEPS == 'false'
-      shell: pwsh
       run: |
         gh variable set APP_RUN_RESULT --body "0"
       env:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}
+      shell: pwsh
 
     - name: "Build  script"  
       if: env.SKIP_STEPS == 'false'
       run: dotnet build cake/Build.csproj
+      shell: pwsh
                        
     - name: "Run build script"
       continue-on-error: true     
@@ -90,18 +91,18 @@ jobs:
       run: |
         dotnet run --project cake/Build.csproj --apps-run
         "TEST_EXIT_CODE=$LASTEXITCODE" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+      shell: pwsh
 
     - name: Store Commit SHA in Repository Variable
       if: env.SKIP_STEPS == 'false'
-      shell: pwsh
       run: |
         gh variable set LAST_DEV_COMMIT_SHA --body "$env:CURRENT_SHA"
       env:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}
+      shell: pwsh
 
     - name: Set APP_RUN_RESULT
       if: env.SKIP_STEPS == 'false'
-      shell: pwsh
       run: |
         if ($env:TEST_EXIT_CODE -eq "0") {
             echo "Tests passed. Setting APP_RUN_RESULT=1"
@@ -111,9 +112,9 @@ jobs:
         }
       env:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}            
+      shell: pwsh
 
     - name: Display workflow details in Summary
-      shell: pwsh
       run: |
         if($env:TEST_EXIT_CODE -eq "123")
         {
@@ -128,10 +129,10 @@ jobs:
           $TEST_RESULT = "FAILED"
         }      
         "### Runner name: $env:RUNNER_NAME ::: Branch name: $env:BRANCH_NAME ::: Commit SHA: $env:CURRENT_SHA ::: Test result: $TEST_RESULT" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
+      shell: pwsh
 
     - name: Evaluate final result
       if: env.SKIP_STEPS == 'false'
-      shell: pwsh
       run: |
         if($env:TEST_EXIT_CODE -eq "123")
         {
@@ -146,3 +147,4 @@ jobs:
           echo "Tests failed."
           Exit 1
         }      
+      shell: pwsh

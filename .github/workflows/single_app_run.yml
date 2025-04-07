@@ -47,7 +47,6 @@ jobs:
         fetch-depth: '0'   
 
     - name: Get Branch Name
-      shell: pwsh
       run: |
         if ($env:GITHUB_REF -like "refs/pull/*") {
           $BRANCH_NAME = "${{ github.event.pull_request.head.ref }}"
@@ -56,27 +55,29 @@ jobs:
         }
         Write-Host "Triggered on branch: $BRANCH_NAME"
         "BRANCH_NAME=$BRANCH_NAME" | Out-File -FilePath $env:GITHUB_ENV -Append
+      shell: pwsh
 
     - name: Get Short Commit SHA
-      shell: pwsh
       run: |
           $currentSHA = git rev-parse --short HEAD
           "CURRENT_SHA=$currentSHA" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8  
+      shell: pwsh
 
     - name: Setup
-      shell: pwsh
       run: |
         "TEST_EXIT_CODE=123" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+      shell: pwsh
 
     - name: Print and store library folder
-      shell: pwsh
       run: |
         $APP_FOLDER = "${{ inputs.folder }}"
         Write-Host "Selected folder: $APP_FOLDER"
         "APP_FOLDER=$APP_FOLDER" | Out-File -FilePath $env:GITHUB_ENV -Append
+      shell: pwsh
 
     - name: "Build cake"  
       run: dotnet build cake/Build.csproj
+      shell: pwsh
                        
     - name: "Run cake with single app"
       continue-on-error: true     
@@ -86,9 +87,9 @@ jobs:
       run: |
         dotnet run --project cake/Build.csproj --skip-build --apps-run --single-app-run-folder-name $env:APP_FOLDER
         "TEST_EXIT_CODE=$LASTEXITCODE" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+      shell: pwsh
 
     - name: Display workflow details in Summary
-      shell: pwsh
       run: |
         if($env:TEST_EXIT_CODE -eq "123")
         {
@@ -103,9 +104,9 @@ jobs:
           $TEST_RESULT = "FAILED"
         }
         "### Runner name: $env:RUNNER_NAME ::: Branch name: $env:BRANCH_NAME ::: Library folder: $env:APP_FOLDER ::: Commit SHA: $env:CURRENT_SHA ::: Test result: $TEST_RESULT"  | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
+      shell: pwsh
 
     - name: Evaluate final result
-      shell: pwsh
       run: |
           if($env:TEST_EXIT_CODE -eq "123")
           {
@@ -120,4 +121,5 @@ jobs:
             echo "Tests failed."
             Exit 1
           }      
+      shell: pwsh
 
