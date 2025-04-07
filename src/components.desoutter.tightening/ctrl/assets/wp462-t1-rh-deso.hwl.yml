@@ -10,7 +10,7 @@ Devices:
       Label: X1
       Addresses:
         Configured:
-        - IPv4: 10.10.10.52/24
+        - IPv4: 192.168.100.52/24
         - ProfinetDeviceName: wp462-t1-rh-deso
   - Name: Input_1_byte_1
     TypeIdentifier:

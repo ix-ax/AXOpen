@@ -104,5 +104,9 @@ NAMESPACE AXOpen.Timers_tests
     
         METHOD PUBLIC GetRtm : IAxoRtm GetRtm := _rtm; END_METHOD
         METHOD PUBLIC InjectRtm VAR_INPUT inRtm : IAxoRtm; END_VAR _rtm := inRtm; END_METHOD
+    
+        METHOD PUBLIC IsValid : BOOL
+            IsValid := TRUE;
+        END_METHOD
     END_CLASS      
 END_NAMESPACE

@@ -34,6 +34,8 @@ NAMESPACE AXOpen.Core
                 RETURN; 
             END_IF;
 
+            SUPER.SetSuspendCyclicExecuteIsNotCalledCheck(TRUE); 
+            
             SUPER.Run(inParent);
 
             IF NOT THIS.IsInitialized THEN // dialog is not observed/monitored by server

@@ -1,4 +1,5 @@
 USING AXOpen.Messaging;
+USING AXOpen.Messaging.Static;
 USING AXOpen.Logging;
 USING AXOpen.Rtc;
 USING AXOpen.Rtm;
@@ -6,7 +7,7 @@ USING AXOpen.Rtm;
 NAMESPACE AXOpen.Core
     ///<summary>
     /// Provides an empty context for uninitialized objects.
-    ///</summary>    
+    ///</summary>       
     CLASS PUBLIC _NULL_CONTEXT IMPLEMENTS IAxoContext
         VAR PRIVATE
             {S7.extern=Hidden}            
@@ -14,9 +15,16 @@ NAMESPACE AXOpen.Core
             {S7.extern=Hidden}
             NULL_LOGGER : _NULL_LOGGER;
             {S7.extern=Hidden}
-            NULL_RTM : _NULL_RTM;
+            NULL_RTM : _NULL_RTM;           
         END_VAR
 
+        ///<summary>
+        /// Gets whether this context is valid.
+        ///</summary>
+        METHOD PUBLIC IsValid : BOOL
+            IsValid := FALSE;            
+        END_METHOD
+    
         METHOD PUBLIC CreateIdentity : ULINT CreateIdentity := ULINT#0; END_METHOD
         METHOD PUBLIC OpenCycleCount : ULINT OpenCycleCount := ULINT#0; END_METHOD                                         
         METHOD PUBLIC GetRtc : IAxoRtc GetRtc := NULL_RTC; END_METHOD
@@ -25,9 +33,11 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC InjectLogger VAR_INPUT _logger : IAxoLogger; END_VAR ; END_METHOD           
         METHOD PUBLIC GetRtm : IAxoRtm GetRtm :=  NULL_RTM; END_METHOD
         METHOD PUBLIC InjectRtm VAR_INPUT rtm : IAxoRtm; END_VAR ; END_METHOD           
-        METHOD PUBLIC InitializeRootObject VAR_IN_OUT inoRootObject : AxoObject; END_VAR ; END_METHOD
+        METHOD PUBLIC InitializeRootObject VAR_IN_OUT inoRootObject : AxoObject; END_VAR ; END_METHOD         
     END_CLASS    
 
+
+    
     ///<summary>
     /// Provides an empty object for uninitialized objects.
     ///</summary>    
@@ -69,17 +79,24 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC GetParent : IAxoObject
             GetParent := THIS;
         END_METHOD
+    
+        ///<summary>
+        /// Gets whether this object is valid.
+        ///</summary>
+        METHOD PUBLIC IsValid : BOOL
+            IsValid := FALSE;
+        END_METHOD
     END_CLASS    
 
     ///<summary>
     /// Provides an empty RTC object for uninitialized RTC.
     ///</summary>
     {S7.extern=ReadWrite}
-    CLASS PUBLIC _NULL_RTC IMPLEMENTS IAxoRtc
-        VAR PRIVATE
-            _null_time : LDATE_AND_TIME := LDATE_AND_TIME#1970-01-01-00:00:00.000;
-        END_VAR
+    CLASS PUBLIC _NULL_RTC IMPLEMENTS IAxoRtc       
         METHOD PUBLIC NowUTC : LDATE_AND_TIME
+            VAR
+                _null_time : LDATE_AND_TIME := LDATE_AND_TIME#1970-01-01-00:00:00.000;
+            END_VAR    
             NowUTC := _null_time;
         END_METHOD
     END_CLASS    
@@ -119,12 +136,11 @@ NAMESPACE AXOpen.Core
     /// Provides an empty RTC object for uninitialized RTC.
     ///</summary>
     {S7.extern=ReadWrite}
-    CLASS PUBLIC _NULL_RTM IMPLEMENTS IAxoRtm
-        VAR PRIVATE
-            _null_time : LTIME;
-        END_VAR
-           
+    CLASS PUBLIC _NULL_RTM IMPLEMENTS IAxoRtm                 
         METHOD PUBLIC Elapsed : LTIME
+            VAR
+                _null_time : LTIME;
+            END_VAR    
             Elapsed := _null_time;
         END_METHOD
     END_CLASS 

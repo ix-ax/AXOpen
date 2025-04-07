@@ -36,48 +36,56 @@ namespace AXOpen.Logging
         {
             await Task.Run(async () =>
             {
-                var dequeued = new List<OnlinerBool>();
-                var index = 0;
-                var caretValue = await this.Carret.GetAsync();
-                var toDequeue = this.LogEntries.Take(caretValue).ToArray();
-
-                if (toDequeue.Length <= 0)
-                    return;
-
-                var a = toDequeue.SelectMany(p => p.GetValueTags()).ToArray();
-                await this.GetConnector()?.ReadBatchAsync(a)!;
-
-                foreach (var entry in toDequeue.Where(p => p.ToDequeue.LastValue))
+                try
                 {
-                    var senderIdentity = entry.Sender.LastValue;
-                    var sender = entry.GetConnector().IdentityProvider.GetTwinByIdentity(senderIdentity) as ITwinObject;
-                    var message = string.Empty;
-                    var level = (eLogLevel)entry.Level.LastValue;
+                    var dequeued = new List<OnlinerBool>();
+                    var index = 0;
+                    var caretValue = await this.Carret.GetAsync();
+                    var toDequeue = this.LogEntries.Take(caretValue).ToArray();
 
-                    switch (sender)
+                    if (toDequeue.Length <= 0)
+                        return;
+
+                    var a = toDequeue.SelectMany(p => p.GetValueTags()).ToArray();
+                    await this.GetConnector()?.ReadBatchAsync(a)!;
+
+                    foreach (var entry in toDequeue.Where(p => p.ToDequeue.LastValue))
                     {
-                        case AxoMessenger messenger:
-                            await messenger.ReadAsync();
-                            message = $"{entry.Message.LastValue} : {messenger.GetMessageText()}";
-                            break;
-                        case AxoStep step:
-                            await step.ReadAsync();
-                            message = $"Step : {entry.Message.LastValue} : {step.StepDescription.LastValue ?? step.Description}";
-                            break;
-                        case null:
-                            message = $"{entry.Message.LastValue} : [no identity provided '{entry.Sender.LastValue}']";
-                            break;
-                        default:
-                            message = entry.Message.LastValue;
-                            break;
+                        var senderIdentity = entry.Sender.LastValue;
+                        var sender = entry.GetConnector().IdentityProvider.GetTwinByIdentity(senderIdentity) as ITwinObject;
+                        var message = string.Empty;
+                        var level = (eLogLevel)entry.Level.LastValue;
+
+                        switch (sender)
+                        {
+                            case AxoMessenger messenger:
+                                await messenger.ReadAsync();
+                                message = $"{entry.Message.LastValue} : {messenger.GetMessageText()}";
+                                break;
+                            case AxoStep step:
+                                await step.ReadAsync();
+                                message = $"Step : {entry.Message.LastValue} : {step.StepDescription.LastValue ?? step.Description}";
+                                break;
+                            case null:
+                                message = $"{entry.Message.LastValue} : [no identity provided '{entry.Sender.LastValue}']";
+                                break;
+                            default:
+                                message = entry.Message.LastValue;
+                                break;
+                        }
+
+                        CreateLogEntry(level, $"{message}", sender);
+                        dequeued.Add(entry.ToDequeue);                    
+                        entry.ToDequeue.Cyclic = false;
                     }
 
-                    CreateLogEntry(level, $"{message}", sender);
-                    dequeued.Add(entry.ToDequeue);                    
-                    entry.ToDequeue.Cyclic = false;
-                }
-
-                this.LogEntries.FirstOrDefault()?.GetConnector().WriteBatchAsync(dequeued);
+                    await this.GetConnector().WriteBatchAsync(dequeued);
+                    }
+                    catch (Exception e)
+                    {
+                        AxoApplication.Current.Logger.Information($"There was in issue with getting logs from `{this.Carret.Symbol}`", this, new GenericIdentity("anonymous"), this);
+                    }
+               
             });
         }
 

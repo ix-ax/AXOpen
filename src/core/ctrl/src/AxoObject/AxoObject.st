@@ -16,7 +16,13 @@ NAMESPACE AXOpen.Core
             {#ix-attr:[CompilerOmits("POCO")]}     
             {#ix-attr:[IgnoreOnPocoOperation()]}  
             {#ix-attr:[RenderIgnore()]}
-            MsgCnt   : LINT := LINT#0;    
+            MsgCnt   : LINT := LINT#0; 
+            
+            {#ix-attr:[CompilerOmits("POCO")]}     
+            {#ix-attr:[IgnoreOnPocoOperation()]}  
+            {#ix-attr:[RenderIgnore()]}
+            {#ix-attr:[ReadOnly()]}
+            _dg_   : BYTE;            
         END_VAR    
 
         VAR PRIVATE           
@@ -45,11 +51,12 @@ NAMESPACE AXOpen.Core
         ///<summary>
         /// Gets context in which this object was initialized.
         ///</summary>
-        METHOD PUBLIC GetContext : IAxoContext
-            IF(_context <> NULL) THEN
-                GetContext := _context;
+        METHOD PUBLIC GetContext : IAxoContext             
+            IF(_context <> NULL) THEN                
+                GetContext := _context;                                
+                _dg_.%X0 := FALSE;
             ELSE
-                // TODO provide some message 
+                _dg_.%X0 := TRUE;
                 GetContext := NULL_CONTEXT;                    
             END_IF;    
         END_METHOD
@@ -67,8 +74,9 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC GetParent : IAxoObject
             IF(_context <> NULL) THEN
                 GetParent := _parent;
-            ELSE
-                // TODO provide some message 
+                _dg_.%X1 := FALSE;
+            ELSE                
+                _dg_.%X1 := TRUE;
                 GetParent := NULL_OBJECT;    
             END_IF;    
         END_METHOD
@@ -184,5 +192,13 @@ NAMESPACE AXOpen.Core
 
             _lastMessageAggregationCycle := _context.OpenCycleCount();  
         END_METHOD    
+    
+
+        ///<summary>
+        /// Gets whether this object is valid.
+        ///</summary>
+        METHOD PUBLIC IsValid : BOOL
+            IsValid := TRUE;
+        END_METHOD
     END_CLASS    
 END_NAMESPACE    

@@ -10,9 +10,28 @@ namespace AXOpen.Data
 {
     public static class DataExchangeRoleNames
     {
+        public static IEnumerable<Role> GetRoles()
+        {
+            return new []
+            {
+                new Role(nameof(can_data_item_create)),
+                new Role(nameof(can_data_item_edit)),
+                new Role(nameof(can_data_item_copy)),
+                new Role(nameof(can_data_item_delete)),
+
+                new Role(nameof(can_data_send_to_plc)),
+                new Role(nameof(can_data_load_from_plc)),
+                new Role(nameof(can_data_update_from_plc)),
+
+                new Role(nameof(can_data_export)),
+                new Role(nameof(can_data_import)),
+
+                new Role(nameof(can_data_filter_advanced)),
+            };
+        }
         // insert all new role names in the middle of documentation tag
         //<DataExchangeRoleNames>
-
+        
         public const string can_data_item_create = nameof(can_data_item_create);
         public const string can_data_item_edit = nameof(can_data_item_edit);
         public const string can_data_item_copy = nameof(can_data_item_copy);

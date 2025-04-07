@@ -32,8 +32,6 @@ NAMESPACE AxoComponentExamples
                 outDint : DINT;
             END_VAR
             
-            // This must be called first.
-            SUPER.Open();
 
             // Place the custom logic here.
             valueReal := valueReal * inReal;

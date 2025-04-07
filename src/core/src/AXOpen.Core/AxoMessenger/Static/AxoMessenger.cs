@@ -13,6 +13,7 @@ using System.Security.Principal;
 using System.Text.RegularExpressions;
 using AXOpen.Core;
 using AXSharp.Connector;
+using AXSharp.Connector.Localizations;
 using Serilog;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -119,7 +120,7 @@ public partial class AxoMessenger
             {
                 if (plcMessengerTextList == null)
                 {
-                    plcMessengerTextList = ParseMessages(this.PlcTextList, this);
+                    plcMessengerTextList = ParseMessages(this.PlcTextList_raw, this);
                 }
             }
             catch (Exception)
@@ -225,9 +226,51 @@ public partial class AxoMessenger
             }
         }
         ChekIfHelpTextDefined();
-        return retVal;
+        return retVal.Interpolate(this).CleanUpLocalizationTokens();
     }
 
+    public string GetHelpText()
+        {
+            ulong messageCode = MessageCode.Cyclic;
+            string retVal = "";
+            string prefix = "";
+            if (this.MessengerState.Equals(eAxoMessengerState.InvalidImplementation))
+            {
+                prefix = "Invalid implementation (message code: " + messageCode.ToString() + "). Check if the AxoMessenger has a valid AxoContext so as the valid AxoRtm. Check also the order of the methods called. The 'Serve' method must be calle before any other 'Activate' or 'ActivateOnCondition' method's call. ";
+            }
+            if (MessageCode.Cyclic == 0)
+                retVal = "";
+            else
+            {
+                try
+                {
+                    //Static texts defined inside the `PlcTextsList` attribute in the PLC code are used
+                    if (PlcMessengerTextList != null && PlcMessengerTextList.Count > 0)
+                    {
+                        string _helpText = (from item in PlcMessengerTextList where item.Key == messageCode select item.Value.HelpText.ToString()).FirstOrDefault();
+                        retVal = string.IsNullOrEmpty(_helpText) ? prefix + "Help text not defined for the message code: " + messageCode.ToString() + " !" : prefix + _helpText;
+                    }
+                    //Message texts are written in .NET and passed into the component
+                    else if (DotNetMessengerTextList != null && DotNetMessengerTextList.Count > 0)
+                    {
+                        string _helpText = (from item in DotNetMessengerTextList where item.Key == messageCode select item.Value.HelpText.ToString()).FirstOrDefault();
+                        retVal = string.IsNullOrEmpty(_helpText) ? prefix + "Help text not defined for the message code: " + messageCode.ToString() + " !" : prefix + _helpText;
+                    }
+                    else
+                    {
+                        retVal = prefix + "Help text not defined for the message code: " + messageCode.ToString() + " !";
+                    }
+                }
+                catch (Exception)
+                {
+                    retVal = prefix + "Help text not defined for the message code: " + messageCode.ToString() + " !";
+                    return retVal;
+                    throw;
+                }
+        }
+            return retVal.Interpolate(this).CleanUpLocalizationTokens();
+        }
+    
     public bool HelpTextDefined = false;
     private void ChekIfHelpTextDefined()
     {
