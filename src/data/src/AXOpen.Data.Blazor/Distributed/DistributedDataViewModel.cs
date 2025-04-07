@@ -17,6 +17,9 @@ namespace AXOpen.Data
 {
     public partial class DistributedDataViewModel : IDataExchangeQueryViewModel
     {
+        protected volatile object _fragmentEntityIdsLock = new object();
+
+
         protected readonly IAlertService AlertService;
 
         protected readonly AuthenticationStateProvider Authentication;
@@ -82,7 +85,7 @@ namespace AXOpen.Data
             Parallel.ForEach(DataFragments.Where(fragment => predicates.ContainsType(fragment.GetPlainTypes().First())), fragment =>
             {
                 var ids = fragment.GetEntityIds(predicates).ToList();
-                lock (fragmentEntities)
+                lock (_fragmentEntityIdsLock)
                 {
                     fragmentEntities.Add(ids);
                 }

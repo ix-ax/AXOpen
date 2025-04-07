@@ -25,15 +25,15 @@ namespace AXOpen.Data.Tests
 
             dService.CollectAxoDataExchanges(context);
 
-            Assert.Equal(4, dService.GetMangersForGroup("Group_1", false).Count);
-            Assert.Equal(3, dService.GetMangersForGroup("Group_2", false).Count);
-            Assert.Equal(2, dService.GetMangersForGroup("Group_3", false).Count);
-            Assert.Equal(1, dService.GetMangersForGroup("Group_4", false).Count);
+            Assert.Equal(4, dService.GetExchanges("Group_1", false).Count);
+            Assert.Equal(3, dService.GetExchanges("Group_2", false).Count);
+            Assert.Equal(2, dService.GetExchanges("Group_3", false).Count);
+            Assert.Equal(1, dService.GetExchanges("Group_4", false).Count);
 
-            Assert.Equal(2, dService.GetMangersForGroup("Group_1", true).Count);
-            Assert.Equal(2, dService.GetMangersForGroup("Group_2", true).Count);
-            Assert.Equal(1, dService.GetMangersForGroup("Group_3", true).Count);
-            Assert.Equal(1, dService.GetMangersForGroup("Group_4", true).Count);
+            Assert.Equal(2, dService.GetExchanges("Group_1", true).Count);
+            Assert.Equal(2, dService.GetExchanges("Group_2", true).Count);
+            Assert.Equal(1, dService.GetExchanges("Group_3", true).Count);
+            Assert.Equal(1, dService.GetExchanges("Group_4", true).Count);
         }
     }
 }

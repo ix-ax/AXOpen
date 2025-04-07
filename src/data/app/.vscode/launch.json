@@ -9,7 +9,7 @@
             "type": "plc-debug",
             "request": "launch",
             "program": "${workspaceFolder}",
-            "ip": "192.168.100.1",
+            "ip": "192.168.100.120",
             "username": "${env:AX_USERNAME}",
             "password": "${env:AX_TARGET_PWD}",
             "certificate": "${workspaceFolder}\\certs\\plc_line\\plc_line.cer"
