@@ -63,7 +63,7 @@ jobs:
     - name: Compare Commit SHAs and previous result
       if: github.ref == 'refs/heads/dev' && github.event_name != 'workflow_dispatch'  
       run: |
-          if ($env:CURRENT_SHA -eq $env:STORED_SHA && $env:APP_RUN_RESULT -eq "1") {
+          if ($env:CURRENT_SHA -eq $env:STORED_SHA -and $env:APP_RUN_RESULT -eq "1") {
             echo "SHA Match: Skipping Steps"
             "SKIP_STEPS=true" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
           } 
