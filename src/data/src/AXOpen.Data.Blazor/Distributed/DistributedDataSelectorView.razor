@@ -20,6 +20,11 @@
                     @if (!string.IsNullOrEmpty(GetCurrentDataEntityId(DistributedVM.MainExchange)))
                     {
                         <span>@Localizer["In Plc"]: <strong>@GetCurrentDataEntityId(DistributedVM.MainExchange)</strong></span>
+
+                        if (!DistributedVM.AllExchangesHasTheSameId())
+                        {
+                            <i class="bi bi-exclamation-triangle text-warning"></i>
+                        }
                     }
                     else
                     {
@@ -31,10 +36,10 @@
             @if (IsCurrentIdsDropdownOpen)
             {
                 <div class="shadow border bg-white p-2"
-                     style="position: absolute; z-index: 1000; width: 100%; min-width:600px; max-height: 600px; overflow-y: auto;">
+                style="position: absolute; z-index: 1000; width: 100%; min-width:600px; max-height: 600px; overflow-y: auto;">
 
                     <div class="d-flex flex-column align-items-center gap-2">
-                        <button class="btn btn-primary" @onclick="DistributedVM.ReadAllCurrentEntityIds">Reload All</button>
+                        <button class="btn btn-primary w-100" @onclick="DistributedVM.ReadAllCurrentEntityIds">Reload All</button>
 
 
                         <table class="table table-hover mb-0">
@@ -48,8 +53,16 @@
                             <tbody>
                                 @foreach (var ex in DistributedVM.AllExchanges)
                                 {
+                                    var mainId = GetCurrentDataEntityId(DistributedVM.MainExchange);
+                                    var currentId = GetCurrentDataEntityId(ex);
+                                    var textClass = currentId != mainId ? "text-warning" : "text-body";
+
                                     <tr>
-                                        <td> <span> <strong>@GetCurrentDataEntityId(ex)</strong> </span></td>
+                                        <td>
+                                            <span class="@textClass">
+                                                <strong>@currentId</strong>
+                                            </span>
+                                        </td>
                                         <td>@ex.DataExchangeTwinObject.Symbol </td>
                                     </tr>
                                 }
@@ -240,6 +253,7 @@ else
                         <button type="button" class="btn btn-warning w-100 px-1 py-1"
                                 @onclick="async () => {
                                         await DistributedVM.SendToPlc(SelectedEntity.DataEntityId);
+                                        await DistributedVM.ReadAllCurrentEntityIds();
                                         EndBtnOperation();}">
                             <div class="d-flex flex-row justify-content-center align-items-center">
                                 <i class="bi bi-cloud-upload me-2"></i>
