@@ -33,8 +33,11 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     where TPlain : Pocos.AXOpen.Data.IAxoDataEntity, new()
 {
 
-    public string ManagerDataTypeName { get=> GetPlainTypes().FirstOrDefault().FullName; }
+    public string ManagerDataTypeName { get => GetPlainTypes().FirstOrDefault().FullName; }
 
+    // presentable name in distributed data management
+    public string PresentableInstanceName { get => this.DataExchangeTwinObject?.AttributeName; }
+   
     /// <inheritdoc />
     public ITwinObject? DataExchangeTwinObject => DataEntity as ITwinObject;
 

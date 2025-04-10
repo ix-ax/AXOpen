@@ -15,6 +15,8 @@ namespace AXOpen.Data
     {
         public string ManagerDataTypeName { get => GetPlainTypes().FirstOrDefault().FullName; }
 
+        public string PresentableInstanceName { get => DataExchangeTwinObject.AttributeName; }
+
         public ITwinObject CloneDataObject()
         {
             throw new NotSupportedException();

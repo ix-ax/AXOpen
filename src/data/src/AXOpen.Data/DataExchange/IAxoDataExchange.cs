@@ -18,6 +18,10 @@ namespace AXOpen.Data
 
         string ManagerDataTypeName { get; }
 
+        /// <summary>
+        /// Exchange name dispalyed in Distributed data View
+        /// </summary>
+        string PresentableInstanceName { get; } 
 
         #endregion
 

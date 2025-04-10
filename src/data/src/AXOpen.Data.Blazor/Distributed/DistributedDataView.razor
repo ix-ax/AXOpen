@@ -756,7 +756,7 @@ else
                         <button type="button"
                                 class="nav-link fw-bold @((DistributedVM?.SelectedManagerVm?.Model == exchange) ? "active" : "")"
                                 @onclick="async () => {await DistributedVM.SelectManager(exchange);}">
-                            @DistributedVM.SelectedManagerVm.RefUIData.AttributeName
+                            @exchange.PresentableInstanceName
                         </button>
                     </li>
                 }
