@@ -6,7 +6,7 @@ files:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.9
+  "@inxton/ax.catalog": 0.0.10
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
@@ -17,7 +17,7 @@ dependencies:
   "@ax/dcp-utility": 1.1.3
   "@ax/hardware-diagnostics": 0.3.0
 installStrategy: strict
-apaxVersion: 3.4.2
+apaxVersion: 3.5.0
 scripts:
   ib: |
     apax install

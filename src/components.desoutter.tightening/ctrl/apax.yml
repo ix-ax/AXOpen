@@ -15,7 +15,7 @@ dependencies:
 publicKeys:
   "@inxton": 30c06ef7830b4dfd8f16e003508da1ac2d187714d0e1f38279a9332cbe4e4e17
 installStrategy: strict
-apaxVersion: 3.4.2
+apaxVersion: 3.5.0
 scripts:
   postbuild:
     - dotnet ixc

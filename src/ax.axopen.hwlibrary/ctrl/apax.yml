@@ -6,7 +6,7 @@ files:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.9
+  "@inxton/ax.catalog": 0.0.10
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
@@ -17,8 +17,9 @@ dependencies:
   "@ax/system-timer": 9.0.12
   "@ax/system-serde": 9.0.12
   "@ax/system-bitaccess": 9.0.12
+  "@ax/simatic-1500-hardware-utilities": 4.0.7
 installStrategy: strict
-apaxVersion: 3.4.2
+apaxVersion: 3.5.0
 scripts:
   ib: |
     apax install

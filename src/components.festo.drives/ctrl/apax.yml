@@ -13,7 +13,7 @@ devDependencies:
 dependencies:
   "@inxton/axopen.components.drives": '0.0.0-dev.0'
 installStrategy: strict
-apaxVersion: 3.4.2
+apaxVersion: 3.5.0
 scripts:
   postbuild:
     - dotnet ixc

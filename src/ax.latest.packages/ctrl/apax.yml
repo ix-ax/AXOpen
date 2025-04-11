@@ -8,7 +8,7 @@ devDependencies:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.9
+  "@inxton/ax.catalog": 0.0.10
 dependencies:
   "@ax/simatic-1500-clocks": 9.0.1
   "@ax/system-bitaccess": 9.0.12
@@ -17,10 +17,10 @@ dependencies:
   "@ax/hwc": 2.1.0
   "@ax/hw-s7-1500": 2.1.0
   "@ax/hwld": 2.1.0
-  "@ax/stc": 9.0.72
+  "@ax/stc": 9.1.36
   "@ax/sld": 3.1.3
 installStrategy: strict
-apaxVersion: 3.4.2
+apaxVersion: 3.5.0
 scripts:
   ib: |
     apax install
