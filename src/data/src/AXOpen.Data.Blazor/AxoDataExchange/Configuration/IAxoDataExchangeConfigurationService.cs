@@ -4,11 +4,12 @@
     public interface IAxoDataExchangeConfigurationService
     {
         void AddManagerConfiguration(string fullDataEntityNameWithSuffix, AxoDataExchangeConfiguration config);
+        void SetDefaultConfiguration( AxoDataExchangeConfiguration config);
 
-        AxoDataExchangeConfiguration GetConfigution(IAxoDataExchange dataManager);
+        AxoDataExchangeConfiguration GetConfigution(IAxoDataExchange dataManager, bool defautIfNotExist = true);
 
-        AxoDataExchangeConfiguration GetConfigution(string fullDataEntityTypeName);
+        AxoDataExchangeConfiguration GetConfigution(string fullDataEntityTypeName, bool defautIfNotExist = true);
 
-        AxoDataExchangeConfiguration GetConfigution(DataExchangeViewModel dataExchangeViewModel);
+        AxoDataExchangeConfiguration GetConfigution(DataExchangeViewModel dataExchangeViewModel, bool defautIfNotExist = true);
     }
 }
