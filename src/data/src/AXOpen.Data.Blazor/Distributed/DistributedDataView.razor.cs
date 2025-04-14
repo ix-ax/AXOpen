@@ -24,10 +24,14 @@ namespace AXOpen.Data
         public string ConfigSuffix { get; set; } = "";
 
         [Parameter]
-        public bool EnableExport { get; set; } = true;
+        public bool EnableExport { get; set; } = false;
 
         [Parameter]
-        public bool EnableSorting { get; set; } = true;
+        public bool EnableSorting { get; set; } = false;
+
+        [Parameter]
+        public bool EnableFiltering { get; set; } = false;
+
 
         [Inject]
         public IJSRuntime JSRuntime { set; get; }

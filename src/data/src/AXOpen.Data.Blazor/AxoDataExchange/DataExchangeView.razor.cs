@@ -47,9 +47,11 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     [Parameter] public bool ModalDataView { get; set; } = true;
 
-    [Parameter] public bool EnableExport { get; set; } = false; // EnableExport
+    [Parameter] public bool EnableExport { get; set; } = false; 
 
     [Parameter] public bool EnableSorting { get; set; } = false;
+
+    [Parameter] public bool EnableFiltering { get; set; } = false;
 
     [Parameter] public RenderFragment ChildContent { get; set; }
 
@@ -186,9 +188,6 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     protected override async Task OnInitializedAsync()
     {
-        EnableSorting = true;
-        EnableExport = true;
-
         Vm.InjectedPredicateContainer = ExternalPredicates;
 
         await Vm.Filter();

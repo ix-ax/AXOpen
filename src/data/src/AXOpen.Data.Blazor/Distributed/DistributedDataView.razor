@@ -14,27 +14,31 @@
         <h5>@Localizer["Global Actions:"]</h5>
 
 
-        <AuthorizeView Roles="@DataExchangeRoleNames.can_data_filter_advanced">
-            <Authorized>
+        @if (EnableFiltering)
+        {
+            <AuthorizeView Roles="@DataExchangeRoleNames.can_data_filter_advanced">
+                <Authorized>
 
-                <button class="btn @(AdvanceFilterConfig ? "btn-warning" : "btn-primary") btn-secondary" name="advanceConfig" @onclick="()=>{AdvanceFilterConfig = !AdvanceFilterConfig;}">
-                    @if (AdvanceFilterConfig)
-                    {
-                        <span>
-                            <i class="bi bi-funnel-fill"></i>
-                            <span>@Localizer["Hide filter"]</span>
-                        </span>
-                    }
-                    else
-                    {
-                        <span>
-                            <i class="bi bi-funnel"></i>
-                            <span>@Localizer["Filter"]</span>
-                        </span>
-                    }
-                </button>
-            </Authorized>
-        </AuthorizeView>
+                    <button class="btn @(AdvanceFilterConfig ? "btn-warning" : "btn-primary") btn-secondary" name="advanceConfig" @onclick="()=>{AdvanceFilterConfig = !AdvanceFilterConfig;}">
+                        @if (AdvanceFilterConfig)
+                        {
+                            <span>
+                                <i class="bi bi-funnel-fill"></i>
+                                <span>@Localizer["Hide filter"]</span>
+                            </span>
+                        }
+                        else
+                        {
+                            <span>
+                                <i class="bi bi-funnel"></i>
+                                <span>@Localizer["Filter"]</span>
+                            </span>
+                        }
+                    </button>
+                </Authorized>
+            </AuthorizeView>
+        }
+
 
         <button type="button" class="btn @(DistributedVM.EnableInjectLocalIds ? "btn-warning" : "btn-primary")"
                 @onclick="DistributedVM.TogleLocalEntityIdsInjection">
@@ -766,9 +770,10 @@ else
     <div class="mt-1">
         <DataExchangeView @key="@DistributedVM.SelectedManagerVm.Model"
                           Vm="@DistributedVM.SelectedManagerVm"
-                          Presentation=@this.Presentation
-                          EnableExport=@this.EnableExport
-                          EnableSorting=@this.EnableSorting>
+                          Presentation="@this.Presentation"
+                          EnableExport="@this.EnableExport"
+                          EnableSorting="@this.EnableSorting"
+                          EnableFiltering="@this.EnableFiltering">
 
             @foreach (var column in DistributedVM.ExchangeConfig.Collumns)
             {
