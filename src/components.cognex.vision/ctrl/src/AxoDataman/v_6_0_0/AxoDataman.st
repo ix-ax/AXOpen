@@ -182,24 +182,28 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 _geoAddr.Slot   :=  UINT#1;
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);
                 _hwIdAcquisitionControl :=  TO_WORD(_outHwid);
-                IF _retval = WORD#8091 THEN
+                IF _hwIdAcquisitionControl = WORD#0 THEN
                     Messenger.Activate(UINT#741,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8094 THEN
+                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#742,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8095 THEN
+                IF _retval = WORD#8094 THEN
                     Messenger.Activate(UINT#743,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8096 THEN
+                IF _retval = WORD#8095 THEN
                     Messenger.Activate(UINT#744,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8097 THEN
+                IF _retval = WORD#8096 THEN
                     Messenger.Activate(UINT#745,eAxoMessageCategory#Error);
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#746,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
                 
@@ -207,28 +211,28 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);
                 _hwIdAcquisitionStatus :=  TO_WORD(_outHwid);
                 IF _hwIdAcquisitionStatus = WORD#0 THEN
-                    Messenger.Activate(UINT#746,eAxoMessageCategory#Error);
+                    Messenger.Activate(UINT#747,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
                 _hwIdAcquisitionStatus :=  TO_WORD(_outHwid);
                 IF _retval = WORD#8091 THEN
-                    Messenger.Activate(UINT#747,eAxoMessageCategory#Error);
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8094 THEN
                     Messenger.Activate(UINT#748,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8095 THEN
+                IF _retval = WORD#8094 THEN
                     Messenger.Activate(UINT#749,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8096 THEN
+                IF _retval = WORD#8095 THEN
                     Messenger.Activate(UINT#750,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8097 THEN
+                IF _retval = WORD#8096 THEN
                     Messenger.Activate(UINT#751,eAxoMessageCategory#Error);
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#752,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
                 
@@ -236,27 +240,27 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);
                 _hwIdResultsControl :=  TO_WORD(_outHwid);
                 IF _hwIdResultsControl = WORD#0 THEN
-                    Messenger.Activate(UINT#752,eAxoMessageCategory#Error);
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#753,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8094 THEN
+                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#754,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8095 THEN
+                IF _retval = WORD#8094 THEN
                     Messenger.Activate(UINT#755,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8096 THEN
+                IF _retval = WORD#8095 THEN
                     Messenger.Activate(UINT#756,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8097 THEN
+                IF _retval = WORD#8096 THEN
                     Messenger.Activate(UINT#757,eAxoMessageCategory#Error);
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#758,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
                 
@@ -264,27 +268,27 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);
                 _hwIdResultsStatus :=  TO_WORD(_outHwid);
                 IF _hwIdResultsStatus = WORD#0 THEN
-                    Messenger.Activate(UINT#758,eAxoMessageCategory#Error);
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#759,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8094 THEN
+                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#760,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8095 THEN
+                IF _retval = WORD#8094 THEN
                     Messenger.Activate(UINT#761,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8096 THEN
+                IF _retval = WORD#8095 THEN
                     Messenger.Activate(UINT#762,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8097 THEN
+                IF _retval = WORD#8096 THEN
                     Messenger.Activate(UINT#763,eAxoMessageCategory#Error);
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#764,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
                 
@@ -292,27 +296,27 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);
                 _hwIdSoftEventControl :=  TO_WORD(_outHwid);
                 IF _hwIdSoftEventControl = WORD#0 THEN
-                    Messenger.Activate(UINT#764,eAxoMessageCategory#Error);
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#765,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8094 THEN
+                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#766,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8095 THEN
+                IF _retval = WORD#8094 THEN
                     Messenger.Activate(UINT#767,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8096 THEN
+                IF _retval = WORD#8095 THEN
                     Messenger.Activate(UINT#768,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8097 THEN
+                IF _retval = WORD#8096 THEN
                     Messenger.Activate(UINT#769,eAxoMessageCategory#Error);
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#770,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
 
@@ -320,27 +324,27 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);
                 _hwIdResultData :=  TO_WORD(_outHwid);
                 IF _hwIdResultData = WORD#0 THEN
-                    Messenger.Activate(UINT#770,eAxoMessageCategory#Error);
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#771,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8094 THEN
+                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#772,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8095 THEN
+                IF _retval = WORD#8094 THEN
                     Messenger.Activate(UINT#773,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8096 THEN
+                IF _retval = WORD#8095 THEN
                     Messenger.Activate(UINT#774,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8097 THEN
+                IF _retval = WORD#8096 THEN
                     Messenger.Activate(UINT#775,eAxoMessageCategory#Error);
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#776,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
 
@@ -348,27 +352,27 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);
                 _hwIdUserData :=  TO_WORD(_outHwid);
                 IF _hwIdUserData = WORD#0 THEN
-                    Messenger.Activate(UINT#776,eAxoMessageCategory#Error);
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#777,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8094 THEN
+                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#778,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8095 THEN
+                IF _retval = WORD#8094 THEN
                     Messenger.Activate(UINT#779,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8096 THEN
+                IF _retval = WORD#8095 THEN
                     Messenger.Activate(UINT#780,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8097 THEN
+                IF _retval = WORD#8096 THEN
                     Messenger.Activate(UINT#781,eAxoMessageCategory#Error);
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#782,eAxoMessageCategory#Error);
                     RETURN;
                 END_IF;
 
