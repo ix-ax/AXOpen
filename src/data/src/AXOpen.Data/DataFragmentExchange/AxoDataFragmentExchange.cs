@@ -22,7 +22,7 @@ namespace AXOpen.Data;
 public partial class AxoDataFragmentExchange
 {
     public string ManagerDataTypeName { get => GetPlainTypes().FirstOrDefault().FullName; }
-
+    public string PresentableInstanceName { get => DataExchangeTwinObject.AttributeName; }
 
     /// <inheritdoc />
     public ITwinObject? DataExchangeTwinObject { get; private set; }

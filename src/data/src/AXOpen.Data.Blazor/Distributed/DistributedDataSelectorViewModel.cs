@@ -255,6 +255,9 @@ namespace AXOpen.Data
                 List<ITwinPrimitive> toRead = new();
                 Connector connector = ExsOnConnector.First().DataExchangeTwinObject.GetConnector();
 
+                if (connector is DummyConnector) // can block ui thredd if is not work
+                    return;
+
                 foreach (var exchange in ExsOnConnector)
                 {
                     toRead.Add((exchange.DataExchangeTwinObject as IAxoDataEntity).DataEntityId);

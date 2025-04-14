@@ -20,14 +20,18 @@ namespace AXOpen.Data
         [Parameter, EditorRequired]
         public string GroupName { get; set; }
 
-        [Parameter]
-        public string ConfigSuffix { get; set; } = "";
+        [Parameter] public string ConfigSuffix { get; set; } = "";
 
-        [Parameter]
-        public bool EnableExport { get; set; } = true;
+        [Parameter] public bool EnableCreate { get; set; } = false;
+        [Parameter] public bool EnableCopy { get; set; } = false;
+        [Parameter] public bool EnableDelete { get; set; } = false;
+        [Parameter] public bool EnableSendToPlc { get; set; } = false;
+        [Parameter] public bool EnableCreateNewFromPlc { get; set; } = false;
+        [Parameter] public bool EnableUpdateFromPlc { get; set; } = false;
 
-        [Parameter]
-        public bool EnableSorting { get; set; } = true;
+        [Parameter] public bool EnableFiltering { get; set; } = false;
+        [Parameter] public bool EnableExport { get; set; } = false;
+        [Parameter] public bool EnableSorting { get; set; } = false;
 
         [Inject]
         public IJSRuntime JSRuntime { set; get; }

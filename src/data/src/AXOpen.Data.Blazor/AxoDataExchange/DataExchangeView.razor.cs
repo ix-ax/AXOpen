@@ -47,9 +47,17 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     [Parameter] public bool ModalDataView { get; set; } = true;
 
-    [Parameter] public bool EnableExport { get; set; } = false; // EnableExport
+    [Parameter] public bool EnableCreate { get; set; } = false;
+    [Parameter] public bool EnableCopy { get; set; } = false;
+    [Parameter] public bool EnableDelete { get; set; } = false;
+    [Parameter] public bool EnableSendToPlc { get; set; } = false;
+    [Parameter] public bool EnableCreateNewFromPlc { get; set; } = false;
 
+    [Parameter] public bool EnableFiltering { get; set; } = false;
+    [Parameter] public bool EnableExport { get; set; } = false; 
     [Parameter] public bool EnableSorting { get; set; } = false;
+
+    [Parameter] public bool EnableUpdateFromPlc { get; set; } = false;
 
     [Parameter] public RenderFragment ChildContent { get; set; }
 
@@ -117,7 +125,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
         }
     }
 
-    private string Create { get; set; } = "";
+    private string ButtonOperationName { get; set; } = "";
 
     private int MaxPage =>
         (int)(Vm.FilteredCount % Vm.Limit == 0 ? Vm.FilteredCount / Vm.Limit - 1 : Vm.FilteredCount / Vm.Limit);
@@ -186,9 +194,6 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     protected override async Task OnInitializedAsync()
     {
-        EnableSorting = true;
-        EnableExport = true;
-
         Vm.InjectedPredicateContainer = ExternalPredicates;
 
         await Vm.Filter();

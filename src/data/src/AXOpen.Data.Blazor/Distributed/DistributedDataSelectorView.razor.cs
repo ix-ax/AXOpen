@@ -20,7 +20,11 @@ namespace AXOpen.Data
         public string ConfigSuffix { get; set; } = "";
 
         [Parameter]
-        public PredicateContainer InjectedPredicateContainer { set; get; }
+        public PredicateContainer? InjectedPredicateContainer { set; get; }
+
+        [Parameter]
+        public Action<string>? OnDataSend { get; set; }
+
 
         [Inject]
         public IJSRuntime JSRuntime { set; get; }
