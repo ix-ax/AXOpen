@@ -32,6 +32,8 @@ namespace AXOpen.Data.Interfaces
 
         Task LoadFromPlc();
 
+        IDataExchangeGlobalActions? GlobalActions { get; }
+
         public void InvokeStateHasChanged();
     }
 }

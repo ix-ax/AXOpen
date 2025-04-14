@@ -1,6 +1,7 @@
 ﻿using AXOpen.Base.Data;
 using AXOpen.Base.Data.Query;
 using AXOpen.Base.Dialogs;
+using AXOpen.Data.Interfaces;
 using AXOpen.Data.Query;
 using AXSharp.Connector;
 using AXSharp.Presentation;
@@ -15,10 +16,9 @@ using System.Data;
 
 namespace AXOpen.Data
 {
-    public partial class DistributedDataViewModel : IDataExchangeQueryViewModel
+    public partial class DistributedDataViewModel : IDataExchangeQueryViewModel, IDataExchangeGlobalActions
     {
         protected volatile object _fragmentEntityIdsLock = new object();
-
 
         protected readonly IAlertService AlertService;
 
@@ -71,7 +71,6 @@ namespace AXOpen.Data
 
         public Task FillObservableRecordsAsync(PredicateContainer? predicates = null)
         {
-
             if (predicates == null)
             {
                 if (this.SelectedManagerVm != null)
@@ -146,7 +145,9 @@ namespace AXOpen.Data
 
         public AxoDataExchangeConfiguration ExchangeConfig { get; set; } = new();
 
-        public async Task CreateNew(string identifier)
+        #region IDataExchangeGlogalActions
+
+        public async Task Create(string identifier)
         {
             if (string.IsNullOrEmpty(identifier))
             {
@@ -263,7 +264,6 @@ namespace AXOpen.Data
                     await exchange.RemoteCreate(identifier);
                     created.Add(exchange.ManagerDataTypeName);
                 }
-
             }
 
             if (updated.Count > 0)
@@ -296,16 +296,15 @@ namespace AXOpen.Data
             List<string> sentToPlc = new List<string>();
             List<string> notExistInDb = new List<string>();
 
-            foreach (var exchangeGroup in DataFragments.GroupBy( p => p.GetPlainTypes().First().FullName))
+            foreach (var exchangeGroup in DataFragments.GroupBy(p => p.GetPlainTypes().First().FullName))
             {
-               
                 if (!exchangeGroup.First().Repository.Exists(identifier))
                 {
                     foreach (var exchange in exchangeGroup)
                     {
                         notExistInDb.Add(exchange.DataExchangeTwinObject.Symbol);
                     }
-                    continue; // record not exist, continue 
+                    continue; // record not exist, continue
                 }
 
                 foreach (var exchange in exchangeGroup)
@@ -313,7 +312,6 @@ namespace AXOpen.Data
                     await exchange.RemoteRead(identifier);
                     sentToPlc.Add(exchange.DataExchangeTwinObject.Symbol);
                 }
-
             }
 
             if (sentToPlc.Count > 0)
@@ -329,8 +327,7 @@ namespace AXOpen.Data
             }
         }
 
-
-        public async Task CopyRecord(string identifier, string newIdentifier)
+        public async Task Copy(string identifier, string newIdentifier)
         {
             if (string.IsNullOrEmpty(identifier))
             {
@@ -388,7 +385,7 @@ namespace AXOpen.Data
             }
         }
 
-        public async Task DeleteRecord(string identifier)
+        public async Task Delete(string identifier)
         {
             if (string.IsNullOrEmpty(identifier))
             {
@@ -423,6 +420,8 @@ namespace AXOpen.Data
                 AlertService?.AddAlertDialog(eAlertType.Warning, "Delete error", $"Source Record not exist for: {notCreatedRecords}!", 14);
             }
         }
+
+        #endregion IDataExchangeGlogalActions
 
         public async Task SelectManager(IAxoDataExchange exchange)
         {
@@ -470,6 +469,8 @@ namespace AXOpen.Data
 
             SelectedManagerVm.Model = exchange;
             SelectedManagerVm.SetInjectedEntityIds(MergeInjectedEntities());
+
+            SelectedManagerVm.GlobalActions = this; // set global actions
 
             SelectCongiguration(exchange);
         }
@@ -610,5 +611,6 @@ namespace AXOpen.Data
             List<string> Entities = DataFragments.First().GetEntityIds(new PredicateContainer()).ToList();
             return Entities;
         }
+
     }
 }
