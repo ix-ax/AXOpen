@@ -69,15 +69,17 @@ namespace AXOpen.Data
 
             if (DistributedExchangeService.IsExistGroup(GroupName))
             {
-                IEnumerable<IAxoDataExchange> DataFragments;
+                this.DistributedVM = new DistributedDataViewModel(
+                    this.AlertService,
+                    this.Authentication,
+                    this.DistributedExchangeService,
+                    this.ExchangeConfigService,
+                    this.GroupName,
+                    this.DisplayOnePerDataType,
+                    this.ConfigSuffix
+                    );
 
-                DataFragments = DistributedExchangeService.GetExchanges(GroupName, DisplayOnePerDataType);
-
-                if (DataFragments != null)
-                {
-                    this.DistributedVM = new DistributedDataViewModel(DataFragments, this.AlertService, this.Authentication, this.ExchangeConfigService);
-                    this.DistributedVM.StateHasChangedDelegate = StateHasChanged;
-                }
+                this.DistributedVM.StateHasChangedDelegate = StateHasChanged;
             }
             else
             {

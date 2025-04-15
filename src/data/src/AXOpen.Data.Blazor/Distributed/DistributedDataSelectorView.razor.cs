@@ -62,7 +62,7 @@ namespace AXOpen.Data
 
                 if (DataFragments != null)
                 {
-                    DistributedVM = new DistributedDataSelectorViewModel(DistributedExchangeService, GroupName, AlertService, InjectedPredicateContainer);
+                    DistributedVM = new DistributedDataSelectorViewModel(AlertService, Authentication, DistributedExchangeService, GroupName, ConfigSuffix, InjectedPredicateContainer);
 
 
                     await DistributedVM.ReadAllCurrentEntityIds();

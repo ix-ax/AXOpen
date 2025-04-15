@@ -21,9 +21,10 @@ namespace AXOpen.Data
         protected volatile object _fragmentEntityIdsLock = new object();
         protected volatile object _transmitedEntityIdsLock = new object();
 
+        protected readonly AuthenticationStateProvider Authentication;
         protected readonly IDistributedDataExchangeService distributedExchangeService;
         protected readonly IAlertService AlertService;
-        protected readonly string ExchangeGroup;
+        protected readonly string GroupName;
 
         protected readonly PredicateContainer InjectedPredicateContainer;
         protected IEnumerable<IAxoDataExchange> RepresentativeExchanges { get; set; } // one per type
@@ -73,20 +74,27 @@ namespace AXOpen.Data
             }
         }
 
-        public DistributedDataSelectorViewModel(IDistributedDataExchangeService distributedExchangeService, string exchangeGroup, IAlertService alertService, PredicateContainer injectePredicateContainer)
+        public DistributedDataSelectorViewModel(
+            IAlertService alertService,
+            AuthenticationStateProvider authentication,
+            IDistributedDataExchangeService distributedExchangeService,
+            string groupName,
+            string configuraionSuffix,
+            PredicateContainer injectePredicateContainer )
         {
             this.distributedExchangeService = distributedExchangeService;
             this.AlertService = alertService;
             this.InjectedPredicateContainer = injectePredicateContainer;
-            this.ExchangeGroup = exchangeGroup;
+            this.GroupName = groupName;
+            this.Authentication = authentication;
 
             InitializeViewModel();
         }
 
         private void InitializeViewModel()
         {
-            RepresentativeExchanges = distributedExchangeService.GetExchanges(this.ExchangeGroup, true);
-            AllExchanges = distributedExchangeService.GetExchanges(this.ExchangeGroup, false);
+            RepresentativeExchanges = distributedExchangeService.GetExchanges(this.GroupName, true);
+            AllExchanges = distributedExchangeService.GetExchanges(this.GroupName, false);
             MainExchange = RepresentativeExchanges.First();
 
         }
@@ -216,7 +224,7 @@ namespace AXOpen.Data
             List<string> sentToPlc = new List<string>();
             List<string> notExistInDb = new List<string>();
 
-            foreach (var exchangeGroup in distributedExchangeService.GetExchanges(this.ExchangeGroup, false).GroupBy(p => p.GetPlainTypes().First().FullName))
+            foreach (var exchangeGroup in distributedExchangeService.GetExchanges(this.GroupName, false).GroupBy(p => p.GetPlainTypes().First().FullName))
             {
                 if (!exchangeGroup.First().Repository.Exists(identifier))
                 {
@@ -237,15 +245,42 @@ namespace AXOpen.Data
 
             if (sentToPlc.Count > 0)
             {
-                string updatedRecords = string.Join(", ", sentToPlc);
-                AlertService?.AddAlertDialog(eAlertType.Info, "Send record", $"Data with ID: \"{identifier}\"  was send for: {updatedRecords}!", 7);
+                string sentExchanges = string.Join(", ", sentToPlc);
+
+                // Alert
+                AlertService?.AddAlertDialog(
+                    eAlertType.Info,
+                    "Send record",
+                    $"Record \"{identifier}\" was sent to: {sentExchanges}.",
+                    7
+                );
+
+                // Log
+                AxoApplication.Current.Logger.Information(
+                    $"Sent record \"{identifier}\" to: {sentExchanges} by user action.",
+                    Authentication.GetAuthenticationStateAsync().Result.User.Identity
+                );
             }
 
             if (notExistInDb.Count > 0)
             {
                 string notEqualEntityIds = string.Join(", ", notExistInDb);
-                AlertService?.AddAlertDialog(eAlertType.Warning, "Send error", $"Rrecord has not exist in a Database for: {notEqualEntityIds}!", 14);
+
+                // Alert
+                AlertService?.AddAlertDialog(
+                    eAlertType.Warning,
+                    "Send error",
+                    $"Record does not exist in the database for: {notEqualEntityIds}.",
+                    14
+                );
+
+                // Log
+                AxoApplication.Current.Logger.Warning(
+                    $"Sending record \"{identifier}\" by user action failed – record does not exist in database for: {notEqualEntityIds}.",
+                    Authentication.GetAuthenticationStateAsync().Result.User.Identity
+                );
             }
+
         }
 
         public async Task ReadAllCurrentEntityIds()
