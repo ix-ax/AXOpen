@@ -298,7 +298,7 @@ else
                                             </button>
                                         </Authorized>
                                     </AuthorizeView>
-
+@* 
                                     @if (EnableUpdateFromPlc)
                                     {
                                         <AuthorizeView Roles="@DataExchangeRoleNames.can_data_update_from_plc">
@@ -309,7 +309,7 @@ else
                                                 </button>
                                             </Authorized>
                                         </AuthorizeView>
-                                    }
+                                    } *@
 
                                     @if (EnableSendToPlc)
                                     {
@@ -552,7 +552,7 @@ else
                                 <span> @Localizer["Load from ALL PLCs"]</span>
                             </button>
                         }
-                        else if (ButtonOperationName.Equals("UpdateFromPlc"))
+                        @* else if (ButtonOperationName.Equals("UpdateFromPlc"))
                         {
                             <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" data-bs-dismiss="modal"
                                     @onclick="async () => {
@@ -564,7 +564,7 @@ else
                                 <i class="bi bi-hdd-rack me-2"></i>
                                 <span> @Localizer["Update from ALL PLCs"]</span>
                             </button>
-                        }
+                        } *@
                     }
 
 
@@ -589,13 +589,13 @@ else
                             <span> @Localizer["Load from PLC into THIS repository"]</span>
                         </button>
                     }
-                    else if (ButtonOperationName.Equals("UpdateFromPlc"))
+                   @*  else if (ButtonOperationName.Equals("UpdateFromPlc"))
                     {
                         <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" data-bs-dismiss="modal" @onclick="() => { Vm.UpdateFromPlc(); Vm.UnLocked(); }">
                             <i class="bi bi-hdd me-2"></i>
                             <span> @Localizer["Update from PLC into THIS repository"]</span>
                         </button>
-                    }
+                    } *@
 
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="() => { Vm.UnLocked(); }">@Localizer["Close"]</button>
                 </div>

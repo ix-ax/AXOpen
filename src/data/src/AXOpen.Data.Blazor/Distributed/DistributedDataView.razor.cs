@@ -27,7 +27,7 @@ namespace AXOpen.Data
         [Parameter] public bool EnableDelete { get; set; } = false;
         [Parameter] public bool EnableSendToPlc { get; set; } = false;
         [Parameter] public bool EnableCreateNewFromPlc { get; set; } = false;
-        [Parameter] public bool EnableUpdateFromPlc { get; set; } = false;
+        //[Parameter] public bool EnableUpdateFromPlc { get; set; } = false;
 
         [Parameter] public bool EnableFiltering { get; set; } = false;
         [Parameter] public bool EnableExport { get; set; } = false;

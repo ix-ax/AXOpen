@@ -286,107 +286,107 @@ namespace AXOpen.Data
 
         }
 
-        public async Task UpdateFromPlc(string identifier)
-        {
-            if (string.IsNullOrEmpty(identifier))
-            {
-                AlertService?.AddAlertDialog(eAlertType.Warning, "Update data error", "Please enter valid identifier!", 20);
-                return;
-            }
+        //public async Task UpdateFromPlc(string identifier)
+        //{
+        //    if (string.IsNullOrEmpty(identifier))
+        //    {
+        //        AlertService?.AddAlertDialog(eAlertType.Warning, "Update data error", "Please enter valid identifier!", 20);
+        //        return;
+        //    }
 
-            List<string> updated = new List<string>();
-            List<string> created = new List<string>();
-            List<string> notSameIdInPlc = new List<string>();
+        //    List<string> updated = new List<string>();
+        //    List<string> created = new List<string>();
+        //    List<string> notSameIdInPlc = new List<string>();
 
-            foreach (var exchange in DisplayedDataFragments.DistinctBy(p => p.ManagerDataTypeName))
-            {
-                //TODO optimalize -> clone only EntityId
-                var refdata = exchange.CloneDataObject();
+        //    foreach (var exchange in DisplayedDataFragments.DistinctBy(p => p.ManagerDataTypeName))
+        //    {
+        //        //TODO optimalize -> clone only EntityId
+        //        var refdata = exchange.CloneDataObject();
 
-                var DataEntityId = (refdata as IAxoDataEntity).DataEntityId;
+        //        var DataEntityId = (refdata as IAxoDataEntity).DataEntityId;
 
-                List<ITwinPrimitive> batchRedElements = new();
+        //        List<ITwinPrimitive> batchRedElements = new();
 
-                batchRedElements.Add(DataEntityId);
+        //        batchRedElements.Add(DataEntityId);
 
-                await refdata.GetConnector().ReadBatchAsync(batchRedElements);
+        //        await refdata.GetConnector().ReadBatchAsync(batchRedElements);
 
-                if (DataEntityId.Cyclic != identifier)
-                {
-                    notSameIdInPlc.Add(exchange.ManagerDataTypeName);
-                    continue;
-                }
+        //        if (DataEntityId.Cyclic != identifier)
+        //        {
+        //            notSameIdInPlc.Add(exchange.ManagerDataTypeName);
+        //            continue;
+        //        }
 
-                if (exchange.Repository.Exists(identifier))
-                {
-                    await exchange.RemoteUpdate(identifier);
-                    updated.Add(exchange.ManagerDataTypeName);
-                }
-                else
-                {
-                    await exchange.RemoteCreate(identifier);
-                    created.Add(exchange.ManagerDataTypeName);
-                }
-            }
+        //        if (exchange.Repository.Exists(identifier))
+        //        {
+        //            await exchange.RemoteUpdate(identifier);
+        //            updated.Add(exchange.ManagerDataTypeName);
+        //        }
+        //        else
+        //        {
+        //            await exchange.RemoteCreate(identifier);
+        //            created.Add(exchange.ManagerDataTypeName);
+        //        }
+        //    }
 
-            if (updated.Count > 0)
-            {
-                string updatedInRepositories = string.Join(", ", updated);
+        //    if (updated.Count > 0)
+        //    {
+        //        string updatedInRepositories = string.Join(", ", updated);
 
-                // Alert
-                AlertService?.AddAlertDialog(
-                    eAlertType.Info,
-                    "Update record",
-                    $"Record \"{identifier}\" was updated in repositories: {updatedInRepositories}.",
-                    7
-                );
+        //        // Alert
+        //        AlertService?.AddAlertDialog(
+        //            eAlertType.Info,
+        //            "Update record",
+        //            $"Record \"{identifier}\" was updated in repositories: {updatedInRepositories}.",
+        //            7
+        //        );
 
-                // Log
-                AxoApplication.Current.Logger.Information(
-                    $"Updated record \"{identifier}\" in repositories: {updatedInRepositories} by user action.",
-                    Authentication.GetAuthenticationStateAsync().Result.User.Identity
-                );
-            }
+        //        // Log
+        //        AxoApplication.Current.Logger.Information(
+        //            $"Updated record \"{identifier}\" in repositories: {updatedInRepositories} by user action.",
+        //            Authentication.GetAuthenticationStateAsync().Result.User.Identity
+        //        );
+        //    }
 
-            if (created.Count > 0)
-            {
-                string createdInRepositories = string.Join(", ", created);
+        //    if (created.Count > 0)
+        //    {
+        //        string createdInRepositories = string.Join(", ", created);
 
-                // Alert
-                AlertService?.AddAlertDialog(
-                    eAlertType.Info,
-                    "Create record",
-                    $"Record \"{identifier}\" was created in repositories: {createdInRepositories}.",
-                    7
-                );
+        //        // Alert
+        //        AlertService?.AddAlertDialog(
+        //            eAlertType.Info,
+        //            "Create record",
+        //            $"Record \"{identifier}\" was created in repositories: {createdInRepositories}.",
+        //            7
+        //        );
 
-                // Log
-                AxoApplication.Current.Logger.Information(
-                    $"Created record \"{identifier}\" in repositories: {createdInRepositories} by user action.",
-                    Authentication.GetAuthenticationStateAsync().Result.User.Identity
-                );
-            }
+        //        // Log
+        //        AxoApplication.Current.Logger.Information(
+        //            $"Created record \"{identifier}\" in repositories: {createdInRepositories} by user action.",
+        //            Authentication.GetAuthenticationStateAsync().Result.User.Identity
+        //        );
+        //    }
 
-            if (notSameIdInPlc.Count > 0)
-            {
-                string notEqualEntityIds = string.Join(", ", notSameIdInPlc);
+        //    if (notSameIdInPlc.Count > 0)
+        //    {
+        //        string notEqualEntityIds = string.Join(", ", notSameIdInPlc);
 
-                // Alert
-                AlertService?.AddAlertDialog(
-                    eAlertType.Warning,
-                    "Update error",
-                    $"Online records have a different ID than requested for update: {notEqualEntityIds}.",
-                    14
-                );
+        //        // Alert
+        //        AlertService?.AddAlertDialog(
+        //            eAlertType.Warning,
+        //            "Update error",
+        //            $"Online records have a different ID than requested for update: {notEqualEntityIds}.",
+        //            14
+        //        );
 
-                // Log
-                AxoApplication.Current.Logger.Warning(
-                    $"Updating record \"{identifier}\" by user action failed – mismatched IDs in: {notEqualEntityIds}.",
-                    Authentication.GetAuthenticationStateAsync().Result.User.Identity
-                );
-            }
+        //        // Log
+        //        AxoApplication.Current.Logger.Warning(
+        //            $"Updating record \"{identifier}\" by user action failed – mismatched IDs in: {notEqualEntityIds}.",
+        //            Authentication.GetAuthenticationStateAsync().Result.User.Identity
+        //        );
+        //    }
 
-        }
+        //}
 
         public async Task SendToPlc(string identifier)
         {

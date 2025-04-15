@@ -7,7 +7,7 @@ namespace AXOpen.Data.Interfaces
         public Task Copy(string identifier, string newIdentifier);
         public Task Create(string identifier);
         public Task CreateNewFromPlc(string identifier);
-        public Task UpdateFromPlc(string identifier);
+        //public Task UpdateFromPlc(string identifier);
         public Task SendToPlc(string identifier);
     }
 

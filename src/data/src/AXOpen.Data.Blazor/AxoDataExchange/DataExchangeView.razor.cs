@@ -57,7 +57,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
     [Parameter] public bool EnableExport { get; set; } = false; 
     [Parameter] public bool EnableSorting { get; set; } = false;
 
-    [Parameter] public bool EnableUpdateFromPlc { get; set; } = false;
+    //[Parameter] public bool EnableUpdateFromPlc { get; set; } = false;
 
     [Parameter] public RenderFragment ChildContent { get; set; }
 
