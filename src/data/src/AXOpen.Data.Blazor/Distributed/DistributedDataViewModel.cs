@@ -174,9 +174,7 @@ namespace AXOpen.Data
             {
                 if (!exchange.Repository.Exists(identifier))
                 {
-                    var plain = Activator.CreateInstance(exchange.GetPlainTypes().First());
-
-                    exchange.Repository.Create(identifier, plain);
+                    await exchange.CreateNewAsync(identifier, exchange.CloneDataObject());
                     created.Add(exchange.ManagerDataTypeName);
                 }
                 else
