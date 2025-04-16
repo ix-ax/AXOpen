@@ -1,6 +1,4 @@
 ﻿using AXOpen.Data.Query;
-using System.Text.Json;
-using Xunit;
 
 namespace Tests_L4
 {
@@ -14,6 +12,28 @@ namespace Tests_L4
         public PlainBuilder_Tests(PlainBuilder_Fixture fixture)
         {
             _fixture = fixture;
+        }
+
+        [Fact]
+        public void plain_builder_should_ignore_interface_properties()
+        {
+            PlainSymbolBuilder.IgnoreProperty(typeof(AXSharp.Connector.IPlain), "vBOOL");
+            PlainSymbolBuilder.IgnoreProperty(typeof(AXSharp.Connector.IPlain), "vLDATE_AND_TIME");
+
+            var builder = new PlainSymbolBuilder(typeof(BasePrimitives));
+
+            Assert.False(builder.GetSymbols().Where(s => s.Contains("vBOOL")).Any());
+            Assert.False(builder.GetSymbols().Where(s => s.Contains("vLDATE_AND_TIME")).Any());
+        }
+
+        [Fact]
+        public void plain_builder_should_ignore_casted_properties()
+        {
+            PlainSymbolBuilder.IgnoreProperty(typeof(Pocos.AXOpen.Data.AxoDataEntity), "DataEntityId");
+
+            var builder = new PlainSymbolBuilder(typeof(Pocos.Exchange_Test_L4.ProcessData));
+
+            Assert.False(builder.GetSymbols().Where(s => s.Contains("DataEntityId")).Any());
         }
 
         [Fact]

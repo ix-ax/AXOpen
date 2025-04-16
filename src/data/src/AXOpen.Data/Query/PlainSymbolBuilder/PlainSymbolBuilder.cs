@@ -20,9 +20,45 @@ namespace AXOpen.Data.Query
             CollectProperties(rootType, true);
         }
 
-        public Dictionary<Type, List<PlainFilterVariable>> TypeDictionary = new();
+        internal static Dictionary<Type, List<string>> IgnoreInterfacesProperty = new();
+        internal static HashSet<Type> IgnoredInterfaceTypes = new(); // speed up
 
-        public List<string> IgnoredRootTypeProperties = new List<string>() { "Hash", "Changes", "RecordId" };
+        internal static Dictionary<Type, List<string>> IgnoredTypesProperty = new();
+        internal static HashSet<Type> IgnoredTypes = new();
+
+        internal static List<string> IgnoredRootTypeProperties = new List<string>() { "Hash", "Changes", "RecordId" };
+
+        public static void IgnoreProperty(Type inType, string propertyName)
+        {
+            Dictionary<Type, List<string>> targetDict = inType.IsInterface
+                ? IgnoreInterfacesProperty
+                : IgnoredTypesProperty;
+
+            if (!targetDict.TryGetValue(inType, out var list))
+            {
+                list = new List<string>();
+                targetDict[inType] = list;
+            }
+
+            if (!list.Contains(propertyName))
+            {
+                list.Add(propertyName);
+            }
+
+            IgnoredInterfaceTypes = new(IgnoreInterfacesProperty.Keys);
+            IgnoredTypes = new(IgnoredTypesProperty.Keys);
+        }
+
+        public static void IgnoreRootProperty(string propertyName)
+        {
+            if (!IgnoredRootTypeProperties.Contains(propertyName))
+            {
+                IgnoredRootTypeProperties.Add(propertyName);
+            }
+        }
+
+
+        public Dictionary<Type, List<PlainFilterVariable>> TypeDictionary = new();
 
         public Type RootType { get; private set; }
 
@@ -35,11 +71,49 @@ namespace AXOpen.Data.Query
 
             var objectProperties = new List<PlainFilterVariable>();
 
+            List<string> localIgnoredProps = new List<string>();
+
+            // ignore property from interfaces
+            if (IgnoredTypes.Any())
+            {
+                foreach (var ignoredType in IgnoredTypes)
+                {
+                    if (ignoredType.IsAssignableFrom(type))
+                    {
+                        foreach (var property in IgnoredTypesProperty[ignoredType])
+                        {
+                            localIgnoredProps.Add(property);
+                        }
+                    }
+                }
+            }
+
+            // ignore property from types/classes
+            if (IgnoredInterfaceTypes.Any())
+            {
+                foreach (var itf in type.GetInterfaces().Where(i => IgnoredInterfaceTypes.Contains(i)))
+                {
+                    foreach (var ignoredProperty in IgnoreInterfacesProperty[itf])
+                    {
+                        localIgnoredProps.Add(ignoredProperty);
+                    }
+                }
+            }
+
+
             foreach (var prop in type.GetProperties())
             {
                 if (isRoot) // remove not presentable fields
                 {
-                    if (IgnoredRootTypeProperties.Contains( prop.Name ))
+                    if (IgnoredRootTypeProperties.Contains(prop.Name))
+                    {
+                        continue;
+                    }
+                }
+
+                if (localIgnoredProps.Any()) // remove not presentable fields
+                {
+                    if (localIgnoredProps.Contains(prop.Name))
                     {
                         continue;
                     }
@@ -73,19 +147,6 @@ namespace AXOpen.Data.Query
                 TypeDictionary[type] = objectProperties;
             }
         }
-
-        public List<string> GetSymbols()
-        {
-            var symbols = new List<string>();
-
-            if (RootType == null || !TypeDictionary.ContainsKey(RootType))
-                return symbols;
-
-            CollectSymbols(RootType, this.RootTypeName, symbols);
-
-            return symbols;
-        }
-
         private void CollectSymbols(Type type, string currentPath, List<string> symbols)
         {
             if (!TypeDictionary.TryGetValue(type, out var properties))
@@ -106,6 +167,18 @@ namespace AXOpen.Data.Query
             }
         }
 
+
+        public List<string> GetSymbols()
+        {
+            var symbols = new List<string>();
+
+            if (RootType == null || !TypeDictionary.ContainsKey(RootType))
+                return symbols;
+
+            CollectSymbols(RootType, this.RootTypeName, symbols);
+
+            return symbols;
+        }
         public Type? GetSymbolType(string result)
         {
             if (string.IsNullOrWhiteSpace(result))
