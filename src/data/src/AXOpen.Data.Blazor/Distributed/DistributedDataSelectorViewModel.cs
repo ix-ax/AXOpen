@@ -128,27 +128,7 @@ namespace AXOpen.Data
 
                 if (predicates != null)
                 {
-                    Parallel.ForEach(RepresentativeExchanges.Where(fragment => predicates.ContainsType(fragment.GetPlainTypes().First())), fragment =>
-                    {
-                        var ids = fragment.GetEntityIds(predicates).ToList();
-
-                        lock (_fragmentEntityIdsLock)
-                        {
-                            fragmentEntities.Add(ids);
-                        }
-                    });
-
-                    commonEntities.AddRange(fragmentEntities.Count > 1
-                         ? fragmentEntities.Skip(1)
-                             .Aggregate(new HashSet<string>(fragmentEntities.First()), (common, next) =>
-                             {
-                                 common.IntersectWith(next);
-                                 return common;
-                             })
-                             .ToList()
-                         : fragmentEntities.FirstOrDefault() ?? new List<string>()
-                         );
-
+                    commonEntities = RepresentativeExchanges.GetEntityIds(predicates);
                     LastFragmentQueryCount = commonEntities.Count;
                 }
 
