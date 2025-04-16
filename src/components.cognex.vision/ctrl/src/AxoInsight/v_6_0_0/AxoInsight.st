@@ -212,6 +212,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             Messenger.Serve(THIS);
 
             IF NOT _initHwCheckDone THEN
+                _hwID                    := hwID;
                 _retval := ReadSlotFromHardwareID(hardwareID := TO_UINT(hwID), geoAddr :=_geoAddr);
                 IF _retval = WORD#8090 THEN
                     Messenger.Activate(UINT#740,eAxoMessageCategory#Error);
@@ -221,6 +222,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 _geoAddr.Slot   :=  UINT#1;
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);
                 _hwIdAcquisitionControl :=  TO_WORD(_outHwid);
+
                 IF _hwIdAcquisitionControl = WORD#0 THEN
                     Messenger.Activate(UINT#741,eAxoMessageCategory#Error);
                     RETURN;
