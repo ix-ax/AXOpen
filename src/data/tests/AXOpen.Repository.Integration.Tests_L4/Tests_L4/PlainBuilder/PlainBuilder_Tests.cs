@@ -5,13 +5,10 @@ namespace Tests_L4
     using Pocos.Exchange_Test_L4;
 
     [Collection("BuilderTest")]
-    public class PlainBuilder_Tests : IClassFixture<PlainBuilder_Fixture>
+    public class PlainBuilder_Tests
     {
-        private readonly PlainBuilder_Fixture _fixture;
-
-        public PlainBuilder_Tests(PlainBuilder_Fixture fixture)
+        public PlainBuilder_Tests()
         {
-            _fixture = fixture;
         }
 
         [Fact]
@@ -39,12 +36,14 @@ namespace Tests_L4
         [Fact]
         public void plain_builder_should_be_initialized()
         {
-            Assert.Equal(4, _fixture.builder.TypeDictionary.Count);
+            var builder = new PlainSymbolBuilder(typeof(Pocos.Exchange_Test_L4.NestedPrimitives_L3));
 
-            Assert.True(_fixture.builder.TypeDictionary.ContainsKey(typeof(BasePrimitives)));
-            Assert.True(_fixture.builder.TypeDictionary.ContainsKey(typeof(NestedPrimitives_L1)));
-            Assert.True(_fixture.builder.TypeDictionary.ContainsKey(typeof(NestedPrimitives_L2)));
-            Assert.True(_fixture.builder.TypeDictionary.ContainsKey(typeof(NestedPrimitives_L3)));
+            Assert.Equal(4, builder.TypeDictionary.Count);
+
+            Assert.True(builder.TypeDictionary.ContainsKey(typeof(BasePrimitives)));
+            Assert.True(builder.TypeDictionary.ContainsKey(typeof(NestedPrimitives_L1)));
+            Assert.True(builder.TypeDictionary.ContainsKey(typeof(NestedPrimitives_L2)));
+            Assert.True(builder.TypeDictionary.ContainsKey(typeof(NestedPrimitives_L3)));
         }
 
         [Fact]
@@ -54,7 +53,9 @@ namespace Tests_L4
             // 15 ms - 54 000
             // 7 ms  - 27 000
 
-            var symbols = _fixture.builder.GetSymbols();
+            var builder = new PlainSymbolBuilder(typeof(Pocos.Exchange_Test_L4.NestedPrimitives_L3));
+
+            var symbols = builder.GetSymbols();
 
             Assert.Equal(27001, symbols.Count());
         }
