@@ -59,13 +59,13 @@
 
         @if (DistributedVM.InjectedEntities != null && DistributedVM.InjectedEntities.Count > 0)
         {
-            <button type="button" class="btn btn-secondary px-1 py-1"
+            <button type="button" class="btn @(DistributedVM.EnableInjectedExternalIds ? "btn-warning" : "btn-primary") px-1 py-1"
                     @onclick="() => DistributedVM.TogleExternalEntityIdsInjection()">
 
                 @if (DistributedVM.EnableInjectedExternalIds)
                 {
                     <span> @Localizer["Disable Injected Ids"]</span>
-                    <span>(@DistributedVM.InjectedEntities.Count)</span>
+                    <span>(@DistributedVM.InjectedEntities?.Count)</span>
                 }
                 else
                 {
@@ -148,14 +148,11 @@ else
                           EnableCreate="@this.EnableCreate"
                           EnableCopy="@this.EnableCopy"
                           EnableDelete="@this.EnableDelete"
-
                           EnableCreateNewFromPlc="@this.EnableCreateNewFromPlc"
                           EnableSendToPlc="@this.EnableSendToPlc"
-
                           EnableFiltering="@this.EnableFiltering"
                           EnableSorting="@this.EnableSorting"
-                          EnableExport="@this.EnableExport"
->
+                          EnableExport="@this.EnableExport">
 
             @foreach (var column in DistributedVM.ExchangeConfig.Collumns)
             {

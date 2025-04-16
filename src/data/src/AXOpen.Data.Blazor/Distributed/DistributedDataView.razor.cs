@@ -1,4 +1,5 @@
-﻿using AXOpen.Base.Dialogs;
+﻿using AXOpen.Base.Data.Query;
+using AXOpen.Base.Dialogs;
 using Humanizer.DateTimeHumanizeStrategy;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -32,6 +33,11 @@ namespace AXOpen.Data
         [Parameter] public bool EnableFiltering { get; set; } = false;
         [Parameter] public bool EnableExport { get; set; } = false;
         [Parameter] public bool EnableSorting { get; set; } = false;
+
+
+        [Parameter] public List<string>? InjectedEntities { get; set; }
+        [Parameter] public PredicateContainer? InjectedPredicateContainer { get; set; }
+
 
         [Inject]
         public IJSRuntime JSRuntime { set; get; }
@@ -76,7 +82,9 @@ namespace AXOpen.Data
                     this.ExchangeConfigService,
                     this.GroupName,
                     this.DisplayOnePerDataType,
-                    this.ConfigSuffix
+                    this.ConfigSuffix,
+                    this.InjectedEntities,
+                    this.InjectedPredicateContainer
                     );
 
                 this.DistributedVM.StateHasChangedDelegate = StateHasChanged;

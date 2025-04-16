@@ -18,8 +18,6 @@ namespace AXOpen.Data
 {
     public partial class DistributedDataViewModel : IDataExchangeQueryViewModel, IDataExchangeGlobalActions
     {
-        protected volatile object _fragmentEntityIdsLock = new object();
-
         protected readonly AuthenticationStateProvider Authentication;
 
         protected readonly IAlertService AlertService;
@@ -28,7 +26,7 @@ namespace AXOpen.Data
 
 
         protected readonly string GroupName = "";
-        protected readonly bool DisplayOnePerDataType ;
+        protected readonly bool DisplayOnePerDataType;
         protected readonly string ConfiguraionSuffix = "";
 
         public DistributedDataViewModel(
@@ -38,7 +36,10 @@ namespace AXOpen.Data
             IAxoDataExchangeConfigurationService configuraionService,
             string groupName,
             bool displayOnePerDataType,
-            string configuraionSuffix = ""
+            string configuraionSuffix,
+             List<string>? injectedEntities,
+             PredicateContainer? injectedPredicateContainer
+
             )
         {
             AlertService = alertService;
@@ -49,11 +50,32 @@ namespace AXOpen.Data
             DisplayOnePerDataType = displayOnePerDataType;
             ConfiguraionSuffix = configuraionSuffix;
 
-            DisplayedDataFragments = DistributedExchangeService.GetExchanges(this.GroupName, this.DisplayOnePerDataType);
+            if ( injectedEntities != null) InjectedEntities = injectedEntities;
             
+            InjectedPredicateContainer = injectedPredicateContainer;
+
+            DisplayedDataFragments = DistributedExchangeService.GetExchanges(this.GroupName, this.DisplayOnePerDataType);
+
             AllDataFragments = DistributedExchangeService.GetExchanges(this.GroupName, false);
 
-            InitializeViewModel(DisplayedDataFragments.First());
+            if (InjectedPredicateContainer != null)
+            {
+                var idsFromPredicates = DisplayedDataFragments.GetEntityIds(this.InjectedPredicateContainer);
+                if (idsFromPredicates != null && idsFromPredicates.Count > 0)
+                {
+                    if (InjectedEntities == null)
+                    {
+                        injectedEntities = idsFromPredicates;
+                    }
+                    else
+                    {
+                        InjectedEntities.AddRange(idsFromPredicates);
+                        InjectedEntities = InjectedEntities.Distinct().ToList();
+                    }
+                }
+            }
+
+            InitializeSelectedViewModel(DisplayedDataFragments.First());
         }
 
         #region IDataExchangeQueryViewModel
@@ -91,27 +113,7 @@ namespace AXOpen.Data
                 }
             }
 
-            List<List<string>> fragmentEntities = new();
-
-            Parallel.ForEach(DisplayedDataFragments.Where(fragment => predicates.ContainsType(fragment.GetPlainTypes().First())), fragment =>
-            {
-                var ids = fragment.GetEntityIds(predicates).ToList();
-                lock (_fragmentEntityIdsLock)
-                {
-                    fragmentEntities.Add(ids);
-                }
-            });
-
-            List<string> commonEntities = fragmentEntities.Count > 1
-                ? fragmentEntities.Skip(1)
-                    .Aggregate(new HashSet<string>(fragmentEntities.First()), (common, next) =>
-                    {
-                        common.IntersectWith(next);
-                        return common;
-                    })
-                    .ToList()
-                : fragmentEntities.FirstOrDefault() ?? new List<string>();
-
+            List<string> commonEntities = DisplayedDataFragments.GetEntityIds(predicates);
             LastFragmentQueryCount = commonEntities.Count;
 
             EnableInjectLocalIds = true;
@@ -156,6 +158,14 @@ namespace AXOpen.Data
         public bool EnableInjectedExternalIds { get; private set; } = true;
 
         public AxoDataExchangeConfiguration ExchangeConfig { get; set; } = new();
+
+        public DataExchangeViewModel SelectedManagerVm { get; set; }
+
+        public int LastFragmentQueryCount { set; get; }
+
+        public IEnumerable<IAxoDataExchange> DisplayedDataFragments { get; private set; } // used for View 
+        public IEnumerable<IAxoDataExchange> AllDataFragments { get; private set; } // used for load to plc
+        public PredicateContainer InjectedPredicateContainer { set; get; }
 
         #region IDataExchangeGlogalActions
 
@@ -485,6 +495,7 @@ namespace AXOpen.Data
                         var newPlain = exchange.Repository.Read(identifier);
                         (newPlain as dynamic).DataEntityId = newIdentifier;
                         exchange.Repository.Create(newIdentifier, newPlain);
+                        copied.Add(exchange.ManagerDataTypeName);
                     }
                     else
                     {
@@ -500,7 +511,7 @@ namespace AXOpen.Data
             if (copied.Count > 0)
             {
                 string createdRecords = string.Join(", ", copied);
-                AlertService?.AddAlertDialog(eAlertType.Info, "Copied record", $"Data with ID: \"{identifier}\"  was created for: {createdRecords}!", 7);
+                AlertService?.AddAlertDialog(eAlertType.Info, "Copied record", $"Data with ID: \"{identifier}\" was created for: {createdRecords}!", 7);
                 AxoApplication.Current.Logger.Information($"Copying record \"{identifier}\" with new ID \"{newIdentifier}\" into repositories {createdRecords} by user action was successful.", Authentication.GetAuthenticationStateAsync().Result.User.Identity);
             }
 
@@ -508,14 +519,14 @@ namespace AXOpen.Data
             {
                 string alreadyExistRecords = string.Join(", ", alreadyExist);
                 AlertService?.AddAlertDialog(eAlertType.Warning, "Copied error", $"Record already exist for: {alreadyExistRecords}!", 14);
-                AxoApplication.Current.Logger.Information($"Copying record \"{identifier}\" into repositories {alreadyExistRecords} by user action failed – record already exist.", Authentication.GetAuthenticationStateAsync().Result.User.Identity);
+                AxoApplication.Current.Logger.Warning($"Copying record \"{identifier}\" into repositories {alreadyExistRecords} by user action failed – record already exist.", Authentication.GetAuthenticationStateAsync().Result.User.Identity);
             }
 
             if (notExist.Count > 0)
             {
                 string notExistRecords = string.Join(", ", notExist);
                 AlertService?.AddAlertDialog(eAlertType.Warning, "Copied error", $"Source Record not exist for: {notExistRecords}!", 14);
-                AxoApplication.Current.Logger.Information($"Copying record \"{identifier}\" into repositories {notExistRecords} by user action failed – record does not exist.", Authentication.GetAuthenticationStateAsync().Result.User.Identity);
+                AxoApplication.Current.Logger.Warning($"Copying record \"{identifier}\" into repositories {notExistRecords} by user action failed – record does not exist.", Authentication.GetAuthenticationStateAsync().Result.User.Identity);
             }
         }
 
@@ -575,7 +586,7 @@ namespace AXOpen.Data
                 );
 
                 // Log message
-                AxoApplication.Current.Logger.Information(
+                AxoApplication.Current.Logger.Warning(
                     $"Deleting record \"{identifier}\" by user action failed – record does not exist in repositories: {notExistInRepos}.",
                     Authentication.GetAuthenticationStateAsync().Result.User.Identity
                 );
@@ -597,7 +608,7 @@ namespace AXOpen.Data
 
             if (exchange != null)
             {
-                InitializeViewModel(exchange);
+                InitializeSelectedViewModel(exchange);
 
                 await SelectedManagerVm.FillObservableRecordsAsync();
             }
@@ -618,7 +629,7 @@ namespace AXOpen.Data
             }
         }
 
-        protected void InitializeViewModel(IAxoDataExchange exchange)
+        protected void InitializeSelectedViewModel(IAxoDataExchange exchange)
         {
             if (this.SelectedManagerVm != null)
             {
@@ -662,8 +673,11 @@ namespace AXOpen.Data
             }
             else if (this.EnableInjectedExternalIds && !this.EnableInjectLocalIds)
             {
-                ids.AddRange(this.InjectedEntities);
-                ids = ids.Distinct().ToList();
+                if (this.InjectedEntities != null)
+                {
+                    ids.AddRange(this.InjectedEntities);
+                    ids = ids.Distinct().ToList();
+                }
             }
 
             return ids;
@@ -691,13 +705,6 @@ namespace AXOpen.Data
             SelectedManagerVm.InvokeStateHasChanged();
         }
 
-        public DataExchangeViewModel SelectedManagerVm { get; set; }
-
-        public int LastFragmentQueryCount { set; get; }
-
-        public IEnumerable<IAxoDataExchange> DisplayedDataFragments { get; private set; } // used for View 
-        public IEnumerable<IAxoDataExchange> AllDataFragments { get; private set; } // used for load to plc
-        public PredicateContainer InjectedPredicateContainer { set; get; }
 
         public Dictionary<string, List<IBrowsableDataObject>> GetRecords(PredicateContainer predicates,
             int limit, int skip)

@@ -16,14 +16,11 @@ namespace AXOpen.Data
         [Parameter, EditorRequired]
         public string GroupName { get; set; }
 
-        [Parameter]
-        public string ConfigSuffix { get; set; } = "";
+        [Parameter] public string ConfigSuffix { get; set; } = "";
 
-        [Parameter]
-        public PredicateContainer? InjectedPredicateContainer { set; get; }
+        [Parameter] public PredicateContainer? InjectedPredicateContainer { set; get; }
 
-        [Parameter]
-        public Action<string>? OnDataSend { get; set; }
+        [Parameter] public Action<string>? OnDataSend { get; set; }
 
 
         [Inject]
