@@ -260,7 +260,8 @@ else
                                         @onclick="async () => {
                                         await DistributedVM.SendToPlc(SelectedEntity.DataEntityId);
                                         await DistributedVM.ReadAllCurrentEntityIds();
-                                        EndBtnOperation();}">
+                                        EndBtnOperation();
+                                        OnDataSend?.Invoke(SelectedEntity.DataEntityId);}">
                                     <div class="d-flex flex-row justify-content-center align-items-center">
                                         <i class="bi bi-cloud-upload me-2"></i>
                                         <span>@Localizer["Send to the PLC"]: "@SelectedEntity.DataEntityId"</span>

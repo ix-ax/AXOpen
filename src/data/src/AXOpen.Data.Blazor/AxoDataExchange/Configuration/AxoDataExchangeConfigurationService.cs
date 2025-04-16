@@ -1,33 +1,42 @@
-﻿namespace AXOpen.Data
+﻿using Microsoft.AspNetCore.Cors;
+
+namespace AXOpen.Data
 {
     public class AxoDataExchangeConfigurationService : IAxoDataExchangeConfigurationService
     {
         protected Dictionary<string, AxoDataExchangeConfiguration> _Configurations = new();
 
+        protected AxoDataExchangeConfiguration _DefaultConfiguration = new();
+
         public Dictionary<string, AxoDataExchangeConfiguration> Configurations
         {
             get { return _Configurations; }
         }
+        
+        public AxoDataExchangeConfiguration DefaultConfiguration
+        {
+            get { return _DefaultConfiguration; }
+        }
 
-        public AxoDataExchangeConfiguration GetConfigution(DataExchangeViewModel dataExchangeViewModel)
+        public AxoDataExchangeConfiguration GetConfigution(DataExchangeViewModel dataExchangeViewModel, bool defautIfNotExist = true)
         {
             if (dataExchangeViewModel == null)
                 return new AxoDataExchangeConfiguration();
 
             var exchange = (dataExchangeViewModel.Model) as IAxoDataExchange;
-            return GetConfigution(exchange);
+            return GetConfigution(exchange, defautIfNotExist);
         }
 
-        public AxoDataExchangeConfiguration GetConfigution(IAxoDataExchange exchange)
+        public AxoDataExchangeConfiguration GetConfigution(IAxoDataExchange exchange, bool defautIfNotExist = true)
         {
             if (exchange == null)
                 return new AxoDataExchangeConfiguration();
 
             // Retrieve the full name of the POCO type representing the data entity.
-            return GetConfigution(exchange.GetPlainTypes().First().FullName);
+            return GetConfigution(exchange.GetPlainTypes().First().FullName, defautIfNotExist);
         }
 
-        public AxoDataExchangeConfiguration GetConfigution(string fullPlainDataTypeNameWithSuffix)
+        public AxoDataExchangeConfiguration GetConfigution(string fullPlainDataTypeNameWithSuffix, bool defautIfNotExist = true)
         {
             if (string.IsNullOrEmpty(fullPlainDataTypeNameWithSuffix))
                 return null;
@@ -38,6 +47,10 @@
             }
             else
             {
+                if (defautIfNotExist)
+                {
+                    return _DefaultConfiguration;
+                }
                 return null;
             }
         }
@@ -64,6 +77,11 @@
                 // Store the new configuration.
                 Configurations.Add(typeName, config);
             }
+        }
+
+        public void SetDefaultConfiguration(AxoDataExchangeConfiguration config)
+        {
+           this._DefaultConfiguration = config;
         }
     }
 }
