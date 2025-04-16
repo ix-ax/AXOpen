@@ -1,4 +1,5 @@
-﻿using AXOpen.Base.Dialogs;
+﻿using AXOpen.Base.Data.Query;
+using AXOpen.Base.Dialogs;
 using Humanizer.DateTimeHumanizeStrategy;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -27,11 +28,16 @@ namespace AXOpen.Data
         [Parameter] public bool EnableDelete { get; set; } = false;
         [Parameter] public bool EnableSendToPlc { get; set; } = false;
         [Parameter] public bool EnableCreateNewFromPlc { get; set; } = false;
-        [Parameter] public bool EnableUpdateFromPlc { get; set; } = false;
+        //[Parameter] public bool EnableUpdateFromPlc { get; set; } = false;
 
         [Parameter] public bool EnableFiltering { get; set; } = false;
         [Parameter] public bool EnableExport { get; set; } = false;
         [Parameter] public bool EnableSorting { get; set; } = false;
+
+
+        [Parameter] public List<string>? InjectedEntities { get; set; }
+        [Parameter] public PredicateContainer? InjectedPredicateContainer { get; set; }
+
 
         [Inject]
         public IJSRuntime JSRuntime { set; get; }
@@ -69,15 +75,19 @@ namespace AXOpen.Data
 
             if (DistributedExchangeService.IsExistGroup(GroupName))
             {
-                IEnumerable<IAxoDataExchange> DataFragments;
+                this.DistributedVM = new DistributedDataViewModel(
+                    this.AlertService,
+                    this.Authentication,
+                    this.DistributedExchangeService,
+                    this.ExchangeConfigService,
+                    this.GroupName,
+                    this.DisplayOnePerDataType,
+                    this.ConfigSuffix,
+                    this.InjectedEntities,
+                    this.InjectedPredicateContainer
+                    );
 
-                DataFragments = DistributedExchangeService.GetExchanges(GroupName, DisplayOnePerDataType);
-
-                if (DataFragments != null)
-                {
-                    this.DistributedVM = new DistributedDataViewModel(DataFragments, this.AlertService, this.Authentication, this.ExchangeConfigService);
-                    this.DistributedVM.StateHasChangedDelegate = StateHasChanged;
-                }
+                this.DistributedVM.StateHasChangedDelegate = StateHasChanged;
             }
             else
             {

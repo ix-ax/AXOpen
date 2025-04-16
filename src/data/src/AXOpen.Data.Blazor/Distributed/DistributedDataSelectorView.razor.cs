@@ -16,14 +16,11 @@ namespace AXOpen.Data
         [Parameter, EditorRequired]
         public string GroupName { get; set; }
 
-        [Parameter]
-        public string ConfigSuffix { get; set; } = "";
+        [Parameter] public string ConfigSuffix { get; set; } = "";
 
-        [Parameter]
-        public PredicateContainer? InjectedPredicateContainer { set; get; }
+        [Parameter] public PredicateContainer? InjectedPredicateContainer { set; get; }
 
-        [Parameter]
-        public Action<string>? OnDataSend { get; set; }
+        [Parameter] public Action<string>? OnDataSend { get; set; }
 
 
         [Inject]
@@ -62,7 +59,7 @@ namespace AXOpen.Data
 
                 if (DataFragments != null)
                 {
-                    DistributedVM = new DistributedDataSelectorViewModel(DistributedExchangeService, GroupName, AlertService, InjectedPredicateContainer);
+                    DistributedVM = new DistributedDataSelectorViewModel(AlertService, Authentication, DistributedExchangeService, GroupName, ConfigSuffix, InjectedPredicateContainer);
 
 
                     await DistributedVM.ReadAllCurrentEntityIds();

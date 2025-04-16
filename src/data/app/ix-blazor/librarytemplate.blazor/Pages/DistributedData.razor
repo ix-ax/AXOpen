@@ -22,7 +22,19 @@
     </div>
     <div class="card-body">
          //<BlazorViewDistributedData> 
-            <DistributedDataView GroupName="default"  Presentation="Command" ConfigSuffix="" EnableExport=true EnableSorting=true DisplayOnePerDataType=true />
+           <DistributedDataView Presentation="Command"
+                     GroupName="default" 
+                     ConfigSuffix="" 
+                     DisplayOnePerDataType="true" 
+                     EnableCreate="true" 
+                     EnableDelete="true" 
+                     EnableCopy="true" 
+                     EnableFiltering="true"
+                     EnableSorting="false"
+                     EnableExport="true" 
+                     EnableSendToPlc="true"
+                     EnableCreateNewFromPlc="true"
+                     />
          //</BlazorViewDistributedData>
     </div>
 </div>

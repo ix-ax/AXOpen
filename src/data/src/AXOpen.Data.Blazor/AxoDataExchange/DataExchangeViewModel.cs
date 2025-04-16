@@ -450,42 +450,42 @@ namespace AXOpen.Data
             }
         }
 
-        public async Task UpdateFromPlc()
-        {
-            try
-            {
-                var identifier = SelectedRecord.DataEntityId;
+        //public async Task UpdateFromPlc()
+        //{
+        //    try
+        //    {
+        //        var identifier = SelectedRecord.DataEntityId;
 
-                var refdata = DataExchange.CloneDataObject();
+        //        var refdata = DataExchange.CloneDataObject();
 
-                var DataEntityId = (refdata as IAxoDataEntity).DataEntityId;
+        //        var DataEntityId = (refdata as IAxoDataEntity).DataEntityId;
 
-                List<ITwinPrimitive> batchRedElements = new();
+        //        List<ITwinPrimitive> batchRedElements = new();
 
-                batchRedElements.Add(DataEntityId);
+        //        batchRedElements.Add(DataEntityId);
 
-                await refdata.GetConnector().ReadBatchAsync(batchRedElements);
+        //        await refdata.GetConnector().ReadBatchAsync(batchRedElements);
 
-                if (DataEntityId.Cyclic != identifier)
-                {
-                    AlertDialogService?.AddAlertDialog(eAlertType.Warning, "Update error", $"Online record has different ID that requested to update: {DataEntityId.Cyclic}/{identifier}!", 14);
-                    return;
-                }
+        //        if (DataEntityId.Cyclic != identifier)
+        //        {
+        //            AlertDialogService?.AddAlertDialog(eAlertType.Warning, "Update error", $"Online record has different ID that requested to update: {DataEntityId.Cyclic}/{identifier}!", 14);
+        //            return;
+        //        }
 
-                await DataExchange.RemoteUpdate(identifier);
-                AlertDialogService?.AddAlertDialog(eAlertType.Success, "Update from PLC!", "Item was successfully updated from PLC!", 10);
-                AxoApplication.Current.Logger.Information($"Updated from Plc {identifier} into {DataExchange.PresentableInstanceName} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
-            }
-            catch (Exception e)
-            {
-                AlertDialogService?.AddAlertDialog(eAlertType.Danger, "Failed to update a record from the controller", e.Message, 10);
-            }
-            finally
-            {
-                await FillObservableRecordsAsync();
-                CreateItemId = null;
-            }
-        }
+        //        await DataExchange.RemoteUpdate(identifier);
+        //        AlertDialogService?.AddAlertDialog(eAlertType.Success, "Update from PLC!", "Item was successfully updated from PLC!", 10);
+        //        AxoApplication.Current.Logger.Information($"Updated from Plc {identifier} into {DataExchange.PresentableInstanceName} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        AlertDialogService?.AddAlertDialog(eAlertType.Danger, "Failed to update a record from the controller", e.Message, 10);
+        //    }
+        //    finally
+        //    {
+        //        await FillObservableRecordsAsync();
+        //        CreateItemId = null;
+        //    }
+        //}
 
 
         public Task ExportDataAsync(string path)
