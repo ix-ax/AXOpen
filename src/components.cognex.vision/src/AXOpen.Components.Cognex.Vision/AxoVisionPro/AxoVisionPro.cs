@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Template.Axolibrary
+namespace AXOpen.Components.Cognex.Vision
 {
-    public partial class TemplateComponent
+    public partial class AxoVisionPro
     {
         partial void PostConstruct(ITwinObject parent, string readableTail, string symbolTail)
         {
@@ -19,7 +19,6 @@ namespace Template.Axolibrary
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -225,27 +224,27 @@ namespace Template.Axolibrary
                 new KeyValuePair<ulong, AxoMessengerTextItem>(850, new AxoMessengerTextItem("Input variable `hwId_19` has invalid value in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `hwId_19` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(851, new AxoMessengerTextItem("Input variable `hwId_20` has invalid value in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `hwId_20` parameter is assigned.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(861, new AxoMessengerTextItem("Error reading the TemplateComponentInputStructure_hwID_1!"                                                                     ,"Check the value of the hwID_1 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(862, new AxoMessengerTextItem("Error reading the TemplateComponentInputStructure_hwID_2!"                                                                     ,"Check the value of the hwID_2 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(863, new AxoMessengerTextItem("Error reading the TemplateComponentInputStructure_hwID_3!"                                                                     ,"Check the value of the hwID_3 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(864, new AxoMessengerTextItem("Error reading the TemplateComponentInputStructure_hwID_4!"                                                                     ,"Check the value of the hwID_4 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(865, new AxoMessengerTextItem("Error reading the TemplateComponentInputStructure_hwID_5!"                                                                     ,"Check the value of the hwID_5 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(866, new AxoMessengerTextItem("Error reading the TemplateComponentInputStructure_hwID_6!"                                                                     ,"Check the value of the hwID_6 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(867, new AxoMessengerTextItem("Error reading the TemplateComponentInputStructure_hwID_7!"                                                                     ,"Check the value of the hwID_7 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(868, new AxoMessengerTextItem("Error reading the TemplateComponentInputStructure_hwID_8!"                                                                     ,"Check the value of the hwID_8 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(869, new AxoMessengerTextItem("Error reading the TemplateComponentInputStructure_hwID_9!"                                                                     ,"Check the value of the hwID_9 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(870, new AxoMessengerTextItem("Error reading the TemplateComponentInputStructure_hwID_10!"                                                                    ,"Check the value of the hwID_10 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(861, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_1!"                                                                     ,"Check the value of the hwID_1 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(862, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_2!"                                                                     ,"Check the value of the hwID_2 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(863, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_3!"                                                                     ,"Check the value of the hwID_3 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(864, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_4!"                                                                     ,"Check the value of the hwID_4 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(865, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_5!"                                                                     ,"Check the value of the hwID_5 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(866, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_6!"                                                                     ,"Check the value of the hwID_6 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(867, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_7!"                                                                     ,"Check the value of the hwID_7 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(868, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_8!"                                                                     ,"Check the value of the hwID_8 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(869, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_9!"                                                                     ,"Check the value of the hwID_9 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(870, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_10!"                                                                    ,"Check the value of the hwID_10 and reacheability of the device!")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(871, new AxoMessengerTextItem("Error writing the TemplateComponentOutputStructure_hwID_11!"                                                                   ,"Check the value of the hwID_11 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(872, new AxoMessengerTextItem("Error writing the TemplateComponentOutputStructure_hwID_12!"                                                                   ,"Check the value of the hwID_12 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(873, new AxoMessengerTextItem("Error writing the TemplateComponentOutputStructure_hwID_13!"                                                                   ,"Check the value of the hwID_13 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(874, new AxoMessengerTextItem("Error writing the TemplateComponentOutputStructure_hwID_14!"                                                                   ,"Check the value of the hwID_14 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(875, new AxoMessengerTextItem("Error writing the TemplateComponentOutputStructure_hwID_15!"                                                                   ,"Check the value of the hwID_15 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(876, new AxoMessengerTextItem("Error writing the TemplateComponentOutputStructure_hwID_16!"                                                                   ,"Check the value of the hwID_16 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(877, new AxoMessengerTextItem("Error writing the TemplateComponentOutputStructure_hwID_17!"                                                                   ,"Check the value of the hwID_17 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(878, new AxoMessengerTextItem("Error writing the TemplateComponentOutputStructure_hwID_18!"                                                                   ,"Check the value of the hwID_18 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(879, new AxoMessengerTextItem("Error writing the TemplateComponentOutputStructure_hwID_19!"                                                                   ,"Check the value of the hwID_19 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(880, new AxoMessengerTextItem("Error writing the TemplateComponentOutputStructure_hwID_20!"                                                                   ,"Check the value of the hwID_20 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(871, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_11!"                                                                   ,"Check the value of the hwID_11 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(872, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_12!"                                                                   ,"Check the value of the hwID_12 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(873, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_13!"                                                                   ,"Check the value of the hwID_13 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(874, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_14!"                                                                   ,"Check the value of the hwID_14 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(875, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_15!"                                                                   ,"Check the value of the hwID_15 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(876, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_16!"                                                                   ,"Check the value of the hwID_16 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(877, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_17!"                                                                   ,"Check the value of the hwID_17 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(878, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_18!"                                                                   ,"Check the value of the hwID_18 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(879, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_19!"                                                                   ,"Check the value of the hwID_19 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(880, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_20!"                                                                   ,"Check the value of the hwID_20 and reacheability of the device!")),
 
 
                 // TemplateTask_10steps_1
@@ -497,7 +496,7 @@ namespace Template.Axolibrary
         }
     }
 
-    public partial class TemplateComponent_Component_Status : AXOpen.Components.Abstractions.AxoComponent_Status
+    public partial class AxoVisionPro_Component_Status : AXOpen.Components.Abstractions.AxoComponent_Status
     {
         Dictionary<ulong, string> errorDescriptionDict = new Dictionary<ulong, string>();
         Dictionary<ulong, string> actionDescriptionDict = new Dictionary<ulong, string>();
@@ -850,27 +849,27 @@ namespace Template.Axolibrary
                     errorDescriptionDict.Add(850, "Input variable `hwId_19` has invalid value in `Run` method!");
                     errorDescriptionDict.Add(851, "Input variable `hwId_20` has invalid value in `Run` method!");
 
-                    errorDescriptionDict.Add(861, "Error reading the TemplateComponentInputStructure_hwID_1!");
-                    errorDescriptionDict.Add(862, "Error reading the TemplateComponentInputStructure_hwID_2!");
-                    errorDescriptionDict.Add(863, "Error reading the TemplateComponentInputStructure_hwID_3!");
-                    errorDescriptionDict.Add(864, "Error reading the TemplateComponentInputStructure_hwID_4!");
-                    errorDescriptionDict.Add(865, "Error reading the TemplateComponentInputStructure_hwID_5!");
-                    errorDescriptionDict.Add(866, "Error reading the TemplateComponentInputStructure_hwID_6!");
-                    errorDescriptionDict.Add(867, "Error reading the TemplateComponentInputStructure_hwID_7!");
-                    errorDescriptionDict.Add(868, "Error reading the TemplateComponentInputStructure_hwID_8!");
-                    errorDescriptionDict.Add(869, "Error reading the TemplateComponentInputStructure_hwID_9!");
-                    errorDescriptionDict.Add(870, "Error reading the TemplateComponentInputStructure_hwID_10!");
+                    errorDescriptionDict.Add(861, "Error reading the AxoVisionProInputStructure_hwID_1!");
+                    errorDescriptionDict.Add(862, "Error reading the AxoVisionProInputStructure_hwID_2!");
+                    errorDescriptionDict.Add(863, "Error reading the AxoVisionProInputStructure_hwID_3!");
+                    errorDescriptionDict.Add(864, "Error reading the AxoVisionProInputStructure_hwID_4!");
+                    errorDescriptionDict.Add(865, "Error reading the AxoVisionProInputStructure_hwID_5!");
+                    errorDescriptionDict.Add(866, "Error reading the AxoVisionProInputStructure_hwID_6!");
+                    errorDescriptionDict.Add(867, "Error reading the AxoVisionProInputStructure_hwID_7!");
+                    errorDescriptionDict.Add(868, "Error reading the AxoVisionProInputStructure_hwID_8!");
+                    errorDescriptionDict.Add(869, "Error reading the AxoVisionProInputStructure_hwID_9!");
+                    errorDescriptionDict.Add(870, "Error reading the AxoVisionProInputStructure_hwID_10!");
 
-                    errorDescriptionDict.Add(871, "Error writing the TemplateComponentOutputStructure_hwID_11!");
-                    errorDescriptionDict.Add(872, "Error writing the TemplateComponentOutputStructure_hwID_12!");
-                    errorDescriptionDict.Add(873, "Error writing the TemplateComponentOutputStructure_hwID_13!");
-                    errorDescriptionDict.Add(874, "Error writing the TemplateComponentOutputStructure_hwID_14!");
-                    errorDescriptionDict.Add(875, "Error writing the TemplateComponentOutputStructure_hwID_15!");
-                    errorDescriptionDict.Add(876, "Error writing the TemplateComponentOutputStructure_hwID_16!");
-                    errorDescriptionDict.Add(877, "Error writing the TemplateComponentOutputStructure_hwID_17!");
-                    errorDescriptionDict.Add(878, "Error writing the TemplateComponentOutputStructure_hwID_18!");
-                    errorDescriptionDict.Add(879, "Error writing the TemplateComponentOutputStructure_hwID_19!");
-                    errorDescriptionDict.Add(880, "Error writing the TemplateComponentOutputStructure_hwID_20!");
+                    errorDescriptionDict.Add(871, "Error writing the AxoVisionProOutputStructure_hwID_11!");
+                    errorDescriptionDict.Add(872, "Error writing the AxoVisionProOutputStructure_hwID_12!");
+                    errorDescriptionDict.Add(873, "Error writing the AxoVisionProOutputStructure_hwID_13!");
+                    errorDescriptionDict.Add(874, "Error writing the AxoVisionProOutputStructure_hwID_14!");
+                    errorDescriptionDict.Add(875, "Error writing the AxoVisionProOutputStructure_hwID_15!");
+                    errorDescriptionDict.Add(876, "Error writing the AxoVisionProOutputStructure_hwID_16!");
+                    errorDescriptionDict.Add(877, "Error writing the AxoVisionProOutputStructure_hwID_17!");
+                    errorDescriptionDict.Add(878, "Error writing the AxoVisionProOutputStructure_hwID_18!");
+                    errorDescriptionDict.Add(879, "Error writing the AxoVisionProOutputStructure_hwID_19!");
+                    errorDescriptionDict.Add(880, "Error writing the AxoVisionProOutputStructure_hwID_20!");
 
 
                     // TemplateTask_10steps_1
@@ -1192,27 +1191,27 @@ namespace Template.Axolibrary
                     actionDescriptionDict.Add(720, "Input variable `hwId_19` has invalid value in `Run` method!");
                     actionDescriptionDict.Add(721, "Input variable `hwId_20` has invalid value in `Run` method!");
 
-                    actionDescriptionDict.Add(722, "Error reading the TemplateComponentInputStructure_hwID_1!");
-                    actionDescriptionDict.Add(723, "Error reading the TemplateComponentInputStructure_hwID_2!");
-                    actionDescriptionDict.Add(724, "Error reading the TemplateComponentInputStructure_hwID_3!");
-                    actionDescriptionDict.Add(725, "Error reading the TemplateComponentInputStructure_hwID_4!");
-                    actionDescriptionDict.Add(726, "Error reading the TemplateComponentInputStructure_hwID_5!");
-                    actionDescriptionDict.Add(727, "Error reading the TemplateComponentInputStructure_hwID_6!");
-                    actionDescriptionDict.Add(728, "Error reading the TemplateComponentInputStructure_hwID_7!");
-                    actionDescriptionDict.Add(729, "Error reading the TemplateComponentInputStructure_hwID_8!");
-                    actionDescriptionDict.Add(730, "Error reading the TemplateComponentInputStructure_hwID_9!");
-                    actionDescriptionDict.Add(731, "Error reading the TemplateComponentInputStructure_hwID_10!");
+                    actionDescriptionDict.Add(722, "Error reading the AxoVisionProInputStructure_hwID_1!");
+                    actionDescriptionDict.Add(723, "Error reading the AxoVisionProInputStructure_hwID_2!");
+                    actionDescriptionDict.Add(724, "Error reading the AxoVisionProInputStructure_hwID_3!");
+                    actionDescriptionDict.Add(725, "Error reading the AxoVisionProInputStructure_hwID_4!");
+                    actionDescriptionDict.Add(726, "Error reading the AxoVisionProInputStructure_hwID_5!");
+                    actionDescriptionDict.Add(727, "Error reading the AxoVisionProInputStructure_hwID_6!");
+                    actionDescriptionDict.Add(728, "Error reading the AxoVisionProInputStructure_hwID_7!");
+                    actionDescriptionDict.Add(729, "Error reading the AxoVisionProInputStructure_hwID_8!");
+                    actionDescriptionDict.Add(730, "Error reading the AxoVisionProInputStructure_hwID_9!");
+                    actionDescriptionDict.Add(731, "Error reading the AxoVisionProInputStructure_hwID_10!");
 
-                    actionDescriptionDict.Add(733, "Error writing the TemplateComponentOutputStructure_hwID_11!");
-                    actionDescriptionDict.Add(734, "Error writing the TemplateComponentOutputStructure_hwID_12!");
-                    actionDescriptionDict.Add(735, "Error writing the TemplateComponentOutputStructure_hwID_13!");
-                    actionDescriptionDict.Add(736, "Error writing the TemplateComponentOutputStructure_hwID_14!");
-                    actionDescriptionDict.Add(737, "Error writing the TemplateComponentOutputStructure_hwID_15!");
-                    actionDescriptionDict.Add(738, "Error writing the TemplateComponentOutputStructure_hwID_16!");
-                    actionDescriptionDict.Add(739, "Error writing the TemplateComponentOutputStructure_hwID_17!");
-                    actionDescriptionDict.Add(740, "Error writing the TemplateComponentOutputStructure_hwID_18!");
-                    actionDescriptionDict.Add(741, "Error writing the TemplateComponentOutputStructure_hwID_19!");
-                    actionDescriptionDict.Add(742, "Error writing the TemplateComponentOutputStructure_hwID_20!");
+                    actionDescriptionDict.Add(733, "Error writing the AxoVisionProOutputStructure_hwID_11!");
+                    actionDescriptionDict.Add(734, "Error writing the AxoVisionProOutputStructure_hwID_12!");
+                    actionDescriptionDict.Add(735, "Error writing the AxoVisionProOutputStructure_hwID_13!");
+                    actionDescriptionDict.Add(736, "Error writing the AxoVisionProOutputStructure_hwID_14!");
+                    actionDescriptionDict.Add(737, "Error writing the AxoVisionProOutputStructure_hwID_15!");
+                    actionDescriptionDict.Add(738, "Error writing the AxoVisionProOutputStructure_hwID_16!");
+                    actionDescriptionDict.Add(739, "Error writing the AxoVisionProOutputStructure_hwID_17!");
+                    actionDescriptionDict.Add(740, "Error writing the AxoVisionProOutputStructure_hwID_18!");
+                    actionDescriptionDict.Add(741, "Error writing the AxoVisionProOutputStructure_hwID_19!");
+                    actionDescriptionDict.Add(742, "Error writing the AxoVisionProOutputStructure_hwID_20!");
 
 
                     // TemplateTask_10steps_1
