@@ -113,6 +113,9 @@ namespace AXOpen.Data
                 }
             }
 
+            if (InjectedPredicateContainer != null && this.EnableInjectedExternalIds) // merge predicates 
+                predicates.AddPredicatesFrom(InjectedPredicateContainer);
+
             List<string> commonEntities = DisplayedDataFragments.GetEntityIds(predicates);
             LastFragmentQueryCount = commonEntities.Count;
 
