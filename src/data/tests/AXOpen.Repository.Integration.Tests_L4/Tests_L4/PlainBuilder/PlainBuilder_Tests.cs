@@ -34,6 +34,16 @@ namespace Tests_L4
         }
 
         [Fact]
+        public void plain_builder_should_ignore_root_properties()
+        {
+            PlainSymbolBuilder.IgnoreRootProperty("DataEntityId");
+
+            var builder = new PlainSymbolBuilder(typeof(Pocos.Exchange_Test_L4.ProcessData));
+
+            Assert.False(builder.GetSymbols().Where(s => s.Contains("DataEntityId")).Any());
+        }
+
+        [Fact]
         public void plain_builder_should_be_initialized()
         {
             var builder = new PlainSymbolBuilder(typeof(Pocos.Exchange_Test_L4.NestedPrimitives_L3));
