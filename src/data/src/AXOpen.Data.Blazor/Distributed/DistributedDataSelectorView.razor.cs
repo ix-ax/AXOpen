@@ -59,7 +59,7 @@ namespace AXOpen.Data
 
                 if (DataFragments != null)
                 {
-                    DistributedVM = new DistributedDataSelectorViewModel(AlertService, Authentication, DistributedExchangeService, GroupName, ConfigSuffix, InjectedPredicateContainer);
+                    DistributedVM = new DistributedDataSelectorViewModel(AlertService, Authentication, DistributedExchangeService, GroupName, InjectedPredicateContainer);
 
 
                     await DistributedVM.ReadAllCurrentEntityIds();
@@ -71,7 +71,9 @@ namespace AXOpen.Data
                         this.SelectedEntity = DistributedVM.MainExchange.GetRecords(id, 1, 0, eSearchMode.Exact, "", false).First();
                     }
 
-                    ExchangeConfig = ExchangeConfigService.GetConfigution(DistributedVM.MainExchange);
+                    ConfigSuffix = string.IsNullOrEmpty(ConfigSuffix) ? string.Empty : ConfigSuffix;
+
+                    ExchangeConfig = ExchangeConfigService.GetConfigution(DistributedVM.MainExchange, ConfigSuffix);
                 }
             }
             else

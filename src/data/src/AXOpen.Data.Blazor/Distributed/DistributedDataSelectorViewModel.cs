@@ -79,7 +79,6 @@ namespace AXOpen.Data
             AuthenticationStateProvider authentication,
             IDistributedDataExchangeService distributedExchangeService,
             string groupName,
-            string configuraionSuffix,
             PredicateContainer injectePredicateContainer )
         {
             this.distributedExchangeService = distributedExchangeService;
