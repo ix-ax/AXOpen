@@ -218,7 +218,7 @@ namespace AXOpen.Data
 
         public virtual async Task Filter()
         {
-            Page = 0;
+            Page = 0; // reset page => filtered count is unknown
 
             await FillObservableRecordsAsync(BuidDefaultPredicates());
         }
@@ -248,6 +248,11 @@ namespace AXOpen.Data
             }
 
             LastFilter = predicates;
+
+            if (EntityIdsInjected.Count > 0 && Page * Limit >= EntityIdsInjected.Count) // is over limit => set last page
+            {
+                Page = (EntityIdsInjected.Count - 1) / Limit;
+            }
 
             Filter(predicates, Limit, Page * Limit);
         }

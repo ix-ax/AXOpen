@@ -2,17 +2,7 @@
 using AXOpen.Base.Data.Query;
 using AXOpen.Base.Dialogs;
 using AXOpen.Data.Interfaces;
-using AXOpen.Data.Query;
-using AXSharp.Connector;
-using AXSharp.Presentation;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.Extensions.Configuration;
-using Serilog.Core;
-using System.Collections.Frozen;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Data;
 
 namespace AXOpen.Data
 {
@@ -23,7 +13,6 @@ namespace AXOpen.Data
         protected readonly IAlertService AlertService;
         protected readonly IDistributedDataExchangeService DistributedExchangeService;
         protected readonly IAxoDataExchangeConfigurationService ConfigurationService;
-
 
         protected readonly string GroupName = "";
         protected readonly bool DisplayOnePerDataType;
@@ -50,17 +39,19 @@ namespace AXOpen.Data
             DisplayOnePerDataType = displayOnePerDataType;
             ConfiguraionSuffix = configuraionSuffix;
 
-            if ( injectedEntities != null) InjectedEntities = injectedEntities;
-            
+            if (injectedEntities != null) InjectedEntities = injectedEntities;
+
             InjectedPredicateContainer = injectedPredicateContainer;
 
-            DisplayedDataFragments = DistributedExchangeService.GetExchanges(this.GroupName, this.DisplayOnePerDataType);
+            Exchanges = DistributedExchangeService.GetExchanges(this.GroupName, this.DisplayOnePerDataType);
 
-            AllDataFragments = DistributedExchangeService.GetExchanges(this.GroupName, false);
+            AllExchanges = DistributedExchangeService.GetExchanges(this.GroupName, false);
+
+            DisplayedExchanges = displayOnePerDataType ? Exchanges : AllExchanges; // select for display
 
             if (InjectedPredicateContainer != null)
             {
-                var idsFromPredicates = DisplayedDataFragments.GetEntityIds(this.InjectedPredicateContainer);
+                var idsFromPredicates = Exchanges.GetEntityIds(this.InjectedPredicateContainer);
                 if (idsFromPredicates != null && idsFromPredicates.Count > 0)
                 {
                     if (InjectedEntities == null)
@@ -75,7 +66,7 @@ namespace AXOpen.Data
                 }
             }
 
-            InitializeSelectedViewModel(DisplayedDataFragments.First());
+            InitializeSelectedViewModel(Exchanges.First());
         }
 
         #region IDataExchangeQueryViewModel
@@ -88,13 +79,13 @@ namespace AXOpen.Data
             {
                 _PlainerTypes = new List<Type>();
 
-                if (DisplayedDataFragments == null)
+                if (Exchanges == null)
                 {
                     _PlainerTypes = new List<Type>();
                 }
                 else
                 {
-                    foreach (var exchange in DisplayedDataFragments)
+                    foreach (var exchange in Exchanges)
                     {
                         _PlainerTypes.Add(exchange.GetPlainTypes().First());
                     }
@@ -113,10 +104,10 @@ namespace AXOpen.Data
                 }
             }
 
-            if (InjectedPredicateContainer != null && this.EnableInjectedExternalIds) // merge predicates 
+            if (InjectedPredicateContainer != null && this.EnableInjectedExternalIds) // merge predicates
                 predicates.AddPredicatesFrom(InjectedPredicateContainer);
 
-            List<string> commonEntities = DisplayedDataFragments.GetEntityIds(predicates);
+            List<string> commonEntities = Exchanges.GetEntityIds(predicates);
             LastFragmentQueryCount = commonEntities.Count;
 
             EnableInjectLocalIds = true;
@@ -126,6 +117,7 @@ namespace AXOpen.Data
             if (this.SelectedManagerVm != null)
             {
                 SelectedManagerVm.SetInjectedEntityIds(MergeInjectedEntities());
+
                 return this.SelectedManagerVm.FillObservableRecordsAsync(predicates);
             }
             else
@@ -151,8 +143,8 @@ namespace AXOpen.Data
 
         #endregion IDataExchangeQueryViewModel
 
+        public PredicateContainer InjectedPredicateContainer { set; get; }
         public List<string> InjectedEntities { set; get; } = new();
-        public List<string> FragmentFileredEntities { set; get; } = new();
 
         public List<string> TransmitedEntities { set; get; } = new();
 
@@ -166,9 +158,17 @@ namespace AXOpen.Data
 
         public int LastFragmentQueryCount { set; get; }
 
-        public IEnumerable<IAxoDataExchange> DisplayedDataFragments { get; private set; } // used for View 
-        public IEnumerable<IAxoDataExchange> AllDataFragments { get; private set; } // used for load to plc
-        public PredicateContainer InjectedPredicateContainer { set; get; }
+        public IEnumerable<IAxoDataExchange> DisplayedExchanges { get; private set; } // used for view
+
+        /// <summary>
+        /// Only one per data type
+        /// </summary>
+        public IEnumerable<IAxoDataExchange> Exchanges { get; private set; } // used for data managent
+
+        /// <summary>
+        /// All instances in a data manager group
+        /// </summary>
+        public IEnumerable<IAxoDataExchange> AllExchanges { get; private set; } // used for load to plc
 
         #region IDataExchangeGlogalActions
 
@@ -183,7 +183,7 @@ namespace AXOpen.Data
             List<string> created = new List<string>();
             List<string> alreadyExistInDb = new List<string>();
 
-            foreach (var exchange in DisplayedDataFragments.DistinctBy(p => p.ManagerDataTypeName))
+            foreach (var exchange in Exchanges)
             {
                 if (!exchange.Repository.Exists(identifier))
                 {
@@ -232,7 +232,6 @@ namespace AXOpen.Data
                     Authentication.GetAuthenticationStateAsync().Result.User.Identity
                 );
             }
-
         }
 
         public async Task CreateNewFromPlc(string identifier)
@@ -246,7 +245,7 @@ namespace AXOpen.Data
             List<string> Created = new List<string>();
             List<string> NotCreated = new List<string>();
 
-            foreach (var exchange in DisplayedDataFragments.DistinctBy(p => p.ManagerDataTypeName))
+            foreach (var exchange in Exchanges)
             {
                 if (!exchange.Repository.Exists(identifier))
                 {
@@ -296,7 +295,6 @@ namespace AXOpen.Data
                     Authentication.GetAuthenticationStateAsync().Result.User.Identity
                 );
             }
-
         }
 
         //public async Task UpdateFromPlc(string identifier)
@@ -412,7 +410,7 @@ namespace AXOpen.Data
             List<string> sentToPlc = new List<string>();
             List<string> notExistInDb = new List<string>();
 
-            foreach (var exchangeGroup in AllDataFragments.GroupBy(p => p.GetPlainTypes().First().FullName))
+            foreach (var exchangeGroup in AllExchanges.GroupBy(p => p.GetPlainTypes().First().FullName))
             {
                 if (!exchangeGroup.First().Repository.Exists(identifier))
                 {
@@ -447,7 +445,6 @@ namespace AXOpen.Data
                     $"Sent record \"{identifier}\" to exchanges: {sentExchanges} by user action.",
                     Authentication.GetAuthenticationStateAsync().Result.User.Identity
                 );
-
             }
 
             if (notExistInDb.Count > 0)
@@ -467,7 +464,6 @@ namespace AXOpen.Data
                     $"Sending record \"{identifier}\" failed – record does not exist in the database for: {notExistInRepos} by user action.",
                     Authentication.GetAuthenticationStateAsync().Result.User.Identity
                 );
-
             }
         }
 
@@ -489,7 +485,7 @@ namespace AXOpen.Data
             List<string> notExist = new List<string>();
             List<string> alreadyExist = new List<string>();
 
-            foreach (var exchange in DisplayedDataFragments.DistinctBy(p => p.ManagerDataTypeName))
+            foreach (var exchange in Exchanges)
             {
                 if (exchange.Repository.Exists(identifier))
                 {
@@ -544,7 +540,7 @@ namespace AXOpen.Data
             List<string> notExist = new List<string>();
             List<string> deleted = new List<string>();
 
-            foreach (var exchange in DisplayedDataFragments.DistinctBy(p => p.ManagerDataTypeName))
+            foreach (var exchange in Exchanges)
             {
                 if (exchange.Repository.Exists(identifier))
                 {
@@ -561,7 +557,7 @@ namespace AXOpen.Data
             {
                 string deletedInRepos = string.Join(", ", deleted);
 
-                // Alert message 
+                // Alert message
                 AlertService?.AddAlertDialog(
                     eAlertType.Info,
                     "Delete record",
@@ -569,12 +565,11 @@ namespace AXOpen.Data
                     7
                 );
 
-                // Log message 
+                // Log message
                 AxoApplication.Current.Logger.Information(
                     $"Deleted record \"{identifier}\" from repositories: {deletedInRepos} by user action was successful.",
                     Authentication.GetAuthenticationStateAsync().Result.User.Identity
                 );
-
             }
             if (notExist.Count > 0)
             {
@@ -593,7 +588,6 @@ namespace AXOpen.Data
                     $"Deleting record \"{identifier}\" by user action failed – record does not exist in repositories: {notExistInRepos}.",
                     Authentication.GetAuthenticationStateAsync().Result.User.Identity
                 );
-
             }
         }
 
@@ -705,85 +699,45 @@ namespace AXOpen.Data
             SelectedManagerVm.SetInjectedEntityIds(this.MergeInjectedEntities());
 
             await SelectedManagerVm.FillObservableRecordsAsync();
+
             SelectedManagerVm.InvokeStateHasChanged();
         }
-
 
         public Dictionary<string, List<IBrowsableDataObject>> GetRecords(PredicateContainer predicates,
             int limit, int skip)
         {
-            List<List<string>> fragmentEntities = new();
-
-            Parallel.ForEach(DisplayedDataFragments.Where(fragment => predicates.ContainsType(fragment.GetPlainTypes().First())), fragment =>
-            {
-                var ids = fragment.GetEntityIds(predicates).ToList();
-                lock (fragmentEntities)
-                {
-                    fragmentEntities.Add(ids);
-                }
-            });
-
-            List<string> commonEntities = fragmentEntities.Count > 1
-                ? fragmentEntities.Skip(1)
-                    .Aggregate(new HashSet<string>(fragmentEntities.First()), (common, next) =>
-                    {
-                        common.IntersectWith(next);
-                        return common;
-                    })
-                    .ToList()
-                : fragmentEntities.FirstOrDefault() ?? new List<string>();
+            List<string> commonEntities = Exchanges.GetEntityIds(predicates);
 
             this.LastFragmentQueryCount = commonEntities.Count;
 
             var toFind = commonEntities.Skip(skip).Take(limit).ToList();
 
-            var records = GetRecords(toFind).ToList();
-
-            return new Dictionary<string, List<IBrowsableDataObject>>();
-        }
-
-        public Dictionary<string, List<IBrowsableDataObject>> GetRecords(IEnumerable<string> identifiers)
-        {
-            return new Dictionary<string, List<IBrowsableDataObject>>();
+            return GetRecords(toFind);
         }
 
         public IEnumerable<string> GetEntityIds(PredicateContainer predicates)
         {
-            List<List<string>> fragmentEntities = new();
-
-            Parallel.ForEach(DisplayedDataFragments.Where(fragment => predicates.ContainsType(fragment.GetPlainTypes().First())), fragment =>
-            {
-                var ids = fragment.GetEntityIds(predicates).ToList();
-                lock (fragmentEntities)
-                {
-                    fragmentEntities.Add(ids);
-                }
-            });
-
-            List<string> commonEntities = fragmentEntities.Count > 1
-                ? fragmentEntities.Skip(1)
-                    .Aggregate(new HashSet<string>(fragmentEntities.First()), (common, next) =>
-                    {
-                        common.IntersectWith(next);
-                        return common;
-                    })
-                    .ToList()
-                : fragmentEntities.FirstOrDefault() ?? new List<string>();
+            List<string> commonEntities = Exchanges.GetEntityIds(predicates);
 
             this.LastFragmentQueryCount = commonEntities.Count;
-
-            var toFind = commonEntities;
-
-            this.LastFragmentQueryCount = commonEntities.Count();
 
             return commonEntities;
         }
 
-        public IEnumerable<string> GetFromFirstExchageExistingIds()
+        public Dictionary<string, List<IBrowsableDataObject>> GetRecords(IEnumerable<string> identifiers)
         {
-            List<string> Entities = DisplayedDataFragments.First().GetEntityIds(new PredicateContainer()).ToList();
-            return Entities;
-        }
+            var result = new Dictionary<string, List<IBrowsableDataObject>>();
 
+            foreach (var fragment in Exchanges)
+            {
+                var matching = fragment.GetRecords(identifiers); // Assuming fragment supports this
+                if (matching.Any())
+                {
+                    result[fragment.ManagerDataTypeName] = matching.ToList();
+                }
+            }
+
+            return result;
+        }
     }
 }
