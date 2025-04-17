@@ -4,6 +4,7 @@ using MongoDB.Driver;
 
 namespace Tests_L4
 {
+    using AXOpen.Data.Query;
     using Pocos.Exchange_Test_L4;
 
     public class SingleRepositoryFixture_Base : IDisposable
@@ -16,6 +17,8 @@ namespace Tests_L4
             {
                 InitializeData();
             }
+
+            PlainSymbolBuilder.ClearStaticConfiguration();
         }
 
         internal void InitializeData()

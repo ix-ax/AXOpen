@@ -283,7 +283,15 @@ namespace AXOpen.Base.Data
 
         protected abstract IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids, PredicateContainer sortingPredicates = null);
 
-        protected abstract IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates);
+
+        /// <summary>
+        /// Returns entity IDs that match the specified predicates and are contained in the provided list of IDs.
+        /// The results are filtered and sorted based on the predicates.
+        /// </summary>
+        /// <param name="predicates">The filtering and sorting criteria.</param>
+        /// <param name="Ids">Optional list of IDs to constrain the results to. If null, no ID filtering is applied.</param>
+        /// <returns>A collection of matching entity IDs.</returns>
+        protected abstract IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates, List<string> Ids);
 
         /// <summary>
         /// Counts records that contain given string in the id. (Concrete implementation of given repository type)
@@ -482,11 +490,11 @@ namespace AXOpen.Base.Data
             }
         }
 
-        public IEnumerable<string> GetEntityIds(PredicateContainer predicates)
+        public IEnumerable<string> GetEntityIds(PredicateContainer predicates, List<string> Ids)
         {
             try
             {
-                return GetEntityIdsNvi(predicates);
+                return GetEntityIdsNvi(predicates, Ids);
             }
             catch (Exception e)
             {

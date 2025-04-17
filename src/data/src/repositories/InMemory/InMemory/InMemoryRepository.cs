@@ -173,7 +173,7 @@ namespace AXOpen.Data.InMemory
         public override IQueryable<T> Queryable
         { get { return this._repository.AsQueryable().Select(p => p.Value); } }
 
-        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates)
+        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates, List<string> ids = null)
         {
             var query = Queryable;
 
@@ -187,7 +187,14 @@ namespace AXOpen.Data.InMemory
 
             query = ApplySorting(query, predicates.GetSorting<T>());
 
-            return query.Select(p => p.DataEntityId).ToList();
+            if (ids != null)
+            {
+                return query.Select(p => p.DataEntityId).Intersect(ids).ToList();
+            }
+            else
+            {
+                return query.Select(p => p.DataEntityId).ToList();
+            }
         }
 
         protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids, PredicateContainer sortingPredicates = null)

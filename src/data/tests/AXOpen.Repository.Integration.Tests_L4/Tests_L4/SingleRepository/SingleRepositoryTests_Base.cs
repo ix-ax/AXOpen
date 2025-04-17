@@ -80,5 +80,25 @@
             Assert.Equal("3", descendingRecords[2].DataEntityId);
             Assert.Equal("1", descendingRecords[3].DataEntityId);
         }
+
+
+        [Fact]
+        public void should_return_intersected_ids_in_order()
+        {
+            var pc = new PredicateContainer();
+            pc.AddSortMember<ProcessData>(p => (p.DataEntityId), isAscending: true);
+            pc.AddPredicates<ProcessData>(p => (p.vInt > 1 && p.vInt < 9));
+
+
+            List<string> requeestedIds = new() { "1", "9", "3", "7", };
+
+            List<string> ascendingRecords = Fixture.Repository.GetEntityIds(pc, requeestedIds).ToList();
+
+            Assert.Equal(2, ascendingRecords.Count());
+
+            Assert.Equal("3", ascendingRecords[0]);
+            Assert.Equal("7", ascendingRecords[1]);
+
+        }
     }
 }

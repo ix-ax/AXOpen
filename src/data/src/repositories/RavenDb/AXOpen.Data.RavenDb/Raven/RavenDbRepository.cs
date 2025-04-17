@@ -232,7 +232,7 @@ namespace AXOpen.Data.RavenDb
             }
         }
 
-        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates)
+        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates, List<string> ids)
         {
             var query = Queryable;
 
@@ -246,7 +246,14 @@ namespace AXOpen.Data.RavenDb
 
             query = ApplySorting(query, predicates.GetSorting<T>());
 
-            return query.Select(p => p.DataEntityId).ToList();
+            if (ids != null)
+            {
+                return query.Select(p => p.DataEntityId).Intersect(ids).ToList();
+            }
+            else
+            {
+                return query.Select(p => p.DataEntityId).ToList();
+            }
         }
 
         protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids, PredicateContainer sortingPredicates = null)
