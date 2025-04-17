@@ -247,12 +247,19 @@ namespace AXOpen.Data.Json
             return query.Select(p => p.DataEntityId).ToList();
         }
 
-        protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids)
+        protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids, PredicateContainer sortingPredicates = null)
         {
             if (ids == null || !ids.Any())
                 return Enumerable.Empty<T>();
 
-            return Queryable.Where(p => ids.Contains(p.DataEntityId)).ToList();
+            var query = Queryable.Where(p => ids.Contains(p.DataEntityId));
+
+            if (sortingPredicates != null)
+            {
+                query = ApplySorting(query, sortingPredicates.GetSorting<T>());
+            }
+
+            return query.ToList();
         }
 
         protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates, int limit, int skip)
@@ -322,6 +329,5 @@ namespace AXOpen.Data.Json
 
             return orderedQuery ?? query;
         }
-
     }
 }

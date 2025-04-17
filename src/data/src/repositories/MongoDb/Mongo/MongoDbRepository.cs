@@ -266,7 +266,7 @@ namespace AXOpen.Data.MongoDb
             return this.LastFragmentQueryCount;
         }
 
-        protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids)
+        protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids, PredicateContainer sortingPredicates = null)
         {
             if (ids == null || !ids.Any())
             {
@@ -275,7 +275,15 @@ namespace AXOpen.Data.MongoDb
 
             var filter = Builders<T>.Filter.In(p => p.DataEntityId, ids);
 
-            return collection.Find(filter).ToList();
+            if (sortingPredicates != null)
+            {
+                SortDefinition<T> sortDefinition = CreteSortDefinition(sortingPredicates.GetSorting<T>());
+                return collection.Find(filter).Sort(sortDefinition).ToList();
+            }
+            else
+            {
+                return collection.Find(filter).ToList();
+            }
         }
 
         protected override IEnumerable<string> GetEntityIdsNvi(

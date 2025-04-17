@@ -279,10 +279,9 @@ namespace AXOpen.Base.Data
         /// <returns></returns>
         protected abstract IEnumerable<T> GetRecordsNvi(string identifierContent, int limit, int skip, eSearchMode searchMode, string sortExpresion, bool sortAscending);
 
-        protected abstract IEnumerable<T> GetRecordsNvi(PredicateContainer predicates,
-            int limit, int skip);
+        protected abstract IEnumerable<T> GetRecordsNvi(PredicateContainer predicates, int limit, int skip);
 
-        protected abstract IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids);
+        protected abstract IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids, PredicateContainer sortingPredicates = null);
 
         protected abstract IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates);
 
@@ -459,11 +458,11 @@ namespace AXOpen.Base.Data
             }
         }
 
-        public IEnumerable<T> GetRecords(IEnumerable<string> identifiers)
+        public IEnumerable<T> GetRecords(IEnumerable<string> identifiers, PredicateContainer sortingPredicates = null)
         {
             try
             {
-                return GetRecordsNvi(identifiers);
+                return GetRecordsNvi(identifiers, sortingPredicates);
             }
             catch (Exception e)
             {

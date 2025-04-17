@@ -81,7 +81,7 @@ namespace AXOpen.Base.Data
 
         IEnumerable<T> GetRecords( PredicateContainer predicates );
 
-        IEnumerable<T> GetRecords(IEnumerable<string> identifiers);
+        IEnumerable<T> GetRecords(IEnumerable<string> identifiers, PredicateContainer sortingPredicates = null);
 
         T Read(string identifier);
 

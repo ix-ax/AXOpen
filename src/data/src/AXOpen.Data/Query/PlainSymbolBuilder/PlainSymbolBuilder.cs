@@ -27,6 +27,17 @@ namespace AXOpen.Data.Query
         internal static HashSet<Type> IgnoredTypes = new();
 
         internal static List<string> IgnoredRootTypeProperties = new List<string>() { "Hash", "Changes", "RecordId" };
+        public static void ClearStaticConfiguration()
+        {
+            IgnoredRootTypeProperties.Clear();
+            IgnoredRootTypeProperties.AddRange(new List<string>() { "Hash", "Changes", "RecordId" });
+
+            IgnoreInterfacesProperty.Clear();
+            IgnoredInterfaceTypes.Clear();
+
+            IgnoredTypesProperty.Clear();
+            IgnoredTypes.Clear();
+        }
 
         public static void IgnoreProperty(Type inType, string propertyName)
         {

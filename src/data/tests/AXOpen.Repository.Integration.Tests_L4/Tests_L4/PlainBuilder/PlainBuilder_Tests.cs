@@ -9,7 +9,10 @@ namespace Tests_L4
     {
         public PlainBuilder_Tests()
         {
+            PlainSymbolBuilder.ClearStaticConfiguration();
         }
+
+        
 
         [Fact]
         public void plain_builder_should_ignore_interface_properties()
