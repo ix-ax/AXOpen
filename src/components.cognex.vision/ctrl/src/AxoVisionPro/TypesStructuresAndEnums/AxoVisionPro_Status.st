@@ -14,8 +14,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             ID_Inspection              : INT;   // rezerva CurentJobID, mozno na kontrolu. 
             CurentJobID                : UINT;
             UserDataJobID              : UINT;
-            ReadedDataVariantSize      : INT;   // velkost VARIANT dat ktore chceme vycitat
-            WrittenDataVariantSize     : INT;   // velkost VARIANT dat ktore chceme vycitat
+            ReadedDataVariantSize      : UINT;   // velkost VARIANT dat ktore chceme vycitat
+            WrittenDataVariantSize     : UINT;   // velkost VARIANT dat ktore chceme vycitat
             UserDataLockerJobID        : UINT;   // camera*10 + job
             UserDataLockerIdOperation  : BYTE;
             ReadDataLockerJobID        : UINT;   // camera*10 + job

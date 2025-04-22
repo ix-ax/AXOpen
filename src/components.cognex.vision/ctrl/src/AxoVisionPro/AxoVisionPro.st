@@ -19,17 +19,19 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             {#ix-set:AttributeName = "<#Restore#>"}
             RestoreTask : AXOpen.Core.AxoTask;
             {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
+            {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Hard reset all cameras#>"}
             HardResetAllCamerasTask : AXOpen.Core.AxoTask;
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#Reset#>"}
+            ResetTask : AXOpen.Core.AxoTask;
+        
         END_VAR
 
         VAR PUBLIC // TEMPLATE TASKS
 
-            {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
-            {#ix-set:AttributeName = "<#TemplateTask_10steps_2#>"}
-            TemplateTask_10steps_2 : AXOpen.Core.AxoTask;
+
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Template tasks")]}
             {#ix-set:AttributeName = "<#TemplateTask_10steps_3#>"}
@@ -1038,7 +1040,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             //*************INITIALIZATION*************
             RestoreTask.Run(THIS);
             HardResetAllCamerasTask.Run(THIS);
-            TemplateTask_10steps_2.Run(THIS);
+            ResetTask.Run(THIS);
             TemplateTask_10steps_3.Run(THIS);
             TemplateTask_10steps_4.Run(THIS);
             TemplateTask_10steps_5.Run(THIS);
@@ -1096,7 +1098,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress),value:= BYTE#0);
                     WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#1,value:= BYTE#0);
                     WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2,value:= BYTE#0);
-                    Outputs.Control.JobLoadID := 0;
+                    Outputs.Control.JobLoadID := UINT#0;
                     
                     retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_System),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                     
@@ -1248,14 +1250,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             END_IF;
             //**************************************************
     
-            //*************TemplateTask_10steps_2***************
-            TemplateTask_10steps_2.SetIsDisabled(FALSE);
-            IF TemplateTask_10steps_2.StartTriggered() THEN
+            //*************ResetTask***************
+            ResetTask.SetIsDisabled(FALSE);
+            IF ResetTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#110;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#110,TemplateTask_10steps_2.IsBusy(), eAxoMessageCategory#Info);
-            Messenger.ActivateOnCondition(ULINT#111,TemplateTask_10steps_2.IsDone(), eAxoMessageCategory#Info);
-            IF TemplateTask_10steps_2.Execute(THIS) THEN
+            Messenger.ActivateOnCondition(ULINT#110,ResetTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#111,ResetTask.IsDone(), eAxoMessageCategory#Info);
+            IF ResetTask.Execute(THIS) THEN
                 IF _progress = 0 THEN
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
@@ -1263,55 +1265,88 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     _progress := 310;
                 END_IF;
     
-                IF _progress = 310 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 1>
+                IF _progress = 310 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 1>
                     TaskMessenger.ActivateOnCondition(ULINT#510, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#510;
                     END_IF;
     
-                    IF TRUE THEN
+                    Outputs.Control.SoftEvent.Trigger := FALSE;
+                    Outputs.Control.SoftEvent.DataHandlerAck := FALSE;
+                    Outputs.Control.SetUserdata := FALSE;
+                    Outputs.Control.InitiateJobLoad := FALSE;
+                    Outputs.Control.InspectionResultsAck := FALSE;
+                    Inputs.Status.ReadedDataVariantSize := UINT#0;
+                    Inputs.Status.WrittenDataVariantSize := UINT#0;
+                    
+                    IF (Inputs.Status.UserDataLockerJobID = Config.CameraNo) OR  (Inputs.Status.UserDataLockerJobID = UINT#0) THEN
                         THIS.CallTimers(FALSE);
                         _progress := 311;
+                    ELSE
+                        THIS.CallTimers(FALSE);
+                        _progress := 312;
                     END_IF;
                 END_IF;
     
-                IF _progress = 311 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 2>
+                IF _progress = 311 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 2>
                     TaskMessenger.ActivateOnCondition(ULINT#511, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#511;
                     END_IF;
     
+                    retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                    WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress),value:= BYTE#0);
+
+                    //zapisovanie dat pre kameru, ]: typ spracovania dat (0 = Undefined, 1 = Zmena jobu/referencie, 2=Nacitanie parametrov0, 3=Nacitanie paramterov1,…)
+                    //  #Component.Data.Status.UserDataLockerIdOperation := INT_TO_BYTE(2);
+
+                    WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#1,value:= BYTE#0);
+                    WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2,value:= BYTE#0);
+                    
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 312;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 312 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 3>
+                IF _progress = 312 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 3>
                     TaskMessenger.ActivateOnCondition(ULINT#512, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#512;
                     END_IF;
     
-                    IF TRUE THEN
+                    IF (Inputs.Status.ReadDataLockerJobID = Config.CameraNo) OR (Inputs.Status.ReadDataLockerJobID = UINT#0) THEN
                         THIS.CallTimers(FALSE);
                         _progress := 313;
+                    ELSE
+                        THIS.CallTimers(FALSE);
+                        _progress := 314;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 313 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 4>
+                IF _progress = 313 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 4>
                     TaskMessenger.ActivateOnCondition(ULINT#513, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#513;
                     END_IF;
     
+                    Inputs.Status.ReadDataLockerJobID := UINT#0;
+                    Outputs.Control.JobLoadID := UINT#0;
+                    
+                    retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_System),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                    WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress),bitOffset := INT#4,value:= FALSE);
+                    WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2,value:= WORD#0);
+                    
+                    retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Engine_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                    WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress),bitOffset := INT#1,value:= FALSE);
+                         
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 314;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 314 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 5>
+                IF _progress = 314 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 5>
                     TaskMessenger.ActivateOnCondition(ULINT#514, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#514;
@@ -1323,7 +1358,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 315 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 6>
+                IF _progress = 315 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 6>
                     TaskMessenger.ActivateOnCondition(ULINT#515, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#515;
@@ -1335,7 +1370,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 316 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 7>
+                IF _progress = 316 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 7>
                     TaskMessenger.ActivateOnCondition(ULINT#516, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#516;
@@ -1347,7 +1382,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 317 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 8>
+                IF _progress = 317 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 8>
                     TaskMessenger.ActivateOnCondition(ULINT#517, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#517;
@@ -1359,7 +1394,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 318 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 9>
+                IF _progress = 318 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 9>
                     TaskMessenger.ActivateOnCondition(ULINT#518, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#518;
@@ -1371,30 +1406,30 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 319 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 10>
-                    TemplateTask_10steps_2.DoneWhen(TRUE);
+                IF _progress = 319 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 10>
+                    ResetTask.DoneWhen(TRUE);
                 END_IF;
     
                 THIS.CallTimers(TRUE);
                 
-                TemplateTask_10steps_2.ThrowWhen(_errorTimer.output);
+                ResetTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_2.ThrowWhen(TemplateTask_10steps_2.Duration >= Config.ErrorTime ,'TemplateTask_10steps_2 error.');
+                ResetTask.ThrowWhen(ResetTask.Duration >= Config.ErrorTime ,'ResetTask error.');
             END_IF;
-            IF TemplateTask_10steps_2.DoneReached() THEN
+            IF ResetTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
                 Status.Error.Id :=  UINT#0;
-            ELSIF TemplateTask_10steps_2.ErrorOccured() THEN
+            ELSIF ResetTask.ErrorOccured() THEN
                 Status.Action.Id :=  UINT#910;
                 Status.Error.Id  :=  UINT#910;
-            ELSIF TemplateTask_10steps_2.AbortTriggered()THEN
+            ELSIF ResetTask.AbortTriggered()THEN
                 Status.Action.Id :=  UINT#911;
                 Status.Error.Id  :=  UINT#911;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#910,TemplateTask_10steps_2.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#911,TemplateTask_10steps_2.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#112,TemplateTask_10steps_2.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF TemplateTask_10steps_2.RestoreTriggered() AND _progress >= 310 AND _progress <= 319  THEN
+            Messenger.ActivateOnCondition(ULINT#910,ResetTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#911,ResetTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#112,ResetTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            IF ResetTask.RestoreTriggered() AND _progress >= 310 AND _progress <= 319  THEN
                 Status.Action.Id :=  UINT#112;
                 _progress := 0;
             END_IF;
@@ -3685,8 +3720,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 			WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := BitOffset + INT#2, value:= Outputs.Control.SoftEvent.Trigger);
 			WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := BitOffset + INT#3, value:= Outputs.Control.SoftEvent.Reserve);
 			
-			
-			
 			IF (Inputs.Status.ReadDataLockerJobID = Config.CameraNo) THEN
 				retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_System),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
 				WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := INT#4, value:= Outputs.Control.InitiateJobLoad );
@@ -3710,166 +3743,16 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 			//     o   Byte[2]: cislo jobu
 			//     o   Byte[3-??]: id kusu
            
-            (* 
-            // _data_out_1[0].%X1                  :=      AxoVisionProOutputStructure_hwID_11.Item1;
-            // _data_out_1[0].%X2                  :=      AxoVisionProOutputStructure_hwID_11.Item2;
-            // _data_out_1[0].%X3                  :=      AxoVisionProOutputStructure_hwID_11.Item1;
-            // _data_out_1[0].%X4                  :=      AxoVisionProOutputStructure_hwID_11.Item2;
-
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwID_User_Data_64_bytes_1,_data_out_1);
-            IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#871, eAxoMessageCategory#ProgrammingError);
-                Status.Error.Id := UINT#871;
-                RETURN;
-            END_IF;
-            
-
-            // _data_out_1[0].%X1                  :=      AxoVisionProOutputStructure_hwID_12.Item1;
-            // _data_out_1[0].%X2                  :=      AxoVisionProOutputStructure_hwID_12.Item2;
-            // _data_out_1[0].%X3                  :=      AxoVisionProOutputStructure_hwID_12.Item1;
-            // _data_out_1[0].%X4                  :=      AxoVisionProOutputStructure_hwID_12.Item2;
-
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwID_Results_240_bytes_1,_data_out_1);
-            IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#872, eAxoMessageCategory#ProgrammingError);
-                Status.Error.Id := UINT#872;
-                RETURN;
-            END_IF;
-
-            // _data_out_4[1]                     :=      TO_WORD(AxoVisionProOutputStructure_hwID_13.Item1).%B0;
-            // _data_out_4[0]                     :=      TO_WORD(AxoVisionProOutputStructure_hwID_13.Item1).%B1;
-            // _data_out_4[3]                     :=      TO_WORD(AxoVisionProOutputStructure_hwID_13.Item2).%B0;
-            // _data_out_4[2]                     :=      TO_WORD(AxoVisionProOutputStructure_hwID_13.Item2).%B1;
-
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwID_Results_240_bytes_2,_data_out_4);
-            IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#873, eAxoMessageCategory#ProgrammingError);
-                Status.Error.Id := UINT#873;
-                RETURN;
-            END_IF;
-
-            // _data_out_8[3]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_14.Item1).%B0;
-            // _data_out_8[2]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_14.Item1).%B1;
-            // _data_out_8[1]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_14.Item1).%B2;
-            // _data_out_8[0]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_14.Item1).%B3;
-            // _data_out_8[7]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_14.Item2).%B0;
-            // _data_out_8[6]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_14.Item2).%B1;
-            // _data_out_8[5]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_14.Item2).%B2;
-            // _data_out_8[4]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_14.Item2).%B3;
-
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwID_Results_240_bytes_3,_data_out_8);
-            IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#874, eAxoMessageCategory#ProgrammingError);
-                Status.Error.Id := UINT#874;
-                RETURN;
-            END_IF;
-            
-            // _data_out_8[3]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_15.Item1).%B0;
-            // _data_out_8[2]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_15.Item1).%B1;
-            // _data_out_8[1]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_15.Item1).%B2;
-            // _data_out_8[0]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_15.Item1).%B3;
-            // _data_out_8[7]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_15.Item2).%B0;
-            // _data_out_8[6]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_15.Item2).%B1;
-            // _data_out_8[5]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_15.Item2).%B2;
-            // _data_out_8[4]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_15.Item2).%B3;
-
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwID_Results_240_bytes_4,_data_out_8);
-            IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#875, eAxoMessageCategory#ProgrammingError);
-                Status.Error.Id := UINT#875;
-                RETURN;
-            END_IF;
-            
-            // _data_out_8[3]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_16.Item1).%B0;
-            // _data_out_8[2]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_16.Item1).%B1;
-            // _data_out_8[1]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_16.Item1).%B2;
-            // _data_out_8[0]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_16.Item1).%B3;
-            // _data_out_8[7]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_16.Item2).%B0;
-            // _data_out_8[6]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_16.Item2).%B1;
-            // _data_out_8[5]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_16.Item2).%B2;
-            // _data_out_8[4]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_16.Item2).%B3;
-
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwID_Results_240_bytes_5,_data_out_8);
-            IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#876, eAxoMessageCategory#ProgrammingError);
-                Status.Error.Id := UINT#876;
-                RETURN;
-            END_IF;
-            
-            // _data_out_8[3]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_17.Item1).%B0;
-            // _data_out_8[2]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_17.Item1).%B1;
-            // _data_out_8[1]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_17.Item1).%B2;
-            // _data_out_8[0]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_17.Item1).%B3;
-            // _data_out_8[7]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_17.Item2).%B0;
-            // _data_out_8[6]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_17.Item2).%B1;
-            // _data_out_8[5]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_17.Item2).%B2;
-            // _data_out_8[4]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_17.Item2).%B3;
-
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwID_Results_64_bytes_1,_data_out_8);
-            IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#877, eAxoMessageCategory#ProgrammingError);
-                Status.Error.Id := UINT#877;
-                RETURN;
-            END_IF;
-            
-            // _data_out_8[3]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_18.Item1).%B0;
-            // _data_out_8[2]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_18.Item1).%B1;
-            // _data_out_8[1]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_18.Item1).%B2;
-            // _data_out_8[0]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_18.Item1).%B3;
-            // _data_out_8[7]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_18.Item2).%B0;
-            // _data_out_8[6]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_18.Item2).%B1;
-            // _data_out_8[5]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_18.Item2).%B2;
-            // _data_out_8[4]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_18.Item2).%B3;
-
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwID_18,_data_out_8);
-            IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#878, eAxoMessageCategory#ProgrammingError);
-                Status.Error.Id := UINT#878;
-                RETURN;
-            END_IF;
-            
-            // _data_out_8[3]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_19.Item1).%B0;
-            // _data_out_8[2]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_19.Item1).%B1;
-            // _data_out_8[1]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_19.Item1).%B2;
-            // _data_out_8[0]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_19.Item1).%B3;
-            // _data_out_8[7]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_19.Item2).%B0;
-            // _data_out_8[6]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_19.Item2).%B1;
-            // _data_out_8[5]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_19.Item2).%B2;
-            // _data_out_8[4]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_19.Item2).%B3;
-
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwID_19,_data_out_8);
-            IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#879, eAxoMessageCategory#ProgrammingError);
-                Status.Error.Id := UINT#879;
-                RETURN;
-            END_IF;
-            
-            // _data_out_8[3]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_20.Item1).%B0;
-            // _data_out_8[2]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_20.Item1).%B1;
-            // _data_out_8[1]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_20.Item1).%B2;
-            // _data_out_8[0]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_20.Item1).%B3;
-            // _data_out_8[7]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_20.Item2).%B0;
-            // _data_out_8[6]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_20.Item2).%B1;
-            // _data_out_8[5]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_20.Item2).%B2;
-            // _data_out_8[4]                     :=      TO_DWORD(AxoVisionProOutputStructure_hwID_20.Item2).%B3;
-
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwID_20,_data_out_8);
-            IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#880, eAxoMessageCategory#ProgrammingError);
-                Status.Error.Id := UINT#880;
-                RETURN;
-            END_IF;
-            *)
             //******************************************      
 
         END_METHOD
 
-        METHOD PUBLIC TemplateMethod_10steps_1 : IAxoTaskState
-            TemplateMethod_10steps_1 := HardResetAllCamerasTask.Invoke(THIS);
+        METHOD PUBLIC HardResetAllCameras : IAxoTaskState
+            HardResetAllCameras := HardResetAllCamerasTask.Invoke(THIS);
         END_METHOD
 
         METHOD PUBLIC TemplateMethod_10steps_2 : IAxoTaskState
-            TemplateMethod_10steps_2 := TemplateTask_10steps_2.Invoke(THIS);
+            TemplateMethod_10steps_2 := ResetTask.Invoke(THIS);
         END_METHOD
 
         METHOD PUBLIC TemplateMethod_10steps_3 : IAxoTaskState
@@ -3957,7 +3840,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 
 
             HardResetAllCamerasTask.Restore();
-            TemplateTask_10steps_2.Restore();
+            ResetTask.Restore();
             TemplateTask_10steps_3.Restore();
             TemplateTask_10steps_4.Restore();
             TemplateTask_10steps_5.Restore();
