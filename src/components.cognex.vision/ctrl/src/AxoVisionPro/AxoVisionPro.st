@@ -34,7 +34,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#ReadResults#>"}
             ReadResultsTask : AXOpen.Core.AxoTask;
-        
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#SendData#>"}
+            SendDataTask : AXOpen.Core.AxoTask;
         END_VAR
 
         VAR PUBLIC // TEMPLATE TASKS
@@ -52,10 +55,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             TemplateTask_10steps_6 : AXOpen.Core.AxoTask;
 
 
-            {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
-            {#ix-set:AttributeName = "<#TemplateTask_20steps_2#>"}
-            TemplateTask_20steps_2 : AXOpen.Core.AxoTask;
+
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Template tasks")]}
             {#ix-set:AttributeName = "<#TemplateTask_20steps_3#>"}
@@ -158,6 +158,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             _readResultsJobID       :   UINT;
             _readResultsLength      :   UINT;
             _data                   :   ARRAY[0..1300] OF BYTE;
+            _sendDataInspectionType :   UINT;
+            _sendDataBufferID       :   UINT;
+            _sendDataJobID          :   UINT;
+            _sendDataLength         :   UINT;
         END_VAR
 
         ///<summary>
@@ -1051,7 +1055,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             TemplateTask_10steps_5.Run(THIS);
             TemplateTask_10steps_6.Run(THIS);
             ReadResultsTask.Run(THIS);
-            TemplateTask_20steps_2.Run(THIS);
+            SendDataTask.Run(THIS);
             TemplateTask_20steps_3.Run(THIS);
             TemplateTask_20steps_4.Run(THIS);
             TemplateTask_20steps_5.Run(THIS);
@@ -2563,14 +2567,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             END_IF;
             //**************************************************            
     
-            //*************TemplateTask_20steps_2***************
-            TemplateTask_20steps_2.SetIsDisabled(FALSE);
-            IF TemplateTask_20steps_2.StartTriggered() THEN
+            //*************SendDataTask***************
+            SendDataTask.SetIsDisabled(FALSE);
+            IF SendDataTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#180;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#180,TemplateTask_20steps_2.IsBusy(), eAxoMessageCategory#Info);
-            Messenger.ActivateOnCondition(ULINT#181,TemplateTask_20steps_2.IsDone(), eAxoMessageCategory#Info);
-            IF TemplateTask_20steps_2.Execute(THIS) THEN
+            Messenger.ActivateOnCondition(ULINT#180,SendDataTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#181,SendDataTask.IsDone(), eAxoMessageCategory#Info);
+            IF SendDataTask.Execute(THIS) THEN
                 IF _progress = 0 THEN
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
@@ -2578,83 +2582,377 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     _progress := 380;
                 END_IF;
     
-                IF _progress = 380 THEN                                                                                     // TemplateTask_20steps_2 running: , <add the detailed description of the current action 1>
+                IF _progress = 380 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 1>
                     TaskMessenger.ActivateOnCondition(ULINT#580, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#580;
                     END_IF;
-    
-                    IF TRUE THEN
+                	//Userdata buffer sa plnia prve 4 bajty informacne, data su od 4 a viac.
+	                //(0 = Undefined, 1 = Zmena jobu/referencie, 2=Nacitanie data
+	
+                    Outputs.Control.SoftEvent.Reset := FALSE;
+                    Outputs.Control.SoftEvent.DataHandlerAck := FALSE;
+
+                    IF Inputs.Status.SystemReady THEN
                         THIS.CallTimers(FALSE);
                         _progress := 381;
                     END_IF;
                 END_IF;
     
-                IF _progress = 381 THEN                                                                                     // TemplateTask_20steps_2 running: , <add the detailed description of the current action 2>
+                IF _progress = 381 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 2>
                     TaskMessenger.ActivateOnCondition(ULINT#581, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#581;
                     END_IF;
     
-                    IF TRUE THEN
+                    IF Inputs.Status.Online THEN
                         THIS.CallTimers(FALSE);
                         _progress := 382;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 382 THEN                                                                                     // TemplateTask_20steps_2 running: , <add the detailed description of the current action 3>
+                IF _progress = 382 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 3>
                     TaskMessenger.ActivateOnCondition(ULINT#582, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#582;
                     END_IF;
-    
-                    IF TRUE THEN
+                    // PLC nastavi na User Data ID inspekcie, ID operacie a User Data (cislo jobu, seriove cislo kusu, tolerancie).
+                    // V dalsom kroku nastavi SetUserData bit a caka na potrvdenie prevzatia dat pomocou UserDataAck.
+                    // Akonahle dostane UserDataAck, moze resetnut SetUserData bit a UserData prepisovat pre inu inspekciu.
+                    Outputs.Control.WriteDataID := _sendDataBufferID + (Config.CameraNo * UINT#10);
+	    
+                    IF Inputs.Status.UserDataLockerJobID = UINT#0 OR (Inputs.Status.UserDataLockerJobID = Config.CameraNo) THEN
                         THIS.CallTimers(FALSE);
                         _progress := 383;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 383 THEN                                                                                     // TemplateTask_20steps_2 running: , <add the detailed description of the current action 4>
+                IF _progress = 383 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 4>
                     TaskMessenger.ActivateOnCondition(ULINT#583, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#583;
                     END_IF;
-    
-                    IF TRUE THEN
+	    
+                    retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                    WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#0,value:= TO_WORD(Outputs.Control.WriteDataID));
+                    WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#1,value:= TO_WORD(_sendDataInspectionType));
+                    WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2,value:= TO_WORD(_sendDataJobID));
+
+                    
+                    IF (Inputs.Status.UserDataLockerJobID = Config.CameraNo) THEN
                         THIS.CallTimers(FALSE);
                         _progress := 384;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 384 THEN                                                                                     // TemplateTask_20steps_2 running: , <add the detailed description of the current action 5>
+                IF _progress = 384 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 5>
                     TaskMessenger.ActivateOnCondition(ULINT#584, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#584;
                     END_IF;
     
+                    // Position := 0;
+                    // Component.Data.Status.WrittenDataVariantSize := 0;
+                    // RetSerialize := Serialize(SRC_VARIABLE := InputData, DEST_ARRAY => WriteBuffer, POS := Position);
+                    
+                    // IF TierTimeout(Timeout := T#5S, _tier := Component.tier) THEN
+                        
+                    //     DbLanguage".Message := "SetLang_SK_else(Slovak := WSTRING#'chyba pri serializacii dat: ', Other := WSTRING#'serialize data error: ');
+                        
+                    //     Component.HMI.AlarmStatus.IsAlarm := true;
+                    //     Warning(CONCAT(IN1 :=  Component.HMI.Status.ComponentName, IN2 := TO_WSTRING('/'), IN3 := "DbLanguage".Message, IN4 := TO_WSTRING(RetSerialize)));
+                    // END_IF;
+                    
+                    // Component.Data.Status.WrittenDataVariantSize := Position;
+
+                    // IF RetSerialize = 0 THEN
+	        
+                    //     Component.HMI.Status.DataLine1 := '';
+                    //     Component.HMI.Status.DataLine2 := '';
+                    //     FOR #_i := 1 TO 100 DO
+                    //         IF WriteBuffer[#_i - 1] = 16#00 THEN
+                    //             Component.HMI.Status.DataLine1 := CONCAT(IN1 := Component.HMI.Status.DataLine1, IN2 := ' ');
+                    //         ELSE
+                    //             Component.HMI.Status.DataLine1 := CONCAT(IN1 := Component.HMI.Status.DataLine1, IN2 := TO_STRING(TO_CHAR(WriteBuffer[#_i - 1])));
+                    //         END_IF;
+                    //     END_FOR;
+                    //     FOR #_i := 101 TO 200 DO
+                    //         IF WriteBuffer[#_i - 1] = 16#00 THEN
+                    //             Component.HMI.Status.DataLine2 := CONCAT(IN1 := Component.HMI.Status.DataLine2, IN2 := ' ');
+                    //         ELSE
+                    //             Component.HMI.Status.DataLine2 := CONCAT(IN1 := Component.HMI.Status.DataLine2, IN2 := TO_STRING(TO_CHAR(WriteBuffer[#_i - 1])));
+                    //         END_IF;
+                    //     END_FOR;
+                        
+                    //     Component.tier.Progress := 34;
+                    // END_IF;
+
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 385;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 385 THEN                                                                                     // TemplateTask_20steps_2 running: , <add the detailed description of the current action 6>
+                IF _progress = 385 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 6>
                     TaskMessenger.ActivateOnCondition(ULINT#585, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#585;
                     END_IF;
-    
+
+                    // IF (Component.Data.Status.WrittenDataVariantSize > 240) AND (Component.HW.HW_UserData_2 = 0) THEN
+                    //     RETURN;
+                    // END_IF;
+                    
+                    // IF (Component.Data.Status.WrittenDataVariantSize > 480) AND (Component.HW.HW_UserData_3 = 0) THEN
+                    //     RETURN;
+                    // END_IF;
+                    
+                    // IF (Component.Data.Status.WrittenDataVariantSize > 720) AND (Component.HW.HW_UserData_4 = 0) THEN
+                    //     RETURN;
+                    // END_IF;
+                    
+                    // IF (Component.Data.Status.WrittenDataVariantSize > 960) AND (Component.HW.HW_UserData_5 = 0) THEN
+                    //     RETURN;
+                    // END_IF;
+                    
+                    // IF (Component.Data.Status.WrittenDataVariantSize > 1200) AND (Component.HW.HW_UserData_6 = 0) THEN
+                    //     RETURN;
+                    // END_IF;
+                    
+                    // Component.tier.Progress := 35;
+
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 386;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 386 THEN                                                                                     // TemplateTask_20steps_2 running: , <add the detailed description of the current action 7>
+                IF _progress = 386 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 7>
                     TaskMessenger.ActivateOnCondition(ULINT#586, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#586;
                     END_IF;
+
+                    CASE _sendDataLength OF
+                        UINT#0..UINT#235:  // Statement section case 1
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#0 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data[index]);
+                            END_FOR;
+
+                            FOR index := _sendDataLength TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= BYTE#0);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#236 TO UINT#475 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= BYTE#0);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#476 TO UINT#715 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= BYTE#0);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#716 TO UINT#955 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= BYTE#0);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#956 TO UINT#1195 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= BYTE#0);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_6),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#1196 TO UINT#1263 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#1196 + TO_DINT(index),value:= BYTE#0);
+                            END_FOR;                            
+
+                        UINT#236..UINT#475:  // Statement section case 1
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#0 TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data[index]);
+                            END_FOR;
+       
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#236 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data[index]);
+                            END_FOR;
+        
+                            FOR index := _sendDataLength TO UINT#475 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= BYTE#0);
+                            END_FOR;
+
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#476 TO UINT#715 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= BYTE#0);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#716 TO UINT#955 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= BYTE#0);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#956 TO UINT#1195 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= BYTE#0);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_6),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#1196 TO UINT#1263 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#1196 + TO_DINT(index),value:= BYTE#0);
+                            END_FOR;                            
+
+                        UINT#476..UINT#715:
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#0 TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data[index]);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#236 TO UINT#475 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data[index]);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#476 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= _data[index]);
+                            END_FOR;
+                            FOR index := _sendDataLength TO UINT#715 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= BYTE#0);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#716 TO UINT#955 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= BYTE#0);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#956 TO UINT#1195 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= BYTE#0);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_6),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#1196 TO UINT#1263 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#1196 + TO_DINT(index),value:= BYTE#0);
+                            END_FOR;
+                            
+                        UINT#716..UINT#955:
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#0 TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data[index]);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#236 TO UINT#475 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data[index]);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#476 TO UINT#715 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= _data[index]);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#716 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= _data[index]);
+                            END_FOR;
+                            FOR index := _sendDataLength TO UINT#955 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= BYTE#0);
+                            END_FOR;     
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#956 TO UINT#1195 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= BYTE#0);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_6),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#1196 TO UINT#1263 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#1196 + TO_DINT(index),value:= BYTE#0);
+                            END_FOR;                            
+
+                        UINT#956..UINT#1195:
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#0 TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data[index]);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#236 TO UINT#475 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data[index]);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#476 TO UINT#715 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= _data[index]);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#716 TO UINT#955 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= _data[index]);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#956 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= _data[index]);
+                            END_FOR;
+
+                            FOR index := _sendDataLength TO UINT#1195 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= BYTE#0);
+                            END_FOR;
+
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_6),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#1196 TO UINT#1259 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#1196 + TO_DINT(index),value:= BYTE#0);
+                            END_FOR;
+
+                        UINT#1196..UINT#1260:
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#0 TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data[index]);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#236 TO UINT#475 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data[index]);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#476 TO UINT#715 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= _data[index]);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#716 TO UINT#955 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= _data[index]);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#956 TO UINT#1195 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= _data[index]);
+                            END_FOR;
+        
+                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_6),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            FOR index := UINT#1196 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#1196 + TO_DINT(index),value:= _data[index]);
+                            END_FOR;
+
+                            FOR index := _sendDataLength TO UINT#1263 DO //nacitavanie tolko dat kolko treba do buffra.
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#1196 + TO_DINT(index),value:= BYTE#0);
+                            END_FOR;
+                            
+                            
+                        ELSE  // Statement section ELSE
+                            // DATA OVERSIZE !!!  
+                            
+                            // DbLanguage".Message := "SetLang_SK_else(Slovak := WSTRING#'priliz velky buffer pozadovanych dat: ', Other := WSTRING#'variant variable oversize: ');
+                            
+                            // Component.HMI.AlarmStatus.IsAlarm := true;
+                            // Warning(CONCAT(IN1 := Component.HMI.Status.ComponentName, IN2 := TO_WSTRING('/'), IN3 := "DbLanguage".Message, IN4 := TO_WSTRING(TO_STRING(Component.Data.Status.ReadedDataVariantSize))));
+                        ;    
+                    END_CASE;
+        
     
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
@@ -2662,83 +2960,91 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 387 THEN                                                                                     // TemplateTask_20steps_2 running: , <add the detailed description of the current action 8>
+                IF _progress = 387 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 8>
                     TaskMessenger.ActivateOnCondition(ULINT#587, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#587;
                     END_IF;
     
-                    IF TRUE THEN
+                    IF NOT Inputs.Status.SetUserDataAck THEN
+                        Outputs.Control.SetUserdata := TRUE;
                         THIS.CallTimers(FALSE);
                         _progress := 388;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 388 THEN                                                                                     // TemplateTask_20steps_2 running: , <add the detailed description of the current action 9>
+                IF _progress = 388 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 9>
                     TaskMessenger.ActivateOnCondition(ULINT#588, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#588;
                     END_IF;
     
-                    IF TRUE THEN
+                    IF Inputs.Status.SetUserDataAck THEN
+                        Outputs.Control.SetUserdata := FALSE;
                         THIS.CallTimers(FALSE);
                         _progress := 389;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 389 THEN                                                                                     // TemplateTask_20steps_2 running: , <add the detailed description of the current action 10>
+                IF _progress = 389 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 10>
                     TaskMessenger.ActivateOnCondition(ULINT#589, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#589;
                     END_IF;
     
-                    IF TRUE THEN
+                    IF NOT Inputs.Status.SetUserDataAck THEN
                         THIS.CallTimers(FALSE);
                         _progress := 390;
                     END_IF;
                 END_IF;
     
-                IF _progress = 390 THEN                                                                                     // TemplateTask_20steps_2 running: , <add the detailed description of the current action 11>
+                IF _progress = 390 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 11>
                     TaskMessenger.ActivateOnCondition(ULINT#590, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#590;
                     END_IF;
-    
+
+                    retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                    WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#0,value:= BYTE#0);
+                    WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#1,value:= BYTE#0);
+                    
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 391;
                     END_IF;
                 END_IF;
     
-                IF _progress = 391 THEN                                                                                     // TemplateTask_20steps_2 running: , <add the detailed description of the current action 12>
+                IF _progress = 391 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 12>
                     TaskMessenger.ActivateOnCondition(ULINT#591, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#591;
                     END_IF;
     
-                    IF TRUE THEN
+                    IF NOT Inputs.Status.SoftEvent.DataHandlerDone THEN
+                        Outputs.Control.SoftEvent.DataHandlerAck := TRUE;
                         THIS.CallTimers(FALSE);
                         _progress := 392;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 392 THEN                                                                                     // TemplateTask_20steps_2 running: , <add the detailed description of the current action 13>
+                IF _progress = 392 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 13>
                     TaskMessenger.ActivateOnCondition(ULINT#592, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#592;
                     END_IF;
     
-                    IF TRUE THEN
+                    IF Inputs.Status.SoftEvent.DataHandlerDone THEN
+                        Outputs.Control.SoftEvent.DataHandlerAck := FALSE;
                         THIS.CallTimers(FALSE);
                         _progress := 393;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 393 THEN                                                                                     // TemplateTask_20steps_2 running: , <add the detailed description of the current action 14>
+                IF _progress = 393 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 14>
                     TaskMessenger.ActivateOnCondition(ULINT#593, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#593;
-                    END_IF;
+                    END_IF; 
     
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
@@ -2746,7 +3052,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 394 THEN                                                                                     // TemplateTask_20steps_2 running: , <add the detailed description of the current action 15>
+                IF _progress = 394 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 15>
                     TaskMessenger.ActivateOnCondition(ULINT#594, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#594;
@@ -2758,7 +3064,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 395 THEN                                                                                     // TemplateTask_20steps_2 running: , <add the detailed description of the current action 16>
+                IF _progress = 395 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 16>
                     TaskMessenger.ActivateOnCondition(ULINT#595, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#595;
@@ -2770,7 +3076,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 396 THEN                                                                                     // TemplateTask_20steps_2 running: , <add the detailed description of the current action 17>
+                IF _progress = 396 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 17>
                     TaskMessenger.ActivateOnCondition(ULINT#596, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#596;
@@ -2782,7 +3088,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 397 THEN                                                                                     // TemplateTask_20steps_2 running: , <add the detailed description of the current action 18>
+                IF _progress = 397 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 18>
                     TaskMessenger.ActivateOnCondition(ULINT#597, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#597;
@@ -2794,7 +3100,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 398 THEN                                                                                     // TemplateTask_20steps_2 running: , <add the detailed description of the current action 19>
+                IF _progress = 398 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 19>
                     TaskMessenger.ActivateOnCondition(ULINT#598, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#598;
@@ -2806,30 +3112,30 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 399 THEN                                                                                     // TemplateTask_20steps_2 running: , <add the detailed description of the current action 20>
-                    TemplateTask_20steps_2.DoneWhen(TRUE);
+                IF _progress = 399 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 20>
+                    SendDataTask.DoneWhen(TRUE);
                 END_IF;
     
                 THIS.CallTimers(TRUE);
                 
-                TemplateTask_20steps_2.ThrowWhen(_errorTimer.output);
+                SendDataTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_2.ThrowWhen(TemplateTask_20steps_2.Duration >= Config.ErrorTime ,'TemplateTask_20steps_2 error.');
+                SendDataTask.ThrowWhen(SendDataTask.Duration >= Config.ErrorTime ,'SendDataTask error.');
             END_IF;
-            IF TemplateTask_20steps_2.DoneReached() THEN
+            IF SendDataTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#181;
                 Status.Error.Id :=  UINT#0;
-            ELSIF TemplateTask_20steps_2.ErrorOccured() THEN
+            ELSIF SendDataTask.ErrorOccured() THEN
                 Status.Action.Id :=  UINT#980;
                 Status.Error.Id  :=  UINT#980;
-            ELSIF TemplateTask_20steps_2.AbortTriggered()THEN
+            ELSIF SendDataTask.AbortTriggered()THEN
                 Status.Action.Id :=  UINT#981;
                 Status.Error.Id  :=  UINT#981;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#980,TemplateTask_20steps_2.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#981,TemplateTask_20steps_2.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#182,TemplateTask_20steps_2.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF TemplateTask_20steps_2.RestoreTriggered() AND _progress >= 380 AND _progress <= 399  THEN
+            Messenger.ActivateOnCondition(ULINT#980,SendDataTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#981,SendDataTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#182,SendDataTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            IF SendDataTask.RestoreTriggered() AND _progress >= 380 AND _progress <= 399  THEN
                 Status.Action.Id :=  UINT#182;
                 _progress := 0;
             END_IF;
@@ -4032,8 +4338,22 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             ReadResults := ReadResultsTask.Invoke(THIS);
         END_METHOD
 
-        METHOD PUBLIC TemplateMethod_20steps_2 : IAxoTaskState
-            TemplateMethod_20steps_2 := TemplateTask_20steps_2.Invoke(THIS);
+        METHOD PUBLIC SendData : IAxoTaskState
+            VAR_INPUT
+                InspectionType  :   UINT;   // (0 = Undefined, 1 = Zmena jobu/referencie, 2=Nacitanie
+                BufferID        :   UINT;   // Buffer ID, 0-9
+                JobID           :   UINT;
+                Length          :   UINT;
+            END_VAR
+            VAR_IN_OUT 
+                Data : ARRAY[0..1300] OF BYTE;
+            END_VAR  
+            _sendDataInspectionType :=  InspectionType;
+            _sendDataBufferID       :=  BufferID;
+            _sendDataJobID          :=  JobID;
+            _sendDataLength         :=  Length;
+            _data                   :=  Data;          
+            SendData                :=  SendDataTask.Invoke(THIS);
         END_METHOD
 
         METHOD PUBLIC TemplateMethod_20steps_3 : IAxoTaskState
@@ -4103,7 +4423,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             TemplateTask_10steps_5.Restore();
             TemplateTask_10steps_6.Restore();
             ReadResultsTask.Restore();
-            TemplateTask_20steps_2.Restore();
+            SendDataTask.Restore();
             TemplateTask_20steps_3.Restore();
             TemplateTask_20steps_4.Restore();
             TemplateTask_20steps_5.Restore();
