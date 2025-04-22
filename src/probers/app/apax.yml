@@ -2,7 +2,7 @@ name: "probers-app"
 version: '0.0.0-dev.0'
 type: app
 targets:
-  - llvm
+  # - llvm
   - "1500"
 variables:
   APAX_BUILD_ARGS:
@@ -19,7 +19,7 @@ variables:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.10
+  "@inxton/ax.catalog": 0.0.13
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:

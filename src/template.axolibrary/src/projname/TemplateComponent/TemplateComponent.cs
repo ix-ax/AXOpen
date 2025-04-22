@@ -1216,42 +1216,42 @@ namespace Template.Axolibrary
 
 
                     // TemplateTask_10steps_1
-                    actionDescriptionDict.Add(800, "TemplateTask_10steps_1 finished with error!");
-                    actionDescriptionDict.Add(801, "TemplateTask_10steps_1 was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(900, "TemplateTask_10steps_1 finished with error!");
+                    actionDescriptionDict.Add(901, "TemplateTask_10steps_1 was aborted, while not yet completed!");
                     // TemplateTask_10steps_2
-                    actionDescriptionDict.Add(810, "TemplateTask_10steps_2 finished with error!");
-                    actionDescriptionDict.Add(811, "TemplateTask_10steps_2 was aborted, while not yet completed!");
-                    // TemplateTask_10steps_3
-                    actionDescriptionDict.Add(820, "TemplateTask_10steps_3 finished with error!");
-                    actionDescriptionDict.Add(821, "TemplateTask_10steps_3 was aborted, while not yet completed!");
-                    // TemplateTask_10steps_4
-                    actionDescriptionDict.Add(830, "TemplateTask_10steps_4 task finished with error!");
-                    actionDescriptionDict.Add(831, "TemplateTask_10steps_4 task was aborted, while not yet completed!");
-                    // TemplateTask_10steps_5
-                    actionDescriptionDict.Add(840, "TemplateTask_10steps_5 task finished with error!");
-                    actionDescriptionDict.Add(841, "TemplateTask_10steps_5 task was aborted, while not yet completed!");
-                    // TemplateTask_10steps_6
-                    actionDescriptionDict.Add(850, "TemplateTask_10steps_6 task finished with error!");
-                    actionDescriptionDict.Add(851, "TemplateTask_10steps_6 task was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(910, "TemplateTask_10steps_2 finished with error!");
+                    actionDescriptionDict.Add(911, "TemplateTask_10steps_2 was aborted, while not yet completed!");
+                    // TemplateTask_10steps_3 
+                    actionDescriptionDict.Add(920, "TemplateTask_10steps_3 finished with error!");
+                    actionDescriptionDict.Add(921, "TemplateTask_10steps_3 was aborted, while not yet completed!");
+                    // TemplateTask_10steps_4 
+                    actionDescriptionDict.Add(930, "TemplateTask_10steps_4 task finished with error!");
+                    actionDescriptionDict.Add(931, "TemplateTask_10steps_4 task was aborted, while not yet completed!");
+                    // TemplateTask_10steps_5 
+                    actionDescriptionDict.Add(940, "TemplateTask_10steps_5 task finished with error!");
+                    actionDescriptionDict.Add(941, "TemplateTask_10steps_5 task was aborted, while not yet completed!");
+                    // TemplateTask_10steps_6 
+                    actionDescriptionDict.Add(950, "TemplateTask_10steps_6 task finished with error!");
+                    actionDescriptionDict.Add(951, "TemplateTask_10steps_6 task was aborted, while not yet completed!");
 
                     // TemplateTask_20steps_1
-                    actionDescriptionDict.Add(860, "TemplateTask_20steps_1 task finished with error!");
-                    actionDescriptionDict.Add(861, "TemplateTask_20steps_1 task was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(960, "TemplateTask_20steps_1 task finished with error!");
+                    actionDescriptionDict.Add(961, "TemplateTask_20steps_1 task was aborted, while not yet completed!");
                     // TemplateTask_20steps_2
-                    actionDescriptionDict.Add(880, "TemplateTask_20steps_2 task finished with error!");
-                    actionDescriptionDict.Add(881, "TemplateTask_20steps_2 task was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(980, "TemplateTask_20steps_2 task finished with error!");
+                    actionDescriptionDict.Add(981, "TemplateTask_20steps_2 task was aborted, while not yet completed!");
                     // TemplateTask_20steps_3       
-                    actionDescriptionDict.Add(900, "TemplateTask_20steps_3 task finished with error!");
-                    actionDescriptionDict.Add(901, "TemplateTask_20steps_3 task was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(1000, "TemplateTask_20steps_3 task finished with error!");
+                    actionDescriptionDict.Add(1001, "TemplateTask_20steps_3 task was aborted, while not yet completed!");
                     // TemplateTask_20steps_4
-                    actionDescriptionDict.Add(920, "TemplateTask_20steps_4 task finished with error!");
-                    actionDescriptionDict.Add(921, "TemplateTask_20steps_4 task was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(1020, "TemplateTask_20steps_4 task finished with error!");
+                    actionDescriptionDict.Add(1021, "TemplateTask_20steps_4 task was aborted, while not yet completed!");
                     // TemplateTask_20steps_5
-                    actionDescriptionDict.Add(940, "TemplateTask_20steps_5 task finished with error!");
-                    actionDescriptionDict.Add(941, "TemplateTask_20steps_5 task was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(1040, "TemplateTask_20steps_5 task finished with error!");
+                    actionDescriptionDict.Add(1041, "TemplateTask_20steps_5 task was aborted, while not yet completed!");
                     // TemplateTask_20steps_6
-                    actionDescriptionDict.Add(960, "TemplateTask_20steps_6 task finished with error!");
-                    actionDescriptionDict.Add(961, "TemplateTask_20steps_6 task was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(1060, "TemplateTask_20steps_6 task finished with error!");
+                    actionDescriptionDict.Add(1061, "TemplateTask_20steps_6 task was aborted, while not yet completed!");
 
                 }
 

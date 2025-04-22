@@ -6,18 +6,19 @@ files:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.10
+  "@inxton/ax.catalog": 0.0.13
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
   "@inxton/ax.axopen.min": '0.0.0-dev.0'
   "@ax/simatic-1500-distributedio": 9.0.3
-  "@ax/simatic-1500-diagnostics-hardware": 9.0.0
-  "@ax/simatic-1500-clocks": 9.0.1
-  "@ax/system-timer": 9.0.12
-  "@ax/system-serde": 9.0.12
-  "@ax/system-bitaccess": 9.0.12
-  "@ax/simatic-1500-hardware-utilities": 4.0.7
+  "@ax/simatic-1500-diagnostics-hardware": 10.0.0
+  "@ax/simatic-1500-clocks": 10.0.6
+  "@ax/system-timer": 10.0.24
+  "@ax/system-serde": 10.0.24
+  "@ax/system-bitaccess": 10.0.24
+  "@ax/simatic-1500-memoryaccess": 5.0.5
+  "@ax/simatic-1500-hardware-utilities": 5.0.5
 installStrategy: strict
 apaxVersion: 3.5.0
 scripts:
