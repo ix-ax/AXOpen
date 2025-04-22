@@ -212,7 +212,7 @@ namespace AXOpen.Data
         IEnumerable<IBrowsableDataObject> GetRecords(PredicateContainer predicates,
             int limit, int skip);
 
-        IEnumerable<string> GetEntityIds(PredicateContainer predicates);
+        IEnumerable<string> GetEntityIds(PredicateContainer predicates, List<string> ids = null);
 
         /// <summary>
         /// Gets record meeting criteria from the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/> where the data entity id matches exactly the argument.
@@ -221,7 +221,7 @@ namespace AXOpen.Data
         /// <returns>Record from the associated repository meeting criteria.</returns>
         IEnumerable<IBrowsableDataObject> GetRecords(string identifier);
 
-        IEnumerable<IBrowsableDataObject> GetRecords(IEnumerable<string> identifiers);
+        IEnumerable<IBrowsableDataObject> GetRecords(IEnumerable<string> identifiers, PredicateContainer sortingPredicates = null);
 
         /// <summary>
         /// Export data from the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>.

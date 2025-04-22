@@ -174,7 +174,7 @@ namespace AXOpen.Data
             throw new NotSupportedException();
         }
 
-        public IEnumerable<IBrowsableDataObject> GetRecords(IEnumerable<string> identifiers)
+        public IEnumerable<IBrowsableDataObject> GetRecords(IEnumerable<string> identifiers, PredicateContainer sortingPredicates =  null)
         {
             throw new NotSupportedException();
         }

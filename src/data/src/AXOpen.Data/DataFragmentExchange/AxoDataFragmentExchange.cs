@@ -537,9 +537,9 @@ public partial class AxoDataFragmentExchange
         return orderedRecords;
     }
 
-    public IEnumerable<IBrowsableDataObject> GetRecords(IEnumerable<string> identifiers)
+    public IEnumerable<IBrowsableDataObject> GetRecords(IEnumerable<string> identifiers, PredicateContainer sortingPredicates = null)
     {
-        return ((dynamic)Repository).GetRecords(identifiers);
+        return ((dynamic)Repository).GetRecords(identifiers, sortingPredicates);
     }
 
     public IEnumerable<string> GetEntityIds(PredicateContainer predicates)
