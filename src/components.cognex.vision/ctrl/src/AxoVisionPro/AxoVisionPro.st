@@ -26,16 +26,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Reset#>"}
             ResetTask : AXOpen.Core.AxoTask;
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#Trigger #>"}
+            TriggerTask : AXOpen.Core.AxoTask;
         
         END_VAR
 
         VAR PUBLIC // TEMPLATE TASKS
-
-
-            {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
-            {#ix-set:AttributeName = "<#TemplateTask_10steps_3#>"}
-            TemplateTask_10steps_3 : AXOpen.Core.AxoTask;
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Template tasks")]}
             {#ix-set:AttributeName = "<#TemplateTask_10steps_4#>"}
@@ -1041,7 +1039,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             RestoreTask.Run(THIS);
             HardResetAllCamerasTask.Run(THIS);
             ResetTask.Run(THIS);
-            TemplateTask_10steps_3.Run(THIS);
+            TriggerTask.Run(THIS);
             TemplateTask_10steps_4.Run(THIS);
             TemplateTask_10steps_5.Run(THIS);
             TemplateTask_10steps_6.Run(THIS);
@@ -1435,14 +1433,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             END_IF;
             //**************************************************
     
-            //*************TemplateTask_10steps_3***************
-            TemplateTask_10steps_3.SetIsDisabled(FALSE);
-            IF TemplateTask_10steps_3.StartTriggered() THEN
+            //*************TriggerTask***************
+            TriggerTask.SetIsDisabled(FALSE);
+            IF TriggerTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#120;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#120,TemplateTask_10steps_3.IsBusy(), eAxoMessageCategory#Info);
-            Messenger.ActivateOnCondition(ULINT#121,TemplateTask_10steps_3.IsDone(), eAxoMessageCategory#Info);
-            IF TemplateTask_10steps_3.Execute(THIS) THEN
+            Messenger.ActivateOnCondition(ULINT#120,TriggerTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#121,TriggerTask.IsDone(), eAxoMessageCategory#Info);
+            IF TriggerTask.Execute(THIS) THEN
                 IF _progress = 0 THEN
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
@@ -1450,79 +1448,89 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     _progress := 320;
                 END_IF;
     
-                IF _progress = 320 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 1>
+                IF _progress = 320 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 1>
                     TaskMessenger.ActivateOnCondition(ULINT#520, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#520;
                     END_IF;
     
-                    IF TRUE THEN
+                    // Outputs.AcquisitionControl.TriggerEnable := FALSE;
+                    Outputs.Control.SoftEvent.Trigger := FALSE;
+                    Outputs.Control.SoftEvent.Reset := FALSE;
+                    Outputs.Control.SoftEvent.DataHandlerAck := FALSE;
+
+                    IF Inputs.Status.SystemReady THEN
                         THIS.CallTimers(FALSE);
                         _progress := 321;
                     END_IF;
                 END_IF;
     
-                IF _progress = 321 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 2>
+                IF _progress = 321 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 2>
                     TaskMessenger.ActivateOnCondition(ULINT#521, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#521;
                     END_IF;
     
-                    IF TRUE THEN
+                    IF Inputs.Status.Online THEN
                         THIS.CallTimers(FALSE);
                         _progress := 322;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 322 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 3>
+                IF _progress = 322 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 3>
                     TaskMessenger.ActivateOnCondition(ULINT#522, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#522;
                     END_IF;
     
-                    IF TRUE THEN
+                    Outputs.Control.SoftEvent.Reset := TRUE;
+				
+                    IF (Inputs.Status.SoftEvent.ResetAck ) THEN
+                        Outputs.Control.SoftEvent.Reset  := FALSE;
                         THIS.CallTimers(FALSE);
                         _progress := 323;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 323 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 4>
+                IF _progress = 323 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 4>
                     TaskMessenger.ActivateOnCondition(ULINT#523, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#523;
                     END_IF;
     
-                    IF TRUE THEN
+                    IF NOT Inputs.Status.SoftEvent.TriggerAck THEN
+                        Outputs.Control.SoftEvent.Trigger := TRUE;
                         THIS.CallTimers(FALSE);
                         _progress := 324;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 324 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 5>
+                IF _progress = 324 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 5>
                     TaskMessenger.ActivateOnCondition(ULINT#524, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#524;
                     END_IF;
     
-                    IF TRUE THEN
+                    IF Inputs.Status.SoftEvent.TriggerAck THEN
+                        Outputs.Control.SoftEvent.Trigger := FALSE;
                         THIS.CallTimers(FALSE);
                         _progress := 325;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 325 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 6>
+                IF _progress = 325 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 6>
                     TaskMessenger.ActivateOnCondition(ULINT#525, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#525;
                     END_IF;
     
-                    IF TRUE THEN
+                    IF NOT Inputs.Status.SoftEvent.TriggerAck THEN
                         THIS.CallTimers(FALSE);
                         _progress := 326;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 326 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 7>
+                IF _progress = 326 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 7>
                     TaskMessenger.ActivateOnCondition(ULINT#526, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#526;
@@ -1534,7 +1542,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 327 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 8>
+                IF _progress = 327 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 8>
                     TaskMessenger.ActivateOnCondition(ULINT#527, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#527;
@@ -1546,7 +1554,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 328 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 9>
+                IF _progress = 328 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 9>
                     TaskMessenger.ActivateOnCondition(ULINT#528, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#528;
@@ -1558,30 +1566,30 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 329 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 10>
-                    TemplateTask_10steps_3.DoneWhen(TRUE);
+                IF _progress = 329 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 10>
+                    TriggerTask.DoneWhen(TRUE);
                 END_IF;
     
                 THIS.CallTimers(TRUE);
                 
-                TemplateTask_10steps_3.ThrowWhen(_errorTimer.output);
+                TriggerTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_3.ThrowWhen(TemplateTask_10steps_3.Duration >= Config.ErrorTime ,'TemplateTask_10steps_3 error.');
+                TriggerTask.ThrowWhen(TriggerTask.Duration >= Config.ErrorTime ,'TriggerTask error.');
             END_IF;
-            IF TemplateTask_10steps_3.DoneReached() THEN
+            IF TriggerTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#121;
                 Status.Error.Id :=  UINT#0;
-            ELSIF TemplateTask_10steps_3.ErrorOccured() THEN
+            ELSIF TriggerTask.ErrorOccured() THEN
                 Status.Action.Id :=  UINT#920;
                 Status.Error.Id  :=  UINT#920;
-            ELSIF TemplateTask_10steps_3.AbortTriggered()THEN
+            ELSIF TriggerTask.AbortTriggered()THEN
                 Status.Action.Id :=  UINT#921;
                 Status.Error.Id  :=  UINT#921;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#920,TemplateTask_10steps_3.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#921,TemplateTask_10steps_3.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#122,TemplateTask_10steps_3.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF TemplateTask_10steps_3.RestoreTriggered() AND _progress >= 320 AND _progress <= 329  THEN
+            Messenger.ActivateOnCondition(ULINT#920,TriggerTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#921,TriggerTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#122,TriggerTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            IF TriggerTask.RestoreTriggered() AND _progress >= 320 AND _progress <= 329  THEN
                 Status.Action.Id :=  UINT#122;
                 _progress := 0;
             END_IF;
@@ -3751,12 +3759,12 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             HardResetAllCameras := HardResetAllCamerasTask.Invoke(THIS);
         END_METHOD
 
-        METHOD PUBLIC TemplateMethod_10steps_2 : IAxoTaskState
-            TemplateMethod_10steps_2 := ResetTask.Invoke(THIS);
+        METHOD PUBLIC Reset : IAxoTaskState
+            Reset := ResetTask.Invoke(THIS);
         END_METHOD
 
         METHOD PUBLIC TemplateMethod_10steps_3 : IAxoTaskState
-            TemplateMethod_10steps_3 := TemplateTask_10steps_3.Invoke(THIS);
+            TemplateMethod_10steps_3 := TriggerTask.Invoke(THIS);
         END_METHOD
 
         METHOD PUBLIC TemplateMethod_10steps_4 : IAxoTaskState
@@ -3797,7 +3805,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 
 
         METHOD PROTECTED OVERRIDE ManualControl
-            THIS._isManuallyControllable := true;
+            THIS._isManuallyControllable := TRUE;
         END_METHOD
         
         ///<summary>
@@ -3841,7 +3849,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 
             HardResetAllCamerasTask.Restore();
             ResetTask.Restore();
-            TemplateTask_10steps_3.Restore();
+            TriggerTask.Restore();
             TemplateTask_10steps_4.Restore();
             TemplateTask_10steps_5.Restore();
             TemplateTask_10steps_6.Restore();
