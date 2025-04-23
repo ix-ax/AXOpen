@@ -11,7 +11,7 @@ Devices:
       Addresses:
         Configured:
         - IPv4: 192.168.100.14/24
-        - ProfinetDeviceName: dm_280
+        - ProfinetDeviceName: vision_pro
   - Name: System_Control
     TypeIdentifier:
       GsdId: '101'

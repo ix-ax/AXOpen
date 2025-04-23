@@ -4308,8 +4308,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             Reset := ResetTask.Invoke(THIS);
         END_METHOD
 
-        METHOD PUBLIC TemplateMethod_10steps_3 : IAxoTaskState
-            TemplateMethod_10steps_3 := TriggerTask.Invoke(THIS);
+        METHOD PUBLIC Trigger : IAxoTaskState
+            Trigger := TriggerTask.Invoke(THIS);
         END_METHOD
 
         METHOD PUBLIC TemplateMethod_10steps_4 : IAxoTaskState
