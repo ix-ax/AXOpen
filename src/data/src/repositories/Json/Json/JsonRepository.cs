@@ -230,7 +230,7 @@ namespace AXOpen.Data.Json
             get { return this.GetRecords("*", int.MaxValue, 0, eSearchMode.Exact).AsQueryable(); }
         }
 
-        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates)
+        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates, List<string> ids)
         {
             var query = Queryable;
 
@@ -244,17 +244,47 @@ namespace AXOpen.Data.Json
 
             query = ApplySorting(query, predicates.GetSorting<T>());
 
-            return query.Select(p => p.DataEntityId).ToList();
+            if (ids != null)
+            {
+                return query.Select(p => p.DataEntityId).Intersect(ids).ToList();
+            }
+            else
+            {
+                return query.Select(p => p.DataEntityId).ToList();
+            }
         }
 
-        protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids)
+        protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids, PredicateContainer sortingPredicates = null)
         {
             if (ids == null || !ids.Any())
                 return Enumerable.Empty<T>();
 
-            return Queryable.Where(p => ids.Contains(p.DataEntityId)).ToList();
+            var query = Queryable.Where(p => ids.Contains(p.DataEntityId));
+
+            if (sortingPredicates != null)
+            {
+                query = ApplySorting(query, sortingPredicates.GetSorting<T>());
+            }
+
+            return query.ToList();
         }
 
+        protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates)
+        {
+            var query = Queryable;
+
+            if (predicates != null && predicates.ContainsType<T>())
+            {
+                foreach (var predicate in predicates.GetPredicates<T>())
+                {
+                    query = query.Where(predicate);
+                }
+            }
+
+            query = ApplySorting(query, predicates.GetSorting<T>());
+
+            return query.ToList();
+        }
         protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates, int limit, int skip)
         {
             var query = Queryable;
@@ -306,7 +336,7 @@ namespace AXOpen.Data.Json
                     continue; // Skip invalid settings
 
                 var param = Expression.Parameter(typeof(T), "p");
-                var property = ExpressionHelper.GetNestedPropertyExpression(param, setting.MemberName);
+                var property = PropertyHelper.GetNestedPropertyExpression(param, setting.MemberName);
                 var keySelector = Expression.Lambda(property, param);
 
                 var methodName = orderedQuery == null
@@ -322,6 +352,5 @@ namespace AXOpen.Data.Json
 
             return orderedQuery ?? query;
         }
-
     }
 }

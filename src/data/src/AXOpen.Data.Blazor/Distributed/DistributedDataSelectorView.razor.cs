@@ -16,11 +16,12 @@ namespace AXOpen.Data
         [Parameter, EditorRequired]
         public string GroupName { get; set; }
 
-        [Parameter]
-        public string ConfigSuffix { get; set; } = "";
+        [Parameter] public string ConfigSuffix { get; set; } = "";
 
-        [Parameter]
-        public PredicateContainer InjectedPredicateContainer { set; get; }
+        [Parameter] public PredicateContainer? InjectedPredicateContainer { set; get; }
+
+        [Parameter] public Action<string>? OnDataSend { get; set; }
+
 
         [Inject]
         public IJSRuntime JSRuntime { set; get; }
@@ -58,7 +59,7 @@ namespace AXOpen.Data
 
                 if (DataFragments != null)
                 {
-                    DistributedVM = new DistributedDataSelectorViewModel(DistributedExchangeService, GroupName, AlertService, InjectedPredicateContainer);
+                    DistributedVM = new DistributedDataSelectorViewModel(AlertService, Authentication, DistributedExchangeService, GroupName, InjectedPredicateContainer);
 
 
                     await DistributedVM.ReadAllCurrentEntityIds();
@@ -70,7 +71,9 @@ namespace AXOpen.Data
                         this.SelectedEntity = DistributedVM.MainExchange.GetRecords(id, 1, 0, eSearchMode.Exact, "", false).First();
                     }
 
-                    ExchangeConfig = ExchangeConfigService.GetConfigution(DistributedVM.MainExchange);
+                    ConfigSuffix = string.IsNullOrEmpty(ConfigSuffix) ? string.Empty : ConfigSuffix;
+
+                    ExchangeConfig = ExchangeConfigService.GetConfigution(DistributedVM.MainExchange, ConfigSuffix);
                 }
             }
             else
