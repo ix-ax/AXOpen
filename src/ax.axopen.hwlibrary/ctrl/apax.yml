@@ -6,12 +6,12 @@ files:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.13
+  "@inxton/ax.catalog": 0.0.14
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
   "@inxton/ax.axopen.min": '0.0.0-dev.0'
-  "@ax/simatic-1500-distributedio": 9.0.3
+  "@ax/simatic-1500-distributedio": 10.0.1
   "@ax/simatic-1500-diagnostics-hardware": 10.0.0
   "@ax/simatic-1500-clocks": 10.0.6
   "@ax/system-timer": 10.0.24

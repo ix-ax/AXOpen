@@ -1,5 +1,5 @@
 name: "@inxton/ax.catalog"
-version: '0.0.13'
+version: '0.0.14'
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 type: catalog
@@ -30,23 +30,23 @@ catalogDependencies:
   "@ax/simatic-1500-clocks": 10.0.6			                          # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  9.0.1
   "@ax/simatic-1500-communication": 9.0.0			                    # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  9.0.0
   "@ax/simatic-1500-crypto": 3.0.2			                          # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  2.0.7
-  "@ax/simatic-1500-diagnostics": 3.0.3			                      # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  3.0.3
+  "@ax/simatic-1500-diagnostics": 4.0.2			                      # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  3.0.3
   "@ax/simatic-1500-diagnostics-hardware": 10.0.0	                # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  9.0.0
-  "@ax/simatic-1500-distributedio": 9.0.3			                    # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  9.0.3
+  "@ax/simatic-1500-distributedio": 10.0.1		                    # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  9.0.3
   "@ax/simatic-1500-fileaccess": 9.0.3			                      # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.1
   "@ax/simatic-1500-hardware-utilities": 5.0.5			              # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  4.0.7
   "@ax/simatic-1500-memoryaccess": 5.0.5			                    # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  4.0.7
-  "@ax/simatic-1500-motioncontrol-native-v5": 8.0.13			        # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.11
-  "@ax/simatic-1500-motioncontrol-native-v6": 8.0.13			        # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.11
-  "@ax/simatic-1500-motioncontrol-native-v7": 8.0.13			        # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.11
-  "@ax/simatic-1500-motioncontrol-native-v8": 8.0.13			        # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.11
-  "@ax/simatic-1500-motioncontrol-native-v9": 8.0.13			        # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.11
-  "@ax/simatic-1500-motioncontrol-v7": 8.0.13			                # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.11
-  "@ax/simatic-1500-motioncontrol-v7-mocking": 8.0.13			        # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.11
-  "@ax/simatic-1500-motioncontrol-v8": 8.0.13			                # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.11
-  "@ax/simatic-1500-motioncontrol-v8-mocking": 8.0.13			        # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.11
-  "@ax/simatic-1500-motioncontrol-v9": 8.0.13			                # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.11
-  "@ax/simatic-1500-motioncontrol-v9-mocking": 8.0.13			        # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.11
+  "@ax/simatic-1500-motioncontrol-native-v5": 9.0.1 			        # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.11
+  "@ax/simatic-1500-motioncontrol-native-v6": 9.0.1 			        # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.11
+  "@ax/simatic-1500-motioncontrol-native-v7": 9.0.1 			        # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.11
+  "@ax/simatic-1500-motioncontrol-native-v8": 9.0.1 			        # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.11
+  "@ax/simatic-1500-motioncontrol-native-v9": 9.0.1 			        # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.11
+  "@ax/simatic-1500-motioncontrol-v7": 9.0.1			                # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.11
+  "@ax/simatic-1500-motioncontrol-v7-mocking": 9.0.1			        # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.11
+  "@ax/simatic-1500-motioncontrol-v8": 9.0.1			                # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.11
+  "@ax/simatic-1500-motioncontrol-v8-mocking": 9.0.1			        # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.11
+  "@ax/simatic-1500-motioncontrol-v9": 9.0.1			                # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.11
+  "@ax/simatic-1500-motioncontrol-v9-mocking": 9.0.1			        # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.11
   "@ax/simatic-1500-processimage": 9.0.1			                    # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  9.0.1
   "@ax/simatic-1500-tasks": 10.0.1		                            # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  9.0.3
   "@ax/simatic-package-tool": 2.0.11			                        # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  2.0.11
@@ -70,4 +70,4 @@ catalogDependencies:
   "@ax/target-llvm": 10.0.85		                                  # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  9.1.36
   "@ax/target-mc7plus": 10.0.85			                              # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  9.1.36
   "@ax/trace": 2.9.0			                                        # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  2.9.0
-# "@ax/sdk": 2504.0.0-rc.2			                                  # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  2504.0.0-rc.2
+  # "@ax/sdk": 2504.0.0-rc.2			                                  # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  2504.0.0-rc.2
