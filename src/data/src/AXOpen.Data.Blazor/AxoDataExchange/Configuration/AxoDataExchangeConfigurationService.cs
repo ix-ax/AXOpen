@@ -36,6 +36,15 @@ namespace AXOpen.Data
             return GetConfigution(exchange.GetPlainTypes().First().FullName, defautIfNotExist);
         }
 
+        public AxoDataExchangeConfiguration GetConfigution(IAxoDataExchange exchange, string configSuffix ,  bool defautIfNotExist = true)
+        {
+            if (exchange == null || string.IsNullOrEmpty(configSuffix))
+                return new AxoDataExchangeConfiguration();
+
+            // Retrieve the full name of the POCO type representing the data entity.
+            return GetConfigution(exchange.GetPlainTypes().First().FullName + configSuffix, defautIfNotExist);
+        }
+
         public AxoDataExchangeConfiguration GetConfigution(string fullPlainDataTypeNameWithSuffix, bool defautIfNotExist = true)
         {
             if (string.IsNullOrEmpty(fullPlainDataTypeNameWithSuffix))

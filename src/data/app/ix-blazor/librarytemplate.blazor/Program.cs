@@ -159,14 +159,16 @@ builder.Services.AddSingleton<IAxoDataExchangeConfigurationService>(exchangeConf
 
 distributedDataService.CollectAxoDataExchanges(Entry.Plc.AxoDataDistributedContext.ControlledUnit_1);
 distributedDataService.CollectAxoDataExchanges(Entry.Plc.AxoDataDistributedContext.ControlledUnit_2);
+//</CollectingExchanges>
 
-
+//<DistributedGroupOrder>
 //Set up prioritized exchange type
 distributedDataService.SetPrioritizedType(typeof(Pocos.AxoDataDistributedExample.SharedHeader_Data));
 
 // sort all collected groups
 distributedDataService.SortGroupsByPriorizedTypes();
-//</CollectingExchanges>
+//</DistributedGroupOrder>
+
 
 //<AxoDataExchangeConfigurationService>
 exchangeConfigurationService.AddConfiguration<Pocos.AxoDataDistributedExample.SharedHeader_Data>(

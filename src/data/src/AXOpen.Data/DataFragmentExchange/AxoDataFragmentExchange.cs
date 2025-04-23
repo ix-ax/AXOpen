@@ -504,26 +504,9 @@ public partial class AxoDataFragmentExchange
     public IEnumerable<IBrowsableDataObject> GetRecords(PredicateContainer predicates,
         int limit, int skip)
     {
-        List<List<string>> fragmentEntities = new();
+        List<string> commonEntities = new();
 
-        Parallel.ForEach(DataFragments.Where(fragment => predicates.ContainsType(fragment.GetPlainTypes().First())), fragment =>
-        {
-            var ids = fragment.GetEntityIds(predicates).ToList();
-            lock (fragmentEntities)
-            {
-                fragmentEntities.Add(ids);
-            }
-        });
-
-        List<string> commonEntities = fragmentEntities.Count > 1
-            ? fragmentEntities.Skip(1)
-                .Aggregate(new HashSet<string>(fragmentEntities.First()), (common, next) =>
-                {
-                    common.IntersectWith(next);
-                    return common;
-                })
-                .ToList()
-            : fragmentEntities.FirstOrDefault() ?? new List<string>();
+        commonEntities = DataFragments.GetEntityIds(predicates);
 
         this.LastFragmentQueryCount = commonEntities.Count;
 
@@ -537,33 +520,16 @@ public partial class AxoDataFragmentExchange
         return orderedRecords;
     }
 
-    public IEnumerable<IBrowsableDataObject> GetRecords(IEnumerable<string> identifiers)
+    public IEnumerable<IBrowsableDataObject> GetRecords(IEnumerable<string> identifiers, PredicateContainer sortingPredicates = null)
     {
         return ((dynamic)Repository).GetRecords(identifiers);
     }
 
-    public IEnumerable<string> GetEntityIds(PredicateContainer predicates)
+    public IEnumerable<string> GetEntityIds(PredicateContainer predicates, List<string> ids = null)
     {
-        List<List<string>> fragmentEntities = new();
+        List<string> commonEntities = new();
 
-        Parallel.ForEach(DataFragments.Where(fragment => predicates.ContainsType(fragment.GetPlainTypes().First())), fragment =>
-        {
-            var ids = fragment.GetEntityIds(predicates).ToList();
-            lock (fragmentEntities)
-            {
-                fragmentEntities.Add(ids);
-            }
-        });
-
-        List<string> commonEntities = fragmentEntities.Count > 1
-            ? fragmentEntities.Skip(1)
-                .Aggregate(new HashSet<string>(fragmentEntities.First()), (common, next) =>
-                {
-                    common.IntersectWith(next);
-                    return common;
-                })
-                .ToList()
-            : fragmentEntities.FirstOrDefault() ?? new List<string>();
+        commonEntities = DataFragments.GetEntityIds(predicates);
 
         this.LastFragmentQueryCount = commonEntities.Count;
 

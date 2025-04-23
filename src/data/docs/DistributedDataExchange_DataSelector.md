@@ -6,7 +6,7 @@ Enables sending data to a **Data Exchange group** consisting of multiple instanc
 
 As shown above, the left side displays the current `EntityId` in the PLC. On the right side, there's a button that allows you to select any available entity.
 
-The **selection button** displays several columns of data defined for the **main data exchange** in the group. To define the **main exchange** for a group, use the following code:
+The **selection button** displays several columns of data defined for the **main data exchange** in the group. To define the **main exchange** for a group, use the following code in your Program.cs:
 
 [!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=DistributedGroupOrder)]
 
