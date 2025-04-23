@@ -212,6 +212,23 @@ namespace AXOpen.Data.InMemory
             return query.ToList();
         }
 
+        protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates)
+        {
+            var query = Queryable;
+
+            if (predicates != null && predicates.ContainsType<T>())
+            {
+                foreach (var predicate in predicates.GetPredicates<T>())
+                {
+                    query = query.Where(predicate);
+                }
+            }
+
+            query = ApplySorting(query, predicates.GetSorting<T>());
+
+            return query.ToList();
+        }
+
         protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates, int limit, int skip)
         {
             var query = Queryable;
@@ -263,7 +280,7 @@ namespace AXOpen.Data.InMemory
                     continue; // Skip invalid settings
 
                 var param = Expression.Parameter(typeof(T), "p");
-                var property = ExpressionHelper.GetNestedPropertyExpression(param, setting.MemberName);
+                var property = PropertyHelper.GetNestedPropertyExpression(param, setting.MemberName);
                 var keySelector = Expression.Lambda(property, param);
 
                 var methodName = orderedQuery == null

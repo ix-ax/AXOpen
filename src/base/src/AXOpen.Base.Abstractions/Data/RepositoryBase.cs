@@ -279,6 +279,7 @@ namespace AXOpen.Base.Data
         /// <returns></returns>
         protected abstract IEnumerable<T> GetRecordsNvi(string identifierContent, int limit, int skip, eSearchMode searchMode, string sortExpresion, bool sortAscending);
 
+        protected abstract IEnumerable<T> GetRecordsNvi(PredicateContainer predicates);
         protected abstract IEnumerable<T> GetRecordsNvi(PredicateContainer predicates, int limit, int skip);
 
         protected abstract IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids, PredicateContainer sortingPredicates = null);

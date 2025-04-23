@@ -7,6 +7,7 @@ using AXOpen.Base.Data;
 using AXOpen.Data;
 using System.Linq.Expressions;
 using AXOpen.Base.Data.Query;
+using AXOpen.Base;
 
 namespace AXOpen.Data.MongoDb
 {
@@ -258,7 +259,20 @@ namespace AXOpen.Data.MongoDb
             return filter;
         }
 
-        protected override IEnumerable<T> GetRecordsNvi( PredicateContainer predicates, int limit, int skip )
+        protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates)
+        {
+            SortDefinition<T> sortDefinition = CreteSortDefinition(predicates.GetSorting<T>());
+
+            FilterDefinition<T> filter = CreteFilterDefinition(predicates.GetPredicates<T>());
+
+            var results = collection
+                .Find(filter)
+                .Sort(sortDefinition)
+                .ToList();
+
+            return results;
+        }
+        protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates, int limit, int skip)
         {
             SortDefinition<T> sortDefinition = CreteSortDefinition(predicates.GetSorting<T>());
 

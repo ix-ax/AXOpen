@@ -271,6 +271,22 @@ namespace AXOpen.Data.RavenDb
             return query.ToList();
         }
 
+        protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates)
+        {
+            var query = Queryable;
+
+            if (predicates != null && predicates.ContainsType<T>())
+            {
+                foreach (var predicate in predicates.GetPredicates<T>())
+                {
+                    query = query.Where(predicate);
+                }
+            }
+
+            query = ApplySorting(query, predicates.GetSorting<T>());
+
+            return query.ToList();
+        }
         protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates, int limit, int skip)
         {
             var query = Queryable;
