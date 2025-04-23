@@ -32,8 +32,10 @@ namespace AXOpen.Data;
 public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEntity
     where TPlain : Pocos.AXOpen.Data.IAxoDataEntity, new()
 {
+    public string ManagerDataTypeName { get => GetPlainTypes().FirstOrDefault().FullName; }
 
-    public string ManagerDataTypeName { get=> GetPlainTypes().FirstOrDefault().FullName; }
+    // presentable name in distributed data management
+    public string PresentableInstanceName { get => this.DataExchangeTwinObject?.AttributeName; }
 
     /// <inheritdoc />
     public ITwinObject? DataExchangeTwinObject => DataEntity as ITwinObject;
@@ -213,20 +215,19 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         return DataRepository.GetRecords(identifier).Cast<IBrowsableDataObject>();
     }
 
-    public IEnumerable<IBrowsableDataObject> GetRecords(
-        PredicateContainer predicates, int limit, int skip)
+    public IEnumerable<IBrowsableDataObject> GetRecords(PredicateContainer predicates, int limit, int skip)
     {
         return DataRepository.GetRecords(predicates, limit, skip).Cast<IBrowsableDataObject>();
     }
 
-    public IEnumerable<IBrowsableDataObject> GetRecords(IEnumerable<string> identifiers)
+    public IEnumerable<IBrowsableDataObject> GetRecords(IEnumerable<string> identifiers, PredicateContainer sortingPredicates = null)
     {
-        return DataRepository.GetRecords(identifiers).Cast<IBrowsableDataObject>();
+        return DataRepository.GetRecords(identifiers, sortingPredicates).Cast<IBrowsableDataObject>();
     }
 
-    public IEnumerable<string> GetEntityIds(PredicateContainer predicates)
+    public IEnumerable<string> GetEntityIds(PredicateContainer predicates, List<string> ids = null)
     {
-        return DataRepository.GetEntityIds(predicates).ToList();
+        return DataRepository.GetEntityIds(predicates, ids).ToList();
     }
 
     private Stopwatch sw = new Stopwatch();

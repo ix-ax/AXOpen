@@ -35,8 +35,8 @@ namespace AXOpen.Base.Data
     public interface IRepository
     {
         long Count { get; } // whole in repository
-        long LastFragmentQueryCount { get; } // last count for fragment qeuery 
-        
+        long LastFragmentQueryCount { get; } // last count for fragment qeuery
+
         void Create(string identifier, object data);
 
         void Delete(string identifier);
@@ -75,13 +75,13 @@ namespace AXOpen.Base.Data
             string sortExpresion = "Default",
             bool sortAscending = false);
 
-        IEnumerable<T> GetRecords( PredicateContainer predicates,int limit, int skip );
+        IEnumerable<T> GetRecords(PredicateContainer predicates, int limit, int skip);
 
-        IEnumerable<string> GetEntityIds( PredicateContainer predicates);
+        IEnumerable<string> GetEntityIds(PredicateContainer predicates, List<string> Ids = null);
 
-        IEnumerable<T> GetRecords( PredicateContainer predicates );
+        IEnumerable<T> GetRecords(PredicateContainer predicates);
 
-        IEnumerable<T> GetRecords(IEnumerable<string> identifiers);
+        IEnumerable<T> GetRecords(IEnumerable<string> identifiers, PredicateContainer sortingPredicates = null);
 
         T Read(string identifier);
 

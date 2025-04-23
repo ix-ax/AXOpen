@@ -1,6 +1,7 @@
 ﻿namespace Tests_L4
 {
     using AXOpen.Base.Data;
+    using AXOpen.Data.Query;
     using Pocos.FragmentExchange_Test_L4;
 
     public class FragmentRepositoryFixture_Base : IDisposable
@@ -14,6 +15,8 @@
             {
                 InitializeData();
             }
+
+            PlainSymbolBuilder.ClearStaticConfiguration();
         }
 
         internal void InitializeData()
