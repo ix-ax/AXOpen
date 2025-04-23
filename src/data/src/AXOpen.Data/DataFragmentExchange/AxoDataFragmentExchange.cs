@@ -525,9 +525,11 @@ public partial class AxoDataFragmentExchange
         return ((dynamic)Repository).GetRecords(identifiers);
     }
 
-    public IEnumerable<string> GetEntityIds(PredicateContainer predicates)
+    public IEnumerable<string> GetEntityIds(PredicateContainer predicates, List<string> ids = null)
     {
         List<string> commonEntities = new();
+
+        commonEntities = DataFragments.GetEntityIds(predicates);
 
         this.LastFragmentQueryCount = commonEntities.Count;
 
