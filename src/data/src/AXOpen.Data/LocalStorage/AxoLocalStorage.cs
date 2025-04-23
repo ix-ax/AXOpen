@@ -164,7 +164,7 @@ namespace AXOpen.Data
             throw new NotSupportedException();
         }
 
-        public IEnumerable<string> GetEntityIds(PredicateContainer predicates)
+        public IEnumerable<string> GetEntityIds(PredicateContainer predicates, List<string> ids = null)
         {
             throw new NotSupportedException();
         }
