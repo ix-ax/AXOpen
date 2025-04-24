@@ -117,10 +117,11 @@
                 group => new MyAgregationResult
                 {
                     GroupKey = group.Key,
+                    Count = group.Count(),
                     Average = group.Average(x => x.Primitives.vREAL),
                 });
-            //-------- COUNT --------------------
-
+            
+            //-------- TEST --------------------
 
             var result = Fixture.Repository.CountMetric<MyAgregationResult>(pc, mc);
 
@@ -132,8 +133,11 @@
             Assert.Equal("even", group_e.GroupKey);
             Assert.Equal("odd", group_o.GroupKey);
 
-            Assert.Equal(50, group_e.Average);
-            Assert.Equal(6, group_o.Average);
+            Assert.Equal(70, group_e.Average);
+            Assert.Equal(7, group_o.Average);
+
+            Assert.Equal(3, group_e.Count);
+            Assert.Equal(2, group_o.Count);
         }
 
     
@@ -141,6 +145,7 @@
         {
             public string GroupKey { get; set; }
             public double Average { get; set; }
+            public int Count { get; set; }
         }
 
     }
