@@ -35,6 +35,8 @@ namespace Tests_L4
 
         private void FillUpData(ProcessData obj, int iteration)
         {
+            var val = iteration + 1;
+
             obj.DataEntityId = iteration.ToString();
             obj.vBool = true;
             obj.vString = "even " + iteration.ToString();
@@ -43,15 +45,21 @@ namespace Tests_L4
             obj.Primitives.vSTRING = "odd " + (iteration + 1).ToString();
             obj.Primitives.vBOOL = true;
 
+            obj.Primitives.vWSTRING = "odd"; // agregation
+            obj.Primitives.vREAL = (float)val;
+
+
             if (iteration % 2 == 0)
             {
                 obj.vBool = false;
                 obj.vString = "odd " + iteration.ToString();
                 obj.Primitives.vBOOL = false;
                 obj.Primitives.vSTRING = "even " + (iteration + 1).ToString();
+
+                obj.Primitives.vWSTRING = "even"; // agregation
+                obj.Primitives.vREAL = obj.Primitives.vREAL * 10;
             }
 
-            var val = iteration + 1;
             obj.Primitives.vBYTE = (byte)val;
             obj.Primitives.vWORD = (ushort)val;
             obj.Primitives.vDWORD = (uint)val;
@@ -61,7 +69,6 @@ namespace Tests_L4
             obj.Primitives.vLINT= (long)val;
             obj.Primitives.vUSINT = (byte)val;
             obj.Primitives.vUINT = (ushort)val;
-            obj.Primitives.vREAL = (float)val;
 
         }
 

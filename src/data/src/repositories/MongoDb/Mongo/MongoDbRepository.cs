@@ -319,7 +319,6 @@ namespace AXOpen.Data.MongoDb
 
         protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates, List<string> ids = null)
         {
-
             FilterDefinition<T> filter = CreteFilterDefinition(predicates.GetPredicates<T>(), ids);
 
             SortDefinition<T> sortDefinition = CreteSortDefinition(predicates.GetSorting<T>());
@@ -401,6 +400,43 @@ namespace AXOpen.Data.MongoDb
         {
             return RecordExists(identifier);
         }
+
+        protected override IEnumerable<TResult> CountMetricNvi<TResult>(PredicateContainer predicates, QueryMetricContainer metrics)
+        {
+            var res = new List<TResult>();
+
+            if (!metrics.ContainsType(typeof(T)))
+                return res;
+
+            var metric = metrics.GetMetric<T>().FirstOrDefault();
+            if (metric == null || metric.TypeSource != typeof(T) || metric.TypeResult != typeof(TResult))
+                return res;
+
+            // Get filter
+            var filter = CreteFilterDefinition(predicates.GetPredicates<T>());
+            var matchStage = PipelineStageDefinitionBuilder.Match<T>(filter);
+
+            // Group & Selector expressions (dynamic types)
+            var groupExpr = metric.GroupExpression;
+            var selectorExpr = metric.SelectorExpression;
+
+            // Use reflection to call: PipelineStageDefinitionBuilder.Group<T, TGroupKey, TResult>
+            var groupMethod = typeof(PipelineStageDefinitionBuilder)
+                .GetMethods()
+                .First(m => m.Name == "Group"
+                         && m.GetParameters().Length == 2)
+                .MakeGenericMethod(typeof(T), metric.TypeGroupKey, typeof(TResult));
+
+            var groupStage = (PipelineStageDefinition<T, TResult>)groupMethod.Invoke(null, new object[] { groupExpr, selectorExpr });
+
+            // Now build the full pipeline
+            var pipeline = new EmptyPipelineDefinition<T>()
+                .AppendStage(matchStage)
+                .AppendStage(groupStage);
+
+            return collection.Aggregate(pipeline).ToList();
+        }
+
 
         protected override long CountNvi => collection.Count(new BsonDocument());
 

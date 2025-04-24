@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace AXOpen.Base.Data
 {
@@ -86,6 +87,8 @@ namespace AXOpen.Base.Data
         T Read(string identifier);
 
         void Update(string identifier, T data);
+
+        IEnumerable<TResult> CountMetric<TResult>( PredicateContainer predicates, QueryMetricContainer metric);
 
         OnCreateDelegate<T> OnCreate { get; set; }
         OnReadDelegate OnRead { get; set; }

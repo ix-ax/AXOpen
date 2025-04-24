@@ -1,6 +1,7 @@
 ﻿namespace Tests_L4
 {
     using AXOpen.Base.Data.Query;
+    using MongoDB.Driver;
     using Pocos.Exchange_Test_L4;
     using System;
     using System.Linq;
@@ -81,14 +82,12 @@
             Assert.Equal("1", descendingRecords[3].DataEntityId);
         }
 
-
         [Fact]
         public void should_return_intersected_ids_in_order()
         {
             var pc = new PredicateContainer();
             pc.AddSortMember<ProcessData>(p => (p.DataEntityId), isAscending: true);
             pc.AddPredicates<ProcessData>(p => (p.vInt > 1 && p.vInt < 9));
-
 
             List<string> requeestedIds = new() { "1", "9", "3", "7", };
 
@@ -98,7 +97,51 @@
 
             Assert.Equal("3", ascendingRecords[0]);
             Assert.Equal("7", ascendingRecords[1]);
-
         }
+
+        [Fact]
+        public async void should_count_metric()
+        {
+            //-------- FILTER --------------------
+            var pc = new PredicateContainer();
+            pc.AddPredicates<ProcessData>(p => (p.vInt > 3 && p.vInt < 9));
+
+
+            //-------- AGREGATION --------------------
+            var m = new QueryMetric();
+            var mc = new QueryMetricContainer();
+            mc.Add<ProcessData>(m);
+
+            m.AddAggregation<ProcessData, string, MyAgregationResult>(
+                g => g.Primitives.vWSTRING,
+                group => new MyAgregationResult
+                {
+                    GroupKey = group.Key,
+                    Average = group.Average(x => x.Primitives.vREAL),
+                });
+            //-------- COUNT --------------------
+
+
+            var result = Fixture.Repository.CountMetric<MyAgregationResult>(pc, mc);
+
+            Assert.Equal(2, result?.Count());
+
+            var group_e = result.Where(g => g.GroupKey.StartsWith("e")).First();
+            var group_o = result.Where(g => g.GroupKey.StartsWith("o")).First();
+
+            Assert.Equal("even", group_e.GroupKey);
+            Assert.Equal("odd", group_o.GroupKey);
+
+            Assert.Equal(50, group_e.Average);
+            Assert.Equal(6, group_o.Average);
+        }
+
+    
+        public class MyAgregationResult
+        {
+            public string GroupKey { get; set; }
+            public double Average { get; set; }
+        }
+
     }
 }

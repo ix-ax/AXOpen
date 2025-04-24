@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using System.Security;
+using System.Threading.Tasks;
 
 namespace AXOpen.Base.Data
 {
@@ -311,6 +312,9 @@ namespace AXOpen.Base.Data
 
         public abstract long LastFragmentQueryCount { protected set; get; }
 
+        protected abstract IEnumerable<TResult> CountMetricNvi<TResult>(PredicateContainer predicates, QueryMetricContainer metric);
+
+
         /// <summary>
         /// Gets the count of the records/documents that contain given string in the identifier.
         /// </summary>
@@ -503,9 +507,21 @@ namespace AXOpen.Base.Data
             }
         }
 
+        public IEnumerable<TRes> CountMetric<TRes>(PredicateContainer predicates, QueryMetricContainer metric)
+        {
+            return CountMetricNvi<TRes>(predicates, metric);
+        }
+
         public IEnumerable<T> GetRecords(PredicateContainer predicates)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return GetRecordsNvi(predicates);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         /// <summary>

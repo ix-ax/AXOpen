@@ -354,5 +354,54 @@ namespace AXOpen.Data.RavenDb
 
             return orderedQuery ?? query;
         }
+
+        protected override IEnumerable<TResult> CountMetricNvi<TResult>(PredicateContainer predicates, QueryMetricContainer metrics)
+        {
+            var res = new List<TResult>();
+
+            if (!metrics.ContainsType(typeof(T)))
+                return res;
+
+            var metric = metrics.GetMetric<T>().FirstOrDefault();
+            if (metric == null || metric.TypeSource != typeof(T) || metric.TypeResult != typeof(TResult))
+                return res;
+
+            var query = Queryable;
+
+            if (predicates != null && predicates.ContainsType<T>())
+            {
+                foreach (var predicate in predicates.GetPredicates<T>())
+                {
+                    query = query.Where(predicate);
+                }
+            }
+
+            // Cast expressions back to correct types
+            var groupExpr = (LambdaExpression)metric.GroupExpression;
+            var selectorExpr = (LambdaExpression)metric.SelectorExpression;
+
+            // Make generic methods dynamically
+            var groupByMethod = typeof(Queryable)
+                .GetMethods()
+                .First(m => m.Name == "GroupBy"
+                         && m.GetParameters().Length == 2)
+                .MakeGenericMethod(typeof(T), metric.TypeGroupKey);
+
+            var selectMethod = typeof(Queryable)
+                .GetMethods()
+                .First(m => m.Name == "Select"
+                         && m.GetParameters().Length == 2)
+                .MakeGenericMethod(typeof(IGrouping<,>)
+                                    .MakeGenericType(metric.TypeGroupKey, typeof(T)),
+                                   typeof(TResult));
+
+            // Apply groupBy
+            var grouped = groupByMethod.Invoke(null, new object[] { query, groupExpr });
+            // Apply select
+            var selected = selectMethod.Invoke(null, new object[] { grouped, selectorExpr });
+
+            // Convert result to IEnumerable<TResult>
+            return ((IQueryable<TResult>)selected).ToList();
+        }
     }
 }
