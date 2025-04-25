@@ -563,6 +563,11 @@ public partial class AxoDataFragmentExchange
         return DataPropertyInfo;
     }
 
+    public Dictionary<Type, IEnumerable<object>> CountMetric(PredicateContainer predicates, QueryMetricContainer metrics)
+    {
+        throw new NotSupportedException();
+    }
+
     private IEnumerable<TS>? GetDataSetProperty<TA, TS>() where TA : Attribute where TS : class
     {
         return this.GetDataSetPropertyInfo<TA>()?.Select(p => p.GetValue(this) as TS);

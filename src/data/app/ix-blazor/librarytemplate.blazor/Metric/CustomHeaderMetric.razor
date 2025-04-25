@@ -1,0 +1,20 @@
+﻿@namespace librarytemplate.blazor
+@using AXOpen.Data
+@inherits MetricComponentTemplate<HeaderMetricResult>
+
+
+@if (Data == null)
+{
+    <span>
+        Data are not Initialized!
+    </span>
+}
+else
+{
+    
+
+<span>
+   Count of data : @Data.Count()
+</span>
+
+}

@@ -21,7 +21,7 @@ namespace AXOpen.Data
         /// <summary>
         /// Exchange name dispalyed in Distributed data View
         /// </summary>
-        string PresentableInstanceName { get; } 
+        string PresentableInstanceName { get; }
 
         #endregion
 
@@ -213,6 +213,8 @@ namespace AXOpen.Data
             int limit, int skip);
 
         IEnumerable<string> GetEntityIds(PredicateContainer predicates, List<string> ids = null);
+
+        Dictionary<Type, IEnumerable<object>> CountMetric(PredicateContainer predicates, QueryMetricContainer metrics);
 
         /// <summary>
         /// Gets record meeting criteria from the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/> where the data entity id matches exactly the argument.

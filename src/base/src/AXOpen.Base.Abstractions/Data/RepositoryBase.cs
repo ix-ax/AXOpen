@@ -312,7 +312,7 @@ namespace AXOpen.Base.Data
 
         public abstract long LastFragmentQueryCount { protected set; get; }
 
-        protected abstract IEnumerable<TResult> CountMetricNvi<TResult>(PredicateContainer predicates, QueryMetricContainer metric);
+        protected abstract Dictionary<Type, IEnumerable<object>> CountMetricNvi(PredicateContainer predicates, QueryMetricContainer metric);
 
 
         /// <summary>
@@ -507,9 +507,9 @@ namespace AXOpen.Base.Data
             }
         }
 
-        public IEnumerable<TRes> CountMetric<TRes>(PredicateContainer predicates, QueryMetricContainer metric)
+        public Dictionary<Type, IEnumerable<object>> CountMetric(PredicateContainer predicates, QueryMetricContainer metric)
         {
-            return CountMetricNvi<TRes>(predicates, metric);
+            return CountMetricNvi(predicates, metric);
         }
 
         public IEnumerable<T> GetRecords(PredicateContainer predicates)

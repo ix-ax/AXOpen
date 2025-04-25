@@ -88,7 +88,7 @@ namespace AXOpen.Base.Data
 
         void Update(string identifier, T data);
 
-        IEnumerable<TResult> CountMetric<TResult>( PredicateContainer predicates, QueryMetricContainer metric);
+        Dictionary<Type, IEnumerable<object>> CountMetric( PredicateContainer predicates, QueryMetricContainer metrics);
 
         OnCreateDelegate<T> OnCreate { get; set; }
         OnReadDelegate OnRead { get; set; }

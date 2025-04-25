@@ -6,6 +6,7 @@
     using System;
     using System.Linq;
     using System.Linq.Expressions;
+    using System.Reflection.Metadata;
     using Xunit;
 
     public abstract class SingleRepositoryTests_Base
@@ -123,7 +124,9 @@
             
             //-------- TEST --------------------
 
-            var result = Fixture.Repository.CountMetric<MyAgregationResult>(pc, mc);
+            var res = Fixture.Repository.CountMetric(pc, mc);
+
+            var result = res[typeof(MyAgregationResult)].Cast<MyAgregationResult>().ToList() ;
 
             Assert.Equal(2, result?.Count());
 

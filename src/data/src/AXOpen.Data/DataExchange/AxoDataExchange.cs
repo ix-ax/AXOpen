@@ -230,6 +230,13 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         return DataRepository.GetEntityIds(predicates, ids).ToList();
     }
 
+    public Dictionary<Type, IEnumerable<object>> CountMetric(PredicateContainer predicates, QueryMetricContainer metrics)
+    {
+        return DataRepository.CountMetric(predicates, metrics);
+    }
+
+
+
     private Stopwatch sw = new Stopwatch();
 
     /// <inheritdoc />

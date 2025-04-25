@@ -7,10 +7,79 @@
 @inject AuthenticationStateProvider _authenticationProvider
 @inject IAlertService _alertDialogService
 
- 
- @* <DistributedDataView></DistributedDataView> *@
+
+@* <DistributedDataSelectorView GroupName="default" ConfigSuffix="" />
+
+<DistributedDataView Presentation="Command"
+                     GroupName="default"
+                     ConfigSuffix=""
+                     DisplayOnePerDataType="true"
+                     EnableCreate="true"
+                     EnableDelete="true"
+                     EnableCopy="true"
+                     EnableFiltering="true"
+                     EnableSorting="true"
+                     EnableExport="true"
+                     EnableSendToPlc="true"
+                     EnableCreateNewFromPlc="true"
+                     InjectedPredicateContainer="InjectedPredicates"
+                     ></DistributedDataView> *@
+
+
+
+<DataExchangeView 
+    Vm="@_vm_agregate" 
+    Presentation="Command"
+    EnableSorting="true" 
+    EnableFiltering=true
+    MetricComponentType="@typeof(CustomHeaderMetric)"
+    Metrics="@InjectedMetrics">
+
+    <ColumnData HeaderName="A String" BindingValue="SomeString" Clickable="false" />
+    <ColumnData HeaderName="A number" BindingValue="SomeInt" Clickable="false" />
+</DataExchangeView>
 
 
 @code {
-   
+
+    protected PredicateContainer InjectedPredicates;
+    protected QueryMetricContainer InjectedMetrics;
+
+
+    private DataExchangeViewModel _vm_agregate;
+
+
+
+    protected override void OnInitialized()
+    {
+
+        _vm_agregate = new DataExchangeViewModel    
+        {
+            Model = Entry.Plc.AxoDataExchangeContext.DataManager,
+            AlertDialogService = _alertDialogService,
+            AuthenticationProvider = _authenticationProvider
+        };
+
+        var m = new QueryMetric();
+        var mc = new QueryMetricContainer();
+        mc.Add<Pocos.AxoDataExchangeExample.AxoProcessData>(m);
+
+        m.AddAggregation<Pocos.AxoDataExchangeExample.AxoProcessData, int, HeaderMetricResult>(
+            g => g.SomeInt,
+            group => new HeaderMetricResult
+                {
+                    GroupKey = group.Key.ToString(),
+                    Count = group.Count(),
+                    Average = group.Average(x => x.SomeInt),
+                });
+
+        InjectedMetrics = mc;
+
+        InjectedPredicates = new PredicateContainer();
+
+        InjectedPredicates.AddPredicates<Pocos.AxoDataDistributedExample.SharedHeader_Data>(p => (p.HeaderIndex > 10) && (p.HeaderIndex < 20));
+    }
+
+
+
 }

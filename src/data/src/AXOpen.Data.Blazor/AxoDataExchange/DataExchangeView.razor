@@ -130,6 +130,16 @@ else
             </div>
         }
 
+        @if(MetricComponentType != null)
+        {
+            <button class="btn btn-primary" @onclick='() => CalculateMetric()'>Calculate</button>
+        
+            @if(MetricComponentReadyForRender )
+            {
+                <DynamicComponent Type="MetricComponentType" Parameters="MetricParameters" />
+            }
+        }
+
         <table class="table table-hover">
             <thead>
                 <tr class="text-start">

@@ -23,6 +23,7 @@ using System.Security.Claims;
 using AXOpen.Data.Query;
 using AXOpen.Base.Data.Query;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using System.Runtime.CompilerServices;
 
 namespace AXOpen.Data
 {
@@ -182,6 +183,8 @@ namespace AXOpen.Data
         public PredicateContainer LastFilter { set; get; }
 
         // injected from view or other service
+        public QueryMetricContainer InjectedMetricContainer { get; set; }
+
         public PredicateContainer InjectedPredicateContainer { get; set; }
 
         private List<string> EntityIdsInjected = new();
@@ -213,6 +216,29 @@ namespace AXOpen.Data
             if (DataExchange.GetLockedBy() == null || DataExchange.GetLockedBy() == this)
                 return true;
             return false;
+        }
+
+        //public IEnumerable<TResult> CountMetric<TResult>(  TResult resultType , QueryMetricContainer metrics)
+        //{
+        //    if (LastFilter == null) return Enumerable.Empty<TResult>();
+
+        //    return this.DataExchange.CountMetric<TResult>(LastFilter, metrics);
+        //}
+
+        public IEnumerable<TResult> CountMetric<TResult>(TResult resultType, QueryMetricContainer metrics)
+        {
+            if (LastFilter == null) return Enumerable.Empty<TResult>();
+
+            var methodInfo = this.DataExchange.GetType()
+                .GetMethod(nameof(CountMetric))
+                ?.MakeGenericMethod(resultType.GetType());
+
+            if (methodInfo == null)
+                throw new InvalidOperationException("Method not found or invalid.");
+
+            var result = methodInfo.Invoke(this.DataExchange, new object[] { LastFilter, metrics });
+
+            return (IEnumerable<TResult>)result!;
         }
 
         public virtual async Task Filter()
@@ -262,7 +288,6 @@ namespace AXOpen.Data
 
             lock (_lockInjectEntities)
             {
-
                 if (EntityIdsInjected != null && EntityIdsInjected.Count > 0)
                 {
                     this.EntityIdsIntersected.Clear();
@@ -487,7 +512,6 @@ namespace AXOpen.Data
         //    }
         //}
 
-
         public Task ExportDataAsync(string path)
         {
             exportStatus = eOperationStatus.Busy;
@@ -574,7 +598,6 @@ namespace AXOpen.Data
         }
 
         public Action StateHasChangedDelegate { get; set; }
-
 
         public bool GetCustomExportDataValue(string fragmentKey)
         {

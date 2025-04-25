@@ -7,7 +7,10 @@ using AXOpen.Base.Data;
 using AXOpen.Data;
 using System.Linq.Expressions;
 using AXOpen.Base.Data.Query;
+using System.Threading.Tasks;
 using AXOpen.Base;
+using System.Collections;
+using System.Reflection;
 
 namespace AXOpen.Data.MongoDb
 {
@@ -401,41 +404,127 @@ namespace AXOpen.Data.MongoDb
             return RecordExists(identifier);
         }
 
-        protected override IEnumerable<TResult> CountMetricNvi<TResult>(PredicateContainer predicates, QueryMetricContainer metrics)
+        //protected override Dictionary<Type, IEnumerable<object>> CountMetricNvi(PredicateContainer predicates, QueryMetricContainer metrics)
+        //{
+        //    var res = new Dictionary<Type, IEnumerable<object>>();
+
+        //    if (!metrics.ContainsType(typeof(T)))
+        //        return res;
+
+        //    var metric = metrics.GetMetric<T>().FirstOrDefault();
+
+        //    if (metric == null)
+        //        return res;
+
+        //    if ( metric.TypeSource != typeof(T) )
+        //        return res;
+
+
+        //    // Get filter
+        //    var filter = CreteFilterDefinition(predicates.GetPredicates<T>());
+        //    var matchStage = PipelineStageDefinitionBuilder.Match<T>(filter);
+
+        //    // Group & Selector expressions (dynamic types)
+        //    var groupExpr = metric.GroupExpression;
+        //    var selectorExpr = metric.SelectorExpression;
+
+        //    // Use reflection to call: PipelineStageDefinitionBuilder.Group<T, TGroupKey, TResult>
+        //    var groupMethod = typeof(PipelineStageDefinitionBuilder)
+        //        .GetMethods()
+        //        .First(m => m.Name == "Group"
+        //                 && m.GetParameters().Length == 2)
+        //        .MakeGenericMethod(typeof(T), metric.TypeGroupKey, metric.TypeResult);
+
+        //    var groupStage = (PipelineStageDefinition<T, metric.TypeResult>)groupMethod.Invoke(null, new object[] { groupExpr, selectorExpr });
+
+        //    // Now build the full pipeline
+        //    var pipeline = new EmptyPipelineDefinition<T>()
+        //        .AppendStage(matchStage)
+        //        .AppendStage(groupStage);
+
+        //    return collection.Aggregate(pipeline).ToList();
+        //}
+
+        protected override Dictionary<Type, IEnumerable<object>> CountMetricNvi(PredicateContainer predicates, QueryMetricContainer metrics)
         {
-            var res = new List<TResult>();
+            var res = new Dictionary<Type, IEnumerable<object>>();
 
             if (!metrics.ContainsType(typeof(T)))
                 return res;
 
             var metric = metrics.GetMetric<T>().FirstOrDefault();
-            if (metric == null || metric.TypeSource != typeof(T) || metric.TypeResult != typeof(TResult))
+            if (metric == null || metric.TypeSource != typeof(T))
                 return res;
 
-            // Get filter
             var filter = CreteFilterDefinition(predicates.GetPredicates<T>());
             var matchStage = PipelineStageDefinitionBuilder.Match<T>(filter);
 
-            // Group & Selector expressions (dynamic types)
-            var groupExpr = metric.GroupExpression;
-            var selectorExpr = metric.SelectorExpression;
-
-            // Use reflection to call: PipelineStageDefinitionBuilder.Group<T, TGroupKey, TResult>
+            // Step 1: Build group stage dynamically
             var groupMethod = typeof(PipelineStageDefinitionBuilder)
                 .GetMethods()
-                .First(m => m.Name == "Group"
-                         && m.GetParameters().Length == 2)
-                .MakeGenericMethod(typeof(T), metric.TypeGroupKey, typeof(TResult));
+                .First(m => m.Name == "Group" && m.GetParameters().Length == 2)
+                .MakeGenericMethod(typeof(T), metric.TypeGroupKey, metric.TypeResult);
 
-            var groupStage = (PipelineStageDefinition<T, TResult>)groupMethod.Invoke(null, new object[] { groupExpr, selectorExpr });
+            var groupStage = (IPipelineStageDefinition)groupMethod.Invoke(null, new object[] {
+                    metric.GroupExpression,
+                    metric.SelectorExpression
+                })!;
 
-            // Now build the full pipeline
-            var pipeline = new EmptyPipelineDefinition<T>()
-                .AppendStage(matchStage)
-                .AppendStage(groupStage);
+            // Step 2: Build pipeline as List<IPipelineStageDefinition>
+            var stages = new List<IPipelineStageDefinition>
+            {
+                matchStage,
+                groupStage
+            };
 
-            return collection.Aggregate(pipeline).ToList();
+            // Step 3: Create PipelineDefinition<T, TResult>.Create(...)
+            var stageListType = typeof(IEnumerable<IPipelineStageDefinition>);
+            var pipelineDefType = typeof(PipelineDefinition<,>).MakeGenericType(typeof(T), metric.TypeResult);
+
+            var createMethod = pipelineDefType
+                .GetMethods(BindingFlags.Public | BindingFlags.Static)
+                .First(m =>
+                {
+                    if (m.Name != "Create") return false;
+
+                    var parameters = m.GetParameters();
+
+                    return parameters.Length == 2 && (parameters[0].ParameterType == typeof(IEnumerable<IPipelineStageDefinition>));
+                });
+
+
+            var pipeline = createMethod.Invoke(null, new object[] { stages, null });
+
+            // Step 4: Execute collection.Aggregate<T, TResult>(PipelineDefinition<T, TResult>)
+
+            var mm = typeof(IMongoCollection<>)
+                 .MakeGenericType(typeof(T))
+                 .GetMethods().Where(m => m.Name == "Aggregate").ToList();
+
+            var aggregateMethod = typeof(IMongoCollection<>)
+                .MakeGenericType(typeof(T))
+                .GetMethods()
+                .First(m =>
+                    { if (m.Name != "Aggregate") return false;
+                        var parameters = m.GetParameters();
+                        return parameters.Length == 3 && parameters[0].ParameterType.Name.StartsWith("PipelineDefinition");
+                    }
+                );
+
+            var aggregateGeneric = aggregateMethod.MakeGenericMethod(metric.TypeResult);
+            var aggregateFluent = aggregateGeneric.Invoke(collection, new object[] { pipeline, null, null });
+
+            // Step 5: Call ToList() on IAggregateFluent<TResult>
+            var fluentType = typeof(IAggregateFluent<>).MakeGenericType(metric.TypeResult);
+            var toListMethod = fluentType.GetMethod("ToListAsync", Type.EmptyTypes);
+            var list = toListMethod!.Invoke(aggregateFluent, null);
+
+            res[metric.TypeResult] = ((IEnumerable)list!).Cast<object>();
+            return res;
         }
+
+
+
 
 
         protected override long CountNvi => collection.Count(new BsonDocument());

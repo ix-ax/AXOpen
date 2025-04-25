@@ -54,7 +54,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
     [Parameter] public bool EnableCreateNewFromPlc { get; set; } = false;
 
     [Parameter] public bool EnableFiltering { get; set; } = false;
-    [Parameter] public bool EnableExport { get; set; } = false; 
+    [Parameter] public bool EnableExport { get; set; } = false;
     [Parameter] public bool EnableSorting { get; set; } = false;
 
     //[Parameter] public bool EnableUpdateFromPlc { get; set; } = false;
@@ -64,9 +64,12 @@ public partial class DataExchangeView : ComponentBase, IDisposable
     [Parameter] public List<string> SortElements { get; set; } = new();
 
     [Parameter] public PredicateContainer ExternalPredicates { get; set; }
+    [Parameter] public Type MetricComponentType { get; set; }
+    [Parameter] public QueryMetricContainer Metrics { get; set; }
 
     public bool AdvanceFilterConfig { get; set; } = false;
 
+  
     [Inject]
     private IAlertService _alertDialogService { get; set; }
 
@@ -272,6 +275,50 @@ public partial class DataExchangeView : ComponentBase, IDisposable
             this.StateHasChanged();
         }
     }
+
+    private IMetricComponentTemplate tmpMetricComponentInstance { set; get; }
+    private bool MetricComponentReadyForRender { set; get; } = false;
+    private Dictionary<string, object>? MetricParameters { set; get; }
+
+
+
+    public void CalculateMetric()
+    {
+        MetricComponentReadyForRender = false;
+
+        if (MetricComponentType == null)
+            return;
+
+        // Let Blazor render the component dynamically
+        tmpMetricComponentInstance = Activator.CreateInstance(MetricComponentType) as IMetricComponentTemplate;
+        if (tmpMetricComponentInstance is null)
+            return;
+
+        dynamic metricResult = Activator.CreateInstance(tmpMetricComponentInstance.ItemResultType);
+
+         if (metricResult is null)
+            return;
+
+        var tr = metricResult.GetType();
+
+
+        // Set data for the metric
+        var data = this.Vm.CountMetric(metricResult, Metrics);
+
+        if (!data.Any()) return;
+
+
+        // Pass the data via parameters (instead of calling SetData on the instance)
+        MetricParameters = new Dictionary<string, object>
+            {
+                { "Data", data }
+            };
+
+        MetricComponentReadyForRender = true;
+
+        StateHasChanged();
+    }
+
 
     public void Dispose()
     {

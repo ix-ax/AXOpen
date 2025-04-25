@@ -41,7 +41,7 @@ Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()
     .MinimumLevel.Debug()
     .CreateLogger());
 
-await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
+//await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
 
 AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
     .WriteTo.Console().MinimumLevel.Verbose()
