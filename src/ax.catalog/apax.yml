@@ -1,5 +1,5 @@
 name: "@inxton/ax.catalog"
-version: '0.0.14'
+version: '0.0.15'
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 type: catalog
@@ -26,9 +26,9 @@ catalogDependencies:
   "@ax/plc-info": 3.0.0			                                      # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  3.0.0
   "@ax/sdb": 1.6.5			                                          # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  1.6.5
   "@ax/simatic-1500": 8.0.3			                                  # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  8.0.3
-  "@ax/simatic-1500-alarming": 3.0.3			                        # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  3.0.3
+  "@ax/simatic-1500-alarming": 4.0.0			                        # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  3.0.3
   "@ax/simatic-1500-clocks": 10.0.6			                          # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  9.0.1
-  "@ax/simatic-1500-communication": 9.0.0			                    # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  9.0.0
+  "@ax/simatic-1500-communication": 10.0.0		                    # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  9.0.0
   "@ax/simatic-1500-crypto": 3.0.2			                          # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  2.0.7
   "@ax/simatic-1500-diagnostics": 4.0.2			                      # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  3.0.3
   "@ax/simatic-1500-diagnostics-hardware": 10.0.0	                # @ax/simatic-ax@2504.0.0-rc.2  contained at the time of creation this catalog (11.4.2025) version  9.0.0

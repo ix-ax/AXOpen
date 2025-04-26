@@ -4,7 +4,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
     CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
-            ExampleComponent : AXOpen.Components.Rexroth.Tightening.TemplateComponent;             
+            ExampleComponent : AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact;
         END_VAR
         //</ComponentDeclaration>                          
 

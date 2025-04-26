@@ -6,7 +6,7 @@ USING Siemens.Simatic.S71500.Hardware.Utilities;
 
 NAMESPACE AXOpen.Components.Rexroth.Tightening
     {S7.extern=ReadWrite}
-    CLASS TemplateComponent EXTENDS AXOpen.Core.AxoComponent
+    CLASS Axo_CS351_compact EXTENDS AXOpen.Core.AxoComponent
         VAR PUBLIC // HEADER
 
         END_VAR
@@ -75,14 +75,14 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Config")]}
             {#ix-attr:[ReadOnly()]}
-            Config  :   TemplateComponent_Config;
+            Config  :   Axo_CS351_compact_Config;
         END_VAR
 
         VAR PUBLIC // STATUS
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
-            Status              :   TemplateComponent_Component_Status;
+            Status              :   Axo_CS351_compact_Component_Status;
             Messenger           :   AXOpen.Messaging.Static.AxoMessenger;
             TaskMessenger       :   AXOpen.Messaging.Static.AxoMessenger;
         END_VAR    
@@ -93,13 +93,13 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Inputs#>"}
             {#ix-attr:[ReadOnly()]}
-            Inputs              :  TemplateComponent_In;
+            Inputs              :  Axo_CS351_compact_In;
             {#ix-attr:[ComponentDetails("HARDWARE SIGNALS")]}
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Outputs#>"}
             {#ix-attr:[ReadOnly()]}
-            Outputs              :   TemplateComponent_Out;
+            Outputs              :   Axo_CS351_compact_Out;
         END_VAR    
 
         VAR PUBLIC // HARDWARE DIAGNOSTICS TASK

@@ -1,7 +1,7 @@
 NAMESPACE AXOpen.Components.Rexroth.Tightening
     {S7.extern=ReadWrite}
     {#ix-attr:[Container(Layout.Stack)]}
-    CLASS PUBLIC TemplateComponent_Config
+    CLASS PUBLIC Axo_CS351_compact_Config
         VAR PUBLIC 
             {#ix-set:AttributeName = "<#Info time#>"}
             InfoTime : LTIME := LT#5S;

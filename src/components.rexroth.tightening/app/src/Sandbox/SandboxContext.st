@@ -4,7 +4,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
     CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             _manualControl : BOOL;
-            _testComponent : AXOpen.Components.Rexroth.Tightening.TemplateComponent;
+            _testComponent : AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact;
             _rootObject : AxoObject;
         END_VAR
 

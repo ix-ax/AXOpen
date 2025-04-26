@@ -11,3 +11,5 @@ IoSystems:
 - Name: profinet_plc_line
   ControllerInterfaces:
   - Ref: plc_line/plc_line/profinet_x1
+  DeviceInterfaces:
+  - Ref: Axo_CS351/Axo_CS351/profinet
