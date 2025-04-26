@@ -19,7 +19,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening.Tests
         VAR PROTECTED
             _context        :   TestContext;
             _rootObject     :   MockAxoObject;
-            _component      :   AXOpen.Components.Rexroth.Tightening.TemplateComponent;
+            _component      :   AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact;
         END_VAR        
                 
         VAR PRIVATE
