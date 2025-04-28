@@ -79,26 +79,71 @@ namespace AXOpen.Data
         /// of the specified <see cref="ITwinObject"/>, and adds them to groups defined in their attributes.
         /// </summary>
         /// <param name="target">The Twin object to inspect.</param>
-        public void CollectAxoDataExchanges(ITwinObject target)
+        public void CollectAxoDataExchanges(ITwinObject target, HashSet<ITwinObject>? visited = null, IEnumerable<string>? parentGroups = null)
         {
-            var dataEx = target.GetChildren().Where(p => p is IAxoDataExchange);
+            visited ??= new HashSet<ITwinObject>();
 
-            foreach (var item in dataEx)
+            if (visited.Contains(target))
+                return;
+
+            visited.Add(target);
+
+            // Skip if target is a simple IAxoDataExchange but not AxoDataFragmentExchange
+            if (target is IAxoDataExchange && target is not AxoDataFragmentExchange)
+                return;
+
+            foreach (var item in target.GetChildren().OfType<ITwinObject>())
             {
-                DistributedDataAttribute? hasAttribute = target.GetType()
-                    .GetProperty(item.GetSymbolTail())?
-                    .GetCustomAttribute<DistributedDataAttribute>();
+                // Exclude known types early
+                if (item is AXOpen.Core.AxoTask
+                    || item is AXOpen.Messaging.Static.AxoMessenger
+                    || item is AXOpen.Messaging.Static.AxoMessageProvider
+                    || item is AXOpen.Data.AxoDataLocalExchange)
+                {
+                    visited.Add(item);
+                    continue;
+                }
+
+                var property = target.GetType().GetProperty(item.GetSymbolTail());
+                if (property == null)
+                    continue;
+
+                var hasAttribute = property.GetCustomAttribute<DistributedDataAttribute>();
+                IEnumerable<string> groups = Enumerable.Empty<string>();
 
                 if (hasAttribute != null)
                 {
-                    var groups = hasAttribute?.GetType()
+                    groups = hasAttribute.GetType()
                         .GetProperty("Groups", BindingFlags.Public | BindingFlags.Instance)?
                         .GetValue(hasAttribute) as IEnumerable<string> ?? Enumerable.Empty<string>();
 
-                    this.Add(item as IAxoDataExchange, groups.ToList());
+                    // Merge parent groups if any
+                    if (parentGroups != null)
+                    {
+                        groups = groups.Concat(parentGroups);
+                    }
+                }
+                else if (parentGroups != null)
+                {
+                    groups = parentGroups;
+                }
+
+                // Now decide based on the type
+                if (item is AxoDataFragmentExchange)
+                {
+                    CollectAxoDataExchanges(item, visited, groups);
+                }
+                else if (item is IAxoDataExchange axoDataExchange)
+                {
+                    this.Add(axoDataExchange, groups.ToList());
+                }
+                else
+                {
+                    CollectAxoDataExchanges(item, visited, groups);
                 }
             }
         }
+
 
         /// <summary>
         /// Adds the specified type to the list of prioritized types for sorting.
