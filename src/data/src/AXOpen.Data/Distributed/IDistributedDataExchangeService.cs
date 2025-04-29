@@ -21,7 +21,7 @@ namespace AXOpen.Data
         /// and registers them into groups defined by <see cref="DistributedDataAttribute"/>.
         /// </summary>
         /// <param name="target">The Twin object containing child exchanges.</param>
-        void CollectAxoDataExchanges(ITwinObject target);
+        void CollectAxoDataExchanges(ITwinObject target, HashSet<ITwinObject>? visited = null, IEnumerable<string> parentGroups = null);
 
         /// <summary>
         /// Sorts exchanges within each group by prioritizing types added via <c>SetPrioritizedType</c>.
@@ -51,6 +51,7 @@ namespace AXOpen.Data
         /// </param>
         /// <returns>A list of <see cref="IAxoDataExchange"/> instances.</returns>
         List<IAxoDataExchange> GetExchanges(string groupName, bool onlyOnePerType = true);
+        
     }
 
 }
