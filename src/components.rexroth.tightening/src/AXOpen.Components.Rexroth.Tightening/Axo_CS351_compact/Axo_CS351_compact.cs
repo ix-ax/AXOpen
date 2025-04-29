@@ -29,46 +29,58 @@ namespace AXOpen.Components.Rexroth.Tightening
             {
                 new KeyValuePair<ulong, AxoMessengerTextItem>(0,   new AxoMessengerTextItem("  ", "  ")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(50, new AxoMessengerTextItem("Restore has been executed.","")),
-                // TemplateTask_10steps_1
-                new KeyValuePair<ulong, AxoMessengerTextItem>(100, new AxoMessengerTextItem("TemplateTask_10steps_1 started.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(101, new AxoMessengerTextItem("TemplateTask_10steps_1 finished succesfully.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(102, new AxoMessengerTextItem("TemplateTask_10steps_1 restored.","")),
-                // TemplateTask_10steps_2
-                new KeyValuePair<ulong, AxoMessengerTextItem>(110, new AxoMessengerTextItem("TemplateTask_10steps_2 started.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(111, new AxoMessengerTextItem("TemplateTask_10steps_2 finished succesfully.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(112, new AxoMessengerTextItem("TemplateTask_10steps_2 restored.","")),
-                // TemplateTask_10steps_3
-                new KeyValuePair<ulong, AxoMessengerTextItem>(120, new AxoMessengerTextItem("TemplateTask_10steps_3 started.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(121, new AxoMessengerTextItem("TemplateTask_10steps_3 finished succesfully.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(122, new AxoMessengerTextItem("TemplateTask_10steps_3 restored.","")),
-                // TemplateTask_10steps_4
-                new KeyValuePair<ulong, AxoMessengerTextItem>(130, new AxoMessengerTextItem("TemplateTask_10steps_4 started.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(131, new AxoMessengerTextItem("TemplateTask_10steps_4 finished succesfully.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(132, new AxoMessengerTextItem("TemplateTask_10steps_4 restored.","")),
-                // TemplateTask_10steps_5
-                new KeyValuePair<ulong, AxoMessengerTextItem>(140, new AxoMessengerTextItem("TemplateTask_10steps_5 started.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(141, new AxoMessengerTextItem("TemplateTask_10steps_5 finished succesfully.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(142, new AxoMessengerTextItem("TemplateTask_10steps_5 restored.","")),
-                // TemplateTask_10steps_6
-                new KeyValuePair<ulong, AxoMessengerTextItem>(150, new AxoMessengerTextItem("TemplateTask_10steps_6 started.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(151, new AxoMessengerTextItem("TemplateTask_10steps_6 finished succesfully.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(152, new AxoMessengerTextItem("TemplateTask_10steps_6 restored.","")),
-                // TemplateTask_20steps_1
-                new KeyValuePair<ulong, AxoMessengerTextItem>(160, new AxoMessengerTextItem("TemplateTask_20steps_1 started.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(161, new AxoMessengerTextItem("TemplateTask_20steps_1 finished succesfully.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(162, new AxoMessengerTextItem("TemplateTask_20steps_1 restored.","")),
-                // TemplateTask_20steps_2
-                new KeyValuePair<ulong, AxoMessengerTextItem>(180, new AxoMessengerTextItem("TemplateTask_20steps_2 started.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(181, new AxoMessengerTextItem("TemplateTask_20steps_2 finished succesfully.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(182, new AxoMessengerTextItem("TemplateTask_20steps_2 restored.","")),
-                // TemplateTask_20steps_3
-                new KeyValuePair<ulong, AxoMessengerTextItem>(200, new AxoMessengerTextItem("TemplateTask_20steps_3 started.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(201, new AxoMessengerTextItem("TemplateTask_20steps_3 finished succesfully.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(202, new AxoMessengerTextItem("TemplateTask_20steps_3 restored.","")),
-                // TemplateTask_20steps_4
-                new KeyValuePair<ulong, AxoMessengerTextItem>(220, new AxoMessengerTextItem("TemplateTask_20steps_4 started.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(221, new AxoMessengerTextItem("TemplateTask_20steps_4 finished succesfully.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(222, new AxoMessengerTextItem("TemplateTask_20steps_4 restored.","")),
+                // DisableTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(100, new AxoMessengerTextItem("DisableTask started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(101, new AxoMessengerTextItem("DisableTask finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(102, new AxoMessengerTextItem("DisableTask restored.","")),
+                // EnableTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(105, new AxoMessengerTextItem("EnableTask started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(106, new AxoMessengerTextItem("EnableTask finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(107, new AxoMessengerTextItem("EnableTask restored.","")),
+                // DisableClockwiseTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(110, new AxoMessengerTextItem("DisableClockwiseTask started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(111, new AxoMessengerTextItem("DisableClockwiseTask finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(112, new AxoMessengerTextItem("DisableClockwiseTask restored.","")),
+                // EnableClockwiseTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(115, new AxoMessengerTextItem("EnableClockwiseTask started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(116, new AxoMessengerTextItem("EnableClockwiseTask finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(117, new AxoMessengerTextItem("EnableClockwiseTask restored.","")),
+                // DisableCounterClockwiseTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(120, new AxoMessengerTextItem("DisableCounterClockwiseTask started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(121, new AxoMessengerTextItem("DisableCounterClockwiseTask finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(122, new AxoMessengerTextItem("DisableCounterClockwiseTask restored.","")),
+                // EnableCounterClockwiseTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(125, new AxoMessengerTextItem("EnableCounterClockwiseTask started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(126, new AxoMessengerTextItem("EnableCounterClockwiseTask finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(127, new AxoMessengerTextItem("EnableCounterClockwiseTask restored.","")),
+                // ResetFaultTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(130, new AxoMessengerTextItem("ResetFaultTask started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(131, new AxoMessengerTextItem("ResetFaultTask finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(132, new AxoMessengerTextItem("ResetFaultTask restored.","")),
+                // ResetResultsTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(135, new AxoMessengerTextItem("ResetResultsTask started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(136, new AxoMessengerTextItem("ResetResultsTask finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(137, new AxoMessengerTextItem("ResetResultsTask restored.","")),
+                // SetScrewingProgramTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(140, new AxoMessengerTextItem("SetScrewingProgramTask started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(141, new AxoMessengerTextItem("SetScrewingProgramTask finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(142, new AxoMessengerTextItem("SetScrewingProgramTask restored.","")),
+                // GetScrewingResults
+                new KeyValuePair<ulong, AxoMessengerTextItem>(150, new AxoMessengerTextItem("GetScrewingResults started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(151, new AxoMessengerTextItem("GetScrewingResults finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(152, new AxoMessengerTextItem("GetScrewingResults restored.","")),
+                // ScrewClockwiseTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(160, new AxoMessengerTextItem("ScrewClockwiseTask started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(161, new AxoMessengerTextItem("ScrewClockwiseTask finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(162, new AxoMessengerTextItem("ScrewClockwiseTask restored.","")),
+                // ScrewCounterClockwise
+                new KeyValuePair<ulong, AxoMessengerTextItem>(180, new AxoMessengerTextItem("ScrewCounterClockwise started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(181, new AxoMessengerTextItem("ScrewCounterClockwise finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(182, new AxoMessengerTextItem("ScrewCounterClockwise restored.","")),
+                // RunAutomatTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(200, new AxoMessengerTextItem("RunAutomatTask started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(201, new AxoMessengerTextItem("RunAutomatTask finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(202, new AxoMessengerTextItem("RunAutomatTask restored.","")),
                 // TemplateTask_20steps_5
                 new KeyValuePair<ulong, AxoMessengerTextItem>(240, new AxoMessengerTextItem("TemplateTask_20steps_5 started.","")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(241, new AxoMessengerTextItem("TemplateTask_20steps_5 finished succesfully.","")),
@@ -248,43 +260,83 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(880, new AxoMessengerTextItem("Error writing the Axo_CS351_compactOutputStructure_hwID_20!"                                                                   ,"Check the value of the hwID_20 and reacheability of the device!")),
 
 
-                // TemplateTask_10steps_1
-                new KeyValuePair<ulong, AxoMessengerTextItem>(900, new AxoMessengerTextItem("TemplateTask_10steps_1 finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(901, new AxoMessengerTextItem("TemplateTask_10steps_1 was aborted, while not yet completed!","Check the details.")),
-                // TemplateTask_10steps_2
-                new KeyValuePair<ulong, AxoMessengerTextItem>(910, new AxoMessengerTextItem("TemplateTask_10steps_2 finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(911, new AxoMessengerTextItem("TemplateTask_10steps_2 was aborted, while not yet completed!","Check the details.")),
-                // TemplateTask_10steps_3
-                new KeyValuePair<ulong, AxoMessengerTextItem>(920, new AxoMessengerTextItem("TemplateTask_10steps_3 finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(921, new AxoMessengerTextItem("TemplateTask_10steps_3 was aborted, while not yet completed!","Check the details.")),
-                // TemplateTask_10steps_4
-                new KeyValuePair<ulong, AxoMessengerTextItem>(930, new AxoMessengerTextItem("TemplateTask_10steps_4 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(931, new AxoMessengerTextItem("TemplateTask_10steps_4 task was aborted, while not yet completed!","Check the details.")),
-                // TemplateTask_10steps_5
-                new KeyValuePair<ulong, AxoMessengerTextItem>(940, new AxoMessengerTextItem("TemplateTask_10steps_5 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(941, new AxoMessengerTextItem("TemplateTask_10steps_5 task was aborted, while not yet completed!","Check the details.")),
-                // TemplateTask_10steps_6
-                new KeyValuePair<ulong, AxoMessengerTextItem>(950, new AxoMessengerTextItem("TemplateTask_10steps_6 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(951, new AxoMessengerTextItem("TemplateTask_10steps_6 task was aborted, while not yet completed!","Check the details.")),
+                // DisableTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(900, new AxoMessengerTextItem("DisableTask finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(901, new AxoMessengerTextItem("DisableTask was aborted, while not yet completed!","Check the details.")),
+                // EnableTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(905, new AxoMessengerTextItem("EnableTask task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(906, new AxoMessengerTextItem("EnableTask task was aborted, while not yet completed!","Check the details.")),
+                // DisableClockwiseTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(910, new AxoMessengerTextItem("DisableClockwiseTask finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(911, new AxoMessengerTextItem("DisableClockwiseTask was aborted, while not yet completed!","Check the details.")),
+                // EnableClockwiseTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(915, new AxoMessengerTextItem("EnableClockwiseTask task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(916, new AxoMessengerTextItem("EnableClockwiseTask task was aborted, while not yet completed!","Check the details.")),
+                // DisableCounterClockwiseTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(920, new AxoMessengerTextItem("DisableCounterClockwiseTask finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(921, new AxoMessengerTextItem("DisableCounterClockwiseTask was aborted, while not yet completed!","Check the details.")),
+                // EnableCounterClockwiseTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(925, new AxoMessengerTextItem("EnableCounterClockwiseTask task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(926, new AxoMessengerTextItem("EnableCounterClockwiseTask task was aborted, while not yet completed!","Check the details.")),
+                // ResetFaultTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(930, new AxoMessengerTextItem("ResetFaultTask task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(931, new AxoMessengerTextItem("ResetFaultTask task was aborted, while not yet completed!","Check the details.")),
+                // ResetResultsTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(935, new AxoMessengerTextItem("ResetResultsTask task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(936, new AxoMessengerTextItem("ResetResultsTask task was aborted, while not yet completed!","Check the details.")),
+                // SetScrewingProgramTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(940, new AxoMessengerTextItem("SetScrewingProgramTask task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(941, new AxoMessengerTextItem("SetScrewingProgramTask task was aborted, while not yet completed!","Check the details.")),
+                // GetScrewingResults
+                new KeyValuePair<ulong, AxoMessengerTextItem>(950, new AxoMessengerTextItem("GetScrewingResults task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(951, new AxoMessengerTextItem("GetScrewingResults task was aborted, while not yet completed!","Check the details.")),
 
-                // TemplateTask_20steps_1
-                new KeyValuePair<ulong, AxoMessengerTextItem>(960, new AxoMessengerTextItem("TemplateTask_20steps_1 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(961, new AxoMessengerTextItem("TemplateTask_20steps_1 task was aborted, while not yet completed!","Check the details.")),
-                // TemplateTask_20steps_2
-                new KeyValuePair<ulong, AxoMessengerTextItem>(980, new AxoMessengerTextItem("TemplateTask_20steps_2 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(981, new AxoMessengerTextItem("TemplateTask_20steps_2 task was aborted, while not yet completed!","Check the details.")),
-                // TemplateTask_20steps_3
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1000, new AxoMessengerTextItem("TemplateTask_20steps_3 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1001, new AxoMessengerTextItem("TemplateTask_20steps_3 task was aborted, while not yet completed!","Check the details.")),
-                // TemplateTask_20steps_4
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1020, new AxoMessengerTextItem("TemplateTask_20steps_4 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1021, new AxoMessengerTextItem("TemplateTask_20steps_4 task was aborted, while not yet completed!","Check the details.")),
+                // ScrewClockwiseTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(960, new AxoMessengerTextItem("ScrewClockwiseTask task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(961, new AxoMessengerTextItem("ScrewClockwiseTask task was aborted, while not yet completed!","Check the details.")),
+                // ScrewCounterClockwise
+                new KeyValuePair<ulong, AxoMessengerTextItem>(980, new AxoMessengerTextItem("ScrewCounterClockwise task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(981, new AxoMessengerTextItem("ScrewCounterClockwise task was aborted, while not yet completed!","Check the details.")),
+                // RunAutomatTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1000, new AxoMessengerTextItem("RunAutomatTask task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1001, new AxoMessengerTextItem("RunAutomatTask task was aborted, while not yet completed!","Check the details.")),
                 // TemplateTask_20steps_5
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1040, new AxoMessengerTextItem("TemplateTask_20steps_5 task finished with error!","Check the details.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1041, new AxoMessengerTextItem("TemplateTask_20steps_5 task was aborted, while not yet completed!","Check the details.")),
                 // TemplateTask_20steps_6
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1060, new AxoMessengerTextItem("TemplateTask_20steps_6 task finished with error!","Check the details.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1061, new AxoMessengerTextItem("TemplateTask_20steps_6 task was aborted, while not yet completed!","Check the details.")),
+                
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1100, new AxoMessengerTextItem("Program number out of range!","Check the value of required program number.")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1201, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_1!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1202, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_2!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1203, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_3!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1204, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_4!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1205, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_5!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1206, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_6!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1207, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_7!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1208, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_8!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1209, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_9!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1210, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_10!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1211, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_11!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1212, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_12!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1213, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_13!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1214, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_14!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1215, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_15!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1216, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_16!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1217, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_2_word_1!","Check the details.")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1221, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_1!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1222, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_2!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1223, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_3!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1224, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_4!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1225, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_5!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1226, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_6!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1227, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_7!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1228, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_8!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1229, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_2_word_1!","Check the details.")),
+
 
         };
 
@@ -296,156 +348,159 @@ namespace AXOpen.Components.Rexroth.Tightening
             List<KeyValuePair<ulong, AxoMessengerTextItem>> messengerTextList = new List<KeyValuePair<ulong, AxoMessengerTextItem>>
             {
                 new KeyValuePair<ulong, AxoMessengerTextItem>(0,    new AxoMessengerTextItem("  ", "  ")),
-                // TemplateTask_10steps_1
-                new KeyValuePair<ulong, AxoMessengerTextItem>(500,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(501,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(502,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(503,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(504,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(505,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(506,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(507,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(508,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(509,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                // TemplateTask_10steps_2
-                new KeyValuePair<ulong, AxoMessengerTextItem>(510,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(511,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(512,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(513,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(514,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(515,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(516,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(517,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(518,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(519,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                // TemplateTask_10steps_3
-                new KeyValuePair<ulong, AxoMessengerTextItem>(520,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(521,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(522,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(523,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(524,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(525,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(526,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(527,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(528,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(529,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                //TemplateTask_10steps_4
-                new KeyValuePair<ulong, AxoMessengerTextItem>(530,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(531,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(532,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(533,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(534,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(535,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(536,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(537,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(538,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(539,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                //TemplateTask_10steps_5
-                new KeyValuePair<ulong, AxoMessengerTextItem>(540,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(541,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(542,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(543,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(544,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(545,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(546,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(547,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(548,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(549,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                //TemplateTask_10steps_6
-                new KeyValuePair<ulong, AxoMessengerTextItem>(550,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(551,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(552,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(553,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(554,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(555,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(556,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(557,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(558,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(559,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                //TemplateTask_20steps_1
-                new KeyValuePair<ulong, AxoMessengerTextItem>(560,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(561,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(562,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(563,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(564,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(565,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(566,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(567,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(568,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(569,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(570,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(571,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(572,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(573,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(574,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(575,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(576,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(577,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(578,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(579,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                //TemplateTask_20steps_2
-                new KeyValuePair<ulong, AxoMessengerTextItem>(580,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(581,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(582,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(583,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(584,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(585,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(586,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(587,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(588,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(589,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(590,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(591,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(592,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(593,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(594,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(595,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(596,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(597,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(598,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(599,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                //TemplateTask_20steps_3
-                new KeyValuePair<ulong, AxoMessengerTextItem>(600,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(601,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(602,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                // DisableTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(500,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.EnableAck` to be reseted!"    ,"Check the status of the `Inputs.EnableAck`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(501,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(502,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(503,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(504,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //EnableTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(505,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.EnableAck` to be set!"        ,"Check the status of the `Inputs.EnableAck`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(506,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(507,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(508,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(509,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                // DisableClockwiseTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(510,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CwLockAck` to be set !"       ,"Check the status of the Inputs.CwLockAck`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(511,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(512,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(513,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(514,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //EnableClockwiseTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(515,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CwLockAck` to be reseted !"   ,"Check the status of the `Inputs.CwLockAck`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(516,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(517,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(518,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(519,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                // DisableCounterClockwiseTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(520,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CcwLockAck` to be set !"      ,"Check the status of the `Inputs.CcwLockAck`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(521,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(522,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(523,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(524,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //EnableCounterClockwiseTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(525,  new AxoMessengerTextItem("Waiting for the signal/variable Inputs.CcwLockAck` to be reseted !"  ,"Check the status of the `Inputs.CcwLockAck`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(526,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(527,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(528,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(529,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //ResetFaultTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(530,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.NoFault` to be set !"         ,"Check the status of the `Inputs.NoFault`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(531,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(532,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(533,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(534,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //ResetResultsTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(535,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CycleComplete` to be reseted !","Check the status of the `Inputs.CycleComplete`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(536,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(537,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(538,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(539,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //SetScrewingProgramTask
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(540,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(541,  new AxoMessengerTextItem("Screwing program number out of range", "Check the screwing program number.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(542,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Ready` to be set !"               ,"Check the status of the `Inputs.Ready`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(543,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.ProgramNoAck` to match the value of `Outputs.ProgramNo`!","")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(544,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(545,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(546,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(547,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(548,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(549,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //GetScrewingResults
+                    //new KeyValuePair<ulong, AxoMessengerTextItem>(550,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                    //new KeyValuePair<ulong, AxoMessengerTextItem>(551,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                    //new KeyValuePair<ulong, AxoMessengerTextItem>(552,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                    //new KeyValuePair<ulong, AxoMessengerTextItem>(553,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                    //new KeyValuePair<ulong, AxoMessengerTextItem>(554,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                    //new KeyValuePair<ulong, AxoMessengerTextItem>(555,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                    //new KeyValuePair<ulong, AxoMessengerTextItem>(556,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                    //new KeyValuePair<ulong, AxoMessengerTextItem>(557,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                    //new KeyValuePair<ulong, AxoMessengerTextItem>(558,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                    //new KeyValuePair<ulong, AxoMessengerTextItem>(559,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //ScrewClockwiseTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(560,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Ready` to be set !","Check the status of the `Inputs.Ready`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(561,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.EnableAck` to be set !","Check the status of the `Inputs.EnableAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(562,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.ActiveEnableAck` to be set !","Check the status of the `Inputs.ActiveEnableAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(563,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CwLockAck` to be reseted !","Check the status of the `Inputs.CwLockAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(564,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.InCycle` to be set !","Check the status of the `Inputs.InCycle` signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(565,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.InCycle` to be set!","Check the status of the `Inputs.InCycle`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(566,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CycleComplete` to be set !","Check the status of the `Inputs.CycleComplete`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(567,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.InCycle` to be reseted !","Check the status of the `Inputs.InCycle`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(568,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.ActiveEnableAck` to be reseted !","Check the status of the `Inputs.ActiveEnableAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(569,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CycleComplete` to be set !","Check the status of the `Inputs.CycleComplete`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(570,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CwLockAck` to be set !","Check the status of the `Inputs.CwLockAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(571,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CcwLockAck` to be set !","Check the status of the `Inputs.CcwLockAck`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(572,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(573,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(574,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(575,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(576,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(577,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(578,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(579,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //ScrewCounterClockwise
+                new KeyValuePair<ulong, AxoMessengerTextItem>(580,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Ready` to be set !","Check the status of the `Inputs.Ready`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(581,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.EnableAck` to be set !","Check the status of the `Inputs.EnableAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(582,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.ActiveEnableAck` to be set !","Check the status of the `Inputs.ActiveEnableAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(583,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CcwLockAck` to be reseted !","Check the status of the `Inputs.CcwLockAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(584,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.InCycleCcw` to be set !","Check the status of the `Inputs.InCycleCcw` signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(585,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.InCycleCcw` to be set!","Check the status of the `Inputs.InCycleCcw`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(586,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CycleComplete` to be set !","Check the status of the `Inputs.CycleComplete`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(587,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.InCycleCcw` to be reseted !","Check the status of the `Inputs.InCycleCcw`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(588,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.ActiveEnableAck` to be reseted !","Check the status of the `Inputs.ActiveEnableAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(589,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CycleComplete` to be set !","Check the status of the `Inputs.CycleComplete`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(590,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CcwLockAck` to be set !","Check the status of the `Inputs.CcwLockAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(591,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CwLockAck` to be set !","Check the status of the `Inputs.CwLockAck`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(592,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(593,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(594,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(595,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(596,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(597,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(598,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(599,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //RunAutomatTask
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(600,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(601,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.NoFault` to be set !","Check the status of the `Inputs.NoFault`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(602,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Ready` to be set !","Check the status of the `Inputs.Ready`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(603,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(604,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(605,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(606,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(607,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(608,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(609,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(610,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(611,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(612,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(613,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(614,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(615,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(616,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(617,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(618,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(619,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                //TemplateTask_20steps_4
-                new KeyValuePair<ulong, AxoMessengerTextItem>(620,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(621,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(622,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(623,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(624,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(625,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(626,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(627,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(628,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(629,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(630,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(631,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(632,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(633,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(634,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(635,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(636,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(637,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(638,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(639,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(604,  new AxoMessengerTextItem("Screwing program number out of range!","Check the value of the required screwing program number.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(605,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Ready` to be set !","Check the status of the `Inputs.Ready`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(606,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.ProgramNoAck` to match the value of the `Outputs.ProgramNo` !","Check the values of the `Inputs.ProgramNoAck` and `Outputs.ProgramNo` signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(607,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.EnableAck` to be set !","Check the status of the `Inputs.EnableAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(608,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CycleComplete` to be reseted !","Check the status of the `Inputs.CycleComplete`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(609,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.ActiveEnableAck` to be set !","Check the status of the `Inputs.ActiveEnableAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(610,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CwLockAck` to be reseted !","Check the status of the `Inputs.CwLockAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(611,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.InCycle` to be set !","Check the status of the `Inputs.InCycle`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(612,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.InCycle ` to be set !","Check the status of the `Inputs.InCycle `  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(613,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CycleComplete` to be set !","Check the status of the `Inputs.CycleComplete`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(614,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.InCycle` to be reseted !","Check the status of the `Inputs.InCycle`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(615,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.ActiveEnableAck` to be reseted !","Check the status of the `Inputs.ActiveEnableAck  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(616,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CycleComplete` to be set !","Check the status of the `Inputs.CycleComplete`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(617,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CwLockAck` to be set !","Check the status of the `Inputs.CwLockAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(618,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CcwLockAck` to be set !","Check the status of the `Inputs.CcwLockAck`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(619,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(620,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(621,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.EnableAck` to be reseted !","Check the status of the `Inputs.EnableAck`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(622,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(623,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(624,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(625,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(626,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(627,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(628,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(629,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(630,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(631,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(632,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(633,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(634,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(635,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(636,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(637,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(638,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                //new KeyValuePair<ulong, AxoMessengerTextItem>(639,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 //TemplateTask_20steps_5
                 new KeyValuePair<ulong, AxoMessengerTextItem>(640,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(641,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
@@ -510,156 +565,159 @@ namespace AXOpen.Components.Rexroth.Tightening
                 if (errorDescriptionDict.Count == 0)
                 {
                     errorDescriptionDict.Add(0, "   ");
-                    // TemplateTask_10steps_1
-                    errorDescriptionDict.Add(500, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(501, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(502, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(503, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(504, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(505, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(506, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(507, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(508, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(509, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_10steps_2
-                    errorDescriptionDict.Add(510, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(511, "Waiting for the signal `Inputs.Status.WorkSensor` to be reseted!");
-                    errorDescriptionDict.Add(512, "Waiting for the signal `Inputs.Status.HomeSensor` to be set!");
-                    errorDescriptionDict.Add(513, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(514, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(515, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(516, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(517, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(518, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(519, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_10steps_3
-                    errorDescriptionDict.Add(520, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(521, "Waiting for the signal `Inputs.Status.HomeSensor` to be reseted!");
-                    errorDescriptionDict.Add(522, "Waiting for the signal `Inputs.Status.WorkSensor` to be set!");
-                    errorDescriptionDict.Add(523, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(524, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(525, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(526, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(527, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(528, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(529, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_10steps_4
-                    errorDescriptionDict.Add(530, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(531, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(532, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(533, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(534, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(535, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(536, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(537, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(538, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(539, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_10steps_5
-                    errorDescriptionDict.Add(540, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(541, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(542, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(543, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(544, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(545, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(546, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(547, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(548, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(549, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_10steps_6
-                    errorDescriptionDict.Add(550, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(551, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(552, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(553, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(554, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(555, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(556, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(557, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(558, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(559, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_20steps_1
-                    errorDescriptionDict.Add(560, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(561, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(562, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(563, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(564, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(565, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(566, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(567, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(568, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(569, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(570, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(571, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(572, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(573, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(574, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(575, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(576, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(577, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(578, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(579, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_20steps_2
-                    errorDescriptionDict.Add(580, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(581, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(582, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(583, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(584, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(585, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(586, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(587, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(588, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(589, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(590, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(591, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(592, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(593, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(594, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(595, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(596, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(597, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(598, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(599, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_20steps_3
-                    errorDescriptionDict.Add(600, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(601, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(602, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    // DisableTask
+                    errorDescriptionDict.Add(500, "Waiting for the signal/variable `Inputs.EnableAck` to be reseted!");
+                    //errorDescriptionDict.Add(501, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(502, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(503, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(504, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    // EnableTask
+                    errorDescriptionDict.Add(505, "Waiting for the signal/variable `Inputs.EnableAck` to be set!");
+                    //errorDescriptionDict.Add(506, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(507, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(508, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(509, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    // DisableClockwiseTask
+                    errorDescriptionDict.Add(510, "Waiting for the signal/variable `Inputs.CwLockAck` to be set !");
+                    //errorDescriptionDict.Add(511, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(512, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(513, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(514, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    // EnableClockwiseTask
+                    errorDescriptionDict.Add(515, "Waiting for the signal/variable `Inputs.CwLockAck` to be reseted !");
+                    //errorDescriptionDict.Add(516, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(517, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(518, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(519, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    // DisableCounterClockwiseTask
+                    errorDescriptionDict.Add(520, "Waiting for the signal/variable `Inputs.CcwLockAck` to be set !");
+                    //errorDescriptionDict.Add(521, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(522, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(523, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(524, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    // EnableCounterClockwiseTask
+                    errorDescriptionDict.Add(525, "Waiting for the signal/variable `Inputs.CcwLockAck` to be reseted !");
+                    //errorDescriptionDict.Add(526, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(527, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(528, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(529, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    // ResetFaultTask
+                    errorDescriptionDict.Add(530, "Waiting for the signal/variable `Inputs.NoFault` to be set !");
+                    //errorDescriptionDict.Add(531, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(532, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(533, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(534, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //ResetResultsTask
+                    errorDescriptionDict.Add(535, "Waiting for the signal/variable `Inputs.CycleComplete` to be reseted !");
+                    //errorDescriptionDict.Add(536, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(537, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(538, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(539, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    // SetScrewingProgramTask
+                    errorDescriptionDict.Add(540, "Screwing program number out of range");
+                    errorDescriptionDict.Add(541, "Waiting for the signal/variable `Inputs.Ready` to be set!");
+                    errorDescriptionDict.Add(542, "Waiting for the signal/variable `Inputs.ProgramNoAck` to match the value of `Outputs.ProgramNo`!");
+                    //errorDescriptionDict.Add(543, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(544, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(545, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(546, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(547, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(548, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(549, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    // GetScrewingResults
+                    //errorDescriptionDict.Add(550, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(551, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(552, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(553, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(554, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(555, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(556, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(557, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(558, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(559, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    // ScrewClockwiseTask
+                    errorDescriptionDict.Add(560, "Waiting for the signal/variable `Inputs.Ready` to be set !");
+                    errorDescriptionDict.Add(561, "Waiting for the signal/variable `Inputs.EnableAck` to be set !");
+                    errorDescriptionDict.Add(562, "Waiting for the signal/variable `Inputs.ActiveEnableAck` to be set !");
+                    errorDescriptionDict.Add(563, "Waiting for the signal/variable `Inputs.CwLockAck` to be reseted !");
+                    errorDescriptionDict.Add(564, "Waiting for the signal/variable `Inputs.InCycle` to be set !");
+                    errorDescriptionDict.Add(565, "Waiting for the signal/variable `Inputs.InCycle` to be set!");
+                    errorDescriptionDict.Add(566, "Waiting for the signal/variable `Inputs.CycleComplete` to be set !");
+                    errorDescriptionDict.Add(567, "Waiting for the signal/variable `Inputs.InCycle` to be reseted !");
+                    errorDescriptionDict.Add(568, "Waiting for the signal/variable `Inputs.ActiveEnableAck` to be reseted !");
+                    errorDescriptionDict.Add(569, "Waiting for the signal/variable `Inputs.CycleComplete` to be set !");
+                    errorDescriptionDict.Add(570, "Waiting for the signal/variable `Inputs.CwLockAck` to be set !");
+                    errorDescriptionDict.Add(571, "Waiting for the signal/variable `Inputs.CcwLockAck` to be set !");
+                    //errorDescriptionDict.Add(572, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(573, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(574, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(575, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(576, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(577, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(578, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(579, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    // ScrewCounterClockwise
+                    errorDescriptionDict.Add(580, "Waiting for the signal/variable `Inputs.Ready` to be set !");
+                    errorDescriptionDict.Add(581, "Waiting for the signal/variable `Inputs.EnableAck` to be set !");
+                    errorDescriptionDict.Add(582, "Waiting for the signal/variable `Inputs.ActiveEnableAck` to be set !");
+                    errorDescriptionDict.Add(583, "Waiting for the signal/variable `Inputs.CcwLockAck` to be reseted !");
+                    errorDescriptionDict.Add(584, "Waiting for the signal/variable `Inputs.InCycleCcw` to be set !");
+                    errorDescriptionDict.Add(585, "Waiting for the signal/variable `Inputs.InCycleCcw` to be set!");
+                    errorDescriptionDict.Add(586, "Waiting for the signal/variable `Inputs.CycleComplete` to be set !");
+                    errorDescriptionDict.Add(587, "Waiting for the signal/variable `Inputs.InCycleCcw` to be reseted !");
+                    errorDescriptionDict.Add(588, "Waiting for the signal/variable `Inputs.ActiveEnableAck` to be reseted !");
+                    errorDescriptionDict.Add(589, "Waiting for the signal/variable `Inputs.CycleComplete` to be set !");
+                    errorDescriptionDict.Add(590, "Waiting for the signal/variable `Inputs.CcwLockAck` to be set !");
+                    errorDescriptionDict.Add(591, "Waiting for the signal/variable `Inputs.CwLockAck` to be set !");
+                    //errorDescriptionDict.Add(592, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(593, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(594, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(595, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(596, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(597, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(598, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(599, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    // RunAutomatTask
+                    //errorDescriptionDict.Add(600, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(601, "Waiting for the signal/variable `Inputs.NoFault` to be set !");
+                    errorDescriptionDict.Add(602, "Waiting for the signal/variable `Inputs.Ready` to be set !");
                     errorDescriptionDict.Add(603, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(604, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(605, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(606, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(607, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(608, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(609, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(610, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(611, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(612, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(613, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(614, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(615, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(616, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(617, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(618, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(619, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_20steps_4
-                    errorDescriptionDict.Add(620, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(621, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(622, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(623, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(624, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(625, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(626, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(627, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(628, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(629, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(630, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(631, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(632, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(633, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(634, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(635, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(636, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(637, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(638, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(639, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(604, "Screwing program number out of range!");
+                    errorDescriptionDict.Add(605, "Waiting for the signal/variable `Inputs.Ready` to be set !");
+                    errorDescriptionDict.Add(606, "Waiting for the signal/variable `Inputs.ProgramNoAck` to match the value of the `Outputs.ProgramNo`");
+                    errorDescriptionDict.Add(607, "Waiting for the signal/variable `Inputs.EnableAck` to be set !");
+                    errorDescriptionDict.Add(608, "Waiting for the signal/variable `Inputs.CycleComplete` to be reseted !");
+                    errorDescriptionDict.Add(609, "Waiting for the signal/variable `Inputs.ActiveEnableAck` to be set !");
+                    errorDescriptionDict.Add(610, "Waiting for the signal/variable `Inputs.CwLockAck` to be reseted !");
+                    errorDescriptionDict.Add(611, "Waiting for the signal/variable `Inputs.InCycle` to be set !");
+                    errorDescriptionDict.Add(612, "Waiting for the signal/variable `Inputs.InCycle ` to be set !");
+                    errorDescriptionDict.Add(613, "Waiting for the signal/variable `Inputs.CycleComplete` to be set !");
+                    errorDescriptionDict.Add(614, "Waiting for the signal/variable `Inputs.InCycle` to be reseted !");
+                    errorDescriptionDict.Add(615, "Waiting for the signal/variable `Inputs.ActiveEnableAck` to be reseted !");
+                    errorDescriptionDict.Add(616, "Waiting for the signal/variable `Inputs.CycleComplete` to be set !");
+                    errorDescriptionDict.Add(617, "Waiting for the signal/variable `Inputs.CwLockAck` to be set !");
+                    errorDescriptionDict.Add(618, "Waiting for the signal/variable `Inputs.CcwLockAck` to be set !");
+                    //errorDescriptionDict.Add(619, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(620, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(621, "Waiting for the signal/variable `Inputs.EnableAck` to be reseted !");
+                    //errorDescriptionDict.Add(622, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(623, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(624, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(625, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(626, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(627, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(628, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(629, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(630, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(631, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(632, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(633, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(634, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(635, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(636, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(637, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(638, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //errorDescriptionDict.Add(639, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     // TemplateTask_20steps_5
                     errorDescriptionDict.Add(640, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(641, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
@@ -826,84 +884,112 @@ namespace AXOpen.Components.Rexroth.Tightening
                     errorDescriptionDict.Add(820, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 20.");
                     errorDescriptionDict.Add(821, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 20.");
                     errorDescriptionDict.Add(822, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 20.");
+                    errorDescriptionDict.Add(823, "Hw configuration error. Value of _hwID_21 is zero.");
+                    errorDescriptionDict.Add(824, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1.");
+                    errorDescriptionDict.Add(825, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1.");
+                    errorDescriptionDict.Add(826, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1.");
+                    errorDescriptionDict.Add(827, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 1.");
+                    errorDescriptionDict.Add(828, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1.");
+                    errorDescriptionDict.Add(829, "Hw configuration error. Value of _hwID_22 is zero.");
+                    errorDescriptionDict.Add(830, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2.");
+                    errorDescriptionDict.Add(831, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2.");
+                    errorDescriptionDict.Add(832, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2.");
+                    errorDescriptionDict.Add(833, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 2.");
+                    errorDescriptionDict.Add(834, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2.");
+                    errorDescriptionDict.Add(835, "Hw configuration error. Value of _hwID_23 is zero.");
+                    errorDescriptionDict.Add(836, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 3.");
+                    errorDescriptionDict.Add(837, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 3.");
+                    errorDescriptionDict.Add(838, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 3.");
+                    errorDescriptionDict.Add(839, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 3.");
+                    errorDescriptionDict.Add(840, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 3.");
+                    errorDescriptionDict.Add(841, "Hw configuration error. Value of _hwID_24 is zero.");
+                    errorDescriptionDict.Add(842, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 4.");
+                    errorDescriptionDict.Add(843, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 4.");
+                    errorDescriptionDict.Add(844, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 4.");
+                    errorDescriptionDict.Add(845, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 4.");
+                    errorDescriptionDict.Add(846, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 4.");
+                    errorDescriptionDict.Add(847, "Hw configuration error. Value of _hwID_25 is zero.");
+                    errorDescriptionDict.Add(848, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 5.");
+                    errorDescriptionDict.Add(849, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 5.");
+                    errorDescriptionDict.Add(850, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 5.");
+                    errorDescriptionDict.Add(851, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 5.");
+                    errorDescriptionDict.Add(852, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 5.");
+                    errorDescriptionDict.Add(853, "Hw configuration error. Value of _hwID_26 is zero.");
+                    errorDescriptionDict.Add(854, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 6.");
+                    errorDescriptionDict.Add(855, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 6.");
+                    errorDescriptionDict.Add(856, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 6.");
+                    errorDescriptionDict.Add(857, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 6.");
+                    errorDescriptionDict.Add(858, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 6.");
 
-                    errorDescriptionDict.Add(830, "Input variable `parent` has NULL reference in `Run` method!");
-                    errorDescriptionDict.Add(831, "Input variable `hwId` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(832, "Input variable `hwId_1` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(833, "Input variable `hwId_2` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(834, "Input variable `hwId_3` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(835, "Input variable `hwId_4` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(836, "Input variable `hwId_5` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(837, "Input variable `hwId_6` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(838, "Input variable `hwId_7` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(839, "Input variable `hwId_8` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(840, "Input variable `hwId_9` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(841, "Input variable `hwId_10` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(842, "Input variable `hwId_11` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(843, "Input variable `hwId_12` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(844, "Input variable `hwId_13` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(845, "Input variable `hwId_14` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(846, "Input variable `hwId_15` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(847, "Input variable `hwId_16` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(848, "Input variable `hwId_17` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(849, "Input variable `hwId_18` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(850, "Input variable `hwId_19` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(851, "Input variable `hwId_20` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(860, "Input variable `parent` has NULL reference in `Run` method!");
+                    errorDescriptionDict.Add(861, "Input variable `hwId` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(862, "Input variable `hwId_1` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(863, "Input variable `hwId_2` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(864, "Input variable `hwId_3` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(865, "Input variable `hwId_4` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(866, "Input variable `hwId_5` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(867, "Input variable `hwId_6` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(868, "Input variable `hwId_7` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(869, "Input variable `hwId_8` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(870, "Input variable `hwId_9` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(871, "Input variable `hwId_10` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(872, "Input variable `hwId_11` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(873, "Input variable `hwId_12` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(874, "Input variable `hwId_13` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(875, "Input variable `hwId_14` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(876, "Input variable `hwId_15` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(877, "Input variable `hwId_16` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(878, "Input variable `hwId_17` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(879, "Input variable `hwId_18` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(880, "Input variable `hwId_19` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(881, "Input variable `hwId_20` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(882, "Input variable `hwId_21` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(883, "Input variable `hwId_22` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(884, "Input variable `hwId_23` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(885, "Input variable `hwId_24` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(886, "Input variable `hwId_25` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(887, "Input variable `hwId_26` has invalid value in `Run` method!");
 
-                    errorDescriptionDict.Add(861, "Error reading the Axo_CS351_compactInputStructure_hwID_1!");
-                    errorDescriptionDict.Add(862, "Error reading the Axo_CS351_compactInputStructure_hwID_2!");
-                    errorDescriptionDict.Add(863, "Error reading the Axo_CS351_compactInputStructure_hwID_3!");
-                    errorDescriptionDict.Add(864, "Error reading the Axo_CS351_compactInputStructure_hwID_4!");
-                    errorDescriptionDict.Add(865, "Error reading the Axo_CS351_compactInputStructure_hwID_5!");
-                    errorDescriptionDict.Add(866, "Error reading the Axo_CS351_compactInputStructure_hwID_6!");
-                    errorDescriptionDict.Add(867, "Error reading the Axo_CS351_compactInputStructure_hwID_7!");
-                    errorDescriptionDict.Add(868, "Error reading the Axo_CS351_compactInputStructure_hwID_8!");
-                    errorDescriptionDict.Add(869, "Error reading the Axo_CS351_compactInputStructure_hwID_9!");
-                    errorDescriptionDict.Add(870, "Error reading the Axo_CS351_compactInputStructure_hwID_10!");
+                    // DisableTask
+                    errorDescriptionDict.Add(900, "DisableTask finished with error!");
+                    errorDescriptionDict.Add(901, "DisableTask was aborted, while not yet completed!");
+                    // EnableTask
+                    errorDescriptionDict.Add(905, "EnableTask task finished with error!");
+                    errorDescriptionDict.Add(906, "EnableTask task was aborted, while not yet completed!");
+                    // DisableClockwiseTask
+                    errorDescriptionDict.Add(910, "DisableClockwiseTask finished with error!");
+                    errorDescriptionDict.Add(911, "DisableClockwiseTask was aborted, while not yet completed!");
+                    // EnableClockwiseTask
+                    errorDescriptionDict.Add(915, "EnableClockwiseTask task finished with error!");
+                    errorDescriptionDict.Add(916, "EnableClockwiseTask task was aborted, while not yet completed!");
+                    // DisableCounterClockwiseTask
+                    errorDescriptionDict.Add(920, "DisableCounterClockwiseTask finished with error!");
+                    errorDescriptionDict.Add(921, "DisableCounterClockwiseTask was aborted, while not yet completed!");
+                    // EnableCounterClockwiseTask
+                    errorDescriptionDict.Add(925, "EnableCounterClockwiseTask task finished with error!");
+                    errorDescriptionDict.Add(926, "EnableCounterClockwiseTask task was aborted, while not yet completed!");
+                    // ResetFaultTask
+                    errorDescriptionDict.Add(930, "ResetFaultTask task finished with error!");
+                    errorDescriptionDict.Add(931, "ResetFaultTask task was aborted, while not yet completed!");
+                    //ResetResultsTask
+                    errorDescriptionDict.Add(935, "ResetResultsTask task finished with error!");
+                    errorDescriptionDict.Add(936, "ResetResultsTask task was aborted, while not yet completed!");
+                    // SetScrewingProgramTask
+                    errorDescriptionDict.Add(940, "SetScrewingProgramTask task finished with error!");
+                    errorDescriptionDict.Add(941, "SetScrewingProgramTask task was aborted, while not yet completed!");
+                    // GetScrewingResults
+                    errorDescriptionDict.Add(950, "GetScrewingResults task finished with error!");
+                    errorDescriptionDict.Add(951, "GetScrewingResults task was aborted, while not yet completed!");
 
-                    errorDescriptionDict.Add(871, "Error writing the Axo_CS351_compactOutputStructure_hwID_11!");
-                    errorDescriptionDict.Add(872, "Error writing the Axo_CS351_compactOutputStructure_hwID_12!");
-                    errorDescriptionDict.Add(873, "Error writing the Axo_CS351_compactOutputStructure_hwID_13!");
-                    errorDescriptionDict.Add(874, "Error writing the Axo_CS351_compactOutputStructure_hwID_14!");
-                    errorDescriptionDict.Add(875, "Error writing the Axo_CS351_compactOutputStructure_hwID_15!");
-                    errorDescriptionDict.Add(876, "Error writing the Axo_CS351_compactOutputStructure_hwID_16!");
-                    errorDescriptionDict.Add(877, "Error writing the Axo_CS351_compactOutputStructure_hwID_17!");
-                    errorDescriptionDict.Add(878, "Error writing the Axo_CS351_compactOutputStructure_hwID_18!");
-                    errorDescriptionDict.Add(879, "Error writing the Axo_CS351_compactOutputStructure_hwID_19!");
-                    errorDescriptionDict.Add(880, "Error writing the Axo_CS351_compactOutputStructure_hwID_20!");
-
-
-                    // TemplateTask_10steps_1
-                    errorDescriptionDict.Add(900, "TemplateTask_10steps_1 finished with error!");
-                    errorDescriptionDict.Add(901, "TemplateTask_10steps_1 was aborted, while not yet completed!");
-                    // TemplateTask_10steps_2
-                    errorDescriptionDict.Add(910, "TemplateTask_10steps_2 finished with error!");
-                    errorDescriptionDict.Add(911, "TemplateTask_10steps_2 was aborted, while not yet completed!");
-                    // TemplateTask_10steps_3
-                    errorDescriptionDict.Add(920, "TemplateTask_10steps_3 finished with error!");
-                    errorDescriptionDict.Add(921, "TemplateTask_10steps_3 was aborted, while not yet completed!");
-                    // TemplateTask_10steps_4
-                    errorDescriptionDict.Add(930, "TemplateTask_10steps_4 task finished with error!");
-                    errorDescriptionDict.Add(931, "TemplateTask_10steps_4 task was aborted, while not yet completed!");
-                    // TemplateTask_10steps_5
-                    errorDescriptionDict.Add(940, "TemplateTask_10steps_5 task finished with error!");
-                    errorDescriptionDict.Add(941, "TemplateTask_10steps_5 task was aborted, while not yet completed!");
-                    // TemplateTask_10steps_6
-                    errorDescriptionDict.Add(950, "TemplateTask_10steps_6 task finished with error!");
-                    errorDescriptionDict.Add(951, "TemplateTask_10steps_6 task was aborted, while not yet completed!");
-
-                    // TemplateTask_20steps_1
-                    errorDescriptionDict.Add(960, "TemplateTask_20steps_1 task finished with error!");
-                    errorDescriptionDict.Add(961, "TemplateTask_20steps_1 task was aborted, while not yet completed!");
-                    // TemplateTask_20steps_2
-                    errorDescriptionDict.Add(980, "TemplateTask_20steps_2 task finished with error!");
-                    errorDescriptionDict.Add(981, "TemplateTask_20steps_2 task was aborted, while not yet completed!");
-                    // TemplateTask_20steps_3       
-                    errorDescriptionDict.Add(1000, "TemplateTask_20steps_3 task finished with error!");
-                    errorDescriptionDict.Add(1001, "TemplateTask_20steps_3 task was aborted, while not yet completed!");
-                    // TemplateTask_20steps_4
-                    errorDescriptionDict.Add(1020, "TemplateTask_20steps_4 task finished with error!");
-                    errorDescriptionDict.Add(1021, "TemplateTask_20steps_4 task was aborted, while not yet completed!");
+                    // ScrewClockwiseTask
+                    errorDescriptionDict.Add(960, "ScrewClockwiseTask task finished with error!");
+                    errorDescriptionDict.Add(961, "ScrewClockwiseTask task was aborted, while not yet completed!");
+                    // ScrewCounterClockwise
+                    errorDescriptionDict.Add(980, "ScrewCounterClockwise task finished with error!");
+                    errorDescriptionDict.Add(981, "ScrewCounterClockwise task was aborted, while not yet completed!");
+                    // RunAutomatTask       
+                    errorDescriptionDict.Add(1000, "RunAutomatTask task finished with error!");
+                    errorDescriptionDict.Add(1001, "RunAutomatTask task was aborted, while not yet completed!");
                     // TemplateTask_20steps_5
                     errorDescriptionDict.Add(1040, "TemplateTask_20steps_5 task finished with error!");
                     errorDescriptionDict.Add(1041, "TemplateTask_20steps_5 task was aborted, while not yet completed!");
@@ -911,7 +997,35 @@ namespace AXOpen.Components.Rexroth.Tightening
                     errorDescriptionDict.Add(1060, "TemplateTask_20steps_6 task finished with error!");
                     errorDescriptionDict.Add(1061, "TemplateTask_20steps_6 task was aborted, while not yet completed!");
 
+                    errorDescriptionDict.Add(1100, "Program number out of range!");
 
+                    errorDescriptionDict.Add(1201, "Error reading the Axo_CS351_compact_Input_4_word_1!");
+                    errorDescriptionDict.Add(1202, "Error reading the Axo_CS351_compact_Input_4_word_2!");
+                    errorDescriptionDict.Add(1203, "Error reading the Axo_CS351_compact_Input_4_word_3!");
+                    errorDescriptionDict.Add(1204, "Error reading the Axo_CS351_compact_Input_4_word_4!");
+                    errorDescriptionDict.Add(1205, "Error reading the Axo_CS351_compact_Input_4_word_5!");
+                    errorDescriptionDict.Add(1206, "Error reading the Axo_CS351_compact_Input_4_word_6!");
+                    errorDescriptionDict.Add(1207, "Error reading the Axo_CS351_compact_Input_4_word_7!");
+                    errorDescriptionDict.Add(1208, "Error reading the Axo_CS351_compact_Input_4_word_8!");
+                    errorDescriptionDict.Add(1209, "Error reading the Axo_CS351_compact_Input_4_word_9!");
+                    errorDescriptionDict.Add(1210, "Error reading the Axo_CS351_compact_Input_4_word_10!");
+                    errorDescriptionDict.Add(1211, "Error reading the Axo_CS351_compact_Input_4_word_11!");
+                    errorDescriptionDict.Add(1212, "Error reading the Axo_CS351_compact_Input_4_word_12!");
+                    errorDescriptionDict.Add(1213, "Error reading the Axo_CS351_compact_Input_4_word_13!");
+                    errorDescriptionDict.Add(1214, "Error reading the Axo_CS351_compact_Input_4_word_14!");
+                    errorDescriptionDict.Add(1215, "Error reading the Axo_CS351_compact_Input_4_word_15!");
+                    errorDescriptionDict.Add(1216, "Error reading the Axo_CS351_compact_Input_4_word_16!");
+                    errorDescriptionDict.Add(1217, "Error reading the Axo_CS351_compact_Input_2_word_1!");
+
+                    errorDescriptionDict.Add(1221, "Error writing the Axo_CS351_compact_Output_4_word_1!");
+                    errorDescriptionDict.Add(1222, "Error writing the Axo_CS351_compact_Output_4_word_2!");
+                    errorDescriptionDict.Add(1223, "Error writing the Axo_CS351_compact_Output_4_word_3!");
+                    errorDescriptionDict.Add(1224, "Error writing the Axo_CS351_compact_Output_4_word_4!");
+                    errorDescriptionDict.Add(1225, "Error writing the Axo_CS351_compact_Output_4_word_5!");
+                    errorDescriptionDict.Add(1226, "Error writing the Axo_CS351_compact_Output_4_word_6!");
+                    errorDescriptionDict.Add(1227, "Error writing the Axo_CS351_compact_Output_4_word_7!");
+                    errorDescriptionDict.Add(1228, "Error writing the Axo_CS351_compact_Output_4_word_8!");
+                    errorDescriptionDict.Add(1229, "Error writing the Axo_CS351_compact_Output_2_word_1!");
                 }
                 string errorDescription = "   ";
 
@@ -939,187 +1053,199 @@ namespace AXOpen.Components.Rexroth.Tightening
                 {
                     actionDescriptionDict.Add(0, "   ");
                     actionDescriptionDict.Add(50, "Restore has been executed.");
-                    // TemplateTask_10steps_1
-                    actionDescriptionDict.Add(100, "TemplateTask_10steps_1 started.");
-                    actionDescriptionDict.Add(300, "TemplateTask_10steps_1 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(301, "TemplateTask_10steps_1 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(302, "TemplateTask_10steps_1 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(303, "TemplateTask_10steps_1 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(304, "TemplateTask_10steps_1 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(305, "TemplateTask_10steps_1 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(306, "TemplateTask_10steps_1 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(307, "TemplateTask_10steps_1 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(308, "TemplateTask_10steps_1 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(309, "TemplateTask_10steps_1 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(101, "TemplateTask_10steps_1 finished succesfully.");
-                    actionDescriptionDict.Add(102, "TemplateTask_10steps_1 restored.");
-                    // TemplateTask_10steps_2
-                    actionDescriptionDict.Add(110, "TemplateTask_10steps_2 started.");
-                    actionDescriptionDict.Add(310, "TemplateTask_10steps_2 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(311, "TemplateTask_10steps_2 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(312, "TemplateTask_10steps_2 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(313, "TemplateTask_10steps_2 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(314, "TemplateTask_10steps_2 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(315, "TemplateTask_10steps_2 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(316, "TemplateTask_10steps_2 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(317, "TemplateTask_10steps_2 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(318, "TemplateTask_10steps_2 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(319, "TemplateTask_10steps_2 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(111, "TemplateTask_10steps_2 finished succesfully.");
-                    actionDescriptionDict.Add(112, "TemplateTask_10steps_2 restored.");
-                    // TemplateTask_10steps_3
-                    actionDescriptionDict.Add(120, "TemplateTask_10steps_3 started.");
-                    actionDescriptionDict.Add(320, "TemplateTask_10steps_3 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(321, "TemplateTask_10steps_3 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(322, "TemplateTask_10steps_3 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(323, "TemplateTask_10steps_3 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(324, "TemplateTask_10steps_3 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(325, "TemplateTask_10steps_3 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(326, "TemplateTask_10steps_3 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(327, "TemplateTask_10steps_3 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(328, "TemplateTask_10steps_3 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(329, "TemplateTask_10steps_3 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(121, "TemplateTask_10steps_3 finished succesfully.");
-                    actionDescriptionDict.Add(122, "TemplateTask_10steps_3 restored.");
-                    // TemplateTask_10steps_4
-                    actionDescriptionDict.Add(130, "TemplateTask_10steps_4 started.");
-                    actionDescriptionDict.Add(330, "TemplateTask_10steps_4 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(331, "TemplateTask_10steps_4 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(332, "TemplateTask_10steps_4 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(333, "TemplateTask_10steps_4 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(334, "TemplateTask_10steps_4 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(335, "TemplateTask_10steps_4 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(336, "TemplateTask_10steps_4 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(337, "TemplateTask_10steps_4 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(338, "TemplateTask_10steps_4 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(339, "TemplateTask_10steps_4 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(131, "TemplateTask_10steps_4 finished succesfully.");
-                    actionDescriptionDict.Add(132, "TemplateTask_10steps_4 restored.");
-                    // TemplateTask_10steps_5
-                    actionDescriptionDict.Add(140, "TemplateTask_10steps_5 started.");
-                    actionDescriptionDict.Add(340, "TemplateTask_10steps_5 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(341, "TemplateTask_10steps_5 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(342, "TemplateTask_10steps_5 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(343, "TemplateTask_10steps_5 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(344, "TemplateTask_10steps_5 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(345, "TemplateTask_10steps_5 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(346, "TemplateTask_10steps_5 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(347, "TemplateTask_10steps_5 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(348, "TemplateTask_10steps_5 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(349, "TemplateTask_10steps_5 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(141, "TemplateTask_10steps_5 finished succesfully.");
-                    actionDescriptionDict.Add(142, "TemplateTask_10steps_5 restored.");
-                    // TemplateTask_10steps_6
-                    actionDescriptionDict.Add(150, "TemplateTask_10steps_6 started.");
-                    actionDescriptionDict.Add(350, "TemplateTask_10steps_6 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(351, "TemplateTask_10steps_6 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(352, "TemplateTask_10steps_6 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(353, "TemplateTask_10steps_6 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(354, "TemplateTask_10steps_6 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(355, "TemplateTask_10steps_6 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(356, "TemplateTask_10steps_6 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(357, "TemplateTask_10steps_6 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(358, "TemplateTask_10steps_6 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(359, "TemplateTask_10steps_6 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(151, "TemplateTask_10steps_6 finished succesfully.");
-                    actionDescriptionDict.Add(152, "TemplateTask_10steps_6 restored.");
+                    // DisableTask
+                    actionDescriptionDict.Add(100, "DisableTask started.");
+                    actionDescriptionDict.Add(300, "DisableTask running");
+                    actionDescriptionDict.Add(301, "DisableTask finished");
+                    //actionDescriptionDict.Add(302, "DisableTask running, <add the detailed description of the current action 3>");
+                    //actionDescriptionDict.Add(303, "DisableTask running, <add the detailed description of the current action 4>");
+                    //actionDescriptionDict.Add(304, "DisableTask running, <add the detailed description of the current action 5>");
+                    actionDescriptionDict.Add(101, "DisableTask finished succesfully.");
+                    actionDescriptionDict.Add(102, "DisableTask restored.");
+                    // EnableTask
+                    actionDescriptionDict.Add(105, "EnableTask started.");
+                    actionDescriptionDict.Add(305, "EnableTask running");
+                    actionDescriptionDict.Add(306, "EnableTask finished");
+                    //actionDescriptionDict.Add(307, "EnableTask running, <add the detailed description of the current action 3>");
+                    //actionDescriptionDict.Add(308, "EnableTask running, <add the detailed description of the current action 4>");
+                    //actionDescriptionDict.Add(309, "EnableTask running, <add the detailed description of the current action 5>");
+                    actionDescriptionDict.Add(106, "EnableTask finished succesfully.");
+                    actionDescriptionDict.Add(107, "EnableTask restored.");
+                    // DisableClockwiseTask
+                    actionDescriptionDict.Add(110, "DisableClockwiseTask started.");
+                    actionDescriptionDict.Add(310, "DisableClockwiseTask running");
+                    actionDescriptionDict.Add(311, "DisableClockwiseTask finished");
+                    //actionDescriptionDict.Add(312, "DisableClockwiseTask running, <add the detailed description of the current action 3>");
+                    //actionDescriptionDict.Add(313, "DisableClockwiseTask running, <add the detailed description of the current action 4>");
+                    //actionDescriptionDict.Add(314, "DisableClockwiseTask running, <add the detailed description of the current action 5>");
+                    actionDescriptionDict.Add(111, "DisableClockwiseTask finished succesfully.");
+                    actionDescriptionDict.Add(112, "DisableClockwiseTask restored.");
+                    // EnableClockwiseTask
+                    actionDescriptionDict.Add(115, "EnableClockwiseTask started.");
+                    actionDescriptionDict.Add(315, "EnableClockwiseTask running");
+                    actionDescriptionDict.Add(316, "EnableClockwiseTask finished");
+                    //actionDescriptionDict.Add(317, "EnableClockwiseTask running, <add the detailed description of the current action 3>");
+                    //actionDescriptionDict.Add(318, "EnableClockwiseTask running, <add the detailed description of the current action 4>");
+                    //actionDescriptionDict.Add(319, "EnableClockwiseTask running, <add the detailed description of the current action 5>");
+                    actionDescriptionDict.Add(116, "EnableClockwiseTask finished succesfully.");
+                    actionDescriptionDict.Add(117, "EnableClockwiseTask restored.");
+                    // DisableCounterClockwiseTask
+                    actionDescriptionDict.Add(120, "DisableCounterClockwiseTask started.");
+                    actionDescriptionDict.Add(320, "DisableCounterClockwiseTask running");
+                    actionDescriptionDict.Add(321, "DisableCounterClockwiseTask finished");
+                    //actionDescriptionDict.Add(322, "DisableCounterClockwiseTask running, <add the detailed description of the current action 3>");
+                    //actionDescriptionDict.Add(323, "DisableCounterClockwiseTask running, <add the detailed description of the current action 4>");
+                    //actionDescriptionDict.Add(324, "DisableCounterClockwiseTask running, <add the detailed description of the current action 5>");
+                    actionDescriptionDict.Add(121, "DisableCounterClockwiseTask finished succesfully.");
+                    actionDescriptionDict.Add(122, "DisableCounterClockwiseTask restored.");
+                    // EnableCounterClockwiseTask
+                    actionDescriptionDict.Add(125, "EnableCounterClockwiseTask started.");
+                    actionDescriptionDict.Add(325, "EnableCounterClockwiseTask running");
+                    actionDescriptionDict.Add(326, "EnableCounterClockwiseTask finished");
+                    //actionDescriptionDict.Add(327, "EnableCounterClockwiseTask running, <add the detailed description of the current action 3>");
+                    //actionDescriptionDict.Add(328, "EnableCounterClockwiseTask running, <add the detailed description of the current action 5>");
+                    //actionDescriptionDict.Add(329, "EnableCounterClockwiseTask running, <add the detailed description of the current action 5>");
+                    actionDescriptionDict.Add(126, "EnableCounterClockwiseTask finished succesfully.");
+                    actionDescriptionDict.Add(127, "EnableCounterClockwiseTask restored.");
+                    // ResetFaultTask
+                    actionDescriptionDict.Add(130, "ResetFaultTask started.");
+                    actionDescriptionDict.Add(330, "ResetFaultTask running");
+                    actionDescriptionDict.Add(331, "ResetFaultTask finished");
+                    //actionDescriptionDict.Add(332, "ResetFaultTask running, <add the detailed description of the current action 3>");
+                    //actionDescriptionDict.Add(333, "ResetFaultTask running, <add the detailed description of the current action 4>");
+                    //actionDescriptionDict.Add(334, "ResetFaultTask running, <add the detailed description of the current action 5>");
+                    actionDescriptionDict.Add(131, "ResetFaultTask finished succesfully.");
+                    actionDescriptionDict.Add(132, "ResetFaultTask restored.");
+                    //ResetResultsTask
+                    actionDescriptionDict.Add(135, "ResetResultsTask started.");
+                    actionDescriptionDict.Add(335, "ResetResultsTask running");
+                    actionDescriptionDict.Add(336, "ResetResultsTask finished");
+                    //actionDescriptionDict.Add(337, "ResetResultsTask running, <add the detailed description of the current action 3>");
+                    //actionDescriptionDict.Add(338, "ResetResultsTask running, <add the detailed description of the current action 4>");
+                    //actionDescriptionDict.Add(339, "ResetResultsTask running, <add the detailed description of the current action 5>");
+                    actionDescriptionDict.Add(136, "ResetResultsTask finished succesfully.");
+                    actionDescriptionDict.Add(137, "ResetResultsTask restored.");
+                    // SetScrewingProgramTask
+                    actionDescriptionDict.Add(140, "SetScrewingProgramTask started.");
+                    actionDescriptionDict.Add(340, "SetScrewingProgramTask running, checking actual screwing program number");
+                    actionDescriptionDict.Add(341, "SetScrewingProgramTask running, checking required screwing program number");
+                    actionDescriptionDict.Add(342, "SetScrewingProgramTask running, waiting for the device to be ready");
+                    actionDescriptionDict.Add(343, "SetScrewingProgramTask running, waiting for the program to be set");
+                    actionDescriptionDict.Add(344, "SetScrewingProgramTask running, finished");
+                    //actionDescriptionDict.Add(345, "SetScrewingProgramTask running, <add the detailed description of the current action 6>");
+                    //actionDescriptionDict.Add(346, "SetScrewingProgramTask running, <add the detailed description of the current action 7>");
+                    //actionDescriptionDict.Add(347, "SetScrewingProgramTask running, <add the detailed description of the current action 8>");
+                    //actionDescriptionDict.Add(348, "SetScrewingProgramTask running, <add the detailed description of the current action 9>");
+                    //actionDescriptionDict.Add(349, "SetScrewingProgramTask running, <add the detailed description of the current action 10>");
+                    actionDescriptionDict.Add(141, "SetScrewingProgramTask finished succesfully.");
+                    actionDescriptionDict.Add(142, "SetScrewingProgramTask restored.");
+                    // GetScrewingResults
+                    actionDescriptionDict.Add(150, "GetScrewingResults started.");
+                    actionDescriptionDict.Add(350, "GetScrewingResults running");
+                    actionDescriptionDict.Add(351, "GetScrewingResults finished");
+                    //actionDescriptionDict.Add(352, "GetScrewingResults running, <add the detailed description of the current action 3>");
+                    //actionDescriptionDict.Add(353, "GetScrewingResults running, <add the detailed description of the current action 4>");
+                    //actionDescriptionDict.Add(354, "GetScrewingResults running, <add the detailed description of the current action 5>");
+                    //actionDescriptionDict.Add(355, "GetScrewingResults running, <add the detailed description of the current action 6>");
+                    //actionDescriptionDict.Add(356, "GetScrewingResults running, <add the detailed description of the current action 7>");
+                    //actionDescriptionDict.Add(357, "GetScrewingResults running, <add the detailed description of the current action 8>");
+                    //actionDescriptionDict.Add(358, "GetScrewingResults running, <add the detailed description of the current action 9>");
+                    //actionDescriptionDict.Add(359, "GetScrewingResults running, <add the detailed description of the current action 10>");
+                    actionDescriptionDict.Add(151, "GetScrewingResults finished succesfully.");
+                    actionDescriptionDict.Add(152, "GetScrewingResults restored.");
 
-                    // TemplateTask_20steps_1
-                    actionDescriptionDict.Add(160, "TemplateTask_20steps_1 started.");
-                    actionDescriptionDict.Add(360, "TemplateTask_20steps_1 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(361, "TemplateTask_20steps_1 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(362, "TemplateTask_20steps_1 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(363, "TemplateTask_20steps_1 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(364, "TemplateTask_20steps_1 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(365, "TemplateTask_20steps_1 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(366, "TemplateTask_20steps_1 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(367, "TemplateTask_20steps_1 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(368, "TemplateTask_20steps_1 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(369, "TemplateTask_20steps_1 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(370, "TemplateTask_20steps_1 running, <add the detailed description of the current action 11>");
-                    actionDescriptionDict.Add(371, "TemplateTask_20steps_1 running, <add the detailed description of the current action 12>");
-                    actionDescriptionDict.Add(372, "TemplateTask_20steps_1 running, <add the detailed description of the current action 13>");
-                    actionDescriptionDict.Add(373, "TemplateTask_20steps_1 running, <add the detailed description of the current action 14>");
-                    actionDescriptionDict.Add(374, "TemplateTask_20steps_1 running, <add the detailed description of the current action 15>");
-                    actionDescriptionDict.Add(375, "TemplateTask_20steps_1 running, <add the detailed description of the current action 16>");
-                    actionDescriptionDict.Add(376, "TemplateTask_20steps_1 running, <add the detailed description of the current action 17>");
-                    actionDescriptionDict.Add(377, "TemplateTask_20steps_1 running, <add the detailed description of the current action 18>");
-                    actionDescriptionDict.Add(378, "TemplateTask_20steps_1 running, <add the detailed description of the current action 19>");
-                    actionDescriptionDict.Add(379, "TemplateTask_20steps_1 running, <add the detailed description of the current action 20>");
-                    actionDescriptionDict.Add(161, "TemplateTask_20steps_1 finished succesfully.");
-                    actionDescriptionDict.Add(162, "TemplateTask_20steps_1 restored.");
-                    // TemplateTask_20steps_2
-                    actionDescriptionDict.Add(180, "TemplateTask_20steps_2 started.");
-                    actionDescriptionDict.Add(380, "TemplateTask_20steps_2 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(381, "TemplateTask_20steps_2 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(382, "TemplateTask_20steps_2 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(383, "TemplateTask_20steps_2 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(384, "TemplateTask_20steps_2 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(385, "TemplateTask_20steps_2 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(386, "TemplateTask_20steps_2 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(387, "TemplateTask_20steps_2 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(388, "TemplateTask_20steps_2 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(389, "TemplateTask_20steps_2 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(390, "TemplateTask_20steps_2 running, <add the detailed description of the current action 11>");
-                    actionDescriptionDict.Add(391, "TemplateTask_20steps_2 running, <add the detailed description of the current action 12>");
-                    actionDescriptionDict.Add(392, "TemplateTask_20steps_2 running, <add the detailed description of the current action 13>");
-                    actionDescriptionDict.Add(393, "TemplateTask_20steps_2 running, <add the detailed description of the current action 14>");
-                    actionDescriptionDict.Add(394, "TemplateTask_20steps_2 running, <add the detailed description of the current action 15>");
-                    actionDescriptionDict.Add(395, "TemplateTask_20steps_2 running, <add the detailed description of the current action 16>");
-                    actionDescriptionDict.Add(396, "TemplateTask_20steps_2 running, <add the detailed description of the current action 17>");
-                    actionDescriptionDict.Add(397, "TemplateTask_20steps_2 running, <add the detailed description of the current action 18>");
-                    actionDescriptionDict.Add(398, "TemplateTask_20steps_2 running, <add the detailed description of the current action 19>");
-                    actionDescriptionDict.Add(399, "TemplateTask_20steps_2 running, <add the detailed description of the current action 20>");
-                    actionDescriptionDict.Add(181, "TemplateTask_20steps_2 finished succesfully.");
-                    actionDescriptionDict.Add(182, "TemplateTask_20steps_2 restored.");
-                    // TemplateTask_20steps_3
-                    actionDescriptionDict.Add(200, "TemplateTask_20steps_3 started.");
-                    actionDescriptionDict.Add(400, "TemplateTask_20steps_3 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(401, "TemplateTask_20steps_3 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(402, "TemplateTask_20steps_3 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(403, "TemplateTask_20steps_3 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(404, "TemplateTask_20steps_3 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(405, "TemplateTask_20steps_3 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(406, "TemplateTask_20steps_3 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(407, "TemplateTask_20steps_3 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(408, "TemplateTask_20steps_3 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(409, "TemplateTask_20steps_3 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(410, "TemplateTask_20steps_3 running, <add the detailed description of the current action 11>");
-                    actionDescriptionDict.Add(411, "TemplateTask_20steps_3 running, <add the detailed description of the current action 12>");
-                    actionDescriptionDict.Add(412, "TemplateTask_20steps_3 running, <add the detailed description of the current action 13>");
-                    actionDescriptionDict.Add(413, "TemplateTask_20steps_3 running, <add the detailed description of the current action 14>");
-                    actionDescriptionDict.Add(414, "TemplateTask_20steps_3 running, <add the detailed description of the current action 15>");
-                    actionDescriptionDict.Add(415, "TemplateTask_20steps_3 running, <add the detailed description of the current action 16>");
-                    actionDescriptionDict.Add(416, "TemplateTask_20steps_3 running, <add the detailed description of the current action 17>");
-                    actionDescriptionDict.Add(417, "TemplateTask_20steps_3 running, <add the detailed description of the current action 18>");
-                    actionDescriptionDict.Add(418, "TemplateTask_20steps_3 running, <add the detailed description of the current action 19>");
-                    actionDescriptionDict.Add(419, "TemplateTask_20steps_3 running, <add the detailed description of the current action 20>");
-                    actionDescriptionDict.Add(201, "TemplateTask_20steps_3 finished succesfully.");
-                    actionDescriptionDict.Add(202, "TemplateTask_20steps_3 restored.");
-                    // TemplateTask_20steps_4
-                    actionDescriptionDict.Add(220, "TemplateTask_20steps_4 started.");
-                    actionDescriptionDict.Add(420, "TemplateTask_20steps_4 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(421, "TemplateTask_20steps_4 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(422, "TemplateTask_20steps_4 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(423, "TemplateTask_20steps_4 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(424, "TemplateTask_20steps_4 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(425, "TemplateTask_20steps_4 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(426, "TemplateTask_20steps_4 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(427, "TemplateTask_20steps_4 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(428, "TemplateTask_20steps_4 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(429, "TemplateTask_20steps_4 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(430, "TemplateTask_20steps_4 running, <add the detailed description of the current action 11>");
-                    actionDescriptionDict.Add(431, "TemplateTask_20steps_4 running, <add the detailed description of the current action 12>");
-                    actionDescriptionDict.Add(432, "TemplateTask_20steps_4 running, <add the detailed description of the current action 13>");
-                    actionDescriptionDict.Add(433, "TemplateTask_20steps_4 running, <add the detailed description of the current action 14>");
-                    actionDescriptionDict.Add(434, "TemplateTask_20steps_4 running, <add the detailed description of the current action 15>");
-                    actionDescriptionDict.Add(435, "TemplateTask_20steps_4 running, <add the detailed description of the current action 16>");
-                    actionDescriptionDict.Add(436, "TemplateTask_20steps_4 running, <add the detailed description of the current action 17>");
-                    actionDescriptionDict.Add(437, "TemplateTask_20steps_4 running, <add the detailed description of the current action 18>");
-                    actionDescriptionDict.Add(438, "TemplateTask_20steps_4 running, <add the detailed description of the current action 19>");
-                    actionDescriptionDict.Add(439, "TemplateTask_20steps_4 running, <add the detailed description of the current action 20>");
-                    actionDescriptionDict.Add(221, "TemplateTask_20steps_4 finished succesfully.");
-                    actionDescriptionDict.Add(222, "TemplateTask_20steps_4 restored.");
+                    // ScrewClockwiseTask
+                    actionDescriptionDict.Add(160, "ScrewClockwiseTask started.");
+                    actionDescriptionDict.Add(360, "ScrewClockwiseTask running, waiting for the device to be ready");
+                    actionDescriptionDict.Add(361, "ScrewClockwiseTask running, enabling device");
+                    actionDescriptionDict.Add(362, "ScrewClockwiseTask running, enabling device");
+                    actionDescriptionDict.Add(363, "ScrewClockwiseTask running, enabling screwing clockwise");
+                    actionDescriptionDict.Add(364, "ScrewClockwiseTask running, starting screwing clockwise");
+                    actionDescriptionDict.Add(365, "ScrewClockwiseTask running, screwing clockwise");
+                    actionDescriptionDict.Add(366, "ScrewClockwiseTask running, screwing clockwise");
+                    actionDescriptionDict.Add(367, "ScrewClockwiseTask running, screwing clockwise finished");
+                    actionDescriptionDict.Add(368, "ScrewClockwiseTask running, screwing clockwise finished");
+                    actionDescriptionDict.Add(369, "ScrewClockwiseTask running, screwing clockwise finished");
+                    actionDescriptionDict.Add(370, "ScrewClockwiseTask running, disabling screwing clockwise");
+                    actionDescriptionDict.Add(371, "ScrewClockwiseTask running, disabling screwing counterclockwise");
+                    actionDescriptionDict.Add(372, "ScrewClockwiseTask finished");
+                    //actionDescriptionDict.Add(373, "ScrewClockwiseTask running, <add the detailed description of the current action 14>");
+                    //actionDescriptionDict.Add(374, "ScrewClockwiseTask running, <add the detailed description of the current action 15>");
+                    //actionDescriptionDict.Add(375, "ScrewClockwiseTask running, <add the detailed description of the current action 16>");
+                    //actionDescriptionDict.Add(376, "ScrewClockwiseTask running, <add the detailed description of the current action 17>");
+                    //actionDescriptionDict.Add(377, "ScrewClockwiseTask running, <add the detailed description of the current action 18>");
+                    //actionDescriptionDict.Add(378, "ScrewClockwiseTask running, <add the detailed description of the current action 19>");
+                    //actionDescriptionDict.Add(379, "ScrewClockwiseTask running, <add the detailed description of the current action 20>");
+                    actionDescriptionDict.Add(161, "ScrewClockwiseTask finished succesfully.");
+                    actionDescriptionDict.Add(162, "ScrewClockwiseTask restored.");
+                    // ScrewCounterClockwise
+                    actionDescriptionDict.Add(180, "ScrewCounterClockwise started.");
+                    actionDescriptionDict.Add(380, "ScrewCounterClockwise running, waiting for the device to be ready");
+                    actionDescriptionDict.Add(381, "ScrewCounterClockwise running, enabling device");
+                    actionDescriptionDict.Add(382, "ScrewCounterClockwise running, enabling device");
+                    actionDescriptionDict.Add(383, "ScrewCounterClockwise running, enabling screwing counterclockwise");
+                    actionDescriptionDict.Add(384, "ScrewCounterClockwise running, starting screwing counterclockwise");
+                    actionDescriptionDict.Add(385, "ScrewCounterClockwise running, screwing counterclockwise");
+                    actionDescriptionDict.Add(386, "ScrewCounterClockwise running, screwing counterclockwise");
+                    actionDescriptionDict.Add(387, "ScrewCounterClockwise running, screwing counterclockwise finished");
+                    actionDescriptionDict.Add(388, "ScrewCounterClockwise running, screwing counterclockwise finished");
+                    actionDescriptionDict.Add(389, "ScrewCounterClockwise running, screwing counterclockwise finished");
+                    actionDescriptionDict.Add(390, "ScrewCounterClockwise running, disabling screwing counterclockwise");
+                    actionDescriptionDict.Add(391, "ScrewCounterClockwise running, disabling screwing clockwise");
+                    actionDescriptionDict.Add(392, "ScrewCounterClockwise finished");
+                    //actionDescriptionDict.Add(393, "ScrewCounterClockwise running, <add the detailed description of the current action 14>");
+                    //actionDescriptionDict.Add(394, "ScrewCounterClockwise running, <add the detailed description of the current action 15>");
+                    //actionDescriptionDict.Add(395, "ScrewCounterClockwise running, <add the detailed description of the current action 16>");
+                    //actionDescriptionDict.Add(396, "ScrewCounterClockwise running, <add the detailed description of the current action 17>");
+                    //actionDescriptionDict.Add(397, "ScrewCounterClockwise running, <add the detailed description of the current action 18>");
+                    //actionDescriptionDict.Add(398, "ScrewCounterClockwise running, <add the detailed description of the current action 19>");
+                    //actionDescriptionDict.Add(399, "ScrewCounterClockwise running, <add the detailed description of the current action 20>");
+                    actionDescriptionDict.Add(181, "ScrewCounterClockwise finished succesfully.");
+                    actionDescriptionDict.Add(182, "ScrewCounterClockwise restored.");
+                    // RunAutomatTask
+                    actionDescriptionDict.Add(200, "RunAutomatTask started.");
+                    actionDescriptionDict.Add(400, "RunAutomatTask running, initialization");
+                    actionDescriptionDict.Add(401, "RunAutomatTask running, reseting fault");
+                    actionDescriptionDict.Add(402, "RunAutomatTask running, reseting fault");
+                    actionDescriptionDict.Add(403, "RunAutomatTask running, checking the actual screwing program number");
+                    actionDescriptionDict.Add(404, "RunAutomatTask running, checking the required screwing program number");
+                    actionDescriptionDict.Add(405, "RunAutomatTask running, waiting for the device to be ready");
+                    actionDescriptionDict.Add(406, "RunAutomatTask running, waiting for the screwing program to be set");
+                    actionDescriptionDict.Add(407, "RunAutomatTask running, enabling device");
+                    actionDescriptionDict.Add(408, "RunAutomatTask running, reseting previous results");
+                    actionDescriptionDict.Add(409, "RunAutomatTask running, enabling device");
+                    actionDescriptionDict.Add(410, "RunAutomatTask running, enabling screwing clockwise");
+                    actionDescriptionDict.Add(411, "RunAutomatTask running, starting screwing clockwise");
+                    actionDescriptionDict.Add(412, "RunAutomatTask running, screwing clockwise");
+                    actionDescriptionDict.Add(413, "RunAutomatTask running, screwing clockwise");
+                    actionDescriptionDict.Add(414, "RunAutomatTask running, screwing clockwise finished");
+                    actionDescriptionDict.Add(415, "RunAutomatTask running, screwing clockwise finished");
+                    actionDescriptionDict.Add(416, "RunAutomatTask running, screwing clockwise finished");
+                    actionDescriptionDict.Add(417, "RunAutomatTask running, disabling screwing clockwise");
+                    actionDescriptionDict.Add(418, "RunAutomatTask running, disabling screwing counterclockwise");
+                    actionDescriptionDict.Add(419, "RunAutomatTask running, getting results");
+                    actionDescriptionDict.Add(420, "RunAutomatTask running, evaluating results");
+                    actionDescriptionDict.Add(421, "RunAutomatTask running, disabling");
+                    actionDescriptionDict.Add(422, "RunAutomatTask finished");
+                    //actionDescriptionDict.Add(423, "RunAutomatTask running, <add the detailed description of the current action 24>");
+                    //actionDescriptionDict.Add(424, "RunAutomatTask running, <add the detailed description of the current action 25>");
+                    //actionDescriptionDict.Add(425, "RunAutomatTask running, <add the detailed description of the current action 26>");
+                    //actionDescriptionDict.Add(426, "RunAutomatTask running, <add the detailed description of the current action 27>");
+                    //actionDescriptionDict.Add(427, "RunAutomatTask running, <add the detailed description of the current action 28>");
+                    //actionDescriptionDict.Add(428, "RunAutomatTask running, <add the detailed description of the current action 29>");
+                    //actionDescriptionDict.Add(429, "RunAutomatTask running, <add the detailed description of the current action 30>");
+                    //actionDescriptionDict.Add(430, "RunAutomatTask running, <add the detailed description of the current action 31>");
+                    //actionDescriptionDict.Add(431, "RunAutomatTask running, <add the detailed description of the current action 32>");
+                    //actionDescriptionDict.Add(432, "RunAutomatTask running, <add the detailed description of the current action 33>");
+                    //actionDescriptionDict.Add(433, "RunAutomatTask running, <add the detailed description of the current action 34>");
+                    //actionDescriptionDict.Add(434, "RunAutomatTask running, <add the detailed description of the current action 35>");
+                    //actionDescriptionDict.Add(435, "RunAutomatTask running, <add the detailed description of the current action 36>");
+                    //actionDescriptionDict.Add(436, "RunAutomatTask running, <add the detailed description of the current action 37>");
+                    //actionDescriptionDict.Add(437, "RunAutomatTask running, <add the detailed description of the current action 38>");
+                    //actionDescriptionDict.Add(438, "RunAutomatTask running, <add the detailed description of the current action 39>");
+                    //actionDescriptionDict.Add(439, "RunAutomatTask running, <add the detailed description of the current action 40>");
+                    actionDescriptionDict.Add(201, "RunAutomatTask finished succesfully.");
+                    actionDescriptionDict.Add(202, "RunAutomatTask restored.");
                     // TemplateTask_20steps_5
                     actionDescriptionDict.Add(240, "TemplateTask_20steps_5 started.");
                     actionDescriptionDict.Add(440, "TemplateTask_20steps_5 running, <add the detailed description of the current action 1>");
@@ -1215,37 +1341,47 @@ namespace AXOpen.Components.Rexroth.Tightening
                     actionDescriptionDict.Add(742, "Error writing the Axo_CS351_compactOutputStructure_hwID_20!");
 
 
-                    // TemplateTask_10steps_1
-                    actionDescriptionDict.Add(900, "TemplateTask_10steps_1 finished with error!");
-                    actionDescriptionDict.Add(901, "TemplateTask_10steps_1 was aborted, while not yet completed!");
-                    // TemplateTask_10steps_2
-                    actionDescriptionDict.Add(910, "TemplateTask_10steps_2 finished with error!");
-                    actionDescriptionDict.Add(911, "TemplateTask_10steps_2 was aborted, while not yet completed!");
-                    // TemplateTask_10steps_3 
-                    actionDescriptionDict.Add(920, "TemplateTask_10steps_3 finished with error!");
-                    actionDescriptionDict.Add(921, "TemplateTask_10steps_3 was aborted, while not yet completed!");
-                    // TemplateTask_10steps_4 
-                    actionDescriptionDict.Add(930, "TemplateTask_10steps_4 task finished with error!");
-                    actionDescriptionDict.Add(931, "TemplateTask_10steps_4 task was aborted, while not yet completed!");
-                    // TemplateTask_10steps_5 
-                    actionDescriptionDict.Add(940, "TemplateTask_10steps_5 task finished with error!");
-                    actionDescriptionDict.Add(941, "TemplateTask_10steps_5 task was aborted, while not yet completed!");
-                    // TemplateTask_10steps_6 
-                    actionDescriptionDict.Add(950, "TemplateTask_10steps_6 task finished with error!");
-                    actionDescriptionDict.Add(951, "TemplateTask_10steps_6 task was aborted, while not yet completed!");
+                    // DisableTask
+                    actionDescriptionDict.Add(900, "DisableTask finished with error!");
+                    actionDescriptionDict.Add(901, "DisableTask was aborted, while not yet completed!");
+                    // EnableTask 
+                    actionDescriptionDict.Add(905, "EnableTask task finished with error!");
+                    actionDescriptionDict.Add(906, "EnableTask task was aborted, while not yet completed!");
+                    // DisableClockwiseTask
+                    actionDescriptionDict.Add(910, "DisableClockwiseTask finished with error!");
+                    actionDescriptionDict.Add(911, "DisableClockwiseTask was aborted, while not yet completed!");
+                    // EnableClockwiseTask 
+                    actionDescriptionDict.Add(915, "EnableClockwiseTask task finished with error!");
+                    actionDescriptionDict.Add(916, "EnableClockwiseTask task was aborted, while not yet completed!");
+                    // DisableCounterClockwiseTask 
+                    actionDescriptionDict.Add(920, "DisableCounterClockwiseTask finished with error!");
+                    actionDescriptionDict.Add(921, "DisableCounterClockwiseTask was aborted, while not yet completed!");
+                    // EnableCounterClockwiseTask 
+                    actionDescriptionDict.Add(925, "EnableCounterClockwiseTask task finished with error!");
+                    actionDescriptionDict.Add(926, "EnableCounterClockwiseTask task was aborted, while not yet completed!");
+                    // ResetFaultTask 
+                    actionDescriptionDict.Add(930, "ResetFaultTask task finished with error!");
+                    actionDescriptionDict.Add(931, "ResetFaultTask task was aborted, while not yet completed!");
+                    // ResetResultsTask
+                    actionDescriptionDict.Add(935, "ResetResultsTask task finished with error!");
+                    actionDescriptionDict.Add(936, "ResetResultsTask task was aborted, while not yet completed!");
+                    // SetScrewingProgramTask 
+                    actionDescriptionDict.Add(940, "SetScrewingProgramTask task finished with error!");
+                    actionDescriptionDict.Add(941, "SetScrewingProgramTask task was aborted, while not yet completed!");
+                    // GetScrewingResults 
+                    actionDescriptionDict.Add(950, "GetScrewingResults task finished with error!");
+                    actionDescriptionDict.Add(951, "GetScrewingResults task was aborted, while not yet completed!");
 
-                    // TemplateTask_20steps_1
-                    actionDescriptionDict.Add(960, "TemplateTask_20steps_1 task finished with error!");
-                    actionDescriptionDict.Add(961, "TemplateTask_20steps_1 task was aborted, while not yet completed!");
-                    // TemplateTask_20steps_2
-                    actionDescriptionDict.Add(980, "TemplateTask_20steps_2 task finished with error!");
-                    actionDescriptionDict.Add(981, "TemplateTask_20steps_2 task was aborted, while not yet completed!");
-                    // TemplateTask_20steps_3       
-                    actionDescriptionDict.Add(1000, "TemplateTask_20steps_3 task finished with error!");
-                    actionDescriptionDict.Add(1001, "TemplateTask_20steps_3 task was aborted, while not yet completed!");
-                    // TemplateTask_20steps_4
-                    actionDescriptionDict.Add(1020, "TemplateTask_20steps_4 task finished with error!");
-                    actionDescriptionDict.Add(1021, "TemplateTask_20steps_4 task was aborted, while not yet completed!");
+                    // ScrewClockwiseTask
+                    actionDescriptionDict.Add(960, "ScrewClockwiseTask task finished with error!");
+                    actionDescriptionDict.Add(961, "ScrewClockwiseTask task was aborted, while not yet completed!");
+                    // ScrewCounterClockwise
+                    actionDescriptionDict.Add(980, "ScrewCounterClockwise task finished with error!");
+                    actionDescriptionDict.Add(981, "ScrewCounterClockwise task was aborted, while not yet completed!");
+                    // RunAutomatTask       
+                    actionDescriptionDict.Add(1000, "RunAutomatTask task finished with error!");
+                    actionDescriptionDict.Add(1001, "RunAutomatTask task was aborted, while not yet completed!");
+
                     // TemplateTask_20steps_5
                     actionDescriptionDict.Add(1040, "TemplateTask_20steps_5 task finished with error!");
                     actionDescriptionDict.Add(1041, "TemplateTask_20steps_5 task was aborted, while not yet completed!");
@@ -1268,9 +1404,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 {
                     return "   ";
                 }
-
             }
         }
     }
-
 }
