@@ -21,6 +21,9 @@ namespace AXOpen.Data
         [Parameter] public PredicateContainer? InjectedPredicateContainer { set; get; }
 
         [Parameter] public Action<string>? OnDataSend { get; set; }
+        [Parameter] public bool EnableCurrentView { get; set; }
+        [Parameter] public bool DisableUserRoles { get; set; }
+        [Parameter] public int MinPaginationLimit { get; set; } = 25;
 
 
         [Inject]
@@ -61,6 +64,7 @@ namespace AXOpen.Data
                 {
                     DistributedVM = new DistributedDataSelectorViewModel(AlertService, Authentication, DistributedExchangeService, GroupName, InjectedPredicateContainer);
 
+                    DistributedVM.FilteredPageLimit = this.MinPaginationLimit;
 
                     await DistributedVM.ReadAllCurrentEntityIds();
                     await DistributedVM.FillObservableRecordsAsync();
