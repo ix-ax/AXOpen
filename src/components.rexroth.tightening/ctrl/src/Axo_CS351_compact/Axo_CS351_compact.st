@@ -21,7 +21,6 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             {#ix-attr:[ComponentHeader()]}         
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Results#>"}
-            {#ix-set:DisplayFormat = "string"}
             Results  :   Axo_CS351_compact_Results;
         END_VAR
 
