@@ -69,79 +69,85 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             Sequencer.Run(THIS);
             Sequencer.Open();
 
-            IF(Steps[0].Execute(Sequencer, 'TemplateMethod_10steps_1')) THEN
-                IF(ExampleComponent.TemplateMethod_10steps_1().IsDone()) THEN                
+            IF(Steps[0].Execute(Sequencer, 'Disable')) THEN
+                IF(ExampleComponent.Disable().IsDone()) THEN                
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;
 
-            IF(Steps[1].Execute(Sequencer, 'TemplateMethod_10steps_2')) THEN
-                IF(ExampleComponent.TemplateMethod_10steps_2().IsDone()) THEN     
+            IF(Steps[1].Execute(Sequencer, 'Enable')) THEN
+                IF(ExampleComponent.Enable().IsDone()) THEN     
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;       
 
-            IF(Steps[2].Execute(Sequencer, 'TemplateMethod_10steps_3')) THEN
-                IF(ExampleComponent.TemplateMethod_10steps_3().IsDone()) THEN     
+            IF(Steps[2].Execute(Sequencer, 'DisableClockwise')) THEN
+                IF(ExampleComponent.DisableClockwise().IsDone()) THEN     
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;       
 
-            IF(Steps[3].Execute(Sequencer, 'TemplateMethod_10steps_4')) THEN
-                IF(ExampleComponent.TemplateMethod_10steps_4().IsDone()) THEN     
+            IF(Steps[3].Execute(Sequencer, 'EnableClockwise')) THEN
+                IF(ExampleComponent.EnableClockwise().IsDone()) THEN     
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;       
 
-            IF(Steps[4].Execute(Sequencer, 'TemplateMethod_10steps_5')) THEN
-                IF(ExampleComponent.TemplateMethod_10steps_5().IsDone()) THEN     
+            IF(Steps[4].Execute(Sequencer, 'DisableCounterClockwise')) THEN
+                IF(ExampleComponent.DisableCounterClockwise().IsDone()) THEN     
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;       
 
-            IF(Steps[5].Execute(Sequencer, 'TemplateMethod_10steps_6')) THEN
-                IF(ExampleComponent.TemplateMethod_10steps_6().IsDone()) THEN     
+            IF(Steps[5].Execute(Sequencer, 'EnableCounterClockwise')) THEN
+                IF(ExampleComponent.EnableCounterClockwise().IsDone()) THEN     
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;       
 
-            IF(Steps[6].Execute(Sequencer, 'TemplateMethod_20steps_1')) THEN
-                IF(ExampleComponent.TemplateMethod_20steps_1().IsDone()) THEN     
+            IF(Steps[6].Execute(Sequencer, 'ResetFault')) THEN
+                IF(ExampleComponent.ResetFault().IsDone()) THEN     
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;       
 
-            IF(Steps[7].Execute(Sequencer, 'TemplateMethod_20steps_2')) THEN
-                IF(ExampleComponent.TemplateMethod_20steps_2().IsDone()) THEN     
+            IF(Steps[7].Execute(Sequencer, 'ResetResults')) THEN
+                IF(ExampleComponent.ResetResults().IsDone()) THEN     
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;       
 
-            IF(Steps[8].Execute(Sequencer, 'TemplateMethod_20steps_3')) THEN
-                IF(ExampleComponent.TemplateMethod_20steps_3().IsDone()) THEN     
+            IF(Steps[8].Execute(Sequencer, 'SetScrewingProgram')) THEN
+                IF(ExampleComponent.SetScrewingProgram(BYTE#5).IsDone()) THEN     
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;       
 
-            IF(Steps[9].Execute(Sequencer, 'TemplateMethod_20steps_4')) THEN
-                IF(ExampleComponent.TemplateMethod_20steps_4().IsDone()) THEN     
+            IF(Steps[9].Execute(Sequencer, 'GetScrewingResults')) THEN
+                IF(ExampleComponent.GetScrewingResults().IsDone()) THEN     
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;       
 
-            IF(Steps[10].Execute(Sequencer, 'TemplateMethod_20steps_5')) THEN
-                IF(ExampleComponent.TemplateMethod_20steps_5().IsDone()) THEN     
+            IF(Steps[10].Execute(Sequencer, 'ScrewClockwise')) THEN
+                IF(ExampleComponent.ScrewClockwise(TRUE).IsDone()) THEN     
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;       
 
-            IF(Steps[11].Execute(Sequencer, 'TemplateMethod_20steps_6')) THEN
-                IF(ExampleComponent.TemplateMethod_20steps_6().IsDone()) THEN     
+            IF(Steps[11].Execute(Sequencer, 'ScrewCounterClockwise')) THEN
+                IF(ExampleComponent.ScrewCounterClockwise(TRUE).IsDone()) THEN     
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;       
 
-            IF(Steps[12].Execute(Sequencer, 'Restore')) THEN
+            IF(Steps[12].Execute(Sequencer, 'RunAutomat')) THEN
+                IF(ExampleComponent.RunAutomat(BYTE#5,'test',TRUE).IsDone()) THEN     
+                    Sequencer.MoveNext();                
+                END_IF;    
+            END_IF;       
+
+            IF(Steps[13].Execute(Sequencer, 'Restore')) THEN
                 ExampleComponent.Restore();
                 Sequencer.CompleteSequence();    
             END_IF;       

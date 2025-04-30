@@ -63,7 +63,13 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening.Tests
                                 hwID_17 :=   WORD#77,
                                 hwID_18 :=   WORD#78,
                                 hwID_19 :=   WORD#79,
-                                hwID_20 :=   WORD#80);
+                                hwID_20 :=   WORD#80,
+                                hwID_21 :=   WORD#81,
+                                hwID_22 :=   WORD#82,
+                                hwID_23 :=   WORD#83,
+                                hwID_24 :=   WORD#84,
+                                hwID_25 :=   WORD#85,
+                                hwID_26 :=   WORD#86);
             AxUnit.Assert.Equal(TRUE, TRUE);   
             _context.Close();            
     END_METHOD

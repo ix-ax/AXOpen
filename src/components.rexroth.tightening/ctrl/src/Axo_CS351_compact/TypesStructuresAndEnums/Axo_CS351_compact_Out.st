@@ -39,7 +39,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             CwAnd : BOOL;
             {#ix-set:AttributeName = "<#Counter clockwise AND#>"}
             CcwAND : BOOL;
-            {#ix-set:AttributeName = "<#ID code#>"}
+            // {#ix-set:AttributeName = "<#ID code#>"}
             IDcode : ARRAY[0..63] OF BYTE;
         END_VAR 
     END_CLASS    

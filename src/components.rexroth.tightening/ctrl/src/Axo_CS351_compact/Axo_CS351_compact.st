@@ -68,8 +68,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             SetScrewingProgramTask : AXOpen.Core.AxoTask;
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Template tasks")]}
-            {#ix-set:AttributeName = "<#GetScrewingResults#>"}
-            GetScrewingResults : AXOpen.Core.AxoTask;
+            {#ix-set:AttributeName = "<#GetScrewingResultsTask#>"}
+            GetScrewingResultsTask : AXOpen.Core.AxoTask;
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#ScrewClockwiseTask#>"}
@@ -184,6 +184,69 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             _IDcode                 :   ARRAY[0..63] OF BYTE;
             _automaticStart         :   BOOL;
         END_VAR
+
+        // Temporary workaround due to hwc station number issue
+        METHOD PUBLIC Run
+            VAR_INPUT
+                parent  : IAxoObject;
+                hwID    :   WORD;
+                hwID_1  :   WORD;
+                hwID_2  :   WORD;
+                hwID_3  :   WORD;
+                hwID_4  :   WORD;
+                hwID_5  :   WORD;
+                hwID_6  :   WORD;
+                hwID_7  :   WORD;
+                hwID_8  :   WORD;
+                hwID_9  :   WORD;
+                hwID_10 :   WORD;
+                hwID_11 :   WORD;
+                hwID_12 :   WORD;
+                hwID_13 :   WORD;
+                hwID_14 :   WORD;
+                hwID_15 :   WORD;
+                hwID_16 :   WORD;
+                hwID_17 :   WORD;
+                hwID_18 :   WORD;
+                hwID_19 :   WORD;
+                hwID_20 :   WORD;
+                hwID_21 :   WORD;
+                hwID_22 :   WORD;
+                hwID_23 :   WORD;
+                hwID_24 :   WORD;
+                hwID_25 :   WORD;
+                hwID_26 :   WORD;
+            END_VAR
+            _hwID               :=  hwID   ;
+            _hwID_1             :=  hwID_1 ;
+            _hwID_2             :=  hwID_2 ;
+            _hwID_3             :=  hwID_3 ;
+            _hwID_4             :=  hwID_4 ;
+            _hwID_5             :=  hwID_5 ;
+            _hwID_6             :=  hwID_6 ;
+            _hwID_7             :=  hwID_7 ;
+            _hwID_8             :=  hwID_8 ;
+            _hwID_9             :=  hwID_9 ;
+            _hwID_10            :=  hwID_10;
+            _hwID_11            :=  hwID_11;
+            _hwID_12            :=  hwID_12;
+            _hwID_13            :=  hwID_13;
+            _hwID_14            :=  hwID_14;
+            _hwID_15            :=  hwID_15;
+            _hwID_16            :=  hwID_16;
+            _hwID_17            :=  hwID_17;
+            _hwID_18            :=  hwID_18;
+            _hwID_19            :=  hwID_19;
+            _hwID_20            :=  hwID_20;
+            _hwID_21            :=  hwID_21;
+            _hwID_22            :=  hwID_22;
+            _hwID_23            :=  hwID_23;
+            _hwID_24            :=  hwID_24;
+            _hwID_25            :=  hwID_25;
+            _hwID_26            :=  hwID_26;
+            _initHwCheckDone    :=  TRUE;
+            THIS.Run(parent,hwID);
+        END_METHOD
 
         ///<summary>
         /// Runs tasks and logic of this component.
@@ -1355,7 +1418,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 _initHwCheckDone    := TRUE;
             END_IF;            
 
-            //***********Update inputs **************
+            //***********Update inputs ******************************
             //  Slot 10 Input_4_word_1
             _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwID_10 ,_data_in4w);
             IF _returnValue > WORD#0 THEN
@@ -1637,7 +1700,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 RETURN;
             END_IF;  
 
-            //*************INITIALIZATION*************
+            //*************INITIALIZATION*********************
             RestoreTask.Run(THIS);
             DisableTask.Run(THIS);
             EnableTask.Run(THIS);
@@ -1648,28 +1711,28 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             ResetFaultTask.Run(THIS);
             ResetResultsTask.Run(THIS);
             SetScrewingProgramTask.Run(THIS);
-            GetScrewingResults.Run(THIS);
+            GetScrewingResultsTask.Run(THIS);
             ScrewClockwiseTask.Run(THIS);
             ScrewCounterClockwiseTask.Run(THIS);
             RunAutomatTask.Run(THIS);
             // TemplateTask_20steps_5.Run(THIS);
             // TemplateTask_20steps_6.Run(THIS);
     
-            //****************************************
+            //************************************************
             _blink.Blink(THIS, T#500ms,T#500ms);
-            //********************Diagnostics*********        
+            //********************Diagnostics*****************        
             HardwareDiagnosticsTask.Run(THIS,_hwID);
-            //****************************************
+            //************************************************
     
-            //*************RESTORE********************
+            //*************RESTORE****************************
             RestoreTask.IsDisabled := FALSE;
             IF RestoreTask.Execute(THIS) THEN
                 THIS.Restore();
             END_IF;
-            //****************************************
+            //************************************************
             
     
-            //*************DisableTask****************
+            //*************DisableTask************************
             DisableTask.SetIsDisabled(FALSE);
             IF DisableTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
@@ -1844,7 +1907,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             END_IF;
             //**************************************************
     
-            //*************EnableClockwiseTask***************
+            //*************EnableClockwiseTask******************
             EnableClockwiseTask.SetIsDisabled(FALSE);
             IF EnableClockwiseTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#115;
@@ -1903,7 +1966,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             END_IF;
             //**************************************************
 
-            //*************DisableCounterClockwiseTask***************
+            //*************DisableCounterClockwiseTask**********
             DisableCounterClockwiseTask.SetIsDisabled(FALSE);
             IF DisableCounterClockwiseTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#120;
@@ -1962,7 +2025,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             END_IF;
             //**************************************************
    
-            //*************EnableCounterClockwiseTask***************
+            //*************EnableCounterClockwiseTask***********
             EnableCounterClockwiseTask.SetIsDisabled(FALSE);
             IF EnableCounterClockwiseTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#125;
@@ -2021,7 +2084,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             END_IF;
             //**************************************************
             
-            //*************ResetFaultTask***************
+            //*************ResetFaultTask***********************
             ResetFaultTask.SetIsDisabled(FALSE);
             IF ResetFaultTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#130;
@@ -2271,14 +2334,14 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             END_IF;
             //**************************************************
     
-            //*************GetScrewingResults***************
-            GetScrewingResults.SetIsDisabled(FALSE);
-            IF GetScrewingResults.StartTriggered() THEN
+            //*************GetScrewingResultsTask*******************
+            GetScrewingResultsTask.SetIsDisabled(FALSE);
+            IF GetScrewingResultsTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#150;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#150,GetScrewingResults.IsBusy(), eAxoMessageCategory#Info);
-            Messenger.ActivateOnCondition(ULINT#151,GetScrewingResults.IsDone(), eAxoMessageCategory#Info);
-            IF GetScrewingResults.Execute(THIS) THEN
+            Messenger.ActivateOnCondition(ULINT#150,GetScrewingResultsTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#151,GetScrewingResultsTask.IsDone(), eAxoMessageCategory#Info);
+            IF GetScrewingResultsTask.Execute(THIS) THEN
                 IF _progress = 0 THEN
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
@@ -2286,7 +2349,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                     _progress := 350;
                 END_IF;
     
-                IF _progress = 350 THEN                                                                                     // GetScrewingResults running
+                IF _progress = 350 THEN                                                                                     // GetScrewingResultsTask running
                     TaskMessenger.ActivateOnCondition(ULINT#550, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         Status.Error.Id := UINT#550;
@@ -2311,36 +2374,36 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                     END_IF;
                 END_IF;
     
-                IF _progress = 351 THEN                                                                                     // GetScrewingResults finished
-                    GetScrewingResults.DoneWhen(TRUE);
+                IF _progress = 351 THEN                                                                                     // GetScrewingResultsTask finished
+                    GetScrewingResultsTask.DoneWhen(TRUE);
                 END_IF;
     
                 THIS.CallTimers(TRUE);
                 
-                GetScrewingResults.ThrowWhen(_errorTimer.output);
+                GetScrewingResultsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                GetScrewingResults.ThrowWhen(GetScrewingResults.Duration >= Config.ErrorTime ,'GetScrewingResults error.');
+                GetScrewingResultsTask.ThrowWhen(GetScrewingResultsTask.Duration >= Config.ErrorTime ,'GetScrewingResultsTask error.');
             END_IF;
-            IF GetScrewingResults.DoneReached() THEN
+            IF GetScrewingResultsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#151;
                 Status.Error.Id :=  UINT#0;
-            ELSIF GetScrewingResults.ErrorOccured() THEN
+            ELSIF GetScrewingResultsTask.ErrorOccured() THEN
                 Status.Action.Id :=  UINT#950;
                 Status.Error.Id  :=  UINT#950;
-            ELSIF GetScrewingResults.AbortTriggered()THEN
+            ELSIF GetScrewingResultsTask.AbortTriggered()THEN
                 Status.Action.Id :=  UINT#951;
                 Status.Error.Id  :=  UINT#951;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#950,GetScrewingResults.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#951,GetScrewingResults.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#152,GetScrewingResults.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF GetScrewingResults.RestoreTriggered() AND _progress >= 350 AND _progress <= 359  THEN
+            Messenger.ActivateOnCondition(ULINT#950,GetScrewingResultsTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#951,GetScrewingResultsTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#152,GetScrewingResultsTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            IF GetScrewingResultsTask.RestoreTriggered() AND _progress >= 350 AND _progress <= 359  THEN
                 Status.Action.Id :=  UINT#152;
                 _progress := 0;
             END_IF;
             //**************************************************
     
-            //*************ScrewClockwiseTask***************
+            //*************ScrewClockwiseTask*******************
             ScrewClockwiseTask.SetIsDisabled(FALSE);
             IF ScrewClockwiseTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#160;
@@ -2557,7 +2620,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 Status.Action.Id :=  UINT#162;
                 _progress := 0;
             END_IF;
-            //**************************************************            
+            //*****************************************************            
     
             //*************ScrewCounterClockwiseTask***************
             ScrewCounterClockwiseTask.SetIsDisabled(FALSE);
@@ -2771,7 +2834,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             END_IF;
             //**************************************************
     
-            //*************RunAutomatTask***************
+            //*************RunAutomatTask***********************
             RunAutomatTask.SetIsDisabled(FALSE);
             IF RunAutomatTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#200;
@@ -3885,9 +3948,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             SetScrewingProgram := SetScrewingProgramTask.Invoke(THIS);
         END_METHOD
 
-
-        METHOD PUBLIC TemplateMethod_10steps_6 : IAxoTaskState
-            TemplateMethod_10steps_6 := GetScrewingResults.Invoke(THIS);
+        METHOD PUBLIC GetScrewingResults : IAxoTaskState
+            GetScrewingResults := GetScrewingResultsTask.Invoke(THIS);
         END_METHOD
 
         METHOD PUBLIC ScrewClockwise : IAxoTaskState
@@ -3975,7 +4037,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             ResetFaultTask.Restore();
             ResetResultsTask.Restore();
             SetScrewingProgramTask.Restore();
-            GetScrewingResults.Restore();
+            GetScrewingResultsTask.Restore();
 
             ScrewClockwiseTask.Restore();
             ScrewCounterClockwiseTask.Restore();
@@ -3997,6 +4059,5 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             _infoTimer.OnDelay(THIS, signal ,Config.InfoTime);
             _errorTimer.OnDelay(THIS, signal , Config.ErrorTime);
         END_METHOD
-
     END_CLASS
 END_NAMESPACE

@@ -1,4 +1,4 @@
-﻿name: "@inxton/ax.latest.packages"
+name: "@inxton/ax.latest.packages"
 version: '0.0.0-dev.0'
 type: generic
 files:
@@ -8,7 +8,7 @@ devDependencies:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.16
+  "@inxton/ax.catalog": 0.0.17
 dependencies:
   "@ax/simatic-1500-clocks": 10.0.6
   "@ax/system-bitaccess": 10.0.24
@@ -18,7 +18,7 @@ dependencies:
   "@ax/hw-s7-1500": 3.0.0
   "@ax/hwld": 3.0.0
   "@ax/stc": 10.0.85
-  "@ax/sld": 3.2.2
+  "@ax/sld": 3.2.4
 installStrategy: strict
 apaxVersion: 3.5.0
 scripts:
@@ -34,4 +34,3 @@ scripts:
   cicb: |
     apax clean
     apax icb
-

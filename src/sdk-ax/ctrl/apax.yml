@@ -1,4 +1,4 @@
-﻿name: "@inxton/ax-sdk"
+name: "@inxton/ax-sdk"
 version: '0.0.0-dev.0'
 type: generic
 files:
@@ -6,7 +6,7 @@ files:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.16
+  "@inxton/ax.catalog": 0.0.17
 dependencies:
   '@ax/apax-build': 2.0.20
   '@ax/axunitst': 8.0.33
@@ -16,16 +16,16 @@ dependencies:
   '@ax/hw-s7-1500': 3.0.0
   '@ax/hwc': 3.0.0
   '@ax/hwld': 3.0.0
-  '@ax/mod': 1.6.5
-  '@ax/mon': 1.6.5
+  '@ax/mod': 1.7.6
+  '@ax/mon': 1.7.6
   '@ax/performance-info': 1.1.2
-  '@ax/plc-info': 3.0.0
-  '@ax/sdb': 1.6.5
-  '@ax/simatic-package-tool': 2.0.11
+  '@ax/plc-info': 3.1.0
+  '@ax/sdb': 1.7.6
+  '@ax/simatic-package-tool': 2.0.15
   '@ax/simatic-pragma-stc-plugin': 5.0.8
-  '@ax/sld': 3.2.2
+  '@ax/sld': 3.2.4
   '@ax/st-ls': 10.0.85
-  '@ax/st-resources.stc-plugin': 2.0.10
+  '@ax/st-resources.stc-plugin': 3.0.23
   '@ax/stc': 10.0.85
   '@ax/target-llvm': 10.0.85
   '@ax/target-mc7plus': 10.0.85
@@ -45,4 +45,3 @@ scripts:
   cicb: |
     apax clean
     apax icb
-

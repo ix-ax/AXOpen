@@ -65,10 +65,10 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(140, new AxoMessengerTextItem("SetScrewingProgramTask started.","")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(141, new AxoMessengerTextItem("SetScrewingProgramTask finished succesfully.","")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(142, new AxoMessengerTextItem("SetScrewingProgramTask restored.","")),
-                // GetScrewingResults
-                new KeyValuePair<ulong, AxoMessengerTextItem>(150, new AxoMessengerTextItem("GetScrewingResults started.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(151, new AxoMessengerTextItem("GetScrewingResults finished succesfully.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(152, new AxoMessengerTextItem("GetScrewingResults restored.","")),
+                // GetScrewingResultsTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(150, new AxoMessengerTextItem("GetScrewingResultsTask started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(151, new AxoMessengerTextItem("GetScrewingResultsTask finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(152, new AxoMessengerTextItem("GetScrewingResultsTask restored.","")),
                 // ScrewClockwiseTask
                 new KeyValuePair<ulong, AxoMessengerTextItem>(160, new AxoMessengerTextItem("ScrewClockwiseTask started.","")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(161, new AxoMessengerTextItem("ScrewClockwiseTask finished succesfully.","")),
@@ -287,9 +287,9 @@ namespace AXOpen.Components.Rexroth.Tightening
                 // SetScrewingProgramTask
                 new KeyValuePair<ulong, AxoMessengerTextItem>(940, new AxoMessengerTextItem("SetScrewingProgramTask task finished with error!","Check the details.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(941, new AxoMessengerTextItem("SetScrewingProgramTask task was aborted, while not yet completed!","Check the details.")),
-                // GetScrewingResults
-                new KeyValuePair<ulong, AxoMessengerTextItem>(950, new AxoMessengerTextItem("GetScrewingResults task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(951, new AxoMessengerTextItem("GetScrewingResults task was aborted, while not yet completed!","Check the details.")),
+                // GetScrewingResultsTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(950, new AxoMessengerTextItem("GetScrewingResultsTask task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(951, new AxoMessengerTextItem("GetScrewingResultsTask task was aborted, while not yet completed!","Check the details.")),
 
                 // ScrewClockwiseTask
                 new KeyValuePair<ulong, AxoMessengerTextItem>(960, new AxoMessengerTextItem("ScrewClockwiseTask task finished with error!","Check the details.")),
@@ -407,7 +407,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 //new KeyValuePair<ulong, AxoMessengerTextItem>(547,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 //new KeyValuePair<ulong, AxoMessengerTextItem>(548,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 //new KeyValuePair<ulong, AxoMessengerTextItem>(549,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                //GetScrewingResults
+                //GetScrewingResultsTask
                     //new KeyValuePair<ulong, AxoMessengerTextItem>(550,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                     //new KeyValuePair<ulong, AxoMessengerTextItem>(551,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                     //new KeyValuePair<ulong, AxoMessengerTextItem>(552,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
@@ -624,7 +624,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                     //errorDescriptionDict.Add(547, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     //errorDescriptionDict.Add(548, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     //errorDescriptionDict.Add(549, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // GetScrewingResults
+                    // GetScrewingResultsTask
                     //errorDescriptionDict.Add(550, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     //errorDescriptionDict.Add(551, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     //errorDescriptionDict.Add(552, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
@@ -977,9 +977,9 @@ namespace AXOpen.Components.Rexroth.Tightening
                     // SetScrewingProgramTask
                     errorDescriptionDict.Add(940, "SetScrewingProgramTask task finished with error!");
                     errorDescriptionDict.Add(941, "SetScrewingProgramTask task was aborted, while not yet completed!");
-                    // GetScrewingResults
-                    errorDescriptionDict.Add(950, "GetScrewingResults task finished with error!");
-                    errorDescriptionDict.Add(951, "GetScrewingResults task was aborted, while not yet completed!");
+                    // GetScrewingResultsTask
+                    errorDescriptionDict.Add(950, "GetScrewingResultsTask task finished with error!");
+                    errorDescriptionDict.Add(951, "GetScrewingResultsTask task was aborted, while not yet completed!");
 
                     // ScrewClockwiseTask
                     errorDescriptionDict.Add(960, "ScrewClockwiseTask task finished with error!");
@@ -1139,20 +1139,20 @@ namespace AXOpen.Components.Rexroth.Tightening
                     //actionDescriptionDict.Add(349, "SetScrewingProgramTask running, <add the detailed description of the current action 10>");
                     actionDescriptionDict.Add(141, "SetScrewingProgramTask finished succesfully.");
                     actionDescriptionDict.Add(142, "SetScrewingProgramTask restored.");
-                    // GetScrewingResults
-                    actionDescriptionDict.Add(150, "GetScrewingResults started.");
-                    actionDescriptionDict.Add(350, "GetScrewingResults running");
-                    actionDescriptionDict.Add(351, "GetScrewingResults finished");
-                    //actionDescriptionDict.Add(352, "GetScrewingResults running, <add the detailed description of the current action 3>");
-                    //actionDescriptionDict.Add(353, "GetScrewingResults running, <add the detailed description of the current action 4>");
-                    //actionDescriptionDict.Add(354, "GetScrewingResults running, <add the detailed description of the current action 5>");
-                    //actionDescriptionDict.Add(355, "GetScrewingResults running, <add the detailed description of the current action 6>");
-                    //actionDescriptionDict.Add(356, "GetScrewingResults running, <add the detailed description of the current action 7>");
-                    //actionDescriptionDict.Add(357, "GetScrewingResults running, <add the detailed description of the current action 8>");
-                    //actionDescriptionDict.Add(358, "GetScrewingResults running, <add the detailed description of the current action 9>");
-                    //actionDescriptionDict.Add(359, "GetScrewingResults running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(151, "GetScrewingResults finished succesfully.");
-                    actionDescriptionDict.Add(152, "GetScrewingResults restored.");
+                    // GetScrewingResultsTask
+                    actionDescriptionDict.Add(150, "GetScrewingResultsTask started.");
+                    actionDescriptionDict.Add(350, "GetScrewingResultsTask running");
+                    actionDescriptionDict.Add(351, "GetScrewingResultsTask finished");
+                    //actionDescriptionDict.Add(352, "GetScrewingResultsTask running, <add the detailed description of the current action 3>");
+                    //actionDescriptionDict.Add(353, "GetScrewingResultsTask running, <add the detailed description of the current action 4>");
+                    //actionDescriptionDict.Add(354, "GetScrewingResultsTask running, <add the detailed description of the current action 5>");
+                    //actionDescriptionDict.Add(355, "GetScrewingResultsTask running, <add the detailed description of the current action 6>");
+                    //actionDescriptionDict.Add(356, "GetScrewingResultsTask running, <add the detailed description of the current action 7>");
+                    //actionDescriptionDict.Add(357, "GetScrewingResultsTask running, <add the detailed description of the current action 8>");
+                    //actionDescriptionDict.Add(358, "GetScrewingResultsTask running, <add the detailed description of the current action 9>");
+                    //actionDescriptionDict.Add(359, "GetScrewingResultsTask running, <add the detailed description of the current action 10>");
+                    actionDescriptionDict.Add(151, "GetScrewingResultsTask finished succesfully.");
+                    actionDescriptionDict.Add(152, "GetScrewingResultsTask restored.");
 
                     // ScrewClockwiseTask
                     actionDescriptionDict.Add(160, "ScrewClockwiseTask started.");
@@ -1368,9 +1368,9 @@ namespace AXOpen.Components.Rexroth.Tightening
                     // SetScrewingProgramTask 
                     actionDescriptionDict.Add(940, "SetScrewingProgramTask task finished with error!");
                     actionDescriptionDict.Add(941, "SetScrewingProgramTask task was aborted, while not yet completed!");
-                    // GetScrewingResults 
-                    actionDescriptionDict.Add(950, "GetScrewingResults task finished with error!");
-                    actionDescriptionDict.Add(951, "GetScrewingResults task was aborted, while not yet completed!");
+                    // GetScrewingResultsTask 
+                    actionDescriptionDict.Add(950, "GetScrewingResultsTask task finished with error!");
+                    actionDescriptionDict.Add(951, "GetScrewingResultsTask task was aborted, while not yet completed!");
 
                     // ScrewClockwiseTask
                     actionDescriptionDict.Add(960, "ScrewClockwiseTask task finished with error!");
