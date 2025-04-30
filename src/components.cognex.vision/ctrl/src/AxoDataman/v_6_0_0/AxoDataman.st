@@ -1004,6 +1004,5 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             END_IF;
         END_METHOD
 
-
 END_CLASS    
 END_NAMESPACE
