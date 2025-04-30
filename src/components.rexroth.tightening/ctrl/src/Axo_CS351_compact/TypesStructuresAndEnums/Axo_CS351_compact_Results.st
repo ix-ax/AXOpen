@@ -6,7 +6,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             {#ix-set:AttributeName = "<#Result#>"}
             Result : BYTE;
             // {#ix-set:AttributeName = "<#ID code#>"}
-            {#ix-set:DisplayFormat = "string"}
+            // {#ix-set:DisplayFormat = "string"}
             IDcode : ARRAY[0..63] OF BYTE;
             {#ix-set:AttributeName = "<#Cycle counter#>"}
             CnoSE : UDINT;			
