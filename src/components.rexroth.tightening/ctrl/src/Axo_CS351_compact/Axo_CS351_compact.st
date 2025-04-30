@@ -2355,7 +2355,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                     END_IF;
     
                     Results.Result := Inputs.Result;
-                    Results.IDcode := Inputs.IDcode;
+                    Results.IDcode.Data := Inputs.IDcode;
                     Results.CnoSE := Inputs.CnoSE;		
                     Results.ProgramNo := Inputs.ProgramNo;		
                     Results.TorqueMin := Inputs.TorqueMin;			
@@ -2366,6 +2366,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                     Results.AngleMax := Inputs.AngleMax;			
                     Results.ErrorCode := Inputs.ErrorCode;
                     Results.ErrorClass := Inputs.ErrorClass;
+
+                    Results.IDcode.ToggleDataChangedFlag();
 
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
@@ -3118,7 +3120,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                     END_IF;
 
                     Results.Result := Inputs.Result;
-                    Results.IDcode := Inputs.IDcode;
+                    Results.IDcode.Data := Inputs.IDcode;
                     Results.CnoSE := Inputs.CnoSE;		
                     Results.ProgramNo := Inputs.ProgramNo;		
                     Results.TorqueMin := Inputs.TorqueMin;			
@@ -3129,6 +3131,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                     Results.AngleMax := Inputs.AngleMax;			
                     Results.ErrorCode := Inputs.ErrorCode;
                     Results.ErrorClass := Inputs.ErrorClass;
+
+                    Results.IDcode.ToggleDataChangedFlag();
 
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);

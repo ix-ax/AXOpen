@@ -5,9 +5,9 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
         VAR PUBLIC 
             {#ix-set:AttributeName = "<#Result#>"}
             Result : BYTE;
-            // {#ix-set:AttributeName = "<#ID code#>"}
-            // {#ix-set:DisplayFormat = "string"}
-            IDcode : ARRAY[0..63] OF BYTE;
+            {#ix-set:AttributeName = "<#ID code#>"}
+            {#ix-set:DisplayFormat = "string"}
+            IDcode  :   Axo_CS351_compact_IDcode;
             {#ix-set:AttributeName = "<#Cycle counter#>"}
             CnoSE : UDINT;			
             {#ix-set:AttributeName = "<#Program number#>"}
