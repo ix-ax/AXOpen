@@ -66,7 +66,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             {#ix-set:AttributeName = "<#SetScrewingProgramTask#>"}
             SetScrewingProgramTask : AXOpen.Core.AxoTask;
             {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
+            {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#GetScrewingResultsTask#>"}
             GetScrewingResultsTask : AXOpen.Core.AxoTask;
             {#ix-attr:[Container(Layout.Wrap)]}
@@ -1426,39 +1426,39 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 RETURN;
             END_IF;
 
-            Inputs.ProgramNoAck                 :=  _data_in4w[0].%B0;        //  0
+            Inputs.ProgramNoAck                 :=  _data_in4w[0].%B1;        //  0
 
-            Inputs.Ready                        :=  _data_in4w[0].%X8;        //  1
-            Inputs.NoFault                      :=  _data_in4w[0].%X9;
-            Inputs.InCycle                      :=  _data_in4w[0].%X10;
-            Inputs.InCycleCcw                   :=  _data_in4w[0].%X11;
-            Inputs.CycleComplete                :=  _data_in4w[0].%X12;
-            Inputs.OK                           :=  _data_in4w[0].%X13;
-            Inputs.NOK                          :=  _data_in4w[0].%X14;
-            Inputs.ToolButton                   :=  _data_in4w[0].%X15;
+            Inputs.Ready                        :=  _data_in4w[0].%X0;        //  1
+            Inputs.NoFault                      :=  _data_in4w[0].%X1;
+            Inputs.InCycle                      :=  _data_in4w[0].%X2;
+            Inputs.InCycleCcw                   :=  _data_in4w[0].%X3;
+            Inputs.CycleComplete                :=  _data_in4w[0].%X4;
+            Inputs.OK                           :=  _data_in4w[0].%X5;
+            Inputs.NOK                          :=  _data_in4w[0].%X6;
+            Inputs.ToolButton                   :=  _data_in4w[0].%X7;
 
-            Inputs.CcwSelect                    :=  _data_in4w[1].%X0;        //  2
-            Inputs.StartButton                  :=  _data_in4w[1].%X1;
-            Inputs.TrigOut                      :=  _data_in4w[1].%X2;
-            Inputs.TorqueHigh                   :=  _data_in4w[1].%X3;
-            Inputs.TorqueLow                    :=  _data_in4w[1].%X4;
-            Inputs.AngleHigh                    :=  _data_in4w[1].%X5;
-            Inputs.AngleLow                     :=  _data_in4w[1].%X6;
-            Inputs.CcwLockAck                   :=  _data_in4w[1].%X7;
+            Inputs.CcwSelect                    :=  _data_in4w[1].%X8;        //  2
+            Inputs.StartButton                  :=  _data_in4w[1].%X9;
+            Inputs.TrigOut                      :=  _data_in4w[1].%X10;
+            Inputs.TorqueHigh                   :=  _data_in4w[1].%X11;
+            Inputs.TorqueLow                    :=  _data_in4w[1].%X12;
+            Inputs.AngleHigh                    :=  _data_in4w[1].%X13;
+            Inputs.AngleLow                     :=  _data_in4w[1].%X14;
+            Inputs.CcwLockAck                   :=  _data_in4w[1].%X15;
 
-            Inputs.EnableAck                    :=  _data_in4w[1].%X8;        //  3
-            Inputs.ActiveEnableAck              :=  _data_in4w[1].%X9;
-            Inputs.CwLockAck                    :=  _data_in4w[1].%X10;
-            Inputs.CwAck                        :=  _data_in4w[1].%X11;
-            Inputs.CcwAck                       :=  _data_in4w[1].%X12;
-            Inputs.ES_LED_GreenAck              :=  _data_in4w[1].%X13;
-            Inputs.ES_LED_YellowAck             :=  _data_in4w[1].%X14;
-            Inputs.ES_LED_RedAck                :=  _data_in4w[1].%X15;
+            Inputs.EnableAck                    :=  _data_in4w[1].%X0;        //  3
+            Inputs.ActiveEnableAck              :=  _data_in4w[1].%X1;
+            Inputs.CwLockAck                    :=  _data_in4w[1].%X2;
+            Inputs.CwAck                        :=  _data_in4w[1].%X3;
+            Inputs.CcwAck                       :=  _data_in4w[1].%X4;
+            Inputs.ES_LED_GreenAck              :=  _data_in4w[1].%X5;
+            Inputs.ES_LED_YellowAck             :=  _data_in4w[1].%X6;
+            Inputs.ES_LED_RedAck                :=  _data_in4w[1].%X7;
 
-            Inputs.Result                       :=  _data_in4w[2].%B0;        //  4
-            Inputs.IDcode[0]                    :=  _data_in4w[2].%B1;        //  5
-            Inputs.IDcode[1]                    :=  _data_in4w[3].%B0;        //  6
-            Inputs.IDcode[2]                    :=  _data_in4w[3].%B1;        //  7
+            Inputs.Result                       :=  _data_in4w[2].%B1;        //  4
+            Inputs.IDcode[0]                    :=  _data_in4w[2].%B0;        //  5
+            Inputs.IDcode[1]                    :=  _data_in4w[3].%B1;        //  6
+            Inputs.IDcode[2]                    :=  _data_in4w[3].%B0;        //  7
 
             //  Slot 11 Input_4_word_2
             _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwID_11 ,_data_in4w);
@@ -1468,14 +1468,14 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 RETURN;
             END_IF;
 
-            Inputs.IDcode[3]                    :=  _data_in4w[0].%B0;        //  8
-            Inputs.IDcode[4]                    :=  _data_in4w[0].%B1;        //  9
-            Inputs.IDcode[5]                    :=  _data_in4w[1].%B0;        //  10
-            Inputs.IDcode[6]                    :=  _data_in4w[1].%B1;        //  11
-            Inputs.IDcode[7]                    :=  _data_in4w[2].%B0;        //  12
-            Inputs.IDcode[8]                    :=  _data_in4w[2].%B1;        //  13
-            Inputs.IDcode[9]                    :=  _data_in4w[3].%B0;        //  14
-            Inputs.IDcode[10]                   :=  _data_in4w[3].%B1;        //  15
+            Inputs.IDcode[3]                    :=  _data_in4w[0].%B1;        //  8
+            Inputs.IDcode[4]                    :=  _data_in4w[0].%B0;        //  9
+            Inputs.IDcode[5]                    :=  _data_in4w[1].%B1;        //  10
+            Inputs.IDcode[6]                    :=  _data_in4w[1].%B0;        //  11
+            Inputs.IDcode[7]                    :=  _data_in4w[2].%B1;        //  12
+            Inputs.IDcode[8]                    :=  _data_in4w[2].%B0;        //  13
+            Inputs.IDcode[9]                    :=  _data_in4w[3].%B1;        //  14
+            Inputs.IDcode[10]                   :=  _data_in4w[3].%B0;        //  15
 
             //  Slot 12 Input_4_word_3
             _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwID_12 ,_data_in4w);
@@ -1485,14 +1485,14 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 RETURN;
             END_IF;
 
-            Inputs.IDcode[11]                   :=  _data_in4w[0].%B0;        //  16
-            Inputs.IDcode[12]                   :=  _data_in4w[0].%B1;        //  17
-            Inputs.IDcode[13]                   :=  _data_in4w[1].%B0;        //  18
-            Inputs.IDcode[14]                   :=  _data_in4w[1].%B1;        //  19
-            Inputs.IDcode[15]                   :=  _data_in4w[2].%B0;        //  20
-            Inputs.IDcode[16]                   :=  _data_in4w[2].%B1;        //  21
-            Inputs.IDcode[17]                   :=  _data_in4w[3].%B0;        //  22
-            Inputs.IDcode[18]                   :=  _data_in4w[3].%B1;        //  23
+            Inputs.IDcode[11]                   :=  _data_in4w[0].%B1;        //  16
+            Inputs.IDcode[12]                   :=  _data_in4w[0].%B0;        //  17
+            Inputs.IDcode[13]                   :=  _data_in4w[1].%B1;        //  18
+            Inputs.IDcode[14]                   :=  _data_in4w[1].%B0;        //  19
+            Inputs.IDcode[15]                   :=  _data_in4w[2].%B1;        //  20
+            Inputs.IDcode[16]                   :=  _data_in4w[2].%B0;        //  21
+            Inputs.IDcode[17]                   :=  _data_in4w[3].%B1;        //  22
+            Inputs.IDcode[18]                   :=  _data_in4w[3].%B0;        //  23
 
             _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwID_13 ,_data_in4w);
             IF _returnValue > WORD#0 THEN
@@ -1502,14 +1502,14 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             END_IF;
 
             //  Slot 13 Input_4_word_4
-            Inputs.IDcode[19]                   :=  _data_in4w[0].%B0;        //  24
-            Inputs.IDcode[20]                   :=  _data_in4w[0].%B1;        //  25
-            Inputs.IDcode[21]                   :=  _data_in4w[1].%B0;        //  26
-            Inputs.IDcode[22]                   :=  _data_in4w[1].%B1;        //  27
-            Inputs.IDcode[23]                   :=  _data_in4w[2].%B0;        //  28
-            Inputs.IDcode[24]                   :=  _data_in4w[2].%B1;        //  29
-            Inputs.IDcode[25]                   :=  _data_in4w[3].%B0;        //  30
-            Inputs.IDcode[26]                   :=  _data_in4w[3].%B1;        //  31
+            Inputs.IDcode[19]                   :=  _data_in4w[0].%B1;        //  24
+            Inputs.IDcode[20]                   :=  _data_in4w[0].%B0;        //  25
+            Inputs.IDcode[21]                   :=  _data_in4w[1].%B1;        //  26
+            Inputs.IDcode[22]                   :=  _data_in4w[1].%B0;        //  27
+            Inputs.IDcode[23]                   :=  _data_in4w[2].%B1;        //  28
+            Inputs.IDcode[24]                   :=  _data_in4w[2].%B0;        //  29
+            Inputs.IDcode[25]                   :=  _data_in4w[3].%B1;        //  30
+            Inputs.IDcode[26]                   :=  _data_in4w[3].%B0;        //  31
 
             //  Slot 14 Input_4_word_5
             _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwID_14 ,_data_in4w);
@@ -1519,14 +1519,14 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 RETURN;
             END_IF;
 
-            Inputs.IDcode[27]                   :=  _data_in4w[0].%B0;        //  32
-            Inputs.IDcode[28]                   :=  _data_in4w[0].%B1;        //  33
-            Inputs.IDcode[29]                   :=  _data_in4w[1].%B0;        //  34
-            Inputs.IDcode[30]                   :=  _data_in4w[1].%B1;        //  35
-            Inputs.IDcode[31]                   :=  _data_in4w[2].%B0;        //  36
-            Inputs.IDcode[32]                   :=  _data_in4w[2].%B1;        //  37
-            Inputs.IDcode[33]                   :=  _data_in4w[3].%B0;        //  38
-            Inputs.IDcode[34]                   :=  _data_in4w[3].%B1;        //  39
+            Inputs.IDcode[27]                   :=  _data_in4w[0].%B1;        //  32
+            Inputs.IDcode[28]                   :=  _data_in4w[0].%B0;        //  33
+            Inputs.IDcode[29]                   :=  _data_in4w[1].%B1;        //  34
+            Inputs.IDcode[30]                   :=  _data_in4w[1].%B0;        //  35
+            Inputs.IDcode[31]                   :=  _data_in4w[2].%B1;        //  36
+            Inputs.IDcode[32]                   :=  _data_in4w[2].%B0;        //  37
+            Inputs.IDcode[33]                   :=  _data_in4w[3].%B1;        //  38
+            Inputs.IDcode[34]                   :=  _data_in4w[3].%B0;        //  39
 
             //  Slot 15 Input_4_word_6
             _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwID_15 ,_data_in4w);
@@ -1536,14 +1536,14 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 RETURN;
             END_IF;
 
-            Inputs.IDcode[35]                   :=  _data_in4w[0].%B0;        //  40
-            Inputs.IDcode[36]                   :=  _data_in4w[0].%B1;        //  41
-            Inputs.IDcode[37]                   :=  _data_in4w[1].%B0;        //  42
-            Inputs.IDcode[38]                   :=  _data_in4w[1].%B1;        //  43
-            Inputs.IDcode[39]                   :=  _data_in4w[2].%B0;        //  44
-            Inputs.IDcode[40]                   :=  _data_in4w[2].%B1;        //  45
-            Inputs.IDcode[41]                   :=  _data_in4w[3].%B0;        //  46
-            Inputs.IDcode[42]                   :=  _data_in4w[3].%B1;        //  47
+            Inputs.IDcode[35]                   :=  _data_in4w[0].%B1;        //  40
+            Inputs.IDcode[36]                   :=  _data_in4w[0].%B0;        //  41
+            Inputs.IDcode[37]                   :=  _data_in4w[1].%B1;        //  42
+            Inputs.IDcode[38]                   :=  _data_in4w[1].%B0;        //  43
+            Inputs.IDcode[39]                   :=  _data_in4w[2].%B1;        //  44
+            Inputs.IDcode[40]                   :=  _data_in4w[2].%B0;        //  45
+            Inputs.IDcode[41]                   :=  _data_in4w[3].%B1;        //  46
+            Inputs.IDcode[42]                   :=  _data_in4w[3].%B0;        //  47
 
             //  Slot 16 Input_4_word_7
             _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwID_16 ,_data_in4w);
@@ -1553,14 +1553,14 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 RETURN;
             END_IF;
 
-            Inputs.IDcode[43]                   :=  _data_in4w[0].%B0;        //  48
-            Inputs.IDcode[44]                   :=  _data_in4w[0].%B1;        //  49
-            Inputs.IDcode[45]                   :=  _data_in4w[1].%B0;        //  50
-            Inputs.IDcode[46]                   :=  _data_in4w[1].%B1;        //  51
-            Inputs.IDcode[47]                   :=  _data_in4w[2].%B0;        //  52
-            Inputs.IDcode[48]                   :=  _data_in4w[2].%B1;        //  53
-            Inputs.IDcode[49]                   :=  _data_in4w[3].%B0;        //  54
-            Inputs.IDcode[50]                   :=  _data_in4w[3].%B1;        //  55
+            Inputs.IDcode[43]                   :=  _data_in4w[0].%B1;        //  48
+            Inputs.IDcode[44]                   :=  _data_in4w[0].%B0;        //  49
+            Inputs.IDcode[45]                   :=  _data_in4w[1].%B1;        //  50
+            Inputs.IDcode[46]                   :=  _data_in4w[1].%B0;        //  51
+            Inputs.IDcode[47]                   :=  _data_in4w[2].%B1;        //  52
+            Inputs.IDcode[48]                   :=  _data_in4w[2].%B0;        //  53
+            Inputs.IDcode[49]                   :=  _data_in4w[3].%B1;        //  54
+            Inputs.IDcode[50]                   :=  _data_in4w[3].%B0;        //  55
 
             //  Slot 17 Input_4_word_8
             _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwID_17 ,_data_in4w);
@@ -1570,14 +1570,14 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 RETURN;
             END_IF;
 
-            Inputs.IDcode[51]                   :=  _data_in4w[0].%B0;        //  56
-            Inputs.IDcode[52]                   :=  _data_in4w[0].%B1;        //  57
-            Inputs.IDcode[53]                   :=  _data_in4w[1].%B0;        //  58
-            Inputs.IDcode[54]                   :=  _data_in4w[1].%B1;        //  59
-            Inputs.IDcode[55]                   :=  _data_in4w[2].%B0;        //  60
-            Inputs.IDcode[56]                   :=  _data_in4w[2].%B1;        //  61
-            Inputs.IDcode[57]                   :=  _data_in4w[3].%B0;        //  62
-            Inputs.IDcode[58]                   :=  _data_in4w[3].%B1;        //  63
+            Inputs.IDcode[51]                   :=  _data_in4w[0].%B1;        //  56
+            Inputs.IDcode[52]                   :=  _data_in4w[0].%B0;        //  57
+            Inputs.IDcode[53]                   :=  _data_in4w[1].%B1;        //  58
+            Inputs.IDcode[54]                   :=  _data_in4w[1].%B0;        //  59
+            Inputs.IDcode[55]                   :=  _data_in4w[2].%B1;        //  60
+            Inputs.IDcode[56]                   :=  _data_in4w[2].%B0;        //  61
+            Inputs.IDcode[57]                   :=  _data_in4w[3].%B1;        //  62
+            Inputs.IDcode[58]                   :=  _data_in4w[3].%B0;        //  63
 
             //  Slot 18 Input_4_word_9
             _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwID_18 ,_data_in4w);
@@ -1587,15 +1587,15 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 RETURN;
             END_IF;
 
-            Inputs.IDcode[59]                   :=  _data_in4w[0].%B0;        //  64
-            Inputs.IDcode[60]                   :=  _data_in4w[0].%B1;        //  65
-            Inputs.IDcode[61]                   :=  _data_in4w[1].%B0;        //  66
-            Inputs.IDcode[62]                   :=  _data_in4w[1].%B1;        //  67
-            Inputs.IDcode[63]                   :=  _data_in4w[2].%B0;        //  68
+            Inputs.IDcode[59]                   :=  _data_in4w[0].%B1;        //  64
+            Inputs.IDcode[60]                   :=  _data_in4w[0].%B0;        //  65
+            Inputs.IDcode[61]                   :=  _data_in4w[1].%B1;        //  66
+            Inputs.IDcode[62]                   :=  _data_in4w[1].%B0;        //  67
+            Inputs.IDcode[63]                   :=  _data_in4w[2].%B1;        //  68
             
-            _dword.%B0                          :=  _data_in4w[2].%B1;        //  69
-            _dword.%B1                          :=  _data_in4w[3].%B0;        //  70
-            _dword.%B2                          :=  _data_in4w[3].%B1;        //  71
+            _dword.%B0                          :=  _data_in4w[2].%B0;        //  69
+            _dword.%B1                          :=  _data_in4w[3].%B1;        //  70
+            _dword.%B2                          :=  _data_in4w[3].%B0;        //  71
 
             //  Slot 19 Input_4_word_10
             _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwID_19 ,_data_in4w);
@@ -1605,16 +1605,16 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 RETURN;
             END_IF;
 
-            _dword.%B3                          :=  _data_in4w[0].%B0;        //  72
+            _dword.%B3                          :=  _data_in4w[0].%B1;        //  72
             Inputs.CnoSE                        :=  TO_UDINT(_dword);              
-            Inputs.ProgramNo                    :=  _data_in4w[0].%B1;        //  73
-            _dword.%B0                          :=  _data_in4w[0].%B1;        //  74
+            Inputs.ProgramNo                    :=  _data_in4w[0].%B0;        //  73
+            _dword.%B0                          :=  _data_in4w[1].%B1;        //  74
             _dword.%B1                          :=  _data_in4w[1].%B0;        //  75
-            _dword.%B2                          :=  _data_in4w[1].%B1;        //  76
+            _dword.%B2                          :=  _data_in4w[2].%B1;        //  76
             _dword.%B3                          :=  _data_in4w[2].%B0;        //  77
             Inputs.TorqueMin                    :=  TO_REAL(_dword) / REAL#100000.0;
-            _dword.%B0                          :=  _data_in4w[3].%B0;        //  78
-            _dword.%B1                          :=  _data_in4w[3].%B1;        //  79
+            _dword.%B0                          :=  _data_in4w[3].%B1;        //  78
+            _dword.%B1                          :=  _data_in4w[3].%B0;        //  79
 
             // Slot 20 Input_4_word_11
             _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwID_20 ,_data_in4w);
@@ -1624,8 +1624,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 RETURN;
             END_IF;  
 
-            _dword.%B2                           :=  _data_in4w[0].%B0;        //  80
-            _dword.%B3                           :=  _data_in4w[0].%B1;        //  81
+            _dword.%B2                           :=  _data_in4w[0].%B1;        //  80
+            _dword.%B3                           :=  _data_in4w[0].%B0;        //  81
             Inputs.Torque                        :=  TO_REAL(_dword) / REAL#100000.0;
             _dword.%B0                           :=  _data_in4w[1].%B1;        //  82
             _dword.%B1                           :=  _data_in4w[1].%B0;        //  83
@@ -1643,8 +1643,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 RETURN;
             END_IF;  
 
-            _dword.%B2                           :=  _data_in4w[0].%B0;        //  88
-            _dword.%B3                           :=  _data_in4w[0].%B1;        //  89
+            _dword.%B2                           :=  _data_in4w[0].%B1;        //  88
+            _dword.%B3                           :=  _data_in4w[0].%B0;        //  89
             Inputs.AngleMin                      :=  TO_REAL(_dword) / REAL#100000.0;
             _dword.%B0                           :=  _data_in4w[1].%B1;        //  90
             _dword.%B1                           :=  _data_in4w[1].%B0;        //  91
@@ -1661,8 +1661,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 Status.Error.Id := UINT#1213;
                 RETURN;
             END_IF;  
-            _dword.%B2                           :=  _data_in4w[0].%B0;        //  96
-            _dword.%B3                           :=  _data_in4w[0].%B1;        //  97
+            _dword.%B2                           :=  _data_in4w[0].%B1;        //  96
+            _dword.%B3                           :=  _data_in4w[0].%B0;        //  97
             Inputs.AngleMax                      :=  TO_REAL(_dword) / REAL#100000.0;
             Inputs.ErrorCode                     :=  _data_in4w[1];            //  98 - 99
             Inputs.ErrorClass                    :=  _data_in4w[2];            //  100 - 101 
@@ -3744,30 +3744,30 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
 
             //***********Update outputs ****************
             // Slot 1 Output_4_word_1
-            _data_out4w[0].%B0        :=      Outputs.ProgramNo;                      //  0
+            _data_out4w[0].%B1        :=      Outputs.ProgramNo;                      //  0
 
-            _data_out4w[0].%X8        :=      Outputs.Enable;                         //  1
-            _data_out4w[0].%X9        :=      Outputs.ResetFault;
-            _data_out4w[0].%X10       :=      Outputs.StartClockwise;
-            _data_out4w[0].%X11       :=      Outputs.StartCounterClockwise;
-            _data_out4w[0].%X12       :=      Outputs.ResetResults;
-            _data_out4w[0].%X13       :=      Outputs.NokAck;
-            _data_out4w[0].%X14       :=      Outputs.UsrIn1;
-            _data_out4w[0].%X15       :=      Outputs.UsrIn2;
+            _data_out4w[0].%X0        :=      Outputs.Enable;                         //  1
+            _data_out4w[0].%X1        :=      Outputs.ResetFault;
+            _data_out4w[0].%X2        :=      Outputs.StartClockwise;
+            _data_out4w[0].%X3        :=      Outputs.StartCounterClockwise;
+            _data_out4w[0].%X4        :=      Outputs.ResetResults;
+            _data_out4w[0].%X5        :=      Outputs.NokAck;
+            _data_out4w[0].%X6        :=      Outputs.UsrIn1;
+            _data_out4w[0].%X7        :=      Outputs.UsrIn2;
             
-            _data_out4w[1].%X0        :=      Outputs.ES_LED_Green;                   //  2
-            _data_out4w[1].%X1        :=      Outputs.ES_LED_Yellow;
-            _data_out4w[1].%X2        :=      Outputs.ES_LED_Red;
-            _data_out4w[1].%X3        :=      Outputs.ActiveEnable;
-            _data_out4w[1].%X4        :=      Outputs.CcwLock;
-            _data_out4w[1].%X5        :=      Outputs.CwLock;
-            _data_out4w[1].%X6        :=      Outputs.CwAnd;
-            _data_out4w[1].%X7        :=      Outputs.CcwAnd;
+            _data_out4w[1].%X8        :=      Outputs.ES_LED_Green;                   //  2
+            _data_out4w[1].%X9        :=      Outputs.ES_LED_Yellow;
+            _data_out4w[1].%X10       :=      Outputs.ES_LED_Red;
+            _data_out4w[1].%X11       :=      Outputs.ActiveEnable;
+            _data_out4w[1].%X12       :=      Outputs.CcwLock;
+            _data_out4w[1].%X13       :=      Outputs.CwLock;
+            _data_out4w[1].%X14       :=      Outputs.CwAnd;
+            _data_out4w[1].%X15       :=      Outputs.CcwAnd;
 
-            _data_out4w[2].%B0        :=      Outputs.IDcode[0];                      //  4
-            _data_out4w[2].%B1        :=      Outputs.IDcode[1];                      //  5
-            _data_out4w[3].%B0        :=      Outputs.IDcode[2];                      //  6
-            _data_out4w[3].%B1        :=      Outputs.IDcode[3];                      //  7
+            _data_out4w[2].%B1        :=      Outputs.IDcode[0];                      //  4
+            _data_out4w[2].%B0        :=      Outputs.IDcode[1];                      //  5
+            _data_out4w[3].%B1        :=      Outputs.IDcode[2];                      //  6
+            _data_out4w[3].%B0        :=      Outputs.IDcode[3];                      //  7
 
             _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwID_1,_data_out4w);
             IF _returnValue > WORD#0 THEN
@@ -3777,14 +3777,14 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             END_IF;
             
             // Slot 2 Output_4_word_2
-            _data_out4w[0].%B0        :=      Outputs.IDcode[4];                      //  8
-            _data_out4w[0].%B1        :=      Outputs.IDcode[5];                      //  9
-            _data_out4w[1].%B0        :=      Outputs.IDcode[6];                      //  10
-            _data_out4w[1].%B1        :=      Outputs.IDcode[7];                      //  11
-            _data_out4w[2].%B0        :=      Outputs.IDcode[8];                      //  12
-            _data_out4w[2].%B1        :=      Outputs.IDcode[9];                      //  13
-            _data_out4w[3].%B0        :=      Outputs.IDcode[10];                     //  14
-            _data_out4w[3].%B1        :=      Outputs.IDcode[11];                     //  15
+            _data_out4w[0].%B1        :=      Outputs.IDcode[4];                      //  8
+            _data_out4w[0].%B0        :=      Outputs.IDcode[5];                      //  9
+            _data_out4w[1].%B1        :=      Outputs.IDcode[6];                      //  10
+            _data_out4w[1].%B0        :=      Outputs.IDcode[7];                      //  11
+            _data_out4w[2].%B1        :=      Outputs.IDcode[8];                      //  12
+            _data_out4w[2].%B0        :=      Outputs.IDcode[9];                      //  13
+            _data_out4w[3].%B1        :=      Outputs.IDcode[10];                     //  14
+            _data_out4w[3].%B0        :=      Outputs.IDcode[11];                     //  15
 
             _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwID_2,_data_out4w);
             IF _returnValue > WORD#0 THEN
@@ -3794,14 +3794,14 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             END_IF;
 
             // Slot 3 Output_4_word_3
-            _data_out4w[0].%B0        :=      Outputs.IDcode[12];                     //  16
-            _data_out4w[0].%B1        :=      Outputs.IDcode[13];                     //  17
-            _data_out4w[1].%B0        :=      Outputs.IDcode[14];                     //  18
-            _data_out4w[1].%B1        :=      Outputs.IDcode[15];                     //  19
-            _data_out4w[2].%B0        :=      Outputs.IDcode[16];                     //  20
-            _data_out4w[2].%B1        :=      Outputs.IDcode[17];                     //  21
-            _data_out4w[3].%B0        :=      Outputs.IDcode[18];                     //  22
-            _data_out4w[3].%B1        :=      Outputs.IDcode[19];                     //  23
+            _data_out4w[0].%B1        :=      Outputs.IDcode[12];                     //  16
+            _data_out4w[0].%B0        :=      Outputs.IDcode[13];                     //  17
+            _data_out4w[1].%B1        :=      Outputs.IDcode[14];                     //  18
+            _data_out4w[1].%B0        :=      Outputs.IDcode[15];                     //  19
+            _data_out4w[2].%B1        :=      Outputs.IDcode[16];                     //  20
+            _data_out4w[2].%B0        :=      Outputs.IDcode[17];                     //  21
+            _data_out4w[3].%B1        :=      Outputs.IDcode[18];                     //  22
+            _data_out4w[3].%B0        :=      Outputs.IDcode[19];                     //  23
 
             _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwID_3,_data_out4w);
             IF _returnValue > WORD#0 THEN
@@ -3811,14 +3811,14 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             END_IF;
 
             // Slot 4 Output_4_word_4
-            _data_out4w[0].%B0        :=      Outputs.IDcode[20];                     //  24
-            _data_out4w[0].%B1        :=      Outputs.IDcode[21];                     //  25
-            _data_out4w[1].%B0        :=      Outputs.IDcode[22];                     //  26
-            _data_out4w[1].%B1        :=      Outputs.IDcode[23];                     //  27
-            _data_out4w[2].%B0        :=      Outputs.IDcode[24];                     //  28
-            _data_out4w[2].%B1        :=      Outputs.IDcode[25];                     //  29
-            _data_out4w[3].%B0        :=      Outputs.IDcode[26];                     //  30
-            _data_out4w[3].%B1        :=      Outputs.IDcode[27];                     //  31
+            _data_out4w[0].%B1        :=      Outputs.IDcode[20];                     //  24
+            _data_out4w[0].%B0        :=      Outputs.IDcode[21];                     //  25
+            _data_out4w[1].%B1        :=      Outputs.IDcode[22];                     //  26
+            _data_out4w[1].%B0        :=      Outputs.IDcode[23];                     //  27
+            _data_out4w[2].%B1        :=      Outputs.IDcode[24];                     //  28
+            _data_out4w[2].%B0        :=      Outputs.IDcode[25];                     //  29
+            _data_out4w[3].%B1        :=      Outputs.IDcode[26];                     //  30
+            _data_out4w[3].%B0        :=      Outputs.IDcode[27];                     //  31
 
             _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwID_4,_data_out4w);
             IF _returnValue > WORD#0 THEN
@@ -3828,14 +3828,14 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             END_IF;
             
             // Slot 5 Output_4_word_5
-            _data_out4w[0].%B0        :=      Outputs.IDcode[28];                     //  32
-            _data_out4w[0].%B1        :=      Outputs.IDcode[29];                     //  33
-            _data_out4w[1].%B0        :=      Outputs.IDcode[30];                     //  34
-            _data_out4w[1].%B1        :=      Outputs.IDcode[31];                     //  35
-            _data_out4w[2].%B0        :=      Outputs.IDcode[32];                     //  36
-            _data_out4w[2].%B1        :=      Outputs.IDcode[33];                     //  37
-            _data_out4w[3].%B0        :=      Outputs.IDcode[34];                     //  38
-            _data_out4w[3].%B1        :=      Outputs.IDcode[35];                     //  39
+            _data_out4w[0].%B1        :=      Outputs.IDcode[28];                     //  32
+            _data_out4w[0].%B0        :=      Outputs.IDcode[29];                     //  33
+            _data_out4w[1].%B1        :=      Outputs.IDcode[30];                     //  34
+            _data_out4w[1].%B0        :=      Outputs.IDcode[31];                     //  35
+            _data_out4w[2].%B1        :=      Outputs.IDcode[32];                     //  36
+            _data_out4w[2].%B0        :=      Outputs.IDcode[33];                     //  37
+            _data_out4w[3].%B1        :=      Outputs.IDcode[34];                     //  38
+            _data_out4w[3].%B0        :=      Outputs.IDcode[35];                     //  39
 
             _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwID_5,_data_out4w);
             IF _returnValue > WORD#0 THEN
@@ -3845,14 +3845,14 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             END_IF;
             
             // Slot 6 Output_4_word_6
-            _data_out4w[0].%B0        :=      Outputs.IDcode[36];                     //  40
-            _data_out4w[0].%B1        :=      Outputs.IDcode[37];                     //  41
-            _data_out4w[1].%B0        :=      Outputs.IDcode[38];                     //  42
-            _data_out4w[1].%B1        :=      Outputs.IDcode[39];                     //  43
-            _data_out4w[2].%B0        :=      Outputs.IDcode[40];                     //  44
-            _data_out4w[2].%B1        :=      Outputs.IDcode[41];                     //  45
-            _data_out4w[3].%B0        :=      Outputs.IDcode[42];                     //  46
-            _data_out4w[3].%B1        :=      Outputs.IDcode[43];                     //  47
+            _data_out4w[0].%B1        :=      Outputs.IDcode[36];                     //  40
+            _data_out4w[0].%B0        :=      Outputs.IDcode[37];                     //  41
+            _data_out4w[1].%B1        :=      Outputs.IDcode[38];                     //  42
+            _data_out4w[1].%B0        :=      Outputs.IDcode[39];                     //  43
+            _data_out4w[2].%B1        :=      Outputs.IDcode[40];                     //  44
+            _data_out4w[2].%B0        :=      Outputs.IDcode[41];                     //  45
+            _data_out4w[3].%B1        :=      Outputs.IDcode[42];                     //  46
+            _data_out4w[3].%B0        :=      Outputs.IDcode[43];                     //  47
 
             _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwID_6,_data_out4w);
             IF _returnValue > WORD#0 THEN
@@ -3862,14 +3862,14 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             END_IF;
             
             // Slot 7 Output_4_word_7
-            _data_out4w[0].%B0        :=      Outputs.IDcode[44];                     //  48
-            _data_out4w[0].%B1        :=      Outputs.IDcode[45];                     //  49
-            _data_out4w[1].%B0        :=      Outputs.IDcode[46];                     //  50
-            _data_out4w[1].%B1        :=      Outputs.IDcode[47];                     //  51
-            _data_out4w[2].%B0        :=      Outputs.IDcode[48];                     //  52
-            _data_out4w[2].%B1        :=      Outputs.IDcode[49];                     //  53
-            _data_out4w[3].%B0        :=      Outputs.IDcode[50];                     //  54
-            _data_out4w[3].%B1        :=      Outputs.IDcode[51];                     //  55
+            _data_out4w[0].%B1        :=      Outputs.IDcode[44];                     //  48
+            _data_out4w[0].%B0        :=      Outputs.IDcode[45];                     //  49
+            _data_out4w[1].%B1        :=      Outputs.IDcode[46];                     //  50
+            _data_out4w[1].%B0        :=      Outputs.IDcode[47];                     //  51
+            _data_out4w[2].%B1        :=      Outputs.IDcode[48];                     //  52
+            _data_out4w[2].%B0        :=      Outputs.IDcode[49];                     //  53
+            _data_out4w[3].%B1        :=      Outputs.IDcode[50];                     //  54
+            _data_out4w[3].%B0        :=      Outputs.IDcode[51];                     //  55
 
             _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwID_7,_data_out4w);
             IF _returnValue > WORD#0 THEN
@@ -3879,14 +3879,14 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             END_IF;
             
             // Slot 8 Output_4_word_8
-            _data_out4w[0].%B0        :=      Outputs.IDcode[52];                     //  56
-            _data_out4w[0].%B1        :=      Outputs.IDcode[53];                     //  57
-            _data_out4w[1].%B0        :=      Outputs.IDcode[54];                     //  58
-            _data_out4w[1].%B1        :=      Outputs.IDcode[55];                     //  59
-            _data_out4w[2].%B0        :=      Outputs.IDcode[56];                     //  60
-            _data_out4w[2].%B1        :=      Outputs.IDcode[57];                     //  61
-            _data_out4w[3].%B0        :=      Outputs.IDcode[58];                     //  62
-            _data_out4w[3].%B1        :=      Outputs.IDcode[59];                     //  63
+            _data_out4w[0].%B1        :=      Outputs.IDcode[52];                     //  56
+            _data_out4w[0].%B0        :=      Outputs.IDcode[53];                     //  57
+            _data_out4w[1].%B1        :=      Outputs.IDcode[54];                     //  58
+            _data_out4w[1].%B0        :=      Outputs.IDcode[55];                     //  59
+            _data_out4w[2].%B1        :=      Outputs.IDcode[56];                     //  60
+            _data_out4w[2].%B0        :=      Outputs.IDcode[57];                     //  61
+            _data_out4w[3].%B1        :=      Outputs.IDcode[58];                     //  62
+            _data_out4w[3].%B0        :=      Outputs.IDcode[59];                     //  63
 
             _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwID_8,_data_out4w);
             IF _returnValue > WORD#0 THEN
@@ -3896,10 +3896,10 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             END_IF;
             
             // Slot 9 Output_2_word_1
-            _data_out2w[0].%B0        :=      Outputs.IDcode[60];                     //  64
-            _data_out2w[0].%B1        :=      Outputs.IDcode[61];                     //  65
-            _data_out2w[1].%B0        :=      Outputs.IDcode[62];                     //  66
-            _data_out2w[1].%B1        :=      Outputs.IDcode[63];                     //  67
+            _data_out2w[0].%B1        :=      Outputs.IDcode[60];                     //  64
+            _data_out2w[0].%B0        :=      Outputs.IDcode[61];                     //  65
+            _data_out2w[1].%B1        :=      Outputs.IDcode[62];                     //  66
+            _data_out2w[1].%B0        :=      Outputs.IDcode[63];                     //  67
 
             _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwID_9,_data_out2w);
             IF _returnValue > WORD#0 THEN
