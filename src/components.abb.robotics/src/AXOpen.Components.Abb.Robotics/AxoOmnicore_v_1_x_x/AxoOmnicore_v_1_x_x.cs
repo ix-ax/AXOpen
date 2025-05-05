@@ -25,6 +25,7 @@ namespace AXOpen.Components.Abb.Robotics
             }
         }
 
+
         private void InitializeMessenger()
         {
             List<KeyValuePair<ulong, AxoMessengerTextItem>> messengerTextList = new List<KeyValuePair<ulong, AxoMessengerTextItem>>
@@ -72,40 +73,56 @@ namespace AXOpen.Components.Abb.Robotics
                 new KeyValuePair<ulong, AxoMessengerTextItem>(211, new AxoMessengerTextItem("Stop program finished succesfully.",                                                           "")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(212, new AxoMessengerTextItem("Stop program restored.",                                                                       "")),
 
+                //  General alarm
+                new KeyValuePair<ulong, AxoMessengerTextItem>(700, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `hwId` has invalid value in `Run` method!"                                                                      ,"Check the call of the `Run` method, if the `hwId` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(702, new AxoMessengerTextItem("Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090)."        ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(703, new AxoMessengerTextItem("Hw configuration error. Value of _hwIdDI_64_bytes is zero."                                                                    ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(704, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(705, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(706, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(707, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 1."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(708, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(709, new AxoMessengerTextItem("Hw configuration error. Value of _hwIdDO_64_bytes is zero."                                                                    ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(710, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(711, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(712, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(713, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 2."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(714, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2."               ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(700, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!",                                  "Check the call of the `Run` method, if the `parent` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `hwIdDI_64_bytes` has invalid value in `Run` method!",                          "Check the call of the `Run` method, if the `hwIdDI_64_bytes` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(702, new AxoMessengerTextItem("Input variable `hwIdDO_64_bytes` has invalid value in `Run` method!",                          "Check the call of the `Run` method, if the `hwIdDO_64_bytes` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(830, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(831, new AxoMessengerTextItem("Input variable `hwId` has invalid value in `Run` method!"                                                                      ,"Check the call of the `Run` method, if the `hwId` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(832, new AxoMessengerTextItem("Input variable `hwIdDI_64_bytes` has invalid value in `Run` method!"                                                           ,"Check the call of the `Run` method, if the `hwIdDI_64_bytes` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(833, new AxoMessengerTextItem("Input variable `hwIdDO_64_bytes` has invalid value in `Run` method!"                                                           ,"Check the call of the `Run` method, if the `hwIdDO_64_bytes` parameter is assigned.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(703, new AxoMessengerTextItem("Error reading the hwIdDI_64_bytes in the UpdateInputs method!",                                "Check the value of the hwIdDI_64_bytes and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(861, new AxoMessengerTextItem("Error reading the hwIdDI_64_bytes!"                                                                                            ,"Check the value of the _hwIdDI_64_bytes and reacheability of the device!")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(704, new AxoMessengerTextItem("Error writing the hwIdDO_64_bytes in the UpdateOutputs method!",                               "Check the value of the hwIdDO_64_bytes and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(871, new AxoMessengerTextItem("Error writing the _hwIdDO_64_bytes!"                                                                                           ,"Check the value of the _hwIdDO_64_bytes and reacheability of the device!")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(705, new AxoMessengerTextItem("Emergency stop activated!",                                                                    "Check the status of the `Inputs.EmgStop` signal. Required value is 'FALSE'")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(706, new AxoMessengerTextItem("Safety circuit interupted!",                                                                   "Check the status of the `Inputs.SafetyOk` signal.Required value is 'TRUE'")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(705, new AxoMessengerTextItem("Program error active!",                                                                        "Check the status of the `Inputs.ProgExecError` signal. Required value is 'FALSE'")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(881, new AxoMessengerTextItem("Emergency stop activated!"                                                                                                     ,"Check the status of the `Inputs.EmgStop` signal. Required value is 'FALSE'")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(882, new AxoMessengerTextItem("Safety circuit interupted!"                                                                                                    ,"Check the status of the `Inputs.SafetyOk` signal.Required value is 'TRUE'")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(883, new AxoMessengerTextItem("Program error active!"                                                                                                         ,"Check the status of the `Inputs.ProgExecError` signal. Required value is 'FALSE'")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(800, new AxoMessengerTextItem("Start at main finished with error!",                                                           "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(801, new AxoMessengerTextItem("Start at main was aborted, while not yet completed!",                                          "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(810, new AxoMessengerTextItem("Start motors and program finished with error!",                                                "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(811, new AxoMessengerTextItem("Start motors and program was aborted, while not yet completed!",                               "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(820, new AxoMessengerTextItem("Start motors program and movements finished with error!",                                      "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(821, new AxoMessengerTextItem("Start motors program and movements was aborted, while not yet completed!",                     "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(840, new AxoMessengerTextItem("Start motors finished with error!",                                                            "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(841, new AxoMessengerTextItem("Start motors was aborted, while not yet completed!",                                           "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(850, new AxoMessengerTextItem("Start movements finished with error!",                                                         "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(851, new AxoMessengerTextItem("Start movements was aborted, while not yet completed!",                                        "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(870, new AxoMessengerTextItem("Start program finished with error!",                                                           "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(871, new AxoMessengerTextItem("Start program was aborted, while not yet completed!",                                          "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(880, new AxoMessengerTextItem("Stop motors finished with error!",                                                             "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(881, new AxoMessengerTextItem("Stop motors was aborted, while not yet completed!",                                            "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(890, new AxoMessengerTextItem("Stop movements and program finished with error!",                                              "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(891, new AxoMessengerTextItem("Stop movements and program was aborted, while not yet completed!",                             "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(900, new AxoMessengerTextItem("Stop movements finished with error!",                                                          "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(901, new AxoMessengerTextItem("Stop movements was aborted, while not yet completed!",                                         "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(910, new AxoMessengerTextItem("Stop program finished with error!",                                                            "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(911, new AxoMessengerTextItem("Stop program was aborted, while not yet completed!",                                           "Check the details.")),
-
+                new KeyValuePair<ulong, AxoMessengerTextItem>(900, new AxoMessengerTextItem("Start at main finished with error!"                                                                                            ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(901, new AxoMessengerTextItem("Start at main was aborted, while not yet completed!"                                                                           ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(910, new AxoMessengerTextItem("Start motors and program finished with error!"                                                                                 ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(911, new AxoMessengerTextItem("Start motors and program was aborted, while not yet completed!"                                                                ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(920, new AxoMessengerTextItem("Start motors program and movements finished with error!"                                                                       ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(921, new AxoMessengerTextItem("Start motors program and movements was aborted, while not yet completed!"                                                      ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(940, new AxoMessengerTextItem("Start motors finished with error!"                                                                                             ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(941, new AxoMessengerTextItem("Start motors was aborted, while not yet completed!"                                                                            ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(950, new AxoMessengerTextItem("Start movements finished with error!"                                                                                          ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(951, new AxoMessengerTextItem("Start movements was aborted, while not yet completed!"                                                                         ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(970, new AxoMessengerTextItem("Start program finished with error!"                                                                                            ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(971, new AxoMessengerTextItem("Start program was aborted, while not yet completed!"                                                                           ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(980, new AxoMessengerTextItem("Stop motors finished with error!"                                                                                              ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(981, new AxoMessengerTextItem("Stop motors was aborted, while not yet completed!"                                                                             ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(990, new AxoMessengerTextItem("Stop movements and program finished with error!"                                                                               ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(991, new AxoMessengerTextItem("Stop movements and program was aborted, while not yet completed!"                                                              ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(900, new AxoMessengerTextItem("Stop movements finished with error!"                                                                                           ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1001, new AxoMessengerTextItem("Stop movements was aborted, while not yet completed!"                                                                         ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1010, new AxoMessengerTextItem("Stop program finished with error!"                                                                                            ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1011, new AxoMessengerTextItem("Stop program was aborted, while not yet completed!"                                                                           ,"Check the details.")),
 
         };
 
@@ -117,6 +134,7 @@ namespace AXOpen.Components.Abb.Robotics
             List<KeyValuePair<ulong, AxoMessengerTextItem>> messengerTextList = new List<KeyValuePair<ulong, AxoMessengerTextItem>>
             {
                 new KeyValuePair<ulong, AxoMessengerTextItem>(0,    new AxoMessengerTextItem("  ", "  ")),
+
                 new KeyValuePair<ulong, AxoMessengerTextItem>(600,  new AxoMessengerTextItem("Waiting for the signal Inputs.PpMoved to be set!",                                                                                        "Check the status of the `Inputs.PpMoved` signal.")),
 
 

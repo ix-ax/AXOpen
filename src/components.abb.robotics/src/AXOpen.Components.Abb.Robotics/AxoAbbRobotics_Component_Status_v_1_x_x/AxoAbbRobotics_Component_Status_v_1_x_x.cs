@@ -71,14 +71,57 @@ namespace AXOpen.Components.Abb.Robotics
                     errorDescriptionDict.Add(692,  "Waiting for the signal Inputs.MoveInactive to be set!");                                                                                
                     errorDescriptionDict.Add(693,  "Waiting for the signal Inputs.CycleOn to be reseted!");                                                                                 
 
-                    errorDescriptionDict.Add(700, "Error: Parent has NULL reference!");
-                    errorDescriptionDict.Add(701, "Input variable `hwIdDI_64_bytes` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(702, "Input variable `hwIdDO_64_bytes` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(703, "Error reading the hwIdDI_64_bytes in the UpdateInputs method!");
-                    errorDescriptionDict.Add(704, "Error writing the hwIdDO_64_bytes in the UpdateOutputs method!");
-                    errorDescriptionDict.Add(705, "Emergency stop active!");
-                    errorDescriptionDict.Add(706, "Safety Error !");
-                    errorDescriptionDict.Add(707, "Program execution error!");
+                    //  General alarm
+                    errorDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!");
+                    errorDescriptionDict.Add(701, "Input variable `hwId` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(702, "Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090).");
+                    errorDescriptionDict.Add(703, "Hw configuration error. Value of _hwIdDI_64_bytes is zero.");
+                    errorDescriptionDict.Add(704, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1.");
+                    errorDescriptionDict.Add(705, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1.");
+                    errorDescriptionDict.Add(706, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1.");
+                    errorDescriptionDict.Add(707, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 1.");
+                    errorDescriptionDict.Add(708, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1.");
+                    errorDescriptionDict.Add(709, "Hw configuration error. Value of _hwIdDO_64_bytes is zero.");
+                    errorDescriptionDict.Add(710, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2.");
+                    errorDescriptionDict.Add(711, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2.");
+                    errorDescriptionDict.Add(712, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2.");
+                    errorDescriptionDict.Add(713, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 2.");
+                    errorDescriptionDict.Add(714, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2.");
+
+                    errorDescriptionDict.Add(830, "Input variable `parent` has NULL reference in `Run` method!");
+                    errorDescriptionDict.Add(831, "Input variable `hwId` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(832, "Input variable `hwIdDI_64_bytes` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(833, "Input variable `hwIdDO_64_bytes` has invalid value in `Run` method!");
+
+                    errorDescriptionDict.Add(861, "Error reading the hwIdDI_64_bytes!");
+
+                    errorDescriptionDict.Add(871, "Error writing the _hwIdDO_64_bytes!");
+
+                    errorDescriptionDict.Add(881, "Emergency stop activated!");
+                    errorDescriptionDict.Add(882, "Safety circuit interupted!");
+                    errorDescriptionDict.Add(883, "Program error active!");
+
+                    errorDescriptionDict.Add(900, "Start at main finished with error!");
+                    errorDescriptionDict.Add(901, "Start at main was aborted, while not yet completed!");
+                    errorDescriptionDict.Add(910, "Start motors and program finished with error!");
+                    errorDescriptionDict.Add(911, "Start motors and program was aborted, while not yet completed!");
+                    errorDescriptionDict.Add(920, "Start motors program and movements finished with error!");
+                    errorDescriptionDict.Add(921, "Start motors program and movements was aborted, while not yet completed!");
+                    errorDescriptionDict.Add(940, "Start motors finished with error!");
+                    errorDescriptionDict.Add(941, "Start motors was aborted, while not yet completed!");
+                    errorDescriptionDict.Add(950, "Start movements finished with error!");
+                    errorDescriptionDict.Add(951, "Start movements was aborted, while not yet completed!");
+                    errorDescriptionDict.Add(970, "Start program finished with error!");
+                    errorDescriptionDict.Add(971, "Start program was aborted, while not yet completed!");
+                    errorDescriptionDict.Add(980, "Stop motors finished with error!");
+                    errorDescriptionDict.Add(981, "Stop motors was aborted, while not yet completed!");
+                    errorDescriptionDict.Add(990, "Stop movements and program finished with error!");
+                    errorDescriptionDict.Add(991, "Stop movements and program was aborted, while not yet completed!");
+                    errorDescriptionDict.Add(900, "Stop movements finished with error!");
+                    errorDescriptionDict.Add(1001, "Stop movements was aborted, while not yet completed!");
+                    errorDescriptionDict.Add(1010, "Stop program finished with error!");
+                    errorDescriptionDict.Add(1011, "Stop program was aborted, while not yet completed!");
+
 
                 }
                 string errorDescription = "   ";
@@ -268,26 +311,26 @@ namespace AXOpen.Components.Abb.Robotics
                     actionDescriptionDict.Add(211, "Stop program finished succesfully");
                     actionDescriptionDict.Add(212, "Stop program restored.");
 
-                    actionDescriptionDict.Add(800, "Start at main finished with error!");
-                    actionDescriptionDict.Add(801, "Start at main was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(810, "Start motors and program finished with error!");
-                    actionDescriptionDict.Add(811, "Start motors and program was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(820, "Start motors program and movements finished with error!");
-                    actionDescriptionDict.Add(821, "Start motors program and movements was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(840, "Start motors finished with error!");
-                    actionDescriptionDict.Add(841, "Start motors was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(850, "Start movements finished with error!");
-                    actionDescriptionDict.Add(851, "Start movements was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(870, "Start program finished with error!");
-                    actionDescriptionDict.Add(871, "Start program was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(880, "Stop motors finished with error!");
-                    actionDescriptionDict.Add(881, "Stop motors was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(890, "Stop movements and program finished with error!");
-                    actionDescriptionDict.Add(891, "Stop movements and program was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(900, "Start at main finished with error!");
+                    actionDescriptionDict.Add(901, "Start at main was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(910, "Start motors and program finished with error!");
+                    actionDescriptionDict.Add(911, "Start motors and program was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(920, "Start motors program and movements finished with error!");
+                    actionDescriptionDict.Add(921, "Start motors program and movements was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(940, "Start motors finished with error!");
+                    actionDescriptionDict.Add(941, "Start motors was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(950, "Start movements finished with error!");
+                    actionDescriptionDict.Add(951, "Start movements was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(970, "Start program finished with error!");
+                    actionDescriptionDict.Add(971, "Start program was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(980, "Stop motors finished with error!");
+                    actionDescriptionDict.Add(981, "Stop motors was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(990, "Stop movements and program finished with error!");
+                    actionDescriptionDict.Add(991, "Stop movements and program was aborted, while not yet completed!");
                     actionDescriptionDict.Add(900, "Stop movements finished with error!");
-                    actionDescriptionDict.Add(901, "Stop movements was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(910, "Stop program finished with error!");
-                    actionDescriptionDict.Add(911, "Stop program was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(1001, "Stop movements was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(1010, "Stop program finished with error!");
+                    actionDescriptionDict.Add(1011, "Stop program was aborted, while not yet completed!");
 
 
                 }
