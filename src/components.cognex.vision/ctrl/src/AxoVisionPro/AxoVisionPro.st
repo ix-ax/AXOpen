@@ -165,6 +165,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
         END_VAR
 
         // Temporary workaround due to hwc station number issue
+        {attribute 'obsolete' := 'This method is(wiil be) deprecated after releasing hwc3.1.0. Use Run(parent,hwID,CameraNo) instead.'}
         METHOD PUBLIC Run
             VAR_INPUT
                 parent                      : IAxoObject;
