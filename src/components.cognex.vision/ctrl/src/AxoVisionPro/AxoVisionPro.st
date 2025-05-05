@@ -164,6 +164,54 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             _sendDataLength         :   UINT;
         END_VAR
 
+        // Temporary workaround due to hwc station number issue
+        METHOD PUBLIC Run
+            VAR_INPUT
+                parent                      : IAxoObject;
+                hwID                        :   WORD;
+                hwID_SystemControl          :   WORD;
+                hwID_Engine_Control_1       :   WORD;
+                hwID_Engine_Control_2       :   WORD;
+                hwID_Engine_Control_3       :   WORD;
+                hwID_Engine_Control_4       :   WORD;
+                hwID_User_Data_240_bytes_1  :   WORD;
+                hwID_User_Data_240_bytes_2  :   WORD;
+                hwID_User_Data_240_bytes_3  :   WORD;
+                hwID_User_Data_240_bytes_4  :   WORD;
+                hwID_User_Data_240_bytes_5  :   WORD;
+                hwID_User_Data_64_bytes_1   :   WORD;
+                hwID_Results_240_bytes_1    :   WORD;
+                hwID_Results_240_bytes_2    :   WORD;
+                hwID_Results_240_bytes_3    :   WORD;
+                hwID_Results_240_bytes_4    :   WORD;
+                hwID_Results_240_bytes_5    :   WORD;
+                hwID_Results_64_bytes_1     :   WORD;
+                CameraNo                    :   UINT;
+            END_VAR
+
+            _hwID                           :=  hwID;
+            _hwID_SystemControl             :=  hwID_SystemControl;
+            _hwID_Engine_Control_1          :=  hwID_Engine_Control_1;
+            _hwID_Engine_Control_2          :=  hwID_Engine_Control_2;
+            _hwID_Engine_Control_3          :=  hwID_Engine_Control_3;
+            _hwID_Engine_Control_4          :=  hwID_Engine_Control_4;
+            _hwID_User_Data_240_bytes_1     :=  hwID_User_Data_240_bytes_1;
+            _hwID_User_Data_240_bytes_2     :=  hwID_User_Data_240_bytes_2;
+            _hwID_User_Data_240_bytes_3     :=  hwID_User_Data_240_bytes_3;
+            _hwID_User_Data_240_bytes_4     :=  hwID_User_Data_240_bytes_4;
+            _hwID_User_Data_240_bytes_5     :=  hwID_User_Data_240_bytes_5;
+            _hwID_User_Data_64_bytes_1      :=  hwID_User_Data_64_bytes_1;
+            _hwID_Results_240_bytes_1       :=  hwID_Results_240_bytes_1;
+            _hwID_Results_240_bytes_2       :=  hwID_Results_240_bytes_2;
+            _hwID_Results_240_bytes_3       :=  hwID_Results_240_bytes_3;
+            _hwID_Results_240_bytes_4       :=  hwID_Results_240_bytes_4;
+            _hwID_Results_240_bytes_5       :=  hwID_Results_240_bytes_5;
+            _hwID_Results_64_bytes_1        :=  hwID_Results_64_bytes_1;
+
+            _initHwCheckDone    :=  TRUE;
+            THIS.Run(parent,hwID,CameraNo);
+        END_METHOD
+
         ///<summary>
         /// Runs tasks and logic of this component.
         /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
