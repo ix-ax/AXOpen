@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Linq.Expressions;
-    using System.Reflection.Metadata.Ecma335;
 
     public class PredicateContainer
     {
@@ -98,7 +97,7 @@
 
                 try
                 {
-                    memberExpression = ExpressionHelper.GetMemberExpression(settings.MemberName, pocoType);
+                    memberExpression = PropertyHelper.GetMemberExpression(settings.MemberName, pocoType);
                 }
                 catch (Exception ex)
                 {

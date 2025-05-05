@@ -7,6 +7,7 @@ using AXOpen.Base.Data;
 using AXOpen.Data;
 using System.Linq.Expressions;
 using AXOpen.Base.Data.Query;
+using AXOpen.Base;
 
 namespace AXOpen.Data.MongoDb
 {
@@ -222,31 +223,61 @@ namespace AXOpen.Data.MongoDb
             return sortDefinition;
         }
 
-        protected FilterDefinition<T> CreteFilterDefinition(List<Expression<Func<T, bool>>> predicates)
+        protected FilterDefinition<T> CreteFilterDefinition(List<Expression<Func<T, bool>>> predicates, List<string> ids = null)
         {
-            FilterDefinition<T> filter = Builders<T>.Filter.Empty;
+            FilterDefinition<T> filter;
 
-            if (predicates != null && predicates.Any())
+            if (ids == null)
             {
-                // Each predicate is now an Expression<Func<T, bool>>, which is what Filter.Where expects.
-                var filters = predicates.Select(predicate => Builders<T>.Filter.Where(predicate));
-                filter = Builders<T>.Filter.And(filters);
+                filter = Builders<T>.Filter.Empty;
+
+                if (predicates != null && predicates.Any())
+                {
+                    // Each predicate is now an Expression<Func<T, bool>>, which is what Filter.Where expects.
+                    var filters = predicates.Select(predicate => Builders<T>.Filter.Where(predicate));
+                    filter = Builders<T>.Filter.And(filters);
+                }
+            }
+            else
+            {
+                // Start with the ID filter
+                var idFilter = Builders<T>.Filter.In(p => p.DataEntityId, ids);
+
+                // Default filter
+                filter = idFilter;
+
+                // Add additional filters from predicates
+                if (predicates != null && predicates.Any())
+                {
+                    var predicateFilters = predicates.Select(predicate => Builders<T>.Filter.Where(predicate));
+
+                    // Combine all filters: idFilter + predicates
+                    filter = Builders<T>.Filter.And(idFilter, Builders<T>.Filter.And(predicateFilters));
+                }
             }
 
             return filter;
         }
 
-        protected override IEnumerable<T> GetRecordsNvi(
-            PredicateContainer predicates,
-            int limit,
-            int skip
-            )
+        protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates)
         {
             SortDefinition<T> sortDefinition = CreteSortDefinition(predicates.GetSorting<T>());
 
             FilterDefinition<T> filter = CreteFilterDefinition(predicates.GetPredicates<T>());
 
-            // 3. Execute the query with filtering, sorting, skipping, and limiting.
+            var results = collection
+                .Find(filter)
+                .Sort(sortDefinition)
+                .ToList();
+
+            return results;
+        }
+        protected override IEnumerable<T> GetRecordsNvi(PredicateContainer predicates, int limit, int skip)
+        {
+            SortDefinition<T> sortDefinition = CreteSortDefinition(predicates.GetSorting<T>());
+
+            FilterDefinition<T> filter = CreteFilterDefinition(predicates.GetPredicates<T>());
+
             var results = collection
                 .Find(filter)
                 .Sort(sortDefinition)
@@ -266,7 +297,7 @@ namespace AXOpen.Data.MongoDb
             return this.LastFragmentQueryCount;
         }
 
-        protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids)
+        protected override IEnumerable<T> GetRecordsNvi(IEnumerable<string> ids, PredicateContainer sortingPredicates = null)
         {
             if (ids == null || !ids.Any())
             {
@@ -275,15 +306,23 @@ namespace AXOpen.Data.MongoDb
 
             var filter = Builders<T>.Filter.In(p => p.DataEntityId, ids);
 
-            return collection.Find(filter).ToList();
+            if (sortingPredicates != null)
+            {
+                SortDefinition<T> sortDefinition = CreteSortDefinition(sortingPredicates.GetSorting<T>());
+                return collection.Find(filter).Sort(sortDefinition).ToList();
+            }
+            else
+            {
+                return collection.Find(filter).ToList();
+            }
         }
 
-        protected override IEnumerable<string> GetEntityIdsNvi(
-            PredicateContainer predicates
-            )
+        protected override IEnumerable<string> GetEntityIdsNvi(PredicateContainer predicates, List<string> ids = null)
         {
+
+            FilterDefinition<T> filter = CreteFilterDefinition(predicates.GetPredicates<T>(), ids);
+
             SortDefinition<T> sortDefinition = CreteSortDefinition(predicates.GetSorting<T>());
-            FilterDefinition<T> filter = CreteFilterDefinition(predicates.GetPredicates<T>());
 
             // 3. Execute the query with filtering, sorting, skipping, limiting, and projection.
             var results = collection

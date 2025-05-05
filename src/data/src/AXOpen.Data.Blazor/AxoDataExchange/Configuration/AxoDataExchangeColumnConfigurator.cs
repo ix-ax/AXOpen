@@ -4,6 +4,8 @@
     using System;
     using System.Linq.Expressions;
     using System.Collections.Generic;
+    using AXOpen.Base;
+    using AXOpen.Base.Data;
 
     public class AxoDataExchangeColumnConfigurator<T>
     {
@@ -20,7 +22,7 @@
             bool clickEnabled,
             Type templateType)
         {
-            var memberName = GetMemberName(bindingValuePath);
+            var memberName = PropertyHelper.GetMemberName<T>(bindingValuePath);
             _config.Collumns.Add(new ColumnDataContent
             {
                 ColumnName = columnName,
@@ -40,7 +42,7 @@
 
         public AxoDataExchangeColumnConfigurator<T> AddSorting(Expression<Func<T, object>> sortingExpression)
         {
-            var memberName = GetMemberName(sortingExpression);
+            var memberName = PropertyHelper.GetMemberName<T>(sortingExpression);
             _config.SortingExpressions.Add(memberName);
             return this;
         }
@@ -49,38 +51,6 @@
         {
             _config.SortingExpressions.Add(memberExpression);
             return this;
-        }
-
-        private string GetMemberName(Expression<Func<T, object>> expression)
-        {
-            var memberExpression = this.GetMemberExpression(expression.Body);
-
-            if (memberExpression == null)
-                throw new InvalidOperationException("Invalid expression");
-
-            var memberNames = new List<string>();
-            while (memberExpression != null)
-            {
-                memberNames.Insert(0, memberExpression.Member.Name);
-                memberExpression = memberExpression.Expression as MemberExpression;
-            }
-
-            return string.Join(".", memberNames);
-        }
-
-        private MemberExpression GetMemberExpression(Expression expression)
-        {
-            if (expression is MemberExpression memberExpression)
-            {
-                return memberExpression;
-            }
-
-            if (expression is UnaryExpression unaryExpression && unaryExpression.Operand is MemberExpression operandExpression)
-            {
-                return operandExpression;
-            }
-
-            return null;
         }
     }
 }

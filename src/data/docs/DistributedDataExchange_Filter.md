@@ -20,3 +20,7 @@ The next step is to **intersect** these results across the fragments. The outcom
 
 If you apply an additional filter within a specific fragment, the injected `EntityIds` will be intersected again with the previous result — refining the dataset further.
 
+---
+# 🔧 Modifying List of Filtered Symbols
+
+[!include[](PlainSymbolBuilder.md)]

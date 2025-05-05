@@ -164,7 +164,7 @@ namespace AXOpen.Data
             throw new NotSupportedException();
         }
 
-        public IEnumerable<string> GetEntityIds(PredicateContainer predicates)
+        public IEnumerable<string> GetEntityIds(PredicateContainer predicates, List<string> ids = null)
         {
             throw new NotSupportedException();
         }
@@ -174,7 +174,7 @@ namespace AXOpen.Data
             throw new NotSupportedException();
         }
 
-        public IEnumerable<IBrowsableDataObject> GetRecords(IEnumerable<string> identifiers)
+        public IEnumerable<IBrowsableDataObject> GetRecords(IEnumerable<string> identifiers, PredicateContainer sortingPredicates =  null)
         {
             throw new NotSupportedException();
         }

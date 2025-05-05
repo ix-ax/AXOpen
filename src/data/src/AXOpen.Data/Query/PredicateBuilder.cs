@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq.Expressions;
+    using AXOpen.Base;
     using Base.Data.Query;
 
     public static class PredicateBuilder
@@ -12,7 +13,7 @@
             var parameter = Expression.Parameter(targetType, "p");
 
             // Get Property Expression, supporting nested properties
-            var property = ExpressionHelper.GetNestedPropertyExpression(parameter, propertyName);
+            var property = PropertyHelper.GetNestedPropertyExpression(parameter, propertyName);
 
             if (property == null)
                 throw new ArgumentException($"Property '{propertyName}' not found on type '{targetType.Name}'.");

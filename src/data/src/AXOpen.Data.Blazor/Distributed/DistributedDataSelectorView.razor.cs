@@ -21,6 +21,9 @@ namespace AXOpen.Data
         [Parameter] public PredicateContainer? InjectedPredicateContainer { set; get; }
 
         [Parameter] public Action<string>? OnDataSend { get; set; }
+        [Parameter] public bool EnableCurrentView { get; set; }
+        [Parameter] public bool DisableUserRoles { get; set; }
+        [Parameter] public int MinPaginationLimit { get; set; } = 25;
 
 
         [Inject]
@@ -59,8 +62,9 @@ namespace AXOpen.Data
 
                 if (DataFragments != null)
                 {
-                    DistributedVM = new DistributedDataSelectorViewModel(AlertService, Authentication, DistributedExchangeService, GroupName, ConfigSuffix, InjectedPredicateContainer);
+                    DistributedVM = new DistributedDataSelectorViewModel(AlertService, Authentication, DistributedExchangeService, GroupName, InjectedPredicateContainer);
 
+                    DistributedVM.FilteredPageLimit = this.MinPaginationLimit;
 
                     await DistributedVM.ReadAllCurrentEntityIds();
                     await DistributedVM.FillObservableRecordsAsync();
@@ -71,7 +75,9 @@ namespace AXOpen.Data
                         this.SelectedEntity = DistributedVM.MainExchange.GetRecords(id, 1, 0, eSearchMode.Exact, "", false).First();
                     }
 
-                    ExchangeConfig = ExchangeConfigService.GetConfigution(DistributedVM.MainExchange);
+                    ConfigSuffix = string.IsNullOrEmpty(ConfigSuffix) ? string.Empty : ConfigSuffix;
+
+                    ExchangeConfig = ExchangeConfigService.GetConfigution(DistributedVM.MainExchange, ConfigSuffix);
                 }
             }
             else

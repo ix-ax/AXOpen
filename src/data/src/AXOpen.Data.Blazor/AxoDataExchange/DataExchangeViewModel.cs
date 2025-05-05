@@ -185,7 +185,6 @@ namespace AXOpen.Data
         public PredicateContainer InjectedPredicateContainer { get; set; }
 
         private List<string> EntityIdsInjected = new();
-        internal List<string> EntityIdsLastQuery = new();
         internal List<string> EntityIdsIntersected = new();
         public bool ReadAllEntityIdsForConcatQuery { set; get; }
 
@@ -218,7 +217,7 @@ namespace AXOpen.Data
 
         public virtual async Task Filter()
         {
-            Page = 0;
+            Page = 0; // reset page => filtered count is unknown
 
             await FillObservableRecordsAsync(BuidDefaultPredicates());
         }
@@ -249,6 +248,11 @@ namespace AXOpen.Data
 
             LastFilter = predicates;
 
+            if (EntityIdsInjected.Count > 0 && Page * Limit >= EntityIdsInjected.Count) // is over limit => set last page
+            {
+                Page = (EntityIdsInjected.Count - 1) / Limit;
+            }
+
             Filter(predicates, Limit, Page * Limit);
         }
 
@@ -261,27 +265,23 @@ namespace AXOpen.Data
 
                 if (EntityIdsInjected != null && EntityIdsInjected.Count > 0)
                 {
-                    this.EntityIdsLastQuery.Clear();
                     this.EntityIdsIntersected.Clear();
 
-                    EntityIdsLastQuery.AddRange(DataExchange.GetEntityIds(predicates).ToList());
-                    EntityIdsIntersected.AddRange(EntityIdsInjected.Intersect(EntityIdsLastQuery).ToList());
+                    EntityIdsIntersected.AddRange(DataExchange.GetEntityIds(predicates, EntityIdsInjected).ToList());
 
                     this.FilteredCount = EntityIdsIntersected.Count;
 
                     var toFind = EntityIdsIntersected.Skip(skip).Take(limit).ToList();
 
-                    filtered = DataExchange.GetRecords(toFind).ToList();
+                    filtered = DataExchange.GetRecords(toFind, predicates).ToList();
                 }
                 else
                 {
-                    this.EntityIdsLastQuery.Clear();
                     this.EntityIdsIntersected.Clear();
 
                     if (this.ReadAllEntityIdsForConcatQuery)
                     {
                         var ids = DataExchange.GetEntityIds(predicates).ToList();
-                        EntityIdsLastQuery.AddRange(ids);
                         EntityIdsIntersected.AddRange(ids);
                     }
 
