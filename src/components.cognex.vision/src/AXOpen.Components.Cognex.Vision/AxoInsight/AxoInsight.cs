@@ -139,6 +139,15 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 new KeyValuePair<ulong, AxoMessengerTextItem>(850, new AxoMessengerTextItem("SoftEvent finished with error!",                                               "Check the details.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(851, new AxoMessengerTextItem("SoftEvent was aborted, while not yet completed!",                              "Check the details.")),
 
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1301, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 1. Expected module: 'Acquisition_Control'."                  ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1302, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 2. Expected module: 'Acquisition_Status'."                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1303, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 3. Expected module: 'Inspection_Control'."                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1304, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 4. Expected module: 'Inspection_Status'."                    ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1305, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 5. Expected module: 'Command_Control'."                      ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1306, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 6. Expected module: 'SoftEvent_Control'."                    ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1307, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 7. Allowed modules: 'User_Data-16_bytes,User_Data-32_bytes,User_Data-64_bytes,User_Data-128_bytes,User_Data-250_bytes'."       ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1308, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 8. Allowed modules: 'Result_Data-16_bytes,Result_Data-32_bytes,Result_Data-64_bytes,Result_Data-128_bytes,Result_Data-246_bytes'."       ,"Check the hardware configuration.")),
+
             };
 
             Messenger.DotNetMessengerTextList = messengerTextList;
@@ -364,6 +373,16 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     errorDescriptionDict.Add(841, "Change job by number was aborted, while not yet completed!");
                     errorDescriptionDict.Add(850, "SoftEvent finished with error!");
                     errorDescriptionDict.Add(851, "SoftEvent was aborted, while not yet completed!");
+
+                    errorDescriptionDict.Add(1301, "Hardware configuration error: Unexpected module detected in Slot 1. Expected module: 'Acquisition_Control'.");
+                    errorDescriptionDict.Add(1302, "Hardware configuration error: Unexpected module detected in Slot 2. Expected module: 'Acquisition_Status'.");
+                    errorDescriptionDict.Add(1303, "Hardware configuration error: Unexpected module detected in Slot 3. Expected module: 'Inspection_Control'.");
+                    errorDescriptionDict.Add(1304, "Hardware configuration error: Unexpected module detected in Slot 4. Expected module: 'Inspection_Status'.");
+                    errorDescriptionDict.Add(1305, "Hardware configuration error: Unexpected module detected in Slot 5. Expected module: 'Command_Control'.");
+                    errorDescriptionDict.Add(1306, "Hardware configuration error: Unexpected module detected in Slot 6. Expected module: 'SoftEvent_Control'.");
+                    errorDescriptionDict.Add(1307, "Hardware configuration error: Unexpected module detected in Slot 7. Allowed modules: 'User_Data-16_bytes,User_Data-32_bytes,User_Data-64_bytes,User_Data-128_bytes,User_Data-254_bytes'.");
+                    errorDescriptionDict.Add(1308, "Hardware configuration error: Unexpected module detected in Slot 8. Allowed modules: 'Result_Data-16_bytes,Result_Data-32_bytes,Result_Data-64_bytes,Result_Data-128_bytes,Result_Data-250_bytes'.");
+
                 }
                 string errorDescription = "   ";
 

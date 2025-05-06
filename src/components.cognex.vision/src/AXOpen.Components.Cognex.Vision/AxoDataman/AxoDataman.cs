@@ -126,6 +126,14 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(820, new AxoMessengerTextItem("Continous reading finished with error!",                                       "Check the details.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(821, new AxoMessengerTextItem("Continous reading was aborted, while not yet completed!",                      "Check the details.")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1301, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 1. Expected module: 'Acquisition_Control' (GsdId=101)."      ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1302, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 2. Expected module: 'Acquisition_Status' (GsdId=201)."       ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1303, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 3. Expected module: 'Results_Control' (GsdId=102)."          ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1304, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 4. Expected module: 'Results_Status' (GsdId=202)."           ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1305, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 5. Expected module: 'Soft_Event_Control' (GsdId=105)."       ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1306, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 6. Allowed modules: 'User_Data-16_bytes,User_Data-32_bytes,User_Data-64_bytes,User_Data-128_bytes,User_Data-250_bytes' (GsdId=301,302,303,304,305)."       ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1307, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 7. Allowed modules: 'Result_Data-16_bytes,Result_Data-32_bytes,Result_Data-64_bytes,Result_Data-128_bytes,Result_Data-246_bytes' (GsdId=401,402,403,404,405)."       ,"Check the hardware configuration.")),
         };
 
             Messenger.DotNetMessengerTextList = messengerTextList;
@@ -299,6 +307,14 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
 
                     errorDescriptionDict.Add(820, "Continous reading finished with error!");
                     errorDescriptionDict.Add(821, "Continous reading was aborted, while not yet completed!");
+
+                    errorDescriptionDict.Add(1301, "Hardware configuration error: Unexpected module detected in Slot 1. Expected module: 'Acquisition_Control' (GsdId=101).");
+                    errorDescriptionDict.Add(1302, "Hardware configuration error: Unexpected module detected in Slot 2. Expected module: 'Acquisition_Status' (GsdId=201).");
+                    errorDescriptionDict.Add(1303, "Hardware configuration error: Unexpected module detected in Slot 3. Expected module: 'Results_Control' (GsdId=102).");
+                    errorDescriptionDict.Add(1304, "Hardware configuration error: Unexpected module detected in Slot 4. Expected module: 'Results_Status' (GsdId=202).");
+                    errorDescriptionDict.Add(1305, "Hardware configuration error: Unexpected module detected in Slot 5. Expected module: 'Soft_Event_Control' (GsdId=105).");
+                    errorDescriptionDict.Add(1306, "Hardware configuration error: Unexpected module detected in Slot 6. Allowed modules: 'User_Data-16_bytes,User_Data-32_bytes,User_Data-64_bytes,User_Data-128_bytes,User_Data-250_bytes' (GsdId=301,302,303,304,305).");
+                    errorDescriptionDict.Add(1307, "Hardware configuration error: Unexpected module detected in Slot 7. Allowed modules: 'Result_Data-16_bytes,Result_Data-32_bytes,Result_Data-64_bytes,Result_Data-128_bytes,Result_Data-246_bytes' (GsdId=401,402,403,404,405).");
 
                 }
                 string errorDescription = "   ";
