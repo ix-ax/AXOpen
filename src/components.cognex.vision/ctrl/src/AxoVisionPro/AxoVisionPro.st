@@ -224,7 +224,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 CameraNo    :   UINT;
             END_VAR
 			VAR_TEMP 
-                // ComponentName_temp : WString[50];
                 SeparatorPos : Int;
                 inputsAddress : UDInt;
                 inputsCount : UInt;

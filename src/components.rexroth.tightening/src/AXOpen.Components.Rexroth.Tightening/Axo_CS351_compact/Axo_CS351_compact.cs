@@ -309,33 +309,61 @@ namespace AXOpen.Components.Rexroth.Tightening
                 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1100, new AxoMessengerTextItem("Program number out of range!","Check the value of required program number.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1201, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_1!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1202, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_2!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1203, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_3!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1204, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_4!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1205, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_5!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1206, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_6!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1207, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_7!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1208, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_8!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1209, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_9!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1210, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_10!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1211, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_11!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1212, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_12!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1213, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_13!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1214, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_14!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1215, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_15!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1216, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_16!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1217, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_2_word_1!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1201, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_1!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1202, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_2!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1203, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_3!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1204, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_4!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1205, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_5!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1206, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_6!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1207, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_7!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1208, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_8!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1209, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_9!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1210, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_10!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1211, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_11!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1212, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_12!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1213, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_13!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1214, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_14!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1215, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_15!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1216, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_4_word_16!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1217, new AxoMessengerTextItem("Error reading the Axo_CS351_compact_Input_2_word_1!","Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1221, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_1!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1222, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_2!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1223, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_3!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1224, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_4!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1225, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_5!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1226, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_6!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1227, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_7!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1228, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_8!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1229, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_2_word_1!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1221, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_1!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1222, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_2!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1223, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_3!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1224, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_4!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1225, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_5!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1226, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_6!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1227, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_7!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1228, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_4_word_8!","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1229, new AxoMessengerTextItem("Error writing the Axo_CS351_compact_Output_2_word_1!","Check the hardware configuration.")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1301, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 1. Expected module: 'ID_MODULE_OUTPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1302, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 2. Expected module: 'ID_MODULE_OUTPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1303, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 3. Expected module: 'ID_MODULE_OUTPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1304, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 4. Expected module: 'ID_MODULE_OUTPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1305, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 5. Expected module: 'ID_MODULE_OUTPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1306, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 6. Expected module: 'ID_MODULE_OUTPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1307, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 7. Expected module: 'ID_MODULE_OUTPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1308, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 8. Expected module: 'ID_MODULE_OUTPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1309, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 9. Expected module: 'ID_MODULE_OUTPUT2W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1310, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 10. Expected module: 'ID_MODULE_INPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1311, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 11. Expected module: 'ID_MODULE_INPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1312, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 12. Expected module: 'ID_MODULE_INPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1313, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 13. Expected module: 'ID_MODULE_INPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1314, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 14. Expected module: 'ID_MODULE_INPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1315, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 15. Expected module: 'ID_MODULE_INPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1316, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 16. Expected module: 'ID_MODULE_INPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1317, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 17. Expected module: 'ID_MODULE_INPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1318, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 18. Expected module: 'ID_MODULE_INPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1319, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 19. Expected module: 'ID_MODULE_INPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1320, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 10. Expected module: 'ID_MODULE_INPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1321, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 21. Expected module: 'ID_MODULE_INPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1322, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 22. Expected module: 'ID_MODULE_INPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1323, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 23. Expected module: 'ID_MODULE_INPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1324, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 24. Expected module: 'ID_MODULE_INPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1325, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 25. Expected module: 'ID_MODULE_INPUT4W'.","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1326, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 26. Expected module: 'ID_MODULE_INPUT2W'.","Check the hardware configuration.")),
+
 
 
         };
@@ -1026,6 +1054,34 @@ namespace AXOpen.Components.Rexroth.Tightening
                     errorDescriptionDict.Add(1227, "Error writing the Axo_CS351_compact_Output_4_word_7!");
                     errorDescriptionDict.Add(1228, "Error writing the Axo_CS351_compact_Output_4_word_8!");
                     errorDescriptionDict.Add(1229, "Error writing the Axo_CS351_compact_Output_2_word_1!");
+
+
+                    errorDescriptionDict.Add(1301, "Hardware configuration error: Unexpected module detected in Slot 1. Expected module: 'ID_MODULE_OUTPUT4W'.");
+                    errorDescriptionDict.Add(1302, "Hardware configuration error: Unexpected module detected in Slot 2. Expected module: 'ID_MODULE_OUTPUT4W'.");
+                    errorDescriptionDict.Add(1303, "Hardware configuration error: Unexpected module detected in Slot 3. Expected module: 'ID_MODULE_OUTPUT4W'.");
+                    errorDescriptionDict.Add(1304, "Hardware configuration error: Unexpected module detected in Slot 4. Expected module: 'ID_MODULE_OUTPUT4W'.");
+                    errorDescriptionDict.Add(1305, "Hardware configuration error: Unexpected module detected in Slot 5. Expected module: 'ID_MODULE_OUTPUT4W'.");
+                    errorDescriptionDict.Add(1306, "Hardware configuration error: Unexpected module detected in Slot 6. Expected module: 'ID_MODULE_OUTPUT4W'.");
+                    errorDescriptionDict.Add(1307, "Hardware configuration error: Unexpected module detected in Slot 7. Expected module: 'ID_MODULE_OUTPUT4W'.");
+                    errorDescriptionDict.Add(1308, "Hardware configuration error: Unexpected module detected in Slot 8. Expected module: 'ID_MODULE_OUTPUT4W'.");
+                    errorDescriptionDict.Add(1309, "Hardware configuration error: Unexpected module detected in Slot 9. Expected module: 'ID_MODULE_OUTPUT2W'.");
+                    errorDescriptionDict.Add(1310, "Hardware configuration error: Unexpected module detected in Slot 10. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1311, "Hardware configuration error: Unexpected module detected in Slot 11. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1312, "Hardware configuration error: Unexpected module detected in Slot 12. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1313, "Hardware configuration error: Unexpected module detected in Slot 13. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1314, "Hardware configuration error: Unexpected module detected in Slot 14. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1315, "Hardware configuration error: Unexpected module detected in Slot 15. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1316, "Hardware configuration error: Unexpected module detected in Slot 16. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1317, "Hardware configuration error: Unexpected module detected in Slot 17. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1318, "Hardware configuration error: Unexpected module detected in Slot 18. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1319, "Hardware configuration error: Unexpected module detected in Slot 19. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1320, "Hardware configuration error: Unexpected module detected in Slot 10. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1321, "Hardware configuration error: Unexpected module detected in Slot 21. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1322, "Hardware configuration error: Unexpected module detected in Slot 22. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1323, "Hardware configuration error: Unexpected module detected in Slot 23. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1324, "Hardware configuration error: Unexpected module detected in Slot 24. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1325, "Hardware configuration error: Unexpected module detected in Slot 25. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1326, "Hardware configuration error: Unexpected module detected in Slot 26. Expected module: 'ID_MODULE_INPUT2W'.");
                 }
                 string errorDescription = "   ";
 
