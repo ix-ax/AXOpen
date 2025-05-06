@@ -124,6 +124,10 @@ namespace AXOpen.Components.Abb.Robotics
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1010, new AxoMessengerTextItem("Stop program finished with error!"                                                                                            ,"Check the details.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1011, new AxoMessengerTextItem("Stop program was aborted, while not yet completed!"                                                                           ,"Check the details.")),
 
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1301, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 1. Expected module with 64 input bytes (GsdId=1).","Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1302, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 2. Expected module with 64 output bytes (GsdId=2).","Check the hardware configuration.")),
+
+
         };
 
             Messenger.DotNetMessengerTextList = messengerTextList;

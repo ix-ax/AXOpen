@@ -24,6 +24,10 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             _hwIdDO_64_bytes        :   WORD;
 
             _initHwCheckDone        :   BOOL;
+            _inputsAddress          :   UDINT;   
+            _inputsCount            :   UINT;
+            _outputsAddress         :   UDINT;  
+            _outputsCount           :   UINT;             
         END_VAR
 
         VAR PUBLIC //HEADER
@@ -216,6 +220,12 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     RobotStatus.Error.Id := UINT#708;
                     RETURN;
                 END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdDI_64_bytes , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#64 THEN
+                    Messenger.Activate(UINT#1301,eAxoMessageCategory#Error);
+                    RobotStatus.Error.Id := UINT#1301;
+                    RETURN;
+                END_IF;
                 
                 //******************Slot 2*****************//
                 _geoAddr.Slot   :=  UINT#2;                                                            
@@ -250,6 +260,12 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 IF _retval = WORD#8097 THEN
                     Messenger.Activate(UINT#714,eAxoMessageCategory#Error);
                     RobotStatus.Error.Id := UINT#714;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdDO_64_bytes , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _outputsCount <> UINT#64 THEN
+                    Messenger.Activate(UINT#1302,eAxoMessageCategory#Error);
+                    RobotStatus.Error.Id := UINT#1302;
                     RETURN;
                 END_IF;
 

@@ -122,6 +122,8 @@ namespace AXOpen.Components.Abb.Robotics
                     errorDescriptionDict.Add(1010, "Stop program finished with error!");
                     errorDescriptionDict.Add(1011, "Stop program was aborted, while not yet completed!");
 
+                    errorDescriptionDict.Add(1301, "Hardware configuration error: Unexpected module detected in Slot 1. Expected module with 64 input bytes (GsdId=1).");
+                    errorDescriptionDict.Add(1302, "Hardware configuration error: Unexpected module detected in Slot 2. Expected module with 64 output bytes (GsdId=2).");
 
                 }
                 string errorDescription = "   ";
