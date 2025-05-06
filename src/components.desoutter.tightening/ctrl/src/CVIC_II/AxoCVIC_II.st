@@ -31,7 +31,18 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             _returnValue : WORD;
             _data_1 : ARRAY[0..0] OF BYTE;
             _data_2 : ARRAY[0..1] OF BYTE;
-            _data_4 : ARRAY[0..3] OF BYTE;            
+            _data_4 : ARRAY[0..3] OF BYTE;      
+            
+            _initHwCheckDone        :   BOOL;
+            _retval                 :   WORD;
+            _geoAddr                :   GeoAddr;
+            _outHwid                :   UINT;
+            _startAddress           :   UDINT;
+            _bytesCount             :   UINT;
+            _inputsAddress          :   UDINT;   
+            _inputsCount            :   UINT;
+            _outputsAddress         :   UDINT;  
+            _outputsCount           :   UINT; 
         END_VAR
 
         VAR PUBLIC  //HEADER
