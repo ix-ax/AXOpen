@@ -117,7 +117,7 @@ namespace AXOpen.Components.Abb.Robotics
                     errorDescriptionDict.Add(981, "Stop motors was aborted, while not yet completed!");
                     errorDescriptionDict.Add(990, "Stop movements and program finished with error!");
                     errorDescriptionDict.Add(991, "Stop movements and program was aborted, while not yet completed!");
-                    errorDescriptionDict.Add(900, "Stop movements finished with error!");
+                    errorDescriptionDict.Add(1000, "Stop movements finished with error!");
                     errorDescriptionDict.Add(1001, "Stop movements was aborted, while not yet completed!");
                     errorDescriptionDict.Add(1010, "Stop program finished with error!");
                     errorDescriptionDict.Add(1011, "Stop program was aborted, while not yet completed!");
@@ -329,7 +329,7 @@ namespace AXOpen.Components.Abb.Robotics
                     actionDescriptionDict.Add(981, "Stop motors was aborted, while not yet completed!");
                     actionDescriptionDict.Add(990, "Stop movements and program finished with error!");
                     actionDescriptionDict.Add(991, "Stop movements and program was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(900, "Stop movements finished with error!");
+                    actionDescriptionDict.Add(1000, "Stop movements finished with error!");
                     actionDescriptionDict.Add(1001, "Stop movements was aborted, while not yet completed!");
                     actionDescriptionDict.Add(1010, "Stop program finished with error!");
                     actionDescriptionDict.Add(1011, "Stop program was aborted, while not yet completed!");
