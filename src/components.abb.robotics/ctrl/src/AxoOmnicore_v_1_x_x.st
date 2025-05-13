@@ -299,7 +299,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             //***********UPDATE**INPUTS******************
             _retval := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdDI_64_bytes ,_data);
             IF _retval > WORD#0 THEN
-                Messenger.Activate(UINT#1201,_retval > WORD#0, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1201,eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1201;
                 RETURN;
             END_IF;
