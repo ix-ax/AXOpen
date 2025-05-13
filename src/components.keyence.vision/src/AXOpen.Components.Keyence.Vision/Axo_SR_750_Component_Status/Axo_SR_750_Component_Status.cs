@@ -218,49 +218,197 @@ namespace AXOpen.Components.Keyence.Vision
                     // General alarms
                     errorDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!");
                     errorDescriptionDict.Add(701, "Input variable `hwId` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(702, "Input variable `homeSensor` has NULL reference in `Run` method!");
-                    errorDescriptionDict.Add(703, "Input variable `workSensor` has NULL reference in `Run` method!");
-                    errorDescriptionDict.Add(704, "Input variable `moveHomeSignal` has NULL reference in `Run` method!");
-                    errorDescriptionDict.Add(705, "Input variable `moveWorkSignal` has NULL reference in `Run` method!");
+                    errorDescriptionDict.Add(702, "Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090).");
+                    errorDescriptionDict.Add(703, "Hw configuration error. Value of _hwIdHandshakeAndGeneralErrorStatus is zero.");
+                    errorDescriptionDict.Add(704, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1.");
+                    errorDescriptionDict.Add(705, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1.");
+                    errorDescriptionDict.Add(706, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1.");
+                    errorDescriptionDict.Add(707, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 1.");
+                    errorDescriptionDict.Add(708, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1.");
+                    errorDescriptionDict.Add(709, "Hw configuration error. Value of _hwIdBUSY_Status is zero.");
+                    errorDescriptionDict.Add(710, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2.");
+                    errorDescriptionDict.Add(711, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2.");
+                    errorDescriptionDict.Add(712, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2.");
+                    errorDescriptionDict.Add(713, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 2.");
+                    errorDescriptionDict.Add(714, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2.");
+                    errorDescriptionDict.Add(715, "Hw configuration error. Value of _hwIdCompletionStatus is zero.");
+                    errorDescriptionDict.Add(716, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 3.");
+                    errorDescriptionDict.Add(717, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 3.");
+                    errorDescriptionDict.Add(718, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 3.");
+                    errorDescriptionDict.Add(719, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 3.");
+                    errorDescriptionDict.Add(720, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 3.");
+                    errorDescriptionDict.Add(721, "Hw configuration error. Value of _hwIdErrorStatus is zero.");
+                    errorDescriptionDict.Add(722, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 4.");
+                    errorDescriptionDict.Add(723, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 4.");
+                    errorDescriptionDict.Add(724, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 4.");
+                    errorDescriptionDict.Add(725, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 4.");
+                    errorDescriptionDict.Add(726, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 4.");
+                    errorDescriptionDict.Add(727, "Hw configuration error. Value of _hwIdTerminalStatus is zero.");
+                    errorDescriptionDict.Add(728, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 5.");
+                    errorDescriptionDict.Add(729, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 5.");
+                    errorDescriptionDict.Add(730, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 5.");
+                    errorDescriptionDict.Add(731, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 5.");
+                    errorDescriptionDict.Add(732, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 5.");
+                    errorDescriptionDict.Add(733, "Hw configuration error. Value of _hwIdUnstableReadStatus is zero.");
+                    errorDescriptionDict.Add(734, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 6.");
+                    errorDescriptionDict.Add(735, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 6.");
+                    errorDescriptionDict.Add(736, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 6.");
+                    errorDescriptionDict.Add(737, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 6.");
+                    errorDescriptionDict.Add(738, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 6.");
+                    errorDescriptionDict.Add(739, "Hw configuration error. Value of _hwIdMatchingLevelAndTotalEvaluationGradeStatus is zero.");
+                    errorDescriptionDict.Add(740, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 7.");
+                    errorDescriptionDict.Add(741, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 7.");
+                    errorDescriptionDict.Add(742, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 7.");
+                    errorDescriptionDict.Add(743, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 7.");
+                    errorDescriptionDict.Add(744, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 7.");
+                    errorDescriptionDict.Add(745, "Hw configuration error. Value of _hwIdOperationalResultStatus is zero.");
+                    errorDescriptionDict.Add(746, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 8.");
+                    errorDescriptionDict.Add(747, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 8.");
+                    errorDescriptionDict.Add(748, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 8.");
+                    errorDescriptionDict.Add(749, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 8.");
+                    errorDescriptionDict.Add(750, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 8.");
+                    errorDescriptionDict.Add(751, "Hw configuration error. Value of _hwIdReadData is zero.");
+                    errorDescriptionDict.Add(752, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 9.");
+                    errorDescriptionDict.Add(753, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 9.");
+                    errorDescriptionDict.Add(754, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 9.");
+                    errorDescriptionDict.Add(755, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 9.");
+                    errorDescriptionDict.Add(756, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 9.");
+                    errorDescriptionDict.Add(757, "Hw configuration error. Value of _hwIdLatchAndErrorClearControl is zero.");
+                    errorDescriptionDict.Add(758, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 10.");
+                    errorDescriptionDict.Add(759, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 10.");
+                    errorDescriptionDict.Add(760, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 10.");
+                    errorDescriptionDict.Add(761, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 10.");
+                    errorDescriptionDict.Add(762, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 10.");
+                    errorDescriptionDict.Add(763, "Hw configuration error. Value of _hwIdOperationInstructionControl is zero.");
+                    errorDescriptionDict.Add(764, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 11.");
+                    errorDescriptionDict.Add(765, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 11.");
+                    errorDescriptionDict.Add(766, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 11.");
+                    errorDescriptionDict.Add(767, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 11.");
+                    errorDescriptionDict.Add(768, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 11.");
+                    errorDescriptionDict.Add(769, "Hw configuration error. Value of _hwIdCompletionClearControl is zero.");
+                    errorDescriptionDict.Add(770, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 12.");
+                    errorDescriptionDict.Add(771, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 12.");
+                    errorDescriptionDict.Add(772, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 12.");
+                    errorDescriptionDict.Add(773, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 12.");
+                    errorDescriptionDict.Add(774, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 12.");
+                    errorDescriptionDict.Add(775, "Hw configuration error. Value of _hwIdParameterBankNumber is zero.");
+                    errorDescriptionDict.Add(776, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 13.");
+                    errorDescriptionDict.Add(777, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 13.");
+                    errorDescriptionDict.Add(778, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 13.");
+                    errorDescriptionDict.Add(779, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 13.");
+                    errorDescriptionDict.Add(780, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 13.");
+                    errorDescriptionDict.Add(781, "Hw configuration error. Value of _hwIdUserData is zero.");
+                    errorDescriptionDict.Add(782, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 14.");
+                    errorDescriptionDict.Add(783, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 14.");
+                    errorDescriptionDict.Add(784, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 14.");
+                    errorDescriptionDict.Add(785, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 14.");
+                    errorDescriptionDict.Add(786, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 14.");
+
+                    errorDescriptionDict.Add(860, "Input variable `parent` has NULL reference in `Run` method!");
+                    errorDescriptionDict.Add(861, "Input variable `_hwID` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(862, "Input variable `_hwIdHandshakeAndGeneralErrorStatus` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(863, "Input variable `_hwIdBUSY_Status` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(864, "Input variable `_hwIdCompletionStatus` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(865, "Input variable `_hwIdErrorStatus` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(866, "Input variable `_hwIdTerminalStatus` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(867, "Input variable `_hwIdUnstableReadStatus` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(868, "Input variable `_hwIdMatchingLevelAndTotalEvaluationGradeStatus` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(869, "Input variable `_hwIdOperationalResultStatus` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(870, "Input variable `_hwIdReadData` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(871, "Input variable `_hwIdLatchAndErrorClearControl` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(872, "Input variable `_hwIdOperationInstructionControl` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(873, "Input variable `_hwIdCompletionClearControl` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(874, "Input variable `_hwIdParameterBankNumber` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(875, "Input variable `_hwIdUserData` has invalid value in `Run` method!");
+
+
                     //// Stop task
-                    //errorDescriptionDict.Add(800, "Stop task finished with error!");
-                    //errorDescriptionDict.Add(801, "Stop task was aborted, while not yet completed!");
+                    //errorDescriptionDict.Add(900, "Stop task finished with error!");
+                    //errorDescriptionDict.Add(901, "Stop task was aborted, while not yet completed!");
                     //// Move to home task
-                    //errorDescriptionDict.Add(810, "Move to home task finished with error!");
-                    //errorDescriptionDict.Add(811, "Move to home task was aborted, while not yet completed!");
+                    //errorDescriptionDict.Add(910, "Move to home task finished with error!");
+                    //errorDescriptionDict.Add(911, "Move to home task was aborted, while not yet completed!");
                     //// Move to work task
-                    //errorDescriptionDict.Add(820, "Move to work task finished with error!");
-                    //errorDescriptionDict.Add(821, "Move to work task was aborted, while not yet completed!");
+                    //errorDescriptionDict.Add(920, "Move to work task finished with error!");
+                    //errorDescriptionDict.Add(921, "Move to work task was aborted, while not yet completed!");
                     // ClearResultDataTask
-                    errorDescriptionDict.Add(830, "ClearResultDataTask finished with error!");
-                    errorDescriptionDict.Add(831, "ClearResultDataTask was aborted, while not yet completed!");
+                    errorDescriptionDict.Add(930, "ClearResultDataTask finished with error!");
+                    errorDescriptionDict.Add(931, "ClearResultDataTask was aborted, while not yet completed!");
                     //// TemplateTask_10steps_2
-                    //errorDescriptionDict.Add(840, "TemplateTask_10steps_2 finished with error!");
-                    //errorDescriptionDict.Add(841, "TemplateTask_10steps_2 was aborted, while not yet completed!");
+                    //errorDescriptionDict.Add(940, "TemplateTask_10steps_2 finished with error!");
+                    //errorDescriptionDict.Add(941, "TemplateTask_10steps_2 was aborted, while not yet completed!");
                     //// TemplateTask_10steps_3
-                    //errorDescriptionDict.Add(850, "TemplateTask_10steps_3 finished with error!");
-                    //errorDescriptionDict.Add(851, "TemplateTask_10steps_3 was aborted, while not yet completed!");
+                    //errorDescriptionDict.Add(950, "TemplateTask_10steps_3 finished with error!");
+                    //errorDescriptionDict.Add(951, "TemplateTask_10steps_3 was aborted, while not yet completed!");
                     //// TemplateTask_10steps_4
-                    //errorDescriptionDict.Add(860, "TemplateTask_10steps_4 task finished with error!");
-                    //errorDescriptionDict.Add(861, "TemplateTask_10steps_4 task was aborted, while not yet completed!");
+                    //errorDescriptionDict.Add(960, "TemplateTask_10steps_4 task finished with error!");
+                    //errorDescriptionDict.Add(961, "TemplateTask_10steps_4 task was aborted, while not yet completed!");
                     //// TemplateTask_10steps_5
-                    //errorDescriptionDict.Add(870, "TemplateTask_10steps_5 task finished with error!");
-                    //errorDescriptionDict.Add(871, "TemplateTask_10steps_5 task was aborted, while not yet completed!");
+                    //errorDescriptionDict.Add(970, "TemplateTask_10steps_5 task finished with error!");
+                    //errorDescriptionDict.Add(971, "TemplateTask_10steps_5 task was aborted, while not yet completed!");
                     // ReadTask
-                    errorDescriptionDict.Add(880, "ReadTask task finished with error!");
-                    errorDescriptionDict.Add(881, "ReadTask task was aborted, while not yet completed!");
+                    errorDescriptionDict.Add(980, "ReadTask task finished with error!");
+                    errorDescriptionDict.Add(981, "ReadTask task was aborted, while not yet completed!");
                     // TuneTask
-                    errorDescriptionDict.Add(900, "TuneTask task finished with error!");
-                    errorDescriptionDict.Add(901, "TuneTask task was aborted, while not yet completed!");
+                    errorDescriptionDict.Add(1000, "TuneTask task finished with error!");
+                    errorDescriptionDict.Add(1001, "TuneTask task was aborted, while not yet completed!");
                     //// TemplateTask_20steps_3
-                    //errorDescriptionDict.Add(920, "TemplateTask_20steps_3 task finished with error!");
-                    //errorDescriptionDict.Add(921, "TemplateTask_20steps_3 task was aborted, while not yet completed!");
+                    //errorDescriptionDict.Add(1020, "TemplateTask_20steps_3 task finished with error!");
+                    //errorDescriptionDict.Add(1021, "TemplateTask_20steps_3 task was aborted, while not yet completed!");
                     //// TemplateTask_20steps_4
-                    //errorDescriptionDict.Add(940, "TemplateTask_20steps_4 task finished with error!");
-                    //errorDescriptionDict.Add(941, "TemplateTask_20steps_4 task was aborted, while not yet completed!");
+                    //errorDescriptionDict.Add(1040, "TemplateTask_20steps_4 task finished with error!");
+                    //errorDescriptionDict.Add(1041, "TemplateTask_20steps_4 task was aborted, while not yet completed!");
                     //// TemplateTask_20steps_5
-                    //errorDescriptionDict.Add(960, "TemplateTask_20steps_5 task finished with error!");
-                    //errorDescriptionDict.Add(961, "TemplateTask_20steps_5 task was aborted, while not yet completed!");
+                    //errorDescriptionDict.Add(1060, "TemplateTask_20steps_5 task finished with error!");
+                    //errorDescriptionDict.Add(1061, "TemplateTask_20steps_5 task was aborted, while not yet completed!");
+
+                    errorDescriptionDict.Add(1201, "Error reading the HandshakeAndGeneralErrorStatus!");
+                    errorDescriptionDict.Add(1202, "Error reading the BUSY_Status!");
+                    errorDescriptionDict.Add(1203, "Error reading the CompletionStatus!");
+                    errorDescriptionDict.Add(1204, "Error reading the ErrorStatus!");
+                    errorDescriptionDict.Add(1205, "Error reading the TerminalStatus!");
+                    errorDescriptionDict.Add(1206, "Error reading the UnstableReadStatus!");
+                    errorDescriptionDict.Add(1207, "Error reading the MatchingLevelAndTotalEvaluationGradeStatus!");
+                    errorDescriptionDict.Add(1208, "Error reading the OperationalResultStatus!");
+                    errorDescriptionDict.Add(1209, "Invalid hw configuration, result data size must be: 32b,64b,128b or 246b!");
+
+                    errorDescriptionDict.Add(1221, "Error writing the LatchAndErrorClearControl!");
+                    errorDescriptionDict.Add(1222, "Error writing the OperationInstructionControl!");
+                    errorDescriptionDict.Add(1223, "Error writing the CompletionClearControl!");
+                    errorDescriptionDict.Add(1224, "Error writing the ParameterBankNumber!");
+                    errorDescriptionDict.Add(1225, "Invalid hw configuration, user data size must be: 32b,64b,128b or 252b!");
+                    errorDescriptionDict.Add(1226, "Error writing the 32 bytes of UserData!");
+                    errorDescriptionDict.Add(1227, "Error writing the 64 bytes of UserData!");
+                    errorDescriptionDict.Add(1228, "Error writing the 128 bytes of UserData!");
+                    errorDescriptionDict.Add(1229, "Error writing the 252 bytes of UserData!");
+
+
+                    errorDescriptionDict.Add(1301, "Hardware configuration error: Unexpected module detected in Slot 1. Expected module: 'ID_MODULE_OUTPUT4W'.");
+                    errorDescriptionDict.Add(1302, "Hardware configuration error: Unexpected module detected in Slot 2. Expected module: 'ID_MODULE_OUTPUT4W'.");
+                    errorDescriptionDict.Add(1303, "Hardware configuration error: Unexpected module detected in Slot 3. Expected module: 'ID_MODULE_OUTPUT4W'.");
+                    errorDescriptionDict.Add(1304, "Hardware configuration error: Unexpected module detected in Slot 4. Expected module: 'ID_MODULE_OUTPUT4W'.");
+                    errorDescriptionDict.Add(1305, "Hardware configuration error: Unexpected module detected in Slot 5. Expected module: 'ID_MODULE_OUTPUT4W'.");
+                    errorDescriptionDict.Add(1306, "Hardware configuration error: Unexpected module detected in Slot 6. Expected module: 'ID_MODULE_OUTPUT4W'.");
+                    errorDescriptionDict.Add(1307, "Hardware configuration error: Unexpected module detected in Slot 7. Expected module: 'ID_MODULE_OUTPUT4W'.");
+                    errorDescriptionDict.Add(1308, "Hardware configuration error: Unexpected module detected in Slot 8. Expected module: 'ID_MODULE_OUTPUT4W'.");
+                    errorDescriptionDict.Add(1309, "Hardware configuration error: Unexpected module detected in Slot 9. Expected module: 'ID_MODULE_OUTPUT2W'.");
+                    errorDescriptionDict.Add(1310, "Hardware configuration error: Unexpected module detected in Slot 10. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1311, "Hardware configuration error: Unexpected module detected in Slot 11. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1312, "Hardware configuration error: Unexpected module detected in Slot 12. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1313, "Hardware configuration error: Unexpected module detected in Slot 13. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1314, "Hardware configuration error: Unexpected module detected in Slot 14. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1315, "Hardware configuration error: Unexpected module detected in Slot 15. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1316, "Hardware configuration error: Unexpected module detected in Slot 16. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1317, "Hardware configuration error: Unexpected module detected in Slot 17. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1318, "Hardware configuration error: Unexpected module detected in Slot 18. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1319, "Hardware configuration error: Unexpected module detected in Slot 19. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1320, "Hardware configuration error: Unexpected module detected in Slot 10. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1321, "Hardware configuration error: Unexpected module detected in Slot 21. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1322, "Hardware configuration error: Unexpected module detected in Slot 22. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1323, "Hardware configuration error: Unexpected module detected in Slot 23. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1324, "Hardware configuration error: Unexpected module detected in Slot 24. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1325, "Hardware configuration error: Unexpected module detected in Slot 25. Expected module: 'ID_MODULE_INPUT4W'.");
+                    errorDescriptionDict.Add(1326, "Hardware configuration error: Unexpected module detected in Slot 26. Expected module: 'ID_MODULE_INPUT2W'.");
 
                 }
                 string errorDescription = "   ";

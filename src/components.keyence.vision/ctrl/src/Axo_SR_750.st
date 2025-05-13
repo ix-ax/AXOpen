@@ -2,13 +2,12 @@ USING AXOpen.Messaging.Static;
 USING AXOpen.Messaging;
 USING AXOpen.Core;
 USING AXOpen.Components.Abstractions;
+USING Siemens.Simatic.S71500.Hardware.Utilities;
 
 NAMESPACE AXOpen.Components.Keyence.Vision
     {S7.extern=ReadWrite}
     CLASS PUBLIC Axo_SR_750 EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.IAxoCodeReader 
         VAR PRIVATE
-            _ResultDataSize                                     :   eAxo_SR_750_ResultDataSize;
-            _UserDataSize                                       :   eAxo_SR_750_UserDataSize;
             _hwID                                               :   WORD;
             _hwIdHandshakeAndGeneralErrorStatus                 :   WORD;
             _hwIdBUSY_Status                                    :   WORD;
@@ -34,7 +33,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             _UserDataChanged                                    :   BOOL;
 
             _invalidDataSize                                    :   BOOL;
-            _returnValue                                        :   WORD;
+            _retVal                                             :   WORD;
             _word                                               :   WORD;
             _data_1                                             :   ARRAY[0..0] OF BYTE;
             _data_2                                             :   ARRAY[0..1] OF BYTE;
@@ -46,6 +45,20 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             _prevResultDataReadyCount                           :   UINT;
             _prevResultDataUpdateCount                          :   UINT;
             _resultString                                       :   STRING[254];
+
+            _initHwCheckDone        :   BOOL;
+            _geoAddr                :   GeoAddr;
+            _outHwid                :   UINT;
+            _startAddress           :   UDINT;
+            _bytesCount             :   UINT;
+            _blink                  :   AXOpen.Timers.AxoBlinker;   
+            _programNo              :   BYTE;
+            _IDcode                 :   ARRAY[0..63] OF BYTE;
+            _automaticStart         :   BOOL;
+            _inputsAddress          :   UDINT;   
+            _inputsCount            :   UINT;
+            _outputsAddress         :   UDINT;  
+            _outputsCount           :   UINT; 
         END_VAR            
         
         VAR PUBLIC //Header
@@ -214,10 +227,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             TaskMessenger      :   AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
 
-        ///<summary>
-        /// Runs tasks and logic of this component.
-        /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
-        ///</summary>
+        // Temporary workaround due to hwc station number issue
         METHOD PUBLIC Run
             VAR_INPUT
                 parent                                          :   IAxoObject; 
@@ -239,85 +249,10 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 hwIdParameterBankNumber                         :   WORD;
                 hwIdUserData                                    :   WORD;
             END_VAR
-        
-            VAR
-                _index                   :   INT;
-            END_VAR
 
-            SUPER.Run(parent);
-
-            Messenger.Serve(THIS);
-
-            Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#701,hwID = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#702,hwIdHandshakeAndGeneralErrorStatus = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#703,hwIdBUSY_Status = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#704,hwIdCompletionStatus = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#705,hwIdErrorStatus = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#706,hwIdTerminalStatus = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#707,hwIdUnstableReadStatus = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#708,hwIdMatchingLevelAndTotalEvaluationGradeStatus = WORD#0, eAxoMessageCategory#ProgrammingError);            
-            Messenger.ActivateOnCondition(ULINT#709,hwIdOperationalResultStatus = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#710,hwIdReadData = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#711,hwIdLatchAndErrorClearControl = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#712,hwIdCompletionClearControl = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#713,hwIdCompletionClearControl = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#714,hwIdParameterBankNumber = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#715,hwIdUserData = WORD#0, eAxoMessageCategory#ProgrammingError);            
-
-            IF parent = NULL THEN
-                Status.Error.Id := UINT#700;
-                RETURN;
-            ELSIF hwID = WORD#0 THEN
-                Status.Error.Id := UINT#701;
-                RETURN;
-            ELSIF hwIdHandshakeAndGeneralErrorStatus = WORD#0 THEN
-                Status.Error.Id := UINT#702;
-                RETURN;
-            ELSIF hwIdBUSY_Status = WORD#0 THEN
-                Status.Error.Id := UINT#703;
-                RETURN;
-            ELSIF hwIdCompletionStatus = WORD#0 THEN
-                Status.Error.Id := UINT#704;
-                RETURN;
-            ELSIF hwIdErrorStatus = WORD#0 THEN
-                Status.Error.Id := UINT#705;
-                RETURN;
-            ELSIF hwIdTerminalStatus = WORD#0 THEN
-                Status.Error.Id := UINT#706;
-                RETURN;
-            ELSIF hwIdUnstableReadStatus = WORD#0 THEN
-                Status.Error.Id := UINT#707;
-                RETURN;
-            ELSIF hwIdMatchingLevelAndTotalEvaluationGradeStatus = WORD#0 THEN
-                Status.Error.Id := UINT#708;
-                RETURN;
-            ELSIF hwIdOperationalResultStatus = WORD#0 THEN
-                Status.Error.Id := UINT#709;
-                RETURN;
-            ELSIF hwIdReadData = WORD#0 THEN
-                Status.Error.Id := UINT#710;
-                RETURN;
-            ELSIF hwIdLatchAndErrorClearControl = WORD#0 THEN
-                Status.Error.Id := UINT#711;
-                RETURN;
-            ELSIF hwIdCompletionClearControl = WORD#0 THEN
-                Status.Error.Id := UINT#712;
-                RETURN;
-            ELSIF hwIdCompletionClearControl = WORD#0 THEN
-                Status.Error.Id := UINT#713;
-                RETURN;
-            ELSIF hwIdParameterBankNumber = WORD#0 THEN
-                Status.Error.Id := UINT#714;
-                RETURN;                
-            ELSIF hwIdUserData = WORD#0 THEN
-                Status.Error.Id := UINT#715;
-                RETURN;                          
-            END_IF;
-
+            Config.ResultDataSize                               :=  ResultDataSize;
+            Config.UserDataSize                                 :=  UserDataSize;
             _hwID                                               :=  hwID;
-            _ResultDataSize                                     :=  ResultDataSize;  
-            _UserDataSize                                       :=  UserDataSize;    
             _hwIdHandshakeAndGeneralErrorStatus                 :=  hwIdHandshakeAndGeneralErrorStatus;
             _hwIdBUSY_Status                                    :=  hwIdBUSY_Status;
             _hwIdCompletionStatus                               :=  hwIdCompletionStatus;
@@ -331,13 +266,775 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             _hwIdOperationInstructionControl                    :=  hwIdOperationInstructionControl;
             _hwIdCompletionClearControl                         :=  hwIdCompletionClearControl;
             _hwIdParameterBankNumber                            :=  hwIdParameterBankNumber;
-            _hwIdUserData                                       :=  hwIdUserData;  
+            _hwIdUserData                                       :=  hwIdUserData;
+            _initHwCheckDone    :=  TRUE;
+            THIS.Run(parent,hwID);
+        END_METHOD
+
+        ///<summary>
+        /// Runs tasks and logic of this component.
+        /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
+        ///</summary>
+        METHOD PUBLIC Run
+            VAR_INPUT
+                parent  :   IAxoObject; 
+                hwID    :   WORD;
+            END_VAR
+        
+            VAR
+                _index                   :   INT;
+            END_VAR
+
+            SUPER.Run(parent);
+
+            Messenger.Serve(THIS);
+
+            IF NOT _initHwCheckDone THEN
+                IF parent = NULL THEN
+                    Messenger.Activate(ULINT#700, eAxoMessageCategory#ProgrammingError);
+                    Status.Error.Id := UINT#700;
+                    RETURN;
+                END_IF;
+                IF hwID = WORD#0 THEN
+                    Messenger.Activate(ULINT#701, eAxoMessageCategory#ProgrammingError);
+                    Status.Error.Id := UINT#701;
+                    RETURN;
+                END_IF;
+    
+                _hwID                    := hwID;                                                      
+                _retval := ReadSlotFromHardwareID(hardwareID := TO_UINT(_hwID), geoAddr :=_geoAddr);   
+                IF _retval = WORD#8090 THEN
+                    Messenger.Activate(UINT#702,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#702;
+                    RETURN;
+                END_IF;
+                //******************Slot 1*****************//
+                _geoAddr.Slot   :=  UINT#1;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwIdHandshakeAndGeneralErrorStatus :=  TO_WORD(_outHwid);                                         
+
+                IF _hwIdHandshakeAndGeneralErrorStatus = WORD#0 THEN
+                    Messenger.Activate(UINT#703,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#703;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(UINT#704,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#704;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(UINT#705,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#705;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(UINT#706,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#706;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(UINT#707,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#707;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#708,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#708;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdHandshakeAndGeneralErrorStatus , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#1 THEN
+                    Messenger.Activate(UINT#1301,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1301;
+                    RETURN;
+                END_IF;
+
+                //******************Slot 2*****************//
+                _geoAddr.Slot   :=  UINT#2;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwIdBUSY_Status :=  TO_WORD(_outHwid);                                         
+
+                IF _hwIdBUSY_Status = WORD#0 THEN
+                    Messenger.Activate(UINT#709,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#709;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(UINT#710,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#710;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(UINT#711,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#711;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(UINT#712,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#712;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(UINT#713,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#713;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#714,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#714;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdBUSY_Status , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#1 THEN
+                    Messenger.Activate(UINT#1302,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1302;
+                    RETURN;
+                END_IF;
+
+                //******************Slot 3*****************//
+                _geoAddr.Slot   :=  UINT#3;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwIdCompletionStatus :=  TO_WORD(_outHwid);                                         
+
+                IF _hwIdCompletionStatus = WORD#0 THEN
+                    Messenger.Activate(UINT#715,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#715;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(UINT#716,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#716;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(UINT#717,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#717;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(UINT#718,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#718;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(UINT#719,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#719;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#720,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#720;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdCompletionStatus , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#1 THEN
+                    Messenger.Activate(UINT#1303,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1303;
+                    RETURN;
+                END_IF;
+
+                //******************Slot 4*****************//
+                _geoAddr.Slot   :=  UINT#4;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwIdErrorStatus :=  TO_WORD(_outHwid);                                         
+
+                IF _hwIdErrorStatus = WORD#0 THEN
+                    Messenger.Activate(UINT#721,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#721;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(UINT#722,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#722;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(UINT#723,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#723;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(UINT#724,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#724;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(UINT#725,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#725;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#726,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#726;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdErrorStatus , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#1 THEN
+                    Messenger.Activate(UINT#1304,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1304;
+                    RETURN;
+                END_IF;
+
+                //******************Slot 5*****************//
+                _geoAddr.Slot   :=  UINT#5;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwIdTerminalStatus :=  TO_WORD(_outHwid);                                         
+
+                IF _hwIdTerminalStatus = WORD#0 THEN
+                    Messenger.Activate(UINT#727,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#727;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(UINT#728,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#728;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(UINT#729,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#729;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(UINT#730,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#730;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(UINT#731,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#731;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#732,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#732;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdTerminalStatus , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#1 THEN
+                    Messenger.Activate(UINT#1305,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1305;
+                    RETURN;
+                END_IF;
+
+                //******************Slot 6*****************//
+                _geoAddr.Slot   :=  UINT#6;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwIdUnstableReadStatus :=  TO_WORD(_outHwid);                                         
+
+                IF _hwIdUnstableReadStatus = WORD#0 THEN
+                    Messenger.Activate(UINT#733,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#733;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(UINT#734,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#734;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(UINT#735,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#735;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(UINT#736,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#736;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(UINT#737,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#737;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#738,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#738;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdUnstableReadStatus , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#1 THEN
+                    Messenger.Activate(UINT#1306,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1306;
+                    RETURN;
+                END_IF;
+
+                //******************Slot 7*****************//
+                _geoAddr.Slot   :=  UINT#7;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwIdMatchingLevelAndTotalEvaluationGradeStatus :=  TO_WORD(_outHwid);                                         
+
+                IF _hwIdMatchingLevelAndTotalEvaluationGradeStatus = WORD#0 THEN
+                    Messenger.Activate(UINT#739,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#739;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(UINT#740,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#740;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(UINT#741,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#741;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(UINT#742,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#742;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(UINT#743,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#743;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#744,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#744;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdMatchingLevelAndTotalEvaluationGradeStatus , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#8 THEN
+                    Messenger.Activate(UINT#1307,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1307;
+                    RETURN;
+                END_IF;
+
+                //******************Slot 8*****************//
+                _geoAddr.Slot   :=  UINT#8;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwIdOperationalResultStatus :=  TO_WORD(_outHwid);                                         
+
+                IF _hwIdOperationalResultStatus = WORD#0 THEN
+                    Messenger.Activate(UINT#745,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#745;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(UINT#746,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#746;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(UINT#747,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#747;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(UINT#748,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#748;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(UINT#749,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#749;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#750,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#750;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdOperationalResultStatus , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#20 THEN
+                    Messenger.Activate(UINT#1308,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1308;
+                    RETURN;
+                END_IF;
+
+                //******************Slot 9*****************//
+                _geoAddr.Slot   :=  UINT#9;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwIdReadData :=  TO_WORD(_outHwid);                                         
+
+                IF _hwIdReadData = WORD#0 THEN
+                    Messenger.Activate(UINT#751,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#751;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(UINT#752,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#752;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(UINT#753,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#753;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(UINT#754,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#754;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(UINT#755,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#755;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#756,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#756;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdReadData , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount = UINT#32 THEN
+                    Config.ResultDataSize := eAxo_SR_750_ResultDataSize#RESULT_DATA_32B;
+                ELSIF _inputsCount = UINT#64 THEN
+                    Config.ResultDataSize := eAxo_SR_750_ResultDataSize#RESULT_DATA_64B;
+                ELSIF _inputsCount = UINT#128 THEN
+                    Config.ResultDataSize := eAxo_SR_750_ResultDataSize#RESULT_DATA_128B;
+                ELSIF _inputsCount = UINT#246 THEN
+                    Config.ResultDataSize := eAxo_SR_750_ResultDataSize#RESULT_DATA_246B;
+                ELSE
+                    Config.ResultDataSize := eAxo_SR_750_ResultDataSize#RESULT_DATA_SIZE_INVALID;
+                    Messenger.Activate(UINT#1309,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1309;
+                    RETURN;
+                END_IF;
+
+                //******************Slot 10*****************//
+                _geoAddr.Slot   :=  UINT#10;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwIdLatchAndErrorClearControl :=  TO_WORD(_outHwid);                                         
+
+                IF _hwIdLatchAndErrorClearControl = WORD#0 THEN
+                    Messenger.Activate(UINT#757,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#757;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(UINT#758,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#758;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(UINT#759,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#759;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(UINT#760,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#760;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(UINT#761,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#761;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#762,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#762;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdLatchAndErrorClearControl , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _outputsCount <> UINT#1 THEN
+                    Messenger.Activate(UINT#1310,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1310;
+                    RETURN;
+                END_IF;
+
+                //******************Slot 11*****************//
+                _geoAddr.Slot   :=  UINT#11;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwIdOperationInstructionControl :=  TO_WORD(_outHwid);                                         
+
+                IF _hwIdOperationInstructionControl = WORD#0 THEN
+                    Messenger.Activate(UINT#763,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#763;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(UINT#764,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#764;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(UINT#765,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#765;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(UINT#766,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#766;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(UINT#767,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#767;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#768,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#768;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdOperationInstructionControl , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _outputsCount <> UINT#1 THEN
+                    Messenger.Activate(UINT#1311,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1311;
+                    RETURN;
+                END_IF;
+
+                //******************Slot 12*****************//
+                _geoAddr.Slot   :=  UINT#12;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwIdCompletionClearControl :=  TO_WORD(_outHwid);                                         
+
+                IF _hwIdCompletionClearControl = WORD#0 THEN
+                    Messenger.Activate(UINT#769,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#769;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(UINT#770,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#770;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(UINT#771,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#771;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(UINT#772,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#772;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(UINT#773,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#773;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#774,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#774;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdCompletionClearControl , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _outputsCount <> UINT#1 THEN
+                    Messenger.Activate(UINT#1312,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1312;
+                    RETURN;
+                END_IF;
+
+                //******************Slot 13*****************//
+                _geoAddr.Slot   :=  UINT#13;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwIdParameterBankNumber :=  TO_WORD(_outHwid);                                         
+
+                IF _hwIdParameterBankNumber = WORD#0 THEN
+                    Messenger.Activate(UINT#775,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#775;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(UINT#776,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#776;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(UINT#777,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#777;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(UINT#778,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#778;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(UINT#779,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#779;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#780,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#780;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdParameterBankNumber , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _outputsCount <> UINT#2 THEN
+                    Messenger.Activate(UINT#1313,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1313;
+                    RETURN;
+                END_IF;
+
+                //******************Slot 14*****************//
+                _geoAddr.Slot   :=  UINT#14;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwIdUserData :=  TO_WORD(_outHwid);                                         
+
+                IF _hwIdUserData = WORD#0 THEN
+                    Messenger.Activate(UINT#781,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#781;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(UINT#782,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#782;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(UINT#783,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#783;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(UINT#784,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#784;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(UINT#785,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#785;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#786,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#786;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdUserData , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount = UINT#32 THEN
+                    Config.UserDataSize := eAxo_SR_750_UserDataSize#USER_DATA_32B;    
+                ELSIF _inputsCount = UINT#64 THEN
+                    Config.UserDataSize := eAxo_SR_750_UserDataSize#USER_DATA_64B;    
+                ELSIF _inputsCount = UINT#128 THEN
+                    Config.UserDataSize := eAxo_SR_750_UserDataSize#USER_DATA_128B;    
+                ELSIF _inputsCount = UINT#252 THEN
+                    Config.UserDataSize := eAxo_SR_750_UserDataSize#USER_DATA_252B;    
+                ELSE
+                    Config.UserDataSize := eAxo_SR_750_UserDataSize#USER_DATA_SIZE_INVALID;    
+                    Messenger.Activate(UINT#1314,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1314;
+                    RETURN;
+                END_IF;
+
+                // _hwID                                            :=  hwID;
+                // _hwIdHandshakeAndGeneralErrorStatus              :=  hwIdHandshakeAndGeneralErrorStatus;
+                // _hwIdBUSY_Status                                 :=  hwIdBUSY_Status;
+                // _hwIdCompletionStatus                            :=  hwIdCompletionStatus;
+                // _hwIdErrorStatus                                 :=  hwIdErrorStatus;
+                // _hwIdTerminalStatus                              :=  hwIdTerminalStatus;
+                // _hwIdUnstableReadStatus                          :=  hwIdUnstableReadStatus;
+                // _hwIdMatchingLevelAndTotalEvaluationGradeStatus  :=  hwIdMatchingLevelAndTotalEvaluationGradeStatus;
+                // _hwIdOperationalResultStatus                     :=  hwIdOperationalResultStatus;
+                // _hwIdReadData                                    :=  hwIdReadData;
+                // _hwIdLatchAndErrorClearControl                   :=  hwIdLatchAndErrorClearControl;
+                // _hwIdOperationInstructionControl                 :=  hwIdOperationInstructionControl;
+                // _hwIdCompletionClearControl                      :=  hwIdCompletionClearControl;
+                // _hwIdParameterBankNumber                         :=  hwIdParameterBankNumber;
+                // _hwIdUserData                                    :=  hwIdUserData;
+
+                IF parent = NULL THEN
+                    Messenger.Activate(UINT#860,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#860;
+                    RETURN;
+                END_IF;
+
+                IF _hwID  = WORD#0 THEN
+                    Messenger.Activate(UINT#861,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#861;
+                    RETURN;
+                END_IF;
+            
+                IF _hwIdHandshakeAndGeneralErrorStatus  = WORD#0 THEN
+                    Messenger.Activate(UINT#862,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#862;
+                    RETURN;
+                END_IF;
+            
+                IF _hwIdBUSY_Status  = WORD#0 THEN
+                    Messenger.Activate(UINT#863,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#863;
+                    RETURN;
+                END_IF;
+            
+                IF _hwIdCompletionStatus  = WORD#0 THEN
+                    Messenger.Activate(UINT#864,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#864;
+                    RETURN;
+                END_IF;
+
+                IF _hwIdErrorStatus  = WORD#0 THEN
+                    Messenger.Activate(UINT#865,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#865;
+                    RETURN;
+                END_IF;
+            
+                IF _hwIdTerminalStatus  = WORD#0 THEN
+                    Messenger.Activate(UINT#866,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#866;
+                    RETURN;
+                END_IF;
+            
+                IF _hwIdUnstableReadStatus  = WORD#0 THEN
+                    Messenger.Activate(UINT#867,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#867;
+                    RETURN;
+                END_IF;
+            
+                IF _hwIdMatchingLevelAndTotalEvaluationGradeStatus  = WORD#0 THEN
+                    Messenger.Activate(UINT#868,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#868;
+                    RETURN;
+                END_IF;
+            
+                IF _hwIdOperationalResultStatus  = WORD#0 THEN
+                    Messenger.Activate(UINT#869,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#869;
+                    RETURN;
+                END_IF;
+            
+                IF _hwIdReadData  = WORD#0 THEN
+                    Messenger.Activate(UINT#870,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#870;
+                    RETURN;
+                END_IF;
+
+                IF _hwIdLatchAndErrorClearControl  = WORD#0 THEN
+                    Messenger.Activate(UINT#871,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#871;
+                    RETURN;
+                END_IF;
+            
+                IF _hwIdOperationInstructionControl  = WORD#0 THEN
+                    Messenger.Activate(UINT#872,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#872;
+                    RETURN;
+                END_IF;
+            
+                IF _hwIdCompletionClearControl  = WORD#0 THEN
+                    Messenger.Activate(UINT#873,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#873;
+                    RETURN;
+                END_IF;
+            
+                IF _hwIdParameterBankNumber  = WORD#0 THEN
+                    Messenger.Activate(UINT#874,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#874;
+                    RETURN;
+                END_IF;
+            
+                IF _hwIdUserData  = WORD#0 THEN
+                    Messenger.Activate(UINT#875,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#875;
+                    RETURN;
+                END_IF;
+
+
+                _initHwCheckDone    := TRUE;
+            END_IF;            
 
             //****************************************
             //***********Update inputs ***************
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdHandshakeAndGeneralErrorStatus ,_data_in);
-            Messenger.ActivateOnCondition(ULINT#716,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdHandshakeAndGeneralErrorStatus ,_data_in);
+            Messenger.ActivateOnCondition(ULINT#716,_retVal > WORD#0, eAxoMessageCategory#ProgrammingError);
+            IF _retVal > WORD#0 THEN
                 Status.Error.Id := UINT#716;
                 RETURN;
             END_IF;
@@ -348,10 +1045,10 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             HandshakeAndGeneralErrorStatus.BufferOverflowError  :=      _data_in[0].%X6; 
             HandshakeAndGeneralErrorStatus.GeneralError         :=      _data_in[0].%X7; 
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdBUSY_Status ,_data_in);
-            Messenger.ActivateOnCondition(ULINT#717,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                Status.Error.Id := UINT#717;
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdBUSY_Status ,_data_in);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
+                Status.Error.Id := UINT#1201;
                 RETURN;
             END_IF;
 
@@ -361,10 +1058,10 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             BUSY_Status.MODE_BUSY                               :=      _data_in[0].%X3;
             BUSY_Status.ERR_BUSY                                :=      _data_in[0].%X4;
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdCompletionStatus ,_data_in);
-            Messenger.ActivateOnCondition(ULINT#718,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                Status.Error.Id := UINT#718;
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdCompletionStatus ,_data_in);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(UINT#1202, eAxoMessageCategory#ProgrammingError);
+                Status.Error.Id := UINT#1202;
                 RETURN;
             END_IF;
 
@@ -374,10 +1071,10 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             CompletionStatus.TuneComplete                       :=      _data_in[0].%X3;
             CompletionStatus.EXT_RequestComplete                :=      _data_in[0].%X7;
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdErrorStatus ,_data_in);
-            Messenger.ActivateOnCondition(ULINT#719,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                Status.Error.Id := UINT#719;
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdErrorStatus ,_data_in);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(UINT#1203, eAxoMessageCategory#ProgrammingError);
+                Status.Error.Id := UINT#1203;
                 RETURN;
             END_IF;
 
@@ -387,10 +1084,10 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             ErrorStatus.TuneFailure                             :=      _data_in[0].%X3;
             ErrorStatus.EXT_RequestFailure                      :=      _data_in[0].%X7;
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData( _hwIdTerminalStatus,_data_in);
-            Messenger.ActivateOnCondition(ULINT#720,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                Status.Error.Id := UINT#720;
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData( _hwIdTerminalStatus,_data_in);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(UINT#1204, eAxoMessageCategory#ProgrammingError);
+                Status.Error.Id := UINT#1204;
                 RETURN;
             END_IF;
 
@@ -400,10 +1097,10 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             TerminalStatus.OUT2_Status                          :=      _data_in[0].%X5;
             TerminalStatus.OUT3_Status                          :=      _data_in[0].%X6;
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData( _hwIdUnstableReadStatus,_data_in);
-            Messenger.ActivateOnCondition(ULINT#721,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                Status.Error.Id := UINT#721;
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData( _hwIdUnstableReadStatus,_data_in);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(UINT#1205, eAxoMessageCategory#ProgrammingError);
+                Status.Error.Id := UINT#1205;
                 RETURN;
             END_IF;
             
@@ -413,10 +1110,10 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             UnstableReadStatus.ISO_IEC_TR_29158_Unstable        :=      _data_in[0].%X3;
             UnstableReadStatus.SAE_AS9132_Unstable              :=      _data_in[0].%X4;
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdMatchingLevelAndTotalEvaluationGradeStatus ,_data_in);
-            Messenger.ActivateOnCondition(ULINT#722,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                Status.Error.Id := UINT#722;
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdMatchingLevelAndTotalEvaluationGradeStatus ,_data_in);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(UINT#1206, eAxoMessageCategory#ProgrammingError);
+                Status.Error.Id := UINT#1206;
                 RETURN;
             END_IF;
             
@@ -433,13 +1130,12 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             _word.%B0                                                           :=  _data_in[7];
             MatchingLevelAndTotalEvaluationGradeStatus._Reserved                :=  TO_UINT(_word);
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData( _hwIdOperationalResultStatus,_data_in);
-            Messenger.ActivateOnCondition(ULINT#723,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                Status.Error.Id := UINT#723;
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData( _hwIdOperationalResultStatus,_data_in);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(UINT#1207, eAxoMessageCategory#ProgrammingError);
+                Status.Error.Id := UINT#1207;
                 RETURN;
             END_IF;
-
             _word.%B1                                                           :=  _data_in[0];
             _word.%B0                                                           :=  _data_in[1];
             OperationalResultStatus.ReadResultCode                              :=  TO_UINT(_word);
@@ -471,26 +1167,23 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             _word.%B0                                                           :=  _data_in[19];
             OperationalResultStatus._Reserved_3                                 :=  TO_UINT(_word);
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData( _hwIdReadData,_data_in);
-            Messenger.ActivateOnCondition(ULINT#724,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                Status.Error.Id := UINT#724;
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData( _hwIdReadData,_data_in);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(UINT#1208, eAxoMessageCategory#ProgrammingError);
+                Status.Error.Id := UINT#1208;
                 RETURN;
             END_IF;
 
-            _invalidDataSize := NOT (   _ResultDataSize = eAxo_SR_750_ResultDataSize#RESULT_DATA_32B OR
-                                        _ResultDataSize = eAxo_SR_750_ResultDataSize#RESULT_DATA_64B OR
-                                        _ResultDataSize = eAxo_SR_750_ResultDataSize#RESULT_DATA_128B OR
-                                        _ResultDataSize = eAxo_SR_750_ResultDataSize#RESULT_DATA_246B);
-
-            Messenger.ActivateOnCondition(ULINT#725,_invalidDataSize, eAxoMessageCategory#ProgrammingError);
+            _invalidDataSize := NOT (   Config.ResultDataSize = eAxo_SR_750_ResultDataSize#RESULT_DATA_32B OR
+                                        Config.ResultDataSize = eAxo_SR_750_ResultDataSize#RESULT_DATA_64B OR
+                                        Config.ResultDataSize = eAxo_SR_750_ResultDataSize#RESULT_DATA_128B OR
+                                        Config.ResultDataSize = eAxo_SR_750_ResultDataSize#RESULT_DATA_246B);
 
             IF _invalidDataSize THEN
-                Status.Error.Id := UINT#725;
+                Messenger.Activate(UINT#1209, eAxoMessageCategory#ProgrammingError);
+                Status.Error.Id := UINT#1209;
                 RETURN;
             END_IF;
-
-            Config.ResultDataSize := _ResultDataSize;
 
             _word.%B1                                                           :=  _data_in[0];
             _word.%B0                                                           :=  _data_in[1];
@@ -697,14 +1390,14 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 Status.Action.Id :=  UINT#131;
                 Status.Error.Id :=  UINT#0;
             ELSIF ClearResultDataTask.ErrorOccured() THEN
-                Status.Action.Id :=  UINT#830;
-                Status.Error.Id  :=  UINT#830;
+                Status.Action.Id :=  UINT#930;
+                Status.Error.Id  :=  UINT#930;
             ELSIF ClearResultDataTask.AbortTriggered()THEN
-                Status.Action.Id :=  UINT#831;
-                Status.Error.Id  :=  UINT#831;
+                Status.Action.Id :=  UINT#931;
+                Status.Error.Id  :=  UINT#931;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#830,ClearResultDataTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#831,ClearResultDataTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#930,ClearResultDataTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#931,ClearResultDataTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#132,ClearResultDataTask.RestoreTriggered() , eAxoMessageCategory#Error);
             IF ClearResultDataTask.RestoreTriggered() AND _progress >= 330 AND _progress <= 339  THEN
                 Status.Action.Id :=  UINT#132;
@@ -1002,14 +1695,14 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 Status.Action.Id :=  UINT#181;
                 Status.Error.Id :=  UINT#0;
             ELSIF ReadTask.ErrorOccured() THEN
-                Status.Action.Id :=  UINT#880;
-                Status.Error.Id  :=  UINT#880;
+                Status.Action.Id :=  UINT#980;
+                Status.Error.Id  :=  UINT#980;
             ELSIF ReadTask.AbortTriggered()THEN
-                Status.Action.Id :=  UINT#881;
-                Status.Error.Id  :=  UINT#881;
+                Status.Action.Id :=  UINT#981;
+                Status.Error.Id  :=  UINT#981;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#880,ReadTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#881,ReadTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#980,ReadTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#981,ReadTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#182,ReadTask.RestoreTriggered() , eAxoMessageCategory#Error);
             IF ReadTask.RestoreTriggered() AND _progress >= 380 AND _progress <= 399  THEN
                 Status.Action.Id :=  UINT#182;
@@ -1305,14 +1998,14 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 Status.Action.Id :=  UINT#201;
                 Status.Error.Id :=  UINT#0;
             ELSIF TuneTask.ErrorOccured() THEN
-                Status.Action.Id :=  UINT#900;
-                Status.Error.Id  :=  UINT#900;
+                Status.Action.Id :=  UINT#1000;
+                Status.Error.Id  :=  UINT#1000;
             ELSIF TuneTask.AbortTriggered()THEN
-                Status.Action.Id :=  UINT#901;
-                Status.Error.Id  :=  UINT#901;
+                Status.Action.Id :=  UINT#1001;
+                Status.Error.Id  :=  UINT#1001;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#900,TuneTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#901,TuneTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#1000,TuneTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#1001,TuneTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#202,TuneTask.RestoreTriggered() , eAxoMessageCategory#Error);
             IF TuneTask.RestoreTriggered() AND _progress >= 400 AND _progress <= 419  THEN
                 Status.Action.Id :=  UINT#202;
@@ -1324,10 +2017,10 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             _data_1[0].%X1                  :=      LatchAndErrorClearControl.ResultDataLatch;
             _data_1[0].%X7                  :=      LatchAndErrorClearControl.ErrorClear;
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdLatchAndErrorClearControl,_data_1);
-            Messenger.ActivateOnCondition(ULINT#726,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                Status.Error.Id := UINT#726;
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdLatchAndErrorClearControl,_data_1);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(UINT#1221, eAxoMessageCategory#ProgrammingError);
+                Status.Error.Id := UINT#1221;
                 RETURN;
             END_IF;
 
@@ -1336,10 +2029,10 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             _data_1[0].%X2                  :=      OperationInstructionControl.RegisterPresetDataRequest;
             _data_1[0].%X3                  :=      OperationInstructionControl.TuneRequest;
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdOperationInstructionControl,_data_1);
-            Messenger.ActivateOnCondition(ULINT#727,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                Status.Error.Id := UINT#727;
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdOperationInstructionControl,_data_1);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(UINT#1222, eAxoMessageCategory#ProgrammingError);
+                Status.Error.Id := UINT#1222;
                 RETURN;
             END_IF;
 
@@ -1349,37 +2042,34 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             _data_1[0].%X3                  :=      CompletionClearControl.TuneCompleteClear;
             _data_1[0].%X7                  :=      CompletionClearControl.EXT_RequestCompleteClear;
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdCompletionClearControl,_data_1);
-            Messenger.ActivateOnCondition(ULINT#728,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                Status.Error.Id := UINT#728;
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdCompletionClearControl,_data_1);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(UINT#1223, eAxoMessageCategory#ProgrammingError);
+                Status.Error.Id := UINT#1223;
                 RETURN;
             END_IF;
 
             _data_2[1]                      :=      TO_WORD(ParameterBankNumber.BankNumberRegister).%B0;
             _data_2[0]                      :=      TO_WORD(ParameterBankNumber.BankNumberRegister).%B1;
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdParameterBankNumber,_data_2);
-            Messenger.ActivateOnCondition(ULINT#729,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                Status.Error.Id := UINT#729;
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdParameterBankNumber,_data_2);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(UINT#1224, eAxoMessageCategory#ProgrammingError);
+                Status.Error.Id := UINT#1224;
                 RETURN;
             END_IF;
             
 
-            _invalidDataSize := NOT (_UserDataSize = eAxo_SR_750_UserDataSize#USER_DATA_32B OR
-                                     _UserDataSize = eAxo_SR_750_UserDataSize#USER_DATA_64B OR
-                                     _UserDataSize = eAxo_SR_750_UserDataSize#USER_DATA_128B OR
-                                     _UserDataSize = eAxo_SR_750_UserDataSize#USER_DATA_252B);
-
-            Messenger.ActivateOnCondition(ULINT#730,_invalidDataSize, eAxoMessageCategory#ProgrammingError);
+            _invalidDataSize := NOT ( Config.UserDataSize = eAxo_SR_750_UserDataSize#USER_DATA_32B OR
+                                      Config.UserDataSize = eAxo_SR_750_UserDataSize#USER_DATA_64B OR
+                                      Config.UserDataSize = eAxo_SR_750_UserDataSize#USER_DATA_128B OR
+                                      Config.UserDataSize = eAxo_SR_750_UserDataSize#USER_DATA_252B);
 
             IF _invalidDataSize THEN
-                Status.Error.Id := UINT#730;
+                Messenger.Activate(UINT#1225, eAxoMessageCategory#ProgrammingError);
+                Status.Error.Id := UINT#1225;
                 RETURN;
             END_IF;
-
-            Config.UserDataSize := _UserDataSize;
 
             IF (UserData.DataChanged <> _UserDataChanged) THEN
                 IF Config.UserDataSize = eAxo_SR_750_UserDataSize#USER_DATA_32B THEN
@@ -1388,10 +2078,10 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     FOR _index := 2 TO 33 DO
                         _data_34[_index] := UserData.Data[_index];
                     END_FOR;
-                    _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_34);
-                    Messenger.ActivateOnCondition(ULINT#731,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-                    IF _returnValue > WORD#0 THEN
-                        Status.Error.Id := UINT#731;
+                    _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_34);
+                    IF _retVal > WORD#0 THEN
+                        Messenger.Activate(UINT#1226, eAxoMessageCategory#ProgrammingError);
+                        Status.Error.Id := UINT#1226;
                         RETURN;
                     END_IF;
                 ELSIF Config.UserDataSize = eAxo_SR_750_UserDataSize#USER_DATA_64B THEN
@@ -1400,10 +2090,10 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     FOR _index := 2 TO 65 DO
                         _data_66[_index] := UserData.Data[_index];
                     END_FOR;
-                    _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_66);
-                    Messenger.ActivateOnCondition(ULINT#732,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-                    IF _returnValue > WORD#0 THEN
-                        Status.Error.Id := UINT#732;
+                    _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_66);
+                    IF _retVal > WORD#0 THEN
+                        Messenger.Activate(UINT#1227, eAxoMessageCategory#ProgrammingError);
+                        Status.Error.Id := UINT#1227;
                         RETURN;
                     END_IF;
                 ELSIF Config.UserDataSize = eAxo_SR_750_UserDataSize#USER_DATA_128B THEN
@@ -1412,10 +2102,10 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     FOR _index := 2 TO 129 DO
                         _data_130[_index] := UserData.Data[_index];
                     END_FOR;
-                    _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_130);
-                    Messenger.ActivateOnCondition(ULINT#733,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-                    IF _returnValue > WORD#0 THEN
-                        Status.Error.Id := UINT#733;
+                    _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_130);
+                    IF _retVal > WORD#0 THEN
+                        Messenger.Activate(UINT#1228, eAxoMessageCategory#ProgrammingError);
+                        Status.Error.Id := UINT#1228;
                         RETURN;
                     END_IF;
                 ELSIF Config.UserDataSize = eAxo_SR_750_UserDataSize#USER_DATA_252B THEN
@@ -1424,10 +2114,10 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     FOR _index := 2 TO 253 DO
                         _data_254[_index] := UserData.Data[_index];
                     END_FOR;
-                    _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_254);
-                    Messenger.ActivateOnCondition(ULINT#734,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-                    IF _returnValue > WORD#0 THEN
-                        Status.Error.Id := UINT#734;
+                    _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_254);
+                    IF _retVal > WORD#0 THEN
+                        Messenger.Activate(UINT#1229, eAxoMessageCategory#ProgrammingError);
+                        Status.Error.Id := UINT#1229;
                         RETURN;
                     END_IF;
                 END_IF;
