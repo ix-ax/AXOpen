@@ -166,8 +166,6 @@ NAMESPACE Template.Axolibrary
             _retval                 :   WORD;
             _geoAddr                :   GeoAddr;
             _outHwid                :   UINT;
-            _startAddress           :   UDINT;
-            _bytesCount             :   UINT;
             _blink                  :   AXOpen.Timers.AxoBlinker;   
             _inputsAddress          :   UDINT;   
             _inputsCount            :   UINT;
@@ -338,7 +336,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_in_1 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#8 AND _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#716,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#716;
                     RETURN;
@@ -378,7 +376,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_in_2 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#8 AND _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#726,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#726;
                     RETURN;
@@ -418,7 +416,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_in_3 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#8 AND _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#736,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#736;
                     RETURN;
@@ -458,7 +456,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_in_4 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#8 AND _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#746,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#746;
                     RETURN;
@@ -498,7 +496,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_in_5 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#8 AND _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#756,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#756;
                     RETURN;
@@ -538,7 +536,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_in_6 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#8 AND _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#766,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#766;
                     RETURN;
@@ -578,7 +576,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_in_7 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#8 AND _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#776,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#776;
                     RETURN;
@@ -618,7 +616,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_in_8 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#8 AND _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#786,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#786;
                     RETURN;
@@ -658,7 +656,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_in_9 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#8 AND _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#796,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#796;
                     RETURN;
@@ -698,7 +696,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_in_10 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#8 AND _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#806,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#806;
                     RETURN;
@@ -738,7 +736,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_in_11 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#8 AND _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#816,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#816;
                     RETURN;
@@ -778,7 +776,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_in_12 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#8 AND _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#826,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#826;
                     RETURN;
@@ -818,7 +816,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_in_13 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#8 AND _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#836,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#836;
                     RETURN;
@@ -858,7 +856,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_in_14 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#8 AND _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#846,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#846;
                     RETURN;
@@ -898,7 +896,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_in_15 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#8 AND _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#856,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#856;
                     RETURN;
@@ -938,7 +936,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_in_16 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#8 AND _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#866,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#866;
                     RETURN;
@@ -978,7 +976,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_in_17 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#8 AND _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#876,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#876;
                     RETURN;
@@ -1018,7 +1016,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_in_18 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#8 AND _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#886,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#886;
                     RETURN;
@@ -1058,7 +1056,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_in_19 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#8 AND _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#896,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#896;
                     RETURN;
@@ -1098,7 +1096,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_in_20 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#8 AND _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#916,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#916;
                     RETURN;
@@ -1138,7 +1136,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_out_1 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#8 AND _inputsCount <> UINT#0 THEN
+                IF _outputsCount <> UINT#8 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#916,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#916;
                     RETURN;
@@ -1178,7 +1176,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_out_2 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#8 AND _inputsCount <> UINT#0 THEN
+                IF _outputsCount <> UINT#8 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#926,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#926;
                     RETURN;
@@ -1218,7 +1216,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_out_3 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#8 AND _inputsCount <> UINT#0 THEN
+                IF _outputsCount <> UINT#8 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#936,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#936;
                     RETURN;
@@ -1258,7 +1256,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_out_4 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#8 AND _inputsCount <> UINT#0 THEN
+                IF _outputsCount <> UINT#8 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#946,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#946;
                     RETURN;
@@ -1298,7 +1296,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_out_5 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#8 AND _inputsCount <> UINT#0 THEN
+                IF _outputsCount <> UINT#8 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#956,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#956;
                     RETURN;
@@ -1338,7 +1336,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_out_6 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#8 AND _inputsCount <> UINT#0 THEN
+                IF _outputsCount <> UINT#8 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#966,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#966;
                     RETURN;
@@ -1378,7 +1376,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_out_7 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#8 AND _inputsCount <> UINT#0 THEN
+                IF _outputsCount <> UINT#8 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#976,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#976;
                     RETURN;
@@ -1418,7 +1416,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_out_8 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#8 AND _inputsCount <> UINT#0 THEN
+                IF _outputsCount <> UINT#8 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#986,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#986;
                     RETURN;
@@ -1458,7 +1456,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_out_9 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#8 AND _inputsCount <> UINT#0 THEN
+                IF _outputsCount <> UINT#8 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#996,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#996;
                     RETURN;
@@ -1498,7 +1496,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_out_10 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#8 AND _inputsCount <> UINT#0 THEN
+                IF _outputsCount <> UINT#8 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#1006,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1006;
                     RETURN;
@@ -1538,7 +1536,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_out_11 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#8 AND _inputsCount <> UINT#0 THEN
+                IF _outputsCount <> UINT#8 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#1016,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1016;
                     RETURN;
@@ -1578,7 +1576,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_out_12 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#8 AND _inputsCount <> UINT#0 THEN
+                IF _outputsCount <> UINT#8 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#1026,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1026;
                     RETURN;
@@ -1618,7 +1616,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_out_13 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#8 AND _inputsCount <> UINT#0 THEN
+                IF _outputsCount <> UINT#8 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#1036,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1036;
                     RETURN;
@@ -1658,7 +1656,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_out_14 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#8 AND _inputsCount <> UINT#0 THEN
+                IF _outputsCount <> UINT#8 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#1046,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1046;
                     RETURN;
@@ -1698,7 +1696,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_out_15 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#8 AND _inputsCount <> UINT#0 THEN
+                IF _outputsCount <> UINT#8 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#1056,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1056;
                     RETURN;
@@ -1738,7 +1736,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_out_16 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#8 AND _inputsCount <> UINT#0 THEN
+                IF _outputsCount <> UINT#8 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#1066,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1066;
                     RETURN;
@@ -1778,7 +1776,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_out_17 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#8 AND _inputsCount <> UINT#0 THEN
+                IF _outputsCount <> UINT#8 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#1076,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1076;
                     RETURN;
@@ -1818,7 +1816,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_out_18 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#8 AND _inputsCount <> UINT#0 THEN
+                IF _outputsCount <> UINT#8 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#1086,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1086;
                     RETURN;
@@ -1858,7 +1856,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_out_19 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#8 AND _inputsCount <> UINT#0 THEN
+                IF _outputsCount <> UINT#8 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#1096,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1096;
                     RETURN;
@@ -1898,7 +1896,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_out_20 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#8 AND _inputsCount <> UINT#0 THEN
+                IF _outputsCount <> UINT#8 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#1106,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1106;
                     RETURN;
