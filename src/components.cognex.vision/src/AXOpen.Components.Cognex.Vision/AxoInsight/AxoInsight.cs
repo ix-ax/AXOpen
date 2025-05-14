@@ -49,104 +49,114 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 new KeyValuePair<ulong, AxoMessengerTextItem>(151, new AxoMessengerTextItem("SoftEvent finished succesfully.",                                              "")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(152, new AxoMessengerTextItem("SoftEvent restored.",                                                          "")),
 
+                //  General alarms
+                new KeyValuePair<ulong, AxoMessengerTextItem>(700, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `hwId` has invalid value in `Run` method!"                                                                      ,"Check the call of the `Run` method, if the `hwId` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(702, new AxoMessengerTextItem("Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090)."        ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(700, new AxoMessengerTextItem("Parent has NULL reference in the Run method!",                                 "Check the call of the `Run` method, if the `parent` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("hwIdAcquisitionControl has invalid value in the Run method!",                  "Check the call of the `Run` method, if the `hwIdAcquisitionControl` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(702, new AxoMessengerTextItem("hwIdAcquisitionStatus has invalid value in the Run method!",                   "Check the call of the `Run` method, if the `hwIdAcquisitionStatus` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(703, new AxoMessengerTextItem("hwIdInspectionControl has invalid value in the Run method!",                   "Check the call of the `Run` method, if the `hwIdInspectionControl` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(704, new AxoMessengerTextItem("hwIdInspectionStatus has invalid value in the Run method!",                    "Check the call of the `Run` method, if the `hwIdInspectionStatus` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(705, new AxoMessengerTextItem("hwIdCommandControl has invalid value in the Run method!",                      "Check the call of the `Run` method, if the `hwIdCommandControl` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(706, new AxoMessengerTextItem("hwIdSoftEventControl has invalid value in the Run method!",                    "Check the call of the `Run` method, if the `hwIdSoftEventControl` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(707, new AxoMessengerTextItem("hwIdResultData has invalid value in the Run method!",                          "Check the call of the `Run` method, if the `hwIdResultData` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(708, new AxoMessengerTextItem("hwIdUserData has invalid value in the Run method!",                            "Check the call of the `Run` method, if the `hwIdUserData` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(710, new AxoMessengerTextItem("Hw configuration error. Value of hwIdAcquisitionControl is zero."                                                              ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(711, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(712, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(713, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(714, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 1."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(715, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(716, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 1. Expected module: 'Acquisition_Control'."       ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(709, new AxoMessengerTextItem("Error reading the AcquisitionStatus in the UpdateInputs method!",              "Check the value of the hwIdAcquisitionStatus and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(710, new AxoMessengerTextItem("Error reading the InspectionStatus in the UpdateInputs method!",               "Check the value of the hwIdInspectionStatus and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(711, new AxoMessengerTextItem("Error reading the CommandControl in the UpdateInputs method!",                 "Check the value of the hwIdCommandControl and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(712, new AxoMessengerTextItem("Error reading the SoftEventControl in the UpdateInputs method!",               "Check the value of the hwIdSoftEventControl and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(713, new AxoMessengerTextItem("Error reading the ResultData in the UpdateInputs method!",                     "Check the value of the hwIdResultData and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(714, new AxoMessengerTextItem("ResultData has invalid size!",                                                 "Check the real size of the `ResultData`, so as the value of the ResultDataSize parameter!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(720, new AxoMessengerTextItem("Hw configuration error. Value of hwIdAcquisitionStatus is zero."                                                               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(721, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(722, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(723, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(724, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 2."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(725, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(726, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 2.Expected module: 'Acquisition_Status'."         ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(715, new AxoMessengerTextItem("Error writing the AcquisitionControl in the UpdateOutputs method!",            "Check the value of the hwIdAcquisitionControl and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(716, new AxoMessengerTextItem("Error writing the ResultsControl in the UpdateOutputs method!",                "Check the value of the hwIdesultsControl and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(717, new AxoMessengerTextItem("Error writing the CommandControl in the UpdateOutputs method!",                "Check the value of the hwIdCommandControl and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(718, new AxoMessengerTextItem("Error writing the SoftEventControl in the UpdateOutputs method!",              "Check the value of the hwIdSoftEventControl and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(719, new AxoMessengerTextItem("UserData has invalid size!",                                                   "Check the real size of the `UserData`, so as the value of the UserDataSize parameter!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(720, new AxoMessengerTextItem("Error writing the 16bytes of the UserData in the UpdateOutputs method!",       "Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(721, new AxoMessengerTextItem("Error writing the 32bytes of the UserData in the UpdateOutputs method!",       "Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(722, new AxoMessengerTextItem("Error writing the 64bytes of the UserData in the UpdateOutputs method!",       "Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(723, new AxoMessengerTextItem("Error writing the 128bytes of the UserData in the UpdateOutputs method!",      "Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(724, new AxoMessengerTextItem("Error writing the 254bytes of the UserData in the UpdateOutputs method!",      "Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(730, new AxoMessengerTextItem("Hw configuration error. Value of hwIdInspectionControl is zero."                                                               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(731, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 3."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(732, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 3."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(733, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 3."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(734, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 3."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(735, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 3."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(736, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 3.Expected module: 'Inspection_Control'."         ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(740, new AxoMessengerTextItem("Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090)."        ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(741, new AxoMessengerTextItem("Hw configuration error. Value of hwIdAcquisitionControl is zero."                                                              ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(742, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(743, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(744, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(745, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 1."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(746, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(747, new AxoMessengerTextItem("Hw configuration error. Value of hwIdAcquisitionStatus is zero."                                                               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(748, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(749, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(750, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(751, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 2."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(752, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(753, new AxoMessengerTextItem("Hw configuration error. Value of hwIdInspectionControl is zero."                                                               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(754, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 3."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(755, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 3."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(756, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 3."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(757, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 3."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(758, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 3."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(759, new AxoMessengerTextItem("Hw configuration error. Value of hwIdInspectionStatus is zero."                                                                ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(760, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 4."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(761, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 4."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(762, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 4."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(763, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 4."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(764, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 4."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(765, new AxoMessengerTextItem("Hw configuration error. Value of hwIdCommandControl is zero."                                                                  ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(766, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 5."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(767, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 5."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(768, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 5."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(769, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 5."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(770, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 5."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(771, new AxoMessengerTextItem("Hw configuration error. Value of hwIdSoftEventControl is zero."                                                                ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(772, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 6."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(773, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 6."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(774, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 6."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(775, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 6."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(776, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 6."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(777, new AxoMessengerTextItem("Hw configuration error. Value of hwIdResultData is zero."                                                                      ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(778, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 7."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(779, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 7."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(780, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 7."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(781, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 7."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(782, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 7."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(783, new AxoMessengerTextItem("Hw configuration error. Value of hwIdUserData is zero."                                                                        ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(784, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 8."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(785, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 8."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(786, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 8."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(787, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 8."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(788, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 8."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(740, new AxoMessengerTextItem("Hw configuration error. Value of hwIdInspectionStatus is zero."                                                                ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(741, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 4."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(742, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 4."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(743, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 4."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(744, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 4."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(745, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 4."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(746, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 4.Expected module: 'Inspection_Status'."          ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(800, new AxoMessengerTextItem("Clearing of the inspection results finished with error!",                      "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(801, new AxoMessengerTextItem("Clearing of the inspection results was aborted, while not yet completed!",     "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(810, new AxoMessengerTextItem("Reading finished with error!",                                                 "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(811, new AxoMessengerTextItem("Reading was aborted, while not yet completed!",                                "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(820, new AxoMessengerTextItem("Change job by name finished with error!",                                      "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(821, new AxoMessengerTextItem("Change job by name was aborted, while not yet completed!",                     "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(840, new AxoMessengerTextItem("Change job by number finished with error!",                                    "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(841, new AxoMessengerTextItem("Change job by number was aborted, while not yet completed!",                   "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(850, new AxoMessengerTextItem("SoftEvent finished with error!",                                               "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(851, new AxoMessengerTextItem("SoftEvent was aborted, while not yet completed!",                              "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(750, new AxoMessengerTextItem("Hw configuration error. Value of hwIdCommandControl is zero."                                                                  ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(751, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 5."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(752, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 5."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(753, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 5."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(754, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 5."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(755, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 5."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(756, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 5.Expected module: 'Command_Control'."            ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1301, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 1. Expected module: 'Acquisition_Control'."                  ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1302, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 2. Expected module: 'Acquisition_Status'."                   ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1303, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 3. Expected module: 'Inspection_Control'."                   ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1304, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 4. Expected module: 'Inspection_Status'."                    ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1305, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 5. Expected module: 'Command_Control'."                      ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1306, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 6. Expected module: 'SoftEvent_Control'."                    ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1307, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 7. Allowed modules: 'User_Data-16_bytes,User_Data-32_bytes,User_Data-64_bytes,User_Data-128_bytes,User_Data-250_bytes'."       ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1308, new AxoMessengerTextItem("Hardware configuration error: Unexpected module detected in Slot 8. Allowed modules: 'Result_Data-16_bytes,Result_Data-32_bytes,Result_Data-64_bytes,Result_Data-128_bytes,Result_Data-246_bytes'."       ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(760, new AxoMessengerTextItem("Hw configuration error. Value of hwIdSoftEventControl is zero."                                                                ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(761, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 6."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(762, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 6."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(763, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 6."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(764, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 6."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(765, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 6."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(766, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 6.Expected module: 'SoftEvent_Control'."          ,"Check the hardware configuration.")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(770, new AxoMessengerTextItem("Hw configuration error. Value of hwIdUserData is zero."                                                                        ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(771, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 7."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(772, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 7."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(773, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 7."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(774, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 7."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(775, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 7."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(776, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 7.Allowed modules: 'User_Data-16_bytes,User_Data-32_bytes,User_Data-64_bytes,User_Data-128_bytes,User_Data-250_bytes'.", "Check the hardware configuration.")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(780, new AxoMessengerTextItem("Hw configuration error. Value of hwIdResultData is zero."                                                                      ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(781, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 8."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(782, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 8."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(783, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 8."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(784, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 8."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(785, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 8."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(786, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 8.Allowed modules: 'Result_Data-16_bytes,Result_Data-32_bytes,Result_Data-64_bytes,Result_Data-128_bytes,Result_Data-246_bytes'."       ,"Check the hardware configuration.")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1130, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                  ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1131, new AxoMessengerTextItem("Input variable `hwId` has invalid value in `Run` method!"                                                                     ,"Check the call of the `Run` method, if the `hwId` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1132, new AxoMessengerTextItem("Input variable `hwIdAcquisitionControl ` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `hwIdAcquisitionControl ` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1133, new AxoMessengerTextItem("Input variable `hwIdAcquisitionStatus ` has invalid value in `Run` method!"                                                   ,"Check the call of the `Run` method, if the `hwIdAcquisitionStatus ` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1134, new AxoMessengerTextItem("Input variable `hwIdInspectionControl ` has invalid value in `Run` method!"                                                   ,"Check the call of the `Run` method, if the `hwIdInspectionControl ` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1135, new AxoMessengerTextItem("Input variable `hwIdInspectionStatus ` has invalid value in `Run` method!"                                                    ,"Check the call of the `Run` method, if the `hwIdInspectionStatus ` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1136, new AxoMessengerTextItem("Input variable `hwIdCommandControl ` has invalid value in `Run` method!"                                                      ,"Check the call of the `Run` method, if the `hwIdCommandControl ` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1137, new AxoMessengerTextItem("Input variable `hwIdSoftEventControl ` has invalid value in `Run` method!"                                                    ,"Check the call of the `Run` method, if the `hwIdSoftEventControl ` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1138, new AxoMessengerTextItem("Input variable `hwIdUserData` has invalid value in `Run` method!"                                                             ,"Check the call of the `Run` method, if the `hwIdUserData` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1139, new AxoMessengerTextItem("Input variable `hwIdResultData` has invalid value in `Run` method!"                                                           ,"Check the call of the `Run` method, if the `hwIdResultData ` parameter is assigned.")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1201, new AxoMessengerTextItem("Error reading the AcquisitionStatus!"                                                                                         ,"Check the value of the hwIdAcquisitionStatus and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1202, new AxoMessengerTextItem("Error reading the InspectionStatus!"                                                                                          ,"Check the value of the hwIdInspectionStatusand reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1203, new AxoMessengerTextItem("Error reading the CommandControl!"                                                                                            ,"Check the value of the hwIdCommandControl  and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1204, new AxoMessengerTextItem("Error reading the SoftEventControl!"                                                                                          ,"Check the value of the hwIdSoftEventControl and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1205, new AxoMessengerTextItem("Error reading the ResultData!"                                                                                                ,"Check the value of the hwIdResultData and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1206, new AxoMessengerTextItem("ResultData has invalid size!"                                                                                                 ,"Check the real size of the `ResultData`, so as the value of the ResultDataSize parameter!")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1231, new AxoMessengerTextItem("Error writing the AcquisitionControl!"                                                                                        ,"Check the value of the hwIdAcquisitionControl and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1232, new AxoMessengerTextItem("Error writing the ResultsControl!"                                                                                            ,"Check the value of the hwIdesultsControl and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1233, new AxoMessengerTextItem("Error writing the CommandControl!"                                                                                            ,"Check the value of the hwIdCommandControl and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1234, new AxoMessengerTextItem("Error writing the SoftEventControl!"                                                                                          ,"Check the value of the hwIdSoftEventControl and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1235, new AxoMessengerTextItem("UserData has invalid size!"                                                                                                   ,"Check the real size of the `UserData`, so as the value of the UserDataSize parameter!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1236, new AxoMessengerTextItem("Error writing the 16bytes of the UserData!"                                                                                   ,"Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1237, new AxoMessengerTextItem("Error writing the 32bytes of the UserData!"                                                                                   ,"Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1238, new AxoMessengerTextItem("Error writing the 64bytes of the UserData!"                                                                                   ,"Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1239, new AxoMessengerTextItem("Error writing the 128bytes of the UserData!"                                                                                  ,"Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1240, new AxoMessengerTextItem("Error writing the 254bytes of the UserData!"                                                                                  ,"Check the value of the hwIdUserData, the real size of the `UserData`, the value of the UserDataSize parameter and reacheability of the device!")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10000, new AxoMessengerTextItem("Clearing of the inspection results finished with error!"                                                                     ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10001, new AxoMessengerTextItem("Clearing of the inspection results was aborted, while not yet completed!"                                                    ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10010, new AxoMessengerTextItem("Reading finished with error!"                                                                                                ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10011, new AxoMessengerTextItem("Reading was aborted, while not yet completed!"                                                                               ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10020, new AxoMessengerTextItem("Change job by name finished with error!"                                                                                     ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10021, new AxoMessengerTextItem("Change job by name was aborted, while not yet completed!"                                                                    ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10040, new AxoMessengerTextItem("Change job by number finished with error!"                                                                                   ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10041, new AxoMessengerTextItem("Change job by number was aborted, while not yet completed!"                                                                  ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10050, new AxoMessengerTextItem("SoftEvent finished with error!"                                                                                              ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10051, new AxoMessengerTextItem("SoftEvent was aborted, while not yet completed!"                                                                             ,"Check the details.")),
 
             };
 
@@ -159,92 +169,39 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
             {
                 new KeyValuePair<ulong, AxoMessengerTextItem>(0, new AxoMessengerTextItem("  ", "  ")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(601, new AxoMessengerTextItem("Waiting for the signal ResultsValid to be reseted!"                      ,"Check the status of the `ResultsValid` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(501, new AxoMessengerTextItem("Waiting for the signal InspectionStatus.ResultsValid to be reseted!"                                                           ,"Check the status of the `InspectionStatus.ResultsValid` signal.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(611, new AxoMessengerTextItem("Waiting for the signal ExposureComplete to be reseted!"                  ,"Check the status of the `ExposureComplete` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(612, new AxoMessengerTextItem("Waiting for the signal ResultsValid to be reseted!"                      ,"Check the status of the `ResultsValid` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(613, new AxoMessengerTextItem("Waiting for the signal Error to be reseted!"                             ,"Check the status of the `Error` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(614, new AxoMessengerTextItem("Waiting for the signal TriggerReady to be set!"                          ,"Check the status of the `TriggerReady` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(615, new AxoMessengerTextItem("Waiting for the signal TriggerAcknowledge to be set!"                    ,"Check the status of the `TriggerAcknowledge` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(616, new AxoMessengerTextItem("Waiting for the signal InspectionCompleted to be toggled!"               ,"Check the status of the `InspectionCompleted` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(617, new AxoMessengerTextItem("Waiting for the signal ResultsValid to be set!"                          ,"Check the status of the `ResultsValid` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(618, new AxoMessengerTextItem("Waiting for the InspectionResults to be copied!"                         ,"Check the status of the `InspectionResults` data.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(511, new AxoMessengerTextItem("Waiting for the signal AcquisitionStatus.ExposureComplete to be reseted!"                                                      ,"Check the status of the `AcquisitionStatus.ExposureComplete` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(512, new AxoMessengerTextItem("Waiting for the signal InspectionStatus.ResultsValid to be reseted!"                                                           ,"Check the status of the `InspectionStatus.ResultsValid` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(513, new AxoMessengerTextItem("Waiting for the signal InspectionStatus.Error to be reseted!"                                                                  ,"Check the status of the `InspectionStatus.Error` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(514, new AxoMessengerTextItem("Waiting for the signal AcquisitionStatus.TriggerReady to be set!"                                                              ,"Check the status of the `AcquisitionStatus.TriggerReady` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(515, new AxoMessengerTextItem("Waiting for the signal AcquisitionStatus.TriggerAcknowledge to be set!"                                                        ,"Check the status of the `AcquisitionStatus.TriggerAcknowledge` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(516, new AxoMessengerTextItem("Waiting for the signal InspectionStatus.InspectionCompleted to be toggled!"                                                    ,"Check the status of the `InspectionStatus.InspectionCompleted` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(517, new AxoMessengerTextItem("Waiting for the signal InspectionStatus.ResultsValid to be set!"                                                               ,"Check the status of the `InspectionStatus.ResultsValid` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(518, new AxoMessengerTextItem("Waiting for the InspectionResults to be copied!"                                                                               ,"Check the status of the `InspectionResults` data.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(621, new AxoMessengerTextItem("Waiting for the signal CommandExecuting to be reseted!"                  ,"Check the status of the `CommandExecuting` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(622, new AxoMessengerTextItem("Waiting for the signal Online to be reseted!"                            ,"Check the status of the `Online` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(623, new AxoMessengerTextItem("Waiting for the signal Error to be reseted!"                             ,"Check the status of the `Error` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(624, new AxoMessengerTextItem("Waiting for the Job name to be written to User data!"                    ,"Check the status of the `User` data.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(625, new AxoMessengerTextItem("Waiting for the signal ExtendedUserDataSetAcknowledge to be set!"        ,"Check the status of the `ExtendedUserDataSetAcknowledge` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(626, new AxoMessengerTextItem("Waiting for the signal ExtendedUserDataSetAcknowledge to be reseted!"    ,"Check the status of the `ExtendedUserDataSetAcknowledge` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(627, new AxoMessengerTextItem("Waiting for the signal CommandComplete to be set!"                       ,"Check the status of the `CommandComplete` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(628, new AxoMessengerTextItem("Waiting for the signal CommandComplete to be reseted!"                   ,"Check the status of the `CommandComplete` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(629, new AxoMessengerTextItem("Waiting for the signal Online to be set!"                                ,"Check the status of the `Online` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(520, new AxoMessengerTextItem("Empty job name inserted!"                                                                                                      ,"Check the required job name.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(521, new AxoMessengerTextItem("Waiting for the signal InspectionStatus.CommandExecuting to be reseted!"                                                       ,"Check the status of the `InspectionStatus.CommandExecuting` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(522, new AxoMessengerTextItem("Waiting for the signal Online to be reseted!"                                                                                  ,"Check the status of the `Online` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(523, new AxoMessengerTextItem("Waiting for the signal InspectionStatus.Error to be reseted!"                                                                  ,"Check the status of the `InspectionStatus.Error` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(524, new AxoMessengerTextItem("Waiting for the Job name to be written to User data!"                                                                          ,"Check the status of the `User` data.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(525, new AxoMessengerTextItem("Waiting for the signal InspectionStatus.ExtendedUserDataSetAcknowledge to be set!"                                             ,"Check the status of the `InspectionStatus.ExtendedUserDataSetAcknowledge` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(526, new AxoMessengerTextItem("Waiting for the signal InspectionStatus.ExtendedUserDataSetAcknowledge to be reseted!"                                         ,"Check the status of the `InspectionStatus.ExtendedUserDataSetAcknowledge` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(527, new AxoMessengerTextItem("Waiting for the signal InspectionStatus.CommandComplete to be set!"                                                            ,"Check the status of the `InspectionStatus.CommandComplete` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(528, new AxoMessengerTextItem("Waiting for the signal InspectionStatus.CommandComplete to be reseted!"                                                        ,"Check the status of the `InspectionStatus.CommandComplete` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(529, new AxoMessengerTextItem("Waiting for the signal AcquisitionStatus.Online to be set!"                                                                    ,"Check the status of the `AcquisitionStatus.Online` signal.")),
 
+                new KeyValuePair<ulong, AxoMessengerTextItem>(540, new AxoMessengerTextItem("Required job number is greater than the maximal value!"                                                                        ,"Check the sensor manufacturer documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(541, new AxoMessengerTextItem("Waiting for the signal InspectionStatus.CommandExecuting to be reseted!"                                                       ,"Check the status of the `InspectionStatus.CommandExecuting` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(542, new AxoMessengerTextItem("Waiting for the signal AcquisitionStatus.Online to be reseted!"                                                                ,"Check the status of the `AcquisitionStatus.Online` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(543, new AxoMessengerTextItem("Waiting for the signal InspectionStatus.Error to be reseted!"                                                                  ,"Check the status of the `InspectionStatus.Error` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(544, new AxoMessengerTextItem("Waiting for the signal InspectionStatus.CommandComplete to be set!"                                                            ,"Check the status of the `InspectionStatus.CommandComplete` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(545, new AxoMessengerTextItem("Waiting for the signal InspectionStatus.CommandComplete to be reseted!"                                                        ,"Check the status of the `InspectionStatus.CommandComplete` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(546, new AxoMessengerTextItem("Waiting for the signal AcquisitionStatus.Online to be set!"                                                                    ,"Check the status of the `AcquisitionStatus.Online` signal.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(641, new AxoMessengerTextItem("Waiting for the signal CommandExecuting to be reseted!"                  ,"Check the status of the `CommandExecuting` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(642, new AxoMessengerTextItem("Waiting for the signal Online to be reseted!"                            ,"Check the status of the `Online` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(643, new AxoMessengerTextItem("Waiting for the signal Error to be reseted!"                             ,"Check the status of the `Error` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(644, new AxoMessengerTextItem("Waiting for the signal CommandComplete to be set!"                       ,"Check the status of the `CommandComplete` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(645, new AxoMessengerTextItem("Waiting for the signal CommandComplete to be reseted!"                   ,"Check the status of the `CommandComplete` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(646, new AxoMessengerTextItem("Waiting for the signal Online to be set!"                                ,"Check the status of the `Online` signal.")),
-
-                new KeyValuePair<ulong, AxoMessengerTextItem>(652, new AxoMessengerTextItem("Waiting for the signal TriggerSoftEvent to be set!"                      ,"Check the status of the `TriggerSoftEvent` signal.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(653, new AxoMessengerTextItem("Waiting for the signal TriggerSoftEvent to be reseted!"                  ,"Check the status of the `TriggerSoftEvent` signal.")),
-
-                new KeyValuePair<ulong, AxoMessengerTextItem>(725, new AxoMessengerTextItem("Empty job name inserted!"                                                ,"Check the required job name.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(726, new AxoMessengerTextItem("Required job number is greater than the maximal value!"                  ,"Check the sensor manufacturer documentation.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(727, new AxoMessengerTextItem("Required soft event number is greater than the maximal value of 7!"      ,"Check the sensor manufacturer documentation.")),
-
-                new KeyValuePair<ulong, AxoMessengerTextItem>(740, new AxoMessengerTextItem("Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090)."        ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(741, new AxoMessengerTextItem("Hw configuration error. Value of hwIdAcquisitionControl is zero."                                                              ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(742, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(743, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(744, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(745, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 1."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(746, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(747, new AxoMessengerTextItem("Hw configuration error. Value of hwIdAcquisitionStatus is zero."                                                               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(748, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(749, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(750, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(751, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 2."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(752, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(753, new AxoMessengerTextItem("Hw configuration error. Value of hwIdInspectionControl is zero."                                                               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(754, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 3."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(755, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 3."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(756, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 3."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(757, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 3."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(758, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 3."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(759, new AxoMessengerTextItem("Hw configuration error. Value of hwIdInspectionStatus is zero."                                                                ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(760, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 4."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(761, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 4."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(762, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 4."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(763, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 4."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(764, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 4."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(765, new AxoMessengerTextItem("Hw configuration error. Value of hwIdCommandControl is zero."                                                                  ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(766, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 5."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(767, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 5."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(768, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 5."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(769, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 5."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(770, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 5."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(771, new AxoMessengerTextItem("Hw configuration error. Value of hwIdSoftEventControl is zero."                                                                ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(772, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 6."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(773, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 6."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(774, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 6."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(775, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 6."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(776, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 6."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(777, new AxoMessengerTextItem("Hw configuration error. Value of hwIdResultData is zero."                                                                      ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(778, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 7."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(779, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 7."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(780, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 7."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(781, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 7."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(782, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 7."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(783, new AxoMessengerTextItem("Hw configuration error. Value of hwIdUserData is zero."                                                                        ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(784, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 8."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(785, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 8."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(786, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 8."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(787, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 8."               ,"Check the hardware configuration.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(788, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 8."               ,"Check the hardware configuration.")),
-
+                new KeyValuePair<ulong, AxoMessengerTextItem>(550, new AxoMessengerTextItem("Required soft event number is greater than the maximal value of 7!"                                                            ,"Check the sensor manufacturer documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(552, new AxoMessengerTextItem("Waiting for the signal SoftEventStatus.TriggerSoftEventAcknowledge to be set!"                                                 ,"Check the status of the `SoftEventStatus.TriggerSoftEventAcknowledge` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(553, new AxoMessengerTextItem("Waiting for the signal SoftEventStatus.TriggerSoftEventAcknowledge to be reseted!"                                             ,"Check the status of the `SoftEventStatus.TriggerSoftEventAcknowledge` signal.")),
 
             };
 
@@ -265,124 +222,138 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 if(errorDescriptionDict.Count == 0)
                 {
                     errorDescriptionDict.Add(0      , "   ");
-                    errorDescriptionDict.Add(600, "Waiting for the signal ExposureComplete to be reseted!");
-                    errorDescriptionDict.Add(601, "Waiting for the signal ResultsValid to be reseted!");
-                    errorDescriptionDict.Add(602, "Waiting for the signal Error to be reseted!");
-                    errorDescriptionDict.Add(603, "Waiting for the signal TriggerReady to be set!");
-                    errorDescriptionDict.Add(604, "Waiting for the signal TriggerAcknowledge to be set!");
-                    errorDescriptionDict.Add(605, "Waiting for the signal InspectionCompleted to be toggled!");
-                    errorDescriptionDict.Add(606, "Waiting for the signal ResultsValid to be set!");
-                    errorDescriptionDict.Add(607, "Waiting for the InspectionResults to be copied!");
-                    errorDescriptionDict.Add(608, "Waiting for the signal CommandExecuting to be reseted!");
-                    errorDescriptionDict.Add(609, "Waiting for the signal Online to be reseted!");
-                    errorDescriptionDict.Add(610, "Waiting for the signal Error to be reseted!");
-                    errorDescriptionDict.Add(611, "Waiting for the Job name to be written to the User data!");
-                    errorDescriptionDict.Add(612, "Waiting for the signal ExtendedUserDataSetAcknowledge to be set!");
-                    errorDescriptionDict.Add(613, "Waiting for the signal ExtendedUserDataSetAcknowledge to be reseted!");
-                    errorDescriptionDict.Add(614, "Waiting for the signal CommandComplete to be set!");
-                    errorDescriptionDict.Add(615, "Waiting for the signal CommandComplete to be reseted!");
-                    errorDescriptionDict.Add(616, "Waiting for the signal Online to be set!");
-                    errorDescriptionDict.Add(617, "Waiting for the signal TriggerSoftEvent to be set!");
-                    errorDescriptionDict.Add(618, "Waiting for the signal TriggerSoftEvent to be reseted!");
+
+                    errorDescriptionDict.Add(501, "Waiting for the signal InspectionStatus.ResultsValid to be reseted!");
+
+                    errorDescriptionDict.Add(511, "Waiting for the signal AcquisitionStatus.ExposureComplete to be reseted!");
+                    errorDescriptionDict.Add(512, "Waiting for the signal InspectionStatus.ResultsValid to be reseted!");
+                    errorDescriptionDict.Add(513, "Waiting for the signal InspectionStatus.Error to be reseted!");
+                    errorDescriptionDict.Add(514, "Waiting for the signal AcquisitionStatus.TriggerReady to be set!");
+                    errorDescriptionDict.Add(515, "Waiting for the signal AcquisitionStatus.TriggerAcknowledge to be set!");
+                    errorDescriptionDict.Add(516, "Waiting for the signal InspectionStatus.InspectionCompleted to be toggled!");
+                    errorDescriptionDict.Add(517, "Waiting for the signal InspectionStatus.ResultsValid to be set!");
+                    errorDescriptionDict.Add(518, "Waiting for the InspectionResults to be copied!");
+
+                    errorDescriptionDict.Add(520, "Empty job name inserted!");
+                    errorDescriptionDict.Add(521, "Waiting for the signal InspectionStatus.CommandExecuting to be reseted!");
+                    errorDescriptionDict.Add(522, "Waiting for the signal AcquisitionStatus.Online to be reseted!");
+                    errorDescriptionDict.Add(523, "Waiting for the signal InspectionStatus.Error to be reseted!");
+                    errorDescriptionDict.Add(524, "Waiting for the Job name to be written to the User data!");
+                    errorDescriptionDict.Add(525, "Waiting for the signal InspectionStatus.ExtendedUserDataSetAcknowledge to be set!");
+                    errorDescriptionDict.Add(526, "Waiting for the signal InspectionStatus.ExtendedUserDataSetAcknowledge to be reseted!");
+                    errorDescriptionDict.Add(527, "Waiting for the signal InspectionStatus.CommandComplete to be set!");
+                    errorDescriptionDict.Add(528, "Waiting for the signal InspectionStatus.CommandComplete to be reseted!");
+                    errorDescriptionDict.Add(529, "Waiting for the signal AcquisitionStatus.Online to be set!");
+
+                    errorDescriptionDict.Add(540, "Required job number is greater than the maximal value!");
+                    errorDescriptionDict.Add(541, "Waiting for the signal InspectionStatus.CommandExecuting to be reseted!");
+                    errorDescriptionDict.Add(542, "Waiting for the signal AcquisitionStatus.Online to be reseted!");
+                    errorDescriptionDict.Add(543, "Waiting for the signal InspectionStatus.Error to be reseted!");
+                    errorDescriptionDict.Add(544, "Waiting for the signal InspectionStatus.CommandComplete to be set!");
+                    errorDescriptionDict.Add(545, "Waiting for the signal InspectionStatus.CommandComplete to be reseted!");
+                    errorDescriptionDict.Add(546, "Waiting for the signal AcquisitionStatus.Online to be set!");
+
+                    errorDescriptionDict.Add(550, "Required soft event number is greater than the maximal value of 7!");
+                    errorDescriptionDict.Add(552, "Waiting for the signal SoftEventStatus.TriggerSoftEventAcknowledge to be set!");
+                    errorDescriptionDict.Add(553, "Waiting for the signal SoftEventStatus.TriggerSoftEventAcknowledge to be reseted!");
 
 
-                    errorDescriptionDict.Add(700, "Parent has NULL reference in the Run method!");
-                    errorDescriptionDict.Add(701, "hwIdAcquisitionControl has invalid value in the Run method!");
-                    errorDescriptionDict.Add(702, "hwIdAcquisitionStatus has invalid value in the Run method!");
-                    errorDescriptionDict.Add(703, "hwIdInspectionControl has invalid value in the Run method!");
-                    errorDescriptionDict.Add(704, "hwIdInspectionStatus has invalid value in the Run method!");
-                    errorDescriptionDict.Add(705, "hwIdCommandControl has invalid value in the Run method!");
-                    errorDescriptionDict.Add(706, "hwIdSoftEventControl has invalid value in the Run method!");
-                    errorDescriptionDict.Add(707, "hwIdResultData has invalid value in the Run method!");
-                    errorDescriptionDict.Add(708, "hwIdUserData has invalid value in the Run method!");
-                    errorDescriptionDict.Add(709, "Error reading the AcquisitionStatus in the UpdateInputs method!");
-                    errorDescriptionDict.Add(710, "Error reading the InspectionStatus in the UpdateInputs method!");
-                    errorDescriptionDict.Add(711, "Error reading the CommandControl in the UpdateInputs method!");
-                    errorDescriptionDict.Add(712, "Error reading the SoftEventControl in the UpdateInputs method!");
-                    errorDescriptionDict.Add(713, "Error reading the ResultData in the UpdateInputs method!");
-                    errorDescriptionDict.Add(714, "ResultData has invalid size!");
-                    errorDescriptionDict.Add(715, "Error writing the AcquisitionControl in the UpdateOutputs method!");
-                    errorDescriptionDict.Add(716, "Error writing the ResultsControl in the UpdateOutputs method!");
-                    errorDescriptionDict.Add(717, "Error writing the CommandControl in the UpdateOutputs method!");
-                    errorDescriptionDict.Add(718, "Error writing the SoftEventControl in the UpdateOutputs method!");
-                    errorDescriptionDict.Add(719, "UserData has invalid size!");
-                    errorDescriptionDict.Add(720, "Error writing the 16bytes of the UserData in the UpdateOutputs method!");
-                    errorDescriptionDict.Add(721, "Error writing the 32bytes of the UserData in the UpdateOutputs method!");
-                    errorDescriptionDict.Add(722, "Error writing the 64bytes of the UserData in the UpdateOutputs method!");
-                    errorDescriptionDict.Add(723, "Error writing the 128bytes of the UserData in the UpdateOutputs method!");
-                    errorDescriptionDict.Add(724, "Error writing the 254bytes of the UserData in the UpdateOutputs method!");
-                    errorDescriptionDict.Add(725, "Empty job name inserted!");
-                    errorDescriptionDict.Add(726, "Required job number is greater than the maximal value!");
-                    errorDescriptionDict.Add(727, "Required soft event number is greater than the maximal value of 7!");
-                    errorDescriptionDict.Add(740, "Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090).");
-                    errorDescriptionDict.Add(741, "Hw configuration error. Value of hwIdAcquisitionControl is zero.");
-                    errorDescriptionDict.Add(742, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1.");
-                    errorDescriptionDict.Add(743, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1.");
-                    errorDescriptionDict.Add(744, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1.");
-                    errorDescriptionDict.Add(745, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 1.");
-                    errorDescriptionDict.Add(746, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1.");
-                    errorDescriptionDict.Add(747, "Hw configuration error. Value of hwIdAcquisitionStatus is zero.");
-                    errorDescriptionDict.Add(748, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2.");
-                    errorDescriptionDict.Add(749, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2.");
-                    errorDescriptionDict.Add(750, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2.");
-                    errorDescriptionDict.Add(751, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 2.");
-                    errorDescriptionDict.Add(752, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2.");
-                    errorDescriptionDict.Add(753, "Hw configuration error. Value of hwIdInspectionControl is zero.");
-                    errorDescriptionDict.Add(754, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 3.");
-                    errorDescriptionDict.Add(755, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 3.");
-                    errorDescriptionDict.Add(756, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 3.");
-                    errorDescriptionDict.Add(757, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 3.");
-                    errorDescriptionDict.Add(758, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 3.");
-                    errorDescriptionDict.Add(759, "Hw configuration error. Value of hwIdInspectionStatus is zero.");
-                    errorDescriptionDict.Add(760, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 4.");
-                    errorDescriptionDict.Add(761, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 4.");
-                    errorDescriptionDict.Add(762, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 4.");
-                    errorDescriptionDict.Add(763, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 4.");
-                    errorDescriptionDict.Add(764, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 4.");
-                    errorDescriptionDict.Add(765, "Hw configuration error. Value of hwIdCommandControl is zero.");
-                    errorDescriptionDict.Add(766, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 5.");
-                    errorDescriptionDict.Add(767, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 5.");
-                    errorDescriptionDict.Add(768, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 5.");
-                    errorDescriptionDict.Add(769, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 5.");
-                    errorDescriptionDict.Add(770, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 5.");
-                    errorDescriptionDict.Add(771, "Hw configuration error. Value of hwIdSoftEventControl is zero.");
-                    errorDescriptionDict.Add(772, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 6.");
-                    errorDescriptionDict.Add(773, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 6.");
-                    errorDescriptionDict.Add(774, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 6.");
-                    errorDescriptionDict.Add(775, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 6.");
-                    errorDescriptionDict.Add(776, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 6.");
-                    errorDescriptionDict.Add(777, "Hw configuration error. Value of hwIdResultData is zero.");
-                    errorDescriptionDict.Add(778, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 7.");
-                    errorDescriptionDict.Add(779, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 7.");
-                    errorDescriptionDict.Add(780, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 7.");
-                    errorDescriptionDict.Add(781, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 7.");
-                    errorDescriptionDict.Add(782, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 7.");
-                    errorDescriptionDict.Add(783, "Hw configuration error. Value of hwIdUserData is zero.");
-                    errorDescriptionDict.Add(784, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 8.");
-                    errorDescriptionDict.Add(785, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 8.");
-                    errorDescriptionDict.Add(786, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 8.");
-                    errorDescriptionDict.Add(787, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 8.");
-                    errorDescriptionDict.Add(788, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 8.");
-                    errorDescriptionDict.Add(800, "Clearing of the inspection results finished with error!");
-                    errorDescriptionDict.Add(801, "Clearing of the inspection results was aborted, while not yet completed!");
-                    errorDescriptionDict.Add(810, "Reading finished with error!");
-                    errorDescriptionDict.Add(811, "Reading was aborted, while not yet completed!");
-                    errorDescriptionDict.Add(820, "Change job by name finished with error!");
-                    errorDescriptionDict.Add(821, "Change job by name was aborted, while not yet completed!");
-                    errorDescriptionDict.Add(840, "Change job by number finished with error!");
-                    errorDescriptionDict.Add(841, "Change job by number was aborted, while not yet completed!");
-                    errorDescriptionDict.Add(850, "SoftEvent finished with error!");
-                    errorDescriptionDict.Add(851, "SoftEvent was aborted, while not yet completed!");
-
-                    errorDescriptionDict.Add(1301, "Hardware configuration error: Unexpected module detected in Slot 1. Expected module: 'Acquisition_Control'.");
-                    errorDescriptionDict.Add(1302, "Hardware configuration error: Unexpected module detected in Slot 2. Expected module: 'Acquisition_Status'.");
-                    errorDescriptionDict.Add(1303, "Hardware configuration error: Unexpected module detected in Slot 3. Expected module: 'Inspection_Control'.");
-                    errorDescriptionDict.Add(1304, "Hardware configuration error: Unexpected module detected in Slot 4. Expected module: 'Inspection_Status'.");
-                    errorDescriptionDict.Add(1305, "Hardware configuration error: Unexpected module detected in Slot 5. Expected module: 'Command_Control'.");
-                    errorDescriptionDict.Add(1306, "Hardware configuration error: Unexpected module detected in Slot 6. Expected module: 'SoftEvent_Control'.");
-                    errorDescriptionDict.Add(1307, "Hardware configuration error: Unexpected module detected in Slot 7. Allowed modules: 'User_Data-16_bytes,User_Data-32_bytes,User_Data-64_bytes,User_Data-128_bytes,User_Data-254_bytes'.");
-                    errorDescriptionDict.Add(1308, "Hardware configuration error: Unexpected module detected in Slot 8. Allowed modules: 'Result_Data-16_bytes,Result_Data-32_bytes,Result_Data-64_bytes,Result_Data-128_bytes,Result_Data-250_bytes'.");
-
+                    //  General alarms
+                    errorDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!"                                                                               );
+                    errorDescriptionDict.Add(701, "Input variable `hwId` has invalid value in `Run` method!"                                                                                  );
+                    errorDescriptionDict.Add(702, "Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090)."                    );
+                    errorDescriptionDict.Add(710, "Hw configuration error. Value of hwIdAcquisitionControl is zero."                                                                          );
+                    errorDescriptionDict.Add(711, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1."                           );
+                    errorDescriptionDict.Add(712, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1."                           );
+                    errorDescriptionDict.Add(713, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1."                           );
+                    errorDescriptionDict.Add(714, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 1."                           );
+                    errorDescriptionDict.Add(715, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1."                           );
+                    errorDescriptionDict.Add(716, "Hw configuration error: Module with unexpected size or type detected in Slot 1. Expected module: 'Acquisition_Control'."                   );
+                    errorDescriptionDict.Add(720, "Hw configuration error. Value of hwIdAcquisitionStatus is zero."                                                                           );
+                    errorDescriptionDict.Add(721, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2."                           );
+                    errorDescriptionDict.Add(722, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2."                           );
+                    errorDescriptionDict.Add(723, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2."                           );
+                    errorDescriptionDict.Add(724, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 2."                           );
+                    errorDescriptionDict.Add(725, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2."                           );
+                    errorDescriptionDict.Add(726, "Hw configuration error: Module with unexpected size or type detected in Slot 2.Expected module: 'Acquisition_Status'."                     );
+                    errorDescriptionDict.Add(730, "Hw configuration error. Value of hwIdInspectionControl is zero."                                                                           );
+                    errorDescriptionDict.Add(731, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 3."                           );
+                    errorDescriptionDict.Add(732, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 3."                           );
+                    errorDescriptionDict.Add(733, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 3."                           );
+                    errorDescriptionDict.Add(734, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 3."                           );
+                    errorDescriptionDict.Add(735, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 3."                           );
+                    errorDescriptionDict.Add(736, "Hw configuration error: Module with unexpected size or type detected in Slot 3.Expected module: 'Inspection_Control'."                     );
+                    errorDescriptionDict.Add(740, "Hw configuration error. Value of hwIdInspectionStatus is zero."                                                                            );
+                    errorDescriptionDict.Add(741, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 4."                           );
+                    errorDescriptionDict.Add(742, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 4."                           );
+                    errorDescriptionDict.Add(743, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 4."                           );
+                    errorDescriptionDict.Add(744, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 4."                           );
+                    errorDescriptionDict.Add(745, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 4."                           );
+                    errorDescriptionDict.Add(746, "Hw configuration error: Module with unexpected size or type detected in Slot 4.Expected module: 'Inspection_Status'."                      );
+                    errorDescriptionDict.Add(750, "Hw configuration error. Value of hwIdCommandControl is zero."                                                                              );
+                    errorDescriptionDict.Add(751, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 5."                           );
+                    errorDescriptionDict.Add(752, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 5."                           );
+                    errorDescriptionDict.Add(753, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 5."                           );
+                    errorDescriptionDict.Add(754, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 5."                           );
+                    errorDescriptionDict.Add(755, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 5."                           );
+                    errorDescriptionDict.Add(756, "Hw configuration error: Module with unexpected size or type detected in Slot 5.Expected module: 'Command_Control'."                        );
+                    errorDescriptionDict.Add(760, "Hw configuration error. Value of hwIdSoftEventControl is zero."                                                                            );
+                    errorDescriptionDict.Add(761, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 6."                           );
+                    errorDescriptionDict.Add(762, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 6."                           );
+                    errorDescriptionDict.Add(763, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 6."                           );
+                    errorDescriptionDict.Add(764, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 6."                           );
+                    errorDescriptionDict.Add(765, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 6."                           );
+                    errorDescriptionDict.Add(766, "Hw configuration error: Module with unexpected size or type detected in Slot 6.Expected module: 'SoftEvent_Control'."                      );
+                    errorDescriptionDict.Add(770, "Hw configuration error. Value of hwIdUserData is zero."                                                                                    );
+                    errorDescriptionDict.Add(771, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 7."                           );
+                    errorDescriptionDict.Add(772, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 7."                           );
+                    errorDescriptionDict.Add(773, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 7."                           );
+                    errorDescriptionDict.Add(774, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 7."                           );
+                    errorDescriptionDict.Add(775, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 7.");
+                    errorDescriptionDict.Add(776, "Hw configuration error: Module with unexpected size or type detected in Slot 7.Allowed modules: 'User_Data-16_bytes,User_Data-32_bytes,User_Data-64_bytes,User_Data-128_bytes,User_Data-250_bytes'.");
+                    errorDescriptionDict.Add(780, "Hw configuration error. Value of hwIdResultData is zero."                                                                                    );
+                    errorDescriptionDict.Add(781, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 8."                             );
+                    errorDescriptionDict.Add(782, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 8."                             );
+                    errorDescriptionDict.Add(783, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 8."                             );
+                    errorDescriptionDict.Add(784, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 8."                             );
+                    errorDescriptionDict.Add(785, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 8."                             );
+                    errorDescriptionDict.Add(786, "Hw configuration error: Module with unexpected size or type detected in Slot 8.Allowed modules: 'Result_Data-16_bytes,Result_Data-32_bytes,Result_Data-64_bytes,Result_Data-128_bytes,Result_Data-246_bytes'.");
+                    errorDescriptionDict.Add(1130, "Input variable `parent` has NULL reference in `Run` method!"); 
+                    errorDescriptionDict.Add(1131, "Input variable `hwId` has invalid value in `Run` method!");   
+                    errorDescriptionDict.Add(1132, "Input variable `hwIdAcquisitionControl ` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1133, "Input variable `hwIdAcquisitionStatus ` has invalid value in `Run` method!"); 
+                    errorDescriptionDict.Add(1134, "Input variable `hwIdInspectionControl ` has invalid value in `Run` method!"); 
+                    errorDescriptionDict.Add(1135, "Input variable `hwIdInspectionStatus ` has invalid value in `Run` method!");  
+                    errorDescriptionDict.Add(1136, "Input variable `hwIdCommandControl ` has invalid value in `Run` method!");    
+                    errorDescriptionDict.Add(1137, "Input variable `hwIdSoftEventControl ` has invalid value in `Run` method!");  
+                    errorDescriptionDict.Add(1138, "Input variable `hwIdUserData` has invalid value in `Run` method!");  
+                    errorDescriptionDict.Add(1139, "Input variable `hwIdResultData` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1201, "Error reading the AcquisitionStatus!");
+                    errorDescriptionDict.Add(1202, "Error reading the InspectionStatus!"); 
+                    errorDescriptionDict.Add(1203, "Error reading the CommandControl!");   
+                    errorDescriptionDict.Add(1204, "Error reading the SoftEventControl!"); 
+                    errorDescriptionDict.Add(1205, "Error reading the ResultData!"); 
+                    errorDescriptionDict.Add(1206, "ResultData has invalid size!");
+                    errorDescriptionDict.Add(1231, "Error writing the AcquisitionControl!");
+                    errorDescriptionDict.Add(1232, "Error writing the ResultsControl!");   
+                    errorDescriptionDict.Add(1233, "Error writing the CommandControl!");   
+                    errorDescriptionDict.Add(1234, "Error writing the SoftEventControl!"); 
+                    errorDescriptionDict.Add(1235, "UserData has invalid size!");  
+                    errorDescriptionDict.Add(1236, "Error writing the 16bytes of the UserData!");  
+                    errorDescriptionDict.Add(1237, "Error writing the 32bytes of the UserData!");  
+                    errorDescriptionDict.Add(1238, "Error writing the 64bytes of the UserData!");  
+                    errorDescriptionDict.Add(1239, "Error writing the 128bytes of the UserData!"); 
+                    errorDescriptionDict.Add(1240, "Error writing the 254bytes of the UserData!"); 
+                    errorDescriptionDict.Add(10000, "Clearing of the inspection results finished with error!");   
+                    errorDescriptionDict.Add(10001, "Clearing of the inspection results was aborted, while not yet completed!");   
+                    errorDescriptionDict.Add(10010, "Reading finished with error!");   
+                    errorDescriptionDict.Add(10011, "Reading was aborted, while not yet completed!");   
+                    errorDescriptionDict.Add(10020, "Change job by name finished with error!");   
+                    errorDescriptionDict.Add(10021, "Change job by name was aborted, while not yet completed!"); 
+                    errorDescriptionDict.Add(10040, "Change job by number finished with error!");   
+                    errorDescriptionDict.Add(10041, "Change job by number was aborted, while not yet completed!");   
+                    errorDescriptionDict.Add(10050, "SoftEvent finished with error!");   
+                    errorDescriptionDict.Add(10051, "SoftEvent was aborted, while not yet completed!");   
                 }
                 string errorDescription = "   ";
 
@@ -492,16 +463,16 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     actionDescriptionDict.Add(152, "SoftEvent restored.");
 
 
-                    actionDescriptionDict.Add(800, "Clearing of the inspection results finished with error!");
-                    actionDescriptionDict.Add(801, "Clearing of the inspection results was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(810, "Reading finished with error!");
-                    actionDescriptionDict.Add(811, "Reading was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(820, "Change job by name finished with error!");
-                    actionDescriptionDict.Add(821, "Change job by name  was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(840, "Change job by number finished with error!");
-                    actionDescriptionDict.Add(841, "Change job by number  was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(850, "Soft event finished with error!");
-                    actionDescriptionDict.Add(851, "Soft event finished  was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10000, "Clearing of the inspection results finished with error!");
+                    actionDescriptionDict.Add(10001, "Clearing of the inspection results was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10010, "Reading finished with error!");
+                    actionDescriptionDict.Add(10011, "Reading was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10020, "Change job by name finished with error!");
+                    actionDescriptionDict.Add(10021, "Change job by name  was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10040, "Change job by number finished with error!");
+                    actionDescriptionDict.Add(10041, "Change job by number  was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10050, "Soft event finished with error!");
+                    actionDescriptionDict.Add(10051, "Soft event finished  was aborted, while not yet completed!");
                 }
                 
                 string actionDescription = "   ";
