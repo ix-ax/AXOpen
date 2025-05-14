@@ -9,8 +9,16 @@ USING AXOpen.Timers;
 NAMESPACE AXOpen.Components.Cognex.Vision
     {S7.extern=ReadWrite}
     CLASS AxoVisionPro EXTENDS AXOpen.Core.AxoComponent
-        VAR PUBLIC // HEADER
-
+        
+        VAR PUBLIC //Header
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-attr:[ReadOnly()]}
+            Progress : INT;
+            {#ix-attr:[ComponentHeader()]}         
+            {#ix-set:AttributeName = "<#Inspection results#>"}
+            {#ix-set:DisplayFormat = "string"}
+            ResultData  :   AxoDataman_ResultData;
         END_VAR
 
         VAR PUBLIC // TASKS
