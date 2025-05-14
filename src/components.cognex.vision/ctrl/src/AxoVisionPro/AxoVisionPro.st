@@ -18,7 +18,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             {#ix-attr:[ComponentHeader()]}         
             {#ix-set:AttributeName = "<#Inspection results#>"}
             {#ix-set:DisplayFormat = "string"}
-            ResultData  :   AxoDataman_ResultData;
+            ResultData  :   AxoVisionPro_ResultData;
         END_VAR
 
         VAR PUBLIC // TASKS
@@ -170,6 +170,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             _sendDataBufferID       :   UINT;
             _sendDataJobID          :   UINT;
             _sendDataLength         :   UINT;
+            _inputsAddress          :   UDINT;   
+            _inputsCount            :   UINT;
+            _outputsAddress         :   UDINT;  
+            _outputsCount           :   UINT;             
         END_VAR
 
         // Temporary workaround due to hwc station number issue
@@ -275,727 +279,794 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 _geoAddr.Slot   :=  UINT#1;                                                            
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_SystemControl :=  TO_WORD(_outHwid);                                         
-
                 IF _hwID_SystemControl = WORD#0 THEN
-                    Messenger.Activate(UINT#703,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#703;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8091 THEN
-                    Messenger.Activate(UINT#704,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#704;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8094 THEN
-                    Messenger.Activate(UINT#705,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#705;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8095 THEN
-                    Messenger.Activate(UINT#706,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#706;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8096 THEN
-                    Messenger.Activate(UINT#707,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#707;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8097 THEN
-                    Messenger.Activate(UINT#708,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#708;
-                    RETURN;
-                END_IF;
-                
-                //******************Slot 2*****************//
-                _geoAddr.Slot   :=  UINT#2;                                                            
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwID_Engine_Control_1 :=  TO_WORD(_outHwid);                                         
-
-                IF _hwID_Engine_Control_1 = WORD#0 THEN
-                    Messenger.Activate(UINT#709,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#709;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#710,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#710;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8094 THEN
+                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#711,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#711;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8095 THEN
+                IF _retval = WORD#8094 THEN
                     Messenger.Activate(UINT#712,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#712;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8096 THEN
+                IF _retval = WORD#8095 THEN
                     Messenger.Activate(UINT#713,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#713;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8097 THEN
+                IF _retval = WORD#8096 THEN
                     Messenger.Activate(UINT#714,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#714;
                     RETURN;
                 END_IF;
-
-                //******************Slot 3*****************//
-                _geoAddr.Slot   :=  UINT#3;                                                            
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwID_Engine_Control_2 :=  TO_WORD(_outHwid);                                         
-
-                IF _hwID_Engine_Control_2 = WORD#0 THEN
+                IF _retval = WORD#8097 THEN
                     Messenger.Activate(UINT#715,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#715;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8091 THEN
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_SystemControl , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#16 OR _outputsCount <> UINT#16 THEN
                     Messenger.Activate(UINT#716,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#716;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8094 THEN
-                    Messenger.Activate(UINT#717,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#717;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8095 THEN
-                    Messenger.Activate(UINT#718,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#718;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8096 THEN
-                    Messenger.Activate(UINT#719,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#719;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8097 THEN
+                //******************Slot 2*****************//
+                _geoAddr.Slot   :=  UINT#2;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwID_Engine_Control_1 :=  TO_WORD(_outHwid);                                         
+                IF _hwID_Engine_Control_1 = WORD#0 THEN
                     Messenger.Activate(UINT#720,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#720;
                     RETURN;
                 END_IF;
-
-                //******************Slot 4*****************//
-                _geoAddr.Slot   :=  UINT#4;                                                            
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwID_Engine_Control_3 :=  TO_WORD(_outHwid);                                         
-
-                IF _hwID_Engine_Control_3 = WORD#0 THEN
+                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#721,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#721;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8091 THEN
+                IF _retval = WORD#8094 THEN
                     Messenger.Activate(UINT#722,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#722;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8094 THEN
+                IF _retval = WORD#8095 THEN
                     Messenger.Activate(UINT#723,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#723;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8095 THEN
+                IF _retval = WORD#8096 THEN
                     Messenger.Activate(UINT#724,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#724;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8096 THEN
+                IF _retval = WORD#8097 THEN
                     Messenger.Activate(UINT#725,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#725;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8097 THEN
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_Engine_Control_1 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#1 THEN
                     Messenger.Activate(UINT#726,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#726;
                     RETURN;
                 END_IF;
-
-                //******************Slot 5*****************//
-                _geoAddr.Slot   :=  UINT#5;                                                            
+                //******************Slot 3*****************//
+                _geoAddr.Slot   :=  UINT#3;                                                            
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwID_Engine_Control_4 :=  TO_WORD(_outHwid);                                         
-
-                IF _hwID_Engine_Control_4 = WORD#0 THEN
-                    Messenger.Activate(UINT#727,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#727;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8091 THEN
-                    Messenger.Activate(UINT#728,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#728;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8094 THEN
-                    Messenger.Activate(UINT#729,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#729;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8095 THEN
+                _hwID_Engine_Control_2 :=  TO_WORD(_outHwid);                                         
+                IF _hwID_Engine_Control_2 = WORD#0 THEN
                     Messenger.Activate(UINT#730,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#730;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8096 THEN
+                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#731,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#731;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8097 THEN
+                IF _retval = WORD#8094 THEN
                     Messenger.Activate(UINT#732,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#732;
                     RETURN;
                 END_IF;
-
-                //******************Slot 6*****************//
-                _geoAddr.Slot   :=  UINT#6;                                                            
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwID_User_Data_240_bytes_1 :=  TO_WORD(_outHwid);                                         
-
-                IF _hwID_User_Data_240_bytes_1 = WORD#0 THEN
+                IF _retval = WORD#8095 THEN
                     Messenger.Activate(UINT#733,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#733;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8091 THEN
+                IF _retval = WORD#8096 THEN
                     Messenger.Activate(UINT#734,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#734;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8094 THEN
+                IF _retval = WORD#8097 THEN
                     Messenger.Activate(UINT#735,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#735;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8095 THEN
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_Engine_Control_2 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#1 THEN
                     Messenger.Activate(UINT#736,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#736;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8096 THEN
-                    Messenger.Activate(UINT#737,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#737;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8097 THEN
-                    Messenger.Activate(UINT#738,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#738;
-                    RETURN;
-                END_IF;
-
-                //******************Slot 7*****************//
-                _geoAddr.Slot   :=  UINT#7;                                                            
+                //******************Slot 4*****************//
+                _geoAddr.Slot   :=  UINT#4;                                                            
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwID_User_Data_240_bytes_2 :=  TO_WORD(_outHwid);                                         
-
-                IF _hwID_User_Data_240_bytes_2 = WORD#0 THEN
-                    Messenger.Activate(UINT#739,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#739;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8091 THEN
+                _hwID_Engine_Control_3 :=  TO_WORD(_outHwid);                                         
+                IF _hwID_Engine_Control_3 = WORD#0 THEN
                     Messenger.Activate(UINT#740,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#740;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8094 THEN
+                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#741,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#741;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8095 THEN
+                IF _retval = WORD#8094 THEN
                     Messenger.Activate(UINT#742,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#742;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8096 THEN
+                IF _retval = WORD#8095 THEN
                     Messenger.Activate(UINT#743,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#743;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8097 THEN
+                IF _retval = WORD#8096 THEN
                     Messenger.Activate(UINT#744,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#744;
                     RETURN;
                 END_IF;
-
-                //******************Slot 8*****************//
-                _geoAddr.Slot   :=  UINT#8;                                                            
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwID_User_Data_240_bytes_3 :=  TO_WORD(_outHwid);                                         
-
-                IF _hwID_User_Data_240_bytes_3 = WORD#0 THEN
+                IF _retval = WORD#8097 THEN
                     Messenger.Activate(UINT#745,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#745;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8091 THEN
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_Engine_Control_3 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#1 THEN
                     Messenger.Activate(UINT#746,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#746;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8094 THEN
-                    Messenger.Activate(UINT#747,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#747;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8095 THEN
-                    Messenger.Activate(UINT#748,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#748;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8096 THEN
-                    Messenger.Activate(UINT#749,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#749;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8097 THEN
+                //******************Slot 5*****************//
+                _geoAddr.Slot   :=  UINT#5;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwID_Engine_Control_4 :=  TO_WORD(_outHwid);                                         
+                IF _hwID_Engine_Control_4 = WORD#0 THEN
                     Messenger.Activate(UINT#750,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#750;
                     RETURN;
                 END_IF;
-
-                //******************Slot 9*****************//
-                _geoAddr.Slot   :=  UINT#9;                                                            
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwID_User_Data_240_bytes_4 :=  TO_WORD(_outHwid);                                         
-
-                IF _hwID_User_Data_240_bytes_4 = WORD#0 THEN
+                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#751,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#751;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8091 THEN
+                IF _retval = WORD#8094 THEN
                     Messenger.Activate(UINT#752,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#752;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8094 THEN
+                IF _retval = WORD#8095 THEN
                     Messenger.Activate(UINT#753,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#753;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8095 THEN
+                IF _retval = WORD#8096 THEN
                     Messenger.Activate(UINT#754,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#754;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8096 THEN
+                IF _retval = WORD#8097 THEN
                     Messenger.Activate(UINT#755,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#755;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8097 THEN
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_Engine_Control_4 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#1 THEN
                     Messenger.Activate(UINT#756,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#756;
                     RETURN;
                 END_IF;
-
-                //******************Slot 10*****************//
-                _geoAddr.Slot   :=  UINT#10;                                                            
+                //******************Slot 6*****************//
+                _geoAddr.Slot   :=  UINT#6;                                                            
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwID_User_Data_240_bytes_5 :=  TO_WORD(_outHwid);                                         
-
-                IF _hwID_User_Data_240_bytes_5 = WORD#0 THEN
-                    Messenger.Activate(UINT#757,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#757;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8091 THEN
-                    Messenger.Activate(UINT#758,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#758;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8094 THEN
-                    Messenger.Activate(UINT#759,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#759;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8095 THEN
+                _hwID_User_Data_240_bytes_1 :=  TO_WORD(_outHwid);                                         
+                IF _hwID_User_Data_240_bytes_1 = WORD#0 THEN
                     Messenger.Activate(UINT#760,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#760;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8096 THEN
+                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#761,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#761;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8097 THEN
+                IF _retval = WORD#8094 THEN
                     Messenger.Activate(UINT#762,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#762;
                     RETURN;
                 END_IF;
-
-                //******************Slot 11*****************//
-                _geoAddr.Slot   :=  UINT#11;                                                            
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwID_User_Data_64_bytes_1 :=  TO_WORD(_outHwid);                                         
-
-                IF _hwID_User_Data_64_bytes_1 = WORD#0 THEN
+                IF _retval = WORD#8095 THEN
                     Messenger.Activate(UINT#763,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#763;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8091 THEN
+                IF _retval = WORD#8096 THEN
                     Messenger.Activate(UINT#764,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#764;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8094 THEN
+                IF _retval = WORD#8097 THEN
                     Messenger.Activate(UINT#765,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#765;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8095 THEN
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_User_Data_240_bytes_1 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#240 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#766,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#766;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8096 THEN
-                    Messenger.Activate(UINT#767,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#767;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8097 THEN
-                    Messenger.Activate(UINT#768,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#768;
-                    RETURN;
-                END_IF;
-
-                //******************Slot 12*****************//
-                _geoAddr.Slot   :=  UINT#12;                                                            
+                //******************Slot 7*****************//
+                _geoAddr.Slot   :=  UINT#7;                                                            
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwID_Results_240_bytes_1 :=  TO_WORD(_outHwid);                                         
-
-                IF _hwID_Results_240_bytes_1 = WORD#0 THEN
-                    Messenger.Activate(UINT#769,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#769;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8091 THEN
+                _hwID_User_Data_240_bytes_2 :=  TO_WORD(_outHwid);                                         
+                IF _hwID_User_Data_240_bytes_2 = WORD#0 THEN
                     Messenger.Activate(UINT#770,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#770;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8094 THEN
+                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#771,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#771;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8095 THEN
+                IF _retval = WORD#8094 THEN
                     Messenger.Activate(UINT#772,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#772;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8096 THEN
+                IF _retval = WORD#8095 THEN
                     Messenger.Activate(UINT#773,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#773;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8097 THEN
+                IF _retval = WORD#8096 THEN
                     Messenger.Activate(UINT#774,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#774;
                     RETURN;
                 END_IF;
-
-                //******************Slot 13*****************//
-                _geoAddr.Slot   :=  UINT#13;                                                            
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwID_Results_240_bytes_2 :=  TO_WORD(_outHwid);                                         
-
-                IF _hwID_Results_240_bytes_2 = WORD#0 THEN
+                IF _retval = WORD#8097 THEN
                     Messenger.Activate(UINT#775,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#775;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8091 THEN
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_User_Data_240_bytes_2 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#240 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#776,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#776;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8094 THEN
-                    Messenger.Activate(UINT#777,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#777;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8095 THEN
-                    Messenger.Activate(UINT#778,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#778;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8096 THEN
-                    Messenger.Activate(UINT#779,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#779;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8097 THEN
+                //******************Slot 8*****************//
+                _geoAddr.Slot   :=  UINT#8;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwID_User_Data_240_bytes_3 :=  TO_WORD(_outHwid);                                         
+                IF _hwID_User_Data_240_bytes_3 = WORD#0 THEN
                     Messenger.Activate(UINT#780,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#780;
                     RETURN;
                 END_IF;
-
-                //******************Slot 14*****************//
-                _geoAddr.Slot   :=  UINT#14;                                                            
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwID_Results_240_bytes_3 :=  TO_WORD(_outHwid);                                         
-
-                IF _hwID_Results_240_bytes_3 = WORD#0 THEN
+                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#781,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#781;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8091 THEN
+                IF _retval = WORD#8094 THEN
                     Messenger.Activate(UINT#782,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#782;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8094 THEN
+                IF _retval = WORD#8095 THEN
                     Messenger.Activate(UINT#783,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#783;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8095 THEN
+                IF _retval = WORD#8096 THEN
                     Messenger.Activate(UINT#784,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#784;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8096 THEN
+                IF _retval = WORD#8097 THEN
                     Messenger.Activate(UINT#785,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#785;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8097 THEN
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_User_Data_240_bytes_3 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#240 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#786,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#786;
                     RETURN;
                 END_IF;
-
-                //******************Slot 15*****************//
-                _geoAddr.Slot   :=  UINT#15;                                                            
+                //******************Slot 9*****************//
+                _geoAddr.Slot   :=  UINT#9;                                                            
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwID_Results_240_bytes_4 :=  TO_WORD(_outHwid);                                         
-
-                IF _hwID_Results_240_bytes_4 = WORD#0 THEN
-                    Messenger.Activate(UINT#787,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#787;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8091 THEN
-                    Messenger.Activate(UINT#788,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#788;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8094 THEN
-                    Messenger.Activate(UINT#789,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#789;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8095 THEN
+                _hwID_User_Data_240_bytes_4 :=  TO_WORD(_outHwid);                                         
+                IF _hwID_User_Data_240_bytes_4 = WORD#0 THEN
                     Messenger.Activate(UINT#790,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#790;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8096 THEN
+                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#791,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#791;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8097 THEN
+                IF _retval = WORD#8094 THEN
                     Messenger.Activate(UINT#792,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#792;
                     RETURN;
                 END_IF;
-
-                //******************Slot 16*****************//
-                _geoAddr.Slot   :=  UINT#16;                                                            
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwID_Results_240_bytes_5 :=  TO_WORD(_outHwid);                                         
-
-                IF _hwID_Results_240_bytes_5 = WORD#0 THEN
+                IF _retval = WORD#8095 THEN
                     Messenger.Activate(UINT#793,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#793;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8091 THEN
+                IF _retval = WORD#8096 THEN
                     Messenger.Activate(UINT#794,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#794;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8094 THEN
+                IF _retval = WORD#8097 THEN
                     Messenger.Activate(UINT#795,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#795;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8095 THEN
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_User_Data_240_bytes_4 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#240 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#796,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#796;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8096 THEN
-                    Messenger.Activate(UINT#797,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#797;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8097 THEN
-                    Messenger.Activate(UINT#798,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#798;
-                    RETURN;
-                END_IF;
-
-                //******************Slot 17*****************//
-                _geoAddr.Slot   :=  UINT#17;                                                            
+                //******************Slot 10*****************//
+                _geoAddr.Slot   :=  UINT#10;                                                            
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwID_Results_64_bytes_1 :=  TO_WORD(_outHwid);                                         
-
-                IF _hwID_Results_64_bytes_1 = WORD#0 THEN
-                    Messenger.Activate(UINT#799,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#799;
-                    RETURN;
-                END_IF;
-                IF _retval = WORD#8091 THEN
+                _hwID_User_Data_240_bytes_5 :=  TO_WORD(_outHwid);                                         
+                IF _hwID_User_Data_240_bytes_5 = WORD#0 THEN
                     Messenger.Activate(UINT#800,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#800;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8094 THEN
+                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#801,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#801;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8095 THEN
+                IF _retval = WORD#8094 THEN
                     Messenger.Activate(UINT#802,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#802;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8096 THEN
+                IF _retval = WORD#8095 THEN
                     Messenger.Activate(UINT#803,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#803;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8097 THEN
+                IF _retval = WORD#8096 THEN
                     Messenger.Activate(UINT#804,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#804;
                     RETURN;
                 END_IF;
-
-                _hwID       :=  hwID;
-
-                IF parent = NULL THEN
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#805,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#805;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_User_Data_240_bytes_5 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#240 OR _outputsCount <> UINT#0 THEN
+                    Messenger.Activate(UINT#806,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#806;
+                    RETURN;
+                END_IF;
+                //******************Slot 11*****************//
+                _geoAddr.Slot   :=  UINT#11;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwID_User_Data_64_bytes_1 :=  TO_WORD(_outHwid);                                         
+                IF _hwID_User_Data_64_bytes_1 = WORD#0 THEN
+                    Messenger.Activate(UINT#810,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#810;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(UINT#811,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#811;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(UINT#812,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#812;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(UINT#813,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#813;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(UINT#814,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#814;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#815,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#815;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_User_Data_64_bytes_1 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#64 OR _outputsCount <> UINT#0 THEN
+                    Messenger.Activate(UINT#816,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#816;
+                    RETURN;
+                END_IF;
+                //******************Slot 12*****************//
+                _geoAddr.Slot   :=  UINT#12;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwID_Results_240_bytes_1 :=  TO_WORD(_outHwid);                                         
+                IF _hwID_Results_240_bytes_1 = WORD#0 THEN
+                    Messenger.Activate(UINT#820,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#820;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(UINT#821,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#821;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(UINT#822,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#822;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(UINT#823,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#823;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(UINT#824,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#824;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#825,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#825;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_Results_240_bytes_1 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _outputsCount <> UINT#240 OR _inputsCount <> UINT#0 THEN
+                    Messenger.Activate(UINT#826,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#826;
+                    RETURN;
+                END_IF;
+                //******************Slot 13*****************//
+                _geoAddr.Slot   :=  UINT#13;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwID_Results_240_bytes_2 :=  TO_WORD(_outHwid);                                         
+                IF _hwID_Results_240_bytes_2 = WORD#0 THEN
                     Messenger.Activate(UINT#830,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#830;
                     RETURN;
                 END_IF;
-
-                IF _hwID  = WORD#0 THEN
+                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#831,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#831;
                     RETURN;
                 END_IF;
-            
-                IF _hwID_SystemControl  = WORD#0 THEN
+                IF _retval = WORD#8094 THEN
                     Messenger.Activate(UINT#832,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#832;
                     RETURN;
                 END_IF;
-            
-                IF _hwID_Engine_Control_1  = WORD#0 THEN
+                IF _retval = WORD#8095 THEN
                     Messenger.Activate(UINT#833,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#833;
                     RETURN;
                 END_IF;
-            
-                IF _hwID_Engine_Control_2  = WORD#0 THEN
+                IF _retval = WORD#8096 THEN
                     Messenger.Activate(UINT#834,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#834;
                     RETURN;
                 END_IF;
-
-                IF _hwID_Engine_Control_3  = WORD#0 THEN
+                IF _retval = WORD#8097 THEN
                     Messenger.Activate(UINT#835,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#835;
                     RETURN;
                 END_IF;
-            
-                IF _hwID_Engine_Control_4  = WORD#0 THEN
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_Results_240_bytes_2 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _outputsCount <> UINT#240 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#836,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#836;
                     RETURN;
                 END_IF;
-            
-                IF _hwID_User_Data_240_bytes_1  = WORD#0 THEN
-                    Messenger.Activate(UINT#837,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#837;
-                    RETURN;
-                END_IF;
-            
-                IF _hwID_User_Data_240_bytes_2  = WORD#0 THEN
-                    Messenger.Activate(UINT#838,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#838;
-                    RETURN;
-                END_IF;
-            
-                IF _hwID_User_Data_240_bytes_3  = WORD#0 THEN
-                    Messenger.Activate(UINT#839,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#839;
-                    RETURN;
-                END_IF;
-            
-                IF _hwID_User_Data_240_bytes_4  = WORD#0 THEN
+                //******************Slot 14*****************//
+                _geoAddr.Slot   :=  UINT#14;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwID_Results_240_bytes_3 :=  TO_WORD(_outHwid);                                         
+                IF _hwID_Results_240_bytes_3 = WORD#0 THEN
                     Messenger.Activate(UINT#840,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#840;
                     RETURN;
                 END_IF;
-
-                IF _hwID_User_Data_240_bytes_5  = WORD#0 THEN
+                IF _retval = WORD#8091 THEN
                     Messenger.Activate(UINT#841,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#841;
                     RETURN;
                 END_IF;
-            
-                IF _hwID_User_Data_64_bytes_1  = WORD#0 THEN
+                IF _retval = WORD#8094 THEN
                     Messenger.Activate(UINT#842,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#842;
                     RETURN;
                 END_IF;
-            
-                IF _hwID_Results_240_bytes_1  = WORD#0 THEN
+                IF _retval = WORD#8095 THEN
                     Messenger.Activate(UINT#843,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#843;
                     RETURN;
                 END_IF;
-            
-                IF _hwID_Results_240_bytes_2  = WORD#0 THEN
+                IF _retval = WORD#8096 THEN
                     Messenger.Activate(UINT#844,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#844;
                     RETURN;
                 END_IF;
-            
-                IF _hwID_Results_240_bytes_3  = WORD#0 THEN
+                IF _retval = WORD#8097 THEN
                     Messenger.Activate(UINT#845,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#845;
                     RETURN;
                 END_IF;
-            
-                IF _hwID_Results_240_bytes_4  = WORD#0 THEN
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_Results_240_bytes_3 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _outputsCount <> UINT#240 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#846,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#846;
                     RETURN;
                 END_IF;
+                //******************Slot 15*****************//
+                _geoAddr.Slot   :=  UINT#15;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwID_Results_240_bytes_4 :=  TO_WORD(_outHwid);                                         
+                IF _hwID_Results_240_bytes_4 = WORD#0 THEN
+                    Messenger.Activate(UINT#850,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#850;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(UINT#851,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#851;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(UINT#852,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#852;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(UINT#853,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#853;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(UINT#854,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#854;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#855,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#855;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_Results_240_bytes_4 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _outputsCount <> UINT#240 OR _inputsCount <> UINT#0 THEN
+                    Messenger.Activate(UINT#856,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#856;
+                    RETURN;
+                END_IF;
+                //******************Slot 16*****************//
+                _geoAddr.Slot   :=  UINT#16;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwID_Results_240_bytes_5 :=  TO_WORD(_outHwid);                                         
+                IF _hwID_Results_240_bytes_5 = WORD#0 THEN
+                    Messenger.Activate(UINT#860,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#860;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(UINT#861,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#861;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(UINT#862,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#862;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(UINT#863,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#863;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(UINT#864,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#864;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#865,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#865;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_Results_240_bytes_5 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _outputsCount <> UINT#240 OR _inputsCount <> UINT#0 THEN
+                    Messenger.Activate(UINT#866,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#866;
+                    RETURN;
+                END_IF;
+                //******************Slot 17*****************//
+                _geoAddr.Slot   :=  UINT#17;                                                            
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwID_Results_64_bytes_1 :=  TO_WORD(_outHwid);                                         
+                IF _hwID_Results_64_bytes_1 = WORD#0 THEN
+                    Messenger.Activate(UINT#870,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#870;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(UINT#871,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#871;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(UINT#872,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#872;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(UINT#873,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#873;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(UINT#874,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#874;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(UINT#875,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#875;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_Results_64_bytes_1 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _outputsCount <> UINT#64 OR _inputsCount <> UINT#0 THEN
+                    Messenger.Activate(UINT#876,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#876;
+                    RETURN;
+                END_IF;
+
+                IF parent = NULL THEN
+                    Messenger.Activate(UINT#1130,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1130;
+                    RETURN;
+                END_IF;
+
+                IF _hwID  = WORD#0 THEN
+                    Messenger.Activate(UINT#1131,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1131;
+                    RETURN;
+                END_IF;
+            
+                IF _hwID_SystemControl  = WORD#0 THEN
+                    Messenger.Activate(UINT#1132,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1132;
+                    RETURN;
+                END_IF;
+            
+                IF _hwID_Engine_Control_1  = WORD#0 THEN
+                    Messenger.Activate(UINT#1133,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1133;
+                    RETURN;
+                END_IF;
+            
+                IF _hwID_Engine_Control_2  = WORD#0 THEN
+                    Messenger.Activate(UINT#1134,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1134;
+                    RETURN;
+                END_IF;
+
+                IF _hwID_Engine_Control_3  = WORD#0 THEN
+                    Messenger.Activate(UINT#1135,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1135;
+                    RETURN;
+                END_IF;
+            
+                IF _hwID_Engine_Control_4  = WORD#0 THEN
+                    Messenger.Activate(UINT#1136,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1136;
+                    RETURN;
+                END_IF;
+            
+                IF _hwID_User_Data_240_bytes_1  = WORD#0 THEN
+                    Messenger.Activate(UINT#1137,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1137;
+                    RETURN;
+                END_IF;
+            
+                IF _hwID_User_Data_240_bytes_2  = WORD#0 THEN
+                    Messenger.Activate(UINT#1138,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1138;
+                    RETURN;
+                END_IF;
+            
+                IF _hwID_User_Data_240_bytes_3  = WORD#0 THEN
+                    Messenger.Activate(UINT#1139,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1139;
+                    RETURN;
+                END_IF;
+            
+                IF _hwID_User_Data_240_bytes_4  = WORD#0 THEN
+                    Messenger.Activate(UINT#1140,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1140;
+                    RETURN;
+                END_IF;
+
+                IF _hwID_User_Data_240_bytes_5  = WORD#0 THEN
+                    Messenger.Activate(UINT#1141,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1141;
+                    RETURN;
+                END_IF;
+            
+                IF _hwID_User_Data_64_bytes_1  = WORD#0 THEN
+                    Messenger.Activate(UINT#1142,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1142;
+                    RETURN;
+                END_IF;
+            
+                IF _hwID_Results_240_bytes_1  = WORD#0 THEN
+                    Messenger.Activate(UINT#1143,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1143;
+                    RETURN;
+                END_IF;
+            
+                IF _hwID_Results_240_bytes_2  = WORD#0 THEN
+                    Messenger.Activate(UINT#1144,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1144;
+                    RETURN;
+                END_IF;
+            
+                IF _hwID_Results_240_bytes_3  = WORD#0 THEN
+                    Messenger.Activate(UINT#1145,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1145;
+                    RETURN;
+                END_IF;
+            
+                IF _hwID_Results_240_bytes_4  = WORD#0 THEN
+                    Messenger.Activate(UINT#1146,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1146;
+                    RETURN;
+                END_IF;
 
                 IF _hwID_Results_240_bytes_5  = WORD#0 THEN
-                    Messenger.Activate(UINT#847,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#847;
+                    Messenger.Activate(UINT#1147,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1147;
                     RETURN;
                 END_IF;
             
                 IF _hwID_Results_64_bytes_1  = WORD#0 THEN
-                    Messenger.Activate(UINT#848,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#848;
+                    Messenger.Activate(UINT#1148,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1148;
                     RETURN;
                 END_IF;
 
@@ -1025,14 +1096,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 			Config.CameraNo := CameraNo;
 
 			IF Config.CameraNo < UINT#1 THEN
-                Messenger.Activate(UINT#881, eAxoMessageCategory#ProgrammingError);
-                Status.Error.Id := UINT#881;
+                Messenger.Activate(UINT#1301, eAxoMessageCategory#ProgrammingError);
+                Status.Error.Id := UINT#1301;
                 RETURN;
             END_IF;
 
             IF Config.CameraNo > UINT#8 THEN
-                Messenger.Activate(UINT#882, eAxoMessageCategory#ProgrammingError);
-                Status.Error.Id := UINT#882;
+                Messenger.Activate(UINT#1302, eAxoMessageCategory#ProgrammingError);
+                Status.Error.Id := UINT#1302;
                 RETURN;
             END_IF;
 
@@ -1147,9 +1218,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 300 THEN                                                                                     // HardResetAllCamerasTask running: , <add the detailed description of the current action 1>
-                    TaskMessenger.ActivateOnCondition(ULINT#500, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#500;
+                        TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#500;
                     END_IF;
                     		
                     Outputs.Control.SoftEvent.Trigger := FALSE;
@@ -1187,9 +1258,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 301 THEN                                                                                     // HardResetAllCamerasTask running: , <add the detailed description of the current action 2>
-                    TaskMessenger.ActivateOnCondition(ULINT#501, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#501;
+                        TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#501;
                     END_IF;
     
                     _Clock_1Hz.Blink(THIS,TIME#500MS,TIME#500MS);
@@ -1203,9 +1274,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 302 THEN                                                                                     // HardResetAllCamerasTask running: , <add the detailed description of the current action 3>
-                    TaskMessenger.ActivateOnCondition(ULINT#502, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#502;
+                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#502;
                     END_IF;
     
                     IF TRUE THEN
@@ -1215,9 +1286,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 303 THEN                                                                                     // HardResetAllCamerasTask running: , <add the detailed description of the current action 4>
-                    TaskMessenger.ActivateOnCondition(ULINT#503, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#503;
+                        TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#503;
                     END_IF;
     
                     IF TRUE THEN
@@ -1227,9 +1298,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 304 THEN                                                                                     // HardResetAllCamerasTask running: , <add the detailed description of the current action 5>
-                    TaskMessenger.ActivateOnCondition(ULINT#504, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#504;
+                        TaskMessenger.Activate( UINT#504, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#504;
                     END_IF;
     
                     IF TRUE THEN
@@ -1239,9 +1310,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 305 THEN                                                                                     // HardResetAllCamerasTask running: , <add the detailed description of the current action 6>
-                    TaskMessenger.ActivateOnCondition(ULINT#505, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#505;
+                        TaskMessenger.Activate( UINT#505, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#505;
                     END_IF;
     
                     IF TRUE THEN
@@ -1251,9 +1322,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 306 THEN                                                                                     // HardResetAllCamerasTask running: , <add the detailed description of the current action 7>
-                    TaskMessenger.ActivateOnCondition(ULINT#506, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#506;
+                        TaskMessenger.Activate( UINT#506, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#506;
                     END_IF;
     
                     IF TRUE THEN
@@ -1263,9 +1334,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 307 THEN                                                                                     // HardResetAllCamerasTask running: , <add the detailed description of the current action 8>
-                    TaskMessenger.ActivateOnCondition(ULINT#507, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#507;
+                        TaskMessenger.Activate( UINT#507, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#507;
                     END_IF;
     
                     IF TRUE THEN
@@ -1275,9 +1346,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 308 THEN                                                                                     // HardResetAllCamerasTask running: , <add the detailed description of the current action 9>
-                    TaskMessenger.ActivateOnCondition(ULINT#508, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#508;
+                        TaskMessenger.Activate( UINT#508, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#508;
                     END_IF;
     
                     IF TRUE THEN
@@ -1300,14 +1371,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 Status.Action.Id :=  UINT#101;
                 Status.Error.Id :=  UINT#0;
             ELSIF HardResetAllCamerasTask.ErrorOccured() THEN
-                Status.Action.Id :=  UINT#900;
-                Status.Error.Id  :=  UINT#900;
+                Status.Action.Id :=  UINT#10000;
+                Status.Error.Id  :=  UINT#10000;
             ELSIF HardResetAllCamerasTask.AbortTriggered()THEN
-                Status.Action.Id :=  UINT#901;
-                Status.Error.Id  :=  UINT#901;
+                Status.Action.Id :=  UINT#10001;
+                Status.Error.Id  :=  UINT#10001;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#900,HardResetAllCamerasTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#901,HardResetAllCamerasTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10000,HardResetAllCamerasTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10001,HardResetAllCamerasTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#102,HardResetAllCamerasTask.RestoreTriggered() , eAxoMessageCategory#Error);
             IF HardResetAllCamerasTask.RestoreTriggered() AND _progress >= 300 AND _progress <= 309  THEN
                 Status.Action.Id :=  UINT#102;
@@ -1331,9 +1402,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 310 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 1>
-                    TaskMessenger.ActivateOnCondition(ULINT#510, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#510;
+                        TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#510;
                     END_IF;
     
                     Outputs.Control.SoftEvent.Trigger := FALSE;
@@ -1354,9 +1425,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 311 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 2>
-                    TaskMessenger.ActivateOnCondition(ULINT#511, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#511;
+                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#511;
                     END_IF;
     
                     retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
@@ -1375,9 +1446,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 312 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 3>
-                    TaskMessenger.ActivateOnCondition(ULINT#512, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#512;
+                        TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#512;
                     END_IF;
     
                     IF (Inputs.Status.ReadDataLockerJobID = Config.CameraNo) OR (Inputs.Status.ReadDataLockerJobID = UINT#0) THEN
@@ -1390,9 +1461,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 313 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 4>
-                    TaskMessenger.ActivateOnCondition(ULINT#513, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#513;
+                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#513;
                     END_IF;
     
                     Inputs.Status.ReadDataLockerJobID := UINT#0;
@@ -1412,11 +1483,11 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 314 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 5>
-                    TaskMessenger.ActivateOnCondition(ULINT#514, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#514;
+                        TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#514;
                     END_IF;
-    
+
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 315;
@@ -1424,11 +1495,11 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 315 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 6>
-                    TaskMessenger.ActivateOnCondition(ULINT#515, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#515;
+                        TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#515;
                     END_IF;
-    
+
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 316;
@@ -1436,11 +1507,11 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 316 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 7>
-                    TaskMessenger.ActivateOnCondition(ULINT#516, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#516;
+                        TaskMessenger.Activate( UINT#516, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#516;
                     END_IF;
-    
+
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 317;
@@ -1448,11 +1519,11 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 317 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 8>
-                    TaskMessenger.ActivateOnCondition(ULINT#517, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#517;
+                        TaskMessenger.Activate( UINT#517, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#517;
                     END_IF;
-    
+
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 318;
@@ -1460,11 +1531,11 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 318 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 9>
-                    TaskMessenger.ActivateOnCondition(ULINT#518, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#518;
+                        TaskMessenger.Activate( UINT#518, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#518;
                     END_IF;
-    
+
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 319;
@@ -1485,14 +1556,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 Status.Action.Id :=  UINT#111;
                 Status.Error.Id :=  UINT#0;
             ELSIF ResetTask.ErrorOccured() THEN
-                Status.Action.Id :=  UINT#910;
-                Status.Error.Id  :=  UINT#910;
+                Status.Action.Id :=  UINT#10010;
+                Status.Error.Id  :=  UINT#10010;
             ELSIF ResetTask.AbortTriggered()THEN
-                Status.Action.Id :=  UINT#911;
-                Status.Error.Id  :=  UINT#911;
+                Status.Action.Id :=  UINT#10011;
+                Status.Error.Id  :=  UINT#10011;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#910,ResetTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#911,ResetTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10010,ResetTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10011,ResetTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#112,ResetTask.RestoreTriggered() , eAxoMessageCategory#Error);
             IF ResetTask.RestoreTriggered() AND _progress >= 310 AND _progress <= 319  THEN
                 Status.Action.Id :=  UINT#112;
@@ -1516,9 +1587,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 320 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 1>
-                    TaskMessenger.ActivateOnCondition(ULINT#520, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#520;
+                        TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#520;
                     END_IF;
     
                     // Outputs.AcquisitionControl.TriggerEnable := FALSE;
@@ -1533,9 +1604,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 321 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 2>
-                    TaskMessenger.ActivateOnCondition(ULINT#521, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#521;
+                        TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#521;
                     END_IF;
     
                     IF Inputs.Status.Online THEN
@@ -1545,9 +1616,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 322 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 3>
-                    TaskMessenger.ActivateOnCondition(ULINT#522, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#522;
+                        TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#522;
                     END_IF;
     
                     Outputs.Control.SoftEvent.Reset := TRUE;
@@ -1560,9 +1631,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 323 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 4>
-                    TaskMessenger.ActivateOnCondition(ULINT#523, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#523;
+                        TaskMessenger.Activate( UINT#523, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#523;
                     END_IF;
     
                     IF NOT Inputs.Status.SoftEvent.TriggerAck THEN
@@ -1573,9 +1644,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 324 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 5>
-                    TaskMessenger.ActivateOnCondition(ULINT#524, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#524;
+                        TaskMessenger.Activate( UINT#524, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#524;
                     END_IF;
     
                     IF Inputs.Status.SoftEvent.TriggerAck THEN
@@ -1586,9 +1657,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 325 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 6>
-                    TaskMessenger.ActivateOnCondition(ULINT#525, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#525;
+                        TaskMessenger.Activate( UINT#525, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#525;
                     END_IF;
     
                     IF NOT Inputs.Status.SoftEvent.TriggerAck THEN
@@ -1598,9 +1669,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 326 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 7>
-                    TaskMessenger.ActivateOnCondition(ULINT#526, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#526;
+                        TaskMessenger.Activate( UINT#526, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#526;
                     END_IF;
     
                     IF TRUE THEN
@@ -1610,9 +1681,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 327 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 8>
-                    TaskMessenger.ActivateOnCondition(ULINT#527, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#527;
+                        TaskMessenger.Activate( UINT#527, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#527;
                     END_IF;
     
                     IF TRUE THEN
@@ -1622,9 +1693,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 328 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 9>
-                    TaskMessenger.ActivateOnCondition(ULINT#528, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#528;
+                        TaskMessenger.Activate( UINT#528, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#528;
                     END_IF;
     
                     IF TRUE THEN
@@ -1647,14 +1718,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 Status.Action.Id :=  UINT#121;
                 Status.Error.Id :=  UINT#0;
             ELSIF TriggerTask.ErrorOccured() THEN
-                Status.Action.Id :=  UINT#920;
-                Status.Error.Id  :=  UINT#920;
+                Status.Action.Id :=  UINT#10020;
+                Status.Error.Id  :=  UINT#10020;
             ELSIF TriggerTask.AbortTriggered()THEN
-                Status.Action.Id :=  UINT#921;
-                Status.Error.Id  :=  UINT#921;
+                Status.Action.Id :=  UINT#10021;
+                Status.Error.Id  :=  UINT#10021;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#920,TriggerTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#921,TriggerTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10020,TriggerTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10021,TriggerTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#122,TriggerTask.RestoreTriggered() , eAxoMessageCategory#Error);
             IF TriggerTask.RestoreTriggered() AND _progress >= 320 AND _progress <= 329  THEN
                 Status.Action.Id :=  UINT#122;
@@ -1678,9 +1749,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 330 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 1>
-                    TaskMessenger.ActivateOnCondition(ULINT#530, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#530;
+                        TaskMessenger.Activate( UINT#530, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#530;
                     END_IF;
     
                     IF TRUE THEN
@@ -1690,9 +1761,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 331 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 2>
-                    TaskMessenger.ActivateOnCondition(ULINT#531, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#531;
+                        TaskMessenger.Activate( UINT#531, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#531;
                     END_IF;
     
                     IF TRUE THEN
@@ -1702,9 +1773,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 332 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 3>
-                    TaskMessenger.ActivateOnCondition(ULINT#532, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#532;
+                        TaskMessenger.Activate( UINT#532, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#532;
                     END_IF;
     
                     IF TRUE THEN
@@ -1714,9 +1785,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 333 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 4>
-                    TaskMessenger.ActivateOnCondition(ULINT#533, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#533;
+                        TaskMessenger.Activate( UINT#533, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#533;
                     END_IF;
     
                     IF TRUE THEN
@@ -1726,9 +1797,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 334 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 5>
-                    TaskMessenger.ActivateOnCondition(ULINT#534, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#534;
+                        TaskMessenger.Activate( UINT#534, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#534;
                     END_IF;
     
                     IF TRUE THEN
@@ -1738,9 +1809,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 335 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 6>
-                    TaskMessenger.ActivateOnCondition(ULINT#535, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#535;
+                        TaskMessenger.Activate( UINT#535, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#535;
                     END_IF;
     
                     IF TRUE THEN
@@ -1750,9 +1821,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 336 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 7>
-                    TaskMessenger.ActivateOnCondition(ULINT#536, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#536;
+                        TaskMessenger.Activate( UINT#536, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#536;
                     END_IF;
     
                     IF TRUE THEN
@@ -1762,9 +1833,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 337 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 8>
-                    TaskMessenger.ActivateOnCondition(ULINT#537, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#537;
+                        TaskMessenger.Activate( UINT#537, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#537;
                     END_IF;
     
                     IF TRUE THEN
@@ -1774,9 +1845,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 338 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 9>
-                    TaskMessenger.ActivateOnCondition(ULINT#538, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#538;
+                        TaskMessenger.Activate( UINT#538, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#538;
                     END_IF;
     
                     IF TRUE THEN
@@ -1799,14 +1870,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 Status.Action.Id :=  UINT#131;
                 Status.Error.Id :=  UINT#0;
             ELSIF TemplateTask_10steps_4.ErrorOccured() THEN
-                Status.Action.Id :=  UINT#930;
-                Status.Error.Id  :=  UINT#930;
+                Status.Action.Id :=  UINT#10030;
+                Status.Error.Id  :=  UINT#10030;
             ELSIF TemplateTask_10steps_4.AbortTriggered()THEN
-                Status.Action.Id :=  UINT#931;
-                Status.Error.Id  :=  UINT#931;
+                Status.Action.Id :=  UINT#10031;
+                Status.Error.Id  :=  UINT#10031;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#930,TemplateTask_10steps_4.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#931,TemplateTask_10steps_4.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10030,TemplateTask_10steps_4.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10031,TemplateTask_10steps_4.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#132,TemplateTask_10steps_4.RestoreTriggered() , eAxoMessageCategory#Error);
             IF TemplateTask_10steps_4.RestoreTriggered() AND _progress >= 330 AND _progress <= 339  THEN
                 Status.Action.Id :=  UINT#132;
@@ -1830,9 +1901,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 340 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 1>
-                    TaskMessenger.ActivateOnCondition(ULINT#540, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#540;
+                        TaskMessenger.Activate( UINT#540, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#540;
                     END_IF;
     
                     IF TRUE THEN
@@ -1842,9 +1913,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 341 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 2>
-                    TaskMessenger.ActivateOnCondition(ULINT#541, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#541;
+                        TaskMessenger.Activate( UINT#541, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#541;
                     END_IF;
     
                     IF TRUE THEN
@@ -1854,9 +1925,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 342 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 3>
-                    TaskMessenger.ActivateOnCondition(ULINT#542, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#542;
+                        TaskMessenger.Activate( UINT#542, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#542;
                     END_IF;
     
                     IF TRUE THEN
@@ -1866,11 +1937,11 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 343 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 4>
-                    TaskMessenger.ActivateOnCondition(ULINT#544, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#544;
+                        TaskMessenger.Activate( UINT#543, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#543;
                     END_IF;
-    
+
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 344;
@@ -1878,9 +1949,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 344 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 5>
-                    TaskMessenger.ActivateOnCondition(ULINT#544, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#544;
+                        TaskMessenger.Activate( UINT#544, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#544;
                     END_IF;
     
                     IF TRUE THEN
@@ -1890,9 +1961,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 345 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 6>
-                    TaskMessenger.ActivateOnCondition(ULINT#545, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#545;
+                        TaskMessenger.Activate( UINT#545, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#545;
                     END_IF;
     
                     IF TRUE THEN
@@ -1902,9 +1973,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 346 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 7>
-                    TaskMessenger.ActivateOnCondition(ULINT#546, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#546;
+                        TaskMessenger.Activate( UINT#546, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#546;
                     END_IF;
     
                     IF TRUE THEN
@@ -1914,9 +1985,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 347 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 8>
-                    TaskMessenger.ActivateOnCondition(ULINT#547, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#547;
+                        TaskMessenger.Activate( UINT#547, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#547;
                     END_IF;
     
                     IF TRUE THEN
@@ -1926,9 +1997,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 348 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 9>
-                    TaskMessenger.ActivateOnCondition(ULINT#548, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#548;
+                        TaskMessenger.Activate( UINT#548, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#548;
                     END_IF;
     
                     IF TRUE THEN
@@ -1951,14 +2022,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 Status.Action.Id :=  UINT#141;
                 Status.Error.Id :=  UINT#0;
             ELSIF TemplateTask_10steps_5.ErrorOccured() THEN
-                Status.Action.Id :=  UINT#940;
-                Status.Error.Id  :=  UINT#940;
+                Status.Action.Id :=  UINT#10040;
+                Status.Error.Id  :=  UINT#10040;
             ELSIF TemplateTask_10steps_5.AbortTriggered()THEN
-                Status.Action.Id :=  UINT#941;
-                Status.Error.Id  :=  UINT#941;
+                Status.Action.Id :=  UINT#10041;
+                Status.Error.Id  :=  UINT#10041;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#940,TemplateTask_10steps_5.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#941,TemplateTask_10steps_5.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10040,TemplateTask_10steps_5.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10041,TemplateTask_10steps_5.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#142,TemplateTask_10steps_5.RestoreTriggered() , eAxoMessageCategory#Error);
             IF TemplateTask_10steps_5.RestoreTriggered() AND _progress >= 340 AND _progress <= 349  THEN
                 Status.Action.Id :=  UINT#142;
@@ -1982,9 +2053,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 350 THEN                                                                                     // TemplateTask_10steps_6 running: , <add the detailed description of the current action 1>
-                    TaskMessenger.ActivateOnCondition(ULINT#550, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#550;
+                        TaskMessenger.Activate( UINT#550, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#550;
                     END_IF;
     
                     IF TRUE THEN
@@ -1994,9 +2065,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 351 THEN                                                                                     // TemplateTask_10steps_6 running: , <add the detailed description of the current action 2>
-                    TaskMessenger.ActivateOnCondition(ULINT#551, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#551;
+                        TaskMessenger.Activate( UINT#551, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#551;
                     END_IF;
     
                     IF TRUE THEN
@@ -2006,9 +2077,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 352 THEN                                                                                     // TemplateTask_10steps_6 running: , <add the detailed description of the current action 3>
-                    TaskMessenger.ActivateOnCondition(ULINT#552, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#552;
+                        TaskMessenger.Activate( UINT#552, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#552;
                     END_IF;
     
                     IF TRUE THEN
@@ -2018,9 +2089,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 353 THEN                                                                                     // TemplateTask_10steps_6 running: , <add the detailed description of the current action 4>
-                    TaskMessenger.ActivateOnCondition(ULINT#553, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#553;
+                        TaskMessenger.Activate( UINT#553, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#553;
                     END_IF;
     
                     IF TRUE THEN
@@ -2030,9 +2101,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 354 THEN                                                                                     // TemplateTask_10steps_6 running: , <add the detailed description of the current action 5>
-                    TaskMessenger.ActivateOnCondition(ULINT#554, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#554;
+                        TaskMessenger.Activate( UINT#554, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#554;
                     END_IF;
     
                     IF TRUE THEN
@@ -2042,9 +2113,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 355 THEN                                                                                     // TemplateTask_10steps_6 running: , <add the detailed description of the current action 6>
-                    TaskMessenger.ActivateOnCondition(ULINT#555, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#555;
+                        TaskMessenger.Activate( UINT#555, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#555;
                     END_IF;
     
                     IF TRUE THEN
@@ -2054,9 +2125,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 356 THEN                                                                                     // TemplateTask_10steps_6 running: , <add the detailed description of the current action 7>
-                    TaskMessenger.ActivateOnCondition(ULINT#556, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#556;
+                        TaskMessenger.Activate( UINT#556, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#556;
                     END_IF;
     
                     IF TRUE THEN
@@ -2066,9 +2137,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 357 THEN                                                                                     // TemplateTask_10steps_6 running: , <add the detailed description of the current action 8>
-                    TaskMessenger.ActivateOnCondition(ULINT#557, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#557;
+                        TaskMessenger.Activate( UINT#557, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#557;
                     END_IF;
     
                     IF TRUE THEN
@@ -2078,11 +2149,11 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 358 THEN                                                                                     // TemplateTask_10steps_6 running: , <add the detailed description of the current action 9>
-                    TaskMessenger.ActivateOnCondition(ULINT#558, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#558;
+                        TaskMessenger.Activate( UINT#558, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#558;
                     END_IF;
-    
+
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 359;
@@ -2103,14 +2174,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 Status.Action.Id :=  UINT#151;
                 Status.Error.Id :=  UINT#0;
             ELSIF TemplateTask_10steps_6.ErrorOccured() THEN
-                Status.Action.Id :=  UINT#950;
-                Status.Error.Id  :=  UINT#950;
+                Status.Action.Id :=  UINT#10050;
+                Status.Error.Id  :=  UINT#10050;
             ELSIF TemplateTask_10steps_6.AbortTriggered()THEN
-                Status.Action.Id :=  UINT#951;
-                Status.Error.Id  :=  UINT#951;
+                Status.Action.Id :=  UINT#10051;
+                Status.Error.Id  :=  UINT#10051;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#950,TemplateTask_10steps_6.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#951,TemplateTask_10steps_6.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10050,TemplateTask_10steps_6.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10051,TemplateTask_10steps_6.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#152,TemplateTask_10steps_6.RestoreTriggered() , eAxoMessageCategory#Error);
             IF TemplateTask_10steps_6.RestoreTriggered() AND _progress >= 350 AND _progress <= 359  THEN
                 Status.Action.Id :=  UINT#152;
@@ -2135,9 +2206,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 360 THEN                                                                                     // ReadResultsTask running: , <add the detailed description of the current action 1>
-                    TaskMessenger.ActivateOnCondition(ULINT#560, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#560;
+                        TaskMessenger.Activate( UINT#560, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#560;
                     END_IF;
     
                     IF Inputs.Status.SystemReady THEN
@@ -2147,9 +2218,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 361 THEN                                                                                     // ReadResultsTask running: , <add the detailed description of the current action 2>
-                    TaskMessenger.ActivateOnCondition(ULINT#561, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#561;
+                        TaskMessenger.Activate( UINT#561, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#561;
                     END_IF;
     
                     IF Inputs.Status.Online THEN
@@ -2159,9 +2230,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 362 THEN                                                                                     // ReadResultsTask running: , <add the detailed description of the current action 3>
-                    TaskMessenger.ActivateOnCondition(ULINT#562, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#562;
+                        TaskMessenger.Activate( UINT#562, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#562;
                     END_IF;
     
                     IF (_readResultsJobID >= UINT#0) AND (_readResultsJobID < UINT#10) THEN
@@ -2171,9 +2242,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 363 THEN                                                                                     // ReadResultsTask running: , <add the detailed description of the current action 4>
-                    TaskMessenger.ActivateOnCondition(ULINT#563, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#563;
+                        TaskMessenger.Activate( UINT#563, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#563;
                     END_IF;
                     // PLC nastavi na User Data ID inspekcie, ID operacie a User Data (cislo jobu, seriove cislo kusu, tolerancie).
                     // V dalsom kroku nastavi SetUserData bit a caka na potrvdenie prevzatia dat pomocou UserDataAck.
@@ -2190,9 +2261,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 364 THEN                                                                                     // ReadResultsTask running: , <add the detailed description of the current action 5>
-                    TaskMessenger.ActivateOnCondition(ULINT#564, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#564;
+                        TaskMessenger.Activate( UINT#564, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#564;
                     END_IF;
     
                     Outputs.Control.InitiateJobLoad := TRUE;
@@ -2209,9 +2280,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 365 THEN                                                                                     // ReadResultsTask running: , <add the detailed description of the current action 6>
-                    TaskMessenger.ActivateOnCondition(ULINT#565, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#565;
+                        TaskMessenger.Activate( UINT#565, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#565;
                     END_IF;
     
                     IF Inputs.Status.ResultValid THEN
@@ -2221,13 +2292,13 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 366 THEN                                                                                     // ReadResultsTask running: , <add the detailed description of the current action 7>
-                    TaskMessenger.ActivateOnCondition(ULINT#566, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#566;
+                        TaskMessenger.Activate( UINT#566, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#566;
                     END_IF;
 
                     // THIS was in original code in TIA portal, i am going to use size as an input parameter
-                    // Just keeping this step free for fututre use in zase of needed
+                    // Just keeping this step free for fututre use in case of needed
                     // RetSerialize := Serialize(SRC_VARIABLE := ResultData, DEST_ARRAY => readBuffer, POS := Position);
                     // IF RetSerialize = 0 THEN
                     //     Component.Data.Status.ReadedDataVariantSize := Position;  //objem kolko dat potrebujem nacitat z kontroly. 
@@ -2242,13 +2313,13 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 367 THEN                                                                                     // ReadResultsTask running: , <add the detailed description of the current action 8>
-                    TaskMessenger.ActivateOnCondition(ULINT#567, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#567;
+                        TaskMessenger.Activate( UINT#567, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#567;
                     END_IF;
     
                     // THIS was in original code in TIA portal, i am going to use the full HW configuration 
-                    // Just keeping this step free for fututre use in zase of needed
+                    // Just keeping this step free for fututre use in case of needed
                     // IF (Inputs.Status.ReadedDataVariantSize > UINT#240) AND (Config.HWIDs.HW_Results_2 = UINT#0) THEN
                     //     RETURN;
                     // END_IF;
@@ -2272,9 +2343,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 368 THEN                                                                                     // ReadResultsTask running: , <add the detailed description of the current action 9>
-                    TaskMessenger.ActivateOnCondition(ULINT#568, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#568;
+                        TaskMessenger.Activate( UINT#568, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#568;
                     END_IF;
     
         	        //CASE Component.Data.Status.ReadedDataVariantSize OF
@@ -2429,16 +2500,16 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         
                         // //     #Component.tier.Progress := 40;
                         // // END_IF;
-                        TaskMessenger.Activate( UINT#10256, eAxoMessageCategory#Error); // TODO allign error code with message
-                        Status.Error.Id:=       UINT#10256;
+                        TaskMessenger.Activate( UINT#1303, eAxoMessageCategory#Error); 
+                        Status.Error.Id:=       UINT#1303;
                     END_CASE;
 
                 END_IF;
                 
                 IF _progress = 369 THEN                                                                                     // ReadResultsTask running: , <add the detailed description of the current action 10>
-                    TaskMessenger.ActivateOnCondition(ULINT#569, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#569;
+                        TaskMessenger.Activate( UINT#569, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#569;
                     END_IF;
 
                     // Position := 0;
@@ -2470,9 +2541,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 370 THEN                                                                                     // ReadResultsTask running: , <add the detailed description of the current action 11>
-                    TaskMessenger.ActivateOnCondition(ULINT#570, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#570;
+                        TaskMessenger.Activate( UINT#570, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#570;
                     END_IF;
     
                     Outputs.Control.InspectionResultsAck := TRUE;
@@ -2488,9 +2559,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 371 THEN                                                                                     // ReadResultsTask running: , <add the detailed description of the current action 12>
-                    TaskMessenger.ActivateOnCondition(ULINT#571, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#571;
+                        TaskMessenger.Activate( UINT#571, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#571;
                     END_IF;
     
                     Outputs.Control.JobLoadID := UINT#0;
@@ -2504,9 +2575,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 372 THEN                                                                                     // ReadResultsTask running: , <add the detailed description of the current action 13>
-                    TaskMessenger.ActivateOnCondition(ULINT#572, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#572;
+                        TaskMessenger.Activate( UINT#572, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#572;
                     END_IF;
     
                     Outputs.Control.InitiateJobLoad := TRUE;
@@ -2523,9 +2594,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 373 THEN                                                                                     // ReadResultsTask running: , <add the detailed description of the current action 14>
-                    TaskMessenger.ActivateOnCondition(ULINT#573, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#573;
+                        TaskMessenger.Activate( UINT#573, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#573;
                     END_IF;
     
                     IF TRUE THEN
@@ -2535,9 +2606,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 374 THEN                                                                                     // ReadResultsTask running: , <add the detailed description of the current action 15>
-                    TaskMessenger.ActivateOnCondition(ULINT#574, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#574;
+                        TaskMessenger.Activate( UINT#574, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#574;
                     END_IF;
     
                     IF TRUE THEN
@@ -2547,9 +2618,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 375 THEN                                                                                     // ReadResultsTask running: , <add the detailed description of the current action 16>
-                    TaskMessenger.ActivateOnCondition(ULINT#575, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#575;
+                        TaskMessenger.Activate( UINT#575, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#575;
                     END_IF;
     
                     IF TRUE THEN
@@ -2559,9 +2630,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 376 THEN                                                                                     // ReadResultsTask running: , <add the detailed description of the current action 17>
-                    TaskMessenger.ActivateOnCondition(ULINT#576, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#576;
+                        TaskMessenger.Activate( UINT#576, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#576;
                     END_IF;
     
                     IF TRUE THEN
@@ -2571,9 +2642,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 377 THEN                                                                                     // ReadResultsTask running: , <add the detailed description of the current action 18>
-                    TaskMessenger.ActivateOnCondition(ULINT#577, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#577;
+                        TaskMessenger.Activate( UINT#577, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#577;
                     END_IF;
     
                     IF TRUE THEN
@@ -2583,9 +2654,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 378 THEN                                                                                     // ReadResultsTask running: , <add the detailed description of the current action 19>
-                    TaskMessenger.ActivateOnCondition(ULINT#578, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#578;
+                        TaskMessenger.Activate( UINT#578, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#578;
                     END_IF;
     
                     IF TRUE THEN
@@ -2608,14 +2679,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 Status.Action.Id :=  UINT#161;
                 Status.Error.Id :=  UINT#0;
             ELSIF ReadResultsTask.ErrorOccured() THEN
-                Status.Action.Id :=  UINT#960;
-                Status.Error.Id  :=  UINT#960;
+                Status.Action.Id :=  UINT#10060;
+                Status.Error.Id  :=  UINT#10060;
             ELSIF ReadResultsTask.AbortTriggered()THEN
-                Status.Action.Id :=  UINT#961;
-                Status.Error.Id  :=  UINT#961;
+                Status.Action.Id :=  UINT#10061;
+                Status.Error.Id  :=  UINT#10061;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#960,ReadResultsTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#961,ReadResultsTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10060,ReadResultsTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10061,ReadResultsTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#162,ReadResultsTask.RestoreTriggered() , eAxoMessageCategory#Error);
             IF ReadResultsTask.RestoreTriggered() AND _progress >= 360 AND _progress <= 379  THEN
                 Status.Action.Id :=  UINT#162;
@@ -2639,9 +2710,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 380 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 1>
-                    TaskMessenger.ActivateOnCondition(ULINT#580, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#580;
+                        TaskMessenger.Activate( UINT#580, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#580;
                     END_IF;
                 	//Userdata buffer sa plnia prve 4 bajty informacne, data su od 4 a viac.
 	                //(0 = Undefined, 1 = Zmena jobu/referencie, 2=Nacitanie data
@@ -2656,9 +2727,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 381 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 2>
-                    TaskMessenger.ActivateOnCondition(ULINT#581, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#581;
+                        TaskMessenger.Activate( UINT#581, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#581;
                     END_IF;
     
                     IF Inputs.Status.Online THEN
@@ -2668,9 +2739,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 382 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 3>
-                    TaskMessenger.ActivateOnCondition(ULINT#582, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#582;
+                        TaskMessenger.Activate( UINT#582, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#582;
                     END_IF;
                     // PLC nastavi na User Data ID inspekcie, ID operacie a User Data (cislo jobu, seriove cislo kusu, tolerancie).
                     // V dalsom kroku nastavi SetUserData bit a caka na potrvdenie prevzatia dat pomocou UserDataAck.
@@ -2684,9 +2755,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 383 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 4>
-                    TaskMessenger.ActivateOnCondition(ULINT#583, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#583;
+                        TaskMessenger.Activate( UINT#583, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#583;
                     END_IF;
 	    
                     retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
@@ -2702,9 +2773,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 384 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 5>
-                    TaskMessenger.ActivateOnCondition(ULINT#584, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#584;
+                        TaskMessenger.Activate( UINT#584, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#584;
                     END_IF;
     
                     // Position := 0;
@@ -2750,9 +2821,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 385 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 6>
-                    TaskMessenger.ActivateOnCondition(ULINT#585, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#585;
+                        TaskMessenger.Activate( UINT#585, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#585;
                     END_IF;
 
                     // IF (Component.Data.Status.WrittenDataVariantSize > 240) AND (Component.HW.HW_UserData_2 = 0) THEN
@@ -2784,9 +2855,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 386 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 7>
-                    TaskMessenger.ActivateOnCondition(ULINT#586, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#586;
+                        TaskMessenger.Activate( UINT#586, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#586;
                     END_IF;
 
                     CASE _sendDataLength OF
@@ -3006,10 +3077,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                             
                             // Component.HMI.AlarmStatus.IsAlarm := true;
                             // Warning(CONCAT(IN1 := Component.HMI.Status.ComponentName, IN2 := TO_WSTRING('/'), IN3 := "DbLanguage".Message, IN4 := TO_WSTRING(TO_STRING(Component.Data.Status.ReadedDataVariantSize))));
-                        ;    
+                        TaskMessenger.Activate( UINT#1304, eAxoMessageCategory#Error); 
+                        Status.Error.Id:=       UINT#1304;
                     END_CASE;
-        
-    
+            
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 387;
@@ -3017,9 +3088,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 387 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 8>
-                    TaskMessenger.ActivateOnCondition(ULINT#587, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#587;
+                        TaskMessenger.Activate( UINT#587, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#587;
                     END_IF;
     
                     IF NOT Inputs.Status.SetUserDataAck THEN
@@ -3030,9 +3101,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 388 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 9>
-                    TaskMessenger.ActivateOnCondition(ULINT#588, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#588;
+                        TaskMessenger.Activate( UINT#588, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#588;
                     END_IF;
     
                     IF Inputs.Status.SetUserDataAck THEN
@@ -3043,9 +3114,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 389 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 10>
-                    TaskMessenger.ActivateOnCondition(ULINT#589, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#589;
+                        TaskMessenger.Activate( UINT#589, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#589;
                     END_IF;
     
                     IF NOT Inputs.Status.SetUserDataAck THEN
@@ -3055,9 +3126,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 390 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 11>
-                    TaskMessenger.ActivateOnCondition(ULINT#590, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#590;
+                        TaskMessenger.Activate( UINT#590, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#590;
                     END_IF;
 
                     retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
@@ -3071,9 +3142,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 391 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 12>
-                    TaskMessenger.ActivateOnCondition(ULINT#591, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#591;
+                        TaskMessenger.Activate( UINT#591, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#591;
                     END_IF;
     
                     IF NOT Inputs.Status.SoftEvent.DataHandlerDone THEN
@@ -3084,9 +3155,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 392 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 13>
-                    TaskMessenger.ActivateOnCondition(ULINT#592, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#592;
+                        TaskMessenger.Activate( UINT#592, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#592;
                     END_IF;
     
                     IF Inputs.Status.SoftEvent.DataHandlerDone THEN
@@ -3097,10 +3168,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 393 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 14>
-                    TaskMessenger.ActivateOnCondition(ULINT#593, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#593;
-                    END_IF; 
+                        TaskMessenger.Activate( UINT#593, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#593;
+                    END_IF;
     
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
@@ -3109,9 +3180,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 394 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 15>
-                    TaskMessenger.ActivateOnCondition(ULINT#594, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#594;
+                        TaskMessenger.Activate( UINT#594, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#594;
                     END_IF;
     
                     IF TRUE THEN
@@ -3121,9 +3192,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 395 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 16>
-                    TaskMessenger.ActivateOnCondition(ULINT#595, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#595;
+                        TaskMessenger.Activate( UINT#595, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#595;
                     END_IF;
     
                     IF TRUE THEN
@@ -3133,9 +3204,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 396 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 17>
-                    TaskMessenger.ActivateOnCondition(ULINT#596, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#596;
+                        TaskMessenger.Activate( UINT#596, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#596;
                     END_IF;
     
                     IF TRUE THEN
@@ -3145,9 +3216,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 397 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 18>
-                    TaskMessenger.ActivateOnCondition(ULINT#597, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#597;
+                        TaskMessenger.Activate( UINT#597, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#597;
                     END_IF;
     
                     IF TRUE THEN
@@ -3157,9 +3228,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 398 THEN                                                                                     // SendDataTask running: , <add the detailed description of the current action 19>
-                    TaskMessenger.ActivateOnCondition(ULINT#598, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#598;
+                        TaskMessenger.Activate( UINT#598, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#598;
                     END_IF;
     
                     IF TRUE THEN
@@ -3182,14 +3253,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 Status.Action.Id :=  UINT#181;
                 Status.Error.Id :=  UINT#0;
             ELSIF SendDataTask.ErrorOccured() THEN
-                Status.Action.Id :=  UINT#980;
-                Status.Error.Id  :=  UINT#980;
+                Status.Action.Id :=  UINT#10080;
+                Status.Error.Id  :=  UINT#10080;
             ELSIF SendDataTask.AbortTriggered()THEN
-                Status.Action.Id :=  UINT#981;
-                Status.Error.Id  :=  UINT#981;
+                Status.Action.Id :=  UINT#10081;
+                Status.Error.Id  :=  UINT#10081;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#980,SendDataTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#981,SendDataTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10080,SendDataTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10081,SendDataTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#182,SendDataTask.RestoreTriggered() , eAxoMessageCategory#Error);
             IF SendDataTask.RestoreTriggered() AND _progress >= 380 AND _progress <= 399  THEN
                 Status.Action.Id :=  UINT#182;
@@ -3213,9 +3284,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 400 THEN                                                                                     // TemplateTask_20steps_3 running: , <add the detailed description of the current action 1>
-                    TaskMessenger.ActivateOnCondition(ULINT#600, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#600;
+                        TaskMessenger.Activate( UINT#600, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#600;
                     END_IF;
     
                     IF TRUE THEN
@@ -3225,9 +3296,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 401 THEN                                                                                     // TemplateTask_20steps_3 running: , <add the detailed description of the current action 2>
-                    TaskMessenger.ActivateOnCondition(ULINT#601, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#601;
+                        TaskMessenger.Activate( UINT#601, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#601;
                     END_IF;
     
                     IF TRUE THEN
@@ -3237,9 +3308,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 402 THEN                                                                                     // TemplateTask_20steps_3 running: , <add the detailed description of the current action 3>
-                    TaskMessenger.ActivateOnCondition(ULINT#602, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#602;
+                        TaskMessenger.Activate( UINT#602, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#602;
                     END_IF;
     
                     IF TRUE THEN
@@ -3249,9 +3320,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 403 THEN                                                                                     // TemplateTask_20steps_3 running: , <add the detailed description of the current action 4>
-                    TaskMessenger.ActivateOnCondition(ULINT#603, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#603;
+                        TaskMessenger.Activate( UINT#603, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#603;
                     END_IF;
     
                     IF TRUE THEN
@@ -3261,9 +3332,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 404 THEN                                                                                     // TemplateTask_20steps_3 running: , <add the detailed description of the current action 5>
-                    TaskMessenger.ActivateOnCondition(ULINT#604, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#604;
+                        TaskMessenger.Activate( UINT#604, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#604;
                     END_IF;
     
                     IF TRUE THEN
@@ -3273,9 +3344,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 405 THEN                                                                                     // TemplateTask_20steps_3 running: , <add the detailed description of the current action 6>
-                    TaskMessenger.ActivateOnCondition(ULINT#605, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#605;
+                        TaskMessenger.Activate( UINT#605, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#605;
                     END_IF;
     
                     IF TRUE THEN
@@ -3285,9 +3356,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 406 THEN                                                                                     // TemplateTask_20steps_3 running: , <add the detailed description of the current action 7>
-                    TaskMessenger.ActivateOnCondition(ULINT#606, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#606;
+                        TaskMessenger.Activate( UINT#606, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#606;
                     END_IF;
     
                     IF TRUE THEN
@@ -3297,9 +3368,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 407 THEN                                                                                     // TemplateTask_20steps_3 running: , <add the detailed description of the current action 8>
-                    TaskMessenger.ActivateOnCondition(ULINT#607, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#607;
+                        TaskMessenger.Activate( UINT#607, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#607;
                     END_IF;
     
                     IF TRUE THEN
@@ -3309,9 +3380,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 408 THEN                                                                                     // TemplateTask_20steps_3 running: , <add the detailed description of the current action 9>
-                    TaskMessenger.ActivateOnCondition(ULINT#608, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#608;
+                        TaskMessenger.Activate( UINT#608, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#608;
                     END_IF;
     
                     IF TRUE THEN
@@ -3321,9 +3392,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 409 THEN                                                                                     // TemplateTask_20steps_3 running: , <add the detailed description of the current action 10>
-                    TaskMessenger.ActivateOnCondition(ULINT#609, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#609;
+                        TaskMessenger.Activate( UINT#609, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#609;
                     END_IF;
     
                     IF TRUE THEN
@@ -3333,9 +3404,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 410 THEN                                                                                     // TemplateTask_20steps_3 running: , <add the detailed description of the current action 11>
-                    TaskMessenger.ActivateOnCondition(ULINT#610, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#610;
+                        TaskMessenger.Activate( UINT#610, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#610;
                     END_IF;
     
                     IF TRUE THEN
@@ -3345,9 +3416,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 411 THEN                                                                                     // TemplateTask_20steps_3 running: , <add the detailed description of the current action 12>
-                    TaskMessenger.ActivateOnCondition(ULINT#611, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#611;
+                        TaskMessenger.Activate( UINT#611, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#611;
                     END_IF;
     
                     IF TRUE THEN
@@ -3357,9 +3428,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 412 THEN                                                                                     // TemplateTask_20steps_3 running: , <add the detailed description of the current action 13>
-                    TaskMessenger.ActivateOnCondition(ULINT#612, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#612;
+                        TaskMessenger.Activate( UINT#612, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#612;
                     END_IF;
     
                     IF TRUE THEN
@@ -3369,9 +3440,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 413 THEN                                                                                     // TemplateTask_20steps_3 running: , <add the detailed description of the current action 14>
-                    TaskMessenger.ActivateOnCondition(ULINT#613, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#613;
+                        TaskMessenger.Activate( UINT#613, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#613;
                     END_IF;
     
                     IF TRUE THEN
@@ -3381,9 +3452,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 414 THEN                                                                                     // TemplateTask_20steps_3 running: , <add the detailed description of the current action 15>
-                    TaskMessenger.ActivateOnCondition(ULINT#614, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#614;
+                        TaskMessenger.Activate( UINT#614, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#614;
                     END_IF;
     
                     IF TRUE THEN
@@ -3393,9 +3464,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 415 THEN                                                                                     // TemplateTask_20steps_3 running: , <add the detailed description of the current action 16>
-                    TaskMessenger.ActivateOnCondition(ULINT#615, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#615;
+                        TaskMessenger.Activate( UINT#615, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#615;
                     END_IF;
     
                     IF TRUE THEN
@@ -3405,9 +3476,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 416 THEN                                                                                     // TemplateTask_20steps_3 running: , <add the detailed description of the current action 17>
-                    TaskMessenger.ActivateOnCondition(ULINT#616, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#616;
+                        TaskMessenger.Activate( UINT#616, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#616;
                     END_IF;
     
                     IF TRUE THEN
@@ -3417,9 +3488,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 417 THEN                                                                                     // TemplateTask_20steps_3 running: , <add the detailed description of the current action 18>
-                    TaskMessenger.ActivateOnCondition(ULINT#617, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#617;
+                        TaskMessenger.Activate( UINT#617, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#617;
                     END_IF;
     
                     IF TRUE THEN
@@ -3429,9 +3500,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 418 THEN                                                                                     // TemplateTask_20steps_3 running: , <add the detailed description of the current action 19>
-                    TaskMessenger.ActivateOnCondition(ULINT#618, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#618;
+                        TaskMessenger.Activate( UINT#618, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#618;
                     END_IF;
     
                     IF TRUE THEN
@@ -3454,14 +3525,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 Status.Action.Id :=  UINT#201;
                 Status.Error.Id :=  UINT#0;
             ELSIF TemplateTask_20steps_3.ErrorOccured() THEN
-                Status.Action.Id :=  UINT#1000;
-                Status.Error.Id  :=  UINT#1000;
+                Status.Action.Id :=  UINT#10100;
+                Status.Error.Id  :=  UINT#10100;
             ELSIF TemplateTask_20steps_3.AbortTriggered()THEN
-                Status.Action.Id :=  UINT#1001;
-                Status.Error.Id  :=  UINT#1001;
+                Status.Action.Id :=  UINT#10101;
+                Status.Error.Id  :=  UINT#10101;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#1000,TemplateTask_20steps_3.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#1001,TemplateTask_20steps_3.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10100,TemplateTask_20steps_3.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10101,TemplateTask_20steps_3.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#202,TemplateTask_20steps_3.RestoreTriggered() , eAxoMessageCategory#Error);
             IF TemplateTask_20steps_3.RestoreTriggered() AND _progress >= 400 AND _progress <= 419  THEN
                 Status.Action.Id :=  UINT#202;
@@ -3485,9 +3556,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 420 THEN                                                                                     // TemplateTask_20steps_4 running: , <add the detailed description of the current action 1>
-                    TaskMessenger.ActivateOnCondition(ULINT#620, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#620;
+                        TaskMessenger.Activate( UINT#620, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#620;
                     END_IF;
     
                     IF TRUE THEN
@@ -3497,9 +3568,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 421 THEN                                                                                     // TemplateTask_20steps_4 running: , <add the detailed description of the current action 2>
-                    TaskMessenger.ActivateOnCondition(ULINT#621, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#621;
+                        TaskMessenger.Activate( UINT#621, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#621;
                     END_IF;
     
                     IF TRUE THEN
@@ -3509,9 +3580,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 422 THEN                                                                                     // TemplateTask_20steps_4 running: , <add the detailed description of the current action 3>
-                    TaskMessenger.ActivateOnCondition(ULINT#622, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#622;
+                        TaskMessenger.Activate( UINT#622, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#622;
                     END_IF;
     
                     IF TRUE THEN
@@ -3521,9 +3592,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 423 THEN                                                                                     // TemplateTask_20steps_4 running: , <add the detailed description of the current action 4>
-                    TaskMessenger.ActivateOnCondition(ULINT#623, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#623;
+                        TaskMessenger.Activate( UINT#623, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#623;
                     END_IF;
     
                     IF TRUE THEN
@@ -3533,9 +3604,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 424 THEN                                                                                     // TemplateTask_20steps_4 running: , <add the detailed description of the current action 5>
-                    TaskMessenger.ActivateOnCondition(ULINT#624, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#624;
+                        TaskMessenger.Activate( UINT#624, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#624;
                     END_IF;
     
                     IF TRUE THEN
@@ -3545,9 +3616,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 425 THEN                                                                                     // TemplateTask_20steps_4 running: , <add the detailed description of the current action 6>
-                    TaskMessenger.ActivateOnCondition(ULINT#625, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#625;
+                        TaskMessenger.Activate( UINT#625, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#625;
                     END_IF;
     
                     IF TRUE THEN
@@ -3557,9 +3628,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 426 THEN                                                                                     // TemplateTask_20steps_4 running: , <add the detailed description of the current action 7>
-                    TaskMessenger.ActivateOnCondition(ULINT#626, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#626;
+                        TaskMessenger.Activate( UINT#626, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#626;
                     END_IF;
     
                     IF TRUE THEN
@@ -3569,9 +3640,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 427 THEN                                                                                     // TemplateTask_20steps_4 running: , <add the detailed description of the current action 8>
-                    TaskMessenger.ActivateOnCondition(ULINT#627, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#627;
+                        TaskMessenger.Activate( UINT#627, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#627;
                     END_IF;
     
                     IF TRUE THEN
@@ -3581,9 +3652,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 428 THEN                                                                                     // TemplateTask_20steps_4 running: , <add the detailed description of the current action 9>
-                    TaskMessenger.ActivateOnCondition(ULINT#628, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#628;
+                        TaskMessenger.Activate( UINT#628, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#628;
                     END_IF;
     
                     IF TRUE THEN
@@ -3593,9 +3664,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 429 THEN                                                                                     // TemplateTask_20steps_4 running: , <add the detailed description of the current action 10>
-                    TaskMessenger.ActivateOnCondition(ULINT#629, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#629;
+                        TaskMessenger.Activate( UINT#629, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#629;
                     END_IF;
     
                     IF TRUE THEN
@@ -3605,9 +3676,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 430 THEN                                                                                     // TemplateTask_20steps_4 running: , <add the detailed description of the current action 11>
-                    TaskMessenger.ActivateOnCondition(ULINT#630, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#630;
+                        TaskMessenger.Activate( UINT#630, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#630;
                     END_IF;
     
                     IF TRUE THEN
@@ -3617,9 +3688,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 431 THEN                                                                                     // TemplateTask_20steps_4 running: , <add the detailed description of the current action 12>
-                    TaskMessenger.ActivateOnCondition(ULINT#631, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#631;
+                        TaskMessenger.Activate( UINT#631, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#631;
                     END_IF;
     
                     IF TRUE THEN
@@ -3629,11 +3700,11 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 432 THEN                                                                                     // TemplateTask_20steps_4 running: , <add the detailed description of the current action 13>
-                    TaskMessenger.ActivateOnCondition(ULINT#632, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#632;
+                        TaskMessenger.Activate( UINT#632, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#632;
                     END_IF;
-    
+
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 433;
@@ -3641,9 +3712,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 433 THEN                                                                                     // TemplateTask_20steps_4 running: , <add the detailed description of the current action 14>
-                    TaskMessenger.ActivateOnCondition(ULINT#633, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#633;
+                        TaskMessenger.Activate( UINT#633, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#633;
                     END_IF;
     
                     IF TRUE THEN
@@ -3653,9 +3724,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 434 THEN                                                                                     // TemplateTask_20steps_4 running: , <add the detailed description of the current action 15>
-                    TaskMessenger.ActivateOnCondition(ULINT#634, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#634;
+                        TaskMessenger.Activate( UINT#634, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#634;
                     END_IF;
     
                     IF TRUE THEN
@@ -3665,9 +3736,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 435 THEN                                                                                     // TemplateTask_20steps_4 running: , <add the detailed description of the current action 16>
-                    TaskMessenger.ActivateOnCondition(ULINT#635, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#635;
+                        TaskMessenger.Activate( UINT#635, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#635;
                     END_IF;
     
                     IF TRUE THEN
@@ -3677,9 +3748,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 436 THEN                                                                                     // TemplateTask_20steps_4 running: , <add the detailed description of the current action 17>
-                    TaskMessenger.ActivateOnCondition(ULINT#636, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#636;
+                        TaskMessenger.Activate( UINT#636, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#636;
                     END_IF;
     
                     IF TRUE THEN
@@ -3689,9 +3760,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 437 THEN                                                                                     // TemplateTask_20steps_4 running: , <add the detailed description of the current action 18>
-                    TaskMessenger.ActivateOnCondition(ULINT#637, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#637;
+                        TaskMessenger.Activate( UINT#637, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#637;
                     END_IF;
     
                     IF TRUE THEN
@@ -3701,9 +3772,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 438 THEN                                                                                     // TemplateTask_20steps_4 running: , <add the detailed description of the current action 19>
-                    TaskMessenger.ActivateOnCondition(ULINT#638, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#638;
+                        TaskMessenger.Activate( UINT#638, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#638;
                     END_IF;
     
                     IF TRUE THEN
@@ -3726,14 +3797,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 Status.Action.Id :=  UINT#221;
                 Status.Error.Id :=  UINT#0;
             ELSIF TemplateTask_20steps_4.ErrorOccured() THEN
-                Status.Action.Id :=  UINT#1020;
-                Status.Error.Id  :=  UINT#1020;
+                Status.Action.Id :=  UINT#10120;
+                Status.Error.Id  :=  UINT#10120;
             ELSIF TemplateTask_20steps_4.AbortTriggered()THEN
-                Status.Action.Id :=  UINT#1021;
-                Status.Error.Id  :=  UINT#1021;
+                Status.Action.Id :=  UINT#10121;
+                Status.Error.Id  :=  UINT#10121;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#1020,TemplateTask_20steps_4.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#1021,TemplateTask_20steps_4.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10120,TemplateTask_20steps_4.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10121,TemplateTask_20steps_4.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#222,TemplateTask_20steps_4.RestoreTriggered() , eAxoMessageCategory#Error);
             IF TemplateTask_20steps_4.RestoreTriggered() AND _progress >= 420 AND _progress <= 439  THEN
                 Status.Action.Id :=  UINT#222;
@@ -3757,9 +3828,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 440 THEN                                                                                     // TemplateTask_20steps_5 running: , <add the detailed description of the current action 1>
-                    TaskMessenger.ActivateOnCondition(ULINT#640, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#640;
+                        TaskMessenger.Activate( UINT#640, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#640;
                     END_IF;
     
                     IF TRUE THEN
@@ -3769,9 +3840,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 441 THEN                                                                                     // TemplateTask_20steps_5 running , <add the detailed description of the current action 2>
-                    TaskMessenger.ActivateOnCondition(ULINT#641, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#641;
+                        TaskMessenger.Activate( UINT#641, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#641;
                     END_IF;
     
                     IF TRUE THEN
@@ -3781,9 +3852,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 442 THEN                                                                                     // TemplateTask_20steps_5 running: , <add the detailed description of the current action 3>
-                    TaskMessenger.ActivateOnCondition(ULINT#642, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#642;
+                        TaskMessenger.Activate( UINT#642, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#642;
                     END_IF;
     
                     IF TRUE THEN
@@ -3793,9 +3864,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 443 THEN                                                                                     // TemplateTask_20steps_5 running: , <add the detailed description of the current action 4>
-                    TaskMessenger.ActivateOnCondition(ULINT#643, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#643;
+                        TaskMessenger.Activate( UINT#643, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#643;
                     END_IF;
     
                     IF TRUE THEN
@@ -3805,9 +3876,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 444 THEN                                                                                     // TemplateTask_20steps_5 running: , <add the detailed description of the current action 5>
-                    TaskMessenger.ActivateOnCondition(ULINT#644, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#644;
+                        TaskMessenger.Activate( UINT#644, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#644;
                     END_IF;
     
                     IF TRUE THEN
@@ -3817,9 +3888,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 445 THEN                                                                                     // TemplateTask_20steps_5 running: , <add the detailed description of the current action 6>
-                    TaskMessenger.ActivateOnCondition(ULINT#645, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#645;
+                        TaskMessenger.Activate( UINT#645, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#645;
                     END_IF;
     
                     IF TRUE THEN
@@ -3829,9 +3900,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 446 THEN                                                                                     // TemplateTask_20steps_5 running: , <add the detailed description of the current action 7>
-                    TaskMessenger.ActivateOnCondition(ULINT#646, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#646;
+                        TaskMessenger.Activate( UINT#646, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#646;
                     END_IF;
     
                     IF TRUE THEN
@@ -3841,9 +3912,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 447 THEN                                                                                     // TemplateTask_20steps_5 running: , <add the detailed description of the current action 8>
-                    TaskMessenger.ActivateOnCondition(ULINT#647, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#647;
+                        TaskMessenger.Activate( UINT#647, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#647;
                     END_IF;
     
                     IF TRUE THEN
@@ -3853,9 +3924,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 448 THEN                                                                                     // TemplateTask_20steps_5 running: , <add the detailed description of the current action 9>
-                    TaskMessenger.ActivateOnCondition(ULINT#648, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#648;
+                        TaskMessenger.Activate( UINT#648, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#648;
                     END_IF;
     
                     IF TRUE THEN
@@ -3865,9 +3936,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 449 THEN                                                                                     // TemplateTask_20steps_5 running: , <add the detailed description of the current action 10>
-                    TaskMessenger.ActivateOnCondition(ULINT#649, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#649;
+                        TaskMessenger.Activate( UINT#649, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#649;
                     END_IF;
     
                     IF TRUE THEN
@@ -3877,9 +3948,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 450 THEN                                                                                     // TemplateTask_20steps_5 running: , <add the detailed description of the current action 11>
-                    TaskMessenger.ActivateOnCondition(ULINT#650, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#650;
+                        TaskMessenger.Activate( UINT#650, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#650;
                     END_IF;
     
                     IF TRUE THEN
@@ -3889,9 +3960,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 451 THEN                                                                                     // TemplateTask_20steps_5 running: , <add the detailed description of the current action 12>
-                    TaskMessenger.ActivateOnCondition(ULINT#651, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#651;
+                        TaskMessenger.Activate( UINT#651, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#651;
                     END_IF;
     
                     IF TRUE THEN
@@ -3901,9 +3972,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 452 THEN                                                                                     // TemplateTask_20steps_5 running: , <add the detailed description of the current action 13>
-                    TaskMessenger.ActivateOnCondition(ULINT#652, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#652;
+                        TaskMessenger.Activate( UINT#652, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#652;
                     END_IF;
     
                     IF TRUE THEN
@@ -3913,9 +3984,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 453 THEN                                                                                     // TemplateTask_20steps_5 running: , <add the detailed description of the current action 14>
-                    TaskMessenger.ActivateOnCondition(ULINT#653, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#653;
+                        TaskMessenger.Activate( UINT#653, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#653;
                     END_IF;
     
                     IF TRUE THEN
@@ -3925,9 +3996,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 454 THEN                                                                                     // TemplateTask_20steps_5 running: , <add the detailed description of the current action 15>
-                    TaskMessenger.ActivateOnCondition(ULINT#654, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#654;
+                        TaskMessenger.Activate( UINT#654, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#654;
                     END_IF;
     
                     IF TRUE THEN
@@ -3937,9 +4008,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 455 THEN                                                                                     // TemplateTask_20steps_5 running: , <add the detailed description of the current action 16>
-                    TaskMessenger.ActivateOnCondition(ULINT#655, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#655;
+                        TaskMessenger.Activate( UINT#655, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#655;
                     END_IF;
     
                     IF TRUE THEN
@@ -3949,9 +4020,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 456 THEN                                                                                     // TemplateTask_20steps_5 running: , <add the detailed description of the current action 17>
-                    TaskMessenger.ActivateOnCondition(ULINT#656, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#656;
+                        TaskMessenger.Activate( UINT#656, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#656;
                     END_IF;
     
                     IF TRUE THEN
@@ -3961,9 +4032,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 457 THEN                                                                                     // TemplateTask_20steps_5 running: , <add the detailed description of the current action 18>
-                    TaskMessenger.ActivateOnCondition(ULINT#657, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#657;
+                        TaskMessenger.Activate( UINT#657, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#657;
                     END_IF;
     
                     IF TRUE THEN
@@ -3973,9 +4044,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 458 THEN                                                                                     // TemplateTask_20steps_5 running: , <add the detailed description of the current action 19>
-                    TaskMessenger.ActivateOnCondition(ULINT#658, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#658;
+                        TaskMessenger.Activate( UINT#658, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#658;
                     END_IF;
     
                     IF TRUE THEN
@@ -3998,14 +4069,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 Status.Action.Id :=  UINT#241;
                 Status.Error.Id :=  UINT#0;
             ELSIF TemplateTask_20steps_5.ErrorOccured() THEN
-                Status.Action.Id :=  UINT#1040;
-                Status.Error.Id  :=  UINT#1040;
+                Status.Action.Id :=  UINT#10140;
+                Status.Error.Id  :=  UINT#10140;
             ELSIF TemplateTask_20steps_5.AbortTriggered()THEN
-                Status.Action.Id :=  UINT#1041;
-                Status.Error.Id  :=  UINT#1041;
+                Status.Action.Id :=  UINT#10141;
+                Status.Error.Id  :=  UINT#10141;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#1040,TemplateTask_20steps_5.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#1041,TemplateTask_20steps_5.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10140,TemplateTask_20steps_5.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10141,TemplateTask_20steps_5.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#242,TemplateTask_20steps_5.RestoreTriggered() , eAxoMessageCategory#Error);
             IF TemplateTask_20steps_5.RestoreTriggered() AND _progress >= 440 AND _progress <= 459  THEN
                 Status.Action.Id :=  UINT#242;
@@ -4029,9 +4100,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 460 THEN                                                                                     // TemplateTask_20steps_6 running: , <add the detailed description of the current action 1>
-                    TaskMessenger.ActivateOnCondition(ULINT#660, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#660;
+                        TaskMessenger.Activate( UINT#660, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#660;
                     END_IF;
     
                     IF TRUE THEN
@@ -4041,9 +4112,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 461 THEN                                                                                     // TemplateTask_20steps_6 running: , <add the detailed description of the current action 2>
-                    TaskMessenger.ActivateOnCondition(ULINT#661, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#661;
+                        TaskMessenger.Activate( UINT#661, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#661;
                     END_IF;
     
                     IF TRUE THEN
@@ -4053,9 +4124,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 462 THEN                                                                                     // TemplateTask_20steps_6 running: , <add the detailed description of the current action 3>
-                    TaskMessenger.ActivateOnCondition(ULINT#662, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#662;
+                        TaskMessenger.Activate( UINT#662, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#662;
                     END_IF;
     
                     IF TRUE THEN
@@ -4065,9 +4136,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 463 THEN                                                                                     // TemplateTask_20steps_6 running: , <add the detailed description of the current action 4>
-                    TaskMessenger.ActivateOnCondition(ULINT#663, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#663;
+                        TaskMessenger.Activate( UINT#663, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#663;
                     END_IF;
     
                     IF TRUE THEN
@@ -4077,9 +4148,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 464 THEN                                                                                     // TemplateTask_20steps_6 running: , <add the detailed description of the current action 5>
-                    TaskMessenger.ActivateOnCondition(ULINT#664, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#664;
+                        TaskMessenger.Activate( UINT#664, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#664;
                     END_IF;
     
                     IF TRUE THEN
@@ -4089,9 +4160,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 465 THEN                                                                                     // TemplateTask_20steps_6 running: , <add the detailed description of the current action 6>
-                    TaskMessenger.ActivateOnCondition(ULINT#665, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#665;
+                        TaskMessenger.Activate( UINT#665, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#665;
                     END_IF;
     
                     IF TRUE THEN
@@ -4101,9 +4172,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 466 THEN                                                                                     // TemplateTask_20steps_6 running: , <add the detailed description of the current action 7>
-                    TaskMessenger.ActivateOnCondition(ULINT#666, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#666;
+                        TaskMessenger.Activate( UINT#666, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#666;
                     END_IF;
     
                     IF TRUE THEN
@@ -4113,9 +4184,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 467 THEN                                                                                     // TemplateTask_20steps_6 running: , <add the detailed description of the current action 8>
-                    TaskMessenger.ActivateOnCondition(ULINT#667, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#667;
+                        TaskMessenger.Activate( UINT#667, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#667;
                     END_IF;
     
                     IF TRUE THEN
@@ -4125,9 +4196,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 468 THEN                                                                                     // TemplateTask_20steps_6 running: , <add the detailed description of the current action 9>
-                    TaskMessenger.ActivateOnCondition(ULINT#668, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#668;
+                        TaskMessenger.Activate( UINT#668, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#668;
                     END_IF;
     
                     IF TRUE THEN
@@ -4137,9 +4208,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 469 THEN                                                                                     // TemplateTask_20steps_6 running: , <add the detailed description of the current action 10>
-                    TaskMessenger.ActivateOnCondition(ULINT#669, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#669;
+                        TaskMessenger.Activate( UINT#669, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#669;
                     END_IF;
     
                     IF TRUE THEN
@@ -4149,9 +4220,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 470 THEN                                                                                     // TemplateTask_20steps_6 running: , <add the detailed description of the current action 11>
-                    TaskMessenger.ActivateOnCondition(ULINT#670, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#670;
+                        TaskMessenger.Activate( UINT#670, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#670;
                     END_IF;
     
                     IF TRUE THEN
@@ -4161,9 +4232,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
     
                 IF _progress = 471 THEN                                                                                     // TemplateTask_20steps_6 running: , <add the detailed description of the current action 12>
-                    TaskMessenger.ActivateOnCondition(ULINT#671, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#671;
+                        TaskMessenger.Activate( UINT#671, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#671;
                     END_IF;
     
                     IF TRUE THEN
@@ -4173,9 +4244,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 472 THEN                                                                                     // TemplateTask_20steps_6 running: , <add the detailed description of the current action 13>
-                    TaskMessenger.ActivateOnCondition(ULINT#672, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#672;
+                        TaskMessenger.Activate( UINT#672, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#672;
                     END_IF;
     
                     IF TRUE THEN
@@ -4185,9 +4256,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 473 THEN                                                                                     // TemplateTask_20steps_6 running: , <add the detailed description of the current action 14>
-                    TaskMessenger.ActivateOnCondition(ULINT#673, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#673;
+                        TaskMessenger.Activate( UINT#673, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#673;
                     END_IF;
     
                     IF TRUE THEN
@@ -4197,9 +4268,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 474 THEN                                                                                     // TemplateTask_20steps_6 running: , <add the detailed description of the current action 15>
-                    TaskMessenger.ActivateOnCondition(ULINT#674, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#674;
+                        TaskMessenger.Activate( UINT#674, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#674;
                     END_IF;
     
                     IF TRUE THEN
@@ -4209,9 +4280,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 475 THEN                                                                                     // TemplateTask_20steps_6 running: , <add the detailed description of the current action 16>
-                    TaskMessenger.ActivateOnCondition(ULINT#675, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#675;
+                        TaskMessenger.Activate( UINT#675, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#675;
                     END_IF;
     
                     IF TRUE THEN
@@ -4221,9 +4292,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 476 THEN                                                                                     // TemplateTask_20steps_6 running: , <add the detailed description of the current action 17>
-                    TaskMessenger.ActivateOnCondition(ULINT#676, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#676;
+                        TaskMessenger.Activate( UINT#676, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#676;
                     END_IF;
     
                     IF TRUE THEN
@@ -4233,9 +4304,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 477 THEN                                                                                     // TemplateTask_20steps_6 running: , <add the detailed description of the current action 18>
-                    TaskMessenger.ActivateOnCondition(ULINT#677, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#677;
+                        TaskMessenger.Activate( UINT#677, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#677;
                     END_IF;
     
                     IF TRUE THEN
@@ -4245,9 +4316,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 
                 IF _progress = 478 THEN                                                                                     // TemplateTask_20steps_6 running: , <add the detailed description of the current action 19>
-                    TaskMessenger.ActivateOnCondition(ULINT#678, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#678;
+                        TaskMessenger.Activate( UINT#678, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#678;
                     END_IF;
     
                     IF TRUE THEN
@@ -4270,14 +4341,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 Status.Action.Id :=  UINT#261;
                 Status.Error.Id :=  UINT#0;
             ELSIF TemplateTask_20steps_6.ErrorOccured() THEN
-                Status.Action.Id :=  UINT#1060;
-                Status.Error.Id  :=  UINT#1060;
+                Status.Action.Id :=  UINT#10160;
+                Status.Error.Id  :=  UINT#10160;
             ELSIF TemplateTask_20steps_6.AbortTriggered()THEN
-                Status.Action.Id :=  UINT#1061;
-                Status.Error.Id  :=  UINT#1061;
+                Status.Action.Id :=  UINT#10161;
+                Status.Error.Id  :=  UINT#10161;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#1060,TemplateTask_20steps_6.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#1061,TemplateTask_20steps_6.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10160,TemplateTask_20steps_6.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10161,TemplateTask_20steps_6.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#262,TemplateTask_20steps_6.RestoreTriggered() , eAxoMessageCategory#Error);
             IF TemplateTask_20steps_6.RestoreTriggered() AND _progress >= 460 AND _progress <= 479  THEN
                 Status.Action.Id :=  UINT#262;
