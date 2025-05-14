@@ -11,14 +11,20 @@ NAMESPACE AXOpen.Components.Cognex.Vision
     CLASS AxoVisionPro EXTENDS AXOpen.Core.AxoComponent
         
         VAR PUBLIC //Header
+
             {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentHeader()]}
-            {#ix-attr:[ReadOnly()]}
-            Progress : INT;
             {#ix-attr:[ComponentHeader()]}         
-            {#ix-set:AttributeName = "<#Inspection results#>"}
+            {#ix-set:AttributeName = "<#Result data#>"}
             {#ix-set:DisplayFormat = "string"}
             ResultData  :   AxoVisionPro_ResultData;
+            {#ix-attr:[ComponentHeader()]}         
+            {#ix-set:AttributeName = "<#User results#>"}
+            {#ix-set:DisplayFormat = "string"}
+            UserData  :   AxoVisionPro_ResultData;
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-set:AttributeName = "<#Progress#>"}
+            {#ix-attr:[ReadOnly()]}
+            Progress : INT;
         END_VAR
 
         VAR PUBLIC // TASKS
@@ -42,10 +48,28 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#ReadResults#>"}
             ReadResultsTask : AXOpen.Core.AxoTask;
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#ReadResults job ID  (service mode)#>"}
+            ReadResultsJobIDServiceMode       :   UINT;
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#ReadResults length (service mode)#>"}
+            ReadResultsLengthServiceMode      :   UINT;
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#SendData#>"}
             SendDataTask : AXOpen.Core.AxoTask;
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#SendData inspection type (service mode)#>"}
+            SendDataInspectionTypeServiceMode  :   UINT;   // (0 = Undefined, 1 = Zmena jobu/referencie, 2=Nacitanie
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#SendData BufferID (service mode)#>"}
+            SendDataBufferIDServiceMode  :   UINT;  // Buffer ID, 0-9
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#SendResults job ID  (service mode)#>"}
+            SendResultsJobIDServiceMode       :   UINT;
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#SendResults length (service mode)#>"}
+            SendResultsLengthServiceMode      :   UINT;
         END_VAR
 
         VAR PUBLIC // TEMPLATE TASKS
@@ -146,15 +170,18 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             _progress       :   INT;
             _infoTimer      :   AXOpen.Timers.OnDelayTimer;
             _errorTimer     :   AXOpen.Timers.OnDelayTimer;
-            _returnValue    :   WORD;
-            _data_in        :   ARRAY[0..254] OF BYTE;
-            _data_out_1     :   ARRAY[0..0] OF BYTE;
-            _data_out_2     :   ARRAY[0..1] OF BYTE;
-            _data_out_4     :   ARRAY[0..3] OF BYTE;
-            _data_out_8     :   ARRAY[0..7] OF BYTE;
-            _data_out_255   :   ARRAY[0..254] OF BYTE;
-            _word           :   WORD;
-            _dword          :   DWORD;
+            // _returnValue    :   WORD;
+            _data_in_1301   :   ARRAY[0..1300] OF BYTE;
+            _data_out_1301  :   ARRAY[0..1300] OF BYTE;
+
+            // _data_in        :   ARRAY[0..254] OF BYTE;
+            // _data_out_1     :   ARRAY[0..0] OF BYTE;
+            // _data_out_2     :   ARRAY[0..1] OF BYTE;
+            // _data_out_4     :   ARRAY[0..3] OF BYTE;
+            // _data_out_8     :   ARRAY[0..7] OF BYTE;
+            // _data_out_255   :   ARRAY[0..254] OF BYTE;
+            // _word           :   WORD;
+            // _dword          :   DWORD;
 
             _initHwCheckDone        :   BOOL;
             _retval                 :   WORD;
@@ -165,7 +192,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             _Clock_1Hz              :   AxoBlinker;
             _readResultsJobID       :   UINT;
             _readResultsLength      :   UINT;
-            _data                   :   ARRAY[0..1300] OF BYTE;
+            _data_                :   ARRAY[0..1300] OF BYTE;
+            _data_out               :   ARRAY[0..1300] OF BYTE;
             _sendDataInspectionType :   UINT;
             _sendDataBufferID       :   UINT;
             _sendDataJobID          :   UINT;
@@ -250,6 +278,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 index : UINT;
 
             END_VAR
+            
+            Progress := _progress;
 
             SUPER.Run(parent);
 
@@ -2353,136 +2383,136 @@ NAMESPACE AXOpen.Components.Cognex.Vision
         	            UINT#1..UINT#240:  // Statement section case 1
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO _readResultsLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data[index]);
+                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data_in_1301[index]);
                             END_FOR;
 
                             FOR index := _readResultsLength TO UINT#1300 DO 
-                                _data[index] := BYTE#0;
+                                _data_in_1301[index] := BYTE#0;
                             END_FOR;
                 
                         UINT#241..UINT#480:
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO UINT#239 DO //nacitavanie tolko dat kolko treba do buffra.
-                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data[index]);
+                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data_in_1301[index]);
                             END_FOR;
 
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := 240 TO _readResultsLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data[index - UINT#240]);
+                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#240]);
                             END_FOR;
 
                             FOR index := _readResultsLength TO UINT#1300 DO 
-                                _data[index] := BYTE#0;
+                                _data_in_1301[index] := BYTE#0;
                             END_FOR;
 	                
                         UINT#481..UINT#720:
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO UINT#239 DO //nacitavanie tolko dat kolko treba do buffra.
-                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data[index]);
+                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data_in_1301[index]);
                             END_FOR;
 
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#240 TO UINT#479 DO //nacitavanie tolko dat kolko treba do buffra.
-                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data[index - UINT#240]);
+                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#240]);
                             END_FOR;
 
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#480 TO _readResultsLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data[index - UINT#480]);
+                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
                             END_FOR;
 
                             FOR index := _readResultsLength TO UINT#1300 DO 
-                                _data[index] := BYTE#0;
+                                _data_in_1301[index] := BYTE#0;
                             END_FOR;
 	                
                         UINT#721..UINT#960:
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO UINT#239 DO //nacitavanie tolko dat kolko treba do buffra.
-                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data[index]);
+                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data_in_1301[index]);
                             END_FOR;
 
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#240 TO UINT#479 DO //nacitavanie tolko dat kolko treba do buffra.
-                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data[index - UINT#240]);
+                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#240]);
                             END_FOR;
 
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#480 TO UINT#719 DO //nacitavanie tolko dat kolko treba do buffra.
-                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data[index - UINT#480]);
+                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
                             END_FOR;
 
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#720 TO _readResultsLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data[index - UINT#480]);
+                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
                             END_FOR;
 
                             FOR index := _readResultsLength TO UINT#1300 DO 
-                                _data[index] := BYTE#0;
+                                _data_in_1301[index] := BYTE#0;
                             END_FOR;
 
                         UINT#961..UINT#1200:
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO UINT#239 DO //nacitavanie tolko dat kolko treba do buffra.
-                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data[index]);
+                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data_in_1301[index]);
                             END_FOR;
 
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#240 TO UINT#479 DO //nacitavanie tolko dat kolko treba do buffra.
-                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data[index - UINT#240]);
+                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#240]);
                             END_FOR;
 
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#480 TO UINT#719 DO //nacitavanie tolko dat kolko treba do buffra.
-                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data[index - UINT#480]);
+                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
                             END_FOR;
 
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#720 TO UINT#960 DO //nacitavanie tolko dat kolko treba do buffra.
-                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data[index - UINT#480]);
+                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
                             END_FOR;
                         
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#961 TO _readResultsLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data[index - UINT#480]);
+                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
                             END_FOR;
 
                             FOR index := _readResultsLength TO UINT#1300 DO 
-                                _data[index] := BYTE#0;
+                                _data_in_1301[index] := BYTE#0;
                             END_FOR;
 	                
                         UINT#1201..UINT#1264:
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO UINT#239 DO //nacitavanie tolko dat kolko treba do buffra.
-                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data[index]);
+                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data_in_1301[index]);
                             END_FOR;
 
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#240 TO UINT#479 DO //nacitavanie tolko dat kolko treba do buffra.
-                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data[index - UINT#240]);
+                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#240]);
                             END_FOR;
 
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#480 TO UINT#719 DO //nacitavanie tolko dat kolko treba do buffra.
-                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data[index - UINT#480]);
+                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
                             END_FOR;
 
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#720 TO UINT#960 DO //nacitavanie tolko dat kolko treba do buffra.
-                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data[index - UINT#480]);
+                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
                             END_FOR;
                         
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#961 TO _readResultsLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data[index - UINT#480]);
+                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
                             END_FOR;
 
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_6),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#1201 TO _readResultsLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data[index - UINT#480]);
+                                ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(outputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
                             END_FOR;
 
                             FOR index := _readResultsLength TO UINT#1300 DO 
-                                _data[index] := BYTE#0;
+                                _data_in_1301[index] := BYTE#0;
                             END_FOR;
                             
                             THIS.CallTimers(FALSE);
@@ -2864,7 +2894,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         UINT#0..UINT#235:  // Statement section case 1
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data[index]);
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
 
                             FOR index := _sendDataLength TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
@@ -2899,12 +2929,12 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         UINT#236..UINT#475:  // Statement section case 1
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data[index]);
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
        
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#236 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data[index]);
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
                             FOR index := _sendDataLength TO UINT#475 DO //nacitavanie tolko dat kolko treba do buffra.
@@ -2934,17 +2964,17 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         UINT#476..UINT#715:
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data[index]);
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#236 TO UINT#475 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data[index]);
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#476 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= _data[index]);
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
                             FOR index := _sendDataLength TO UINT#715 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= BYTE#0);
@@ -2968,22 +2998,22 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         UINT#716..UINT#955:
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data[index]);
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#236 TO UINT#475 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data[index]);
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#476 TO UINT#715 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= _data[index]);
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#716 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= _data[index]);
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
                             FOR index := _sendDataLength TO UINT#955 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= BYTE#0);
@@ -3002,27 +3032,27 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         UINT#956..UINT#1195:
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data[index]);
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#236 TO UINT#475 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data[index]);
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#476 TO UINT#715 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= _data[index]);
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#716 TO UINT#955 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= _data[index]);
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#956 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= _data[index]);
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
 
                             FOR index := _sendDataLength TO UINT#1195 DO //nacitavanie tolko dat kolko treba do buffra.
@@ -3037,32 +3067,32 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         UINT#1196..UINT#1260:
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data[index]);
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#236 TO UINT#475 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data[index]);
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#476 TO UINT#715 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= _data[index]);
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#716 TO UINT#955 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= _data[index]);
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#956 TO UINT#1195 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= _data[index]);
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
                             retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_6),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#1196 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
-                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#1196 + TO_DINT(index),value:= _data[index]);
+                                WriteMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#1196 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
 
                             FOR index := _sendDataLength TO UINT#1263 DO //nacitavanie tolko dat kolko treba do buffra.
@@ -4461,8 +4491,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             END_VAR
             _readResultsJobID   :=  JobID;
             _readResultsLength  :=  Length;
-            _data               :=  Data;
-            ReadResults := ReadResultsTask.Invoke(THIS);
+            _data_in_1301       :=  Data;
+            ReadResults         :=  ReadResultsTask.Invoke(THIS);
         END_METHOD
 
         METHOD PUBLIC SendData : IAxoTaskState
@@ -4479,7 +4509,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             _sendDataBufferID       :=  BufferID;
             _sendDataJobID          :=  JobID;
             _sendDataLength         :=  Length;
-            _data                   :=  Data;          
+            _data_out_1301          :=  Data;          
             SendData                :=  SendDataTask.Invoke(THIS);
         END_METHOD
 
@@ -4502,6 +4532,17 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 
         METHOD PROTECTED OVERRIDE ManualControl
             THIS._isManuallyControllable := TRUE;
+
+            _readResultsJobID       :=  ReadResultsJobIDServiceMode;
+            _readResultsLength      :=  ReadResultsLengthServiceMode;
+            _data_in_1301           :=  ResultData.Data;
+
+            _sendDataInspectionType :=  SendDataInspectionTypeServiceMode;
+            _sendDataBufferID       :=  SendDataBufferIDServiceMode;
+            _sendDataJobID          :=  SendResultsJobIDServiceMode;
+            _sendDataLength         :=  SendResultsLengthServiceMode;
+            _data_out_1301          :=  UserData.Data;
+
         END_METHOD
         
         ///<summary>
@@ -4515,33 +4556,39 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             Status.Error.Id  := UINT#0;
 
             _progress       :=   INT#0;
-            _returnValue    :=   WORD#0;
+            // _returnValue    :=   WORD#0;
 
-            _data_out_1[0] := BYTE#0;
-            _data_out_2[0] := BYTE#0;
-            _data_out_2[1] := BYTE#0;
+            // _data_out_1[0] := BYTE#0;
+            // _data_out_2[0] := BYTE#0;
+            // _data_out_2[1] := BYTE#0;
 
-            FOR _index := 0 TO 3 DO
-                _data_in[_index] := BYTE#0;
-                _data_out_4[_index] := BYTE#0;
-                _data_out_8[_index] := BYTE#0;
-                _data_out_255[_index] := BYTE#0;
+            // FOR _index := 0 TO 3 DO
+            //     _data_in[_index] := BYTE#0;
+            //     _data_out_4[_index] := BYTE#0;
+            //     _data_out_8[_index] := BYTE#0;
+            //     _data_out_255[_index] := BYTE#0;
+            // END_FOR;
+
+            // FOR _index := 4 TO 7 DO
+            //     _data_in[_index] := BYTE#0;
+            //     _data_out_8[_index] := BYTE#0;
+            //     _data_out_255[_index] := BYTE#0;
+            // END_FOR;
+
+            // FOR _index := 8 TO 254 DO
+            //     _data_in[_index] := BYTE#0;
+            //     _data_out_255[_index] := BYTE#0;
+            // END_FOR;
+
+            // _word           :=   WORD#0;
+            // _dword          :=   DWORD#0;
+
+
+            FOR _index := 0 TO 1300 DO
+                _data_in_1301[_index] := BYTE#0;
+                _data_out_1301[_index] := BYTE#0;
             END_FOR;
-
-            FOR _index := 4 TO 7 DO
-                _data_in[_index] := BYTE#0;
-                _data_out_8[_index] := BYTE#0;
-                _data_out_255[_index] := BYTE#0;
-            END_FOR;
-
-            FOR _index := 8 TO 254 DO
-                _data_in[_index] := BYTE#0;
-                _data_out_255[_index] := BYTE#0;
-            END_FOR;
-
-            _word           :=   WORD#0;
-            _dword          :=   DWORD#0;
-
+            
 
             HardResetAllCamerasTask.Restore();
             ResetTask.Restore();

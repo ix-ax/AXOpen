@@ -48,7 +48,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
         VAR PUBLIC //Header
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentHeader()]}
-            {#ix-set:AttributeName = "<#Read#>"}
+            {#ix-set:AttributeName = "<#Trigger#>"}
             TriggerTask : AXOpen.Core.AxoTask;
 
             {#ix-attr:[Container(Layout.Wrap)]}
