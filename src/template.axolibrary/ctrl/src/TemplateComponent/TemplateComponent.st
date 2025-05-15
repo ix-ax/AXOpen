@@ -2587,6 +2587,7 @@ NAMESPACE Template.Axolibrary
                 
                 IF _progress = 309 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 10>
                     TemplateTask_10steps_1.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -2739,6 +2740,7 @@ NAMESPACE Template.Axolibrary
                 
                 IF _progress = 319 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 10>
                     TemplateTask_10steps_2.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -2891,6 +2893,7 @@ NAMESPACE Template.Axolibrary
                 
                 IF _progress = 329 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 10>
                     TemplateTask_10steps_3.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -3043,6 +3046,7 @@ NAMESPACE Template.Axolibrary
                 
                 IF _progress = 339 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 10>
                     TemplateTask_10steps_4.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -3195,6 +3199,7 @@ NAMESPACE Template.Axolibrary
                 
                 IF _progress = 349 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 10>
                     TemplateTask_10steps_5.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -3347,6 +3352,7 @@ NAMESPACE Template.Axolibrary
                 
                 IF _progress = 359 THEN                                                                                     // TemplateTask_10steps_6 running: , <add the detailed description of the current action 10>
                     TemplateTask_10steps_6.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -3620,6 +3626,7 @@ NAMESPACE Template.Axolibrary
                 
                 IF _progress = 379 THEN                                                                                     // TemplateTask_20steps_1 running: , <add the detailed description of the current action 20>
                     TemplateTask_20steps_1.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -3892,6 +3899,7 @@ NAMESPACE Template.Axolibrary
                 
                 IF _progress = 399 THEN                                                                                     // TemplateTask_20steps_2 running: , <add the detailed description of the current action 20>
                     TemplateTask_20steps_2.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -4164,6 +4172,7 @@ NAMESPACE Template.Axolibrary
                 
                 IF _progress = 419 THEN                                                                                     // TemplateTask_20steps_3 running: , <add the detailed description of the current action 20>
                     TemplateTask_20steps_3.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -4436,6 +4445,7 @@ NAMESPACE Template.Axolibrary
                 
                 IF _progress = 439 THEN                                                                                     // TemplateTask_20steps_4 running: , <add the detailed description of the current action 20>
                     TemplateTask_20steps_4.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -4708,6 +4718,7 @@ NAMESPACE Template.Axolibrary
                 
                 IF _progress = 459 THEN                                                                                     // TemplateTask_20steps_5 running: , <add the detailed description of the current action 20>
                     TemplateTask_20steps_5.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -4980,6 +4991,7 @@ NAMESPACE Template.Axolibrary
                 
                 IF _progress = 479 THEN                                                                                     // TemplateTask_20steps_6 running: , <add the detailed description of the current action 20>
                     TemplateTask_20steps_6.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);

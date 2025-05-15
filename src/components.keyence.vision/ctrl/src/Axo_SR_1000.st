@@ -686,6 +686,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 
                 IF _progress = 339 THEN                  // ClearResultDataTask finished
                     ClearResultDataTask.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -991,6 +992,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 
                 IF _progress = 399 THEN             // ReadTask finished 
                     ReadTask.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -1294,6 +1296,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 
                 IF _progress = 419 THEN             // TuneTask finished
                     TuneTask.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);

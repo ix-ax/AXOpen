@@ -744,6 +744,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                     Outputs.Control.Direction := FALSE;
                     Outputs.Control.ErrorAck := FALSE;
                     ResetTask.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
                 THIS.CallTimers(TRUE);
                 

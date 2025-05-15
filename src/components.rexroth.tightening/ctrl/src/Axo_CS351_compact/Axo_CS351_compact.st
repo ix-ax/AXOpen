@@ -1922,6 +1922,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 IF _progress = 301 THEN                                                                                     // DisableTask finished
                     DisableTask.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -1981,6 +1982,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 IF _progress = 306 THEN                                                                                     // EnableTask finished
                     EnableTask.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -2040,6 +2042,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
     
                 IF _progress = 311 THEN                                                                                     // DisableClockwiseTask finished
                     DisableClockwiseTask.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -2099,6 +2102,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 IF _progress = 316 THEN                                                                                     // EnableClockwiseTask running: , <add the detailed description of the current action 10>
                     EnableClockwiseTask.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -2158,6 +2162,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 IF _progress = 321 THEN                                                                                     // DisableCounterClockwiseTask finished
                     DisableCounterClockwiseTask.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -2217,6 +2222,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 IF _progress = 326 THEN                                                                                     // EnableCounterClockwiseTask finished
                     EnableCounterClockwiseTask.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -2311,6 +2317,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 IF _progress = 334 THEN                                                                                     // ResetFaultTask running: , <add the detailed description of the current action 5>
                     ResetFaultTask.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -2369,6 +2376,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 IF _progress = 336 THEN                                                                                     // ResetResultsTask finished
                     ResetResultsTask.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -2467,6 +2475,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 IF _progress = 344 THEN                                                                                     // SetScrewingProgramTask finished
                     SetScrewingProgramTask.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -2538,6 +2547,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
     
                 IF _progress = 351 THEN                                                                                     // GetScrewingResultsTask finished
                     GetScrewingResultsTask.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -2757,6 +2767,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 IF _progress = 372 THEN                                                                                     // ScrewClockwiseTask finished
                     ScrewClockwiseTask.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -2969,6 +2980,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 IF _progress = 392 THEN                                                                                     // ScrewCounterClockwiseTask finished
                     ScrewCounterClockwiseTask.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
@@ -3331,6 +3343,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 IF _progress = 422 THEN                                                                                     // RunAutomatTask finished
                     RunAutomatTask.DoneWhen(TRUE);
+                    _progress := 0;
                 END_IF;
                  
                 THIS.CallTimers(TRUE);
