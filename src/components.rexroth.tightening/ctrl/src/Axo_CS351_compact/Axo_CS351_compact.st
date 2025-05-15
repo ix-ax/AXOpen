@@ -22,6 +22,10 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Results#>"}
             Results  :   Axo_CS351_compact_Results;
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-set:AttributeName = "<#Progress#>"}
+            {#ix-attr:[ReadOnly()]}
+            Progress : INT;            
         END_VAR
 
         VAR PUBLIC // TASKS
@@ -260,6 +264,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 parent  : IAxoObject;
                 hwID    :   WORD;
             END_VAR
+            
+            Progress := _progress;
 
             SUPER.Run(parent);
 

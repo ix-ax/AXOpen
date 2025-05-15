@@ -1280,7 +1280,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(1301, "Invalid value of the 'CameraNo' input variable, value too low!"                                                                           );
                     errorDescriptionDict.Add(1302, "Invalid value of the 'CameraNo' input variable, value too high!"                                                                          );
                     errorDescriptionDict.Add(1303, "Result data size oversized!"                                                                                                              );
-                    errorDescriptionDict.Add(1303, "User data size oversized!"                                                                                                                );
+                    errorDescriptionDict.Add(1304, "User data size oversized!"                                                                                                                );
 
 
                 // HardResetAllCamerasTask

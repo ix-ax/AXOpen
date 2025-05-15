@@ -1,4 +1,5 @@
 NAMESPACE AXOpen.Components.Cognex.Vision
+   {S7.extern=ReadWrite}
 	CLASS AxoVisionProSoftEventControl 
       VAR PUBLIC
          Reset          : BOOL;
