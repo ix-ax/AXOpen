@@ -1223,25 +1223,25 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress), bitOffset := INT#5, value => Inputs.Status.JobLoadComplete); 
 			//nacitanie user dat pre kontrolu.. ci a ako to nastavili ine kamery. 
 			ReadMemory(area := ReadArea#Input, byteOffset := TO_DINT(inputsAddress) + DINT#4, value => _tmpWord ); 
-			Inputs.Status.CurentJobID := TO_UINT(_tmpWord);
-			Inputs.Status.ReadDataLockerJobID := (Inputs.Status.CurentJobID / UINT#10); //celociselne delenie.. nech Zistim ktora kamera obsadila read data buffer.
+			Inputs.Status.CurentJobID := _tmpWord; // Inputs.Status.CurentJobID := TO_UINT(_tmpWord);
+			Inputs.Status.ReadDataLockerJobID := TO_WORD((TO_UINT(Inputs.Status.CurentJobID) / UINT#10));// Inputs.Status.ReadDataLockerJobID := (Inputs.Status.CurentJobID / UINT#10); //celociselne delenie.. nech Zistim ktora kamera obsadila read data buffer.
 			
 			retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_EngineControl_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
 			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress), bitOffset := INT#5, value => Inputs.Status.ResultValid); 
 			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + DINT#4, value => _tmpWord);
-			Inputs.Status.ID_Inspection:= TO_INT(_tmpWord);
+			Inputs.Status.ID_Inspection:= _tmpWord; //Inputs.Status.ID_Inspection:= TO_INT(_tmpWord);
 			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + DINT#1, bitOffset := INT#0, value => Inputs.Status.SetUserDataAck); 
 			
 			//nacitanie user dat pre kontrolu.. ci a ako to nastavili ine kamery. 
 			retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
 			
 			ReadMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress), value => _tmpWord);   // akokeby odkladanie cisla kamery na Profinet
-			Inputs.Status.UserDataJobID:= TO_UINT(_tmpWord);
+			Inputs.Status.UserDataJobID:= _tmpWord;// Inputs.Status.UserDataJobID:= TO_UINT(_tmpWord);
             //Just for debugging purposes
             LockerIdInAddress := outputsAddress;
             ReadMemory(area := ReadArea#Output,byteOffset := TO_DINT(LockerIdInAddress), value => ValueAtLockerIdInAddress);
 
-			Inputs.Status.UserDataLockerJobID := (Inputs.Status.UserDataJobID / UINT#10); //celociselne delenie.. nech Zistim ktora kamera obsadila user data buffer.
+			Inputs.Status.UserDataLockerJobID := TO_WORD(TO_UINT(Inputs.Status.UserDataJobID) / UINT#10); //Inputs.Status.UserDataLockerJobID := (Inputs.Status.UserDataJobID / UINT#10); //celociselne delenie.. nech Zistim ktora kamera obsadila user data buffer.
 			ReadMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#1, value => Inputs.Status.UserDataLockerIdOperation);
 		
             //*************INITIALIZATION*************
@@ -1305,7 +1305,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress),value:= BYTE#0);
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#1,value:= BYTE#0);
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2,value:= BYTE#0);
-                    Outputs.Control.JobLoadID := UINT#0;
+                    Outputs.Control.JobLoadID := WORD#0; // utputs.Control.JobLoadID := UINT#0;
                     
                     retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                     
@@ -1320,7 +1320,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := INT#1, value:= FALSE);                    
 
-                    IF Inputs.Status.CurentJobID > UINT#0 THEN
+                    IF Inputs.Status.CurentJobID > WORD#0 THEN //IF Inputs.Status.CurentJobID > UINT#0 THEN
                         THIS.CallTimers(FALSE);
                         _progress := 301;
                     ELSE
@@ -1337,7 +1337,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     _Clock_1Hz.Blink(THIS,TIME#500MS,TIME#500MS);
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := INT#4, value:= _Clock_1Hz.output);
 
-                    IF Inputs.Status.CurentJobID = UINT#0  THEN
+                    IF Inputs.Status.CurentJobID = WORD#0  THEN //IF Inputs.Status.CurentJobID = UINT#0  THEN
                         WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := INT#4, value:= FALSE);
                         THIS.CallTimers(FALSE);
                         _progress := 309;
@@ -1484,10 +1484,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Outputs.Control.SetUserdata := FALSE;
                     Outputs.Control.InitiateJobLoad := FALSE;
                     Outputs.Control.InspectionResultsAck := FALSE;
-                    Inputs.Status.ReadedDataVariantSize := UINT#0;
-                    Inputs.Status.WrittenDataVariantSize := UINT#0;
+                    Inputs.Status.ReadedDataVariantSize     := WORD#0;     //Inputs.Status.ReadedDataVariantSize := UINT#0;
+                    Inputs.Status.WrittenDataVariantSize    := WORD#0;     //Inputs.Status.WrittenDataVariantSize := UINT#0;
                     
-                    IF (Inputs.Status.UserDataLockerJobID = Config.CameraNo) OR  (Inputs.Status.UserDataLockerJobID = UINT#0) THEN
+                    IF (Inputs.Status.UserDataLockerJobID = TO_WORD(Config.CameraNo)) OR  (Inputs.Status.UserDataLockerJobID = WORD#0) THEN  // IF (Inputs.Status.UserDataLockerJobID = Config.CameraNo) OR  (Inputs.Status.UserDataLockerJobID = UINT#0) THEN
                         THIS.CallTimers(FALSE);
                         _progress := 311;
                     ELSE
@@ -1523,7 +1523,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         Status.Error.Id :=      UINT#512;
                     END_IF;
     
-                    IF (Inputs.Status.ReadDataLockerJobID = Config.CameraNo) OR (Inputs.Status.ReadDataLockerJobID = UINT#0) THEN
+                    IF (Inputs.Status.ReadDataLockerJobID = TO_WORD(Config.CameraNo)) OR (Inputs.Status.ReadDataLockerJobID = WORD#0) THEN // IF (Inputs.Status.ReadDataLockerJobID = Config.CameraNo) OR (Inputs.Status.ReadDataLockerJobID = UINT#0) THEN
                         THIS.CallTimers(FALSE);
                         _progress := 313;
                     ELSE
@@ -1538,8 +1538,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         Status.Error.Id :=      UINT#513;
                     END_IF;
     
-                    Inputs.Status.ReadDataLockerJobID := UINT#0;
-                    Outputs.Control.JobLoadID := UINT#0;
+                    Inputs.Status.ReadDataLockerJobID   := WORD#0;  //Inputs.Status.ReadDataLockerJobID   := UINT#0;
+                    Outputs.Control.JobLoadID           := WORD#0;  //Outputs.Control.JobLoadID           := UINT#0;
                     
                     retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress),bitOffset := INT#4,value:= FALSE);
@@ -2327,10 +2327,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     // V dalsom kroku nastavi SetUserData bit a caka na potrvdenie prevzatia dat pomocou UserDataAck.
                     // Akonahle dostane UserDataAck, moze resetnut SetUserData bit a UserData prepisovat pre inu inspekciu.
 
-                    IF (Inputs.Status.ReadDataLockerJobID = UINT#0 OR (Inputs.Status.ReadDataLockerJobID = Config.CameraNo)) AND (NOT Inputs.Status.JobLoadComplete) THEN
-                        Outputs.Control.JobLoadID := _readResultsJobID + (Config.CameraNo * UINT#10); //nastavenie ID podla jobuID 50-59 pre kameru 5
+                    IF (Inputs.Status.ReadDataLockerJobID = WORD#0 OR (Inputs.Status.ReadDataLockerJobID = TO_WORD(Config.CameraNo))) AND (NOT Inputs.Status.JobLoadComplete) THEN   //IF (Inputs.Status.ReadDataLockerJobID = UINT#0 OR (Inputs.Status.ReadDataLockerJobID = Config.CameraNo)) AND (NOT Inputs.Status.JobLoadComplete) THEN
+                        Outputs.Control.JobLoadID :=TO_WORD(_readResultsJobID + (Config.CameraNo * UINT#10)); // Outputs.Control.JobLoadID := _readResultsJobID + (Config.CameraNo * UINT#10); //nastavenie ID podla jobuID 50-59 pre kameru 5//nastavenie ID podla jobuID 50-59 pre kameru 5   
                         retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                        WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2,value:= TO_WORD(Outputs.Control.JobLoadID));
+                        WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2,value:= Outputs.Control.JobLoadID);   // WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2,value:= TO_WORD(Outputs.Control.JobLoadID));
 
                         THIS.CallTimers(FALSE);
                         _progress := 364;
@@ -2349,7 +2349,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     
                     _Clock_1Hz.Blink(THIS,TIME#500MS,TIME#500MS);
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress),bitOffset := INT#4,value:= _Clock_1Hz.output);
-                    IF (Inputs.Status.CurentJobID = Outputs.Control.JobLoadID) AND Outputs.Control.JobLoadID > UINT#0 AND Inputs.Status.CurentJobID > UINT#0 AND Inputs.Status.JobLoadComplete THEN
+                    IF (Inputs.Status.CurentJobID = Outputs.Control.JobLoadID) AND Outputs.Control.JobLoadID > WORD#0 AND Inputs.Status.CurentJobID > WORD#0 AND Inputs.Status.JobLoadComplete THEN  // IF (Inputs.Status.CurentJobID = Outputs.Control.JobLoadID) AND Outputs.Control.JobLoadID > UINT#0 AND Inputs.Status.CurentJobID > UINT#0 AND Inputs.Status.JobLoadComplete THEN
                         // WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress),bitOffset := INT#4,value:= FALSE); // ??? not in origonal code, but probably it should be reseted here 
                         THIS.CallTimers(FALSE);
                         _progress := 365;
@@ -2626,7 +2626,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Outputs.Control.InspectionResultsAck := TRUE;
                     Outputs.Control.InitiateJobLoad := FALSE;
                     
-                    Outputs.Control.JobLoadID := UINT#0; //nastavenie ID podla jobuID 50-59 pre kameru 5
+                    Outputs.Control.JobLoadID := WORD#0; //Outputs.Control.JobLoadID := UINT#0;  //nastavenie ID podla jobuID 50-59 pre kameru 5
                     
                     IF NOT Inputs.Status.ResultValid THEN
                         Outputs.Control.InspectionResultsAck := false;
@@ -2641,9 +2641,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         Status.Error.Id :=      UINT#571;
                     END_IF;
     
-                    Outputs.Control.JobLoadID := UINT#0;
+                    Outputs.Control.JobLoadID := WORD#0;   // Outputs.Control.JobLoadID := UINT#0;
                     retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2, value:= TO_WORD(Outputs.Control.JobLoadID));
+                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2, value:= Outputs.Control.JobLoadID);  //WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2, value:= TO_WORD(Outputs.Control.JobLoadID));
 
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
@@ -2661,7 +2661,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := 4, value:=  Outputs.Control.InitiateJobLoad);
                     
-                    IF (Inputs.Status.CurentJobID = UINT#0) AND Inputs.Status.JobLoadComplete THEN
+                    IF (Inputs.Status.CurentJobID = WORD#0) AND Inputs.Status.JobLoadComplete THEN  // IF (Inputs.Status.CurentJobID = UINT#0) AND Inputs.Status.JobLoadComplete THEN
                         Outputs.Control.InitiateJobLoad := FALSE;
                         retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                         WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := 4, value:=  Outputs.Control.InitiateJobLoad);
@@ -2824,9 +2824,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     // PLC nastavi na User Data ID inspekcie, ID operacie a User Data (cislo jobu, seriove cislo kusu, tolerancie).
                     // V dalsom kroku nastavi SetUserData bit a caka na potrvdenie prevzatia dat pomocou UserDataAck.
                     // Akonahle dostane UserDataAck, moze resetnut SetUserData bit a UserData prepisovat pre inu inspekciu.
-                    Outputs.Control.WriteDataID := _sendDataBufferID + (Config.CameraNo * UINT#10);
+                    Outputs.Control.WriteDataID := TO_WORD(_sendDataBufferID + (Config.CameraNo * UINT#10));  //Outputs.Control.WriteDataID := _sendDataBufferID + (Config.CameraNo * UINT#10);
 	    
-                    IF Inputs.Status.UserDataLockerJobID = UINT#0 OR (Inputs.Status.UserDataLockerJobID = Config.CameraNo) THEN
+                    IF Inputs.Status.UserDataLockerJobID = WORD#0 OR (Inputs.Status.UserDataLockerJobID = TO_WORD(Config.CameraNo)) THEN    // IF Inputs.Status.UserDataLockerJobID = UINT#0 OR (Inputs.Status.UserDataLockerJobID = Config.CameraNo) THEN
                         THIS.CallTimers(FALSE);
                         _progress := 383;
                     END_IF;
@@ -2839,17 +2839,17 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
 	    
                     retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
-                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#0,value:= TO_WORD(Outputs.Control.WriteDataID));
-                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#1,value:= TO_WORD(_sendDataInspectionType));
-                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2,value:= TO_WORD(_sendDataJobID));
+                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#0,value:= Outputs.Control.WriteDataID);  //WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#0,value:= TO_WORD(Outputs.Control.WriteDataID));  
+                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#1,value:= TO_WORD(_sendDataInspectionType));      
+                    WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2,value:= TO_WORD(_sendDataJobID));               
 
                     //Just for debugging purposes
                     LockerIdOutAddress := outputsAddress;
-                    ValueAtLockerIdOutAddress := TO_WORD(Outputs.Control.WriteDataID);
+                    ValueAtLockerIdOutAddress := Outputs.Control.WriteDataID;    //ValueAtLockerIdOutAddress := TO_WORD(Outputs.Control.WriteDataID);
                     ReadMemory(area := ReadArea#Output,byteOffset := TO_DINT(LockerIdOutAddress), value => ValueAtLockerIdOutAddressReReadAfterWrite );
 
 
-                    IF (Inputs.Status.UserDataLockerJobID = Config.CameraNo) THEN
+                    IF (Inputs.Status.UserDataLockerJobID = TO_WORD(Config.CameraNo)) THEN  // IF (Inputs.Status.UserDataLockerJobID = Config.CameraNo) THEN
                         THIS.CallTimers(FALSE);
                         _progress := 384;
                     END_IF;
@@ -4488,11 +4488,12 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 			WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := BitOffset + INT#2, value:= Outputs.Control.SoftEvent.Trigger);
 			WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := BitOffset + INT#3, value:= Outputs.Control.SoftEvent.Reserve);
 			
-			IF (Inputs.Status.ReadDataLockerJobID = Config.CameraNo) THEN
+			IF (Inputs.Status.ReadDataLockerJobID = TO_WORD(Config.CameraNo)) THEN  //IF (Inputs.Status.ReadDataLockerJobID = Config.CameraNo) THEN
 				retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
 				WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := INT#4, value:= Outputs.Control.InitiateJobLoad );
 				
-                _tmpWord := TO_WORD(Outputs.Control.JobLoadID);
+                // _tmpWord := TO_WORD(Outputs.Control.JobLoadID);
+                _tmpWord := Outputs.Control.JobLoadID;
 				WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2, value:= _tmpWord);
 
                 retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_EngineControl_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
@@ -4500,7 +4501,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 			END_IF;
 
 
-			IF  (Inputs.Status.UserDataLockerJobID = Config.CameraNo) THEN
+			IF  (TO_UINT(Inputs.Status.UserDataLockerJobID) = Config.CameraNo) THEN
 				retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_EngineControl_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
 				WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := INT#3, value:= Outputs.Control.SetUserdata);
 			END_IF;

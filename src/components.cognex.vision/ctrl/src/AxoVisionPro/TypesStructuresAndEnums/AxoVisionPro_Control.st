@@ -7,9 +7,12 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             SetUserdata             : BOOL;
             InitiateJobLoad         : BOOL;
             InspectionResultsAck    : BOOL;
-            ID_Inspection           : UINT;   // rezerva
-            JobLoadID               : UINT;
-            WriteDataID             : UINT;
+            // ID_Inspection           : UINT;   // rezerva
+            // JobLoadID               : UINT;
+            // WriteDataID             : UINT;
+            ID_Inspection           : WORD;   // rezerva
+            JobLoadID               : WORD;
+            WriteDataID             : WORD;
         END_VAR 
     END_CLASS    
 END_NAMESPACE
