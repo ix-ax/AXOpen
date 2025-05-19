@@ -1223,25 +1223,24 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress), bitOffset := INT#5, value => Inputs.Status.JobLoadComplete); 
 			//nacitanie user dat pre kontrolu.. ci a ako to nastavili ine kamery. 
 			ReadMemory(area := ReadArea#Input, byteOffset := TO_DINT(inputsAddress) + DINT#4, value => _tmpWord ); 
-			Inputs.Status.CurentJobID := _tmpWord; // Inputs.Status.CurentJobID := TO_UINT(_tmpWord);
-			Inputs.Status.ReadDataLockerJobID := TO_WORD((TO_UINT(Inputs.Status.CurentJobID) / UINT#10));// Inputs.Status.ReadDataLockerJobID := (Inputs.Status.CurentJobID / UINT#10); //celociselne delenie.. nech Zistim ktora kamera obsadila read data buffer.
+			Inputs.Status.CurentJobID := _tmpWord; 
+			Inputs.Status.ReadDataLockerJobID := TO_WORD((TO_UINT(Inputs.Status.CurentJobID) / UINT#10));
 			
 			retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_EngineControl_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
 			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress), bitOffset := INT#5, value => Inputs.Status.ResultValid); 
 			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + DINT#4, value => _tmpWord);
-			Inputs.Status.ID_Inspection:= _tmpWord; //Inputs.Status.ID_Inspection:= TO_INT(_tmpWord);
+			Inputs.Status.ID_Inspection:= _tmpWord; 
 			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + DINT#1, bitOffset := INT#0, value => Inputs.Status.SetUserDataAck); 
 			
 			//nacitanie user dat pre kontrolu.. ci a ako to nastavili ine kamery. 
 			retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
 			
-			ReadMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress), value => _tmpWord);   // akokeby odkladanie cisla kamery na Profinet
-			Inputs.Status.UserDataJobID:= _tmpWord;// Inputs.Status.UserDataJobID:= TO_UINT(_tmpWord);
+			ReadMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress), value => _tmpWord); 
+			Inputs.Status.UserDataJobID:= _tmpWord;
             //Just for debugging purposes
             LockerIdInAddress := outputsAddress;
             ReadMemory(area := ReadArea#Output,byteOffset := TO_DINT(LockerIdInAddress), value => ValueAtLockerIdInAddress);
-
-			Inputs.Status.UserDataLockerJobID := TO_WORD(TO_UINT(Inputs.Status.UserDataJobID) / UINT#10); //Inputs.Status.UserDataLockerJobID := (Inputs.Status.UserDataJobID / UINT#10); //celociselne delenie.. nech Zistim ktora kamera obsadila user data buffer.
+			Inputs.Status.UserDataLockerJobID := TO_WORD(TO_UINT(Inputs.Status.UserDataJobID) / UINT#10); 
 			ReadMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#1, value => Inputs.Status.UserDataLockerIdOperation);
 		
             //*************INITIALIZATION*************
