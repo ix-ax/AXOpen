@@ -19,7 +19,7 @@ variables:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.18
+  "@inxton/ax.catalog": 0.0.20
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
@@ -116,6 +116,7 @@ scripts:
     apax test
   mm: |
     apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
+
 
 
 

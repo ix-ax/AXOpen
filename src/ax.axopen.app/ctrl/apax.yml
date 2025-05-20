@@ -1,4 +1,4 @@
-name: "@inxton/ax.axopen.app"
+﻿name: "@inxton/ax.axopen.app"
 version: '0.0.0-dev.0'
 type: generic
 files:
@@ -6,7 +6,7 @@ files:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.18
+  "@inxton/ax.catalog": 0.0.20
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
@@ -32,3 +32,4 @@ scripts:
   cicb: |
     apax clean
     apax icb
+

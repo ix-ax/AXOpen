@@ -1,5 +1,5 @@
 name: "@inxton/ax.catalog"
-version: '0.0.18'
+version: '0.0.20'
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 type: catalog
@@ -17,9 +17,9 @@ catalogDependencies:
   "@ax/dcp-utility": 1.2.0                                        # @ax/simatic-ax@2504.0.0  contained at the time of creation this catalog (7.5.2025) version  1.2.0
   "@ax/diagnostic-buffer": 1.3.2                                  # @ax/simatic-ax@2504.0.0  contained at the time of creation this catalog (7.5.2025) version  1.3.2
   "@ax/hardware-diagnostics": 0.3.0                               # @ax/simatic-ax@2504.0.0  contained at the time of creation this catalog (7.5.2025) version  0.3.0
-  "@ax/hw-s7-1500": 3.0.0                                         # @ax/simatic-ax@2504.0.0  contained at the time of creation this catalog (7.5.2025) version  3.0.0
-  "@ax/hwc": 3.0.0                                                # @ax/simatic-ax@2504.0.0  contained at the time of creation this catalog (7.5.2025) version  3.0.0
-  "@ax/hwld": 3.0.0                                               # @ax/simatic-ax@2504.0.0  contained at the time of creation this catalog (7.5.2025) version  3.0.0
+  "@ax/hw-s7-1500": 3.1.0                                         # @ax/simatic-ax@2504.0.0  contained at the time of creation this catalog (7.5.2025) version  3.0.0
+  "@ax/hwc": 3.1.0                                                # @ax/simatic-ax@2504.0.0  contained at the time of creation this catalog (7.5.2025) version  3.0.0
+  "@ax/hwld": 3.1.0                                               # @ax/simatic-ax@2504.0.0  contained at the time of creation this catalog (7.5.2025) version  3.0.0
   "@ax/mod": 1.7.6                                                # @ax/simatic-ax@2504.0.0  contained at the time of creation this catalog (7.5.2025) version  1.7.6
   "@ax/mon": 1.7.6                                                # @ax/simatic-ax@2504.0.0  contained at the time of creation this catalog (7.5.2025) version  1.7.6
   "@ax/performance-info": 1.1.2			                              # @ax/simatic-ax@2504.0.0  contained at the time of creation this catalog (7.5.2025) version  1.1.2
