@@ -157,33 +157,33 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             TaskMessenger      :   AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
 
-        // Temporary workaround due to hwc station number issue
-        {attribute 'obsolete' := 'This method is(will be) deprecated after releasing hwc3.1.0. Use Run(parent,hwID,CameraNo) instead.'}
-        METHOD PUBLIC Run
-            VAR_INPUT
-                parent                      : IAxoObject;
-                hwID                        :   WORD;                   
-                hwIdAcquisitionControl      :   WORD; 
-                hwIdAcquisitionStatus       :   WORD;  
-                hwIdResultsControl          :   WORD;     
-                hwIdResultsStatus           :   WORD;      
-                hwIdSoftEventControl        :   WORD;   
-                hwIdUserData                :   WORD;              
-                hwIdResultData              :   WORD;         
-            END_VAR
+        // // Temporary workaround due to hwc station number issue
+        // {attribute 'obsolete' := 'This method is(will be) deprecated after releasing hwc3.1.0. Use Run(parent,hwID,CameraNo) instead.'}
+        // METHOD PUBLIC Run
+        //     VAR_INPUT
+        //         parent                      : IAxoObject;
+        //         hwID                        :   WORD;                   
+        //         hwIdAcquisitionControl      :   WORD; 
+        //         hwIdAcquisitionStatus       :   WORD;  
+        //         hwIdResultsControl          :   WORD;     
+        //         hwIdResultsStatus           :   WORD;      
+        //         hwIdSoftEventControl        :   WORD;   
+        //         hwIdUserData                :   WORD;              
+        //         hwIdResultData              :   WORD;         
+        //     END_VAR
 
-            _hwID                        :=  hwID;
-            _hwIdAcquisitionControl      :=  hwIdAcquisitionControl;
-            _hwIdAcquisitionStatus       :=  hwIdAcquisitionStatus;
-            _hwIdResultsControl          :=  hwIdResultsControl;
-            _hwIdResultsStatus           :=  hwIdResultsStatus;
-            _hwIdSoftEventControl        :=  hwIdSoftEventControl;
-            _hwIdResultData              :=  hwIdResultData;
-            _hwIdUserData                :=  hwIdUserData;
+        //     _hwID                        :=  hwID;
+        //     _hwIdAcquisitionControl      :=  hwIdAcquisitionControl;
+        //     _hwIdAcquisitionStatus       :=  hwIdAcquisitionStatus;
+        //     _hwIdResultsControl          :=  hwIdResultsControl;
+        //     _hwIdResultsStatus           :=  hwIdResultsStatus;
+        //     _hwIdSoftEventControl        :=  hwIdSoftEventControl;
+        //     _hwIdResultData              :=  hwIdResultData;
+        //     _hwIdUserData                :=  hwIdUserData;
 
-            _initHwCheckDone    :=  TRUE;
-            THIS.Run(parent,hwID);
-        END_METHOD
+        //     _initHwCheckDone    :=  TRUE;
+        //     THIS.Run(parent,hwID);
+        // END_METHOD
         
         ///<summary>
         /// Runs tasks and logic of this component.
@@ -222,8 +222,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     Status.Error.Id := UINT#702;
                     RETURN;
                 END_IF;
-                
                 //******************Slot 1*****************//
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _geoAddr.Slot   :=  UINT#1;                                                            
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdAcquisitionControl :=  TO_WORD(_outHwid);                                         
@@ -264,6 +264,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     RETURN;
                 END_IF;
                 //******************Slot 2*****************//
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _geoAddr.Slot   :=  UINT#2;                                                            
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdAcquisitionStatus :=  TO_WORD(_outHwid);                                         
@@ -304,6 +305,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     RETURN;
                 END_IF;
                 //******************Slot 3*****************//
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _geoAddr.Slot   :=  UINT#3;                                                            
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdResultsControl :=  TO_WORD(_outHwid);                                         
@@ -344,6 +346,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     RETURN;
                 END_IF;
                 //******************Slot 4*****************//
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _geoAddr.Slot   :=  UINT#4;                                                            
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdResultsStatus :=  TO_WORD(_outHwid);                                         
@@ -384,6 +387,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     RETURN;
                 END_IF;
                 //******************Slot 5*****************//
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _geoAddr.Slot   :=  UINT#5;                                                            
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdSoftEventControl :=  TO_WORD(_outHwid);                                         
@@ -458,20 +462,21 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdUserData , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount = UINT#0 AND _outputsCount = UINT#16 THEN
+                IF _inputsCount = UINT#0 AND _outputsCount = UINT#20 THEN           //16 + 4 ( Option(UINT) + Length(UINT))
                     _UserDataSize := eAxoDataman_UserDataSize#USER_DATA_16B;
-                ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#32 THEN
+                ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#36 THEN        //32 + 4 ( Option(UINT) + Length(UINT))
                     _UserDataSize := eAxoDataman_UserDataSize#USER_DATA_32B;
-                ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#64 THEN
+                ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#68 THEN        //6432 + 4 ( Option(UINT) + Length(UINT))
                     _UserDataSize := eAxoDataman_UserDataSize#USER_DATA_64B;
-                ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#128 THEN
+                ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#132 THEN       //128 + 4 ( Option(UINT) + Length(UINT))       
                     _UserDataSize := eAxoDataman_UserDataSize#USER_DATA_128B;
-                ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#250 THEN
+                ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#254 THEN       //25 + 4 ( Option(UINT) + Length(UINT))
                     _UserDataSize := eAxoDataman_UserDataSize#USER_DATA_250B;
                 ELSE
                     _UserDataSize := eAxoDataman_UserDataSize#USER_DATA_SIZE_INVALID;
                     Messenger.Activate(UINT#766,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#766;    
+                    RETURN;
                 END_IF;
                 //******************Slot 7*****************//
                 _geoAddr.Slot   :=  UINT#7;                                                            
@@ -508,15 +513,15 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdResultData , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount = UINT#0 AND _inputsCount = UINT#16 THEN
+                IF _outputsCount = UINT#0 AND _inputsCount = UINT#24 THEN               //16 + 8 ( Id(UINT) + Code(UINT) + Extended(UINT) + Length(UINT))
                     _ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_16B;
-                ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#32 THEN
+                ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#40 THEN            //32 + 8 ( Id(UINT) + Code(UINT) + Extended(UINT) + Length(UINT))
                     _ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_32B;
-                ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#64 THEN
+                ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#72 THEN            //64 + 8 ( Id(UINT) + Code(UINT) + Extended(UINT) + Length(UINT))
                     _ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_64B;
-                ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#128 THEN
+                ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#136 THEN           //128 + 8 ( Id(UINT) + Code(UINT) + Extended(UINT) + Length(UINT))
                     _ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_128B;
-                ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#246 THEN
+                ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#254 THEN           //246 + 8 ( Id(UINT) + Code(UINT) + Extended(UINT) + Length(UINT))
                     _ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_246B;
                 ELSE
                     _ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID;

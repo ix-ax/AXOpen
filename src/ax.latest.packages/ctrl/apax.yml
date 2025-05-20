@@ -1,4 +1,4 @@
-﻿name: "@inxton/ax.latest.packages"
+name: "@inxton/ax.latest.packages"
 version: '0.0.0-dev.0'
 type: generic
 files:
@@ -14,9 +14,9 @@ dependencies:
   "@ax/system-bitaccess": 10.0.24
   "@ax/system-math": 10.0.24
   "@ax/system-serde": 10.0.24
-  "@ax/hwc": 3.0.0
-  "@ax/hw-s7-1500": 3.0.0
-  "@ax/hwld": 3.0.0
+  "@ax/hwc": 3.1.0
+  "@ax/hw-s7-1500": 3.1.0
+  "@ax/hwld": 3.1.0
   "@ax/stc": 10.0.85
   "@ax/sld": 3.2.4
 installStrategy: strict
@@ -34,4 +34,3 @@ scripts:
   cicb: |
     apax clean
     apax icb
-

@@ -1,4 +1,4 @@
-﻿name: "@inxton/ax.axopen.app"
+name: "@inxton/ax.axopen.app"
 version: '0.0.0-dev.0'
 type: generic
 files:
@@ -32,4 +32,3 @@ scripts:
   cicb: |
     apax clean
     apax icb
-
