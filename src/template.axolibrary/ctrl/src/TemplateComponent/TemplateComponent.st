@@ -303,6 +303,7 @@ NAMESPACE Template.Axolibrary
 
                 //******************Slot 1*****************//
                 _geoAddr.Slot   :=  UINT#1;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_in_1 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_in_1 = WORD#0 THEN
@@ -343,6 +344,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 2*****************//
                 _geoAddr.Slot   :=  UINT#2;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_in_2 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_in_2 = WORD#0 THEN
@@ -383,6 +385,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 3*****************//
                 _geoAddr.Slot   :=  UINT#3;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_in_3 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_in_3 = WORD#0 THEN
@@ -423,6 +426,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 4*****************//
                 _geoAddr.Slot   :=  UINT#4;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_in_4 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_in_4 = WORD#0 THEN
@@ -463,6 +467,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 5*****************//
                 _geoAddr.Slot   :=  UINT#5;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_in_5 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_in_5 = WORD#0 THEN
@@ -503,6 +508,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 6*****************//
                 _geoAddr.Slot   :=  UINT#6;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_in_6 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_in_6 = WORD#0 THEN
@@ -543,6 +549,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 7*****************//
                 _geoAddr.Slot   :=  UINT#7;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_in_7 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_in_7 = WORD#0 THEN
@@ -583,6 +590,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 8*****************//
                 _geoAddr.Slot   :=  UINT#8;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_in_8 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_in_8 = WORD#0 THEN
@@ -623,6 +631,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 9*****************//
                 _geoAddr.Slot   :=  UINT#9;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_in_9 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_in_9 = WORD#0 THEN
@@ -663,6 +672,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 10*****************//
                 _geoAddr.Slot   :=  UINT#10;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_in_10 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_in_10 = WORD#0 THEN
@@ -703,6 +713,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 11*****************//
                 _geoAddr.Slot   :=  UINT#11;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_in_11 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_in_11 = WORD#0 THEN
@@ -743,6 +754,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 12*****************//
                 _geoAddr.Slot   :=  UINT#12;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_in_12 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_in_12 = WORD#0 THEN
@@ -783,6 +795,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 13*****************//
                 _geoAddr.Slot   :=  UINT#13;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_in_13 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_in_13 = WORD#0 THEN
@@ -823,6 +836,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 14*****************//
                 _geoAddr.Slot   :=  UINT#14;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_in_14 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_in_14 = WORD#0 THEN
@@ -863,6 +877,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 15*****************//
                 _geoAddr.Slot   :=  UINT#15;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_in_15 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_in_15 = WORD#0 THEN
@@ -903,6 +918,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 16*****************//
                 _geoAddr.Slot   :=  UINT#16;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_in_16 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_in_16 = WORD#0 THEN
@@ -943,6 +959,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 17*****************//
                 _geoAddr.Slot   :=  UINT#17;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_in_17 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_in_17 = WORD#0 THEN
@@ -983,6 +1000,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 18*****************//
                 _geoAddr.Slot   :=  UINT#18;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_in_18 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_in_18 = WORD#0 THEN
@@ -1023,6 +1041,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 19*****************//
                 _geoAddr.Slot   :=  UINT#19;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_in_19 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_in_19 = WORD#0 THEN
@@ -1063,6 +1082,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 20*****************//
                 _geoAddr.Slot   :=  UINT#20;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_in_20 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_in_20 = WORD#0 THEN
@@ -1103,6 +1123,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 21*****************//
                 _geoAddr.Slot   :=  UINT#21;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_out_1 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_out_1 = WORD#0 THEN
@@ -1143,6 +1164,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 22*****************//
                 _geoAddr.Slot   :=  UINT#22;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_out_2 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_out_2 = WORD#0 THEN
@@ -1183,6 +1205,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 23*****************//
                 _geoAddr.Slot   :=  UINT#23;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_out_3 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_out_3 = WORD#0 THEN
@@ -1223,6 +1246,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 24*****************//
                 _geoAddr.Slot   :=  UINT#24;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_out_4 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_out_4 = WORD#0 THEN
@@ -1263,6 +1287,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 25*****************//
                 _geoAddr.Slot   :=  UINT#25;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_out_5 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_out_5 = WORD#0 THEN
@@ -1303,6 +1328,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 26*****************//
                 _geoAddr.Slot   :=  UINT#26;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_out_6 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_out_6 = WORD#0 THEN
@@ -1343,6 +1369,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 27*****************//
                 _geoAddr.Slot   :=  UINT#27;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_out_7 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_out_7 = WORD#0 THEN
@@ -1383,6 +1410,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 28*****************//
                 _geoAddr.Slot   :=  UINT#28;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_out_8 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_out_8 = WORD#0 THEN
@@ -1423,6 +1451,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 29*****************//
                 _geoAddr.Slot   :=  UINT#29;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_out_9 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_out_9 = WORD#0 THEN
@@ -1463,6 +1492,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 30*****************//
                 _geoAddr.Slot   :=  UINT#30;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_out_10 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_out_10 = WORD#0 THEN
@@ -1503,6 +1533,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 31*****************//
                 _geoAddr.Slot   :=  UINT#31;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_out_11 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_out_11 = WORD#0 THEN
@@ -1543,6 +1574,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 32*****************//
                 _geoAddr.Slot   :=  UINT#32;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_out_12 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_out_12 = WORD#0 THEN
@@ -1583,6 +1615,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 33*****************//
                 _geoAddr.Slot   :=  UINT#33;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_out_13 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_out_13 = WORD#0 THEN
@@ -1623,6 +1656,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 34*****************//
                 _geoAddr.Slot   :=  UINT#34;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_out_14 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_out_14 = WORD#0 THEN
@@ -1663,6 +1697,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 35*****************//
                 _geoAddr.Slot   :=  UINT#35;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_out_15 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_out_15 = WORD#0 THEN
@@ -1703,6 +1738,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 36*****************//
                 _geoAddr.Slot   :=  UINT#36;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_out_16 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_out_16 = WORD#0 THEN
@@ -1743,6 +1779,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 37*****************//
                 _geoAddr.Slot   :=  UINT#37;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_out_17 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_out_17 = WORD#0 THEN
@@ -1783,6 +1820,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 38*****************//
                 _geoAddr.Slot   :=  UINT#38;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_out_18 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_out_18 = WORD#0 THEN
@@ -1823,6 +1861,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 39*****************//
                 _geoAddr.Slot   :=  UINT#39;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_out_19 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_out_19 = WORD#0 THEN
@@ -1863,6 +1902,7 @@ NAMESPACE Template.Axolibrary
                 END_IF;
                 //******************Slot 40*****************//
                 _geoAddr.Slot   :=  UINT#40;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_out_20 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_out_20 = WORD#0 THEN

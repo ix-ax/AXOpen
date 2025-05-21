@@ -3,11 +3,11 @@ NAMESPACE AXOpen.Components.Festo.Drives
     {S7.extern=ReadWrite}
     CLASS AxoCmmtAsAxisData
         VAR PUBLIC
-            hwID               :   WORD;
-            hwIdTelegram111    :   WORD;
-            hwIdTelegram750    :   WORD;
-            MAP_HW_ID          :   WORD;
-            Cycle       :   ULINT;
+            hwID                        :   WORD;
+            hwIdModuleAccessPoint       :   WORD;
+            hwIdTelegram111             :   WORD;
+            hwIdTelegram750             :   WORD;
+            Cycle                       :   ULINT;
             OverrideVelocityFactor		:	LREAL := 1.0;	//LREAL value to be written
             OverrideAccelerationFactor	:	LREAL := 1.0;	//LREAL value to be written
             OverrideJerkFactor			:	LREAL := 1.0;	//LREAL value to be written
