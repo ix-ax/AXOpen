@@ -1,39 +1,25 @@
 ﻿@using Microsoft.AspNetCore.Components.Authorization;
+@using Operon.Components.Tab
 
 @namespace AxOpen.Security.Views
 
 <AuthorizeView Roles="Administrator">
     <Authorized>
-        <div name="TabControl" class="w-100">
-            <ul class="nav nav-tabs mb-3">
-                <li class="nav-item">
-                    <button type="button" class="nav-link @((selected == 0) ? "active" : "")" @onclick="() => selected = 0"><b>@Localizer["User Management"]</b></button>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="nav-link @((selected == 1) ? "active" : "")" @onclick="() => selected = 1"><b>@Localizer["Group Management"]</b></button>
-                </li>
-            </ul>
-            <div class="content">
-                @switch (@selected)
-                {
-                    case 0:
-                        <UserManagementView @ref="@userManagementView"></UserManagementView>
-                        break;
-                    case 1:
-                        <GroupManagementView @ref="@groupManagementView"></GroupManagementView>
-                        break;
-                }
-            </div>
-        </div>
+        <Tab>
+            <TabPage Title="@Localizer["User Management"]">
+                <UserManagementView @ref="@userManagementView"></UserManagementView>
+            </TabPage>
+            <TabPage Title="@Localizer["Group Management"]">
+                <GroupManagementView @ref="@groupManagementView"></GroupManagementView>
+            </TabPage>
+        </Tab>
     </Authorized>
     <NotAuthorized>
         <p>@Localizer["Sorry, you are not authorized to access user management. Please log in as administrator."]</p>
     </NotAuthorized>
 </AuthorizeView>
 
-@code{
-
-    int selected = 0;
+@code {
     private UserManagementView userManagementView { get; set; }
     private GroupManagementView groupManagementView { get; set; }
 }

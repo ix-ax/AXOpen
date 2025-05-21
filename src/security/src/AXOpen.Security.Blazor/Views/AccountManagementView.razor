@@ -14,44 +14,45 @@
 
 <AuthorizeView>
     <Authorized>
-        <div class="card">
-            <h4 class="card-header">@Localizer["Account Manage"]</h4>
-            <div class="card-body">
+        <div class="mt-16 mx-4">
+            <h2>@Localizer["Account Manage"]</h2>
+            <hr />
+            <div>
                 <EditForm Model="@_model" OnValidSubmit="OnValidUpdate" Context="accountManagementContext">
                     <DataAnnotationsValidator />
-                    <div class="form-group">
-                        <label>@Localizer["Username"]</label>
-                        <InputText @bind-Value="_model.Username" type="text" class="form-control" disabled />
+                    <div class="input">
+                        <label class="me-2">@Localizer["Username"]</label>
+                        <InputText @bind-Value="_model.Username" type="text" disabled />
                     </div>
-                    <div class="form-group">
-                        <label>@Localizer["Group"]</label>
-                        <InputText @bind-Value="_model.Group" type="text" class="form-control" disabled />
+                    <div class="input">
+                        <label class="me-2">@Localizer["Group"]</label>
+                        <InputText @bind-Value="_model.Group" type="text" disabled />
                     </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <InputText @bind-Value="_model.Email" type="email" class="form-control" />
+                    <div class="input">
+                        <label class="me-2">Email</label>
+                        <InputText @bind-Value="_model.Email" type="email" />
                         <ValidationMessage For="@(() => _model.Email)" />
                     </div>
                     @if (_model.CanUserChangePassword)
                     {
-                        <div class="form-group">
-                            <label>@Localizer["Old password"]</label>
-                            <InputText @bind-Value="_model.OldPassword" type="password" class="form-control" />
+                        <div class="input">
+                            <label class="me-2">@Localizer["Old password"]</label>
+                            <InputText @bind-Value="_model.OldPassword" type="password" />
                             <ValidationMessage For="@(() => _model.OldPassword)" />
                         </div>
-                        <div class="form-group">
-                            <label>@Localizer["New password"]</label>
-                            <InputText @bind-Value="_model.Password" type="password" class="form-control" />
+                        <div class="input">
+                            <label class="me-2">@Localizer["New password"]</label>
+                            <InputText @bind-Value="_model.Password" type="password" />
                             <ValidationMessage For="@(() => _model.Password)" />
                         </div>
-                        <div class="form-group">
-                            <label>@Localizer["Confirm new password"]</label>
-                            <InputText @bind-Value="_model.ConfirmPassword" type="password" class="form-control" />
+                        <div class="input">
+                            <label class="me-2">@Localizer["Confirm new password"]</label>
+                            <InputText @bind-Value="_model.ConfirmPassword" type="password" />
                             <ValidationMessage For="@(() => _model.ConfirmPassword)" />
                         </div>
                     }
                     <div class="d-flex justify-content-between">
-                        <button type="submit" class="btn btn-primary m-2">@Localizer["Update"]</button>
+                        <button type="submit" class="btn btn-primary mt-2">@Localizer["Update"]</button>
                         @*@if (_repositoryService.ExternalAuthorization != null)
                         {
                             <button type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#changeAuthorizationTokenModal">Change authorization token</button>

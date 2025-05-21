@@ -116,11 +116,6 @@ namespace AxOpen.Security.Views
             StateHasChanged();
         }
 
-        public void CloseGroupDetail()
-        {
-            SelectedGroupN = null;
-        }
-
         public async void CreateGroup()
         {
             if (newGroupName == null || newGroupName == "")

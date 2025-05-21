@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+	  <ProjectReference Include="..\..\..\..\..\..\..\operon\src\Operon\Operon.csproj" />
 	  <ProjectReference Include="..\AXOpen.Security\AXOpen.Security.csproj" />
   </ItemGroup>
 
