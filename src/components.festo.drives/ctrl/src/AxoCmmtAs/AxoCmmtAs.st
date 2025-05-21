@@ -1943,6 +1943,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
             END_VAR
             
+            _AxisReference ?= AxisRef;
+
             IF(_AxisReference = NULL) THEN
                 Messenger.Activate(     UINT#1480, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1480;
