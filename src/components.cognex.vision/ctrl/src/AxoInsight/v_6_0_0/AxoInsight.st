@@ -188,35 +188,35 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             TaskMessenger      :   AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
 
-        // Temporary workaround due to hwc station number issue
-        {attribute 'obsolete' := 'This method is(will be) deprecated after releasing hwc3.1.0. Use Run(parent,hwID,CameraNo) instead.'}
-        METHOD PUBLIC Run
-            VAR_INPUT
-                parent                      : IAxoObject;
-                hwID                        :   WORD;
-                hwIdAcquisitionControl      :   WORD;
-                hwIdAcquisitionStatus       :   WORD;
-                hwIdInspectionControl       :   WORD;
-                hwIdInspectionStatus        :   WORD;
-                hwIdCommandControl          :   WORD;
-                hwIdSoftEventControl        :   WORD;
-                hwIdUserData                :   WORD;         
-                hwIdResultData              :   WORD;
-            END_VAR
+        // // Temporary workaround due to hwc station number issue
+        // {attribute 'obsolete' := 'This method is(will be) deprecated after releasing hwc3.1.0. Use Run(parent,hwID,CameraNo) instead.'}
+        // METHOD PUBLIC Run
+        //     VAR_INPUT
+        //         parent                      : IAxoObject;
+        //         hwID                        :   WORD;
+        //         hwIdAcquisitionControl      :   WORD;
+        //         hwIdAcquisitionStatus       :   WORD;
+        //         hwIdInspectionControl       :   WORD;
+        //         hwIdInspectionStatus        :   WORD;
+        //         hwIdCommandControl          :   WORD;
+        //         hwIdSoftEventControl        :   WORD;
+        //         hwIdUserData                :   WORD;         
+        //         hwIdResultData              :   WORD;
+        //     END_VAR
 
-            _hwID                    := hwID;
-            _hwIdAcquisitionControl  := hwIdAcquisitionControl;
-            _hwIdAcquisitionStatus   := hwIdAcquisitionStatus;
-            _hwIdInspectionControl   := hwIdInspectionControl;
-            _hwIdInspectionStatus    := hwIdInspectionStatus;
-            _hwIdCommandControl      := hwIdCommandControl;
-            _hwIdSoftEventControl    := hwIdSoftEventControl;
-            _hwIdResultData          := hwIdResultData;
-            _hwIdUserData            := hwIdUserData;
+        //     _hwID                    := hwID;
+        //     _hwIdAcquisitionControl  := hwIdAcquisitionControl;
+        //     _hwIdAcquisitionStatus   := hwIdAcquisitionStatus;
+        //     _hwIdInspectionControl   := hwIdInspectionControl;
+        //     _hwIdInspectionStatus    := hwIdInspectionStatus;
+        //     _hwIdCommandControl      := hwIdCommandControl;
+        //     _hwIdSoftEventControl    := hwIdSoftEventControl;
+        //     _hwIdResultData          := hwIdResultData;
+        //     _hwIdUserData            := hwIdUserData;
 
-            _initHwCheckDone    :=  TRUE;
-            THIS.Run(parent,hwID);
-        END_METHOD
+        //     _initHwCheckDone    :=  TRUE;
+        //     THIS.Run(parent,hwID);
+        // END_METHOD
 
         ///<summary>
         /// Runs tasks and logic of this component.
@@ -265,6 +265,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 
                 //******************Slot 1*****************//
                 _geoAddr.Slot   :=  UINT#1;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdAcquisitionControl :=  TO_WORD(_outHwid);                                         
                 IF _hwIdAcquisitionControl = WORD#0 THEN
@@ -305,6 +306,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 //******************Slot 2*****************//
                 _geoAddr.Slot   :=  UINT#2;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdAcquisitionStatus :=  TO_WORD(_outHwid);                                         
                 IF _hwIdAcquisitionStatus = WORD#0 THEN
@@ -338,13 +340,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAcquisitionStatus , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#3 OR _outputsCount <> UINT#0 THEN
+                IF (_inputsCount <> UINT#3 AND _inputsCount <> UINT#4) OR _outputsCount <> UINT#0 THEN  // 3 for is2000, 4 for 2800 
                     Messenger.Activate(UINT#726,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#726;
                     RETURN;
                 END_IF;
                 //******************Slot 3*****************//
                 _geoAddr.Slot   :=  UINT#3;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdInspectionControl :=  TO_WORD(_outHwid);                                         
                 IF _hwIdInspectionControl = WORD#0 THEN
@@ -385,6 +388,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 //******************Slot 4*****************//
                 _geoAddr.Slot   :=  UINT#4;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdInspectionStatus :=  TO_WORD(_outHwid);                                         
                 IF _hwIdInspectionStatus = WORD#0 THEN
@@ -425,6 +429,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 //******************Slot 5*****************//
                 _geoAddr.Slot   :=  UINT#5;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdCommandControl :=  TO_WORD(_outHwid);                                         
                 IF _hwIdCommandControl = WORD#0 THEN
@@ -458,13 +463,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdCommandControl , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#2 THEN
+                IF (_inputsCount <> UINT#2 AND _inputsCount <> UINT#4) OR _outputsCount <> UINT#2 THEN
                     Messenger.Activate(UINT#756,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#756;
                     RETURN;
                 END_IF;
                 //******************Slot 6*****************//
                 _geoAddr.Slot   :=  UINT#6;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdSoftEventControl :=  TO_WORD(_outHwid);                                         
                 IF _hwIdSoftEventControl = WORD#0 THEN
@@ -505,6 +511,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 //******************Slot 7*****************//
                 _geoAddr.Slot   :=  UINT#7;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdUserData :=  TO_WORD(_outHwid);                                         
                 IF _hwIdUserData = WORD#0 THEN
@@ -555,6 +562,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 //******************Slot 8*****************//
                 _geoAddr.Slot   :=  UINT#8;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdResultData :=  TO_WORD(_outHwid);                                         
                 IF _hwIdResultData = WORD#0 THEN
