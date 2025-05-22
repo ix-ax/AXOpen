@@ -16,7 +16,7 @@ NAMESPACE AXOpen.Core
             BeforeStep : AxoStep;
             CurrentStep : AxoStep;
             AfterStep : AxoStep;
-            CollectDataTask : AxoRemoteTask;
+            CollectDataTask : AxoRemoteTask;            
         END_VAR   
         VAR PRIVATE
             _configurationFlowOrder : ULINT;   
@@ -28,7 +28,6 @@ NAMESPACE AXOpen.Core
             _refStep :  REF_TO AxoStep;       
             _microStep : UINT;   
             _context        :   IAxoContext;
-
         END_VAR     
 
         ///<summary>

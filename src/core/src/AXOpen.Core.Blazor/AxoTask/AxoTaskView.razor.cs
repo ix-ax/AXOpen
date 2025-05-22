@@ -66,20 +66,47 @@ namespace AXOpen.Core
             Component.ResumeTask();
         }
 
+        private string AnimationClass
+        {
+            get
+            {
+                if (this.Component.IsDisabled.LastValue)
+                    return "";
+                switch ((eAxoTaskState)Component.Status.LastValue)
+                {
+                    case eAxoTaskState.Busy:
+                        return "animate-pulse space-x-100";
+                    case eAxoTaskState.Done:
+                        return "";
+                    case eAxoTaskState.Aborted:
+                        return "";
+                    case eAxoTaskState.Error:
+                        return "";
+                    default:
+                        return "";
+                }
+            }
+        }
+        
+        
         private string ButtonClass
         {
             get
             {
+                if(this.Component.IsDisabled.LastValue)
+                    return "btn-outline-inactive blur-[2px]";
                 switch ((eAxoTaskState)Component.Status.LastValue)
                 {
+                    case eAxoTaskState.Busy:
+                        return "btn-active shadow-xl shadow-active-500/50";
                     case eAxoTaskState.Done:
-                        return "btn-success";
-
+                        return "btn-outline-success";
+                    case eAxoTaskState.Aborted:
+                        return "btn-attention";
                     case eAxoTaskState.Error:
                         return "btn-danger";
-
                     default:
-                        return "btn-primary";
+                        return "btn-inactive";
                 }
             }
         }
