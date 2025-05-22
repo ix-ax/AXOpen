@@ -543,13 +543,6 @@ namespace AXOpen.VisualComposer
             _zoomableContainer = zoomableContainer;
         }
 
-        private async Task ShowModal(string id)
-        {
-            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/VisualComposerContainer.razor.js");
-            await jsObject.InvokeVoidAsync("showModal", id);
-        }
-
-
         private RenderableContentControl detailsRcc { get; set; }
 
         private bool DetailsVisibility { get; set; } = false;
@@ -584,14 +577,7 @@ namespace AXOpen.VisualComposer
         {
             if (detailsRcc != null)
             {
-                if (ModalDetailView)
-                {
-                    ShowModal("ModalDetailView-" + @Id.ModalIdHelper());
-                }
-                else
-                {
-                    DetailsVisibility = true;
-                }
+                DetailsVisibility = true;
 
                 this.StateHasChanged();
                 detailsRcc.Context = element;

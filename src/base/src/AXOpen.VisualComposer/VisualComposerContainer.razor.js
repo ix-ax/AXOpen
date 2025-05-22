@@ -1,9 +1,4 @@
-﻿export function showModal(id) {
-    const myModal = new bootstrap.Modal(document.getElementById(id))
-    myModal.show()
-};
-
-export function getImageDimensions(filePath) {
+﻿export function getImageDimensions(filePath) {
     return new Promise((resolve, reject) => {
         // Create a new image element
         const img = new Image();

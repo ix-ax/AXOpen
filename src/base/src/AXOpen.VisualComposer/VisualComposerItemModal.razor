@@ -1,142 +1,82 @@
 ﻿@using AXSharp.Presentation.Blazor.Services
+@using Operon.Components
 @if (Origin.IdPlain != null)
 {
     <AuthorizeView Roles="Administrator">
         <Authorized>
-            <div class="modal fade" id="settings-@Origin.Id.Replace('.', '_')-@Origin.UniqueGuid" tabindex="-1" aria-hidden="true" data-bs-backdrop="true" style="transform: none;">
-                <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="alarmsviewTitle" style="width: 90%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">@Origin.IdPlain</h1>
-                            <a class="text-decoration-none text-black ms-auto" style="cursor: pointer;" data-bs-dismiss="modal" @onclick="RemoveAsync"><span class="bi bi-trash fs-5" aria-hidden="true" /></a>
-                            <button type="button" class="btn-close ms-3" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body justify-content-center">
-                            <div class="mb-1 row">
-                                <label class="col-sm-2 col-form-label">Top</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="Top" @bind="Origin.Top">
-                                </div>
-                            </div>
-                            <div class="mb-1 row">
-                                <label class="col-sm-2 col-form-label">Left</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="Left" @bind="Origin.Left">
-                                </div>
-                            </div>
-                            <div class="mb-1 row">
-                                <label class="col-sm-2 col-form-label">Presentation</label>
-                                <div class="col-sm-6">
-                                    @if (_customPresentation)
-                                    {
-                                        <input type="text" class="form-control" placeholder="Presentation" @bind="Origin.Presentation">
-                                    }
-                                    else
-                                    {
-                                        <select class="form-select" value="@Origin.Presentation" @onchange="@((args) => @Origin.Presentation = (string)args.Value)">
-                                            @foreach (var presentation in PresentationType.AllTypes)
-                                            {
-                                                <option data value="@presentation.ToString()">@presentation.ToString()</option>
-                                            }
-                                        </select>
-                                    }
-                                </div>
-                                <div class="col-sm-4 d-flex align-items-center">
-                                    <label class="col-form-label ms-auto">Custom</label>
-                                    <input class="form-check-input ms-2 mt-0" type="checkbox" checked="@((_customPresentation) ? "checked" : null)" @onclick="() => _customPresentation = !_customPresentation">
-                                </div>
-                            </div>
-                            <div class="mb-1 row">
-                                <label class="col-sm-2 col-form-label">Transform</label>
-                                <div class="col-sm-10">
-                                    <select class="form-select" value="@Origin.Transform.ToString()" @onchange="@((args) => @Origin.Transform = TransformType.FromString((string)args.Value))">
-                                        @foreach (var transform in TransformType.AllTypes)
-                                        {
-                                            <option data value="@transform.ToString()">@transform.ToString()</option>
-                                        }
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="mb-1 row">
-                                <label class="col-sm-2 col-form-label">Width</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="Width" @bind="Origin.Width">
-                                </div>
-                            </div>
-                            <div class="mb-1 row">
-                                <label class="col-sm-2 col-form-label">Height</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="Height" @bind="Origin.Height">
-                                </div>
-                            </div>
-                            <div class="mb-1 row">
-                                <label class="col-sm-2 col-form-label">ZIndex</label>
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" placeholder="ZIndex" @bind="Origin.ZIndex">
-                                </div>
-                            </div>
-                            <div class="mb-1 row">
-                                <label class="col-sm-2 col-form-label">Scale</label>
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" placeholder="Scale" @bind="Origin.Scale" step="0.1">
-                                </div>
-                            </div>
-                            <div class="mb-1 row">
-                                <label class="col-sm-2 col-form-label">Roles</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="Roles" @bind="Origin.Roles">
-                                </div>
-                            </div>
-                            <div class="mb-1 row">
-                                <label class="col-sm-2 col-form-label">Template</label>
-                                <div class="col-sm-6">
-                                    @if (_customPresentationTemplate)
-                                    {
-                                        <input type="text" class="form-control" placeholder="Template" @bind="Origin.PresentationTemplate">
-                                    }
-                                    else
-                                    {
-                                        <select class="form-select" @bind="Origin.PresentationTemplate">
-                                            <option data value="">None</option>
-                                            @foreach (var component in Components.Where(x => x.type != null && x.type.Equals(Origin.TwinElement.GetType().FullName)))
-                                            {
-                                                <option data value="@component.key">@component.key</option>
-                                            }
-                                        </select>
-                                    }
-                                </div>
-                                <div class="col-sm-4 d-flex align-items-center">
-                                    <label class="col-form-label ms-auto">Custom</label>
-                                    <input class="form-check-input ms-2 mt-0" type="checkbox" checked="@((_customPresentationTemplate) ? "checked" : null)" @onclick="() => _customPresentationTemplate = !_customPresentationTemplate">
-                                </div>
-                            </div>
-                            <div class="mb-1 row">
-                                <label class="col-sm-2 col-form-label">Background</label>
-                                <div class="col-sm-10 d-flex align-items-center">
-                                    <input class="form-check-input ms-2 mt-0" type="checkbox" checked="@(Origin.Background ? "checked" : null)" @onclick="() => Origin.Background = !Origin.Background">
-                                    <input type="color" class="form-control form-control-color ms-4" @bind="Origin.BackgroundColor" title="Choose color">
-                                </div>
-                            </div>
-
-                            <div class="mb-1 row">
-                                <label class="col-sm-2 col-form-label">Polling [ms]</label>
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" placeholder="Polling interval" @bind="Origin.PollingInterval" step="1">
-                                </div>
-                            </div>
-                            @* <p>@Origin.TwinElement.GetType().FullName</p>
-
-                            <select class="form-select" @bind="Origin.PresentationTemplate">
-                                <option data value=""></option>
-                                @foreach (var component in Components)
-                                {
-                                    <option value="@component.key">@component.key | @component.type</option>
-                                }
-                            </select> *@
-                        </div>
+            <Modal @bind-Value="Origin.ModalSettingOpen">
+                <div class="card w-120">
+                    <div class="flex mb-4">
+                        <h2 class="text-xl font-bold">@Origin.IdPlain</h2>
+                        <a class="text-decoration-none text-black ms-auto" style="cursor: pointer;" @onclick="() => { Origin.ModalSettingOpen = false; RemoveAsync(); }">
+                            <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                        </a>
+                        <button class="cursor-pointer ms-auto my-auto" @onclick="() => Origin.ModalSettingOpen = false">
+                            <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
+                        </button>
                     </div>
+                    <BaseInput @bind-Value="Origin.Top" Label="Top" />
+                    <BaseInput @bind-Value="Origin.Left" Label="Left" />
+
+                    <div>
+                        @if (_customPresentation)
+                        {
+                            <BaseInput @bind-Value="Origin.Presentation" Label="Presentation" />
+                        }
+                        else
+                        {
+                            <label class="me-2">Presentation</label>
+                            <select class="select min-w-6" value="@Origin.Presentation" @onchange="@((args) => @Origin.Presentation = (string)args.Value)">
+                                @foreach (var presentation in PresentationType.AllTypes)
+                                {
+                                    <option data value="@presentation.ToString()">@presentation.ToString()</option>
+                                }
+                            </select>
+                        }
+                        <BaseInput @bind-Value="_customPresentation" Label="Custom" />
+                    </div>
+
+                    <label class="me-2">Transform</label>
+                    <select class="select min-w-6" value="@Origin.Transform.ToString()" @onchange="@((args) => @Origin.Transform = TransformType.FromString((string)args.Value))">
+                        @foreach (var transform in TransformType.AllTypes)
+                        {
+                            <option data value="@transform.ToString()">@transform.ToString()</option>
+                        }
+                    </select>
+
+                    <BaseInput @bind-Value="Origin.Width" Label="Width" />
+                    <BaseInput @bind-Value="Origin.Height" Label="Height" />
+                    <BaseInput @bind-Value="Origin.ZIndex" Label="ZIndex" />
+                    <BaseInput @bind-Value="Origin.Scale" Label="Scale" />
+                    <BaseInput @bind-Value="Origin.Roles" Label="Roles" />
+
+                    <div>
+                        @if (_customPresentationTemplate)
+                        {
+                            <BaseInput @bind-Value="Origin.PresentationTemplate" Label="PresentationTemplate" />
+                        }
+                        else
+                        {
+                            <label class="me-2">Presentation</label>
+                            <select @bind="Origin.PresentationTemplate" class="select min-w-6">
+                                <option data value="">None</option>
+                                @foreach (var component in Components.Where(x => x.type != null && x.type.Equals(Origin.TwinElement.GetType().FullName)))
+                                {
+                                    <option data value="@component.key">@component.key</option>
+                                }
+                            </select>
+                        }
+                        <BaseInput @bind-Value="_customPresentationTemplate" Label="Custom" />
+                    </div>
+
+                    <div>
+                        <BaseInput @bind-Value="Origin.Background" Label="Background" />
+                        <input type="color" class="ms-4" @bind="Origin.BackgroundColor" title="Choose color">
+                    </div>
+
+                    <BaseInput @bind-Value="Origin.PollingInterval" Label="PollingInterval [ms]" />
                 </div>
-            </div>
+            </Modal>
         </Authorized>
     </AuthorizeView>
 }

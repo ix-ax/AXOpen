@@ -11,6 +11,8 @@ namespace AXOpen.VisualComposer
 {
     public class VisualComposerItemData
     {
+        public bool ModalSettingOpen { get; set; } = false;
+
         public EventCallback EventCallbackStateHasChanged { get; set; }
         public EventCallback EventCallbackSave { get; set; }
 
