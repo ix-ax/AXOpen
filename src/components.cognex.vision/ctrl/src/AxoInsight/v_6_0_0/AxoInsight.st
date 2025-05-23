@@ -188,36 +188,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             TaskMessenger      :   AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
 
-        // // Temporary workaround due to hwc station number issue
-        // {attribute 'obsolete' := 'This method is(will be) deprecated after releasing hwc3.1.0. Use Run(parent,hwID,CameraNo) instead.'}
-        // METHOD PUBLIC Run
-        //     VAR_INPUT
-        //         parent                      : IAxoObject;
-        //         hwID                        :   WORD;
-        //         hwIdAcquisitionControl      :   WORD;
-        //         hwIdAcquisitionStatus       :   WORD;
-        //         hwIdInspectionControl       :   WORD;
-        //         hwIdInspectionStatus        :   WORD;
-        //         hwIdCommandControl          :   WORD;
-        //         hwIdSoftEventControl        :   WORD;
-        //         hwIdUserData                :   WORD;         
-        //         hwIdResultData              :   WORD;
-        //     END_VAR
-
-        //     _hwID                    := hwID;
-        //     _hwIdAcquisitionControl  := hwIdAcquisitionControl;
-        //     _hwIdAcquisitionStatus   := hwIdAcquisitionStatus;
-        //     _hwIdInspectionControl   := hwIdInspectionControl;
-        //     _hwIdInspectionStatus    := hwIdInspectionStatus;
-        //     _hwIdCommandControl      := hwIdCommandControl;
-        //     _hwIdSoftEventControl    := hwIdSoftEventControl;
-        //     _hwIdResultData          := hwIdResultData;
-        //     _hwIdUserData            := hwIdUserData;
-
-        //     _initHwCheckDone    :=  TRUE;
-        //     THIS.Run(parent,hwID);
-        // END_METHOD
-
         ///<summary>
         /// Runs tasks and logic of this component.
         /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.

@@ -144,34 +144,6 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             HardwareDiagnosticsTask :   AXOpen.Io.AxoHardwareDiagnostics;
         END_VAR
         
-
-        // Temporary workaround due to hwc station number issue
-        METHOD PUBLIC Run
-            VAR_INPUT
-                parent  : IAxoObject;
-                hwID    :   WORD;
-                hwId_Input_1_byte_1     :   WORD;
-                hwId_Input_1_byte_2     :   WORD;
-                hwId_Input_2_word_1     :   WORD;
-                hwId_Input_1_word_1     :   WORD;
-                hwId_Input_2_word_2     :   WORD;
-                hwId_Input_1_word_2     :   WORD;
-                hwId_Output_1_byte_1    :   WORD;
-                hwId_Output_1_byte_2    :   WORD;
-            END_VAR
-            _hwID                   :=  hwID;
-            _hwId_Input_1_byte_1    :=  hwId_Input_1_byte_1;
-            _hwId_Input_1_byte_2    :=  hwId_Input_1_byte_2;
-            _hwId_Input_2_word_1    :=  hwId_Input_2_word_1;
-            _hwId_Input_1_word_1    :=  hwId_Input_1_word_1;
-            _hwId_Input_2_word_2    :=  hwId_Input_2_word_2;
-            _hwId_Input_1_word_2    :=  hwId_Input_1_word_2;
-            _hwId_Output_1_byte_1   :=  hwId_Output_1_byte_1;
-            _hwId_Output_1_byte_2   :=  hwId_Output_1_byte_2;
-            _initHwCheckDone    :=  TRUE;
-            THIS.Run(parent,hwID);
-        END_METHOD
-        
         ///<summary>
         /// Runs tasks and logic of this component.
         /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
@@ -207,6 +179,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
 
                 //******************Slot 1*****************//
                 _geoAddr.Slot   :=  UINT#1;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwId_Input_1_byte_1 :=  TO_WORD(_outHwid);                                         
                 IF _hwId_Input_1_byte_1 = WORD#0 THEN
@@ -247,6 +220,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 END_IF;
                 //******************Slot 2*****************//
                 _geoAddr.Slot   :=  UINT#2;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwId_Input_1_byte_2 :=  TO_WORD(_outHwid);                                         
                 IF _hwId_Input_1_byte_2 = WORD#0 THEN
@@ -287,6 +261,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 END_IF;
                 //******************Slot 3*****************//
                 _geoAddr.Slot   :=  UINT#3;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwId_Input_2_word_1 :=  TO_WORD(_outHwid);                                         
                 IF _hwId_Input_2_word_1 = WORD#0 THEN
@@ -327,6 +302,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 END_IF;
                 //******************Slot 4*****************//
                 _geoAddr.Slot   :=  UINT#4;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwId_Input_1_word_1 :=  TO_WORD(_outHwid);                                         
                 IF _hwId_Input_1_word_1 = WORD#0 THEN
@@ -367,6 +343,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 END_IF;
                 //******************Slot 5*****************//
                 _geoAddr.Slot   :=  UINT#5;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwId_Input_2_word_2 :=  TO_WORD(_outHwid);                                         
                 IF _hwId_Input_2_word_2 = WORD#0 THEN
@@ -407,6 +384,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 END_IF;
                 //******************Slot 6*****************//
                 _geoAddr.Slot   :=  UINT#6;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwId_Input_1_word_2 :=  TO_WORD(_outHwid);                                         
                 IF _hwId_Input_1_word_2 = WORD#0 THEN
@@ -447,6 +425,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 END_IF;
                 //******************Slot 7*****************//
                 _geoAddr.Slot   :=  UINT#7;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwId_Output_1_byte_1 :=  TO_WORD(_outHwid);                                         
                 IF _hwId_Output_1_byte_1 = WORD#0 THEN
@@ -487,6 +466,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 END_IF;                
                 //******************Slot 8*****************//
                 _geoAddr.Slot   :=  UINT#8;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwId_Output_1_byte_2 :=  TO_WORD(_outHwid);                                         
                 IF _hwId_Output_1_byte_2 = WORD#0 THEN
