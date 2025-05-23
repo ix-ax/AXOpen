@@ -130,22 +130,6 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
             HardwareDiagnosticsTask :   AXOpen.Io.AxoHardwareDiagnostics;
         END_VAR
 
-        // Temporary workaround due to hwc station number issue
-        {attribute 'obsolete' := 'This method is(will be) deprecated after releasing hwc3.1.0. Use Run(parent,hwID) instead.'}
-        METHOD PUBLIC Run
-            VAR_INPUT
-                parent : IAxoObject;
-                hwID            :   WORD;   
-                hwId_512_DI_DO  :   WORD;   //  Hardware Id of the input data of the robot
-            END_VAR
-            _hwID        := hwID;
-            _hwId_512_DI_DO   := hwId_512_DI_DO;
-
-            _initHwCheckDone := TRUE;
-            THIS.Run(parent,_hwID);
-
-        END_METHOD
-        
         ///<summary>
         /// Runs tasks and logic of this component.
         /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
@@ -182,6 +166,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
 
                 //******************Slot 1*****************//
                 _geoAddr.Slot   :=  UINT#1;                        //Needs to be checked, by default there is a safety module configured once gsdml file is applied                                    
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwId_None :=  TO_WORD(_outHwid);                                         
                 IF _hwId_None <> WORD#0 THEN
@@ -222,6 +207,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 // END_IF;
                 //******************Slot 2*****************//
                 _geoAddr.Slot   :=  UINT#2;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwId_512_DI_DO :=  TO_WORD(_outHwid);                                         
                 IF _hwId_512_DI_DO = WORD#0 THEN
