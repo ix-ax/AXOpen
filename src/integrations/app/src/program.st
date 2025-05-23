@@ -23,8 +23,8 @@ PROGRAM MyProgram
 
         AxoDataFragmentExchangeContext : AxoDataFramentsExchangeDocuExample.AxoDataFragmentExchangeContext;
         AxoTextListExampleContext : AxoTextListExample.AxoTextListExampleContext;
-        AxoCognexVisionDatamanExampleContext : AxoCognexVisionDatamanExamples.AxoCognexVisionDatamanExampleContext;
-        AxoCognexVisionInsightExampleContext : AxoCognexVisionInsightExamples.AxoCognexVisionInsightExampleContext;
+
+
         AxoByteArrayExampleContext : AxoByteArrayExample.AxoByteArrayExampleContext;
         AxoBoolArrayExampleContext : AxoBoolArrayExample.AxoBoolArrayExampleContext;
 
@@ -60,11 +60,6 @@ PROGRAM MyProgram
     
     AxoTextListExampleContext.Run();
     
-    AxoCognexVisionDatamanExampleContext.InjectRtc(AxoRtc);
-    AxoCognexVisionDatamanExampleContext.Run();
-
-    AxoCognexVisionInsightExampleContext.InjectRtc(AxoRtc);
-    AxoCognexVisionInsightExampleContext.Run();
     AxoByteArrayExampleContext.Run();
     AxoBoolArrayExampleContext.Run();
 
