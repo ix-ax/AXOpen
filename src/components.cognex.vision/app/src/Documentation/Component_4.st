@@ -1,12 +1,12 @@
 USING AXOpen.Core;
 
-NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
+NAMESPACE AXOpen.Components.Cognex.Vision
 
     {S7.extern=ReadWrite}
     CLASS Component_4 EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
-            Insight_2800 : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight;     
+            Insight_2800 : AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight;     
         END_VAR
         //</ComponentDeclaration>                          
 
@@ -43,7 +43,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
         END_VAR
 
         VAR PRIVATE
-            _InspectionResults  :   AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_ResultData;
+            _InspectionResults  :   AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_ResultData;
         END_VAR
 
         METHOD PRIVATE UseInSequencer   

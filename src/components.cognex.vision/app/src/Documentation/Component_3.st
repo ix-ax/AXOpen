@@ -1,6 +1,6 @@
 USING AXOpen.Core;
 
-NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
+NAMESPACE AXOpen.Components.Cognex.Vision
 
     {S7.extern=ReadWrite}
     CLASS Component_3 EXTENDS AXOpen.Core.AxoObject

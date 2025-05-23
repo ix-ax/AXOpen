@@ -224,72 +224,72 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             _outputsCount           :   UINT;             
         END_VAR
 
-        // Temporary workaround due to hwc station number issue
-        {attribute 'obsolete' := 'This method is(will be) deprecated after releasing hwc3.1.0. Use Run(parent,hwID,CameraNo) instead.'}
-        METHOD PUBLIC Run
-            VAR_INPUT
-                parent                      : IAxoObject;
-                hwID                        :   WORD;
-                hwID_SystemControl          :   WORD;
-                hwID_Engine_Control_1       :   WORD;
-                hwID_Engine_Control_2       :   WORD;
-                hwID_Engine_Control_3       :   WORD;
-                hwID_Engine_Control_4       :   WORD;
-                hwID_User_Data_240_bytes_1  :   WORD;
-                hwID_User_Data_240_bytes_2  :   WORD;
-                hwID_User_Data_240_bytes_3  :   WORD;
-                hwID_User_Data_240_bytes_4  :   WORD;
-                hwID_User_Data_240_bytes_5  :   WORD;
-                hwID_User_Data_64_bytes_1   :   WORD;
-                hwID_Results_240_bytes_1    :   WORD;
-                hwID_Results_240_bytes_2    :   WORD;
-                hwID_Results_240_bytes_3    :   WORD;
-                hwID_Results_240_bytes_4    :   WORD;
-                hwID_Results_240_bytes_5    :   WORD;
-                hwID_Results_64_bytes_1     :   WORD;
-                CameraNo                    :   UINT;
-            END_VAR
+        // // Temporary workaround due to hwc station number issue
+        // {attribute 'obsolete' := 'This method is(will be) deprecated after releasing hwc3.1.0. Use Run(parent,hwID,CameraNo) instead.'}
+        // METHOD PUBLIC Run
+        //     VAR_INPUT
+        //         parent                      : IAxoObject;
+        //         hwID                        :   WORD;
+        //         hwID_SystemControl          :   WORD;
+        //         hwID_Engine_Control_1       :   WORD;
+        //         hwID_Engine_Control_2       :   WORD;
+        //         hwID_Engine_Control_3       :   WORD;
+        //         hwID_Engine_Control_4       :   WORD;
+        //         hwID_User_Data_240_bytes_1  :   WORD;
+        //         hwID_User_Data_240_bytes_2  :   WORD;
+        //         hwID_User_Data_240_bytes_3  :   WORD;
+        //         hwID_User_Data_240_bytes_4  :   WORD;
+        //         hwID_User_Data_240_bytes_5  :   WORD;
+        //         hwID_User_Data_64_bytes_1   :   WORD;
+        //         hwID_Results_240_bytes_1    :   WORD;
+        //         hwID_Results_240_bytes_2    :   WORD;
+        //         hwID_Results_240_bytes_3    :   WORD;
+        //         hwID_Results_240_bytes_4    :   WORD;
+        //         hwID_Results_240_bytes_5    :   WORD;
+        //         hwID_Results_64_bytes_1     :   WORD;
+        //         CameraNo                    :   UINT;
+        //     END_VAR
 
-            _hwID                           :=  hwID;
-            _hwID_SystemControl             :=  hwID_SystemControl;
-            _hwID_Engine_Control_1          :=  hwID_Engine_Control_1;
-            _hwID_Engine_Control_2          :=  hwID_Engine_Control_2;
-            _hwID_Engine_Control_3          :=  hwID_Engine_Control_3;
-            _hwID_Engine_Control_4          :=  hwID_Engine_Control_4;
-            _hwID_User_Data_240_bytes_1     :=  hwID_User_Data_240_bytes_1;
-            _hwID_User_Data_240_bytes_2     :=  hwID_User_Data_240_bytes_2;
-            _hwID_User_Data_240_bytes_3     :=  hwID_User_Data_240_bytes_3;
-            _hwID_User_Data_240_bytes_4     :=  hwID_User_Data_240_bytes_4;
-            _hwID_User_Data_240_bytes_5     :=  hwID_User_Data_240_bytes_5;
-            _hwID_User_Data_64_bytes_1      :=  hwID_User_Data_64_bytes_1;
-            _hwID_Results_240_bytes_1       :=  hwID_Results_240_bytes_1;
-            _hwID_Results_240_bytes_2       :=  hwID_Results_240_bytes_2;
-            _hwID_Results_240_bytes_3       :=  hwID_Results_240_bytes_3;
-            _hwID_Results_240_bytes_4       :=  hwID_Results_240_bytes_4;
-            _hwID_Results_240_bytes_5       :=  hwID_Results_240_bytes_5;
-            _hwID_Results_64_bytes_1        :=  hwID_Results_64_bytes_1;
+        //     _hwID                           :=  hwID;
+        //     _hwID_SystemControl             :=  hwID_SystemControl;
+        //     _hwID_Engine_Control_1          :=  hwID_Engine_Control_1;
+        //     _hwID_Engine_Control_2          :=  hwID_Engine_Control_2;
+        //     _hwID_Engine_Control_3          :=  hwID_Engine_Control_3;
+        //     _hwID_Engine_Control_4          :=  hwID_Engine_Control_4;
+        //     _hwID_User_Data_240_bytes_1     :=  hwID_User_Data_240_bytes_1;
+        //     _hwID_User_Data_240_bytes_2     :=  hwID_User_Data_240_bytes_2;
+        //     _hwID_User_Data_240_bytes_3     :=  hwID_User_Data_240_bytes_3;
+        //     _hwID_User_Data_240_bytes_4     :=  hwID_User_Data_240_bytes_4;
+        //     _hwID_User_Data_240_bytes_5     :=  hwID_User_Data_240_bytes_5;
+        //     _hwID_User_Data_64_bytes_1      :=  hwID_User_Data_64_bytes_1;
+        //     _hwID_Results_240_bytes_1       :=  hwID_Results_240_bytes_1;
+        //     _hwID_Results_240_bytes_2       :=  hwID_Results_240_bytes_2;
+        //     _hwID_Results_240_bytes_3       :=  hwID_Results_240_bytes_3;
+        //     _hwID_Results_240_bytes_4       :=  hwID_Results_240_bytes_4;
+        //     _hwID_Results_240_bytes_5       :=  hwID_Results_240_bytes_5;
+        //     _hwID_Results_64_bytes_1        :=  hwID_Results_64_bytes_1;
 
-            Config.HWIDs.HW_SystemControl := TO_UINT(_hwID_SystemControl );     
-            Config.HWIDs.HW_EngineControl_1 := TO_UINT(_hwID_Engine_Control_1);     
-            Config.HWIDs.HW_EngineControl_2 := TO_UINT(_hwID_Engine_Control_2);     
-            Config.HWIDs.HW_EngineControl_3 := TO_UINT(_hwID_Engine_Control_3);     
-            Config.HWIDs.HW_EngineControl_4 := TO_UINT(_hwID_Engine_Control_4);     
-            Config.HWIDs.HW_UserData_240B_1 := TO_UINT(_hwID_User_Data_240_bytes_1);   
-            Config.HWIDs.HW_UserData_240B_2 := TO_UINT(_hwID_User_Data_240_bytes_2); 
-            Config.HWIDs.HW_UserData_240B_3 := TO_UINT(_hwID_User_Data_240_bytes_3); 
-            Config.HWIDs.HW_UserData_240B_4 := TO_UINT(_hwID_User_Data_240_bytes_4); 
-            Config.HWIDs.HW_UserData_240B_5 := TO_UINT(_hwID_User_Data_240_bytes_5); 
-            Config.HWIDs.HW_UserData_64B_1 := TO_UINT(_hwID_User_Data_64_bytes_1); 
-            Config.HWIDs.HW_Results_240B_1 := TO_UINT(_hwID_Results_240_bytes_1);    
-            Config.HWIDs.HW_Results_240B_2 := TO_UINT(_hwID_Results_240_bytes_2);  
-            Config.HWIDs.HW_Results_240B_3 := TO_UINT(_hwID_Results_240_bytes_3);  
-            Config.HWIDs.HW_Results_240B_4 := TO_UINT(_hwID_Results_240_bytes_4);  
-            Config.HWIDs.HW_Results_240B_5 := TO_UINT(_hwID_Results_240_bytes_5);  
-            Config.HWIDs.HW_Results_64B_1 := TO_UINT(_hwID_Results_64_bytes_1);  
+        //     Config.HWIDs.HW_SystemControl := TO_UINT(_hwID_SystemControl );     
+        //     Config.HWIDs.HW_EngineControl_1 := TO_UINT(_hwID_Engine_Control_1);     
+        //     Config.HWIDs.HW_EngineControl_2 := TO_UINT(_hwID_Engine_Control_2);     
+        //     Config.HWIDs.HW_EngineControl_3 := TO_UINT(_hwID_Engine_Control_3);     
+        //     Config.HWIDs.HW_EngineControl_4 := TO_UINT(_hwID_Engine_Control_4);     
+        //     Config.HWIDs.HW_UserData_240B_1 := TO_UINT(_hwID_User_Data_240_bytes_1);   
+        //     Config.HWIDs.HW_UserData_240B_2 := TO_UINT(_hwID_User_Data_240_bytes_2); 
+        //     Config.HWIDs.HW_UserData_240B_3 := TO_UINT(_hwID_User_Data_240_bytes_3); 
+        //     Config.HWIDs.HW_UserData_240B_4 := TO_UINT(_hwID_User_Data_240_bytes_4); 
+        //     Config.HWIDs.HW_UserData_240B_5 := TO_UINT(_hwID_User_Data_240_bytes_5); 
+        //     Config.HWIDs.HW_UserData_64B_1 := TO_UINT(_hwID_User_Data_64_bytes_1); 
+        //     Config.HWIDs.HW_Results_240B_1 := TO_UINT(_hwID_Results_240_bytes_1);    
+        //     Config.HWIDs.HW_Results_240B_2 := TO_UINT(_hwID_Results_240_bytes_2);  
+        //     Config.HWIDs.HW_Results_240B_3 := TO_UINT(_hwID_Results_240_bytes_3);  
+        //     Config.HWIDs.HW_Results_240B_4 := TO_UINT(_hwID_Results_240_bytes_4);  
+        //     Config.HWIDs.HW_Results_240B_5 := TO_UINT(_hwID_Results_240_bytes_5);  
+        //     Config.HWIDs.HW_Results_64B_1 := TO_UINT(_hwID_Results_64_bytes_1);  
 
-            _initHwCheckDone    :=  TRUE;
-            THIS.Run(parent,hwID,CameraNo);
-        END_METHOD
+        //     _initHwCheckDone    :=  TRUE;
+        //     THIS.Run(parent,hwID,CameraNo);
+        // END_METHOD
 
         ///<summary>
         /// Runs tasks and logic of this component.
@@ -345,6 +345,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 
                 //******************Slot 1*****************//
                 _geoAddr.Slot   :=  UINT#1;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_SystemControl :=  TO_WORD(_outHwid);                                         
                 IF _hwID_SystemControl = WORD#0 THEN
@@ -385,6 +386,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 //******************Slot 2*****************//
                 _geoAddr.Slot   :=  UINT#2;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_Engine_Control_1 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_Engine_Control_1 = WORD#0 THEN
@@ -425,6 +427,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 //******************Slot 3*****************//
                 _geoAddr.Slot   :=  UINT#3;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_Engine_Control_2 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_Engine_Control_2 = WORD#0 THEN
@@ -465,6 +468,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 //******************Slot 4*****************//
                 _geoAddr.Slot   :=  UINT#4;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_Engine_Control_3 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_Engine_Control_3 = WORD#0 THEN
@@ -505,6 +509,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 //******************Slot 5*****************//
                 _geoAddr.Slot   :=  UINT#5;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_Engine_Control_4 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_Engine_Control_4 = WORD#0 THEN
@@ -545,6 +550,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 END_IF;
                 //******************Slot 6*****************//
                 _geoAddr.Slot   :=  UINT#6;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_User_Data_240_bytes_1 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_User_Data_240_bytes_1 = WORD#0 THEN
@@ -578,13 +584,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_User_Data_240_bytes_1 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#240 OR _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#240 THEN
                     Messenger.Activate(UINT#766,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#766;
                     RETURN;
                 END_IF;
                 //******************Slot 7*****************//
                 _geoAddr.Slot   :=  UINT#7;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_User_Data_240_bytes_2 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_User_Data_240_bytes_2 = WORD#0 THEN
@@ -618,13 +625,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_User_Data_240_bytes_2 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#240 OR _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#240 THEN
                     Messenger.Activate(UINT#776,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#776;
                     RETURN;
                 END_IF;
                 //******************Slot 8*****************//
                 _geoAddr.Slot   :=  UINT#8;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_User_Data_240_bytes_3 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_User_Data_240_bytes_3 = WORD#0 THEN
@@ -658,13 +666,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_User_Data_240_bytes_3 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#240 OR _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#240 THEN
                     Messenger.Activate(UINT#786,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#786;
                     RETURN;
                 END_IF;
                 //******************Slot 9*****************//
                 _geoAddr.Slot   :=  UINT#9;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_User_Data_240_bytes_4 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_User_Data_240_bytes_4 = WORD#0 THEN
@@ -698,13 +707,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_User_Data_240_bytes_4 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#240 OR _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#240 THEN
                     Messenger.Activate(UINT#796,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#796;
                     RETURN;
                 END_IF;
                 //******************Slot 10*****************//
                 _geoAddr.Slot   :=  UINT#10;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_User_Data_240_bytes_5 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_User_Data_240_bytes_5 = WORD#0 THEN
@@ -738,13 +748,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_User_Data_240_bytes_5 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#240 OR _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#240 THEN
                     Messenger.Activate(UINT#806,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#806;
                     RETURN;
                 END_IF;
                 //******************Slot 11*****************//
                 _geoAddr.Slot   :=  UINT#11;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_User_Data_64_bytes_1 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_User_Data_64_bytes_1 = WORD#0 THEN
@@ -778,13 +789,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_User_Data_64_bytes_1 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#64 OR _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#64 THEN
                     Messenger.Activate(UINT#816,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#816;
                     RETURN;
                 END_IF;
                 //******************Slot 12*****************//
                 _geoAddr.Slot   :=  UINT#12;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_Results_240_bytes_1 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_Results_240_bytes_1 = WORD#0 THEN
@@ -818,13 +830,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_Results_240_bytes_1 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#240 OR _inputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#240 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#826,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#826;
                     RETURN;
                 END_IF;
                 //******************Slot 13*****************//
                 _geoAddr.Slot   :=  UINT#13;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_Results_240_bytes_2 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_Results_240_bytes_2 = WORD#0 THEN
@@ -858,13 +871,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_Results_240_bytes_2 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#240 OR _inputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#240 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#836,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#836;
                     RETURN;
                 END_IF;
                 //******************Slot 14*****************//
                 _geoAddr.Slot   :=  UINT#14;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_Results_240_bytes_3 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_Results_240_bytes_3 = WORD#0 THEN
@@ -898,13 +912,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_Results_240_bytes_3 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#240 OR _inputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#240 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#846,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#846;
                     RETURN;
                 END_IF;
                 //******************Slot 15*****************//
                 _geoAddr.Slot   :=  UINT#15;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_Results_240_bytes_4 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_Results_240_bytes_4 = WORD#0 THEN
@@ -938,13 +953,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_Results_240_bytes_4 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#240 OR _inputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#240 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#856,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#856;
                     RETURN;
                 END_IF;
                 //******************Slot 16*****************//
                 _geoAddr.Slot   :=  UINT#16;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_Results_240_bytes_5 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_Results_240_bytes_5 = WORD#0 THEN
@@ -978,13 +994,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_Results_240_bytes_5 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#240 OR _inputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#240 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#866,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#866;
                     RETURN;
                 END_IF;
                 //******************Slot 17*****************//
                 _geoAddr.Slot   :=  UINT#17;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_Results_64_bytes_1 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_Results_64_bytes_1 = WORD#0 THEN
@@ -1018,7 +1035,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_Results_64_bytes_1 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#64 OR _inputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#64 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#876,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#876;
                     RETURN;

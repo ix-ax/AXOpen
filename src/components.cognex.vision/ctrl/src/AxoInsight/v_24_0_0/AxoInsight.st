@@ -6,13 +6,21 @@ USING System.Strings;
 USING System.Serialization;
 USING Siemens.Simatic.S71500.Hardware.Utilities;
 
-NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
+NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
     {#ix-attr:[Container(Layout.Wrap)]}
     {S7.extern=ReadWrite}
     CLASS PUBLIC AxoInsight EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.IAxoVisionSensor
         VAR PRIVATE
-            _UserDataSize           :   eAxoInsight_UserDataSize;
-            _ResultDataSize         :   eAxoInsight_ResultDataSize;
+            _UserDataSize_Slot_7    :   UINT;
+            _UserDataSize_Slot_8    :   UINT;
+            _UserDataSize_Slot_9    :   UINT;
+            _UserDataSize_Slot_10   :   UINT;
+            _UserDataSize           :   UINT;
+            _ResultDataSize_Slot_11 :   UINT;
+            _ResultDataSize_Slot_12 :   UINT;
+            _ResultDataSize_Slot_13 :   UINT;
+            _ResultDataSize_Slot_14 :   UINT;
+            _ResultDataSize         :   UINT;
             _hwID                   :   WORD;
             _hwIdAcquisitionControl :   WORD;
             _hwIdAcquisitionStatus  :   WORD;
@@ -20,8 +28,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             _hwIdInspectionStatus   :   WORD;
             _hwIdCommandControl     :   WORD;
             _hwIdSoftEventControl   :   WORD;
-            _hwIdUserData           :   WORD;
-            _hwIdResultData         :   WORD;
+            _hwIdUserDataSlot_7     :   WORD;
+            _hwIdUserDataSlot_8     :   WORD;
+            _hwIdUserDataSlot_9     :   WORD;
+            _hwIdUserDataSlot_10    :   WORD;
+            _hwIdResultData_Slot_11 :   WORD;
+            _hwIdResultData_Slot_12 :   WORD;
+            _hwIdResultData_Slot_13 :   WORD;
+            _hwIdResultData_Slot_14 :   WORD;
 
             _progress               :   INT := 0;
             _infoTimer              :   AXOpen.Timers.OnDelayTimer;
@@ -43,6 +57,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             _inputsCount            :   UINT;
             _outputsAddress         :   UDINT;  
             _outputsCount           :   UINT; 
+            _offset                 :   INT;
+            _fromFor                :   INT;
+            _toFor                  :   INT;
         END_VAR
 
         VAR PUBLIC //Header
@@ -187,36 +204,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             Messenger          :   AXOpen.Messaging.Static.AxoMessenger;
             TaskMessenger      :   AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
-
-        // // Temporary workaround due to hwc station number issue
-        // {attribute 'obsolete' := 'This method is(will be) deprecated after releasing hwc3.1.0. Use Run(parent,hwID,CameraNo) instead.'}
-        // METHOD PUBLIC Run
-        //     VAR_INPUT
-        //         parent                      : IAxoObject;
-        //         hwID                        :   WORD;
-        //         hwIdAcquisitionControl      :   WORD;
-        //         hwIdAcquisitionStatus       :   WORD;
-        //         hwIdInspectionControl       :   WORD;
-        //         hwIdInspectionStatus        :   WORD;
-        //         hwIdCommandControl          :   WORD;
-        //         hwIdSoftEventControl        :   WORD;
-        //         hwIdUserData                :   WORD;         
-        //         hwIdResultData              :   WORD;
-        //     END_VAR
-
-        //     _hwID                    := hwID;
-        //     _hwIdAcquisitionControl  := hwIdAcquisitionControl;
-        //     _hwIdAcquisitionStatus   := hwIdAcquisitionStatus;
-        //     _hwIdInspectionControl   := hwIdInspectionControl;
-        //     _hwIdInspectionStatus    := hwIdInspectionStatus;
-        //     _hwIdCommandControl      := hwIdCommandControl;
-        //     _hwIdSoftEventControl    := hwIdSoftEventControl;
-        //     _hwIdResultData          := hwIdResultData;
-        //     _hwIdUserData            := hwIdUserData;
-
-        //     _initHwCheckDone    :=  TRUE;
-        //     THIS.Run(parent,hwID);
-        // END_METHOD
 
         ///<summary>
         /// Runs tasks and logic of this component.
@@ -513,8 +500,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 _geoAddr.Slot   :=  UINT#7;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdUserData :=  TO_WORD(_outHwid);                                         
-                IF _hwIdUserData = WORD#0 THEN
+                _hwIdUserDataSlot_7 :=  TO_WORD(_outHwid);                                         
+                IF _hwIdUserDataSlot_7 = WORD#0 THEN
                     Messenger.Activate(UINT#770,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#770;
                     RETURN;
@@ -544,19 +531,19 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     Status.Error.Id := UINT#775;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdUserData , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdUserDataSlot_7 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount = UINT#0 AND _outputsCount = UINT#16 THEN
-                    _UserDataSize := eAxoInsight_UserDataSize#USER_DATA_16B;
+                    _UserDataSize_Slot_7 := UINT#16;
                 ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#32 THEN
-                    _UserDataSize := eAxoInsight_UserDataSize#USER_DATA_32B;
+                    _UserDataSize_Slot_7 := UINT#32;
                 ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#64 THEN
-                    _UserDataSize := eAxoInsight_UserDataSize#USER_DATA_64B;
+                    _UserDataSize_Slot_7 := UINT#64;
                 ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#128 THEN
-                    _UserDataSize := eAxoInsight_UserDataSize#USER_DATA_128B;
-                ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#250 THEN
-                    _UserDataSize := eAxoInsight_UserDataSize#USER_DATA_254B;
+                    _UserDataSize_Slot_7 := UINT#128;
+                ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#254 THEN
+                    _UserDataSize_Slot_7 := UINT#254;
                 ELSE
-                    _UserDataSize := eAxoInsight_UserDataSize#USER_DATA_SIZE_INVALID;
+                    _UserDataSize_Slot_7 := UINT#0;
                     Messenger.Activate(UINT#776,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#776;    
                 END_IF;
@@ -564,55 +551,389 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 _geoAddr.Slot   :=  UINT#8;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdResultData :=  TO_WORD(_outHwid);                                         
-                IF _hwIdResultData = WORD#0 THEN
-                    Messenger.Activate(UINT#780,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#780;
+                _hwIdUserDataSlot_8 :=  TO_WORD(_outHwid);                                         
+                // IF _hwIdUserDataSlot_8 = WORD#0 THEN
+                //     Messenger.Activate(UINT#780,eAxoMessageCategory#Error);
+                //     Status.Error.Id := UINT#780;
+                //     RETURN;
+                // END_IF;
+                IF _hwIdUserDataSlot_8 <> WORD#0 THEN
+                    IF _retval = WORD#8091 THEN
+                        Messenger.Activate(UINT#781,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#781;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8094 THEN
+                        Messenger.Activate(UINT#782,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#782;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8095 THEN
+                        Messenger.Activate(UINT#783,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#783;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8096 THEN
+                        Messenger.Activate(UINT#784,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#784;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8097 THEN
+                        Messenger.Activate(UINT#785,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#785;
+                        RETURN;
+                    END_IF;
+                    ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdUserDataSlot_8 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                    IF _inputsCount = UINT#0 AND _outputsCount = UINT#16 THEN
+                        _UserDataSize_Slot_8 := UINT#16;
+                    ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#32 THEN
+                        _UserDataSize_Slot_8 := UINT#32;
+                    ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#64 THEN
+                        _UserDataSize_Slot_8 := UINT#64;
+                    ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#128 THEN
+                        _UserDataSize_Slot_8 := UINT#128;
+                    ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#254 THEN
+                        _UserDataSize_Slot_8 := UINT#254;
+                    ELSE
+                        _UserDataSize_Slot_8 := UINT#0;
+                        Messenger.Activate(UINT#786,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#786;    
+                    END_IF;
+                END_IF;
+                //******************Slot 9*****************//
+                _geoAddr.Slot   :=  UINT#9;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwIdUserDataSlot_9 :=  TO_WORD(_outHwid);                                         
+                IF _hwIdUserDataSlot_9 <> WORD#0 AND _hwIdUserDataSlot_8 = WORD#0 THEN  // Slot 7 is mandatory. If there are User data defined at Slot 7, Slot 8 is empty and another data are defined in slot 9 
+                    Messenger.Activate(UINT#790,eAxoMessageCategory#Error);             // an error message will prompt to move module from slot 9 to Slot 8
+                    Status.Error.Id := UINT#790;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8091 THEN
-                    Messenger.Activate(UINT#781,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#781;
+                IF _hwIdUserDataSlot_9 <> WORD#0 THEN
+                    IF _retval = WORD#8091 THEN
+                        Messenger.Activate(UINT#791,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#791;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8094 THEN
+                        Messenger.Activate(UINT#792,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#792;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8095 THEN
+                        Messenger.Activate(UINT#793,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#793;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8096 THEN
+                        Messenger.Activate(UINT#794,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#794;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8097 THEN
+                        Messenger.Activate(UINT#795,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#795;
+                        RETURN;
+                    END_IF;
+                    ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdUserDataSlot_9 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                    IF _inputsCount = UINT#0 AND _outputsCount = UINT#16 THEN
+                        _UserDataSize_Slot_9 := UINT#16;
+                    ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#32 THEN
+                        _UserDataSize_Slot_9 := UINT#32;
+                    ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#64 THEN
+                        _UserDataSize_Slot_9 := UINT#64;
+                    ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#128 THEN
+                        _UserDataSize_Slot_9 := UINT#128;
+                    ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#254 THEN
+                        _UserDataSize_Slot_9 := UINT#254;
+                    ELSE
+                        _UserDataSize_Slot_9 := UINT#0;
+                        Messenger.Activate(UINT#796,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#796;    
+                    END_IF;
+                END_IF;
+                //******************Slot 10*****************//
+                _geoAddr.Slot   :=  UINT#10;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwIdUserDataSlot_10 :=  TO_WORD(_outHwid);                                         
+                IF _hwIdUserDataSlot_10 <> WORD#0 AND _hwIdUserDataSlot_9 = WORD#0 THEN     // Slot 7 is mandatory. If there are User data defined at Slot 7, Slot 9 is empty and another data are defined in slot 10 
+                    Messenger.Activate(UINT#800,eAxoMessageCategory#Error);                 // an error message will prompt to move module from slot 10 to Slot 9
+                    Status.Error.Id := UINT#800;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8094 THEN
-                    Messenger.Activate(UINT#782,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#782;
+                IF _hwIdUserDataSlot_10 <> WORD#0 THEN
+                    IF _retval = WORD#8091 THEN
+                        Messenger.Activate(UINT#801,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#801;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8094 THEN
+                        Messenger.Activate(UINT#802,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#802;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8095 THEN
+                        Messenger.Activate(UINT#803,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#803;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8096 THEN
+                        Messenger.Activate(UINT#804,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#804;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8097 THEN
+                        Messenger.Activate(UINT#805,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#805;
+                        RETURN;
+                    END_IF;
+                    ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdUserDataSlot_10 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                    IF _inputsCount = UINT#0 AND _outputsCount = UINT#16 THEN
+                        _UserDataSize_Slot_10 := UINT#16;
+                    ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#32 THEN
+                        _UserDataSize_Slot_10 := UINT#32;
+                    ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#64 THEN
+                        _UserDataSize_Slot_10 := UINT#64;
+                    ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#128 THEN
+                        _UserDataSize_Slot_10 := UINT#128;
+                    ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#254 THEN
+                        _UserDataSize_Slot_10 := UINT#254;
+                    ELSE
+                        _UserDataSize_Slot_10 := UINT#0;
+                        Messenger.Activate(UINT#806,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#806;    
+                    END_IF;                                                
+                END_IF;                                                
+                //******************Slot 11*****************//
+                _geoAddr.Slot   :=  UINT#11;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwIdResultData_Slot_11 :=  TO_WORD(_outHwid);                                         
+                IF _hwIdResultData_Slot_11 = WORD#0 THEN
+                    Messenger.Activate(UINT#810,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#810;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8095 THEN
-                    Messenger.Activate(UINT#783,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#783;
+                IF _hwIdResultData_Slot_11 <> WORD#0 THEN
+                    IF _retval = WORD#8091 THEN
+                        Messenger.Activate(UINT#811,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#811;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8094 THEN
+                        Messenger.Activate(UINT#812,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#812;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8095 THEN
+                        Messenger.Activate(UINT#813,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#813;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8096 THEN
+                        Messenger.Activate(UINT#814,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#814;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8097 THEN
+                        Messenger.Activate(UINT#815,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#815;
+                        RETURN;
+                    END_IF;
+                    ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdResultData_Slot_11 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                    IF _outputsCount = UINT#0 AND _inputsCount = UINT#20 THEN
+                        _ResultDataSize_Slot_11 := UINT#16;
+                    ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#36 THEN
+                        _ResultDataSize_Slot_11 := UINT#32;
+                    ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#68 THEN
+                        _ResultDataSize_Slot_11 := UINT#64;
+                    ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#132 THEN
+                        _ResultDataSize_Slot_11 := UINT#128;
+                    ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#254 THEN
+                        _ResultDataSize_Slot_11 := UINT#250;
+                    ELSE
+                        _ResultDataSize_Slot_11 := UINT#0;
+                        Messenger.Activate(UINT#816,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#816;
+                    END_IF;
+                END_IF;
+                //******************Slot 12*****************//
+                _geoAddr.Slot   :=  UINT#12;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwIdResultData_Slot_12 :=  TO_WORD(_outHwid);                                         
+                // IF _hwIdResultData_Slot_12 = WORD#0 THEN                    
+                //     Messenger.Activate(UINT#820,eAxoMessageCategory#Error); 
+                //     Status.Error.Id := UINT#820;
+                //     RETURN;
+                // END_IF;
+                IF _hwIdResultData_Slot_12 <> WORD#0 THEN
+                    IF _retval = WORD#8091 THEN
+                        Messenger.Activate(UINT#821,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#821;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8094 THEN
+                        Messenger.Activate(UINT#822,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#822;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8095 THEN
+                        Messenger.Activate(UINT#823,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#823;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8096 THEN
+                        Messenger.Activate(UINT#824,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#824;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8097 THEN
+                        Messenger.Activate(UINT#825,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#825;
+                        RETURN;
+                    END_IF;
+                    ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdResultData_Slot_12 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                    IF _outputsCount = UINT#0 AND _inputsCount = UINT#16 THEN
+                        _ResultDataSize_Slot_12 := UINT#16;
+                    ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#32 THEN
+                        _ResultDataSize_Slot_12 := UINT#32;
+                    ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#64 THEN
+                        _ResultDataSize_Slot_12 := UINT#64;
+                    ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#128 THEN
+                        _ResultDataSize_Slot_12 := UINT#128;
+                    ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#250 THEN
+                        _ResultDataSize_Slot_12 := UINT#250;
+                    ELSE
+                        _ResultDataSize_Slot_12 := UINT#0;
+                        Messenger.Activate(UINT#826,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#826;
+                    END_IF;
+                END_IF;
+                //******************Slot 13*****************//
+                _geoAddr.Slot   :=  UINT#13;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwIdResultData_Slot_13 :=  TO_WORD(_outHwid);                                         
+                IF _hwIdResultData_Slot_13 <> WORD#0 AND _hwIdResultData_Slot_12 = WORD#0 THEN      // Slot 11 is mandatory. If there are Result data defined at Slot 11, Slot 12 is empty and another data are defined in slot 13 
+                    Messenger.Activate(UINT#830,eAxoMessageCategory#Error);                         // an error message will prompt to move module from slot 13 to Slot 12
+                    Status.Error.Id := UINT#830;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8096 THEN
-                    Messenger.Activate(UINT#784,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#784;
+                IF _hwIdResultData_Slot_13 <> WORD#0 THEN
+                    IF _retval = WORD#8091 THEN
+                        Messenger.Activate(UINT#831,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#831;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8094 THEN
+                        Messenger.Activate(UINT#832,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#832;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8095 THEN
+                        Messenger.Activate(UINT#833,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#833;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8096 THEN
+                        Messenger.Activate(UINT#834,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#834;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8097 THEN
+                        Messenger.Activate(UINT#835,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#835;
+                        RETURN;
+                    END_IF;
+                    ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdResultData_Slot_13 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                    IF _outputsCount = UINT#0 AND _inputsCount = UINT#16 THEN
+                        _ResultDataSize_Slot_13 := UINT#16;
+                    ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#32 THEN
+                        _ResultDataSize_Slot_13 := UINT#32;
+                    ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#64 THEN
+                        _ResultDataSize_Slot_13 := UINT#64;
+                    ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#128 THEN
+                        _ResultDataSize_Slot_13 := UINT#128;
+                    ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#250 THEN
+                        _ResultDataSize_Slot_13 := UINT#250;
+                    ELSE
+                        _ResultDataSize_Slot_13 := UINT#0;
+                        Messenger.Activate(UINT#836,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#836;
+                    END_IF;
+                END_IF;
+                //******************Slot 14*****************//
+                _geoAddr.Slot   :=  UINT#14;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwIdResultData_Slot_14 :=  TO_WORD(_outHwid);                                         
+                IF _hwIdResultData_Slot_14 <> WORD#0 AND _hwIdResultData_Slot_13 = WORD#0 THEN      // Slot 11 is mandatory. If there are Result data defined at Slot 11, Slot 13 is empty and another data are defined in slot 14 
+                    Messenger.Activate(UINT#840,eAxoMessageCategory#Error);                         // an error message will prompt to move module from slot 14 to Slot 13
+                    Status.Error.Id := UINT#840;
                     RETURN;
                 END_IF;
-                IF _retval = WORD#8097 THEN
-                    Messenger.Activate(UINT#785,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#785;
+                IF _hwIdResultData_Slot_14 <> WORD#0 THEN
+                    IF _retval = WORD#8091 THEN
+                        Messenger.Activate(UINT#841,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#841;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8094 THEN
+                        Messenger.Activate(UINT#842,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#842;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8095 THEN
+                        Messenger.Activate(UINT#843,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#843;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8096 THEN
+                        Messenger.Activate(UINT#844,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#844;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8097 THEN
+                        Messenger.Activate(UINT#845,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#845;
+                        RETURN;
+                    END_IF;
+                    ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdResultData_Slot_14 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                    IF _outputsCount = UINT#0 AND _inputsCount = UINT#16 THEN
+                        _ResultDataSize_Slot_14 := UINT#16;
+                    ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#32 THEN
+                        _ResultDataSize_Slot_14 := UINT#32;
+                    ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#64 THEN
+                        _ResultDataSize_Slot_14 := UINT#64;
+                    ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#128 THEN
+                        _ResultDataSize_Slot_14 := UINT#128;
+                    ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#250 THEN
+                        _ResultDataSize_Slot_14 := UINT#250;
+                    ELSE
+                        _ResultDataSize_Slot_14 := UINT#0;
+                        Messenger.Activate(UINT#846,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#846;
+                    END_IF;
+                END_IF;
+                //*************Slot 7 - 10***************************//
+                IF _UserDataSize_Slot_7 = UINT#0 AND _UserDataSize_Slot_8 = UINT#0 AND _UserDataSize_Slot_9 = UINT#0 AND _UserDataSize_Slot_10 = UINT#0 THEN
+                    Messenger.Activate(UINT#1400,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1400;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdResultData , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount = UINT#0 AND _inputsCount = UINT#20 THEN
-                    _ResultDataSize := eAxoInsight_ResultDataSize#RESULT_DATA_16B;
-                ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#36 THEN
-                    _ResultDataSize := eAxoInsight_ResultDataSize#RESULT_DATA_32B;
-                ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#68 THEN
-                    _ResultDataSize := eAxoInsight_ResultDataSize#RESULT_DATA_64B;
-                ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#132 THEN
-                    _ResultDataSize := eAxoInsight_ResultDataSize#RESULT_DATA_128B;
-                ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#254 THEN
-                    _ResultDataSize := eAxoInsight_ResultDataSize#RESULT_DATA_250B;
-                ELSE
-                    _ResultDataSize := eAxoInsight_ResultDataSize#RESULT_DATA_SIZE_INVALID;
-                    Messenger.Activate(UINT#786,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#786;
+                _UserDataSize := _UserDataSize_Slot_7 + _UserDataSize_Slot_8 + _UserDataSize_Slot_9 + _UserDataSize_Slot_10;
+                //*************Slot 11 - 14**************************//
+                IF _ResultDataSize_Slot_11 = UINT#0 AND _ResultDataSize_Slot_12 = UINT#0 AND _ResultDataSize_Slot_13 = UINT#0 AND _ResultDataSize_Slot_14 = UINT#0 THEN
+                    Messenger.Activate(UINT#1401,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1401;
+                    RETURN;
                 END_IF;
+                _ResultDataSize := _ResultDataSize_Slot_11 + _ResultDataSize_Slot_12 + _ResultDataSize_Slot_13 + _ResultDataSize_Slot_14;
+                //***************************************************//
                 
-
                 IF parent = NULL THEN
                     Messenger.Activate(UINT#1130, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#1130;
@@ -645,11 +966,11 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     Messenger.Activate(UINT#1137, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#1137;
                     RETURN;
-                ELSIF  _hwIdUserData= WORD#0 THEN
+                ELSIF  _hwIdUserDataSlot_7 = WORD#0 AND _hwIdUserDataSlot_8 = WORD#0 AND _hwIdUserDataSlot_9 = WORD#0 AND _hwIdUserDataSlot_10 = WORD#0 THEN
                     Messenger.Activate(UINT#1138, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#1138;
                     RETURN;
-                ELSIF _hwIdResultData = WORD#0 THEN
+                ELSIF _hwIdResultData_Slot_11 = WORD#0 AND _hwIdResultData_Slot_12 = WORD#0 AND _hwIdResultData_Slot_13 = WORD#0 AND _hwIdResultData_Slot_14 = WORD#0 THEN
                     Messenger.Activate(UINT#1139, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#1139;
                     RETURN; 
@@ -726,32 +1047,94 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             SoftEventStatus.TriggerSoftEventAcknowledge.Data[6] :=      _data_in[0].%X6;
             SoftEventStatus.TriggerSoftEventAcknowledge.Data[7] :=      _data_in[0].%X7;
 
-
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdResultData ,_data_in);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdResultData_Slot_11 ,_data_in);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1205, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1205;
                 RETURN;
             END_IF;
 
-            _invalidDataSize := NOT (_ResultDataSize = eAxoInsight_ResultDataSize#RESULT_DATA_16B OR
-                                    _ResultDataSize = eAxoInsight_ResultDataSize#RESULT_DATA_32B OR
-                                    _ResultDataSize = eAxoInsight_ResultDataSize#RESULT_DATA_64B OR
-                                    _ResultDataSize = eAxoInsight_ResultDataSize#RESULT_DATA_128B OR
-                                    _ResultDataSize = eAxoInsight_ResultDataSize#RESULT_DATA_250B);
+            _invalidDataSize := NOT (   _ResultDataSize_Slot_11 = UINT#16  OR
+                                        _ResultDataSize_Slot_11 = UINT#32  OR
+                                        _ResultDataSize_Slot_11 = UINT#64  OR
+                                        _ResultDataSize_Slot_11 = UINT#128 OR
+                                        _ResultDataSize_Slot_11 = UINT#250 );
 
             IF _invalidDataSize THEN
                 Messenger.Activate(UINT#1206, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1206;
                 RETURN;
             END_IF;
-
-            Config.ResultDataSize := _ResultDataSize;
-
             Results.InspectionID.%B1        :=  _data_in[0];     
             Results.InspectionID.%B0        :=  _data_in[1];     
             Results.ResultCode.%B1          :=  _data_in[2];     
             Results.ResultCode.%B0          :=  _data_in[3];     
+            
+            IF _hwIdResultData_Slot_12 <> WORD#0 THEN
+                // going to be read conditionally 
+                // _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdResultData_Slot_12 ,_data_in);
+                // IF _retVal > WORD#0 THEN
+                //     Messenger.Activate(UINT#1207, eAxoMessageCategory#ProgrammingError);
+                //     Status.Error.Id := UINT#1207;
+                //     RETURN;
+                // END_IF;
+
+                _invalidDataSize := NOT (   _ResultDataSize_Slot_12 = UINT#16  OR
+                                            _ResultDataSize_Slot_12 = UINT#32  OR
+                                            _ResultDataSize_Slot_12 = UINT#64  OR
+                                            _ResultDataSize_Slot_12 = UINT#128 OR
+                                            _ResultDataSize_Slot_12 = UINT#250 );
+
+                IF _invalidDataSize THEN
+                    Messenger.Activate(UINT#1208, eAxoMessageCategory#ProgrammingError);
+                    Status.Error.Id := UINT#1208;
+                    RETURN;
+                END_IF;
+            END_IF;
+            IF _hwIdResultData_Slot_13 <> WORD#0 THEN
+                // going to be read conditionally 
+                // _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdResultData_Slot_13 ,_data_in);
+                // IF _retVal > WORD#0 THEN
+                //     Messenger.Activate(UINT#1209, eAxoMessageCategory#ProgrammingError);
+                //     Status.Error.Id := UINT#1209;
+                //     RETURN;
+                // END_IF;
+
+                _invalidDataSize := NOT (   _ResultDataSize_Slot_13 = UINT#16  OR
+                                            _ResultDataSize_Slot_13 = UINT#32  OR
+                                            _ResultDataSize_Slot_13 = UINT#64  OR
+                                            _ResultDataSize_Slot_13 = UINT#128 OR
+                                            _ResultDataSize_Slot_13 = UINT#250 );
+
+                IF _invalidDataSize THEN
+                    Messenger.Activate(UINT#1210, eAxoMessageCategory#ProgrammingError);
+                    Status.Error.Id := UINT#1210;
+                    RETURN;
+                END_IF;
+            END_IF;
+            IF _hwIdResultData_Slot_14 <> WORD#0 THEN
+                // going to be read conditionally 
+                // _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdResultData_Slot_14 ,_data_in);
+                // IF _retVal > WORD#0 THEN
+                //     Messenger.Activate(UINT#1211, eAxoMessageCategory#ProgrammingError);
+                //     Status.Error.Id := UINT#1211;
+                //     RETURN;
+                // END_IF;
+
+                _invalidDataSize := NOT (   _ResultDataSize_Slot_14 = UINT#16  OR
+                                            _ResultDataSize_Slot_14 = UINT#32  OR
+                                            _ResultDataSize_Slot_14 = UINT#64  OR
+                                            _ResultDataSize_Slot_14 = UINT#128 OR
+                                            _ResultDataSize_Slot_14 = UINT#250 );
+
+                IF _invalidDataSize THEN
+                    Messenger.Activate(UINT#1212, eAxoMessageCategory#ProgrammingError);
+                    Status.Error.Id := UINT#1212;
+                    RETURN;
+                END_IF;
+            END_IF;
+
+            Config.ResultDataSize := _ResultDataSize;
             
             //**************************************Execute inline********************
             RestoreTask.Run(THIS);
@@ -795,7 +1178,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     Results.InspectionID := UINT#0; 
                     Results.ResultCode := UINT#0; 
 
-                    FOR _index := 0 TO 249 DO
+                    FOR _index := 0 TO 999 DO
                         InspectionResults.Data[_index] := BYTE#0;
                     END_FOR;
                     InspectionResults.DataChanged := NOT InspectionResults.DataChanged ;
@@ -978,11 +1361,76 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                         TaskMessenger.Activate( UINT#518, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#518;
                     END_IF;
-
-                    FOR _index := 0 TO (TO_INT(Config.ResultDataSize) - INT#1) DO
-                        InspectionResults.Data[_index] := _data_in[_index + 4];
+                    _offset     :=  INT#4;
+                    _fromFor    :=  INT#0;
+                    // Slot 11
+                    IF _ResultDataSize > _ResultDataSize_Slot_11 THEN
+                        _toFor := TO_INT(_ResultDataSize_Slot_11) - INT#1;
+                    ELSE
+                        _toFor := TO_INT(_ResultDataSize) - INT#1;
+                    END_IF;
+                    FOR _index := _fromFor TO _toFor DO
+                        InspectionResults.Data[_index] := _data_in[_index + _offset];
                     END_FOR;
-                    FOR _index := Config.ResultDataSize TO 249 DO
+                    // Slot 12
+                    IF _ResultDataSize > _ResultDataSize_Slot_11 AND _ResultDataSize_Slot_12 > UINT#0 THEN
+                        IF _ResultDataSize > _ResultDataSize_Slot_12 + _ResultDataSize_Slot_11 THEN
+                            _toFor := TO_INT(_ResultDataSize_Slot_12) - INT#1;
+                        ELSE
+                            _toFor := TO_INT(_ResultDataSize - _ResultDataSize_Slot_11) - INT#1;
+                        END_IF;
+                        _fromFor    :=  INT#0;
+                        _offset     :=  TO_INT(_ResultDataSize_Slot_11);
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdResultData_Slot_12 ,_data_in);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1207, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1207;
+                            RETURN;
+                        END_IF;
+                        FOR _index := _fromFor TO _toFor DO
+                            InspectionResults.Data[_index + _offset] := _data_in[_index];
+                        END_FOR;
+                    END_IF;
+                    // Slot 13
+                    IF _ResultDataSize > (_ResultDataSize_Slot_11 + _ResultDataSize_Slot_12) AND _ResultDataSize_Slot_13 > UINT#0 THEN
+                        IF _ResultDataSize > _ResultDataSize_Slot_13 + _ResultDataSize_Slot_12 + _ResultDataSize_Slot_11 THEN
+                            _toFor := TO_INT(_ResultDataSize_Slot_13) - INT#1;
+                        ELSE
+                            _toFor := TO_INT(_ResultDataSize - _ResultDataSize_Slot_12 - _ResultDataSize_Slot_11) - INT#1;
+                        END_IF;
+                        _fromFor    :=  INT#0;
+                        _offset     :=  TO_INT(_ResultDataSize_Slot_11 + _ResultDataSize_Slot_12);
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdResultData_Slot_13 ,_data_in);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1209, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1209;
+                            RETURN;
+                        END_IF;
+                        FOR _index := _fromFor TO _toFor DO
+                            InspectionResults.Data[_index + _offset] := _data_in[_index];
+                        END_FOR;
+                    END_IF;
+                    // Slot 14
+                    IF _ResultDataSize > (_ResultDataSize_Slot_11 + _ResultDataSize_Slot_12 + _ResultDataSize_Slot_13) (*AND _ResultDataSize_Slot_14 > UINT#0*) THEN
+                        // IF _ResultDataSize > _ResultDataSize_Slot_14 + _ResultDataSize_Slot_13 + _ResultDataSize_Slot_12 + _ResultDataSize_Slot_11 THEN
+                        //     _toFor := TO_INT(_ResultDataSize_Slot_13) - INT#1;
+                        // ELSE
+                            _toFor := TO_INT(_ResultDataSize - _ResultDataSize_Slot_13 - _ResultDataSize_Slot_12 - _ResultDataSize_Slot_11) - INT#1;
+                        // END_IF;
+                        _fromFor    :=  INT#0;
+                        _offset     :=  TO_INT(_ResultDataSize_Slot_11 + _ResultDataSize_Slot_12 + _ResultDataSize_Slot_13);
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdResultData_Slot_14 ,_data_in);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1211, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1211;
+                            RETURN;
+                        END_IF;
+                        FOR _index := _fromFor TO _toFor DO
+                            InspectionResults.Data[_index + _offset] := _data_in[_index];
+                        END_FOR;
+                    END_IF;
+                    // Cleanig the rest of the array
+                    FOR _index := Config.ResultDataSize TO 999 DO
                         InspectionResults.Data[_index] := BYTE#0;
                     END_FOR;
                     InspectionResults.DataChanged := NOT InspectionResults.DataChanged ;
@@ -1540,75 +1988,275 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 RETURN;
             END_IF;  
 
-            _invalidDataSize := NOT (_UserDataSize = eAxoInsight_UserDataSize#USER_DATA_16B OR
-                                     _UserDataSize = eAxoInsight_UserDataSize#USER_DATA_32B OR
-                                     _UserDataSize = eAxoInsight_UserDataSize#USER_DATA_64B OR
-                                     _UserDataSize = eAxoInsight_UserDataSize#USER_DATA_128B OR
-                                     _UserDataSize = eAxoInsight_UserDataSize#USER_DATA_254B);
-
-            IF _invalidDataSize THEN
-                Messenger.Activate(UINT#1235, eAxoMessageCategory#ProgrammingError);
-                Status.Error.Id := UINT#1235;
-                RETURN;
-            END_IF;  
-
-            Config.UserDataSize := _UserDataSize;
-
-            IF (UserData.DataChanged <> _UserDataChanged) THEN
-                IF Config.UserDataSize = eAxoInsight_UserDataSize#USER_DATA_16B THEN
-                    FOR _index := 0 TO 15 DO
-                        _data_16[_index] := UserData.Data[_index];
-                    END_FOR;
-                    _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_16);
-                    IF _retVal > WORD#0 THEN
-                        Messenger.Activate(UINT#1236, eAxoMessageCategory#ProgrammingError);
-                        Status.Error.Id := UINT#1236;
-                        RETURN;
-                    END_IF;  
-                ELSIF Config.UserDataSize = eAxoInsight_UserDataSize#USER_DATA_32B THEN
-                    FOR _index := 0 TO 31 DO
-                        _data_32[_index] := UserData.Data[_index];
-                    END_FOR;
-                    _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_32);
-                    IF _retVal > WORD#0 THEN
-                        Messenger.Activate(UINT#1237, eAxoMessageCategory#ProgrammingError);
-                        Status.Error.Id := UINT#1237;
-                        RETURN;
-                    END_IF;  
-                ELSIF Config.UserDataSize = eAxoInsight_UserDataSize#USER_DATA_64B THEN
-                    FOR _index := 0 TO 63 DO
-                        _data_64[_index] := UserData.Data[_index];
-                    END_FOR;
-                    _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_64);
-                    IF _retVal > WORD#0 THEN
-                        Messenger.Activate(UINT#1238, eAxoMessageCategory#ProgrammingError);
-                        Status.Error.Id := UINT#1238;
-                        RETURN;
-                    END_IF;  
-                ELSIF Config.UserDataSize = eAxoInsight_UserDataSize#USER_DATA_128B THEN
-                    FOR _index := 0 TO 127 DO
-                        _data_128[_index] := UserData.Data[_index];
-                    END_FOR;
-                    _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_128);
-                    IF _retVal > WORD#0 THEN
-                        Messenger.Activate(UINT#1239, eAxoMessageCategory#ProgrammingError);
-                        Status.Error.Id := UINT#1239;
-                        RETURN;
-                    END_IF;  
-                ELSIF Config.UserDataSize = eAxoInsight_UserDataSize#USER_DATA_254B THEN
-                    FOR _index := 0 TO 253 DO
-                        _data_254[_index] := UserData.Data[_index];
-                    END_FOR;
-                    _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_254);
-                    IF _retVal > WORD#0 THEN
-                        Messenger.Activate(UINT#1240, eAxoMessageCategory#ProgrammingError);
-                        Status.Error.Id := UINT#1240;
-                        RETURN;
-                    END_IF;  
+            IF _hwIdUserDataSlot_7 <> WORD#0 THEN
+                _invalidDataSize := NOT (   _UserDataSize_Slot_7 = UINT#16  OR
+                                            _UserDataSize_Slot_7 = UINT#32  OR
+                                            _UserDataSize_Slot_7 = UINT#64  OR
+                                            _UserDataSize_Slot_7 = UINT#128 OR
+                                            _UserDataSize_Slot_7 = UINT#254 );
+                IF _invalidDataSize THEN
+                    Messenger.Activate(UINT#1235, eAxoMessageCategory#ProgrammingError);
+                    Status.Error.Id := UINT#1235;
+                    RETURN;
+                END_IF;  
+                IF (UserData.DataChanged <> _UserDataChanged) THEN
+                    IF _UserDataSize_Slot_7 = UINT#16 THEN
+                        FOR _index := 0 TO 15 DO
+                            _data_16[_index] := UserData.Data[_index];
+                        END_FOR;
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserDataSlot_7 ,_data_16);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1236, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1236;
+                            RETURN;
+                        END_IF;  
+                    ELSIF _UserDataSize_Slot_7 = UINT#32 THEN
+                        FOR _index := 0 TO 31 DO
+                            _data_32[_index] := UserData.Data[_index];
+                        END_FOR;
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserDataSlot_7 ,_data_32);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1237, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1237;
+                            RETURN;
+                        END_IF;  
+                    ELSIF _UserDataSize_Slot_7 = UINT#64 THEN
+                        FOR _index := 0 TO 63 DO
+                            _data_64[_index] := UserData.Data[_index];
+                        END_FOR;
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserDataSlot_7 ,_data_64);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1238, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1238;
+                            RETURN;
+                        END_IF;  
+                    ELSIF _UserDataSize_Slot_7 = UINT#128 THEN
+                        FOR _index := 0 TO 127 DO
+                            _data_128[_index] := UserData.Data[_index];
+                        END_FOR;
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserDataSlot_7 ,_data_128);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1239, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1239;
+                            RETURN;
+                        END_IF;  
+                    ELSIF _UserDataSize_Slot_7 = UINT#254 THEN
+                        FOR _index := 0 TO 253 DO
+                            _data_254[_index] := UserData.Data[_index];
+                        END_FOR;
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserDataSlot_7 ,_data_254);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1240, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1240;
+                            RETURN;
+                        END_IF;  
+                    END_IF;
                 END_IF;
-                _UserDataChanged := UserData.DataChanged;
             END_IF;
 
+            IF _hwIdUserDataSlot_8 <> WORD#0 THEN
+                _invalidDataSize := NOT (   _UserDataSize_Slot_8 = UINT#16  OR
+                                            _UserDataSize_Slot_8 = UINT#32  OR
+                                            _UserDataSize_Slot_8 = UINT#64  OR
+                                            _UserDataSize_Slot_8 = UINT#128 OR
+                                            _UserDataSize_Slot_8 = UINT#254 );
+                IF _invalidDataSize THEN
+                    Messenger.Activate(UINT#1241, eAxoMessageCategory#ProgrammingError);
+                    Status.Error.Id := UINT#1241;
+                    RETURN;
+                END_IF;  
+                IF (UserData.DataChanged <> _UserDataChanged) THEN
+                    _offset := TO_INT(_UserDataSize_Slot_7);
+                    IF _UserDataSize_Slot_8 = UINT#16 THEN
+                        FOR _index := 0 TO 15 DO
+                            _data_16[_index] := UserData.Data[_index+_offset];
+                        END_FOR;
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserDataSlot_8 ,_data_16);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1242, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1242;
+                            RETURN;
+                        END_IF;  
+                    ELSIF _UserDataSize_Slot_8 = UINT#32 THEN
+                        FOR _index := 0 TO 31 DO
+                            _data_32[_index] := UserData.Data[_index+_offset];
+                        END_FOR;
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserDataSlot_8 ,_data_32);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1243, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1243;
+                            RETURN;
+                        END_IF;  
+                    ELSIF _UserDataSize_Slot_8 = UINT#64 THEN
+                        FOR _index := 0 TO 63 DO
+                            _data_64[_index] := UserData.Data[_index+_offset];
+                        END_FOR;
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserDataSlot_8 ,_data_64);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1244, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1244;
+                            RETURN;
+                        END_IF;  
+                    ELSIF _UserDataSize_Slot_8 = UINT#128 THEN
+                        FOR _index := 0 TO 127 DO
+                            _data_128[_index] := UserData.Data[_index+_offset];
+                        END_FOR;
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserDataSlot_8 ,_data_128);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1245, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1245;
+                            RETURN;
+                        END_IF;  
+                    ELSIF _UserDataSize_Slot_8 = UINT#254 THEN
+                        FOR _index := 0 TO 253 DO
+                            _data_254[_index] := UserData.Data[_index+_offset];
+                        END_FOR;
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserDataSlot_8 ,_data_254);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1246, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1246;
+                            RETURN;
+                        END_IF;  
+                    END_IF;
+                END_IF;
+            END_IF;
+
+            IF _hwIdUserDataSlot_9 <> WORD#0 THEN
+                _invalidDataSize := NOT (   _UserDataSize_Slot_9 = UINT#16  OR
+                                            _UserDataSize_Slot_9 = UINT#32  OR
+                                            _UserDataSize_Slot_9 = UINT#64  OR
+                                            _UserDataSize_Slot_9 = UINT#128 OR
+                                            _UserDataSize_Slot_9 = UINT#254 );
+                IF _invalidDataSize THEN
+                    Messenger.Activate(UINT#1247, eAxoMessageCategory#ProgrammingError);
+                    Status.Error.Id := UINT#1247;
+                    RETURN;
+                END_IF;  
+                IF (UserData.DataChanged <> _UserDataChanged) THEN
+                    _offset := TO_INT(_UserDataSize_Slot_7)+TO_INT(_UserDataSize_Slot_8);
+                    IF _UserDataSize_Slot_9 = UINT#16 THEN
+                        FOR _index := 0 TO 15 DO
+                            _data_16[_index] := UserData.Data[_index+_offset];
+                        END_FOR;
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserDataSlot_9 ,_data_16);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1248, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1248;
+                            RETURN;
+                        END_IF;  
+                    ELSIF _UserDataSize_Slot_9 = UINT#32 THEN
+                        FOR _index := 0 TO 31 DO
+                            _data_32[_index] := UserData.Data[_index+_offset];
+                        END_FOR;
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserDataSlot_9 ,_data_32);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1249, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1249;
+                            RETURN;
+                        END_IF;  
+                    ELSIF _UserDataSize_Slot_9 = UINT#64 THEN
+                        FOR _index := 0 TO 63 DO
+                            _data_64[_index] := UserData.Data[_index+_offset];
+                        END_FOR;
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserDataSlot_9 ,_data_64);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1250, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1250;
+                            RETURN;
+                        END_IF;  
+                    ELSIF _UserDataSize_Slot_9 = UINT#128 THEN
+                        FOR _index := 0 TO 127 DO
+                            _data_128[_index] := UserData.Data[_index+_offset];
+                        END_FOR;
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserDataSlot_9 ,_data_128);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1251, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1251;
+                            RETURN;
+                        END_IF;  
+                    ELSIF _UserDataSize_Slot_9 = UINT#254 THEN
+                        FOR _index := 0 TO 253 DO
+                            _data_254[_index] := UserData.Data[_index+_offset];
+                        END_FOR;
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserDataSlot_9 ,_data_254);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1252, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1252;
+                            RETURN;
+                        END_IF;  
+                    END_IF;
+                END_IF;
+            END_IF;
+
+            IF _hwIdUserDataSlot_10 <> WORD#0 THEN
+                _invalidDataSize := NOT (   _UserDataSize_Slot_10 = UINT#16  OR
+                                            _UserDataSize_Slot_10 = UINT#32  OR
+                                            _UserDataSize_Slot_10 = UINT#64  OR
+                                            _UserDataSize_Slot_10 = UINT#128 OR
+                                            _UserDataSize_Slot_10 = UINT#254 );
+                IF _invalidDataSize THEN
+                    Messenger.Activate(UINT#1253, eAxoMessageCategory#ProgrammingError);
+                    Status.Error.Id := UINT#1253;
+                    RETURN;
+                END_IF;  
+                IF (UserData.DataChanged <> _UserDataChanged) THEN
+                    _offset := TO_INT(_UserDataSize_Slot_7)+TO_INT(_UserDataSize_Slot_8)+TO_INT(_UserDataSize_Slot_9);
+                    IF _UserDataSize_Slot_10 = UINT#16 THEN
+                        FOR _index := 0 TO 15 DO
+                            _data_16[_index] := UserData.Data[_index+_offset];
+                        END_FOR;
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserDataSlot_10 ,_data_16);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1254, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1254;
+                            RETURN;
+                        END_IF;  
+                    ELSIF _UserDataSize_Slot_10 = UINT#32 THEN
+                        FOR _index := 0 TO 31 DO
+                            _data_32[_index] := UserData.Data[_index+_offset];
+                        END_FOR;
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserDataSlot_10 ,_data_32);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1255, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1255;
+                            RETURN;
+                        END_IF;  
+                    ELSIF _UserDataSize_Slot_10 = UINT#64 THEN
+                        FOR _index := 0 TO 63 DO
+                            _data_64[_index] := UserData.Data[_index+_offset];
+                        END_FOR;
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserDataSlot_10 ,_data_64);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1256, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1256;
+                            RETURN;
+                        END_IF;  
+                    ELSIF _UserDataSize_Slot_10 = UINT#128 THEN
+                        FOR _index := 0 TO 127 DO
+                            _data_128[_index] := UserData.Data[_index+_offset];
+                        END_FOR;
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserDataSlot_10 ,_data_128);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1257, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1257;
+                            RETURN;
+                        END_IF;  
+                    ELSIF _UserDataSize_Slot_10 = UINT#254 THEN
+                        FOR _index := 0 TO 253 DO
+                            _data_254[_index] := UserData.Data[_index+_offset];
+                        END_FOR;
+                        _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserDataSlot_10 ,_data_254);
+                        IF _retVal > WORD#0 THEN
+                            Messenger.Activate(UINT#1258, eAxoMessageCategory#ProgrammingError);
+                            Status.Error.Id := UINT#1258;
+                            RETURN;
+                        END_IF;  
+                    END_IF;
+                END_IF;
+            END_IF;
+
+            _UserDataChanged := UserData.DataChanged;  //TODO check the functionality in case of multiple user data slots
+            Config.UserDataSize := _UserDataSize;
         END_METHOD
 
         ///<summary>
@@ -1700,16 +2348,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
 
             _maxIndex := UINT#255;
             
-            Messenger.ActivateOnCondition(ULINT#716, (inPosition +_size) >= TO_UINT(Config.UserDataSize), eAxoMessageCategory#Error);
-
-            IF (inPosition +_size) >= TO_UINT(Config.UserDataSize) THEN
+            IF (inPosition +_size) >= Config.UserDataSize THEN
+                Messenger.Activate(UINT#716, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#716;
                 RETURN;
             END_IF;
-
-            Messenger.ActivateOnCondition(ULINT#717, (inPosition +_size) > _maxIndex ,eAxoMessageCategory#Error);
             
             IF (inPosition +_size) > _maxIndex THEN
+                Messenger.Activate(UINT#717, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#717;
                 RETURN;
             END_IF;

@@ -1,6 +1,6 @@
 USING AXOpen.Components.Cognex.Vision;
 
-NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
+NAMESPACE AXOpen.Components.Cognex.Vision
 
     {S7.extern=ReadWrite}
     CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext

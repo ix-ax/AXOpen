@@ -468,7 +468,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdTelegram750 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#8 THEN
                     Messenger.Activate(     UINT#776,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#776;
                     RETURN;
@@ -4495,7 +4495,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 RETURN;
             END_IF;
 
-            IF(InputNumber <= 0 OR InputNumber >=255) THEN   //  TODO check the min max input number
+            IF(InputNumber < 0 OR InputNumber >256) THEN   //  TODO check the min max input number
                 Messenger.Activate(     UINT#1641, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1641;
                 RETURN;
@@ -4605,7 +4605,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 RETURN;
             END_IF;
 
-            IF(OutputNumber <= 0 OR OutputNumber >=255) THEN   //  TODO check the min max input number
+            IF(OutputNumber < 0 OR OutputNumber >256) THEN   //  TODO check the min max input number
                 Messenger.Activate(     UINT#1651, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1651;
                 RETURN;
@@ -4716,7 +4716,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 RETURN;
             END_IF;
 
-            IF(OutputNumber <= 0 OR OutputNumber >=255) THEN   //  TODO check the min max input number
+            IF(OutputNumber < 0 OR OutputNumber >256) THEN   //  TODO check the min max input number
                 Messenger.Activate(     UINT#1661, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1661;
                 RETURN;
@@ -4823,6 +4823,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Dummy : BOOL;
             END_VAR
             
+            _AxisReference ?= AxisRef;
+
             IF(_AxisReference = NULL) THEN
                 Messenger.Activate(     UINT#1670, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1670;

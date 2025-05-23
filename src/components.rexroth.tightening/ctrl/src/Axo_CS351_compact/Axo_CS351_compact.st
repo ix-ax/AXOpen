@@ -192,69 +192,6 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             _outputsCount           :   UINT; 
         END_VAR
 
-        // Temporary workaround due to hwc station number issue
-        METHOD PUBLIC Run
-            VAR_INPUT
-                parent  : IAxoObject;
-                hwID    :   WORD;
-                hwID_1  :   WORD;
-                hwID_2  :   WORD;
-                hwID_3  :   WORD;
-                hwID_4  :   WORD;
-                hwID_5  :   WORD;
-                hwID_6  :   WORD;
-                hwID_7  :   WORD;
-                hwID_8  :   WORD;
-                hwID_9  :   WORD;
-                hwID_10 :   WORD;
-                hwID_11 :   WORD;
-                hwID_12 :   WORD;
-                hwID_13 :   WORD;
-                hwID_14 :   WORD;
-                hwID_15 :   WORD;
-                hwID_16 :   WORD;
-                hwID_17 :   WORD;
-                hwID_18 :   WORD;
-                hwID_19 :   WORD;
-                hwID_20 :   WORD;
-                hwID_21 :   WORD;
-                hwID_22 :   WORD;
-                hwID_23 :   WORD;
-                hwID_24 :   WORD;
-                hwID_25 :   WORD;
-                hwID_26 :   WORD;
-            END_VAR
-            _hwID               :=  hwID   ;
-            _hwID_1             :=  hwID_1 ;
-            _hwID_2             :=  hwID_2 ;
-            _hwID_3             :=  hwID_3 ;
-            _hwID_4             :=  hwID_4 ;
-            _hwID_5             :=  hwID_5 ;
-            _hwID_6             :=  hwID_6 ;
-            _hwID_7             :=  hwID_7 ;
-            _hwID_8             :=  hwID_8 ;
-            _hwID_9             :=  hwID_9 ;
-            _hwID_10            :=  hwID_10;
-            _hwID_11            :=  hwID_11;
-            _hwID_12            :=  hwID_12;
-            _hwID_13            :=  hwID_13;
-            _hwID_14            :=  hwID_14;
-            _hwID_15            :=  hwID_15;
-            _hwID_16            :=  hwID_16;
-            _hwID_17            :=  hwID_17;
-            _hwID_18            :=  hwID_18;
-            _hwID_19            :=  hwID_19;
-            _hwID_20            :=  hwID_20;
-            _hwID_21            :=  hwID_21;
-            _hwID_22            :=  hwID_22;
-            _hwID_23            :=  hwID_23;
-            _hwID_24            :=  hwID_24;
-            _hwID_25            :=  hwID_25;
-            _hwID_26            :=  hwID_26;
-            _initHwCheckDone    :=  TRUE;
-            THIS.Run(parent,hwID);
-        END_METHOD
-
         ///<summary>
         /// Runs tasks and logic of this component.
         /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
@@ -273,12 +210,12 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
 
             IF NOT _initHwCheckDone THEN
                 IF parent = NULL THEN
-                    Messenger.Activate(ULINT#700, eAxoMessageCategory#ProgrammingError);
+                    Messenger.Activate(UINT#700, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#700;
                     RETURN;
                 END_IF;
                 IF hwID = WORD#0 THEN
-                    Messenger.Activate(ULINT#701, eAxoMessageCategory#ProgrammingError);
+                    Messenger.Activate(UINT#701, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#701;
                     RETURN;
                 END_IF;
@@ -291,7 +228,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                     RETURN;
                 END_IF;
                 //******************Slot 1*****************//
-                _geoAddr.Slot   :=  UINT#1;                                                            
+                _geoAddr.Slot   :=  UINT#1;   
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_1 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_1 = WORD#0 THEN
@@ -332,6 +270,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 2*****************//
                 _geoAddr.Slot   :=  UINT#2;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_2 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_2 = WORD#0 THEN
@@ -372,6 +311,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 3*****************//
                 _geoAddr.Slot   :=  UINT#3;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_3 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_3 = WORD#0 THEN
@@ -412,9 +352,10 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 4*****************//
                 _geoAddr.Slot   :=  UINT#4;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwID_5 :=  TO_WORD(_outHwid);                                         
-                IF _hwID_5 = WORD#0 THEN
+                _hwID_4 :=  TO_WORD(_outHwid);                                         
+                IF _hwID_4 = WORD#0 THEN
                     Messenger.Activate(UINT#740,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#740;
                     RETURN;
@@ -452,6 +393,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 5*****************//
                 _geoAddr.Slot   :=  UINT#5;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_5 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_5 = WORD#0 THEN
@@ -492,6 +434,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 6*****************//
                 _geoAddr.Slot   :=  UINT#6;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_6 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_6 = WORD#0 THEN
@@ -532,6 +475,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 7*****************//
                 _geoAddr.Slot   :=  UINT#7;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_7 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_7 = WORD#0 THEN
@@ -572,6 +516,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 8*****************//
                 _geoAddr.Slot   :=  UINT#8;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_8 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_8 = WORD#0 THEN
@@ -612,6 +557,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 9*****************//
                 _geoAddr.Slot   :=  UINT#9;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_9 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_9 = WORD#0 THEN
@@ -652,6 +598,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 10*****************//
                 _geoAddr.Slot   :=  UINT#10;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_10 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_10 = WORD#0 THEN
@@ -692,6 +639,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 11*****************//
                 _geoAddr.Slot   :=  UINT#11;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_11 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_11 = WORD#0 THEN
@@ -732,6 +680,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 12*****************//
                 _geoAddr.Slot   :=  UINT#12;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_12 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_12 = WORD#0 THEN
@@ -772,6 +721,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 13*****************//
                 _geoAddr.Slot   :=  UINT#13;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_13 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_13 = WORD#0 THEN
@@ -812,6 +762,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 14*****************//
                 _geoAddr.Slot   :=  UINT#14;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_14 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_14 = WORD#0 THEN
@@ -852,6 +803,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 15*****************//
                 _geoAddr.Slot   :=  UINT#15;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_15 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_15 = WORD#0 THEN
@@ -892,6 +844,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 16*****************//
                 _geoAddr.Slot   :=  UINT#16;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_16 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_16 = WORD#0 THEN
@@ -932,6 +885,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 17*****************//
                 _geoAddr.Slot   :=  UINT#17;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_17 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_17 = WORD#0 THEN
@@ -972,6 +926,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 18*****************//
                 _geoAddr.Slot   :=  UINT#18;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_18 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_18 = WORD#0 THEN
@@ -1012,6 +967,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 19*****************//
                 _geoAddr.Slot   :=  UINT#19;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_19 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_19 = WORD#0 THEN
@@ -1052,6 +1008,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 20*****************//
                 _geoAddr.Slot   :=  UINT#20;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_20 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_20 = WORD#0 THEN
@@ -1092,6 +1049,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 21*****************//
                 _geoAddr.Slot   :=  UINT#21;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_21 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_21 = WORD#0 THEN
@@ -1132,6 +1090,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 22*****************//
                 _geoAddr.Slot   :=  UINT#22;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_22 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_22 = WORD#0 THEN
@@ -1172,6 +1131,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 23*****************//
                 _geoAddr.Slot   :=  UINT#23;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_23 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_23 = WORD#0 THEN
@@ -1212,6 +1172,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 24*****************//
                 _geoAddr.Slot   :=  UINT#24;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_24 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_24 = WORD#0 THEN
@@ -1252,6 +1213,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 25*****************//
                 _geoAddr.Slot   :=  UINT#25;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_25 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_25 = WORD#0 THEN
@@ -1292,6 +1254,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 END_IF;
                 //******************Slot 26*****************//
                 _geoAddr.Slot   :=  UINT#26;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)                                                      
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_26 :=  TO_WORD(_outHwid);                                         
                 IF _hwID_26 = WORD#0 THEN

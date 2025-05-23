@@ -1,4 +1,4 @@
-USING AXOpen.Components.Cognex.Vision.v_6_0_0_0;
+USING AXOpen.Components.Cognex.Vision;
 
 PROGRAM MyProgram
     VAR_EXTERNAL
