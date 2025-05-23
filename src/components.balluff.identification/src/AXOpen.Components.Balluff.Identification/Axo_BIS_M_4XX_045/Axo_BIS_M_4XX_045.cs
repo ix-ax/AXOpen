@@ -53,23 +53,35 @@ namespace AXOpen.Components.Balluff.Identification
                 new KeyValuePair<ulong, AxoMessengerTextItem>(162, new AxoMessengerTextItem("Write char to memory restored.",                                                               "")),
 
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(700, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!",                                  "Check the call of the `Run` method, if the `parent` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `hwId_BISM` has invalid value in `Run` method!",                                "Check the call of the `Run` method, if the `hwId_BISM` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(700, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `hwId` has invalid value in `Run` method!"                                                                      ,"Check the call of the `Run` method, if the `hwId` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(702, new AxoMessengerTextItem("Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090)."        ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(703, new AxoMessengerTextItem("Error reading the hwId_BISM in the UpdateInputs method!",                                      "Check the value of the hwId_BISM and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(710, new AxoMessengerTextItem("Hw configuration error. Value of hwId_BISM is zero."                                                                           ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(711, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(712, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(713, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(714, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 1."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(715, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1."               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(716, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 1. Expected module: 'ID_Mod_BIS_M_4XX_045'."      ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(704, new AxoMessengerTextItem("Error writing the hwId_BISM in the UpdateOutputs method!",                                     "Check the value of the hwId_BISM and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1130, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                  ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1131, new AxoMessengerTextItem("Input variable `hwId` has invalid value in `Run` method!"                                                                     ,"Check the call of the `Run` method, if the `hwId` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1132, new AxoMessengerTextItem("Input variable `hwId_BISM` has invalid value in `Run` method!"                                                                ,"Check the call of the `Run` method, if the `hwId_BISM` parameter is assigned.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(800, new AxoMessengerTextItem("Read finished with error!",                                                                    "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(801, new AxoMessengerTextItem("Read was aborted, while not yet completed!",                                                   "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(820, new AxoMessengerTextItem("Write finished with error!",                                                                   "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(821, new AxoMessengerTextItem("Write was aborted, while not yet completed!",                                                  "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(840, new AxoMessengerTextItem("Reset communication finished with error!",                                                     "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(841, new AxoMessengerTextItem("Reset communication was aborted, while not yet completed!",                                    "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(850, new AxoMessengerTextItem("Reset reader finished with error!",                                                            "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(851, new AxoMessengerTextItem("Reset reader was aborted, while not yet completed!",                                           "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(860, new AxoMessengerTextItem("Write char to memory finished with error!",                                                    "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(861, new AxoMessengerTextItem("Write char to memory was aborted, while not yet completed!",                                   "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1201, new AxoMessengerTextItem("Error reading the hwId_BISM!"                                                                                                 ,"Check the value of the hwId_BISM and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1231, new AxoMessengerTextItem("Error writing the hwId_BISM!"                                                                                                 ,"Check the value of the hwId_BISM and reacheability of the device!")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10000, new AxoMessengerTextItem("Read finished with error!",                                                                    "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10001, new AxoMessengerTextItem("Read was aborted, while not yet completed!",                                                   "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10020, new AxoMessengerTextItem("Write finished with error!",                                                                   "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10021, new AxoMessengerTextItem("Write was aborted, while not yet completed!",                                                  "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10040, new AxoMessengerTextItem("Reset communication finished with error!",                                                     "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10041, new AxoMessengerTextItem("Reset communication was aborted, while not yet completed!",                                    "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10050, new AxoMessengerTextItem("Reset reader finished with error!",                                                            "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10051, new AxoMessengerTextItem("Reset reader was aborted, while not yet completed!",                                           "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10060, new AxoMessengerTextItem("Write char to memory finished with error!",                                                    "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10061, new AxoMessengerTextItem("Write char to memory was aborted, while not yet completed!",                                   "Check the details.")),
 
         };
 

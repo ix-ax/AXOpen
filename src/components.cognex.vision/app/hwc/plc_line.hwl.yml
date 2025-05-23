@@ -16,3 +16,4 @@ IoSystems:
   - Ref: dm_300/dm_300/profinet
   - Ref: is7600/is7600/profinet
   - Ref: is2800/is2800/profinet
+  - Ref: vision_pro/vision_pro/profinet

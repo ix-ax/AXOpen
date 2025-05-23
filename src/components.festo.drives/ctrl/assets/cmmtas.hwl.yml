@@ -17,6 +17,7 @@ Devices:
       FileName: GSDML-V2.41-Festo-CMMT-AS-20230601.xml
       GsdId: IDM_SERVO
     Submodules:
+      # Do not uncomment this module. It is added by default and cannot be removed under any circumstances.
       # - Name: Module_Access_Point
       #   TypeIdentifier:
       #     FileName: GSDML-V2.41-FESTO-CMMT-AS-20230601.XML
