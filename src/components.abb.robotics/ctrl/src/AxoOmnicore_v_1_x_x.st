@@ -125,22 +125,22 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             HardwareDiagnosticsTask :   AXOpen.Io.AxoHardwareDiagnostics;
         END_VAR
 
-        // Temporary workaround due to hwc station number issue
-        {attribute 'obsolete' := 'This method is(will be) deprecated after releasing hwc3.1.0. Use Run(parent,hwID) instead.'}
-        METHOD PUBLIC Run
-            VAR_INPUT
-                parent : IAxoObject;
-                hwID            :   WORD;   
-                hwIdDI_64_bytes :   WORD;   //  Hardware Id of the input data of the robot
-                hwIdDO_64_bytes :   WORD;   //  Hardware Id of the output data of the robot
-            END_VAR
-            _hwID                           :=  hwID;
-            _hwIdDI_64_bytes                :=  hwIdDI_64_bytes;
-            _hwIdDO_64_bytes                :=  hwIdDO_64_bytes;
+        // // Temporary workaround due to hwc station number issue
+        // {attribute 'obsolete' := 'This method is(will be) deprecated after releasing hwc3.1.0. Use Run(parent,hwID) instead.'}
+        // METHOD PUBLIC Run
+        //     VAR_INPUT
+        //         parent : IAxoObject;
+        //         hwID            :   WORD;   
+        //         hwIdDI_64_bytes :   WORD;   //  Hardware Id of the input data of the robot
+        //         hwIdDO_64_bytes :   WORD;   //  Hardware Id of the output data of the robot
+        //     END_VAR
+        //     _hwID                           :=  hwID;
+        //     _hwIdDI_64_bytes                :=  hwIdDI_64_bytes;
+        //     _hwIdDO_64_bytes                :=  hwIdDO_64_bytes;
 
-            _initHwCheckDone    :=  TRUE;
-            THIS.Run(parent,hwID);
-        END_METHOD
+        //     _initHwCheckDone    :=  TRUE;
+        //     THIS.Run(parent,hwID);
+        // END_METHOD
 
 
         ///<summary>
@@ -187,6 +187,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
 
                 //******************Slot 1*****************//
                 _geoAddr.Slot   :=  UINT#1;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdDI_64_bytes :=  TO_WORD(_outHwid);                                         
                 IF _hwIdDI_64_bytes = WORD#0 THEN
@@ -228,6 +229,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
 
                 //******************Slot 2*****************//
                 _geoAddr.Slot   :=  UINT#2;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdDO_64_bytes :=  TO_WORD(_outHwid);                                         
                 IF _hwIdDO_64_bytes = WORD#0 THEN
