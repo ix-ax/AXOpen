@@ -75,7 +75,7 @@ namespace AXOpen.Core
                 switch ((eAxoTaskState)Component.Status.LastValue)
                 {
                     case eAxoTaskState.Busy:
-                        return "animate-pulse space-x-100";
+                        return "animate-pulse";
                     case eAxoTaskState.Done:
                         return "";
                     case eAxoTaskState.Aborted:
