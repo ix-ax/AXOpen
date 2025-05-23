@@ -1,5 +1,5 @@
 name: "@inxton/ax.catalog"
-version: '0.0.20'
+version: '0.0.23'
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 type: catalog
@@ -53,7 +53,7 @@ catalogDependencies:
   "@ax/simatic-1500-tasks": 10.0.1		                            # @ax/simatic-ax@2504.0.0  contained at the time of creation this catalog (7.5.2025) version  10.0.1
   "@ax/simatic-1500-technology-objects": 3.0.8                    # @ax/simatic-ax@2504.0.0  contained at the time of creation this catalog (7.5.2025) version  3.0.8
   "@ax/simatic-package-tool": 2.0.15			                        # @ax/simatic-ax@2504.0.0  contained at the time of creation this catalog (7.5.2025) version  2.0.15
-  "@ax/sld": 3.2.4			                                          # @ax/simatic-ax@2504.0.0  contained at the time of creation this catalog (7.5.2025) version  3.2.4
+  "@ax/sld": 3.3.0			                                          # @ax/simatic-ax@2504.0.0  contained at the time of creation this catalog (7.5.2025) version  3.2.4
   "@ax/st-lang-contrib-xlad": 1.2.0                               # @ax/simatic-ax@2504.0.0  contained at the time of creation this catalog (7.5.2025) version  1.2.0
   "@ax/st-ls": 10.0.85		                                        # @ax/simatic-ax@2504.0.0  contained at the time of creation this catalog (7.5.2025) version  10.0.85
   "@ax/st-opcua.stc-plugin": 1.0.0                                # @ax/simatic-ax@2504.0.0  contained at the time of creation this catalog (7.5.2025) version  1.0.0
