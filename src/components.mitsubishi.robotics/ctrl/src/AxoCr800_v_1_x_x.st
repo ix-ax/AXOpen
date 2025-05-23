@@ -111,21 +111,6 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
             HardwareDiagnosticsTask :   AXOpen.Io.AxoHardwareDiagnostics;
         END_VAR
 
-                // Temporary workaround due to hwc station number issue
-        {attribute 'obsolete' := 'This method is(will be) deprecated after releasing hwc3.1.0. Use Run(parent,hwID) instead.'}
-        METHOD PUBLIC Run
-            VAR_INPUT
-                parent              : IAxoObject;
-                hwID                :   WORD;
-                hwIdInOut_64_byte   :   WORD;
-            END_VAR
-            _hwID               := hwID;
-            _hwIdInOut_64_byte  := hwIdInOut_64_byte;
-  
-            _initHwCheckDone := TRUE;
-            THIS.Run(parent,_hwID);
-      END_METHOD
-
         ///<summary>
         /// Runs tasks and logic of this component.
         /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
@@ -162,6 +147,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
 
                 //******************Slot 1*****************//
                 _geoAddr.Slot   :=  UINT#1;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdInOut_64_byte :=  TO_WORD(_outHwid);                                         
                 IF _hwIdInOut_64_byte = WORD#0 THEN
