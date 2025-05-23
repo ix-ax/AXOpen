@@ -227,50 +227,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             TaskMessenger      :   AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
 
-        // Temporary workaround due to hwc station number issue
-        METHOD PUBLIC Run
-            VAR_INPUT
-                parent                                          :   IAxoObject; 
-                ResultDataSize                                  :   eAxo_SR_750_ResultDataSize;
-                UserDataSize                                    :   eAxo_SR_750_UserDataSize;
-                hwID                                            :   WORD;
-                hwIdHandshakeAndGeneralErrorStatus              :   WORD;
-                hwIdBUSY_Status                                 :   WORD;
-                hwIdCompletionStatus                            :   WORD;
-                hwIdErrorStatus                                 :   WORD;
-                hwIdTerminalStatus                              :   WORD;
-                hwIdUnstableReadStatus                          :   WORD;
-                hwIdMatchingLevelAndTotalEvaluationGradeStatus  :   WORD;
-                hwIdOperationalResultStatus                     :   WORD;
-                hwIdReadData                                    :   WORD;
-                hwIdLatchAndErrorClearControl                   :   WORD;
-                hwIdOperationInstructionControl                 :   WORD;
-                hwIdCompletionClearControl                      :   WORD;
-                hwIdParameterBankNumber                         :   WORD;
-                hwIdUserData                                    :   WORD;
-            END_VAR
-
-            Config.ResultDataSize                               :=  ResultDataSize;
-            Config.UserDataSize                                 :=  UserDataSize;
-            _hwID                                               :=  hwID;
-            _hwIdHandshakeAndGeneralErrorStatus                 :=  hwIdHandshakeAndGeneralErrorStatus;
-            _hwIdBUSY_Status                                    :=  hwIdBUSY_Status;
-            _hwIdCompletionStatus                               :=  hwIdCompletionStatus;
-            _hwIdErrorStatus                                    :=  hwIdErrorStatus;
-            _hwIdTerminalStatus                                 :=  hwIdTerminalStatus;
-            _hwIdUnstableReadStatus                             :=  hwIdUnstableReadStatus;
-            _hwIdMatchingLevelAndTotalEvaluationGradeStatus     :=  hwIdMatchingLevelAndTotalEvaluationGradeStatus;
-            _hwIdOperationalResultStatus                        :=  hwIdOperationalResultStatus;
-            _hwIdReadData                                       :=  hwIdReadData;
-            _hwIdLatchAndErrorClearControl                      :=  hwIdLatchAndErrorClearControl;
-            _hwIdOperationInstructionControl                    :=  hwIdOperationInstructionControl;
-            _hwIdCompletionClearControl                         :=  hwIdCompletionClearControl;
-            _hwIdParameterBankNumber                            :=  hwIdParameterBankNumber;
-            _hwIdUserData                                       :=  hwIdUserData;
-            _initHwCheckDone    :=  TRUE;
-            THIS.Run(parent,hwID);
-        END_METHOD
-
         ///<summary>
         /// Runs tasks and logic of this component.
         /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
@@ -309,6 +265,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 END_IF;
                 //******************Slot 1*****************//
                 _geoAddr.Slot   :=  UINT#1;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdHandshakeAndGeneralErrorStatus :=  TO_WORD(_outHwid);                                         
                 IF _hwIdHandshakeAndGeneralErrorStatus = WORD#0 THEN
@@ -349,6 +306,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 END_IF;
                 //******************Slot 2*****************//
                 _geoAddr.Slot   :=  UINT#2;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdBUSY_Status :=  TO_WORD(_outHwid);                                         
                 IF _hwIdBUSY_Status = WORD#0 THEN
@@ -389,6 +347,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 END_IF;
                 //******************Slot 3*****************//
                 _geoAddr.Slot   :=  UINT#3;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdCompletionStatus :=  TO_WORD(_outHwid);                                         
                 IF _hwIdCompletionStatus = WORD#0 THEN
@@ -429,6 +388,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 END_IF;
                 //******************Slot 4*****************//
                 _geoAddr.Slot   :=  UINT#4;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdErrorStatus :=  TO_WORD(_outHwid);                                         
                 IF _hwIdErrorStatus = WORD#0 THEN
@@ -469,6 +429,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 END_IF;
                 //******************Slot 5*****************//
                 _geoAddr.Slot   :=  UINT#5;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdTerminalStatus :=  TO_WORD(_outHwid);                                         
                 IF _hwIdTerminalStatus = WORD#0 THEN
@@ -509,6 +470,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 END_IF;
                 //******************Slot 6*****************//
                 _geoAddr.Slot   :=  UINT#6;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdUnstableReadStatus :=  TO_WORD(_outHwid);                                         
                 IF _hwIdUnstableReadStatus = WORD#0 THEN
@@ -549,6 +511,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 END_IF;
                 //******************Slot 7*****************//
                 _geoAddr.Slot   :=  UINT#7;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdMatchingLevelAndTotalEvaluationGradeStatus :=  TO_WORD(_outHwid);                                         
                 IF _hwIdMatchingLevelAndTotalEvaluationGradeStatus = WORD#0 THEN
@@ -589,6 +552,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 END_IF;
                 //******************Slot 8*****************//
                 _geoAddr.Slot   :=  UINT#8;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdOperationalResultStatus :=  TO_WORD(_outHwid);                                         
                 IF _hwIdOperationalResultStatus = WORD#0 THEN
@@ -629,6 +593,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 END_IF;
                 //******************Slot 9*****************//
                 _geoAddr.Slot   :=  UINT#9;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdReadData :=  TO_WORD(_outHwid);
                 IF _hwIdReadData = WORD#0 THEN
@@ -678,6 +643,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 END_IF;
                 //******************Slot 10*****************//
                 _geoAddr.Slot   :=  UINT#10;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdLatchAndErrorClearControl :=  TO_WORD(_outHwid);                                         
                 IF _hwIdLatchAndErrorClearControl = WORD#0 THEN
@@ -718,6 +684,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 END_IF;
                 //******************Slot 11*****************//
                 _geoAddr.Slot   :=  UINT#11;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdOperationInstructionControl :=  TO_WORD(_outHwid);                                         
                 IF _hwIdOperationInstructionControl = WORD#0 THEN
@@ -758,6 +725,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 END_IF;
                 //******************Slot 12*****************//
                 _geoAddr.Slot   :=  UINT#12;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdCompletionClearControl :=  TO_WORD(_outHwid);                                         
                 IF _hwIdCompletionClearControl = WORD#0 THEN
@@ -798,6 +766,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 END_IF;
                 //******************Slot 13*****************//
                 _geoAddr.Slot   :=  UINT#13;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdParameterBankNumber :=  TO_WORD(_outHwid);                                         
                 IF _hwIdParameterBankNumber = WORD#0 THEN
@@ -838,6 +807,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 END_IF;
                 //******************Slot 14*****************//
                 _geoAddr.Slot   :=  UINT#14;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdUserData :=  TO_WORD(_outHwid);                                         
                 IF _hwIdUserData = WORD#0 THEN
@@ -885,22 +855,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     Status.Error.Id := UINT#846;
                     RETURN;
                 END_IF;
-
-                // _hwID                                            :=  hwID;
-                // _hwIdHandshakeAndGeneralErrorStatus              :=  hwIdHandshakeAndGeneralErrorStatus;
-                // _hwIdBUSY_Status                                 :=  hwIdBUSY_Status;
-                // _hwIdCompletionStatus                            :=  hwIdCompletionStatus;
-                // _hwIdErrorStatus                                 :=  hwIdErrorStatus;
-                // _hwIdTerminalStatus                              :=  hwIdTerminalStatus;
-                // _hwIdUnstableReadStatus                          :=  hwIdUnstableReadStatus;
-                // _hwIdMatchingLevelAndTotalEvaluationGradeStatus  :=  hwIdMatchingLevelAndTotalEvaluationGradeStatus;
-                // _hwIdOperationalResultStatus                     :=  hwIdOperationalResultStatus;
-                // _hwIdReadData                                    :=  hwIdReadData;
-                // _hwIdLatchAndErrorClearControl                   :=  hwIdLatchAndErrorClearControl;
-                // _hwIdOperationInstructionControl                 :=  hwIdOperationInstructionControl;
-                // _hwIdCompletionClearControl                      :=  hwIdCompletionClearControl;
-                // _hwIdParameterBankNumber                         :=  hwIdParameterBankNumber;
-                // _hwIdUserData                                    :=  hwIdUserData;
 
                 IF parent = NULL THEN
                     Messenger.Activate(UINT#1130,eAxoMessageCategory#Error);
