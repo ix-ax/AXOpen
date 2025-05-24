@@ -50,29 +50,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _outputsCount           :   UINT; 
         END_VAR
 
-        // Temporary workaround due to hwc station number issue
-        {attribute 'obsolete' := 'This method is(will be) deprecated after releasing hwc3.1.0. Use Run(parent,hwID) instead.'}
-        METHOD PUBLIC Run
-            VAR_INPUT
-                parent              :   IAxoObject; 
-                hwID                :   WORD;
-                hwIdParamCh_IDN     :   WORD;
-                hwIdInput_9_Words   :   WORD;
-                hwIdOutput_13_Words :   WORD;
-                Enable              :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
-                EnablePositive      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
-                EnableNegative      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
-            END_VAR
-            _AxisRefExt.Data.hwID                := hwID;
-            _AxisRefExt.Data.hwIdParamCh_IDN     := hwIdParamCh_IDN;
-            _AxisRefExt.Data.hwIdInput_9_Words   := hwIdInput_9_Words;
-            _AxisRefExt.Data.hwIdOutput_13_Words := hwIdOutput_13_Words;
-
-            _initHwCheckDone := TRUE;
-            THIS.Run(parent, _AxisRefExt.Data.hwID,Enable,EnablePositive,EnableNegative);
-
-        END_METHOD
-    
         ///<summary>
         /// Runs tasks and logic of this component.
         /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
@@ -111,6 +88,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
    
                 //******************Slot 1*****************//
                 _geoAddr.Slot   :=  UINT#1;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _AxisRefExt.Data.hwIdParamCh_IDN  :=  TO_WORD(_outHwid);                                         
                 IF _AxisRefExt.Data.hwIdParamCh_IDN  = WORD#0 THEN
@@ -151,6 +129,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 //******************Slot 2*****************//
                 _geoAddr.Slot   :=  UINT#2;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwID_F_ModulNotUsed :=  TO_WORD(_outHwid);                                         
                 IF _hwID_F_ModulNotUsed = WORD#0 THEN
@@ -191,6 +170,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;  
                 //******************Slot 3*****************//
                 _geoAddr.Slot   :=  UINT#3;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _AxisRefExt.Data.hwIdInput_9_Words  :=  TO_WORD(_outHwid);                                         
                 IF _AxisRefExt.Data.hwIdInput_9_Words  = WORD#0 THEN
@@ -231,6 +211,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 //******************Slot 4*****************//
                 _geoAddr.Slot   :=  UINT#4;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _AxisRefExt.Data.hwIdOutput_13_Words  :=  TO_WORD(_outHwid);                                         
                 IF _AxisRefExt.Data.hwIdOutput_13_Words  = WORD#0 THEN

@@ -1,8 +1,8 @@
-﻿name: "axopen.integrations"
+name: "axopen.integrations"
 version: '0.0.0-dev.0'
 type: app
 targets:
-  # - llvm
+  - llvm
   - "1500"
 variables:
   APAX_BUILD_ARGS:
@@ -27,7 +27,6 @@ dependencies:
   "@inxton/axopen.data": '0.0.0-dev.0'
   "@inxton/axopen.probers": '0.0.0-dev.0'
   "@inxton/axopen.simatic1500": '0.0.0-dev.0'
-  "@inxton/axopen.components.cognex.vision": '0.0.0-dev.0'
   "@inxton/ax.axopen.app": '0.0.0-dev.0'
 installStrategy: strict
 apaxVersion: 3.5.0
@@ -172,8 +171,3 @@ scripts:
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ibt' Finished in :" $(expr $(date +%s) - $START) "s"
   mm: |
     apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
-
-
-
-
-

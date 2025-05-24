@@ -130,42 +130,6 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             RebootControllerTask : AxoRemoteTask ;            
         END_VAR
 
-        ///<summary>
-        /// Runs tasks and logic of this component.
-        /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
-        ///</summary>
-        METHOD PUBLIC Run
-            VAR_INPUT
-                parent                                                  : IAxoObject;
-                hwID                                                    : WORD;
-                hwIdAxoUrRobotics_T2O_State                             : WORD;
-                hwIdAxoUrRobotics_T2O_IO                                : WORD;
-                hwIdAxoUrRobotics_T2O_Joints                            : WORD;
-                hwIdAxoUrRobotics_T2O_TCP                               : WORD;
-                hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers     : WORD;
-                hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers     : WORD;
-                hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers   : WORD;
-                hwIdAxoUrRobotics_O2T_Robot_IO                          : WORD;
-                hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1       : WORD;
-                hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2       : WORD;
-                refPowerOnPulse                                         : REF_TO BOOL;
-            END_VAR
-            _hwID                                                    := hwID                                                    ;
-            _hwIdAxoUrRobotics_T2O_State                             := hwIdAxoUrRobotics_T2O_State                             ;
-            _hwIdAxoUrRobotics_T2O_IO                                := hwIdAxoUrRobotics_T2O_IO                                ;
-            _hwIdAxoUrRobotics_T2O_Joints                            := hwIdAxoUrRobotics_T2O_Joints                            ;
-            _hwIdAxoUrRobotics_T2O_TCP                               := hwIdAxoUrRobotics_T2O_TCP                               ;
-            _hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers     := hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers     ;
-            _hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers     := hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers     ;
-            _hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers   := hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers   ;
-            _hwIdAxoUrRobotics_O2T_Robot_IO                          := hwIdAxoUrRobotics_O2T_Robot_IO                          ;
-            _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1       := hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1       ;
-            _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2       := hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2       ;
-
-            _initHwCheckDone := TRUE;
-            THIS.Run(parent,_hwID,refPowerOnPulse);
-
-        END_METHOD
 
         ///<summary>
         /// Runs tasks and logic of this component.
@@ -212,6 +176,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
 
                 //******************Slot 1*****************//
                 _geoAddr.Slot   :=  UINT#1;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdAxoUrRobotics_T2O_State :=  TO_WORD(_outHwid);                                         
                 IF _hwIdAxoUrRobotics_T2O_State = WORD#0 THEN
@@ -252,6 +217,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 END_IF;
                 //******************Slot 2*****************//
                 _geoAddr.Slot   :=  UINT#2;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdAxoUrRobotics_T2O_IO :=  TO_WORD(_outHwid);                                         
                 IF _hwIdAxoUrRobotics_T2O_IO = WORD#0 THEN
@@ -292,6 +258,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 END_IF;
                 //******************Slot 3*****************//
                 _geoAddr.Slot   :=  UINT#3;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdAxoUrRobotics_T2O_Joints :=  TO_WORD(_outHwid);                                         
                 IF _hwIdAxoUrRobotics_T2O_Joints = WORD#0 THEN
@@ -332,6 +299,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 END_IF;
                 //******************Slot 4*****************//
                 _geoAddr.Slot   :=  UINT#4;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdAxoUrRobotics_T2O_TCP :=  TO_WORD(_outHwid);                                         
                 IF _hwIdAxoUrRobotics_T2O_TCP = WORD#0 THEN
@@ -372,6 +340,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 END_IF;
                 //******************Slot 5*****************//
                 _geoAddr.Slot   :=  UINT#5;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers :=  TO_WORD(_outHwid);                                         
                 IF _hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers = WORD#0 THEN
@@ -412,6 +381,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 END_IF;
                 //******************Slot 6*****************//
                 _geoAddr.Slot   :=  UINT#6;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers :=  TO_WORD(_outHwid);                                         
                 IF _hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers = WORD#0 THEN
@@ -452,6 +422,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 END_IF;
                 //******************Slot 7*****************//
                 _geoAddr.Slot   :=  UINT#7;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers :=  TO_WORD(_outHwid);                                         
                 IF _hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers = WORD#0 THEN
@@ -492,6 +463,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 END_IF;
                 //******************Slot 8*****************//
                 _geoAddr.Slot   :=  UINT#8;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdAxoUrRobotics_O2T_Robot_IO :=  TO_WORD(_outHwid);                                         
                 IF _hwIdAxoUrRobotics_O2T_Robot_IO = WORD#0 THEN
@@ -532,6 +504,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 END_IF;
                 //******************Slot 9*****************//
                 _geoAddr.Slot   :=  UINT#9;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 :=  TO_WORD(_outHwid);                                         
                 IF _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 = WORD#0 THEN
@@ -572,6 +545,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 END_IF;
                 //******************Slot 10*****************//
                 _geoAddr.Slot   :=  UINT#10;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
                 _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 :=  TO_WORD(_outHwid);                                         
                 IF _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 = WORD#0 THEN
