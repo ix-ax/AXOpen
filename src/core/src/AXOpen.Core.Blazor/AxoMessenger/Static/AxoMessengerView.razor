@@ -1,12 +1,13 @@
 ﻿@namespace AXOpen.Messaging.Static
 @using AXSharp.Connector;
 @using Microsoft.AspNetCore.Components.Authorization
+@using Operon.Components.Accordion
 @inherits RenderableComplexComponentBase<AxoMessenger>
 @implements IDisposable;
 
 <tr class="@TableRowBackgroundColor">
     <th scope="row">@Component.GetParent()?.AttributeName</th>
-    @if (!ShowHelpText )
+    @if (!ShowHelpText)
     {
         <td>
             <span class="@(IsActive ? "fw-bold" : "") @(AcknowledgedBeforeFallen ? "line-through" : "")">
@@ -36,7 +37,7 @@
                 </button>
             </Authorized>
         </AuthorizeView>
-        
+
     </td>
     <td style="font-size: 0.55em; margin-top: 0.15em;">
         <button class="btn @AckBtnBackgroundColor equal-button" type="button" @onclick="@HelpTextTask" hidden="@HideHelpButton">
@@ -51,13 +52,18 @@
 </tr>
 
 <tr class="@TableRowBackgroundColor">
-    <td colspan="3" style="font-size: 0.65em; margin-top: 0.25em;">
-        @Symbol
-    </td>
-    <td style="font-size: 0.55em; margin-top: 0.15em;">@Risen</td>
-    <td style="font-size: 0.55em; margin-top: 0.15em;">@Fallen</td>
-    <td style="font-size: 0.55em; margin-top: 0.15em;">@Acknowledged</td>
-    
+    <Accordion>
+        <AccordionItem Title="@Component.GetParent()?.AttributeName">
+            <td colspan="3" style="font-size: 0.65em; margin-top: 0.25em;">
+                @Symbol
+            </td>
+            <td style="font-size: 0.55em; margin-top: 0.15em;">@Risen</td>
+            <td style="font-size: 0.55em; margin-top: 0.15em;">@Fallen</td>
+            <td style="font-size: 0.55em; margin-top: 0.15em;">@Acknowledged</td>
+        </AccordionItem>
+    </Accordion>
+  
+
 </tr>
 
 @code
