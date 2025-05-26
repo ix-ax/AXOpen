@@ -31,7 +31,10 @@ NAMESPACE AXOpen.Components.Abb.Robotics
         END_VAR
 
         VAR PUBLIC //HEADER
-                    
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-set:AttributeName = "<#Progress#>"}
+            Progress : INT;                    
         END_VAR
 
         VAR PUBLIC //Tasks
@@ -108,13 +111,13 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Inputs#>"}
-            {#ix-attr:[ReadOnly()]}
+//            {#ix-attr:[ReadOnly()]}           TODO uncomment this after debugging is finished
             Inputs              :   AxoAbbRobotics_State_v_1_x_x;
             {#ix-attr:[ComponentDetails("Hardware signals")]}
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Outputs#>"}
-            {#ix-attr:[ReadOnly()]}
+//            {#ix-attr:[ReadOnly()]}           TODO uncomment this after debugging is finished
             Outputs              :   AxoAbbRobotics_Control_v_1_x_x;
         END_VAR    
 
@@ -124,24 +127,6 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             {#ix-set:AttributeName = "<#Update diagnostics#>"}
             HardwareDiagnosticsTask :   AXOpen.Io.AxoHardwareDiagnostics;
         END_VAR
-
-        // // Temporary workaround due to hwc station number issue
-        // {attribute 'obsolete' := 'This method is(will be) deprecated after releasing hwc3.1.0. Use Run(parent,hwID) instead.'}
-        // METHOD PUBLIC Run
-        //     VAR_INPUT
-        //         parent : IAxoObject;
-        //         hwID            :   WORD;   
-        //         hwIdDI_64_bytes :   WORD;   //  Hardware Id of the input data of the robot
-        //         hwIdDO_64_bytes :   WORD;   //  Hardware Id of the output data of the robot
-        //     END_VAR
-        //     _hwID                           :=  hwID;
-        //     _hwIdDI_64_bytes                :=  hwIdDI_64_bytes;
-        //     _hwIdDO_64_bytes                :=  hwIdDO_64_bytes;
-
-        //     _initHwCheckDone    :=  TRUE;
-        //     THIS.Run(parent,hwID);
-        // END_METHOD
-
 
         ///<summary>
         /// Runs tasks and logic of this component.
@@ -160,6 +145,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 _geoAddr                :   GeoAddr;
                 _outHwid                :   UINT;
             END_VAR
+
+            Progress := _progress;
 
             SUPER.Run(parent);
 
@@ -467,16 +454,19 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     _progress := 300;
                 END_IF;
                 
+
                 IF _progress = 300 THEN  
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#500, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#500;
                     END_IF;
+                    Outputs.ActionNo := BYTE#255;
 
                     Outputs.StartAtMain := _blink.output;
                             
                     IF Inputs.PpMoved  THEN
                         THIS.CallTimers(FALSE);
+                        Outputs.ActionNo := BYTE#0;
                         Outputs.StartAtMain :=FALSE;
                         _progress:=301;                    
                     END_IF;
@@ -1658,11 +1648,11 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             _data[19]            := _dword.%B0;
 
             ////Coordinates
-            _dword               := TO_DWORD((Outputs.Coordinates.X +REAL#10000.0)*REAL#10000.0);
-            _data[20]            := _dword.%B3;
-            _data[21]            := _dword.%B2;
-            _data[22]            := _dword.%B1;
-            _data[23]            := _dword.%B0;
+            _dword               := TO_DWORD((Outputs.Coordinates.X + REAL#10000.0)*REAL#10000.0);
+            _data[20]            := _dword.%B0;
+            _data[21]            := _dword.%B1;
+            _data[22]            := _dword.%B2;
+            _data[23]            := _dword.%B3;
 
             _dword               := TO_DWORD((Outputs.Coordinates.Y +REAL#10000.0)*REAL#10000.0);
             _data[24]            := _dword.%B3;
