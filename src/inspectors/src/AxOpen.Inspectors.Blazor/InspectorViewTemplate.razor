@@ -3,13 +3,13 @@
 
 <div class="accordion my-3">
     <div class="accordion-item">
-        <div class="accordion-header" style="border-bottom: 1px solid #dee2e6">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#@ID" aria-expanded="false" aria-controls="@ID">
+            <button class="accordion-button @(_accordionOpen ? "accordion-button-active" : null)" type="button" @onclick="() => _accordionOpen = !_accordionOpen">
                 @Name
+                <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 accordion-button-icon " + (_accordionOpen ? "open" : null))" />
             </button>
-        </div>
-
-        <div class="accordion-body d-flex flex-wrap">
+        @if (_accordionOpen)
+    {
+        <div class="accordion-body flex flex-wrap">
             @if (IsAnalogInspectorData())
             {
 
@@ -52,6 +52,7 @@
             </div>
 
         </div>
+        }
 
         <div class="p-2">
 
@@ -61,12 +62,12 @@
             }
         </div>
 
-
-        <div id="@ID" class="accordion-collapse collapse">
+        @if (_accordionOpen)
+    {
             <div class="accordion-body">
                 <GenericInspectorDataView Data="@Data" Presentation="@Presentation" />
             </div>
-        </div>
+    }
     </div>
 </div>
 
@@ -93,7 +94,7 @@
         }
     }
 
-    private string ID = "M" + Guid.NewGuid().ToString();
+    private bool _accordionOpen { get; set; } = false;
 
     private bool IsAnalogInspectorData() => Data is AxoAnalogueInspectorData ? true : false;
     private bool IsDigitalInspectorData() => Data is AxoDigitalInspectorData ? true : false;

@@ -4,10 +4,6 @@
 @inherits RenderableComplexComponentBase<AxoInspector>
 
 <p type="button" class="btn btn-outline-primary"
-        data-bs-toggle="tooltip" 
-        data-bs-placement="top"
-        data-bs-custom-class="custom-tooltip"
-        data-bs-title="@Component.HumanReadable"
         @onclick="SetCurrentObject">
     @Component.AttributeName
     <GenericIconView Result="Data.Result.LastValue" HasLabel="false" />

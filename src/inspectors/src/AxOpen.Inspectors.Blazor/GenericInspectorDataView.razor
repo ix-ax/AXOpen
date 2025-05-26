@@ -2,10 +2,10 @@
 
 
 
-<div class="row">
+<div class="flex">
     @if (Presentation != "ShadowControl")
     {
-        <div class="col-md me-2">
+        <div class="me-2">
 
         @if(Presentation == "ShadowDisplay")
         {
@@ -20,12 +20,12 @@
 
     </div>
     }
-    <div class="col-md mx-2">
+    <div class="mx-2">
      
         <RenderableContentControl Context="@Data.FailTime" Presentation="@Presentation" />
         <RenderableContentControl Context="@Data.PassTime" Presentation="@Presentation" />
     </div>
-    <div class="col-md ms-2">
+    <div class="ms-2">
         <RenderableContentControl Context="@Data.NumberOfAllowedRetries" Presentation="@Presentation" />
         @if (Presentation != "ShadowControl")
         {
