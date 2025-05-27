@@ -27,7 +27,12 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             _inputsAddress          :   UDINT;   
             _inputsCount            :   UINT;
             _outputsAddress         :   UDINT;  
-            _outputsCount           :   UINT;             
+            _outputsCount           :   UINT;            
+            
+            _real: REAL;
+            _dint: DINT;
+            _dword2: DWORD;
+
         END_VAR
 
         VAR PUBLIC //HEADER
@@ -111,13 +116,13 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Inputs#>"}
-//            {#ix-attr:[ReadOnly()]}           TODO uncomment this after debugging is finished
+            {#ix-attr:[ReadOnly()]}
             Inputs              :   AxoAbbRobotics_State_v_1_x_x;
             {#ix-attr:[ComponentDetails("Hardware signals")]}
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Outputs#>"}
-//            {#ix-attr:[ReadOnly()]}           TODO uncomment this after debugging is finished
+            {#ix-attr:[ReadOnly()]} 
             Outputs              :   AxoAbbRobotics_Control_v_1_x_x;
         END_VAR    
 
@@ -352,58 +357,58 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             Inputs.WorkobjectNo             := _data[10];
             Inputs.PointNo                  := _data[11];
 
-            _dword.%B3                      := _data[12];
-            _dword.%B2                      := _data[13];
-            _dword.%B1                      := _data[14];
-            _dword.%B0                      := _data[15];
+            _dword.%B0                      := _data[12];
+            _dword.%B1                      := _data[13];
+            _dword.%B2                      := _data[14];
+            _dword.%B3                      := _data[15];
             Inputs.UserSpecSpeed1           := TO_DINT(_dword);
 
-            _dword.%B3                      := _data[16];
-            _dword.%B2                      := _data[17];
-            _dword.%B1                      := _data[18];
-            _dword.%B0                      := _data[19];
+            _dword.%B0                      := _data[16];
+            _dword.%B1                      := _data[17];
+            _dword.%B2                      := _data[18];
+            _dword.%B3                      := _data[19];
             Inputs.UserSpecSpeed2           := TO_DINT(_dword);
 
-            _dword.%B3                      := _data[20];
-            _dword.%B2                      := _data[21];
-            _dword.%B1                      := _data[22];
-            _dword.%B0                      := _data[23];
-            Inputs.Coordinates.X:= TO_REAL(_dword)/REAL#10000.0-REAL#10000.0;
+            _dword.%B0                      := _data[20];
+            _dword.%B1                      := _data[21];
+            _dword.%B2                      := _data[22];
+            _dword.%B3                      := _data[23];
+            Inputs.Coordinates.X:= TO_REAL(TO_DINT(_dword))/REAL#10000.0-REAL#10000.0;
 
-            _dword.%B3                      := _data[24];
-            _dword.%B2                      := _data[25];
-            _dword.%B1                      := _data[26];
-            _dword.%B0                      := _data[27];
-            Inputs.Coordinates.Y:= TO_REAL(_dword)/REAL#10000.0-REAL#10000.0;
+            _dword.%B0                      := _data[24];
+            _dword.%B1                      := _data[25];
+            _dword.%B2                      := _data[26];
+            _dword.%B3                      := _data[27];
+            Inputs.Coordinates.Y:= TO_REAL(TO_DINT(_dword))/REAL#10000.0-REAL#10000.0;
 
-            _dword.%B3                      := _data[28];
-            _dword.%B2                      := _data[29];
-            _dword.%B1                      := _data[30];
-            _dword.%B0                      := _data[31];
-            Inputs.Coordinates.Z:= TO_REAL(_dword)/REAL#10000.0-REAL#10000.0;
+            _dword.%B0                      := _data[28];
+            _dword.%B1                      := _data[29];
+            _dword.%B2                      := _data[30];
+            _dword.%B3                      := _data[31];
+            Inputs.Coordinates.Z:= TO_REAL(TO_DINT(_dword))/REAL#10000.0-REAL#10000.0;
 
-            _dword.%B3                      := _data[32];
-            _dword.%B2                      := _data[33];
-            _dword.%B1                      := _data[34];
-            _dword.%B0                      := _data[35];
-            Inputs.Coordinates.Rx:= TO_REAL(_dword)/REAL#10000.0-REAL#360.0;
+            _dword.%B0                      := _data[32];
+            _dword.%B1                      := _data[33];
+            _dword.%B2                      := _data[34];
+            _dword.%B3                      := _data[35];
+            Inputs.Coordinates.Rx:= TO_REAL(TO_DINT(_dword))/REAL#10000.0-REAL#360.0;
 
-            _dword.%B3                      := _data[36];
-            _dword.%B2                      := _data[37];
-            _dword.%B1                      := _data[39];
-            _dword.%B0                      := _data[39];
-            Inputs.Coordinates.Ry:= TO_REAL(_dword)/REAL#10000.0-REAL#360.0;
+            _dword.%B0                      := _data[36];
+            _dword.%B1                      := _data[37];
+            _dword.%B2                      := _data[38];
+            _dword.%B3                      := _data[39];
+            Inputs.Coordinates.Ry:= TO_REAL(TO_DINT(_dword))/REAL#10000.0-REAL#360.0;
 
-            _dword.%B3                      := _data[40];
-            _dword.%B2                      := _data[41];
-            _dword.%B1                      := _data[42];
-            _dword.%B0                      := _data[43];
-            Inputs.Coordinates.Rz:= TO_REAL(_dword)/REAL#10000.0-REAL#360.0;
+            _dword.%B0                      := _data[40];
+            _dword.%B1                      := _data[41];
+            _dword.%B2                      := _data[42];
+            _dword.%B3                      := _data[43];
+            Inputs.Coordinates.Rz:= TO_REAL(TO_DINT(_dword))/REAL#10000.0-REAL#360.0;
 
-            _dword.%B3                      := _data[44];
-            _dword.%B2                      := _data[45];
-            _dword.%B1                      := _data[46];
-            _dword.%B0                      := _data[47];
+            _dword.%B0                      := _data[44];
+            _dword.%B1                      := _data[45];
+            _dword.%B2                      := _data[46];
+            _dword.%B3                      := _data[47];
             Inputs.EventId                  := TO_UDINT(_dword);
             //*******************************************
             _context := THIS.GetContext();
@@ -706,7 +711,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     END_IF;
                 END_IF;
               
-                IF _progress = 323 THEN	
+                IF _progress = 323 THEN	//Switching on the motors
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#523, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#523;
@@ -725,7 +730,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     END_IF;
                 END_IF;		
               
-                IF _progress = 324 THEN	
+                IF _progress = 324 THEN	//Switching on the motors	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#524, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#524;
@@ -744,7 +749,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     END_IF;
                 END_IF;	
 
-                IF _progress = 325 THEN	
+                IF _progress = 325 THEN	//Switching on the motors	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#525, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#525;
@@ -764,7 +769,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     END_IF;
                 END_IF;	
 	
-                IF _progress = 326 THEN
+                IF _progress = 326 THEN //Setting the movement parameters
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#526, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#526;
@@ -786,7 +791,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     END_IF;
                 END_IF;
                 
-                IF _progress = 327 THEN
+                IF _progress = 327 THEN //Waiting for confirmation of the movement parameters
                     IF _infoTimer.output THEN
                         IF Inputs.GlobalSpeed <> Status.CurrentMovementParameters.GlobalSpeed THEN
                             TaskMessenger.Activate( UINT#527, eAxoMessageCategory#Warning);
@@ -826,7 +831,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     END_IF;
                 END_IF;		
 
-                IF _progress = 333 THEN
+                IF _progress = 333 THEN //Acknowledging that the mirrored data are valid
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#533, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#533;
@@ -840,10 +845,13 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     END_IF;
                 END_IF;	
                 
-                IF _progress = 334 THEN
+                IF _progress = 334 THEN //Waiting for the movement finished
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#534, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#534;
+                    END_IF;
+                    IF Status.CurrentMovementParameters.GlobalSpeed > BYTE#0 THEN
+                        _errorTime := Config.ErrorTime * 100.0/TO_REAL(TO_INT(Status.CurrentMovementParameters.GlobalSpeed));
                     END_IF;
 
                     Outputs.ActionNo := Status.CurrentMovementParameters.ActionNo;
@@ -854,7 +862,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     END_IF;
                 END_IF;	
 
-                IF _progress = 335 THEN
+                IF _progress = 335 THEN //Movement finished acknoledgement
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#535, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#535;
@@ -879,11 +887,11 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 Status.Action.Id :=  UINT#121;
                 Status.Error.Id :=  UINT#0;
             ELSIF StartMotorsProgramAndMovementsTask.ErrorOccured() THEN
-                Status.Action.Id :=  UINT#920;
-                Status.Error.Id  :=  UINT#920;
+                Status.Action.Id :=  UINT#10020;
+                Status.Error.Id  :=  UINT#10020;
             ELSIF StartMotorsProgramAndMovementsTask.AbortTriggered() THEN
-                Status.Action.Id :=  UINT#921;
-                Status.Error.Id  :=  UINT#921;
+                Status.Action.Id :=  UINT#10021;
+                Status.Error.Id  :=  UINT#10021;
             END_IF; 
             Messenger.ActivateOnCondition(ULINT#10020,StartMotorsProgramAndMovementsTask.HasError(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#10021,StartMotorsProgramAndMovementsTask.IsAborted(), eAxoMessageCategory#Error);
@@ -953,7 +961,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     END_IF;
                 END_IF;
               
-                IF _progress = 343 THEN	
+                IF _progress = 343 THEN	//Switching on the motors
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#543, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#543;
@@ -972,7 +980,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     END_IF;
                 END_IF;		
 
-                IF _progress = 344 THEN	
+                IF _progress = 344 THEN	//Switching on the motors
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#544, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#544;
@@ -992,7 +1000,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     END_IF;
                 END_IF;		
               
-                IF _progress = 345 THEN	
+                IF _progress = 345 THEN	//Switching on the motors
                     StartMotorsTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
                     _progress := 0;
@@ -1036,19 +1044,19 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     _progress := 350;
                 END_IF;
                 
-                IF _progress = 350 THEN
+                IF _progress = 350 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#550, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#550;
                     END_IF;
 
-                    IF Inputs.CycleOn THEN
+                    IF Inputs.CycleOn THEN //Waiting for the automatic mode
                         THIS.CallTimers(FALSE);
                         _progress := 351;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 351 THEN
+                IF _progress = 351 THEN //Wating for the motors to be switched on
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#551, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#551;
@@ -1060,7 +1068,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     END_IF;
                 END_IF;
 
-                IF _progress = 352 THEN
+                IF _progress = 352 THEN //Waiting for the error reset
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#552, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#552;
@@ -1072,7 +1080,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     END_IF;
                 END_IF;
 
-                IF _progress = 353 THEN
+                IF _progress = 353 THEN //Setting the movement parameters
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#553, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#553;
@@ -1094,7 +1102,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     END_IF;
                 END_IF;
                 
-                IF _progress = 354 THEN
+                IF _progress = 354 THEN //Waiting for confirmation of the movement parameters
                     IF _infoTimer.output THEN
                         IF Inputs.GlobalSpeed <> Status.CurrentMovementParameters.GlobalSpeed THEN
                             TaskMessenger.Activate( UINT#554, eAxoMessageCategory#Warning);
@@ -1134,7 +1142,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     END_IF;
                 END_IF;		
 
-                IF _progress = 360 THEN
+                IF _progress = 360 THEN //Acknowledging that the mirrored data are valid
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#560, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#560;
@@ -1148,21 +1156,24 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     END_IF;
                 END_IF;	
                 
-                IF _progress = 361 THEN
+                IF _progress = 361 THEN  //Waiting for the movement finished
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#561, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#561;
                     END_IF;
-
+                    IF Status.CurrentMovementParameters.GlobalSpeed > BYTE#0 THEN
+                        _errorTime := Config.ErrorTime * 100.0/TO_REAL(TO_INT(Status.CurrentMovementParameters.GlobalSpeed));
+                    END_IF;
+                    
                     Outputs.ActionNo := Status.CurrentMovementParameters.ActionNo;
 
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
                         THIS.CallTimers(FALSE);
-                        _progress:=662;
+                        _progress:=362;
                     END_IF;
                 END_IF;	
 
-                IF _progress = 662 THEN
+                IF _progress = 362 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#562, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#562;
@@ -1171,11 +1182,11 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     Outputs.ActionNo := BYTE#255;
 
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
-                        _progress := 663;
+                        _progress := 363;
                     END_IF;
                 END_IF;	
                 
-                IF _progress = 663 THEN
+                IF _progress = 363 THEN
                     _progress := 0;
                     StartMovementsTask.DoneWhen(TRUE);
                 END_IF;	
@@ -1635,54 +1646,54 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             _data[10]            := Outputs.WorkobjectNo;
             _data[11]            := Outputs.PointNo;
 
-            _dword               := TO_DWORD(Outputs.UserSpecSpeed1);
-            _data[12]            := _dword.%B3;
-            _data[13]            := _dword.%B2;
-            _data[14]            := _dword.%B1;
-            _data[15]            := _dword.%B0;
+            _dword               := TO_DWORD(TO_DINT(Outputs.UserSpecSpeed1));
+            _data[12]            := _dword.%B0;
+            _data[13]            := _dword.%B1;
+            _data[14]            := _dword.%B2;
+            _data[15]            := _dword.%B3;
 
-            _dword               := TO_DWORD(Outputs.UserSpecSpeed2);
-            _data[16]            := _dword.%B3;
-            _data[17]            := _dword.%B2;
-            _data[18]            := _dword.%B1;
-            _data[19]            := _dword.%B0;
+            _dword               := TO_DWORD(TO_DINT(Outputs.UserSpecSpeed2));
+            _data[16]            := _dword.%B0;
+            _data[17]            := _dword.%B1;
+            _data[18]            := _dword.%B2;
+            _data[19]            := _dword.%B3;
 
             ////Coordinates
-            _dword               := TO_DWORD((Outputs.Coordinates.X + REAL#10000.0)*REAL#10000.0);
+            _dword               := TO_DWORD(TO_DINT((Outputs.Coordinates.X + REAL#10000.0)*REAL#10000.0));
             _data[20]            := _dword.%B0;
             _data[21]            := _dword.%B1;
             _data[22]            := _dword.%B2;
             _data[23]            := _dword.%B3;
 
-            _dword               := TO_DWORD((Outputs.Coordinates.Y +REAL#10000.0)*REAL#10000.0);
-            _data[24]            := _dword.%B3;
-            _data[25]            := _dword.%B2;
-            _data[26]            := _dword.%B1;
-            _data[27]            := _dword.%B0;
+            _dword               := TO_DWORD(TO_DINT((Outputs.Coordinates.Y +REAL#10000.0)*REAL#10000.0));
+            _data[24]            := _dword.%B0;
+            _data[25]            := _dword.%B1;
+            _data[26]            := _dword.%B2;
+            _data[27]            := _dword.%B3;
 
-            _dword               := TO_DWORD((Outputs.Coordinates.Z +REAL#10000.0)*REAL#10000.0);
-            _data[28]            := _dword.%B3;
-            _data[29]            := _dword.%B2;
-            _data[30]            := _dword.%B1;
-            _data[31]            := _dword.%B0;
+            _dword               := TO_DWORD(TO_DINT((Outputs.Coordinates.Z +REAL#10000.0)*REAL#10000.0));
+            _data[28]            := _dword.%B0;
+            _data[29]            := _dword.%B1;
+            _data[30]            := _dword.%B2;
+            _data[31]            := _dword.%B3;
 
-            _dword               := TO_DWORD((Outputs.Coordinates.Rx +REAL#360.0)*REAL#10000.0);
-            _data[32]            := _dword.%B3;
-            _data[33]            := _dword.%B2;
-            _data[34]            := _dword.%B1;
-            _data[35]            := _dword.%B0;
+            _dword               := TO_DWORD(TO_DINT((Outputs.Coordinates.Rx +REAL#360.0)*REAL#10000.0));
+            _data[32]            := _dword.%B0;
+            _data[33]            := _dword.%B1;
+            _data[34]            := _dword.%B2;
+            _data[35]            := _dword.%B3;
 
-            _dword               := TO_DWORD((Outputs.Coordinates.Ry +REAL#360.0)*REAL#10000.0);
-            _data[36]            := _dword.%B3;
-            _data[37]            := _dword.%B2;
-            _data[38]            := _dword.%B1;
-            _data[39]            := _dword.%B0;
+            _dword               := TO_DWORD(TO_DINT((Outputs.Coordinates.Ry +REAL#360.0)*REAL#10000.0));
+            _data[36]            := _dword.%B0;
+            _data[37]            := _dword.%B1;
+            _data[38]            := _dword.%B2;
+            _data[39]            := _dword.%B3;
 
-            _dword               := TO_DWORD((Outputs.Coordinates.Rz +REAL#360.0)*REAL#10000.0);
-            _data[40]            := _dword.%B3;
-            _data[41]            := _dword.%B2;
-            _data[42]            := _dword.%B1;
-            _data[43]            := _dword.%B0;
+            _dword               := TO_DWORD(TO_DINT((Outputs.Coordinates.Rz +REAL#360.0)*REAL#10000.0));
+            _data[40]            := _dword.%B0;
+            _data[41]            := _dword.%B1;
+            _data[42]            := _dword.%B2;
+            _data[43]            := _dword.%B3;
 
             _retval := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdDO_64_bytes,_data);
             IF _retval > WORD#0 THEN
