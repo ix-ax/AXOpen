@@ -50,13 +50,13 @@ NAMESPACE AXOpen.Elements
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Inputs#>"}
-            {#ix-attr:[ReadOnly()]}
+            // {#ix-attr:[ReadOnly()]}      //TODO uncomment this after debugging is finished
             Inputs              :   AxoCarousel_State;
             {#ix-attr:[ComponentDetails("Hardware signals")]}
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Outputs#>"}
-            {#ix-attr:[ReadOnly()]}
+            // {#ix-attr:[ReadOnly()]}      //TODO uncomment this after debugging is finished
             Outputs              :   AxoCarousel_Control;
         END_VAR    
 
@@ -381,6 +381,10 @@ NAMESPACE AXOpen.Elements
             InitPositionTask.Restore();
             Status.Action.Id := UINT#50;
             RestoreTask.DoneWhen(TRUE);
+
+            Outputs.EnableTurn  :=  FALSE;
+            Outputs.StartTurn   :=  FALSE;
+
 
         END_METHOD        
 
