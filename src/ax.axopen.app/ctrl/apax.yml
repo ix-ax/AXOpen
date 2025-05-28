@@ -1,4 +1,4 @@
-name: "@inxton/ax.axopen.app"
+﻿name: "@inxton/ax.axopen.app"
 version: '0.0.0-dev.0'
 type: generic
 files:
@@ -6,7 +6,7 @@ files:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.23
+  "@inxton/ax.catalog": 0.0.24
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
@@ -40,3 +40,4 @@ scripts:
     apax clean
     apax icb
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax cicb' Finished in :" $(expr $(date +%s) - $START) "s"
+

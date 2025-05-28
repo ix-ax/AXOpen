@@ -125,42 +125,42 @@ namespace AXOpen.Elements
 
 
                 // TurnTask
-                new KeyValuePair<ulong, AxoMessengerTextItem>(800, new AxoMessengerTextItem("TurnTask finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(801, new AxoMessengerTextItem("TurnTask was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10000, new AxoMessengerTextItem("TurnTask finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10001, new AxoMessengerTextItem("TurnTask was aborted, while not yet completed!","Check the details.")),
                 // InitPositionTask
-                new KeyValuePair<ulong, AxoMessengerTextItem>(810, new AxoMessengerTextItem("InitPositionTask finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(811, new AxoMessengerTextItem("InitPositionTask was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10010, new AxoMessengerTextItem("InitPositionTask finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10011, new AxoMessengerTextItem("InitPositionTask was aborted, while not yet completed!","Check the details.")),
                 // TemplateTask_10steps_3
-                new KeyValuePair<ulong, AxoMessengerTextItem>(820, new AxoMessengerTextItem("TemplateTask_10steps_3 finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(821, new AxoMessengerTextItem("TemplateTask_10steps_3 was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10020, new AxoMessengerTextItem("TemplateTask_10steps_3 finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10021, new AxoMessengerTextItem("TemplateTask_10steps_3 was aborted, while not yet completed!","Check the details.")),
                 // TemplateTask_10steps_4
-                new KeyValuePair<ulong, AxoMessengerTextItem>(830, new AxoMessengerTextItem("TemplateTask_10steps_4 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(831, new AxoMessengerTextItem("TemplateTask_10steps_4 task was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10030, new AxoMessengerTextItem("TemplateTask_10steps_4 task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10031, new AxoMessengerTextItem("TemplateTask_10steps_4 task was aborted, while not yet completed!","Check the details.")),
                 // TemplateTask_10steps_5
-                new KeyValuePair<ulong, AxoMessengerTextItem>(840, new AxoMessengerTextItem("TemplateTask_10steps_5 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(841, new AxoMessengerTextItem("TemplateTask_10steps_5 task was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10040, new AxoMessengerTextItem("TemplateTask_10steps_5 task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10041, new AxoMessengerTextItem("TemplateTask_10steps_5 task was aborted, while not yet completed!","Check the details.")),
                 // TemplateTask_10steps_6
-                new KeyValuePair<ulong, AxoMessengerTextItem>(850, new AxoMessengerTextItem("TemplateTask_10steps_6 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(851, new AxoMessengerTextItem("TemplateTask_10steps_6 task was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10050, new AxoMessengerTextItem("TemplateTask_10steps_6 task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10051, new AxoMessengerTextItem("TemplateTask_10steps_6 task was aborted, while not yet completed!","Check the details.")),
 
                 // TemplateTask_20steps_1
-                new KeyValuePair<ulong, AxoMessengerTextItem>(860, new AxoMessengerTextItem("TemplateTask_20steps_1 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(861, new AxoMessengerTextItem("TemplateTask_20steps_1 task was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10060, new AxoMessengerTextItem("TemplateTask_20steps_1 task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10061, new AxoMessengerTextItem("TemplateTask_20steps_1 task was aborted, while not yet completed!","Check the details.")),
                 // TemplateTask_20steps_2
-                new KeyValuePair<ulong, AxoMessengerTextItem>(880, new AxoMessengerTextItem("TemplateTask_20steps_2 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(881, new AxoMessengerTextItem("TemplateTask_20steps_2 task was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10080, new AxoMessengerTextItem("TemplateTask_20steps_2 task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10081, new AxoMessengerTextItem("TemplateTask_20steps_2 task was aborted, while not yet completed!","Check the details.")),
                 // TemplateTask_20steps_3
-                new KeyValuePair<ulong, AxoMessengerTextItem>(900, new AxoMessengerTextItem("TemplateTask_20steps_3 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(901, new AxoMessengerTextItem("TemplateTask_20steps_3 task was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10100, new AxoMessengerTextItem("TemplateTask_20steps_3 task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10101, new AxoMessengerTextItem("TemplateTask_20steps_3 task was aborted, while not yet completed!","Check the details.")),
                 // TemplateTask_20steps_4
-                new KeyValuePair<ulong, AxoMessengerTextItem>(920, new AxoMessengerTextItem("TemplateTask_20steps_4 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(921, new AxoMessengerTextItem("TemplateTask_20steps_4 task was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10120, new AxoMessengerTextItem("TemplateTask_20steps_4 task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10121, new AxoMessengerTextItem("TemplateTask_20steps_4 task was aborted, while not yet completed!","Check the details.")),
                 // TemplateTask_20steps_5
-                new KeyValuePair<ulong, AxoMessengerTextItem>(940, new AxoMessengerTextItem("TemplateTask_20steps_5 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(941, new AxoMessengerTextItem("TemplateTask_20steps_5 task was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10140, new AxoMessengerTextItem("TemplateTask_20steps_5 task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10141, new AxoMessengerTextItem("TemplateTask_20steps_5 task was aborted, while not yet completed!","Check the details.")),
                 // TemplateTask_20steps_6
-                new KeyValuePair<ulong, AxoMessengerTextItem>(960, new AxoMessengerTextItem("TemplateTask_20steps_6 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(961, new AxoMessengerTextItem("TemplateTask_20steps_6 task was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10160, new AxoMessengerTextItem("TemplateTask_20steps_6 task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10161, new AxoMessengerTextItem("TemplateTask_20steps_6 task was aborted, while not yet completed!","Check the details.")),
 
         };
 
@@ -364,7 +364,11 @@ namespace AXOpen.Elements
                 new KeyValuePair<ulong, AxoMessengerTextItem>(677,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(678,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(679,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-
+                
+                new KeyValuePair<ulong, AxoMessengerTextItem>(703, new AxoMessengerTextItem("Turn table is not in the initial position",                                                    "Move the turn table in the initial position and check the signals of the position sensors.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(704, new AxoMessengerTextItem("Invalid coding, no signal from any coding sensor!",                                            "Check the signals of the coding sensors.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(705, new AxoMessengerTextItem("Invalid coding, current position is greather then maximum!",                                   "Check the signals of the coding sensors, so as the value of 'Config.NumberOfPositions' variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(706, new AxoMessengerTextItem("Invalid coding, unexpected value!",                                                            "Check the signals of the coding sensors.")),
 
 
         };
