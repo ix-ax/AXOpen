@@ -6,23 +6,31 @@ files:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.9
+  "@inxton/ax.catalog": 0.0.23
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
-  "@ax/system-strings": 9.0.12
+  "@ax/system-strings": 10.0.24
 installStrategy: strict
-apaxVersion: 3.4.2
+apaxVersion: 3.5.0
 scripts:
   ib: |
+    START=$(date +%s)
     apax install
     apax build
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ib' Finished in :" $(expr $(date +%s) - $START) "s"
   icb: |
+    START=$(date +%s)
     apax install --catalog
     apax ib
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax icb' Finished in :" $(expr $(date +%s) - $START) "s"
   cib: |
+    START=$(date +%s)
     apax clean
     apax ib
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax cib' Finished in :" $(expr $(date +%s) - $START) "s"
   cicb: |
+    START=$(date +%s)
     apax clean
     apax icb
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax cicb' Finished in :" $(expr $(date +%s) - $START) "s"

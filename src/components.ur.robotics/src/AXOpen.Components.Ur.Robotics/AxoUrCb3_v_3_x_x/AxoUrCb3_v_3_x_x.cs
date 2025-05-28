@@ -72,51 +72,140 @@ namespace AXOpen.Components.Ur.Robotics
                 new KeyValuePair<ulong, AxoMessengerTextItem>(231, new AxoMessengerTextItem("Stop program finished succesfully.",                                                                                                       "")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(232, new AxoMessengerTextItem("Stop program restored.",                                                                                                                   "")),
 
+                //  General alarms
+                new KeyValuePair<ulong, AxoMessengerTextItem>(700, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                                                       ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `hwId` has invalid value in `Run` method!"                                                                                                          ,"Check the call of the `Run` method, if the `hwId` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(702, new AxoMessengerTextItem("Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090)."                                            ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(700, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!",                                                                              "Check the call of the `Run` method, if the `parent` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `hwIdAxoUrRobotics_T2O_State` has invalid valuein `Run` method!",                                                           "Check the call of the `Run` method, if the `hwIdAxoUrRobotics_T2O_State` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(702, new AxoMessengerTextItem("Input variable `hwIdAxoUrRobotics_T2O_IO` has invalid valuein `Run` method!",                                                              "Check the call of the `Run` method, if the `hwIdAxoUrRobotics_T2O_IO` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(703, new AxoMessengerTextItem("Input variable `hwIdAxoUrRobotics_T2O_Joints` has invalid valuein `Run` method!",                                                          "Check the call of the `Run` method, if the `hwIdAxoUrRobotics_T2O_Joints` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(704, new AxoMessengerTextItem("Input variable `hwIdAxoUrRobotics_T2O_TCP` has invalid valuein `Run` method!",                                                             "Check the call of the `Run` method, if the `hwIdAxoUrRobotics_T2O_TCP` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(705, new AxoMessengerTextItem("Input variable `hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers` has invalid valuein `Run` method!",                                   "Check the call of the `Run` method, if the `hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(706, new AxoMessengerTextItem("Input variable `hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers` has invalid valuein `Run` method!",                                   "Check the call of the `Run` method, if the `hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(707, new AxoMessengerTextItem("Input variable `hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers` has invalid valuein `Run` method!",                                 "Check the call of the `Run` method, if the `hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(708, new AxoMessengerTextItem("Input variable `hwIdAxoUrRobotics_O2T_Robot_IO` has invalid valuein `Run` method!",                                                        "Check the call of the `Run` method, if the `hwIdAxoUrRobotics_O2T_Robot_IO` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(709, new AxoMessengerTextItem("Input variable `hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1` has invalid valuein `Run` method!",                                     "Check the call of the `Run` method, if the `hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(710, new AxoMessengerTextItem("Input variable `hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2` has invalid valuein `Run` method!",                                     "Check the call of the `Run` method, if the `hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(711, new AxoMessengerTextItem("Input variable `refPowerOnPulse` has NULL reference in `Run` method!",                                                                     "Check the call of the `Run` method, if the `refPowerOnPulse` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(712, new AxoMessengerTextItem("Error reading the `hwIdAxoUrRobotics_T2O_State` in the Run method!",                                                                       "Check the value of the `hwIdAxoUrRobotics_T2O_State` and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(713, new AxoMessengerTextItem("Error reading the `hwIdAxoUrRobotics_T2O_IO` in the Run method!",                                                                          "Check the value of the `hwIdAxoUrRobotics_T2O_IO` and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(714, new AxoMessengerTextItem("Error reading the `hwIdAxoUrRobotics_T2O_Joints` in the Run method!",                                                                      "Check the value of the `hwIdAxoUrRobotics_T2O_Joints` and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(715, new AxoMessengerTextItem("Error reading the `hwIdAxoUrRobotics_T2O_TCP` in the Run method!",                                                                         "Check the value of the `hwIdAxoUrRobotics_T2O_TCP` and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(716, new AxoMessengerTextItem("Error reading the `hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers` in the Run method!",                                               "Check the value of the `hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers` and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(717, new AxoMessengerTextItem("Error reading the `hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers` in the Run method!",                                               "Check the value of the `hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers` and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(718, new AxoMessengerTextItem("Error reading the `hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers` in the Run method!",                                             "Check the value of the `hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers` and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(719, new AxoMessengerTextItem("Emergency stop active!",                                                                                                                   "")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(720, new AxoMessengerTextItem("Safety Error !",                                                                                                                           "")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(721, new AxoMessengerTextItem("Error writing the `hwIdAxoUrRobotics_O2T_Robot_IO` in the Run method!",                                                                    "Check the value of the `hwIdAxoUrRobotics_O2T_Robot_IO` and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(722, new AxoMessengerTextItem("Error writing the `hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1` in the Run method!",                                                 "Check the value of the `hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1` and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(723, new AxoMessengerTextItem("Error writing the `hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2` in the Run method!",                                                 "Check the value of the `hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2` and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(710, new AxoMessengerTextItem("Hw configuration error. Value of hwIdAxoUrRobotics_T2O_State is zero."                                                                                             ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(711, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(712, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(713, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(714, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 1."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(715, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(716, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 1. Expected module: '1_T2O_State' (GsdId=ID_Mod_11)."                                 ,"Check the hardware configuration.")),
 
+                new KeyValuePair<ulong, AxoMessengerTextItem>(720, new AxoMessengerTextItem("Hw configuration error. Value of hwIdAxoUrRobotics_T2O_IO is zero."                                                                                                ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(721, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(722, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(723, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(724, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 2."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(725, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(726, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 2. Expected module: '2_T2O_IO' (GsdId=ID_Mod_12)."                                    ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(800, new AxoMessengerTextItem("Start at main finished with error!",                                                                                                       "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(801, new AxoMessengerTextItem("Start at main was aborted, while not yet completed!",                                                                                      "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(810, new AxoMessengerTextItem("Start motors and program finished with error!",                                                                                            "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(811, new AxoMessengerTextItem("Start motors and program was aborted, while not yet completed!",                                                                           "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(830, new AxoMessengerTextItem("Start motors program and movements finished with error!",                                                                                  "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(831, new AxoMessengerTextItem("Start motors program and movements was aborted, while not yet completed!",                                                                 "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(860, new AxoMessengerTextItem("Start motors finished with error!",                                                                                                        "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(861, new AxoMessengerTextItem("Start motors was aborted, while not yet completed!",                                                                                       "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(880, new AxoMessengerTextItem("Start movements finished with error!",                                                                                                     "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(881, new AxoMessengerTextItem("Start movements was aborted, while not yet completed!",                                                                                    "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(900, new AxoMessengerTextItem("Start program finished with error!",                                                                                                       "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(901, new AxoMessengerTextItem("Start program was aborted, while not yet completed!",                                                                                      "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(910, new AxoMessengerTextItem("Stop movements and program finished with error!",                                                                                          "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(911, new AxoMessengerTextItem("Stop movements and program was aborted, while not yet completed!",                                                                         "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(920, new AxoMessengerTextItem("Stop movements finished with error!",                                                                                                      "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(921, new AxoMessengerTextItem("Stop movements was aborted, while not yet completed!",                                                                                     "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(930, new AxoMessengerTextItem("Stop program finished with error!",                                                                                                        "Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(931, new AxoMessengerTextItem("Stop program was aborted, while not yet completed!",                                                                                       "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(730, new AxoMessengerTextItem("Hw configuration error. Value of hwIdAxoUrRobotics_T2O_Joints is zero."                                                                                            ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(731, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 3."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(732, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 3."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(733, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 3."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(734, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 3."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(735, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 3."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(736, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 3. Expected module: '3_T2O_Joints' (GsdId=ID_Mod_13)."                                ,"Check the hardware configuration.")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(740, new AxoMessengerTextItem("Hw configuration error. Value of hwIdAxoUrRobotics_T2O_TCP is zero."                                                                                               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(741, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 4."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(742, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 4."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(743, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 4."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(744, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 4."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(745, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 4."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(746, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 4. Expected module: '4_T2O_TCP' (GsdId=ID_Mod_14)."                                   ,"Check the hardware configuration.")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(750, new AxoMessengerTextItem("Hw configuration error. Value of hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers is zero."                                                                     ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(751, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 5."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(752, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 5."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(753, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 5."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(754, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 5."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(755, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 5."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(756, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 5. Expected module: '5_T2O_General_Purpose_Bit_Registers' (GsdId=ID_Mod_15)."         ,"Check the hardware configuration.")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(760, new AxoMessengerTextItem("Hw configuration error. Value of hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers is zero."                                                                     ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(761, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 6."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(762, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 6."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(763, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 6."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(764, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 6."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(765, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 6."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(766, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 6. Expected module: '6_T2O_General_Purpose_Int_Registers' (GsdId=ID_Mod_16)."         ,"Check the hardware configuration.")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(770, new AxoMessengerTextItem("Hw configuration error. Value of hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers is zero."                                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(771, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 7."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(772, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 7."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(773, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 7."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(774, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 7."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(775, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 7."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(776, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 7. Expected module: '7_T2O_General_Purpose_Float_Registers' (GsdId=ID_Mod_17)."       ,"Check the hardware configuration.")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(780, new AxoMessengerTextItem("Hw configuration error. Value of hwIdAxoUrRobotics_O2T_Robot_IO is zero."                                                                                          ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(781, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 8."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(782, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 8."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(783, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 8."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(784, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 8."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(785, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 8."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(786, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 8. Expected module: '8_O2T_Robot_IO' (GsdId=ID_Mod_18)."                              ,"Check the hardware configuration.")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(790, new AxoMessengerTextItem("Hw configuration error. Value of hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 is zero."                                                                       ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(791, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 9."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(792, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 9."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(793, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 9."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(794, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 9."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(795, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 9."                                                   ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(796, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 9. Expected module: '9_O2T_General_Purpose_Registers_1' (GsdId=ID_Mod_19)."           ,"Check the hardware configuration.")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(800, new AxoMessengerTextItem("Hw configuration error. Value of hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 is zero."                                                                       ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(801, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 10."                                                  ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(802, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 10."                                                  ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(803, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 10."                                                  ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(804, new AxoMessengerTextItem("Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 10."                                                  ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(805, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 10."                                                  ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(806, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 10. Expected module: '10_O2T_General_Purpose_Registers_2' (GsdId=ID_Mod_20)."         ,"Check the hardware configuration.")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1130, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                                                      ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1131, new AxoMessengerTextItem("Input variable `hwId` has invalid value in `Run` method!"                                                                                                         ,"Check the call of the `Run` method, if the `hwId` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1132, new AxoMessengerTextItem("Input variable `hwIdAxoUrRobotics_T2O_State` has invalid value in `Run` method!"                                                                                  ,"Check the call of the `Run` method, if the `hwID_in_1` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1133, new AxoMessengerTextItem("Input variable `hwIdAxoUrRobotics_T2O_IO` has invalid value in `Run` method!"                                                                                     ,"Check the call of the `Run` method, if the `hwID_in_2` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1134, new AxoMessengerTextItem("Input variable `hwIdAxoUrRobotics_T2O_Joints` has invalid value in `Run` method!"                                                                                 ,"Check the call of the `Run` method, if the `hwID_in_3` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1135, new AxoMessengerTextItem("Input variable `hwIdAxoUrRobotics_T2O_TCP` has invalid value in `Run` method!"                                                                                    ,"Check the call of the `Run` method, if the `hwID_in_4` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1136, new AxoMessengerTextItem("Input variable `hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers` has invalid value in `Run` method!"                                                          ,"Check the call of the `Run` method, if the `hwID_in_5` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1137, new AxoMessengerTextItem("Input variable `hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers` has invalid value in `Run` method!"                                                          ,"Check the call of the `Run` method, if the `hwID_in_6` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1138, new AxoMessengerTextItem("Input variable `hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers` has invalid value in `Run` method!"                                                        ,"Check the call of the `Run` method, if the `hwID_in_7` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1139, new AxoMessengerTextItem("Input variable `hwIdAxoUrRobotics_O2T_Robot_IO` has invalid value in `Run` method!"                                                                               ,"Check the call of the `Run` method, if the `hwID_in_8` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1140, new AxoMessengerTextItem("Input variable `hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1` has invalid value in `Run` method!"                                                            ,"Check the call of the `Run` method, if the `hwID_in_9` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1141, new AxoMessengerTextItem("Input variable `hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2` has invalid value in `Run` method!"                                                            ,"Check the call of the `Run` method, if the `hwID_in_10` parameter is assigned.")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1201, new AxoMessengerTextItem("Error reading the AxoUrRobotics_T2O_State!"                                                                                                                       ,"Check the value of the _hwIdAxoUrRobotics_T2O_State and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1202, new AxoMessengerTextItem("Error reading the AxoUrRobotics_T2O_IO!"                                                                                                                          ,"Check the value of the _hwIdAxoUrRobotics_T2O_IO and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1203, new AxoMessengerTextItem("Error reading the AxoUrRobotics_T2O_Joints!"                                                                                                                      ,"Check the value of the _hwIdAxoUrRobotics_T2O_Joints and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1204, new AxoMessengerTextItem("Error reading the AxoUrRobotics_T2O_TCP!"                                                                                                                         ,"Check the value of the _hwIdAxoUrRobotics_T2O_TCP and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1205, new AxoMessengerTextItem("Error reading the AxoUrRobotics_T2O_General_Purpose_Bit_Registers!"                                                                                               ,"Check the value of the _hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1206, new AxoMessengerTextItem("Error reading the AxoUrRobotics_T2O_General_Purpose_Int_Registers!"                                                                                               ,"Check the value of the _hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1207, new AxoMessengerTextItem("Error reading the AxoUrRobotics_T2O_General_Purpose_Float_Registers!"                                                                                             ,"Check the value of the _hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1208, new AxoMessengerTextItem("Error reading the AxoUrRobotics_O2T_Robot_IO!"                                                                                                                    ,"Check the value of the _hwIdAxoUrRobotics_O2T_Robot_IO and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1209, new AxoMessengerTextItem("Error reading the AxoUrRobotics_O2T_General_Purpose_Registers_1!"                                                                                                 ,"Check the value of the _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1210, new AxoMessengerTextItem("Error reading the AxoUrRobotics_O2T_General_Purpose_Registers_2!"                                                                                                 ,"Check the value of the _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 and reacheability of the device!")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1231, new AxoMessengerTextItem("Error writing the AxoUrRobotics_O2T_Robot_IO!"                                                                                                                    ,"Check the value of the _hwIdAxoUrRobotics_O2T_Robot_IO and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1232, new AxoMessengerTextItem("Error writing the AxoUrRobotics_O2T_General_Purpose_Registers_1!"                                                                                                 ,"Check the value of the _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1233, new AxoMessengerTextItem("Error writing the AxoUrRobotics_O2T_General_Purpose_Registers_2!"                                                                                                 ,"Check the value of the _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 and reacheability of the device!")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(2000, new AxoMessengerTextItem("Emergency stop active!"                                                                                                                                           ,"")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(2001, new AxoMessengerTextItem("Safety Error !"                                                                                                                                                   ,"")),
+
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10000, new AxoMessengerTextItem("Start at main finished with error!"                                                                                                                              ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10001, new AxoMessengerTextItem("Start at main was aborted, while not yet completed!"                                                                                                             ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10010, new AxoMessengerTextItem("Start motors and program finished with error!"                                                                                                                   ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10011, new AxoMessengerTextItem("Start motors and program was aborted, while not yet completed!"                                                                                                  ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10030, new AxoMessengerTextItem("Start motors program and movements finished with error!"                                                                                                         ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10031, new AxoMessengerTextItem("Start motors program and movements was aborted, while not yet completed!"                                                                                        ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10060, new AxoMessengerTextItem("Start motors finished with error!"                                                                                                                               ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10061, new AxoMessengerTextItem("Start motors was aborted, while not yet completed!"                                                                                                              ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10080, new AxoMessengerTextItem("Start movements finished with error!"                                                                                                                            ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10081, new AxoMessengerTextItem("Start movements was aborted, while not yet completed!"                                                                                                           ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10100, new AxoMessengerTextItem("Start program finished with error!"                                                                                                                              ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10101, new AxoMessengerTextItem("Start program was aborted, while not yet completed!"                                                                                                             ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10110, new AxoMessengerTextItem("Stop movements and program finished with error!"                                                                                                                 ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10111, new AxoMessengerTextItem("Stop movements and program was aborted, while not yet completed!"                                                                                                ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10120, new AxoMessengerTextItem("Stop movements finished with error!"                                                                                                                             ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10121, new AxoMessengerTextItem("Stop movements was aborted, while not yet completed!"                                                                                                            ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10130, new AxoMessengerTextItem("Stop program finished with error!"                                                                                                                               ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10131, new AxoMessengerTextItem("Stop program was aborted, while not yet completed!"                                                                                                              ,"Check the details.")),
 
         };
 
@@ -343,50 +432,128 @@ namespace AXOpen.Components.Ur.Robotics
 
                     errorDescriptionDict.Add(630, "Waiting for the signal `Inputs.Inputs.Safety.NO_IsNormalMode` to be set!");                                                                
                     errorDescriptionDict.Add(631, "Waiting for the signal `Inputs.Inputs.Safety.RD_IsReducedMode` to be set!");
-                    errorDescriptionDict.Add(632, "Waiting for the signal `Inputs.Inputs.Robot.PR_IsProgramRunning` to be reseted!");                                                         
+                    errorDescriptionDict.Add(632, "Waiting for the signal `Inputs.Inputs.Robot.PR_IsProgramRunning` to be reseted!");
 
-                    errorDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!");
-                    errorDescriptionDict.Add(701, "Input variable `hwIdAxoUrRobotics_T2O_State` has invalid valuein `Run` method!");
-                    errorDescriptionDict.Add(702, "Input variable `hwIdAxoUrRobotics_T2O_IO` has invalid valuein `Run` method!");
-                    errorDescriptionDict.Add(703, "Input variable `hwIdAxoUrRobotics_T2O_Joints` has invalid valuein `Run` method!");
-                    errorDescriptionDict.Add(704, "Input variable `hwIdAxoUrRobotics_T2O_TCP` has invalid valuein `Run` method!");
-                    errorDescriptionDict.Add(705, "Input variable `hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers` has invalid valuein `Run` method!");
-                    errorDescriptionDict.Add(706, "Input variable `hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers` has invalid valuein `Run` method!");
-                    errorDescriptionDict.Add(707, "Input variable `hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers` has invalid valuein `Run` method!");
-                    errorDescriptionDict.Add(708, "Input variable `hwIdAxoUrRobotics_O2T_Robot_IO` has invalid valuein `Run` method!");
-                    errorDescriptionDict.Add(709, "Input variable `hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1` has invalid valuein `Run` method!");
-                    errorDescriptionDict.Add(710, "Input variable `hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2` has invalid valuein `Run` method!");
-                    errorDescriptionDict.Add(711, "Input variable `refPowerOnPulse` has NULL reference in `Run` method!");
-                    errorDescriptionDict.Add(712, "Error reading the `hwIdAxoUrRobotics_T2O_State` in the Run method!");
-                    errorDescriptionDict.Add(713, "Error reading the `hwIdAxoUrRobotics_T2O_IO` in the Run method!");
-                    errorDescriptionDict.Add(714, "Error reading the `hwIdAxoUrRobotics_T2O_Joints` in the Run method!");
-                    errorDescriptionDict.Add(715, "Error reading the `hwIdAxoUrRobotics_T2O_TCP` in the Run method!");
-                    errorDescriptionDict.Add(716, "Error reading the `hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers` in the Run method!");
-                    errorDescriptionDict.Add(717, "Error reading the `hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers` in the Run method!");
-                    errorDescriptionDict.Add(718, "Error reading the `hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers` in the Run method!");
-                    errorDescriptionDict.Add(719, "Emergency stop active!");
-                    errorDescriptionDict.Add(720, "Safety Error !");
-                    errorDescriptionDict.Add(721, "Error writing the `hwIdAxoUrRobotics_O2T_Robot_IO` in the Run method!");
-                    errorDescriptionDict.Add(722, "Error writing the `hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1` in the Run method!");
-                    errorDescriptionDict.Add(723, "Error writing the `hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2` in the Run method!");
-                    errorDescriptionDict.Add(800, "Start at main finished with error!");
-                    errorDescriptionDict.Add(801, "Start at main was aborted, while not yet completed!");
-                    errorDescriptionDict.Add(810, "Start motors and program finished with error!");
-                    errorDescriptionDict.Add(811, "Start motors and program was aborted, while not yet completed!");
-                    errorDescriptionDict.Add(830, "Start motors program and movements finished with error!");
-                    errorDescriptionDict.Add(831, "Start motors program and movements was aborted, while not yet completed!");
-                    errorDescriptionDict.Add(860, "Start motors finished with error!");
-                    errorDescriptionDict.Add(861, "Start motors was aborted, while not yet completed!");
-                    errorDescriptionDict.Add(880, "Start movements finished with error!");
-                    errorDescriptionDict.Add(881, "Start movements was aborted, while not yet completed!");
-                    errorDescriptionDict.Add(900, "Start program finished with error!");
-                    errorDescriptionDict.Add(901, "Start program was aborted, while not yet completed!");
-                    errorDescriptionDict.Add(910, "Stop movements and program finished with error!");
-                    errorDescriptionDict.Add(911, "Stop movements and program was aborted, while not yet completed!");
-                    errorDescriptionDict.Add(920, "Stop movements finished with error!");
-                    errorDescriptionDict.Add(921, "Stop movements was aborted, while not yet completed!");
-                    errorDescriptionDict.Add(930, "Stop program finished with error!");
-                    errorDescriptionDict.Add(931, "Stop program was aborted, while not yet completed!");
+                    //  General alarms
+                    errorDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!"                                                                                                       );
+                    errorDescriptionDict.Add(701, "Input variable `hwId` has invalid value in `Run` method!"                                                                                                        );
+                    errorDescriptionDict.Add(702, "Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090)."                                          );
+                    errorDescriptionDict.Add(710, "Hw configuration error. Value of hwIdAxoUrRobotics_T2O_State is zero."                                                                                           );
+                    errorDescriptionDict.Add(711, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1."                                                 );
+                    errorDescriptionDict.Add(712, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1."                                                 );
+                    errorDescriptionDict.Add(713, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1."                                                 );
+                    errorDescriptionDict.Add(714, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 1."                                                 );
+                    errorDescriptionDict.Add(715, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1."                                                 );
+                    errorDescriptionDict.Add(716, "Hw configuration error: Module with unexpected size or type detected in Slot 1. Expected module: '1_T2O_State' (GsdId=ID_Mod_11)."                               );
+                    errorDescriptionDict.Add(720, "Hw configuration error. Value of hwIdAxoUrRobotics_T2O_IO is zero."                                                                                              );
+                    errorDescriptionDict.Add(721, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2."                                                 );
+                    errorDescriptionDict.Add(722, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2."                                                 );
+                    errorDescriptionDict.Add(723, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2."                                                 );
+                    errorDescriptionDict.Add(724, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 2."                                                 );
+                    errorDescriptionDict.Add(725, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2."                                                 );
+                    errorDescriptionDict.Add(726, "Hw configuration error: Module with unexpected size or type detected in Slot 2. Expected module: '2_T2O_IO' (GsdId=ID_Mod_12)."                                  );
+                    errorDescriptionDict.Add(730, "Hw configuration error. Value of hwIdAxoUrRobotics_T2O_Joints is zero."                                                                                          );
+                    errorDescriptionDict.Add(731, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 3."                                                 );
+                    errorDescriptionDict.Add(732, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 3."                                                 );
+                    errorDescriptionDict.Add(733, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 3."                                                 );
+                    errorDescriptionDict.Add(734, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 3."                                                 );
+                    errorDescriptionDict.Add(735, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 3."                                                 );
+                    errorDescriptionDict.Add(736, "Hw configuration error: Module with unexpected size or type detected in Slot 3. Expected module: '3_T2O_Joints' (GsdId=ID_Mod_13)."                              );
+                    errorDescriptionDict.Add(740, "Hw configuration error. Value of hwIdAxoUrRobotics_T2O_TCP is zero."                                                                                             );
+                    errorDescriptionDict.Add(741, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 4."                                                 );
+                    errorDescriptionDict.Add(742, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 4."                                                 );
+                    errorDescriptionDict.Add(743, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 4."                                                 );
+                    errorDescriptionDict.Add(744, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 4."                                                 );
+                    errorDescriptionDict.Add(745, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 4."                                                 );
+                    errorDescriptionDict.Add(746, "Hw configuration error: Module with unexpected size or type detected in Slot 4. Expected module: '4_T2O_TCP' (GsdId=ID_Mod_14)."                                 );
+                    errorDescriptionDict.Add(750, "Hw configuration error. Value of hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers is zero."                                                                   );
+                    errorDescriptionDict.Add(751, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 5."                                                 );
+                    errorDescriptionDict.Add(752, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 5."                                                 );
+                    errorDescriptionDict.Add(753, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 5."                                                 );
+                    errorDescriptionDict.Add(754, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 5."                                                 );
+                    errorDescriptionDict.Add(755, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 5."                                                 );
+                    errorDescriptionDict.Add(756, "Hw configuration error: Module with unexpected size or type detected in Slot 5. Expected module: '5_T2O_General_Purpose_Bit_Registers' (GsdId=ID_Mod_15)."       );
+                    errorDescriptionDict.Add(760, "Hw configuration error. Value of hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers is zero."                                                                   );
+                    errorDescriptionDict.Add(761, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 6."                                                 );
+                    errorDescriptionDict.Add(762, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 6."                                                 );
+                    errorDescriptionDict.Add(763, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 6."                                                 );
+                    errorDescriptionDict.Add(764, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 6."                                                 );
+                    errorDescriptionDict.Add(765, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 6."                                                 );
+                    errorDescriptionDict.Add(766, "Hw configuration error: Module with unexpected size or type detected in Slot 6. Expected module: '6_T2O_General_Purpose_Int_Registers' (GsdId=ID_Mod_16)."       );
+                    errorDescriptionDict.Add(770, "Hw configuration error. Value of hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers is zero."                                                                 );
+                    errorDescriptionDict.Add(771, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 7."                                                 );
+                    errorDescriptionDict.Add(772, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 7."                                                 );
+                    errorDescriptionDict.Add(773, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 7."                                                 );
+                    errorDescriptionDict.Add(774, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 7."                                                 );
+                    errorDescriptionDict.Add(775, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 7."                                                 );
+                    errorDescriptionDict.Add(776, "Hw configuration error: Module with unexpected size or type detected in Slot 7. Expected module: '7_T2O_General_Purpose_Float_Registers' (GsdId=ID_Mod_17)."     );
+                    errorDescriptionDict.Add(780, "Hw configuration error. Value of hwIdAxoUrRobotics_O2T_Robot_IO is zero."                                                                                        );
+                    errorDescriptionDict.Add(781, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 8."                                                 );
+                    errorDescriptionDict.Add(782, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 8."                                                 );
+                    errorDescriptionDict.Add(783, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 8."                                                 );
+                    errorDescriptionDict.Add(784, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 8."                                                 );
+                    errorDescriptionDict.Add(785, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 8."                                                 );
+                    errorDescriptionDict.Add(786, "Hw configuration error: Module with unexpected size or type detected in Slot 8. Expected module: '8_O2T_Robot_IO' (GsdId=ID_Mod_18)."                            );
+                    errorDescriptionDict.Add(790, "Hw configuration error. Value of hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 is zero."                                                                     );
+                    errorDescriptionDict.Add(791, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 9."                                                 );
+                    errorDescriptionDict.Add(792, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 9."                                                 );
+                    errorDescriptionDict.Add(793, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 9."                                                 );
+                    errorDescriptionDict.Add(794, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 9."                                                 );
+                    errorDescriptionDict.Add(795, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 9."                                                 );
+                    errorDescriptionDict.Add(796, "Hw configuration error: Module with unexpected size or type detected in Slot 9. Expected module: '9_O2T_General_Purpose_Registers_1' (GsdId=ID_Mod_19)."         );
+                    errorDescriptionDict.Add(800, "Hw configuration error. Value of hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 is zero."                                                                     );
+                    errorDescriptionDict.Add(801, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 10."                                                );
+                    errorDescriptionDict.Add(802, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 10."                                                );
+                    errorDescriptionDict.Add(803, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 10."                                                );
+                    errorDescriptionDict.Add(804, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 10."                                                );
+                    errorDescriptionDict.Add(805, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 10."                                                );
+                    errorDescriptionDict.Add(806, "Hw configuration error: Module with unexpected size or type detected in Slot 10. Expected module: '10_O2T_General_Purpose_Registers_2' (GsdId=ID_Mod_20)."       );
+                    errorDescriptionDict.Add(1130, "Input variable `parent` has NULL reference in `Run` method!"                                                                                                    );
+                    errorDescriptionDict.Add(1131, "Input variable `hwId` has invalid value in `Run` method!"                                                                                                       );
+                    errorDescriptionDict.Add(1132, "Input variable `hwIdAxoUrRobotics_T2O_State` has invalid value in `Run` method!"                                                                                );
+                    errorDescriptionDict.Add(1133, "Input variable `hwIdAxoUrRobotics_T2O_IO` has invalid value in `Run` method!"                                                                                   );
+                    errorDescriptionDict.Add(1134, "Input variable `hwIdAxoUrRobotics_T2O_Joints` has invalid value in `Run` method!"                                                                               );
+                    errorDescriptionDict.Add(1135, "Input variable `hwIdAxoUrRobotics_T2O_TCP` has invalid value in `Run` method!"                                                                                  );
+                    errorDescriptionDict.Add(1136, "Input variable `hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers` has invalid value in `Run` method!"                                                        );
+                    errorDescriptionDict.Add(1137, "Input variable `hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers` has invalid value in `Run` method!"                                                        );
+                    errorDescriptionDict.Add(1138, "Input variable `hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers` has invalid value in `Run` method!"                                                      );
+                    errorDescriptionDict.Add(1139, "Input variable `hwIdAxoUrRobotics_O2T_Robot_IO` has invalid value in `Run` method!"                                                                             );
+                    errorDescriptionDict.Add(1140, "Input variable `hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1` has invalid value in `Run` method!"                                                          );
+                    errorDescriptionDict.Add(1141, "Input variable `hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2` has invalid value in `Run` method!"                                                          );
+                    errorDescriptionDict.Add(1201, "Error reading the AxoUrRobotics_T2O_State!"                                                                                                                     );
+                    errorDescriptionDict.Add(1202, "Error reading the AxoUrRobotics_T2O_IO!"                                                                                                                        );
+                    errorDescriptionDict.Add(1203, "Error reading the AxoUrRobotics_T2O_Joints!"                                                                                                                    );
+                    errorDescriptionDict.Add(1204, "Error reading the AxoUrRobotics_T2O_TCP!"                                                                                                                       );
+                    errorDescriptionDict.Add(1205, "Error reading the AxoUrRobotics_T2O_General_Purpose_Bit_Registers!"                                                                                             );
+                    errorDescriptionDict.Add(1206, "Error reading the AxoUrRobotics_T2O_General_Purpose_Int_Registers!"                                                                                             );
+                    errorDescriptionDict.Add(1207, "Error reading the AxoUrRobotics_T2O_General_Purpose_Float_Registers!"                                                                                           );
+                    errorDescriptionDict.Add(1208, "Error reading the AxoUrRobotics_O2T_Robot_IO!"                                                                                                                  );
+                    errorDescriptionDict.Add(1209, "Error reading the AxoUrRobotics_O2T_General_Purpose_Registers_1!"                                                                                               );
+                    errorDescriptionDict.Add(1210, "Error reading the AxoUrRobotics_O2T_General_Purpose_Registers_2!"                                                                                               );
+                    errorDescriptionDict.Add(1231, "Error writing the AxoUrRobotics_O2T_Robot_IO!"                                                                                                                  );
+                    errorDescriptionDict.Add(1232, "Error writing the AxoUrRobotics_O2T_General_Purpose_Registers_1!"                                                                                               );
+                    errorDescriptionDict.Add(1233, "Error writing the AxoUrRobotics_O2T_General_Purpose_Registers_2!"                                                                                               );
+                    errorDescriptionDict.Add(2000, "Emergency stop active!"                                                                                                                                         );
+                    errorDescriptionDict.Add(2001, "Safety Error !"                                                                                                                                                 );
+                    errorDescriptionDict.Add(10000, "Start at main finished with error!"                                                                                                                            );
+                    errorDescriptionDict.Add(10001, "Start at main was aborted, while not yet completed!"                                                                                                           );
+                    errorDescriptionDict.Add(10010, "Start motors and program finished with error!"                                                                                                                 );
+                    errorDescriptionDict.Add(10011, "Start motors and program was aborted, while not yet completed!"                                                                                                );
+                    errorDescriptionDict.Add(10030, "Start motors program and movements finished with error!"                                                                                                       );
+                    errorDescriptionDict.Add(10031, "Start motors program and movements was aborted, while not yet completed!"                                                                                      );
+                    errorDescriptionDict.Add(10060, "Start motors finished with error!"                                                                                                                             );
+                    errorDescriptionDict.Add(10061, "Start motors was aborted, while not yet completed!"                                                                                                            );
+                    errorDescriptionDict.Add(10080, "Start movements finished with error!"                                                                                                                          );
+                    errorDescriptionDict.Add(10081, "Start movements was aborted, while not yet completed!"                                                                                                         );
+                    errorDescriptionDict.Add(10100, "Start program finished with error!"                                                                                                                            );
+                    errorDescriptionDict.Add(10101, "Start program was aborted, while not yet completed!"                                                                                                           );
+                    errorDescriptionDict.Add(10110, "Stop movements and program finished with error!"                                                                                                               );
+                    errorDescriptionDict.Add(10111, "Stop movements and program was aborted, while not yet completed!"                                                                                              );
+                    errorDescriptionDict.Add(10120, "Stop movements finished with error!"                                                                                                                           );
+                    errorDescriptionDict.Add(10121, "Stop movements was aborted, while not yet completed!"                                                                                                          );
+                    errorDescriptionDict.Add(10130, "Stop program finished with error!"                                                                                                                             );
+                    errorDescriptionDict.Add(10131, "Stop program was aborted, while not yet completed!"                                                                                                            );
+
 
                 }
                 string errorDescription = "   ";
@@ -589,54 +756,127 @@ namespace AXOpen.Components.Ur.Robotics
                     actionDescriptionDict.Add(438, "Stop program running.");
                     actionDescriptionDict.Add(439, "Stop program running.");
                     actionDescriptionDict.Add(231, "Stop program finished succesfully.");
-                    actionDescriptionDict.Add(232, "Stop program restored.");                                                                    
-                    
-  
+                    actionDescriptionDict.Add(232, "Stop program restored.");
 
+                    //  General alarms
                     actionDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!");
-                    actionDescriptionDict.Add(701, "Input variable `hwIdAxoUrRobotics_T2O_State` has invalid valuein `Run` method!");
-                    actionDescriptionDict.Add(702, "Input variable `hwIdAxoUrRobotics_T2O_IO` has invalid valuein `Run` method!");
-                    actionDescriptionDict.Add(703, "Input variable `hwIdAxoUrRobotics_T2O_Joints` has invalid valuein `Run` method!");
-                    actionDescriptionDict.Add(704, "Input variable `hwIdAxoUrRobotics_T2O_TCP` has invalid valuein `Run` method!");
-                    actionDescriptionDict.Add(705, "Input variable `hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers` has invalid valuein `Run` method!");
-                    actionDescriptionDict.Add(706, "Input variable `hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers` has invalid valuein `Run` method!");
-                    actionDescriptionDict.Add(707, "Input variable `hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers` has invalid valuein `Run` method!");
-                    actionDescriptionDict.Add(708, "Input variable `hwIdAxoUrRobotics_O2T_Robot_IO` has invalid valuein `Run` method!");
-                    actionDescriptionDict.Add(709, "Input variable `hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1` has invalid valuein `Run` method!");
-                    actionDescriptionDict.Add(710, "Input variable `hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2` has invalid valuein `Run` method!");
-                    actionDescriptionDict.Add(711, "Input variable `refPowerOnPulse` has NULL reference in `Run` method!");
-                    actionDescriptionDict.Add(712, "Error reading the `hwIdAxoUrRobotics_T2O_State` in the Run method!");
-                    actionDescriptionDict.Add(713, "Error reading the `hwIdAxoUrRobotics_T2O_IO` in the Run method!");
-                    actionDescriptionDict.Add(714, "Error reading the `hwIdAxoUrRobotics_T2O_Joints` in the Run method!");
-                    actionDescriptionDict.Add(715, "Error reading the `hwIdAxoUrRobotics_T2O_TCP` in the Run method!");
-                    actionDescriptionDict.Add(716, "Error reading the `hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers` in the Run method!");
-                    actionDescriptionDict.Add(717, "Error reading the `hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers` in the Run method!");
-                    actionDescriptionDict.Add(718, "Error reading the `hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers` in the Run method!");
-                    actionDescriptionDict.Add(719, "Emergency stop active!");
-                    actionDescriptionDict.Add(720, "Safety Error !");
-                    actionDescriptionDict.Add(721, "Error writing the `hwIdAxoUrRobotics_O2T_Robot_IO` in the Run method!");
-                    actionDescriptionDict.Add(722, "Error writing the `hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1` in the Run method!");
-                    actionDescriptionDict.Add(723, "Error writing the `hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2` in the Run method!");
-                    actionDescriptionDict.Add(800, "Start at main finished with error!");
-                    actionDescriptionDict.Add(801, "Start at main was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(810, "Start motors and program finished with error!");
-                    actionDescriptionDict.Add(811, "Start motors and program was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(830, "Start motors program and movements finished with error!");
-                    actionDescriptionDict.Add(831, "Start motors program and movements was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(860, "Start motors finished with error!");
-                    actionDescriptionDict.Add(861, "Start motors was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(880, "Start movements finished with error!");
-                    actionDescriptionDict.Add(881, "Start movements was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(900, "Start program finished with error!");
-                    actionDescriptionDict.Add(901, "Start program was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(910, "Stop movements and program finished with error!");
-                    actionDescriptionDict.Add(911, "Stop movements and program was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(920, "Stop movements finished with error!");
-                    actionDescriptionDict.Add(921, "Stop movements was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(930, "Stop program finished with error!");
-                    actionDescriptionDict.Add(931, "Stop program was aborted, while not yet completed!");
-
-
+                    actionDescriptionDict.Add(701, "Input variable `hwId` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(702, "Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090).");
+                    actionDescriptionDict.Add(710, "Hw configuration error. Value of hwIdAxoUrRobotics_T2O_State is zero.");
+                    actionDescriptionDict.Add(711, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1.");
+                    actionDescriptionDict.Add(712, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1.");
+                    actionDescriptionDict.Add(713, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1.");
+                    actionDescriptionDict.Add(714, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 1.");
+                    actionDescriptionDict.Add(715, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1.");
+                    actionDescriptionDict.Add(716, "Hw configuration error: Module with unexpected size or type detected in Slot 1. Expected module: '1_T2O_State' (GsdId=ID_Mod_11).");
+                    actionDescriptionDict.Add(720, "Hw configuration error. Value of hwIdAxoUrRobotics_T2O_IO is zero.");
+                    actionDescriptionDict.Add(721, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2.");
+                    actionDescriptionDict.Add(722, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2.");
+                    actionDescriptionDict.Add(723, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2.");
+                    actionDescriptionDict.Add(724, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 2.");
+                    actionDescriptionDict.Add(725, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2.");
+                    actionDescriptionDict.Add(726, "Hw configuration error: Module with unexpected size or type detected in Slot 2. Expected module: '2_T2O_IO' (GsdId=ID_Mod_12).");
+                    actionDescriptionDict.Add(730, "Hw configuration error. Value of hwIdAxoUrRobotics_T2O_Joints is zero.");
+                    actionDescriptionDict.Add(731, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 3.");
+                    actionDescriptionDict.Add(732, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 3.");
+                    actionDescriptionDict.Add(733, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 3.");
+                    actionDescriptionDict.Add(734, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 3.");
+                    actionDescriptionDict.Add(735, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 3.");
+                    actionDescriptionDict.Add(736, "Hw configuration error: Module with unexpected size or type detected in Slot 3. Expected module: '3_T2O_Joints' (GsdId=ID_Mod_13).");
+                    actionDescriptionDict.Add(740, "Hw configuration error. Value of hwIdAxoUrRobotics_T2O_TCP is zero.");
+                    actionDescriptionDict.Add(741, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 4.");
+                    actionDescriptionDict.Add(742, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 4.");
+                    actionDescriptionDict.Add(743, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 4.");
+                    actionDescriptionDict.Add(744, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 4.");
+                    actionDescriptionDict.Add(745, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 4.");
+                    actionDescriptionDict.Add(746, "Hw configuration error: Module with unexpected size or type detected in Slot 4. Expected module: '4_T2O_TCP' (GsdId=ID_Mod_14).");
+                    actionDescriptionDict.Add(750, "Hw configuration error. Value of hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers is zero.");
+                    actionDescriptionDict.Add(751, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 5.");
+                    actionDescriptionDict.Add(752, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 5.");
+                    actionDescriptionDict.Add(753, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 5.");
+                    actionDescriptionDict.Add(754, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 5.");
+                    actionDescriptionDict.Add(755, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 5.");
+                    actionDescriptionDict.Add(756, "Hw configuration error: Module with unexpected size or type detected in Slot 5. Expected module: '5_T2O_General_Purpose_Bit_Registers' (GsdId=ID_Mod_15).");
+                    actionDescriptionDict.Add(760, "Hw configuration error. Value of hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers is zero.");
+                    actionDescriptionDict.Add(761, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 6.");
+                    actionDescriptionDict.Add(762, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 6.");
+                    actionDescriptionDict.Add(763, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 6.");
+                    actionDescriptionDict.Add(764, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 6.");
+                    actionDescriptionDict.Add(765, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 6.");
+                    actionDescriptionDict.Add(766, "Hw configuration error: Module with unexpected size or type detected in Slot 6. Expected module: '6_T2O_General_Purpose_Int_Registers' (GsdId=ID_Mod_16).");
+                    actionDescriptionDict.Add(770, "Hw configuration error. Value of hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers is zero.");
+                    actionDescriptionDict.Add(771, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 7.");
+                    actionDescriptionDict.Add(772, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 7.");
+                    actionDescriptionDict.Add(773, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 7.");
+                    actionDescriptionDict.Add(774, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 7.");
+                    actionDescriptionDict.Add(775, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 7.");
+                    actionDescriptionDict.Add(776, "Hw configuration error: Module with unexpected size or type detected in Slot 7. Expected module: '7_T2O_General_Purpose_Float_Registers' (GsdId=ID_Mod_17).");
+                    actionDescriptionDict.Add(780, "Hw configuration error. Value of hwIdAxoUrRobotics_O2T_Robot_IO is zero.");
+                    actionDescriptionDict.Add(781, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 8.");
+                    actionDescriptionDict.Add(782, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 8.");
+                    actionDescriptionDict.Add(783, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 8.");
+                    actionDescriptionDict.Add(784, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 8.");
+                    actionDescriptionDict.Add(785, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 8.");
+                    actionDescriptionDict.Add(786, "Hw configuration error: Module with unexpected size or type detected in Slot 8. Expected module: '8_O2T_Robot_IO' (GsdId=ID_Mod_18).");
+                    actionDescriptionDict.Add(790, "Hw configuration error. Value of hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 is zero.");
+                    actionDescriptionDict.Add(791, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 9.");
+                    actionDescriptionDict.Add(792, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 9.");
+                    actionDescriptionDict.Add(793, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 9.");
+                    actionDescriptionDict.Add(794, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 9.");
+                    actionDescriptionDict.Add(795, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 9.");
+                    actionDescriptionDict.Add(796, "Hw configuration error: Module with unexpected size or type detected in Slot 9. Expected module: '9_O2T_General_Purpose_Registers_1' (GsdId=ID_Mod_19).");
+                    actionDescriptionDict.Add(800, "Hw configuration error. Value of hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 is zero.");
+                    actionDescriptionDict.Add(801, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 10.");
+                    actionDescriptionDict.Add(802, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 10.");
+                    actionDescriptionDict.Add(803, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 10.");
+                    actionDescriptionDict.Add(804, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 10.");
+                    actionDescriptionDict.Add(805, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 10.");
+                    actionDescriptionDict.Add(806, "Hw configuration error: Module with unexpected size or type detected in Slot 10. Expected module: '10_O2T_General_Purpose_Registers_2' (GsdId=ID_Mod_20).");
+                    actionDescriptionDict.Add(1130, "Input variable `parent` has NULL reference in `Run` method!");
+                    actionDescriptionDict.Add(1131, "Input variable `hwId` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1132, "Input variable `hwIdAxoUrRobotics_T2O_State` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1133, "Input variable `hwIdAxoUrRobotics_T2O_IO` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1134, "Input variable `hwIdAxoUrRobotics_T2O_Joints` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1135, "Input variable `hwIdAxoUrRobotics_T2O_TCP` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1136, "Input variable `hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1137, "Input variable `hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1138, "Input variable `hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1139, "Input variable `hwIdAxoUrRobotics_O2T_Robot_IO` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1140, "Input variable `hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1141, "Input variable `hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1201, "Error reading the AxoUrRobotics_T2O_State!");
+                    actionDescriptionDict.Add(1202, "Error reading the AxoUrRobotics_T2O_IO!");
+                    actionDescriptionDict.Add(1203, "Error reading the AxoUrRobotics_T2O_Joints!");
+                    actionDescriptionDict.Add(1204, "Error reading the AxoUrRobotics_T2O_TCP!");
+                    actionDescriptionDict.Add(1205, "Error reading the AxoUrRobotics_T2O_General_Purpose_Bit_Registers!");
+                    actionDescriptionDict.Add(1206, "Error reading the AxoUrRobotics_T2O_General_Purpose_Int_Registers!");
+                    actionDescriptionDict.Add(1207, "Error reading the AxoUrRobotics_T2O_General_Purpose_Float_Registers!");
+                    actionDescriptionDict.Add(1208, "Error reading the AxoUrRobotics_O2T_Robot_IO!");
+                    actionDescriptionDict.Add(1209, "Error reading the AxoUrRobotics_O2T_General_Purpose_Registers_1!");
+                    actionDescriptionDict.Add(1210, "Error reading the AxoUrRobotics_O2T_General_Purpose_Registers_2!");
+                    actionDescriptionDict.Add(1231, "Error writing the AxoUrRobotics_O2T_Robot_IO!");
+                    actionDescriptionDict.Add(1232, "Error writing the AxoUrRobotics_O2T_General_Purpose_Registers_1!");
+                    actionDescriptionDict.Add(1233, "Error writing the AxoUrRobotics_O2T_General_Purpose_Registers_2!");
+                    actionDescriptionDict.Add(2000, "Emergency stop active!");
+                    actionDescriptionDict.Add(2001, "Safety Error !");
+                    actionDescriptionDict.Add(10000, "Start at main finished with error!");
+                    actionDescriptionDict.Add(10001, "Start at main was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10010, "Start motors and program finished with error!");
+                    actionDescriptionDict.Add(10011, "Start motors and program was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10030, "Start motors program and movements finished with error!");
+                    actionDescriptionDict.Add(10031, "Start motors program and movements was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10060, "Start motors finished with error!");
+                    actionDescriptionDict.Add(10061, "Start motors was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10080, "Start movements finished with error!");
+                    actionDescriptionDict.Add(10081, "Start movements was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10100, "Start program finished with error!");
+                    actionDescriptionDict.Add(10101, "Start program was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10110, "Stop movements and program finished with error!");
+                    actionDescriptionDict.Add(10111, "Stop movements and program was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10120, "Stop movements finished with error!");
+                    actionDescriptionDict.Add(10121, "Stop movements was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10130, "Stop program finished with error!");
+                    actionDescriptionDict.Add(10131, "Stop program was aborted, while not yet completed!");
                 }
 
                 string actionDescription = "   ";

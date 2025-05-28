@@ -12,16 +12,13 @@ NAMESPACE AXOpen.Components.Abb.Robotics
 
         METHOD PROTECTED OVERRIDE Main
             THIS.InitializeRootObject(_rootObject);
-            _AxoIrc5_v_1_x_x.Run(parent       := _rootObject,
-                                hwID            := HwIdentifiers#RobotBasicIO_HwID,
-                                hwIdDI_64_bytes := HwIdentifiers#RobotBasicIO_DI_64_bytes_DI_64_bytes_HwID,      
-                                hwIdDO_64_bytes := HwIdentifiers#RobotBasicIO_DO_64_bytes_DO_64_bytes_HwID);        
+
+            _AxoIrc5_v_1_x_x.Run(       parent  :=  _rootObject,
+                                        hwID    :=  HwIdentifiers#RobotBasicIO_HwID);        
 
 
-            _AxoOmnicore_v_1_x_x.Run(   parent        := _rootObject,
-                                        hwID            := HwIdentifiers#OmniCore_HwID,
-                                        hwIdDI_64_bytes := HwIdentifiers#OmniCore_DI_64_bytes_DI_64_bytes_HwID,      
-                                        hwIdDO_64_bytes := HwIdentifiers#OmniCore_DO_64_bytes_DO_64_bytes_HwID);        
+            _AxoOmnicore_v_1_x_x.Run(   parent  :=  _rootObject,
+                                        hwID    :=  HwIdentifiers#OmniCore_HwID);        
 
             IF(_manualControl) THEN
                 _AxoIrc5_v_1_x_x.ActivateManualControl();

@@ -1,6 +1,6 @@
 USING AXOpen.Core;
 
-NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
+NAMESPACE AXOpen.Components.Cognex.Vision
 
     {S7.extern=ReadWrite}
     CLASS Component_3 EXTENDS AXOpen.Core.AxoObject
@@ -31,17 +31,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             END_IF;
 
             //<Initialization>        
-            Dataman_300.Run(parent                     :=  THIS,  
-                            ResultDataSize             :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize#RESULT_DATA_64B,
-                            UserDataSize               :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_UserDataSize#USER_DATA_64B,
-                            hwID                       :=  HwIdentifiers#dm_300_HwID,
-                            hwIdAcquisitionControl     :=  HwIdentifiers#dm_300_Acquisition_Control_Acquisition_Control_HwID,
-                            hwIdAcquisitionStatus      :=  HwIdentifiers#dm_300_Acquisition_Status_Acquisition_Status_HwID,
-                            hwIdResultsControl         :=  HwIdentifiers#dm_300_Results_Control_Results_Control_HwID,
-                            hwIdResultsStatus          :=  HwIdentifiers#dm_300_Results_Status_Results_Status_HwID,
-                            hwIdSoftEventControl       :=  HwIdentifiers#dm_300_Soft_Event_Control_Soft_Event_Control_HwID,
-                            hwIdResultData             :=  HwIdentifiers#dm_300_Result_Data_64_bytes_Result_Data___64_bytes_HwID,
-                            hwIdUserData               :=  HwIdentifiers#dm_300_User_Data_64_bytes_User_Data___64_bytes_HwID);
+            Dataman_300.Run(parent := THIS, hwID :=  HwIdentifiers#dm_300_HwID);
             //</Initialization>
 
         THIS.UseInSequencer();

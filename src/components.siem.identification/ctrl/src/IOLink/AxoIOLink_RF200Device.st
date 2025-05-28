@@ -121,7 +121,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
-            ReaderStatus        :   AxoIOLink_RF200Device_Component_Status;
+            Status              :   AxoIOLink_RF200Device_Component_Status;
             Messenger           :   AXOpen.Messaging.Static.AxoMessenger;
             TaskMessenger       :   AXOpen.Messaging.Static.AxoMessenger;
             {#ix-attr:[ComponentDetails("Status")]}
@@ -160,10 +160,10 @@ NAMESPACE AXOpen.Components.Siem.Identification
             Messenger.ActivateOnCondition(ULINT#701,HW_ID = WORD#0, eAxoMessageCategory#ProgrammingError);
 
             IF parent = NULL THEN
-                ReaderStatus.Error.Id := UINT#700;
+                Status.Error.Id := UINT#700;
                 RETURN;
             ELSIF HW_ID = WORD#0 THEN
-                ReaderStatus.Error.Id := UINT#701;
+                Status.Error.Id := UINT#701;
                 RETURN;
             END_IF;
 
@@ -212,9 +212,9 @@ NAMESPACE AXOpen.Components.Siem.Identification
                             status      =>  _writeTag_status,
                             presence    =>  _writeTag_presence);
 
-            ReaderStatus.Antenna_status     :=  _switchAntenna_status;
-            ReaderStatus.ReadTag_status     :=  _readTag_status;
-            ReaderStatus.WriteTag_status    :=  _writeTag_status;
+            Status.Antenna_status     :=  _switchAntenna_status;
+            Status.ReadTag_status     :=  _readTag_status;
+            Status.WriteTag_status    :=  _writeTag_status;
              
             Messenger.ActivateOnCondition(TO_ULINT(DWORD#16#FEFE0001),_readTag_status = DWORD#16#FEFE0001, eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(TO_ULINT(DWORD#16#FEFE0002),_writeTag_status = DWORD#16#FEFE0002, eAxoMessageCategory#ProgrammingError);
@@ -277,14 +277,14 @@ NAMESPACE AXOpen.Components.Siem.Identification
             //*************ReadTask**********************
             ReadTagTask.IsDisabled := FALSE;
             IF ReadTagTask.StartTriggered() THEN
-                ReaderStatus.Action.Id :=  UINT#100;
+                Status.Action.Id :=  UINT#100;
             END_IF;
             Messenger.ActivateOnCondition(ULINT#100,ReadTagTask.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#101,ReadTagTask.IsDone(), eAxoMessageCategory#Info);
             IF ReadTagTask.Execute(THIS) THEN
                 _blink.Blink(Context := _context, inOnTime:=T#500MS,inOffTime:=T#500MS);
                 IF _progress = 0 THEN
-                    ReaderStatus.Error.Id :=  UINT#0;
+                    Status.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
                     _switchAntenna_execute := FALSE;
@@ -298,9 +298,9 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 END_IF;
                 
                 IF _progress = 300 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#500, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#500;
+                        TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#500;
                     END_IF;
 
                     _switchAntenna_execute      :=  TRUE;     
@@ -314,9 +314,9 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 END_IF;
 
                 IF _progress = 301 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#501, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#501;
+                        TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#501;
                     END_IF;
 
                     _switchAntenna_execute      :=  FALSE;     
@@ -328,9 +328,9 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 END_IF;
                 
                 IF _progress = 302 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#502, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#502;
+                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#502;
                     END_IF;
 
                     IF(_switchAntenna_presence) THEN
@@ -340,9 +340,9 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 END_IF;
                 
                 IF _progress = 303 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#503, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#503;
+                        TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#503;
                     END_IF;
 
                     _readTag_execute := TRUE;
@@ -355,9 +355,9 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
 
                 IF _progress = 304 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#504, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#504;
+                        TaskMessenger.Activate( UINT#504, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#504;
                     END_IF;
 
                     FOR i := 0 TO TO_INT(_readTag_length) - INT#1 DO
@@ -381,23 +381,23 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
                 THIS.CallTimers(TRUE);
                 ReadTagTask.ThrowWhen(_errorTimer.output );
-                ReaderStatus.Action.Id := TO_UINT(_progress);
+                Status.Action.Id := TO_UINT(_progress);
             END_IF;
             IF ReadTagTask.DoneReached() THEN
-                ReaderStatus.Action.Id :=  UINT#101;
-                ReaderStatus.Error.Id :=  UINT#0;
+                Status.Action.Id :=  UINT#101;
+                Status.Error.Id :=  UINT#0;
             ELSIF ReadTagTask.ErrorOccured() THEN
-                ReaderStatus.Action.Id :=  UINT#800;
-                ReaderStatus.Error.Id  :=  UINT#800;
+                Status.Action.Id :=  UINT#10000;
+                Status.Error.Id  :=  UINT#10000;
             ELSIF ReadTagTask.AbortTriggered()THEN
-                ReaderStatus.Action.Id :=  UINT#801;
-                ReaderStatus.Error.Id  :=  UINT#801;
+                Status.Action.Id :=  UINT#10001;
+                Status.Error.Id  :=  UINT#10001;
             END_IF;     
-            Messenger.ActivateOnCondition(ULINT#800,ReadTagTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#801,ReadTagTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10000,ReadTagTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10001,ReadTagTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#102,ReadTagTask.RestoreTriggered() , eAxoMessageCategory#Error);
             IF ReadTagTask.RestoreTriggered() AND _progress >= 300 AND _progress <= 309  THEN
-                ReaderStatus.Action.Id :=  UINT#102;
+                Status.Action.Id :=  UINT#102;
                 _progress := 0;
             END_IF;
             //*******************************************
@@ -406,14 +406,14 @@ NAMESPACE AXOpen.Components.Siem.Identification
             //***********WriteTask***********************
             WriteTagTask.IsDisabled := FALSE;
             IF WriteTagTask.StartTriggered() THEN
-                ReaderStatus.Action.Id :=  UINT#120;
+                Status.Action.Id :=  UINT#120;
             END_IF;
             Messenger.ActivateOnCondition(ULINT#120,WriteTagTask.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#121,WriteTagTask.IsDone(), eAxoMessageCategory#Info);
             IF WriteTagTask.Execute(THIS) THEN
                 _blink.Blink(Context := _context, inOnTime:=T#500MS,inOffTime:=T#500MS);
                 IF _progress = 0 THEN
-                    ReaderStatus.Error.Id :=  UINT#0;
+                    Status.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
                     _switchAntenna_execute := FALSE;
@@ -423,9 +423,9 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 END_IF;
                 
                 IF _progress = 320 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#520, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#520;
+                        TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#520;
                     END_IF;
 
                     FOR i := INT#0 TO TO_INT(_writeTag_length) - INT#1 DO
@@ -443,9 +443,9 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 END_IF;
 
                 IF _progress = 321 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#521, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#521;
+                        TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#521;
                     END_IF;
 
                     _switchAntenna_execute      :=  FALSE;     
@@ -457,9 +457,9 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 END_IF;
                 
                 IF _progress = 322 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#522, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#522;
+                        TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#522;
                     END_IF;
 
                     IF(_switchAntenna_presence) THEN
@@ -469,9 +469,9 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 END_IF;
                 
                 IF _progress = 323 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#523, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#523;
+                        TaskMessenger.Activate( UINT#523, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#523;
                     END_IF;
 
                     _writeTag_execute := TRUE;
@@ -484,9 +484,9 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
 
                 IF _progress = 324 THEN  
-                    TaskMessenger.ActivateOnCondition(ULINT#524, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        ReaderStatus.Error.Id := UINT#524;
+                        TaskMessenger.Activate( UINT#524, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#524;
                     END_IF;
 
                     _writeTag_execute           :=  FALSE;
@@ -505,23 +505,23 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
                 THIS.CallTimers(TRUE);
                 WriteTagTask.ThrowWhen(_errorTimer.output);
-                ReaderStatus.Action.Id := TO_UINT(_progress);
+                Status.Action.Id := TO_UINT(_progress);
             END_IF;
             IF WriteTagTask.DoneReached() THEN
-                ReaderStatus.Action.Id :=  UINT#121;
-                ReaderStatus.Error.Id :=  UINT#0;
+                Status.Action.Id :=  UINT#121;
+                Status.Error.Id :=  UINT#0;
             ELSIF WriteTagTask.ErrorOccured() THEN
-                ReaderStatus.Action.Id :=  UINT#820;
-                ReaderStatus.Error.Id  :=  UINT#820;
+                Status.Action.Id :=  UINT#10020;
+                Status.Error.Id  :=  UINT#10020;
             ELSIF WriteTagTask.AbortTriggered() THEN
-                ReaderStatus.Action.Id :=  UINT#821;
-                ReaderStatus.Error.Id  :=  UINT#821;
+                Status.Action.Id :=  UINT#10021;
+                Status.Error.Id  :=  UINT#10021;
             END_IF;         
-            Messenger.ActivateOnCondition(ULINT#820,WriteTagTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#821,WriteTagTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10020,WriteTagTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10021,WriteTagTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#122,WriteTagTask.RestoreTriggered() , eAxoMessageCategory#Error);
             IF WriteTagTask.RestoreTriggered() AND _progress >= 320 AND _progress <= 339  THEN
-                ReaderStatus.Action.Id :=  UINT#122;
+                Status.Action.Id :=  UINT#122;
                 _progress := 0;
             END_IF;   
             //*******************************************
@@ -545,7 +545,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
         METHOD PUBLIC OVERRIDE Restore
             ReadTagTask.Restore();      
             WriteTagTask.Restore();
-            ReaderStatus.Action.Id :=  UINT#50;
+            Status.Action.Id :=  UINT#50;
             RestoreTask.DoneWhen(TRUE);
         END_METHOD        
     

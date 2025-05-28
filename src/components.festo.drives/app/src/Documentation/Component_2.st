@@ -34,9 +34,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
             //<Initialization>        
             AxoCmmtAs.Run(parent                :=  THIS,
                             hwID                  :=    HwIdentifiers#cmmtas_HwID,
-                            hwIdTelegram111       :=    HwIdentifiers#cmmtas_SiemensTelegram111_PZD_12_12_HwID,
-                            hwIdTelegram750       :=    HwIdentifiers#cmmtas_SiemensTelegram750_PZD_4_1_HwID,
-                            MAP_HW_ID             :=    HwIdentifiers#cmmtas_cmmtas_DoServo_Module_Access_Point_HwID,
                             Enable                :=    Enable,
                             EnablePositive        :=    EnablePositive,
                             EnableNegative        :=    EnableNegative);

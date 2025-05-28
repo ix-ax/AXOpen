@@ -6,6 +6,7 @@ USING AXOpen.Components.Abstractions;
 USING AXOpen.Components.Abstractions.Drives;
 USING AXOpen.Components.Drives;
 USING System.Math;
+USING Siemens.Simatic.S71500.Hardware.Utilities;
 
 NAMESPACE AXOpen.Components.Rexroth.Drives
     
@@ -36,10 +37,19 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _AxisRefExt :  AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference;
             _Parameter : ARRAY[0..9] OF BYTE; 
             _Fieldbus   : ARRAY[0..25] OF BYTE; 
-            _returnValue : WORD;            
+            _hwID_F_ModulNotUsed    :   WORD;
+            
+            _initHwCheckDone        :   BOOL;
+            _retval                 :   WORD;
+            _geoAddr                :   GeoAddr;
+            _outHwid                :   UINT;
+            _blink                  :   AXOpen.Timers.AxoBlinker;   
+            _inputsAddress          :   UDINT;   
+            _inputsCount            :   UINT;
+            _outputsAddress         :   UDINT;  
+            _outputsCount           :   UINT; 
         END_VAR
 
-    
         ///<summary>
         /// Runs tasks and logic of this component.
         /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
@@ -48,9 +58,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             VAR_INPUT
                 parent              :   IAxoObject; 
                 hwID                :   WORD;
-                hwIdParamCh_IDN     :   WORD;
-                hwIdInput_9_Words   :   WORD;
-                hwIdOutput_13_Words :   WORD;
                 Enable              :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
                 EnablePositive      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
                 EnableNegative      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
@@ -58,46 +65,236 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             SUPER.Run(parent);
 
-            Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#703,hwID = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#704,hwIdParamCh_IDN = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#705,hwIdInput_9_Words = WORD#0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#706,hwIdOutput_13_Words = WORD#0, eAxoMessageCategory#ProgrammingError);
+            IF NOT _initHwCheckDone THEN
+                IF parent = NULL THEN
+                    Messenger.Activate(     UINT#700, eAxoMessageCategory#ProgrammingError);
+                    DriveStatus.Error.Id := UINT#700;
+                    RETURN;
+                END_IF;
+                IF hwID = WORD#0 THEN
+                    Messenger.Activate(     UINT#701, eAxoMessageCategory#ProgrammingError);
+                    DriveStatus.Error.Id := UINT#701;
+                    RETURN;
+                END_IF;
 
-            IF parent = NULL THEN
-                DriveStatus.Error.Id := UINT#700;
-                RETURN;
-            ELSIF hwID = WORD#0 THEN
-                DriveStatus.Error.Id := UINT#703;
-                RETURN;
-            ELSIF hwIdParamCh_IDN = WORD#0 THEN
-                DriveStatus.Error.Id := UINT#704;
-                RETURN;
-            ELSIF hwIdInput_9_Words = WORD#0 THEN
-                DriveStatus.Error.Id := UINT#705;
-                RETURN;
-            ELSIF hwIdOutput_13_Words = WORD#0 THEN
-                DriveStatus.Error.Id := UINT#706;
-                RETURN;
-            END_IF;
-    
-            _AxisRefExt.Data.hwID                := hwID;
-            _AxisRefExt.Data.hwIdParamCh_IDN     := hwIdParamCh_IDN;
-            _AxisRefExt.Data.hwIdInput_9_Words   := hwIdInput_9_Words;
-            _AxisRefExt.Data.hwIdOutput_13_Words := hwIdOutput_13_Words;
+                _AxisRefExt.Data.hwID                := hwID;
+
+                _retval := ReadSlotFromHardwareID(hardwareID := TO_UINT(_AxisRefExt.Data.hwID), geoAddr :=_geoAddr);   
+                IF _retval = WORD#8090 THEN
+                    Messenger.Activate(     UINT#702,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#702;
+                    RETURN;
+                END_IF;
+   
+                //******************Slot 1*****************//
+                _geoAddr.Slot   :=  UINT#1;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _AxisRefExt.Data.hwIdParamCh_IDN  :=  TO_WORD(_outHwid);                                         
+                IF _AxisRefExt.Data.hwIdParamCh_IDN  = WORD#0 THEN
+                    Messenger.Activate(     UINT#710,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#710;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(     UINT#711,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#711;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(     UINT#712,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#712;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(     UINT#713,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#713;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(     UINT#714,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#714;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(     UINT#715,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#715;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _AxisRefExt.Data.hwIdParamCh_IDN  , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#10 OR _outputsCount <> UINT#10 THEN
+                    Messenger.Activate(     UINT#716,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#716;
+                    RETURN;
+                END_IF;
+                //******************Slot 2*****************//
+                _geoAddr.Slot   :=  UINT#2;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _hwID_F_ModulNotUsed :=  TO_WORD(_outHwid);                                         
+                IF _hwID_F_ModulNotUsed = WORD#0 THEN
+                    Messenger.Activate(     UINT#720,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#720;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(     UINT#721,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#721;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(     UINT#722,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#722;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(     UINT#723,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#723;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(     UINT#724,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#724;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(     UINT#725,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#725;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_F_ModulNotUsed , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
+                    Messenger.Activate(     UINT#726,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#726;
+                    RETURN;
+                END_IF;  
+                //******************Slot 3*****************//
+                _geoAddr.Slot   :=  UINT#3;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _AxisRefExt.Data.hwIdInput_9_Words  :=  TO_WORD(_outHwid);                                         
+                IF _AxisRefExt.Data.hwIdInput_9_Words  = WORD#0 THEN
+                    Messenger.Activate(     UINT#730,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#730;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(     UINT#731,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#731;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(     UINT#732,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#732;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(     UINT#733,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#733;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(     UINT#734,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#734;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(     UINT#735,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#735;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _AxisRefExt.Data.hwIdInput_9_Words , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#18 OR _outputsCount <> UINT#0 THEN
+                    Messenger.Activate(     UINT#736,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#736;
+                    RETURN;
+                END_IF;
+                //******************Slot 4*****************//
+                _geoAddr.Slot   :=  UINT#4;                                                            
+                _geoAddr.HardwareType := UINT#4; // (4-Module)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _AxisRefExt.Data.hwIdOutput_13_Words  :=  TO_WORD(_outHwid);                                         
+                IF _AxisRefExt.Data.hwIdOutput_13_Words  = WORD#0 THEN
+                    Messenger.Activate(     UINT#740,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#740;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(     UINT#741,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#741;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(     UINT#742,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#742;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(     UINT#743,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#743;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(     UINT#744,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#744;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(     UINT#745,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#745;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier :=  _AxisRefExt.Data.hwIdOutput_13_Words  , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#26 THEN
+                    Messenger.Activate(     UINT#746,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#746;
+                    RETURN;
+                END_IF;
+                 
+                IF parent = NULL THEN
+                    Messenger.Activate(     UINT#1130,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#1130;
+                    RETURN;
+                END_IF;
+                IF _AxisRefExt.Data.hwID  = WORD#0 THEN
+                    Messenger.Activate(     UINT#1131,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#1131;
+                    RETURN;
+                END_IF;
+                IF _AxisRefExt.Data.hwIdParamCh_IDN  = WORD#0 THEN
+                    Messenger.Activate(     UINT#1132,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#1132;
+                    RETURN;
+                END_IF;
+                IF _hwID_F_ModulNotUsed  = WORD#0 THEN
+                    Messenger.Activate(     UINT#1133,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#1133;
+                    RETURN;
+                END_IF;
+                IF _AxisRefExt.Data.hwIdInput_9_Words  = WORD#0 THEN
+                    Messenger.Activate(     UINT#1134,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#1134;
+                    RETURN;
+                END_IF;
+                IF _AxisRefExt.Data.hwIdOutput_13_Words  = WORD#0 THEN
+                    Messenger.Activate(     UINT#1135,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#1135;
+                    RETURN;
+                END_IF;
+
+                _initHwCheckDone    := TRUE;
+            END_IF;            
 
             Messenger.ActivateOnCondition(ULINT#300, Enable AND NOT EnablePositive, eAxoMessageCategory#Warning);
             Messenger.ActivateOnCondition(ULINT#301, Enable AND NOT EnableNegative, eAxoMessageCategory#Warning);
 
-
-            //*****************PreExecute inline**************************
-
             HardwareDiagnosticsTask.Run(THIS,_AxisRefExt.Data.hwID);
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_AxisRefExt.Data.hwIdParamCh_IDN ,_Parameter);
-            Messenger.ActivateOnCondition(ULINT#827,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                DriveStatus.Error.Id := UINT#827;
+            //***********Update inputs **************
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_AxisRefExt.Data.hwIdParamCh_IDN ,_Parameter);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
+                DriveStatus.Error.Id := UINT#1201;
                 RETURN;
             END_IF;
 
@@ -120,10 +317,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _AxisRefExt.Parameter_In.DataWord_3.%B1                 := _Parameter[8];
 
             
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_AxisRefExt.Data.hwIdInput_9_Words ,_Fieldbus);
-            Messenger.ActivateOnCondition(ULINT#828,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                DriveStatus.Error.Id := UINT#828;
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_AxisRefExt.Data.hwIdInput_9_Words ,_Fieldbus);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(UINT#1202, eAxoMessageCategory#ProgrammingError);
+                DriveStatus.Error.Id := UINT#1202;
                 RETURN;
             END_IF;
 
@@ -203,12 +400,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _Parameter[9]         := _AxisRefExt.Parameter_Out.DataWord_1.%B0;
             _Parameter[8]         := _AxisRefExt.Parameter_Out.DataWord_1.%B1;
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_AxisRefExt.Data.hwIdParamCh_IDN,_Parameter);
-            Messenger.ActivateOnCondition(ULINT#829,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                DriveStatus.Error.Id := UINT#829;
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_AxisRefExt.Data.hwIdParamCh_IDN,_Parameter);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
+                DriveStatus.Error.Id := UINT#1231;
                 RETURN;
-            END_IF;
+            END_IF;    
 
             _Fieldbus[1].%X0      := _AxisRefExt.FieldBus_Out.SetpointAcceptance;
             _Fieldbus[1].%X1      := _AxisRefExt.FieldBus_Out.OperatingModeSet;
@@ -252,12 +449,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _Fieldbus[25]         := _AxisRefExt.FieldBus_Out.S_0_0193_CommandJerk.%B0;
 
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_AxisRefExt.Data.hwIdOutput_13_Words,_Fieldbus);
-            Messenger.ActivateOnCondition(ULINT#830,_returnValue > WORD#0, eAxoMessageCategory#ProgrammingError);
-            IF _returnValue > WORD#0 THEN
-                DriveStatus.Error.Id := UINT#830;
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_AxisRefExt.Data.hwIdOutput_13_Words,_Fieldbus);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(UINT#1232, eAxoMessageCategory#ProgrammingError);
+                DriveStatus.Error.Id := UINT#1232;
                 RETURN;
-            END_IF;
+            END_IF;    
 
             //************************************************************
         END_METHOD   
@@ -1153,7 +1350,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#709,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1401,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -1242,7 +1439,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#710,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1402,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -1472,7 +1669,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#711,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1403,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -1582,7 +1779,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#712,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1404,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -1710,7 +1907,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#713,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1405,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -1863,7 +2060,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#714,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1406,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -2021,7 +2218,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#715,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1407,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -2174,13 +2371,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#716,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1408,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
             END_IF;
 
-            Messenger.ActivateOnCondition(ULINT#737,Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1429,Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection, eAxoMessageCategory#ProgrammingError);
 
             IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection THEN
                 Velocity_ := Velocity;
@@ -2327,13 +2524,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#717,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1409,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
             END_IF;
 
-            Messenger.ActivateOnCondition(ULINT#739,Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1430,Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection, eAxoMessageCategory#ProgrammingError);
 
             IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection THEN
                 Torque_ := Torque;
@@ -2492,7 +2689,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#718,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1410 ,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -2636,7 +2833,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#719,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1411,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -2717,7 +2914,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#720,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1412,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -2842,7 +3039,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#721,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1413,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -2956,7 +3153,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#722,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1414,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -2998,7 +3195,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#723,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1415,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -3113,7 +3310,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#724,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1416,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -3218,7 +3415,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#725,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1417,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -3262,7 +3459,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#726,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1418,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -3391,7 +3588,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#727,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1419,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -3523,7 +3720,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#728,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1420,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -3664,7 +3861,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#729,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1421,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -3718,7 +3915,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#730,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1422,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -3772,7 +3969,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#731,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1423,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -3837,7 +4034,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#732,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1424,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -3907,7 +4104,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#733,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1425,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -3946,7 +4143,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#734,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1426,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -3981,7 +4178,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#735,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1427,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
@@ -4053,7 +4250,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#736,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#1428,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;

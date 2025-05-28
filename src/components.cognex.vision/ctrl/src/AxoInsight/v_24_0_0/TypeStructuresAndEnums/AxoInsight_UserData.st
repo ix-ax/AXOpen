@@ -1,0 +1,8 @@
+NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
+    {S7.extern=ReadWrite}
+    CLASS PUBLIC AxoInsight_UserData EXTENDS AXOpen.Core.AxoByteArray  
+        VAR PUBLIC 
+            Data : ARRAY [0..255] OF BYTE;
+        END_VAR 
+    END_CLASS
+END_NAMESPACE

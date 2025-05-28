@@ -1,4 +1,5 @@
-﻿using AXOpen.Base.Dialogs;
+﻿using AXOpen.Base.Data.Query;
+using AXOpen.Base.Dialogs;
 using Humanizer.DateTimeHumanizeStrategy;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -20,33 +21,42 @@ namespace AXOpen.Data
         [Parameter, EditorRequired]
         public string GroupName { get; set; }
 
-        [Parameter]
-        public string ConfigSuffix { get; set; } = "";
+        [Parameter] public string ConfigSuffix { get; set; } = "";
 
-        [Parameter]
-        public bool EnableExport { get; set; } = true;
+        [Parameter] public bool EnableCreate { get; set; } = false;
+        [Parameter] public bool EnableCopy { get; set; } = false;
+        [Parameter] public bool EnableDelete { get; set; } = false;
+        [Parameter] public bool EnableSendToPlc { get; set; } = false;
+        [Parameter] public bool EnableCreateNewFromPlc { get; set; } = false;
+        //[Parameter] public bool EnableUpdateFromPlc { get; set; } = false;
 
-        [Parameter]
-        public bool EnableSorting { get; set; } = true;
+        [Parameter] public bool EnableFiltering { get; set; } = false;
+        [Parameter] public bool EnableExport { get; set; } = false;
+        [Parameter] public bool EnableSorting { get; set; } = false;
 
-        [Inject]
-        public IAlertService AlertService { get; set; }
 
-        [Inject]
-        public AuthenticationStateProvider Authentication { set; get; }
+        [Parameter] public List<string>? InjectedEntities { get; set; }
+        [Parameter] public PredicateContainer? InjectedPredicateContainer { get; set; }
 
-        [Inject]
-        public IDistributedDataExchangeService DistributedExchangeService { set; get; }
 
         [Inject]
         public IJSRuntime JSRuntime { set; get; }
 
         [Inject]
+        public AuthenticationStateProvider Authentication { set; get; }
+
+        [Inject]
+        public IAlertService AlertService { get; set; }
+
+        [Inject]
+        public IDistributedDataExchangeService DistributedExchangeService { set; get; }
+
+        [Inject]
         public IAxoDataExchangeConfigurationService? ExchangeConfigService { set; get; }
 
-        public string BtnOperation {  get; set; } = string.Empty;
+        public string BtnOperation { get; set; } = string.Empty;
         public string SelectedEntityId { get; set; } = string.Empty;
-        public string OperationRecordName {  get; set; } = string.Empty;
+        public string OperationRecordName { get; set; } = string.Empty;
 
         public bool AdvanceFilterConfig { get; set; } = false;
 
@@ -63,24 +73,21 @@ namespace AXOpen.Data
                 GroupName = "default";
             }
 
-            if (DistributedExchangeService.Exchanges.ContainsKey(GroupName))
+            if (DistributedExchangeService.IsExistGroup(GroupName))
             {
-                IEnumerable<IAxoDataExchange> DataFragments;
+                this.DistributedVM = new DistributedDataViewModel(
+                    this.AlertService,
+                    this.Authentication,
+                    this.DistributedExchangeService,
+                    this.ExchangeConfigService,
+                    this.GroupName,
+                    this.DisplayOnePerDataType,
+                    this.ConfigSuffix,
+                    this.InjectedEntities,
+                    this.InjectedPredicateContainer
+                    );
 
-                if (DisplayOnePerDataType)
-                {
-                    DataFragments = DistributedExchangeService.GetMangersForGroup(GroupName);
-                }
-                else
-                {
-                    DataFragments = DistributedExchangeService.Exchanges[GroupName];
-                }
-
-                if (DataFragments != null)
-                {
-                    this.DistributedVM = new DistributedDataViewModel(DataFragments, this.AlertService, this.Authentication, this.ExchangeConfigService);
-                    this.DistributedVM.StateHasChangedDelegate = StateHasChanged;
-                }
+                this.DistributedVM.StateHasChangedDelegate = StateHasChanged;
             }
             else
             {
@@ -99,6 +106,7 @@ namespace AXOpen.Data
         {
             return !string.IsNullOrEmpty(this.BtnOperation);
         }
+
         public bool IsNoActiveOperation()
         {
             return string.IsNullOrEmpty(this.BtnOperation);

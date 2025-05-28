@@ -33,6 +33,11 @@ Register services in your 'Program.cs' file
 ### Collect AxoDataExchanges
 [!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=CollectingExchanges)]
 
+
+### Ordering AxoDataExchanges
+To define the **main exchange** for a group, use the following code in your Program.cs:
+[!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=DistributedGroupOrder)]
+
 ### Fill up exchange configuration
 [!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=AxoDataExchangeConfigurationService)]
      

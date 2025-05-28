@@ -56,16 +56,16 @@ namespace AXOpen.Components.Keyence.Vision
                     //errorDescriptionDict.Add(528, "Waiting for the signal/variable `<insert name>` to be set/reseted !");                       
                     //errorDescriptionDict.Add(529, "Waiting for the signal/variable `<insert name>` to be set/reseted !");                       
                     // ClearResultDataTask
-                    errorDescriptionDict.Add(530, "Waiting for the signal/variable `<insert name>` to be set/reseted !");                       
-                    errorDescriptionDict.Add(531, "Waiting for the signal/variable `HandshakeAndGeneralErrorStatus.Error` to be reseted !");                       
-                    errorDescriptionDict.Add(532, "Waiting for the signal/variable `CompletionStatus.ReadComplete` to be reseted !");                       
-                    errorDescriptionDict.Add(533, "Waiting for the signal/variable `CompletionStatus.PresetComplete` to be reseted !");                       
-                    errorDescriptionDict.Add(534, "Waiting for the signal/variable `CompletionStatus.RegisterPresetDataComplete` to be reseted !");                       
-                    errorDescriptionDict.Add(535, "Waiting for the signal/variable `CompletionStatus.TuneComplete` to be reseted !");                       
-                    errorDescriptionDict.Add(536, "Waiting for the signal/variable `CompletionStatus.EXT_RequestComplete` to be reseted !");                       
-                    errorDescriptionDict.Add(537, "Waiting for the signal/variable `HandshakeAndGeneralErrorStatus.GeneralError` to be reseted !");                       
-                    errorDescriptionDict.Add(538, "Waiting for the signal/variable `<insert name>` to be set/reseted !");                       
-                    errorDescriptionDict.Add(539, "Waiting for the signal/variable `<insert name>` to be set/reseted !");                       
+                    errorDescriptionDict.Add(530, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(531, "Waiting for the signal/variable `HandshakeAndGeneralErrorStatus.Error` to be reseted !");
+                    errorDescriptionDict.Add(532, "Waiting for the signal/variable `CompletionStatus.ReadComplete` to be reseted !");
+                    errorDescriptionDict.Add(533, "Waiting for the signal/variable `CompletionStatus.PresetComplete` to be reseted !");
+                    errorDescriptionDict.Add(534, "Waiting for the signal/variable `CompletionStatus.RegisterPresetDataComplete` to be reseted !");
+                    errorDescriptionDict.Add(535, "Waiting for the signal/variable `CompletionStatus.TuneComplete` to be reseted !");
+                    errorDescriptionDict.Add(536, "Waiting for the signal/variable `CompletionStatus.EXT_RequestComplete` to be reseted !");
+                    errorDescriptionDict.Add(537, "Waiting for the signal/variable `HandshakeAndGeneralErrorStatus.GeneralError` to be reseted !");
+                    errorDescriptionDict.Add(538, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(539, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     //// TemplateTask_10steps_2
                     //errorDescriptionDict.Add(540, "Waiting for the signal/variable `<insert name>` to be set/reseted !");                       
                     //errorDescriptionDict.Add(541, "Waiting for the signal/variable `<insert name>` to be set/reseted !");                       
@@ -119,17 +119,17 @@ namespace AXOpen.Components.Keyence.Vision
                     errorDescriptionDict.Add(585, "Waiting for the signal/variable `CompletionStatus.TuneComplete` to be reseted !");
                     errorDescriptionDict.Add(586, "Waiting for the signal/variable `CompletionStatus.EXT_RequestComplete` to be reseted !");
                     errorDescriptionDict.Add(587, "Waiting for the signal/variable `HandshakeAndGeneralErrorStatus.GeneralError` to be reseted !");
-                    errorDescriptionDict.Add(588, "Waiting for the signal/variable `ParameterBankNumber.BankNumberRegister` to be set to value from 0 to 10 !");                       
-                    errorDescriptionDict.Add(589, "Waiting for the signal/variable `CompletionStatus.ReadComplete` to be set !");                       
-                    errorDescriptionDict.Add(590, "Waiting for the signal/variable `ReadData.ResultDataReadyCount` to be incremented !");                       
-                    errorDescriptionDict.Add(591, "Waiting for the signal/variable `CompletionStatus.ReadComplete` to be reseted !");                       
-                    errorDescriptionDict.Add(592, "Waiting for the signal/variable `<insert name>` to be set/reseted !");                       
-                    errorDescriptionDict.Add(593, "Waiting for the signal/variable `<insert name>` to be set/reseted !");                       
-                    errorDescriptionDict.Add(594, "Waiting for the signal/variable `<insert name>` to be set/reseted !");                       
-                    errorDescriptionDict.Add(595, "Waiting for the signal/variable `<insert name>` to be set/reseted !");                       
-                    errorDescriptionDict.Add(596, "Waiting for the signal/variable `<insert name>` to be set/reseted !");                       
-                    errorDescriptionDict.Add(597, "Waiting for the signal/variable `<insert name>` to be set/reseted !");                       
-                    errorDescriptionDict.Add(598, "Waiting for the signal/variable `<insert name>` to be set/reseted !");                       
+                    errorDescriptionDict.Add(588, "Waiting for the signal/variable `ParameterBankNumber.BankNumberRegister` to be set to value from 0 to 10 !");
+                    errorDescriptionDict.Add(589, "Waiting for the signal/variable `CompletionStatus.ReadComplete` to be set !");
+                    errorDescriptionDict.Add(590, "Waiting for the signal/variable `ReadData.ResultDataReadyCount` to be incremented !");
+                    errorDescriptionDict.Add(591, "Waiting for the signal/variable `CompletionStatus.ReadComplete` to be reseted !");
+                    errorDescriptionDict.Add(592, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(593, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(594, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(595, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(596, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(597, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(598, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(599, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     // TemplateTask_20steps_2
                     errorDescriptionDict.Add(600, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
@@ -215,52 +215,246 @@ namespace AXOpen.Components.Keyence.Vision
                     //errorDescriptionDict.Add(677, "Waiting for the signal/variable `<insert name>` to be set/reseted !");                       
                     //errorDescriptionDict.Add(678, "Waiting for the signal/variable `<insert name>` to be set/reseted !");                       
                     //errorDescriptionDict.Add(679, "Waiting for the signal/variable `<insert name>` to be set/reseted !");                       
-                    // General alarms
+                    //  General alarms
                     errorDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!");
                     errorDescriptionDict.Add(701, "Input variable `hwId` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(702, "Input variable `homeSensor` has NULL reference in `Run` method!");
-                    errorDescriptionDict.Add(703, "Input variable `workSensor` has NULL reference in `Run` method!");
-                    errorDescriptionDict.Add(704, "Input variable `moveHomeSignal` has NULL reference in `Run` method!");
-                    errorDescriptionDict.Add(705, "Input variable `moveWorkSignal` has NULL reference in `Run` method!");
-                    //// Stop task
-                    //errorDescriptionDict.Add(800, "Stop task finished with error!");
-                    //errorDescriptionDict.Add(801, "Stop task was aborted, while not yet completed!");
-                    //// Move to home task
-                    //errorDescriptionDict.Add(810, "Move to home task finished with error!");
-                    //errorDescriptionDict.Add(811, "Move to home task was aborted, while not yet completed!");
-                    //// Move to work task
-                    //errorDescriptionDict.Add(820, "Move to work task finished with error!");
-                    //errorDescriptionDict.Add(821, "Move to work task was aborted, while not yet completed!");
-                    // ClearResultDataTask
-                    errorDescriptionDict.Add(830, "ClearResultDataTask finished with error!");
-                    errorDescriptionDict.Add(831, "ClearResultDataTask was aborted, while not yet completed!");
-                    //// TemplateTask_10steps_2
-                    //errorDescriptionDict.Add(840, "TemplateTask_10steps_2 finished with error!");
-                    //errorDescriptionDict.Add(841, "TemplateTask_10steps_2 was aborted, while not yet completed!");
-                    //// TemplateTask_10steps_3
-                    //errorDescriptionDict.Add(850, "TemplateTask_10steps_3 finished with error!");
-                    //errorDescriptionDict.Add(851, "TemplateTask_10steps_3 was aborted, while not yet completed!");
-                    //// TemplateTask_10steps_4
-                    //errorDescriptionDict.Add(860, "TemplateTask_10steps_4 task finished with error!");
-                    //errorDescriptionDict.Add(861, "TemplateTask_10steps_4 task was aborted, while not yet completed!");
-                    //// TemplateTask_10steps_5
-                    //errorDescriptionDict.Add(870, "TemplateTask_10steps_5 task finished with error!");
-                    //errorDescriptionDict.Add(871, "TemplateTask_10steps_5 task was aborted, while not yet completed!");
-                    // ReadTask
-                    errorDescriptionDict.Add(880, "ReadTask task finished with error!");
-                    errorDescriptionDict.Add(881, "ReadTask task was aborted, while not yet completed!");
-                    // TuneTask
-                    errorDescriptionDict.Add(900, "TuneTask task finished with error!");
-                    errorDescriptionDict.Add(901, "TuneTask task was aborted, while not yet completed!");
-                    //// TemplateTask_20steps_3
-                    //errorDescriptionDict.Add(920, "TemplateTask_20steps_3 task finished with error!");
-                    //errorDescriptionDict.Add(921, "TemplateTask_20steps_3 task was aborted, while not yet completed!");
-                    //// TemplateTask_20steps_4
-                    //errorDescriptionDict.Add(940, "TemplateTask_20steps_4 task finished with error!");
-                    //errorDescriptionDict.Add(941, "TemplateTask_20steps_4 task was aborted, while not yet completed!");
-                    //// TemplateTask_20steps_5
-                    //errorDescriptionDict.Add(960, "TemplateTask_20steps_5 task finished with error!");
-                    //errorDescriptionDict.Add(961, "TemplateTask_20steps_5 task was aborted, while not yet completed!");
+                    errorDescriptionDict.Add(702, "Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090).");
+
+                    errorDescriptionDict.Add(710, "Hw configuration error. Value of hwIdHandshakeAndGeneralErrorStatus is zero.");
+                    errorDescriptionDict.Add(711, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1.");
+                    errorDescriptionDict.Add(712, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1.");
+                    errorDescriptionDict.Add(713, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1.");
+                    errorDescriptionDict.Add(714, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 1.");
+                    errorDescriptionDict.Add(715, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1.");
+                    errorDescriptionDict.Add(716, "Hw configuration error: Module with unexpected size or type detected in Slot 1. Expected module: 'HandshakeAndGeneralErrorStatus' (GsdId=101).");
+
+                    errorDescriptionDict.Add(720, "Hw configuration error. Value of hwIdBUSY_Status is zero.");
+                    errorDescriptionDict.Add(721, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2.");
+                    errorDescriptionDict.Add(722, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2.");
+                    errorDescriptionDict.Add(723, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2.");
+                    errorDescriptionDict.Add(724, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 2.");
+                    errorDescriptionDict.Add(725, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2.");
+                    errorDescriptionDict.Add(726, "Hw configuration error: Module with unexpected size or type detected in Slot 2. Expected module: 'BUSY_Status' (GsdId=102).");
+
+                    errorDescriptionDict.Add(730, "Hw configuration error. Value of hwIdCompletionStatus is zero.");
+                    errorDescriptionDict.Add(731, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 3.");
+                    errorDescriptionDict.Add(732, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 3.");
+                    errorDescriptionDict.Add(733, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 3.");
+                    errorDescriptionDict.Add(734, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 3.");
+                    errorDescriptionDict.Add(735, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 3.");
+                    errorDescriptionDict.Add(736, "Hw configuration error: Module with unexpected size or type detected in Slot 3. Expected module: 'CompletionStatus '(GsdId=103).");
+
+                    errorDescriptionDict.Add(740, "Hw configuration error. Value of hwIdErrorStatus is zero.");
+                    errorDescriptionDict.Add(741, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 4.");
+                    errorDescriptionDict.Add(742, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 4.");
+                    errorDescriptionDict.Add(743, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 4.");
+                    errorDescriptionDict.Add(744, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 4.");
+                    errorDescriptionDict.Add(745, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 4.");
+                    errorDescriptionDict.Add(746, "Hw configuration error: Module with unexpected size or type detected in Slot 4. Expected module: 'ErrorStatus' (GsdId=104).");
+
+                    errorDescriptionDict.Add(750, "Hw configuration error. Value of hwIdTerminalStatus is zero.");
+                    errorDescriptionDict.Add(751, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 5.");
+                    errorDescriptionDict.Add(752, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 5.");
+                    errorDescriptionDict.Add(753, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 5.");
+                    errorDescriptionDict.Add(754, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 5.");
+                    errorDescriptionDict.Add(755, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 5.");
+                    errorDescriptionDict.Add(756, "Hw configuration error: Module with unexpected size or type detected in Slot 5. Expected module: 'TerminalStatus' (GsdId=105).");
+
+                    errorDescriptionDict.Add(760, "Hw configuration error. Value of hwIdUnstableReadStatus is zero.");
+                    errorDescriptionDict.Add(761, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 6.");
+                    errorDescriptionDict.Add(762, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 6.");
+                    errorDescriptionDict.Add(763, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 6.");
+                    errorDescriptionDict.Add(764, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 6.");
+                    errorDescriptionDict.Add(765, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 6.");
+                    errorDescriptionDict.Add(766, "Hw configuration error: Module with unexpected size or type detected in Slot 6. Expected module: 'UnstableReadStatus' (GsdId=106).");
+
+                    errorDescriptionDict.Add(770, "Hw configuration error. Value of hwIdMatchingLevelAndTotalEvaluationGradeStatus is zero.");
+                    errorDescriptionDict.Add(771, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 7.");
+                    errorDescriptionDict.Add(772, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 7.");
+                    errorDescriptionDict.Add(773, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 7.");
+                    errorDescriptionDict.Add(774, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 7.");
+                    errorDescriptionDict.Add(775, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 7.");
+                    errorDescriptionDict.Add(776, "Hw configuration error: Module with unexpected size or type detected in Slot 7. Expected module: 'MatchingLevelAndTotalEvaluationGradeStatus' (GsdId=107).");
+
+                    errorDescriptionDict.Add(780, "Hw configuration error. Value of hwIdOperationalResultStatus is zero.");
+                    errorDescriptionDict.Add(781, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 8.");
+                    errorDescriptionDict.Add(782, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 8.");
+                    errorDescriptionDict.Add(783, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 8.");
+                    errorDescriptionDict.Add(784, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 8.");
+                    errorDescriptionDict.Add(785, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 8.");
+                    errorDescriptionDict.Add(786, "Hw configuration error: Module with unexpected size or type detected in Slot 8. Expected module: 'OperationalResultStatus' (GsdId=108).");
+                    errorDescriptionDict.Add(790, "Hw configuration error. Value of hwIdReadData is zero.");
+                    errorDescriptionDict.Add(791, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 9.");
+                    errorDescriptionDict.Add(792, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 9.");
+                    errorDescriptionDict.Add(793, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 9.");
+                    errorDescriptionDict.Add(794, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 9.");
+                    errorDescriptionDict.Add(795, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 9.");
+                    errorDescriptionDict.Add(796, "Hw configuration error: Module with unexpected size or type detected in Slot 9. Expected module: 'Result_Data-32_bytes,Result_Data-64_bytes,Result_Data-128_bytes,Result_Data-246_bytes' (GsdId=109,110,111,112).");
+
+                    errorDescriptionDict.Add(800, "Hw configuration error. Value of hwIdLatchAndErrorClearControlBitReg is zero.");
+                    errorDescriptionDict.Add(801, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 10.");
+                    errorDescriptionDict.Add(802, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 10.");
+                    errorDescriptionDict.Add(803, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 10.");
+                    errorDescriptionDict.Add(804, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 10.");
+                    errorDescriptionDict.Add(805, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 10.");
+                    errorDescriptionDict.Add(806, "Hw configuration error: Module with unexpected size or type detected in Slot 10. Expected module: 'LatchAndErrorClearControlBitReg' (GsdId=201).");
+
+                    errorDescriptionDict.Add(810, "Hw configuration error. Value of hwIdOperationInstructionControl is zero.");
+                    errorDescriptionDict.Add(811, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 11.");
+                    errorDescriptionDict.Add(812, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 11.");
+                    errorDescriptionDict.Add(813, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 11.");
+                    errorDescriptionDict.Add(814, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 11.");
+                    errorDescriptionDict.Add(815, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 11.");
+                    errorDescriptionDict.Add(816, "Hw configuration error: Module with unexpected size or type detected in Slot 11. Expected module: 'OperationInstructionControl' (GsdId=202).");
+
+                    errorDescriptionDict.Add(820, "Hw configuration error. Value of hwIdCompletionClearControl is zero.");
+                    errorDescriptionDict.Add(821, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 12.");
+                    errorDescriptionDict.Add(822, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 12.");
+                    errorDescriptionDict.Add(823, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 12.");
+                    errorDescriptionDict.Add(824, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 12.");
+                    errorDescriptionDict.Add(825, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 12.");
+                    errorDescriptionDict.Add(826, "Hw configuration error: Module with unexpected size or type detected in Slot 12. Expected module: 'CompletionClearControl' (GsdId=203).");
+
+                    errorDescriptionDict.Add(830, "Hw configuration error. Value of hwIdParameterBankNumber is zero.");
+                    errorDescriptionDict.Add(831, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 13.");
+                    errorDescriptionDict.Add(832, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 13.");
+                    errorDescriptionDict.Add(833, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 13.");
+                    errorDescriptionDict.Add(834, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 13.");
+                    errorDescriptionDict.Add(835, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 13.");
+                    errorDescriptionDict.Add(836, "Hw configuration error: Module with unexpected size or type detected in Slot 13. Expected module: 'ParameterBankNumber' (GsdId=204).");
+
+                    errorDescriptionDict.Add(840, "Hw configuration error. Value of hwIdUserData is zero.");
+                    errorDescriptionDict.Add(841, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 14.");
+                    errorDescriptionDict.Add(842, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 14.");
+                    errorDescriptionDict.Add(843, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 14.");
+                    errorDescriptionDict.Add(844, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 14.");
+                    errorDescriptionDict.Add(845, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 14.");
+                    errorDescriptionDict.Add(846, "Hw configuration error: Module with unexpected size or type detected in Slot 14. Allowed modules: 'User_Data-32_bytes,User_Data-64_bytes,User_Data-128_bytes,User_Data-250_bytes' (GsdId=205,206,207,208).");
+
+                    errorDescriptionDict.Add(1130, "Input variable `parent` has NULL reference in `Run` method!");
+                    errorDescriptionDict.Add(1131, "Input variable `hwId` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1132, "Input variable `hwIdHandshakeAndGeneralErrorStatus` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1133, "Input variable `hwIdBUSY_Status` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1134, "Input variable `hwIdCompletionStatus` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1135, "Input variable `hwIdErrorStatus` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1136, "Input variable `hwIdTerminalStatus` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1137, "Input variable `hwIdUnstableReadStatus` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1138, "Input variable `hwIdMatchingLevelAndTotalEvaluationGradeStatus` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1139, "Input variable `hwIdOperationalResultStatus` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1140, "Input variable `hwIdReadData` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1141, "Input variable `hwIdLatchAndErrorClearControl` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1142, "Input variable `hwIdOperationInstructionControl` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1143, "Input variable `hwIdCompletionClearControl` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1144, "Input variable `hwIdParameterBankNumber` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1145, "Input variable `hwIdUserData` has invalid value in `Run` method!");
+                    //errorDescriptionDict.Add(1146, "Input variable `hwID_in_15` has invalid value in `Run` method!"                                                                                            );
+                    //errorDescriptionDict.Add(1147, "Input variable `hwID_in_16` has invalid value in `Run` method!"                                                                                            );
+                    //errorDescriptionDict.Add(1148, "Input variable `hwID_in_17` has invalid value in `Run` method!"                                                                                            );
+                    //errorDescriptionDict.Add(1149, "Input variable `hwID_in_18` has invalid value in `Run` method!"                                                                                            );
+                    //errorDescriptionDict.Add(1150, "Input variable `hwID_in_19` has invalid value in `Run` method!"                                                                                            );
+                    //errorDescriptionDict.Add(1151, "Input variable `hwID_in_20` has invalid value in `Run` method!"                                                                                            );
+                    //errorDescriptionDict.Add(1152, "Input variable `hwID_out_1` has invalid value in `Run` method!"                                                                                            );
+                    //errorDescriptionDict.Add(1153, "Input variable `hwID_out_2` has invalid value in `Run` method!"                                                                                            );
+                    //errorDescriptionDict.Add(1154, "Input variable `hwID_out_3` has invalid value in `Run` method!"                                                                                            );
+                    //errorDescriptionDict.Add(1155, "Input variable `hwID_out_4` has invalid value in `Run` method!"                                                                                            );
+                    //errorDescriptionDict.Add(1156, "Input variable `hwID_out_5` has invalid value in `Run` method!"                                                                                            );
+                    //errorDescriptionDict.Add(1157, "Input variable `hwID_out_6` has invalid value in `Run` method!"                                                                                            );
+                    //errorDescriptionDict.Add(1158, "Input variable `hwID_out_7` has invalid value in `Run` method!"                                                                                            );
+                    //errorDescriptionDict.Add(1159, "Input variable `hwID_out_8` has invalid value in `Run` method!"                                                                                            );
+                    //errorDescriptionDict.Add(1160, "Input variable `hwID_out_9` has invalid value in `Run` method!"                                                                                            );
+                    //errorDescriptionDict.Add(1161, "Input variable `hwID_out_10` has invalid value in `Run` method!"                                                                                           );
+                    //errorDescriptionDict.Add(1162, "Input variable `hwID_out_11` has invalid value in `Run` method!"                                                                                           );
+                    //errorDescriptionDict.Add(1163, "Input variable `hwID_out_12` has invalid value in `Run` method!"                                                                                           );
+                    //errorDescriptionDict.Add(1164, "Input variable `hwID_out_13` has invalid value in `Run` method!"                                                                                           );
+                    //errorDescriptionDict.Add(1165, "Input variable `hwID_out_14` has invalid value in `Run` method!"                                                                                           );
+                    //errorDescriptionDict.Add(1166, "Input variable `hwID_out_15` has invalid value in `Run` method!"                                                                                           );
+                    //errorDescriptionDict.Add(1167, "Input variable `hwID_out_16` has invalid value in `Run` method!"                                                                                           );
+                    //errorDescriptionDict.Add(1168, "Input variable `hwID_out_17` has invalid value in `Run` method!"                                                                                           );
+                    //errorDescriptionDict.Add(1169, "Input variable `hwID_out_18` has invalid value in `Run` method!"                                                                                           );
+                    //errorDescriptionDict.Add(1170, "Input variable `hwID_out_19` has invalid value in `Run` method!"                                                                                           );
+                    //errorDescriptionDict.Add(1171, "Input variable `hwID_out_20` has invalid value in `Run` method!"                                                                                           );
+
+                    errorDescriptionDict.Add(1201, "Error reading the HandshakeAndGeneralErrorStatus!");
+                    errorDescriptionDict.Add(1202, "Error reading the BUSY_Status!");
+                    errorDescriptionDict.Add(1203, "Error reading the CompletionStatus!");
+                    errorDescriptionDict.Add(1204, "Error reading the ErrorStatus!");
+                    errorDescriptionDict.Add(1205, "Error reading the TerminalStatus!");
+                    errorDescriptionDict.Add(1206, "Error reading the UnstableReadStatus!");
+                    errorDescriptionDict.Add(1207, "Error reading the MatchingLevelAndTotalEvaluationGradeStatus!");
+                    errorDescriptionDict.Add(1208, "Error reading the OperationalResultStatus!");
+                    errorDescriptionDict.Add(1209, "Error reading the ReadData!");
+                    errorDescriptionDict.Add(1210, "ResultData has invalid size!");
+                    //errorDescriptionDict.Add(1211, "Error reading the TemplateComponentInputStructure_hwID_in_11!"                                                                                             );
+                    //errorDescriptionDict.Add(1212, "Error reading the TemplateComponentInputStructure_hwID_in_12!"                                                                                             );
+                    //errorDescriptionDict.Add(1213, "Error reading the TemplateComponentInputStructure_hwID_in_13!"                                                                                             );
+                    //errorDescriptionDict.Add(1214, "Error reading the TemplateComponentInputStructure_hwID_in_14!"                                                                                             );
+                    //errorDescriptionDict.Add(1215, "Error reading the TemplateComponentInputStructure_hwID_in_15!"                                                                                             );
+                    //errorDescriptionDict.Add(1216, "Error reading the TemplateComponentInputStructure_hwID_in_16!"                                                                                             );
+                    //errorDescriptionDict.Add(1217, "Error reading the TemplateComponentInputStructure_hwID_in_17!"                                                                                             );
+                    //errorDescriptionDict.Add(1218, "Error reading the TemplateComponentInputStructure_hwID_in_18!"                                                                                             );
+                    //errorDescriptionDict.Add(1219, "Error reading the TemplateComponentInputStructure_hwID_in_19!"                                                                                             );
+                    //errorDescriptionDict.Add(1220, "Error reading the TemplateComponentInputStructure_hwID_in_20!"                                                                                             );
+
+                    errorDescriptionDict.Add(1231, "Error writing the LatchAndErrorClearControl!");
+                    errorDescriptionDict.Add(1232, "Error writing the OperationInstructionControl!");
+                    errorDescriptionDict.Add(1233, "Error writing the CompletionClearControl!");
+                    errorDescriptionDict.Add(1234, "Error writing the ParameterBankNumber!");
+                    errorDescriptionDict.Add(1235, "UserData has invalid size!");
+                    errorDescriptionDict.Add(1236, "Error writing the 32bytes of the UserData!");
+                    errorDescriptionDict.Add(1237, "Error writing the 64bytes of the UserData!");
+                    errorDescriptionDict.Add(1238, "Error writing the 128bytes of the UserData!");
+                    errorDescriptionDict.Add(1239, "Error writing the 250bytes of the UserData!");
+                    //errorDescriptionDict.Add(1240, "Error writing the TemplateComponentOutputStructure_hwID_out_10!"                                                                                           );
+                    //errorDescriptionDict.Add(1241, "Error writing the TemplateComponentOutputStructure_hwID_out_11!"                                                                                           );
+                    //errorDescriptionDict.Add(1242, "Error writing the TemplateComponentOutputStructure_hwID_out_12!"                                                                                           );
+                    //errorDescriptionDict.Add(1243, "Error writing the TemplateComponentOutputStructure_hwID_out_13!"                                                                                           );
+                    //errorDescriptionDict.Add(1244, "Error writing the TemplateComponentOutputStructure_hwID_out_14!"                                                                                           );
+                    //errorDescriptionDict.Add(1245, "Error writing the TemplateComponentOutputStructure_hwID_out_15!"                                                                                           );
+                    //errorDescriptionDict.Add(1246, "Error writing the TemplateComponentOutputStructure_hwID_out_16!"                                                                                           );
+                    //errorDescriptionDict.Add(1247, "Error writing the TemplateComponentOutputStructure_hwID_out_17!"                                                                                           );
+                    //errorDescriptionDict.Add(1248, "Error writing the TemplateComponentOutputStructure_hwID_out_18!"                                                                                           );
+                    //errorDescriptionDict.Add(1249, "Error writing the TemplateComponentOutputStructure_hwID_out_19!"                                                                                           );
+                    //errorDescriptionDict.Add(1250, "Error writing the TemplateComponentOutputStructure_hwID_out_20!"                                                                                           );
+
+                    //// Clear task);
+                    //errorDescriptionDict.Add(10000, "Clearing of the result data finished with error!"                                                                                                          );
+                    //errorDescriptionDict.Add(10001, "Clearing of the result data was aborted, while not yet completed!"                                                                                         );
+                    //// Read Task);
+                    //errorDescriptionDict.Add(10010, "Reading finished with error!"                                                                                                                              );
+                    //errorDescriptionDict.Add(10011, "Reading was aborted, while not yet completed!"                                                                                                             );
+                    //// Continous reading);
+                    //errorDescriptionDict.Add(10020, "Continous reading finished with error!"                                                                                                                    );
+                    //errorDescriptionDict.Add(10021, "Continous reading was aborted, while not yet completed!"                                                                                                   );
+                    // ClearResultDataTask);
+                    errorDescriptionDict.Add(10030, "ClearResultDataTask finished with error!");
+                    errorDescriptionDict.Add(10031, "ClearResultDataTask was aborted, while not yet completed!");
+                    //// TemplateTask_10steps_2);
+                    //errorDescriptionDict.Add(10040, "TemplateTask_10steps_2 finished with error!"                                                                                                               );
+                    //errorDescriptionDict.Add(10041, "TemplateTask_10steps_2 was aborted, while not yet completed!"                                                                                              );
+                    //// TemplateTask_10steps_3);
+                    //errorDescriptionDict.Add(10050, "TemplateTask_10steps_3 finished with error!"                                                                                                               );
+                    //errorDescriptionDict.Add(10051, "TemplateTask_10steps_3 was aborted, while not yet completed!"                                                                                              );
+                    //// TemplateTask_10steps_4);
+                    //errorDescriptionDict.Add(10060, "TemplateTask_10steps_4 task finished with error!"                                                                                                          );
+                    //errorDescriptionDict.Add(10061, "TemplateTask_10steps_4 task was aborted, while not yet completed!"                                                                                         );
+                    //// TemplateTask_10steps_5);
+                    //errorDescriptionDict.Add(10070, "TemplateTask_10steps_5 task finished with error!"                                                                                                          );
+                    //errorDescriptionDict.Add(10071, "TemplateTask_10steps_5 task was aborted, while not yet completed!"                                                                                         );
+                    // ReadTask);
+                    errorDescriptionDict.Add(10080, "ReadTask finished with error!");
+                    errorDescriptionDict.Add(10081, "ReadTask was aborted, while not yet completed!");
+                    // TuneTask);
+                    errorDescriptionDict.Add(10100, "TuneTask task finished with error!");
+                    errorDescriptionDict.Add(10101, "TuneTask task was aborted, while not yet completed!");
+                    //// TemplateTask_20steps_3);
+                    //errorDescriptionDict.Add(10120, "TemplateTask_20steps_3 task finished with error!"                                                                                                          );
+                    //errorDescriptionDict.Add(10121, "TemplateTask_20steps_3 task was aborted, while not yet completed!"                                                                                         );
+                    //// TemplateTask_20steps_4);
+                    //errorDescriptionDict.Add(10140, "TemplateTask_20steps_4 task finished with error!"                                                                                                          );
+                    //errorDescriptionDict.Add(10141, "TemplateTask_20steps_4 task was aborted, while not yet completed!"                                                                                         );
+                    //// TemplateTask_20steps_5);
+                    //errorDescriptionDict.Add(10160, "TemplateTask_20steps_5 task finished with error!"                                                                                                          );
+                    //errorDescriptionDict.Add(10161, "TemplateTask_20steps_5 task was aborted, while not yet completed!"                                                                                         );
 
                 }
                 string errorDescription = "   ";
@@ -521,52 +715,45 @@ namespace AXOpen.Components.Keyence.Vision
                     //actionDescriptionDict.Add(479, "TemplateTask_20steps_5 running, add the detailed description of the current action.");
                     //actionDescriptionDict.Add(261, "TemplateTask_20steps_5 finished succesfully.");
                     //actionDescriptionDict.Add(262, "TemplateTask_20steps_5 restored.");
-                    //// General alarms
-                    //actionDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!");
-                    //actionDescriptionDict.Add(701, "Input variable `hwId` has invalid value in `Run` method!");
-                    //actionDescriptionDict.Add(702, "Input variable `homeSensor` has NULL reference in `Run` method!");
-                    //actionDescriptionDict.Add(703, "Input variable `workSensor` has NULL reference in `Run` method!");
-                    //actionDescriptionDict.Add(704, "Input variable `moveHomeSignal` has NULL reference in `Run` method!");
-                    //actionDescriptionDict.Add(705, "Input variable `moveWorkSignal` has NULL reference in `Run` method!");
                     //// Stop task
-                    //actionDescriptionDict.Add(800, "Stop task finished with error!");
-                    //actionDescriptionDict.Add(801, "Stop task was aborted, while not yet completed!");
+                    //actionDescriptionDict.Add(10000, "Stop task finished with error!");
+                    //actionDescriptionDict.Add(10001, "Stop task was aborted, while not yet completed!");
                     //// Move to home task
-                    //actionDescriptionDict.Add(810, "Move to home task finished with error!");
-                    //actionDescriptionDict.Add(811, "Move to home task was aborted, while not yet completed!");
+                    //actionDescriptionDict.Add(10010, "Move to home task finished with error!");
+                    //actionDescriptionDict.Add(10011, "Move to home task was aborted, while not yet completed!");
                     //// Move to work task
-                    //actionDescriptionDict.Add(820, "Move to work task finished with error!");
-                    //actionDescriptionDict.Add(821, "Move to work task was aborted, while not yet completed!");
+                    //actionDescriptionDict.Add(10020, "Move to work task finished with error!");
+                    //actionDescriptionDict.Add(10021, "Move to work task was aborted, while not yet completed!");
                     // ClearResultDataTask
-                    actionDescriptionDict.Add(830, "ClearResultDataTask finished with error!");
-                    actionDescriptionDict.Add(831, "ClearResultDataTask was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10030, "ClearResultDataTask finished with error!");
+                    actionDescriptionDict.Add(10031, "ClearResultDataTask was aborted, while not yet completed!");
                     //// TemplateTask_10steps_2
-                    //actionDescriptionDict.Add(840, "TemplateTask_10steps_2 finished with error!");
-                    //actionDescriptionDict.Add(841, "TemplateTask_10steps_2 was aborted, while not yet completed!");
+                    //actionDescriptionDict.Add(10040, "TemplateTask_10steps_2 finished with error!");
+                    //actionDescriptionDict.Add(10041, "TemplateTask_10steps_2 was aborted, while not yet completed!");
                     //// TemplateTask_10steps_3
-                    //actionDescriptionDict.Add(850, "TemplateTask_10steps_3 finished with error!");
-                    //actionDescriptionDict.Add(851, "TemplateTask_10steps_3 was aborted, while not yet completed!");
+                    //actionDescriptionDict.Add(10050, "TemplateTask_10steps_3 finished with error!");
+                    //actionDescriptionDict.Add(10051, "TemplateTask_10steps_3 was aborted, while not yet completed!");
                     //// TemplateTask_10steps_4
-                    //actionDescriptionDict.Add(860, "TemplateTask_10steps_4 task finished with error!");
-                    //actionDescriptionDict.Add(861, "TemplateTask_10steps_4 task was aborted, while not yet completed!");
+                    //actionDescriptionDict.Add(10060, "TemplateTask_10steps_4 task finished with error!");
+                    //actionDescriptionDict.Add(10061, "TemplateTask_10steps_4 task was aborted, while not yet completed!");
                     //// TemplateTask_10steps_5
-                    //actionDescriptionDict.Add(870, "TemplateTask_10steps_5 task finished with error!");
-                    //actionDescriptionDict.Add(871, "TemplateTask_10steps_5 task was aborted, while not yet completed!");
+                    //actionDescriptionDict.Add(10070, "TemplateTask_10steps_5 task finished with error!");
+                    //actionDescriptionDict.Add(10071, "TemplateTask_10steps_5 task was aborted, while not yet completed!");
                     // ReadTask
-                    actionDescriptionDict.Add(880, "ReadTask task finished with error!");
-                    actionDescriptionDict.Add(881, "ReadTask task was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10080, "ReadTask task finished with error!");
+                    actionDescriptionDict.Add(10081, "ReadTask task was aborted, while not yet completed!");
                     // TuneTask
-                    actionDescriptionDict.Add(900, "TuneTask task finished with error!");
-                    actionDescriptionDict.Add(901, "TuneTask task was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10100, "TuneTask task finished with error!");
+                    actionDescriptionDict.Add(10101, "TuneTask task was aborted, while not yet completed!");
                     //// TemplateTask_20steps_3
-                    //actionDescriptionDict.Add(920, "TemplateTask_20steps_3 task finished with error!");
-                    //actionDescriptionDict.Add(921, "TemplateTask_20steps_3 task was aborted, while not yet completed!");
+                    //actionDescriptionDict.Add(10120, "TemplateTask_20steps_3 task finished with error!");
+                    //actionDescriptionDict.Add(10121, "TemplateTask_20steps_3 task was aborted, while not yet completed!");
                     //// TemplateTask_20steps_4
-                    //actionDescriptionDict.Add(940, "TemplateTask_20steps_4 task finished with error!");
-                    //actionDescriptionDict.Add(941, "TemplateTask_20steps_4 task was aborted, while not yet completed!");
+                    //actionDescriptionDict.Add(10140, "TemplateTask_20steps_4 task finished with error!");
+                    //actionDescriptionDict.Add(10141, "TemplateTask_20steps_4 task was aborted, while not yet completed!");
                     //// TemplateTask_20steps_5
-                    //actionDescriptionDict.Add(960, "TemplateTask_20steps_5 task finished with error!");
-                    //actionDescriptionDict.Add(961, "TemplateTask_20steps_5 task was aborted, while not yet completed!");
+                    //actionDescriptionDict.Add(10160, "TemplateTask_20steps_5 task finished with error!");
+                    //actionDescriptionDict.Add(10161, "TemplateTask_20steps_5 task was aborted, while not yet completed!");
 
                 }
 

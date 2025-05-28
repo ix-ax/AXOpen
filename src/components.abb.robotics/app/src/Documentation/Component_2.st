@@ -27,9 +27,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
 
             //<Initialization>        
             AxoOmnicore_v_1_x_x.Run(parent          := parent,
-                                    hwID            := HwIdentifiers#OmniCore_HwID,
-                                    hwIdDI_64_bytes := HwIdentifiers#OmniCore_DI_64_bytes_DI_64_bytes_HwID,      
-                                    hwIdDO_64_bytes := HwIdentifiers#OmniCore_DO_64_bytes_DO_64_bytes_HwID);        
+                                    hwID            := HwIdentifiers#OmniCore_HwID);        
             //</Initialization>
 
         THIS.UseInSequencer();

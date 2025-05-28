@@ -28,9 +28,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
             END_IF;
 
             //<Initialization>        
-            ExampleRobot.Run(   parent      := THIS,
-                            hwID                := HwIdentifiers#TZ535_PN_HwID,
-                            hwIdInOut_64_byte   := HwIdentifiers#TZ535_PN_In_Out_64_byte_In_Out__64_byte_HwID);     
+            ExampleRobot.Run(parent := THIS , hwID := HwIdentifiers#TZ535_PN_HwID);
             //</Initialization>
 
         THIS.UseInSequencer();

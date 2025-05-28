@@ -38,3 +38,8 @@ To use filtering, the user must have the permission: `can_data_filter_advanced`.
 > [!IMPORTANT]  
 > The filtering mechanism applies an **AND** condition across all defined items in the query area.  
 > For better performance, prioritize filtering on members that are **indexed** in the database.
+
+---
+# 🔧 Modifying List of Filtered Symbols
+
+[!include[](PlainSymbolBuilder.md)]
