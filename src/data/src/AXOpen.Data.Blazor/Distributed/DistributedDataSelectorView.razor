@@ -10,14 +10,14 @@
 *@   
 @if (IsNoActiveOperation())
 {
-    <div class="d-flex gap-2 align-items-start">
+    <div class="flex flex-wrap gap-2 align-items-start">
 
         <!-- Selector -->
         @if (EnableCurrentView)
         {
-            <div class="position-relative flex-grow-1">
+            <div class="relative">
                 <button class="btn btn-outline-primary w-100 text-start" @onclick="ToggleCurrentIdsDropdown">
-                    <div class="d-flex flex-row align-items-center gap-3 flex-wrap">
+                    <div class="flex flex-wrap align-center gap-3">
 
                         @if (!string.IsNullOrEmpty(GetCurrentDataEntityId(DistributedVM.MainExchange)))
                         {
@@ -37,14 +37,14 @@
 
                 @if (IsCurrentIdsDropdownOpen)
                 {
-                    <div class="shadow border bg-white p-2"
+                    <div class="shadow simple-border p-2"
                          style="position: absolute; z-index: 1000; width: 100%; min-width:600px; max-height: 600px; overflow-y: auto;">
 
-                        <div class="d-flex flex-column align-items-center gap-2">
+                        <div class="flex flex-wrap align-center gap-2">
                             <button class="btn btn-primary w-100" @onclick="DistributedVM.ReadAllCurrentEntityIds">Reload All</button>
 
 
-                            <table class="table table-hover mb-0">
+                            <table class="table table-striped mb-0">
                                 <thead>
                                     <tr>
                                         <th>DataEntityId</th>
@@ -77,9 +77,9 @@
             </div>
         }
 
-        <div class="position-relative flex-grow-1">
+        <div class="relative flex-grow-1">
             <button class="btn btn-outline-primary w-100 text-start" @onclick="ToggleDropdown">
-                <div class="d-flex flex-row align-items-center gap-3 flex-wrap">
+                <div class="flex flex-wrap align-center gap-3">
                     @if (SelectedEntity != null)
                     {
                         <span><strong>@SelectedEntity.DataEntityId</strong></span>

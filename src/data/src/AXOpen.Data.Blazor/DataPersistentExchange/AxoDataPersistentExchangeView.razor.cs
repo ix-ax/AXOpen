@@ -48,27 +48,36 @@ public partial class AxoDataPersistentExchangeView : ComponentBase, IDisposable
         await Vm.FillObservableRecordsAsync();
     }
 
-    private async Task setLimitAsync(int limit)
+    public int Limit
     {
-        var oldLimit = Vm.Limit;
-        Vm.Limit = limit;
-
-        Vm.Page = Vm.Page * oldLimit / Vm.Limit;
-
-        await Vm.FillObservableRecordsAsync();
+        set
+        {
+            Vm.Limit = value;
+            Vm.FillObservableRecordsAsync();
+        }
+        get
+        {
+            return Vm.Limit;
+        }
     }
 
-    private int mod(int x, int m)
+    public int Page
     {
-        if (m == 0) return 0; // avoid exception caused by % 0
-        var r = x % m;
-        return r < 0 ? r + m : r;
+        set
+        {
+            Vm.Page = value;
+            Vm.FillObservableRecordsAsync();
+        }
+        get
+        {
+            return Vm.Page;
+        }
     }
 
-    private async Task setPageAsync(int page)
+    private async Task PageSizeAndSelectedChangedAsync(int pageSize, int selected)
     {
-        Vm.Page = page;
-
+        Vm.Limit = pageSize;
+        Vm.Page = selected;
         await Vm.FillObservableRecordsAsync();
     }
 

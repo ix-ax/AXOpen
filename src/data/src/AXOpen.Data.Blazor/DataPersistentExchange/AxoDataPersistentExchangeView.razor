@@ -16,7 +16,7 @@
 else
 {
     @* global buttons and filtering*@
-    <div class="d-flex">
+    <div class="flex flex-wrap">
 
         <button type="button" class="btn btn-primary ms-2"
                 @onclick='async () => {await Vm.ReadAllFromPlc();}'>
@@ -31,12 +31,20 @@ else
         <div class="btn-group ms-auto" role="group">
 
             <div class="btn-group" role="group">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Localizer[Vm.SearchMode.ToString()]</button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item @(Vm.SearchMode == AXOpen.Base.Data.eSearchMode.Exact ? "active" : "")" @onclick="() => setSearchModeAsync(AXOpen.Base.Data.eSearchMode.Exact)">@Localizer["Exact"]</a></li>
-                    <li><a class="dropdown-item @(Vm.SearchMode == AXOpen.Base.Data.eSearchMode.Contains ? "active" : "")" @onclick="() => setSearchModeAsync(AXOpen.Base.Data.eSearchMode.Contains)">@Localizer["Contains"]</a></li>
-                    <li><a class="dropdown-item @(Vm.SearchMode == AXOpen.Base.Data.eSearchMode.StartsWith ? "active" : "")" @onclick="() => setSearchModeAsync(AXOpen.Base.Data.eSearchMode.StartsWith)">@Localizer["StartsWith"]</a></li>
-                </ul>
+                <div class="dropdown">
+    <button class="btn btn-primary" @onclick="() => _dropdownSearchCollapsed = !_dropdownSearchCollapsed">
+        Options
+    <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 collapse-button-icon " + (_dropdownSearchCollapsed ? "open" : null))" />
+</button>
+@if (!_dropdownSearchCollapsed)
+{
+    <div class="dropdown-body card">
+        <a class="block px-4 py-2 text-sm text-gray-700 @(Vm.SearchMode == AXOpen.Base.Data.eSearchMode.Exact ? "active" : "")" @onclick="() => setSearchModeAsync(AXOpen.Base.Data.eSearchMode.Exact)">@Localizer["Exact"]</a>
+                    <a class="block px-4 py-2 text-sm text-gray-700 @(Vm.SearchMode == AXOpen.Base.Data.eSearchMode.Contains ? "active" : "")" @onclick="() => setSearchModeAsync(AXOpen.Base.Data.eSearchMode.Contains)">@Localizer["Contains"]</a>
+                    <a class="block px-4 py-2 text-sm text-gray-700 @(Vm.SearchMode == AXOpen.Base.Data.eSearchMode.StartsWith ? "active" : "")" @onclick="() => setSearchModeAsync(AXOpen.Base.Data.eSearchMode.StartsWith)">@Localizer["StartsWith"]</a>
+    </div>
+}
+</div>
             </div>
             <form @onsubmit="() => Vm.Filter()" class="btn-group">
                 <input type="search" class="form-control" placeholder="Search" aria-label="Search" @bind="Vm.FilterById">
@@ -47,7 +55,7 @@ else
                 </button>
             </form>
             <button class="btn btn-secondary" type="button" name="refresh" aria-label="Refresh" title="Refresh" @onclick="() => Vm.FillObservableRecordsAsync()">
-                <i class="oi oi-loop-circular"></i>
+                <Operon.Icons.HeroIcon Icon="arrow-path" Type="Operon.Icons.IconType.Outline" Class="size-5" />
             </button>
         </div>
     </div>
@@ -57,18 +65,18 @@ else
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">DataEntityId</th>
-                <th scope="col">Created</th>
-                <th scope="col">Modified</th>
-                <th scope="col">Actions</th>
+                <th>DataEntityId</th>
+                <th>Created</th>
+                <th>Modified</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             @if (Vm.IsBusy)
             {
 
-                <tr class="text-center">
-                    <td colspan="3">
+                <tr>
+                    <td>
                         <div class="spinner-border" role="status">
                             <span class="visually-hidden">Loading...</span>
                         </div>
@@ -78,8 +86,8 @@ else
             }
             else if (!Vm.Records.Any())
             {
-                <tr class="text-center">
-                    <td colspan="3">
+                <tr>
+                    <td>
                         <h3>@Localizer["Collection is empty"]</h3>
                     </td>
                 </tr>
@@ -90,7 +98,7 @@ else
 
                 @foreach (var record in Vm.Records)
                 {
-                    <tr @onclick="() => Vm.SelectedRecord = record" style="cursor: pointer;">
+                    <tr class="cursor-pointer" @onclick="() => Vm.SelectedRecord = record">
                         <td>@record.DataEntityId</td>
                         <td>@record._Created.ToString("yyyy-MM-dd HH:mm:ss.fff")</td>
                         <td>@record._Modified.ToString("yyyy-MM-dd HH:mm:ss.fff")</td>
@@ -130,80 +138,17 @@ else
         </tbody>
     </table>
 
-    @* pages *@
-    <div class="d-flex">
-        <div class="dropup">
-            Showing @(Vm.Page * Vm.Limit + 1) to @(((Vm.Page + 1) * Vm.Limit) > Vm.FilteredCount ? Vm.FilteredCount : ((Vm.Page + 1) * Vm.Limit)) of @Vm.FilteredCount rows
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.Limit</button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item @(Vm.Limit == 5 ? "active" : "")" style="cursor: pointer" @onclick="() => setLimitAsync(5)">5</a></li>
-                <li><a class="dropdown-item @(Vm.Limit == 10 ? "active" : "")" style="cursor: pointer" @onclick="() => setLimitAsync(10)">10</a></li>
-                <li><a class="dropdown-item @(Vm.Limit == 25 ? "active" : "")" style="cursor: pointer" @onclick="() => setLimitAsync(25)">25</a></li>
-                <li><a class="dropdown-item @(Vm.Limit == 50 ? "active" : "")" style="cursor: pointer" @onclick="() => setLimitAsync(50)">50</a></li>
-            </ul>
-            rows per page
-        </div>
-        <nav class="ms-auto">
-            <ul class="pagination">
-                <li class="page-item"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(mod(Vm.Page - 1, MaxPage + 1))" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-
-                @if (MaxPage < 7)
-                {
-                    @for (var i = 0; i < MaxPage + 1; i++)
-                    {
-                        var j = i;
-                        <li class="page-item @(Vm.Page == i ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(j)">@(i + 1)</a></li>
-                    }
-                }
-                else
-                {
-                    <li class="page-item @(Vm.Page == 0 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(0)">1</a></li>
-
-                    @if (Vm.Page < 4)
-                    {
-                        <li class="page-item @(Vm.Page == 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(1)">2</a></li>
-                        <li class="page-item @(Vm.Page == 2 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(2)">3</a></li>
-                        <li class="page-item @(Vm.Page == 3 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(3)">4</a></li>
-                        <li class="page-item @(Vm.Page == 4 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(4)">5</a></li>
-                        <li class="page-item disabled"><a class="page-link">...</a></li>
-                    }
-                    else if (Vm.Page > MaxPage - 4)
-                    {
-                        <li class="page-item disabled"><a class="page-link">...</a></li>
-                        <li class="page-item @(Vm.Page == @MaxPage - 4 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(MaxPage - 4)">@(MaxPage - 3)</a></li>
-                        <li class="page-item @(Vm.Page == @MaxPage - 3 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(MaxPage - 3)">@(MaxPage - 2)</a></li>
-                        <li class="page-item @(Vm.Page == @MaxPage - 2 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(MaxPage - 2)">@(MaxPage - 1)</a></li>
-                        <li class="page-item @(Vm.Page == @MaxPage - 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(MaxPage - 1)">@(MaxPage)</a></li>
-                    }
-                    else
-                    {
-                        <li class="page-item disabled"><a class="page-link">...</a></li>
-                        <li class="page-item @(Vm.Page == Vm.Page - 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(Vm.Page - 1)">@(Vm.Page)</a></li>
-                        <li class="page-item @(Vm.Page == Vm.Page ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(Vm.Page)">@(Vm.Page + 1)</a></li>
-                        <li class="page-item @(Vm.Page == Vm.Page + 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(Vm.Page + 1)">@(Vm.Page + 2)</a></li>
-                        <li class="page-item disabled"><a class="page-link">...</a></li>
-                    }
-
-                    <li class="page-item @(Vm.Page == @MaxPage ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(MaxPage)">@(MaxPage + 1)</a></li>
-                }
-
-                <li class="page-item"><a class="page-link" style="cursor: pointer" @onclick="async () => { if (MaxPage != -1) await setPageAsync((Vm.Page + 1) % (MaxPage + 1)); }" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-            </ul>
-        </nav>
-    </div>
-
-
-
+    <Operon.Components.Pagination Count="(int)Vm.FilteredCount" @bind-PageSize="Limit" @bind-Selected="Page" PageSizeAndSelectedChangedAsync="PageSizeAndSelectedChangedAsync" />
 
     @if (Vm.SelectedRecord != null)
     {
         <!-- Table for Tags -->
-        <table class="table table-bordered">
+        <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Symbol</th>
-                    <th scope="col">ValueType</th>
-                    <th scope="col">Value</th>
+                    <th>Symbol</th>
+                    <th>ValueType</th>
+                    <th>Value</th>
                 </tr>
             </thead>
             <tbody>
@@ -224,3 +169,7 @@ else
     }
 
 }
+
+                    @code{
+                        private bool _dropdownSearchCollapsed = true;
+                    }

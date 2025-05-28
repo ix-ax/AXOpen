@@ -175,20 +175,36 @@ public partial class DataExchangeView : ComponentBase, IDisposable
         await Vm.FillObservableRecordsAsync();
     }
 
-    private async Task setLimitAsync(int limit)
+    public int Limit
     {
-        var oldLimit = Vm.Limit;
-        Vm.Limit = limit;
-
-        Vm.Page = Vm.Page * oldLimit / Vm.Limit;
-
-        await Vm.FillObservableRecordsAsync();
+        set
+        {
+            Vm.Limit = value;
+            Vm.FillObservableRecordsAsync();
+        }
+        get
+        {
+            return Vm.Limit;
+        }
     }
 
-    private async Task setPageAsync(int page)
+    public int Page
     {
-        Vm.Page = page;
+        set
+        {
+            Vm.Page = value;
+            Vm.FillObservableRecordsAsync();
+        }
+        get
+        {
+            return Vm.Page;
+        }
+    }
 
+    private async Task PageSizeAndSelectedChangedAsync(int pageSize, int selected)
+    {
+        Vm.Limit = pageSize;
+        Vm.Page = selected;
         await Vm.FillObservableRecordsAsync();
     }
 

@@ -1,22 +1,23 @@
 ﻿@using AXSharp.Connector;
 @namespace AXOpen.Data.Query
 
-<div class="d-flex flex-row align-items-center gap-2">
+<div class="flex flex-wrap items-center gap-2">
 
     @if (!HideDescripion)
     {
         <label> @SymbolConfiguration.SymbolPathWithParent</label>
     }
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Operation</button>
+    <button class="btn btn-secondary" type="button" @onclick="() => _dropdownCollapsed = !_dropdownCollapsed">@Operation</button>
 
-    <ul class="dropdown-menu">
-
-        @foreach (var operation in OperationProvider.GetOperationsForType(SymbolConfiguration.SymbolType))
-        {
-            <li><a class="dropdown-item @(@SymbolConfiguration.Operation == operation ? "active" : "")" style="cursor: pointer" @onclick="() => {Operation = operation;}">@operation</a></li>
-        }
-
-    </ul>
+    @if (!_dropdownCollapsed)
+    {
+        <ul class="dropdown-body card">
+            @foreach (var operation in OperationProvider.GetOperationsForType(SymbolConfiguration.SymbolType))
+            {
+                <a class="block px-4 py-2 text-sm text-gray-700 @(@SymbolConfiguration.Operation == operation ? "active" : "")" @onclick="() => {Operation = operation;}">@operation</a>
+            }
+        </ul>
+    }
 
     @if (SymbolConfiguration.IsRangeOperation)
     {
@@ -43,3 +44,7 @@
     }
 
 </div>
+
+@code {
+    private bool _dropdownCollapsed = true;
+}
