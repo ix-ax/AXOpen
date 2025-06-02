@@ -108,7 +108,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#702;
                     RETURN;
                 END_IF;
-   
+                HWIDs.HW_Device :=  TO_UINT(_HW_Device);
                 //******************Slot 1*****************//
                 _geoAddr.Slot   :=  UINT#1;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
@@ -145,11 +145,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _HW_Outputs, inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#10 OR _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#716,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#716;
                     RETURN;
                 END_IF;
+                HWIDs.HW_Outputs    :=  TO_UINT(_HW_Outputs);
                 //******************Slot 2*****************//
                 _geoAddr.Slot   :=  UINT#2;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
@@ -191,6 +192,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#726;
                     RETURN;
                 END_IF;  
+                HWIDs.HW_Inputs :=  TO_UINT(_HW_Inputs);
                 //************Slot 1 Subslot 1*****************//
                 _geoAddr.Subslot:=      UINT#1;                                                            
                 _geoAddr.Slot   :=      UINT#1;                                                            
@@ -233,6 +235,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#736;
                     RETURN;
                 END_IF;
+                HWIDs.HW_S_0_0134_0_0      :=	TO_UINT(_HW_S_0_0134_0_0);
                 //************Slot 1 Subslot 2*****************//
                 _geoAddr.Subslot:=      UINT#2;                                                            
                 _geoAddr.Slot   :=      UINT#1;                                                            
@@ -275,6 +278,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#746;
                     RETURN;
                 END_IF;
+                HWIDs.HW_S_0_0145_0_0      :=	TO_UINT(_HW_S_0_0145_0_0);
                 //************Slot 1 Subslot 3*****************//
                 _geoAddr.Subslot:=      UINT#3;                                                            
                 _geoAddr.Slot   :=      UINT#1;                                                            
@@ -317,6 +321,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#756;
                     RETURN;
                 END_IF;
+                HWIDs.HW_S_0_0282_0_0      :=	TO_UINT(_HW_S_0_0282_0_0);
                 //************Slot 1 Subslot 4*****************//
                 _geoAddr.Subslot:=      UINT#4;                                                            
                 _geoAddr.Slot   :=      UINT#1;                                                            
@@ -359,6 +364,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#766;
                     RETURN;
                 END_IF;                
+                HWIDs.HW_S_0_0259_0_0      :=	TO_UINT(_HW_S_0_0259_0_0);
                 //************Slot 1 Subslot 5*****************//
                 _geoAddr.Subslot:=      UINT#5;                                                            
                 _geoAddr.Slot   :=      UINT#1;                                                            
@@ -401,6 +407,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#776;
                     RETURN;
                 END_IF;                
+                HWIDs.HW_S_0_0260_0_0      :=	TO_UINT(_HW_S_0_0260_0_0);
                 //************Slot 1 Subslot 6*****************//
                 _geoAddr.Subslot:=      UINT#6;                                                            
                 _geoAddr.Slot   :=      UINT#1;                                                            
@@ -443,6 +450,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#786;
                     RETURN;
                 END_IF;                
+                HWIDs.HW_S_0_0359_0_0      :=	TO_UINT(_HW_S_0_0359_0_0);
                 //************Slot 1 Subslot 7*****************//
                 _geoAddr.Subslot:=      UINT#7;                                                            
                 _geoAddr.Slot   :=      UINT#1;                                                            
@@ -485,6 +493,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#796;
                     RETURN;
                 END_IF;                
+                HWIDs.HW_S_0_1720_0_1      :=	TO_UINT(_HW_S_0_1720_0_1);
                 //************Slot 1 Subslot 8*****************//
                 _geoAddr.Subslot:=      UINT#8;                                                            
                 _geoAddr.Slot   :=      UINT#1;                                                            
@@ -527,6 +536,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#806;
                     RETURN;
                 END_IF;                
+                HWIDs.HW_S_0_0092_0_0      :=	TO_UINT(_HW_S_0_0092_0_0);
                 //************Slot 1 Subslot 9*****************//
                 _geoAddr.Subslot:=      UINT#9;                                                            
                 _geoAddr.Slot   :=      UINT#1;                                                            
@@ -569,6 +579,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#816;
                     RETURN;
                 END_IF;     
+                HWIDs.HW_S_0_0080_0_0      :=	TO_UINT(_HW_S_0_0080_0_0);
                 //************Slot 1 Subslot 10*****************//
                 _geoAddr.Subslot:=      UINT#10;                                                            
                 _geoAddr.Slot   :=      UINT#1;                                                            
@@ -611,6 +622,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#826;
                     RETURN;
                 END_IF;     
+                HWIDs.HW_S_0_0193_0_0      :=	TO_UINT(_HW_S_0_0193_0_0);
                 //************Slot 2 Subslot 1*****************//
                 _geoAddr.Subslot:=      UINT#1;                                                            
                 _geoAddr.Slot   :=      UINT#2;                                                            
@@ -653,6 +665,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#836;
                     RETURN;
                 END_IF;     
+                HWIDs.HW_S_0_0135_0_0      :=	TO_UINT(_HW_S_0_0135_0_0);
                 //************Slot 2 Subslot 2*****************//
                 _geoAddr.Subslot:=      UINT#2;                                                            
                 _geoAddr.Slot   :=      UINT#2;                                                            
@@ -695,6 +708,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#846;
                     RETURN;
                 END_IF;     
+                HWIDs.HW_S_0_0144_0_0      :=	TO_UINT(_HW_S_0_0144_0_0);
                 //************Slot 2 Subslot 3*****************//
                 _geoAddr.Subslot:=      UINT#3;                                                            
                 _geoAddr.Slot   :=      UINT#2;                                                            
@@ -737,6 +751,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#856;
                     RETURN;
                 END_IF;     
+                HWIDs.HW_S_0_0386_0_0      :=	TO_UINT(_HW_S_0_0386_0_0);
                 //************Slot 2 Subslot 4*****************//
                 _geoAddr.Subslot:=      UINT#4;                                                            
                 _geoAddr.Slot   :=      UINT#2;                                                            
@@ -779,6 +794,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#866;
                     RETURN;
                 END_IF;     
+                HWIDs.HW_S_0_0535_0_0      :=	TO_UINT(_HW_S_0_0535_0_0);
                 //************Slot 2 Subslot 5*****************//
                 _geoAddr.Subslot:=      UINT#5;                                                            
                 _geoAddr.Slot   :=      UINT#2;                                                            
@@ -821,6 +837,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#876;
                     RETURN;
                 END_IF;     
+                HWIDs.HW_S_0_0390_0_0      :=	TO_UINT(_HW_S_0_0390_0_0);
                 //************Slot 2 Subslot 6*****************//
                 _geoAddr.Subslot:=      UINT#6;                                                            
                 _geoAddr.Slot   :=      UINT#2;                                                            
@@ -863,6 +880,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#886;
                     RETURN;
                 END_IF;                     
+                HWIDs.HW_S_0_1720_0_2      :=	TO_UINT(_HW_S_0_1720_0_2);
                 //************Slot 2 Subslot 7*****************//
                 _geoAddr.Subslot:=      UINT#7;                                                            
                 _geoAddr.Slot   :=      UINT#2;                                                            
@@ -905,6 +923,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#896;
                     RETURN;
                 END_IF;                     
+                HWIDs.HW_S_0_0084_0_0      :=	TO_UINT(_HW_S_0_0084_0_0);
                 //************Slot 2 Subslot 8*****************//
                 _geoAddr.Subslot:=      UINT#8;                                                            
                 _geoAddr.Slot   :=      UINT#2;                                                            
@@ -947,7 +966,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#906;
                     RETURN;
                 END_IF;                     
-
+                HWIDs.HW_P_0_0106_0_0      :=	TO_UINT(_HW_P_0_0106_0_0);
                 //****************************** */
                 IF parent = NULL THEN
                     Messenger.Activate(     UINT#1130,eAxoMessageCategory#Error);
