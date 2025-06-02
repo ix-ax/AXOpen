@@ -47,7 +47,7 @@ namespace AXOpen.Logging
                         return;
 
                     var a = toDequeue.SelectMany(p => p.GetValueTags()).ToArray();
-                    await this.GetConnector()?.ReadBatchAsync(a)!;
+                    await this.GetConnector()?.ReadBatchAsync(a, eAccessPriority.Low)!;
 
                     foreach (var entry in toDequeue.Where(p => p.ToDequeue.LastValue))
                     {
