@@ -7,8 +7,7 @@ NAMESPACE AXOpen.Core
             Order : ULINT;                      
             StepDescription : STRING[120];
             IsActive : BOOL;                        
-            IsEnabled : BOOL;  
-            Analytics : AxoStepAnalytics;          
+            IsEnabled : BOOL;                          
         END_VAR 
 
         VAR PROTECTED            
@@ -23,12 +22,15 @@ NAMESPACE AXOpen.Core
         END_VAR
 
         ///<summary>
-        /// Gets duration of the current iteration of the step.
+        /// Updates the analitic information from this step.
         ///</summary>
         METHOD PUBLIC UpdateStepAnalitics 
-            Analytics.Order := THIS.Order;
-            Analytics.Description := THIS.StepDescription;
-            Analytics.Duration := THIS.Duration;            
+            VAR_IN_OUT
+                inoAnalytics : AxoStepAnalytics;
+            END_VAR    
+            inoAnalytics.Order := THIS.Order;
+            inoAnalytics.Description := THIS.StepDescription;
+            inoAnalytics.Duration := THIS.Duration;            
         END_METHOD
 
         ///<summary>

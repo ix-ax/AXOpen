@@ -27,8 +27,71 @@ NAMESPACE AXOpen.Core
             _closeCycleCounter : ULINT;  
             _refStep :  REF_TO AxoStep;       
             _microStep : UINT;   
-            _context        :   IAxoContext;
+            _context        :   IAxoContext;         
+            _analyticsData : REF_TO ARRAY [*] OF AxoStepAnalytics;
+            _analiticsCurrentIndex : DINT;
         END_VAR     
+        
+
+        ///<summary>
+        /// Sets the storage array for analytics data collection during sequence execution.
+        ///</summary>
+        ///<param name="inDataCurrentRun">Reference to an array that will store AxoStepAnalytics data for the current sequence run.</param>
+        ///<remarks>
+        /// This method configures the storage location for collecting analytics data during sequence execution.
+        /// The analytics data includes performance metrics and execution statistics for each step in the sequence.
+        /// If no storage is set (null is passed), analytics collection will be disabled.
+        ///</remarks>
+        METHOD PUBLIC SetAnalyticDataStorage 
+            VAR_INPUT
+                inDataCurrentRun : REF_TO ARRAY [*] OF AxoStepAnalytics;
+            END_VAR
+
+            _analyticsData := inDataCurrentRun;            
+        END_METHOD
+        
+        
+        ///<summary>
+        /// Updates the analytics data for the current step in the sequence.
+        ///</summary>
+        ///<remarks>
+        /// This private method handles the internal analytics update process by:
+        /// - Checking if there is a valid current step and analytics storage
+        /// - Verifying if there is space in the analytics array for new data
+        /// - Updating the analytics data for the current step at the current index
+        /// - Incrementing the analytics index for the next update
+        /// 
+        /// The method will return early without performing updates if:
+        /// - The current step is null
+        /// - The analytics data storage array is null
+        /// - The current index exceeds the array bounds
+        ///</remarks>
+        METHOD PRIVATE UpdateAnalytics
+            VAR            
+                _lowbound : DINT;
+                _upperbound : DINT;
+                _currentIndex : DINT;
+            END_VAR    
+
+            IF(_step = NULL) THEN
+                RETURN;
+            END_IF;    
+
+            IF(_analyticsData = NULL) THEN RETURN; END_IF;
+
+            _lowbound := LOWER_BOUND(_analyticsData^, 1);
+            _upperbound := UPPER_BOUND(_analyticsData^, 1);
+            _currentIndex := _analiticsCurrentIndex; //TO_DINT(THIS.CurrentOrder);
+
+            IF(_upperbound > _currentIndex) THEN                              
+                _step.UpdateStepAnalitics(_analyticsData^[_currentIndex]);    
+                _analiticsCurrentIndex := _analiticsCurrentIndex + 1;                           
+            END_IF;        
+        END_METHOD
+        
+        METHOD PUBLIC CollectAnalytics : IAxoTaskState           
+            CollectAnalytics := THIS.CollectDataTask.Invoke();
+        END_METHOD    
 
         ///<summary>
         /// Opens sequencers operations.
@@ -66,8 +129,8 @@ NAMESPACE AXOpen.Core
                         StepBackwardCommand.Run(THIS);
 
                     AxoCoordinatorStates#Configuring :
-                        THIS.OnBeforeSequenceStart();
-                        CurrentOrder := ULINT#1;
+                        THIS.OnBeforeSequenceStart();    
+                        _analiticsCurrentIndex := 0;                                        
                         _coordinatorState := AxoCoordinatorStates#Running;
                         _context.GetLogger().Log('Sequence in config state :', AXOpen.Logging.eLogLevel#Verbose, THIS);
                 END_CASE;    
@@ -205,7 +268,8 @@ NAMESPACE AXOpen.Core
                     _context.GetLogger().Log('Step done :', AXOpen.Logging.eLogLevel#Verbose, _step);
                     _step.DoneWhen(_step.IsBusy());
                     _step.SetIsActive(FALSE);
-                    CurrentOrder := CurrentOrder + ULINT#1;                                      
+                    THIS.UpdateAnalytics();
+                    CurrentOrder := CurrentOrder + ULINT#1;                                         
                     // Finalize the StepIn Command in a case of step mode
                     StepIn.DoneWhen(SteppingMode = eAxoSteppingMode#StepByStep);
                 END_IF;
@@ -231,7 +295,8 @@ NAMESPACE AXOpen.Core
                     _context.GetLogger().Log('Step request to step :', AXOpen.Logging.eLogLevel#Verbose, RequestedStep);
                     _step.DoneWhen(_step.IsBusy());
                     _step.SetIsActive(FALSE);
-                    CurrentOrder := RequestedStep.GetStepOrder();
+                    THIS.UpdateAnalytics();
+                    CurrentOrder := RequestedStep.GetStepOrder();                    
                     // Finalize the StepIn Command in a case of step mode
                     StepIn.DoneWhen(SteppingMode = eAxoSteppingMode#StepByStep);
                 END_IF;
