@@ -5,85 +5,102 @@
 @inherits RenderableComplexComponentBase<AxoMessenger>
 @implements IDisposable;
 
-<tr class="@TableRowBackgroundColor">
-    <th scope="row">@Component.GetParent()?.AttributeName</th>
-    @if (!ShowHelpText)
-    {
-        <td>
-            <span class="@(IsActive ? "fw-bold" : "") @(AcknowledgedBeforeFallen ? "line-through" : "")">
-                @Category
-            </span>
-        </td>
-        <td>
-            <span class="@(IsActive ? "fw-bold" : "") @(AcknowledgedBeforeFallen ? "line-through" : "")">
-                @MessageText
-            </span>
-        </td>
-    }
-    else
-    {
-        <td>
-            <span class="@TableRowBackgroundColor">
-                @HelpText
-            </span>
-        </td>
-    }
-    <td style="font-size: 0.55em; margin-top: 0.15em;"></td>
-    <td style="font-size: 0.55em; margin-top: 0.15em;">
-        <AuthorizeView Roles="can_attempt_repair">
-            <Authorized>
-                <button class="btn @AckBtnBackgroundColor equal-button" type="button" @onclick="@RestoreTask" hidden="@HideRepairButton">
-                    <span class="oi bi-wrench" aria-hidden="true"></span>
-                </button>
-            </Authorized>
-        </AuthorizeView>
-
-    </td>
-    <td style="font-size: 0.55em; margin-top: 0.15em;">
-        <button class="btn @AckBtnBackgroundColor equal-button" type="button" @onclick="@HelpTextTask" hidden="@HideHelpButton">
-            <span class="oi oi-question-mark" aria-hidden="true"></span>
+@if(this.Component is null)
+{
+    <div class="flex flex-row w-full bg-inactive-100 rounded-sm shadow-sm p-2 mb-2">
+        <button class="mx-2 w-full">
+            <div class="flex flex-row items-center gap-2 accordion-button @($"accordion-button")">
+               
+            </div>
         </button>
-    </td>
-    <td style="font-size: 0.55em; margin-top: 0.15em;">
-        <button class="btn @AckBtnBackgroundColor equal-button" type="button" @onclick="@AcknowledgeTask" hidden="@HideAcknowledgeButton">
-            <span class="oi oi-x" aria-hidden="true"></span>
+    </div>
+
+}
+else
+{
+    <div class="flex flex-row w-full @SeverityToBackgroundColor rounded-sm shadow-sm p-2 mb-2">
+        <button class="mx-2 w-full" @onclick="() => { detailsVisible = !detailsVisible; }">
+            <div class="flex flex-row items-center gap-2 accordion-button @($"accordion-button {Component.State.ToString().ToLower()}"))">
+                <div  class="1/8">
+                    <Operon.Icons.Micro.BellAlert Class="@($"size-5 accordion-button-icon {Component.State.ToString().ToLower()}")"/>    
+                </div>
+                <div class="6/8">
+                    <h5>@MessageText</h5>
+                </div>
+                <div class="1/8 ml-auto">
+                    <button class="btn btn-outline-danger" onclick="@(() => AcknowledgeTask())" hidden="@HideAcknowledgeButton">
+                        <Operon.Icons.Micro.XCircle Class="size-5"/>
+                    </button>
+                </div>
+            </div>
         </button>
-    </td>
-</tr>
+        @code
+        {
+            private bool detailsVisible = false;
+        }
+    </div>
 
-<tr class="@TableRowBackgroundColor">
-    <Accordion>
-        <AccordionItem Title="@Component.GetParent()?.AttributeName">
-            <td colspan="3" style="font-size: 0.65em; margin-top: 0.25em;">
-                @Symbol
-            </td>
-            <td style="font-size: 0.55em; margin-top: 0.15em;">@Risen</td>
-            <td style="font-size: 0.55em; margin-top: 0.15em;">@Fallen</td>
-            <td style="font-size: 0.55em; margin-top: 0.15em;">@Acknowledged</td>
-        </AccordionItem>
-    </Accordion>
-  
-
-</tr>
+    @if (detailsVisible)
+    {
+        <div class="flex flex-wrap simple-border">
+            <div class="w-full">
+                <div class="m-2 border rounded-sm border-transparent h-auto bg-gray-50">
+                    <h5>@HelpText</h5>
+                </div>
+            </div>
+            <div class="w-1/6">
+                <div class="m-3 h-auto bg-gray-50">Origin: @Symbol</div>
+            </div>
+            <div class="w-1/6">
+                <div class="m-3 bg-gray-50">Risen: @Risen</div>
+            </div>
+            <div class="w-1/6">
+                <div class="m-3 bg-gray-50">Fallen: @Fallen</div>
+            </div>
+            <div class="w-1/6">
+                <div class="m-3 bg-gray-50">Acknowledged: @Acknowledged</div>
+            </div>
+            <div class="w-1/6">
+                <div class="m-3">
+                    <button class="btn btn-outline-primary" onclick="@(() => AcknowledgeTask())" hidden="@HideAcknowledgeButton">
+                        <Operon.Icons.Micro.XCircle Class="size-5"/>
+                    </button>
+                </div>
+            </div>
+            <div class="w-1/6">
+                <div class="m-3">
+                    <button class="btn btn-outline-primary" onclick="@(() => RestoreTask())" hidden="@HideRepairButton">
+                        <Operon.Icons.Micro.LockOpen Class="size-5"/>
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
+}
 
 @code
   {
-      private string TableRowBackgroundColor
+      private string SeverityToBackgroundColor
       {
           get
           {
-              string retval = "table-primary";
+              if(Component is null)
+              {
+                  return "bg-inactive-100";
+              }
+              
+              string retval = "bg-inactive-100";
               if (Component.Category.Cyclic < 600)         // Upto warning level excluding
               {
-                  retval = "table-info";
+                  retval = "bg-active-100"; // This is the default color for no alarms
               }
               else if (Component.Category.Cyclic < 700)   //From warning level including, upto error level excluding
               {
-                  retval = "table-warning";
+                  retval = "bg-active-300";
               }
               else if (Component.Category.Cyclic <= 1200) //From error level including, upto catastrophic level including
               {
-                  retval = "table-danger";
+                  retval = "bg-danger-400";
               }
               return retval;
           }

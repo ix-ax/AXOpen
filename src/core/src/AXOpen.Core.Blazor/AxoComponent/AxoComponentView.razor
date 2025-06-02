@@ -5,16 +5,10 @@
 @using Operon.Components.Accordion
 @inherits RenderableComplexComponentBase<AxoComponent>;
 
-
-
-
-<div class="card flex-auto @BorderColorStatusClass">
-    <div class="flex w-full">
-        <Accordion>
-            <AccordionItem Title="@Component.AttributeName">
-                <AxoObjectDiagnosticsView ObservedObjects="new ITwinObject[] { this.Component }"></AxoObjectDiagnosticsView>
-            </AccordionItem>
-        </Accordion>
+<div class="card flex-auto my-3 @BorderColorStatusClass">
+    <div class="flex flex-col w-full">
+        <h4>@Component.AttributeName</h4>
+        <AxoObjectDiagnosticsView @ref="diagnosticsViewRef" ObservedObjects="new ITwinObject[] { this.Component }"></AxoObjectDiagnosticsView>
     </div>    
     <!--Header/Main/Basic controls-->
     <div>
@@ -53,6 +47,8 @@
 
 @code
 {
+    private AxoObjectDiagnosticsView diagnosticsViewRef;
+    
     private string BorderColorStatusClass
     {
         get
