@@ -17,6 +17,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             {#ix-set:AttributeName = "<#Update diagnostics#>"}
             HardwareDiagnosticsTask :   AXOpen.Io.AxoHardwareDiagnostics;
         END_VAR
+        VAR PUBLIC // HWIDs
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentDetails("HW")]}
+            {#ix-attr:[ReadOnly()]}
+            HWIDs  :   AxoCtrlxDriveXscHWIDs;
+        END_VAR
         
         VAR CONSTANT
             PositionExponent		:	INT := 4;
@@ -35,8 +41,28 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _AxisRefExt :  AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
             _Parameter : ARRAY[0..9] OF BYTE; 
             _Fieldbus   : ARRAY[0..25] OF BYTE; 
-            _hwID_F_ModulNotUsed    :   WORD;
-            
+            _HW_Device            : WORD;
+            _HW_Outputs           : WORD;
+            _HW_Inputs            : WORD;
+            _HW_S_0_0134_0_0      : WORD;
+            _HW_S_0_0145_0_0      : WORD;
+            _HW_S_0_0282_0_0      : WORD;
+            _HW_S_0_0259_0_0      : WORD;
+            _HW_S_0_0260_0_0      : WORD;
+            _HW_S_0_0359_0_0      : WORD;
+            _HW_S_0_1720_0_1      : WORD;
+            _HW_S_0_0092_0_0      : WORD;
+            _HW_S_0_0080_0_0      : WORD;
+            _HW_S_0_0193_0_0      : WORD;
+            _HW_S_0_0135_0_0      : WORD;
+            _HW_S_0_0144_0_0      : WORD;
+            _HW_S_0_0386_0_0      : WORD;
+            _HW_S_0_0535_0_0      : WORD;
+            _HW_S_0_0390_0_0      : WORD;
+            _HW_S_0_1720_0_2      : WORD;
+            _HW_S_0_0084_0_0      : WORD;
+            _HW_P_0_0106_0_0      : WORD;
+               
             _initHwCheckDone        :   BOOL;
             _retval                 :   WORD;
             _geoAddr                :   GeoAddr;
@@ -75,9 +101,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     RETURN;
                 END_IF;
 
-                _AxisRefExt.Data.hwID                := hwID;
-
-                _retval := ReadSlotFromHardwareID(hardwareID := TO_UINT(_AxisRefExt.Data.hwID), geoAddr :=_geoAddr);   
+                _HW_Device                         := hwID;
+                _retval := ReadSlotFromHardwareID(hardwareID := TO_UINT(_HW_Device), geoAddr :=_geoAddr);   
                 IF _retval = WORD#8090 THEN
                     Messenger.Activate(     UINT#702,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#702;
@@ -88,8 +113,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _geoAddr.Slot   :=  UINT#1;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _AxisRefExt.Data.hwIdParamCh_IDN  :=  TO_WORD(_outHwid);                                         
-                IF _AxisRefExt.Data.hwIdParamCh_IDN  = WORD#0 THEN
+                _HW_Outputs := TO_WORD(_outHwid);          
+                IF _HW_Outputs = WORD#0 THEN
                     Messenger.Activate(     UINT#710,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#710;
                     RETURN;
@@ -119,8 +144,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#715;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _AxisRefExt.Data.hwIdParamCh_IDN  , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#10 OR _outputsCount <> UINT#10 THEN
+                ReadHardwareIOAddress(hardwareIdentifier :=  _HW_Outputs, inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#10 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#716,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#716;
                     RETURN;
@@ -129,8 +154,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _geoAddr.Slot   :=  UINT#2;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwID_F_ModulNotUsed :=  TO_WORD(_outHwid);                                         
-                IF _hwID_F_ModulNotUsed = WORD#0 THEN
+                _HW_Inputs := TO_WORD(_outHwid);          
+                IF _HW_Inputs = WORD#0 THEN
                     Messenger.Activate(     UINT#720,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#720;
                     RETURN;
@@ -160,18 +185,19 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#725;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwID_F_ModulNotUsed , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier := _HW_Inputs, inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#726,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#726;
                     RETURN;
                 END_IF;  
-                //******************Slot 3*****************//
-                _geoAddr.Slot   :=  UINT#3;                                                            
-                _geoAddr.HardwareType := UINT#4; // (4-Module)
+                //************Slot 1 Subslot 1*****************//
+                _geoAddr.Subslot:=      UINT#1;                                                            
+                _geoAddr.Slot   :=      UINT#1;                                                            
+                _geoAddr.HardwareType := UINT#5; // (5-Submodule)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _AxisRefExt.Data.hwIdInput_9_Words  :=  TO_WORD(_outHwid);                                         
-                IF _AxisRefExt.Data.hwIdInput_9_Words  = WORD#0 THEN
+                _HW_S_0_0134_0_0  :=  TO_WORD(_outHwid);                                         
+                IF _HW_S_0_0134_0_0  = WORD#0 THEN
                     Messenger.Activate(     UINT#730,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#730;
                     RETURN;
@@ -201,18 +227,19 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#735;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _AxisRefExt.Data.hwIdInput_9_Words , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#18 OR _outputsCount <> UINT#0 THEN
+                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0134_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#2 THEN
                     Messenger.Activate(     UINT#736,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#736;
                     RETURN;
                 END_IF;
-                //******************Slot 4*****************//
-                _geoAddr.Slot   :=  UINT#4;                                                            
-                _geoAddr.HardwareType := UINT#4; // (4-Module)
+                //************Slot 1 Subslot 2*****************//
+                _geoAddr.Subslot:=      UINT#2;                                                            
+                _geoAddr.Slot   :=      UINT#1;                                                            
+                _geoAddr.HardwareType := UINT#5; // (5-Submodule)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _AxisRefExt.Data.hwIdOutput_13_Words  :=  TO_WORD(_outHwid);                                         
-                IF _AxisRefExt.Data.hwIdOutput_13_Words  = WORD#0 THEN
+                _HW_S_0_0145_0_0  :=  TO_WORD(_outHwid);                                         
+                IF _HW_S_0_0145_0_0  = WORD#0 THEN
                     Messenger.Activate(     UINT#740,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#740;
                     RETURN;
@@ -242,44 +269,796 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#745;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _AxisRefExt.Data.hwIdOutput_13_Words  , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#26 THEN
+                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0145_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#2 THEN
                     Messenger.Activate(     UINT#746,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#746;
                     RETURN;
                 END_IF;
-                 
+                //************Slot 1 Subslot 3*****************//
+                _geoAddr.Subslot:=      UINT#3;                                                            
+                _geoAddr.Slot   :=      UINT#1;                                                            
+                _geoAddr.HardwareType := UINT#5; // (5-Submodule)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _HW_S_0_0282_0_0  :=  TO_WORD(_outHwid);                                         
+                IF _HW_S_0_0282_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#750,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#750;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(     UINT#751,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#751;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(     UINT#752,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#752;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(     UINT#753,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#753;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(     UINT#754,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#754;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(     UINT#755,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#755;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0282_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#4 THEN
+                    Messenger.Activate(     UINT#756,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#756;
+                    RETURN;
+                END_IF;
+                //************Slot 1 Subslot 4*****************//
+                _geoAddr.Subslot:=      UINT#4;                                                            
+                _geoAddr.Slot   :=      UINT#1;                                                            
+                _geoAddr.HardwareType := UINT#5; // (5-Submodule)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _HW_S_0_0259_0_0  :=  TO_WORD(_outHwid);                                         
+                IF _HW_S_0_0259_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#760,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#760;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(     UINT#761,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#761;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(     UINT#762,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#762;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(     UINT#763,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#763;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(     UINT#764,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#764;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(     UINT#765,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#765;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0259_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#4 THEN
+                    Messenger.Activate(     UINT#766,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#766;
+                    RETURN;
+                END_IF;                
+                //************Slot 1 Subslot 5*****************//
+                _geoAddr.Subslot:=      UINT#5;                                                            
+                _geoAddr.Slot   :=      UINT#1;                                                            
+                _geoAddr.HardwareType := UINT#5; // (5-Submodule)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _HW_S_0_0260_0_0  :=  TO_WORD(_outHwid);                                         
+                IF _HW_S_0_0260_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#770,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#770;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(     UINT#771,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#771;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(     UINT#772,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#772;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(     UINT#773,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#773;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(     UINT#774,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#774;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(     UINT#775,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#775;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0260_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#4 THEN
+                    Messenger.Activate(     UINT#776,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#776;
+                    RETURN;
+                END_IF;                
+                //************Slot 1 Subslot 6*****************//
+                _geoAddr.Subslot:=      UINT#6;                                                            
+                _geoAddr.Slot   :=      UINT#1;                                                            
+                _geoAddr.HardwareType := UINT#5; // (5-Submodule)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _HW_S_0_0359_0_0  :=  TO_WORD(_outHwid);                                         
+                IF _HW_S_0_0359_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#780,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#780;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(     UINT#781,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#781;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(     UINT#782,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#782;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(     UINT#783,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#783;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(     UINT#784,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#784;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(     UINT#785,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#785;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0359_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#4 THEN
+                    Messenger.Activate(     UINT#786,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#786;
+                    RETURN;
+                END_IF;                
+                //************Slot 1 Subslot 7*****************//
+                _geoAddr.Subslot:=      UINT#7;                                                            
+                _geoAddr.Slot   :=      UINT#1;                                                            
+                _geoAddr.HardwareType := UINT#5; // (5-Submodule)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _HW_S_0_1720_0_1  :=  TO_WORD(_outHwid);                                         
+                IF _HW_S_0_1720_0_1  = WORD#0 THEN
+                    Messenger.Activate(     UINT#790,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#790;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(     UINT#791,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#791;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(     UINT#792,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#792;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(     UINT#793,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#793;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(     UINT#794,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#794;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(     UINT#795,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#795;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_1720_0_1 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#2 THEN
+                    Messenger.Activate(     UINT#796,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#796;
+                    RETURN;
+                END_IF;                
+                //************Slot 1 Subslot 8*****************//
+                _geoAddr.Subslot:=      UINT#8;                                                            
+                _geoAddr.Slot   :=      UINT#1;                                                            
+                _geoAddr.HardwareType := UINT#5; // (5-Submodule)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _HW_S_0_0092_0_0  :=  TO_WORD(_outHwid);                                         
+                IF _HW_S_0_0092_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#800,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#800;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(     UINT#801,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#801;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(     UINT#802,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#802;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(     UINT#803,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#803;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(     UINT#804,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#804;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(     UINT#805,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#805;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0092_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#2 THEN
+                    Messenger.Activate(     UINT#806,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#806;
+                    RETURN;
+                END_IF;                
+                //************Slot 1 Subslot 9*****************//
+                _geoAddr.Subslot:=      UINT#9;                                                            
+                _geoAddr.Slot   :=      UINT#1;                                                            
+                _geoAddr.HardwareType := UINT#5; // (5-Submodule)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _HW_S_0_0080_0_0  :=  TO_WORD(_outHwid);                                         
+                IF _HW_S_0_0080_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#810,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#810;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(     UINT#811,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#811;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(     UINT#812,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#812;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(     UINT#813,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#813;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(     UINT#814,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#814;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(     UINT#815,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#815;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0080_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#2 THEN
+                    Messenger.Activate(     UINT#816,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#816;
+                    RETURN;
+                END_IF;     
+                //************Slot 1 Subslot 10*****************//
+                _geoAddr.Subslot:=      UINT#10;                                                            
+                _geoAddr.Slot   :=      UINT#1;                                                            
+                _geoAddr.HardwareType := UINT#5; // (5-Submodule)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _HW_S_0_0193_0_0  :=  TO_WORD(_outHwid);                                         
+                IF _HW_S_0_0193_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#820,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#820;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(     UINT#821,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#821;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(     UINT#822,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#822;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(     UINT#823,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#823;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(     UINT#824,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#824;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(     UINT#825,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#825;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0193_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#4 THEN
+                    Messenger.Activate(     UINT#826,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#826;
+                    RETURN;
+                END_IF;     
+                //************Slot 2 Subslot 1*****************//
+                _geoAddr.Subslot:=      UINT#1;                                                            
+                _geoAddr.Slot   :=      UINT#2;                                                            
+                _geoAddr.HardwareType := UINT#5; // (5-Submodule)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _HW_S_0_0135_0_0  :=  TO_WORD(_outHwid);                                         
+                IF _HW_S_0_0135_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#830,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#830;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(     UINT#831,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#831;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(     UINT#832,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#832;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(     UINT#833,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#833;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(     UINT#834,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#834;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(     UINT#835,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#835;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0135_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#0 THEN
+                    Messenger.Activate(     UINT#836,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#836;
+                    RETURN;
+                END_IF;     
+                //************Slot 2 Subslot 2*****************//
+                _geoAddr.Subslot:=      UINT#2;                                                            
+                _geoAddr.Slot   :=      UINT#2;                                                            
+                _geoAddr.HardwareType := UINT#5; // (5-Submodule)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _HW_S_0_0144_0_0  :=  TO_WORD(_outHwid);                                         
+                IF _HW_S_0_0144_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#840,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#840;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(     UINT#841,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#841;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(     UINT#842,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#842;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(     UINT#843,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#843;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(     UINT#844,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#844;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(     UINT#845,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#845;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0144_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#0 THEN
+                    Messenger.Activate(     UINT#846,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#846;
+                    RETURN;
+                END_IF;     
+                //************Slot 2 Subslot 3*****************//
+                _geoAddr.Subslot:=      UINT#3;                                                            
+                _geoAddr.Slot   :=      UINT#2;                                                            
+                _geoAddr.HardwareType := UINT#5; // (5-Submodule)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _HW_S_0_0386_0_0  :=  TO_WORD(_outHwid);                                         
+                IF _HW_S_0_0386_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#850,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#850;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(     UINT#851,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#851;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(     UINT#852,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#852;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(     UINT#853,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#853;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(     UINT#854,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#854;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(     UINT#855,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#855;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0386_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#4 OR _outputsCount <> UINT#0 THEN
+                    Messenger.Activate(     UINT#856,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#856;
+                    RETURN;
+                END_IF;     
+                //************Slot 2 Subslot 4*****************//
+                _geoAddr.Subslot:=      UINT#4;                                                            
+                _geoAddr.Slot   :=      UINT#2;                                                            
+                _geoAddr.HardwareType := UINT#5; // (5-Submodule)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _HW_S_0_0535_0_0  :=  TO_WORD(_outHwid);                                         
+                IF _HW_S_0_0535_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#860,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#860;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(     UINT#861,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#861;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(     UINT#862,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#862;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(     UINT#863,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#863;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(     UINT#864,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#864;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(     UINT#865,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#865;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0535_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#4 OR _outputsCount <> UINT#0 THEN
+                    Messenger.Activate(     UINT#866,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#866;
+                    RETURN;
+                END_IF;     
+                //************Slot 2 Subslot 5*****************//
+                _geoAddr.Subslot:=      UINT#5;                                                            
+                _geoAddr.Slot   :=      UINT#2;                                                            
+                _geoAddr.HardwareType := UINT#5; // (5-Submodule)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _HW_S_0_0390_0_0  :=  TO_WORD(_outHwid);                                         
+                IF _HW_S_0_0390_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#870,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#870;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(     UINT#871,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#871;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(     UINT#872,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#872;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(     UINT#873,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#873;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(     UINT#874,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#874;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(     UINT#875,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#875;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0390_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#4 OR _outputsCount <> UINT#0 THEN
+                    Messenger.Activate(     UINT#876,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#876;
+                    RETURN;
+                END_IF;     
+                //************Slot 2 Subslot 6*****************//
+                _geoAddr.Subslot:=      UINT#6;                                                            
+                _geoAddr.Slot   :=      UINT#2;                                                            
+                _geoAddr.HardwareType := UINT#5; // (5-Submodule)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _HW_S_0_1720_0_2  :=  TO_WORD(_outHwid);                                         
+                IF _HW_S_0_1720_0_2  = WORD#0 THEN
+                    Messenger.Activate(     UINT#880,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#880;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(     UINT#881,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#881;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(     UINT#882,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#882;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(     UINT#883,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#883;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(     UINT#884,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#884;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(     UINT#885,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#885;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_1720_0_2 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#0 THEN
+                    Messenger.Activate(     UINT#886,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#886;
+                    RETURN;
+                END_IF;                     
+                //************Slot 2 Subslot 7*****************//
+                _geoAddr.Subslot:=      UINT#7;                                                            
+                _geoAddr.Slot   :=      UINT#2;                                                            
+                _geoAddr.HardwareType := UINT#5; // (5-Submodule)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _HW_S_0_0084_0_0  :=  TO_WORD(_outHwid);                                         
+                IF _HW_S_0_0084_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#890,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#890;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(     UINT#891,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#891;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(     UINT#892,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#892;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(     UINT#893,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#893;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(     UINT#894,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#894;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(     UINT#895,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#895;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier := _HW_S_0_0084_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#0 THEN
+                    Messenger.Activate(     UINT#896,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#896;
+                    RETURN;
+                END_IF;                     
+                //************Slot 2 Subslot 8*****************//
+                _geoAddr.Subslot:=      UINT#8;                                                            
+                _geoAddr.Slot   :=      UINT#2;                                                            
+                _geoAddr.HardwareType := UINT#5; // (5-Submodule)
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
+                _HW_P_0_0106_0_0  :=  TO_WORD(_outHwid);                                         
+                IF _HW_P_0_0106_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#900,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#900;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8091 THEN
+                    Messenger.Activate(     UINT#901,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#901;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8094 THEN
+                    Messenger.Activate(     UINT#902,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#902;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8095 THEN
+                    Messenger.Activate(     UINT#903,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#903;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8096 THEN
+                    Messenger.Activate(     UINT#904,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#904;
+                    RETURN;
+                END_IF;
+                IF _retval = WORD#8097 THEN
+                    Messenger.Activate(     UINT#905,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#905;
+                    RETURN;
+                END_IF;
+                ReadHardwareIOAddress(hardwareIdentifier := _HW_P_0_0106_0_0 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#0 THEN
+                    Messenger.Activate(     UINT#906,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#906;
+                    RETURN;
+                END_IF;                     
+
+                //****************************** */
                 IF parent = NULL THEN
                     Messenger.Activate(     UINT#1130,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1130;
                     RETURN;
                 END_IF;
-                IF _AxisRefExt.Data.hwID  = WORD#0 THEN
+                IF _HW_Device  = WORD#0 THEN
                     Messenger.Activate(     UINT#1131,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1131;
                     RETURN;
                 END_IF;
-                IF _AxisRefExt.Data.hwIdParamCh_IDN  = WORD#0 THEN
+                IF _HW_Outputs = WORD#0 THEN
                     Messenger.Activate(     UINT#1132,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1132;
                     RETURN;
                 END_IF;
-                IF _hwID_F_ModulNotUsed  = WORD#0 THEN
+                IF _HW_Inputs = WORD#0 THEN
                     Messenger.Activate(     UINT#1133,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1133;
                     RETURN;
                 END_IF;
-                IF _AxisRefExt.Data.hwIdInput_9_Words  = WORD#0 THEN
+                IF _HW_S_0_0134_0_0  = WORD#0 THEN
                     Messenger.Activate(     UINT#1134,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1134;
                     RETURN;
                 END_IF;
-                IF _AxisRefExt.Data.hwIdOutput_13_Words  = WORD#0 THEN
+                IF _HW_S_0_0145_0_0  = WORD#0 THEN
                     Messenger.Activate(     UINT#1135,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1135;
                     RETURN;
                 END_IF;
-
+                IF _HW_S_0_0282_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#1136,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#1136;
+                    RETURN;
+                END_IF;
+                IF _HW_S_0_0259_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#1137,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#1137;
+                    RETURN;
+                END_IF;
+                IF _HW_S_0_0260_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#1138,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#1138;
+                    RETURN;
+                END_IF;
+                IF _HW_S_0_0359_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#1139,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#1139;
+                    RETURN;
+                END_IF;
+                IF _HW_S_0_1720_0_1  = WORD#0 THEN
+                    Messenger.Activate(     UINT#1140,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#1140;
+                    RETURN;
+                END_IF;
+                IF _HW_S_0_0092_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#1141,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#1141;
+                    RETURN;
+                END_IF;
+                IF _HW_S_0_0080_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#1142,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#1142;
+                    RETURN;
+                END_IF;
+                IF _HW_S_0_0193_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#1143,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#1143;
+                    RETURN;
+                END_IF;
+                IF _HW_S_0_0135_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#1144,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#1144;
+                    RETURN;
+                END_IF;
+                IF _HW_S_0_0144_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#1145,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#1145;
+                    RETURN;
+                END_IF;
+                IF _HW_S_0_0386_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#1146,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#1146;
+                    RETURN;
+                END_IF;
+                IF _HW_S_0_0535_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#1147,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#1147;
+                    RETURN;
+                END_IF;
+                IF _HW_S_0_0390_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#1148,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#1148;
+                    RETURN;
+                END_IF;
+                IF _HW_S_0_1720_0_2  = WORD#0 THEN
+                    Messenger.Activate(     UINT#1149,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#1149;
+                    RETURN;
+                END_IF;
+                IF _HW_S_0_0084_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#1150,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#1150;
+                    RETURN;
+                END_IF;
+                IF _HW_P_0_0106_0_0  = WORD#0 THEN
+                    Messenger.Activate(     UINT#1151,eAxoMessageCategory#Error);
+                    DriveStatus.Error.Id := UINT#1151;
+                    RETURN;
+                END_IF;
                 _initHwCheckDone    := TRUE;
             END_IF;            
 
