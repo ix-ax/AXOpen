@@ -33,8 +33,8 @@ if ! [[ -d $output_dir ]]; then
 fi
 output_file="$output_dir/HwIdentifiers.st"
 lines_to_replace=("CONFIGURATION HardwareIDs" "VAR_GLOBAL CONSTANT" "END_VAR" "END_CONFIGURATION")
-old_substrings=(": UINT := UINT" ";")
-new_substrings=(":=	WORD" ",")
+old_substrings=(":_" ": UINT := UINT" ";")
+new_substrings=("__" ":=	WORD" ",")
 echo "NAMESPACE ${NAMESPACE}" > "$output_file"
 echo "    TYPE" >> "$output_file"
 echo "        HwIdentifiers : WORD" >> "$output_file"

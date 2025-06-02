@@ -13,3 +13,4 @@ IoSystems:
   - Ref: plc_line/plc_line/profinet_x1
   DeviceInterfaces:
   - Ref: ST3_indradrive/ST3_indradrive/profinet
+  - Ref: AxoCtrlxDriveXsc/AxoCtrlxDriveXsc/profinet
