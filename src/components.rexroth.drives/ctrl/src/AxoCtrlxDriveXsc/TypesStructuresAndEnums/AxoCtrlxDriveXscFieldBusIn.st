@@ -32,6 +32,32 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         Secondary operation mode: Torque/force control	
         *)
         VAR PUBLIC
+            //  “FSP-Drive” (S-0-0135)
+            // ReadyForOperationBit1       :	BOOL;		//  Ready to operate bit 1 higher significant bit   |   00: Not ready for power on (e.g., P2)
+            //                                             //                                                  |   01: Ready for power on (bb)   
+            // ReadyForOperationBit0       :	BOOL;		//  Ready to operate bit 0 lower significant bit    |   10: Control section and power section ready for op. (Ab)
+            //                                             //                                                  |   11: In operation, with torque (e.g. AF)   
+
+            // DriveErrorZKL1 				:	BOOL;		//  Drive Error ZKL1
+            // WarningZKL2 				:	BOOL;		//  Warning ZKL2
+            // _bit11_Reserve 				:	BOOL;		
+            // ActualOperatingModeBit2 	:	BOOL;		//  Actual_operating mode bit 2                     |   111:  Secondary operation mode 7
+            //                                             //                                                  |   110:  Secondary operation mode 6
+            //                                             //                                                  |   101:  Secondary operation mode 5
+            // ActualOperatingModeBit1 	:	BOOL;		//  Actual_operating mode bit 1                     |   100:  Secondary operation mode 4
+            //                                             //                                                  |   011:  Secondary operation mode 3
+            //                                             //                                                  |   010:  Secondary operation mode 2
+            // ActualOperatingModeBit0 	:	BOOL;		//  Actual_operating mode bit 0                     |   001:  Secondary operation mode 1
+            //                                             //                                                  |   000:  Primary operation mode
+            // HardwareLock                :	BOOL;       //  Hardware lock (E-stop)
+            // _bit06_Reserve 				:	BOOL;		
+            // InReference 				:	BOOL;		//  Drive hommed
+            // InStandstill 				:	BOOL;		//  Drive "Halt" status                             |   1- Act vel < standstill window
+            // CommandProcessingStatus		:	BOOL;		//  0 - Drive ignores command value input           |   1 -Drive follows command value input
+            // _bit02_Reserve 				:	BOOL;		
+            // _bit01_Reserve 				:	BOOL;		
+            // _bit00_Reserve 				:	BOOL;		
+
             PhaseAcknowledgeBit0		:	BOOL;		//Operating mode acknowledge bit 0
             PhaseAcknowledgeBit1 		:	BOOL;		//Operating mode acknowledge bit 1
             InReference 				:	BOOL;		//In reference
@@ -46,8 +72,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             MessageZKL3 				:	BOOL;		//Message ZKL3
             WarningZKL2 				:	BOOL;		//Warning ZKL2
             DriveErrorZKL1 				:	BOOL;		//Drive Error ZKL1
-            ReadyToOperateBit0 			:	BOOL;		//Ready to operate bit 0
-            ReadyToOperateBit1 			:	BOOL;		//Ready to operate bit 1
+            ReadyToOperateBit0 			:	BOOL;		//Ready to operate bit 0 lower significant bit
+            ReadyToOperateBit1 			:	BOOL;		//Ready to operate bit 1 higher significant bit
+
             S_0_0051_ActualPosition		:	DWORD;		//Actual position
             S_0_0040_ActualVelocity		:	DWORD;		//Actual velocity
             S_0_0390_Diagnosis			:	DWORD;		//Diagnosis
