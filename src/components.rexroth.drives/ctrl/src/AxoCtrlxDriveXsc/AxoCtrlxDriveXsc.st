@@ -1164,7 +1164,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _dword.%B2  :=  _data4[1];
             _dword.%B1  :=  _data4[2];
             _dword.%B0  :=  _data4[3];
-            Status.ActualPosition_S_0_0386_0_0 := TO_REAL(TO_DINT(_dword));
+            Status.ActualPosition_S_0_0386_0_0 := TO_DINT(_dword);
 
             _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_HW_S_0_0535_0_0 ,_data4);
             IF _retVal > WORD#0 THEN
@@ -1176,7 +1176,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _dword.%B2  :=  _data4[1];
             _dword.%B1  :=  _data4[2];
             _dword.%B0  :=  _data4[3];
-            Status.ActualVelocity_S_0_0535_0_0 := TO_REAL(TO_DINT(_dword));
+            Status.ActualVelocity_S_0_0535_0_0 := TO_DINT(_dword);
 
             _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_HW_S_0_0390_0_0 ,_data4);
             IF _retVal > WORD#0 THEN
@@ -1221,7 +1221,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
             _word.%B1  :=  _data2[1];
             _word.%B0  :=  _data2[0];
-            Status.ActualTorque_S_0_0084_0_0 := TO_REAL(TO_INT(_word));
+            Status.ActualTorque_S_0_0084_0_0 := TO_INT(_word);
 
             //************************************************************
             // SUPER.Execute(_AxisRefExt,Enable,EnablePositive,EnableNegative);
@@ -1298,7 +1298,107 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 RETURN;
             END_IF;    
 
+            _data4[3]   :=  Control.CommandPosition_S_0_0282_0_0.%B0;
+            _data4[2]   :=  Control.CommandPosition_S_0_0282_0_0.%B1;
+            _data4[1]   :=  Control.CommandPosition_S_0_0282_0_0.%B2;
+            _data4[0]   :=  Control.CommandPosition_S_0_0282_0_0.%B3;
 
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0282_0_0,_data4);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(     UINT#1233, eAxoMessageCategory#ProgrammingError);
+                DriveStatus.Error.Id := UINT#1233;
+                RETURN;
+            END_IF;    
+
+            _data4[3]   :=  Control.CommandVelocity_S_0_0259_0_0.%B0;
+            _data4[2]   :=  Control.CommandVelocity_S_0_0259_0_0.%B1;
+            _data4[1]   :=  Control.CommandVelocity_S_0_0259_0_0.%B2;
+            _data4[0]   :=  Control.CommandVelocity_S_0_0259_0_0.%B3;
+
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0259_0_0,_data4);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(     UINT#1234, eAxoMessageCategory#ProgrammingError);
+                DriveStatus.Error.Id := UINT#1234;
+                RETURN;
+            END_IF;    
+
+            _data4[3]   :=  Control.CommandAcceleration_S_0_0260_0_0.%B0;
+            _data4[2]   :=  Control.CommandAcceleration_S_0_0260_0_0.%B1;
+            _data4[1]   :=  Control.CommandAcceleration_S_0_0260_0_0.%B2;
+            _data4[0]   :=  Control.CommandAcceleration_S_0_0260_0_0.%B3;
+
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0260_0_0,_data4);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(     UINT#1235, eAxoMessageCategory#ProgrammingError);
+                DriveStatus.Error.Id := UINT#1235;
+                RETURN;
+            END_IF;    
+
+            _data4[3]   :=  Control.CommandDecceleration_S_0_0359_0_0.%B0;
+            _data4[2]   :=  Control.CommandDecceleration_S_0_0359_0_0.%B1;
+            _data4[1]   :=  Control.CommandDecceleration_S_0_0359_0_0.%B2;
+            _data4[0]   :=  Control.CommandDecceleration_S_0_0359_0_0.%B3;
+
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0359_0_0,_data4);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(     UINT#1236, eAxoMessageCategory#ProgrammingError);
+                DriveStatus.Error.Id := UINT#1236;
+                RETURN;
+            END_IF;    
+
+            _data2[1].%X0   :=  Control.SupplyUnitControlWord_S_0_1720_0_1._bit0_Reserve;
+            _data2[1].%X1   :=  Control.SupplyUnitControlWord_S_0_1720_0_1._bit1_Reserve;
+            _data2[1].%X2   :=  Control.SupplyUnitControlWord_S_0_1720_0_1._bit2_Reserve;
+            _data2[1].%X3   :=  Control.SupplyUnitControlWord_S_0_1720_0_1._bit3_Reserve;
+            _data2[1].%X4   :=  Control.SupplyUnitControlWord_S_0_1720_0_1._bit4_Reserve;
+            _data2[1].%X5   :=  Control.SupplyUnitControlWord_S_0_1720_0_1._bit5_Reserve;
+            _data2[1].%X6   :=  Control.SupplyUnitControlWord_S_0_1720_0_1._bit6_Reserve;
+            _data2[1].%X7   :=  Control.SupplyUnitControlWord_S_0_1720_0_1._bit7_Reserve;
+            _data2[0].%X0   :=  Control.SupplyUnitControlWord_S_0_1720_0_1.ModeSelectionBit0;
+            _data2[0].%X1   :=  Control.SupplyUnitControlWord_S_0_1720_0_1.ModeSelectionBit1;
+            _data2[0].%X2   :=  Control.SupplyUnitControlWord_S_0_1720_0_1.DCbusDischarge;
+            _data2[0].%X3   :=  Control.SupplyUnitControlWord_S_0_1720_0_1._bit11_Reserve;
+            _data2[0].%X4   :=  Control.SupplyUnitControlWord_S_0_1720_0_1.ControllingTheReadyForOperationRelay;
+            _data2[0].%X5   :=  Control.SupplyUnitControlWord_S_0_1720_0_1._bit13_Reserve;
+            _data2[0].%X6   :=  Control.SupplyUnitControlWord_S_0_1720_0_1.ControllingDCbusChargingAndMainsContactor;
+            _data2[0].%X7   :=  Control.SupplyUnitControlWord_S_0_1720_0_1.Enabling;
+
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_1720_0_1,_data2);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(     UINT#1237, eAxoMessageCategory#ProgrammingError);
+                DriveStatus.Error.Id := UINT#1237;
+                RETURN;
+            END_IF;    
+
+            _data2[1]   :=  Control.BipolarTorqueLimitation_S_0_0092_0_0.%B1;
+            _data2[0]   :=  Control.BipolarTorqueLimitation_S_0_0092_0_0.%B0;
+
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0092_0_0,_data2);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(     UINT#1238, eAxoMessageCategory#ProgrammingError);
+                DriveStatus.Error.Id := UINT#1238;
+                RETURN;
+            END_IF;  
+
+            _data2[1]   :=  Control.CommandTorque_S_0_0080_0_0.%B1;
+            _data2[0]   :=  Control.CommandTorque_S_0_0080_0_0.%B0;
+
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0080_0_0,_data2);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(     UINT#1239, eAxoMessageCategory#ProgrammingError);
+                DriveStatus.Error.Id := UINT#1239;
+                RETURN;
+            END_IF;  
+
+            _data2[1]   :=  Control.CommandJerk_S_0_0193_0_0.%B1;
+            _data2[0]   :=  Control.CommandJerk_S_0_0193_0_0.%B0;
+
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0193_0_0,_data2);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(     UINT#1240, eAxoMessageCategory#ProgrammingError);
+                DriveStatus.Error.Id := UINT#1240;
+                RETURN;
+            END_IF;  
 
             //************************************************************
         END_METHOD   
