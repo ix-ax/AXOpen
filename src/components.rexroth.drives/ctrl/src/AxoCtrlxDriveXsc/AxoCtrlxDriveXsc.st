@@ -1269,10 +1269,35 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0134_0_0,_data2);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(     UINT#1231, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1231;
                 RETURN;
             END_IF;    
+
+            _data2[1].%X0   :=  Control.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue;
+            _data2[1].%X1   :=  Control.SignalControlWord_S_0_0145_0_0.CommandValueReferenceWhenOperationModeActivated;
+            _data2[1].%X2   :=  Control.SignalControlWord_S_0_0145_0_0.HomingControl;
+            _data2[1].%X3   :=  Control.SignalControlWord_S_0_0145_0_0.AbsoluteRelative;
+            _data2[1].%X4   :=  Control.SignalControlWord_S_0_0145_0_0.ImmediateChange;
+            _data2[1].%X5   :=  Control.SignalControlWord_S_0_0145_0_0.ClearError;
+            _data2[1].%X6   :=  Control.SignalControlWord_S_0_0145_0_0.JogPositive;
+            _data2[1].%X7   :=  Control.SignalControlWord_S_0_0145_0_0.JogNegative;
+            _data2[0].%X0   :=  Control.SignalControlWord_S_0_0145_0_0.SwitchToCM;
+            _data2[0].%X1   :=  Control.SignalControlWord_S_0_0145_0_0.SwitchTo0M;
+            _data2[0].%X2   :=  Control.SignalControlWord_S_0_0145_0_0._bit10_Reserve;
+            _data2[0].%X3   :=  Control.SignalControlWord_S_0_0145_0_0._bit11_Reserve;
+            _data2[0].%X4   :=  Control.SignalControlWord_S_0_0145_0_0._bit12_Reserve;
+            _data2[0].%X5   :=  Control.SignalControlWord_S_0_0145_0_0._bit13_Reserve;
+            _data2[0].%X6   :=  Control.SignalControlWord_S_0_0145_0_0._bit14_Reserve;
+            _data2[0].%X7   :=  Control.SignalControlWord_S_0_0145_0_0.SetAbsPositionFunction;
+
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0145_0_0,_data2);
+            IF _retVal > WORD#0 THEN
+                Messenger.Activate(     UINT#1232, eAxoMessageCategory#ProgrammingError);
+                DriveStatus.Error.Id := UINT#1232;
+                RETURN;
+            END_IF;    
+
 
 
             //************************************************************
