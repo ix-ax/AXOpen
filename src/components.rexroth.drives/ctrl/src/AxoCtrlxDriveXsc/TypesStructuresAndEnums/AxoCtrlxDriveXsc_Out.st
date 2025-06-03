@@ -4,7 +4,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
     CLASS PUBLIC AxoCtrlxDriveXsc_Out
         VAR PUBLIC 
             {#ix-set:AttributeName = "<#Control#>"}
-            {#ix-attr:[ReadOnly()]}
             Control           :   AxoCtrlxDriveXsc_Control;
         END_VAR 
     END_CLASS    

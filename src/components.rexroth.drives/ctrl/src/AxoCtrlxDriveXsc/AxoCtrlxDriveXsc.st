@@ -20,13 +20,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         VAR PUBLIC // HWin
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("HWin")]}
-            // {#ix-attr:[ReadOnly()]}
+            {#ix-attr:[ReadOnly()]}
             Status  :   AxoCtrlxDriveXsc_Status;
         END_VAR
         VAR PUBLIC // HWout
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("HWout")]}
-            {#ix-attr:[ReadOnly()]}
+            // {#ix-attr:[ReadOnly()]}
             Control  :   AxoCtrlxDriveXsc_Control;
         END_VAR
         VAR PUBLIC // HWIDs
@@ -1130,27 +1130,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             Status.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0   :=  _data2[0].%X6;     //  14
             Status.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1   :=  _data2[0].%X7;     //  15
 
-            // Bit-Byte order discovering / FSP-Servo profile discovering
-            // This switched the drive into the secondary operation mode 7
-            // That means the servo is running FSP profile, and the byte order are swapped 
-            // as the value of 7 (2#00000111) appears on the lower byte of the array the Status Word is written to
-            // in case of (2#00000111) is written to the lower byte of the array the Control Word is read from
-            // so            
-            // as the value of 6 (2#00000110) appears on the lower byte of the array the Status Word is written to
-            // in case of (2#00000110) is written to the lower byte of the array the Control Word is read from
-            // and the drive is switched into the secondary operation mode 6
-            // _data2[0] := TO_BYTE(2#00000110);
-            // _data2[1] := TO_BYTE(2#00000000);
-
-            // _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0134_0_0,_data2);
-            // IF _retVal > WORD#0 THEN
-            //     Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
-            //     DriveStatus.Error.Id := UINT#1231;
-            //     RETURN;
-            // END_IF;    
-
-            // RETURN;
-
             _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_HW_S_0_0144_0_0 ,_data2);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(     UINT#1202, eAxoMessageCategory#ProgrammingError);
@@ -1244,108 +1223,57 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _word.%B0  :=  _data2[0];
             Status.ActualTorque_S_0_0084_0_0 := TO_REAL(TO_INT(_word));
 
-
-RETURN;
             //************************************************************
-            SUPER.Execute(_AxisRefExt,Enable,EnablePositive,EnableNegative);
+            // SUPER.Execute(_AxisRefExt,Enable,EnablePositive,EnableNegative);
             //*********************PostExecute inline*********************
 
-            THIS.ActualPosition := _AxisRefExt.Data.ActualPosition;
-            THIS.ActualVelocity := _AxisRefExt.Data.ActualVelocity;
-            THIS.ActualTorque := _AxisRefExt.Data.ActualTorque;
+            // THIS.ActualPosition := _AxisRefExt.Data.ActualPosition;
+            // THIS.ActualVelocity := _AxisRefExt.Data.ActualVelocity;
+            // THIS.ActualTorque := _AxisRefExt.Data.ActualTorque;
 
-            IF NOT _AxisRefExt.Data.PowerOK THEN
-                DriveState := AXOpen.Components.Drives.eAxoDriveState#Disabled;
-            ELSIF _AxisRefExt.Data.HomingRunning THEN
-                DriveState := AXOpen.Components.Drives.eAxoDriveState#Homing;
-            ELSIF _AxisRefExt.Data.DiscreteMotion THEN
-                DriveState := AXOpen.Components.Drives.eAxoDriveState#DiscreteMotion;
-            ELSIF _AxisRefExt.Data.ContinuousMotion THEN
-                DriveState := AXOpen.Components.Drives.eAxoDriveState#ContinuousMotion;
-            ELSIF _AxisRefExt.Data.SynchronizedMotion THEN
-                DriveState := AXOpen.Components.Drives.eAxoDriveState#SynchronizedMotion;
-            ELSIF _AxisRefExt.Data.DriveStopReq THEN
-                DriveState := AXOpen.Components.Drives.eAxoDriveState#Stopping;
-            ELSIF _AxisRefExt.Data.StoppedDueError THEN
-                DriveState := AXOpen.Components.Drives.eAxoDriveState#Errorstop;
-            ELSIF _AxisRefExt.Data.Standstill THEN
-                DriveState := AXOpen.Components.Drives.eAxoDriveState#Standstill;
-            END_IF;
+            // IF NOT _AxisRefExt.Data.PowerOK THEN
+            //     DriveState := AXOpen.Components.Drives.eAxoDriveState#Disabled;
+            // ELSIF _AxisRefExt.Data.HomingRunning THEN
+            //     DriveState := AXOpen.Components.Drives.eAxoDriveState#Homing;
+            // ELSIF _AxisRefExt.Data.DiscreteMotion THEN
+            //     DriveState := AXOpen.Components.Drives.eAxoDriveState#DiscreteMotion;
+            // ELSIF _AxisRefExt.Data.ContinuousMotion THEN
+            //     DriveState := AXOpen.Components.Drives.eAxoDriveState#ContinuousMotion;
+            // ELSIF _AxisRefExt.Data.SynchronizedMotion THEN
+            //     DriveState := AXOpen.Components.Drives.eAxoDriveState#SynchronizedMotion;
+            // ELSIF _AxisRefExt.Data.DriveStopReq THEN
+            //     DriveState := AXOpen.Components.Drives.eAxoDriveState#Stopping;
+            // ELSIF _AxisRefExt.Data.StoppedDueError THEN
+            //     DriveState := AXOpen.Components.Drives.eAxoDriveState#Errorstop;
+            // ELSIF _AxisRefExt.Data.Standstill THEN
+            //     DriveState := AXOpen.Components.Drives.eAxoDriveState#Standstill;
+            // END_IF;
 
             //***********Update outputs **************
-            _Parameter[1]         := _AxisRefExt.Parameter_Out.Datalength;
-            _Parameter[0].%X0     := _AxisRefExt.Parameter_Out.FL_0;
-            _Parameter[0].%X1     := _AxisRefExt.Parameter_Out.FL_1;
-            _Parameter[0].%X2     := _AxisRefExt.Parameter_Out.FL_2;
-            _Parameter[0].%X3     := _AxisRefExt.Parameter_Out.FL_3;
-            _Parameter[0].%X4     := _AxisRefExt.Parameter_Out.ToggleBit;
-            _Parameter[0].%X5     := _AxisRefExt.Parameter_Out.LastBit;
-            _Parameter[0].%X6     := _AxisRefExt.Parameter_Out.Initalisation;
-            _Parameter[0].%X7     := _AxisRefExt.Parameter_Out.Reserve;
-            _Parameter[3]         := _AxisRefExt.Parameter_Out.Index.%B0;
-            _Parameter[2]         := _AxisRefExt.Parameter_Out.Index.%B1;
-            _Parameter[5]         := _AxisRefExt.Parameter_Out.Subindex;
-            _Parameter[4]         := _AxisRefExt.Parameter_Out.Axis;
-            _Parameter[7]         := _AxisRefExt.Parameter_Out.DataWord_0.%B0;
-            _Parameter[6]         := _AxisRefExt.Parameter_Out.DataWord_0.%B1;
-            _Parameter[9]         := _AxisRefExt.Parameter_Out.DataWord_1.%B0;
-            _Parameter[8]         := _AxisRefExt.Parameter_Out.DataWord_1.%B1;
+            _data2[1].%X0   :=  Control.DriveControlWord_S_0_0134_0_0._bit00_Reserve;
+            _data2[1].%X1   :=  Control.DriveControlWord_S_0_0134_0_0._bit01_Reserve;
+            _data2[1].%X2   :=  Control.DriveControlWord_S_0_0134_0_0._bit02_Reserve;
+            _data2[1].%X3   :=  Control.DriveControlWord_S_0_0134_0_0._bit03_Reserve;
+            _data2[1].%X4   :=  Control.DriveControlWord_S_0_0134_0_0._bit04_Reserve;
+            _data2[1].%X5   :=  Control.DriveControlWord_S_0_0134_0_0._bit05_Reserve;
+            _data2[1].%X6   :=  Control.DriveControlWord_S_0_0134_0_0._bit06_Reserve;
+            _data2[1].%X7   :=  Control.DriveControlWord_S_0_0134_0_0._bit07_Reserve;
+            _data2[0].%X0   :=  Control.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit0;
+            _data2[0].%X1   :=  Control.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit1;
+            _data2[0].%X2   :=  Control.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit2;
+            _data2[0].%X3   :=  Control.DriveControlWord_S_0_0134_0_0._bit11_Reserve;
+            _data2[0].%X4   :=  Control.DriveControlWord_S_0_0134_0_0._bit12_Reserve;
+            _data2[0].%X5   :=  Control.DriveControlWord_S_0_0134_0_0.DriveHalt;
+            _data2[0].%X6   :=  Control.DriveControlWord_S_0_0134_0_0.DriveEnable;
+            _data2[0].%X7   :=  Control.DriveControlWord_S_0_0134_0_0.DriveOn;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_AxisRefExt.Data.hwIdParamCh_IDN,_Parameter);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0134_0_0,_data2);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1231;
                 RETURN;
             END_IF;    
 
-            _Fieldbus[1].%X0      := _AxisRefExt.FieldBus_Out.SetpointAcceptance;
-            _Fieldbus[1].%X1      := _AxisRefExt.FieldBus_Out.OperatingModeSet;
-            _Fieldbus[1].%X2      := _AxisRefExt.FieldBus_Out.DriveToZeroPoint;
-            _Fieldbus[1].%X3      := _AxisRefExt.FieldBus_Out.AbsoluteRelative;
-            _Fieldbus[1].%X4      := _AxisRefExt.FieldBus_Out.ImmediateBlockChange;
-            _Fieldbus[1].%X5      := _AxisRefExt.FieldBus_Out.ErrorDelete;
-            _Fieldbus[1].%X6      := _AxisRefExt.FieldBus_Out.JogForward;
-            _Fieldbus[1].%X7      := _AxisRefExt.FieldBus_Out.JogBackward;
-            _Fieldbus[0].%X0      := _AxisRefExt.FieldBus_Out.SetOperatingModeBit0;
-            _Fieldbus[0].%X1      := _AxisRefExt.FieldBus_Out.SetOperatingModeBit1;
-            _Fieldbus[0].%X2      :=  FALSE;
-            _Fieldbus[0].%X3      :=  FALSE;
-            _Fieldbus[0].%X4      := _AxisRefExt.FieldBus_Out.Iposync;
-            _Fieldbus[0].%X5      := _AxisRefExt.FieldBus_Out.DriveHalt;
-            _Fieldbus[0].%X6      := _AxisRefExt.FieldBus_Out.DriveEnable;
-            _Fieldbus[0].%X7      := _AxisRefExt.FieldBus_Out.DriveOn;
-            _Fieldbus[2]          := _AxisRefExt.FieldBus_Out.S_0_0282_CommandPosition.%B3;
-            _Fieldbus[3]          := _AxisRefExt.FieldBus_Out.S_0_0282_CommandPosition.%B2;
-            _Fieldbus[4]          := _AxisRefExt.FieldBus_Out.S_0_0282_CommandPosition.%B1;
-            _Fieldbus[5]          := _AxisRefExt.FieldBus_Out.S_0_0282_CommandPosition.%B0;
-            _Fieldbus[6]          := _AxisRefExt.FieldBus_Out.S_0_0259_CommandVelocity.%B3;
-            _Fieldbus[7]          := _AxisRefExt.FieldBus_Out.S_0_0259_CommandVelocity.%B2;
-            _Fieldbus[8]          := _AxisRefExt.FieldBus_Out.S_0_0259_CommandVelocity.%B1;
-            _Fieldbus[9]          := _AxisRefExt.FieldBus_Out.S_0_0259_CommandVelocity.%B0;
-            _Fieldbus[10]         := _AxisRefExt.FieldBus_Out.S_0_0260_CommandAcceleration.%B3;
-            _Fieldbus[11]         := _AxisRefExt.FieldBus_Out.S_0_0260_CommandAcceleration.%B2;
-            _Fieldbus[12]         := _AxisRefExt.FieldBus_Out.S_0_0260_CommandAcceleration.%B1;
-            _Fieldbus[13]         := _AxisRefExt.FieldBus_Out.S_0_0260_CommandAcceleration.%B0;
-            _Fieldbus[14]         := _AxisRefExt.FieldBus_Out.S_0_0359_CommandDecceleration.%B3;
-            _Fieldbus[15]         := _AxisRefExt.FieldBus_Out.S_0_0359_CommandDecceleration.%B2;
-            _Fieldbus[16]         := _AxisRefExt.FieldBus_Out.S_0_0359_CommandDecceleration.%B1;
-            _Fieldbus[17]         := _AxisRefExt.FieldBus_Out.S_0_0359_CommandDecceleration.%B0;
-            _Fieldbus[18]         := _AxisRefExt.FieldBus_Out.S_0_0145_SignalControlWord.%B1;
-            _Fieldbus[19]         := _AxisRefExt.FieldBus_Out.S_0_0145_SignalControlWord.%B0;
-            _Fieldbus[20]         := _AxisRefExt.FieldBus_Out.S_0_0080_TorqueForceCommand.%B1;
-            _Fieldbus[21]         := _AxisRefExt.FieldBus_Out.S_0_0080_TorqueForceCommand.%B0;
-            _Fieldbus[22]         := _AxisRefExt.FieldBus_Out.S_0_0193_CommandJerk.%B3;
-            _Fieldbus[22]         := _AxisRefExt.FieldBus_Out.S_0_0193_CommandJerk.%B2;
-            _Fieldbus[24]         := _AxisRefExt.FieldBus_Out.S_0_0193_CommandJerk.%B1;
-            _Fieldbus[25]         := _AxisRefExt.FieldBus_Out.S_0_0193_CommandJerk.%B0;
-
-
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_AxisRefExt.Data.hwIdOutput_13_Words,_Fieldbus);
-            IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1232, eAxoMessageCategory#ProgrammingError);
-                DriveStatus.Error.Id := UINT#1232;
-                RETURN;
-            END_IF;    
 
             //************************************************************
         END_METHOD   
