@@ -1370,8 +1370,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 RETURN;
             END_IF;    
 
-            _data2[1]   :=  Control.BipolarTorqueLimitation_S_0_0092_0_0.%B1;
-            _data2[0]   :=  Control.BipolarTorqueLimitation_S_0_0092_0_0.%B0;
+            _data2[1]   :=  Control.BipolarTorqueLimitation_S_0_0092_0_0.%B0;
+            _data2[0]   :=  Control.BipolarTorqueLimitation_S_0_0092_0_0.%B1;
 
             _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0092_0_0,_data2);
             IF _retVal > WORD#0 THEN
@@ -1380,8 +1380,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 RETURN;
             END_IF;  
 
-            _data2[1]   :=  Control.CommandTorque_S_0_0080_0_0.%B1;
-            _data2[0]   :=  Control.CommandTorque_S_0_0080_0_0.%B0;
+            _data2[1]   :=  Control.CommandTorque_S_0_0080_0_0.%B0;
+            _data2[0]   :=  Control.CommandTorque_S_0_0080_0_0.%B1;
 
             _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0080_0_0,_data2);
             IF _retVal > WORD#0 THEN
@@ -1390,10 +1390,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 RETURN;
             END_IF;  
 
-            _data2[1]   :=  Control.CommandJerk_S_0_0193_0_0.%B1;
-            _data2[0]   :=  Control.CommandJerk_S_0_0193_0_0.%B0;
+            _data4[3]   :=  Control.CommandJerk_S_0_0193_0_0.%B0;
+            _data4[2]   :=  Control.CommandJerk_S_0_0193_0_0.%B1;
+            _data4[1]   :=  Control.CommandJerk_S_0_0193_0_0.%B2;
+            _data4[0]   :=  Control.CommandJerk_S_0_0193_0_0.%B3;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0193_0_0,_data2);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_HW_S_0_0193_0_0,_data4);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(     UINT#1240, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1240;
