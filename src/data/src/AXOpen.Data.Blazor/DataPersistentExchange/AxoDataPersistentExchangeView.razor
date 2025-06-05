@@ -8,6 +8,7 @@
 @using AXOpen.Data.Interfaces;
 @using AXOpen.Core;
 @using AXOpen.Data;
+@using Operon.Components.Dropdown
 
 @if (Vm == null)
 {
@@ -31,20 +32,21 @@ else
         <div class="btn-group ms-auto" role="group">
 
             <div class="btn-group" role="group">
-                <div class="dropdown">
-    <button class="btn btn-primary" @onclick="() => _dropdownSearchCollapsed = !_dropdownSearchCollapsed">
-        Options
-    <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 collapse-button-icon " + (_dropdownSearchCollapsed ? "open" : null))" />
-</button>
-@if (!_dropdownSearchCollapsed)
-{
-    <div class="dropdown-body card">
-        <a class="block px-4 py-2 text-sm text-gray-700 @(Vm.SearchMode == AXOpen.Base.Data.eSearchMode.Exact ? "active" : "")" @onclick="() => setSearchModeAsync(AXOpen.Base.Data.eSearchMode.Exact)">@Localizer["Exact"]</a>
-                    <a class="block px-4 py-2 text-sm text-gray-700 @(Vm.SearchMode == AXOpen.Base.Data.eSearchMode.Contains ? "active" : "")" @onclick="() => setSearchModeAsync(AXOpen.Base.Data.eSearchMode.Contains)">@Localizer["Contains"]</a>
-                    <a class="block px-4 py-2 text-sm text-gray-700 @(Vm.SearchMode == AXOpen.Base.Data.eSearchMode.StartsWith ? "active" : "")" @onclick="() => setSearchModeAsync(AXOpen.Base.Data.eSearchMode.StartsWith)">@Localizer["StartsWith"]</a>
-    </div>
-}
-</div>
+
+                <Dropdown @ref="_dropdownSearch">
+                    <DropdownButton>
+                        <button type="button" class="btn btn-primary" @onclick="_dropdownSearch.Toggle">
+                            Options
+                        <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownSearch?.Open ?? false ? "rotated" : null))" />
+                    </button>
+                </DropdownButton>
+                <DropdownBody>
+                    <a class="dropdown-item @(Vm.SearchMode == AXOpen.Base.Data.eSearchMode.Exact ? "active" : "")" @onclick="() => setSearchModeAsync(AXOpen.Base.Data.eSearchMode.Exact)">@Localizer["Exact"]</a>
+                    <a class="dropdown-item @(Vm.SearchMode == AXOpen.Base.Data.eSearchMode.Contains ? "active" : "")" @onclick="() => setSearchModeAsync(AXOpen.Base.Data.eSearchMode.Contains)">@Localizer["Contains"]</a>
+                    <a class="dropdown-item @(Vm.SearchMode == AXOpen.Base.Data.eSearchMode.StartsWith ? "active" : "")" @onclick="() => setSearchModeAsync(AXOpen.Base.Data.eSearchMode.StartsWith)">@Localizer["StartsWith"]</a>
+                </DropdownBody>
+                </Dropdown>
+
             </div>
             <form @onsubmit="() => Vm.Filter()" class="btn-group">
                 <input type="search" class="form-control" placeholder="Search" aria-label="Search" @bind="Vm.FilterById">
@@ -143,7 +145,7 @@ else
     @if (Vm.SelectedRecord != null)
     {
         <!-- Table for Tags -->
-        <table class="table table-striped">
+        <table class="table table-hover table-striped">
             <thead>
                 <tr>
                     <th>Symbol</th>
@@ -170,6 +172,6 @@ else
 
 }
 
-                    @code{
-                        private bool _dropdownSearchCollapsed = true;
+@code{
+    private Dropdown _dropdownSearch { get; set; }
                     }
