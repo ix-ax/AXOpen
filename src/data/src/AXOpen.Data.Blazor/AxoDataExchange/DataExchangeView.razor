@@ -11,6 +11,7 @@
 @using AXOpen.Data;
 @using AXOpen.Data.Query;
 @using Operon.Components
+@using Operon.Components.Dropdown
 @using Operon.Icons
 
 @if (Vm == null)
@@ -28,7 +29,7 @@ else
                 {
                     <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_create">
                         <Authorized>
-                            <button type="button" class="btn btn-primary" @onclick='() => { _modalCreateOpen = !_modalCreateOpen; ButtonOperationName = "Create"; }'>
+                            <button type="button" class="btn btn-primary" @onclick='() => { _modalCreate.Toggle(); ButtonOperationName = "Create"; }'>
                                 <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                 <span>@Localizer["Create"]</span>
                             </button>
@@ -40,7 +41,7 @@ else
                 {
                     <AuthorizeView Roles="@DataExchangeRoleNames.can_data_load_from_plc">
                         <Authorized>
-                            <button type="button" class="btn btn-primary ms-2" @onclick='() => { _modalCreateOpen = !_modalCreateOpen; ButtonOperationName = "LoadFromPlc"; }'>
+                            <button type="button" class="btn btn-primary ms-2" @onclick='() => { _modalCreate.Toggle(); ButtonOperationName = "LoadFromPlc"; }'>
                                 <Operon.Icons.HeroIcon Icon="cloud-arrow-down" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                 <span>@Localizer["Create New from PLC"]</span>
                             </button>
@@ -53,13 +54,13 @@ else
                 {
                     <AuthorizeView Roles="@DataExchangeRoleNames.can_data_export">
                         <Authorized>
-                            <button type="button" class="btn btn-primary ms-2" @onclick='async () => { _modalExportOpen = !_modalExportOpen; await LoadCustomExportDataAsync();}'>@Localizer["Export"]</button>
+                            <button type="button" class="btn btn-primary ms-2" @onclick='async () => { _modalExport.Toggle(); await LoadCustomExportDataAsync();}'>@Localizer["Export"]</button>
                         </Authorized>
                     </AuthorizeView>
 
                     <AuthorizeView Roles="@DataExchangeRoleNames.can_data_import">
                         <Authorized>
-                            <button type="button" class="btn btn-primary ms-2" @onclick="async () => { _modalImportOpen = !_modalImportOpen; await LoadCustomExportDataAsync(); }">@Localizer["Import"]</button>
+                            <button type="button" class="btn btn-primary ms-2" @onclick="async () => { _modalImport.Toggle(); await LoadCustomExportDataAsync(); }">@Localizer["Import"]</button>
                         </Authorized>
                     </AuthorizeView>
                 }
@@ -73,17 +74,24 @@ else
                     @if (EnableSorting)
                     {
                         <div class="btn-group" role="group">
-                            <button class="btn btn-outline-secondary" type="button" @onclick="() => _dropdownSortCollapsed = !_dropdownSortCollapsed">@Vm.DefaulSorting.MemberName.ToString()</button>
-                            @if (!_dropdownSortCollapsed)
-{
-                            <div class="dropdown-body">
-                                <a class="block px-4 py-2 text-sm text-gray-700 @(Vm.DefaulSorting.MemberName == "Default" ? "active" : "")" @onclick='() => setSortExpresionAsync("Default")'>Default</a>
-                                @foreach (var element in SortElements)
-                                {
-                                    <a class="block px-4 py-2 text-sm text-gray-700 @(Vm.DefaulSorting.MemberName == element ? "active" : "")" @onclick='() => setSortExpresionAsync(element)'>@element</a>
-                                }
-                            </div>
-                            }
+                            <Dropdown @ref="_dropdownSort">
+                                <DropdownButton>
+                                    <button type="button" class="btn btn-primary" @onclick="_dropdownSort.Toggle">
+                                        @Vm.DefaulSorting.MemberName.ToString()
+                                        <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownSort?.Open ?? false ? "rotated" : null))" />
+                                    </button>
+                                </DropdownButton>
+                                <DropdownBody>
+                                    <a class="dropdown-item @(Vm.DefaulSorting.MemberName == "Default" ? "active" : "")" @onclick='() => setSortExpresionAsync("Default")'>Default</a>
+                                                                @foreach (var element in SortElements)
+                                                                {
+                                                                    <a class="dropdown-item @(Vm.DefaulSorting.MemberName == element ? "active" : "")" @onclick='() => setSortExpresionAsync(element)'>@element</a>
+                                                                }
+                                    <a href="#" class="dropdown-item">Account settings</a>
+                                    <a href="#" class="dropdown-item">Support</a>
+                                    <a href="#" class="dropdown-item">License</a>
+                                </DropdownBody>
+                            </Dropdown>
                         </div>
 
                         <button class="btn btn-outline-secondary me-1" type="button" name="sort" aria-label="@(Vm.DefaulSorting.IsAscending ? "Sorting ascending" : "Sorting descending")" title="@(Vm.DefaulSorting.IsAscending ? "Sorting ascending" : "Sorting descending")" @onclick="() => setSortAscendingAsync()">
@@ -135,7 +143,7 @@ else
             </div>
         }
 
-        <table class="table table-striped">
+        <table class="table table-hover table-striped">
             <thead>
                 <tr>
                     <th>DataEntityId</th>
@@ -190,7 +198,7 @@ else
                         <tr class="@((!ModalDataView && Vm.SelectedRecord == item) ? "active" : null)">
                             @if (ModalDataView)
                             {
-                                <td class="cursor-pointer" @onclick="() => { _modalViewOpen = !_modalViewOpen; Vm.SelectedRecord = item; }">@item.DataEntityId</td>
+                                <td class="cursor-pointer" @onclick="() => { _modalView.Toggle(); Vm.SelectedRecord = item; }">@item.DataEntityId</td>
 
                                 @foreach (ColumnData column in Columns.ToList())
                                 {
@@ -205,12 +213,12 @@ else
                                             @if (column.PresentationTemplate != null)
                                             {
                                                 // insert template
-                                                <td class="cursor-pointer" @onclick="() => { _modalViewOpen = !_modalViewOpen; Vm.SelectedRecord = item; }">@column.RenderTemplateWithValue(propertyValue)</td>
+                                                <td class="cursor-pointer" @onclick="() => { _modalView.Toggle(); Vm.SelectedRecord = item; }">@column.RenderTemplateWithValue(propertyValue)</td>
 
                                             }
                                             else
                                             {
-                                                <td class="cursor-pointer" @onclick="() => { _modalViewOpen = !_modalViewOpen; Vm.SelectedRecord = item; }">@(propertyValue)</td>
+                                                <td class="cursor-pointer" @onclick="() => { _modalView.Toggle(); Vm.SelectedRecord = item; }">@(propertyValue)</td>
                                             }
 
                                         }
@@ -285,7 +293,7 @@ else
                                     {
                                         <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_copy">
                                             <Authorized>
-                                                <button type="button" class="btn btn-primary px-3 py-0" title="Copy" @onclick='() => { _modalCreateOpen = !_modalCreateOpen; Vm.SelectedRecord = item; ButtonOperationName = "Copy"; Vm.Locked(); }'>
+                                                <button type="button" class="btn btn-primary px-3 py-0" title="Copy" @onclick='() => { _modalCreate.Toggle(); Vm.SelectedRecord = item; ButtonOperationName = "Copy"; Vm.Locked(); }'>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-files" viewBox="0 0 16 16">
                                                         <path d="M13 0H6a2 2 0 0 0-2 2 2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 13V4a2 2 0 0 0-2-2H5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1zM3 4a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z" />
                                                     </svg>
@@ -295,7 +303,7 @@ else
                                     }
                                     <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_edit">
                                         <Authorized>
-                                            <button type="button" class="btn btn-primary px-3 py-0" title="Edit" @onclick="() => { _modalEditOpen = !_modalEditOpen; Vm.SelectedRecord = item; Vm.Locked(); }">
+                                            <button type="button" class="btn btn-primary px-3 py-0" title="Edit" @onclick="() => { _modalEdit.Toggle(); Vm.SelectedRecord = item; Vm.Locked(); }">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                                     <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
                                                     <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
@@ -320,7 +328,7 @@ else
                                     {
                                         <AuthorizeView Roles="@DataExchangeRoleNames.can_data_send_to_plc">
                                             <Authorized>
-                                                <button type="button" class="btn btn-warning px-3 py-0" title="Send To Plc" @onclick='() => { _modalAckSendToPlcOpen = !_modalAckSendToPlcOpen; Vm.SelectedRecord = item;}'>
+                                                <button type="button" class="btn btn-warning px-3 py-0" title="Send To Plc" @onclick='() => { _modalAckSendToPlc.Toggle(); Vm.SelectedRecord = item;}'>
                                                     <HeroIcon Icon="computer-desktop" Type="Operon.Icons.IconType.Solid" Class="size-5" />
                                                 </button>
                                             </Authorized>
@@ -331,7 +339,7 @@ else
                                     {
                                         <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_delete">
                                             <Authorized>
-                                                <button type="button" class="btn btn-danger px-3 py-0" title="Delete" @onclick="() => { _modalDeleteOpen = !_modalDeleteOpen; Vm.SelectedRecord = item; Vm.Locked(); }">
+                                                <button type="button" class="btn btn-danger px-3 py-0" title="Delete" @onclick="() => { _modalDelete.Toggle(); Vm.SelectedRecord = item; Vm.Locked(); }">
                                                     <HeroIcon Icon="trash" Type="Operon.Icons.IconType.Solid" Class="size-5" />
                                                 </button>
                                             </Authorized>
@@ -361,14 +369,14 @@ else
                     {
                         <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_copy">
                             <Authorized>
-                                <button type="button" class="btn btn-primary mx-1" @onclick='() => { _modalCreateOpen = !_modalCreateOpen; ButtonOperationName = "Copy"; Vm.Locked();}'>@Localizer["Copy"]</button>
+                                <button type="button" class="btn btn-primary mx-1" @onclick='() => { _modalCreate.Toggle(); ButtonOperationName = "Copy"; Vm.Locked();}'>@Localizer["Copy"]</button>
                             </Authorized>
                         </AuthorizeView>
                     }
 
                     <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_edit">
                         <Authorized>
-                            <button type="button" class="btn btn-primary mx-1" @onclick="() => { _modalEditOpen = !_modalEditOpen; Vm.Locked(); }">@Localizer["Edit"]</button>
+                            <button type="button" class="btn btn-primary mx-1" @onclick="() => { _modalEdit.Toggle(); Vm.Locked(); }">@Localizer["Edit"]</button>
                         </Authorized>
                     </AuthorizeView>
 
@@ -376,7 +384,7 @@ else
                     {
                         <AuthorizeView Roles="@DataExchangeRoleNames.can_data_send_to_plc">
                             <Authorized>
-                                <button type="button" class="btn btn-primary mx-1" @onclick="() => _modalAckSendToPlcOpen = !_modalAckSendToPlcOpen">@Localizer["Send to PLC"]</button>
+                                <button type="button" class="btn btn-primary mx-1" @onclick="() => _modalAckSendToPlc.Toggle()">@Localizer["Send to PLC"]</button>
                             </Authorized>
                         </AuthorizeView>
                     }
@@ -393,11 +401,9 @@ else
             }
         </div>
     }
-
-    <Modal @bind-Value="_modalCreateOpen">
-        <div class="card w-120">
-            <div class="flex mb-4">
-                @if (ButtonOperationName.Equals("Create"))
+    <Modal @ref="_modalCreate">
+        <div class="modal-header">
+            @if (ButtonOperationName.Equals("Create"))
                     {
                         <h2 class="text-xl font-bold">@Localizer["Create new item"]</h2>
                     }
@@ -413,10 +419,11 @@ else
                     {
                         <h2 class="text-xl font-bold">@Localizer["Update item from PLC"]</h2>
                     }
-                <button class="cursor-pointer ms-auto my-auto" @onclick="() => { _modalCreateOpen = false; Vm.UnLocked(); }">
-                    <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
-                </button>
-            </div>
+            <button type="button" class="cursor-pointer ms-auto my-auto" @onclick="() => _modalCreate.CloseModal()">
+                <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
+            </button>
+        </div>
+        <div class="modal-body">
             @if (ButtonOperationName.Equals("UpdateFromPlc"))
                     {
                         @Localizer["Update item \"{0}\" from PLC", Vm?.SelectedRecord?.DataEntityId]
@@ -452,7 +459,7 @@ else
                         {
                             <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)"
                                     @onclick="async () => {
-                                         _modalCreateOpen = false;
+                                         _modalCreate.CloseModal();
                                 await Vm.GlobalActions.Create(Vm.CreateItemId);
                                 Vm.UpdateObservableRecords();
                                 Vm.InvokeStateHasChanged();
@@ -465,7 +472,7 @@ else
                         {
                             <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)"
                                     @onclick="async () => {
-                                         _modalCreateOpen = false;
+                                         _modalCreate.CloseModal();
                                 await Vm.GlobalActions.Copy(Vm.SelectedRecord.DataEntityId, Vm.CreateItemId);
                                 Vm.UpdateObservableRecords();
                                 Vm.InvokeStateHasChanged();
@@ -478,7 +485,7 @@ else
                         {
                             <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)"
                                     @onclick="async () => {
-                                         _modalCreateOpen = false;
+                                         _modalCreate.CloseModal();
                                 await Vm.GlobalActions.CreateNewFromPlc(Vm.CreateItemId);
                                 Vm.UpdateObservableRecords();
                                 Vm.InvokeStateHasChanged();
@@ -505,19 +512,19 @@ else
 
                     @if (ButtonOperationName.Equals("Create"))
                     {
-                        <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" @onclick="() => {  _modalCreateOpen = false; Vm.CreateNew(); Vm.UnLocked(); }">
+                        <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" @onclick="() => {  _modalCreate.CloseModal();; Vm.CreateNew(); Vm.UnLocked(); }">
                             <span> @Localizer["Create in THIS repository"]</span>
                         </button>
                     }
                     else if (ButtonOperationName.Equals("Copy"))
                     {
-                        <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" @onclick="() => {  _modalCreateOpen = false;Vm.Copy(); Vm.UnLocked(); }">
+                        <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" @onclick="() => {  _modalCreate.CloseModal();;Vm.Copy(); Vm.UnLocked(); }">
                             <span> @Localizer["Copy in THIS repository"]</span>
                         </button>
                     }
                     else if (ButtonOperationName.Equals("LoadFromPlc"))
                     {
-                        <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" @onclick="() => {  _modalCreateOpen = false;Vm.LoadFromPlc(); Vm.UnLocked(); }">
+                        <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" @onclick="() => {  _modalCreate.CloseModal();;Vm.LoadFromPlc(); Vm.UnLocked(); }">
                             <span> @Localizer["Load from PLC into THIS repository"]</span>
                         </button>
                     }
@@ -529,28 +536,33 @@ else
                         </button>
                     } *@
 
-                        <button class="btn btn-outline-red" @onclick="() => { _modalCreateOpen = false; Vm.UnLocked(); }">@Localizer["Close"]</button>
+                        <button class="btn btn-outline-red" @onclick="() => { _modalCreate.CloseModal();; Vm.UnLocked(); }">@Localizer["Close"]</button>
                     </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-red ms-auto" @onclick="() => _modalCreate.CloseModal()">Close modal</button>
         </div>
     </Modal>
 
-    <Modal @bind-Value="_modalViewOpen">
-        <div class="card w-120">
-            <div class="flex mb-4">
+    <Modal @ref="_modalView">
+            <div class="modal-header">
                 <h2 class="text-xl font-bold">@Vm.SelectedRecord?.DataEntityId</h2>
-                <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalViewOpen = false">
+                <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalView.CloseModal()">
                     <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                 </button>
             </div>
+            <div class="modal-body">
+
             <RenderableContentControl Context="Vm.RefUIData" Presentation="ShadowDisplay"></RenderableContentControl>
-            <div class="flex flex-wrap ms-auto">
+            </div>
+            <div class="modal-footer">
                 @if (Presentation.Equals("Command"))
                     {
                         @if (EnableDelete)
                         {
                             <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_delete">
                                 <Authorized>
-                                    <button type="button" class="btn btn-danger me-auto" @onclick="() => { _modalViewOpen = false; _modalDeleteOpen = !_modalCreateOpen;Vm.Locked(); }">@Localizer["Delete"]</button>
+                                    <button type="button" class="btn btn-danger me-auto" @onclick="() => { _modalView.CloseModal(); _modalDelete.Toggle();Vm.Locked(); }">@Localizer["Delete"]</button>
                                 </Authorized>
                             </AuthorizeView>
                         }
@@ -560,7 +572,7 @@ else
                             <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_copy">
                                 <Authorized>
 
-                                    <button type="button" class="btn btn-primary" @onclick='() => { _modalViewOpen = false; _modalCreateOpen = !_modalCreateOpen; ButtonOperationName = "Copy"; Vm.Locked(); }'>@Localizer["Copy"]</button>
+                                    <button type="button" class="btn btn-primary" @onclick='() => { _modalView.CloseModal(); _modalCreate.Toggle(); ButtonOperationName = "Copy"; Vm.Locked(); }'>@Localizer["Copy"]</button>
                                 </Authorized>
                             </AuthorizeView>
                         }
@@ -568,7 +580,7 @@ else
                         <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_edit">
                             <Authorized>
 
-                                <button type="button" class="btn btn-primary" @onclick="() => { _modalViewOpen = false; _modalEditOpen = !_modalEditOpen; Vm.Locked(); }">@Localizer["Edit"]</button>
+                                <button type="button" class="btn btn-primary" @onclick="() => { _modalView.CloseModal(); _modalEdit.Toggle(); Vm.Locked(); }">@Localizer["Edit"]</button>
                             </Authorized>
                         </AuthorizeView>
 
@@ -577,28 +589,27 @@ else
                             <AuthorizeView Roles="@DataExchangeRoleNames.can_data_send_to_plc">
                                 <Authorized>
 
-                                    <button type="button" class="btn btn-primary" @onclick="() => { _modalViewOpen = false; _modalAckSendToPlcOpen = !_modalAckSendToPlcOpen; }">@Localizer["Send to PLC"]</button>
+                                    <button type="button" class="btn btn-primary" @onclick="() => { _modalView.CloseModal(); _modalAckSendToPlc.Toggle(); }">@Localizer["Send to PLC"]</button>
                                 </Authorized>
                             </AuthorizeView>
                         }
 
                     }
-                    <button type="button" class="btn btn-primary" @onclick="() => { _modalViewOpen = false; _modalChangesOpen = !_modalChangesOpen; }">@Localizer["Changes"]</button>
-                <button class="btn btn-outline-red ms-auto" @onclick="() => _modalViewOpen = false">@Localizer["Close"]</button>
+                    <button type="button" class="btn btn-primary" @onclick="() => { _modalView.CloseModal(); _modalChanges.Toggle();; }">@Localizer["Changes"]</button>
+                <button class="btn btn-outline-red ms-auto" @onclick="() => _modalView.CloseModal()">@Localizer["Close"]</button>
             </div>
             
-        </div>
     </Modal>
 
-    <Modal @bind-Value="_modalChangesOpen">
-        <div class="card w-120">
-            <div class="flex mb-4">
+    <Modal @ref="_modalChanges">
+            <div class="modal-header">
                 <h2 class="text-xl font-bold">@Vm.SelectedRecord?.DataEntityId</h2>
-                <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalChangesOpen = false">
+                <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalChanges.CloseModal()">
                     <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                 </button>
             </div>
-            <table class="table table-striped">
+            <div class="modal-body">
+                 <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>DateTime</th>
@@ -632,22 +643,23 @@ else
                             }
                         </tbody>
                     </table>
-            <div class="flex flex-wrap ms-auto">
-                <button type="button" class="btn btn-primary" @onclick="() => { _modalChangesOpen = false; _modalViewOpen = !_modalViewOpen; }">Back</button>
-                <button class="btn btn-outline-red ms-auto" @onclick="() => _modalChangesOpen = false">Close modal</button>
             </div>
-        </div>
+           
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" @onclick="() => { _modalChanges.CloseModal(); _modalView.Toggle(); }">Back</button>
+                <button class="btn btn-outline-red ms-auto" @onclick="() => _modalChanges.CloseModal()">Close modal</button>
+            </div>
     </Modal>
 
-    <Modal @bind-Value="_modalEditOpen">
-        <div class="card w-120">
-            <div class="flex mb-4">
+    <Modal @ref="_modalEdit">
+            <div class="modal-header">
                 <h2 class="text-xl font-bold">@Vm.SelectedRecord?.DataEntityId</h2>
-                <button class="cursor-pointer ms-auto my-auto" @onclick="() => { _modalEditOpen = false; Vm.UnLocked(); ReloadRecordAfterEditWithoutModal(); }">
+                <button class="cursor-pointer ms-auto my-auto" @onclick="() => { _modalEdit.CloseModal(); Vm.UnLocked(); ReloadRecordAfterEditWithoutModal(); }">
                     <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                 </button>
             </div>
-            @if (Vm.IsLockedByMeOrNull())
+            <div class="modal-body">
+                @if (Vm.IsLockedByMeOrNull())
                     {
                         <RenderableContentControl Context="Vm.RefUIData" Presentation="ShadowControl"></RenderableContentControl>
                     }
@@ -655,7 +667,9 @@ else
                     {
                         <RenderableContentControl Context="Vm.RefUIData" Presentation="ShadowDisplay"></RenderableContentControl>
                     }
-            <div class="flex flex-wrap ms-auto">
+            </div>
+            
+            <div class="modal-footer">
                 @if (!Vm.IsLockedByMeOrNull())
                     {
                         <div class="alert alert-danger flex align-center m-0 p-2" role="alert">
@@ -673,22 +687,20 @@ else
                         </div>
                     }
                     @* <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" data-bs-dismiss="modal" @onclick="async () => { await Vm.Edit(); Vm.UnLocked(); }">@Localizer["Save"]</button> *@
-                    <button type="button" class="btn btn-primary mx-1 @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" @onclick="() => { _modalEditOpen = false; _modalAckEditUpdateOpen = !_modalAckEditUpdateOpen; }">@Localizer["Update"]</button>
+                    <button type="button" class="btn btn-primary mx-1 @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" @onclick="() => { _modalEdit.CloseModal(); _modalAckEditUpdate.Toggle(); }">@Localizer["Update"]</button>
 
-                <button class="btn btn-outline-red ms-auto" @onclick="() => { Vm.UnLocked(); ReloadRecordAfterEditWithoutModal(); _modalEditOpen = false; }">@Localizer["Close"]</button>
+                <button class="btn btn-outline-red ms-auto" @onclick="() => { Vm.UnLocked(); ReloadRecordAfterEditWithoutModal(); _modalEdit.CloseModal(); }">@Localizer["Close"]</button>
             </div>
-        </div>
     </Modal>
 
-    <Modal @bind-Value="_modalDeleteOpen">
-        <div class="card w-120">
-            <div class="flex mb-4">
+    <Modal @ref="_modalDelete">
+            <div class="modal-header">
                 <h2 class="text-xl font-bold">@Localizer["Delete"] @Vm.SelectedRecord?.DataEntityId ?</h2>
-                <button class="cursor-pointer ms-auto my-auto" @onclick="() => { _modalDeleteOpen = false; Vm.UnLocked(); }">
+                <button class="cursor-pointer ms-auto my-auto" @onclick="() => { _modalDelete.CloseModal(); Vm.UnLocked(); }">
                     <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                 </button>
             </div>
-            <div class="flex flex-wrap ms-auto">
+            <div class="modal-footer">
                 @if (!Vm.IsLockedByMeOrNull())
                     {
                         <div class="alert alert-danger flex align-center m-0 p-2" role="alert">
@@ -711,7 +723,7 @@ else
                         <button type="button" class="btn btn-danger @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)"
                                 @onclick="async () =>
                         {
-                            _modalDeleteOpen = false;
+                            _modalDelete.CloseModal();
                             await Vm.GlobalActions.Delete(Vm.SelectedRecord.DataEntityId);
                             Vm.UnLocked();
                             Vm.UpdateObservableRecords();
@@ -723,32 +735,30 @@ else
 
                     <button type="button" class="btn btn-danger @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)"
                             @onclick="() => {
-                                _modalDeleteOpen = false;
+                                _modalDelete.CloseModal();
                         Vm.Delete();
                         Vm.UnLocked();
                     }">
                         <span>@Localizer["Delete in this repository"]</span>
                     </button>
 
-                <button class="btn btn-outline-red ms-auto" @onclick="() => { _modalDeleteOpen = false; Vm.UnLocked(); }">@Localizer["Close"]</button>
+                <button class="btn btn-outline-red ms-auto" @onclick="() => { _modalDelete.CloseModal(); Vm.UnLocked(); }">@Localizer["Close"]</button>
             </div>
-        </div>
     </Modal>
 
-    <Modal @bind-Value="_modalAckSendToPlcOpen">
-        <div class="card w-120">
-            <div class="flex mb-4">
+    <Modal @ref="_modalAckSendToPlc">
+            <div class="modal-header">
                 <h2 class="text-xl font-bold">@Localizer["Send data to PLC"] : "@Vm.SelectedRecord?.DataEntityId" ?</h2>
-                <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalAckSendToPlcOpen = false">
+                <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalAckSendToPlc.CloseModal()">
                     <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                 </button>
             </div>
-            <div class="flex flex-wrap ms-auto">
+            <div class="modal-footer">
                 @if (Vm.GlobalActions != null)
                     {
                         <button type="button" class="btn btn-primary"
                                 @onclick="async () => {
-                                    _modalAckSendToPlcOpen = false;
+                                    _modalAckSendToPlc.CloseModal();
                                 await Vm.GlobalActions.SendToPlc(Vm.SelectedRecord.DataEntityId);}">
                             <span> @Localizer["Send data to ALL PLCs"]</span>
                         </button>
@@ -756,39 +766,35 @@ else
                     }
                     <button type="button" class="btn btn-primary"
                             @onclick="() => {
-                                _modalAckSendToPlcOpen = false;
+                                _modalAckSendToPlc.CloseModal();
                         Vm.SendToPlc();
                         StateHasChanged();}">
 
                         <span> @Localizer["Send data to THIS PLC"]</span>
                     </button>
 
-                <button class="btn btn-outline-red ms-auto" @onclick="() => _modalAckSendToPlcOpen = false">@Localizer["Close"]</button>
+                <button class="btn btn-outline-red ms-auto" @onclick="() => _modalAckSendToPlc.CloseModal()">@Localizer["Close"]</button>
             </div>
-        </div>
     </Modal>
 
-    <Modal @bind-Value="_modalAckEditUpdateOpen">
-        <div class="card w-120">
-            <div class="flex mb-4">
+    <Modal @ref="_modalAckEditUpdate">
+            <div class="modal-header">
                 <h2 class="text-xl font-bold">@Localizer["Update"] record : "@Vm.SelectedRecord?.DataEntityId"?</h2>
-                <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalAckEditUpdateOpen = false">
+                <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalAckEditUpdate.CloseModal()">
                     <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                 </button>
             </div>
-            <div class="flex flex-wrap ms-auto">
-                <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" @onclick="async () => { _modalAckEditUpdateOpen = false; await Vm.Edit(); Vm.UnLocked(); }">@Localizer["Update"]</button>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" @onclick="async () => { _modalAckEditUpdate.CloseModal(); await Vm.Edit(); Vm.UnLocked(); }">@Localizer["Update"]</button>
 
-                <button class="btn btn-outline-red ms-auto" @onclick="() => { _modalAckEditUpdateOpen = false; Vm.UnLocked(); ReloadRecordAfterEditWithoutModal(); }">Close modal</button>
+                <button class="btn btn-outline-red ms-auto" @onclick="() => { _modalAckEditUpdate.CloseModal(); Vm.UnLocked(); ReloadRecordAfterEditWithoutModal(); }">Close modal</button>
             </div>
-        </div>
     </Modal>
 
-    <Modal @bind-Value="_modalExportOpen">
-        <div class="card w-120">
-            <div class="flex mb-4">
+    <Modal @ref="_modalExport">
+            <div class="modal-header">
                 <h2 class="text-xl font-bold">@Localizer["Export data"]</h2>
-                <button class="cursor-pointer ms-auto my-auto" @onclick="() => { _modalExportOpen = false; ClearClientFiles(); }">
+                <button class="cursor-pointer ms-auto my-auto" @onclick="() => { _modalExport.CloseModal(); ClearClientFiles(); }">
                     <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                 </button>
             </div>
@@ -821,7 +827,7 @@ else
                             break;
                     }
 
-                    <button type="button" class="btn btn-secondary" @onclick="() => {  _modalExportOpen = false; _modalExportCustomOpen = !_modalExportCustomOpen; }">@Localizer["Customize export options"]</button>
+                    <button type="button" class="btn btn-secondary" @onclick="() => {  _modalExport.CloseModal(); _modalExportCustom.Toggle(); }">@Localizer["Customize export options"]</button>
 
                     <button type="button" class="btn btn-primary" @onclick='async () => {
                         ClearClientFiles();
@@ -830,20 +836,18 @@ else
                         <strong>@Localizer["Export"]</strong>
                     </button>
 
-                <button class="btn btn-outline-red ms-auto" @onclick="() => { _modalExportOpen = false; ClearClientFiles();}">@Localizer["Close"]</button>
+                <button class="btn btn-outline-red ms-auto" @onclick="() => { _modalExport.CloseModal(); ClearClientFiles();}">@Localizer["Close"]</button>
             </div>
-        </div>
     </Modal>
 
-    <Modal @bind-Value="_modalImportOpen">
-        <div class="card w-120">
-            <div class="flex mb-4">
+    <Modal @ref="_modalImport">
+            <div class="modal-header">
                 <h2 class="text-xl font-bold">@Localizer["Import data"]</h2>
-                <button class="cursor-pointer ms-auto my-auto" @onclick="async () => { _modalImportOpen = false; Vm.importStatus = eOperationStatus.Ready; await SaveCustomExportDataAsync(); }">
+                <button class="cursor-pointer ms-auto my-auto" @onclick="async () => { _modalImport.CloseModal(); Vm.importStatus = eOperationStatus.Ready; await SaveCustomExportDataAsync(); }">
                     <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                 </button>
             </div>
-            <div class="mb-3">
+            <div class="modal-body">
 
                         <label for="formFile" class="form-label">@Localizer["File input"]</label>
 
@@ -867,7 +871,7 @@ else
                         }
 
                     </div>
-            <div class="flex flex-wrap ms-auto">
+            <div class="modal-footer">
                 <div class="col-12">
                         <div class="btn-group mt-2" role="group" aria-label="File type">
                             @foreach (var item in Vm.DataExchange.Exporters)
@@ -889,20 +893,18 @@ else
                             _fileLoadingStatus =  eOperationStatus.Ready;}'>
                         @Localizer["Import"]
                     </button>
-                    <button type="button" class="btn btn-secondary" @onclick="async () => { _modalImportOpen = false; Vm.importStatus = eOperationStatus.Ready; await SaveCustomExportDataAsync();}">@Localizer["Close"]</button>
+                    <button type="button" class="btn btn-secondary" @onclick="async () => { _modalImport.CloseModal(); Vm.importStatus = eOperationStatus.Ready; await SaveCustomExportDataAsync();}">@Localizer["Close"]</button>
             </div>
-        </div>
     </Modal>
 
-    <Modal @bind-Value="_modalExportCustomOpen">
-        <div class="card w-120">
-            <div class="flex mb-4">
+    <Modal @ref="_modalExportCustom">
+            <div class="modal-header">
                 <h2 class="text-xl font-bold">@Localizer["Export data"]</h2>
-                <button class="cursor-pointer ms-auto my-auto" @onclick="async () => { _modalExportCustomOpen = false; await SaveCustomExportDataAsync();}">
+                <button class="cursor-pointer ms-auto my-auto" @onclick="async () => { _modalExportCustom.CloseModal(); await SaveCustomExportDataAsync();}">
                     <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                 </button>
             </div>
-            <div class="accordion">
+            <div class="modal-body accordion">
                         @{
                             bool firstIteration = true;
                         }
@@ -943,7 +945,7 @@ else
                             firstIteration = false;
                         }
                     </div>
-            <div class="flex flex-wrap ms-auto">
+            <div class="modal-footer">
                 <div class="w-full">
                         <div class="input-group mt-2">
                             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Localizer[Vm.ExportSet.ExportMode.ToString()]</button>
@@ -989,27 +991,26 @@ else
                     }
                     <button type="button" class="btn btn-primary ms-2" data-bs-target="#exportModal-@ViewGuid"
                             @onclick='async () => {
-                                _modalExportCustomOpen = false;
+                                _modalExportCustom.CloseModal();
                             await SaveCustomExportDataAsync(); }'>
                         @Localizer["Back"]
                     </button>
             </div>
-        </div>
     </Modal>
 }
 
 
 @code{
-    private bool _modalCreateOpen = false;
-    private bool _modalExportOpen = false;
-    private bool _modalExportCustomOpen = false;
-    private bool _modalImportOpen = false;
-    private bool _modalViewOpen = false;
-    private bool _modalAckSendToPlcOpen = false;
-    private bool _modalDeleteOpen = false;
-    private bool _modalEditOpen = false;
-    private bool _modalChangesOpen = false;
-    private bool _modalAckEditUpdateOpen = false;
+    private Modal _modalCreate { get; set; }
+    private Modal _modalExport { get; set; }
+    private Modal _modalExportCustom { get; set; }
+    private Modal _modalImport { get; set; }
+    private Modal _modalView { get; set; }
+    private Modal _modalAckSendToPlc { get; set; }
+    private Modal _modalDelete { get; set; }
+    private Modal _modalEdit { get; set; }
+    private Modal _modalChanges { get; set; }
+    private Modal _modalAckEditUpdate { get; set; }
 
-    private bool _dropdownSortCollapsed = true;
+    private Dropdown _dropdownSort { get; set; }
 }

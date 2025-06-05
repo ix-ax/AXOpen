@@ -19,9 +19,6 @@ namespace AXOpen.VisualComposer
         [Parameter]
         public ITwinObject[] Objects { get; set; }
 
-        [Parameter]
-        public bool ModalDetailView { get; set; } = true;
-
         [Parameter, EditorRequired]
         public string? Id { get; set; }
 
@@ -343,10 +340,10 @@ namespace AXOpen.VisualComposer
 
         public async Task ChangeThemeAsync()
         {
-            if (Theme == "text-dark")
-                Theme = "text-light";
+            if (Theme == "text-gray-900")
+                Theme = "text-gray-100";
             else
-                Theme = "text-dark";
+                Theme = "text-gray-900";
 
             await SaveAsync();
         }

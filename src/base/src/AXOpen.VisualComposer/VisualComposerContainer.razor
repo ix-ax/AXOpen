@@ -3,21 +3,20 @@
 @using KristofferStrube.Blazor.SVGEditor
 @using Operon.Components
 @using Operon.Components.Accordion
+@using Operon.Components.Dropdown
 
 <link href="_content/BlazorColorPicker/colorpicker.css" rel="stylesheet" />
 <link href="_content/Blazor.ContextMenu/blazorContextMenu.min.css" rel="stylesheet" />
 <link href="_content/AXOpen.KristofferStrube.Blazor.SVGEditor/kristofferStrubeBlazorSVGEditor.css" rel="stylesheet" />
 
-<div class="container">
-    <div class="row">
         <AuthorizeView Roles="Administrator">
             <Authorized>
-                <a class="cursor-pointer" @onclick="ToggleInDesignMode">
+                <a role="button" @onclick="ToggleInDesignMode">
                     <Operon.Icons.HeroIcon Icon="adjustments-horizontal" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                 </a>
                 @if (InDesignMode)
                 {
-                    <div class="flex justify-end my-2">
+                    <div class="flex flex-wrap justify-end my-2">
                         <div class="z-100">
                             <select class="select min-w-6" @onchange="(ChangeEventArgs args) => LoadAsync(args.Value.ToString())">
                                 @foreach (var item in GetAllFiles())
@@ -27,47 +26,36 @@
                             </select>
                         </div>
 
-                        <div class="dropdown z-100">
-                            @code {
-                                private bool _optionDropdownCollapsed = true;
-                                private bool _modalControllerObjectsOpen = false;
-                                private bool _modalUsedObjectOpen = false;
-                                private bool _modalCreateNewOpen = false;
-                                private bool _modalCreateCopyOpen = false;
-                                private bool _modalViewsOpen = false;
-                                private bool _modalBackgroundOpen = false;
-                                private bool _modalBackgroundSVGInputOpen = false;
-                            }
-                            <button class="btn btn-primary" @onclick="() => _optionDropdownCollapsed = !_optionDropdownCollapsed">
-                                Options
-                                <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 collapse-button-icon " + (_optionDropdownCollapsed ? "open" : null))" />
-                            </button>
-                            @if (!_optionDropdownCollapsed)
-                            {
-                                <div class="dropdown-body-end card">
-                                    <a class="block px-4 py-2 text-sm text-gray-700" @onclick="() => _modalControllerObjectsOpen = !_modalControllerObjectsOpen">Controller objects</a>
-                                    <a class="block px-4 py-2 text-sm text-gray-700" @onclick="() => _modalUsedObjectOpen = !_modalUsedObjectOpen">Used objects</a>
-                                    <a class="block px-4 py-2 text-sm text-gray-700" @onclick="() => _modalCreateNewOpen = !_modalCreateNewOpen">Create new</a>
-                                    <a class="block px-4 py-2 text-sm text-gray-700" @onclick="() => _modalCreateCopyOpen = !_modalCreateCopyOpen">Create copy</a>
-                                    <a class="block px-4 py-2 text-sm text-gray-700" @onclick="() => _modalViewsOpen = !_modalViewsOpen">Views</a>
-                                    <a class="block px-4 py-2 text-sm text-gray-700" @onclick="() => _modalBackgroundOpen = !_modalBackgroundOpen">Background</a>
-                                    <a class="block px-4 py-2 text-sm text-gray-700" @onclick="() => EditSVG = !EditSVG">Toggle Edit SVG</a>
-                                    @if (EditSVG)
-                                    {
-                                        <a class="block px-4 py-2 text-sm text-gray-700" @onclick="() => _modalBackgroundSVGInputOpen = !_modalBackgroundSVGInputOpen">Background SVG Input</a>
-                                    }
-                                    <a class="block px-4 py-2 text-sm text-gray-700" @onclick="() => ChangeThemeAsync()">Change theme</a>
-                                </div>
-                            }
-                        </div>
+                        <Dropdown @ref="_dropdownOption">
+                            <DropdownButton>
+                                <button class="btn btn-primary" @onclick="_dropdownOption.Toggle">
+                                    Options
+                                    <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownOption?.Open ?? false ? "rotated" : null))" />
+                                </button>
+                            </DropdownButton>
+                            <DropdownBody Class="end">
+                                <a class="dropdown-item" @onclick="_modalControllerObjects.Toggle">Controller objects</a>
+                                <a class="dropdown-item" @onclick="_modalUsedObject.Toggle">Used objects</a>
+                                <a class="dropdown-item" @onclick="_modalCreateNew.Toggle">Create new</a>
+                                <a class="dropdown-item" @onclick="_modalCreateCopy.Toggle">Create copy</a>
+                                <a class="dropdown-item" @onclick="_modalViews.Toggle">Views</a>
+                                <a class="dropdown-item" @onclick="_modalBackground.Toggle">Background</a>
+                                <a class="dropdown-item" @onclick="() => EditSVG = !EditSVG">Toggle Edit SVG</a>
+                                @if (EditSVG)
+                                {
+                                    <a class="dropdown-item" @onclick="_modalBackgroundSVGInput.Toggle">Background SVG Input</a>
+                                }
+                                <a class="dropdown-item" @onclick="async () => await ChangeThemeAsync()">Change theme</a>
+                            </DropdownBody>
+                        </Dropdown>
                     </div>
                 }
                 else
                 {
-                    <nav class="flex flex-wrap flex-col sm:flex-row">
+                    <nav class="tab ms-2 my-2">
                         @foreach (var item in Views)
                         {
-                            <button class="tab @(CurrentView is null || CurrentView == "" ? item == DefaultView ? "tab-active" : null : item == CurrentView ? "tab-active" : null)" @onclick="() => LoadAsync(item)">@item</button>
+                            <button class="tab-item @(CurrentView is null || CurrentView == "" ? item == DefaultView ? "active" : null : item == CurrentView ? "active" : null)" @onclick="() => LoadAsync(item)">@item</button>
                         }
                     </nav>
                 }
@@ -130,23 +118,21 @@
 
                 @if (InDesignMode)
                 {
-                    <Modal @bind-Value="_modalControllerObjectsOpen">
-                        <div class="card w-120">
-                            <div class="flex mb-4">
-                                <h2 class="text-xl font-bold">Controller objects</h2>
-                                <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalControllerObjectsOpen = false">
-                                    <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
-                                </button>
-                            </div>
-                            <div class="flex">
-                                <div class="input">
-                                    <input type="text" placeholder="Search" @bind="SearchValue" />
-                                </div>
-                                <button type="button" class="btn btn-primary" @onclick="() => Search()">Search</button>
+                    <Modal @ref="_modalControllerObjects">
+                        <div class="modal-header">
+                            <h2 class="text-xl font-bold">Controller objects</h2>
+                            <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalControllerObjects.CloseModal()">
+                                <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="flex flex-wrap">
+                                <BaseInput @bind-Value="SearchValue" Placeholder="Search" />
+                                <button type="button" class="btn btn-primary" @onclick="Search">Search</button>
                             </div>
                             @if (SearchValue is null || SearchResult is null)
                             {
-                                <div class="accordion" id="accordionExample">
+                                <div class="accordion">
                                     @foreach (var item in Objects)
                                     {
                                         <AccordionComponent SourceTwinElement="@item" Parent="@this" />
@@ -158,19 +144,19 @@
                                 <ul class="list-group">
                                     @foreach (var item in SearchResult)
                                     {
-                                        <li class="list-group-item d-flex">
+                                        <li class="list-group-item flex! flex-wrap">
                                             @switch (item)
                                             {
                                                 case ITwinObject obj:
-                                                    <Operon.Icons.HeroIcon Icon="cube" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                                    <Operon.Icons.HeroIcon Icon="cube" Type="Operon.Icons.IconType.Outline" Class="size-5 my-auto" />
                                                     break;
                                                 case ITwinPrimitive prim:
-                                                    <Operon.Icons.HeroIcon Icon="credit-card" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                                    <Operon.Icons.HeroIcon Icon="credit-card" Type="Operon.Icons.IconType.Outline" Class="size-5 my-auto" />
                                                     break;
                                             }
 
-                                            <p class="mb-0 truncate">@item.Symbol</p>
-                                            <a class="ms-auto cursor-pointer" @onclick="() => AddChildrenAsync(item)">
+                                            <p class="truncate">@item.Symbol</p>
+                                            <a class="ms-auto my-auto" @onclick="() => AddChildrenAsync(item)">
                                                 <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                             </a>
                                         </li>
@@ -178,129 +164,124 @@
                                 </ul>
                             }
                         </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-outline-red ms-auto" @onclick="() => _modalControllerObjects.CloseModal()">Close</button>
+                        </div>
                     </Modal>
 
-                    <Modal @bind-Value="_modalUsedObjectOpen">
-                        <div class="card w-120">
-                            <div class="flex mb-4">
-                                <h2 class="text-xl font-bold">Used components</h2>
-                                <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalUsedObjectOpen = false">
-                                    <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
-                                </button>
-                            </div>
+                    <Modal @ref="_modalUsedObject">
+                        <div class="modal-header">
+                            <h2 class="text-xl font-bold">Used components</h2>
+                            <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalUsedObject.CloseModal()">
+                                <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
+                            </button>
+                        </div>
+                        <div class="modal-body">
                             <ul class="list-group">
                                 @foreach (VisualComposerItemData child in _children)
                                 {
-                                    <li class="list-group-item flex">
+                                    <li class="list-group-item flex! flex-wrap">
                                         <p>@child.IdPlain</p>
-                                        <a class="ms-auto cursor-pointer" @onclick="() => RemoveChildrenAsync(child)">
+                                        <a class="ms-auto" @onclick="() => RemoveChildrenAsync(child)">
                                             <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                         </a>
-                                        <a class="mx-2 cursor-pointer" data-bs-target="#settings-@child.Id.Replace('.', '_')-@child.UniqueGuid">
+                                        @* <a class="mx-2" data-bs-target="#settings-@child.Id.Replace('.', '_')-@child.UniqueGuid">
                                             <Operon.Icons.HeroIcon Icon="pencil-square" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                        </a>
+                                        </a> *@
                                     </li>
                                 }
                             </ul>
                         </div>
-                    </Modal>
-
-                    <Modal @bind-Value="_modalCreateNewOpen">
-                        <div class="card w-120">
-                            <div class="flex mb-4">
-                                <h2 class="text-xl font-bold">Create new</h2>
-                                <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalCreateNewOpen = false">
-                                    <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
-                                </button>
-                            </div>
-                            <BaseInput @bind-Value="FileName" Label="Name" />
-                            <div class="ms-auto">
-                                <button type="button" class="btn btn-primary" @onclick="async () => { _modalCreateNewOpen = false; await CreateNewAsync(FileName); }">Create</button>
-                                <button class="btn btn-outline-red" @onclick="() => _modalCreateNewOpen = false">Close</button>
-                            </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-outline-red ms-auto" @onclick="() => _modalUsedObject.CloseModal()">Close</button>
                         </div>
                     </Modal>
 
-                    <Modal @bind-Value="_modalCreateCopyOpen">
-                        <div class="card w-120">
-                            <div class="flex mb-4">
-                                <h2 class="text-xl font-bold">Create copy</h2>
-                                <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalCreateCopyOpen = false">
-                                    <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
-                                </button>
-                            </div>
+                    <Modal @ref="_modalCreateNew">
+                        <div class="modal-header">
+                            <h2 class="text-xl font-bold">Create new</h2>
+                            <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalCreateNew.CloseModal()">
+                                <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
+                            </button>
+                        </div>
+                        <div class="modal-body">
                             <BaseInput @bind-Value="FileName" Label="Name" />
-                            <div class="ms-auto">
-                                <button type="button" class="btn btn-primary" @onclick="async () => { _modalCreateCopyOpen = false; await CreateCopyAsync(FileName); }">Create</button>
-                                <button class="btn btn-outline-red" @onclick="() => _modalCreateCopyOpen = false">Close</button>
-                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary ms-auto" @onclick="async () => { _modalCreateNew.CloseModal(); await CreateNewAsync(FileName); }">Create</button>
+                            <button type="button" class="btn btn-outline-red" @onclick="() => _modalCreateNew.CloseModal()">Close</button>
                         </div>
                     </Modal>
 
-                    <Modal @bind-Value="_modalViewsOpen">
-                        <div class="card w-120">
-                            <div class="flex mb-4">
-                                <h2 class="text-xl font-bold">Views</h2>
-                                <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalViewsOpen = false">
-                                    <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
-                                </button>
-                            </div>
+                    <Modal @ref="_modalCreateCopy">
+                        <div class="modal-header">
+                            <h2 class="text-xl font-bold">Modal Title</h2>
+                            <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalCreateCopy.CloseModal()">
+                                <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <BaseInput @bind-Value="FileName" Label="Name" />
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary ms-auto" @onclick="async () => { _modalCreateCopy.CloseModal(); await CreateCopyAsync(FileName); }">Create</button>
+                            <button class="btn btn-outline-red" @onclick="() => _modalCreateCopy.CloseModal()">Close</button>
+                        </div>
+                    </Modal>
+
+                    <Modal @ref="_modalViews">
+                        <div class="modal-header">
+                            <h2 class="text-xl font-bold">Views</h2>
+                            <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalViews.CloseModal()">
+                                <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
+                            </button>
+                        </div>
+                        <div class="modal-body">
                             <ul class="list-group">
                                 @foreach (var item in GetAllVisualComposerContainer())
                                 {
-                                    <li class="list-group-item flex">
+                                    <li class="list-group-item flex! flex-wrap">
                                         <p>@item.file</p>
-                                        <a class="ms-auto cursor-pointer" @onclick="() => ClearScaleAndTranslateAsync(item.file)">
+                                        <a class="ms-auto" @onclick="() => ClearScaleAndTranslateAsync(item.file)">
                                             <Operon.Icons.HeroIcon Icon="arrow-uturn-left" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                         </a>
-                                        <a class="ms-2 cursor-pointer" @onclick="() => RemoveAsync(item.file)">
+                                        <a class="ms-2" @onclick="() => RemoveAsync(item.file)">
                                             <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                         </a>
-                                        <a class="ms-2 cursor-pointer" @onclick="() => ChangeBaseViewsAsync(item.file)" title="@(Views.Contains(item.file) ? "Remove from base views" : "Add to base views")">
+                                        <a class="ms-2" @onclick="() => ChangeBaseViewsAsync(item.file)" title="@(Views.Contains(item.file) ? "Remove from base views" : "Add to base views")">
                                             <Operon.Icons.HeroIcon Icon="@(Views.Contains(item.file) ? "minus" : "plus")" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                         </a>
 
-                                        <div class="input-checkbox">
-                                            <label for="changeAllowZoomingAndPanningcheckbox" title="Zooming and panning">
-                                                <input type="checkbox" class="peer" id="changeAllowZoomingAndPanningcheckbox" checked="@(item.allowZoomingAndPanning ? "checked" : null)" @onclick="() => ChangeAllowZoomingAndPanningAsync(item.file)" />
-                                                <span>
-                                                    <Operon.Icons.HeroIcon Icon="check" Type="Operon.Icons.IconType.Outline" Class="size-4" />
-                                                </span>
-                                            </label>
-                                        </div>
+                                        <input type="checkbox" class="checkbox" checked="@(item.allowZoomingAndPanning ? "checked" : null)" @onclick="() => ChangeAllowZoomingAndPanningAsync(item.file)" />
 
-                                        <div class="input-checkbox">
-                                            <label for="changeDefaultViewcheckbox" title="Default view">
-                                                <input type="checkbox" class="peer" id="changeDefaultViewcheckbox" checked="@(item.file == DefaultView ? "checked" : null)" @onclick="() => ChangeDefaultViewAsync(item.file)" />
-                                                <span>
-                                                    <Operon.Icons.HeroIcon Icon="check" Type="Operon.Icons.IconType.Outline" Class="size-4" />
-                                                </span>
-                                            </label>
-                                        </div>
+                                        <input type="checkbox" class="checkbox" checked="@(item.file == DefaultView ? "checked" : null)" @onclick="() => ChangeDefaultViewAsync(item.file)" />
                                     </li>
                                 }
                             </ul>
                         </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-outline-red ms-auto" @onclick="() => _modalViews.CloseModal()">Close</button>
+                        </div>
                     </Modal>
 
-                    <Modal @bind-Value="_modalBackgroundOpen">
-                        <div class="card w-120">
-                            <div class="flex mb-4">
-                                <h2 class="text-xl font-bold">Background</h2>
-                                <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalBackgroundOpen = false">
-                                    <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
-                                </button>
-                            </div>
+                    <Modal @ref="_modalBackground">
+                        <div class="modal-header">
+                            <h2 class="text-xl font-bold">Background</h2>
+                            <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalBackground.CloseModal()">
+                                <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
+                            </button>
+                        </div>
+                        <div class="modal-body">
                             <Accordion>
                                 <AccordionItem Title="Upload image">
-                                    <InputFile class="input-file" accept=".png, .jpg, .jpeg, .svg" OnChange="@UploadFile" />
+                                    <InputFile class="file" accept=".png, .jpg, .jpeg, .svg" OnChange="@UploadFile" />
                                     @if (!isFileImported && isFileImporting)
                                     {
                                         <p>Loading</p>
                                     }
                                 </AccordionItem>
                                 <AccordionItem Title="Set empty background">
-                                    <input type="color" class="form-control form-control-color" @bind="BackgroundColor" title="Choose color">
+                                    <input type="color" class="" @bind="BackgroundColor" title="Choose color">
                                     <button type="button" class="btn btn-secondary" disabled="@(ImgSrc == null || ImgSrc == "" ? "disabled" : null)" @onclick="() => { ImgSrc = null; SaveAsync(); }">Clear image (only background color)</button>
                                 </AccordionItem>
                             </Accordion>
@@ -308,33 +289,33 @@
                                 <BaseInput @bind-Value="BackgroundWidth" Label="Width" />
                                 <BaseInput @bind-Value="BackgroundHeight" Label="Height" />
                             </div>
-                            <div class="ms-auto">
-                                <button class="btn btn-outline-red" @onclick="() => _modalBackgroundOpen = false">Close</button>
-                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-outline-red ms-auto" @onclick="() => _modalBackground.CloseModal()">Close</button>
                         </div>
                     </Modal>
 
-                    <Modal @bind-Value="_modalBackgroundSVGInputOpen">
-                        <div class="card w-120">
-                            <div class="flex mb-4">
-                                <h2 class="text-xl font-bold">Background SVG Input</h2>
-                                <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalBackgroundSVGInputOpen = false">
-                                    <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
-                                </button>
-                            </div>
+                    <Modal @ref="_modalBackgroundSVGInput">
+                        <div class="modal-header">
+                            <h2 class="text-xl font-bold">Modal Title</h2>
+                            <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalBackgroundSVGInput.CloseModal()">
+                                <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
+                            </button>
+                        </div>
+                        <div class="modal-body">
                             <textarea @bind="BackgroundSVGInput" @bind:event="oninput" style="width:100%;height:15vh;" />
-                            <div class="ms-auto">
-                                <button class="btn btn-outline-red" @onclick="() => _modalBackgroundSVGInputOpen = false">Close</button>
-                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-outline-red ms-auto" @onclick="() => _modalBackgroundSVGInput.CloseModal()">Close</button>
                         </div>
                     </Modal>
                 }
             </Authorized>
             <NotAuthorized>
-                <nav class="flex flex-wrap flex-col sm:flex-row">
+                <nav class="tab">
                     @foreach (var item in Views)
                     {
-                        <button class="tab @(CurrentView is null || CurrentView == "" ? item == DefaultView ? "tab-active" : null : item == CurrentView ? "tab-active" : null)" @onclick="() => LoadAsync(item)">@item</button>
+                        <button class="tab-item @(CurrentView is null || CurrentView == "" ? item == DefaultView ? "active" : null : item == CurrentView ? "active" : null)" @onclick="() => LoadAsync(item)">@item</button>
                     }
                 </nav>
 
@@ -358,76 +339,50 @@
                 </ZoomableContainer>
             </NotAuthorized>
         </AuthorizeView>
-    </div>
-    @if (!ModalDetailView)
-    {
-        <span class="@(DetailsVisibility ? null : "d-none") m-4">
-            <div class="card overflow-auto">
-                <button class="cursor-pointer ms-auto my-auto" @onclick="ToggleDetailsVisibility">
+
+        <Modal @bind-Open="DetailsVisibility">
+            <div class="modal-header">
+                <h2 class="text-xl font-bold">Modal Title</h2>
+                <button class="cursor-pointer ms-auto my-auto" @onclick="() => { DetailsVisibility = false; }">
                     <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                 </button>
-                <AuthorizeView Roles="Administrator">
-                    <Authorized>
-                        <div class="dropdown">
-                            @code {
-        private bool _dropdownCollapsedPresentation = true;
-                        }
-                        <button class="btn btn-primary" @onclick="() => _dropdownCollapsedPresentation = !_dropdownCollapsedPresentation">
-                            Presentation
-                            <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 collapse-button-icon " + (_dropdownCollapsedPresentation ? "open" : null))" />
-                        </button>
-                        @if (!_dropdownCollapsedPresentation)
-                            {
-                                <div class="dropdown-body-end card">
-                                    <a class="block px-4 py-2 text-sm text-gray-700" @onclick='() => DetailsPresentationType = "Command"'>Command</a>
-                                    <a class="block px-4 py-2 text-sm text-gray-700" @onclick='() => DetailsPresentationType = "Status"'>Status</a>
-                                    <a class="block px-4 py-2 text-sm text-gray-700" @onclick='() => DetailsPresentationType = "Control"'>Control</a>
-                                    <a class="block px-4 py-2 text-sm text-gray-700" @onclick='() => DetailsPresentationType = "Display"'>Display</a>
-                                </div>
-                            }
-                        </div>
-                        <div class="input">
-                            <input type="text" id="input" @bind="DetailsPresentationType" />
-                        </div>
-                    </Authorized>
-                </AuthorizeView>
-                <RenderableContentControl @ref="detailsRcc" Presentation="Command-Control"></RenderableContentControl>
             </div>
-        </span>
-    }
-    else
-    {
-        <Modal @bind-Value="DetailsVisibility">
-            <div class="card w-120">
-                <div class="flex mb-4">
-                    <AuthorizeView Roles="Administrator">
+            <div class="modal-body">
+                <AuthorizeView Roles="Administrator">
                         <Authorized>
-                            <div class="dropdown">
-                                @code {
-        private bool _dropdownCollapsedPresentationModal = true;
-                            }
-                            <button class="btn btn-primary" @onclick="() => _dropdownCollapsedPresentationModal = !_dropdownCollapsedPresentationModal">
-                                Presentation
-                                <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 collapse-button-icon " + (_dropdownCollapsedPresentationModal ? "open" : null))" />
-                            </button>
-                            @if (!_dropdownCollapsedPresentationModal)
-                                {
-                                    <div class="dropdown-body-end card">
-                                        <a class="block px-4 py-2 text-sm text-gray-700" @onclick='() => DetailsPresentationType = "Command"'>Command</a>
-                                        <a class="block px-4 py-2 text-sm text-gray-700" @onclick='() => DetailsPresentationType = "Status"'>Status</a>
-                                        <a class="block px-4 py-2 text-sm text-gray-700" @onclick='() => DetailsPresentationType = "Control"'>Control</a>
-                                        <a class="block px-4 py-2 text-sm text-gray-700" @onclick='() => DetailsPresentationType = "Display"'>Display</a>
-                                    </div>
-                                }
-                            </div>
-                            <div class="input">
-                                <input type="text" id="input" @bind="DetailsPresentationType" />
-                            </div>
+                            <Dropdown @ref="_dropdownPresentation">
+                                <DropdownButton>
+                                    <button class="btn btn-primary" @onclick="_dropdownPresentation.Toggle">
+                                        Presentation
+                                        <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownPresentation?.Open ?? false ? "rotated" : null))" />
+                                    </button>
+                                </DropdownButton>
+                                <DropdownBody>
+                                    <a class="dropdown-item" @onclick='() => DetailsPresentationType = "Command"'>Command</a>
+                                    <a class="dropdown-item" @onclick='() => DetailsPresentationType = "Status"'>Status</a>
+                                    <a class="dropdown-item" @onclick='() => DetailsPresentationType = "Control"'>Control</a>
+                                    <a class="dropdown-item" @onclick='() => DetailsPresentationType = "Display"'>Display</a>
+                                </DropdownBody>
+                            </Dropdown>
+                            <BaseInput @bind-Value="DetailsPresentationType" />
                         </Authorized>
                     </AuthorizeView>
                     <RenderableContentControl @ref="detailsRcc" Presentation="Command-Control"></RenderableContentControl>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline-red ms-auto" @onclick="() => { DetailsVisibility = false; }">Close modal</button>
             </div>
         </Modal>
-    }
-</div>
+
+                            @code {
+                                private Dropdown _dropdownOption { get; set; }
+                                private Dropdown _dropdownPresentation { get; set; }
+
+                                private Modal _modalControllerObjects { get; set; }
+                                private Modal _modalUsedObject { get; set; }
+                                private Modal _modalCreateNew { get; set; }
+                                private Modal _modalCreateCopy { get; set; }
+                                private Modal _modalViews { get; set; }
+                                private Modal _modalBackground { get; set; }
+                                private Modal _modalBackgroundSVGInput { get; set; }
+                            }
