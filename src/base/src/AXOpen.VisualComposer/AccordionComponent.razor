@@ -1,13 +1,13 @@
 ﻿@using AXSharp.Connector;
 
 <div class="accordion-item">
-    <div class="accordion-button @(IsExpanded ? "accordion-button-active" : null) flex">
-        <button class="flex" @onclick="() => IsExpanded = !IsExpanded">
-            <Operon.Icons.HeroIcon Icon="cube" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-            @SourceTwinElement.Symbol
-            <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 accordion-button-icon " + (IsExpanded ? "open" : null))" />
+    <div class="accordion-button @(IsExpanded ? "active" : null) flex flex-wrap">
+        <Operon.Icons.HeroIcon Icon="cube" Type="Operon.Icons.IconType.Outline" Class="size-5 my-auto" />
+        <p class="my-auto me-auto">@SourceTwinElement.Symbol</p>
+        <button @onclick="() => IsExpanded = !IsExpanded">
+            <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 my-auto icon-button-rotate " + (IsExpanded ? "rotated" : null))" />
         </button>
-        <a class="p-2 cursor-pointer" @onclick="() => Parent.AddChildrenAsync(SourceTwinElement)">
+        <a class="p-2 my-auto" @onclick="() => Parent.AddChildrenAsync(SourceTwinElement)">
             <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5" />
         </a>
     </div>
@@ -26,10 +26,10 @@
 
                         if (kid is ITwinPrimitive prim)
                         {
-                            <li class="list-group-item flex">
-                                <Operon.Icons.HeroIcon Icon="credit-card" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                <p>@prim.Symbol</p>
-                                <a class="ms-auto cursor-pointer" @onclick="() => Parent.AddChildrenAsync(prim)">
+                            <li class="list-group-item flex! flex-wrap">
+                                <Operon.Icons.HeroIcon Icon="credit-card" Type="Operon.Icons.IconType.Outline" Class="size-5 my-auto" />
+                                <p class="truncate">@prim.Symbol</p>
+                                <a class="ms-auto my-auto" @onclick="() => Parent.AddChildrenAsync(prim)">
                                     <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                 </a>
                             </li>

@@ -1,15 +1,11 @@
 ﻿@using AXSharp.Connector;
 
 <div class="accordion-item">
-    <div class="accordion-button @(IsExpanded ? "accordion-button-active" : null) flex">
-        <div class="flex">
-            <div class="input-group-text">
-                <input class="form-check-input mt-0" type="checkbox" @attributes="Vm.InDictionary(Vm.GetCustomExportDataValue(Fragment.ToString(), String.Join('.', Parent, AccordionContent.GetSymbolTail())))" @onchange="@((ChangeEventArgs __e) => Vm.ChangeCustomExportDataValue(__e, Fragment.ToString(), String.Join('.', Parent, AccordionContent.GetSymbolTail())))">
-            </div>
+    <div class="accordion-button @(IsExpanded ? "active" : null) flex flex-wrap">
+            <input class="checkbox" type="checkbox" @attributes="Vm.InDictionary(Vm.GetCustomExportDataValue(Fragment.ToString(), String.Join('.', Parent, AccordionContent.GetSymbolTail())))" @onchange="@((ChangeEventArgs __e) => Vm.ChangeCustomExportDataValue(__e, Fragment.ToString(), String.Join('.', Parent, AccordionContent.GetSymbolTail())))">
             <button class="py-2 @(Vm.GetCustomExportDataValue(Fragment.ToString(), Parent) ? "" : "text-muted")" type="button" @onclick="() => IsExpanded = !IsExpanded">
                 @AccordionContent.GetSymbolTail()
             </button>
-        </div>
     </div>
     @if (IsExpanded)
     {
@@ -19,9 +15,9 @@
                 {
                     @if (item is ITwinPrimitive)
                     {
-                        <li class="list-group-item flex">
-                            <input class="form-check-input me-1" type="checkbox" id="@Fragment.ToString()-@Parent-@AccordionContent.GetSymbolTail()-@item.GetSymbolTail()-@ViewGuid" @attributes="Vm.InDictionary(Vm.GetCustomExportDataValue(Fragment.ToString(), String.Join('.', Parent, AccordionContent.GetSymbolTail(), item.GetSymbolTail())))" @onchange="@((ChangeEventArgs __e) => Vm.ChangeCustomExportDataValue(__e, Fragment.ToString(), String.Join('.', Parent, AccordionContent.GetSymbolTail(), item.GetSymbolTail())))">
-                            <label class="form-check-label ms-3" for="@Fragment.ToString()-@Parent-@AccordionContent.GetSymbolTail()-@item.GetSymbolTail()-@ViewGuid">@item.GetSymbolTail()</label>
+                        <li class="list-group-item flex! flex-wrap input-group">
+                            <input type="checkbox" id="@Fragment.ToString()-@Parent-@AccordionContent.GetSymbolTail()-@item.GetSymbolTail()-@ViewGuid" @attributes="Vm.InDictionary(Vm.GetCustomExportDataValue(Fragment.ToString(), String.Join('.', Parent, AccordionContent.GetSymbolTail(), item.GetSymbolTail())))" @onchange="@((ChangeEventArgs __e) => Vm.ChangeCustomExportDataValue(__e, Fragment.ToString(), String.Join('.', Parent, AccordionContent.GetSymbolTail(), item.GetSymbolTail())))">
+                            <label for="@Fragment.ToString()-@Parent-@AccordionContent.GetSymbolTail()-@item.GetSymbolTail()-@ViewGuid">@item.GetSymbolTail()</label>
                         </li>
                     }
                     else if (item is ITwinObject)

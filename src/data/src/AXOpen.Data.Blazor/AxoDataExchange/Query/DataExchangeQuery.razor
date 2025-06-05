@@ -1,4 +1,6 @@
 ﻿@using AXSharp.Connector;
+@using Operon.Components
+@using Operon.Components.Dropdown
 @namespace AXOpen.Data.Query
 
 <div class="flex p-0 m-1">
@@ -25,41 +27,43 @@
 
         <input id="filterText" @bind="SymbolsQueryFilter" @bind:event="oninput"
                placeholder="Type symbol name here for filter..."
-               class="form-control"
+               class="input"
                title="Enter a symbol name to filter the results" />
 
         @if (InjectedQueries.Count > 0)
         {
-            <button class="btn btn-warning dropdown-toggle m-1" type="button" @onclick="() => _dropdownInjectedQueriesCollapsed = !_dropdownInjectedQueriesCollapsed">
-                @Localizer["Injected query !"]
-            </button>
-
-            @if (!_dropdownInjectedQueriesCollapsed)
-{
-    <div class="dropdown-body card">
-        @foreach (var element in InjectedQueries)
-                {
-                    <a class="block px-4 py-2 text-sm text-gray-700">@element</a>
-                }
-    </div>
-}
+            <Dropdown @ref="_dropdownInjectedQueries">
+                <DropdownButton>
+                    <button type="button" class="btn btn-primary" @onclick="_dropdownInjectedQueries.Toggle">
+                        @Localizer["Injected query !"]
+                        <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownInjectedQueries?.Open ?? false ? "rotated" : null))" />
+                    </button>
+                </DropdownButton>
+                <DropdownBody>
+                    @foreach (var element in InjectedQueries)
+                    {
+                        <a class="dropdown-item">@element</a>
+                    }
+                </DropdownBody>
+            </Dropdown>
         }
 
         @if (InjectedSorting.Count > 0)
         {
-            <button class="btn btn-warning dropdown-toggle m-1" type="button" @onclick="() => _dropdownInjectedSortingCollapsed = !_dropdownInjectedSortingCollapsed">
-                @Localizer["Injected sort!"]
-            </button>
-
-            @if (!_dropdownInjectedSortingCollapsed)
-            {
-                <div class="dropdown-body card">
+            <Dropdown @ref="_dropdownInjectedSorting">
+                <DropdownButton>
+                    <button type="button" class="btn btn-primary" @onclick="_dropdownInjectedSorting.Toggle">
+                        @Localizer["Injected sort!"]
+                        <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownInjectedSorting?.Open ?? false ? "rotated" : null))" />
+                    </button>
+                </DropdownButton>
+                <DropdownBody>
                     @foreach (var element in InjectedSorting)
                     {
-                        <a class="block px-4 py-2 text-sm text-gray-700">@element</a>
+                        <a class="dropdown-item">@element</a>
                     }
-                </div>
-            }
+                </DropdownBody>
+            </Dropdown>
         }
     </div>
 
@@ -189,27 +193,24 @@
         <label>@Localizer["Filter"]</label>
 
         <div>
-            <button class="btn btn-secondary dropdown-toggle" type="button" @onclick="() => _dropdownHistoryCollapsed = !_dropdownHistoryCollapsed">
-                @CurrentQuery.Name
-            </button>
-
-            @if (!_dropdownHistoryCollapsed)
-            {
-                <div class="dropdown-body card">
+            <Dropdown @ref="_dropdownHistory">
+                <DropdownButton>
+                    <button type="button" class="btn btn-primary" @onclick="_dropdownHistory.Toggle">
+                        @CurrentQuery.Name
+                        <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownHistory?.Open ?? false ? "rotated" : null))" />
+                    </button>
+                </DropdownButton>
+                <DropdownBody>
                     @foreach (var element in History.Items)
                     {
-                        <a class="block px-4 py-2 text-sm text-gray-700 @(CurrentQuery.Name == element.Name ? "active" : "")"
+                        <a class="dropdown-item @(CurrentQuery.Name == element.Name ? "active" : "")"
                                @onclick='() => SelectlElementFromHistory(element.Name)'>@element.Name (@element.Modified.ToString())</a>
                     }
-                </div>
-            }
+                </DropdownBody>
+            </Dropdown>
         </div>
 
-        <input id="CurentQueryName" @bind="CurrentQuery.Name" @bind:event="oninput"
-               placeholder="Type query name "
-               class="form-control"
-               style="max-width: 300px;"
-               title="Query name" />
+        <BaseInput @bind-Value="CurrentQuery.Name" Placeholder="Type query name" title="Query name" />
 
         <button class="btn btn-secondary m-1 py-0" type="button" @onclick="async () => await UpdateQueryHistoryToStorage()" title="@Localizer["Save query"]">
             <Operon.Icons.HeroIcon Icon="folder" Type="Operon.Icons.IconType.Outline" Class="size-5" />
@@ -233,7 +234,7 @@
 </div>
 
 @code {
-    private bool _dropdownInjectedQueriesCollapsed = true;
-    private bool _dropdownInjectedSortingCollapsed = true;
-    private bool _dropdownHistoryCollapsed = true;
+    private Dropdown _dropdownInjectedQueries { get; set; }
+    private Dropdown _dropdownInjectedSorting { get; set; }
+    private Dropdown _dropdownHistory { get; set; }
 }

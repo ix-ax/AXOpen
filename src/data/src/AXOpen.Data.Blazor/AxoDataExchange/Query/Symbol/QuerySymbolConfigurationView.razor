@@ -1,4 +1,5 @@
 ﻿@using AXSharp.Connector;
+@using Operon.Components.Dropdown
 @namespace AXOpen.Data.Query
 
 <div class="flex flex-wrap items-center gap-2">
@@ -7,17 +8,21 @@
     {
         <label> @SymbolConfiguration.SymbolPathWithParent</label>
     }
-    <button class="btn btn-secondary" type="button" @onclick="() => _dropdownCollapsed = !_dropdownCollapsed">@Operation</button>
 
-    @if (!_dropdownCollapsed)
-    {
-        <ul class="dropdown-body card">
+    <Dropdown @ref="_dropdownComponent">
+        <DropdownButton>
+            <button type="button" class="btn btn-secondary" @onclick="_dropdownComponent.Toggle">
+                @Operation
+                <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownComponent?.Open ?? false ? "rotated" : null))" />
+            </button>
+        </DropdownButton>
+        <DropdownBody>
             @foreach (var operation in OperationProvider.GetOperationsForType(SymbolConfiguration.SymbolType))
             {
-                <a class="block px-4 py-2 text-sm text-gray-700 @(@SymbolConfiguration.Operation == operation ? "active" : "")" @onclick="() => {Operation = operation;}">@operation</a>
+                <a class="dropdown-item @(@SymbolConfiguration.Operation == operation ? "active" : "")" @onclick="() => {Operation = operation;}">@operation</a>
             }
-        </ul>
-    }
+        </DropdownBody>
+    </Dropdown>
 
     @if (SymbolConfiguration.IsRangeOperation)
     {
@@ -46,5 +51,5 @@
 </div>
 
 @code {
-    private bool _dropdownCollapsed = true;
+    private Dropdown _dropdownComponent { get; set; }
 }
