@@ -7,6 +7,7 @@ USING AXOpen.Components.Abstractions.Drives;
 USING AXOpen.Components.Drives;
 USING System.Math;
 USING Siemens.Simatic.S71500.Hardware.Utilities;
+USING Siemens.Simatic.S71500.DistributedIO;
 
 NAMESPACE AXOpen.Components.Rexroth.Drives
     {S7.extern=ReadWrite}
@@ -2968,9 +2969,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             MC_ReadParameterCallNumber			: 	INT; 				//Call number of the method MC_ReadParameter
             MC_ReadParameterNumber_PV			: 	DINT;				//ParameterNumber - previous value (stored at rising edge of the Enable) 
             MC_ReadParameterFirstCall			: 	BOOL;				//First call of the method MC_ReadParameter
-            MC_ReadParameterDone_				:	BOOL;							
-            MC_ReadParameterActive_				:	BOOL := FALSE;					
+            MC_ReadParameterValid_				:	BOOL;							
+            MC_ReadParameterBusy_				:	BOOL := FALSE;					
             MC_ReadParameterError_				:	BOOL;							
+            MC_ReadParameterStatus_				:	DWORD;							
+            MC_ReadParameterLength_             :   UINT;
             MC_ReadParameterErrorID_			:	eAxoCtrlxDriveXscErrorCode;						
             MC_ReadParameterValue_				:	DINT;							
         END_VAR
@@ -2990,6 +2993,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
                 Dummy : BOOL;
+                _data				:	ARRAY[0..7] OF BYTE;							
             END_VAR
 
             _AxisReference ?= AxisRef;
@@ -3000,88 +3004,33 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 RETURN;
             END_IF;
 
-            // IF Enable THEN
-            //     MC_ReadParameterFirstCall := TRUE;
-            //     IF _AxisReference^.Data.CheckAccessOK THEN
-            //         IF Enable AND NOT MC_ReadParameterEnable_PV THEN(*	raising edge of Enable *)
-            //             IF NOT _AxisReference^.Data.ActiveAcyclicCommunication THEN
-            //                 _AxisReference^.Data.CallNumberAcyclic := _AxisReference^.Data.CallNumberAcyclic + INT#2;
-            //                 MC_ReadParameterCallNumber := _AxisReference^.Data.CallNumberAcyclic;
-            //                 MC_ReadParameterNumber_PV := ParameterNumber;
-            //                 _AxisReference^.Data.WriteParameter := FALSE;
-            //                 _AxisReference^.Data.SelectDataType := UINT#1;
-            //                 _AxisReference^.Data.ParameterNumber := MC_ReadParameterNumber_PV;
-            //                 MC_ReadParameterError_ := FALSE;
-            //                 MC_ReadParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoCtrlxDriveXscErrorCode#NONE_ERROR;
-            //             ELSE
-            //                 MC_ReadParameterError_ := TRUE;
-            //                 MC_ReadParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoCtrlxDriveXscErrorCode#ACCESS_ERROR;
-            //             END_IF;
-            //         END_IF;
-            //     ELSE
-            //         MC_ReadParameterCallNumber := MC_ReadParameterCallNumber - INT#1;
-            //         MC_ReadParameterError_ := TRUE;
-            //         MC_ReadParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoCtrlxDriveXscErrorCode#RESOURCE_ERROR;
-            //     END_IF;
-            // END_IF;
-            // IF MC_ReadParameterFirstCall THEN
-            //     IF MC_ReadParameterCallNumber = _AxisReference^.Data.CallNumberAcyclic AND Enable	THEN
-            //         _AxisReference^.Data.CallAxisParameterMethod := TRUE;
-            //         _AxisReference^.Data.EnableAcyclicCommunication := TRUE;
-            //         THIS.AcyclicCommunicationCall(AxisRef :=  _AxisReference , DPV1ParameterNumber := TRUE, Active => Dummy);		
-            //         Busy := _AxisReference^.Data.ActiveAcyclicCommunication;
-            //         IF _AxisReference^.Data.DoneAcyclicCommunication THEN
-            //             MC_ReadParameterDone_ := TRUE;
-            //             MC_ReadParameterActive_ := FALSE;
-            //             MC_ReadParameterValue_ := _AxisReference^.Data.ReadValueDint;
-            //         END_IF;
-            //         IF _AxisReference^.Data.Error_AcyclicCommunication THEN
-            //             MC_ReadParameterCallNumber := MC_ReadParameterCallNumber - INT#1;
-            //             MC_ReadParameterDone_ := FALSE;
-            //             MC_ReadParameterActive_ := FALSE;
-            //             MC_ReadParameterError_ := _AxisReference^.Data.Error_AcyclicCommunication;
-            //             MC_ReadParameterErrorID_ := _AxisReference^.Data.ErrorID_AcyclicCommunication;
-            //             _AxisReference^.Data.CallAxisParameterMethod := TRUE;
-            //             _AxisReference^.Data.EnableAcyclicCommunication := FALSE;
-            //             THIS.AcyclicCommunicationCall(AxisRef :=  _AxisReference , DPV1ParameterNumber := TRUE, Active => Dummy);
-            //         ELSIF  _AxisReference^.Data.CallAxisParameterMethod THEN
-            //             MC_ReadParameterCallNumber := MC_ReadParameterCallNumber - INT#1;
-            //             MC_ReadParameterDone_ := FALSE;
-            //             MC_ReadParameterActive_ := FALSE;
-            //             MC_ReadParameterError_ := TRUE;
-            //             MC_ReadParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoCtrlxDriveXscErrorCode#RESOURCE_ERROR;
-            //             _AxisReference^.Data.EnableAcyclicCommunication := FALSE;
-            //         END_IF;
-            //     ELSIF Enable AND MC_ReadParameterEnable_PV AND MC_ReadParameterCallNumber = _AxisReference^.Data.CallNumberAcyclic THEN
-            //         _AxisReference^.Data.CallAxisParameterMethod := TRUE;
-            //         _AxisReference^.Data.EnableAcyclicCommunication := FALSE;
-            //         THIS.AcyclicCommunicationCall(AxisRef :=  _AxisReference , DPV1ParameterNumber := TRUE, Active => Dummy);
-            //         MC_ReadParameterDone_ := FALSE;
-            //         MC_ReadParameterActive_ := FALSE;
-            //         MC_ReadParameterValue_ := DINT#0;
-            //         MC_ReadParameterError_ := FALSE;
-            //         MC_ReadParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoCtrlxDriveXscErrorCode#NONE_ERROR;
-            //     ELSIF NOT Enable AND MC_ReadParameterEnable_PV THEN
-            //         MC_ReadParameterDone_ := FALSE;
-            //         MC_ReadParameterActive_ := FALSE;
-            //         MC_ReadParameterValue_ := DINT#0;
-            //         MC_ReadParameterError_ := FALSE;
-            //         MC_ReadParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoCtrlxDriveXscErrorCode#NONE_ERROR;
-            //         _AxisReference^.Data.ActiveAcyclicCommunication := FALSE;
-            //         _AxisReference^.Data.DoneAcyclicCommunication := FALSE;
-            //     END_IF;
-            // END_IF;
-            // MC_ReadParameterEnable_PV := Enable;
-            
-            // Valid			:= 	MC_ReadParameterDone_;				           
-            // Busy			:= 	MC_ReadParameterActive_;				  
-            // Error			:= 	MC_ReadParameterError_;				          
-            // ErrorID			:= 	MC_ReadParameterErrorID_;				    
-            // IF Valid THEN
-            //     Value			:= 	MC_ReadParameterValue_;
-            // ELSE
-            //     Value			:= 	0;
-            // END_IF;					          
+            Siemens.Simatic.S71500.DistributedIO.ReadRecord(    request     :=  Enable,
+                                                                id          :=  TO_WORD(_AxisReference^.HWIDs.HW_Device),
+                                                                index       :=  ParameterNumber,
+                                                                maxLength   :=  UINT#8,
+                                                                record      :=  _data,
+                                                                valid       =>  MC_ReadParameterValid_,
+                                                                busy        =>  MC_ReadParameterBusy_,
+                                                                error       =>  MC_ReadParameterError_,
+                                                                status      =>  MC_ReadParameterStatus_,
+                                                                length      =>  MC_ReadParameterLength_);
+
+            Valid           :=   MC_ReadParameterValid_;   
+            Busy            :=   MC_ReadParameterBusy_;                      
+            Error           :=   MC_ReadParameterError_;                      
+            ErrorID         :=   TO_WORD(MC_ReadParameterStatus_);                      
+            IF MC_ReadParameterValid_  THEN 
+                Value.%B7   :=  _data[0];
+                Value.%B6   :=  _data[1];
+                Value.%B5   :=  _data[2];
+                Value.%B4   :=  _data[3];
+                Value.%B3   :=  _data[4];
+                Value.%B2   :=  _data[5];
+                Value.%B1   :=  _data[6];
+                Value.%B0   :=  _data[7];
+            ELSE
+                Value   :=  LINT#0;
+            END_IF;
         END_METHOD
 
         ///<summary>
