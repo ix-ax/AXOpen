@@ -21,7 +21,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         VAR PUBLIC // AxisRef
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("AxisRef")]}
-            {#ix-attr:[ReadOnly()]}
+            // {#ix-attr:[ReadOnly()]}
             AxisRefExt :  AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
         END_VAR
         VAR PUBLIC  // Scaling
@@ -81,7 +81,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Debug")]}
             {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#_State>"}
+            {#ix-set:AttributeName = "<#_State#>"}
             _State                  :   UINT;
         END_VAR
 
@@ -1415,14 +1415,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     ScalingConstantActualPosition       := TO_LREAL(_S_0_0077) * EXP(LN(10) * TO_LREAL(_S_0_0078 + 3));
                     ScalingConstantRequiredPosition     := 1.0 / ScalingConstantActualPosition;
                     ScalingConstantActualVelocity       := TO_LREAL(_S_0_0045) * EXP(LN(10) * TO_LREAL(_S_0_0046 + 3));
-                    ScalingConstantRequiredVelocity     := 1.0 / ScalingConstantActualPosition;
+                    ScalingConstantRequiredVelocity     := 1.0 / ScalingConstantActualVelocity;
                     ScalingConstantActualAcceleration   := TO_LREAL(_S_0_0161) * EXP(LN(10) * TO_LREAL(_S_0_0162 + 3));
                     ScalingConstantRequiredAcceleration := 1.0 / ScalingConstantActualAcceleration;
                     ScalingConstantActualDeceleration   := ScalingConstantActualAcceleration;
                     ScalingConstantRequiredDeceleration := ScalingConstantRequiredAcceleration;
                     ScalingConstantActualTorque         := TO_LREAL(_S_0_0093) * EXP(LN(10) * TO_LREAL(_S_0_0094));
                     ScalingConstantRequiredTorque       := 1.0 / ScalingConstantActualTorque;
-
                     
                     _ScalingRead := TRUE;
                     _State := UINT#0;
@@ -1432,7 +1431,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     AxoHalt_Deceleration := 1.0;
                     AxoHalt_Jerk := 500.0;
                     AxoHome_Position := 0.0;
-                    AxoHome_HommingMode := -17;
+                    AxoHome_HommingMode := 36;
                     AxoHome_Velocity := 0.01;
                     AxoHome_Acceleration := 1;
                     AxoHome_Deceleration := 1;
@@ -1591,8 +1590,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 DriveStatus.Error.Id := UINT#1207;
                 RETURN;
             END_IF;
-            _word.%B1  :=  _data2[1];
-            _word.%B0  :=  _data2[0];
+            _word.%B1  :=  _data2[0];
+            _word.%B0  :=  _data2[1];
             AxisRefExt.Inputs.ActualTorque_S_0_0084_0_0 := TO_INT(_word);
 
             //************************************************************
@@ -1656,7 +1655,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _data2[1].%X7   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative;
             _data2[0].%X0   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.SwitchToCM;
             _data2[0].%X1   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.SwitchTo0M;
-            _data2[0].%X2   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0._bit10_Reserve;
+            _data2[0].%X2   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint;
             _data2[0].%X3   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0._bit11_Reserve;
             _data2[0].%X4   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0._bit12_Reserve;
             _data2[0].%X5   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0._bit13_Reserve;
@@ -1941,8 +1940,17 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := FALSE;
                     _State := UINT#30;
                 END_IF;
-                //Writing Homing configuration ENC_1: Home offset (0x607C:00 / S-0-0052 / --)
                 IF _State = UINT#30 THEN
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := TRUE;
+                    IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InReference THEN
+                        _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := FALSE;
+                        _State := UINT#31;
+                        RETURN;
+                    END_IF;
+                END_IF;                
+
+                //Writing Homing configuration ENC_1: Home offset (0x607C:00 / S-0-0052 / --)
+                IF _State = UINT#31 THEN
                     IF Acceleration <= 0 OR Deceleration <= 0 OR HommingModeInvalid THEN
                         _State := UINT#59;
                         RETURN;
@@ -1959,7 +1967,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                     length      :=  UINT#4,
                                     record      :=  _data4);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
-                        _State := UINT#31;
+                        _State := UINT#32;
                     ElSIF _WriteRecord.error THEN 
                         Messenger.Activate( UINT#1444, eAxoMessageCategory#ProgrammingError);
                         MC_HomeErrorID :=   WORD#1444;
@@ -1967,14 +1975,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#59;
                     END_IF;
                 END_IF;
-                IF _State = UINT#31 THEN
+                IF _State = UINT#32 THEN
                     _WriteRecord(request := FALSE, record := _data4);
                     IF NOT _WriteRecord.busy AND NOT _WriteRecord.done AND NOT _WriteRecord.error  THEN
-                        _State := UINT#32;
+                        _State := UINT#33;
                     END_IF;
                 END_IF;
                 //Writing Homing function: Configuration (0x2500:02 / S-0-0147 / --)
-                IF _State = UINT#32 THEN
+                IF _State = UINT#33 THEN
                     _word :=  TO_WORD(HommingMode);
                     _data2[0] := _word.%B0;
                     _data2[1] := _word.%B1;
@@ -1984,7 +1992,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                     length      :=  UINT#2,
                                     record      :=  _data2);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
-                        _State := UINT#33;
+                        _State := UINT#34;
                     ElSIF _WriteRecord.error THEN 
                         Messenger.Activate( UINT#1445, eAxoMessageCategory#ProgrammingError);
                         MC_HomeErrorID :=   WORD#1445;
@@ -1992,14 +2000,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#59;
                     END_IF;
                 END_IF;
-                IF _State = UINT#33 THEN
+                IF _State = UINT#34 THEN
                     _WriteRecord(request := FALSE, record := _data2);
                     IF NOT _WriteRecord.busy AND NOT _WriteRecord.done AND NOT _WriteRecord.error  THEN
-                        _State := UINT#34;
+                        _State := UINT#35;
                     END_IF;
                 END_IF;
                 //Writing Homing speeds: Speed during search for switch (0x6099:01 / S-0-0041 / --)
-                IF _State = UINT#34 THEN
+                IF _State = UINT#35 THEN
                     _dword :=  TO_DWORD(TO_DINT(Velocity * ScalingConstantRequiredVelocity));
                     _data4[0] := _dword.%B0;
                     _data4[1] := _dword.%B1;
@@ -2011,7 +2019,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                     length      :=  UINT#4,
                                     record      :=  _data4);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
-                        _State := UINT#35;
+                        _State := UINT#36;
                     ElSIF _WriteRecord.error THEN 
                         Messenger.Activate( UINT#1446, eAxoMessageCategory#ProgrammingError);
                         MC_HomeErrorID :=   WORD#1446;
@@ -2019,14 +2027,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#59;
                     END_IF;
                 END_IF;
-                IF _State = UINT#35 THEN
+                IF _State = UINT#36 THEN
                     _WriteRecord(request := FALSE, record := _data4);
                     IF NOT _WriteRecord.busy AND NOT _WriteRecord.done AND NOT _WriteRecord.error  THEN
-                        _State := UINT#36;
+                        _State := UINT#37;
                     END_IF;
                 END_IF;
                 //Writing Homing acceleration (0x609A:00 / S-0-0042 / --)
-                IF _State = UINT#36 THEN
+                IF _State = UINT#37 THEN
                     _dword :=  TO_DWORD(TO_DINT(Acceleration * ScalingConstantRequiredAcceleration));
                     _data4[0] := _dword.%B0;
                     _data4[1] := _dword.%B1;
@@ -2038,7 +2046,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                     length      :=  UINT#4,
                                     record      :=  _data4);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
-                        _State := UINT#37;
+                        _State := UINT#38;
                     ElSIF _WriteRecord.error THEN 
                         Messenger.Activate( UINT#1447, eAxoMessageCategory#ProgrammingError);
                         MC_HomeErrorID :=   WORD#1447;
@@ -2046,33 +2054,28 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#59;
                     END_IF;
                 END_IF;
-                IF _State = UINT#37 THEN
+                IF _State = UINT#38 THEN
                     _WriteRecord(request := FALSE, record := _data4);
                     IF NOT _WriteRecord.busy AND NOT _WriteRecord.done AND NOT _WriteRecord.error  THEN
-                        _State := UINT#38;
+                        _State := UINT#39;
                     END_IF;
-                END_IF;
-                IF _State = UINT#38 THEN
-                   _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := TRUE;
-                   _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := NOT _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue;    
-                   _State := UINT#39;
                 END_IF;
                 IF _State = UINT#39 THEN
-                    IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InReference THEN
-                        _State := UINT#40;
-                    END_IF;
+                   _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := TRUE;
+                   _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := NOT _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue;    
+                   _State := UINT#40;
                 END_IF;
+
                 IF _State = UINT#40 THEN
                     IF  _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InReference AND _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill THEN
+                        _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
                         _State := UINT#41;
                     END_IF;
                 END_IF;
                 IF _State = UINT#41 THEN
-                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := TRUE;
-                        _State := UINT#57;
+                    _State := UINT#57;
                 END_IF;
                 IF _State = UINT#57 THEN
-                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
                     Done := TRUE;            
                     MC_HomeCycle := ULINT#0;     
                 END_IF;         
@@ -2103,12 +2106,16 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             IF THIS.AxoHome_Task.DoneReached() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
+                _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
+                _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := FALSE;
                 MC_HomeErrorID := WORD#0;
                 _State := UINT#0;
                 // MC_HomeCycle := ULINT#0;     
             END_IF;
             IF THIS.AxoHome_Task.RestoreTriggered() AND _State>=UINT#30 AND _State<=UINT#59 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
+                _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
+                _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := FALSE;
                 MC_HomeErrorID := WORD#0;
                 _State := UINT#0;
                 MC_HomeCycle := ULINT#0;     

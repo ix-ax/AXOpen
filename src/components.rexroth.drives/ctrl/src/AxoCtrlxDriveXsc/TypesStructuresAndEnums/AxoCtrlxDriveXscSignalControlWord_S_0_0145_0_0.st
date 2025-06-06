@@ -25,8 +25,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             SwitchToCM  :	BOOL;                                                                   //  Bit 0 of the Subdevice STM: C0400 Activate configuration mode (S-0-0420) !!! must be set in drive !!!				
             {#ix-set:AttributeName = "<#Activate operation mode#>"}
             SwitchTo0M  :	BOOL;                                                                   //  Bit 0 of the Subdevice STM: C0200 Activate operation mode (S-0-0422) !!! must be set in drive !!!				
-            {#ix-set:AttributeName = "<#_bit10_Reserve#>"}
-            _bit10_Reserve 				:	BOOL;		
+            {#ix-set:AttributeName = "<#CancelReferencePoint#>"}                                    
+            CancelReferencePoint        :	BOOL;		                                            // Homing function: C1500 Command cancel reference point (0x2500:01 / S-0-0191 / --) !!! must be set in drive !!!
             {#ix-set:AttributeName = "<#_bit11_Reserve#>"}
             _bit11_Reserve 				:	BOOL;		
             {#ix-set:AttributeName = "<#_bit12_Reserve#>"}
