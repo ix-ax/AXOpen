@@ -109,29 +109,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _outputsCount           :   UINT; 
         END_VAR
 
-        // // Temporary workaround due to hwc station number issue
-        // {attribute 'obsolete' := 'This method is(will be) deprecated after releasing hwc3.1.0. Use Run(parent,hwID) instead.'}
-        // METHOD PUBLIC Run
-        //     VAR_INPUT
-        //         parent                  :   IAxoObject; 
-        //         hwID                    :   WORD;
-        //         hwIdModuleAccessPoint   :   WORD;                       //  Hardware identifier of the module acces point submodule 
-        //         hwIdTelegram111         :   WORD;                       //  Hardware ID of the Profidrive telegram 111 of this axis
-        //         hwIdTelegram750         :   WORD;                       //  Hardware ID of the Profidrive telegram 750 of this axis
-        //         Enable                  :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
-        //         EnablePositive          :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
-        //         EnableNegative          :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
-        //     END_VAR
-        //     _hwID               :=  hwID              ;              
-        //     _hwIdModuleAccessPoint          :=  hwIdModuleAccessPoint         ;         
-        //     _hwIdTelegram111    :=  hwIdTelegram111   ;   
-        //     _hwIdTelegram750    :=  hwIdTelegram750   ;   
-
-        //     _initHwCheckDone := TRUE;
-        //     THIS.Run(parent,_hwID,Enable,EnablePositive,EnableNegative);
-
-        // END_METHOD
-
         ///<summary>
         /// Runs tasks and logic of this component.
         /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.

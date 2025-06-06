@@ -24,6 +24,49 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             {#ix-attr:[ReadOnly()]}
             AxisRefExt :  AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
         END_VAR
+        VAR
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant required position#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the ctrlX DRIVE Engineering#>"}
+            ScalingConstantRequiredPosition         :   LREAL   :=  10000.0;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant actual position#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the ctrlX DRIVE Engineering#>"}
+            ScalingConstantActualPosition         :   LREAL   :=  0.0001;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant required velocity#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the ctrlX DRIVE Engineering#>"}
+            ScalingConstantRequiredVelocity         :   LREAL   :=  1000.0;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant actual velocity#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the ctrlX DRIVE Engineering#>"}
+            ScalingConstantActualVelocity         :   LREAL   :=  0.001;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant required torque#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the ctrlX DRIVE Engineering#>"}
+            ScalingConstantRequiredTorque         :   LREAL   :=  10.0;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant actual torque#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the ctrlX DRIVE Engineering#>"}
+            ScalingConstantActualTorque         :   LREAL   :=  0.1;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant required acceleration#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the ctrlX DRIVE Engineering#>"}
+            ScalingConstantRequiredAcceleration        :   LREAL   :=  1000.0;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant required acceleration#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the ctrlX DRIVE Engineering#>"}
+            ScalingConstantActualAcceleration        :   LREAL   :=  0.001;
+        END_VAR
 
         VAR CONSTANT
             PositionExponent		:	INT := 4;
@@ -78,6 +121,21 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _inputsCount            :   UINT;
             _outputsAddress         :   UDINT;  
             _outputsCount           :   UINT; 
+            _ReadRecord             :   ReadRecord;
+            _ScalingRead            :   BOOL;
+            _State                  :   UINT;
+            _S_0_0076               :   WORD;
+            _S_0_0077               :   INT;
+            _S_0_0078               :   INT;
+            _S_0_0044               :   WORD;
+            _S_0_0045               :   INT;
+            _S_0_0046               :   INT;
+            _S_0_0160               :   WORD;
+            _S_0_0161               :   INT;
+            _S_0_0162               :   INT;
+            _S_0_0086               :   WORD;
+            _S_0_0093               :   INT;
+            _S_0_0094               :   INT;
         END_VAR
 
         ///<summary>
@@ -1086,6 +1144,310 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 _initHwCheckDone    := TRUE;
             END_IF;            
+            //*******************SCALING***********************//          
+            IF NOT _ScalingRead THEN
+                Messenger.Activate(ULINT#1800 , eAxoMessageCategory#Warning);            
+                IF _State = UINT#0 THEN
+                    _State := UINT#1;
+                END_IF;
+                //Reading Position data scaling: Type (0x2900:01 / S-0-0076 / --)
+                IF _State = UINT#1 THEN
+                    _ReadRecord(    request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#76,
+                                    maxLength   :=  UINT#2,
+                                    record      :=  _data2);
+                    IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
+                        _word.%B0   :=  _data2[0];
+                        _word.%B1   :=  _data2[1];
+                        _S_0_0076   :=  _word;
+                        _State := UINT#2;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#2 THEN
+                    _ReadRecord(request := FALSE, record := _data2);
+                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
+                        _State := UINT#3;
+                    END_IF;
+                END_IF;
+                //Reading Position data scaling: Factor (0x2900:02 / S-0-0077 / --)
+                IF _State = UINT#3 THEN
+                    _ReadRecord(    request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#77,
+                                    maxLength   :=  UINT#2,
+                                    record      :=  _data2);
+                    IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
+                        _word.%B0   :=  _data2[0];
+                        _word.%B1   :=  _data2[1];
+                        _S_0_0077   :=  TO_INT(_word);
+                        _State := UINT#4;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#4 THEN
+                    _ReadRecord(request := FALSE, record := _data2);
+                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
+                        _State := UINT#5;
+                    END_IF;
+                END_IF;
+                //Reading Position data scaling: Exponent (0x2900:03 / S-0-0078 / --)
+                IF _State = UINT#5 THEN
+                    _ReadRecord(    request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#78,
+                                    maxLength   :=  UINT#2,
+                                    record      :=  _data2);
+                    IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
+                        _word.%B0   :=  _data2[0];
+                        _word.%B1   :=  _data2[1];
+                        _S_0_0078   :=  TO_INT(_word);
+                        _State := UINT#6;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#6 THEN
+                    _ReadRecord(request := FALSE, record := _data2);
+                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
+                        _State := UINT#7;
+                    END_IF;
+                END_IF;
+                //Reading Velocity data scaling: Type (0x2902:01 / S-0-0044 / --)
+                IF _State = UINT#7 THEN
+                    _ReadRecord(    request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#44,
+                                    maxLength   :=  UINT#2,
+                                    record      :=  _data2);
+                    IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
+                        _word.%B0   :=  _data2[0];
+                        _word.%B1   :=  _data2[1];
+                        _S_0_0044   :=  _word;
+                        _State := UINT#8;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#8 THEN
+                    _ReadRecord(request := FALSE, record := _data2);
+                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
+                        _State := UINT#9;
+                    END_IF;
+                END_IF;
+                //Reading Velocity data scaling: Factor (0x2902:02 / S-0-0045 / --)
+                IF _State = UINT#9 THEN
+                    _ReadRecord(    request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#45,
+                                    maxLength   :=  UINT#2,
+                                    record      :=  _data2);
+                    IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
+                        _word.%B0   :=  _data2[0];
+                        _word.%B1   :=  _data2[1];
+                        _S_0_0045   :=  TO_INT(_word);
+                        _State := UINT#10;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#10 THEN
+                    _ReadRecord(request := FALSE, record := _data2);
+                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
+                        _State := UINT#11;
+                    END_IF;
+                END_IF;
+                //Reading Velocity data scaling: Exponent (0x2902:03 / S-0-0046 / --)
+                IF _State = UINT#11 THEN
+                    _ReadRecord(    request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#46,
+                                    maxLength   :=  UINT#2,
+                                    record      :=  _data2);
+                    IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
+                        _word.%B0   :=  _data2[0];
+                        _word.%B1   :=  _data2[1];
+                        _S_0_0046   :=  TO_INT(_word);
+                        _State := UINT#12;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#12 THEN
+                    _ReadRecord(request := FALSE, record := _data2);
+                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
+                        _State := UINT#13;
+                    END_IF;
+                END_IF;
+                //Reading Acceleration data scaling: Type (0x2904:01 / S-0-0160 / --)
+                IF _State = UINT#13 THEN
+                    _ReadRecord(    request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#160,
+                                    maxLength   :=  UINT#2,
+                                    record      :=  _data2);
+                    IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
+                        _word.%B0   :=  _data2[0];
+                        _word.%B1   :=  _data2[1];
+                        _S_0_0160   :=  _word;
+                        _State := UINT#14;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#14 THEN
+                    _ReadRecord(request := FALSE, record := _data2);
+                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
+                        _State := UINT#15;
+                    END_IF;
+                END_IF;
+                //Reading Acceleration data scaling: Factor (0x2904:02 / S-0-0161 / --)
+                IF _State = UINT#15 THEN
+                    _ReadRecord(    request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#161,
+                                    maxLength   :=  UINT#2,
+                                    record      :=  _data2);
+                    IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
+                        _word.%B0   :=  _data2[0];
+                        _word.%B1   :=  _data2[1];
+                        _S_0_0161   :=  TO_INT(_word);
+                        _State := UINT#16;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#16 THEN
+                    _ReadRecord(request := FALSE, record := _data2);
+                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
+                        _State := UINT#17;
+                    END_IF;
+                END_IF;
+                //Reading Acceleration data scaling: Exponent (0x2904:03 / S-0-0162 / --)
+                IF _State = UINT#17 THEN
+                    _ReadRecord(    request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#162,
+                                    maxLength   :=  UINT#2,
+                                    record      :=  _data2);
+                    IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
+                        _word.%B0   :=  _data2[0];
+                        _word.%B1   :=  _data2[1];
+                        _S_0_0162   :=  TO_INT(_word);
+                        _State := UINT#18;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#18 THEN
+                    _ReadRecord(request := FALSE, record := _data2);
+                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
+                        _State := UINT#19;
+                    END_IF;
+                END_IF;
+                //Reading Torque/force data scaling: Type (0x2906:01 / S-0-0086 / --)
+                IF _State = UINT#19 THEN
+                    _ReadRecord(    request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#86,
+                                    maxLength   :=  UINT#2,
+                                    record      :=  _data2);
+                    IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
+                        _word.%B0   :=  _data2[0];
+                        _word.%B1   :=  _data2[1];
+                        _S_0_0086   :=  _word;
+                        _State := UINT#20;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#20 THEN
+                    _ReadRecord(request := FALSE, record := _data2);
+                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
+                        _State := UINT#21;
+                    END_IF;
+                END_IF;
+                //Reading Torque/force data scaling: Factor (0x2906:02 / S-0-0093 / --)
+                IF _State = UINT#21 THEN
+                    _ReadRecord(    request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#93,
+                                    maxLength   :=  UINT#2,
+                                    record      :=  _data2);
+                    IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
+                        _word.%B0   :=  _data2[0];
+                        _word.%B1   :=  _data2[1];
+                        _S_0_0093   :=  TO_INT(_word);
+                        _State := UINT#22;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#22 THEN
+                    _ReadRecord(request := FALSE, record := _data2);
+                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
+                        _State := UINT#23;
+                    END_IF;
+                END_IF;
+                //Reading Torque/force data scaling: Exponent (0x2906:03 / S-0-0094 / --)
+                IF _State = UINT#23 THEN
+                    _ReadRecord(    request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#94,
+                                    maxLength   :=  UINT#2,
+                                    record      :=  _data2);
+                    IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
+                        _word.%B0   :=  _data2[0];
+                        _word.%B1   :=  _data2[1];
+                        _S_0_0094   :=  TO_INT(_word);
+                        _State := UINT#24;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#24 THEN
+                    _ReadRecord(request := FALSE, record := _data2);
+                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
+                        _State := UINT#25;
+                    END_IF;
+                END_IF;
+                //Calculating scaling constants
+                IF _State = UINT#25 THEN
+                    ScalingConstantActualPosition       := TO_LREAL(_S_0_0077) * EXP(LN(10) * TO_LREAL(_S_0_0078 + 3));
+                    ScalingConstantRequiredPosition     := 1.0 / ScalingConstantActualPosition;
+                    ScalingConstantActualVelocity       := TO_LREAL(_S_0_0045) * EXP(LN(10) * TO_LREAL(_S_0_0046 + 3));
+                    ScalingConstantRequiredVelocity     := 1.0 / ScalingConstantActualPosition;
+                    ScalingConstantActualAcceleration   := TO_LREAL(_S_0_0161) * EXP(LN(10) * TO_LREAL(_S_0_0162 + 3));
+                    ScalingConstantRequiredAcceleration := 1.0 / ScalingConstantActualAcceleration;
+                    ScalingConstantActualTorque         := TO_LREAL(_S_0_0093) * EXP(LN(10) * TO_LREAL(_S_0_0094));
+                    ScalingConstantRequiredTorque       := 1.0 / ScalingConstantActualTorque;
+
+                    
+                    _ScalingRead := TRUE;
+                    _State := UINT#0;
+
+                    AxoStop_Deceleration := 1.0;
+                    AxoStop_Jerk := 500.0;
+                    AxoHalt_Deceleration := 1.0;
+                    AxoHalt_Jerk := 500.0;
+                    AxoHome_Position := 0.0;
+                    AxoHome_HommingMode := -17;
+                    AxoHome_Velocity := 0.01;
+                    AxoHome_Acceleration := 1;
+                    AxoHome_Deceleration := 1;
+                    AxoSetPosition_Position := 0.0;
+                    AxoMoveAbsolute_Position := 0.0;
+                    AxoMoveAbsolute_Velocity := 0.01;
+                    AxoMoveAbsolute_Acceleration := 1;
+                    AxoMoveAbsolute_Deceleration := 1;
+                    AxoMoveAbsolute_Jerk := 500;
+                    AxoMoveRelative_Distance := 0.0;
+                    AxoMoveRelative_Velocity := 0.01;
+                    AxoMoveRelative_Acceleration := 1;
+                    AxoMoveRelative_Deceleration := 1;
+                    AxoMoveRelative_Jerk := 500;
+                    AxoMoveAdditive_Distance := 0.0;
+                    AxoMoveAdditive_Velocity := 0.01;
+                    AxoMoveAdditive_Acceleration := 1;
+                    AxoMoveAdditive_Deceleration := 1;
+                    AxoMoveAdditive_Jerk := 500;
+                    AxoMoveVelocity_Velocity := 0.01;
+                    AxoMoveVelocity_Acceleration := 1;
+                    AxoMoveVelocity_Deceleration := 1;
+                    AxoMoveVelocity_Jerk := 500;
+                    AxoTorqueControl_Torque := 0.0;
+                    AxoTorqueControl_TorqueRamp := 1;
+                    AxoTorqueControl_Velocity := 0.01;
+                    AxoTorqueControl_Acceleration := 1;
+                    AxoTorqueControl_Deceleration := 1;
+                    AxoTorqueControl_Jerk := 500;
+                    AxoJog_Velocity := 0.01;
+                    AxoJog_Acceleration := 1;
+                    AxoJog_Deceleration := 1;
+                    AxoJog_Jerk := 500;
+                END_IF;                                
+                RETURN;
+            END_IF;
+            //*************************************************//
 
             Messenger.ActivateOnCondition(ULINT#300, Enable AND NOT EnablePositive, eAxoMessageCategory#Warning);
             Messenger.ActivateOnCondition(ULINT#301, Enable AND NOT EnableNegative, eAxoMessageCategory#Warning);
@@ -2964,11 +3326,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         /// if necessary. If not possible, the vendor has to supply a vendor specific method to read the parameter.
         ///<summary>
         VAR INTERNAL 
-            MC_ReadParameterEnable_PV			: 	BOOL := FALSE;		//Enable - previous value
-            MC_ReadParameterDone_PV				:	BOOL := FALSE;		//Done - previous value
-            MC_ReadParameterCallNumber			: 	INT; 				//Call number of the method MC_ReadParameter
-            MC_ReadParameterNumber_PV			: 	DINT;				//ParameterNumber - previous value (stored at rising edge of the Enable) 
-            MC_ReadParameterFirstCall			: 	BOOL;				//First call of the method MC_ReadParameter
+            MC_ReadParameterEnablePV            :   BOOL;
             MC_ReadParameterValid_				:	BOOL;							
             MC_ReadParameterBusy_				:	BOOL := FALSE;					
             MC_ReadParameterError_				:	BOOL;							
@@ -3004,21 +3362,33 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 RETURN;
             END_IF;
 
-            Siemens.Simatic.S71500.DistributedIO.ReadRecord(    request     :=  Enable,
-                                                                id          :=  TO_WORD(_AxisReference^.HWIDs.HW_Device),
-                                                                index       :=  ParameterNumber,
-                                                                maxLength   :=  UINT#8,
-                                                                record      :=  _data,
-                                                                valid       =>  MC_ReadParameterValid_,
-                                                                busy        =>  MC_ReadParameterBusy_,
-                                                                error       =>  MC_ReadParameterError_,
-                                                                status      =>  MC_ReadParameterStatus_,
-                                                                length      =>  MC_ReadParameterLength_);
-
+            IF Enable THEN
+                _ReadRecord(    request     :=  TRUE,
+                                id          :=  TO_WORD(_AxisReference^.HWIDs.HW_Device),
+                                index       :=  ParameterNumber,
+                                maxLength   :=  UINT#8,
+                                record      :=  _data,
+                                valid       =>  MC_ReadParameterValid_,
+                                busy        =>  MC_ReadParameterBusy_,
+                                error       =>  MC_ReadParameterError_,
+                                status      =>  MC_ReadParameterStatus_,
+                                length      =>  MC_ReadParameterLength_);
+            ELSIF MC_ReadParameterEnablePV THEN
+                _ReadRecord(    request     :=  FALSE,
+                                id          :=  TO_WORD(_AxisReference^.HWIDs.HW_Device),
+                                index       :=  ParameterNumber,
+                                maxLength   :=  UINT#8,
+                                record      :=  _data,
+                                valid       =>  MC_ReadParameterValid_,
+                                busy        =>  MC_ReadParameterBusy_,
+                                error       =>  MC_ReadParameterError_,
+                                status      =>  MC_ReadParameterStatus_,
+                                length      =>  MC_ReadParameterLength_);                
+            END_IF;          
             Valid           :=   MC_ReadParameterValid_;   
             Busy            :=   MC_ReadParameterBusy_;                      
             Error           :=   MC_ReadParameterError_;                      
-            ErrorID         :=   TO_WORD(MC_ReadParameterStatus_);                      
+            ErrorID         :=   TO_WORD(MC_ReadParameterStatus_);           
             IF MC_ReadParameterValid_  THEN 
                 Value.%B7   :=  _data[0];
                 Value.%B6   :=  _data[1];
@@ -3031,20 +3401,19 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             ELSE
                 Value   :=  LINT#0;
             END_IF;
+            MC_ReadParameterEnablePV := Enable; 
         END_METHOD
 
         ///<summary>
         /// This method returns the value of a vendor specific parameter with datatype REAL.
         ///<summary>
         VAR INTERNAL
-            MC_ReadRealParameterEnable_PV		: 	BOOL := FALSE;		//Enable - previous value                                                
-            MC_ReadRealParameterDone_PV			:	BOOL := FALSE;		//Done - previous value                                                  
-            MC_ReadRealParameterCallNumber		: 	INT; 				//Call number of the method MC_ReadRealParameter                             
-            MC_ReadRealParameterNumber_PV		: 	DINT;				//ParameterNumber - previous value (stored at rising edge of the Enable) 
-            MC_ReadRealParameterFirstCall		: 	BOOL;				//First call of the method MC_ReadRealParameter                              
-            MC_ReadRealParameterDone_			:	BOOL;							
-            MC_ReadRealParameterActive_			:	BOOL := FALSE;					
+            MC_ReadRealParameterEnablePV    	:	BOOL;							
+            MC_ReadRealParameterValid_			:	BOOL;							
+            MC_ReadRealParameterBusy_			:	BOOL := FALSE;					
             MC_ReadRealParameterError_			:	BOOL;							
+            MC_ReadRealParameterStatus_			:	DWORD;							
+            MC_ReadRealParameterLength_         :   UINT;
             MC_ReadRealParameterErrorID_		:	eAxoCtrlxDriveXscErrorCode;						
             MC_ReadRealParameterValue_			:	REAL;							
         END_VAR
@@ -3063,6 +3432,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                _data				:	ARRAY[0..3] OF BYTE;							
+                _dword  :   DWORD;
                 Dummy : BOOL;
             END_VAR
 
@@ -3074,88 +3445,44 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 RETURN;
             END_IF;
 
-            // IF Enable THEN
-            //     MC_ReadRealParameterFirstCall := TRUE;
-            //     IF _AxisReference^.Data.CheckAccessOK THEN
-            //         IF Enable AND NOT MC_ReadRealParameterEnable_PV THEN(*	raising edge of Enable *)
-            //             IF NOT _AxisReference^.Data.ActiveAcyclicCommunication THEN
-            //                 _AxisReference^.Data.CallNumberAcyclic := _AxisReference^.Data.CallNumberAcyclic + INT#2;
-            //                 MC_ReadRealParameterCallNumber := _AxisReference^.Data.CallNumberAcyclic;
-            //                 MC_ReadRealParameterNumber_PV := ParameterNumber;
-            //                 _AxisReference^.Data.WriteParameter := FALSE;
-            //                 _AxisReference^.Data.SelectDataType := UINT#2;
-            //                 _AxisReference^.Data.ParameterNumber := MC_ReadRealParameterNumber_PV;
-            //                 MC_ReadRealParameterError_ := FALSE;
-            //                 MC_ReadRealParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoCtrlxDriveXscErrorCode#NONE_ERROR;
-            //             ELSE
-            //                 MC_ReadRealParameterError_ := TRUE;
-            //                 MC_ReadRealParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoCtrlxDriveXscErrorCode#ACCESS_ERROR;
-            //             END_IF;
-            //         END_IF;
-            //     ELSE
-            //         MC_ReadRealParameterCallNumber := MC_ReadRealParameterCallNumber - INT#1;
-            //         MC_ReadRealParameterError_ := TRUE;
-            //         MC_ReadRealParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoCtrlxDriveXscErrorCode#RESOURCE_ERROR;
-            //     END_IF;
-            // END_IF;
-            // IF MC_ReadRealParameterFirstCall THEN
-            //     IF MC_ReadRealParameterCallNumber = _AxisReference^.Data.CallNumberAcyclic AND Enable	THEN
-            //         _AxisReference^.Data.CallAxisParameterMethod := TRUE;
-            //         _AxisReference^.Data.EnableAcyclicCommunication := TRUE;
-            //         THIS.AcyclicCommunicationCall(AxisRef :=  _AxisReference , DPV1ParameterNumber := TRUE, Active => Dummy);		
-            //         Busy := _AxisReference^.Data.ActiveAcyclicCommunication;
-            //         IF _AxisReference^.Data.DoneAcyclicCommunication THEN
-            //             MC_ReadRealParameterDone_ := TRUE;
-            //             MC_ReadRealParameterActive_ := FALSE;
-            //             MC_ReadRealParameterValue_ := _AxisReference^.Data.ReadValueReal;
-            //         END_IF;
-            //         IF _AxisReference^.Data.Error_AcyclicCommunication THEN
-            //             MC_ReadRealParameterCallNumber := MC_ReadRealParameterCallNumber - INT#1;
-            //             MC_ReadRealParameterDone_ := FALSE;
-            //             MC_ReadRealParameterActive_ := FALSE;
-            //             MC_ReadRealParameterError_ := _AxisReference^.Data.Error_AcyclicCommunication;
-            //             MC_ReadRealParameterErrorID_ := _AxisReference^.Data.ErrorID_AcyclicCommunication;
-            //             _AxisReference^.Data.CallAxisParameterMethod := TRUE;
-            //             _AxisReference^.Data.EnableAcyclicCommunication := FALSE;
-            //             THIS.AcyclicCommunicationCall(AxisRef :=  _AxisReference , DPV1ParameterNumber := TRUE, Active => Dummy);
-            //         ELSIF  _AxisReference^.Data.CallAxisParameterMethod THEN
-            //             MC_ReadRealParameterCallNumber := MC_ReadRealParameterCallNumber - INT#1;
-            //             MC_ReadRealParameterDone_ := FALSE;
-            //             MC_ReadRealParameterActive_ := FALSE;
-            //             MC_ReadRealParameterError_ := TRUE;
-            //             MC_ReadRealParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoCtrlxDriveXscErrorCode#RESOURCE_ERROR;
-            //             _AxisReference^.Data.EnableAcyclicCommunication := FALSE;
-            //         END_IF;
-            //     ELSIF Enable AND MC_ReadRealParameterEnable_PV AND MC_ReadRealParameterCallNumber = _AxisReference^.Data.CallNumberAcyclic THEN
-            //         _AxisReference^.Data.CallAxisParameterMethod := TRUE;
-            //         _AxisReference^.Data.EnableAcyclicCommunication := FALSE;
-            //         THIS.AcyclicCommunicationCall(AxisRef :=  _AxisReference , DPV1ParameterNumber := TRUE, Active => Dummy);
-            //         MC_ReadRealParameterDone_ := FALSE;
-            //         MC_ReadRealParameterActive_ := FALSE;
-            //         MC_ReadRealParameterValue_ := 0;
-            //         MC_ReadRealParameterError_ := FALSE;
-            //         MC_ReadRealParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoCtrlxDriveXscErrorCode#NONE_ERROR;
-            //     ELSIF NOT Enable AND MC_ReadRealParameterEnable_PV THEN
-            //         MC_ReadRealParameterDone_ := FALSE;
-            //         MC_ReadRealParameterActive_ := FALSE;
-            //         MC_ReadRealParameterValue_ := 0;
-            //         MC_ReadRealParameterError_ := FALSE;
-            //         MC_ReadRealParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoCtrlxDriveXscErrorCode#NONE_ERROR;
-            //         _AxisReference^.Data.ActiveAcyclicCommunication := FALSE;
-            //         _AxisReference^.Data.DoneAcyclicCommunication := FALSE;
-            //     END_IF;
-            // END_IF;
-            // MC_ReadRealParameterEnable_PV := Enable;
-            
-            // Valid			:= 	MC_ReadRealParameterDone_;				           
-            // Busy			:= 	MC_ReadRealParameterActive_;				  
-            // Error			:= 	MC_ReadRealParameterError_;				          
-            // ErrorID			:= 	MC_ReadRealParameterErrorID_;				    
-            // IF Valid THEN
-            //     Value			:= 	MC_ReadRealParameterValue_;
-            // ELSE
-            //     Value			:= 	0;
-            // END_IF;					          
+            IF Enable THEN
+                _ReadRecord(    request     :=  TRUE,
+                                id          :=  TO_WORD(_AxisReference^.HWIDs.HW_Outputs),
+                                index       :=  ParameterNumber,
+                                maxLength   :=  UINT#4,
+                                record      :=  _data,
+                                valid       =>  MC_ReadRealParameterValid_,
+                                busy        =>  MC_ReadRealParameterBusy_,
+                                error       =>  MC_ReadRealParameterError_,
+                                status      =>  MC_ReadRealParameterStatus_,
+                                length      =>  MC_ReadRealParameterLength_);
+            ELSIF MC_ReadRealParameterEnablePV THEN
+                _ReadRecord(    request     :=  FALSE,
+                                id          :=  TO_WORD(_AxisReference^.HWIDs.HW_Device),
+                                index       :=  ParameterNumber,
+                                maxLength   :=  UINT#4,
+                                record      :=  _data,
+                                valid       =>  MC_ReadRealParameterValid_,
+                                busy        =>  MC_ReadRealParameterBusy_,
+                                error       =>  MC_ReadRealParameterError_,
+                                status      =>  MC_ReadRealParameterStatus_,
+                                length      =>  MC_ReadRealParameterLength_);
+            END_IF;
+
+            Valid           :=   MC_ReadRealParameterValid_;   
+            Busy            :=   MC_ReadRealParameterBusy_;                      
+            Error           :=   MC_ReadRealParameterError_;                      
+            ErrorID         :=   TO_WORD(MC_ReadRealParameterStatus_);                      
+            IF MC_ReadRealParameterValid_  THEN 
+                _dword.%B3   :=  _data[0];
+                _dword.%B2   :=  _data[1];
+                _dword.%B1   :=  _data[2];
+                _dword.%B0   :=  _data[3];
+                Value   :=  TO_REAL(TO_DINT(_dword));
+            ELSE
+                Value   :=  REAL#0.0;
+            END_IF;
+            MC_ReadRealParameterEnablePV := Enable;
         END_METHOD
 
         ///<summary>
