@@ -77,6 +77,15 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the ctrlX DRIVE Engineering#>"}
             ScalingConstantActualDeceleration        :   LREAL   :=  0.001;
         END_VAR
+        VAR PUBLIC // Debug
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentDetails("Debug")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#_State>"}
+            _State                  :   UINT;
+        END_VAR
+
+
 
         VAR CONSTANT
             PositionExponent		:	INT := 4;
@@ -134,7 +143,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _ReadRecord             :   ReadRecord;
             _WriteRecord            :   WriteRecord;
             _ScalingRead            :   BOOL;
-            _State                  :   UINT;
+            // _State                  :   UINT;
             _S_0_0076               :   WORD;
             _S_0_0077               :   INT;
             _S_0_0078               :   INT;
