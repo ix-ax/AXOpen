@@ -284,6 +284,8 @@ namespace AXOpen.Components.Rexroth.Drives
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1239, new AxoMessengerTextItem("Error writing the CommandTorque_S_0_0080_0_0!"                                                                                ,"Check the value of the _HW_S_0_0080_0_0 and reacheability of the device!")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1240, new AxoMessengerTextItem("Error writing the CommandJerk_S_0_0193_0_0!"                                                                                  ,"Check the value of the _HW_S_0_0193_0_0 and reacheability of the device!")),
 
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1800, new AxoMessengerTextItem("Scaling parameters not yet read out of the drive"                                                                             ,"Check proper value of the device Hardware ID")),
+
                 // TemplateTask_10steps_1
                 new KeyValuePair<ulong, AxoMessengerTextItem>(10000, new AxoMessengerTextItem("TemplateTask_10steps_1 finished with error!","Check the details.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(10001, new AxoMessengerTextItem("TemplateTask_10steps_1 was aborted, while not yet completed!","Check the details.")),

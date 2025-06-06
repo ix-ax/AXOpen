@@ -12,19 +12,19 @@ USING Siemens.Simatic.S71500.DistributedIO;
 NAMESPACE AXOpen.Components.Rexroth.Drives
     {S7.extern=ReadWrite}
     CLASS AxoCtrlxDriveXsc EXTENDS AXOpen.Components.Drives.AxoDrive IMPLEMENTS AXOpen.Components.Abstractions.Drives.IAxoDrive
-        VAR PUBLIC
+        VAR PUBLIC // HwDiag
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Hardware diagnostics")]}
             {#ix-set:AttributeName = "<#Update diagnostics#>"}
             HardwareDiagnosticsTask :   AXOpen.Io.AxoHardwareDiagnostics;
         END_VAR
-        VAR PUBLIC
+        VAR PUBLIC // AxisRef
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("AxisRef")]}
             {#ix-attr:[ReadOnly()]}
             AxisRefExt :  AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
         END_VAR
-        VAR
+        VAR PUBLIC  // Scaling
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Scaling")]}
             {#ix-attr:[ReadOnly()]}
@@ -63,7 +63,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             ScalingConstantRequiredAcceleration        :   LREAL   :=  1000.0;
             {#ix-attr:[ComponentDetails("Scaling")]}
             {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#Scaling constant required acceleration#>"}
+            {#ix-set:AttributeName = "<#Scaling constant actual acceleration#>"}
             {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the ctrlX DRIVE Engineering#>"}
             ScalingConstantActualAcceleration        :   LREAL   :=  0.001;
         END_VAR
@@ -1144,9 +1144,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 _initHwCheckDone    := TRUE;
             END_IF;            
+            Messenger.ActivateOnCondition(ULINT#1800, NOT _ScalingRead, eAxoMessageCategory#Warning);            
             //*******************SCALING***********************//          
             IF NOT _ScalingRead THEN
-                Messenger.Activate(ULINT#1800 , eAxoMessageCategory#Warning);            
                 IF _State = UINT#0 THEN
                     _State := UINT#1;
                 END_IF;
@@ -1444,6 +1444,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     AxoJog_Acceleration := 1;
                     AxoJog_Deceleration := 1;
                     AxoJog_Jerk := 500;
+                    AxisRefExt.Outputs.BipolarTorqueLimitation_S_0_0092_0_0 := INT#1000;
                 END_IF;                                
                 RETURN;
             END_IF;
@@ -1467,17 +1468,17 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0._bit02_Reserve 			:=  _data2[1].%X2;     //  2
             AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.CommandProcessingStatus	:=  _data2[1].%X3;     //  3
             AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.InStandstill 			:=  _data2[1].%X4;     //  4
-            AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.InReference 			:=  _data2[1].%X5;     //  5
+            AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.InReference 			    :=  _data2[1].%X5;     //  5
             AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0._bit06_Reserve 			:=  _data2[1].%X6;     //  6
-            AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.HardwareLock            :=  _data2[1].%X7;     //  7
-            AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit0 :=  _data2[0].%X0;     //  8
-            AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1 :=  _data2[0].%X1;     //  9
-            AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2 :=  _data2[0].%X2;     //  10
+            AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.HardwareLock             :=  _data2[1].%X7;     //  7
+            AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit0  :=  _data2[0].%X0;     //  8
+            AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1  :=  _data2[0].%X1;     //  9
+            AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2  :=  _data2[0].%X2;     //  10
             AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0._bit11_Reserve 			:=  _data2[0].%X3;     //  11
-            AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.WarningZKL2 			:=  _data2[0].%X4;     //  12
+            AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.WarningZKL2 			    :=  _data2[0].%X4;     //  12
             AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 			:=  _data2[0].%X5;     //  13
-            AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0   :=  _data2[0].%X6;     //  14
-            AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1   :=  _data2[0].%X7;     //  15
+            AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0    :=  _data2[0].%X6;     //  14
+            AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1    :=  _data2[0].%X7;     //  15
 
             _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_HW_S_0_0144_0_0 ,_data2);
             IF _retVal > WORD#0 THEN
@@ -1488,20 +1489,20 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0.CmPmOmBit0 			    :=  _data2[1].%X0;     //  0
             AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0.CmPmOmBit1 			    :=  _data2[1].%X1;     //  1
-            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0.InTargetPosition 			:=  _data2[1].%X2;     //  2
-            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0.PositionCommandAck	        :=  _data2[1].%X3;     //  3
-            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill 			:=  _data2[1].%X4;     //  4
-            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0.CommandChangeBit 			:=  _data2[1].%X5;     //  5
-            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0._bit6_Reserve 			    :=  _data2[1].%X6;     //  6
-            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0._bit7_Reserve              :=  _data2[1].%X7;     //  7
-            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0.LockedByHardware           :=  _data2[0].%X0;     //  8
-            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0._bit9_Reserve              :=  _data2[0].%X1;     //  9
-            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0._bit10_Reserve             :=  _data2[0].%X2;     //  10
+            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0.InTargetPosition 	    :=  _data2[1].%X2;     //  2
+            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0.PositionCommandAck	    :=  _data2[1].%X3;     //  3
+            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill 	    :=  _data2[1].%X4;     //  4
+            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0.CommandChangeBit 	    :=  _data2[1].%X5;     //  5
+            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0._bit6_Reserve 			:=  _data2[1].%X6;     //  6
+            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0._bit7_Reserve           :=  _data2[1].%X7;     //  7
+            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0.LockedByHardware        :=  _data2[0].%X0;     //  8
+            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0._bit9_Reserve           :=  _data2[0].%X1;     //  9
+            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0._bit10_Reserve          :=  _data2[0].%X2;     //  10
             AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0._bit11_Reserve 			:=  _data2[0].%X3;     //  11
             AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0._bit12_Reserve 			:=  _data2[0].%X4;     //  12
             AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0._bit13_Reserve 			:=  _data2[0].%X5;     //  13
-            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0._bit14_Reserve             :=  _data2[0].%X6;     //  14
-            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0._bit15_Reserve             :=  _data2[0].%X7;     //  15
+            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0._bit14_Reserve          :=  _data2[0].%X6;     //  14
+            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0._bit15_Reserve          :=  _data2[0].%X7;     //  15
 
             _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_HW_S_0_0386_0_0 ,_data4);
             IF _retVal > WORD#0 THEN
@@ -1549,18 +1550,18 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2._bit1_Reserve 				        := _data2[1].%X1;	
             AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2._bit2_Reserve 				        := _data2[1].%X2;	
             AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2._bit3_Reserve 				        := _data2[1].%X3;	
-            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.MainsStatus				        := _data2[1].%X4;	
+            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.MainsStatus				            := _data2[1].%X4;	
             AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.HardwareEnable				        := _data2[1].%X5;	
-            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.ControllingTheMainsConnection      := _data2[1].%X6;	
+            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.ControllingTheMainsConnection       := _data2[1].%X6;	
             AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.BbContact				            := _data2[1].%X7;	
-            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.PreselectedOPmodesFB_bit0          := _data2[0].%X0;	
-            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.PreselectedOPmodesFB_bit01         := _data2[0].%X1;	
-            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.DCbusDischarge                     := _data2[0].%X2;	
-            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.BrakingResistor                    := _data2[0].%X3;	
-            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.Warning                            := _data2[0].%X4;	
-            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.Error                              := _data2[0].%X5;	
-            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.ReadyForEnabling                   := _data2[0].%X6;	
-            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.Enabling                           := _data2[0].%X7;	
+            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.PreselectedOPmodesFB_bit0           := _data2[0].%X0;	
+            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.PreselectedOPmodesFB_bit01          := _data2[0].%X1;	
+            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.DCbusDischarge                      := _data2[0].%X2;	
+            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.BrakingResistor                     := _data2[0].%X3;	
+            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.Warning                             := _data2[0].%X4;	
+            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.Error                               := _data2[0].%X5;	
+            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.ReadyForEnabling                    := _data2[0].%X6;	
+            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.Enabling                            := _data2[0].%X7;	
 
             _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_HW_S_0_0084_0_0 ,_data2);
             IF _retVal > WORD#0 THEN
@@ -1574,11 +1575,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             //************************************************************
             SUPER.Execute(AxisRefExt,Enable,EnablePositive,EnableNegative);
-            //*********************PostExecute inline*********************
+            //************************************************************
 
-            // THIS.ActualPosition := _AxisRefExt.Data.ActualPosition;
-            // THIS.ActualVelocity := _AxisRefExt.Data.ActualVelocity;
-            // THIS.ActualTorque := _AxisRefExt.Data.ActualTorque;
+            THIS.ActualPosition := AxisRefExt.Inputs.ActualPosition_S_0_0386_0_0 * ScalingConstantActualPosition;
+            THIS.ActualVelocity := AxisRefExt.Inputs.ActualVelocity_S_0_0535_0_0 * ScalingConstantActualVelocity;
+            THIS.ActualTorque   := AxisRefExt.Inputs.ActualTorque_S_0_0084_0_0  * ScalingConstantActualTorque;
 
             // IF NOT _AxisRefExt.Data.PowerOK THEN
             //     DriveState := AXOpen.Components.Drives.eAxoDriveState#Disabled;
