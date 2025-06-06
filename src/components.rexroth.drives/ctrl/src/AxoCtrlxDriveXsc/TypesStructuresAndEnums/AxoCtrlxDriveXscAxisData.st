@@ -3,6 +3,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
     {S7.extern=ReadWrite}
     CLASS AxoCtrlxDriveXscAxisData
         VAR PUBLIC
+            Cycle                       :   ULINT;
+            OverrideVelocityFactor		:	LREAL := 1.0;	//LREAL value to be written
+            OverrideAccelerationFactor	:	LREAL := 1.0;	//LREAL value to be written
+            OverrideJerkFactor			:	LREAL := 1.0;	//LREAL value to be written
+
             (* Commands *)
             // CallAxis					:	BOOL;			//Call axis method for cyclic communication
             // ReadOnlyData				:	BOOL;			//Read only data values from drive
