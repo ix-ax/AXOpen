@@ -4839,7 +4839,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Busy := TRUE;            
                     _ReadRecord(    request     :=  TRUE,
                                     id          :=  _HW_S_0_0134_0_0,
-                                    index       :=  DINT#4409,
+                                    index       :=  DINT#4403, //P-0-0307.0.0  16#1000 + 307 = 4096+307=4403
                                     maxLength   :=  UINT#8,
                                     record      :=  _data8);
                     IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
