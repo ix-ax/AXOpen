@@ -85,8 +85,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _State                  :   UINT;
         END_VAR
 
-
-
         VAR CONSTANT
             PositionExponent		:	INT := 4;
             VelocityExponent		:	INT := 3;
@@ -158,6 +156,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _S_0_0086               :   WORD;
             _S_0_0093               :   INT;
             _S_0_0094               :   INT;
+
+            _infoTimer              :   AXOpen.Timers.OnDelayTimer;
+            _infoTime               :   LTIME := LT#2S;
+            _errorTimer             :   AXOpen.Timers.OnDelayTimer;
+            _errorTime              :   LTIME := LT#5S;
         END_VAR
 
         ///<summary>
@@ -172,7 +175,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 EnablePositive      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
                 EnableNegative      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
             END_VAR
-
+            _infoTime   :=  DriveConfig.InfoTime;
+            _errorTime  :=  DriveConfig.ErrorTime;
             SUPER.Run(parent);
 
             IF NOT _initHwCheckDone THEN
@@ -1928,6 +1932,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Busy := TRUE;            
                     Active := TRUE;          
                     MC_HomeErrorID :=  WORD#16#0000;
+                    DriveStatus.Error.Id :=  UINT#0;
+                    TaskMessenger.Restore();
+                    THIS.CallTimers(FALSE);
                     // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.IPOSYNC := FALSE;
                     // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := FALSE;
                     // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveEnable := FALSE;
@@ -1940,21 +1947,29 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CommandValueReferenceWhenOperationModeActivated := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := FALSE;
-                    _State := UINT#30;
+                    _State := UINT#310;
                 END_IF;
-                IF _State = UINT#30 THEN
+                // Reseting InReference flag 
+                IF _State = UINT#310 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#510;
+                    END_IF;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := TRUE;
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InReference THEN
                         _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := FALSE;
-                        _State := UINT#31;
+                        _State := UINT#311;
                         RETURN;
                     END_IF;
                 END_IF;                
-
                 //Writing Homing configuration ENC_1: Home offset (0x607C:00 / S-0-0052 / --)
-                IF _State = UINT#31 THEN
+                IF _State = UINT#311 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#511;
+                    END_IF;                    
                     IF Acceleration <= 0 OR Deceleration <= 0 OR HommingModeInvalid THEN
-                        _State := UINT#59;
+                        _State := UINT#329;
                         RETURN;
                     END_IF;
 
@@ -1969,22 +1984,30 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                     length      :=  UINT#4,
                                     record      :=  _data4);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
-                        _State := UINT#32;
+                        _State := UINT#312;
                     ElSIF _WriteRecord.error THEN 
                         Messenger.Activate( UINT#1444, eAxoMessageCategory#ProgrammingError);
                         MC_HomeErrorID :=   WORD#1444;
                         _WriteRecord(request := FALSE, record := _data4);
-                        _State := UINT#59;
+                        _State := UINT#329;
                     END_IF;
                 END_IF;
-                IF _State = UINT#32 THEN
+                IF _State = UINT#312 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#512;
+                    END_IF; 
                     _WriteRecord(request := FALSE, record := _data4);
                     IF NOT _WriteRecord.busy AND NOT _WriteRecord.done AND NOT _WriteRecord.error  THEN
-                        _State := UINT#33;
+                        _State := UINT#313;
                     END_IF;
                 END_IF;
                 //Writing Homing function: Configuration (0x2500:02 / S-0-0147 / --)
-                IF _State = UINT#33 THEN
+                IF _State = UINT#313 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#513;
+                    END_IF; 
                     _word :=  TO_WORD(HommingMode);
                     _data2[0] := _word.%B0;
                     _data2[1] := _word.%B1;
@@ -1994,22 +2017,30 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                     length      :=  UINT#2,
                                     record      :=  _data2);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
-                        _State := UINT#34;
+                        _State := UINT#314;
                     ElSIF _WriteRecord.error THEN 
                         Messenger.Activate( UINT#1445, eAxoMessageCategory#ProgrammingError);
                         MC_HomeErrorID :=   WORD#1445;
                         _WriteRecord(request := FALSE, record := _data2);
-                        _State := UINT#59;
+                        _State := UINT#329;
                     END_IF;
                 END_IF;
-                IF _State = UINT#34 THEN
+                IF _State = UINT#314 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#514;
+                    END_IF; 
                     _WriteRecord(request := FALSE, record := _data2);
                     IF NOT _WriteRecord.busy AND NOT _WriteRecord.done AND NOT _WriteRecord.error  THEN
-                        _State := UINT#35;
+                        _State := UINT#315;
                     END_IF;
                 END_IF;
                 //Writing Homing speeds: Speed during search for switch (0x6099:01 / S-0-0041 / --)
-                IF _State = UINT#35 THEN
+                IF _State = UINT#315 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#515;
+                    END_IF; 
                     _dword :=  TO_DWORD(TO_DINT(Velocity * ScalingConstantRequiredVelocity));
                     _data4[0] := _dword.%B0;
                     _data4[1] := _dword.%B1;
@@ -2021,22 +2052,30 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                     length      :=  UINT#4,
                                     record      :=  _data4);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
-                        _State := UINT#36;
+                        _State := UINT#316;
                     ElSIF _WriteRecord.error THEN 
                         Messenger.Activate( UINT#1446, eAxoMessageCategory#ProgrammingError);
                         MC_HomeErrorID :=   WORD#1446;
                         _WriteRecord(request := FALSE, record := _data4);
-                        _State := UINT#59;
+                        _State := UINT#329;
                     END_IF;
                 END_IF;
-                IF _State = UINT#36 THEN
+                IF _State = UINT#316 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#516, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#516;
+                    END_IF; 
                     _WriteRecord(request := FALSE, record := _data4);
                     IF NOT _WriteRecord.busy AND NOT _WriteRecord.done AND NOT _WriteRecord.error  THEN
-                        _State := UINT#37;
+                        _State := UINT#317;
                     END_IF;
                 END_IF;
                 //Writing Homing acceleration (0x609A:00 / S-0-0042 / --)
-                IF _State = UINT#37 THEN
+                IF _State = UINT#317 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#517, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#517;
+                    END_IF; 
                     _dword :=  TO_DWORD(TO_DINT(Acceleration * ScalingConstantRequiredAcceleration));
                     _data4[0] := _dword.%B0;
                     _data4[1] := _dword.%B1;
@@ -2048,63 +2087,105 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                     length      :=  UINT#4,
                                     record      :=  _data4);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
-                        _State := UINT#38;
+                        _State := UINT#318;
                     ElSIF _WriteRecord.error THEN 
                         Messenger.Activate( UINT#1447, eAxoMessageCategory#ProgrammingError);
                         MC_HomeErrorID :=   WORD#1447;
                         _WriteRecord(request := FALSE, record := _data4);
-                        _State := UINT#59;
+                        _State := UINT#329;
                     END_IF;
                 END_IF;
-                IF _State = UINT#38 THEN
+                IF _State = UINT#318 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#518, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#518;
+                    END_IF; 
                     _WriteRecord(request := FALSE, record := _data4);
                     IF NOT _WriteRecord.busy AND NOT _WriteRecord.done AND NOT _WriteRecord.error  THEN
-                        _State := UINT#39;
+                        _State := UINT#319;
                     END_IF;
                 END_IF;
-                IF _State = UINT#39 THEN
+                IF _State = UINT#319 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#519, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#519;
+                    END_IF; 
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit0  := FALSE;
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit1  := FALSE;
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit2  := FALSE;
+                    IF  NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit0 AND
+                        NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1 AND
+                        NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2 THEN
+                        _State := UINT#320;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#320 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#520;
+                    END_IF; 
+                    IF  _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 AND
+                        _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
+                       _State := UINT#321;
+                    END_IF;                
+                END_IF;                
+                IF _State = UINT#321 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#521;
+                    END_IF; 
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := TRUE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := TRUE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := NOT _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue;    
-                   _State := UINT#40;
+                   _State := UINT#322;
                 END_IF;
-
-                IF _State = UINT#40 THEN
+                IF _State = UINT#322 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#522;
+                    END_IF; 
                     IF  _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InReference AND _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill THEN
                         _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
-                        _State := UINT#41;
+                        _State := UINT#323;
                     END_IF;
                 END_IF;
-                IF _State = UINT#41 THEN
-                    _State := UINT#57;
+                IF _State = UINT#323 THEN
+                    _State := UINT#327;
                 END_IF;
-                IF _State = UINT#57 THEN
+                IF _State = UINT#327 THEN
                     Done := TRUE;            
                     MC_HomeCycle := ULINT#0;     
                 END_IF;         
-                IF _State = UINT#58 THEN
+                IF _State = UINT#328 THEN
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
-                    CommandAborted := TRUE;            
+                    MC_HomeCycle := ULINT#0;     
+                    CommandAborted := TRUE;  
+                    AxoHome_Task.Abort();          
                 END_IF;         
-                IF _State = UINT#59 THEN
+                IF _State = UINT#329 THEN
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
                     MC_HomeCycle := ULINT#0;     
                     Error := TRUE;    
+                    AxoHome_Task.ThrowWhen(TRUE);          
                 END_IF;         
                 
-                IF _State>=UINT#30 AND _State<UINT#57 THEN
+                IF _State>=UINT#310 AND _State<UINT#327 THEN
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
-                        _State := UINT#58;
+                        _State := UINT#328;
                     ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
                         IF MC_HomeErrorID = WORD#0 THEN
                             MC_HomeErrorID := TO_WORD(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
                         END_IF;
-                        _State := UINT#59;
+                        _State := UINT#329;
                     ELSIF _AxisReference^.Data.Cycle <> MC_HomeCycle THEN
                         _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
-                        _State := UINT#58;
+                        _State := UINT#328;
                     END_IF;                  
-                END_IF;         
+                END_IF;     
+                
+                THIS.CallTimers(TRUE,FALSE);
+                THIS.AxoHome_Task.ThrowWhen(_errorTimer.output );
+                DriveStatus.Action.Id := _State;    
             END_IF;
 
             IF THIS.AxoHome_Task.DoneReached() THEN
@@ -2113,9 +2194,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := FALSE;
                 MC_HomeErrorID := WORD#0;
                 _State := UINT#0;
-                // MC_HomeCycle := ULINT#0;     
             END_IF;
-            IF THIS.AxoHome_Task.RestoreTriggered() AND _State>=UINT#30 AND _State<=UINT#59 THEN
+            IF THIS.AxoHome_Task.RestoreTriggered() AND _State>=UINT#310 AND _State<=UINT#329 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := FALSE;
@@ -2188,95 +2268,104 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
                     _AxisReference^.Outputs.CommandDecceleration_S_0_0359_0_0 := TO_DINT(Deceleration * ScalingConstantRequiredDeceleration);
                     _AxisReference^.Outputs.CommandJerk_S_0_0193_0_0 := TO_DINT(Jerk * ScalingConstantRequiredAcceleration);
-                    _State := UINT#60;
+                    _State := UINT#330;
                 END_IF;
-                IF _State = UINT#60 THEN
+                IF _State = UINT#330 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
                     IF Deceleration <= 0 OR Jerk <= 0 THEN
-                        _State := UINT#69;
+                        _State := UINT#339;
                     ELSE
-                        _State := UINT#61;
+                        _State := UINT#331;
                     END_IF;
                 END_IF;
-                IF _State = UINT#61 THEN
+                IF _State = UINT#331 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#531, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#531;
+                    END_IF; 
                     Busy := TRUE;            
                     Active := TRUE;          
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := FALSE;
                     IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InStandstill THEN
-                        _State := UINT#62;
+                        _State := UINT#332;
                     END_IF;
                 END_IF;
-                IF _State = UINT#62 THEN
+                IF _State = UINT#332 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
                     IF TRUE THEN
-                        _State := UINT#63;
+                        _State := UINT#333;
                     END_IF;
                 END_IF;               
-                IF _State = UINT#63 THEN
+                IF _State = UINT#333 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
                     IF TRUE THEN
-                        _State := UINT#64;
+                        _State := UINT#334;
                     END_IF;
                 END_IF;     
-                IF _State = UINT#64 THEN
+                IF _State = UINT#334 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
                     IF TRUE THEN
-                        _State := UINT#65;
+                        _State := UINT#335;
                     END_IF;
                 END_IF;                          
-                IF _State = UINT#65 THEN
+                IF _State = UINT#335 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
                     IF TRUE THEN
-                        _State := UINT#66;
+                        _State := UINT#336;
                     END_IF;
                 END_IF;                          
-                IF _State = UINT#66 THEN
+                IF _State = UINT#336 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
                     IF TRUE THEN
-                        _State := UINT#67;
+                        _State := UINT#337;
                     END_IF;
                 END_IF;                          
-                IF _State = UINT#67 THEN
+                IF _State = UINT#337 THEN
                     Done := TRUE;            
                     Active := TRUE;     
                     MC_StopCycle := ULINT#0;     
                 END_IF;         
-                IF _State = UINT#68 THEN
+                IF _State = UINT#338 THEN
+                    MC_StopCycle := ULINT#0;     
                     CommandAborted := TRUE;            
+                    AxoStop_Task.Abort();          
                 END_IF;         
-                IF _State = UINT#69 THEN
+                IF _State = UINT#339 THEN
                     MC_StopCycle := ULINT#0;     
                     Error := TRUE;    
+                    AxoStop_Task.ThrowWhen(TRUE);          
                 END_IF;         
  
-                IF _State>=UINT#60 AND _State<UINT#67 THEN
+                IF _State>=UINT#330 AND _State<UINT#337 THEN
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
-                        _State := UINT#68;
+                        _State := UINT#338;
                     ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
                         IF MC_StopErrorID = WORD#0 THEN
                             MC_StopErrorID := TO_WORD(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
                         END_IF;
-                        _State := UINT#69;
+                        _State := UINT#339;
                     ELSIF _AxisReference^.Data.Cycle <> MC_StopCycle THEN
                         _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
-                        _State := UINT#68;
+                        _State := UINT#338;
                     END_IF;                  
-                END_IF;            
+                END_IF;       
+                THIS.CallTimers(TRUE,FALSE);
+                THIS.AxoStop_Task.ThrowWhen(_errorTimer.output );
+                DriveStatus.Action.Id := _State;       
             END_IF;
 
             IF THIS.AxoStop_Task.DoneReached() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
                 MC_StopErrorID := WORD#0;
                 _State := UINT#0;
-                // MC_StopCycle := ULINT#0;              
             END_IF;
-            IF THIS.AxoStop_Task.RestoreTriggered() AND _State>=UINT#60 AND _State<=UINT#69 THEN
+            IF THIS.AxoStop_Task.RestoreTriggered() AND _State>=UINT#330 AND _State<=UINT#339 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
                 MC_StopErrorID := WORD#0;
                 _State := UINT#0;
@@ -2345,83 +2434,96 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
                     _AxisReference^.Outputs.CommandDecceleration_S_0_0359_0_0 := TO_DINT(Deceleration * ScalingConstantRequiredDeceleration);
                     _AxisReference^.Outputs.CommandJerk_S_0_0193_0_0 := TO_DINT(Jerk * ScalingConstantRequiredAcceleration);
-                    _State := UINT#70;
+                    _State := UINT#340;
                 END_IF;
 
-                IF _State = UINT#70 THEN
+                IF _State = UINT#340 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#540, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#540;
+                    END_IF; 
                     Busy := TRUE;            
                     Active := TRUE;          
                     IF Deceleration <= 0 OR Jerk <= 0 THEN
-                        _State := UINT#79;
+                        _State := UINT#349;
                     ELSE
-                        _State := UINT#71;
+                        _State := UINT#341;
                     END_IF;
                 END_IF;
-                IF _State = UINT#71 THEN
+                IF _State = UINT#341 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#541, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#541;
+                    END_IF; 
                     Busy := TRUE;            
                     Active := TRUE;          
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := FALSE;
                     IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InStandstill THEN
-                        _State := UINT#72;
+                        _State := UINT#342;
                     END_IF;
                 END_IF;
-                IF _State = UINT#72 THEN
+                IF _State = UINT#342 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
                     IF TRUE THEN
-                        _State := UINT#73;
+                        _State := UINT#343;
                     END_IF;
                 END_IF;               
-                IF _State = UINT#73 THEN
+                IF _State = UINT#343 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
                     IF TRUE THEN
-                        _State := UINT#74;
+                        _State := UINT#344;
                     END_IF;
                 END_IF;          
-                IF _State = UINT#74 THEN
+                IF _State = UINT#344 THEN
                     IF TRUE THEN
-                        _State := UINT#75;
+                        _State := UINT#345;
                     END_IF;
                 END_IF;                                           
-                IF _State = UINT#75 THEN
+                IF _State = UINT#345 THEN
                     IF TRUE THEN
-                        _State := UINT#76;
+                        _State := UINT#346;
                     END_IF;
                 END_IF;                                           
-                IF _State = UINT#76 THEN
+                IF _State = UINT#346 THEN
                     IF TRUE THEN
-                        _State := UINT#77;
+                        _State := UINT#347;
                     END_IF;
                 END_IF;                                           
-                IF _State = UINT#77 THEN
+                IF _State = UINT#347 THEN
                     Done := TRUE;            
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := TRUE;
                     MC_HaltCycle := ULINT#0;     
                 END_IF;         
-                IF _State = UINT#78 THEN
+                IF _State = UINT#348 THEN
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := TRUE;
                     CommandAborted := TRUE;            
+                    THIS.AxoHalt_Task.Abort();
                 END_IF;         
-                IF _State = UINT#79 THEN
+                IF _State = UINT#349 THEN
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := TRUE;
                     MC_HaltCycle := ULINT#0;     
                     Error := TRUE;    
+                    THIS.AxoHalt_Task.ThrowWhen(TRUE);
                 END_IF;         
                 
-                IF _State>=UINT#70 AND _State<UINT#77 THEN
+                IF _State>=UINT#340 AND _State<UINT#347 THEN
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
-                        _State := UINT#78;
+                        _State := UINT#348;
                     ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
                         IF MC_HaltErrorID = WORD#0 THEN
                             MC_HaltErrorID := TO_WORD(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
                         END_IF;
-                        _State := UINT#79;
+                        _State := UINT#349;
                     ELSIF _AxisReference^.Data.Cycle <> MC_HaltCycle THEN
                         _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
-                        _State := UINT#78;
+                        _State := UINT#348;
                     END_IF;                  
                 END_IF;           
+                THIS.CallTimers(TRUE,FALSE);
+                THIS.AxoHalt_Task.ThrowWhen(_errorTimer.output );
+                DriveStatus.Action.Id := _State;       
             END_IF;
 
             IF THIS.AxoHalt_Task.DoneReached() THEN
@@ -2429,9 +2531,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := TRUE;
                 MC_HaltErrorID := WORD#0;
                 _State := UINT#0;
-                // MC_HaltCycle := ULINT#0;     
             END_IF;
-            IF THIS.AxoHalt_Task.RestoreTriggered() AND _State>=UINT#70 AND _State<=UINT#79 THEN
+            IF THIS.AxoHalt_Task.RestoreTriggered() AND _State>=UINT#340 AND _State<=UINT#349 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
                 _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := TRUE;
                 MC_HaltErrorID := WORD#0;
@@ -2505,11 +2606,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
 
             IF Execute THEN 	
-
                 IF NOT ContinuousUpdate THEN
                     MC_MoveAbsoluteContinuousUpdate_SV := FALSE;
                 END_IF;
-
                 IF _State = UINT#0 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
@@ -2519,9 +2618,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl:= FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AbsoluteRelative := FALSE;      
                     MC_MoveAbsoluteContinuousUpdate_SV := ContinuousUpdate;
-                    _State := UINT#80;
+                    _State := UINT#350;
                 END_IF;
-                IF _State = UINT#80 THEN
+                IF _State = UINT#350 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#550, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#550;
+                    END_IF; 
                     Busy := TRUE;            
                     Active := TRUE;   
                     IF Velocity > 0 AND Acceleration > 0 AND Deceleration > 0 AND Jerk > 0 THEN
@@ -2536,97 +2639,85 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         MC_MoveAbsoluteDeceleration_PV  :=  Deceleration;              
                         MC_MoveAbsoluteJerk_PV          :=  Jerk;                      
                         MC_MoveAbsoluteDirection_PV     :=  Direction;                                         
-                        _State := UINT#81;
+                        _State := UINT#351;
                     END_IF;
                 END_IF;
-
-
-
-                // //Writing PNU 12327 Jerk
-                // IF _State = UINT#81 THEN
-                //     Busy := TRUE;            
-                //     Active := TRUE;          
-                //     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
-                //         _State := UINT#82;
-                //     END_IF;
-                //     IF Parametrization.Outputs.Error THEN 
-                //         Messenger.Activate(         UINT#1495, eAxoMessageCategory#ProgrammingError);
-                //         MC_MoveAbsoluteErrorID :=   WORD#1495;
-                //         _State := UINT#89;
-                //     END_IF;
-                // END_IF;
-                // IF _State = UINT#82 THEN
-                //     Busy := TRUE;            
-                //     Active := TRUE;          
-                //     Parametrization.Inputs.Enable := FALSE;
-                //     Parametrization.Inputs.ReadWrite   := FALSE;
-                //     IF  NOT Parametrization.Outputs.Done THEN
-                //         _State := UINT#83;
-                //     END_IF;
-                // END_IF;               
-                // //Executing movement
-                // IF _State = UINT#83 THEN
-                //     _AxisReference^.Telegram111_Out.POS_STW1.MDI_Activate := TRUE;
-                //     _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := TRUE; 
-                //     _AxisReference^.Telegram111_Out.STW1.activateTraversing := TRUE;        
-                //     IF _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated THEN      
-                //         _State := UINT#84;
-                //     END_IF;    
-                // END_IF;
-                // IF _State = UINT#84 THEN
-                //     _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE;        
-                //     IF _AxisReference^.Telegram111_In.ZSW1.targetPosReached THEN      
-                //         _State := UINT#85;
-                //     END_IF;    
-                // END_IF;
-                // IF _State = UINT#85 THEN
-                //     IF TRUE THEN      
-                //         _State := UINT#86;
-                //     END_IF;    
-                // END_IF;
-                // IF _State = UINT#86 THEN
-                //     IF TRUE THEN      
-                //         _State := UINT#87;
-                //     END_IF;    
-                // END_IF;
-                // IF _State = UINT#87 THEN
-                //     Done := TRUE;            
-                //     MC_MoveAbsoluteCycle := ULINT#0;     
-                // END_IF;         
-                // IF _State = UINT#88 THEN
-                //     CommandAborted := TRUE;            
-                // END_IF;         
-                // IF _State = UINT#89 THEN
-                //     MC_MoveAbsoluteCycle := ULINT#0;     
-                //     Error := TRUE;    
-                // END_IF;         
+                IF _State = UINT#351 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#551, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#551;
+                    END_IF; 
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit0  := FALSE;
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit1  := FALSE;
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit2  := FALSE;
+                    IF  NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit0 AND
+                        NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1 AND
+                        NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2 THEN
+                        _State := UINT#352;
+                    END_IF;
+                END_IF;                
+                //Executing movement
+                IF _State = UINT#352 THEN
+                    _AxisReference^.Telegram111_Out.POS_STW1.MDI_Activate := TRUE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := TRUE; 
+                    _AxisReference^.Telegram111_Out.STW1.activateTraversing := TRUE;        
+                    IF _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated THEN      
+                        _State := UINT#84;
+                    END_IF;    
+                END_IF;
+                IF _State = UINT#84 THEN
+                    _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE;        
+                    IF _AxisReference^.Telegram111_In.ZSW1.targetPosReached THEN      
+                        _State := UINT#85;
+                    END_IF;    
+                END_IF;
+                IF _State = UINT#85 THEN
+                    IF TRUE THEN      
+                        _State := UINT#86;
+                    END_IF;    
+                END_IF;
+                IF _State = UINT#86 THEN
+                    IF TRUE THEN      
+                        _State := UINT#87;
+                    END_IF;    
+                END_IF;
+                IF _State = UINT#87 THEN
+                    Done := TRUE;            
+                    MC_MoveAbsoluteCycle := ULINT#0;     
+                END_IF;         
+                IF _State = UINT#88 THEN
+                    CommandAborted := TRUE;            
+                END_IF;         
+                IF _State = UINT#89 THEN
+                    MC_MoveAbsoluteCycle := ULINT#0;     
+                    Error := TRUE;    
+                END_IF;         
                 
-                // IF _State>=UINT#80 AND _State<UINT#87 THEN
-                //     IF MC_MoveAbsoluteContinuousUpdate_SV AND (
-                //         MC_MoveAbsolutePosition_PV      <>  Position OR                  
-                //         MC_MoveAbsoluteVelocity_PV      <>  Velocity OR                  
-                //         MC_MoveAbsoluteAcceleration_PV  <>  Acceleration OR              
-                //         MC_MoveAbsoluteDeceleration_PV  <>  Deceleration OR              
-                //         MC_MoveAbsoluteJerk_PV          <>  Jerk OR                      
-                //         MC_MoveAbsoluteDirection_PV     <>  Direction ) THEN
-                //         _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE;        
-                //         IF NOT _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated THEN    
-                //             _State := UINT#80;
-                //         END_IF;   
-                //     END_IF;   
-                //     IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
-                //         _State := UINT#88;
-                //     ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent THEN
-                //         IF MC_MoveAbsoluteErrorID = WORD#0 THEN
-                //             MC_MoveAbsoluteErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
-                //         END_IF;
-                //         _State := UINT#89;
-                //     ELSIF _AxisReference^.Data.Cycle <> MC_MoveAbsoluteCycle THEN
-                //         _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
-                //         _State := UINT#88;
-                //     END_IF;                  
-                // END_IF;   
-
+                IF _State>=UINT#80 AND _State<UINT#87 THEN
+                    IF MC_MoveAbsoluteContinuousUpdate_SV AND (
+                        MC_MoveAbsolutePosition_PV      <>  Position OR                  
+                        MC_MoveAbsoluteVelocity_PV      <>  Velocity OR                  
+                        MC_MoveAbsoluteAcceleration_PV  <>  Acceleration OR              
+                        MC_MoveAbsoluteDeceleration_PV  <>  Deceleration OR              
+                        MC_MoveAbsoluteJerk_PV          <>  Jerk OR                      
+                        MC_MoveAbsoluteDirection_PV     <>  Direction ) THEN
+                        _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE;        
+                        IF NOT _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated THEN    
+                            _State := UINT#80;
+                        END_IF;   
+                    END_IF;   
+                    IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
+                        _State := UINT#88;
+                    ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent THEN
+                        IF MC_MoveAbsoluteErrorID = WORD#0 THEN
+                            MC_MoveAbsoluteErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
+                        END_IF;
+                        _State := UINT#89;
+                    ELSIF _AxisReference^.Data.Cycle <> MC_MoveAbsoluteCycle THEN
+                        _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
+                        _State := UINT#88;
+                    END_IF;                  
+                END_IF;   
             END_IF;
 
             // IF THIS.AxoMoveAbsolute_Task.DoneReached() THEN
@@ -3343,7 +3434,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     // MC_MoveVelocityCycle := ULINT#0;     
                 END_IF;
             END_IF;
-            IF THIS.AxoMoveVelocity_Task.RestoreTriggered() AND _State>=UINT#30 AND _State<=UINT#59 THEN
+            IF THIS.AxoMoveVelocity_Task.RestoreTriggered() AND _State>=UINT#110 AND _State<=UINT#119 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
@@ -4490,7 +4581,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             IF Execute THEN 	
                 IF _State = UINT#0 THEN
-                    Busy := TRUE;            
+                    Busy := TRUE;           
+                    THIS.CallTimers(FALSE);
+                    DriveStatus.Error.Id :=  UINT#0;
+                    TaskMessenger.Restore();
                     _State := UINT#190;
                 END_IF;
                 IF _State = UINT#190 THEN
@@ -5789,6 +5883,22 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             SUPER.Restore();
         END_METHOD
-
+        METHOD PRIVATE CallTimers
+            VAR_INPUT
+                signal : BOOL;
+            END_VAR
+            
+            _infoTimer.OnDelay(THIS, signal , _infoTime);
+            _errorTimer.OnDelay(THIS, signal , _errorTime );
+        END_METHOD
+        METHOD PRIVATE CallTimers
+            VAR_INPUT
+                signal_1 : BOOL;
+                signal_2 : BOOL;
+            END_VAR
+            
+            _infoTimer.OnDelay(THIS, signal_1 , _infoTime);
+            _errorTimer.OnDelay(THIS, signal_2 , _errorTime );
+        END_METHOD
     END_CLASS
 END_NAMESPACE
