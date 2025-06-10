@@ -2965,7 +2965,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     AxoMoveRelative_Task.ThrowWhen(TRUE);          
                 END_IF;         
                 
-                IF _State>=UINT#90 AND _State<UINT#97 THEN
+                IF _State>=UINT#360 AND _State<UINT#367 THEN
                     IF MC_MoveRelativeContinuousUpdate_SV AND (
                         MC_MoveRelativeDistance_PV      <>  Distance OR                  
                         MC_MoveRelativeVelocity_PV      <>  Velocity OR                  
