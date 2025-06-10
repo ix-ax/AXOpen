@@ -2737,8 +2737,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         MC_MoveAbsoluteDeceleration_PV  <>  Deceleration OR              
                         MC_MoveAbsoluteJerk_PV          <>  Jerk OR                      
                         MC_MoveAbsoluteDirection_PV     <>  Direction ) THEN
-                        // _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE;        
-                        IF TRUE THEN //NOT _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated THEN    
+                        IF TRUE THEN
                             _State := UINT#350;
                         END_IF;   
                     END_IF;   
@@ -2762,14 +2761,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             IF THIS.AxoMoveAbsolute_Task.DoneReached() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
-                // _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
                 MC_MoveAbsoluteErrorID := WORD#0;
                 _State := UINT#0;
             END_IF;
 
             IF THIS.AxoMoveAbsolute_Task.RestoreTriggered() AND _State>=UINT#80 AND _State<=UINT#89 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-                // _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
                 MC_MoveAbsoluteErrorID := WORD#0;
                 MC_MoveAbsoluteCycle := ULINT#0;     
                 _State := UINT#0;
@@ -2844,168 +2841,182 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 MC_MoveRelativeCycle := _AxisReference^.Data.Cycle ;
             END_IF;
 
-            // IF Execute THEN 	
-            //     IF NOT ContinuousUpdate THEN
-            //         MC_MoveRelativeContinuousUpdate_SV := FALSE;
-            //     END_IF;
+            IF Execute THEN 	
+                IF NOT ContinuousUpdate THEN
+                    MC_MoveRelativeContinuousUpdate_SV := FALSE;
+                END_IF;
 
-            //     IF _State = UINT#0 THEN
-            //         Busy := TRUE;            
-            //         Active := TRUE;          
-            //         MC_MoveRelativeErrorID := WORD#16#0000;
-            //         _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
-            //         _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
-            //         _AxisReference^.Telegram111_Out.POS_STW1.PosModulo := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.NegModulo := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.SetupMode := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.MDI_Activate := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW2.Trackingmode := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW2.jog_inc := FALSE;   
-            //         _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit0 := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit1 := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit2 := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit3 := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit4 := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit5 := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit6 := FALSE;    
-            //         _AxisReference^.Telegram111_Out.STW2.TravelToFixStop := FALSE;
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         MC_MoveRelativeContinuousUpdate_SV := ContinuousUpdate;
-            //         _State := UINT#90;
-            //     END_IF;
-            //     IF _State = UINT#90 THEN
-            //         Busy := TRUE;            
-            //         Active := TRUE;   
-            //         IF Velocity > 0 AND Acceleration > 0 AND Deceleration >0 AND Jerk > 0 THEN
-            //             _AxisReference^.Telegram111_Out.MDI_TARPOS := TO_DINT(Distance * ScalingConstantRequiredPosition);
-            //             _AxisReference^.Telegram111_Out.MDI_VELOCITY :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
-            //             _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
-            //             _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);
-            //             MC_MoveRelativeDistance_PV      :=  Distance;                  
-            //             MC_MoveRelativeVelocity_PV      :=  Velocity;                  
-            //             MC_MoveRelativeAcceleration_PV  :=  Acceleration;              
-            //             MC_MoveRelativeDeceleration_PV  :=  Deceleration;              
-            //             MC_MoveRelativeJerk_PV          :=  Jerk;   
-            //             _State := UINT#91;
-            //         END_IF;
-            //     END_IF;
-            //     //Writing PNU 12327 Jerk
-            //     IF _State = UINT#91 THEN
-            //         Busy := TRUE;            
-            //         Active := TRUE;          
-            //         Parametrization.Inputs.Enable := TRUE;
-            //         Parametrization.Inputs.ReadWrite   := TRUE;
-            //         Parametrization.Inputs.ParameterNo := 12327;
-            //         Parametrization.Inputs.Subindex    := 0;
-            //         Parametrization.Inputs.AxisNo  := BYTE#1;
-            //         Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-            //         Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveRelativeJerk_PV * _AxisReference^.Data.OverrideJerkFactor);
-            //         IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
-            //             _State := UINT#92;
-            //         END_IF;
-            //         IF Parametrization.Outputs.Error THEN 
-            //             Messenger.Activate(         UINT#1505, eAxoMessageCategory#ProgrammingError);
-            //             MC_MoveRelativeErrorID :=   WORD#1505;
-            //             _State := UINT#99;
-            //         END_IF;
-            //     END_IF;
-            //     IF _State = UINT#92 THEN
-            //         Busy := TRUE;            
-            //         Active := TRUE;          
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         Parametrization.Inputs.ReadWrite   := FALSE;
-            //         IF  NOT Parametrization.Outputs.Done THEN
-            //             _State := UINT#93;
-            //         END_IF;
-            //     END_IF;               
-            //     //Executing movement
-            //     IF _State = UINT#93 THEN
-            //         _AxisReference^.Telegram111_Out.POS_STW1.MDI_Activate := TRUE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
-            //         _AxisReference^.Telegram111_Out.STW1.activateTraversing := TRUE;        
-            //         IF _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated THEN      
-            //             _State := UINT#94;
-            //         END_IF;    
-            //     END_IF;
-            //     IF _State = UINT#94 THEN
-            //         _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE;        
-            //         IF _AxisReference^.Telegram111_In.ZSW1.targetPosReached THEN      
-            //             _State := UINT#95;
-            //         END_IF;    
-            //     END_IF;
-            //     IF _State = UINT#95 THEN
-            //         IF TRUE THEN      
-            //             _State := UINT#96;
-            //         END_IF;    
-            //     END_IF;
-            //     IF _State = UINT#96 THEN
-            //         IF TRUE THEN      
-            //             _State := UINT#97;
-            //         END_IF;    
-            //     END_IF;
-            //     IF _State = UINT#97 THEN
-            //         Done := TRUE;            
-            //         MC_MoveRelativeCycle := ULINT#0;     
-            //     END_IF;         
-            //     IF _State = UINT#98 THEN
-            //         CommandAborted := TRUE;            
-            //     END_IF;         
-            //     IF _State = UINT#99 THEN
-            //         MC_MoveRelativeCycle := ULINT#0;     
-            //         Error := TRUE;    
-            //     END_IF;         
+                IF _State = UINT#0 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    MC_MoveRelativeErrorID := WORD#16#0000;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl:= FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AbsoluteRelative := TRUE;      
+                    MC_MoveRelativeContinuousUpdate_SV := ContinuousUpdate;
+                    _State := UINT#360;
+                END_IF;
+                IF _State = UINT#360 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#550, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#550;
+                    END_IF; 
+                    Busy := TRUE;            
+                    Active := TRUE;   
+                    IF Velocity > 0 AND Acceleration > 0 AND Deceleration >0 AND Jerk > 0 THEN
+                        _AxisReference^.Outputs.CommandPosition_S_0_0282_0_0 := TO_DINT(Distance * ScalingConstantRequiredPosition);
+                        _AxisReference^.Outputs.CommandVelocity_S_0_0259_0_0 :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
+                        _AxisReference^.Outputs.CommandAcceleration_S_0_0260_0_0 :=  TO_DINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
+                        _AxisReference^.Outputs.CommandDecceleration_S_0_0359_0_0 :=  TO_DINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);                        
+                        _AxisReference^.Outputs.CommandJerk_S_0_0193_0_0 :=  TO_DINT(Jerk *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideJerkFactor);                        
+                        MC_MoveRelativeDistance_PV      :=  Distance;                  
+                        MC_MoveRelativeVelocity_PV      :=  Velocity;                  
+                        MC_MoveRelativeAcceleration_PV  :=  Acceleration;              
+                        MC_MoveRelativeDeceleration_PV  :=  Deceleration;              
+                        MC_MoveRelativeJerk_PV          :=  Jerk;   
+                        _State := UINT#361;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#361 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#561, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#561;
+                    END_IF; 
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit0  := FALSE;
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit1  := FALSE;
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit2  := FALSE;
+                    IF  NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit0 AND
+                        NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1 AND
+                        NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2 THEN
+                        _State := UINT#362;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#362 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#562, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#562;
+                    END_IF; 
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    IF  _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 AND
+                        _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
+                       _State := UINT#363;
+                    END_IF;                
+                END_IF;     
+                IF _State = UINT#363 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#563, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#563;
+                    END_IF; 
+                    Busy := TRUE;            
+                    Active := TRUE;     
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt  := TRUE;
+                    IF TRUE THEN
+                       _State := UINT#364;
+                    END_IF;                
+                END_IF;             
+                //Executing movement
+                IF _State = UINT#364 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#564, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#564;
+                    END_IF;                     
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := NOT _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.PositionCommandAck;
+                    IF TRUE THEN      
+                        _State := UINT#365;
+                    END_IF;    
+                END_IF;
+                IF _State = UINT#365 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#565, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#565;
+                    END_IF;                     
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    IF _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue = _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.PositionCommandAck THEN      
+                        _State := UINT#366;
+                    END_IF;    
+                END_IF;                
+                IF _State = UINT#366 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#566, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#566;
+                    END_IF;                     
+                    IF _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill AND _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.InTargetPosition THEN      
+                        _State := UINT#367;
+                    END_IF;    
+                END_IF;
+                IF _State = UINT#367 THEN
+                    Done := TRUE;            
+                    MC_MoveRelativeCycle := ULINT#0;     
+                END_IF;         
+                IF _State = UINT#368 THEN
+                    CommandAborted := TRUE;            
+                    AxoMoveRelative_Task.Abort();          
+                END_IF;         
+                IF _State = UINT#369 THEN
+                    MC_MoveRelativeCycle := ULINT#0;     
+                    Error := TRUE;    
+                    AxoMoveRelative_Task.ThrowWhen(TRUE);          
+                END_IF;         
                 
-            //     IF _State>=UINT#90 AND _State<UINT#97 THEN
-            //         IF MC_MoveRelativeContinuousUpdate_SV AND (
-            //             MC_MoveRelativeDistance_PV      <>  Distance OR                  
-            //             MC_MoveRelativeVelocity_PV      <>  Velocity OR                  
-            //             MC_MoveRelativeAcceleration_PV  <>  Acceleration OR              
-            //             MC_MoveRelativeDeceleration_PV  <>  Deceleration OR              
-            //             MC_MoveRelativeJerk_PV          <>  Jerk ) THEN
-            //             _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE;    
-            //             IF NOT _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated THEN    
-            //                 _AxisReference^.Telegram111_Out.MDI_TARPOS := TO_DINT((Distance) * ScalingConstantRequiredPosition) - _AxisReference^.Telegram111_In.XIST_A;
-            //                 _AxisReference^.Telegram111_Out.MDI_VELOCITY :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
-            //                 _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
-            //                 _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);
-            //                 MC_MoveRelativeDistance_PV      :=  Distance;                  
-            //                 MC_MoveRelativeVelocity_PV      :=  Velocity;                  
-            //                 MC_MoveRelativeAcceleration_PV  :=  Acceleration;              
-            //                 MC_MoveRelativeDeceleration_PV  :=  Deceleration;              
-            //                 MC_MoveRelativeJerk_PV          :=  Jerk;   
-            //                 _State := UINT#91;
-            //             END_IF;   
-            //         END_IF;   
-            //         IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
-            //             _State := UINT#98;
-            //         ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent THEN
-            //             IF MC_MoveRelativeErrorID = WORD#0 THEN
-            //                 MC_MoveRelativeErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
-            //             END_IF;
-            //             _State := UINT#99;
-            //         ELSIF _AxisReference^.Data.Cycle <> MC_MoveRelativeCycle THEN
-            //             _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
-            //             _State := UINT#98;
-            //         END_IF;                  
-            //     END_IF;   
-            //     THIS.UpdateOutputs(AxisRef);         
-            // END_IF;
+                IF _State>=UINT#90 AND _State<UINT#97 THEN
+                    IF MC_MoveRelativeContinuousUpdate_SV AND (
+                        MC_MoveRelativeDistance_PV      <>  Distance OR                  
+                        MC_MoveRelativeVelocity_PV      <>  Velocity OR                  
+                        MC_MoveRelativeAcceleration_PV  <>  Acceleration OR              
+                        MC_MoveRelativeDeceleration_PV  <>  Deceleration OR              
+                        MC_MoveRelativeJerk_PV          <>  Jerk ) THEN
+                        IF TRUE THEN    
+                            _AxisReference^.Outputs.CommandPosition_S_0_0282_0_0 := TO_DINT(Distance * ScalingConstantRequiredPosition);
+                            _AxisReference^.Outputs.CommandVelocity_S_0_0259_0_0 :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
+                            _AxisReference^.Outputs.CommandAcceleration_S_0_0260_0_0 :=  TO_DINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
+                            _AxisReference^.Outputs.CommandDecceleration_S_0_0359_0_0 :=  TO_DINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);                        
+                            _AxisReference^.Outputs.CommandJerk_S_0_0193_0_0 :=  TO_DINT(Jerk *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideJerkFactor);                        
+                            MC_MoveRelativeDistance_PV      :=  Distance;                  
+                            MC_MoveRelativeVelocity_PV      :=  Velocity;                  
+                            MC_MoveRelativeAcceleration_PV  :=  Acceleration;              
+                            MC_MoveRelativeDeceleration_PV  :=  Deceleration;              
+                            MC_MoveRelativeJerk_PV          :=  Jerk;    
+                            _State := UINT#361;
+                        END_IF;   
+                    END_IF;   
+                    IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
+                        _State := UINT#368;
+                    ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
+                        IF MC_MoveRelativeErrorID = WORD#0 THEN
+                            MC_MoveRelativeErrorID := TO_WORD(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
+                        END_IF;
+                        _State := UINT#369;
+                    ELSIF _AxisReference^.Data.Cycle <> MC_MoveRelativeCycle THEN
+                        _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
+                        _State := UINT#368;
+                    END_IF;                  
+                END_IF;   
 
-            // IF THIS.AxoMoveRelative_Task.DoneReached() THEN
-            //     _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
-            //     _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
-            //     MC_MoveRelativeErrorID := WORD#0;
-            //     // MC_MoveRelativeCycle := ULINT#0;     
-            //     _State := UINT#0;
-            // END_IF;
+                THIS.CallTimers(TRUE,FALSE);
+                THIS.AxoMoveRelative_Task.ThrowWhen(_errorTimer.output );
+                DriveStatus.Action.Id := _State; 
+            END_IF;
 
-            // IF THIS.AxoMoveRelative_Task.RestoreTriggered() AND _State>=UINT#90 AND _State<=UINT#99 THEN
-            //     _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-            //     _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
-            //     MC_MoveRelativeErrorID := WORD#0;
-            //     MC_MoveRelativeCycle := ULINT#0;     
-            //     _State := UINT#0;
-            // END_IF;     
+            IF THIS.AxoMoveRelative_Task.DoneReached() THEN
+                _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
+                MC_MoveRelativeErrorID := WORD#0;
+                // MC_MoveRelativeCycle := ULINT#0;     
+                _State := UINT#0;
+            END_IF;
+
+            IF THIS.AxoMoveRelative_Task.RestoreTriggered() AND _State>=UINT#90 AND _State<=UINT#99 THEN
+                _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
+                MC_MoveRelativeErrorID := WORD#0;
+                MC_MoveRelativeCycle := ULINT#0;     
+                _State := UINT#0;
+            END_IF;     
 
             ErrorID := MC_MoveRelativeErrorID;
             MC_MoveRelativeExecute_PV := Execute;
