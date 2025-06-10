@@ -3997,7 +3997,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;         
                 
                 IF _State>=UINT#400 AND _State<UINT#407 THEN
-                    IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
+                    IF (*NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR*) NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         _State := UINT#408;
                     ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
                         IF MC_SetPositionErrorID = WORD#0 THEN
