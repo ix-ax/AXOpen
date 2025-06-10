@@ -3970,7 +3970,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveOn := TRUE;
                     IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 AND _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.SetAbsPositionFunction := FALSE;
-                        _State := UINT#405;
+                        _State := UINT#407;
                     END_IF;
                 END_IF;   
                 IF _State = UINT#407 THEN
