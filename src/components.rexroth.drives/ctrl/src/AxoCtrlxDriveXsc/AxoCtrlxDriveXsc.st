@@ -4945,51 +4945,57 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 MC_ReadDigitalOutputCycle := _AxisReference^.Data.Cycle ;
             END_IF;
 
-            // IF Enable THEN 	
-            //     IF _State = UINT#0 THEN
-            //         Busy := TRUE;            
-            //         MC_ReadDigitalOutputErrorID := WORD#16#0000;         
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         _State := UINT#230;
-            //     END_IF;
-            //     IF _State = UINT#230 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := TRUE;
-            //         Parametrization.Inputs.ReadWrite   := FALSE;
-            //         Parametrization.Inputs.ParameterNo := 2888;
-            //         Parametrization.Inputs.Subindex    := 0;
-            //         Parametrization.Inputs.AxisNo  := BYTE#1;
-            //         Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-            //         IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
-            //             MC_ReadDigitalOutputValid := TRUE;
-            //             MC_ReadDigitalOutputValue := GetBit(TO_LWORD(Parametrization.Outputs.ValueReadLINT), TO_USINT(OutputNumber));
-            //             _State := UINT#231;
-            //         END_IF;
-            //         IF Parametrization.Outputs.Error THEN 
-            //             Messenger.Activate(             UINT#1652, eAxoMessageCategory#ProgrammingError);
-            //             MC_ReadDigitalOutputErrorID :=  WORD#1652;
-            //             _State := UINT#239;
-            //         END_IF;
-            //     END_IF;
-            //     IF _State = UINT#231 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         Parametrization.Inputs.ReadWrite   := FALSE;
-            //         IF  NOT Parametrization.Outputs.Done THEN
-            //             _State := UINT#230;
-            //         END_IF;
-            //     END_IF;               
-            //     IF _State = UINT#239 THEN
-            //         Error := TRUE;    
-            //     END_IF;         
+            IF Enable THEN 	
+                IF _State = UINT#0 THEN
+                    Busy := TRUE;            
+                    MC_ReadDigitalOutputErrorID := WORD#16#0000;         
+                    _State := UINT#230;
+                END_IF;
+                IF _State = UINT#230 THEN
+                    Busy := TRUE;            
+                    _ReadRecord(    request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#4408, //P-0-0313.0.0  16#1000 + 313 = 4096+307=4408
+                                    maxLength   :=  UINT#8,
+                                    record      :=  _data8);
+                    IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
+                        _lword.%B0   :=  _data8[0];
+                        _lword.%B1   :=  _data8[1];
+                        _lword.%B2   :=  _data8[2];
+                        _lword.%B3   :=  _data8[3];
+                        _lword.%B4   :=  _data8[4];
+                        _lword.%B5   :=  _data8[5];
+                        _lword.%B6   :=  _data8[6];
+                        _lword.%B7   :=  _data8[7];
+                        MC_ReadDigitalOutputValid := TRUE;
+                        MC_ReadDigitalOutputValue := System.BitAccess.GetBit(_lword, TO_USINT(OutputNumber));
+                        _State := UINT#231;
+                    END_IF;
+                    IF _ReadRecord.error THEN 
+                        _ReadRecord(request := FALSE, record := _data8);
+                        Messenger.Activate(             UINT#1652, eAxoMessageCategory#ProgrammingError);
+                        MC_ReadDigitalOutputErrorID :=  WORD#1652;
+                        _State := UINT#239;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#231 THEN
+                    Busy := TRUE;            
+                    _ReadRecord(request := FALSE, record := _data8);
+                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
+                        _State := UINT#230;
+                    END_IF;
+                END_IF;               
+                IF _State = UINT#239 THEN
+                    Error := TRUE;    
+                END_IF;         
                 
-            //     IF _State>=UINT#230 AND _State<UINT#237 THEN
-            //         IF _AxisReference^.Data.Cycle <> MC_ReadDigitalOutputCycle THEN
-            //             _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
-            //             _State := UINT#239;
-            //         END_IF;                  
-            //     END_IF;   
-            // END_IF;
+                IF _State>=UINT#230 AND _State<UINT#237 THEN
+                    IF _AxisReference^.Data.Cycle <> MC_ReadDigitalOutputCycle THEN
+                        _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
+                        _State := UINT#239;
+                    END_IF;                  
+                END_IF;   
+            END_IF;
 
             IF NOT Enable AND MC_ReadDigitalOutputEnable_PV  THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
@@ -5013,6 +5019,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             MC_WriteDigitalOutputExecute_PV     : 	BOOL := FALSE;		//Enable - previous value
             MC_WriteDigitalOutputErrorID        : 	WORD;
             MC_WriteDigitalOutputCycle			: 	ULINT;
+            MC_WriteDigitalOutputParameterPV    : 	LWORD;
         END_VAR
         METHOD PUBLIC OVERRIDE MC_WriteDigitalOutput
             VAR_INPUT
@@ -5059,58 +5066,96 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 MC_WriteDigitalOutputCycle := _AxisReference^.Data.Cycle ;
             END_IF;
 
-            // IF Execute THEN 	
-            //     IF _State = UINT#0 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         _State := UINT#240;
-            //         //Remove after implementation on the drive side
-            //         _State := UINT#249;
-            //         Messenger.Activate(             UINT#1662, eAxoMessageCategory#ProgrammingError);
-            //         MC_WriteDigitalOutputErrorID := WORD#1662;
-            //     END_IF;
-            //     IF _State = UINT#240 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := TRUE;
-            //         Parametrization.Inputs.ReadWrite   := TRUE;
-            //         Parametrization.Inputs.ParameterNo := 0;
-            //         Parametrization.Inputs.Subindex    := 0;
-            //         Parametrization.Inputs.AxisNo  := BYTE#1;
-            //         Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-            //         Parametrization.Inputs.ValueWriteBOOL := Value;
-            //         IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
-            //             _State := UINT#241;
-            //         END_IF;
-            //         IF Parametrization.Outputs.Error THEN 
-            //             Messenger.Activate(             UINT#1663, eAxoMessageCategory#ProgrammingError);
-            //             MC_WriteDigitalOutputErrorID := WORD#1663;
-            //             _State := UINT#249;
-            //         END_IF;
-            //     END_IF;
-            //     IF _State = UINT#241 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         Parametrization.Inputs.ReadWrite   := FALSE;
-            //         IF  NOT Parametrization.Outputs.Done THEN
-            //             _State := UINT#247;
-            //         END_IF;
-            //     END_IF;               
-            //     IF _State = UINT#247 THEN
-            //         Done := TRUE;
-            //         MC_WriteDigitalOutputCycle := ULINT#0;     
-            //     END_IF;         
-            //     IF _State = UINT#249 THEN
-            //         MC_WriteDigitalOutputCycle := ULINT#0;     
-            //         Error := TRUE;    
-            //     END_IF;         
+            IF Execute THEN 	
+                IF _State = UINT#0 THEN
+                    Busy := TRUE;            
+                    _State := UINT#240;
+                    Messenger.Activate(             UINT#1662, eAxoMessageCategory#ProgrammingError);
+                    MC_WriteDigitalOutputErrorID := WORD#1662;
+                END_IF;
+                IF _State = UINT#240 THEN
+                    Busy := TRUE;            
+                    _ReadRecord(    request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#4408, //P-0-0313.0.0  16#1000 + 313 = 4096+307=4408
+                                    maxLength   :=  UINT#8,
+                                    record      :=  _data8);
+                    IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
+                        MC_WriteDigitalOutputParameterPV.%B0   :=  _data8[0];
+                        MC_WriteDigitalOutputParameterPV.%B1   :=  _data8[1];
+                        MC_WriteDigitalOutputParameterPV.%B2   :=  _data8[2];
+                        MC_WriteDigitalOutputParameterPV.%B3   :=  _data8[3];
+                        MC_WriteDigitalOutputParameterPV.%B4   :=  _data8[4];
+                        MC_WriteDigitalOutputParameterPV.%B5   :=  _data8[5];
+                        MC_WriteDigitalOutputParameterPV.%B6   :=  _data8[6];
+                        MC_WriteDigitalOutputParameterPV.%B7   :=  _data8[7];
+                        _State := UINT#241;
+                    END_IF;
+                    IF  _ReadRecord.error THEN 
+                        Messenger.Activate(             UINT#1663, eAxoMessageCategory#ProgrammingError);
+                        MC_WriteDigitalOutputErrorID := WORD#1663;
+                        _State := UINT#249;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#241 THEN
+                    Busy := TRUE;            
+                    _ReadRecord(request := FALSE, record := _data8);
+                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
+                        _State := UINT#242;
+                    END_IF;
+                END_IF; 
+                IF _State = UINT#242 THEN
+                    Busy := TRUE;   
+                    MC_WriteDigitalOutputParameterPV := System.BitAccess.SetBit(value := MC_WriteDigitalOutputParameterPV,bitValue := Value,index := TO_USINT(OutputNumber));         
+                    _State := UINT#243;
+                END_IF;               
+                IF _State = UINT#243 THEN
+                    Busy := TRUE;            
+                    _data8[0] := MC_WriteDigitalOutputParameterPV.%B0;
+                    _data8[1] := MC_WriteDigitalOutputParameterPV.%B1;
+                    _data8[2] := MC_WriteDigitalOutputParameterPV.%B2;
+                    _data8[3] := MC_WriteDigitalOutputParameterPV.%B3;
+                    _data8[4] := MC_WriteDigitalOutputParameterPV.%B4;
+                    _data8[5] := MC_WriteDigitalOutputParameterPV.%B5;
+                    _data8[6] := MC_WriteDigitalOutputParameterPV.%B6;
+                    _data8[7] := MC_WriteDigitalOutputParameterPV.%B7;
+                    _WriteRecord(   request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#4408, //P-0-0313.0.0  16#1000 + 313 = 4096+307=4408
+                                    length      :=  UINT#8,
+                                    record      :=  _data8);
+                    IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
+                        _State := UINT#244;
+                    ElSIF _WriteRecord.error THEN 
+                        _WriteRecord(request := FALSE, record := _data8);
+                        Messenger.Activate(         UINT#1664, eAxoMessageCategory#ProgrammingError);
+                        MC_WriteParameterErrorID := WORD#1664;
+                        _State := UINT#249;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#244 THEN
+                    _WriteRecord(request := FALSE, record := _data8);
+                    IF NOT _WriteRecord.busy AND NOT _WriteRecord.done AND NOT _WriteRecord.error  THEN
+                        _State := UINT#247;
+                    END_IF;
+                END_IF;                
                 
-            //     IF _State>=UINT#240 AND _State<UINT#247 THEN
-            //         IF _AxisReference^.Data.Cycle <> MC_WriteDigitalOutputCycle THEN
-            //             _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
-            //             _State := UINT#249;
-            //         END_IF;                  
-            //     END_IF;   
-            // END_IF;
+                IF _State = UINT#247 THEN
+                    Done := TRUE;
+                    MC_WriteDigitalOutputCycle := ULINT#0;     
+                END_IF;         
+                IF _State = UINT#249 THEN
+                    MC_WriteDigitalOutputCycle := ULINT#0;     
+                    Error := TRUE;    
+                END_IF;         
+                
+                IF _State>=UINT#240 AND _State<UINT#247 THEN
+                    IF _AxisReference^.Data.Cycle <> MC_WriteDigitalOutputCycle THEN
+                        _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
+                        _State := UINT#249;
+                    END_IF;                  
+                END_IF;   
+            END_IF;
 
             IF THIS.AxoWriteDigitalOutput_Task.DoneReached() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
