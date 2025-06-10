@@ -7,8 +7,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         VAR PUBLIC
             {#ix-set:AttributeName = "<#Acceptance of positioning command value#>"}
             AcceptanceOfPositioningCommandValue:	BOOL;		                                    //  Bit 0 of the Drive-controlled positioning: Control word (S-0-0346) !!! must be set in drive !!!		
-            {#ix-set:AttributeName = "<#Command value reference when operation mode activated#>"}
-            CommandValueReferenceWhenOperationModeActivated 				:	BOOL;		        //  Bit 2 of the Positioning profile: Command value mode (S-0-0393) !!! must be set in drive !!!		
+            {#ix-set:AttributeName = "<#_bit01_Reserve#>"}
+            _bit01_Reserve 				:	BOOL;	
             {#ix-set:AttributeName = "<#Homing control#>"}
             HomingControl 				:	BOOL;		                                            //  Bit 0 of the Homing control: C0600 Command drive-controlled procedure (S-0-0148) !!! must be set in drive !!!		
             {#ix-set:AttributeName = "<#Absolute/Relative type of positioning command value#>"}

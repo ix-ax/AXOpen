@@ -1652,7 +1652,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;    
 
             _data2[1].%X0   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue;
-            _data2[1].%X1   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.CommandValueReferenceWhenOperationModeActivated;
             _data2[1].%X2   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl;
             _data2[1].%X3   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.AbsoluteRelative;
             _data2[1].%X4   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.ImmediateChange;
@@ -1945,7 +1944,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ImmediateChange := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
-                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CommandValueReferenceWhenOperationModeActivated := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := FALSE;
                     _State := UINT#310;
                 END_IF;
@@ -3013,7 +3011,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 MC_MoveRelativeCycle := ULINT#0;     
                 _State := UINT#0;
             END_IF;     
-
             ErrorID := MC_MoveRelativeErrorID;
             MC_MoveRelativeExecute_PV := Execute;
         END_METHOD
@@ -3377,9 +3374,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     // _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.SetAbsPositionFunction := FALSE;                    
 
                     MC_MoveVelocityContinuousUpdate_SV := ContinuousUpdate;
-                    _State := UINT#110;
+                    _State := UINT#380;
                 END_IF;
-                IF _State = UINT#110 THEN
+                IF _State = UINT#380 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
                     IF Velocity <> 0 AND Acceleration > 0 AND Deceleration >0 AND Jerk > 0 THEN
@@ -3394,18 +3391,46 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         MC_MoveVelocityDeceleration_PV  :=  Deceleration;              
                         MC_MoveVelocityJerk_PV          :=  Jerk;                      
                         MC_MoveVelocityDirection_PV     :=  Direction_;                                         
-                        _State := UINT#111;
+                        _State := UINT#381;
                     END_IF;
                 END_IF;
-                IF _State = UINT#111 THEN
+                IF _State = UINT#381 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#581, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#581;
+                    END_IF; 
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit0  := FALSE;
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit1  := FALSE;
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit2  := FALSE;
+                    IF  NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit0 AND
+                        NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1 AND
+                        NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2 THEN
+                        _State := UINT#382;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#382 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#582, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#582;
+                    END_IF; 
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    IF  _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 AND
+                        _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
+                       _State := UINT#383;
+                    END_IF;                
+                END_IF;                  
+                IF _State = UINT#383 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := TRUE;
-                    // IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.CommandProcessingStatus THEN
-                        _State := UINT#112;
-                    // END_IF;
+                    IF TRUE THEN //NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.CommandProcessingStatus THEN
+                        _State := UINT#384;
+                    END_IF;
                 END_IF;
-                IF _State = UINT#112 THEN
+                IF _State = UINT#384 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
                     IF Direction_ = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection THEN
@@ -3417,81 +3442,72 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;
 
                     IF  NOT _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill THEN
-                        _State := UINT#113;
+                        _State := UINT#385;
                     END_IF;
                 END_IF;               
-                IF _State = UINT#113 THEN
+                IF _State = UINT#385 THEN
                     IF TRUE THEN      
-                        _State := UINT#114;
+                        _State := UINT#386;
                     END_IF;    
                 END_IF;
-                IF _State = UINT#114 THEN
+                IF _State = UINT#386 THEN
                     IF TRUE THEN
-                        _State := UINT#115;
+                        _State := UINT#387;
                     END_IF;    
                 END_IF;
-                IF _State = UINT#115 THEN
-                    IF TRUE THEN      
-                        _State := UINT#116;
-                    END_IF;    
-                END_IF;
-                IF _State = UINT#116 THEN
-                    InVelocity := TRUE;            
-                    IF NOT MC_MoveVelocityContinuousUpdate_SV THEN      
-                        _State := UINT#117;
-                    END_IF;    
-                END_IF;
-                IF _State = UINT#117 THEN
+                IF _State = UINT#387 THEN
                     InVelocity := TRUE;            
                     MC_MoveVelocityCycle := ULINT#0;
                 END_IF;         
-                IF _State = UINT#118 THEN
+                IF _State = UINT#388 THEN
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
                     CommandAborted := TRUE;            
+                    AxoMoveVelocity_Task.Abort();          
                 END_IF;         
-                IF _State = UINT#119 THEN
+                IF _State = UINT#389 THEN
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
                     MC_MoveVelocityCycle := ULINT#0;     
                     Error := TRUE;    
+                    AxoMoveVelocity_Task.ThrowWhen(TRUE);          
                 END_IF;         
                 
-                IF _State>=UINT#110 AND _State<UINT#117 THEN
+                IF _State>=UINT#380 AND _State<UINT#387 THEN
                     IF MC_MoveVelocityContinuousUpdate_SV AND (
                         MC_MoveVelocityVelocity_PV      <>  Velocity_ OR                  
                         MC_MoveVelocityAcceleration_PV  <>  Acceleration OR              
                         MC_MoveVelocityDeceleration_PV  <>  Deceleration OR              
                         MC_MoveVelocityJerk_PV          <>  Jerk OR                      
                         MC_MoveVelocityDirection_PV     <>  Direction_ ) THEN
-                        // _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE;        
-                        // IF NOT _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated THEN    
-                            _State := UINT#110;
-                        // END_IF;   
+                        IF TRUE THEN 
+                            _State := UINT#380;
+                        END_IF;   
                     END_IF;                       
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
-                        _State := UINT#118;
+                        _State := UINT#388;
                     ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
                         IF MC_MoveVelocityErrorID = WORD#0 THEN
                             MC_MoveVelocityErrorID := TO_WORD(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
                         END_IF;
-                        _State := UINT#119;
+                        _State := UINT#389;
                     ELSIF _AxisReference^.Data.Cycle <> MC_MoveVelocityCycle THEN
                         _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
-                        _State := UINT#118;
+                        _State := UINT#388;
                     END_IF;                  
                 END_IF;         
-
-                IF THIS.AxoMoveVelocity_Task.DoneReached() THEN
-                    _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
-                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
-                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
-                    MC_MoveVelocityErrorID := WORD#0;
-                    _State := UINT#0;
-                    // MC_MoveVelocityCycle := ULINT#0;     
-                END_IF;
+                THIS.CallTimers(TRUE,FALSE);
+                THIS.AxoMoveVelocity_Task.ThrowWhen(_errorTimer.output );
+                DriveStatus.Action.Id := _State; 
             END_IF;
-            IF THIS.AxoMoveVelocity_Task.RestoreTriggered() AND _State>=UINT#110 AND _State<=UINT#119 THEN
+            IF THIS.AxoMoveVelocity_Task.DoneReached() THEN
+                _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
+                _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
+                _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
+                MC_MoveVelocityErrorID := WORD#0;
+                _State := UINT#0;
+            END_IF;            
+            IF THIS.AxoMoveVelocity_Task.RestoreTriggered() AND _State>=UINT#380 AND _State<=UINT#389 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
@@ -3803,6 +3819,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             MC_SetPositionErrorID					: 	WORD;
             MC_SetPositionCycle					    : 	ULINT;						
             MC_SetPositionActualPosition            : 	LINT;						
+            MC_SetPositionPowerStatusPV             : 	BOOL;						
         END_VAR  
         METHOD PUBLIC OVERRIDE MC_SetPosition
             VAR_INPUT
@@ -3840,384 +3857,164 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 MC_SetPositionCycle := _AxisReference^.Data.Cycle ;
             END_IF;
 
-            // IF Execute THEN 				
-            //     IF _State = UINT#0 THEN
-            //         Busy := TRUE;            
-            //         MC_SetPositionErrorID := WORD#16#0000;
-            //         _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
-            //         _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
-            //         _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
-            //         _AxisReference^.Telegram111_Out.POS_STW1.PosModulo := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.NegModulo := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.SetupMode := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.MDI_Activate := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW2.Trackingmode := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW2.jog_inc := FALSE;   
-            //         _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit0 := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit1 := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit2 := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit3 := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit4 := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit5 := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit6 := FALSE;    
-            //         _AxisReference^.Telegram111_Out.STW2.TravelToFixStop := FALSE;
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         _State := UINT#130;
-            //     END_IF;
-            //     //Read  PNU 11735 Homing mode
-            //     IF _State = UINT#130 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := TRUE;
-            //         Parametrization.Inputs.ReadWrite   := FALSE;
-            //         Parametrization.Inputs.ParameterNo := 11735;//mode
-            //         Parametrization.Inputs.Subindex    := 0;
-            //         Parametrization.Inputs.AxisNo  := BYTE#1;
-            //         Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-            //         IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
-            //             PNU_11735 := Parametrization.Outputs.ValueReadLINT;
-            //             _State := UINT#131;
-            //         END_IF;
-            //         IF Parametrization.Outputs.Error THEN 
-            //             Messenger.Activate(         UINT#1551, eAxoMessageCategory#ProgrammingError);
-            //             MC_SetPositionErrorID :=    WORD#1551;
-            //             _State := UINT#159;
-            //         END_IF;
-            //     END_IF;
-            //     IF _State = UINT#131 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         IF  NOT Parametrization.Outputs.Done THEN
-            //             _State := UINT#132;
-            //         END_IF;
-            //     END_IF;    
-            //     //Write  PNU 12681 deactivate save zero offset
-            //     IF _State = UINT#132 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := TRUE;
-            //         Parametrization.Inputs.ReadWrite   := TRUE;
-            //         Parametrization.Inputs.ParameterNo := 12681;//deactivate save zero offset
-            //         Parametrization.Inputs.Subindex    := 0;
-            //         Parametrization.Inputs.AxisNo  := BYTE#1;
-            //         Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-            //         Parametrization.Inputs.ValueWriteBOOL := FALSE;
-            //         IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
-            //             _State := UINT#133;
-            //         END_IF;
-            //         IF Parametrization.Outputs.Error THEN 
-            //             Messenger.Activate(         UINT#1552, eAxoMessageCategory#ProgrammingError);
-            //             MC_SetPositionErrorID :=    WORD#1552;
-            //             _State := UINT#159;
-            //         END_IF;
-            //     END_IF;
-            //     IF _State = UINT#133 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         IF  NOT Parametrization.Outputs.Done THEN
-            //             _State := UINT#134;
-            //         END_IF;
-            //     END_IF;    
-            //     //Read PNU 11203 Move to axis zero after homming
-            //     IF _State = UINT#134 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := TRUE;
-            //         Parametrization.Inputs.ReadWrite   := FALSE;
-            //         Parametrization.Inputs.ParameterNo := 11203;//Move to axis zero after homming
-            //         Parametrization.Inputs.Subindex    := 0;
-            //         Parametrization.Inputs.AxisNo  := BYTE#1;
-            //         Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-            //         IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
-            //             PNU_11203 := Parametrization.Outputs.ValueReadBool;
-            //             _State := UINT#135;
-            //         END_IF;
-            //         IF Parametrization.Outputs.Error THEN 
-            //             Messenger.Activate(         UINT#1553, eAxoMessageCategory#ProgrammingError);
-            //             MC_SetPositionErrorID :=    WORD#1553;
-            //             _State := UINT#159;
-            //         END_IF;
-            //     END_IF;
-            //     IF _State = UINT#135 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         IF  NOT Parametrization.Outputs.Done THEN
-            //             _State := UINT#136;
-            //         END_IF;
-            //     END_IF; 
-            //     //Read PNU 11734 Axis zero point offset
-            //     IF _State = UINT#136 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := TRUE;
-            //         Parametrization.Inputs.ReadWrite   := FALSE;
-            //         Parametrization.Inputs.ParameterNo := 11734;//Move to axis zero after homming
-            //         Parametrization.Inputs.Subindex    := 0;
-            //         Parametrization.Inputs.AxisNo  := BYTE#1;
-            //         Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-            //         IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
-            //             PNU_11734 := Parametrization.Outputs.ValueReadLINT;
-            //             _State := UINT#137;
-            //         END_IF;
-            //         IF Parametrization.Outputs.Error THEN 
-            //             Messenger.Activate(         UINT#1554, eAxoMessageCategory#ProgrammingError);
-            //             MC_SetPositionErrorID :=    WORD#1554;
-            //             _State := UINT#159;
-            //         END_IF;
-            //     END_IF;
-            //     IF _State = UINT#137 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         IF  NOT Parametrization.Outputs.Done THEN
-            //             _State := UINT#138;
-            //         END_IF;
-            //     END_IF; 
-            //     //Write PNU 11203 deactivate Move to axis zero after homming
-            //     IF _State = UINT#138 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := TRUE;
-            //         Parametrization.Inputs.ReadWrite   := TRUE;
-            //         Parametrization.Inputs.ParameterNo := 11203;//Move to axis zero after homming
-            //         Parametrization.Inputs.Subindex    := 0;
-            //         Parametrization.Inputs.AxisNo  := BYTE#1;
-            //         Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-            //         Parametrization.Inputs.ValueWriteBOOL := FALSE;
-            //         IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
-            //             _State := UINT#139;
-            //         END_IF;
-            //         IF Parametrization.Outputs.Error THEN 
-            //             Messenger.Activate(         UINT#1555, eAxoMessageCategory#ProgrammingError);
-            //             MC_SetPositionErrorID :=    WORD#1555;
-            //             _State := UINT#159;
-            //         END_IF;
-            //     END_IF;
-            //     IF _State = UINT#139 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         MC_SetPositionActualPosition :=  TO_LINT(ActualPosition * -10000000000.0);
-            //         IF  NOT Parametrization.Outputs.Done THEN
-            //             _State := UINT#140;
-            //         END_IF;
-            //     END_IF;   
-            //     //Write PNU 11734 Axis zero point offset
-            //     IF _State = UINT#140 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := TRUE;
-            //         Parametrization.Inputs.ReadWrite   := TRUE;
-            //         Parametrization.Inputs.ParameterNo := 11734;//Move to axis zero after homming
-            //         Parametrization.Inputs.Subindex    := 0;
-            //         Parametrization.Inputs.AxisNo  := BYTE#1;
-            //         Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-            //         IF Relative THEN
-            //             Parametrization.Inputs.ValueWriteLINT := MC_SetPositionActualPosition + TO_LINT(Position * -10000000000.0);
-            //         ELSE
-            //             Parametrization.Inputs.ValueWriteLINT := TO_LINT(Position * -10000000000.0);
-            //         END_IF;
-            //         IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
-            //             _State := UINT#141;
-            //         END_IF;
-            //         IF Parametrization.Outputs.Error THEN 
-            //             Messenger.Activate(         UINT#1556, eAxoMessageCategory#ProgrammingError);
-            //             MC_SetPositionErrorID :=    WORD#1556;
-            //             _State := UINT#159;
-            //         END_IF;
-            //     END_IF;
-            //     IF _State = UINT#141 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         IF  NOT Parametrization.Outputs.Done THEN
-            //             _State := UINT#142;
-            //         END_IF;
-            //     END_IF; 
-            //     //Write  PNU 11735 Homing mode
-            //     IF _State = UINT#142 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := TRUE;
-            //         Parametrization.Inputs.ReadWrite   := TRUE;
-            //         Parametrization.Inputs.ParameterNo := 11735;//mode
-            //         Parametrization.Inputs.Subindex    := 0;
-            //         Parametrization.Inputs.AxisNo  := BYTE#1;
-            //         Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-            //         Parametrization.Inputs.ValueWriteLINT := TO_LINT(37);
-            //         IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
-            //             _State := UINT#143;
-            //         END_IF;
-            //         IF Parametrization.Outputs.Error THEN 
-            //             Messenger.Activate(         UINT#1557, eAxoMessageCategory#ProgrammingError);
-            //             MC_SetPositionErrorID :=    WORD#1557;
-            //             _State := UINT#159;
-            //         END_IF;
-            //     END_IF;
-            //     IF _State = UINT#143 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         IF  NOT Parametrization.Outputs.Done THEN
-            //             _State := UINT#144;
-            //         END_IF;
-            //     END_IF;    
-            //     //Homing started
-            //     IF _State = UINT#144 THEN
-            //         Busy := TRUE;            
-            //         _AxisReference^.Telegram111_Out.STW1.StartHoming := TRUE; 
-            //         IF  NOT _AxisReference^.Telegram111_In.ZSW1.targetPosReached AND NOT _AxisReference^.Telegram111_In.ZSW1.homePosSet THEN
-            //             _State := UINT#145;
-            //         END_IF;
-            //     END_IF;                                       
-            //     IF _State = UINT#145 THEN
-            //         Busy := TRUE;            
-            //         IF _AxisReference^.Telegram111_In.ZSW1.targetPosReached AND _AxisReference^.Telegram111_In.ZSW1.homePosSet THEN
-            //             _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
-            //             _State := UINT#146;
-            //         END_IF;
-            //     END_IF;  
-            //     //Write PNU 11203 Move to axis zero after homming
-            //     IF _State = UINT#146 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := TRUE;
-            //         Parametrization.Inputs.ReadWrite   := TRUE;
-            //         Parametrization.Inputs.ParameterNo := 11203;//Move to axis zero after homming
-            //         Parametrization.Inputs.Subindex    := 0;
-            //         Parametrization.Inputs.AxisNo  := BYTE#1;
-            //         Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-            //         Parametrization.Inputs.ValueWriteBool := PNU_11203;
-            //         IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
-            //             _State := UINT#147;
-            //         END_IF;
-            //         IF Parametrization.Outputs.Error THEN 
-            //             Messenger.Activate(         UINT#1558, eAxoMessageCategory#ProgrammingError);
-            //             MC_SetPositionErrorID :=    WORD#1558;
-            //             _State := UINT#159;
-            //         END_IF;
-            //     END_IF;
-            //     IF _State = UINT#147 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         IF  NOT Parametrization.Outputs.Done THEN
-            //             _State := UINT#148;
-            //         END_IF;
-            //     END_IF; 
-            //     //Write PNU 11734 Axis zero point offset
-            //     IF _State = UINT#148 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := TRUE;
-            //         Parametrization.Inputs.ReadWrite   := TRUE;
-            //         Parametrization.Inputs.ParameterNo := 11734;//Move to axis zero after homming
-            //         Parametrization.Inputs.Subindex    := 0;
-            //         Parametrization.Inputs.AxisNo  := BYTE#1;
-            //         Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-            //         Parametrization.Inputs.ValueWriteLINT := PNU_11734;
-            //         IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
-            //              _State := UINT#149;
-            //         END_IF;
-            //         IF Parametrization.Outputs.Error THEN 
-            //             Messenger.Activate(         UINT#1559, eAxoMessageCategory#ProgrammingError);
-            //             MC_SetPositionErrorID :=    WORD#1559;
-            //             _State := UINT#159;
-            //         END_IF;
-            //     END_IF;
-            //     IF _State = UINT#149 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         IF  NOT Parametrization.Outputs.Done THEN
-            //             _State := UINT#150;
-            //         END_IF;
-            //     END_IF; 
-            //     //Write PNU 11735 homming mode
-            //     IF _State = UINT#150 THEN
-            //         Parametrization.Inputs.Enable := TRUE;
-            //         Parametrization.Inputs.ReadWrite   := TRUE;
-            //         Parametrization.Inputs.ParameterNo := 11735;
-            //         Parametrization.Inputs.Subindex    := 0;
-            //         Parametrization.Inputs.AxisNo  := BYTE#1;
-            //         Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-            //         Parametrization.Inputs.ValueWriteLINT := PNU_11735;
-            //         IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
-            //             _State := UINT#151;
-            //         END_IF;
-            //         IF Parametrization.Outputs.Error THEN 
-            //             Messenger.Activate(         UINT#1560, eAxoMessageCategory#ProgrammingError);
-            //             MC_SetPositionErrorID :=    WORD#1560;
-            //             _State := UINT#159;
-            //        END_IF;
-            //     END_IF;
-            //     IF _State = UINT#151 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         IF  NOT Parametrization.Outputs.Done THEN
-            //             _State := UINT#152;
-            //         END_IF;
-            //     END_IF; 
-            //     IF _State = UINT#152 THEN
-            //         Busy := TRUE;            
-            //         IF TRUE THEN
-            //             _State := UINT#153;
-            //         END_IF;
-            //     END_IF; 
-            //     IF _State = UINT#153 THEN
-            //         Busy := TRUE;            
-            //         IF TRUE THEN
-            //             _State := UINT#154;
-            //         END_IF;
-            //     END_IF; 
-            //     IF _State = UINT#154 THEN
-            //         Busy := TRUE;            
-            //         IF TRUE THEN
-            //             _State := UINT#155;
-            //         END_IF;
-            //     END_IF; 
-            //     IF _State = UINT#155 THEN
-            //         Busy := TRUE;            
-            //         IF TRUE THEN
-            //             _State := UINT#156;
-            //         END_IF;
-            //     END_IF; 
-            //     IF _State = UINT#156 THEN
-            //         Busy := TRUE;            
-            //         IF TRUE THEN
-            //             _State := UINT#157;
-            //         END_IF;
-            //     END_IF; 
-            //     IF _State = UINT#157 THEN
-            //         _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE;
-            //         Done := TRUE;            
-            //         MC_SetPositionCycle := ULINT#0;     
-            //     END_IF;    
-            //     IF _State = UINT#158 THEN
-            //         _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE;
-            //     END_IF;         
-            //     IF _State = UINT#159 THEN
-            //         _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE;
-            //         MC_SetPositionCycle := ULINT#0;     
-            //         Error := TRUE;    
-            //     END_IF;         
-                
-            //     IF _State>=UINT#130 AND _State<UINT#157 THEN
-            //         IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
-            //             _State := UINT#158;
-            //         ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent THEN
-            //             IF MC_SetPositionErrorID = WORD#0 THEN
-            //                 MC_SetPositionErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
-            //             END_IF;
-            //             _State := UINT#159;
-            //         ELSIF _AxisReference^.Data.Cycle <> MC_SetPositionCycle THEN
-            //             _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
-            //             _State := UINT#158;
-            //         END_IF;                  
-            //     END_IF;                  
-            // END_IF;
+            IF Execute THEN 				
+                IF _State = UINT#0 THEN
+                    Busy := TRUE;            
+                    MC_SetPositionErrorID := WORD#16#0000;
+                    DriveStatus.Error.Id :=  UINT#0;                    
+                    TaskMessenger.Restore();
+                    THIS.CallTimers(FALSE);
+                    // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.IPOSYNC := FALSE;
+                    // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := FALSE;
+                    // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveEnable := FALSE;
+                    // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveOn := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AbsoluteRelative := FALSE;      
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ImmediateChange := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := FALSE;
+                    MC_SetPositionPowerStatusPV := _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 AND _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0;
+                    _State := UINT#400;
+                END_IF;
+                // Power off
+                IF _State = UINT#400 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#600, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#600;
+                    END_IF;
+                    Busy := TRUE;            
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := FALSE;
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveEnable := FALSE;
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveOn := FALSE;
+                    IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 THEN
+                        _State := UINT#401;
+                        RETURN;
+                    END_IF;
+                END_IF;                    
+                // Reseting InReference flag 
+                IF _State = UINT#401 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#601, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#601;
+                    END_IF;
+                    Busy := TRUE;            
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := TRUE;
+                    IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InReference THEN
+                        _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := FALSE;
+                        _State := UINT#402;
+                        RETURN;
+                    END_IF;
+                END_IF;                
+                //Writing Homing configuration ENC_1: Home offset (0x607C:00 / S-0-0052 / --)
+                IF _State = UINT#402 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#602, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#602;
+                    END_IF;                    
+                    Busy := TRUE;            
+                    _dword :=  TO_DWORD(TO_DINT(Position * ScalingConstantRequiredPosition));
+                    _data4[0] := _dword.%B0;
+                    _data4[1] := _dword.%B1;
+                    _data4[2] := _dword.%B2;
+                    _data4[3] := _dword.%B3;
+                    _WriteRecord(   request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#52,
+                                    length      :=  UINT#4,
+                                    record      :=  _data4);
+                    IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
+                        _State := UINT#403;
+                    ElSIF _WriteRecord.error THEN 
+                        Messenger.Activate( UINT#1551, eAxoMessageCategory#ProgrammingError);
+                        MC_HomeErrorID :=   WORD#1551;
+                        _WriteRecord(request := FALSE, record := _data4);
+                        _State := UINT#609;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#403 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#603, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#603;
+                    END_IF; 
+                    Busy := TRUE;            
+                    _WriteRecord(request := FALSE, record := _data4);
+                    IF NOT _WriteRecord.busy AND NOT _WriteRecord.done AND NOT _WriteRecord.error  THEN
+                        _State := UINT#404;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#404 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#604, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#604;
+                    END_IF; 
+                    Busy := TRUE;            
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.SetAbsPositionFunction := TRUE;
+                    IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InReference THEN
+                        _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.SetAbsPositionFunction := FALSE;
+                        _State := UINT#405;
+                    END_IF;
+                END_IF;    
 
-            // IF THIS.AxoSetPosition_Task.DoneReached() THEN
-            //     _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
-            //     MC_SetPositionErrorID := WORD#0;
-            //     // MC_SetPositionCycle := ULINT#0;     
-            //     Parametrization.Inputs.Enable := FALSE;
-            //     Parametrization.Inputs.ReadWrite   := FALSE;
-            //     _State := UINT#0;
-            // END_IF;
-            // IF THIS.AxoSetPosition_Task.RestoreTriggered() AND _State>=UINT#20 AND _State<=UINT#59 THEN
-            //     _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-            //     MC_SetPositionErrorID := WORD#0;
-            //     MC_SetPositionCycle := ULINT#0;     
-            //     Parametrization.Inputs.Enable := FALSE;
-            //     Parametrization.Inputs.ReadWrite   := FALSE;
-            //     _State := UINT#0;
-            // END_IF;     
+                IF _State = UINT#407 THEN
+                    Done := TRUE;            
+                    MC_SetPositionCycle := ULINT#0;     
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.SetAbsPositionFunction := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
+                END_IF;    
+                IF _State = UINT#408 THEN
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.SetAbsPositionFunction := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
+                    MC_SetPositionCycle := ULINT#0;     
+                    AxoSetPosition_Task.Abort();    
+                END_IF;         
+                IF _State = UINT#409 THEN
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.SetAbsPositionFunction := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
+                    MC_SetPositionCycle := ULINT#0;     
+                    AxoSetPosition_Task.ThrowWhen(TRUE);    
+                    Error := TRUE;    
+                END_IF;         
+                
+                IF _State>=UINT#400 AND _State<UINT#407 THEN
+                    IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
+                        _State := UINT#408;
+                    ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
+                        IF MC_SetPositionErrorID = WORD#0 THEN
+                            MC_SetPositionErrorID := TO_WORD(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
+                        END_IF;
+                        _State := UINT#409;
+                    ELSIF _AxisReference^.Data.Cycle <> MC_SetPositionCycle THEN
+                        _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
+                        _State := UINT#408;
+                    END_IF;                  
+                END_IF;  
+                THIS.CallTimers(TRUE,FALSE);
+                THIS.AxoHome_Task.ThrowWhen(_errorTimer.output );
+                DriveStatus.Action.Id := _State;    
+            END_IF;
+
+            IF THIS.AxoSetPosition_Task.DoneReached() THEN
+                _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
+                MC_SetPositionErrorID := WORD#0;
+                _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.SetAbsPositionFunction := FALSE;
+                _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := FALSE;
+                _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
+            _State := UINT#0;
+            END_IF;
+            IF THIS.AxoSetPosition_Task.RestoreTriggered() AND _State>=UINT#20 AND _State<=UINT#59 THEN
+                _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
+                MC_SetPositionErrorID := WORD#0;
+                MC_SetPositionCycle := ULINT#0;     
+                _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.SetAbsPositionFunction := FALSE;
+                _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := FALSE;
+                _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
+            _State := UINT#0;
+            END_IF;     
 
             ErrorID := MC_SetPositionErrorID;
             MC_SetPositionExecute_PV := Execute;
@@ -5738,7 +5535,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ImmediateChange := TRUE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
-                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CommandValueReferenceWhenOperationModeActivated := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1;
                 END_IF;
                 IF Busy THEN
