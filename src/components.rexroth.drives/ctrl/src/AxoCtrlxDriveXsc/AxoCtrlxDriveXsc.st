@@ -4829,51 +4829,57 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 MC_ReadDigitalInputCycle := _AxisReference^.Data.Cycle ;
             END_IF;
 
-            // IF Enable THEN 	
-            //     IF _State = UINT#0 THEN
-            //         Busy := TRUE;            
-            //         MC_ReadDigitalInputErrorID := WORD#16#0000;         
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         _State := UINT#220;
-            //     END_IF;
-            //     IF _State = UINT#220 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := TRUE;
-            //         Parametrization.Inputs.ReadWrite   := FALSE;
-            //         Parametrization.Inputs.ParameterNo := 2888;
-            //         Parametrization.Inputs.Subindex    := 0;
-            //         Parametrization.Inputs.AxisNo  := BYTE#1;
-            //         Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-            //         IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
-            //             MC_ReadDigitalInputValid := TRUE;
-            //             MC_ReadDigitalInputValue := GetBit(TO_LWORD(Parametrization.Outputs.ValueReadLINT), TO_USINT(InputNumber));
-            //             _State := UINT#221;
-            //         END_IF;
-            //         IF Parametrization.Outputs.Error THEN 
-            //             Messenger.Activate(             UINT#1642, eAxoMessageCategory#ProgrammingError);
-            //             MC_ReadDigitalInputErrorID :=   WORD#1642;
-            //             _State := UINT#229;
-            //         END_IF;
-            //     END_IF;
-            //     IF _State = UINT#221 THEN
-            //         Busy := TRUE;            
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         Parametrization.Inputs.ReadWrite   := FALSE;
-            //         IF  NOT Parametrization.Outputs.Done THEN
-            //             _State := UINT#220;
-            //         END_IF;
-            //     END_IF;               
-            //     IF _State = UINT#229 THEN
-            //         Error := TRUE;    
-            //     END_IF;         
+            IF Enable THEN 	
+                IF _State = UINT#0 THEN
+                    Busy := TRUE;            
+                    MC_ReadDigitalInputErrorID := WORD#16#0000;         
+                    _State := UINT#220;
+                END_IF;
+                IF _State = UINT#220 THEN
+                    Busy := TRUE;            
+                    _ReadRecord(    request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#4409,
+                                    maxLength   :=  UINT#8,
+                                    record      :=  _data8);
+                    IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
+                        _lword.%B0   :=  _data8[0];
+                        _lword.%B1   :=  _data8[1];
+                        _lword.%B2   :=  _data8[2];
+                        _lword.%B3   :=  _data8[3];
+                        _lword.%B4   :=  _data8[4];
+                        _lword.%B5   :=  _data8[5];
+                        _lword.%B6   :=  _data8[6];
+                        _lword.%B7   :=  _data8[7];
+                        MC_ReadDigitalInputValid := TRUE;
+                        MC_ReadDigitalInputValue := System.BitAccess.GetBit(_lword, TO_USINT(InputNumber));
+                        _State := UINT#221;
+                    END_IF;
+                    IF _ReadRecord.error THEN 
+                        _ReadRecord(request := FALSE, record := _data8);
+                        Messenger.Activate(             UINT#1642, eAxoMessageCategory#ProgrammingError);
+                        MC_ReadDigitalInputErrorID :=   WORD#1642;
+                        _State := UINT#229;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#221 THEN
+                    Busy := TRUE;            
+                    _ReadRecord(request := FALSE, record := _data8);
+                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
+                        _State := UINT#220;
+                    END_IF;
+                END_IF;               
+                IF _State = UINT#229 THEN
+                    Error := TRUE;    
+                END_IF;         
                 
-            //     IF _State>=UINT#220 AND _State<UINT#227 THEN
-            //         IF _AxisReference^.Data.Cycle <> MC_ReadDigitalInputCycle THEN
-            //             _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
-            //             _State := UINT#229;
-            //         END_IF;                  
-            //     END_IF;   
-            // END_IF;
+                IF _State>=UINT#220 AND _State<UINT#227 THEN
+                    IF _AxisReference^.Data.Cycle <> MC_ReadDigitalInputCycle THEN
+                        _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
+                        _State := UINT#229;
+                    END_IF;                  
+                END_IF;   
+            END_IF;
 
             IF NOT Enable AND MC_ReadDigitalInputEnable_PV  THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
