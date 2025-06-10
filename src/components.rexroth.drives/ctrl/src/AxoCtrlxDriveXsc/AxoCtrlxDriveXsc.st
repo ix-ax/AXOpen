@@ -2776,11 +2776,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             MC_MoveAbsoluteExecute_PV := Execute;
         END_METHOD
 
-
-        
-
-
-
         ///<summary>
         /// This method  commands a controlled motion of a specified distance relative to the set position at the time of the execution.
         ///<summary>
@@ -2854,6 +2849,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl:= FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AbsoluteRelative := TRUE;      
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ImmediateChange := TRUE;      
                     MC_MoveRelativeContinuousUpdate_SV := ContinuousUpdate;
                     _State := UINT#360;
                 END_IF;
@@ -2926,7 +2922,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;                     
                     Busy := TRUE;            
                     Active := TRUE;          
-                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := NOT _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.PositionCommandAck;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := NOT _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue;
                     IF TRUE THEN      
                         _State := UINT#365;
                     END_IF;    
