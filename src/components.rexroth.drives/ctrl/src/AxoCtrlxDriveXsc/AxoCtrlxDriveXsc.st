@@ -4840,23 +4840,19 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _ReadRecord(    request     :=  TRUE,
                                     id          :=  _HW_S_0_0134_0_0,
                                     index       :=  DINT#4403, //P-0-0307.0.0  16#1000 + 307 = 4096+307=4403
-                                    maxLength   :=  UINT#8,
-                                    record      :=  _data8);
+                                    maxLength   :=  UINT#4,
+                                    record      :=  _data4);
                     IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
-                        _lword.%B0   :=  _data8[0];
-                        _lword.%B1   :=  _data8[1];
-                        _lword.%B2   :=  _data8[2];
-                        _lword.%B3   :=  _data8[3];
-                        _lword.%B4   :=  _data8[4];
-                        _lword.%B5   :=  _data8[5];
-                        _lword.%B6   :=  _data8[6];
-                        _lword.%B7   :=  _data8[7];
+                        _dword.%B0   :=  _data4[0];
+                        _dword.%B1   :=  _data4[1];
+                        _dword.%B2   :=  _data4[2];
+                        _dword.%B3   :=  _data4[3];
                         MC_ReadDigitalInputValid := TRUE;
-                        MC_ReadDigitalInputValue := System.BitAccess.GetBit(_lword, TO_USINT(InputNumber));
+                        MC_ReadDigitalInputValue := System.BitAccess.GetBit(_dword, TO_USINT(InputNumber));
                         _State := UINT#221;
                     END_IF;
                     IF _ReadRecord.error THEN 
-                        _ReadRecord(request := FALSE, record := _data8);
+                        _ReadRecord(request := FALSE, record := _data4);
                         Messenger.Activate(             UINT#1642, eAxoMessageCategory#ProgrammingError);
                         MC_ReadDigitalInputErrorID :=   WORD#1642;
                         _State := UINT#229;
@@ -4864,7 +4860,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#221 THEN
                     Busy := TRUE;            
-                    _ReadRecord(request := FALSE, record := _data8);
+                    _ReadRecord(request := FALSE, record := _data4);
                     IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
                         _State := UINT#220;
                     END_IF;
@@ -4956,23 +4952,19 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _ReadRecord(    request     :=  TRUE,
                                     id          :=  _HW_S_0_0134_0_0,
                                     index       :=  DINT#4409, //P-0-0313.0.0  16#1000 + 313 = 4096+313=4409
-                                    maxLength   :=  UINT#8,
-                                    record      :=  _data8);
+                                    maxLength   :=  UINT#4,
+                                    record      :=  _data4);
                     IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
-                        _lword.%B0   :=  _data8[0];
-                        _lword.%B1   :=  _data8[1];
-                        _lword.%B2   :=  _data8[2];
-                        _lword.%B3   :=  _data8[3];
-                        _lword.%B4   :=  _data8[4];
-                        _lword.%B5   :=  _data8[5];
-                        _lword.%B6   :=  _data8[6];
-                        _lword.%B7   :=  _data8[7];
+                        _dword.%B0   :=  _data4[0];
+                        _dword.%B1   :=  _data4[1];
+                        _dword.%B2   :=  _data4[2];
+                        _dword.%B3   :=  _data4[3];
                         MC_ReadDigitalOutputValid := TRUE;
-                        MC_ReadDigitalOutputValue := System.BitAccess.GetBit(_lword, TO_USINT(OutputNumber));
+                        MC_ReadDigitalOutputValue := System.BitAccess.GetBit(_dword, TO_USINT(OutputNumber));
                         _State := UINT#231;
                     END_IF;
                     IF _ReadRecord.error THEN 
-                        _ReadRecord(request := FALSE, record := _data8);
+                        _ReadRecord(request := FALSE, record := _data4);
                         Messenger.Activate(             UINT#1652, eAxoMessageCategory#ProgrammingError);
                         MC_ReadDigitalOutputErrorID :=  WORD#1652;
                         _State := UINT#239;
@@ -4980,7 +4972,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#231 THEN
                     Busy := TRUE;            
-                    _ReadRecord(request := FALSE, record := _data8);
+                    _ReadRecord(request := FALSE, record := _data4);
                     IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
                         _State := UINT#230;
                     END_IF;
@@ -5019,7 +5011,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             MC_WriteDigitalOutputExecute_PV     : 	BOOL := FALSE;		//Enable - previous value
             MC_WriteDigitalOutputErrorID        : 	WORD;
             MC_WriteDigitalOutputCycle			: 	ULINT;
-            MC_WriteDigitalOutputParameterPV    : 	LWORD;
+            MC_WriteDigitalOutputParameterPV    : 	DWORD;
         END_VAR
         METHOD PUBLIC OVERRIDE MC_WriteDigitalOutput
             VAR_INPUT
@@ -5076,17 +5068,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _ReadRecord(    request     :=  TRUE,
                                     id          :=  _HW_S_0_0134_0_0,
                                     index       :=  DINT#4409, //P-0-0313.0.0  16#1000 + 313 = 4096+313=4409
-                                    maxLength   :=  UINT#8,
-                                    record      :=  _data8);
+                                    maxLength   :=  UINT#4,
+                                    record      :=  _data4);
                     IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
-                        MC_WriteDigitalOutputParameterPV.%B0   :=  _data8[0];
-                        MC_WriteDigitalOutputParameterPV.%B1   :=  _data8[1];
-                        MC_WriteDigitalOutputParameterPV.%B2   :=  _data8[2];
-                        MC_WriteDigitalOutputParameterPV.%B3   :=  _data8[3];
-                        MC_WriteDigitalOutputParameterPV.%B4   :=  _data8[4];
-                        MC_WriteDigitalOutputParameterPV.%B5   :=  _data8[5];
-                        MC_WriteDigitalOutputParameterPV.%B6   :=  _data8[6];
-                        MC_WriteDigitalOutputParameterPV.%B7   :=  _data8[7];
+                        MC_WriteDigitalOutputParameterPV.%B0   :=  _data4[0];
+                        MC_WriteDigitalOutputParameterPV.%B1   :=  _data4[1];
+                        MC_WriteDigitalOutputParameterPV.%B2   :=  _data4[2];
+                        MC_WriteDigitalOutputParameterPV.%B3   :=  _data4[3];
                         _State := UINT#241;
                     END_IF;
                     IF  _ReadRecord.error THEN 
@@ -5109,30 +5097,26 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;               
                 IF _State = UINT#243 THEN
                     Busy := TRUE;            
-                    _data8[0] := MC_WriteDigitalOutputParameterPV.%B0;
-                    _data8[1] := MC_WriteDigitalOutputParameterPV.%B1;
-                    _data8[2] := MC_WriteDigitalOutputParameterPV.%B2;
-                    _data8[3] := MC_WriteDigitalOutputParameterPV.%B3;
-                    _data8[4] := MC_WriteDigitalOutputParameterPV.%B4;
-                    _data8[5] := MC_WriteDigitalOutputParameterPV.%B5;
-                    _data8[6] := MC_WriteDigitalOutputParameterPV.%B6;
-                    _data8[7] := MC_WriteDigitalOutputParameterPV.%B7;
+                    _data4[0] := MC_WriteDigitalOutputParameterPV.%B0;
+                    _data4[1] := MC_WriteDigitalOutputParameterPV.%B1;
+                    _data4[2] := MC_WriteDigitalOutputParameterPV.%B2;
+                    _data4[3] := MC_WriteDigitalOutputParameterPV.%B3;
                     _WriteRecord(   request     :=  TRUE,
                                     id          :=  _HW_S_0_0134_0_0,
                                     index       :=  DINT#4409, //P-0-0313.0.0  16#1000 + 313 = 4096+313=4409
-                                    length      :=  UINT#8,
-                                    record      :=  _data8);
+                                    length      :=  UINT#4,
+                                    record      :=  _data4);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
                         _State := UINT#244;
                     ElSIF _WriteRecord.error THEN 
-                        _WriteRecord(request := FALSE, record := _data8);
+                        _WriteRecord(request := FALSE, record := _data4);
                         Messenger.Activate(         UINT#1663, eAxoMessageCategory#ProgrammingError);
                         MC_WriteParameterErrorID := WORD#1663;
                         _State := UINT#249;
                     END_IF;
                 END_IF;
                 IF _State = UINT#244 THEN
-                    _WriteRecord(request := FALSE, record := _data8);
+                    _WriteRecord(request := FALSE, record := _data4);
                     IF NOT _WriteRecord.busy AND NOT _WriteRecord.done AND NOT _WriteRecord.error  THEN
                         _State := UINT#247;
                     END_IF;
