@@ -4955,7 +4955,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Busy := TRUE;            
                     _ReadRecord(    request     :=  TRUE,
                                     id          :=  _HW_S_0_0134_0_0,
-                                    index       :=  DINT#4408, //P-0-0313.0.0  16#1000 + 313 = 4096+307=4408
+                                    index       :=  DINT#4409, //P-0-0313.0.0  16#1000 + 313 = 4096+313=4409
                                     maxLength   :=  UINT#8,
                                     record      :=  _data8);
                     IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
@@ -5077,7 +5077,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Busy := TRUE;            
                     _ReadRecord(    request     :=  TRUE,
                                     id          :=  _HW_S_0_0134_0_0,
-                                    index       :=  DINT#4408, //P-0-0313.0.0  16#1000 + 313 = 4096+307=4408
+                                    index       :=  DINT#4409, //P-0-0313.0.0  16#1000 + 313 = 4096+313=4409
                                     maxLength   :=  UINT#8,
                                     record      :=  _data8);
                     IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
@@ -5121,7 +5121,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data8[7] := MC_WriteDigitalOutputParameterPV.%B7;
                     _WriteRecord(   request     :=  TRUE,
                                     id          :=  _HW_S_0_0134_0_0,
-                                    index       :=  DINT#4408, //P-0-0313.0.0  16#1000 + 313 = 4096+307=4408
+                                    index       :=  DINT#4409, //P-0-0313.0.0  16#1000 + 313 = 4096+313=4409
                                     length      :=  UINT#8,
                                     record      :=  _data8);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
