@@ -22,7 +22,7 @@ else
 {
     <div class="p-1">
 
-        <div class="flex flex-wrap">
+        <div class="flex flex-wrap items-center">
             @if (Presentation.Equals("Command"))
             {
                 @if (EnableCreate)
@@ -66,14 +66,13 @@ else
                 }
             }
 
-            <div class="btn-group ms-auto" role="group">
+            <div class="flex flex-wrap ms-auto">
 
                 @if (!AdvanceFilterConfig)
                 {
 
                     @if (EnableSorting)
                     {
-                        <div class="btn-group" role="group">
                             <Dropdown @ref="_dropdownSort">
                                 <DropdownButton>
                                     <button type="button" class="btn btn-primary" @onclick="_dropdownSort.Toggle">
@@ -87,12 +86,8 @@ else
                                                                 {
                                                                     <a class="dropdown-item @(Vm.DefaulSorting.MemberName == element ? "active" : "")" @onclick='() => setSortExpresionAsync(element)'>@element</a>
                                                                 }
-                                    <a href="#" class="dropdown-item">Account settings</a>
-                                    <a href="#" class="dropdown-item">Support</a>
-                                    <a href="#" class="dropdown-item">License</a>
                                 </DropdownBody>
                             </Dropdown>
-                        </div>
 
                         <button class="btn btn-outline-secondary me-1" type="button" name="sort" aria-label="@(Vm.DefaulSorting.IsAscending ? "Sorting ascending" : "Sorting descending")" title="@(Vm.DefaulSorting.IsAscending ? "Sorting ascending" : "Sorting descending")" @onclick="() => setSortAscendingAsync()">
                             <Operon.Icons.HeroIcon Icon="filter" Type="Operon.Icons.IconType.Outline" Class="size-5" />
@@ -117,17 +112,13 @@ else
                             <button class="btn @(AdvanceFilterConfig ? "btn-warning" : "btn-primary") mx-2" name="advanceConfig" @onclick="()=>{AdvanceFilterConfig = !AdvanceFilterConfig;}">
                                 @if (AdvanceFilterConfig)
                                 {
-                                    <span>
-                                        <Operon.Icons.HeroIcon Icon="funnel" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                        <span>@Localizer["Hide filter"]</span>
-                                    </span>
+                                    <Operon.Icons.HeroIcon Icon="funnel" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                    <span>@Localizer["Hide filter"]</span>
                                 }
                                 else
                                 {
-                                    <span>
-                                        <Operon.Icons.HeroIcon Icon="funnel" Type="Operon.Icons.IconType.Solid" Class="size-5" />
-                                        <span>@Localizer["Filter"]</span>
-                                    </span>
+                                    <Operon.Icons.HeroIcon Icon="funnel" Type="Operon.Icons.IconType.Solid" Class="size-5" />
+                                    <span>@Localizer["Filter"]</span>
                                 }
                             </button>
                         </Authorized>
@@ -430,12 +421,10 @@ else
                     }
                     else
                     {
-                        <div class="input">
-    <label class="me-2" for="id">Id</label>
-<input type="text" id="id" @bind="Vm.CreateItemId" />
-</div>
+                        <BaseInput @bind-Value="Vm.CreateItemId" Label="Id" />
                     }
-                    <div class="flex flex-wrap ms-auto">
+                    </div>
+                    <div class="modal-footer">
                         @if (!Vm.IsLockedByMeOrNull())
                     {
                         <div class="alert alert-danger flex align-center m-0 p-2" role="alert">
@@ -538,10 +527,6 @@ else
 
                         <button class="btn btn-outline-red" @onclick="() => { _modalCreate.CloseModal();; Vm.UnLocked(); }">@Localizer["Close"]</button>
                     </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-outline-red ms-auto" @onclick="() => _modalCreate.CloseModal()">Close modal</button>
-        </div>
     </Modal>
 
     <Modal @ref="_modalView">
@@ -898,88 +883,90 @@ else
     </Modal>
 
     <Modal @ref="_modalExportCustom">
-            <div class="modal-header">
-                <h2 class="text-xl font-bold">@Localizer["Export data"]</h2>
-                <button class="cursor-pointer ms-auto my-auto" @onclick="async () => { _modalExportCustom.CloseModal(); await SaveCustomExportDataAsync();}">
-                    <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
-                </button>
-            </div>
-            <div class="modal-body accordion">
-                        @{
-                            bool firstIteration = true;
-                        }
-                        @foreach (var fragment in Vm.RefUIData.GetChildren().DefaultIfEmpty(Vm.RefUIData))
-                        {
-                            <div class="accordion-item">
-                                <div class="accordion-header">
-                                    <div class="input-group flex-nowrap">
-                                        <div class="input-group-text bg-transparent border-0">
-                                            <input class="form-check-input mt-0" type="checkbox" @attributes="Vm.InDictionary(Vm.GetCustomExportDataValue(fragment.ToString()))" @onchange="@((ChangeEventArgs __e) => Vm.ChangeCustomExportDataValue(__e, fragment.ToString()))">
-                                        </div>
-                                        <button class="accordion-button @(firstIteration ? "" : "collapsed")" type="button" data-bs-toggle="collapse" data-bs-target="#@fragment.ToString().Replace(".", "_")-@ViewGuid" aria-expanded="@(firstIteration ? "true" : "false")" aria-controls="@fragment.ToString().Replace(".", "_")-@ViewGuid">
-                                            @fragment.ToString()
-                                        </button>
-                                    </div>
-                                </div>
-                                <div id="@fragment.ToString().Replace(".", "_")-@ViewGuid" class="accordion-collapse collapse @(firstIteration ? "show" : "")">
-                                    <div class="accordion-body @(Vm.GetCustomExportDataValue(fragment.ToString()) ? "" : "opacity-25")">
-                                        <ul class="list-group">
-                                            @foreach (var item in Vm.GetValueTags(fragment.GetType()))
-                                            {
-                                                @if (item is ITwinPrimitive)
-                                                {
-                                                    <li class="list-group-item">
-                                                        <input class="form-check-input me-1" type="checkbox" id="@fragment.ToString()-@item.Symbol-@ViewGuid" @attributes="Vm.InDictionary(Vm.GetCustomExportDataValue(fragment.ToString(), item.Symbol))" @onchange="@((ChangeEventArgs __e) => Vm.ChangeCustomExportDataValue(__e, fragment.ToString(), item.Symbol))">
-                                                        <label class="form-check-label ms-3" for="@fragment.ToString()-@item.Symbol-@ViewGuid">@item.GetSymbolTail()</label>
-                                                    </li>
-                                                }
-                                                else if (item is ITwinObject)
-                                                {
-                                                    <AXOpen.Data.Blazor.AxoDataExchange.DataExchangeAccordionComponent AccordionContent="item" Vm="Vm" Fragment="fragment" Parent="_data" ViewGuid="ViewGuid" />
-                                                }
-                                            }
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            firstIteration = false;
-                        }
+        <div class="modal-header">
+            <h2 class="text-xl font-bold">@Localizer["Export data"]</h2>
+            <button class="cursor-pointer ms-auto my-auto" @onclick="async () => { _modalExportCustom.CloseModal(); await SaveCustomExportDataAsync();}">
+                <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
+            </button>
+        </div>
+        <div class="modal-body accordion">
+            @foreach (var fragment in Vm.RefUIData.GetChildren().DefaultIfEmpty(Vm.RefUIData))
+            {
+                @if(_accordionExport == null)
+                {
+                    _accordionExport = fragment;
+                }
+                <div class="accordion-item">
+                    <div class="accordion-button @(_accordionExport == fragment ? "active" : null) flex flex-wrap">
+                        <input class="checkbox" type="checkbox" @attributes="Vm.InDictionary(Vm.GetCustomExportDataValue(fragment.ToString()))" @onchange="@((ChangeEventArgs __e) => Vm.ChangeCustomExportDataValue(__e, fragment.ToString()))">
+                        <button class="flex flex-wrap" type="button">
+                            @fragment.ToString()
+                            <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-auto my-auto icon-button-rotate " + (_accordionExport == fragment ? "rotated" : null))" />
+                        </button>
                     </div>
-            <div class="modal-footer">
-                <div class="w-full">
-                        <div class="input-group mt-2">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Localizer[Vm.ExportSet.ExportMode.ToString()]</button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item @(Vm.ExportSet.ExportMode == eExportMode.First ? "active" : "")" @onclick="() => Vm.ExportSet.ExportMode = eExportMode.First">@Localizer["First"]</a></li>
-                                <li><a class="dropdown-item @(Vm.ExportSet.ExportMode == eExportMode.Last ? "active" : "")" @onclick="() => Vm.ExportSet.ExportMode = eExportMode.Last">@Localizer["Last"]</a></li>
-                                <li><a class="dropdown-item @(Vm.ExportSet.ExportMode == eExportMode.Exact ? "active" : "")" @onclick="() => Vm.ExportSet.ExportMode = eExportMode.Exact">@Localizer["Exact"]</a></li>
+                    @if (_accordionExport == fragment)
+                    {
+                        <div class="accordion-body @(Vm.GetCustomExportDataValue(fragment.ToString()) ? "" : "opacity-25")">
+                            <ul class="list-group">
+                                @foreach (var item in Vm.GetValueTags(fragment.GetType()))
+                                {
+                                    @if (item is ITwinPrimitive)
+                                    {
+                                        <li class="list-group-item flex! flex-wrap input-group">
+                                            <input type="checkbox" id="@fragment.ToString()-@item.Symbol-@ViewGuid" @attributes="Vm.InDictionary(Vm.GetCustomExportDataValue(fragment.ToString(), item.Symbol))" @onchange="@((ChangeEventArgs __e) => Vm.ChangeCustomExportDataValue(__e, fragment.ToString(), item.Symbol))" />
+                                            <label for="@fragment.ToString()-@item.Symbol-@ViewGuid" class="ms-2">@item.GetSymbolTail()</label>
+                                        </li>
+                                    }
+                                    else if (item is ITwinObject)
+                                    {
+                                        <AXOpen.Data.Blazor.AxoDataExchange.DataExchangeAccordionComponent AccordionContent="item" Vm="Vm" Fragment="fragment" Parent="_data" ViewGuid="ViewGuid" />
+                                    }
+                                }
                             </ul>
-                            @if (Vm.ExportSet.ExportMode == eExportMode.Exact)
-                            {
-                                <div class="input-group-text">From</div>
-                                <input type="text" class="form-control" placeholder="From" @bind="Vm.ExportSet.FirstNumber">
-                                <div class="input-group-text">To</div>
-                                <input type="text" class="form-control" placeholder="To" @bind="Vm.ExportSet.SecondNumber">
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+            <div class="modal-footer">
+                <div class="flex flex-wrap items-center">
+                <Dropdown @ref="_dropdownExportMode">
+                    <DropdownButton>
+                        <button type="button" class="btn btn-primary" @onclick="_dropdownExportMode.Toggle">
+                            @Localizer[Vm.ExportSet.ExportMode.ToString()]
+                            <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownExportMode?.Open ?? false ? "rotated" : null))" />
+                        </button>
+                    </DropdownButton>
+                    <DropdownBody>
+                        <a class="dropdown-item @(Vm.ExportSet.ExportMode == eExportMode.First ? "active" : "")" @onclick="() => Vm.ExportSet.ExportMode = eExportMode.First">@Localizer["First"]</a>
+                        <a class="dropdown-item @(Vm.ExportSet.ExportMode == eExportMode.Last ? "active" : "")" @onclick="() => Vm.ExportSet.ExportMode = eExportMode.Last">@Localizer["Last"]</a>
+                        <a class="dropdown-item @(Vm.ExportSet.ExportMode == eExportMode.Exact ? "active" : "")" @onclick="() => Vm.ExportSet.ExportMode = eExportMode.Exact">@Localizer["Exact"]</a>
+                    </DropdownBody>
+                </Dropdown>
+
+                @if (Vm.ExportSet.ExportMode == eExportMode.Exact)
+                {
+                    <BaseInput @bind-Value="Vm.ExportSet.FirstNumber" Label="@Localizer["From"]" Placeholder="@Localizer["From"]" />
+                    <BaseInput @bind-Value="Vm.ExportSet.SecondNumber" Label="@Localizer["To"]" Placeholder="@Localizer["To"]" />
                             }
                             else
                             {
-                                <input type="text" class="form-control" @bind="Vm.ExportSet.FirstNumber">
+                                <BaseInput @bind-Value="Vm.ExportSet.FirstNumber" />
                             }
                             <div class="input-group-text">records</div>
-                        </div>
-                    </div>
-                    <div class="w-full">
-                        <div class="btn-group mt-2" role="group" aria-label="File type">
+                            </div>
+
+                            <div class="flex flex-wrap items-center">
+                            <div class="btn-group mt-2" role="group" aria-label="File type">
                             @foreach (var item in Vm.DataExchange.Exporters)
                             {
                                 <button type="button" class="btn @(Vm.ExportSet.ExportFileType == item.Key ? "btn-primary" : "btn-outline-primary")" @onclick="() => Vm.ExportSet.ExportFileType = item.Key">@item.Key</button>
                             }
                         </div>
-                        <div class="input-group mt-2 d-inline-flex w-25 align-middle">
-                            <span class="input-group-text">@Localizer["Separator"]</span>
-                            <input type="text" class="form-control" placeholder="Separator" aria-label="Separator" @bind="Vm.ExportSet.Separator">
-                        </div>
+
+                        <BaseInput @bind-Value="Vm.ExportSet.Separator" Label="@Localizer["Separator"]" Placeholder="Separator" />
                     </div>
+
                     @if (!Vm.GetFragmentsExportedValue())
                     {
                         <div class="alert alert-danger flex align-center m-0 p-2" role="alert">
@@ -1013,4 +1000,7 @@ else
     private Modal _modalAckEditUpdate { get; set; }
 
     private Dropdown _dropdownSort { get; set; }
+    private Dropdown _dropdownExportMode { get; set; }
+
+    private ITwinObject _accordionExport { get; set; }
 }

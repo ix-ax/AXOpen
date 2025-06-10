@@ -1,26 +1,26 @@
 ﻿@using Microsoft.AspNetCore.Mvc
 @using AxOpen.Security.Entities
+@using Operon.Components.Dropdown
 @attribute [IgnoreAntiforgeryToken]
 @namespace AxOpen.Security.Views
 
 <AuthorizeView>
     <Authorized>
-        <div class="dropdown">
-            <button class="btn btn-primary" @onclick="() => _dropdownCollapsed = !_dropdownCollapsed">
-                @context.User.Identity.Name
-                <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 collapse-button-icon " + (_dropdownCollapsed ? "open" : null))" />
-            </button>
-            @if (!_dropdownCollapsed)
-            {
-                <div class="dropdown-body card">
-                    <a class="block px-2 py-2 text-sm text-gray-700" href="Identity/Account/Manage">@Localizer["Profile"]</a>
-                    <form asp-area="Identity" action="Identity/Account/Logout" asp-route-returnUrl="/" method="post">
-                        <AntiforgeryToken />
-                        <button class="block px-2 py-2 text-sm text-gray-700 hover:font-normal cursor-pointer" type="submit">@Localizer["Log out"]</button>
-                    </form>
-                </div>
-            }
-        </div>
+        <Dropdown @ref="_dropdownLogin">
+            <DropdownButton>
+                <button type="button" class="btn btn-primary" @onclick="_dropdownLogin.Toggle">
+                    @context.User.Identity.Name
+                    <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownLogin?.Open ?? false ? "rotated" : null))" />
+                </button>
+            </DropdownButton>
+            <DropdownBody>
+                <a class="dropdown-item" href="Identity/Account/Manage">@Localizer["Profile"]</a>
+                <form asp-area="Identity" action="Identity/Account/Logout" asp-route-returnUrl="/" method="post">
+                    <AntiforgeryToken />
+                    <button class="dropdown-item cursor-pointer" type="submit">@Localizer["Log out"]</button>
+                </form>
+            </DropdownBody>
+        </Dropdown>
     </Authorized>
     <NotAuthorized>
         <a class="btn btn-primary" href="Identity/Account/Login" role="button">@Localizer["Log in"]</a>
@@ -28,5 +28,5 @@
 </AuthorizeView>
 
 @code {
-    private bool _dropdownCollapsed = true;
+    private Dropdown _dropdownLogin { get; set; }
 }

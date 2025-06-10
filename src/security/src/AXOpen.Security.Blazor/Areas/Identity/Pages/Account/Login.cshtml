@@ -15,12 +15,12 @@
         <div>
             <form id="account" method="post">
                 <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="input">
+                <div class="input-group">
                     <label asp-for="Input.Username" class="me-2">@Localizer["Username"]</label>
                     <input asp-for="Input.Username" />
                     <span asp-validation-for="Input.Username" class="text-danger"></span>
                 </div>
-                <div class="input">
+                <div class="input-group">
                     <label asp-for="Input.Password" class="me-2">@Localizer["Password"]</label>
                     <input asp-for="Input.Password" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>

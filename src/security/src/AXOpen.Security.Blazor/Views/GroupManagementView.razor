@@ -3,7 +3,7 @@
 @inherits BaseSecurityView
 
 <div class="overflow-x-auto">
-    <table class="table table-striped w-full">
+    <table class="table table-hover table-striped w-full">
         <thead>
             <tr>
                 <th>@Localizer["Group name"]</th>
@@ -26,11 +26,8 @@
 
 <div class="card mt-4">
     <h5>@Localizer["Create new group"]:</h5>
-    <div class="flex">
-        <div class="input">
-            <label class="me-2">@Localizer["Group name"]</label>
-            <input @bind="newGroupName" type="text" placeholder=@Localizer["Group name"] />
-        </div>
+    <div class="flex flex-wrap">
+        <BaseInput @bind-Value="newGroupName" Label="@Localizer["Group name"]" Placeholder="@Localizer["Group name"]" />
         <button class="btn btn-primary" @onclick="@(() => CreateGroup())">@Localizer["Create"]</button>
     </div>
 </div>
@@ -40,19 +37,11 @@
     <div class="mt-8 mx-4">
         <h4 class="me-auto">@Localizer["Selected group:"] @SelectedGroupN.Name</h4>
         <div class="">
-            <div class="flex justify-center flex-wrap">
+            <div class="flex flex-wrap justify-center">
                 <div class="w-auto me-4">
                     <div class="min-vh-40">
                         <h5>@Localizer["Available roles:"]</h5>
-                        <div class="input-checkbox my-2">
-                            <label for="checkbox">
-                                <input type="checkbox" class="peer" id="selectAllAvailableCheckbox" @bind="SelectAllAvailable" />
-                                <span>
-                                    <Operon.Icons.HeroIcon Icon="check" Type="Operon.Icons.IconType.Outline" Class="size-4" />
-                                </span>
-                            </label>
-                            <label for="selectAllAvailableCheckbox">@Localizer["Select all"]</label>
-                        </div>
+                        <BaseInput @bind-Value="SelectAllAvailable" Label="@Localizer["Select all"]" />
 
                         <div class="">
                             @if (AvailableRoles != null)
@@ -60,15 +49,7 @@
                                 <div class="p-2">
                                     @foreach (var role in AvailableRoles)
                                     {
-                                        <div class="input-checkbox">
-                                            <label for="@role.Role.Name">
-                                                <input type="checkbox" class="peer" id="@role.Role.Name" @bind="role.IsSelected" />
-                                                <span>
-                                                    <Operon.Icons.HeroIcon Icon="check" Type="Operon.Icons.IconType.Outline" Class="size-4" />
-                                                </span>
-                                            </label>
-                                            <label for="@role.Role.Name">@role.Role.Name</label>
-                                        </div>
+                                        <BaseInput @bind-Value="role.IsSelected" Label="@role.Role.Name" />
                                     }
                                 </div>
                             }
@@ -86,15 +67,7 @@
                 <div class="w-auto ms-4">
                     <div class="min-vh-40">
                         <h5>@Localizer["Assigned roles:"]</h5>
-                        <div class="input-checkbox my-2">
-                            <label for="checkbox">
-                                <input type="checkbox" class="peer" id="selectAllAssignedCheckbox" @bind="SelectAllAssigned" />
-                                <span>
-                                    <Operon.Icons.HeroIcon Icon="check" Type="Operon.Icons.IconType.Outline" Class="size-4" />
-                                </span>
-                            </label>
-                            <label for="selectAllAssignedCheckbox">@Localizer["Select all"]</label>
-                        </div>
+                        <BaseInput @bind-Value="SelectAllAssigned" Label="@Localizer["Select all"]" />
 
                         <div class="">
                             @if (AssignedRoles != null)
@@ -102,15 +75,7 @@
                                 <div class="p-2">
                                     @foreach (var role in AssignedRoles)
                                     {
-                                        <div class="input-checkbox">
-                                            <label for="@role.Role.Name">
-                                                <input type="checkbox" class="peer" id="@role.Role.Name" @bind="role.IsSelected" />
-                                                <span>
-                                                    <Operon.Icons.HeroIcon Icon="check" Type="Operon.Icons.IconType.Outline" Class="size-4" />
-                                                </span>
-                                            </label>
-                                            <label for="@role.Role.Name">@role.Role.Name</label>
-                                        </div>
+                                        <BaseInput @bind-Value="role.IsSelected" Label="@role.Role.Name" />
                                     }
                                 </div>
                             }
@@ -118,27 +83,27 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="btn btn-danger m-2" @onclick="() => _deleteModalOpen = !_deleteModalOpen">@Localizer["Delete"]</button>
+            <button type="button" class="btn btn-danger m-2" @onclick="() => _modalDelete.Toggle()">@Localizer["Delete"]</button>
         </div>
     </div>
 
-    <Modal @bind-Value="_deleteModalOpen">
-        <div class="card w-120">
-            <div class="flex mb-4">
-                <h2 class="text-xl font-bold">@Localizer["Delete group"]</h2>
-                <button class="cursor-pointer ms-auto my-auto" @onclick="() => _deleteModalOpen = false">
-                    <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
-                </button>
-            </div>
+    <Modal @ref="_modalDelete">
+        <div class="modal-header">
+            <h2 class="text-xl font-bold">@Localizer["Delete group"]</h2>
+            <button type="button" class="cursor-pointer ms-auto my-auto" @onclick="() => _modalDelete.CloseModal()">
+                <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
+            </button>
+        </div>
+        <div class="modal-body">
             <h6>@Localizer["Do you want to delete group"] @SelectedGroupN.Name?</h6>
-            <div class="ms-auto">
-                <button type="button" class="btn btn-secondary m-2" @onclick="() => _deleteModalOpen = false">@Localizer["Close"]</button>
-                <button type="button" class="btn btn-danger m-2" data-bs-dismiss="modal" @onclick="@(() => { _deleteModalOpen = false; DeleteGroup(SelectedGroupN); })">@Localizer["Delete"]</button>
-            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" @onclick="() => _modalDelete.CloseModal()">@Localizer["Close"]</button>
+            <button type="button" class="btn btn-danger m-2" @onclick="@(() => { _modalDelete.CloseModal(); DeleteGroup(SelectedGroupN); })">@Localizer["Delete"]</button>
         </div>
     </Modal>
 }
 
 @code {
-    private bool _deleteModalOpen = false;
+    private Modal _modalDelete { get; set; }
 }

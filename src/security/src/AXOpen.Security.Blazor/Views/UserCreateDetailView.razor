@@ -13,54 +13,42 @@
             <div>
                 <EditForm Model="@_model" OnValidSubmit="OnValidSubmit">
                     <DataAnnotationsValidator />
-                    <div class="input">
+                    <div class="input-group">
                         <label class="me-2">@Localizer["Username"]</label>
                         <InputText @bind-Value="_model.Username" />
                         <ValidationMessage For="@(() => _model.Username)" />
                     </div>
-                    <div class="input">
+                    <div class="input-group">
                         <label class="me-2">@Localizer["Password"]</label>
                         <InputText @bind-Value="_model.Password" type="password" />
                         <ValidationMessage For="@(() => _model.Password)" />
                     </div>
-                    <div class="input">
+                    <div class="input-group">
                         <label class="me-2">@Localizer["Confirm password"]</label>
                         <InputText @bind-Value="_model.ConfirmPassword" type="password" />
                         <ValidationMessage For="@(() => _model.ConfirmPassword)" />
                     </div>
 
-                    <div class="input-checkbox">
-                        <label for="checkBoxCanUserChangePassword">
-                            <InputCheckbox @bind-Value="_model.CanUserChangePassword" class="peer" type="checkbox" id="checkBoxCanUserChangePassword" />
-                            <span>
-                                <Operon.Icons.HeroIcon Icon="check" Type="Operon.Icons.IconType.Outline" Class="size-4" />
-                            </span>
-                        </label>
-                        <label for="checkBoxCanUserChangePassword">@Localizer["Can change password"]</label>
-                        <ValidationMessage For="@(() => _model.CanUserChangePassword)" />
+                    <div class="input-group">
+                        <input type="checkbox" id="checkBoxCanUserChangePassword" @bind="_model.CanUserChangePassword" />
+                        <label for="checkBoxCanUserChangePassword" class="ms-2">@Localizer["Can change password"]</label>
                     </div>
 
-                    <div class="input">
+                    <div class="input-group">
                         <label class="me-2">Email</label>
                         <InputText @bind-Value="_model.Email" type="email" />
                         <ValidationMessage For="@(() => _model.Email)" />
                     </div>
 
-                    <div class="input-checkbox">
-                        <label for="checkBoxEnableAutoLogOut">
-                            <InputCheckbox @bind-Value="_model.EnableAutoLogOut" class="peer" type="checkbox" id="checkBoxEnableAutoLogOut" />
-                            <span>
-                                <Operon.Icons.HeroIcon Icon="check" Type="Operon.Icons.IconType.Outline" Class="size-4" />
-                            </span>
-                        </label>
-                        <label for="checkBoxEnableAutoLogOut">@Localizer["Automatic Log Out"]</label>
-                        <ValidationMessage For="@(() => _model.EnableAutoLogOut)" />
+                    <div class="input-group">
+                        <input type="checkbox" id="checkBoxEnableAutoLogOut" @bind="_model.EnableAutoLogOut" />
+                        <label for="checkBoxEnableAutoLogOut" class="ms-2">@Localizer["Automatic Log Out"]</label>
                     </div>
 
                     <!-- Timeout (Hidden if EnableAutoLogOut is false) -->
                     @if (_model.EnableAutoLogOut)
                     {
-                        <div class="input">
+                        <div class="input-group">
                             <label class="me-2">[@Localizer["Minutes"]]</label>
                             <input type="number" @bind="_model.AutoLogOutTimeOutMinutes" id="checkAutoLogOutTimeOutMinutes" />
                             <ValidationMessage For="@(() => _model.AutoLogOutTimeOutMinutes)" />

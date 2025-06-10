@@ -143,48 +143,37 @@ namespace AXOpen.Data
             return DistributedVM.SendToPlc(this.SelectedEntity.DataEntityId);
         }
 
-        public int TotalCount // all symbols from query
+        public int Limit
         {
-            get => DistributedVM.FilteredCount;
+            set
+            {
+                DistributedVM.FilteredPageLimit = value;
+                DistributedVM.FillObservableRecordsAsync();
+            }
+            get
+            {
+                return DistributedVM.FilteredPageLimit;
+            }
         }
 
-        public int FilteredPage// displaing only selected page
+        public int Page
         {
-            get => DistributedVM.FilteredPage;
-            set => DistributedVM.FilteredPage = value;
+            set
+            {
+                DistributedVM.FilteredPage = value;
+                DistributedVM.FillObservableRecordsAsync();
+            }
+            get
+            {
+                return DistributedVM.FilteredPage;
+            }
         }
-        public int FilteredPageLimit // displaing only selected page
+
+        private async Task PageSizeAndSelectedChangedAsync(int pageSize, int selected)
         {
-            get => DistributedVM.FilteredPageLimit;
-            set => DistributedVM.FilteredPageLimit = value;
-        }
-
-        private int MaxPage =>
-       (int)(TotalCount % FilteredPageLimit == 0 ? TotalCount / FilteredPageLimit - 1 : TotalCount / FilteredPageLimit);
-
-        private async Task SetLimitAsync(int limit)
-        {
-            var oldLimit = FilteredPageLimit;
-            FilteredPageLimit = limit;
-
-            FilteredPage = FilteredPage * oldLimit / FilteredPageLimit;
-
+            DistributedVM.FilteredPageLimit = pageSize;
+            DistributedVM.FilteredPage = selected;
             await DistributedVM.FillObservableRecordsAsync();
         }
-
-        private async Task SetPageAsync(int page)
-        {
-            FilteredPage = page;
-            await DistributedVM.FillObservableRecordsAsync();
-        }
-
-        private int Modulo(int x, int m)
-        {
-            if (m == 0) return 0; // avoid exception caused by % 0
-            var r = x % m;
-            return r < 0 ? r + m : r;
-        }
-
-
     }
 }
