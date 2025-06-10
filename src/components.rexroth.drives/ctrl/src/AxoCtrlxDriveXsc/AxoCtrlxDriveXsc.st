@@ -5070,8 +5070,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 IF _State = UINT#0 THEN
                     Busy := TRUE;            
                     _State := UINT#240;
-                    Messenger.Activate(             UINT#1662, eAxoMessageCategory#ProgrammingError);
-                    MC_WriteDigitalOutputErrorID := WORD#1662;
                 END_IF;
                 IF _State = UINT#240 THEN
                     Busy := TRUE;            
@@ -5092,8 +5090,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#241;
                     END_IF;
                     IF  _ReadRecord.error THEN 
-                        Messenger.Activate(             UINT#1663, eAxoMessageCategory#ProgrammingError);
-                        MC_WriteDigitalOutputErrorID := WORD#1663;
+                        Messenger.Activate(             UINT#1662, eAxoMessageCategory#ProgrammingError);
+                        MC_WriteDigitalOutputErrorID := WORD#1662;
                         _State := UINT#249;
                     END_IF;
                 END_IF;
@@ -5128,8 +5126,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#244;
                     ElSIF _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data8);
-                        Messenger.Activate(         UINT#1664, eAxoMessageCategory#ProgrammingError);
-                        MC_WriteParameterErrorID := WORD#1664;
+                        Messenger.Activate(         UINT#1663, eAxoMessageCategory#ProgrammingError);
+                        MC_WriteParameterErrorID := WORD#1663;
                         _State := UINT#249;
                     END_IF;
                 END_IF;
