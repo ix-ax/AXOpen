@@ -3958,6 +3958,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         ELSE
                             _State := UINT#407;
                         END_IF;
+                    END_IF;
                 END_IF;    
                 IF _State = UINT#405 THEN
                     IF _infoTimer.output THEN
@@ -3968,7 +3969,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveEnable := TRUE;
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveOn := TRUE;
                     IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 AND _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
-                        _State := UINT#407;
+                        _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.SetAbsPositionFunction := FALSE;
+                        _State := UINT#405;
                     END_IF;
                 END_IF;   
                 IF _State = UINT#407 THEN
@@ -4018,9 +4020,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.SetAbsPositionFunction := FALSE;
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := FALSE;
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
-            _State := UINT#0;
+                _State := UINT#0;
             END_IF;
-            IF THIS.AxoSetPosition_Task.RestoreTriggered() AND _State>=UINT#20 AND _State<=UINT#59 THEN
+            IF THIS.AxoSetPosition_Task.RestoreTriggered() AND _State>=UINT#400 AND _State<=UINT#409 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
                 MC_SetPositionErrorID := WORD#0;
                 MC_SetPositionCycle := ULINT#0;     
@@ -4032,7 +4034,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             ErrorID := MC_SetPositionErrorID;
             MC_SetPositionExecute_PV := Execute;
-        END_METHOD
+         END_METHOD
 
         ///<summary>
         /// This method sets the values of override for the whole axis, and all functions that are working on that axis. The override
