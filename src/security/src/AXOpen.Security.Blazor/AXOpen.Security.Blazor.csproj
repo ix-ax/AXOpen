@@ -10,6 +10,7 @@
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="AXSharp.Abstractions" />
+    <PackageReference Include="Inxton.Operon" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" />
@@ -22,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <ProjectReference Include="..\..\..\..\..\..\..\operon\src\Operon\Operon.csproj" />
+    <!-- <ProjectReference Include="..\..\..\..\..\..\..\operon\src\Operon\Operon.csproj" /> -->
 	  <ProjectReference Include="..\AXOpen.Security\AXOpen.Security.csproj" />
   </ItemGroup>
 

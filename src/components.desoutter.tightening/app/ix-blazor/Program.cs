@@ -30,8 +30,9 @@ builder.Services.AddAxoCoreServices();
 
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
 Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
-Entry.Plc.Connector.ConcurrentRequestMaxCount = 4; 
-Entry.Plc.Connector.ConcurrentRequestDelay = 100;
+// Removed due to breaking change with concurrent requests in the current version of AXSharp.
+//Entry.Plc.Connector.ConcurrentRequestMaxCount = 4; 
+//Entry.Plc.Connector.ConcurrentRequestDelay = 100;
 Entry.Plc.Connector.ExceptionBehaviour = CommExceptionBehaviour.ReThrow;
 
 Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()

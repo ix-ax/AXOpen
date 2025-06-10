@@ -47,12 +47,12 @@ namespace AxoDataPersistentExchangeExample
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<Pocos.AxoDataPersistentExchangeExample.PersistentRootObject> OnlineToPlainAsync()
+        public async Task<Pocos.AxoDataPersistentExchangeExample.PersistentRootObject> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             Pocos.AxoDataPersistentExchangeExample.PersistentRootObject plain = new Pocos.AxoDataPersistentExchangeExample.PersistentRootObject();
             await this.ReadAsync<IgnoreOnPocoOperation>();
@@ -92,12 +92,12 @@ namespace AxoDataPersistentExchangeExample
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.AxoDataPersistentExchangeExample.PersistentRootObject plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.AxoDataPersistentExchangeExample.PersistentRootObject plain, eAccessPriority priority = eAccessPriority.Normal)
         {
             NotPersistentVariable.Cyclic = plain.NotPersistentVariable;
             PersistentVariable_1.Cyclic = plain.PersistentVariable_1;
@@ -275,12 +275,12 @@ namespace AxoDataPersistentExchangeExample
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<Pocos.AxoDataPersistentExchangeExample.ObjectWithPersistentMember> OnlineToPlainAsync()
+        public async Task<Pocos.AxoDataPersistentExchangeExample.ObjectWithPersistentMember> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             Pocos.AxoDataPersistentExchangeExample.ObjectWithPersistentMember plain = new Pocos.AxoDataPersistentExchangeExample.ObjectWithPersistentMember();
             await this.ReadAsync<IgnoreOnPocoOperation>();
@@ -314,12 +314,12 @@ namespace AxoDataPersistentExchangeExample
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.AxoDataPersistentExchangeExample.ObjectWithPersistentMember plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.AxoDataPersistentExchangeExample.ObjectWithPersistentMember plain, eAccessPriority priority = eAccessPriority.Normal)
         {
             NotPersistentVariable.Cyclic = plain.NotPersistentVariable;
 #pragma warning disable CS0612
@@ -561,12 +561,12 @@ namespace AxoDataPersistentExchangeExample
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async virtual Task<T> OnlineToPlain<T>()
+        public async virtual Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public async Task<Pocos.AxoDataPersistentExchangeExample.InitializedPrimitives> OnlineToPlainAsync()
+        public async Task<Pocos.AxoDataPersistentExchangeExample.InitializedPrimitives> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             Pocos.AxoDataPersistentExchangeExample.InitializedPrimitives plain = new Pocos.AxoDataPersistentExchangeExample.InitializedPrimitives();
             await this.ReadAsync<IgnoreOnPocoOperation>();
@@ -672,12 +672,12 @@ namespace AxoDataPersistentExchangeExample
             return plain;
         }
 
-        public async virtual Task PlainToOnline<T>(T plain)
+        public async virtual Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.AxoDataPersistentExchangeExample.InitializedPrimitives plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.AxoDataPersistentExchangeExample.InitializedPrimitives plain, eAccessPriority priority = eAccessPriority.Normal)
         {
             myBOOL.Cyclic = plain.myBOOL;
             myBYTE.Cyclic = plain.myBYTE;

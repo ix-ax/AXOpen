@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <ProjectReference Include="..\..\..\..\..\..\..\operon\src\Operon\Operon.csproj" />
+    <!-- <ProjectReference Include="..\..\..\..\..\..\..\operon\src\Operon\Operon.csproj" /> -->
 	  <ProjectReference Include="..\..\..\base\src\AXOpen.VisualComposer\AXOpen.VisualComposer.csproj" />
 	  <ProjectReference Include="..\AXOpen.Core\inxton_axopen_core.csproj" />
   </ItemGroup>

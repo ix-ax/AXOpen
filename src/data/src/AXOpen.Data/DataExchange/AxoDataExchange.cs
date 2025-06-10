@@ -232,13 +232,19 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
     private Stopwatch sw = new Stopwatch();
 
+
+    public eAccessPriority RemoteCreateAccessPriority { get; set; } = eAccessPriority.Low;
+    public eAccessPriority RemoteReadAccessPriority { get; set; } = eAccessPriority.Normal;
+    public eAccessPriority RemoteUpdateAccessPriority { get; set; } = eAccessPriority.Low;
+    public eAccessPriority RemoteCreateOrUpdateAccessPriority { get; set; } = eAccessPriority.Low;
+
     /// <inheritdoc />
     public async Task<bool> RemoteCreate(string identifier)
     {
         sw.Restart();
         //await Operation.ReadAsync();
         await DataEntity.DataEntityId.SetAsync(identifier);
-        var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>();
+        var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>(RemoteCreateAccessPriority);
         Repository.Create(identifier, cloned);
         sw.Stop();
         AxoApplication.Current.Logger.Information($"Record '{identifier}' created in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
@@ -253,7 +259,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
             sw.Restart();
             //await Operation.ReadAsync();
             var record = Repository.Read(identifier);
-            await ((ITwinObject)DataEntity).PlainToOnline(record);
+            await ((ITwinObject)DataEntity).PlainToOnline(record, RemoteReadAccessPriority);
             sw.Stop();
             AxoApplication.Current.Logger.Information($"Record '{identifier}' read from '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
             return true;
@@ -271,7 +277,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         //await Operation.ReadAsync();
         await DataEntity.DataEntityId.SetAsync(identifier);
 
-        var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>();
+        var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>(RemoteUpdateAccessPriority);
 
         cloned.Hash = HashHelper.CreateHash(cloned);
         Repository.Update(identifier, cloned);
@@ -311,7 +317,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         // await Operation.ReadAsync();
         await DataEntity.DataEntityId.SetAsync(identifier);
 
-        var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>();
+        var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>(RemoteCreateOrUpdateAccessPriority);
 
         cloned.Hash = HashHelper.CreateHash(cloned);
 

@@ -16,7 +16,7 @@ NAMESPACE AXOpen.Core
             BeforeStep : AxoStep;
             CurrentStep : AxoStep;
             AfterStep : AxoStep;
-            CollectDataTask : AxoRemoteTask;            
+            CollectDataTask : AxoRemoteTask;
         END_VAR   
         VAR PRIVATE
             _configurationFlowOrder : ULINT;   
@@ -27,12 +27,10 @@ NAMESPACE AXOpen.Core
             _closeCycleCounter : ULINT;  
             _refStep :  REF_TO AxoStep;       
             _microStep : UINT;   
-            _context        :   IAxoContext;         
+            _context        :   IAxoContext;
             _analyticsData : REF_TO ARRAY [*] OF AxoStepAnalytics;
             _analiticsCurrentIndex : DINT;
-        END_VAR     
-        
-
+                END_VAR 
         ///<summary>
         /// Sets the storage array for analytics data collection during sequence execution.
         ///</summary>
@@ -50,7 +48,7 @@ NAMESPACE AXOpen.Core
             _analyticsData := inDataCurrentRun;            
         END_METHOD
         
-        
+
         ///<summary>
         /// Updates the analytics data for the current step in the sequence.
         ///</summary>
@@ -92,8 +90,6 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC CollectAnalytics : IAxoTaskState           
             CollectAnalytics := THIS.CollectDataTask.Invoke();
         END_METHOD    
-
-        ///<summary>
         /// Opens sequencers operations.
         /// This method must be called prior to any other calls of this instance of 
         /// sequencer.
@@ -129,8 +125,9 @@ NAMESPACE AXOpen.Core
                         StepBackwardCommand.Run(THIS);
 
                     AxoCoordinatorStates#Configuring :
-                        THIS.OnBeforeSequenceStart();    
-                        _analiticsCurrentIndex := 0;                                        
+                        THIS.OnBeforeSequenceStart();
+                        CurrentOrder := ULINT#1;
+                        _analiticsCurrentIndex := 0;
                         _coordinatorState := AxoCoordinatorStates#Running;
                         _context.GetLogger().Log('Sequence in config state :', AXOpen.Logging.eLogLevel#Verbose, THIS);
                 END_CASE;    
@@ -268,8 +265,8 @@ NAMESPACE AXOpen.Core
                     _context.GetLogger().Log('Step done :', AXOpen.Logging.eLogLevel#Verbose, _step);
                     _step.DoneWhen(_step.IsBusy());
                     _step.SetIsActive(FALSE);
-                    THIS.UpdateAnalytics();
-                    CurrentOrder := CurrentOrder + ULINT#1;                                         
+                     THIS.UpdateAnalytics();
+                    CurrentOrder := CurrentOrder + ULINT#1;                                      
                     // Finalize the StepIn Command in a case of step mode
                     StepIn.DoneWhen(SteppingMode = eAxoSteppingMode#StepByStep);
                 END_IF;
@@ -296,7 +293,7 @@ NAMESPACE AXOpen.Core
                     _step.DoneWhen(_step.IsBusy());
                     _step.SetIsActive(FALSE);
                     THIS.UpdateAnalytics();
-                    CurrentOrder := RequestedStep.GetStepOrder();                    
+                    CurrentOrder := RequestedStep.GetStepOrder();
                     // Finalize the StepIn Command in a case of step mode
                     StepIn.DoneWhen(SteppingMode = eAxoSteppingMode#StepByStep);
                 END_IF;

@@ -7,7 +7,8 @@ NAMESPACE AXOpen.Core
             Order : ULINT;                      
             StepDescription : STRING[120];
             IsActive : BOOL;                        
-            IsEnabled : BOOL;                          
+            IsEnabled : BOOL;  
+            Analytics : AxoStepAnalytics;          
         END_VAR 
 
         VAR PROTECTED            
