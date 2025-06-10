@@ -3175,7 +3175,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#375;
                     END_IF;   
                 END_IF;
-                IF _State = UINT#175 THEN
+                IF _State = UINT#375 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#575, eAxoMessageCategory#Warning);
                         DriveStatus.Error.Id := UINT#575;
