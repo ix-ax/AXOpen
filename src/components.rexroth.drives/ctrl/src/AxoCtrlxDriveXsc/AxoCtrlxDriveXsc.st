@@ -4268,6 +4268,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Data.OverrideJerkFactor := JerkFactor;    
                     Enabled	:= TRUE;
                 END_IF;
+            ELSE  
+                _AxisReference^.Data.OverrideVelocityFactor := 1.0;  
+                _AxisReference^.Data.OverrideAccelerationFactor := 1.0;
+                _AxisReference^.Data.OverrideJerkFactor := 1.0;    
             END_IF;
         END_METHOD
 
