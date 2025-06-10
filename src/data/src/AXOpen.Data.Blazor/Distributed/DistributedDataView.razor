@@ -2,64 +2,49 @@
 @using System.Reflection
 @using Microsoft.AspNetCore.Components.Authorization
 
-@*  
-  icons : https://icon-sets.iconify.design/oi/ 
-  icons : https://icons.getbootstrap.com/ 
-*@   
 @if (IsNoActiveOperation())
 {
-
-    <div class="d-flex flex-row align-items-center gap-2 bg-info bg-opacity-10 border rounded p-1 mb-1">
+    <div class="flex flex-wrap simple-border">
 
         <h5>@Localizer["Global Actions:"]</h5>
-
 
         @if (EnableFiltering)
         {
             <AuthorizeView Roles="@DataExchangeRoleNames.can_data_filter_advanced">
                 <Authorized>
 
-                    <button class="btn @(AdvanceFilterConfig ? "btn-warning" : "btn-primary") btn-secondary" name="advanceConfig" @onclick="()=>{AdvanceFilterConfig = !AdvanceFilterConfig;}">
+                    <button class="btn @(AdvanceFilterConfig ? "btn-warning" : "btn-primary") btn-secondary" @onclick="()=>{AdvanceFilterConfig = !AdvanceFilterConfig;}">
                         @if (AdvanceFilterConfig)
                         {
-                            <span>
-                                <i class="bi bi-funnel-fill"></i>
-                                <span>@Localizer["Hide filter"]</span>
-                            </span>
+                            <span>@Localizer["Hide filter"]</span>
                         }
                         else
                         {
-                            <span>
-                                <i class="bi bi-funnel"></i>
-                                <span>@Localizer["Filter"]</span>
-                            </span>
+                            <span>@Localizer["Filter"]</span>
                         }
                     </button>
                 </Authorized>
             </AuthorizeView>
         }
 
-
         <button type="button" class="btn @(DistributedVM.EnableInjectLocalIds ? "btn-warning" : "btn-primary")"
                 @onclick="DistributedVM.TogleLocalEntityIdsInjection">
             @if (DistributedVM.EnableInjectLocalIds)
             {
 
-                <i class="bi bi-inboxes"></i>
                 <span>@Localizer["Do not concat query"]</span>
                 <span class="ms-2">@DistributedVM.TransmitedEntities.Count</span>
 
             }
             else
             {
-                <i class="bi bi-inbox"></i>
                 <span>@Localizer["Concat query"]</span>
             }
         </button>
 
         @if (DistributedVM.InjectedEntities != null && DistributedVM.InjectedEntities.Count > 0)
         {
-            <button type="button" class="btn @(DistributedVM.EnableInjectedExternalIds ? "btn-warning" : "btn-primary") px-1 py-1"
+            <button type="button" class="btn @(DistributedVM.EnableInjectedExternalIds ? "btn-warning" : "btn-primary")"
                     @onclick="() => DistributedVM.TogleExternalEntityIdsInjection()">
 
                 @if (DistributedVM.EnableInjectedExternalIds)
@@ -73,34 +58,8 @@
                 }
             </button>
         }
-
-
-        @*  @if (EnableExport)
-        {
-            <AuthorizeView Roles="@DataExchangeRoleNames.can_data_export">
-                <Authorized>
-                    <button type="button" class="btn btn-primary ms-2"
-                            @onclick='() => BtnOperation = "Export"'>
-                        @Localizer["Export"]
-                    </button>
-                </Authorized>
-            </AuthorizeView>
-
-            <AuthorizeView Roles="@DataExchangeRoleNames.can_data_import">
-                <Authorized>
-                    <button type="button" class="btn btn-primary ms-2"
-                            @onclick='() => BtnOperation = "Import"'>
-                        @Localizer["Import"]
-                    </button>
-                </Authorized>
-            </AuthorizeView>
-        } *@
-
-
     </div>
-
 }
-
 
 @if (IsAnyActiveOperation())
 {
@@ -110,9 +69,7 @@ else
 {
     @if (AdvanceFilterConfig)
     {
-        <div class="d-flex flex-row align-items-center gap-2 bg-warning bg-opacity-25 border rounded mb-1">
-            <AXOpen.Data.Query.DataExchangeQuery Exchange="@this.DistributedVM"></AXOpen.Data.Query.DataExchangeQuery>
-        </div>
+        <AXOpen.Data.Query.DataExchangeQuery Exchange="@this.DistributedVM"></AXOpen.Data.Query.DataExchangeQuery>
     }
 
 
@@ -124,19 +81,10 @@ else
     {
         if (DistributedVM.DisplayedExchanges != null)
         {
-            <ul class="nav nav-tabs mb-3">
+            <ul class="tab">
                 @foreach (var exchange in DistributedVM.DisplayedExchanges)
                 {
-                    <li class="nav-item">
-                        <button type="button"
-                                data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-custom-class="custom-tooltip"
-                                data-bs-title="@exchange.DataExchangeTwinObject.Symbol"
-                                class="nav-link fw-bold @((DistributedVM?.SelectedManagerVm?.Model == exchange) ? "active" : "")"
-                                @onclick="async () => {await DistributedVM.SelectManager(exchange);}">
-                            @exchange.PresentableInstanceName
-                        </button>
-                    </li>
+                    <button type="button" class="tab-item @(DistributedVM?.SelectedManagerVm?.Model == exchange ? "active" : null)" @onclick="async () => {await DistributedVM.SelectManager(exchange);}">@exchange.PresentableInstanceName</button>
                 }
             </ul>
         }

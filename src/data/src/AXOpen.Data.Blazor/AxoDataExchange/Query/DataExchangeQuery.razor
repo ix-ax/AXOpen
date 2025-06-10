@@ -3,15 +3,14 @@
 @using Operon.Components.Dropdown
 @namespace AXOpen.Data.Query
 
-<div class="flex p-0 m-1">
+<div class="flex flex-wrap flex-col">
 
-    <div class="flex flex-wrap items-center gap-2 mb-1">
+    <div class="flex flex-wrap flex-row items-center gap-2 mb-1">
 
         @if (FilteredSymbols.Count > 0)
         {
-            <button class="btn btn-secondary px-2 py-1"
+            <button class="btn btn-secondary"
                     type="button"
-                    style="width:100px;"
                     @onclick="AddAllDisplayedToQuery">
                 <Operon.Icons.HeroIcon Icon="funnel" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                 @Localizer["All"]
@@ -19,16 +18,13 @@
         }
         @if (FilteredSymbols.Count > 0)
         {
-            <button class="btn btn-secondary px-2 py-1" type="button" style="width:100px;" @onclick="ClearFilter">
+            <button class="btn btn-secondary" type="button" @onclick="ClearFilter">
                 <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                 @Localizer["Clean"]
             </button>
         }
 
-        <input id="filterText" @bind="SymbolsQueryFilter" @bind:event="oninput"
-               placeholder="Type symbol name here for filter..."
-               class="input"
-               title="Enter a symbol name to filter the results" />
+        <input type="text" class="input" @bind="SymbolsQueryFilter" @bind:event="oninput" placeholder="Type symbol name here for filter..." title="Enter a symbol name to filter the results" />
 
         @if (InjectedQueries.Count > 0)
         {
@@ -69,15 +65,15 @@
 
     @if (FilteredSymbols.Count > 0)
     {
-        <div class="card flex flex-wrap p-1 my-1">
+        <div class="card flex flex-wrap flex-col">
 
             @foreach (var symbol in GetDisplaySymbols())
             {
                 <p class="m-1">
-                    <button class="btn btn-secondary px-2 py-1" type="button" @onclick="() => AddSymbolToQuery(symbol)">
+                    <button class="btn btn-secondary" type="button" @onclick="() => AddSymbolToQuery(symbol)">
                         <Operon.Icons.HeroIcon Icon="funnel" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                     </button>
-                    <button class="btn btn-secondary px-2 py-1" type="button" @onclick="() => AddSymbolToSorting(symbol)">
+                    <button class="btn btn-secondary" type="button" @onclick="() => AddSymbolToSorting(symbol)">
                         <Operon.Icons.HeroIcon Icon="adjustments-vertical" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                     </button>
                     @symbol
@@ -91,7 +87,7 @@
     @if (CurrentQuery.Queries.Count() > 0)
     {
 
-        <div class="card p-1 my-1">
+        <div class="card">
             <div class="flex flex-wrap items-center gap-2">
                 <label>@Localizer["Query"]</label>
                 <div>
@@ -128,7 +124,7 @@
 
     @if (CurrentQuery.Sorting.Count > 0)
     {
-        <div class="card p-1 my-1">
+        <div class="card">
 
             <div class="flex flex-wrap items-center gap-2">
 
@@ -162,20 +158,15 @@
                                 <label for="sortSymbolName">
                                     @if (sortSymbol.IsAscending)
                                     {
-                                        <Operon.Icons.HeroIcon Icon="chevron-up" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                            <span class="ms-2">
-                                                @Localizer["Ascending"]
-                                            </span>
+                                        @Localizer["Ascending"]
                                     }
                                     else
                                     {
-                                        <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                            <span class="ms-2">
-                                                @Localizer["Descending"]
-                                            </span>
+                                        @Localizer["Descending"]
                                     }
                                 </label>
-                                <input id="sortSymbolName" type="checkbox" @bind="sortSymbol.IsAscending" class="form-check-input" />
+
+                                <BaseInput @bind-Value="sortSymbol.IsAscending" />
                             </div>
 
                         </div>
@@ -188,7 +179,7 @@
     }
 
 
-    <div class="card flex flex-wrap items-center gap-2 p-1 m-0">
+    <div class="card flex flex-wrap items-center gap-2">
 
         <label>@Localizer["Filter"]</label>
 
@@ -210,21 +201,20 @@
             </Dropdown>
         </div>
 
-        <BaseInput @bind-Value="CurrentQuery.Name" Placeholder="Type query name" title="Query name" />
+        <BaseInput @bind-Value="CurrentQuery.Name" Placeholder="Type query name" />
 
-        <button class="btn btn-secondary m-1 py-0" type="button" @onclick="async () => await UpdateQueryHistoryToStorage()" title="@Localizer["Save query"]">
+        <button class="btn btn-secondary" type="button" @onclick="async () => await UpdateQueryHistoryToStorage()" title="@Localizer["Save query"]">
             <Operon.Icons.HeroIcon Icon="folder" Type="Operon.Icons.IconType.Outline" Class="size-5" />
         </button>
 
 
-        <button class="btn btn-secondary m-1 py-0" type="button" @onclick="async () =>await RemoveItemFromHistory()"
-                data-bs-toggle="tooltip" title="@Localizer["Delete query"]">
+        <button class="btn btn-secondary" type="button" @onclick="async () =>await RemoveItemFromHistory()" title="@Localizer["Delete query"]">
             <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
         </button>
 
         @if (CurrentQuery.Queries.Count > 0)
         {
-            <button class="btn btn-primary m-1 px-5 py-0 flex items-center gap-2" type="button" @onclick="async () => await ExecuteFilter()">
+            <button class="btn btn-primary flex items-center gap-2" type="button" @onclick="async () => await ExecuteFilter()">
                 <Operon.Icons.HeroIcon Icon="magnifying-glass" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                 <span>@Localizer["Filter"]</span>
             </button>

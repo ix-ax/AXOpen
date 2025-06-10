@@ -1,11 +1,12 @@
 ﻿@namespace AXOpen.Inspectors
+@using Operon.Components.Accordion
 @inherits RenderableComponentBase;
 
 <div class="accordion my-3">
     <div class="accordion-item">
-            <button class="accordion-button @(_accordionOpen ? "accordion-button-active" : null)" type="button" @onclick="() => _accordionOpen = !_accordionOpen">
+            <button class="accordion-button @(_accordionOpen ? "active" : null)" type="button" @onclick="() => _accordionOpen = !_accordionOpen">
                 @Name
-                <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 accordion-button-icon " + (_accordionOpen ? "open" : null))" />
+                <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-auto my-auto icon-button-rotate " + (_accordionOpen ? "rotated" : null))" />
             </button>
         @if (_accordionOpen)
     {

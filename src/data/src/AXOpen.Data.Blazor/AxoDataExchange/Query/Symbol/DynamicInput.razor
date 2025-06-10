@@ -2,6 +2,7 @@
 @using System.ComponentModel;
 @using System.Globalization;
 @using Operon.Components
+@using Operon.Components.Pickers
 @namespace AXOpen.Data.Query
 
 @if (IsString)
@@ -14,39 +15,39 @@ else if (IsBool)
 }
 else if (IsInteger) 
 {
-    <input type="number" @bind="BoundInteger" @bind:event="oninput" class="input" min="@MinValueInteger" max="@MaxValueInteger" step="1" />
+    <BaseInput @bind-Value="BoundInteger" Min="@MinValueInteger.ToString()" Max="@MaxValueInteger.ToString()" Step="1" />
 }
 else if (IsUnsignedInteger)
 {
-    <input type="number" @bind="BoundUnsignedInteger" @bind:event="oninput" class="input" min="@MinValueUnsignedInteger" max="@MaxValueUnsignedInteger" step="1" />
+    <BaseInput @bind-Value="BoundUnsignedInteger" Min="@MinValueUnsignedInteger.ToString()" Max="@MaxValueUnsignedInteger.ToString()" Step="1" />
 }
 else if (IsFloatingPoint)
 {
-    <input type="number" @bind="BoundFloatingPoint" @bind:event="oninput" class="input" min="@MinValueFloatingNumber" max="@MaxValueFloatingNumber" step="any" />
+    <BaseInput @bind-Value="BoundFloatingPoint" Min="@MinValueFloatingNumber.ToString()" Max="@MaxValueFloatingNumber.ToString()" Step="any" />
 }
 else if (IsChar)
 {
-    <input type="text" maxlength="1" @bind="BoundChar" @bind:event="oninput" class="input" />
+    <BaseInput @bind-Value="BoundChar" />
 }
 else if (IsDateTime)
 {
-    <input type="datetime-local" @bind="BoundDateTime" @bind:event="oninput" class="input" min="@MinDateTime" max="@MaxDateTime" />
+    <DateTimePicker @bind-Value="BoundDateTime" />
 }
 else if (IsDateOnly)
 {
-    <input type="date" @bind="BoundDateOnly" @bind:event="oninput" class="input" min="@MinDate" max="@MaxDate" />
+    <DateOnlyPicker @bind-Value="BoundDateOnly" />
 }
 else if (IsTimeOnly)
 {
-    <input type="time" @bind="BoundTimeOnly" @bind:event="oninput" class="input" min="@MinTime" max="@MaxTime" />
+    <BaseInput @bind-Value="BoundTimeOnly" Min="@MinTime.ToString()" Max="@MaxTime.ToString()" />
 }
 else if (IsTimeSpan)
 {
-    <input type="text" placeholder="hh:mm:ss" @bind="BoundTimeSpan" @bind:event="oninput" class="input" />
+    <TimeSpanPicker @bind-Value="BoundTimeSpan" />
 }
 else if (IsEnum)
 {
-    <select @bind="BoundEnum" @bind:event="oninput" class="select">
+    <select @bind="BoundEnum" class="select min-w-6">
         @foreach (var option in EnumOptions)
         {
             <option value="@option">@option</option>
@@ -238,7 +239,7 @@ else
         }
     }
 
-    DateTime BoundDateTime
+    DateTime? BoundDateTime
     {
         get => Value is DateTime dt ? dt : DateTime.Now;
         set
@@ -248,7 +249,7 @@ else
         }
     }
 
-    DateOnly BoundDateOnly
+    DateOnly? BoundDateOnly
     {
         get => Value is DateOnly d ? d : DateOnly.FromDateTime(DateTime.Now);
         set
@@ -258,7 +259,7 @@ else
         }
     }
 
-    TimeOnly BoundTimeOnly
+    TimeOnly? BoundTimeOnly
     {
         get => Value is TimeOnly t ? t : TimeOnly.FromDateTime(DateTime.Now);
         set
@@ -268,7 +269,7 @@ else
         }
     }
 
-    TimeSpan BoundTimeSpan
+    TimeSpan? BoundTimeSpan
     {
         get => Value is TimeSpan ts ? ts : TimeSpan.Zero;
         set
