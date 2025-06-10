@@ -4619,7 +4619,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                     length      :=  UINT#4,
                                     record      :=  _data4);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
-                        _State := UINT#2451;
+                        _State := UINT#451;
                     ElSIF _WriteRecord.error THEN 
                         _WriteRecord(request := FALSE, record := _data4);
                         Messenger.Activate(             UINT#1621, eAxoMessageCategory#ProgrammingError);
