@@ -3953,10 +3953,24 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.SetAbsPositionFunction := TRUE;
                     IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InReference THEN
                         _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.SetAbsPositionFunction := FALSE;
-                        _State := UINT#405;
-                    END_IF;
+                        IF MC_SetPositionPowerStatusPV THEN
+                            _State := UINT#405;
+                        ELSE
+                            _State := UINT#407;
+                        END_IF;
                 END_IF;    
-
+                IF _State = UINT#405 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#605, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#605;
+                    END_IF; 
+                    Busy := TRUE;            
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveEnable := TRUE;
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveOn := TRUE;
+                    IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 AND _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
+                        _State := UINT#407;
+                    END_IF;
+                END_IF;   
                 IF _State = UINT#407 THEN
                     Done := TRUE;            
                     MC_SetPositionCycle := ULINT#0;     
