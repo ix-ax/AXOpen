@@ -2707,7 +2707,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;    
                 END_IF;                
                 IF _State = UINT#356 THEN
-                    IF TRUE THEN      
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#556, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#556;
+                    END_IF;                     
+                    IF _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill AND _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.InTargetPosition THEN      
                         _State := UINT#357;
                     END_IF;    
                 END_IF;
