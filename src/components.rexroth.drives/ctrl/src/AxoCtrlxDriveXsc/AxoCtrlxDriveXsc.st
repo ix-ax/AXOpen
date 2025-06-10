@@ -2629,7 +2629,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Active := TRUE;   
                     IF Velocity > 0 AND Acceleration > 0 AND Deceleration > 0 AND Jerk > 0 THEN
                         _AxisReference^.Outputs.CommandPosition_S_0_0282_0_0 := TO_DINT(Position * ScalingConstantRequiredPosition);
-                        _AxisReference^.Outputs.CommandVelocity_S_0_0259_0_0 :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
+                        _AxisReference^.Outputs.CommandVelocity_S_0_0259_0_0 :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity * _AxisReference^.Data.OverrideVelocityFactor);
                         _AxisReference^.Outputs.CommandAcceleration_S_0_0260_0_0 :=  TO_DINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
                         _AxisReference^.Outputs.CommandDecceleration_S_0_0359_0_0 :=  TO_DINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);                        
                         _AxisReference^.Outputs.CommandJerk_S_0_0193_0_0 :=  TO_DINT(Jerk *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideJerkFactor);                        
@@ -2862,7 +2862,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Active := TRUE;   
                     IF Velocity > 0 AND Acceleration > 0 AND Deceleration >0 AND Jerk > 0 THEN
                         _AxisReference^.Outputs.CommandPosition_S_0_0282_0_0 := TO_DINT(Distance * ScalingConstantRequiredPosition);
-                        _AxisReference^.Outputs.CommandVelocity_S_0_0259_0_0 :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
+                        _AxisReference^.Outputs.CommandVelocity_S_0_0259_0_0 :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity * _AxisReference^.Data.OverrideVelocityFactor);
                         _AxisReference^.Outputs.CommandAcceleration_S_0_0260_0_0 :=  TO_DINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
                         _AxisReference^.Outputs.CommandDecceleration_S_0_0359_0_0 :=  TO_DINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);                        
                         _AxisReference^.Outputs.CommandJerk_S_0_0193_0_0 :=  TO_DINT(Jerk *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideJerkFactor);                        
@@ -2970,7 +2970,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         MC_MoveRelativeJerk_PV          <>  Jerk ) THEN
                         IF TRUE THEN    
                             _AxisReference^.Outputs.CommandPosition_S_0_0282_0_0 := TO_DINT(Distance * ScalingConstantRequiredPosition);
-                            _AxisReference^.Outputs.CommandVelocity_S_0_0259_0_0 :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
+                            _AxisReference^.Outputs.CommandVelocity_S_0_0259_0_0 :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity * _AxisReference^.Data.OverrideVelocityFactor);
                             _AxisReference^.Outputs.CommandAcceleration_S_0_0260_0_0 :=  TO_DINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
                             _AxisReference^.Outputs.CommandDecceleration_S_0_0359_0_0 :=  TO_DINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);                        
                             _AxisReference^.Outputs.CommandJerk_S_0_0193_0_0 :=  TO_DINT(Jerk *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideJerkFactor);                        
@@ -3100,13 +3100,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         IF _AxisReference^.Status.CurrentMotionTaskId = eAxoMotionTaskId#Axo_MoveAbsolute THEN
                             AxoMoveAbsolute_Task.Abort();
                             _AxisReference^.Outputs.CommandPosition_S_0_0282_0_0 := TO_DINT((MC_MoveAbsolutePosition_PV + Distance) * ScalingConstantRequiredPosition);
-                            _AxisReference^.Outputs.CommandVelocity_S_0_0259_0_0 :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
+                            _AxisReference^.Outputs.CommandVelocity_S_0_0259_0_0 :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity * _AxisReference^.Data.OverrideVelocityFactor);
                             _AxisReference^.Outputs.CommandAcceleration_S_0_0260_0_0 :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
                             _AxisReference^.Outputs.CommandDecceleration_S_0_0359_0_0 :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);
                             _AxisReference^.Outputs.CommandJerk_S_0_0193_0_0 :=  TO_DINT(Jerk *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideJerkFactor);                        
                         ELSE
                             _AxisReference^.Outputs.CommandPosition_S_0_0282_0_0 := TO_DINT((Distance) * ScalingConstantRequiredPosition);
-                            _AxisReference^.Outputs.CommandVelocity_S_0_0259_0_0 :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
+                            _AxisReference^.Outputs.CommandVelocity_S_0_0259_0_0 :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity * _AxisReference^.Data.OverrideVelocityFactor);
                             _AxisReference^.Outputs.CommandAcceleration_S_0_0260_0_0 :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
                             _AxisReference^.Outputs.CommandDecceleration_S_0_0359_0_0 :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);
                             _AxisReference^.Outputs.CommandJerk_S_0_0193_0_0 :=  TO_DINT(Jerk *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideJerkFactor);                        
@@ -3222,7 +3222,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                             ELSE
                                 _AxisReference^.Outputs.CommandPosition_S_0_0282_0_0 := TO_DINT((Distance) * ScalingConstantRequiredPosition) - _AxisReference^.Inputs.ActualPosition_S_0_0386_0_0;
                             END_IF;
-                            _AxisReference^.Outputs.CommandVelocity_S_0_0259_0_0 :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
+                            _AxisReference^.Outputs.CommandVelocity_S_0_0259_0_0 :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity * _AxisReference^.Data.OverrideVelocityFactor);
                             _AxisReference^.Outputs.CommandAcceleration_S_0_0260_0_0 :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
                             _AxisReference^.Outputs.CommandDecceleration_S_0_0359_0_0 :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);
                             _AxisReference^.Outputs.CommandJerk_S_0_0193_0_0 :=  TO_UINT(Jerk * _AxisReference^.Data.OverrideAccelerationFactor);
@@ -4258,19 +4258,17 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             Messenger.ActivateOnCondition(ULINT#1572, Enable AND  (AccelerationFactor <= 0.0 OR  AccelerationFactor > 1.0), eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(ULINT#1573, Enable AND  (JerkFactor <= 0.0 OR JerkFactor > 1.0), eAxoMessageCategory#ProgrammingError);
 
-            // IF Enable THEN
-            //     Busy := TRUE;
-            //     IF VelocityFactor <= 0.0 OR  VelocityFactor >= 2.0 OR AccelerationFactor <= 0.0 OR  AccelerationFactor > 1.0 OR JerkFactor <= 0.0 OR  JerkFactor > 1.0 THEN
-            //         Error := TRUE;
-            //     ELSE             
-            //         _AxisReference^.Data.OverrideVelocityFactor := VelocityFactor;  
-            //         _AxisReference^.Data.OverrideAccelerationFactor := AccelerationFactor;
-            //         _AxisReference^.Data.OverrideJerkFactor := JerkFactor;    
-            //         _AxisReference^.Telegram111_Out.Override_ := TO_WORD(TO_INT(16384.0/VelocityFactor));
-            //         THIS.UpdateOutputs(AxisRef);         
-            //         Enabled	:= TRUE;
-            //     END_IF;
-            // END_IF;
+            IF Enable THEN
+                Busy := TRUE;
+                IF VelocityFactor <= 0.0 OR  VelocityFactor >= 2.0 OR AccelerationFactor <= 0.0 OR  AccelerationFactor > 1.0 OR JerkFactor <= 0.0 OR  JerkFactor > 1.0 THEN
+                    Error := TRUE;
+                ELSE             
+                    _AxisReference^.Data.OverrideVelocityFactor := VelocityFactor;  
+                    _AxisReference^.Data.OverrideAccelerationFactor := AccelerationFactor;
+                    _AxisReference^.Data.OverrideJerkFactor := JerkFactor;    
+                    Enabled	:= TRUE;
+                END_IF;
+            END_IF;
         END_METHOD
 
         ///<summary>
