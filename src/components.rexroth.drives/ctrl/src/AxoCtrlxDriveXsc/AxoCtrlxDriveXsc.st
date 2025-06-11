@@ -83,6 +83,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#_State#>"}
             _State                  :   UINT;
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Debug#>"}
+            Debug                  :   UINT;
         END_VAR
 
         VAR CONSTANT
@@ -3303,7 +3307,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
                 Dummy : BOOL;
                 Velocity_   :   LREAL;                     
-                Direction_  :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;                         
+                Direction_  :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;     
+                VelocityWindowPerCent     :   LREAL := LREAL#5.0;
+                VelocityWindowMin         :   LREAL;
+                VelocityWindowMax         :   LREAL;                                    
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -3390,6 +3397,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         MC_MoveVelocityJerk_PV          :=  Jerk;                      
                         MC_MoveVelocityDirection_PV     :=  Direction_;                                         
                         _State := UINT#381;
+                        Debug := Debug + UINT#1;
                     END_IF;
                 END_IF;
                 IF _State = UINT#381 THEN
@@ -3453,8 +3461,15 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#387;
                     END_IF;    
                 END_IF;
+                IF Direction_ = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection  THEN
+                    VelocityWindowMax := Velocity_ + (Velocity_ * VelocityWindowPerCent / REAL#100.0);
+                    VelocityWindowMin := Velocity_ - (Velocity_ * VelocityWindowPerCent / REAL#100.0);
+                ELSE
+                    VelocityWindowMax := Velocity_ - (Velocity_ * VelocityWindowPerCent / REAL#100.0);
+                    VelocityWindowMin := Velocity_ + (Velocity_ * VelocityWindowPerCent / REAL#100.0);
+                END_IF;
+                InVelocity := ActualVelocity >= VelocityWindowMin AND ActualVelocity <= VelocityWindowMax;                            
                 IF _State = UINT#387 THEN
-                    InVelocity := TRUE;            
                     MC_MoveVelocityCycle := ULINT#0;
                 END_IF;         
                 IF _State = UINT#388 THEN
@@ -3471,7 +3486,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     AxoMoveVelocity_Task.ThrowWhen(TRUE);          
                 END_IF;         
                 
-                IF _State>=UINT#380 AND _State<UINT#387 THEN
+                IF _State>=UINT#380 AND _State<=UINT#387 THEN
                     IF MC_MoveVelocityContinuousUpdate_SV AND (
                         MC_MoveVelocityVelocity_PV      <>  Velocity_ OR                  
                         MC_MoveVelocityAcceleration_PV  <>  Acceleration OR              
@@ -3479,6 +3494,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         MC_MoveVelocityJerk_PV          <>  Jerk OR                      
                         MC_MoveVelocityDirection_PV     <>  Direction_ ) THEN
                         IF TRUE THEN 
+                            _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ImmediateChange := TRUE;
                             _State := UINT#380;
                         END_IF;   
                     END_IF;                       
@@ -3500,15 +3516,15 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
             IF THIS.AxoMoveVelocity_Task.DoneReached() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
-                _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
-                _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
+                // _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
+                // _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
                 MC_MoveVelocityErrorID := WORD#0;
                 _State := UINT#0;
             END_IF;            
             IF THIS.AxoMoveVelocity_Task.RestoreTriggered() AND _State>=UINT#380 AND _State<=UINT#389 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-                _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
-                _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
+                // _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
+                // _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
                 MC_MoveVelocityErrorID := WORD#0;
                 _State := UINT#0;
                 MC_MoveVelocityCycle := ULINT#0;     
@@ -3565,8 +3581,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 PositiveDirection_      :   BOOL;
                 TorqueWindowPerCent     :   LREAL := LREAL#5.0;
                 TorqueWindowMin         :   LREAL;
-                TorqueWindowMax         :   LREAL;
-                
+                TorqueWindowMax         :   LREAL;                
             END_VAR
 
             _AxisReference ?= AxisRef;
@@ -3849,6 +3864,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#398;
                     END_IF;                  
                 END_IF;   
+            ELSE
+                InTorque := FALSE;
             END_IF;
 
             IF THIS.AxoTorqueControl_Task.DoneReached() THEN
