@@ -2615,9 +2615,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Busy := TRUE;            
                     Active := TRUE;          
                     MC_MoveAbsoluteErrorID := WORD#16#0000; 
-                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
-                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
-                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl:= FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive      := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative      := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl    := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AbsoluteRelative := FALSE;      
                     MC_MoveAbsoluteContinuousUpdate_SV := ContinuousUpdate;
                     _State := UINT#350;
@@ -2767,7 +2767,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _State := UINT#0;
             END_IF;
 
-            IF THIS.AxoMoveAbsolute_Task.RestoreTriggered() AND _State>=UINT#80 AND _State<=UINT#89 THEN
+            IF THIS.AxoMoveAbsolute_Task.RestoreTriggered() AND _State>=UINT#350 AND _State<=UINT#359 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
                 MC_MoveAbsoluteErrorID := WORD#0;
                 MC_MoveAbsoluteCycle := ULINT#0;     
@@ -2857,8 +2857,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 IF _State = UINT#360 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#550, eAxoMessageCategory#Warning);
-                        DriveStatus.Error.Id := UINT#550;
+                        TaskMessenger.Activate( UINT#560, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#560;
                     END_IF; 
                     Busy := TRUE;            
                     Active := TRUE;   
@@ -3513,6 +3513,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 THIS.CallTimers(TRUE,FALSE);
                 THIS.AxoMoveVelocity_Task.ThrowWhen(_errorTimer.output );
                 DriveStatus.Action.Id := _State; 
+            ELSE
+                InVelocity := FALSE;
             END_IF;
             IF THIS.AxoMoveVelocity_Task.DoneReached() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
@@ -5921,101 +5923,5 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _infoTimer.OnDelay(THIS, signal_1 , _infoTime);
             _errorTimer.OnDelay(THIS, signal_2 , _errorTime );
         END_METHOD
-        // VAR INTERNAL
-        //     ModeState                   :   UINT;
-        //     BipolarTorqueLimit_0        :   INT;
-        //     BipolarAccelerationLimit_0  :   LREAL; 
-        //     BipolarJerkLimit_0          :   LREAL; 
-        // END_VAR
-        // METHOD PRIVATE SwitchMode
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Execute : BOOL;
-        //         Mode : UINT; // 0 - Primary (Positioning), 1 Secondary (Torque)
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Done : BOOL;
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
-        //     END_VAR
-            
-        //     _AxisReference ?= AxisRef;
-
-        //     IF(_AxisReference = NULL) THEN
-        //         Messenger.Activate(     UINT#1740, eAxoMessageCategory#ProgrammingError);
-        //         DriveStatus.Error.Id := UINT#1740;
-        //         RETURN;
-        //     END_IF;
-
-        //     IF NOT Execute THEN
-        //         Done := FALSE;
-        //         ModeState := UINT#0;
-        //         RETURN;
-        //     END_IF;
-
-        //     IF  NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit0  AND 
-        //         NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1  AND 
-        //         NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2  AND 
-        //         Mode = UINT#0 AND
-        //         ModeState = UINT#0 THEN
-        //         ModeState := UINT#1000;
-        //     END_IF;
-        //     IF  NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit0  AND 
-        //         NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1  AND 
-        //         NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2  AND 
-        //         Mode = UINT#1 AND
-        //         ModeState = UINT#0 THEN
-        //         ModeState := UINT#10;
-        //     END_IF;
-        //     IF ModeState = UINT#10 THEN
-        //         BipolarTorqueLimit_0 := _AxisReference^.Outputs.BipolarTorqueLimitation_S_0_0092_0_0;
-        //         ModeState := UINT#11;
-        //     END_IF;
-        //     IF ModeState = UINT#11 THEN
-        //         IF _infoTimer.output THEN
-        //             TaskMessenger.Activate( UINT#1011, eAxoMessageCategory#Warning);
-        //             DriveStatus.Error.Id := UINT#1011;
-        //         END_IF;
-        //         _ReadRecord(    request     :=  TRUE,
-        //                         id          :=  _HW_S_0_0134_0_0,
-        //                         index       :=  DINT#138,
-        //                         maxLength   :=  UINT#4,
-        //                         record      :=  _data4);
-        //         IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
-        //             _dword.%B0   :=  _data4[0];
-        //             _dword.%B1   :=  _data4[1];
-        //             _dword.%B2   :=  _data4[2];
-        //             _dword.%B3   :=  _data4[3];
-        //             MC_ReadParameterValue :=TO_LINT(_dword);                        
-        //             _State := UINT#12;
-        //         END_IF;
-        //         IF _ReadRecord.error THEN 
-        //             _ReadRecord(request := FALSE, record := _data4);
-        //             Messenger.Activate(         UINT#1581, eAxoMessageCategory#ProgrammingError);
-        //             MC_ReadParameterErrorID :=  WORD#1581;
-        //             _State := UINT#19;
-        //         END_IF;                    
-        //     END_IF;
-        //     IF _State = UINT#12 THEN
-        //         IF _infoTimer.output THEN
-        //             TaskMessenger.Activate( UINT#1012, eAxoMessageCategory#Warning);
-        //             DriveStatus.Error.Id := UINT#1012;
-        //         END_IF;                    
-        //         Busy := TRUE;            
-        //         _ReadRecord(request := FALSE, record := _data8);
-        //         IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
-        //             _State := UINT#410;
-        //         END_IF;
-        //     END_IF;
-        //     IF _State = UINT#419 THEN
-        //         Error := TRUE;    
-        //     END_IF;   
-
-        //     IF ModeState = UINT#1000 THEN
-        //         Done := TRUE;
-        //     END_IF;
-
-        // END_METHOD 
     END_CLASS
 END_NAMESPACE
