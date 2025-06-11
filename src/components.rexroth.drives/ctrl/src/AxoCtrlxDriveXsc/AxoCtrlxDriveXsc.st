@@ -3668,21 +3668,19 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;                    
                     Busy := TRUE;            
                     Active := TRUE;          
-                    _dword :=  TO_DWORD(TO_DINT(TorqueRamp));
-                    _data4[0] := _dword.%B0;
-                    _data4[1] := _dword.%B1;
-                    _data4[2] := _dword.%B2;
-                    _data4[3] := _dword.%B3;
+                    _word :=  TO_WORD(TO_INT(TorqueRamp));
+                    _data2[0] := _word.%B0;
+                    _data2[1] := _word.%B1;
                     _WriteRecord(   request     :=  TRUE,
                                     id          :=  _HW_S_0_0134_0_0,
                                     index       :=  DINT#822,
-                                    length      :=  UINT#4,
-                                    record      :=  _data4);
+                                    length      :=  UINT#2,
+                                    record      :=  _data2);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
-                        _WriteRecord(request := FALSE, record := _data4);
+                        _WriteRecord(request := FALSE, record := _data2);
                         _State := UINT#392;
                     ElSIF _WriteRecord.error THEN 
-                        _WriteRecord(request := FALSE, record := _data4);
+                        _WriteRecord(request := FALSE, record := _data2);
                         Messenger.Activate(             UINT#1540, eAxoMessageCategory#ProgrammingError);
                         MC_WriteRealParameterErrorID := WORD#1540;
                         _State := UINT#399;
@@ -3696,21 +3694,19 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;                    
                     Busy := TRUE;            
                     Active := TRUE;          
-                    _dword :=  TO_DWORD(TO_DINT(REAL#1.0));
-                    _data4[0] := _dword.%B0;
-                    _data4[1] := _dword.%B1;
-                    _data4[2] := _dword.%B2;
-                    _data4[3] := _dword.%B3;
+                    _word :=  TO_WORD(TO_INT(REAL#1.0));
+                    _data2[0] := _word.%B0;
+                    _data2[1] := _word.%B1;
                     _WriteRecord(   request     :=  TRUE,
                                     id          :=  _HW_S_0_0134_0_0,
                                     index       :=  DINT#823,
-                                    length      :=  UINT#4,
-                                    record      :=  _data4);
+                                    length      :=  UINT#2,
+                                    record      :=  _data2);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
-                        _WriteRecord(request := FALSE, record := _data4);
+                        _WriteRecord(request := FALSE, record := _data2);
                         _State := UINT#393;
                     ElSIF _WriteRecord.error THEN 
-                        _WriteRecord(request := FALSE, record := _data4);
+                        _WriteRecord(request := FALSE, record := _data2);
                         Messenger.Activate(             UINT#1541, eAxoMessageCategory#ProgrammingError);
                         MC_WriteRealParameterErrorID := WORD#1541;
                         _State := UINT#399;
