@@ -3439,7 +3439,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := TRUE;
                     END_IF;
 
-                    IF  NOT _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill THEN
+                    IF  NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InStandstill THEN
                         _State := UINT#385;
                     END_IF;
                 END_IF;               
