@@ -3359,9 +3359,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := FALSE;
                     // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveEnable := FALSE;
                     // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveOn := FALSE;
-
                     // _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := FALSE;
-                    // _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CommandValueReferenceWhenOperationModeActivated := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AbsoluteRelative := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ImmediateChange := FALSE;
@@ -3562,10 +3560,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 ErrorID         :   WORD;                       //  Error identification             
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
-                Dummy : BOOL;
-                Torque_          :   LREAL;
-                PositiveDirection_  : BOOL;
+                _AxisReference          :   REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+                Torque_                 :   LREAL;
+                PositiveDirection_      :   BOOL;
+                TorqueWindowPerCent     :   LREAL := LREAL#5.0;
+                TorqueWindowMin         :   LREAL;
+                TorqueWindowMax         :   LREAL;
+                
             END_VAR
 
             _AxisReference ?= AxisRef;
@@ -3597,212 +3598,275 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_TorqueControl;
             END_IF;
 
-            // IF Execute AND NOT MC_TorqueControlExecute_PV AND _State = UINT#0 THEN
-            //     _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle + ULINT#2;
-            //     MC_TorqueControlCycle := _AxisReference^.Data.Cycle ;
-            // END_IF;
+            IF Execute AND NOT MC_TorqueControlExecute_PV AND _State = UINT#0 THEN
+                _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle + ULINT#2;
+                MC_TorqueControlCycle := _AxisReference^.Data.Cycle ;
+            END_IF;
 
-            // IF Execute THEN 	
-            //     IF NOT ContinuousUpdate THEN
-            //         MC_TorqueControlContinuousUpdate_SV := FALSE;
-            //     END_IF;
+            IF Execute THEN 	
+                IF NOT ContinuousUpdate THEN
+                    MC_TorqueControlContinuousUpdate_SV := FALSE;
+                END_IF;
 
-            //     IF _State = UINT#0 THEN
-            //         Busy := TRUE;            
-            //         Active := TRUE;          
-            //         MC_TorqueControlErrorID := WORD#16#0000;
-            //         _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
-            //         _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
-            //         _AxisReference^.Telegram111_Out.POS_STW1.PosModulo := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.NegModulo := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.SetupMode := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.MDI_Activate := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW2.Trackingmode := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW2.jog_inc := FALSE;   
-            //         _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit0 := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit1 := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit2 := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit3 := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit4 := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit5 := FALSE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit6 := FALSE;    
-            //         _AxisReference^.Telegram111_Out.STW2.TravelToFixStop := FALSE;
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         MC_TorqueControlContinuousUpdate_SV := ContinuousUpdate;
-            //         IF Velocity > 0 AND Acceleration > 0 AND Deceleration > 0 AND Jerk > 0 AND Torque <> 0 AND TorqueRamp > 0 THEN
-            //             _AxisReference^.Telegram111_Out.MDI_TARPOS :=  TO_DINT(PositionLimit * ScalingConstantRequiredPosition);
-            //             _AxisReference^.Telegram111_Out.MDI_VELOCITY :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
-            //             _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
-            //             _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);                     
+                IF _State = UINT#0 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    MC_TorqueControlErrorID := WORD#16#0000;
+                    // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := FALSE;
+                    // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveEnable := FALSE;
+                    // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveOn := FALSE;
+                    // _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AbsoluteRelative := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ImmediateChange := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.SwitchToCM := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.SwitchTo0M := TRUE;
+                    // _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := FALSE;
+                    // _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.SetAbsPositionFunction := FALSE;                    
+                    MC_TorqueControlContinuousUpdate_SV := ContinuousUpdate;
+                    _State := UINT#390;
+                END_IF;
+                IF _State = UINT#390 THEN
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    IF Velocity > 0 AND Acceleration > 0 AND Deceleration > 0 AND Jerk > 0 AND Torque <> 0 AND TorqueRamp > 0 THEN
+                        _AxisReference^.Outputs.CommandPosition_S_0_0282_0_0        :=  TO_DINT(PositionLimit   * ScalingConstantRequiredPosition);
+                        _AxisReference^.Outputs.CommandVelocity_S_0_0259_0_0        :=  TO_DINT(Velocity        *   ScalingConstantRequiredVelocity     *   _AxisReference^.Data.OverrideVelocityFactor);
+                        _AxisReference^.Outputs.CommandAcceleration_S_0_0260_0_0    :=  TO_DINT(Acceleration    *   ScalingConstantRequiredAcceleration *   _AxisReference^.Data.OverrideAccelerationFactor);
+                        _AxisReference^.Outputs.CommandDecceleration_S_0_0359_0_0   :=  TO_DINT(Deceleration    *   ScalingConstantRequiredDeceleration *   _AxisReference^.Data.OverrideAccelerationFactor);
+                        _AxisReference^.Outputs.CommandJerk_S_0_0193_0_0            :=  TO_DINT(Jerk            *   ScalingConstantRequiredAcceleration *   _AxisReference^.Data.OverrideAccelerationFactor);
 
-            //             MC_TorqueControlPositionLimit_PV :=  PositionLimit;                  
-            //             MC_TorqueControlVelocity_PV      :=  Velocity;                  
-            //             MC_TorqueControlAcceleration_PV  :=  Acceleration;              
-            //             MC_TorqueControlDeceleration_PV  :=  Deceleration;              
-            //             MC_TorqueControlJerk_PV          :=  Jerk;                      
-            //             MC_TorqueControlDirection_PV     :=  Direction;                                         
-            //             MC_TorqueControlTorque_PV        :=  Torque;                      
-            //             MC_TorqueControlTorqueRamp_PV    :=  TorqueRamp;          
-            //             _State := UINT#120;
-            //         END_IF;
-            //     END_IF;
-            //     IF _State = UINT#120 THEN
-            //         Busy := TRUE;            
-            //         Active := TRUE;   
-            //         IF PositiveDirection_ AND THIS.ActualPosition >= MC_TorqueControlPositionLimit_PV THEN
-            //             _State := UINT#129;
-            //             Messenger.Activate(         UINT#1538, eAxoMessageCategory#ProgrammingError);
-            //             MC_TorqueControlErrorID :=  WORD#1538;
-            //         ELSIF NOT PositiveDirection_ AND THIS.ActualPosition <= MC_TorqueControlPositionLimit_PV THEN
-            //             _State := UINT#129;
-            //             Messenger.Activate(         UINT#1539, eAxoMessageCategory#ProgrammingError);
-            //             MC_TorqueControlErrorID :=  WORD#1539;
-            //         ELSE
-            //             _State := UINT#121;
-            //         END_IF;
-            //     END_IF;
-            //     //Writing PNU 12168 Clamping torque
-            //     IF _State = UINT#121 THEN
-            //         Busy := TRUE;            
-            //         Active := TRUE;          
-            //         Parametrization.Inputs.Enable := TRUE;
-            //         Parametrization.Inputs.ReadWrite   := TRUE;
-            //         Parametrization.Inputs.ParameterNo := 12168;
-            //         Parametrization.Inputs.Subindex    := 0;
-            //         Parametrization.Inputs.AxisNo  := BYTE#1;
-            //         Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-            //         Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_TorqueControlTorque_PV * ScalingConstantRequiredTorque);
-            //         IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
-            //             _State := UINT#122;
-            //         END_IF;
-            //         IF Parametrization.Outputs.Error THEN 
-            //             Messenger.Activate(         UINT#1540, eAxoMessageCategory#ProgrammingError);
-            //             MC_TorqueControlErrorID :=  WORD#1540;
-            //             _State := UINT#129;
-            //         END_IF;
-            //     END_IF;
-            //     IF _State = UINT#122 THEN
-            //         Busy := TRUE;            
-            //         Active := TRUE;          
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         Parametrization.Inputs.ReadWrite   := FALSE;
-            //         IF  NOT Parametrization.Outputs.Done THEN
-            //             _State := UINT#123;
-            //         END_IF;
-            //     END_IF;               
-            //     //Writing PNU 12327 Jerk
-            //     IF _State = UINT#123 THEN
-            //         Busy := TRUE;            
-            //         Active := TRUE;          
-            //         Parametrization.Inputs.Enable := TRUE;
-            //         Parametrization.Inputs.ReadWrite   := TRUE;
-            //         Parametrization.Inputs.ParameterNo := 12327;
-            //         Parametrization.Inputs.Subindex    := 0;
-            //         Parametrization.Inputs.AxisNo  := BYTE#1;
-            //         Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-            //         Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_TorqueControlJerk_PV * _AxisReference^.Data.OverrideJerkFactor);
-            //         IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
-            //             _State := UINT#124;
-            //         END_IF;
-            //         IF Parametrization.Outputs.Error THEN 
-            //             Messenger.Activate(         UINT#1541, eAxoMessageCategory#ProgrammingError);
-            //             MC_TorqueControlErrorID :=  WORD#1541;
-            //             _State := UINT#129;
-            //         END_IF;
-            //     END_IF;
-            //     IF _State = UINT#124 THEN
-            //         Busy := TRUE;            
-            //         Active := TRUE;          
-            //         Parametrization.Inputs.Enable := FALSE;
-            //         Parametrization.Inputs.ReadWrite   := FALSE;
-            //         IF  NOT Parametrization.Outputs.Done THEN
-            //             _State := UINT#125;
-            //         END_IF;
-            //     END_IF;               
-            //     //Executing movement
-            //     IF _State = UINT#125 THEN
-            //         Busy := TRUE;            
-            //         Active := TRUE;          
-            //         _AxisReference^.Telegram111_Out.POS_STW1.MDI_Activate := TRUE;
-            //         _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
-            //         _AxisReference^.Telegram111_Out.POS_STW1.SetupMode := FALSE;
-            //         _AxisReference^.Telegram111_Out.STW2.TravelToFixStop := TRUE;
-            //         _AxisReference^.Telegram111_Out.STW1.activateTraversing := TRUE;     
-   
-            //         IF _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated THEN      
-            //             _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE;        
-            //             _State := UINT#126;
-            //         END_IF;    
-            //     END_IF;
-            //     IF _State = UINT#126 THEN
-            //         InTorque :=  _AxisReference^.Telegram111_In.POS_ZSW2.%X13;            
-            //         IF NOT MC_TorqueControlContinuousUpdate_SV THEN      
-            //             _State := UINT#127;
-            //         END_IF;    
-            //     END_IF;
-            //     IF _State = UINT#127 THEN
-            //         InTorque :=  _AxisReference^.Telegram111_In.POS_ZSW2.%X13;            
-            //         MC_TorqueControlCycle := ULINT#0;     
-            //     END_IF;         
-            //     IF _State = UINT#128 THEN
-            //         CommandAborted := TRUE;            
-            //     END_IF;         
-            //     IF _State = UINT#129 THEN
-            //         MC_TorqueControlCycle := ULINT#0;     
-            //         Error := TRUE;    
-            //     END_IF;         
+                        MC_TorqueControlPositionLimit_PV :=  PositionLimit;                  
+                        MC_TorqueControlVelocity_PV      :=  Velocity;                  
+                        MC_TorqueControlAcceleration_PV  :=  Acceleration;              
+                        MC_TorqueControlDeceleration_PV  :=  Deceleration;              
+                        MC_TorqueControlJerk_PV          :=  Jerk;                      
+                        MC_TorqueControlDirection_PV     :=  Direction;                                         
+                        MC_TorqueControlTorque_PV        :=  Torque;                      
+                        MC_TorqueControlTorqueRamp_PV    :=  TorqueRamp;    
+                        IF PositiveDirection_ AND THIS.ActualPosition >= MC_TorqueControlPositionLimit_PV THEN
+                            _State := UINT#399;
+                            Messenger.Activate(         UINT#1538, eAxoMessageCategory#ProgrammingError);
+                            MC_TorqueControlErrorID :=  WORD#1538;
+                        ELSIF NOT PositiveDirection_ AND THIS.ActualPosition <= MC_TorqueControlPositionLimit_PV THEN
+                            _State := UINT#399;
+                            Messenger.Activate(         UINT#1539, eAxoMessageCategory#ProgrammingError);
+                            MC_TorqueControlErrorID :=  WORD#1539;
+                        ELSE
+                            _State := UINT#391;
+                        END_IF;                              
+                    END_IF;                    
+                END_IF;
+                //Writing Torque/force control: Ramp value (0x2838:01 / S-0-0822 / --)
+                IF _State = UINT#391 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#591, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#591;
+                    END_IF;                    
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    _dword :=  TO_DWORD(TO_DINT(TorqueRamp));
+                    _data4[0] := _dword.%B0;
+                    _data4[1] := _dword.%B1;
+                    _data4[2] := _dword.%B2;
+                    _data4[3] := _dword.%B3;
+                    _WriteRecord(   request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#822,
+                                    length      :=  UINT#4,
+                                    record      :=  _data4);
+                    IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
+                        _WriteRecord(request := FALSE, record := _data4);
+                        _State := UINT#392;
+                    ElSIF _WriteRecord.error THEN 
+                        _WriteRecord(request := FALSE, record := _data4);
+                        Messenger.Activate(             UINT#1540, eAxoMessageCategory#ProgrammingError);
+                        MC_WriteRealParameterErrorID := WORD#1540;
+                        _State := UINT#399;
+                    END_IF;
+                END_IF;
+                //Writing Torque/force control: Ramp time (0x2838:02 / S-0-0823 / --)
+                IF _State = UINT#392 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#592, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#592;
+                    END_IF;                    
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    _dword :=  TO_DWORD(TO_DINT(REAL#1.0));
+                    _data4[0] := _dword.%B0;
+                    _data4[1] := _dword.%B1;
+                    _data4[2] := _dword.%B2;
+                    _data4[3] := _dword.%B3;
+                    _WriteRecord(   request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#823,
+                                    length      :=  UINT#4,
+                                    record      :=  _data4);
+                    IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
+                        _WriteRecord(request := FALSE, record := _data4);
+                        _State := UINT#393;
+                    ElSIF _WriteRecord.error THEN 
+                        _WriteRecord(request := FALSE, record := _data4);
+                        Messenger.Activate(             UINT#1541, eAxoMessageCategory#ProgrammingError);
+                        MC_WriteRealParameterErrorID := WORD#1541;
+                        _State := UINT#399;
+                    END_IF;
+                END_IF;
+                //Writing Torque/force control: High velocity limit value (0x60C9:00 / P-0-0421.0.3 / P-0-2249)
+                IF _State = UINT#393 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#593, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#593;
+                    END_IF;                    
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    _dword :=  TO_DWORD(TO_DINT(ABS(Velocity) * ScalingConstantRequiredVelocity * AxoSetOverride_VelFactor));
+                    _data4[0] := _dword.%B0;
+                    _data4[1] := _dword.%B1;
+                    _data4[2] := _dword.%B2;
+                    _data4[3] := _dword.%B3;
+                    _WriteRecord(   request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#6345,
+                                    length      :=  UINT#4,
+                                    record      :=  _data4);
+                    IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
+                        _WriteRecord(request := FALSE, record := _data4);
+                        _State := UINT#394;
+                    ElSIF _WriteRecord.error THEN 
+                        _WriteRecord(request := FALSE, record := _data4);
+                        Messenger.Activate(             UINT#1542, eAxoMessageCategory#ProgrammingError);
+                        MC_WriteRealParameterErrorID := WORD#1542;
+                        _State := UINT#399;
+                    END_IF;
+                END_IF;       
+                //Torque/force control: Low velocity limit value (0x60C8:00 / P-0-0421.0.4 / P-0-2250)
+                IF _State = UINT#394 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#594, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#594;
+                    END_IF;                    
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    _dword :=  TO_DWORD(TO_DINT(-1.0 * ABS(Velocity) * ScalingConstantRequiredVelocity * AxoSetOverride_VelFactor));
+                    _data4[0] := _dword.%B0;
+                    _data4[1] := _dword.%B1;
+                    _data4[2] := _dword.%B2;
+                    _data4[3] := _dword.%B3;
+                    _WriteRecord(   request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#6346,
+                                    length      :=  UINT#4,
+                                    record      :=  _data4);
+                    IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
+                        _WriteRecord(request := FALSE, record := _data4);
+                        _State := UINT#395;
+                    ElSIF _WriteRecord.error THEN 
+                        _WriteRecord(request := FALSE, record := _data4);
+                        Messenger.Activate(             UINT#1543, eAxoMessageCategory#ProgrammingError);
+                        MC_WriteRealParameterErrorID := WORD#1543;
+                        _State := UINT#399;
+                    END_IF;
+                END_IF;                            
+                //Executing movement
+                IF _State = UINT#395 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#595, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#595;
+                    END_IF;                         
+                    Busy := TRUE;            
+                    Active := TRUE;          
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := TRUE;
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit0 := TRUE;
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit1 := FALSE;
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.CommandOperationModeBit2 := FALSE;
+                    IF      _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit0 AND
+                        NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1 AND
+                        NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2 THEN
+                        _State := UINT#396;
+                    END_IF; 
+                END_IF;
+                IF PositiveDirection_  THEN
+                    TorqueWindowMax := Torque_ + (Torque_ * TorqueWindowPerCent / REAL#100.0);
+                    TorqueWindowMin := Torque_ - (Torque_ * TorqueWindowPerCent / REAL#100.0);
+                ELSE
+                    TorqueWindowMax := Torque_ - (Torque_ * TorqueWindowPerCent / REAL#100.0);
+                    TorqueWindowMin := Torque_ + (Torque_ * TorqueWindowPerCent / REAL#100.0);
+                END_IF;
+                InTorque := ActualTorque >= TorqueWindowMin AND ActualTorque <= TorqueWindowMax;            
+                IF _State = UINT#396 THEN
+                    IF NOT MC_TorqueControlContinuousUpdate_SV THEN      
+                        _State := UINT#397;
+                    END_IF;    
+                END_IF;
+                IF _State = UINT#397 THEN
+                    MC_TorqueControlCycle := ULINT#0;     
+                END_IF;         
+                IF _State = UINT#398 THEN
+                    CommandAborted := TRUE;            
+                    AxoTorqueControl_Task.Abort();          
+                END_IF;         
+                IF _State = UINT#399 THEN
+                    MC_TorqueControlCycle := ULINT#0;     
+                    Error := TRUE;    
+                    AxoTorqueControl_Task.ThrowWhen(TRUE);          
+                END_IF;         
 
-            //     IF (_State=UINT#126 OR _State = UINT#127) AND _AxisReference^.Telegram111_In.ZSW1.targetPosReached THEN
-            //         Messenger.Activate(         UINT#1542, eAxoMessageCategory#ProgrammingError);
-            //         MC_TorqueControlErrorID :=  WORD#1542;
-            //         _State := UINT#129;
-            //     END_IF;
+                IF (_State>=UINT#395 AND _State <= UINT#397) THEN
+                    IF  (    PositiveDirection_ AND ActualPosition > PositionLimit) OR
+                        (NOT PositiveDirection_ AND ActualPosition < PositionLimit) THEN
+                        Messenger.Activate(         UINT#1542, eAxoMessageCategory#ProgrammingError);
+                        MC_TorqueControlErrorID :=  WORD#1542;
+                        _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := FALSE;
+                        _State := UINT#399;
+                    END_IF;
+                END_IF;
                 
-            //     IF _State>=UINT#120 AND _State<UINT#127 THEN
-            //         IF MC_TorqueControlContinuousUpdate_SV AND (
-            //             MC_TorqueControlTorque_PV        <>  Torque OR                  
-            //             MC_TorqueControlTorqueRamp_PV    <>  TorqueRamp OR                  
-            //             MC_TorqueControlPositionLimit_PV <>  PositionLimit OR                  
-            //             MC_TorqueControlVelocity_PV      <>  Velocity OR                  
-            //             MC_TorqueControlAcceleration_PV  <>  Acceleration OR              
-            //             MC_TorqueControlDeceleration_PV  <>  Deceleration OR              
-            //             MC_TorqueControlJerk_PV          <>  Jerk OR                      
-            //             MC_TorqueControlDirection_PV     <>  Direction ) THEN
-            //             _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE;        
-            //             IF NOT _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated THEN    
-            //                 _State := UINT#120;
-            //             END_IF;   
-            //         END_IF;   
-            //         IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
-            //             _State := UINT#128;
-            //         ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent THEN
-            //             IF MC_TorqueControlErrorID = WORD#0 THEN
-            //                 MC_TorqueControlErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
-            //             END_IF;
-            //             _State := UINT#129;
-            //         ELSIF _AxisReference^.Data.Cycle <> MC_TorqueControlCycle THEN
-            //             _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
-            //             _State := UINT#128;
-            //         END_IF;                  
-            //     END_IF;   
-            //     THIS.UpdateOutputs(AxisRef);         
-            // END_IF;
+                IF _State>=UINT#390 AND _State<UINT#397 THEN
+                    IF MC_TorqueControlContinuousUpdate_SV AND (
+                        MC_TorqueControlTorque_PV        <>  Torque OR                  
+                        MC_TorqueControlTorqueRamp_PV    <>  TorqueRamp OR                  
+                        MC_TorqueControlPositionLimit_PV <>  PositionLimit OR                  
+                        MC_TorqueControlVelocity_PV      <>  Velocity OR                  
+                        MC_TorqueControlAcceleration_PV  <>  Acceleration OR              
+                        MC_TorqueControlDeceleration_PV  <>  Deceleration OR              
+                        MC_TorqueControlJerk_PV          <>  Jerk OR                      
+                        MC_TorqueControlDirection_PV     <>  Direction ) THEN
+                        IF TRUE THEN    
+                            _State := UINT#390;
+                        END_IF;   
+                    END_IF;   
+                    IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
+                        _State := UINT#398;
+                    ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
+                        IF MC_TorqueControlErrorID = WORD#0 THEN
+                            MC_TorqueControlErrorID := TO_WORD(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
+                        END_IF;
+                        _State := UINT#399;
+                    ELSIF _AxisReference^.Data.Cycle <> MC_TorqueControlCycle THEN
+                        _AxisReference^.Data.Cycle := _AxisReference^.Data.Cycle - ULINT#1;
+                        _State := UINT#398;
+                    END_IF;                  
+                END_IF;   
+            END_IF;
 
-            // IF THIS.AxoTorqueControl_Task.DoneReached() THEN
-            //     _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
-            //     _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
-            //     MC_TorqueControlErrorID := WORD#0;
-            //     // MC_TorqueControlCycle := ULINT#0;     
-            //     _State := UINT#0;
-            // END_IF;
+            IF THIS.AxoTorqueControl_Task.DoneReached() THEN
+                _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
+                MC_TorqueControlErrorID := WORD#0;
+                // MC_TorqueControlCycle := ULINT#0;     
+                _State := UINT#0;
+            END_IF;
 
-            // IF THIS.AxoTorqueControl_Task.RestoreTriggered() AND _State>=UINT#120 AND _State<=UINT#129 THEN
-            //     _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-            //     _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
-            //     MC_TorqueControlErrorID := WORD#0;
-            //     MC_TorqueControlCycle := ULINT#0;     
-            //     _State := UINT#0;
-            // END_IF;     
+            IF THIS.AxoTorqueControl_Task.RestoreTriggered() AND _State>=UINT#390 AND _State<=UINT#397 THEN
+                _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
+                MC_TorqueControlErrorID := WORD#0;
+                MC_TorqueControlCycle := ULINT#0;     
+                _State := UINT#0;
+            END_IF;     
 
             ErrorID := MC_TorqueControlErrorID;
             MC_TorqueControlExecute_PV := Execute;
@@ -5843,5 +5907,101 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _infoTimer.OnDelay(THIS, signal_1 , _infoTime);
             _errorTimer.OnDelay(THIS, signal_2 , _errorTime );
         END_METHOD
+        // VAR INTERNAL
+        //     ModeState                   :   UINT;
+        //     BipolarTorqueLimit_0        :   INT;
+        //     BipolarAccelerationLimit_0  :   LREAL; 
+        //     BipolarJerkLimit_0          :   LREAL; 
+        // END_VAR
+        // METHOD PRIVATE SwitchMode
+        //     VAR_INPUT
+        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
+        //         Execute : BOOL;
+        //         Mode : UINT; // 0 - Primary (Positioning), 1 Secondary (Torque)
+        //     END_VAR
+        //     VAR_OUTPUT
+        //         Done : BOOL;
+        //     END_VAR
+        //     VAR 
+        //         _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
+        //     END_VAR
+            
+        //     _AxisReference ?= AxisRef;
+
+        //     IF(_AxisReference = NULL) THEN
+        //         Messenger.Activate(     UINT#1740, eAxoMessageCategory#ProgrammingError);
+        //         DriveStatus.Error.Id := UINT#1740;
+        //         RETURN;
+        //     END_IF;
+
+        //     IF NOT Execute THEN
+        //         Done := FALSE;
+        //         ModeState := UINT#0;
+        //         RETURN;
+        //     END_IF;
+
+        //     IF  NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit0  AND 
+        //         NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1  AND 
+        //         NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2  AND 
+        //         Mode = UINT#0 AND
+        //         ModeState = UINT#0 THEN
+        //         ModeState := UINT#1000;
+        //     END_IF;
+        //     IF  NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit0  AND 
+        //         NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1  AND 
+        //         NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2  AND 
+        //         Mode = UINT#1 AND
+        //         ModeState = UINT#0 THEN
+        //         ModeState := UINT#10;
+        //     END_IF;
+        //     IF ModeState = UINT#10 THEN
+        //         BipolarTorqueLimit_0 := _AxisReference^.Outputs.BipolarTorqueLimitation_S_0_0092_0_0;
+        //         ModeState := UINT#11;
+        //     END_IF;
+        //     IF ModeState = UINT#11 THEN
+        //         IF _infoTimer.output THEN
+        //             TaskMessenger.Activate( UINT#1011, eAxoMessageCategory#Warning);
+        //             DriveStatus.Error.Id := UINT#1011;
+        //         END_IF;
+        //         _ReadRecord(    request     :=  TRUE,
+        //                         id          :=  _HW_S_0_0134_0_0,
+        //                         index       :=  DINT#138,
+        //                         maxLength   :=  UINT#4,
+        //                         record      :=  _data4);
+        //         IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
+        //             _dword.%B0   :=  _data4[0];
+        //             _dword.%B1   :=  _data4[1];
+        //             _dword.%B2   :=  _data4[2];
+        //             _dword.%B3   :=  _data4[3];
+        //             MC_ReadParameterValue :=TO_LINT(_dword);                        
+        //             _State := UINT#12;
+        //         END_IF;
+        //         IF _ReadRecord.error THEN 
+        //             _ReadRecord(request := FALSE, record := _data4);
+        //             Messenger.Activate(         UINT#1581, eAxoMessageCategory#ProgrammingError);
+        //             MC_ReadParameterErrorID :=  WORD#1581;
+        //             _State := UINT#19;
+        //         END_IF;                    
+        //     END_IF;
+        //     IF _State = UINT#12 THEN
+        //         IF _infoTimer.output THEN
+        //             TaskMessenger.Activate( UINT#1012, eAxoMessageCategory#Warning);
+        //             DriveStatus.Error.Id := UINT#1012;
+        //         END_IF;                    
+        //         Busy := TRUE;            
+        //         _ReadRecord(request := FALSE, record := _data8);
+        //         IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
+        //             _State := UINT#410;
+        //         END_IF;
+        //     END_IF;
+        //     IF _State = UINT#419 THEN
+        //         Error := TRUE;    
+        //     END_IF;   
+
+        //     IF ModeState = UINT#1000 THEN
+        //         Done := TRUE;
+        //     END_IF;
+
+        // END_METHOD 
     END_CLASS
 END_NAMESPACE
