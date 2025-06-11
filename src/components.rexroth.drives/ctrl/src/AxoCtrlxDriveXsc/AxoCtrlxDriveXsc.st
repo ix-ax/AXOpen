@@ -3857,7 +3857,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _State := UINT#0;
             END_IF;
 
-            IF THIS.AxoTorqueControl_Task.RestoreTriggered() AND _State>=UINT#390 AND _State<=UINT#397 THEN
+            IF THIS.AxoTorqueControl_Task.RestoreTriggered() AND _State>=UINT#390 AND _State<=UINT#399 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
                 MC_TorqueControlErrorID := WORD#0;
                 MC_TorqueControlCycle := ULINT#0;     
