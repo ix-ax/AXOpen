@@ -83,10 +83,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#_State#>"}
             _State                  :   UINT;
-            {#ix-attr:[ComponentHeader()]}
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#Debug#>"}
-            Debug                  :   UINT;
+            // {#ix-attr:[ComponentHeader()]}
+            // {#ix-attr:[ReadOnly()]}
+            // {#ix-set:AttributeName = "<#Debug#>"}
+            // Debug                  :   UINT;
         END_VAR
 
         VAR CONSTANT
@@ -1612,23 +1612,36 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             THIS.ActualVelocity := AxisRefExt.Inputs.ActualVelocity_S_0_0535_0_0 * ScalingConstantActualVelocity;
             THIS.ActualTorque   := AxisRefExt.Inputs.ActualTorque_S_0_0084_0_0  * ScalingConstantActualTorque;
 
-            // IF NOT _AxisRefExt.Data.PowerOK THEN
-            //     Drive_State := AXOpen.Components.Drives.eAxoDriveState#Disabled;
-            // ELSIF _AxisRefExt.Data.HomingRunning THEN
-            //     Drive_State := AXOpen.Components.Drives.eAxoDriveState#Homing;
-            // ELSIF _AxisRefExt.Data.DiscreteMotion THEN
-            //     Drive_State := AXOpen.Components.Drives.eAxoDriveState#DiscreteMotion;
-            // ELSIF _AxisRefExt.Data.ContinuousMotion THEN
-            //     Drive_State := AXOpen.Components.Drives.eAxoDriveState#ContinuousMotion;
-            // ELSIF _AxisRefExt.Data.SynchronizedMotion THEN
-            //     Drive_State := AXOpen.Components.Drives.eAxoDriveState#SynchronizedMotion;
-            // ELSIF _AxisRefExt.Data.DriveStopReq THEN
-            //     Drive_State := AXOpen.Components.Drives.eAxoDriveState#Stopping;
-            // ELSIF _AxisRefExt.Data.StoppedDueError THEN
-            //     Drive_State := AXOpen.Components.Drives.eAxoDriveState#Errorstop;
-            // ELSIF _AxisRefExt.Data.Standstill THEN
-            //     Drive_State := AXOpen.Components.Drives.eAxoDriveState#Standstill;
-            // END_IF;
+            IF NOT AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 THEN
+                DriveState := AXOpen.Components.Drives.eAxoDriveState#Disabled;
+            ELSIF _State>=UINT#310 AND _State<=UINT#327 AND 
+                    (NOT AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.InReference OR NOT AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.InStandstill ) THEN
+                DriveState := AXOpen.Components.Drives.eAxoDriveState#Homing;
+            ELSIF   _State>=UINT#350 AND _State<=UINT#357 OR                                            //******MC_MoveAbsolute***************                                                 
+                    _State>=UINT#360 AND _State<=UINT#367 OR                                            //******MC_MoveRelative***************                                                  
+                    _State>=UINT#370 AND _State<=UINT#377 THEN                                          //******MC_MoveAditive****************                                                  
+                DriveState := AXOpen.Components.Drives.eAxoDriveState#DiscreteMotion;
+            ELSIF (_State>=UINT#380 AND _State<UINT#387) OR                                             //(************************************ 
+                    AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative OR                    //******MC_MoveVelocity OR MC_Jog****** 
+                    AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive OR                    //************************************)
+                    _State>=UINT#390 AND _State<UINT#397 OR                                             //(************************************
+                    (   AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit0 AND      //*************************************
+                    NOT AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit1 AND      //******MC_TorqueControl***************
+                    NOT AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.ActualOperatingModeBit2 AND      //*************************************  
+                        AxisRefExt.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt) THEN                //************************************)
+                DriveState := AXOpen.Components.Drives.eAxoDriveState#ContinuousMotion;
+            ELSIF FALSE THEN
+                DriveState := AXOpen.Components.Drives.eAxoDriveState#SynchronizedMotion;               //*****Not implemented*****************
+            ELSIF   AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 AND
+                    AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 AND
+                    NOT AxisRefExt.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt AND
+                    NOT AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.InStandstill THEN
+                DriveState := AXOpen.Components.Drives.eAxoDriveState#Stopping;
+            ELSIF AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
+                DriveState := AXOpen.Components.Drives.eAxoDriveState#Errorstop;
+            ELSIF AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.InStandstill THEN
+                DriveState := AXOpen.Components.Drives.eAxoDriveState#Standstill;
+            END_IF;
 
             //***********Update outputs **************
             _data2[1].%X0   :=  AxisRefExt.Outputs.DriveControlWord_S_0_0134_0_0._bit00_Reserve;
@@ -1898,7 +1911,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
              END_VAR
              VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
-                HommingModeInvalid : BOOL;
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -1908,18 +1920,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 DriveStatus.Error.Id := UINT#1440;
                 RETURN;
             END_IF;
-            // TODO control all possible homming methods
-            // HommingModeInvalid := TRUE;
-            // IF HommingMode = -27 OR  HommingMode = -23 OR HommingMode = -18 OR  HommingMode = -17 OR  HommingMode = -2 OR  HommingMode = -1 OR HommingMode = 1 OR HommingMode = 2 THEN
-            //     HommingModeInvalid := FALSE;
-            // ELSIF HommingMode = 7 OR  HommingMode = 11 OR HommingMode = 17 OR  HommingMode = 18 OR  HommingMode = 23 OR  HommingMode = 27 OR HommingMode = 33 OR HommingMode = 34 OR HommingMode = 37 THEN
-            //     HommingModeInvalid := FALSE;
-            // END_IF;            
-            HommingModeInvalid := FALSE;
 
             Messenger.ActivateOnCondition(ULINT#1441, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(ULINT#1442, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1443, Execute AND HommingModeInvalid, eAxoMessageCategory#ProgrammingError);
 
             IF THIS.AxoHome_Task.StartTriggered() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Home;
@@ -1970,7 +1973,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
                         DriveStatus.Error.Id := UINT#511;
                     END_IF;                    
-                    IF Acceleration <= 0 OR Deceleration <= 0 OR HommingModeInvalid THEN
+                    IF Acceleration <= 0 OR Deceleration <= 0 THEN
                         _State := UINT#329;
                         RETURN;
                     END_IF;
@@ -3397,7 +3400,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         MC_MoveVelocityJerk_PV          :=  Jerk;                      
                         MC_MoveVelocityDirection_PV     :=  Direction_;                                         
                         _State := UINT#381;
-                        Debug := Debug + UINT#1;
                     END_IF;
                 END_IF;
                 IF _State = UINT#381 THEN
