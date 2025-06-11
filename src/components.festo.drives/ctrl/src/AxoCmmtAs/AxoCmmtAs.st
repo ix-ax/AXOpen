@@ -3726,7 +3726,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 State := UINT#0;
                 THIS.UpdateOutputs(AxisRef);         
             END_IF;
-            IF THIS.AxoSetPosition_Task.RestoreTriggered() AND State>=UINT#20 AND State<=UINT#59 THEN
+            IF THIS.AxoSetPosition_Task.RestoreTriggered() AND State>=UINT#130 AND State<=UINT#159 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
                 MC_SetPositionErrorID := WORD#0;
                 MC_SetPositionCycle := ULINT#0;     
