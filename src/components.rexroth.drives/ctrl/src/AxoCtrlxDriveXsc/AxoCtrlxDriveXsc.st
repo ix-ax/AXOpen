@@ -3456,11 +3456,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#386;
                     END_IF;    
                 END_IF;
-                IF _State = UINT#386 THEN
-                    IF TRUE THEN
-                        _State := UINT#387;
-                    END_IF;    
-                END_IF;
                 IF Direction_ = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection  THEN
                     VelocityWindowMax := Velocity_ + (Velocity_ * VelocityWindowPerCent / REAL#100.0);
                     VelocityWindowMin := Velocity_ - (Velocity_ * VelocityWindowPerCent / REAL#100.0);
@@ -3469,6 +3464,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     VelocityWindowMin := Velocity_ + (Velocity_ * VelocityWindowPerCent / REAL#100.0);
                 END_IF;
                 InVelocity := ActualVelocity >= VelocityWindowMin AND ActualVelocity <= VelocityWindowMax;                            
+                IF _State = UINT#386 THEN
+                    IF NOT MC_MoveVelocityContinuousUpdate_SV THEN
+                        _State := UINT#387;
+                    END_IF;    
+                END_IF;
                 IF _State = UINT#387 THEN
                     MC_MoveVelocityCycle := ULINT#0;
                 END_IF;         
@@ -3486,7 +3486,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     AxoMoveVelocity_Task.ThrowWhen(TRUE);          
                 END_IF;         
                 
-                IF _State>=UINT#380 AND _State<=UINT#387 THEN
+                IF _State>=UINT#380 AND _State<UINT#387 THEN
                     IF MC_MoveVelocityContinuousUpdate_SV AND (
                         MC_MoveVelocityVelocity_PV      <>  Velocity_ OR                  
                         MC_MoveVelocityAcceleration_PV  <>  Acceleration OR              
