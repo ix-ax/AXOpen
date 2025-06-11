@@ -3633,6 +3633,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Busy := TRUE;            
                     Active := TRUE;          
                     IF Velocity > 0 AND Acceleration > 0 AND Deceleration > 0 AND Jerk > 0 AND Torque <> 0 AND TorqueRamp > 0 THEN
+                        _AxisReference^.Outputs.CommandTorque_S_0_0080_0_0          :=  TO_INT(Torque_   * 10.0);
                         _AxisReference^.Outputs.CommandPosition_S_0_0282_0_0        :=  TO_DINT(PositionLimit   * ScalingConstantRequiredPosition);
                         _AxisReference^.Outputs.CommandVelocity_S_0_0259_0_0        :=  TO_DINT(Velocity        *   ScalingConstantRequiredVelocity     *   _AxisReference^.Data.OverrideVelocityFactor);
                         _AxisReference^.Outputs.CommandAcceleration_S_0_0260_0_0    :=  TO_DINT(Acceleration    *   ScalingConstantRequiredAcceleration *   _AxisReference^.Data.OverrideAccelerationFactor);
