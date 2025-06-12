@@ -40,12 +40,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Scaling constant required velocity#>"}
             {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the ctrlX DRIVE Engineering#>"}
-            ScalingConstantRequiredVelocity         :   LREAL   :=  1000.0;
+            ScalingConstantRequiredVelocity         :   LREAL   :=  LREAL#0.01666666666666666666666666666667;
             {#ix-attr:[ComponentDetails("Scaling")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Scaling constant actual velocity#>"}
             {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the ctrlX DRIVE Engineering#>"}
-            ScalingConstantActualVelocity         :   LREAL   :=  0.001;
+            ScalingConstantActualVelocity         :   LREAL   :=  60.0;
             {#ix-attr:[ComponentDetails("Scaling")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Scaling constant required torque#>"}
@@ -148,18 +148,20 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _WriteRecord            :   WriteRecord;
             _ScalingRead            :   BOOL;
             // _State                  :   UINT;
-            _S_0_0076               :   WORD;
-            _S_0_0077               :   INT;
-            _S_0_0078               :   INT;
-            _S_0_0044               :   WORD;
-            _S_0_0045               :   INT;
-            _S_0_0046               :   INT;
-            _S_0_0160               :   WORD;
-            _S_0_0161               :   INT;
-            _S_0_0162               :   INT;
-            _S_0_0086               :   WORD;
-            _S_0_0093               :   INT;
-            _S_0_0094               :   INT;
+            _S_0_0076               :   WORD;       // 2byte, binary
+            _S_0_0077               :   INT;        // 2byte, 0 decimal places
+            _S_0_0078               :   INT;        // 2byte, 0 decimal places
+            _S_0_0044               :   WORD;       // 2byte, binary
+            _S_0_0045               :   INT;        // 2byte, 0 decimal places
+            _S_0_0046               :   INT;        // 2byte, 0 decimal places
+            _S_0_0160               :   WORD;       // 2byte, binary
+            _S_0_0161               :   INT;        // 2byte, 0 decimal places
+            _S_0_0162               :   INT;        // 2byte, 0 decimal places
+            _S_0_0086               :   WORD;       // 2byte, binary
+            _S_0_0093               :   INT;        // 2byte, 0 decimal places
+            _S_0_0094               :   INT;        // 2byte, 0 decimal places
+            _S_0_0112               :   REAL;       // 4bytes, 3decimal places
+            _P_0_0450               :   REAL;       // 2bytes, 2decimal places
 
             _infoTimer              :   AXOpen.Timers.OnDelayTimer;
             _infoTime               :   LTIME := LT#2S;
@@ -178,6 +180,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Enable              :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
                 EnablePositive      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
                 EnableNegative      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
+            END_VAR
+            VAR 
+                _i      :   INT;
+                //                                      |     -10   |     -9    |    -8    |    -7   |   -6   |   -5  |  -4  | -3  | -2 |-1|  0 | 1  |  2  |  3   |   4   |   5    |   6     |    7     |     8     |    9      |     10    |
+                _exp    :   ARRAY [-10..10] OF LREAL := [0.000000001,0.000000001,0.00000001,0.0000001,0.000001,0.00001,0.0001,0.001,0.01,0.1,1.0,10.0,100.0,1000.0,10000.0,100000.0,1000000.0,10000000.0,100000000.0,100000000.0,100000000.0];
             END_VAR
             _infoTime   :=  DriveConfig.InfoTime;
             _errorTime  :=  DriveConfig.ErrorTime;
@@ -1180,7 +1187,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 IF _State = UINT#0 THEN
                     _State := UINT#1;
                 END_IF;
-                //Reading Position data scaling: Type (0x2900:01 / S-0-0076 / --)
+                //Reading Position data scaling: Type (0x2900:01 / S-0-0076 / --) 2byte, binary
                 IF _State = UINT#1 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     id          :=  _HW_S_0_0134_0_0,
@@ -1200,7 +1207,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#3;
                     END_IF;
                 END_IF;
-                //Reading Position data scaling: Factor (0x2900:02 / S-0-0077 / --)
+                //Reading Position data scaling: Factor (0x2900:02 / S-0-0077 / --) 2byte, 0 decimal places
                 IF _State = UINT#3 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     id          :=  _HW_S_0_0134_0_0,
@@ -1220,7 +1227,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#5;
                     END_IF;
                 END_IF;
-                //Reading Position data scaling: Exponent (0x2900:03 / S-0-0078 / --)
+                //Reading Position data scaling: Exponent (0x2900:03 / S-0-0078 / --) 2byte, 0 decimal places
                 IF _State = UINT#5 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     id          :=  _HW_S_0_0134_0_0,
@@ -1240,7 +1247,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#7;
                     END_IF;
                 END_IF;
-                //Reading Velocity data scaling: Type (0x2902:01 / S-0-0044 / --)
+                //Reading Velocity data scaling: Type (0x2902:01 / S-0-0044 / --) 2byte, binary
                 IF _State = UINT#7 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     id          :=  _HW_S_0_0134_0_0,
@@ -1260,7 +1267,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#9;
                     END_IF;
                 END_IF;
-                //Reading Velocity data scaling: Factor (0x2902:02 / S-0-0045 / --)
+                //Reading Velocity data scaling: Factor (0x2902:02 / S-0-0045 / --) 2byte, 0 decimal places
                 IF _State = UINT#9 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     id          :=  _HW_S_0_0134_0_0,
@@ -1280,7 +1287,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#11;
                     END_IF;
                 END_IF;
-                //Reading Velocity data scaling: Exponent (0x2902:03 / S-0-0046 / --)
+                //Reading Velocity data scaling: Exponent (0x2902:03 / S-0-0046 / --) 2byte, 0 decimal places
                 IF _State = UINT#11 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     id          :=  _HW_S_0_0134_0_0,
@@ -1300,7 +1307,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#13;
                     END_IF;
                 END_IF;
-                //Reading Acceleration data scaling: Type (0x2904:01 / S-0-0160 / --)
+                //Reading Acceleration data scaling: Type (0x2904:01 / S-0-0160 / --) 2byte, binary
                 IF _State = UINT#13 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     id          :=  _HW_S_0_0134_0_0,
@@ -1320,7 +1327,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#15;
                     END_IF;
                 END_IF;
-                //Reading Acceleration data scaling: Factor (0x2904:02 / S-0-0161 / --)
+                //Reading Acceleration data scaling: Factor (0x2904:02 / S-0-0161 / --) 2byte, 0 decimal places
                 IF _State = UINT#15 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     id          :=  _HW_S_0_0134_0_0,
@@ -1340,7 +1347,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#17;
                     END_IF;
                 END_IF;
-                //Reading Acceleration data scaling: Exponent (0x2904:03 / S-0-0162 / --)
+                //Reading Acceleration data scaling: Exponent (0x2904:03 / S-0-0162 / --) 2byte, 0 decimal places
                 IF _State = UINT#17 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     id          :=  _HW_S_0_0134_0_0,
@@ -1360,7 +1367,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#19;
                     END_IF;
                 END_IF;
-                //Reading Torque/force data scaling: Type (0x2906:01 / S-0-0086 / --)
+                //Reading Torque/force data scaling: Type (0x2906:01 / S-0-0086 / --) 2byte, binary
                 IF _State = UINT#19 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     id          :=  _HW_S_0_0134_0_0,
@@ -1380,7 +1387,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#21;
                     END_IF;
                 END_IF;
-                //Reading Torque/force data scaling: Factor (0x2906:02 / S-0-0093 / --)
+                //Reading Torque/force data scaling: Factor (0x2906:02 / S-0-0093 / --) 2byte, 0 decimal places
                 IF _State = UINT#21 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     id          :=  _HW_S_0_0134_0_0,
@@ -1400,7 +1407,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#23;
                     END_IF;
                 END_IF;
-                //Reading Torque/force data scaling: Exponent (0x2906:03 / S-0-0094 / --)
+                //Reading Torque/force data scaling: Exponent (0x2906:03 / S-0-0094 / --) 2byte, 0 decimal places
                 IF _State = UINT#23 THEN
                     _ReadRecord(    request     :=  TRUE,
                                     id          :=  _HW_S_0_0134_0_0,
@@ -1420,18 +1427,74 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#25;
                     END_IF;
                 END_IF;
-                //Calculating scaling constants
+                //Reading Inverter type data: Nominal current (0x2314:01 / S-0-0112 / --) 4bytes, 3decimal places
                 IF _State = UINT#25 THEN
-                    ScalingConstantActualPosition       := TO_LREAL(_S_0_0077) * EXP(LN(10) * TO_LREAL(_S_0_0078 + 3));
-                    ScalingConstantRequiredPosition     := 1.0 / ScalingConstantActualPosition;
-                    ScalingConstantActualVelocity       := TO_LREAL(_S_0_0045) * EXP(LN(10) * TO_LREAL(_S_0_0046 + 3));
-                    ScalingConstantRequiredVelocity     := 1.0 / ScalingConstantActualVelocity;
-                    ScalingConstantActualAcceleration   := TO_LREAL(_S_0_0161) * EXP(LN(10) * TO_LREAL(_S_0_0162 + 3));
-                    ScalingConstantRequiredAcceleration := 1.0 / ScalingConstantActualAcceleration;
+                    _ReadRecord(    request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#112,
+                                    maxLength   :=  UINT#4,
+                                    record      :=  _data4);
+                    IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
+                        _dword.%B0   :=  _data4[0];
+                        _dword.%B1   :=  _data4[1];
+                        _dword.%B2   :=  _data4[2];
+                        _dword.%B3   :=  _data4[3];
+                        _S_0_0112   :=  TO_REAL(TO_INT(_dword)) * REAL#0.001;
+                        _State := UINT#26;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#26 THEN
+                    _ReadRecord(request := FALSE, record := _data4);
+                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
+                        _State := UINT#27;
+                    END_IF;
+                END_IF;
+                //Reading Motor torque model: Current constant (0x2018:01 / P-0-0450 / --) 2bytes, 2decimal places
+                IF _State = UINT#27 THEN
+                    _ReadRecord(    request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#4546,
+                                    maxLength   :=  UINT#2,
+                                    record      :=  _data2);
+                    IF NOT _ReadRecord.busy AND _ReadRecord.valid AND NOT _ReadRecord.error THEN 
+                        _word.%B0   :=  _data2[0];
+                        _word.%B1   :=  _data2[1];
+                        _P_0_0450   :=  TO_REAL(TO_INT(_word)) * REAL#0.01;
+                        _State := UINT#28;
+                    END_IF;
+                END_IF;
+                IF _State = UINT#28 THEN
+                    _ReadRecord(request := FALSE, record := _data2);
+                    IF NOT _ReadRecord.busy AND NOT _ReadRecord.valid AND NOT _ReadRecord.error  THEN
+                        _State := UINT#29;
+                    END_IF;
+                END_IF;                                
+                //Calculating scaling constants
+                IF _State = UINT#29 THEN
+                    //  Position
+                    _i := -1*(_S_0_0078 + 3);
+                    ScalingConstantRequiredPosition := _exp[_i] / TO_LREAL(_S_0_0077);
+                    ScalingConstantActualPosition       := LREAL#1.0/ScalingConstantRequiredPosition;
+                    //  Velocity
+                    _i := -1*(_S_0_0046 + 3);
+                    ScalingConstantRequiredVelocity := LREAL#60.0 * _exp[_i] / TO_LREAL(_S_0_0045);
+                    ScalingConstantActualVelocity       := LREAL#1.0/ScalingConstantRequiredPosition;
+                    //  Acceleration
+                    _i := -1*(_S_0_0162 + 3);
+                    ScalingConstantRequiredVelocity :=  _exp[_i] / TO_LREAL(_S_0_0161);
+                    ScalingConstantActualAcceleration       := LREAL#1.0/ScalingConstantActualAcceleration;
+                    //  Deceleration
                     ScalingConstantActualDeceleration   := ScalingConstantActualAcceleration;
                     ScalingConstantRequiredDeceleration := ScalingConstantRequiredAcceleration;
-                    ScalingConstantActualTorque         := TO_LREAL(_S_0_0093) * EXP(LN(10) * TO_LREAL(_S_0_0094));
-                    ScalingConstantRequiredTorque       := 1.0 / ScalingConstantActualTorque;
+                    //  Torque
+                    ScalingConstantRequiredTorque := LREAL#1.0;
+                    FOR _i := INT#1 TO (-1*(_S_0_0094 + 2)) DO 
+                        ScalingConstantRequiredTorque := ScalingConstantRequiredTorque * LREAL#10.0;
+                    END_FOR;
+                    ScalingConstantRequiredTorque := ScalingConstantRequiredTorque * TO_LREAL(_S_0_0112) /( TO_LREAL(_S_0_0093) * TO_LREAL(_P_0_0450));
+                    // ScalingConstantActualTorque := TO_LREAL(_S_0_0093) * EXP(LN(10) * (TO_LREAL(_S_0_0094) +2)) * TO_LREAL(_P_0_0450)/TO_LREAL(_S_0_0112);
+//                    ScalingConstantActualTorque         := TO_LREAL(_S_0_0093) * EXP(LN(10) * TO_LREAL(_S_0_0094));
+                    ScalingConstantActualTorque       := 1.0 / ScalingConstantRequiredTorque;
                     
                     _ScalingRead := TRUE;
                     _State := UINT#0;
@@ -1442,36 +1505,36 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     AxoHalt_Jerk := 1500.0;
                     AxoHome_Position := 0.0;
                     AxoHome_HommingMode := 551; // Negative direction, travel range limit switch, negative edge (NC contact)
-                    AxoHome_Velocity := 100.0;
+                    AxoHome_Velocity := 10.0;
                     AxoHome_Acceleration := 1000.0;
                     AxoHome_Deceleration := 1000.0;
                     AxoSetPosition_Position := 0.0;
                     AxoMoveAbsolute_Position := 0.0;
-                    AxoMoveAbsolute_Velocity := 100.0;
+                    AxoMoveAbsolute_Velocity := 20.0;
                     AxoMoveAbsolute_Acceleration := 1000.0;
                     AxoMoveAbsolute_Deceleration := 1000.0;
                     AxoMoveAbsolute_Jerk := 1500.0;
                     AxoMoveRelative_Distance := 5.0;
-                    AxoMoveRelative_Velocity := 100.0;
+                    AxoMoveRelative_Velocity := 20.0;
                     AxoMoveRelative_Acceleration := 1000.0;
                     AxoMoveRelative_Deceleration := 1000.0;
                     AxoMoveRelative_Jerk := 1500.0;
                     AxoMoveAdditive_Distance := 5.0;
-                    AxoMoveAdditive_Velocity := 100.0;
+                    AxoMoveAdditive_Velocity := 20.0;
                     AxoMoveAdditive_Acceleration := 1000.0;
                     AxoMoveAdditive_Deceleration := 1000.0;
                     AxoMoveAdditive_Jerk := 1500.0;
-                    AxoMoveVelocity_Velocity := 100.0;
+                    AxoMoveVelocity_Velocity := 20.0;
                     AxoMoveVelocity_Acceleration := 1000.0;
                     AxoMoveVelocity_Deceleration := 1000.0;
                     AxoMoveVelocity_Jerk := 1500.0;
                     AxoTorqueControl_Torque := 0.0;
                     AxoTorqueControl_TorqueRamp := 10.0;
-                    AxoTorqueControl_Velocity := 100.0;
+                    AxoTorqueControl_Velocity := 20.0;
                     AxoTorqueControl_Acceleration := 1000.0;
                     AxoTorqueControl_Deceleration := 1000.0;
                     AxoTorqueControl_Jerk := 1500.0;
-                    AxoJog_Velocity := 50.0;
+                    AxoJog_Velocity := 10.0;
                     AxoJog_Acceleration := 500.0;
                     AxoJog_Deceleration := 500.0;
                     AxoJog_Jerk := 1000.0;
