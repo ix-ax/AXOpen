@@ -518,8 +518,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 AxisRef             :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
             END_VAR
             VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
-                tempDWord   :   DWORD;
+                _AxisReference      :   REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
+                tempDWord           :   DWORD;
+                _i                  :   INT;
             END_VAR
 
             _AxisReference ?= AxisRef;
@@ -655,10 +656,17 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 END_IF;    
                 
                 IF State = UINT#13 THEN
-                    ScalingConstantRequiredPosition := EXP(LN(10) * TO_LREAL(-1 * PNU_11724));
-                    ScalingConstantActualPosition := EXP(LN(10) * TO_LREAL(PNU_11724));
-                    ScalingConstantRequiredVelocity := EXP(LN(10) * TO_LREAL(-1 * PNU_11725));
-                    ScalingConstantActualVelocity := PNU_12345 / 1073741824.0;
+                    ScalingConstantRequiredPosition := LREAL#1.0;
+                    FOR _i := INT#1 TO (-1*(TO_INT(PNU_11724) + 3)) DO 
+                        ScalingConstantRequiredPosition := ScalingConstantRequiredPosition * LREAL#10.0;
+                    END_FOR;
+                    ScalingConstantActualPosition := LREAL#1.0/ScalingConstantRequiredPosition;
+                    ScalingConstantRequiredVelocity := LREAL#1.0;
+                    FOR _i := INT#1 TO (-1*(TO_INT(PNU_11725) + 3)) DO 
+                        ScalingConstantRequiredPosition := ScalingConstantRequiredPosition * LREAL#10.0;
+                    END_FOR;
+                    ScalingConstantActualVelocity := PNU_12345 / 1073741.824;
+                    
                     ScalingConstantRequiredTorque := 1;
                     ScalingConstantActualTorque := PNU_11122 / 16384;
                     ScalingConstantRequiredAcceleration := 16384 / PNU_810;

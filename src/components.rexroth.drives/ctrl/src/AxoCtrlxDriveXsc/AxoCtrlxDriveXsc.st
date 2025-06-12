@@ -1441,7 +1441,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     AxoHalt_Deceleration := 1000.0;
                     AxoHalt_Jerk := 1500.0;
                     AxoHome_Position := 0.0;
-                    AxoHome_HommingMode := 549; // Negative direction, travel range limit switch
+                    AxoHome_HommingMode := 551; // Negative direction, travel range limit switch, negative edge (NC contact)
                     AxoHome_Velocity := 100.0;
                     AxoHome_Acceleration := 1000.0;
                     AxoHome_Deceleration := 1000.0;
