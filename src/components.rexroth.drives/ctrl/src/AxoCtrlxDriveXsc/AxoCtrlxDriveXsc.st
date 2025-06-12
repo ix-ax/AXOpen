@@ -1478,23 +1478,28 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     //  Velocity
                     _i := -1*(_S_0_0046 + 3);
                     ScalingConstantRequiredVelocity := LREAL#60.0 * _exp[_i] / TO_LREAL(_S_0_0045);
-                    ScalingConstantActualVelocity       := LREAL#1.0/ScalingConstantRequiredPosition;
+                    ScalingConstantActualVelocity       := LREAL#1.0/ScalingConstantRequiredVelocity;
                     //  Acceleration
                     _i := -1*(_S_0_0162 + 3);
                     ScalingConstantRequiredVelocity :=  _exp[_i] / TO_LREAL(_S_0_0161);
-                    ScalingConstantActualAcceleration       := LREAL#1.0/ScalingConstantActualAcceleration;
+                    ScalingConstantActualAcceleration       := LREAL#1.0/ScalingConstantRequiredVelocity;
                     //  Deceleration
                     ScalingConstantActualDeceleration   := ScalingConstantActualAcceleration;
                     ScalingConstantRequiredDeceleration := ScalingConstantRequiredAcceleration;
                     //  Torque
-                    ScalingConstantRequiredTorque := LREAL#1.0;
-                    FOR _i := INT#1 TO (-1*(_S_0_0094 + 2)) DO 
-                        ScalingConstantRequiredTorque := ScalingConstantRequiredTorque * LREAL#10.0;
-                    END_FOR;
-                    ScalingConstantRequiredTorque := ScalingConstantRequiredTorque * TO_LREAL(_S_0_0112) /( TO_LREAL(_S_0_0093) * TO_LREAL(_P_0_0450));
+                    // ScalingConstantRequiredTorque := LREAL#1.0;
+                    // FOR _i := INT#1 TO (-1*(_S_0_0094 + 2)) DO 
+                    //     ScalingConstantRequiredTorque := ScalingConstantRequiredTorque * LREAL#10.0;
+                    // END_FOR;
+                    // _i := -1*(_S_0_0094 + 2);
+                    ScalingConstantActualTorque       := TO_LREAL(_S_0_0093) * TO_LREAL(_S_0_0093) *_exp[_S_0_0094 + 2] / TO_LREAL(_S_0_0112) ;
+
+                    // ScalingConstantRequiredTorque :=   TO_LREAL(_S_0_0112) * _exp[_i] / (TO_LREAL(_S_0_0093) TO_LREAL(_S_0_0093));
+
+                    // ScalingConstantRequiredTorque := ScalingConstantRequiredTorque * TO_LREAL(_S_0_0112) /( TO_LREAL(_S_0_0093) * TO_LREAL(_P_0_0450));
                     // ScalingConstantActualTorque := TO_LREAL(_S_0_0093) * EXP(LN(10) * (TO_LREAL(_S_0_0094) +2)) * TO_LREAL(_P_0_0450)/TO_LREAL(_S_0_0112);
-//                    ScalingConstantActualTorque         := TO_LREAL(_S_0_0093) * EXP(LN(10) * TO_LREAL(_S_0_0094));
-                    ScalingConstantActualTorque       := 1.0 / ScalingConstantRequiredTorque;
+                    //                    ScalingConstantActualTorque         := TO_LREAL(_S_0_0093) * EXP(LN(10) * TO_LREAL(_S_0_0094));
+                    ScalingConstantRequiredTorque := LREAL#1.0/ScalingConstantActualTorque;
                     
                     _ScalingRead := TRUE;
                     _State := UINT#0;
