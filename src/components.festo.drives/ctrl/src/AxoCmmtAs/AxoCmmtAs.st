@@ -520,9 +520,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
             VAR 
                 _AxisReference      :   REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
                 tempDWord           :   DWORD;
-                _i                  :   INT;
+                //                                      |     -10   |     -9    |    -8    |    -7   |   -6   |   -5  |  -4  | -3  | -2 |-1|  0 | 1  |  2  |  3   |   4   |   5    |   6     |    7     |     8     |    9      |     10    |
+                _exp    :   ARRAY [-10..10] OF LREAL := [0.000000001,0.000000001,0.00000001,0.0000001,0.000001,0.00001,0.0001,0.001,0.01,0.1,1.0,10.0,100.0,1000.0,10000.0,100000.0,1000000.0,10000000.0,100000000.0,100000000.0,100000000.0];
             END_VAR
-
             _AxisReference ?= AxisRef;
             IF(_AxisReference = NULL) THEN
                 Messenger.Activate(     UINT#1400, eAxoMessageCategory#ProgrammingError);            
@@ -656,17 +656,11 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 END_IF;    
                 
                 IF State = UINT#13 THEN
-                    ScalingConstantRequiredPosition := LREAL#1.0;
-                    FOR _i := INT#1 TO (-1*(TO_INT(PNU_11724) + 3)) DO 
-                        ScalingConstantRequiredPosition := ScalingConstantRequiredPosition * LREAL#10.0;
-                    END_FOR;
+                    ScalingConstantRequiredPosition := _exp[-1*(TO_INT(PNU_11724) + 3)];
                     ScalingConstantActualPosition := LREAL#1.0/ScalingConstantRequiredPosition;
-                    ScalingConstantRequiredVelocity := LREAL#1.0;
-                    FOR _i := INT#1 TO (-1*(TO_INT(PNU_11725) + 3)) DO 
-                        ScalingConstantRequiredPosition := ScalingConstantRequiredPosition * LREAL#10.0;
-                    END_FOR;
+                    ScalingConstantRequiredVelocity :=  _exp[-1*(TO_INT(PNU_11725) + 3)];
                     ScalingConstantActualVelocity := PNU_12345 / 1073741.824;
-                    
+
                     ScalingConstantRequiredTorque := 1;
                     ScalingConstantActualTorque := PNU_11122 / 16384;
                     ScalingConstantRequiredAcceleration := 16384 / PNU_810;
