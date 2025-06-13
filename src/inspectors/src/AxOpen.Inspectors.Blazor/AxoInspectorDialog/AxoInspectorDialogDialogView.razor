@@ -6,37 +6,32 @@
 @inherits AxoDialogBaseView<AxoInspectorDialog>
 @inject AuthenticationStateProvider _asp
 
-<div class="simple-border p-3">
-    <div class="p-3 mx-auto" style="width: 600px;">
+<div class="flex flex-col simple-border p-3">
+    <div class="p-3 mx-auto" style="width: 600px; text-align: center;">
         <h3>@InspectionDescription</h3>
     </div>
-    <div class="flex flex-wrap">
+    <div class="flex flex-col">
         <div>
             @switch (InspectorType)
             {
                 case eInspectorType.Digital:
-                    <RenderableContentControl Context="Component._digitalInspectorData" Presentation="Status"/>
+                    <RenderableContentControl Context="Component._digitalInspectorData" Presentation="Status" />
                     break;
                 case eInspectorType.Analogue:
-                    <RenderableContentControl Context="Component._analogInspectorData" Presentation="Status"/>
+                    <RenderableContentControl Context="Component._analogInspectorData" Presentation="Status" />
                     break;
                 case eInspectorType.Data:
-                    <RenderableContentControl Context="Component._dataInspectorData" Presentation="Status"/>
+                    <RenderableContentControl Context="Component._dataInspectorData" Presentation="Status" />
                     break;
             }
-
         </div>
 
-        <div class="mt-3 w-full">
-            <!-- Buttons in a row, centered horizontally -->
-            <div class="flex flex-wrap">
-                <button type="button" class="btn btn-secondary m-2 w-1/2" disabled="@RetryDisabled" @onclick="Retry">Retry</button>
-                <button type="button" class="btn btn-secondary m-2 w-1/2" @onclick="Terminate">Terminate</button>
-                <button type="button" class="btn btn-secondary m-2 w-1/2" @onclick="Override">Override</button>
-            </div>
+        <div class="flex flex-row items-center justify-center space-x-4">
+            <button type="button" class="btn btn-secondary m-2" disabled="@RetryDisabled" @onclick="Retry">Retry</button>
+            <button type="button" class="btn btn-secondary m-2" @onclick="Terminate">Terminate</button>
+            <button type="button" class="btn btn-secondary m-2" @onclick="Override">Override</button>
         </div>
     </div>
-
     <div class="mt-4">
         @if (!_asp.GetAuthenticationStateAsync().Result.User.Identity.IsAuthenticated)
         {

@@ -4,28 +4,25 @@
 @inherits AxoDialogBaseView<AxoDialog>
 @inject AuthenticationStateProvider _asp
 
-<div class="border border-1 rounded bg bg-info-100">
-    <div class="flex flex-row self-center" title="@Component.Symbol">
-        <h2 class="self-center mx-auto">@Component._caption.GetCyclic()</h2>
+<div class="border border-0 rounded bg @BackgroundColor shadow-lx">
+    <div class="flex flex-row justify-center items-center" title="@Component.Symbol">
+        <h4 class="text-center">@Component._caption.GetCyclic()</h4>
     </div>
 
-    <div class="d-flex justify-content-center ">
-        <h3>@Component._text.GetCyclic()</h3>
+    <div class="d-flex justify-content-center align-items-center">
+        <h5 class="text-center">@Component._text.GetCyclic()</h5>
     </div>
 
-    <div class="flex flex-grow mx-auto">
-
+    <div class="flex flex-grow justify-center items-center mx-auto">
         @if (IsOkDialogType())
         {
             <button type="button" class="btn btn-primary m-2 w-50" disabled=@ButtonDisabled() @onclick="DialogAnswerOk">@Localizer["Ok"]</button>
-
         }
         @if (IsYesNoDialogType() || IsYesNoCancelDialogType())
         {
             <button type="button" class="btn btn-primary m-2 w-50" @onclick="DialogAnswerYes" disabled=@ButtonDisabled()>@Localizer["Yes"]</button>
             <button type="button" class="btn btn-primary m-2 w-50" @onclick="DialogAnswerNo" disabled=@ButtonDisabled()>@Localizer["No"]</button>
         }
-
         @if (IsYesNoCancelDialogType())
         {
             <button type="button" class="btn btn-primary m-2 w-50" @onclick="DialogAnswerCancel" disabled=@ButtonDisabled()>@Localizer["Cancel"]</button>
@@ -36,7 +33,6 @@
 
 
 @functions {
-
     private bool ButtonDisabled()
     {
         return _asp.GetAuthenticationStateAsync().Result.User.Identity.IsAuthenticated ? false : true;
