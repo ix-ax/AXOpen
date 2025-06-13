@@ -1,0 +1,16 @@
+NAMESPACE AXOpen.Components.Cognex.Vision
+    {S7.extern=ReadWrite}
+    {#ix-attr:[Container(Layout.Stack)]}
+    CLASS PUBLIC AxoVisionPro_Config
+        VAR PUBLIC 
+            {#ix-set:AttributeName = "<#Info time#>"}
+            InfoTime : LTIME := LT#5S;
+            {#ix-set:AttributeName = "<#Error time#>"}
+            ErrorTime : LTIME := LT#10S;
+            {#ix-set:AttributeName = "<#Camera number#>"}
+            CameraNo : UINT;
+            {#ix-set:AttributeName = "<#Hardware IDs#>"}
+            HWIDs : AxoVisionProHWIDs;
+        END_VAR 
+    END_CLASS    
+END_NAMESPACE

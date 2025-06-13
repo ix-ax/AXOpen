@@ -1,12 +1,12 @@
 USING AXOpen.Core;
 
-NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
+NAMESPACE AXOpen.Components.Cognex.Vision
 
     {S7.extern=ReadWrite}
     CLASS Component_4 EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
-            Insight_2800 : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight;     
+            Insight_2800 : AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight;     
         END_VAR
         //</ComponentDeclaration>                          
 
@@ -31,18 +31,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             END_IF;
 
             //<Initialization>        
-            Insight_2800.Run(   parent                  :=  THIS,  
-                                ResultDataSize          :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_ResultDataSize#RESULT_DATA_64B,
-                                UserDataSize            :=  AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_UserDataSize#USER_DATA_64B,
-                                hwID                    :=  HwIdentifiers#is2800_HwID,
-                                hwIdAcquisitionControl  :=  HwIdentifiers#is2800_Acquisition_Control_Acquisition_Control_HwID,
-                                hwIdAcquisitionStatus   :=  HwIdentifiers#is2800_Acquisition_Status_Acquisition_Status_HwID,
-                                hwIdInspectionControl   :=  HwIdentifiers#is2800_Inspection_Control_Inspection_Control_HwID,
-                                hwIdInspectionStatus    :=  HwIdentifiers#is2800_Inspection_Status_Inspection_Status_HwID,
-                                hwIdCommandControl      :=  HwIdentifiers#is2800_Command_Control_Command_Control_HwID,
-                                hwIdSoftEventControl    :=  HwIdentifiers#is2800_SoftEvent_Control_ExternalEvent_Control_HwID,
-                                hwIdResultData          :=  HwIdentifiers#is2800_Result_Data_64_bytes_Results___64_bytes_HwID,
-                                hwIdUserData            :=  HwIdentifiers#is2800_User_Data_64_bytes_User_Data___64_bytes_HwID);
+            Insight_2800.Run(parent := THIS, hwID := HwIdentifiers#is2800_HwID);
             //</Initialization>
             THIS.UseInSequencer();
         END_METHOD
@@ -54,7 +43,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
         END_VAR
 
         VAR PRIVATE
-            _InspectionResults  :   AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_ResultData;
+            _InspectionResults  :   AXOpen.Components.Cognex.Vision.v_24_0_0.AxoInsight_ResultData;
         END_VAR
 
         METHOD PRIVATE UseInSequencer   

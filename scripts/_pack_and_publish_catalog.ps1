@@ -55,11 +55,7 @@ if (Test-Path -Path $catalogAbsPath)
 
     # Get all .tgz files in the folder, there should be just one, currently generated
     $Files = Get-ChildItem -Path $catalogAbsPath -Filter "*.tgz"
-    if($Files.Count -ne 1)
-    {
-        Write-Host "Error: Several *.tgz files found in the directory $catalogAbsPath." -ForegroundColor Red
-    }
-    else
+    if($Files.Count -eq 1)
     {
         $catalogFileName = $Files[0].Name
 
@@ -79,6 +75,14 @@ if (Test-Path -Path $catalogAbsPath)
             Write-Host "Failed to publish catalog" -ForegroundColor Red
             Write-Host "Error: $publishResult[0]:  $publishResult[1]" -ForegroundColor Red
         }
+    }
+    elseif ($Files.Count -ge 1)
+    {
+        Write-Host "Error: Several *.tgz files found in the directory $catalogAbsPath." -ForegroundColor Red
+    }
+    else
+    {
+        Write-Host "Error: No *.tgz files found in the directory $catalogAbsPath." -ForegroundColor Red
     }
     Remove-Item -Path $Files[0].FullName -Force
 

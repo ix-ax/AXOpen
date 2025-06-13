@@ -16,6 +16,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             EnableNegative   : BOOL := TRUE; 
             {#ix-attr:[Container(Layout.Stack)]}
             IndraDrive  : AXOpen.Components.Rexroth.Drives.AxoIndraDrive;
+            {#ix-attr:[Container(Layout.Stack)]}
+            CtrlXdrive : AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc;      
             _rootObject :   AxoObject;
         END_VAR
         
@@ -46,17 +48,23 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             IndraDrive.Run(parent               :=  _rootObject,
                             hwID                :=  HwIdentifiers#ST3_indradrive_HwID,
-                            hwIdParamCh_IDN     :=  HwIdentifiers#ST3_indradrive_ParamCh_5Words_ID_PaCh_5Words_HwID,
-                            hwIdInput_9_Words   :=  HwIdentifiers#ST3_indradrive_Input_9_Words_ID_InMod_9Words_HwID,
-                            hwIdOutput_13_Words :=  HwIdentifiers#ST3_indradrive_Output_13_Words_ID_OutMod_13Words_HwID,
                             Enable              :=  Enable,
                             EnablePositive      :=  EnablePositive,
                             EnableNegative      :=  EnableNegative);
-        THIS.UseInSequencer();
+
+            THIS.UseInSequencerIndraDrive();
+
+            CtrlXdrive.Run(parent               :=  _rootObject,
+                            hwID                :=  HwIdentifiers#ST3_indradrive_HwID,
+                            Enable              :=  Enable,
+                            EnablePositive      :=  EnablePositive,
+                            EnableNegative      :=  EnableNegative);                            
+
+            THIS.UseInSequencerCtrlXdrive();
                                 
         END_METHOD
         
-        METHOD PRIVATE UseInSequencer   
+        METHOD PRIVATE UseInSequencerIndraDrive   
 
             Sequencer.Run(_rootObject);
             Sequencer.Open();
@@ -187,6 +195,140 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         
             IF(Steps[13].Execute(Sequencer, 'Restore')) THEN
                 IndraDrive.Restore();
+                Sequencer.CompleteSequence(); 
+            END_IF;
+        END_METHOD
+        METHOD PRIVATE UseInSequencerCtrlXdrive   
+
+            Sequencer.Run(_rootObject);
+            Sequencer.Open();
+            Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
+        
+            Timer(signal := RunTimer, duration := MaxTime);
+        
+            IF(Steps[0].Execute(Sequencer, 'Restore')) THEN
+                _manualControl := FALSE;
+                Enable := FALSE;
+                EnablePositive := FALSE;
+                EnableNegative := FALSE;
+                CtrlXdrive.Restore();             
+                Sequencer.MoveNext();      
+                RunTimer := FALSE;          
+                RETURN;
+            END_IF;
+        
+            IF(Steps[1].Execute(Sequencer, 'Reset drive')) THEN
+                RunTimer := TRUE;          
+                IF(CtrlXdrive.AxoReset().IsDone()) THEN                
+                    Sequencer.MoveNext();                
+                END_IF;    
+            END_IF;
+        
+            IF(Steps[2].Execute(Sequencer, 'Enable drive')) THEN
+                Enable := TRUE;
+                EnablePositive := TRUE;
+                EnableNegative := TRUE;
+                IF(CtrlXdrive.AxoPower_Status) THEN                
+                    Sequencer.MoveNext();                
+                END_IF;    
+            END_IF;
+        
+            IF(Steps[3].Execute(Sequencer, 'Drive homming')) THEN
+                IF(CtrlXdrive.AxoHome(  Position        :=  LREAL#5.0,
+                                            HommingMode     :=  INT#551,
+                                            Velocity        :=  LREAL#1.0,
+                                            Acceleration    :=  LREAL#50.0,
+                                            Deceleration    :=  LREAL#50.0
+                                            ).IsDone()) THEN                
+                    Sequencer.MoveNext();    
+                END_IF;    
+            END_IF;    
+        
+            IF(Steps[4].Execute(Sequencer, 'Move absolute to start Position2')) THEN
+                IF(CtrlXdrive.AxoMoveAbsolute(   Position        :=  Position2,
+                                                    Velocity        :=  Velocity,
+                                                    Acceleration    :=  LREAL#50.0,
+                                                    Deceleration    :=  LREAL#50.0,
+                                                    Jerk            :=  LREAL#50.0
+                                                    ).IsDone()) THEN                
+                    Sequencer.MoveNext();     
+                END_IF;    
+            END_IF;
+            
+        
+            IF(Steps[5].Execute(Sequencer, 'Restore component to be able to trigger next move absolute in the same PLC cycle')) THEN
+                CtrlXdrive.Restore();    
+        
+                StartTime := Timer.elapsedTime;
+                EndTime := StartTime;
+                Cycle := ULINT#0;
+                TotalDuration := LTIME#0s; 
+                DurationPerCycle := LTIME#0s;        
+        
+                Sequencer.MoveNext();     
+            END_IF;
+        
+            IF(Steps[6].Execute(Sequencer, 'Move absolute to Position1')) THEN
+                IF(CtrlXdrive.AxoMoveAbsolute(   Position        :=  Position1,
+                                                    Velocity        :=  Velocity,
+                                                    Acceleration    :=  LREAL#50.0,
+                                                    Deceleration    :=  LREAL#50.0,
+                                                    Jerk            :=  LREAL#50.0
+                                                    ).IsDone()) THEN                
+                    Sequencer.MoveNext();     
+                END_IF;    
+            END_IF;    
+        
+            IF(Steps[7].Execute(Sequencer, 'Restore component to be able to trigger next move absolute in the same PLC cycle')) THEN
+                CtrlXdrive.Restore();    
+                Sequencer.MoveNext();     
+            END_IF;
+        
+            IF(Steps[8].Execute(Sequencer, 'Move absolute to Position2')) THEN
+                IF(CtrlXdrive.AxoMoveAbsolute(   Position        :=  Position2,
+                                                    Velocity        :=  Velocity,
+                                                    Acceleration    :=  LREAL#50.0,
+                                                    Deceleration    :=  LREAL#50.0,
+                                                    Jerk            :=  LREAL#50.0
+                                                    ).IsDone()) THEN                
+                    Sequencer.MoveNext();     
+                END_IF;    
+            END_IF;    
+        
+            IF(Steps[9].Execute(Sequencer, 'Restore component to be able to trigger next move absolute in the same PLC cycle')) THEN
+                CtrlXdrive.Restore();    
+                Sequencer.MoveNext();     
+            END_IF;
+        
+            IF(Steps[10].Execute(Sequencer, 'Repetition')) THEN
+                Cycle := Cycle + ULINT#1;
+                EndTime :=  Timer.elapsedTime;
+                TotalDuration := EndTime - StartTime;
+                DurationPerCycle := TotalDuration / Cycle;
+                IF(Cycle >= NumberOfCycles) THEN                
+                    Sequencer.MoveNext(); 
+                ELSE
+                    Sequencer.RequestStep(Steps[6]); 
+                END_IF;    
+            END_IF;    
+        
+            IF(Steps[11].Execute(Sequencer, 'Disable drive')) THEN
+                Enable := FALSE;
+                EnablePositive := FALSE;
+                EnableNegative := FALSE;
+                IF(NOT CtrlXdrive.AxoPower_Status) THEN                
+                    Sequencer.CompleteSequence();                
+                END_IF;    
+            END_IF;
+        
+            IF(Steps[12].Execute(Sequencer, 'Reset drive')) THEN
+                IF(CtrlXdrive.AxoReset().IsDone()) THEN                
+                    Sequencer.MoveNext();                
+                END_IF;    
+            END_IF;
+        
+            IF(Steps[13].Execute(Sequencer, 'Restore')) THEN
+                CtrlXdrive.Restore();
                 Sequencer.CompleteSequence(); 
             END_IF;
         END_METHOD

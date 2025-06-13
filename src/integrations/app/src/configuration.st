@@ -48,10 +48,6 @@ CONFIGURATION MyConfiguration
         {S7.extern=ReadWrite}
         AxoTextListExampleContext : AxoTextListExample.AxoTextListExampleContext;
         {S7.extern=ReadWrite}
-        AxoCognexVisionDatamanExampleContext : AxoCognexVisionDatamanExamples.AxoCognexVisionDatamanExampleContext;
-        {S7.extern=ReadWrite}
-        AxoCognexVisionInsightExampleContext : AxoCognexVisionInsightExamples.AxoCognexVisionInsightExampleContext;
-        {S7.extern=ReadWrite}
         AxoByteArrayExampleContext : AxoByteArrayExample.AxoByteArrayExampleContext;
         {S7.extern=ReadWrite}
         AxoBoolArrayExampleContext : AxoBoolArrayExample.AxoBoolArrayExampleContext;

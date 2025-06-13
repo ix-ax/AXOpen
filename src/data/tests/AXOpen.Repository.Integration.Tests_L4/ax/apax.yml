@@ -1,4 +1,4 @@
-name: "axopen.integration.tests_l4"
+﻿name: "axopen.integration.tests_l4"
 version: '0.0.0-dev.0'
 type: app
 targets:
@@ -18,7 +18,7 @@ variables:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.22
+  "@inxton/ax.catalog": 0.0.24
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
@@ -26,7 +26,7 @@ dependencies:
   "@inxton/ax.axopen.app": '0.0.0-dev.0'
   "@inxton/axopen.simatic1500": '0.0.0-dev.0'
 installStrategy: strict
-apaxVersion: 3.4.2
+apaxVersion: 3.5.0
 scripts:
   # For proper execution of these scripts, the following variables need to be defined as environment variables or local variables.
   # Local variables can override environment variables.
@@ -78,6 +78,10 @@ scripts:
     ..\\..\\scripts\\hw_first_download.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AX_USERNAME $AX_TARGET_PWD 
   hwu: | # copy and install gsd, copy templates, compile, copy the HwIds, copy the IoAddresses, download HW using certificate                               (apax gsd & apax hwl & apax hwcc & apax hwid & apax hwadr & apax hwld [using cert file])
     ..\\..\\scripts\\hw_update.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AX_USERNAME $AX_TARGET_PWD
+  hwfdo: | # first download HW using password and upload certificate                                                                                        (apax hwld [using password] & apax plc-cert)
+    START=$(date +%s)
+    ..\\..\\scripts\\hw_first_download_only.sh $PLC_NAME $AXTARGET $AX_TARGET_PWD 
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax hwfdo' Finished in :" $(expr $(date +%s) - $START) "s"
   hwdo: | # download HW only using certificate                                                                                                              (apax hwld [using cert file])
     ..\\..\\scripts\\hw_download_only.sh $PLC_NAME $AXTARGET $AX_USERNAME $AX_TARGET_PWD
   swfd: | # software build and full download                                                                                                                (apax build & dotnet ixc & apax sld load [using cert file])
@@ -114,3 +118,9 @@ scripts:
     apax test
   mm: |
     apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
+
+
+
+
+
+

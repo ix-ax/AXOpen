@@ -29,9 +29,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
             END_IF;
 
             //<Initialization>        
-            ExampleRobot.Run(THIS,
-                                HwIdentifiers#KRC4_HwID,
-                                HwIdentifiers#KRC4_DIO512_512_digital_in__and_outputs_HwID);
+            ExampleRobot.Run(THIS,HwIdentifiers#KRC4_HwID);
             //</Initialization>
 
         THIS.UseInSequencer();
