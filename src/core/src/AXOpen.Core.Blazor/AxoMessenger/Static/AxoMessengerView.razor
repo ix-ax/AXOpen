@@ -7,7 +7,7 @@
 
 @if(this.Component is null)
 {
-    <div class="flex flex-row w-full bg-inactive-100 rounded-sm shadow-sm p-2 mb-2">
+    <div class="flex flex-row w-full rounded-sm shadow-sm p-2 mb-2">
         <button class="mx-2 w-full">
             <div class="flex flex-row items-center gap-2 accordion-button @($"accordion-button")">
                
@@ -42,25 +42,25 @@ else
 
     @if (detailsVisible)
     {
-        <div class="flex flex-wrap simple-border">
+        <div class="flex flex-row flex-wrap simple-border">
             <div class="w-full">
                 <div class="m-2 border rounded-sm border-transparent h-auto bg-gray-50">
                     <h5>@HelpText</h5>
                 </div>
             </div>
-            <div class="w-1/6">
+            <div>
                 <div class="m-3 h-auto bg-gray-50">Origin: @Symbol</div>
             </div>
-            <div class="w-1/6">
+            <div>
                 <div class="m-3 bg-gray-50">Risen: @Risen</div>
             </div>
-            <div class="w-1/6">
+            <div>
                 <div class="m-3 bg-gray-50">Fallen: @Fallen</div>
             </div>
-            <div class="w-1/6">
+            <div>
                 <div class="m-3 bg-gray-50">Acknowledged: @Acknowledged</div>
             </div>
-            <div class="w-1/6">
+            <div>
                 <div class="m-3">
                     <button class="btn btn-outline-primary" onclick="@(() => AcknowledgeTask())" hidden="@HideAcknowledgeButton">
                         <Operon.Icons.Micro.XCircle Class="size-5"/>

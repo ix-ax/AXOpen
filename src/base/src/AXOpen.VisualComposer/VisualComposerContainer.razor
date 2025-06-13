@@ -340,49 +340,26 @@
             </NotAuthorized>
         </AuthorizeView>
 
-        <Modal @bind-Open="DetailsVisibility">
+        <Modal @ref="DetailsModalWindow">
             <div class="modal-header">
-                <h2 class="text-xl font-bold">Modal Title</h2>
-                <button class="cursor-pointer ms-auto my-auto" @onclick="() => { DetailsVisibility = false; }">
+                <button class="cursor-pointer ms-auto my-auto" @onclick="() => { DetailsModalWindow.Toggle(); }">
                     <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                 </button>
             </div>
             <div class="modal-body">
-                <AuthorizeView Roles="Administrator">
-                        <Authorized>
-                            <Dropdown @ref="_dropdownPresentation">
-                                <DropdownButton>
-                                    <button class="btn btn-primary" @onclick="_dropdownPresentation.Toggle">
-                                        Presentation
-                                        <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownPresentation?.Open ?? false ? "rotated" : null))" />
-                                    </button>
-                                </DropdownButton>
-                                <DropdownBody>
-                                    <a class="dropdown-item" @onclick='() => DetailsPresentationType = "Command"'>Command</a>
-                                    <a class="dropdown-item" @onclick='() => DetailsPresentationType = "Status"'>Status</a>
-                                    <a class="dropdown-item" @onclick='() => DetailsPresentationType = "Control"'>Control</a>
-                                    <a class="dropdown-item" @onclick='() => DetailsPresentationType = "Display"'>Display</a>
-                                </DropdownBody>
-                            </Dropdown>
-                            <BaseInput @bind-Value="DetailsPresentationType" />
-                        </Authorized>
-                    </AuthorizeView>
-                    <RenderableContentControl @ref="detailsRcc" Presentation="Command-Control"></RenderableContentControl>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-outline-red ms-auto" @onclick="() => { DetailsVisibility = false; }">Close modal</button>
+                @RenderableContentControlFragment
             </div>
         </Modal>
 
-                            @code {
-                                private Dropdown _dropdownOption { get; set; }
-                                private Dropdown _dropdownPresentation { get; set; }
+@code {
+    private Dropdown _dropdownOption { get; set; }
+    private Dropdown _dropdownPresentation { get; set; }
 
-                                private Modal _modalControllerObjects { get; set; }
-                                private Modal _modalUsedObject { get; set; }
-                                private Modal _modalCreateNew { get; set; }
-                                private Modal _modalCreateCopy { get; set; }
-                                private Modal _modalViews { get; set; }
-                                private Modal _modalBackground { get; set; }
-                                private Modal _modalBackgroundSVGInput { get; set; }
-                            }
+    private Modal _modalControllerObjects { get; set; }
+    private Modal _modalUsedObject { get; set; }
+    private Modal _modalCreateNew { get; set; }
+    private Modal _modalCreateCopy { get; set; }
+    private Modal _modalViews { get; set; }
+    private Modal _modalBackground { get; set; }
+    private Modal _modalBackgroundSVGInput { get; set; }
+}

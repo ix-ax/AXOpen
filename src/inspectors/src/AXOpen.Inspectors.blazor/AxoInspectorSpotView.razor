@@ -32,8 +32,7 @@
         {
             if (rccContainer.ParentContainer is VisualComposerItem composerItem)
             {
-                composerItem.Parent.DetailsPresentationType = "Status";
-                composerItem.Parent.UpdateDetails(this.Component);
+                composerItem.Parent.OpenDetails(this.Component, "Status");
             }
         }
     }

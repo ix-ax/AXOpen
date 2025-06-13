@@ -31,9 +31,17 @@
                     {
                         <div class="flex flex-grow">
                             <div class="justify-items-center p-1 m-2 ml-auto p-1 m-2">
-                                <AxoTaskCommandView ShowText="true" HideRestoreButton="true" ShowAbortButton="false" Component="this.Component.StepBackwardCommand"/>
-                                <AxoTaskCommandView ShowText="true" HideRestoreButton="true" ShowAbortButton="false" Component="this.Component.StepIn"/>
-                                <AxoTaskCommandView ShowText="true" HideRestoreButton="true" ShowAbortButton="false" Component="this.Component.StepForwardCommand"/>
+                                <div class="flex flex-row">
+                                    <div class="basis-1/4">
+                                        <AxoTaskCommandView ShowText="true" HideRestoreButton="true" ShowAbortButton="false" Component="this.Component.StepBackwardCommand"/>
+                                    </div>
+                                    <div class="basis-1/2">
+                                        <AxoTaskCommandView ShowText="true" HideRestoreButton="true" ShowAbortButton="false" Component="this.Component.StepIn"/>
+                                    </div>
+                                    <div class="basis-1/4">
+                                        <AxoTaskCommandView ShowText="true" HideRestoreButton="true" ShowAbortButton="false" Component="this.Component.StepForwardCommand"/>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     }
@@ -95,11 +103,12 @@
                 case eSequenceStatus.SequencerError:
                     return "border-3 border-danger-500 shadow-xl shadow-danger-500/50";
                 case eSequenceStatus.SequenceTimeOutError:
-                    return "border-1 border-warning-500 shadow-xl shadow-warning-500/50";
+                    //return "border-1 border-warning-500 shadow-xl shadow-warning-500/50";
                 case eSequenceStatus.ExternalComponentError:
-                    return "border-1 border-danger-500 shadow-xl shadow-danger-500/50";
+                    //return "border-1 border-danger-500 shadow-xl shadow-danger-500/50";
                 case eSequenceStatus.Active:
-                    return "border-1 border-active-500 shadow-xs shadow-active-500/50";
+                    //return "border-1 border-active-500 shadow-xs shadow-active-500/50";
+                    return "border-0 border-inactive-500 shadow-sm shadow-inactive-500/50"; 
                 default:
                     return "border-0 border-inactive-500 shadow-sm shadow-inactive-500/50";
             }
@@ -116,7 +125,7 @@
             {
                 var delay = (this.Component.Duration.LastValue - TimeSpan.FromSeconds(20)).TotalSeconds;
                 delay = delay > 20 ? 20 : delay;
-                return $"text-[{delay}px] m-2 text-danger-500 animate-bounce";
+                return $"text-[{delay}px] m-2 text-danger-500";
             }
 
             return "text-[8px] m-2 text-success-500";

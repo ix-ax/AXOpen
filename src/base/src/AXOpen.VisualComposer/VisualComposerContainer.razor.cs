@@ -1,4 +1,6 @@
-﻿using AXOpen.VisualComposer.Serializing;
+﻿using AngleSharp.Dom;
+using AXOpen.VisualComposer.Serializing;
+using AXOpen.VisualComposer.Types;
 using AXSharp.Connector;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 using Microsoft.AspNetCore.Components;
@@ -6,11 +8,11 @@ using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
 using Newtonsoft.Json.Linq;
+using Operon.Components;
 using System.Diagnostics;
-using System.Xml.Linq;
 using System.Drawing;
+using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
-using AXOpen.VisualComposer.Types;
 
 namespace AXOpen.VisualComposer
 {
@@ -80,6 +82,8 @@ namespace AXOpen.VisualComposer
 
                 Id = Id.ComputeSha256Hash();
             }
+
+            detailsRcc = new RenderableContentControl();
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -540,46 +544,47 @@ namespace AXOpen.VisualComposer
             _zoomableContainer = zoomableContainer;
         }
 
-        private RenderableContentControl detailsRcc { get; set; }
+        
 
-        private bool DetailsVisibility { get; set; } = false;
+        private RenderableContentControl detailsRcc { get; set; } 
 
-        private string detailsPresentationType;
+        public Modal DetailsModalWindow { get; set; }
 
-        public string DetailsPresentationType
+        //private string detailsPresentationType;
+
+        //public string DetailsPresentationType
+        //{
+        //    get => detailsPresentationType;
+        //    set
+        //    {
+        //        detailsPresentationType = value;
+        //        detailsRcc.Presentation = value;
+        //        this.StateHasChanged();
+        //    }
+        //}
+
+        private RenderFragment RenderableContentControlFragment => builder =>
         {
-            get => detailsPresentationType;
-            set
-            {
-                detailsPresentationType = value;
-                detailsRcc.Presentation = value;
-                this.StateHasChanged();
-            }
-        }
+            builder.OpenComponent<RenderableContentControl>(0);
+            builder.AddAttribute(1, "Context", detailsRcc.Context);
+            builder.AddAttribute(2, "Presentation", detailsRcc.Presentation);
+            builder.CloseComponent();
+        };
 
-        private void ToggleDetailsVisibility()
+        public async Task OpenDetails(ITwinElement element, string presentationType = "Status-Display")
         {
-            DetailsVisibility = !DetailsVisibility;
+            DetailsModalWindow.Toggle();
 
-            if (!DetailsVisibility)
+            // Ensure the RenderableContentControl is rendered before interacting with it
+            await InvokeAsync(() =>
             {
-                detailsRcc.Presentation = "empty";
-                detailsRcc.ForceRender();
-                System.GC.Collect();
-            }
-            this.StateHasChanged();
-        }
-
-        public void UpdateDetails(ITwinElement element)
-        {
-            if (detailsRcc != null)
-            {
-                DetailsVisibility = true;
-
-                this.StateHasChanged();
-                detailsRcc.Context = element;
-                detailsRcc?.ForceRender();
-            }
+                if (detailsRcc != null)
+                {
+                    detailsRcc.Context = element;
+                    detailsRcc.Presentation = presentationType;
+                    detailsRcc.ForceRender();
+                }
+            });
         }
 
         private bool InDesignMode { get; set; }

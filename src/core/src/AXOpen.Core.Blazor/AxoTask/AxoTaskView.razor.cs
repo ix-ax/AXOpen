@@ -94,17 +94,19 @@ namespace AXOpen.Core
             get
             {
                 if(this.Component.IsDisabled.LastValue)
-                    return "btn-outline-inactive blur-[2px]";
+                    return "btn-inactive blur-[1px]";
                 switch ((eAxoTaskState)Component.Status.LastValue)
                 {
                     case eAxoTaskState.Busy:
                         return "btn-active shadow-xl shadow-active-500/50";
                     case eAxoTaskState.Done:
-                        return "btn-outline-success";
+                        return "btn-success";
                     case eAxoTaskState.Aborted:
                         return "btn-attention";
                     case eAxoTaskState.Error:
                         return "btn-danger";
+                    case eAxoTaskState.Ready:
+                        return "btn-info";
                     default:
                         return "btn-inactive";
                 }
