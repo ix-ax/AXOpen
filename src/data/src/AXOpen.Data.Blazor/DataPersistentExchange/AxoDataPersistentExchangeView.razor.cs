@@ -8,6 +8,7 @@
 using AXOpen.Base.Data;
 using AXOpen.Base.Dialogs;
 using Microsoft.AspNetCore.Components;
+using Operon.Components.Toast;
 
 namespace AXOpen.Data;
 
@@ -17,7 +18,7 @@ public partial class AxoDataPersistentExchangeView : ComponentBase, IDisposable
     public AxoDataPersistentExchange Context { set; get; }
 
     [Inject]
-    private IAlertService AlertDialogService { get; set; }
+    private IToastService _toastService { get; set; }
 
     public AxoDataPersistentExchangeViewModel Vm { get; set; }
 
@@ -27,7 +28,7 @@ public partial class AxoDataPersistentExchangeView : ComponentBase, IDisposable
     protected override void OnInitialized()
     {
         Vm = new AxoDataPersistentExchangeViewModel() { Model = this.Context };
-        Vm.AlertDialogService = this.AlertDialogService;
+        Vm.ToastService = this._toastService;
 
         base.OnInitialized();
     }

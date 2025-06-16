@@ -22,6 +22,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using System.Security.Claims;
 using AXOpen.Base;
 using System.Collections;
+using Operon.Components.Toast;
 
 namespace AXOpen.Data
 {
@@ -43,19 +44,19 @@ namespace AXOpen.Data
         {
         }
 
-        private IAlertService _alertDialogService;
+        private IToastService _toastService;
 
-        public IAlertService AlertDialogService
+        public IToastService ToastService
         {
             get
             {
-                if (_alertDialogService == null)
-                    throw new Exception("AlertDialogService must be implemented in " + this.ToString());
-                return _alertDialogService;
+                if (_toastService == null)
+                    throw new Exception("ToastService must be implemented in " + this.ToString());
+                return _toastService;
             }
             set
             {
-                _alertDialogService = value;
+                _toastService = value;
             }
         }
 
@@ -166,14 +167,14 @@ namespace AXOpen.Data
         {
             await DataExchange.WriteAllPersistentGroupsFromRepositoryToPlc();
             await FillObservableRecordsAsync();
-            AlertDialogService?.AddAlertDialog(eAlertType.Success, "Persistent Data", $"Whole persistent data  was successfully send to PLC!", 10);
+            ToastService?.AddToast(eToastType.Success, "Persistent Data", $"Whole persistent data  was successfully send to PLC!", 10);
         }
 
         public async Task ReadAllFromPlc()
         {
             await DataExchange.UpdateAllPersistentGroupsToRepository();
             await FillObservableRecordsAsync();
-            AlertDialogService?.AddAlertDialog(eAlertType.Success, $"Persistent Data", $"Whole persistent data  was successfully readed from PLC!", 10);
+            ToastService?.AddToast(eToastType.Success, $"Persistent Data", $"Whole persistent data  was successfully readed from PLC!", 10);
         }
 
 
@@ -185,7 +186,7 @@ namespace AXOpen.Data
                 {
                     await DataExchange.UpdatePersistentGroupFromPlcToRepository(groupName);
 
-                    AlertDialogService?.AddAlertDialog(eAlertType.Success, $"Persistent Data", $"Persistent group {groupName} was successfully readed from PLC!", 10);
+                    ToastService?.AddToast(eToastType.Success, $"Persistent Data", $"Persistent group {groupName} was successfully readed from PLC!", 10);
                 }
             }
 

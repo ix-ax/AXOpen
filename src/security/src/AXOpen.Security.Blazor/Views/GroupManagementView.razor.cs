@@ -4,6 +4,7 @@ using AXOpen;
 using AXOpen.Base.Dialogs;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
+using Operon.Components.Toast;
 using System.Security.Principal;
 
 namespace AxOpen.Security.Views
@@ -72,14 +73,14 @@ namespace AxOpen.Security.Views
             {
                 string msg = Localizer["Group \"{0}\" successfully updated.", SelectedGroupN.Name];
 
-                _alertDialogService?.AddAlertDialog(eAlertType.Success, Localizer["Updated!"], msg, 10);
+                _toastService?.AddToast(eToastType.Success, Localizer["Updated!"], msg, 10);
                 AxoApplication.Current.Logger.Information(msg, await GetCurrentIdentity());
             }
             else
             {
                 string msg = Localizer["Group \"{0}\" was not updated!", SelectedGroupN.Name] + $" {result.ToString()}";
 
-                _alertDialogService?.AddAlertDialog(eAlertType.Warning, Localizer["Not updated!"], msg, 10);
+                _toastService?.AddToast(eToastType.Warning, Localizer["Not updated!"], msg, 10);
                 AxoApplication.Current.Logger.Warning(msg, await GetCurrentIdentity());
             }
             GroupClicked(SelectedGroupN);
@@ -95,13 +96,13 @@ namespace AxOpen.Security.Views
             {
                 string msg = Localizer["Group \"{0}\" successfully updated.", SelectedGroupN.Name];
 
-                _alertDialogService?.AddAlertDialog(eAlertType.Success, Localizer["Updated!"], msg, 10);
+                _toastService?.AddToast(eToastType.Success, Localizer["Updated!"], msg, 10);
                 AxoApplication.Current.Logger.Information(msg, await GetCurrentIdentity());
             }
             else
             {
                 string msg = Localizer["Group \"{0}\" was not updated!", SelectedGroupN.Name] + $" {result.ToString()}";
-                _alertDialogService?.AddAlertDialog(eAlertType.Warning, Localizer["Not updated!"], msg, 10);
+                _toastService?.AddToast(eToastType.Warning, Localizer["Not updated!"], msg, 10);
                 AxoApplication.Current.Logger.Warning(msg, await GetCurrentIdentity());
             }
             GroupClicked(SelectedGroupN);
@@ -120,7 +121,7 @@ namespace AxOpen.Security.Views
         {
             if (newGroupName == null || newGroupName == "")
             {
-                _alertDialogService?.AddAlertDialog(eAlertType.Warning, Localizer["Wrong name!"], Localizer["Wrong group name"], 10);
+                _toastService?.AddToast(eToastType.Warning, Localizer["Wrong name!"], Localizer["Wrong group name"], 10);
 
                 return;
             }
@@ -129,14 +130,14 @@ namespace AxOpen.Security.Views
             {
                 string msg = Localizer["Group \"{0}\" successfully created!", newGroupName];
 
-                _alertDialogService?.AddAlertDialog(eAlertType.Success, Localizer["Created!"], msg, 10);
+                _toastService?.AddToast(eToastType.Success, Localizer["Created!"], msg, 10);
                 AxoApplication.Current.Logger.Information(msg, await GetCurrentIdentity());
             }
             else
             {
                 string msg = Localizer["Group \"{0}\" was not created!", newGroupName] + $" {result.ToString()}";
 
-                _alertDialogService?.AddAlertDialog(eAlertType.Warning, Localizer["Not created!"], msg, 10);
+                _toastService?.AddToast(eToastType.Warning, Localizer["Not created!"], msg, 10);
                 AxoApplication.Current.Logger.Warning(msg, await GetCurrentIdentity());
             }
             StateHasChanged();
@@ -151,14 +152,14 @@ namespace AxOpen.Security.Views
             {
                 string msg = Localizer["Group \"{0}\" successfully deleted!", group.Name];
 
-                _alertDialogService?.AddAlertDialog(eAlertType.Success, Localizer["Deleted!"], Localizer["Group successfully deleted"], 10);
+                _toastService?.AddToast(eToastType.Success, Localizer["Deleted!"], Localizer["Group successfully deleted"], 10);
                 AxoApplication.Current.Logger.Information(msg, await GetCurrentIdentity());
             }
             else
             {
                 string msg = Localizer["Group \"{0}\" was not deleted!", group.Name] + $" {result.ToString()}";
 
-                _alertDialogService?.AddAlertDialog(eAlertType.Warning, Localizer["Not deleted!"], msg, 10);
+                _toastService?.AddToast(eToastType.Warning, Localizer["Not deleted!"], msg, 10);
                 AxoApplication.Current.Logger.Information(msg, await GetCurrentIdentity());
             }
             StateHasChanged();

@@ -1,14 +1,15 @@
 ﻿@namespace AXOpen.Data
 @using AXSharp.Connector
 @using Microsoft.AspNetCore.Components.Authorization;
+@using Operon.Components.Toast
 @inherits RenderableComplexComponentBase<AxoDataExchangeBase>;
-@inject IAlertService _alertDialogService
+@inject IToastService _toastService
 @inject AuthenticationStateProvider _authenticationProvider
 <DataExchangeView Vm="_vm" Presentation="Status"></DataExchangeView>
 
 @code
 {
-    private DataExchangeViewModel _vm => new DataExchangeViewModel { Model = this.Component, AlertDialogService = _alertDialogService, AuthenticationProvider = _authenticationProvider };
+    private DataExchangeViewModel _vm => new DataExchangeViewModel { Model = this.Component, ToastService = _toastService, AuthenticationProvider = _authenticationProvider };
 
     public override void ConfigurePolling()
     {

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AXOpen.Core.Blazor.AxoAlertDialog;
 using Serilog;
+using Operon.Components.Toast;
 
 namespace AXOpen.Core.Blazor.Dialogs
 {
@@ -56,9 +57,9 @@ namespace AXOpen.Core.Blazor.Dialogs
             {
                 AXOpen.Core.AxoAlert a = (AXOpen.Core.AxoAlert)sender;
 
-                Log.Logger.Information($"AxoAlertLocator invoking dialog: {(eAlertType)a._alertType.Cyclic} {a._title.Cyclic} {a._message.Cyclic} {a._timeToBurn.Cyclic}");
+                Log.Logger.Information($"ToastService invoking toast: {(eToastType)a._alertType.Cyclic} {a._title.Cyclic} {a._message.Cyclic} {a._timeToBurn.Cyclic}");
 
-                AlertDialogService.AddAlertDialog((eAlertType)a._alertType.Cyclic, a._title.Cyclic, a._message.Cyclic, a._timeToBurn.Cyclic);
+                ToastService.AddToast((eToastType)a._alertType.Cyclic, a._title.Cyclic, a._message.Cyclic, a._timeToBurn.Cyclic);
 
                 await InvokeAsync(StateHasChanged);
             }

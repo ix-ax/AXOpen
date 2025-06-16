@@ -34,6 +34,7 @@ using System.Data.Common;
 using AXOpen.Data.Query;
 using AXOpen.Base.Data.Query;
 using AXSharp.Presentation.Blazor.Controls.Templates;
+using Operon.Components.Toast;
 
 namespace AXOpen.Data;
 
@@ -68,7 +69,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
     public bool AdvanceFilterConfig { get; set; } = false;
 
     [Inject]
-    private IAlertService _alertDialogService { get; set; }
+    private IToastService _toastService { get; set; }
 
     [Inject]
     private ProtectedLocalStorage ProtectedLocalStore { get; set; }
@@ -235,7 +236,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
         }
         catch (Exception ex)
         {
-            _alertDialogService.AddAlertDialog(eAlertType.Danger, "Error!", ex.Message, 10);
+            _toastService.AddToast(eToastType.Danger, "Error!", ex.Message, 10);
             _fileLoadingStatus = eOperationStatus.Failed;
         }
     }
