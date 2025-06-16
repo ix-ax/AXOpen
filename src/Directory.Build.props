@@ -1,7 +1,7 @@
 <Project>
  <PropertyGroup>
    <TargetFrameworks>net9.0;net8.0</TargetFrameworks>  
-   <AxSharpRoot>c:\W\Develop\gh\inxton\simatic-ax\axsharp\src\</AxSharpRoot>
+   <AxSharpRoot>C:\W\Develop\gh\inxton\simatic-ax\axopen.templates\axsharp\src\</AxSharpRoot>   
     <!-- Define output directories based on project names 
     <OutputPath>$(MSBuildThisFileDirectory)\.builds\bin\$(MSBuildProjectName)\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>$(MSBuildThisFileDirectory)\.builds\obj\$(MSBuildProjectName)\$(Configuration)\</IntermediateOutputPath>  -->

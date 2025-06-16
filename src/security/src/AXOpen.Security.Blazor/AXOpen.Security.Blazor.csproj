@@ -10,7 +10,7 @@
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="AXSharp.Abstractions" />
-    <PackageReference Include="Inxton.Operon" />
+    <!-- <PackageReference Include="Inxton.Operon" /> -->    
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" />
