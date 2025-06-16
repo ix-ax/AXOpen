@@ -1,6 +1,7 @@
 ﻿using AXOpen.Base.Dialogs;
 using AXOpen.Core.Blazor.AxoDialogs;
 using AXSharp.Connector;
+using Operon.Components.Toast;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
         /// </summary>
         public string LocatorPath { get; private set; }
 
-        public IAlertService ScopedAlertDialogService = new AxoAlertService();
+        public IToastService ScopedAlertDialogService = new ToastService();
 
         public AxoAlertProxyService(
             string alertLocatorPath,

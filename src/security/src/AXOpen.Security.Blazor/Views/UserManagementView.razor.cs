@@ -15,6 +15,7 @@ using AXOpen.Security;
 using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Identity;
+using Operon.Components.Toast;
 
 namespace AxOpen.Security.Views
 {
@@ -71,14 +72,14 @@ namespace AxOpen.Security.Views
 
                 string msg = Localizer["User \"{0}\" succesfully deleted!", deletedUserName];
 
-                _alertDialogService?.AddAlertDialog(eAlertType.Success, Localizer["Deleted!"], msg, 10);
+                _toastService?.AddToast(eToastType.Success, Localizer["Deleted!"], msg, 10);
                 AxoApplication.Current.Logger.Information(msg, await GetCurrentIdentity());
             }
             else
             {
                 string msg = Localizer["User \"{0}\" was not deleted!", deletedUserName] + $" {result.ToString()}";
 
-                _alertDialogService?.AddAlertDialog(eAlertType.Success, Localizer["Deleted!"], msg, 10);
+                _toastService?.AddToast(eToastType.Success, Localizer["Deleted!"], msg, 10);
                 AxoApplication.Current.Logger.Warning(msg, await GetCurrentIdentity());
             }
         }
@@ -116,13 +117,13 @@ namespace AxOpen.Security.Views
             {
                 string msg = Localizer["User \"{0}\" succesfully updated!", _model.Username];
 
-                _alertDialogService?.AddAlertDialog(eAlertType.Success, Localizer["Updated!"], msg, 10);
+                _toastService?.AddToast(eToastType.Success, Localizer["Updated!"], msg, 10);
                 AxoApplication.Current.Logger.Information(msg, await GetCurrentIdentity());
             }
             else
             {
                 string msg = Localizer["User \"{0}\" was not updated!", _model.Username] + $" {result.ToString()}";
-                _alertDialogService?.AddAlertDialog(eAlertType.Warning, Localizer["Not updated!"], msg, 10);
+                _toastService?.AddToast(eToastType.Warning, Localizer["Not updated!"], msg, 10);
 
                 AxoApplication.Current.Logger.Warning(msg, await GetCurrentIdentity());
             }

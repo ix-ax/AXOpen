@@ -5,6 +5,7 @@ using Humanizer.DateTimeHumanizeStrategy;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
+using Operon.Components.Toast;
 using Pocos.AXOpen.Data;
 using System.Globalization;
 
@@ -33,7 +34,7 @@ namespace AXOpen.Data
         public AuthenticationStateProvider Authentication { set; get; }
 
         [Inject]
-        public IAlertService AlertService { get; set; }
+        public IToastService ToastService { get; set; }
 
         [Inject]
         public IDistributedDataExchangeService DistributedExchangeService { set; get; }
@@ -62,7 +63,7 @@ namespace AXOpen.Data
 
                 if (DataFragments != null)
                 {
-                    DistributedVM = new DistributedDataSelectorViewModel(AlertService, Authentication, DistributedExchangeService, GroupName, InjectedPredicateContainer);
+                    DistributedVM = new DistributedDataSelectorViewModel(ToastService, Authentication, DistributedExchangeService, GroupName, InjectedPredicateContainer);
 
                     DistributedVM.FilteredPageLimit = this.MinPaginationLimit;
 

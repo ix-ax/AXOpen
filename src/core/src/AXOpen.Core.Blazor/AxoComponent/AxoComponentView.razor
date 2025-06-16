@@ -1,8 +1,8 @@
 ﻿@namespace AXOpen.Core
 @using AXSharp.Connector.ValueTypes
 @using AXSharp.Connector;
-@using AXSharp.Presentation.Blazor.Controls.Layouts.TabControlComponents;
 @using Operon.Components.Accordion
+@using Operon.Components.Tab
 @inherits RenderableComplexComponentBase<AxoComponent>;
 
 <div class="card flex-auto my-3 @BorderColorStatusClass">
@@ -27,10 +27,10 @@
     <Accordion>
         <AccordionItem  Title="@this.Component.Symbol">
             <div class="">
-                <TabControl>
+                <Tab>
                     @foreach (var detailsTab in DetailsTabs)
                     {
-                        <TabPage Text="@detailsTab.HumanReadable">
+                        <TabPage Title="@detailsTab.HumanReadable">
                             <RenderableContentControl
                                 Context=@detailsTab
                                 Presentation="@currentPresentation"
@@ -39,7 +39,7 @@
                                 LayoutChildrenClass="ms-0"/>
                         </TabPage>
                     }
-                </TabControl>
+                </Tab>
             </div>
         </AccordionItem>
     </Accordion>
