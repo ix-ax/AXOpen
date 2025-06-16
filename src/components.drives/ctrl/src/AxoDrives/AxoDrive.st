@@ -1251,9 +1251,11 @@ NAMESPACE AXOpen.Components.Drives
                 RETURN;
             END_IF;
             
-            THIS.UpdateInputs(refAxisIn,_AxisRef);
+            // THIS.UpdateInputs(refAxisIn,_AxisRef);
+            THIS.UpdateInputs(_AxisRef);
             THIS.Execute(_AxisRef,Enable,EnablePositive,EnableNegative);
-            THIS.UpdateOutputs(_AxisRef,refAxisIn);
+            // THIS.UpdateOutputs(_AxisRef,refAxisIn);
+            THIS.UpdateOutputs(_AxisRef);
         END_METHOD   
 
 
@@ -3252,24 +3254,24 @@ NAMESPACE AXOpen.Components.Drives
         END_METHOD
 
         ///<summary>
-        /// Ensures swapping the hardware input data structure into the AxisRef data structure  
+        /// Ensures reading the hardware input data into the AxisRef data structure  
         /// This vendor specific method must be overridden in derived class.
         ///</summary>
         METHOD PROTECTED ABSTRACT UpdateInputs : BOOL
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
+                // refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
             END_VAR
         END_METHOD   
 
         ///<summary>
-        /// Ensures swapping the AxisRef data structure into the hardware output data structure
+        /// Ensures writing the AxisRef data structure into the hardware output data
         /// This vendor specific method must be overridden in derived class.
         ///</summary>
         METHOD PROTECTED ABSTRACT UpdateOutputs : BOOL
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
+                // refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
             END_VAR
         END_METHOD   
 

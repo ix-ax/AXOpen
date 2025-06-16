@@ -10,7 +10,7 @@ NAMESPACE AxoDriveTests.Tests
 
         METHOD PROTECTED OVERRIDE UpdateInputs : BOOL
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   
+                // refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
             END_VAR
             ;
@@ -19,7 +19,7 @@ NAMESPACE AxoDriveTests.Tests
         METHOD PROTECTED OVERRIDE UpdateOutputs : BOOL
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   
+                // refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   
             END_VAR
             ;
         END_METHOD   

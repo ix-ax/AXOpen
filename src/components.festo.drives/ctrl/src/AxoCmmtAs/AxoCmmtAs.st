@@ -739,26 +739,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///<summary>
         /// Ensures swapping the hardware input data structure into the AxisRef data structure  
         ///</summary>
-        METHOD PROTECTED  OVERRIDE UpdateInputs : BOOL
-            VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-            END_VAR
-            ;
-        END_METHOD   
-
-        ///<summary>
-        /// Ensures swapping the AxisRef data structure into the hardware output data structure
-        ///</summary>
-        METHOD PROTECTED OVERRIDE UpdateOutputs : BOOL
-            VAR_INPUT
-                AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
-            END_VAR
-            ;
-        END_METHOD   
-
-        METHOD PROTECTED  UpdateInputs : BOOL
+        METHOD PROTECTED OVERRIDE UpdateInputs : BOOL
             VAR_INPUT
                 AxisRef             :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
             END_VAR
@@ -859,7 +840,10 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _AxisReference^.Telegram750_In.M_Actual                                   := TO_INT(_Telegram750[0]);
         END_METHOD   
 
-        METHOD PROTECTED UpdateOutputs : BOOL
+        ///<summary>
+        /// Ensures swapping the AxisRef data structure into the hardware output data structure
+        ///</summary>
+        METHOD PROTECTED OVERRIDE UpdateOutputs : BOOL
             VAR_INPUT
                 AxisRef             :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
             END_VAR

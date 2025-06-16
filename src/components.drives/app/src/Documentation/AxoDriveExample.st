@@ -16,7 +16,6 @@ NAMESPACE AXOpen.Components.Drives
         ///</summary>
         METHOD PROTECTED  OVERRIDE UpdateInputs : BOOL
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
             END_VAR
             ;
@@ -28,7 +27,6 @@ NAMESPACE AXOpen.Components.Drives
         METHOD PROTECTED OVERRIDE UpdateOutputs : BOOL
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
             END_VAR
             ;
         END_METHOD   
