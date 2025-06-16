@@ -1487,18 +1487,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     ScalingConstantRequiredDeceleration := ScalingConstantRequiredAcceleration;
                     ScalingConstantActualDeceleration   := ScalingConstantActualAcceleration;
                     //  Torque
-                    // ScalingConstantRequiredTorque := LREAL#1.0;
-                    // FOR _i := INT#1 TO (-1*(_S_0_0094 + 2)) DO 
-                    //     ScalingConstantRequiredTorque := ScalingConstantRequiredTorque * LREAL#10.0;
-                    // END_FOR;
-                    // _i := -1*(_S_0_0094 + 2);
-                    ScalingConstantActualTorque       := TO_LREAL(_S_0_0093) * TO_LREAL(_S_0_0093) *_exp[_S_0_0094 + 2] / TO_LREAL(_S_0_0112) ;
-
-                    // ScalingConstantRequiredTorque :=   TO_LREAL(_S_0_0112) * _exp[_i] / (TO_LREAL(_S_0_0093) TO_LREAL(_S_0_0093));
-
-                    // ScalingConstantRequiredTorque := ScalingConstantRequiredTorque * TO_LREAL(_S_0_0112) /( TO_LREAL(_S_0_0093) * TO_LREAL(_P_0_0450));
-                    // ScalingConstantActualTorque := TO_LREAL(_S_0_0093) * EXP(LN(10) * (TO_LREAL(_S_0_0094) +2)) * TO_LREAL(_P_0_0450)/TO_LREAL(_S_0_0112);
-                    //                    ScalingConstantActualTorque         := TO_LREAL(_S_0_0093) * EXP(LN(10) * TO_LREAL(_S_0_0094));
+                    ScalingConstantActualTorque       := TO_LREAL(_S_0_0093) *_exp[_S_0_0094 - 2] * TO_LREAL(_P_0_0450) * TO_LREAL(_S_0_0112) ;
                     ScalingConstantRequiredTorque := LREAL#1.0/ScalingConstantActualTorque;
                     
                     _ScalingRead := TRUE;
@@ -1509,7 +1498,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     AxoHalt_Deceleration := 1000.0;         // mm/s2
                     AxoHalt_Jerk := 1500.0;                 // mm/s3
                     AxoHome_Position := 0.0;                // mm
-                    AxoHome_HommingMode := 551; // Negative direction, travel range limit switch, negative edge (NC contact)
+                    AxoHome_HommingMode := 551;             // Negative direction, travel range limit switch, negative edge (NC contact)
                     AxoHome_Velocity := 2.0;                // mm/s
                     AxoHome_Acceleration := 1000.0;         // mm/s2
                     AxoHome_Deceleration := 1000.0;         // mm/s2
@@ -3720,8 +3709,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Busy := TRUE;            
                     Active := TRUE;          
                     IF Velocity > 0 AND Acceleration > 0 AND Deceleration > 0 AND Jerk > 0 AND Torque <> 0 AND TorqueRamp > 0 THEN
-                        _AxisReference^.Outputs.CommandTorque_S_0_0080_0_0          :=  TO_INT(Torque_   * 10.0);
-                        _AxisReference^.Outputs.CommandPosition_S_0_0282_0_0        :=  TO_DINT(PositionLimit   * ScalingConstantRequiredPosition);
+                        _AxisReference^.Outputs.CommandTorque_S_0_0080_0_0          :=  TO_INT(Torque_          *   ScalingConstantRequiredTorque);
+                        _AxisReference^.Outputs.CommandPosition_S_0_0282_0_0        :=  TO_DINT(PositionLimit   *   ScalingConstantRequiredPosition);
                         _AxisReference^.Outputs.CommandVelocity_S_0_0259_0_0        :=  TO_DINT(Velocity        *   ScalingConstantRequiredVelocity     *   _AxisReference^.Data.OverrideVelocityFactor);
                         _AxisReference^.Outputs.CommandAcceleration_S_0_0260_0_0    :=  TO_DINT(Acceleration    *   ScalingConstantRequiredAcceleration *   _AxisReference^.Data.OverrideAccelerationFactor);
                         _AxisReference^.Outputs.CommandDecceleration_S_0_0359_0_0   :=  TO_DINT(Deceleration    *   ScalingConstantRequiredDeceleration *   _AxisReference^.Data.OverrideAccelerationFactor);
