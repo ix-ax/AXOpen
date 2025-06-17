@@ -5763,7 +5763,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             ELSIF NOT Execute AND MC_ResetExecute_PV THEN
                 Done := FALSE;
                 Error:=FALSE;
-                ErrorID :=	AXOpen.Components.Rexroth.Drives.eAxoCtrlxDriveXscErrorCode#NONE_ERROR;
+                ErrorID := WORD#0;
                 Busy := FALSE;
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := FALSE;
             END_IF;
