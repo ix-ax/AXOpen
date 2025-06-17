@@ -15,64 +15,69 @@ NAMESPACE AXOpen.Components.Festo.Drives
     {S7.extern=ReadWrite}
     CLASS PUBLIC AxoCmmtAs EXTENDS AXOpen.Components.Drives.AxoDrive IMPLEMENTS AXOpen.Components.Abstractions.Drives.IAxoDrive
 
-        VAR PUBLIC //Debug
+        VAR PUBLIC // HwDiag
             {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[ComponentHeader()]}
-            State : UINT;
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[ComponentHeader()]}
-            Debug : LINT;
+            {#ix-attr:[ComponentDetails("Hardware diagnostics")]}
+            {#ix-set:AttributeName = "<#Update diagnostics#>"}
+            HardwareDiagnosticsTask :   AXOpen.Io.AxoHardwareDiagnostics;
         END_VAR
-
-        VAR PUBLIC //CONFIG
+        VAR PUBLIC // AxisRef
             {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[ComponentDetails("Config")]}
+            {#ix-attr:[ComponentDetails("AxisRef")]}
+            // {#ix-attr:[ReadOnly()]}
+            AxisRefExt :  AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
+        END_VAR
+        VAR PUBLIC // Scaling
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentDetails("Scaling")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Scaling constant required position#>"}
             {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
             ScalingConstantRequiredPosition         :   LREAL   :=  1000;
-            {#ix-attr:[ComponentDetails("Config")]}
+            {#ix-attr:[ComponentDetails("Scaling")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Scaling constant actual position#>"}
             {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
             ScalingConstantActualPosition         :   LREAL   :=  0.001;
-            {#ix-attr:[ComponentDetails("Config")]}
+            {#ix-attr:[ComponentDetails("Scaling")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Scaling constant required velocity#>"}
             {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
             ScalingConstantRequiredVelocity         :   LREAL   :=  1;
-            {#ix-attr:[ComponentDetails("Config")]}
+            {#ix-attr:[ComponentDetails("Scaling")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Scaling constant actual velocity#>"}
             {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
             ScalingConstantActualVelocity         :   LREAL   :=  0.000000000931322574615478515625;
-            {#ix-attr:[ComponentDetails("Config")]}
+            {#ix-attr:[ComponentDetails("Scaling")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Scaling constant required torque#>"}
             {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
             ScalingConstantRequiredTorque         :   LREAL   :=  1;
-            {#ix-attr:[ComponentDetails("Config")]}
+            {#ix-attr:[ComponentDetails("Scaling")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Scaling constant actual torque#>"}
             {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
             ScalingConstantActualTorque         :   LREAL   :=  0.00006103515625;
-            {#ix-attr:[ComponentDetails("Config")]}
+            {#ix-attr:[ComponentDetails("Scaling")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Scaling constant required acceleration#>"}
             {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
             ScalingConstantRequiredAcceleration        :   LREAL   :=  0.00006103515625;
-            {#ix-attr:[ComponentDetails("Config")]}
+            {#ix-attr:[ComponentDetails("Scaling")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Scaling constant required deceleration#>"}
             {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
             ScalingConstantRequiredDeceleration        :   LREAL   :=  0.00006103515625;
         END_VAR
-        VAR PUBLIC
 
+        VAR PUBLIC //   Debug
             {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[ComponentDetails("Hardware diagnostics")]}
-            {#ix-set:AttributeName = "<#Update diagnostics#>"}
-            HardwareDiagnosticsTask :   AXOpen.Io.AxoHardwareDiagnostics;
+            {#ix-attr:[ComponentHeader()]}
+            State : UINT;
+            // {#ix-attr:[Container(Layout.Stack)]}
+            // {#ix-attr:[ComponentHeader()]}
+            // Debug : LINT;
         END_VAR
 
         VAR PRIVATE
@@ -87,16 +92,16 @@ NAMESPACE AXOpen.Components.Festo.Drives
             PNU_11734               :   LINT;
             PNU_11735               :   LINT;
             // State : UINT;
-            _AxisRefExt             :   AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
+            // _AxisRefExt             :   AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
             Parametrization         :   AxoReadWritePROFIdriveParameter; 
 
-            _hwID                   :   WORD;
-            _hwIdDoServo            :   WORD;
-            _hwIdModuleAccessPoint  :   WORD;
-            _hwIdEmptyModule_1      :   WORD;
-            _hwIdTelegram111        :   WORD; 
-            _hwIdEmptyModule_2      :   WORD;
-            _hwIdTelegram750        :   WORD; 
+            // _hwID                   :   WORD;
+            // _hwIdDoServo            :   WORD;
+            // _hwIdModuleAccessPoint  :   WORD;
+            // _hwIdEmptyModule_1      :   WORD;
+            // _hwIdTelegram111        :   WORD; 
+            // _hwIdEmptyModule_2      :   WORD;
+            // _hwIdTelegram750        :   WORD; 
 
             _initHwCheckDone        :   BOOL;
             _retval                 :   WORD;
@@ -122,8 +127,10 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 EnableNegative      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
             END_VAR
             VAR 
-                _AxisReference  :   REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
+                // _AxisReference  :   REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
                 tempDWord       :   DWORD;
+                //                                      |     -10   |     -9    |    -8    |    -7   |   -6   |   -5  |  -4  | -3  | -2 |-1|  0 | 1  |  2  |  3   |   4   |   5    |   6     |    7     |     8     |    9      |     10    |
+                _exp    :   ARRAY [-10..10] OF LREAL := [0.000000001,0.000000001,0.00000001,0.0000001,0.000001,0.00001,0.0001,0.001,0.01,0.1,1.0,10.0,100.0,1000.0,10000.0,100000.0,1000000.0,10000000.0,100000000.0,100000000.0,100000000.0];
             END_VAR
 
             SUPER.Run(parent);
@@ -143,8 +150,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     RETURN;
                 END_IF;
     
-                _hwID                    := hwID;                                                      
-                _retval := ReadSlotFromHardwareID(hardwareID := TO_UINT(_hwID), geoAddr :=_geoAddr);   
+                AxisRefExt.HWIDs.HW_Device                   :=      TO_UINT(hwID);                                               
+                _retval := ReadSlotFromHardwareID(hardwareID := AxisRefExt.HWIDs.HW_Device, geoAddr :=_geoAddr);   
                 IF _retval = WORD#8090 THEN
                     Messenger.Activate(     UINT#702,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#702;
@@ -155,8 +162,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _geoAddr.Slot   :=  UINT#1;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdDoServo :=  TO_WORD(_outHwid);                                         
-                IF _hwIdDoServo = WORD#0 THEN
+                AxisRefExt.HWIDs.HW_DoServo :=  _outHwid;                                         
+                IF AxisRefExt.HWIDs.HW_DoServo = UINT#0 THEN
                     Messenger.Activate(     UINT#710,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#710;
                     RETURN;
@@ -186,7 +193,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#715;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdDoServo , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRefExt.HWIDs.HW_DoServo) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#716,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#716;
@@ -198,8 +205,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _geoAddr.Subslot   :=  UINT#0;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdDoServo :=  TO_WORD(_outHwid);                                         
-                IF _hwIdDoServo = WORD#0 THEN
+                AxisRefExt.HWIDs.HW_DoServoSub :=  _outHwid;                                         
+                IF AxisRefExt.HWIDs.HW_DoServoSub = UINT#0 THEN
                     Messenger.Activate(     UINT#720,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#720;
                     RETURN;
@@ -229,7 +236,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#725;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdDoServo , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRefExt.HWIDs.HW_DoServoSub) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#726,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#726;
@@ -241,8 +248,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _geoAddr.Subslot   :=  UINT#1;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdModuleAccessPoint :=  TO_WORD(_outHwid);                                         
-                IF _hwIdModuleAccessPoint = WORD#0 THEN
+                AxisRefExt.HWIDs.HW_ModuleAccessPoint := _outHwid;                                         
+                IF AxisRefExt.HWIDs.HW_ModuleAccessPoint = UINT#0 THEN
                     Messenger.Activate(     UINT#730,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#730;
                     RETURN;
@@ -272,7 +279,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#735;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdModuleAccessPoint , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRefExt.HWIDs.HW_ModuleAccessPoint) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#736,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#736;
@@ -284,8 +291,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _geoAddr.Subslot   :=  UINT#2;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdEmptyModule_1 :=  TO_WORD(_outHwid);                                         
-                IF _hwIdEmptyModule_1 = WORD#0 THEN
+                AxisRefExt.HWIDs.HW_EmptyModule_1 :=  _outHwid;
+                IF AxisRefExt.HWIDs.HW_EmptyModule_1 = UINT#0 THEN
                     Messenger.Activate(     UINT#740,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#740;
                     RETURN;
@@ -315,7 +322,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#745;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdEmptyModule_1 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRefExt.HWIDs.HW_EmptyModule_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#746,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#746;
@@ -327,8 +334,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _geoAddr.Subslot   :=  UINT#3;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdTelegram111 :=  TO_WORD(_outHwid);                                         
-                IF _hwIdTelegram111 = WORD#0 THEN
+                AxisRefExt.HWIDs.HW_Telegram111 := _outHwid; 
+                IF AxisRefExt.HWIDs.HW_Telegram111 = UINT#0 THEN
                     Messenger.Activate(     UINT#750,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#750;
                     RETURN;
@@ -358,7 +365,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#755;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdTelegram111 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRefExt.HWIDs.HW_Telegram111) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#24 OR _outputsCount <> UINT#24 THEN
                     Messenger.Activate(     UINT#756,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#756;
@@ -370,8 +377,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _geoAddr.Subslot   :=  UINT#4;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdEmptyModule_2 :=  TO_WORD(_outHwid);                                         
-                IF _hwIdEmptyModule_2 = WORD#0 THEN
+                AxisRefExt.HWIDs.HW_EmptyModule_2 :=  _outHwid;
+                IF AxisRefExt.HWIDs.HW_EmptyModule_2 = UINT#0 THEN
                     Messenger.Activate(     UINT#760,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#760;
                     RETURN;
@@ -401,7 +408,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#765;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdEmptyModule_2 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRefExt.HWIDs.HW_EmptyModule_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#766,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#766;
@@ -413,8 +420,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _geoAddr.Subslot   :=  UINT#5;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdTelegram750 :=  TO_WORD(_outHwid);                                         
-                IF _hwIdTelegram750 = WORD#0 THEN
+                AxisRefExt.HWIDs.HW_Telegram750 :=  _outHwid;                                         
+                IF AxisRefExt.HWIDs.HW_Telegram750 = UINT#0 THEN
                     Messenger.Activate(     UINT#770,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#770;
                     RETURN;
@@ -444,7 +451,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#775;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdTelegram750 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRefExt.HWIDs.HW_Telegram750) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#8 THEN
                     Messenger.Activate(     UINT#776,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#776;
@@ -457,38 +464,38 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#1130;
                     RETURN;
                 END_IF;
-                IF _hwID  = WORD#0 THEN
+                IF  AxisRefExt.HWIDs.HW_Device = UINT#0 THEN
                     Messenger.Activate(     UINT#1131,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1131;
                     RETURN;
                 END_IF;
         
-                IF _hwIdDoServo  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_DoServo  = UINT#0 THEN
                     Messenger.Activate(     UINT#1132,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1132;
                     RETURN;
                 END_IF;
-                IF _hwIdDoServo  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_ModuleAccessPoint  = UINT#0 THEN
                     Messenger.Activate(     UINT#1133,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1133;
                     RETURN;
                 END_IF;
-                IF _hwIdEmptyModule_1  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_EmptyModule_1 = UINT#0 THEN
                     Messenger.Activate(     UINT#1134,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1134;
                     RETURN;
                 END_IF;
-                IF _hwIdTelegram111  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_Telegram111 = UINT#0 THEN
                     Messenger.Activate(     UINT#1135,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1135;
                     RETURN;
                 END_IF;
-                IF _hwIdEmptyModule_2  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_EmptyModule_2   = UINT#0 THEN
                     Messenger.Activate(     UINT#1136,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1136;
                     RETURN;
                 END_IF;
-                IF _hwIdTelegram750  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_Telegram750  = UINT#0 THEN
                     Messenger.Activate(     UINT#1137,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1137;
                     RETURN;
@@ -498,19 +505,13 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _initHwCheckDone    := TRUE;
             END_IF;            
 
-            _AxisRefExt.Data.hwID                   := _hwID;
-            _AxisRefExt.Data.hwIdModuleAccessPoint  := _hwIdModuleAccessPoint;
-            _AxisRefExt.Data.hwIdTelegram111        := _hwIdTelegram111;
-            _AxisRefExt.Data.hwIdTelegram750        := _hwIdTelegram750;
-
-            // Parametrization.Initialize(THIS);
             // HardwareDiagnosticsTask.Initialize(THIS);
 
-            SUPER.Execute(_AxisRefExt,Enable,EnablePositive,EnableNegative);
+            SUPER.Execute(AxisRefExt,Enable,EnablePositive,EnableNegative);
             Messenger.ActivateOnCondition(ULINT#2000, NOT EnablePositive, eAxoMessageCategory#Warning);
             Messenger.ActivateOnCondition(ULINT#2001, NOT EnableNegative, eAxoMessageCategory#Warning);
 
-            THIS.Execute(_AxisRefExt);
+            THIS.Execute(AxisRefExt);
         END_METHOD   
 
         METHOD PRIVATE Execute
@@ -530,10 +531,10 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 RETURN;
             END_IF;
             //********************Diagnostics******************//          
-            HardwareDiagnosticsTask.Run(THIS,_AxisReference^.Data.hwID);
+            HardwareDiagnosticsTask.Run(THIS,TO_WORD(_AxisReference^.HWIDs.HW_Device));
             //********************PARAMETRIZAION***************//          
             Parametrization.Run(THIS);
-            Parametrization.Inputs.HardwareId := _AxisReference^.Data.hwIdModuleAccessPoint;            
+            Parametrization.Inputs.HardwareId := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);            
             //*******************SCALING***********************//          
             IF NOT ScalingRead THEN
                 Messenger.Activate(ULINT#1800 , eAxoMessageCategory#Warning);            
@@ -547,7 +548,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11724;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11724 := Parametrization.Outputs.ValueReadLINT;
                         State := UINT#2;
@@ -566,7 +567,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11725;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11725 := Parametrization.Outputs.ValueReadLINT;
                         State := UINT#4;
@@ -585,7 +586,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12345;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_12345 := Parametrization.Outputs.ValueReadREAL;
                         State := UINT#6;
@@ -604,7 +605,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11122;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11122 := Parametrization.Outputs.ValueReadREAL;
                         State := UINT#8;
@@ -623,7 +624,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 810;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_810 := Parametrization.Outputs.ValueReadREAL;
                         State := UINT#10;
@@ -642,7 +643,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 811;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_811 := Parametrization.Outputs.ValueReadREAL;
                         State := UINT#12;
@@ -758,7 +759,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 RETURN;
             END_IF;
 
-            returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_AxisReference^.Data.hwIdTelegram111 ,_Telegram111);
+            returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(_AxisReference^.HWIDs.HW_Telegram111) ,_Telegram111);
             IF returnValue > WORD#0 THEN
                 Messenger.Activate(     UINT#1411, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1411;
@@ -830,8 +831,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _AxisReference^.Telegram111_In.Reserved.%B1                               := _Telegram111[22];
             _AxisReference^.Telegram111_In.Reserved.%B0                               := _Telegram111[23];
             //M_Actual 
-            returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_AxisReference^.Data.hwIdTelegram750,_Telegram750);
-            returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_AxisReference^.Data.hwIdTelegram111 ,_Telegram111);
+            returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(_AxisReference^.HWIDs.HW_Telegram750),_Telegram750);
             IF returnValue > WORD#0 THEN
                 Messenger.Activate(     UINT#1412, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1412;
@@ -954,7 +954,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _Telegram111[23] := _AxisReference^.Telegram111_Out.reserved11.%B0;
             _Telegram111[22] := _AxisReference^.Telegram111_Out.reserved11.%B1;
 
-            returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_AxisReference^.Data.hwIdTelegram111,_Telegram111);
+            returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(_AxisReference^.HWIDs.HW_Telegram111),_Telegram111);
             IF returnValue > WORD#0 THEN
                 Messenger.Activate(     UINT#1421, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1421;
@@ -970,7 +970,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _Telegram750[7] := _AxisReference^.Telegram750_Out.Reserved.%B0;
             _Telegram750[6] := _AxisReference^.Telegram750_Out.Reserved.%B1;
 
-            returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_AxisReference^.Data.hwIdTelegram750,_Telegram750);
+            returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(_AxisReference^.HWIDs.HW_Telegram750),_Telegram750);
             IF returnValue > WORD#0 THEN
                 Messenger.Activate(     UINT#1422, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1422;
@@ -1154,7 +1154,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11206; //Acc
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteREAL := TO_REAL(Acceleration);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#22;
@@ -1182,7 +1182,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11209;//Acc
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteREAL := TO_REAL(Acceleration);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#24;
@@ -1210,7 +1210,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11728;//Acc
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteREAL := TO_REAL(Acceleration);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#26;
@@ -1238,7 +1238,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11205; //Vel
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteREAL := TO_REAL(Velocity);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#28;
@@ -1266,7 +1266,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11208;//Vel
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteREAL := TO_REAL(Velocity)*REAL#0.5;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#30;
@@ -1294,7 +1294,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11211;//Vel
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteREAL := TO_REAL(Velocity)*REAL#5.0;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#32;
@@ -1322,7 +1322,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11735;//mode
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11735 := Parametrization.Outputs.ValueReadLINT;
                         State := UINT#34;
@@ -1350,7 +1350,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11735;//mode
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteLINT := TO_LINT(HommingMode);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#36;
@@ -1378,7 +1378,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12681;//deactivate save zero offset
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteBOOL := FALSE;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#38;
@@ -1427,7 +1427,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11203;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11203 := Parametrization.Outputs.ValueReadBool;
                         State := UINT#42;
@@ -1455,7 +1455,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11734;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11734 := Parametrization.Outputs.ValueReadLINT;
                         State := UINT#44;
@@ -1483,7 +1483,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11203;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteBOOL := FALSE;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#46;
@@ -1511,7 +1511,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11734;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteLINT := TO_LINT(Position * -10000000000.0);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#48;
@@ -1539,7 +1539,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11735;//mode
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteLINT := TO_LINT(37);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#50;
@@ -1584,7 +1584,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11203;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteBool := PNU_11203;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#54;
@@ -1612,7 +1612,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11734;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteLINT := PNU_11734;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                          State := UINT#56;
@@ -1638,7 +1638,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11735;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteLINT := PNU_11735;
 
                     IF Parametrization.Outputs.Error THEN 
@@ -1775,7 +1775,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12327;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteREAL := TO_REAL(Jerk);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#62;
@@ -1952,7 +1952,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12327;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteREAL := TO_REAL(Jerk);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#72;
@@ -2169,7 +2169,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12327;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveAbsoluteJerk_PV * _AxisReference^.Data.OverrideJerkFactor);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#82;
@@ -2393,7 +2393,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12327;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveRelativeJerk_PV * _AxisReference^.Data.OverrideJerkFactor);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#92;
@@ -2637,7 +2637,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12327;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveAdditiveJerk_PV * _AxisReference^.Data.OverrideJerkFactor);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#102;
@@ -2889,7 +2889,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12327;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveVelocityJerk_PV * _AxisReference^.Data.OverrideJerkFactor);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#112;
@@ -3152,7 +3152,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12168;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_TorqueControlTorque_PV * ScalingConstantRequiredTorque);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#122;
@@ -3181,7 +3181,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12327;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_TorqueControlJerk_PV * _AxisReference^.Data.OverrideJerkFactor);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#124;
@@ -3373,7 +3373,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11735;//mode
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11735 := Parametrization.Outputs.ValueReadLINT;
                         State := UINT#131;
@@ -3399,7 +3399,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12681;//deactivate save zero offset
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteBOOL := FALSE;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#133;
@@ -3425,7 +3425,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11203;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11203 := Parametrization.Outputs.ValueReadBool;
                         State := UINT#135;
@@ -3451,7 +3451,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11734;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11734 := Parametrization.Outputs.ValueReadLINT;
                         State := UINT#137;
@@ -3477,7 +3477,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11203;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteBOOL := FALSE;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#139;
@@ -3504,7 +3504,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11734;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Relative THEN
                         Parametrization.Inputs.ValueWriteLINT := MC_SetPositionActualPosition + TO_LINT(Position * -10000000000.0);
                     ELSE
@@ -3534,7 +3534,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11735;//mode
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteLINT := TO_LINT(37);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#143;
@@ -3575,7 +3575,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11203;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteBool := PNU_11203;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#147;
@@ -3601,7 +3601,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11734;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteLINT := PNU_11734;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                          State := UINT#149;
@@ -3626,7 +3626,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11735;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteLINT := PNU_11735;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#151;
@@ -3833,7 +3833,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := TO_INT(ParameterNumber);
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         MC_ReadParameterValid := TRUE;
                         MC_ReadParameterValue := Parametrization.Outputs.ValueReadLINT;
@@ -3936,7 +3936,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := TO_INT(ParameterNumber);
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         MC_ReadRealParameterValid := TRUE;
                         MC_ReadRealParameterValue := Parametrization.Outputs.ValueReadREAL;
@@ -4040,7 +4040,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := TO_INT(ParameterNumber);
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         MC_ReadBoolParameterValid := TRUE;
                         MC_ReadBoolParameterValue := Parametrization.Outputs.ValueReadBOOL;
@@ -4145,7 +4145,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := TO_INT(ParameterNumber);
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteLINT := Value;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#191;
@@ -4256,7 +4256,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := TO_INT(ParameterNumber);
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteREAL := Value;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#201;
@@ -4367,7 +4367,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := TO_INT(ParameterNumber);
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteBOOL := Value;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#211;
@@ -4484,7 +4484,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 2888;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         MC_ReadDigitalInputValid := TRUE;
                         MC_ReadDigitalInputValue := GetBit(TO_LWORD(Parametrization.Outputs.ValueReadLINT), TO_USINT(InputNumber));
@@ -4594,7 +4594,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 2888;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         MC_ReadDigitalOutputValid := TRUE;
                         MC_ReadDigitalOutputValue := GetBit(TO_LWORD(Parametrization.Outputs.ValueReadLINT), TO_USINT(OutputNumber));
@@ -4711,7 +4711,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 0;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteBOOL := Value;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#241;
@@ -5097,7 +5097,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12306;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         MC_ReadAxisErrorValid := TRUE;
                         MC_ReadAxisErrorValue := Parametrization.Outputs.ValueReadLINT;
@@ -5389,7 +5389,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             MC_ResetExecute_PV				    := FALSE;        
             MC_ResetPower_PV				    := FALSE;
             
-            _AxisRefExt.Data.Cycle              := ULINT#0;
+            AxisRefExt.Data.Cycle              := ULINT#0;
             State                               := UINT#0;
             DriveStatus.Action.Id := UINT#0;
             DriveStatus.Error.Id  := UINT#0;
@@ -5432,23 +5432,23 @@ NAMESPACE AXOpen.Components.Festo.Drives
             AxoJogNegative.StopMotion := FALSE;
             Parametrization.Restore();
              
-            _AxisRefExt.Telegram111_Out.STW1.activateTraversing := FALSE; 
-            _AxisRefExt.Telegram111_Out.STW1.StartHoming := FALSE; 
-            _AxisRefExt.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
-            _AxisRefExt.Telegram111_Out.POS_STW1.PosModulo := FALSE;
-            _AxisRefExt.Telegram111_Out.POS_STW1.NegModulo := FALSE;
-            _AxisRefExt.Telegram111_Out.POS_STW1.SetupMode := FALSE;
-            _AxisRefExt.Telegram111_Out.POS_STW1.MDI_Activate := FALSE;
-            _AxisRefExt.Telegram111_Out.POS_STW2.Trackingmode := FALSE;
-            _AxisRefExt.Telegram111_Out.POS_STW2.jog_inc := FALSE;   
-            _AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit0 := FALSE;
-            _AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit1 := FALSE;
-            _AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit2 := FALSE;
-            _AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit3 := FALSE;
-            _AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit4 := FALSE;
-            _AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit5 := FALSE;
-            _AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit6 := FALSE;    
-            _AxisRefExt.Telegram111_Out.STW2.TravelToFixStop := FALSE;
+            AxisRefExt.Telegram111_Out.STW1.activateTraversing := FALSE; 
+            AxisRefExt.Telegram111_Out.STW1.StartHoming := FALSE; 
+            AxisRefExt.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
+            AxisRefExt.Telegram111_Out.POS_STW1.PosModulo := FALSE;
+            AxisRefExt.Telegram111_Out.POS_STW1.NegModulo := FALSE;
+            AxisRefExt.Telegram111_Out.POS_STW1.SetupMode := FALSE;
+            AxisRefExt.Telegram111_Out.POS_STW1.MDI_Activate := FALSE;
+            AxisRefExt.Telegram111_Out.POS_STW2.Trackingmode := FALSE;
+            AxisRefExt.Telegram111_Out.POS_STW2.jog_inc := FALSE;   
+            AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit0 := FALSE;
+            AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit1 := FALSE;
+            AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit2 := FALSE;
+            AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit3 := FALSE;
+            AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit4 := FALSE;
+            AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit5 := FALSE;
+            AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit6 := FALSE;    
+            AxisRefExt.Telegram111_Out.STW2.TravelToFixStop := FALSE;
             RestoreTask.DoneWhen(TRUE);
 
             SUPER.Restore();

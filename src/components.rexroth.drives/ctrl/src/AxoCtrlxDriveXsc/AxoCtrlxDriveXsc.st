@@ -85,19 +85,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _State                  :   UINT;
         END_VAR
 
-        VAR CONSTANT
-            PositionExponent		:	INT := 4;
-            VelocityExponent		:	INT := 3;
-            AccelerationExponent	:	INT :=	3;
-            DecelerationExponent	:	INT := 3;
-            JerkExponent			:	INT := 3;
-            TorqueExponent			:	INT := 1;
-            VelocityWindow			:	REAL := REAL#1.0;
-            VelocityWindowExponent	:	INT :=3;
-            TorqueWindow			:	REAL := REAL#0.5;
-            TorqueWindowExponent	:	INT :=1;
-        END_VAR
-
         VAR PRIVATE
             // _AxisRefExt :  AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
             _data2      :   ARRAY[0..1] OF BYTE; 
@@ -178,7 +165,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 EnableNegative      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
             END_VAR
             VAR 
-                _i      :   INT;
                 //                                      |     -10   |     -9    |    -8    |    -7   |   -6   |   -5  |  -4  | -3  | -2 |-1|  0 | 1  |  2  |  3   |   4   |   5    |   6     |    7     |     8     |    9      |     10    |
                 _exp    :   ARRAY [-10..10] OF LREAL := [0.000000001,0.000000001,0.00000001,0.0000001,0.000001,0.00001,0.0001,0.001,0.01,0.1,1.0,10.0,100.0,1000.0,10000.0,100000.0,1000000.0,10000000.0,100000000.0,100000000.0,100000000.0];
             END_VAR
@@ -1468,16 +1454,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Calculating scaling constants
                 IF _State = UINT#29 THEN
                     //  Position
-                    _i := -1*(_S_0_0078 + 3);
-                    ScalingConstantRequiredPosition := _exp[_i] / TO_LREAL(_S_0_0077);
+                    ScalingConstantRequiredPosition := _exp[-_S_0_0078 - 3] / TO_LREAL(_S_0_0077);
                     ScalingConstantActualPosition       := LREAL#1.0/ScalingConstantRequiredPosition;
                     //  Velocity
-                    _i := -1*(_S_0_0046 + 3);
-                    ScalingConstantRequiredVelocity := LREAL#60.0 * _exp[_i] / TO_LREAL(_S_0_0045);
+                    ScalingConstantRequiredVelocity := LREAL#60.0 * _exp[-_S_0_0046 - 3] / TO_LREAL(_S_0_0045);
                     ScalingConstantActualVelocity       := LREAL#1.0/ScalingConstantRequiredVelocity;
                     //  Acceleration
-                    _i := -1*(_S_0_0162 + 3);
-                    ScalingConstantRequiredAcceleration :=  _exp[_i] / TO_LREAL(_S_0_0161);
+                    ScalingConstantRequiredAcceleration :=  _exp[-_S_0_0162 - 3] / TO_LREAL(_S_0_0161);
                     ScalingConstantActualAcceleration       := LREAL#1.0/ScalingConstantRequiredAcceleration;
                     //  Deceleration
                     ScalingConstantRequiredDeceleration := ScalingConstantRequiredAcceleration;
