@@ -1,3 +1,4 @@
+USING AXOpen.Components.Abstractions.Drives;
 USING AXOpen.Core;
 USING AXOpen.Messaging.Static;
 USING AXOpen.Messaging;
@@ -1116,7 +1117,7 @@ NAMESPACE AXOpen.Components.Drives
         END_VAR
         
         VAR PRIVATE
-            _AxisRef                                :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
+            // _AxisRef                                :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
             _movementDisabled                       :   BOOL;
             _messageCode                            :   ULINT;
             _lastMessageCode                        :   ULINT;
@@ -1231,31 +1232,29 @@ NAMESPACE AXOpen.Components.Drives
         METHOD PUBLIC Run
             VAR_INPUT
                 parent          :   IAxoObject; 
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
+                AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
                 EnablePositive  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
                 EnableNegative  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
             END_VAR
 
-            Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
-
             IF parent = NULL THEN
+                Messenger.Activate(     UINT#700, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#700;
+                RETURN;
+            END_IF;
+
+            IF AxisRef = NULL THEN
+                Messenger.Activate(     UINT#701, eAxoMessageCategory#ProgrammingError);
+                DriveStatus.Error.Id := UINT#701;
                 RETURN;
             END_IF;
 
             SUPER.Run(parent);
 
-            IF NOT THIS.IsValidReferences(refAxisIn,refAxisOut) THEN
-                RETURN;
-            END_IF;
-            
-            // THIS.UpdateInputs(refAxisIn,_AxisRef);
-            THIS.UpdateInputs(_AxisRef);
-            THIS.Execute(_AxisRef,Enable,EnablePositive,EnableNegative);
-            // THIS.UpdateOutputs(_AxisRef,refAxisIn);
-            THIS.UpdateOutputs(_AxisRef);
+            THIS.UpdateInputs(AxisRef);
+            THIS.Execute(AxisRef,Enable,EnablePositive,EnableNegative);
+            THIS.UpdateOutputs(AxisRef);
         END_METHOD   
 
 
@@ -3235,23 +3234,23 @@ NAMESPACE AXOpen.Components.Drives
         END_METHOD
 
 
-        METHOD PROTECTED IsValidReferences: BOOL
-            VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
-            END_VAR
-            IsValidReferences := FALSE;
-            IF refAxisIn = NULL THEN
-                DriveStatus.Error.Id := UINT#701;
-            ELSIF refAxisOut = NULL THEN
-                DriveStatus.Error.Id := UINT#702;
-            ELSE
-                IsValidReferences := TRUE;
-            END_IF;
+        // METHOD PROTECTED IsValidReferences: BOOL
+        //     VAR_INPUT
+        //         refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
+        //         refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
+        //     END_VAR
+        //     IsValidReferences := FALSE;
+        //     IF refAxisIn = NULL THEN
+        //         DriveStatus.Error.Id := UINT#701;
+        //     ELSIF refAxisOut = NULL THEN
+        //         DriveStatus.Error.Id := UINT#702;
+        //     ELSE
+        //         IsValidReferences := TRUE;
+        //     END_IF;
 
-            Messenger.ActivateOnCondition(ULINT#701,refAxisIn = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#702,refAxisOut = NULL, eAxoMessageCategory#ProgrammingError);
-        END_METHOD
+        //     Messenger.ActivateOnCondition(ULINT#701,refAxisIn = NULL, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#702,refAxisOut = NULL, eAxoMessageCategory#ProgrammingError);
+        // END_METHOD
 
         ///<summary>
         /// Ensures reading the hardware input data into the AxisRef data structure  
