@@ -33,7 +33,7 @@ NAMESPACE AxoDriveTests.Tests
                 Status          :   BOOL;                      
                 Valid           :   BOOL;                      
                 Error           :   BOOL;                      
-                ErrorID         :   WORD;                      
+                ErrorID         :   DINT;                       
             END_VAR
             ;
         END_METHOD 
@@ -54,7 +54,7 @@ NAMESPACE AxoDriveTests.Tests
                 Active          :   BOOL;                      
                 CommandAborted  :   BOOL;                      
                 Error           :   BOOL;                      
-                ErrorID         :   WORD;                      
+                ErrorID         :   DINT;                       
              END_VAR
              ;
         END_METHOD
@@ -72,7 +72,7 @@ NAMESPACE AxoDriveTests.Tests
                 Active          :   BOOL;                 
                 CommandAborted  :   BOOL;                      
                 Error           :   BOOL;                 
-                ErrorID         :   WORD;                 
+                ErrorID         :   DINT;                  
              END_VAR
              ;
         END_METHOD
@@ -90,7 +90,7 @@ NAMESPACE AxoDriveTests.Tests
                 Active          :   BOOL;                       
                 CommandAborted  :   BOOL;                       
                 Error           :   BOOL;                       
-                ErrorID         :   WORD;                       
+                ErrorID         :   DINT;                        
              END_VAR
              ;
         END_METHOD
@@ -113,7 +113,7 @@ NAMESPACE AxoDriveTests.Tests
                 Active          :   BOOL;                       
                 CommandAborted  :   BOOL;                       
                 Error           :   BOOL;                       
-                ErrorID         :   WORD;                       
+                ErrorID         :   DINT;                        
              END_VAR
              ;
         END_METHOD
@@ -135,7 +135,7 @@ NAMESPACE AxoDriveTests.Tests
                 Active          :   BOOL;                       
                 CommandAborted  :   BOOL;                       
                 Error           :   BOOL;                       
-                ErrorID         :   WORD;                       
+                ErrorID         :   DINT;                        
              END_VAR
              ;
         END_METHOD
@@ -157,7 +157,7 @@ NAMESPACE AxoDriveTests.Tests
                 Active          :   BOOL;                       
                 CommandAborted  :   BOOL;                       
                 Error           :   BOOL;                       
-                ErrorID         :   WORD;                       
+                ErrorID         :   DINT;                        
              END_VAR
              ;
         END_METHOD
@@ -179,7 +179,7 @@ NAMESPACE AxoDriveTests.Tests
                 Active          :   BOOL;                      
                 CommandAborted  :   BOOL;                      
                 Error           :   BOOL;                      
-                ErrorID         :   WORD;                      
+                ErrorID         :   DINT;                       
              END_VAR
              ;
         END_METHOD
@@ -204,7 +204,7 @@ NAMESPACE AxoDriveTests.Tests
                 Active          :   BOOL;                       //  Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       //  ‘Command’ is aborted by another command
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification             
+                ErrorID         :   DINT;                        //  Error identification             
             END_VAR
             ;
         END_METHOD
@@ -221,7 +221,7 @@ NAMESPACE AxoDriveTests.Tests
                 Done            :   BOOL;                      
                 Busy            :   BOOL;                      
                 Error           :   BOOL;                      
-                ErrorID         :   WORD;                      
+                ErrorID         :   DINT;                       
             END_VAR
             ;
         END_METHOD
@@ -238,7 +238,7 @@ NAMESPACE AxoDriveTests.Tests
                 Enabled         :   BOOL;                       
                 Busy            :   BOOL;                       
                 Error           :   BOOL;                       
-                ErrorID         :   WORD;                       
+                ErrorID         :   DINT;                        
             END_VAR
             ;
         END_METHOD
@@ -253,7 +253,7 @@ NAMESPACE AxoDriveTests.Tests
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                        //  Error identification
                 Value           :   LINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
             ;
@@ -269,7 +269,7 @@ NAMESPACE AxoDriveTests.Tests
                 Valid           :   BOOL;                       
                 Busy            :   BOOL;                       
                 Error           :   BOOL;                       
-                ErrorID         :   WORD;                       
+                ErrorID         :   DINT;                        
                 Value           :   REAL;                       
             END_VAR
             ;
@@ -285,7 +285,7 @@ NAMESPACE AxoDriveTests.Tests
                 Valid           :   BOOL;                       
                 Busy            :   BOOL;                       
                 Error           :   BOOL;                       
-                ErrorID         :   WORD;                       
+                ErrorID         :   DINT;                        
                 Value           :   BOOL;                       
             END_VAR
             ;
@@ -303,7 +303,7 @@ NAMESPACE AxoDriveTests.Tests
                 Done            :   BOOL;                       //  Parameter successfully written
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                        //  Error identification
             END_VAR
             ;
         END_METHOD
@@ -320,7 +320,7 @@ NAMESPACE AxoDriveTests.Tests
                 Done            :   BOOL;                       
                 Busy            :   BOOL;                       
                 Error           :   BOOL;                       
-                ErrorID         :   WORD;                       
+                ErrorID         :   DINT;                        
             END_VAR
             ;
         END_METHOD
@@ -337,7 +337,7 @@ NAMESPACE AxoDriveTests.Tests
                 Done            :   BOOL;                      
                 Busy            :   BOOL;                      
                 Error           :   BOOL;                      
-                ErrorID         :   WORD;                      
+                ErrorID         :   DINT;                       
             END_VAR
             ;
         END_METHOD
@@ -352,7 +352,7 @@ NAMESPACE AxoDriveTests.Tests
                 Valid           :   BOOL;                       
                 Busy            :   BOOL;                       
                 Error           :   BOOL;                       
-                ErrorID         :   WORD;                       
+                ErrorID         :   DINT;                        
                 Value           :   BOOL;                       
             END_VAR
             ;
@@ -368,7 +368,7 @@ NAMESPACE AxoDriveTests.Tests
                 Valid           :   BOOL;                       
                 Busy            :   BOOL;                       
                 Error           :   BOOL;                       
-                ErrorID         :   WORD;                       
+                ErrorID         :   DINT;                        
                 Value           :   BOOL;                       
             END_VAR
             ;
@@ -386,7 +386,7 @@ NAMESPACE AxoDriveTests.Tests
                 Done            :   BOOL;                     
                 Busy            :   BOOL;                     
                 Error           :   BOOL;                     
-                ErrorID         :   WORD;                     
+                ErrorID         :   DINT;                      
             END_VAR
             ;
         END_METHOD
@@ -400,7 +400,7 @@ NAMESPACE AxoDriveTests.Tests
                 Valid           :   BOOL;                      
                 Busy            :   BOOL;                      
                 Error           :   BOOL;                      
-                ErrorID         :   WORD;                      
+                ErrorID         :   DINT;                       
                 Position        :   LREAL;                      
             END_VAR
             ;
@@ -415,7 +415,7 @@ NAMESPACE AxoDriveTests.Tests
                 Valid           :   BOOL;                       
                 Busy            :   BOOL;                       
                 Error           :   BOOL;                       
-                ErrorID         :   WORD;                       
+                ErrorID         :   DINT;                        
                 Velocity        :   LREAL;                       
             END_VAR
             ;
@@ -430,7 +430,7 @@ NAMESPACE AxoDriveTests.Tests
                 Valid           :   BOOL;                       
                 Busy            :   BOOL;                       
                 Error           :   BOOL;                       
-                ErrorID         :   WORD;                       
+                ErrorID         :   DINT;                        
                 Torque          :   LREAL;                       
             END_VAR
             ;
@@ -445,7 +445,7 @@ NAMESPACE AxoDriveTests.Tests
                 Valid           :   BOOL;                      
                 Busy            :   BOOL;                      
                 Error           :   BOOL;                      
-                ErrorID         :   WORD;                      
+                ErrorID         :   DINT;                       
                 ErrorStop       :   BOOL;                      
                 Disabled        :   BOOL;                      
                 Stopping        :   BOOL;                      
@@ -468,7 +468,7 @@ NAMESPACE AxoDriveTests.Tests
                 Valid           :   BOOL;                      
                 Busy            :   BOOL;                      
                 Error           :   BOOL;                      
-                ErrorID         :   WORD;                      
+                ErrorID         :   DINT;                       
                 ConstantVelocity:   BOOL;                      
                 Accelerating    :   BOOL;                      
                 Decelerating    :   BOOL;                      
@@ -487,7 +487,7 @@ NAMESPACE AxoDriveTests.Tests
                 Valid           :   BOOL;                      
                 Busy            :   BOOL;                      
                 Error           :   BOOL;                      
-                ErrorID         :   WORD;                      
+                ErrorID         :   DINT;                       
                 HomeAbsSwitch   :   BOOL;                      
                 LimitSwitchPos  :   BOOL;                      
                 LimitSwitchNeg  :   BOOL;                      
@@ -510,7 +510,7 @@ NAMESPACE AxoDriveTests.Tests
                 Valid           :   BOOL;                      
                 Busy            :   BOOL;                      
                 Error           :   BOOL;                      
-                ErrorID         :   WORD;                      
+                ErrorID         :   DINT;                       
                 AxisErrorID     :   DWORD;                      
             END_VAR
             ;
@@ -525,7 +525,7 @@ NAMESPACE AxoDriveTests.Tests
                 Done            :   BOOL;                      
                 Busy            :   BOOL;                      
                 Error           :   BOOL;                      
-                ErrorID         :   WORD;                      
+                ErrorID         :   DINT;                       
             END_VAR
             ;
         END_METHOD

@@ -12,6 +12,14 @@ USING Siemens.Simatic.S71500.DistributedIO;
 NAMESPACE AXOpen.Components.Rexroth.Drives
     {S7.extern=ReadWrite}
     CLASS AxoCtrlxDriveXsc EXTENDS AXOpen.Components.Drives.AxoDrive IMPLEMENTS AXOpen.Components.Abstractions.Drives.IAxoDrive
+        VAR PUBLIC //STATUS
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentDetails("Status")]}
+            {#ix-attr:[ReadOnly()]}
+            DriveStatus         :   AxoCtrlxDriveXsc_Component_Status;
+            Messenger           :   AXOpen.Messaging.Static.AxoMessenger;
+            TaskMessenger       :   AXOpen.Messaging.Static.AxoMessenger;
+        END_VAR
         VAR PUBLIC // HwDiag
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Hardware diagnostics")]}
@@ -150,6 +158,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _infoTime               :   LTIME := LT#2S;
             _errorTimer             :   AXOpen.Timers.OnDelayTimer;
             _errorTime              :   LTIME := LT#5S;
+            _lastMessageCodeFromMC  :   ULINT;
         END_VAR
 
         ///<summary>
@@ -1561,6 +1570,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 DriveState := AXOpen.Components.Drives.eAxoDriveState#Standstill;
             END_IF;
 
+            Messenger.ActivateOnCondition(THIS.MessageCodeFromMC, THIS.ErrorFromMC AND MessageCodeFromMC = _lastMessageCodeFromMC ,eAxoMessageCategory#Error);
+            IF Messenger.MessengerState = eAxoMessengerState#Idle THEN
+                IF THIS.ErrorFromMC THEN
+                    _lastMessageCodeFromMC := THIS.MessageCodeFromMC;
+                ELSE
+                    THIS.MessageCodeFromMC := ULINT#0;
+                END_IF;                          
+            END_IF;                          
         END_METHOD   
 
         ///<summary>
@@ -1888,7 +1905,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Status          :   BOOL;                       //  Effective_State of the power stage
                 Valid           :   BOOL;                       //  If true, a valid set of outputs is available at the method
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification            
+                ErrorID         :   DINT;                       //  Error identification            
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
@@ -1940,7 +1957,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         ///</summary>
         VAR INTERNAL
             MC_HomeExecute_PV					: 	BOOL;				//Execute - previous value
-            MC_HomeErrorID					    : 	WORD;
+            MC_HomeErrorID					    : 	DINT;
             MC_HomeCycle					    : 	ULINT;
         END_VAR
         METHOD PUBLIC OVERRIDE MC_Home
@@ -1959,7 +1976,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
              END_VAR
              VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
@@ -1989,7 +2006,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 IF _State = UINT#0 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
-                    MC_HomeErrorID :=  WORD#16#0000;
+                    MC_HomeErrorID :=  DINT#0;
                     DriveStatus.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
@@ -2044,7 +2061,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#312;
                     ElSIF _WriteRecord.error THEN 
                         Messenger.Activate( UINT#1444, eAxoMessageCategory#ProgrammingError);
-                        MC_HomeErrorID :=   WORD#1444;
+                        MC_HomeErrorID :=   DINT#1444;
                         _WriteRecord(request := FALSE, record := _data4);
                         _State := UINT#329;
                     END_IF;
@@ -2077,7 +2094,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#314;
                     ElSIF _WriteRecord.error THEN 
                         Messenger.Activate( UINT#1445, eAxoMessageCategory#ProgrammingError);
-                        MC_HomeErrorID :=   WORD#1445;
+                        MC_HomeErrorID :=   DINT#1445;
                         _WriteRecord(request := FALSE, record := _data2);
                         _State := UINT#329;
                     END_IF;
@@ -2112,7 +2129,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#316;
                     ElSIF _WriteRecord.error THEN 
                         Messenger.Activate( UINT#1446, eAxoMessageCategory#ProgrammingError);
-                        MC_HomeErrorID :=   WORD#1446;
+                        MC_HomeErrorID :=   DINT#1446;
                         _WriteRecord(request := FALSE, record := _data4);
                         _State := UINT#329;
                     END_IF;
@@ -2147,7 +2164,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#318;
                     ElSIF _WriteRecord.error THEN 
                         Messenger.Activate( UINT#1447, eAxoMessageCategory#ProgrammingError);
-                        MC_HomeErrorID :=   WORD#1447;
+                        MC_HomeErrorID :=   DINT#1447;
                         _WriteRecord(request := FALSE, record := _data4);
                         _State := UINT#329;
                     END_IF;
@@ -2201,7 +2218,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Warning);
                         DriveStatus.Error.Id := UINT#522;
                     END_IF; 
-                    IF  _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InReference AND _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill THEN
+                    IF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InReference AND _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill THEN
                         _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
                         _State := UINT#323;
                     END_IF;
@@ -2230,8 +2247,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         _State := UINT#328;
                     ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
-                        IF MC_HomeErrorID = WORD#0 THEN
-                            MC_HomeErrorID := TO_WORD(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
+                        IF MC_HomeErrorID = DINT#0 THEN
+                            MC_HomeErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
                         END_IF;
                         _State := UINT#329;
                     ELSIF _AxisReference^.Data.Cycle <> MC_HomeCycle THEN
@@ -2249,14 +2266,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := FALSE;
-                MC_HomeErrorID := WORD#0;
+                MC_HomeErrorID := DINT#0;
                 _State := UINT#0;
             END_IF;
             IF THIS.AxoHome_Task.RestoreTriggered() AND _State>=UINT#310 AND _State<=UINT#329 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := FALSE;
-                MC_HomeErrorID := WORD#0;
+                MC_HomeErrorID := DINT#0;
                 _State := UINT#0;
                 MC_HomeCycle := ULINT#0;     
             END_IF;     
@@ -2272,7 +2289,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         ///</summary>
         VAR INTERNAL
             MC_StopExecute_PV					: 	BOOL;				//Execute - previous value
-            MC_StopErrorID					    : 	WORD;
+            MC_StopErrorID					    : 	DINT;
             MC_StopCycle					    : 	ULINT;
         END_VAR
         METHOD PUBLIC OVERRIDE MC_Stop 
@@ -2288,7 +2305,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by switching off power (only possibility to abort)                
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
@@ -2319,7 +2336,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 IF _State = UINT#0 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
-                    MC_StopErrorID := WORD#16#0000;
+                    MC_StopErrorID := DINT#0;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
@@ -2403,8 +2420,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         _State := UINT#338;
                     ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
-                        IF MC_StopErrorID = WORD#0 THEN
-                            MC_StopErrorID := TO_WORD(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
+                        IF MC_StopErrorID = DINT#0 THEN
+                            MC_StopErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
                         END_IF;
                         _State := UINT#339;
                     ELSIF _AxisReference^.Data.Cycle <> MC_StopCycle THEN
@@ -2419,12 +2436,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             IF THIS.AxoStop_Task.DoneReached() AND _State>=UINT#330 AND _State<=UINT#339 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
-                MC_StopErrorID := WORD#0;
+                MC_StopErrorID := DINT#0;
                 _State := UINT#0;
             END_IF;
             IF THIS.AxoStop_Task.RestoreTriggered() AND _State>=UINT#330 AND _State<=UINT#339 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-                MC_StopErrorID := WORD#0;
+                MC_StopErrorID := DINT#0;
                 _State := UINT#0;
                 MC_StopCycle := ULINT#0;  
             END_IF;     
@@ -2438,7 +2455,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         ///</summary>
         VAR INTERNAL
             MC_HaltExecute_PV					: 	BOOL;				//Execute - previous value
-            MC_HaltErrorID					    : 	WORD;
+            MC_HaltErrorID					    : 	DINT;
             MC_HaltCycle					    : 	ULINT;
         END_VAR
         METHOD PUBLIC OVERRIDE MC_Halt 
@@ -2454,7 +2471,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by switching off power (only possibility to abort)                
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
@@ -2485,7 +2502,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 IF _State = UINT#0 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
-                    MC_HaltErrorID := WORD#16#0000;
+                    MC_HaltErrorID := DINT#10;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
@@ -2567,8 +2584,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         _State := UINT#348;
                     ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
-                        IF MC_HaltErrorID = WORD#0 THEN
-                            MC_HaltErrorID := TO_WORD(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
+                        IF MC_HaltErrorID = DINT#0 THEN
+                            MC_HaltErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
                         END_IF;
                         _State := UINT#349;
                     ELSIF _AxisReference^.Data.Cycle <> MC_HaltCycle THEN
@@ -2584,13 +2601,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             IF THIS.AxoHalt_Task.DoneReached() AND _State>=UINT#340 AND _State<=UINT#349 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
                 _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := TRUE;
-                MC_HaltErrorID := WORD#0;
+                MC_HaltErrorID := DINT#0;
                 _State := UINT#0;
             END_IF;
             IF THIS.AxoHalt_Task.RestoreTriggered() AND _State>=UINT#340 AND _State<=UINT#349 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
                 _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := TRUE;
-                MC_HaltErrorID := WORD#0;
+                MC_HaltErrorID := DINT#0;
                 _State := UINT#0;
                 MC_HaltCycle := ULINT#0;   
             END_IF;     
@@ -2603,7 +2620,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         ///<summary>
         VAR INTERNAL
             MC_MoveAbsoluteExecute_PV					: 	BOOL;				//Execute - previous value
-            MC_MoveAbsoluteErrorID					    : 	WORD;
+            MC_MoveAbsoluteErrorID					    : 	DINT;
             MC_MoveAbsoluteCycle					    : 	ULINT;
             MC_MoveAbsoluteContinuousUpdate_SV          :   BOOL;
             MC_MoveAbsolutePosition_PV                  :   LREAL;                                          
@@ -2631,7 +2648,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
@@ -2666,7 +2683,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 IF _State = UINT#0 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
-                    MC_MoveAbsoluteErrorID := WORD#16#0000; 
+                    MC_MoveAbsoluteErrorID := DINT#0; 
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive      := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative      := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl    := FALSE;
@@ -2798,8 +2815,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         _State := UINT#358;
                     ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
-                        IF MC_MoveAbsoluteErrorID = WORD#0 THEN
-                            MC_MoveAbsoluteErrorID := TO_WORD(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
+                        IF MC_MoveAbsoluteErrorID = DINT#0 THEN
+                            MC_MoveAbsoluteErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
                         END_IF;
                         _State := UINT#359;
                     ELSIF _AxisReference^.Data.Cycle <> MC_MoveAbsoluteCycle THEN
@@ -2815,13 +2832,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             IF THIS.AxoMoveAbsolute_Task.DoneReached() AND _State>=UINT#350 AND _State<=UINT#359 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
-                MC_MoveAbsoluteErrorID := WORD#0;
+                MC_MoveAbsoluteErrorID := DINT#0;
                 _State := UINT#0;
             END_IF;
 
             IF THIS.AxoMoveAbsolute_Task.RestoreTriggered() AND _State>=UINT#350 AND _State<=UINT#359 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-                MC_MoveAbsoluteErrorID := WORD#0;
+                MC_MoveAbsoluteErrorID := DINT#0;
                 MC_MoveAbsoluteCycle := ULINT#0;     
                 _State := UINT#0;
                 MC_MoveAbsoluteExecute_PV := FALSE;
@@ -2835,7 +2852,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         ///<summary>
         VAR INTERNAL
             MC_MoveRelativeExecute_PV					: 	BOOL;				//Execute - previous value
-            MC_MoveRelativeErrorID					    : 	WORD;
+            MC_MoveRelativeErrorID					    : 	DINT;
             MC_MoveRelativeCycle					    : 	ULINT;
             MC_MoveRelativeContinuousUpdate_SV          :   BOOL;
             MC_MoveRelativeDistance_PV                  :   LREAL;                                          
@@ -2861,7 +2878,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
@@ -2897,7 +2914,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 IF _State = UINT#0 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
-                    MC_MoveRelativeErrorID := WORD#16#0000;
+                    MC_MoveRelativeErrorID := DINT#0;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl:= FALSE;
@@ -3038,8 +3055,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         _State := UINT#368;
                     ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
-                        IF MC_MoveRelativeErrorID = WORD#0 THEN
-                            MC_MoveRelativeErrorID := TO_WORD(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
+                        IF MC_MoveRelativeErrorID = DINT#0 THEN
+                            MC_MoveRelativeErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
                         END_IF;
                         _State := UINT#369;
                     ELSIF _AxisReference^.Data.Cycle <> MC_MoveRelativeCycle THEN
@@ -3055,14 +3072,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             IF THIS.AxoMoveRelative_Task.DoneReached() AND _State>=UINT#360 AND _State<=UINT#369 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
-                MC_MoveRelativeErrorID := WORD#0;
+                MC_MoveRelativeErrorID := DINT#0;
                 // MC_MoveRelativeCycle := ULINT#0;     
                 _State := UINT#0;
             END_IF;
 
             IF THIS.AxoMoveRelative_Task.RestoreTriggered() AND _State>=UINT#360 AND _State<=UINT#369 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-                MC_MoveRelativeErrorID := WORD#0;
+                MC_MoveRelativeErrorID := DINT#0;
                 MC_MoveRelativeCycle := ULINT#0;     
                 _State := UINT#0;
             END_IF;     
@@ -3078,7 +3095,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         ///<summary>
         VAR INTERNAL
             MC_MoveAdditiveExecute_PV					: 	BOOL;				//Execute - previous value
-            MC_MoveAdditiveErrorID					    : 	WORD;
+            MC_MoveAdditiveErrorID					    : 	DINT;
             MC_MoveAdditiveCycle					    : 	ULINT;
             MC_MoveAdditiveContinuousUpdate_SV          :   BOOL;
             MC_MoveAdditiveDistance_PV                  :   LREAL;                                          
@@ -3104,7 +3121,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
@@ -3135,7 +3152,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 IF _State = UINT#0 THEN
                     Busy := TRUE;            
                     Active := TRUE;   
-                    MC_MoveAdditiveErrorID := WORD#16#0000;
+                    MC_MoveAdditiveErrorID := DINT#0;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl:= FALSE;
@@ -3289,8 +3306,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         _State := UINT#378;
                     ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
-                        IF MC_MoveAdditiveErrorID = WORD#0 THEN
-                            MC_MoveAdditiveErrorID := TO_WORD(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
+                        IF MC_MoveAdditiveErrorID = DINT#0 THEN
+                            MC_MoveAdditiveErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
                         END_IF;
                         _State := UINT#379;
                     ELSIF _AxisReference^.Data.Cycle <> MC_MoveAdditiveCycle THEN
@@ -3305,14 +3322,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             IF THIS.AxoMoveAdditive_Task.DoneReached() AND _State>=UINT#370 AND _State<=UINT#379 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
-                MC_MoveAdditiveErrorID := WORD#0;
+                MC_MoveAdditiveErrorID := DINT#0;
                 // MC_MoveAdditiveCycle := ULINT#0;     
                 _State := UINT#0;
             END_IF;
 
             IF THIS.AxoMoveAdditive_Task.RestoreTriggered() AND _State>=UINT#370 AND _State<=UINT#379 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-                MC_MoveAdditiveErrorID := WORD#0;
+                MC_MoveAdditiveErrorID := DINT#0;
                 MC_MoveAdditiveCycle := ULINT#0;     
                 _State := UINT#0;
             END_IF;     
@@ -3352,7 +3369,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
@@ -3478,6 +3495,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;                
                 END_IF;                  
                 IF _State = UINT#383 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#583, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#583;
+                    END_IF; 
                     Busy := TRUE;            
                     Active := TRUE;          
                     _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := TRUE;
@@ -3486,6 +3507,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;
                 END_IF;
                 IF _State = UINT#384 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#584, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#584;
+                    END_IF; 
                     Busy := TRUE;            
                     Active := TRUE;          
                     IF Direction_ = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection THEN
@@ -3514,7 +3539,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 InVelocity := ActualVelocity >= VelocityWindowMin AND ActualVelocity <= VelocityWindowMax;                            
                 IF _State = UINT#386 THEN
-                    IF NOT MC_MoveVelocityContinuousUpdate_SV THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#586, eAxoMessageCategory#Warning);
+                        DriveStatus.Error.Id := UINT#586;
+                    END_IF;                     
+                    IF InVelocity AND NOT MC_MoveVelocityContinuousUpdate_SV THEN
                         _State := UINT#387;
                     END_IF;    
                 END_IF;
@@ -3580,7 +3609,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _State := UINT#0;
                 MC_MoveVelocityCycle := ULINT#0;     
             END_IF;     
-            ErrorID := MC_MoveVelocityErrorID;
+            ErrorID := TO_DINT(MC_MoveVelocityErrorID);
             MC_MoveVelocityExecute_PV := Execute;
         END_METHOD
 
@@ -3592,7 +3621,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         ///<summary>
         VAR INTERNAL
             MC_TorqueControlExecute_PV					: 	BOOL;				//Execute - previous value
-            MC_TorqueControlErrorID					    : 	WORD;
+            MC_TorqueControlErrorID					    : 	DINT;
             MC_TorqueControlCycle					    : 	ULINT;
             MC_TorqueControlContinuousUpdate_SV         :   BOOL;
             MC_TorqueControlTorque_PV                   :   LREAL;                    
@@ -3624,7 +3653,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Active          :   BOOL;                       //  Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       //  ‘Command’ is aborted by another command
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification             
+                ErrorID         :   DINT;                       //  Error identification             
             END_VAR
             VAR 
                 _AxisReference          :   REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
@@ -3677,7 +3706,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 IF _State = UINT#0 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
-                    MC_TorqueControlErrorID := WORD#16#0000;
+                    MC_TorqueControlErrorID := DINT#0;
                     // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := FALSE;
                     // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveEnable := FALSE;
                     // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveOn := FALSE;
@@ -3717,11 +3746,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         IF PositiveDirection_ AND THIS.ActualPosition >= MC_TorqueControlPositionLimit_PV THEN
                             _State := UINT#399;
                             Messenger.Activate(         UINT#1538, eAxoMessageCategory#ProgrammingError);
-                            MC_TorqueControlErrorID :=  WORD#1538;
+                            MC_TorqueControlErrorID :=  DINT#1538;
                         ELSIF NOT PositiveDirection_ AND THIS.ActualPosition <= MC_TorqueControlPositionLimit_PV THEN
                             _State := UINT#399;
                             Messenger.Activate(         UINT#1539, eAxoMessageCategory#ProgrammingError);
-                            MC_TorqueControlErrorID :=  WORD#1539;
+                            MC_TorqueControlErrorID :=  DINT#1539;
                         ELSE
                             _State := UINT#391;
                         END_IF;                              
@@ -3807,7 +3836,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#399;
                     END_IF;
                 END_IF;       
-                //Torque/force control: Low velocity limit value (0x60C8:00 / P-0-0421.0.4 / P-0-2250)
+                //Writing Torque/force control: Low velocity limit value (0x60C8:00 / P-0-0421.0.4 / P-0-2250)
                 IF _State = UINT#394 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#594, eAxoMessageCategory#Warning);
@@ -3862,7 +3891,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
                 InTorque := ActualTorque >= TorqueWindowMin AND ActualTorque <= TorqueWindowMax;            
                 IF _State = UINT#396 THEN
-                    IF NOT MC_TorqueControlContinuousUpdate_SV THEN      
+                    IF InTorque AND NOT MC_TorqueControlContinuousUpdate_SV THEN      
                         _State := UINT#397;
                     END_IF;    
                 END_IF;
@@ -3883,7 +3912,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF  (    PositiveDirection_ AND ActualPosition > PositionLimit) OR
                         (NOT PositiveDirection_ AND ActualPosition < PositionLimit) THEN
                         Messenger.Activate(         UINT#1542, eAxoMessageCategory#ProgrammingError);
-                        MC_TorqueControlErrorID :=  WORD#1542;
+                        MC_TorqueControlErrorID :=  DINT#1542;
                         _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := FALSE;
                         _State := UINT#399;
                     END_IF;
@@ -3906,8 +3935,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         _State := UINT#398;
                     ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
-                        IF MC_TorqueControlErrorID = WORD#0 THEN
-                            MC_TorqueControlErrorID := TO_WORD(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
+                        IF MC_TorqueControlErrorID = DINT#0 THEN
+                            MC_TorqueControlErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
                         END_IF;
                         _State := UINT#399;
                     ELSIF _AxisReference^.Data.Cycle <> MC_TorqueControlCycle THEN
@@ -3921,14 +3950,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             IF THIS.AxoTorqueControl_Task.DoneReached() AND _State>=UINT#390 AND _State<=UINT#399 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
-                MC_TorqueControlErrorID := WORD#0;
+                MC_TorqueControlErrorID := DINT#0;
                 // MC_TorqueControlCycle := ULINT#0;     
                 _State := UINT#0;
             END_IF;
 
             IF THIS.AxoTorqueControl_Task.RestoreTriggered() AND _State>=UINT#390 AND _State<=UINT#399 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-                MC_TorqueControlErrorID := WORD#0;
+                MC_TorqueControlErrorID := DINT#0;
                 MC_TorqueControlCycle := ULINT#0;     
                 _State := UINT#0;
             END_IF;     
@@ -3945,7 +3974,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         ///<summary>
         VAR INTERNAL
             MC_SetPositionExecute_PV				: 	BOOL;				//Execute - previous value
-            MC_SetPositionErrorID					: 	WORD;
+            MC_SetPositionErrorID					: 	DINT;
             MC_SetPositionCycle					    : 	ULINT;						
             MC_SetPositionActualPosition            : 	LINT;						
             MC_SetPositionPowerStatusPV             : 	BOOL;						
@@ -3962,7 +3991,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Done            :   BOOL;                       //  ‘Position’ has new value
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification             
+                ErrorID         :   DINT;                       //  Error identification             
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
@@ -3988,7 +4017,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             IF Execute THEN 	
                 IF _State = UINT#0 THEN
                     Busy := TRUE;            
-                    MC_SetPositionErrorID := WORD#16#0000;
+                    MC_SetPositionErrorID := DINT#0;
                     DriveStatus.Error.Id :=  UINT#0;                    
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
@@ -4056,7 +4085,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#403;
                     ElSIF _WriteRecord.error THEN 
                         Messenger.Activate( UINT#1551, eAxoMessageCategory#ProgrammingError);
-                        MC_HomeErrorID :=   WORD#1551;
+                        MC_HomeErrorID :=   DINT#1551;
                         _WriteRecord(request := FALSE, record := _data4);
                         _State := UINT#609;
                     END_IF;
@@ -4128,8 +4157,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF (*NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 OR*) NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         _State := UINT#408;
                     ELSIF _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
-                        IF MC_SetPositionErrorID = WORD#0 THEN
-                            MC_SetPositionErrorID := TO_WORD(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
+                        IF MC_SetPositionErrorID = DINT#0 THEN
+                            MC_SetPositionErrorID := TO_DINT(_AxisReference^.Inputs.DiagnosticMessage_S_0_0390_0_0);
                         END_IF;
                         _State := UINT#409;
                     ELSIF _AxisReference^.Data.Cycle <> MC_SetPositionCycle THEN
@@ -4144,7 +4173,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             IF THIS.AxoSetPosition_Task.DoneReached() AND _State>=UINT#400 AND _State<=UINT#409 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
-                MC_SetPositionErrorID := WORD#0;
+                MC_SetPositionErrorID := DINT#0;
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.SetAbsPositionFunction := FALSE;
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := FALSE;
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
@@ -4152,7 +4181,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
             IF THIS.AxoSetPosition_Task.RestoreTriggered() AND _State>=UINT#400 AND _State<=UINT#409 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-                MC_SetPositionErrorID := WORD#0;
+                MC_SetPositionErrorID := DINT#0;
                 MC_SetPositionCycle := ULINT#0;     
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.SetAbsPositionFunction := FALSE;
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.CancelReferencePoint := FALSE;
@@ -4180,7 +4209,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Enabled         :   BOOL;                       //  Signals that the override factor(s) is (are) set successfully
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification             
+                ErrorID         :   DINT;                       //  Error identification             
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
@@ -4221,7 +4250,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         ///<summary>
         VAR INTERNAL 
             MC_ReadParameterEnable_PV       : 	BOOL := FALSE;		//Enable - previous value
-            MC_ReadParameterErrorID         : 	WORD;
+            MC_ReadParameterErrorID         : 	DINT;
             MC_ReadParameterCycle			: 	ULINT;
             MC_ReadParameterValue			: 	LINT;
             MC_ReadParameterValid			: 	BOOL;
@@ -4236,7 +4265,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Value           :   LINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
             VAR 
@@ -4260,7 +4289,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             IF Enable THEN 	
                 IF _State = UINT#0 THEN
                     Busy := TRUE;            
-                    MC_ReadParameterErrorID := WORD#16#0000;         
+                    MC_ReadParameterErrorID := DINT#0;         
                     _State := UINT#410;
                 END_IF;
                 IF _State = UINT#410 THEN
@@ -4290,7 +4319,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF _ReadRecord.error THEN 
                         _ReadRecord(request := FALSE, record := _data8);
                         Messenger.Activate(         UINT#1581, eAxoMessageCategory#ProgrammingError);
-                        MC_ReadParameterErrorID :=  WORD#1581;
+                        MC_ReadParameterErrorID :=  DINT#1581;
                         _State := UINT#419;
                     END_IF;                    
                 END_IF;
@@ -4318,7 +4347,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             IF NOT Enable AND MC_ReadParameterEnable_PV AND _State>=UINT#410 AND _State<=UINT#419 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-                MC_ReadParameterErrorID := WORD#0;
+                MC_ReadParameterErrorID := DINT#0;
                 MC_ReadParameterCycle := ULINT#0;  
                 MC_ReadParameterValid := FALSE;
                 MC_ReadParameterValue := LINT#0;   
@@ -4337,7 +4366,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         ///<summary>
         VAR INTERNAL
             MC_ReadRealParameterEnable_PV       : 	BOOL := FALSE;		//Enable - previous value
-            MC_ReadRealParameterErrorID         : 	WORD;
+            MC_ReadRealParameterErrorID         : 	DINT;
             MC_ReadRealParameterCycle			: 	ULINT;
             MC_ReadRealParameterValue			: 	REAL;
             MC_ReadRealParameterValid			: 	BOOL;
@@ -4352,7 +4381,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Value           :   REAL;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
             VAR 
@@ -4376,7 +4405,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             IF Enable THEN 	
                 IF _State = UINT#0 THEN
                     Busy := TRUE;            
-                    MC_ReadRealParameterErrorID := WORD#16#0000;
+                    MC_ReadRealParameterErrorID := DINT#0;
                     _State := UINT#420;
                 END_IF;
                 IF _State = UINT#420 THEN
@@ -4402,7 +4431,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF _ReadRecord.error THEN 
                         _ReadRecord(request := FALSE, record := _data4);
                         Messenger.Activate(             UINT#1591, eAxoMessageCategory#ProgrammingError);
-                        MC_ReadRealParameterErrorID :=  WORD#1591;
+                        MC_ReadRealParameterErrorID :=  DINT#1591;
                         _State := UINT#629;
                     END_IF;
                 END_IF;
@@ -4431,7 +4460,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             IF NOT Enable AND MC_ReadRealParameterEnable_PV AND _State>=UINT#420 AND _State<=UINT#429 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-                MC_ReadRealParameterErrorID := WORD#0;
+                MC_ReadRealParameterErrorID := DINT#0;
                 MC_ReadRealParameterCycle := ULINT#0;  
                 MC_ReadRealParameterValid := FALSE;
                 MC_ReadRealParameterValue := REAL#0.0;   
@@ -4464,7 +4493,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Value           :   BOOL;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
             VAR 
@@ -4547,7 +4576,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _State := UINT#0;
             END_IF;     
 
-            ErrorID := MC_ReadBoolParameterErrorID;
+            ErrorID := TO_DINT(MC_ReadBoolParameterErrorID);
             Valid := MC_ReadBoolParameterValid;
             Value := MC_ReadBoolParameterValue;
             MC_ReadBoolParameterEnable_PV := Enable;
@@ -4574,7 +4603,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Done            :   BOOL;                       //  Parameter successfully written
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
@@ -4671,7 +4700,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _State := UINT#0;
             END_IF;     
 
-            ErrorID := MC_WriteParameterErrorID;
+            ErrorID := TO_DINT(MC_WriteParameterErrorID);
             MC_WriteParameterExecute_PV := Execute;
         END_METHOD
 
@@ -4695,7 +4724,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Done            :   BOOL;                       //  Parameter successfully written
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
@@ -4790,7 +4819,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _State := UINT#0;
             END_IF;     
 
-            ErrorID := MC_WriteRealParameterErrorID;
+            ErrorID := TO_DINT(MC_WriteRealParameterErrorID);
             MC_WriteRealParameterExecute_PV := Execute;
         END_METHOD
 
@@ -4814,7 +4843,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Done            :   BOOL;                       //  Parameter successfully written
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
@@ -4906,7 +4935,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _State := UINT#0;
             END_IF;     
 
-            ErrorID := MC_WriteBoolParameterErrorID;
+            ErrorID := TO_DINT(MC_WriteBoolParameterErrorID);
             MC_WriteBoolParameterExecute_PV := Execute;
         END_METHOD
 
@@ -4931,7 +4960,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Value           :   BOOL;                       //  The value of the selected input signal
             END_VAR
             VAR 
@@ -5023,7 +5052,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _State := UINT#0;
             END_IF;     
 
-            ErrorID := MC_ReadDigitalInputErrorID;
+            ErrorID := TO_DINT(MC_ReadDigitalInputErrorID);
             Valid := MC_ReadDigitalInputValid;
             Value := MC_ReadDigitalInputValue;
             MC_ReadDigitalInputEnable_PV := Enable;	          
@@ -5050,7 +5079,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Value           :   BOOL;                       //  The value of the selected output signal
             END_VAR
             VAR 
@@ -5142,7 +5171,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _State := UINT#0;
             END_IF;     
 
-            ErrorID := MC_ReadDigitalOutputErrorID;
+            ErrorID := TO_DINT(MC_ReadDigitalOutputErrorID);
             Valid := MC_ReadDigitalOutputValid;
             Value := MC_ReadDigitalOutputValue;
             MC_ReadDigitalOutputEnable_PV := Enable;	          
@@ -5169,7 +5198,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Done            :   BOOL;                       //  Writing of the output signal value is done
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
             END_VAR
             VAR 
                 _AxisReference  :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
@@ -5308,7 +5337,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _State := UINT#0;
             END_IF;     
 
-            ErrorID := MC_WriteDigitalOutputErrorID;
+            ErrorID := TO_DINT(MC_WriteDigitalOutputErrorID);
             MC_WriteDigitalOutputExecute_PV := Execute;
 
         END_METHOD
@@ -5325,7 +5354,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Position        :   LREAL;                       //  New absolute position (in axis’ unit [u])
             END_VAR
             VAR 
@@ -5360,7 +5389,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Velocity        :   LREAL;                       //  The value of the actual velocity (in axis’ unit [u/s])
             END_VAR
             VAR 
@@ -5395,7 +5424,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Torque          :   LREAL;                       //  The value of the actual torque or force (in technical units)
             END_VAR
             VAR 
@@ -5433,7 +5462,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Valid               :   BOOL;                       //  A valid output is available at the method
                 Busy                :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error               :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID             :   WORD;                       //  Error identification
+                ErrorID             :   DINT;                       //  Error identification
                 ErrorStop           :   BOOL;                       //  See_State diagram
                 Disabled            :   BOOL;                       //  See_State diagram
                 Stopping            :   BOOL;                       //  See_State diagram
@@ -5491,7 +5520,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 ConstantVelocity:   BOOL;                       //  Velocity is constant. Velocity may be 0. For the actual value a window is applicable (window is vendor specific)
                 Accelerating    :   BOOL;                       //  Increasing the absolute value of the velocity
                 Decelerating    :   BOOL;                       //  Decreasing the absolute value of the velocity
@@ -5536,7 +5565,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Valid               :   BOOL;                       //  A valid output is available at the method
                 Busy                :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error               :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID             :   WORD;                       //  Error identification
+                ErrorID             :   DINT;                       //  Error identification
                 HomeAbsSwitch       :   BOOL;                       //  Digital home switch input is active
                 LimitSwitchPos      :   BOOL;                       //  Positive hardware end switch is active
                 LimitSwitchNeg      :   BOOL;                       //  Negative hardware end switch is active
@@ -5597,7 +5626,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 AxisErrorID     :   DWORD;                      //  The value of the axis error. These values are vendor specific
             END_VAR
             VAR 
@@ -5676,7 +5705,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _State := UINT#0;
             END_IF;     
 
-            ErrorID := MC_ReadAxisErrorErrorID;
+            ErrorID := TO_DINT(MC_ReadAxisErrorErrorID);
             Valid := MC_ReadAxisErrorValid;
             MC_ReadAxisErrorEnable_PV := Enable;	          
 
@@ -5705,7 +5734,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Done            :   BOOL;                       //  ‘Standstill’ or ‘Disabled’_State is reached
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
@@ -5746,7 +5775,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             ELSIF NOT Execute AND MC_ResetExecute_PV THEN
                 Done := FALSE;
                 Error:=FALSE;
-                ErrorID := WORD#0;
+                ErrorID := DINT#0;
                 Busy := FALSE;
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := FALSE;
             END_IF;
@@ -5760,16 +5789,16 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
         METHOD PUBLIC OVERRIDE Restore
             MC_HomeExecute_PV					:= FALSE;
-            MC_HomeErrorID					    := WORD#0;
+            MC_HomeErrorID					    := DINT#0;
             MC_HomeCycle					    := ULINT#0;
             MC_StopExecute_PV					:= FALSE;
-            MC_StopErrorID					    := WORD#0;
+            MC_StopErrorID					    := DINT#0;
             MC_StopCycle					    := ULINT#0;
             MC_HaltExecute_PV					:= FALSE;
-            MC_HaltErrorID					    := WORD#0;
+            MC_HaltErrorID					    := DINT#0;
             MC_HaltCycle					    := ULINT#0;
             MC_MoveAbsoluteExecute_PV			:= FALSE;
-            MC_MoveAbsoluteErrorID				:= WORD#0;
+            MC_MoveAbsoluteErrorID				:= DINT#0;
             MC_MoveAbsoluteCycle				:= ULINT#0;
             MC_MoveAbsoluteContinuousUpdate_SV  := FALSE;
             MC_MoveAbsolutePosition_PV          := LREAL#0.0;                                          
@@ -5779,7 +5808,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             MC_MoveAbsoluteJerk_PV              := LREAL#0.0;                     
             MC_MoveAbsoluteDirection_PV         := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#CurrentDirection;        
             MC_MoveRelativeExecute_PV			:= FALSE;
-            MC_MoveRelativeErrorID				:= WORD#0;
+            MC_MoveRelativeErrorID				:= DINT#0;
             MC_MoveRelativeCycle				:= ULINT#0;
             MC_MoveRelativeContinuousUpdate_SV  := FALSE;
             MC_MoveRelativeDistance_PV          := LREAL#0.0;                                        
@@ -5788,7 +5817,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             MC_MoveRelativeDeceleration_PV      := LREAL#0.0;                              
             MC_MoveRelativeJerk_PV              := LREAL#0.0;
             MC_MoveAdditiveExecute_PV			:= FALSE;
-            MC_MoveAdditiveErrorID				:= WORD#0;
+            MC_MoveAdditiveErrorID				:= DINT#0;
             MC_MoveAdditiveCycle				:= ULINT#0;
             MC_MoveAdditiveContinuousUpdate_SV  := FALSE;
             MC_MoveAdditiveDistance_PV          := LREAL#0.0;                                       
@@ -5806,7 +5835,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             MC_MoveVelocityJerk_PV              := LREAL#0.0;                
             MC_MoveVelocityDirection_PV         := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#CurrentDirection;        
             MC_TorqueControlExecute_PV			:= FALSE;
-            MC_TorqueControlErrorID				:= WORD#0;
+            MC_TorqueControlErrorID				:= DINT#0;
             MC_TorqueControlCycle				:= ULINT#0;
             MC_TorqueControlContinuousUpdate_SV := FALSE;
             MC_TorqueControlTorque_PV           := LREAL#0.0;            
@@ -5818,16 +5847,16 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             MC_TorqueControlJerk_PV             := LREAL#0.0;             
             MC_TorqueControlDirection_PV        := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#CurrentDirection;        
             MC_SetPositionExecute_PV			:= FALSE;
-            MC_SetPositionErrorID				:= WORD#0;
+            MC_SetPositionErrorID				:= DINT#0;
             MC_SetPositionCycle					:= ULINT#0;					
             MC_SetPositionActualPosition        := LINT#0;
             MC_ReadParameterEnable_PV           := FALSE;
-            MC_ReadParameterErrorID             := WORD#0;
+            MC_ReadParameterErrorID             := DINT#0;
             MC_ReadParameterCycle			    := ULINT#0;
             MC_ReadParameterValue			    := LINT#0;
             MC_ReadParameterValid			    := FALSE;
             MC_ReadRealParameterEnable_PV       := FALSE;
-            MC_ReadRealParameterErrorID         := WORD#0;
+            MC_ReadRealParameterErrorID         := DINT#0;
             MC_ReadRealParameterCycle			:= ULINT#0;
             MC_ReadRealParameterValue			:= REAL#0.0;
             MC_ReadRealParameterValid			:= FALSE;

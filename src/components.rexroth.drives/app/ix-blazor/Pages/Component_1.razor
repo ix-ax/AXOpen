@@ -1,22 +1,6 @@
 ﻿@page "/Component_1"
 @using AXOpen.Core;
 
-<button class="btn btn-outline-primary" @onclick="WriteTaskTimesToConsole">Write times to console</button>
-
-@code
-{
-    #region WriteTaskDurationToConsole
-    private async Task WriteTaskTimesToConsole()
-    {
-        await Entry.Plc.documentation.componentOne.IndraDrive.WriteTaskDurationToConsole();
-    }
-    #endregion
-
-    #region PartialExtensionExample
-    // No partial extension example available
-    #endregion
-
-}
 
 <RenderableContentControl Context="@Entry.Plc.documentation.componentOne" Presentation="Command-Control" />
 @* 
