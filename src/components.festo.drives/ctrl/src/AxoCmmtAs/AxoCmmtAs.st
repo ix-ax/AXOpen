@@ -70,45 +70,57 @@ NAMESPACE AXOpen.Components.Festo.Drives
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Scaling constant required acceleration#>"}
             {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
-            ScalingConstantRequiredAcceleration        :   LREAL   :=  0.00006103515625;
+            ScalingConstantRequiredAcceleration        :   LREAL   :=  LREAL#16.384;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant actual acceleration#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            ScalingConstantActualAcceleration        :   LREAL   :=  LREAL#0.06103515625;
             {#ix-attr:[ComponentDetails("Scaling")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Scaling constant required deceleration#>"}
             {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
-            ScalingConstantRequiredDeceleration        :   LREAL   :=  0.00006103515625;
+            ScalingConstantRequiredDeceleration        :   LREAL   :=  LREAL#16.384;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant actual acceleration#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            ScalingConstantActualDeceleration        :   LREAL   :=  LREAL#0.06103515625;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant required jerk#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            ScalingConstantRequiredJerk        :   LREAL   :=  LREAL#0.001;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant actual jerk#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            ScalingConstantActualJerk        :   LREAL   :=  LREAL#1000.0;
         END_VAR
 
         VAR PUBLIC //   Debug
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentHeader()]}
             State : UINT;
-            // {#ix-attr:[Container(Layout.Stack)]}
-            // {#ix-attr:[ComponentHeader()]}
-            // Debug : LINT;
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentHeader()]}
+            Debug : LINT;
         END_VAR
 
         VAR PRIVATE
             ScalingRead             :   BOOL := FALSE;
-            PNU_11724               :   LINT;
-            PNU_11725               :   LINT;
-            PNU_12345               :   REAL;
-            PNU_11122               :   REAL;
-            PNU_810                 :   REAL;
-            PNU_811                 :   REAL;
-            PNU_11203               :   BOOL;
-            PNU_11734               :   LINT;
-            PNU_11735               :   LINT;
-            // State : UINT;
-            // _AxisRefExt             :   AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
+            PNU_11724               :   LINT;       //  Resolution position (P1.7841.0.0)
+            PNU_11725               :   LINT;       //  Resolution velocity (P1.7842.0.0)
+            PNU_11726               :   LINT;       //  Resolution acceleration (P1.7843.0.0)
+            PNU_11727               :   LINT;       //  Resolution jerk (P1.7844.0.0)
+            PNU_12345               :   REAL;       //  Base value velocity (P1.11280701.0.0)
+            PNU_11122               :   REAL;       //  Maximum motor torque/servo drive (P1.381.0.0)
+            PNU_810                 :   REAL;       //  Base value acceleration (P1.11280702.0.0)
+            PNU_811                 :   REAL;       //  Base value deceleration (P1.11280703.0.0)
+            PNU_11203               :   BOOL;       //  Move to axis zero point after homing (P1.841.0.0)
+            PNU_11734               :   LINT;       //  Axis zero point offset (P1.8416.0.0)
+            PNU_11735               :   LINT;       //  Referencing method (P1.8417.0.0)
             Parametrization         :   AxoReadWritePROFIdriveParameter; 
-
-            // _hwID                   :   WORD;
-            // _hwIdDoServo            :   WORD;
-            // _hwIdModuleAccessPoint  :   WORD;
-            // _hwIdEmptyModule_1      :   WORD;
-            // _hwIdTelegram111        :   WORD; 
-            // _hwIdEmptyModule_2      :   WORD;
-            // _hwIdTelegram750        :   WORD; 
 
             _initHwCheckDone        :   BOOL;
             _retval                 :   WORD;
@@ -143,7 +155,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
             SUPER.Run(parent);
 
             Messenger.Serve(THIS);
-
 
             IF NOT _initHwCheckDone THEN
                 IF parent = NULL THEN
@@ -512,8 +523,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _initHwCheckDone    := TRUE;
             END_IF;            
 
-            // HardwareDiagnosticsTask.Initialize(THIS);
-
             SUPER.Execute(AxisRefExt,Enable,EnablePositive,EnableNegative);
             Messenger.ActivateOnCondition(ULINT#2000, NOT EnablePositive, eAxoMessageCategory#Warning);
             Messenger.ActivateOnCondition(ULINT#2001, NOT EnableNegative, eAxoMessageCategory#Warning);
@@ -662,60 +671,105 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#13;
                     END_IF;
                 END_IF;    
-                
+                //Reading PNU 11726 Resolution acceleration (P1.7843.0.0)
                 IF State = UINT#13 THEN
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    Parametrization.Inputs.ParameterNo := 11726;
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        PNU_11726 := Parametrization.Outputs.ValueReadLINT;
+                        State := UINT#14;
+                    END_IF;
+                END_IF;
+                IF State = UINT#14 THEN
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF NOT Parametrization.Outputs.Done THEN
+                        State := UINT#15;
+                    END_IF;
+                END_IF;                   
+                //Reading PNU 11727 Resolution jerk (P1.7844.0.0)
+                IF State = UINT#15 THEN
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    Parametrization.Inputs.ParameterNo := 11727;
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        PNU_11727 := Parametrization.Outputs.ValueReadLINT;
+                        State := UINT#16;
+                    END_IF;
+                END_IF;
+                IF State = UINT#16 THEN
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF NOT Parametrization.Outputs.Done THEN
+                        State := UINT#17;
+                    END_IF;
+                END_IF;                   
+                IF State = UINT#17 THEN
                     ScalingConstantRequiredPosition := _exp[-1*(TO_INT(PNU_11724) + 3)];
                     ScalingConstantActualPosition := LREAL#1.0/ScalingConstantRequiredPosition;
                     ScalingConstantRequiredVelocity :=  _exp[-1*(TO_INT(PNU_11725) + 3)];
-                    ScalingConstantActualVelocity := PNU_12345 / 1073741.824;
+                    ScalingConstantActualVelocity := PNU_12345 * _exp[TO_INT(PNU_11725)] / LREAL#1073741824.0;  //  16#4000 0000 ~~ 1073741824
+
+                    ScalingConstantRequiredAcceleration := LREAL#16384.0 * _exp[TO_INT(PNU_11726)] / PNU_810;  //  16#4000 ~~ 16384
+                    ScalingConstantActualAcceleration := LREAL#1.0 / ScalingConstantRequiredAcceleration;
+
+                    ScalingConstantRequiredDeceleration := LREAL#16384.0 * _exp[TO_INT(PNU_11726)] / PNU_811; //  16#4000 ~~ 16384
+                    ScalingConstantActualDeceleration := LREAL#1.0 / ScalingConstantRequiredDeceleration;
 
                     ScalingConstantRequiredTorque := 1;
-                    ScalingConstantActualTorque := PNU_11122 / 16384;
-                    ScalingConstantRequiredAcceleration := 16384 / PNU_810;
-                    ScalingConstantRequiredDeceleration := 16384 / PNU_811;
-                    THIS.
+                    ScalingConstantActualTorque := PNU_11122 / 16384; //  16#4000 ~~ 16384
+
+                    ScalingConstantRequiredJerk := _exp[TO_INT(PNU_11727)];
+                    ScalingConstantActualJerk := LREAL#1.0 / ScalingConstantRequiredJerk;
+
+
                     ScalingRead := TRUE;
                     State := UINT#0;
 
-                    AxoStop_Deceleration := 1.0;
-                    AxoStop_Jerk := 500.0;
-                    AxoHalt_Deceleration := 1.0;
-                    AxoHalt_Jerk := 500.0;
-                    AxoHome_Position := 0.0;
-                    AxoHome_HommingMode := -17;
-                    AxoHome_Velocity := 0.01;
-                    AxoHome_Acceleration := 1;
-                    AxoHome_Deceleration := 1;
-                    AxoSetPosition_Position := 0.0;
-                    AxoMoveAbsolute_Position := 0.0;
-                    AxoMoveAbsolute_Velocity := 0.01;
-                    AxoMoveAbsolute_Acceleration := 1;
-                    AxoMoveAbsolute_Deceleration := 1;
-                    AxoMoveAbsolute_Jerk := 500;
-                    AxoMoveRelative_Distance := 0.0;
-                    AxoMoveRelative_Velocity := 0.01;
-                    AxoMoveRelative_Acceleration := 1;
-                    AxoMoveRelative_Deceleration := 1;
-                    AxoMoveRelative_Jerk := 500;
-                    AxoMoveAdditive_Distance := 0.0;
-                    AxoMoveAdditive_Velocity := 0.01;
-                    AxoMoveAdditive_Acceleration := 1;
-                    AxoMoveAdditive_Deceleration := 1;
-                    AxoMoveAdditive_Jerk := 500;
-                    AxoMoveVelocity_Velocity := 0.01;
-                    AxoMoveVelocity_Acceleration := 1;
-                    AxoMoveVelocity_Deceleration := 1;
-                    AxoMoveVelocity_Jerk := 500;
-                    AxoTorqueControl_Torque := 0.0;
-                    AxoTorqueControl_TorqueRamp := 1;
-                    AxoTorqueControl_Velocity := 0.01;
-                    AxoTorqueControl_Acceleration := 1;
-                    AxoTorqueControl_Deceleration := 1;
-                    AxoTorqueControl_Jerk := 500;
-                    AxoJog_Velocity := 0.01;
-                    AxoJog_Acceleration := 1;
-                    AxoJog_Deceleration := 1;
-                    AxoJog_Jerk := 500;
+                    AxoStop_Deceleration := 1000.0;         // mm/s2
+                    AxoStop_Jerk := 1500.0;                 // mm/s3
+                    AxoHalt_Deceleration := 1000.0;         // mm/s2
+                    AxoHalt_Jerk := 1500.0;                 // mm/s3
+                    AxoHome_Position := 0.0;                // mm
+                    AxoHome_HommingMode := -17;             // Negative stop
+                    AxoHome_Velocity := 2.0;                // mm/s
+                    AxoHome_Acceleration := 1000.0;         // mm/s2
+                    AxoHome_Deceleration := 1000.0;         // mm/s2
+                    AxoSetPosition_Position := 0.0;         // mm
+                    AxoMoveAbsolute_Position := 0.0;        // mm
+                    AxoMoveAbsolute_Velocity := 5.0;        // mm/s
+                    AxoMoveAbsolute_Acceleration := 1000.0; // mm/s2
+                    AxoMoveAbsolute_Deceleration := 1000.0; // mm/s2
+                    AxoMoveAbsolute_Jerk := 1500.0;         // mm/s3
+                    AxoMoveRelative_Distance := 5.0;        // mm
+                    AxoMoveRelative_Velocity := 5.0;        // mm/s
+                    AxoMoveRelative_Acceleration := 1000.0; // mm/s2
+                    AxoMoveRelative_Deceleration := 1000.0; // mm/s2
+                    AxoMoveRelative_Jerk := 1500.0;         // mm/s3
+                    AxoMoveAdditive_Distance := 5.0;        // mm
+                    AxoMoveAdditive_Velocity := 5.0;        // mm/s
+                    AxoMoveAdditive_Acceleration := 1000.0; // mm/s2
+                    AxoMoveAdditive_Deceleration := 1000.0; // mm/s2
+                    AxoMoveAdditive_Jerk := 1500.0;         // mm/s3
+                    AxoMoveVelocity_Velocity := 5.0;        // mm/s
+                    AxoMoveVelocity_Acceleration := 1000.0; // mm/s2
+                    AxoMoveVelocity_Deceleration := 1000.0; // mm/s2
+                    AxoMoveVelocity_Jerk := 1500.0;         // mm/s3
+                    AxoTorqueControl_Torque := 0.0;         // Nm
+                    AxoTorqueControl_TorqueRamp := 1.0;     // Nm/s
+                    AxoTorqueControl_Velocity := 5.0;       // mm/s
+                    AxoTorqueControl_Acceleration := 1000.0;// mm/s2
+                    AxoTorqueControl_Deceleration := 1000.0;// mm/s2
+                    AxoTorqueControl_Jerk := 1500.0;        // mm/s3
+                    AxoJog_Velocity := 2.0;                 // mm/s
+                    AxoJog_Acceleration := 500.0;           // mm/s2
+                    AxoJog_Deceleration := 500.0;           // mm/s2
+                    AxoJog_Jerk := 1000.0;                  // mm/s3
                 END_IF;                                
                 RETURN;
             END_IF;
@@ -1783,7 +1837,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
                     Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Jerk);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Jerk * ScalingConstantRequiredJerk * _AxisReference^.Data.OverrideJerkFactor);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#62;
                     END_IF;
@@ -1960,7 +2014,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
                     Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Jerk);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Jerk * ScalingConstantRequiredJerk * _AxisReference^.Data.OverrideJerkFactor);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#72;
                     END_IF;
@@ -2177,7 +2231,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
                     Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveAbsoluteJerk_PV * _AxisReference^.Data.OverrideJerkFactor);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveAbsoluteJerk_PV * ScalingConstantRequiredJerk * _AxisReference^.Data.OverrideJerkFactor);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#82;
                     END_IF;
@@ -2401,7 +2455,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
                     Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveRelativeJerk_PV * _AxisReference^.Data.OverrideJerkFactor);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveRelativeJerk_PV  * ScalingConstantRequiredJerk * _AxisReference^.Data.OverrideJerkFactor);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#92;
                     END_IF;
@@ -2645,7 +2699,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
                     Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveAdditiveJerk_PV * _AxisReference^.Data.OverrideJerkFactor);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveAdditiveJerk_PV  * ScalingConstantRequiredJerk * _AxisReference^.Data.OverrideJerkFactor);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#102;
                     END_IF;
@@ -2897,7 +2951,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
                     Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveVelocityJerk_PV * _AxisReference^.Data.OverrideJerkFactor);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveVelocityJerk_PV * ScalingConstantRequiredJerk * _AxisReference^.Data.OverrideJerkFactor);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#112;
                     END_IF;
@@ -3162,23 +3216,54 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_TorqueControlTorque_PV * ScalingConstantRequiredTorque);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        Parametrization.Inputs.Enable := FALSE;
+                        Parametrization.Inputs.ReadWrite   := FALSE;
                         State := UINT#122;
+                        RETURN;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(         UINT#1540, eAxoMessageCategory#ProgrammingError);
                         MC_TorqueControlErrorID :=  DINT#1540;
+                        Parametrization.Inputs.Enable := FALSE;
+                        Parametrization.Inputs.ReadWrite   := FALSE;
                         State := UINT#129;
                     END_IF;
                 END_IF;
+                // IF State = UINT#122 THEN
+                //     Busy := TRUE;            
+                //     Active := TRUE;          
+                //     Parametrization.Inputs.Enable := FALSE;
+                //     Parametrization.Inputs.ReadWrite   := FALSE;
+                //     Debug := Debug + LINT#1;
+                //     IF  NOT Parametrization.Outputs.Done THEN
+                //         State := UINT#123;
+                //     END_IF;
+                // END_IF;  
+                //Writing PNU 11822 Default value torque rise ramp torque
                 IF State = UINT#122 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
-                    Parametrization.Inputs.Enable := FALSE;
-                    Parametrization.Inputs.ReadWrite   := FALSE;
-                    IF  NOT Parametrization.Outputs.Done THEN
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 11822;
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_TorqueControlTorqueRamp_PV);
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        Parametrization.Inputs.Enable := FALSE;
+                        Parametrization.Inputs.ReadWrite   := FALSE;
                         State := UINT#123;
+                        RETURN;
                     END_IF;
-                END_IF;               
+                    IF Parametrization.Outputs.Error THEN 
+                        Messenger.Activate(         UINT#1540, eAxoMessageCategory#ProgrammingError);
+                        MC_TorqueControlErrorID :=  DINT#1540;
+                        Parametrization.Inputs.Enable := FALSE;
+                        Parametrization.Inputs.ReadWrite   := FALSE;
+                        State := UINT#129;
+                    END_IF;
+                END_IF;                             
                 //Writing PNU 12327 Jerk
                 IF State = UINT#123 THEN
                     Busy := TRUE;            
@@ -3189,9 +3274,12 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
                     Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_TorqueControlJerk_PV * _AxisReference^.Data.OverrideJerkFactor);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_TorqueControlJerk_PV  * ScalingConstantRequiredJerk * _AxisReference^.Data.OverrideJerkFactor);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        Parametrization.Inputs.Enable := FALSE;
+                        Parametrization.Inputs.ReadWrite   := FALSE;
                         State := UINT#124;
+                        RETURN;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(         UINT#1541, eAxoMessageCategory#ProgrammingError);
