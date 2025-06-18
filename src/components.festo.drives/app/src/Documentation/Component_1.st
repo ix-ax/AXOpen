@@ -91,11 +91,11 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Drive homming')) THEN
-                IF(AxoCmmtAs.AxoHome(  Position        :=  LREAL#0.005,
+                IF(AxoCmmtAs.AxoHome(  Position        :=  LREAL#5.0,
                                             HommingMode     :=  INT#-17,
-                                            Velocity        :=  LREAL#0.01,
-                                            Acceleration    :=  LREAL#1.0,
-                                            Deceleration    :=  LREAL#1.0
+                                            Velocity        :=  LREAL#1.0,
+                                            Acceleration    :=  LREAL#1500.0,
+                                            Deceleration    :=  LREAL#1500.0
                                             ).IsDone()) THEN                
                     Sequencer.MoveNext();                
                     AxoCmmtAs.Restore(); 
@@ -104,7 +104,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Check position')) THEN
-                IF(AxoCmmtAs.ActualPosition >=0.0049 AND  AxoCmmtAs.ActualPosition <=0.0051) THEN                
+                IF(AxoCmmtAs.ActualPosition >=4.9 AND  AxoCmmtAs.ActualPosition <=5.1) THEN                
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;    
@@ -119,18 +119,18 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Check position')) THEN
-                IF(AxoCmmtAs.ActualPosition >=-0.0001 AND  AxoCmmtAs.ActualPosition <=0.0001) THEN                
+                IF(AxoCmmtAs.ActualPosition >=-0.1 AND  AxoCmmtAs.ActualPosition <=0.1) THEN                
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;    
 
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Move absolute')) THEN
-                IF(AxoCmmtAs.AxoMoveAbsolute(  Position        :=  LREAL#0.005,
-                                                    Velocity        :=  LREAL#0.3,
-                                                    Acceleration    :=  LREAL#1.0,
-                                                    Deceleration    :=  LREAL#1.0,
-                                                    Jerk            :=  LREAL#500.0
+                IF(AxoCmmtAs.AxoMoveAbsolute(  Position        :=  LREAL#5.0,
+                                                    Velocity        :=  LREAL#5.0,
+                                                    Acceleration    :=  LREAL#1500.0,
+                                                    Deceleration    :=  LREAL#1500.0,
+                                                    Jerk            :=  LREAL#50.0
                                                     ).IsDone()) THEN                
                     Sequencer.MoveNext();     
                     AxoCmmtAs.Restore();    
@@ -139,25 +139,25 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Check position')) THEN
-                IF(AxoCmmtAs.ActualPosition >=0.0049 AND  AxoCmmtAs.ActualPosition <=0.0051) THEN                
+                IF(AxoCmmtAs.ActualPosition >=4.9 AND  AxoCmmtAs.ActualPosition <=5.1) THEN                
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;    
 
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Move additive')) THEN
-                AxoCmmtAs.AxoMoveAbsolute(  Position           :=  LREAL#0.010,
-                                                    Velocity        :=  LREAL#0.3,
-                                                    Acceleration    :=  LREAL#1.0,
-                                                    Deceleration    :=  LREAL#1.0,
-                                                    Jerk            :=  LREAL#500.0
+                AxoCmmtAs.AxoMoveAbsolute(  Position           :=  LREAL#10.0,
+                                                    Velocity        :=  LREAL#5.0,
+                                                    Acceleration    :=  LREAL#50.0,
+                                                    Deceleration    :=  LREAL#50.0,
+                                                    Jerk            :=  LREAL#50.0
                                                     );
-                IF AxoCmmtAs.ActualPosition > 0.006 THEN
-                    AxoCmmtAs.AxoMoveAdditive(  Distance        :=  LREAL#0.005,
-                                                        Velocity        :=  LREAL#0.1,
-                                                        Acceleration    :=  LREAL#1.0,
-                                                        Deceleration    :=  LREAL#1.0,
-                                                        Jerk            :=  LREAL#500.0
+                IF AxoCmmtAs.ActualPosition > 6.0 THEN
+                    AxoCmmtAs.AxoMoveAdditive(  Distance        :=  LREAL#5.0,
+                                                        Velocity        :=  LREAL#1.0,
+                                                        Acceleration    :=  LREAL#50.0,
+                                                        Deceleration    :=  LREAL#50.0,
+                                                        Jerk            :=  LREAL#50.0
                                                         );
                 END_IF;                                                
                 IF(AxoCmmtAs.AxoMoveAdditive_Task.IsDone()) THEN                
@@ -168,18 +168,18 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Check position')) THEN
-                IF(AxoCmmtAs.ActualPosition >=0.0149 AND  AxoCmmtAs.ActualPosition <=0.0151) THEN                
+                IF(AxoCmmtAs.ActualPosition >=14.9 AND  AxoCmmtAs.ActualPosition <=15.1) THEN                
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;    
 
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Move relative')) THEN
-                IF(AxoCmmtAs.AxoMoveRelative(  Distance        :=  LREAL#-0.0050,
-                                                    Velocity        :=  LREAL#0.10,
-                                                    Acceleration    :=  LREAL#1.0,
-                                                    Deceleration    :=  LREAL#1.0,
-                                                    Jerk            :=  LREAL#500.0
+                IF(AxoCmmtAs.AxoMoveRelative(  Distance        :=  LREAL#-5.0,
+                                                    Velocity        :=  LREAL#5.0,
+                                                    Acceleration    :=  LREAL#50.0,
+                                                    Deceleration    :=  LREAL#50.0,
+                                                    Jerk            :=  LREAL#50.0
                                                     ).IsDone()) THEN                
                     Sequencer.MoveNext();
                     AxoCmmtAs.Restore();    
@@ -188,7 +188,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Check position')) THEN
-                IF(AxoCmmtAs.ActualPosition >=0.0099 AND  AxoCmmtAs.ActualPosition <=0.0101) THEN                
+                IF(AxoCmmtAs.ActualPosition >=9.9 AND  AxoCmmtAs.ActualPosition <=10.1) THEN                
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;    
@@ -205,10 +205,10 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Move velocity')) THEN
-                AxoCmmtAs.AxoMoveVelocity(  Velocity        :=  LREAL#0.01,
-                                                    Acceleration    :=  LREAL#1.0,
-                                                    Deceleration    :=  LREAL#1.0,
-                                                    Jerk            :=  LREAL#500.0,
+                AxoCmmtAs.AxoMoveVelocity(  Velocity        :=  LREAL#2.0,
+                                                    Acceleration    :=  LREAL#50.0,
+                                                    Deceleration    :=  LREAL#50.0,
+                                                    Jerk            :=  LREAL#50.0,
                                                     Direction       :=  eAxoDriveDirection#NegativeDirection,
                                                     InVelocity      => _BoolValue);
                 IF(_BoolValue) THEN                
@@ -219,8 +219,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Halt')) THEN
-                IF(AxoCmmtAs.AxoHalt(   Deceleration    :=  LREAL#1.0,
-                                        Jerk            :=  LREAL#500.0
+                IF(AxoCmmtAs.AxoHalt(   Deceleration    :=  LREAL#50.0,
+                                        Jerk           :=  LREAL#50.0
                                         ).IsDone()) THEN                
                     Sequencer.MoveNext();                
                     AxoCmmtAs.Restore();             
@@ -230,10 +230,10 @@ NAMESPACE AXOpen.Components.Festo.Drives
             
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Move velocity')) THEN
-                AxoCmmtAs.AxoMoveVelocity(  Velocity        :=  LREAL#0.01,
-                                                    Acceleration    :=  LREAL#1.0,
-                                                    Deceleration    :=  LREAL#1.0,
-                                                    Jerk            :=  LREAL#500.0,
+                AxoCmmtAs.AxoMoveVelocity(  Velocity        :=  LREAL#2.0,
+                                                    Acceleration    :=  LREAL#50.0,
+                                                    Deceleration    :=  LREAL#50.0,
+                                                    Jerk            :=  LREAL#50.0,
                                                     Direction       :=  eAxoDriveDirection#PositiveDirection,
                                                     InVelocity      => _BoolValue);
                 IF(_BoolValue) THEN                
@@ -281,17 +281,17 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Jog')) THEN
                 manualControl := TRUE;
-                AxoCmmtAs.AxoJogPositive.RemoteSwitchOn := AxoCmmtAs.ActualPosition <= 0.02;
-                AxoCmmtAs.AxoJog_Velocity      :=  LREAL#0.01;
-                AxoCmmtAs.AxoJog_Acceleration  :=  LREAL#1.0;
-                AxoCmmtAs.AxoJog_Deceleration  :=  LREAL#1.0;
-                AxoCmmtAs.AxoJog_Jerk          :=  LREAL#100.0;
+                AxoCmmtAs.AxoJogPositive.RemoteSwitchOn := TRUE;
+                AxoCmmtAs.AxoJog_Velocity      :=  LREAL#1.0;
+                AxoCmmtAs.AxoJog_Acceleration  :=  LREAL#5.0;
+                AxoCmmtAs.AxoJog_Deceleration  :=  LREAL#5.0;
+                AxoCmmtAs.AxoJog_Jerk          :=  LREAL#10.0;
                 AxoCmmtAs.AxoJog_Direction     :=  AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
 
-                IF(AxoCmmtAs.ActualPosition > 0.02) THEN                
+                IF(AxoCmmtAs.ActualPosition > 0.0) THEN                
                     AxoCmmtAs.AxoJogPositive.RemoteSwitchOn := FALSE;
                 END_IF;    
-                IF(AxoCmmtAs.ActualPosition > 0.02 AND AxoCmmtAs.AxoHalt_Done) THEN                
+                IF(AxoCmmtAs.ActualPosition > 0.0 AND AxoCmmtAs.DriveState = AXOpen.Components.Drives.eAxoDriveState#Standstill) THEN                
                     Sequencer.MoveNext();                
                     manualControl := FALSE;
                 END_IF;    
@@ -299,32 +299,33 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Torque control')) THEN
-                AxoCmmtAs.AxoTorqueControl(     Torque          := LREAL#0.6 ,
-                                                TorqueRamp      := LREAL#1.0 ,
-                                                PositionLimit   :=  LREAL#0.100,
-                                                Velocity        :=  LREAL#1.0,
-                                                Acceleration    :=  LREAL#1.0,
-                                                Deceleration    :=  LREAL#1.0,
-                                                Jerk            :=  LREAL#500.0,
+                AxoCmmtAs.AxoTorqueControl(     Torque          :=  LREAL#0.015,
+                                                TorqueRamp      :=  LREAL#1.0,
+                                                PositionLimit   :=  LREAL#50.0,
+                                                Velocity        :=  LREAL#50.0,
+                                                Acceleration    :=  LREAL#50.0,
+                                                Deceleration    :=  LREAL#50.0,
+                                                Jerk            :=  LREAL#50.0,
                                                 Direction       :=  eAxoDriveDirection#PositiveDirection,
                                                 InTorque      => _BoolValue);
                 IF(_BoolValue) THEN                
+                    //AxoCmmtAs.Restore();  //  removed due to we want to stay in torque up to reach the position 10.0  
                     Sequencer.MoveNext();                
-                    AxoCmmtAs.Restore();    
                 END_IF;    
             END_IF;    
 
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Check position')) THEN
-                IF(AxoCmmtAs.ActualPosition >=0.0021) THEN                
+                IF(AxoCmmtAs.ActualPosition >=10.0) THEN     
+                    AxoCmmtAs.Restore();    // moved here from the previous step              
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;    
 
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Stop')) THEN
-                AxoCmmtAs.AxoStop(  Deceleration    :=  LREAL#1.0,
-                                            Jerk            :=  LREAL#500.0,
+                AxoCmmtAs.AxoStop(  Deceleration    :=  LREAL#50.0,
+                                            Jerk            :=  LREAL#50.0,
                                             Done      => _BoolValue);
                 IF(_BoolValue) THEN                
                     Sequencer.MoveNext();   
@@ -342,10 +343,10 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Move absolute')) THEN
                 IF(AxoCmmtAs.AxoMoveAbsolute(  Position        :=  LREAL#0.0,
-                                                    Velocity        :=  LREAL#0.5,
-                                                    Acceleration    :=  LREAL#1.0,
-                                                    Deceleration    :=  LREAL#1.0,
-                                                    Jerk            :=  LREAL#500.0
+                                                    Velocity        :=  LREAL#10.0,
+                                                    Acceleration    :=  LREAL#50.0,
+                                                    Deceleration    :=  LREAL#50.0,
+                                                    Jerk            :=  LREAL#50.0
                                                     ).IsDone()) THEN                
                     Sequencer.MoveNext();     
                     AxoCmmtAs.Restore();    
