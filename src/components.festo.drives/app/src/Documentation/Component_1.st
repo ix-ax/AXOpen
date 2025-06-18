@@ -92,7 +92,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Drive homming')) THEN
                 IF(AxoCmmtAs.AxoHome(  Position        :=  LREAL#5.0,
-                                            HommingMode     :=  INT#-17,
+                                            HommingMode     :=  INT#1,      // Negative hardware limit switch with zero pulse
                                             Velocity        :=  LREAL#1.0,
                                             Acceleration    :=  LREAL#1500.0,
                                             Deceleration    :=  LREAL#1500.0
@@ -130,7 +130,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                                                     Velocity        :=  LREAL#5.0,
                                                     Acceleration    :=  LREAL#1500.0,
                                                     Deceleration    :=  LREAL#1500.0,
-                                                    Jerk            :=  LREAL#50.0
+                                                    Jerk            :=  LREAL#150000.0
                                                     ).IsDone()) THEN                
                     Sequencer.MoveNext();     
                     AxoCmmtAs.Restore();    
@@ -150,14 +150,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                                                     Velocity        :=  LREAL#5.0,
                                                     Acceleration    :=  LREAL#50.0,
                                                     Deceleration    :=  LREAL#50.0,
-                                                    Jerk            :=  LREAL#50.0
+                                                    Jerk            :=  LREAL#150000.0
                                                     );
                 IF AxoCmmtAs.ActualPosition > 6.0 THEN
                     AxoCmmtAs.AxoMoveAdditive(  Distance        :=  LREAL#5.0,
                                                         Velocity        :=  LREAL#1.0,
                                                         Acceleration    :=  LREAL#50.0,
                                                         Deceleration    :=  LREAL#50.0,
-                                                        Jerk            :=  LREAL#50.0
+                                                        Jerk            :=  LREAL#150000.0
                                                         );
                 END_IF;                                                
                 IF(AxoCmmtAs.AxoMoveAdditive_Task.IsDone()) THEN                
@@ -179,7 +179,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                                                     Velocity        :=  LREAL#5.0,
                                                     Acceleration    :=  LREAL#50.0,
                                                     Deceleration    :=  LREAL#50.0,
-                                                    Jerk            :=  LREAL#50.0
+                                                    Jerk            :=  LREAL#150000.0
                                                     ).IsDone()) THEN                
                     Sequencer.MoveNext();
                     AxoCmmtAs.Restore();    
@@ -195,7 +195,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Read digital input')) THEN
-                AxoCmmtAs.AxoReadDigitalInput(Enable := TRUE, InputNumber := 2 , Valid=> _Valid, Value => _BoolValue);
+                AxoCmmtAs.AxoReadDigitalInput(Enable := TRUE, InputNumber := 38 , Valid=> _Valid, Value => _BoolValue);// 38~~X1C.7  Negative limit switch
                 IF(_Valid AND _BoolValue) THEN                
                     Sequencer.MoveNext();                
                     AxoCmmtAs.AxoReadDigitalInput(Enable :=FALSE);
@@ -208,7 +208,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 AxoCmmtAs.AxoMoveVelocity(  Velocity        :=  LREAL#2.0,
                                                     Acceleration    :=  LREAL#50.0,
                                                     Deceleration    :=  LREAL#50.0,
-                                                    Jerk            :=  LREAL#50.0,
+                                                    Jerk            :=  LREAL#150000.0,
                                                     Direction       :=  eAxoDriveDirection#NegativeDirection,
                                                     InVelocity      => _BoolValue);
                 IF(_BoolValue) THEN                
@@ -220,7 +220,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Halt')) THEN
                 IF(AxoCmmtAs.AxoHalt(   Deceleration    :=  LREAL#50.0,
-                                        Jerk           :=  LREAL#50.0
+                                        Jerk           :=  LREAL#150000.0
                                         ).IsDone()) THEN                
                     Sequencer.MoveNext();                
                     AxoCmmtAs.Restore();             
@@ -233,7 +233,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 AxoCmmtAs.AxoMoveVelocity(  Velocity        :=  LREAL#2.0,
                                                     Acceleration    :=  LREAL#50.0,
                                                     Deceleration    :=  LREAL#50.0,
-                                                    Jerk            :=  LREAL#50.0,
+                                                    Jerk            :=  LREAL#150000.0,
                                                     Direction       :=  eAxoDriveDirection#PositiveDirection,
                                                     InVelocity      => _BoolValue);
                 IF(_BoolValue) THEN                
@@ -244,7 +244,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Read digital input')) THEN
-                AxoCmmtAs.AxoReadDigitalInput(Enable := TRUE, InputNumber := 2 , Valid=> _Valid, Value => _BoolValue);
+                AxoCmmtAs.AxoReadDigitalInput(Enable := TRUE, InputNumber := 38 , Valid=> _Valid, Value => _BoolValue);// 38~~X1C.7  Negative limit switch
                 IF(_Valid AND _BoolValue) THEN                
                     Sequencer.MoveNext();                
                     AxoCmmtAs.AxoReadDigitalInput(Enable :=FALSE);
@@ -285,7 +285,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 AxoCmmtAs.AxoJog_Velocity      :=  LREAL#1.0;
                 AxoCmmtAs.AxoJog_Acceleration  :=  LREAL#5.0;
                 AxoCmmtAs.AxoJog_Deceleration  :=  LREAL#5.0;
-                AxoCmmtAs.AxoJog_Jerk          :=  LREAL#10.0;
+                AxoCmmtAs.AxoJog_Jerk          :=  LREAL#150000.0;
                 AxoCmmtAs.AxoJog_Direction     :=  AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
 
                 IF(AxoCmmtAs.ActualPosition > 0.0) THEN                
@@ -305,7 +305,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                                                 Velocity        :=  LREAL#50.0,
                                                 Acceleration    :=  LREAL#50.0,
                                                 Deceleration    :=  LREAL#50.0,
-                                                Jerk            :=  LREAL#50.0,
+                                                Jerk            :=  LREAL#150000.0,
                                                 Direction       :=  eAxoDriveDirection#PositiveDirection,
                                                 InTorque      => _BoolValue);
                 IF(_BoolValue) THEN                
@@ -325,7 +325,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Stop')) THEN
                 AxoCmmtAs.AxoStop(  Deceleration    :=  LREAL#50.0,
-                                            Jerk            :=  LREAL#50.0,
+                                            Jerk            :=  LREAL#150000.0,
                                             Done      => _BoolValue);
                 IF(_BoolValue) THEN                
                     Sequencer.MoveNext();   
@@ -346,7 +346,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                                                     Velocity        :=  LREAL#10.0,
                                                     Acceleration    :=  LREAL#50.0,
                                                     Deceleration    :=  LREAL#50.0,
-                                                    Jerk            :=  LREAL#50.0
+                                                    Jerk            :=  LREAL#150000.0
                                                     ).IsDone()) THEN                
                     Sequencer.MoveNext();     
                     AxoCmmtAs.Restore();    

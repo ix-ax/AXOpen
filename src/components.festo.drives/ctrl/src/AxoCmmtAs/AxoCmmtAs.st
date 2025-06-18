@@ -83,7 +83,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             ScalingConstantRequiredDeceleration        :   LREAL   :=  LREAL#16.384;
             {#ix-attr:[ComponentDetails("Scaling")]}
             {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#Scaling constant actual acceleration#>"}
+            {#ix-set:AttributeName = "<#Scaling constant actual deceleration#>"}
             {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
             ScalingConstantActualDeceleration        :   LREAL   :=  LREAL#0.06103515625;
             {#ix-attr:[ComponentDetails("Scaling")]}
@@ -693,8 +693,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 IF State = UINT#17 THEN
                     ScalingConstantRequiredPosition := _exp[-1*(TO_INT(PNU_11724) + 3)];
                     ScalingConstantActualPosition := LREAL#1.0/ScalingConstantRequiredPosition;
+
                     ScalingConstantRequiredVelocity :=  _exp[-1*(TO_INT(PNU_11725) + 3)];
-                    ScalingConstantActualVelocity := PNU_12345 * _exp[TO_INT(PNU_11725)] / LREAL#1073741824.0;  //  16#4000 0000 ~~ 1073741824
+                    ScalingConstantActualVelocity := PNU_12345 * _exp[(TO_INT(PNU_11725) + 6)] / LREAL#1073741824.0;  //  16#4000 0000 ~~ 1073741824
 
                     ScalingConstantRequiredAcceleration := LREAL#16384.0 * _exp[TO_INT(PNU_11726)] / PNU_810;  //  16#4000 ~~ 16384
                     ScalingConstantActualAcceleration := LREAL#1.0 / ScalingConstantRequiredAcceleration;
@@ -713,11 +714,11 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     State := UINT#0;
 
                     AxoStop_Deceleration := 1000.0;         // mm/s2
-                    AxoStop_Jerk := 1500.0;                 // mm/s3
+                    AxoStop_Jerk := 150000.0;               // mm/s3
                     AxoHalt_Deceleration := 1000.0;         // mm/s2
-                    AxoHalt_Jerk := 1500.0;                 // mm/s3
+                    AxoHalt_Jerk := 150000.0;               // mm/s3
                     AxoHome_Position := 0.0;                // mm
-                    AxoHome_HommingMode := -17;             // Negative stop
+                    AxoHome_HommingMode := 1;               // Negative hardware limit switch with zero pulse
                     AxoHome_Velocity := 2.0;                // mm/s
                     AxoHome_Acceleration := 1000.0;         // mm/s2
                     AxoHome_Deceleration := 1000.0;         // mm/s2
@@ -726,31 +727,31 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     AxoMoveAbsolute_Velocity := 5.0;        // mm/s
                     AxoMoveAbsolute_Acceleration := 1000.0; // mm/s2
                     AxoMoveAbsolute_Deceleration := 1000.0; // mm/s2
-                    AxoMoveAbsolute_Jerk := 1500.0;         // mm/s3
+                    AxoMoveAbsolute_Jerk := 150000.0;       // mm/s3
                     AxoMoveRelative_Distance := 5.0;        // mm
                     AxoMoveRelative_Velocity := 5.0;        // mm/s
                     AxoMoveRelative_Acceleration := 1000.0; // mm/s2
                     AxoMoveRelative_Deceleration := 1000.0; // mm/s2
-                    AxoMoveRelative_Jerk := 1500.0;         // mm/s3
+                    AxoMoveRelative_Jerk := 150000.0;       // mm/s3
                     AxoMoveAdditive_Distance := 5.0;        // mm
                     AxoMoveAdditive_Velocity := 5.0;        // mm/s
                     AxoMoveAdditive_Acceleration := 1000.0; // mm/s2
                     AxoMoveAdditive_Deceleration := 1000.0; // mm/s2
-                    AxoMoveAdditive_Jerk := 1500.0;         // mm/s3
+                    AxoMoveAdditive_Jerk := 150000.0;       // mm/s3
                     AxoMoveVelocity_Velocity := 5.0;        // mm/s
                     AxoMoveVelocity_Acceleration := 1000.0; // mm/s2
                     AxoMoveVelocity_Deceleration := 1000.0; // mm/s2
-                    AxoMoveVelocity_Jerk := 1500.0;         // mm/s3
+                    AxoMoveVelocity_Jerk := 150000.0;       // mm/s3
                     AxoTorqueControl_Torque := 0.0;         // Nm
                     AxoTorqueControl_TorqueRamp := 1.0;     // Nm/s
                     AxoTorqueControl_Velocity := 5.0;       // mm/s
                     AxoTorqueControl_Acceleration := 1000.0;// mm/s2
                     AxoTorqueControl_Deceleration := 1000.0;// mm/s2
-                    AxoTorqueControl_Jerk := 1500.0;        // mm/s3
+                    AxoTorqueControl_Jerk := 150000.0;      // mm/s3
                     AxoJog_Velocity := 2.0;                 // mm/s
                     AxoJog_Acceleration := 500.0;           // mm/s2
                     AxoJog_Deceleration := 500.0;           // mm/s2
-                    AxoJog_Jerk := 1000.0;                  // mm/s3
+                    AxoJog_Jerk := 150000.0;                // mm/s3
                 END_IF;                                
                 RETURN;
             END_IF;
@@ -1066,7 +1067,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     _AxisReference^.Telegram750_Out.M_LIMIT_NEG := -16384;
                     _AxisReference^.Telegram111_Out.MDI_ACC := TO_UINT(16384.0 * _AxisReference^.Data.OverrideAccelerationFactor);
                     _AxisReference^.Telegram111_Out.MDI_DEC := TO_UINT(16384.0 * _AxisReference^.Data.OverrideAccelerationFactor);
-                    _AxisReference^.Telegram111_Out.Override_ := WORD#4000;//TO_WORD(TO_INT(16384.0 * _AxisReference^.Data.OverrideVelocityFactor));
+                    _AxisReference^.Telegram111_Out.Override_ := TO_WORD(TO_INT(16384.0 )); // * _AxisReference^.Data.OverrideVelocityFactor));
                     _AxisReference^.Telegram111_Out.MDI_VELOCITY := DINT#1;
                 END_IF;
                 _AxisReference^.Telegram111_Out.STW1.on_ := TRUE;
@@ -1090,7 +1091,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 END_IF;
                 THIS.UpdateOutputs(AxisRef);
             END_IF;
-
 
             IF NOT Enable AND MC_PowerEnable_PV THEN
                 THIS.UpdateInputs(AxisRef);
@@ -1205,7 +1205,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
                     Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Acceleration);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Acceleration * ScalingConstantRequiredAcceleration * 0.001);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#22;
                     END_IF;
@@ -1233,7 +1233,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
                     Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Acceleration);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Acceleration * ScalingConstantRequiredAcceleration * 0.001);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#24;
                     END_IF;
@@ -1261,7 +1261,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
                     Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Acceleration);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Acceleration * ScalingConstantRequiredAcceleration * 0.001);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#26;
                     END_IF;
@@ -1289,7 +1289,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
                     Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Velocity);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Velocity * ScalingConstantRequiredVelocity * 0.001);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#28;
                     END_IF;
@@ -1317,7 +1317,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
                     Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Velocity)*REAL#0.5;
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Velocity* ScalingConstantRequiredVelocity * 0.001)*REAL#0.5;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#30;
                     END_IF;
@@ -1345,7 +1345,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
                     Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Velocity)*REAL#5.0;
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Velocity * ScalingConstantRequiredVelocity * 0.001)*REAL#5.0;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#32;
                     END_IF;
@@ -1562,7 +1562,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
                     Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
-                    Parametrization.Inputs.ValueWriteLINT := TO_LINT(Position * -10000000000.0);
+                    Parametrization.Inputs.ValueWriteLINT := TO_LINT(Position * -10000000.0);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#48;
                     END_IF;
@@ -3590,9 +3590,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.AxisNo  := BYTE#1;
                     Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Relative THEN
-                        Parametrization.Inputs.ValueWriteLINT := MC_SetPositionActualPosition + TO_LINT(Position * -10000000000.0);
+                        Parametrization.Inputs.ValueWriteLINT := MC_SetPositionActualPosition + TO_LINT(Position * -10000000.0);
                     ELSE
-                        Parametrization.Inputs.ValueWriteLINT := TO_LINT(Position * -10000000000.0);
+                        Parametrization.Inputs.ValueWriteLINT := TO_LINT(Position * -10000000.0);
                     END_IF;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#141;
@@ -4542,7 +4542,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 RETURN;
             END_IF;
 
-            IF(InputNumber < 0 OR InputNumber >256) THEN   //  TODO check the min max input number
+            IF(InputNumber < 0 OR InputNumber > 64) THEN   //  TODO check the min max input number
                 Messenger.Activate(     UINT#1641, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1641;
                 RETURN;
@@ -4565,13 +4565,21 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Busy := TRUE;            
                     Parametrization.Inputs.Enable := TRUE;
                     Parametrization.Inputs.ReadWrite   := FALSE;
-                    Parametrization.Inputs.ParameterNo := 2888;
+                    IF InputNumber>= 0 AND InputNumber < 32 THEN
+                        Parametrization.Inputs.ParameterNo := 2888;  //X1A
+                    ELSIF InputNumber>= 32 AND InputNumber < 64 THEN
+                        Parametrization.Inputs.ParameterNo := 2889;  //X1C
+                    END_IF;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
                     Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         MC_ReadDigitalInputValid := TRUE;
-                        MC_ReadDigitalInputValue := GetBit(TO_LWORD(Parametrization.Outputs.ValueReadLINT), TO_USINT(InputNumber));
+                        IF InputNumber>= 0 AND InputNumber < 32 THEN
+                            MC_ReadDigitalInputValue := GetBit(TO_LWORD(Parametrization.Outputs.ValueReadLINT), TO_USINT(InputNumber)); //X1A
+                        ELSIF InputNumber>= 32 AND InputNumber < 64 THEN
+                            MC_ReadDigitalInputValue := GetBit(TO_LWORD(Parametrization.Outputs.ValueReadLINT), TO_USINT(InputNumber-INT#32)); //X1C
+                        END_IF;
                         State := UINT#221;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
