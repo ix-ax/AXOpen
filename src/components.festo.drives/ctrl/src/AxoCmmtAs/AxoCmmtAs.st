@@ -31,7 +31,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         VAR PUBLIC // AxisRef
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("AxisRef")]}
-            {#ix-attr:[ReadOnly()]}
+            // {#ix-attr:[ReadOnly()]}
             AxisRefExt :  AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
         END_VAR
         VAR PUBLIC // Scaling
@@ -1035,6 +1035,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///</summary>
         VAR INTERNAL
             MC_PowerEnable_PV					:	BOOL := FALSE;		//Enable - previous value
+            MC_PowerCycle					    :	ULINT   := ULINT#0;
         END_VAR
         METHOD PUBLIC OVERRIDE MC_Power 
             VAR_INPUT
@@ -1061,6 +1062,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             END_IF;
 
             IF Enable THEN
+                MC_PowerCycle := MC_PowerCycle + ULINT#1;
                 THIS.UpdateInputs(AxisRef);
                 IF NOT MC_PowerEnable_PV THEN
                     _AxisReference^.Telegram750_Out.M_LIMIT_POS := 16384;
@@ -1092,8 +1094,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 THIS.UpdateOutputs(AxisRef);
             END_IF;
 
-            IF NOT Enable AND MC_PowerEnable_PV THEN
+            IF NOT Enable AND MC_PowerEnable_PV  OR MC_PowerCycle >= ULINT#1000 THEN
                 THIS.UpdateInputs(AxisRef);
+                MC_PowerCycle := ULINT#0;
                 _AxisReference^.Telegram111_Out.STW1.on_  := FALSE;
                 THIS.UpdateOutputs(AxisRef);
             END_IF;
@@ -5391,6 +5394,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         END_METHOD
 
         METHOD PUBLIC OVERRIDE Restore
+            MC_PowerCycle                       := ULINT#0;
             MC_HomeExecute_PV					:= FALSE;
             MC_HomeErrorID					    := DINT#0;
             MC_HomeCycle					    := ULINT#0;
