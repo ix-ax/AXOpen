@@ -333,15 +333,17 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 CtrlXdrive.AxoJog_Jerk          :=  LREAL#150000.0;
                 CtrlXdrive.AxoJog_Direction     :=  AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
 
-                IF(CtrlXdrive.ActualPosition > 0) THEN                
+                IF(CtrlXdrive.ActualPosition > 1.0) THEN                
                     CtrlXdrive.AxoJogPositive.RemoteSwitchOn := FALSE;
                 END_IF;    
-                IF(CtrlXdrive.ActualPosition > 0 AND CtrlXdrive.DriveState = AXOpen.Components.Drives.eAxoDriveState#Standstill) THEN                
+                IF( CtrlXdrive.ActualPosition > 1.0 AND 
+                    CtrlXdrive.DriveState = AXOpen.Components.Drives.eAxoDriveState#Standstill AND
+                    CtrlXdrive.AxoHalt_Task.IsDone()) THEN                
                     manualControl := FALSE;
                     CtrlXdrive.Restore();   
                     Sequencer.MoveNext();       
                     RETURN;   
-                END_IF;    
+                END_IF;   
             END_IF;    
 
             IF(Steps[28].Execute(Sequencer, TRUE, 'Torque control')) THEN

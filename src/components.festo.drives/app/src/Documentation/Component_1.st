@@ -336,15 +336,17 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 AxoCmmtAs.AxoJog_Jerk          :=  LREAL#150000.0;
                 AxoCmmtAs.AxoJog_Direction     :=  AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
 
-                IF(AxoCmmtAs.ActualPosition > 0) THEN                
+                IF(AxoCmmtAs.ActualPosition > 1.0) THEN                
                     AxoCmmtAs.AxoJogPositive.RemoteSwitchOn := FALSE;
                 END_IF;    
-                IF(AxoCmmtAs.ActualPosition > 0 AND AxoCmmtAs.DriveState = AXOpen.Components.Drives.eAxoDriveState#Standstill) THEN                
+                IF( AxoCmmtAs.ActualPosition > 1.0 AND 
+                    AxoCmmtAs.DriveState = AXOpen.Components.Drives.eAxoDriveState#Standstill AND
+                    AxoCmmtAs.AxoHalt_Task.IsDone()) THEN                
                     manualControl := FALSE;
                     AxoCmmtAs.Restore();   
                     Sequencer.MoveNext();       
                     RETURN;   
-                END_IF;    
+                END_IF;  
             END_IF;    
 
             IF(Steps[28].Execute(Sequencer, TRUE, 'Torque control')) THEN

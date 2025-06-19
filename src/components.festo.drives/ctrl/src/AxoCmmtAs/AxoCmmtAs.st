@@ -1074,6 +1074,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 END_IF;
                 _AxisReference^.Telegram111_Out.STW1.on_ := TRUE;
                 _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
+                _AxisReference^.Telegram111_Out.STW1.acknowledgeFault := FALSE;
                 // _AxisReference^.Telegram111_Out.MDI_VELOCITY := DINT#1;
                 _AxisReference^.Telegram111_Out.POS_STW2.SW_Limit := TRUE;
                 _AxisReference^.Telegram111_Out.POS_STW2.HW_Limit := TRUE;
@@ -1084,6 +1085,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _AxisReference^.Telegram111_Out.STW1.intermediateStop := TRUE;
                 _AxisReference^.Telegram111_Out.STW1.controlByPlc := TRUE;
                 IF _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
+                    MC_PowerCycle := ULINT#0;
                     Status	:= TRUE;						(* Status OK*)
                     Valid := TRUE;
                 ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent = TRUE THEN
@@ -1091,10 +1093,31 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Valid := TRUE;
                     ErrorID := TO_DINT(_AxisReference^.Telegram111_In.Fault_Code);
                 END_IF;
+                IF MC_PowerCycle >= ULINT#200 THEN
+                    MC_PowerCycle := ULINT#0;
+                    _AxisReference^.Telegram111_Out.STW1.on_  := FALSE;
+                    _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
+                    _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
+                    _AxisReference^.Telegram111_Out.POS_STW1.PosModulo := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.NegModulo := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.SetupMode := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.MDI_Activate := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW2.Trackingmode := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW2.jog_inc := FALSE;   
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit0 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit1 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit2 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit3 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit4 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit5 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit6 := FALSE;    
+                    _AxisReference^.Telegram111_Out.STW2.TravelToFixStop := FALSE;
+                    _AxisReference^.Telegram111_Out.STW1.acknowledgeFault := TRUE;
+                END_IF;
                 THIS.UpdateOutputs(AxisRef);
             END_IF;
 
-            IF NOT Enable AND MC_PowerEnable_PV  OR MC_PowerCycle >= ULINT#1000 THEN
+            IF NOT Enable AND MC_PowerEnable_PV  THEN
                 THIS.UpdateInputs(AxisRef);
                 MC_PowerCycle := ULINT#0;
                 _AxisReference^.Telegram111_Out.STW1.on_  := FALSE;
@@ -1967,9 +1990,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 RETURN;
             END_IF;
 
-            Messenger.ActivateOnCondition(ULINT#1481, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1482, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
-
             IF THIS.AxoHalt_Task.StartTriggered() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Halt;
             END_IF;
@@ -1980,7 +2000,10 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 State := UINT#0;
             END_IF;
 
-            IF Execute THEN 				
+            IF Execute THEN 			
+                Messenger.ActivateOnCondition(ULINT#1481, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1482, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
+        
                 THIS.UpdateInputs(AxisRef);         
                 IF State = UINT#0 THEN
                     Busy := TRUE;            
@@ -2859,26 +2882,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 InVelocity := FALSE;
                 RETURN;
             END_IF;
-            IF Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection THEN
-                Messenger.Activate(     UINT#1521, eAxoMessageCategory#ProgrammingError);
-                DriveStatus.Error.Id := UINT#1521;
-                InVelocity := FALSE;
-                RETURN;
-            END_IF;
 
-            IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection THEN
-                Velocity_ := Velocity;
-            ELSIF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection THEN
-                Velocity_ := -1 * Velocity;
-            ELSE
-                RETURN;
-            END_IF;
-
-            IF Velocity_> 0 THEN 
-                Direction_ := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
-            ELSE
-                Direction_ := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection;
-            END_IF;
                      
             Messenger.ActivateOnCondition(ULINT#1522, Execute AND Velocity = 0, eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(ULINT#1523, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
@@ -2895,6 +2899,27 @@ NAMESPACE AXOpen.Components.Festo.Drives
             END_IF;
 
             IF Execute THEN 	
+                IF Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection THEN
+                    Messenger.Activate(     UINT#1521, eAxoMessageCategory#ProgrammingError);
+                    DriveStatus.Error.Id := UINT#1521;
+                    InVelocity := FALSE;
+                    RETURN;
+                END_IF;
+    
+                IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection THEN
+                    Velocity_ := Velocity;
+                ELSIF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection THEN
+                    Velocity_ := -1 * Velocity;
+                ELSE
+                    RETURN;
+                END_IF;
+    
+                IF Velocity_> 0 THEN 
+                    Direction_ := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
+                ELSE
+                    Direction_ := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection;
+                END_IF;
+
                 THIS.UpdateInputs(AxisRef);         
                 IF NOT ContinuousUpdate THEN
                     MC_MoveVelocityContinuousUpdate_SV := FALSE;
@@ -3128,23 +3153,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 RETURN;
             END_IF;
 
-            Messenger.ActivateOnCondition(ULINT#1531,Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1532, Execute AND Velocity <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1533, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1534, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1535, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1536, Execute AND Torque = 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1537, Execute AND TorqueRamp <= 0, eAxoMessageCategory#ProgrammingError);
-            
-            IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection THEN
-                Torque_ := Torque;
-            ELSIF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection THEN
-                Torque_ := -1 * Torque;
-            ELSE
-                RETURN;
-            END_IF; 
-            PositiveDirection_ := Torque_ > 0;                        
-
             IF THIS.AxoTorqueControl_Task.StartTriggered()  THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_TorqueControl;
             END_IF;
@@ -3155,6 +3163,23 @@ NAMESPACE AXOpen.Components.Festo.Drives
             END_IF;
 
             IF Execute THEN 	
+                Messenger.ActivateOnCondition(ULINT#1531,Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1532, Execute AND Velocity <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1533, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1534, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1535, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1536, Execute AND Torque = 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1537, Execute AND TorqueRamp <= 0, eAxoMessageCategory#ProgrammingError);
+                
+                IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection THEN
+                    Torque_ := Torque;
+                ELSIF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection THEN
+                    Torque_ := -1 * Torque;
+                ELSE
+                    RETURN;
+                END_IF; 
+                PositiveDirection_ := Torque_ > 0;  
+
                 THIS.UpdateInputs(AxisRef);         
                 IF NOT ContinuousUpdate THEN
                     MC_TorqueControlContinuousUpdate_SV := FALSE;
