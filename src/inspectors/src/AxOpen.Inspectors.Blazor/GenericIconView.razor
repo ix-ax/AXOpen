@@ -1,60 +1,60 @@
 ﻿@namespace AXOpen.Inspectors
 
-<div class="flex flex-wrap items-center  ">
+<div class="flex flex-col items-center">
     @switch (@Result)
     {
         case 0:
-            <Operon.Icons.HeroIcon Icon="minus-circle" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+            <Operon.Icons.HeroIcon Icon="minus-circle" Type="Operon.Icons.IconType.Outline" Class="size-6" />
             break;
         case 10:
-            <Operon.Icons.HeroIcon Icon="play-circle" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+            <Operon.Icons.HeroIcon Icon="play-circle" Type="Operon.Icons.IconType.Outline" Class="size-6" />
             break;
         case 20:
-            <Operon.Icons.HeroIcon Icon="check-circle" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+            <Operon.Icons.HeroIcon Icon="check-circle" Type="Operon.Icons.IconType.Outline" Class="size-6" />
             break;
         case 30:
-            <Operon.Icons.HeroIcon Icon="x-circle" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+            <Operon.Icons.HeroIcon Icon="x-circle" Type="Operon.Icons.IconType.Outline" Class="size-6" />
             break;
         case 35:
-            <Operon.Icons.HeroIcon Icon="exclamation-circle" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+            <Operon.Icons.HeroIcon Icon="exclamation-circle" Type="Operon.Icons.IconType.Outline" Class="size-6" />
             break;
         case 40:
-            <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+            <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-6" />
             break;
         case 50:
-            <Operon.Icons.HeroIcon Icon="chevron-double-right" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+            <Operon.Icons.HeroIcon Icon="chevron-double-right" Type="Operon.Icons.IconType.Outline" Class="size-6" />
             break;
     }
 
-@if (HasLabel)
-{
-    <div>
-        @switch (@Result)
-        {
-            case 0:
-                <p>No Action</p>
-                break;
-            case 10:
-                <p>Running</p>
-                break;
-            case 20:
-                <p>Passed</p>
-                break;
-            case 30:
-                <p>Failed</p>
-                break;
-            case 35:
-                <p>Inconclusive</p>
-                break;
-            case 40:
-                <p>Excluded</p>
-                break;
-            case 50:
-                <p>Bypassed</p>
-                break;
-        }
-    </div>
-}
+    @if (HasLabel)
+    {
+        <div>
+            @switch (@Result)
+            {
+                case 0:
+                    <p>No Action</p>
+                    break;
+                case 10:
+                    <p>Running</p>
+                    break;
+                case 20:
+                    <p>Passed</p>
+                    break;
+                case 30:
+                    <p>Failed</p>
+                    break;
+                case 35:
+                    <p>Inconclusive</p>
+                    break;
+                case 40:
+                    <p>Excluded</p>
+                    break;
+                case 50:
+                    <p>Bypassed</p>
+                    break;
+            }
+        </div>
+    }
 </div>
 
 @code {

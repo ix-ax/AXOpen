@@ -3,13 +3,10 @@
 @using AXSharp.Connector
 @inherits RenderableComplexComponentBase<AxoInspector>
 
-<p type="button" class="btn btn-outline-primary"
-        @onclick="SetCurrentObject">
+<p type="button" class="btn btn-outline-primary" @onclick="SetCurrentObject">
     @Component.AttributeName
     <GenericIconView Result="Data.Result.LastValue" HasLabel="false" />
 </p>
-
-
 
 @code {
     private AxoInspectorData? Data
@@ -23,7 +20,7 @@
     /// <inheritdoc />
     public override void ConfigurePolling()
     {
-        
+
     }
 
     private void SetCurrentObject()

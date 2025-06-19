@@ -11,20 +11,18 @@
         <h3>@InspectionDescription</h3>
     </div>
     <div class="flex flex-col">
-        <div>
-            @switch (InspectorType)
-            {
-                case eInspectorType.Digital:
-                    <RenderableContentControl Context="Component._digitalInspectorData" Presentation="Status" />
-                    break;
-                case eInspectorType.Analogue:
-                    <RenderableContentControl Context="Component._analogInspectorData" Presentation="Status" />
-                    break;
-                case eInspectorType.Data:
-                    <RenderableContentControl Context="Component._dataInspectorData" Presentation="Status" />
-                    break;
-            }
-        </div>
+        @switch (InspectorType)
+        {
+            case eInspectorType.Digital:
+                <RenderableContentControl Context="Component._digitalInspectorData" Presentation="Status" />
+                break;
+            case eInspectorType.Analogue:
+                <RenderableContentControl Context="Component._analogInspectorData" Presentation="Status" />
+                break;
+            case eInspectorType.Data:
+                <RenderableContentControl Context="Component._dataInspectorData" Presentation="Status" />
+                break;
+        }
 
         <div class="flex flex-row items-center justify-center space-x-4">
             <button type="button" class="btn btn-secondary m-2" disabled="@RetryDisabled" @onclick="Retry">Retry</button>
@@ -46,13 +44,13 @@
     eInspectorType InspectorType { get; set; }
     async Task<eInspectorType> GetInspectorType()
     {
-        return (eInspectorType) await Component._inspectorType.GetAsync();
+        return (eInspectorType)await Component._inspectorType.GetAsync();
     }
 
     protected override async Task<Task> OnInitializedAsync()
     {
         InspectionDescription = await Component._inspectionDetails.GetAsync();
-        InspectionDescription= Component.GetConnector().Translate(InspectionDescription, CultureInfo.CurrentCulture);
+        InspectionDescription = Component.GetConnector().Translate(InspectionDescription, CultureInfo.CurrentCulture);
         InspectorType = await GetInspectorType();
         return base.OnInitializedAsync();
     }
