@@ -11,6 +11,9 @@
             </h7>
         </div>
         <div class="ml-auto">
+            <p class="bg bg-dander-500">@Component.ErrorDetails.LastValue</p>
+        </div>
+        <div class="ml-auto">
             <p class="@SequenceTimeClass">@Duration</p>
         </div>
     </div>
@@ -21,7 +24,7 @@
                 <div class="flex flex-row">
                     <div class="flex flex-row items-center">
                         <div class="justify-items-start p-1 m-2 ml-auto">
-                            <button class="btn btn-secondary" type="button" @onclick="ToggleStepMode">
+                            <button class="btn btn-info" type="button" @onclick="ToggleStepMode">
                                 @Localizer["Step mode"]
                             </button>
                         </div>
@@ -121,14 +124,14 @@
     {
         get
         {
-            if (this.Component.Duration.LastValue > TimeSpan.FromSeconds(20))
+            if (this.Component.Duration.LastValue > TimeSpan.FromSeconds(Component.MaxSequenceDuration.LastValue.TotalSeconds))
             {
-                var delay = (this.Component.Duration.LastValue - TimeSpan.FromSeconds(20)).TotalSeconds;
+                var delay = (this.Component.Duration.LastValue.TotalSeconds - Component.MaxSequenceDuration.LastValue.TotalSeconds);
                 delay = delay > 20 ? 20 : delay;
                 return $"text-[{delay}px] m-2 text-danger-500";
             }
 
-            return "text-[8px] m-2 text-success-500";
+            return "text-[10px] m-2 text-success-500";
         }
     }
     
@@ -149,16 +152,17 @@
 
     }
 
-    private string Description => this.Component.CurrentStep.StepDescription.GetCyclic();
+    private string Description => this.Component.CurrentStep.Descr.GetCyclic();
 
     private string Duration => this.Component.Duration.GetCyclic().ToString(@"hh\:mm\:ss\.fff");
     
     public override void ConfigurePolling()
     {
-        this.StartPolling(this.Component.CurrentStep.StepDescription, 500);
+        this.StartPolling(this.Component.CurrentStep.Descr, 500);
         this.StartPolling(this.Component.SteppingMode,500);
         this.StartPolling(this.Component.Duration, 1000);
         this.StartPolling(this.Component.MsgCnt, 2500);
+        this.StartPolling(Component.MaxSequenceDuration, 1000);
     }
 }
 

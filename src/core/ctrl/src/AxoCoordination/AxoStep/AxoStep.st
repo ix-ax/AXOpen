@@ -5,10 +5,9 @@ NAMESPACE AXOpen.Core
         VAR PUBLIC
             {#ix-attr:[ReadOnly()]}
             Order : ULINT;                      
-            StepDescription : STRING[120];
+            Descr : STRING[120];
             IsActive : BOOL;                        
-            IsEnabled : BOOL;  
-            Analytics : AxoStepAnalytics;          
+            IsEnabled : BOOL;                             
         END_VAR 
 
         VAR PROTECTED            
@@ -30,7 +29,7 @@ NAMESPACE AXOpen.Core
                 inoAnalytics : AxoStepAnalytics;
             END_VAR    
             inoAnalytics.Order := THIS.Order;
-            inoAnalytics.Description := THIS.StepDescription;
+            inoAnalytics.Description := THIS.Descr;
             inoAnalytics.Duration := THIS.Duration;            
         END_METHOD
 
@@ -92,7 +91,7 @@ NAMESPACE AXOpen.Core
                 Enable : BOOL;
                 Description : STRING[120];
             END_VAR
-            StepDescription := Description;
+            Descr := Description;
             Execute := THIS.ExecuteInternal(coord,Enable);
         END_METHOD
 
@@ -105,7 +104,7 @@ NAMESPACE AXOpen.Core
                 coord : IAxoCoordinator;                
                 Description : STRING[120];
             END_VAR
-            StepDescription := Description;
+            Descr := Description;
             Execute := THIS.ExecuteInternal(coord,TRUE);
         END_METHOD
 
@@ -117,8 +116,7 @@ NAMESPACE AXOpen.Core
             VAR                
                 Sequencer : REF_TO AxoSequencer;
                 coordAsAxoObject : IAxoObject;
-                _currentlyOpenCycleCount : ULINT;
-                // Selector : REF_TO Selector;
+                _currentlyOpenCycleCount : ULINT;                
             END_VAR    
             SUPER.Run(coord);
             IF _context = NULL THEN

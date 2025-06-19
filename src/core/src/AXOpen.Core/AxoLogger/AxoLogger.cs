@@ -64,7 +64,7 @@ namespace AXOpen.Logging
                                 break;
                             case AxoStep step:
                                 await step.ReadAsync();
-                                message = $"Step : {entry.Message.LastValue} : {step.StepDescription.LastValue ?? step.Description}";
+                                message = $"Step : {entry.Message.LastValue} : {step.Descr.LastValue ?? step.Description}";
                                 break;
                             case null:
                                 message = $"{entry.Message.LastValue} : [no identity provided '{entry.Sender.LastValue}']";

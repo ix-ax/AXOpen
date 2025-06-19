@@ -34,7 +34,7 @@ namespace AXOpen.Core
 
             kids.Add(task.Status);
             kids.Add(task.IsDisabled);
-
+            kids.Add(task.ErrorDetails);
             kids.ForEach(p =>
             {
                 this.StartPolling(p, 250);
