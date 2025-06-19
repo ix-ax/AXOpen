@@ -31,7 +31,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         VAR PUBLIC // AxisRef
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("AxisRef")]}
-            // {#ix-attr:[ReadOnly()]}
+            {#ix-attr:[ReadOnly()]}
             AxisRefExt :  AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
         END_VAR
         VAR PUBLIC // Scaling

@@ -29,7 +29,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         VAR PUBLIC // AxisRef
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("AxisRef")]}
-            // {#ix-attr:[ReadOnly()]}
+            {#ix-attr:[ReadOnly()]}
             AxisRefExt :  AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
         END_VAR
         VAR PUBLIC // Scaling
@@ -2141,6 +2141,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                     length      :=  UINT#4,
                                     record      :=  _data4);
                     IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
+                        _WriteRecord(request := FALSE, record := _data4);
                         _State := UINT#316;
                     ElSIF _WriteRecord.error THEN 
                         Messenger.Activate( UINT#1446, eAxoMessageCategory#ProgrammingError);
@@ -2149,14 +2150,30 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _State := UINT#329;
                     END_IF;
                 END_IF;
+                //Writing Homing speeds: Speed during search for zero (0x6099:02 / S-0-0542 / --)
                 IF _State = UINT#316 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#516, eAxoMessageCategory#Warning);
                         DriveStatus.Error.Id := UINT#516;
                     END_IF; 
-                    _WriteRecord(request := FALSE, record := _data4);
-                    IF NOT _WriteRecord.busy AND NOT _WriteRecord.done AND NOT _WriteRecord.error  THEN
+                    _dword :=  TO_DWORD(TO_DINT(Velocity * ScalingConstantRequiredVelocity * 0.1));
+                    _data4[0] := _dword.%B0;
+                    _data4[1] := _dword.%B1;
+                    _data4[2] := _dword.%B2;
+                    _data4[3] := _dword.%B3;
+                    _WriteRecord(   request     :=  TRUE,
+                                    id          :=  _HW_S_0_0134_0_0,
+                                    index       :=  DINT#542,
+                                    length      :=  UINT#4,
+                                    record      :=  _data4);
+                    IF NOT _WriteRecord.busy AND _WriteRecord.done AND NOT _WriteRecord.error THEN 
+                        _WriteRecord(request := FALSE, record := _data4);
                         _State := UINT#317;
+                    ElSIF _WriteRecord.error THEN 
+                        Messenger.Activate( UINT#1446, eAxoMessageCategory#ProgrammingError);
+                        MC_HomeErrorID :=   DINT#1446;
+                        _WriteRecord(request := FALSE, record := _data4);
+                        _State := UINT#329;
                     END_IF;
                 END_IF;
                 //Writing Homing acceleration (0x609A:00 / S-0-0042 / --)
