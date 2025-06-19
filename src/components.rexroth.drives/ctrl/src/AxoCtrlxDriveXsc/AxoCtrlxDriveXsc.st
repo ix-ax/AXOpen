@@ -102,7 +102,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         END_VAR
 
         VAR PRIVATE
-            // _AxisRefExt :  AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXscAxisReference;
             _data2      :   ARRAY[0..1] OF BYTE; 
             _data4      :   ARRAY[0..3] OF BYTE; 
             _data8      :   ARRAY[0..7] OF BYTE; 
@@ -2005,9 +2004,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 RETURN;
             END_IF;
 
-            Messenger.ActivateOnCondition(ULINT#1441, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1442, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
-
             IF THIS.AxoHome_Task.StartTriggered() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Home;
             END_IF;
@@ -2018,6 +2014,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
 
             IF Execute THEN 	
+                Messenger.ActivateOnCondition(ULINT#1441, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1442, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
+
                 IF _State = UINT#0 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
@@ -2351,9 +2350,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 RETURN;
             END_IF;
 
-            Messenger.ActivateOnCondition(ULINT#1471, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1472, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
-
             IF THIS.AxoStop_Task.StartTriggered() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Stop;
             END_IF;
@@ -2365,6 +2361,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
 
             IF Execute THEN 
+                Messenger.ActivateOnCondition(ULINT#1471, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1472, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
+    
                 IF _State = UINT#0 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
@@ -2517,9 +2516,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 RETURN;
             END_IF;
 
-            Messenger.ActivateOnCondition(ULINT#1481, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1482, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
-
             IF THIS.AxoHalt_Task.StartTriggered() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Halt;
             END_IF;
@@ -2531,6 +2527,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
 
             IF Execute THEN 	
+                Messenger.ActivateOnCondition(ULINT#1481, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1482, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
+    
                 IF _State = UINT#0 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
@@ -2694,11 +2693,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 RETURN;
             END_IF;
 
-            Messenger.ActivateOnCondition(ULINT#1491, Execute AND Velocity <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1492, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1493, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1494, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
-
             IF THIS.AxoMoveAbsolute_Task.StartTriggered()  THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_MoveAbsolute;
             END_IF;
@@ -2709,6 +2703,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
 
             IF Execute THEN 
+                Messenger.ActivateOnCondition(ULINT#1491, Execute AND Velocity <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1492, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1493, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1494, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
+    
                 IF NOT ContinuousUpdate THEN
                     MC_MoveAbsoluteContinuousUpdate_SV := FALSE;
                 END_IF;
@@ -2924,11 +2923,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 RETURN;
             END_IF;
 
-            Messenger.ActivateOnCondition(ULINT#1501, Execute AND Velocity <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1502, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1503, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1504, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
-
             IF THIS.AxoMoveRelative_Task.StartTriggered()  THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_MoveRelative;
             END_IF;
@@ -2939,6 +2933,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
 
             IF Execute THEN 	
+                Messenger.ActivateOnCondition(ULINT#1501, Execute AND Velocity <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1502, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1503, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1504, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
+    
                 IF NOT ContinuousUpdate THEN
                     MC_MoveRelativeContinuousUpdate_SV := FALSE;
                 END_IF;
@@ -3167,16 +3166,16 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 RETURN;
             END_IF;
 
-            Messenger.ActivateOnCondition(ULINT#1511, Execute AND Velocity <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1512, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1513, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1514, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
-
             IF Execute AND NOT MC_MoveAdditiveExecute_PV THEN
                 _State := UINT#0;  //TODO check if this casues the issue with two move relative movements???
             END_IF;
 
             IF Execute THEN 	
+                Messenger.ActivateOnCondition(ULINT#1511, Execute AND Velocity <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1512, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1513, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1514, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
+    
                 IF NOT ContinuousUpdate THEN
                     MC_MoveAdditiveContinuousUpdate_SV := FALSE;
                 END_IF;
@@ -3420,27 +3419,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 RETURN;
             END_IF;
 
-            Messenger.ActivateOnCondition(ULINT#1521,Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection, eAxoMessageCategory#ProgrammingError);
-
-            IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection THEN
-                Velocity_ := Velocity;
-            ELSIF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection THEN
-                Velocity_ := -1 * Velocity;
-            ELSE
-                RETURN;
-            END_IF;
-
-            IF Velocity_> 0 THEN 
-                Direction_ := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
-            ELSE
-                Direction_ := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection;
-            END_IF;
-                     
-            Messenger.ActivateOnCondition(ULINT#1522, Execute AND Velocity = 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1523, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1524, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1525, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
-
             IF THIS.AxoMoveVelocity_Task.StartTriggered()  THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_MoveVelocity;
             END_IF;
@@ -3451,6 +3429,27 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
 
             IF Execute THEN 	
+                Messenger.ActivateOnCondition(ULINT#1521,Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection, eAxoMessageCategory#ProgrammingError);
+
+                IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection THEN
+                    Velocity_ := Velocity;
+                ELSIF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection THEN
+                    Velocity_ := -1 * Velocity;
+                ELSE
+                    RETURN;
+                END_IF;
+    
+                IF Velocity_> 0 THEN 
+                    Direction_ := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
+                ELSE
+                    Direction_ := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection;
+                END_IF;
+                         
+                Messenger.ActivateOnCondition(ULINT#1522, Execute AND Velocity = 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1523, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1524, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1525, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
+
                 IF NOT ContinuousUpdate THEN
                     MC_MoveVelocityContinuousUpdate_SV := FALSE;
                 END_IF;
@@ -3704,23 +3703,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 RETURN;
             END_IF;
 
-            Messenger.ActivateOnCondition(ULINT#1531,Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1532, Execute AND Velocity <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1533, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1534, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1535, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1536, Execute AND Torque = 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1537, Execute AND TorqueRamp <= 0, eAxoMessageCategory#ProgrammingError);
-            
-            IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection THEN
-                Torque_ := Torque;
-            ELSIF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection THEN
-                Torque_ := -1 * Torque;
-            ELSE
-                RETURN;
-            END_IF; 
-            PositiveDirection_ := Torque_ > 0;                        
-
             IF THIS.AxoTorqueControl_Task.StartTriggered()  THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_TorqueControl;
             END_IF;
@@ -3731,6 +3713,23 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
 
             IF Execute THEN 
+                Messenger.ActivateOnCondition(ULINT#1531,Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1532, Execute AND Velocity <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1533, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1534, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1535, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1536, Execute AND Torque = 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1537, Execute AND TorqueRamp <= 0, eAxoMessageCategory#ProgrammingError);
+                
+                IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection THEN
+                    Torque_ := Torque;
+                ELSIF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection THEN
+                    Torque_ := -1 * Torque;
+                ELSE
+                    RETURN;
+                END_IF; 
+                PositiveDirection_ := Torque_ > 0;                        
+    
                 IF NOT ContinuousUpdate THEN
                     MC_TorqueControlContinuousUpdate_SV := FALSE;
                 END_IF;
