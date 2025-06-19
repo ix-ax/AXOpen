@@ -147,14 +147,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Move additive')) THEN
                 AxoCmmtAs.AxoMoveAbsolute(  Position           :=  LREAL#10.0,
-                                                    Velocity        :=  LREAL#5.0,
+                                                    Velocity        :=  LREAL#1.0,
                                                     Acceleration    :=  LREAL#50.0,
                                                     Deceleration    :=  LREAL#50.0,
                                                     Jerk            :=  LREAL#150000.0
                                                     );
-                IF AxoCmmtAs.ActualPosition > 6.0 THEN
+                IF AxoCmmtAs.ActualPosition > 7.5 THEN
                     AxoCmmtAs.AxoMoveAdditive(  Distance        :=  LREAL#5.0,
-                                                        Velocity        :=  LREAL#1.0,
+                                                        Velocity        :=  LREAL#5.0,
                                                         Acceleration    :=  LREAL#50.0,
                                                         Deceleration    :=  LREAL#50.0,
                                                         Jerk            :=  LREAL#150000.0
@@ -197,6 +197,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF(Steps[_i].Execute(Sequencer, 'Read digital input')) THEN
                 AxoCmmtAs.AxoReadDigitalInput(Enable := TRUE, InputNumber := 38 , Valid=> _Valid, Value => _BoolValue);// 38~~X1C.7  Negative limit switch
                 IF(_Valid AND _BoolValue) THEN                
+                    _Valid := FALSE; 
+                    _BoolValue := FALSE;  
                     Sequencer.MoveNext();                
                     AxoCmmtAs.AxoReadDigitalInput(Enable :=FALSE);
                     AxoCmmtAs.Restore();             
@@ -212,6 +214,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                                                     Direction       :=  eAxoDriveDirection#NegativeDirection,
                                                     InVelocity      => _BoolValue);
                 IF(_BoolValue) THEN                
+                    _Valid := FALSE; 
+                    _BoolValue := FALSE;  
                     Sequencer.MoveNext();         
                     AxoCmmtAs.Restore();    
                 END_IF;    
@@ -237,6 +241,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                                                     Direction       :=  eAxoDriveDirection#PositiveDirection,
                                                     InVelocity      => _BoolValue);
                 IF(_BoolValue) THEN                
+                    _Valid := FALSE; 
+                    _BoolValue := FALSE;  
                     Sequencer.MoveNext();                
                     AxoCmmtAs.Restore();             
                 END_IF;    
@@ -246,6 +252,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF(Steps[_i].Execute(Sequencer, 'Read digital input')) THEN
                 AxoCmmtAs.AxoReadDigitalInput(Enable := TRUE, InputNumber := 38 , Valid=> _Valid, Value => _BoolValue);// 38~~X1C.7  Negative limit switch
                 IF(_Valid AND _BoolValue) THEN                
+                    _Valid := FALSE; 
+                    _BoolValue := FALSE;  
                     Sequencer.MoveNext();                
                     AxoCmmtAs.AxoReadDigitalInput(Enable :=FALSE);
                     AxoCmmtAs.Restore();             
@@ -309,6 +317,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                                                 Direction       :=  eAxoDriveDirection#PositiveDirection,
                                                 InTorque      => _BoolValue);
                 IF(_BoolValue) THEN                
+                    _Valid := FALSE; 
+                    _BoolValue := FALSE;  
                     //AxoCmmtAs.Restore();  //  removed due to we want to stay in torque up to reach the position 10.0  
                     Sequencer.MoveNext();                
                 END_IF;    

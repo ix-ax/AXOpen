@@ -1543,6 +1543,9 @@ NAMESPACE AXOpen.Components.Drives
                     AxoMoveVelocity_Task.Abort();
                 END_IF;
             END_IF;
+            IF AxoMoveVelocity_Task.RestoreTriggered() OR AxoMoveVelocity_Task.AbortTriggered() THEN;
+                AxoMoveVelocity_InVelocity := FALSE;
+            END_IF;                
             //******************************************
 
             //*************AXO_TORQUE_CONTROL***********
@@ -1587,6 +1590,9 @@ NAMESPACE AXOpen.Components.Drives
                     AxoTorqueControl_Task.Abort();
                 END_IF;
             END_IF;
+            IF AxoTorqueControl_Task.RestoreTriggered() OR AxoTorqueControl_Task.AbortTriggered() THEN;
+                AxoTorqueControl_InTorque := FALSE;
+            END_IF;  
             //******************************************
             IF DriveState = eAxoDriveState#ContinuousMotion AND (ActualVelocity > 0.5 AND NOT EnablePositive OR ActualVelocity < -0.5 AND NOT EnableNegative) THEN
                 _disabledDuringMovement := TRUE;
@@ -1640,6 +1646,10 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadParameter_Error,
                         AxoReadParameter_ErrorID,
                         AxoReadParameter_Value);
+            IF  AxoReadParameter_Task.IsSwitchedOff() THEN
+                AxoReadParameter_Valid := FALSE;
+                AxoReadParameter_Value := LINT#0;
+            END_IF; 
             //******************************************
 
             //*************AXO_READ_REAL_PARAMETER******
@@ -1653,6 +1663,10 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadRealParameter_Error,
                         AxoReadRealParameter_ErrorID,
                         AxoReadRealParameter_Value);
+            IF  AxoReadRealParameter_Task.IsSwitchedOff() THEN
+                AxoReadRealParameter_Valid := FALSE;
+                AxoReadRealParameter_Value := REAL#0.0;
+            END_IF;                         
             //******************************************
 
             //*************AXO_READ_BOOL_PARAMETER******
@@ -1666,6 +1680,10 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadBoolParameter_Error,
                         AxoReadBoolParameter_ErrorID,
                         AxoReadBoolParameter_Value);
+            IF  AxoReadBoolParameter_Task.IsSwitchedOff() THEN
+                AxoReadBoolParameter_Valid := FALSE;
+                AxoReadBoolParameter_Value := FALSE;
+            END_IF;                         
             //******************************************
 
             //*************AXO_WRITE_PARAMETER**********
@@ -1730,6 +1748,10 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadDigitalInput_Error,
                         AxoReadDigitalInput_ErrorID,
                         AxoReadDigitalInput_Value);
+            IF  AxoReadDigitalInput_Task.IsSwitchedOff() THEN
+                AxoReadDigitalInput_Valid := FALSE;
+                AxoReadDigitalInput_Value := FALSE;
+            END_IF;       
             //******************************************
 
             //*************AXO_READ_DIGITAL_OUTPUT******
@@ -1743,6 +1765,10 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadDigitalOutput_Error,
                         AxoReadDigitalOutput_ErrorID,
                         AxoReadDigitalOutput_Value);
+            IF  AxoReadDigitalOutput_Task.IsSwitchedOff() THEN
+                AxoReadDigitalOutput_Valid := FALSE;
+                AxoReadDigitalOutput_Value := FALSE;
+            END_IF;       
             //******************************************
 
             //*************AXO_WRITE_DIGITAL_OUTPUT*****
@@ -1772,6 +1798,10 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadActualPosition_Error,
                         AxoReadActualPosition_ErrorID,
                         AxoReadActualPosition_Value);
+            IF  AxoReadActualPosition_Task.IsSwitchedOff() THEN
+                AxoReadActualPosition_Valid := FALSE;
+                AxoReadActualPosition_Value := LREAL#0.0;
+            END_IF;       
             //******************************************
 
             //*************AXO_READ_ACTUAL_VELOCITY*****
@@ -1784,6 +1814,10 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadActualVelocity_Error,
                         AxoReadActualVelocity_ErrorID,
                         AxoReadActualVelocity_Value);
+            IF  AxoReadActualVelocity_Task.IsSwitchedOff() THEN
+                AxoReadActualVelocity_Valid := FALSE;
+                AxoReadActualVelocity_Value := LREAL#0.0;
+            END_IF;       
             //******************************************
 
             //*************AXO_READ_ACTUAL_TORQUE*******
@@ -1796,6 +1830,10 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadActualTorque_Error,
                         AxoReadActualTorque_ErrorID,
                         AxoReadActualTorque_Value);
+            IF  AxoReadActualTorque_Task.IsSwitchedOff() THEN
+                AxoReadActualTorque_Valid := FALSE;
+                AxoReadActualTorque_Value := LREAL#0.0;
+            END_IF;       
             //******************************************
 
             //*************AXO_READ_STATUS**************
@@ -1815,6 +1853,17 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadStatus_DiscreteMotion,      
                         AxoReadStatus_ContinuousMotion,    
                         AxoReadStatus_SynchronizedMotion);
+            IF  AxoReadStatus_Task.IsSwitchedOff() THEN
+                AxoReadStatus_Valid := FALSE;
+                AxoReadStatus_ErrorStop := FALSE;
+                AxoReadStatus_Disabled  := FALSE;
+                AxoReadStatus_Stopping  := FALSE;
+                AxoReadStatus_Homing    := FALSE;
+                AxoReadStatus_Standstill    := FALSE;
+                AxoReadStatus_DiscreteMotion    := FALSE;
+                AxoReadStatus_ContinuousMotion  := FALSE;
+                AxoReadStatus_SynchronizedMotion    := FALSE;
+            END_IF;       
             //******************************************
 
             //*************AXO_READ_MOTION_STATE********
@@ -1832,6 +1881,14 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadMotionState_Decelerating,                           
                         AxoReadMotionState_DirectionPositive,                      
                         AxoReadMotionState_DirectionNegative);
+            IF  AxoReadMotionState_Task.IsSwitchedOff() THEN
+                AxoReadMotionState_Valid := FALSE;
+                AxoReadMotionState_ConstantVelocity := FALSE;
+                AxoReadMotionState_Accelerating := FALSE;
+                AxoReadMotionState_Decelerating := FALSE;
+                AxoReadMotionState_DirectionPositive    := FALSE;
+                AxoReadMotionState_DirectionNegative    := FALSE;                
+            END_IF;       
             //******************************************
 
             //*************AXO_READ_AXIS_INFO***********
@@ -1852,6 +1909,18 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadAxisInfo_PowerOn,
                         AxoReadAxisInfo_IsHomed,
                         AxoReadAxisInfo_AxisWarning);
+            IF  AxoReadAxisInfo_Task.IsSwitchedOff() THEN
+                AxoReadAxisInfo_Valid := FALSE;
+                AxoReadAxisInfo_HomeAbsSwitch   := FALSE;
+                AxoReadAxisInfo_LimitSwitchPos  := FALSE;
+                AxoReadAxisInfo_LimitSwitchNeg  := FALSE;
+                AxoReadAxisInfo_Simulation  := FALSE;
+                AxoReadAxisInfo_CommunicationReady  := FALSE;
+                AxoReadAxisInfo_ReadyForPowerOn := FALSE;
+                AxoReadAxisInfo_PowerOn := FALSE;
+                AxoReadAxisInfo_IsHomed := FALSE;
+                AxoReadAxisInfo_AxisWarning := FALSE;                
+            END_IF;       
             //******************************************
 
             //*************AXO_READ_AXIS_ERROR**********
@@ -1864,6 +1933,11 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadAxisError_Error,
                         AxoReadAxisError_ErrorID,
                         AxoReadAxisError_AxisErrorID);
+            IF  AxoReadAxisError_Task.IsSwitchedOff() THEN
+                AxoReadAxisError_Valid := FALSE;
+                AxoReadAxisError_ErrorID    := DINT#0;
+                AxoReadAxisError_AxisErrorID    := DWORD#0;
+            END_IF;       
             //******************************************
 
             //*************AXO_RESET********************
@@ -2101,22 +2175,35 @@ NAMESPACE AXOpen.Components.Drives
             AxoTorqueControl_Task.Restore();
             AxoSetPosition_Task.Restore();
             AxoSetOverride_Task.SwitchOff();
+            // MC_SetOverride(AxisRef, FALSE);
             AxoReadParameter_Task.SwitchOff();
+            // MC_ReadParameter(AxisRef, FALSE);
             AxoReadRealParameter_Task.SwitchOff();
+            // MC_ReadRealParameter(AxisRef, FALSE);
             AxoReadBoolParameter_Task.SwitchOff();
+            // MC_ReadBoolParameter(AxisRef, FALSE);
             AxoWriteParameter_Task.Restore();
             AxoWriteRealParameter_Task.Restore();
             AxoWriteBoolParameter_Task.Restore();
             AxoReadDigitalInput_Task.SwitchOff();
+            // MC_ReadDigitalInput(AxisRef, FALSE);
             AxoReadDigitalOutput_Task.SwitchOff();
+            // MC_ReadDigitalOutput(AxisRef, FALSE);
             AxoWriteDigitalOutput_Task.Restore();
             AxoReadActualPosition_Task.SwitchOff();
+            // MC_ReadActualPosition(AxisRef, FALSE);
             AxoReadActualVelocity_Task.SwitchOff();
+            // MC_ReadActualVelocity(AxisRef, FALSE);
             AxoReadActualTorque_Task.SwitchOff();
+            // MC_ReadActualTorque(AxisRef, FALSE);
             AxoReadStatus_Task.SwitchOff();
+            // MC_ReadStatus(AxisRef, FALSE);
             AxoReadMotionState_Task.SwitchOff();
+            // MC_ReadMotionState(AxisRef, FALSE);
             AxoReadAxisInfo_Task.SwitchOff();
+            // MC_ReadAxisInfo(AxisRef, FALSE);
             AxoReadAxisError_Task.SwitchOff();
+            // MC_ReadAxisError(AxisRef, FALSE);
             AxoReset_Task.Restore();
             AxoJogPositive.RemoteSwitchOn := FALSE;
             AxoJogPositive.StartMotion := FALSE;
@@ -2125,6 +2212,111 @@ NAMESPACE AXOpen.Components.Drives
             AxoJogNegative.StartMotion := FALSE;
             AxoJogNegative.StopMotion := FALSE;
              
+            //************************************************
+            MessageCodeFromMC                       :=   ULINT#0;
+            ErrorFromMC                             :=   FALSE;
+            _movementDisabled                       :=   FALSE;
+            _lastMessageCode                        :=   ULINT#0;
+            _disabledDuringMovement                 :=   FALSE;
+            _movementInPositiveDirection            :=   FALSE;
+            _movementInNegativeDirection            :=   FALSE;
+            //***********Stop*********************************
+            _AxoStop_Deceleration                   :=   LREAL#0.0;                     
+            _AxoStop_Jerk                           :=   LREAL#0.0;                      
+            //***********Halt*********************************
+            _AxoHalt_Deceleration                   :=   LREAL#0.0;                     
+            _AxoHalt_Jerk                           :=   LREAL#0.0;     
+            //***********Home*********************************
+            _AxoHome_Position                       :=   LREAL#0.0; 
+            _AxoHome_HommingMode                    :=   INT#0;
+            _AxoHome_Velocity                       :=   LREAL#0.0; 
+            _AxoHome_Acceleration                   :=   LREAL#0.0; 
+            _AxoHome_Deceleration                   :=   LREAL#0.0; 
+            //***********MoveAbsolute*************************
+            _AxoMoveAbsolute_ContinuousUpdate       :=   FALSE;
+            _AxoMoveAbsolute_Position               :=   LREAL#0.0; 
+            _AxoMoveAbsolute_Velocity               :=   LREAL#0.0; 
+            _AxoMoveAbsolute_Acceleration           :=   LREAL#0.0; 
+            _AxoMoveAbsolute_Deceleration           :=   LREAL#0.0; 
+            _AxoMoveAbsolute_Jerk                   :=   LREAL#0.0; 
+            _AxoMoveAbsolute_Direction              :=   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#CurrentDirection;
+            //***********MoveRelative*************************
+            _AxoMoveRelative_ContinuousUpdate       :=   FALSE;
+            _AxoMoveRelative_Distance               :=   LREAL#0.0; 
+            _AxoMoveRelative_Velocity               :=   LREAL#0.0; 
+            _AxoMoveRelative_Acceleration           :=   LREAL#0.0; 
+            _AxoMoveRelative_Deceleration           :=   LREAL#0.0; 
+            _AxoMoveRelative_Jerk                   :=   LREAL#0.0; 
+            //***********MoveAdditive*************************
+            _AxoMoveAdditive_ContinuousUpdate       :=   FALSE;
+            _AxoMoveAdditive_Distance               :=   LREAL#0.0; 
+            _AxoMoveAdditive_Velocity               :=   LREAL#0.0; 
+            _AxoMoveAdditive_Acceleration           :=   LREAL#0.0; 
+            _AxoMoveAdditive_Deceleration           :=   LREAL#0.0; 
+            _AxoMoveAdditive_Jerk                   :=   LREAL#0.0; 
+            //***********MoveVelocity*************************
+            _AxoMoveVelocity_ContinuousUpdate       :=   FALSE;
+            _AxoMoveVelocity_Velocity               :=   LREAL#0.0; 
+            _AxoMoveVelocity_Acceleration           :=   LREAL#0.0; 
+            _AxoMoveVelocity_Deceleration           :=   LREAL#0.0; 
+            _AxoMoveVelocity_Jerk                   :=   LREAL#0.0; 
+            _AxoMoveVelocity_Direction              :=   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#CurrentDirection;
+            //***********TorqueControl************************
+            _AxoTorqueControl_ContinuousUpdate      :=   FALSE;
+            _AxoTorqueControl_Torque                :=   LREAL#0.0; 
+            _AxoTorqueControl_TorqueRamp            :=   LREAL#0.0; 
+            _AxoTorqueControl_PositionLimit         :=   LREAL#0.0; 
+            _AxoTorqueControl_Velocity              :=   LREAL#0.0; 
+            _AxoTorqueControl_Acceleration          :=   LREAL#0.0; 
+            _AxoTorqueControl_Deceleration          :=   LREAL#0.0; 
+            _AxoTorqueControl_Jerk                  :=   LREAL#0.0; 
+            _AxoTorqueControl_Direction             :=   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#CurrentDirection;
+            //***********SetPosition**************************
+            _AxoSetPosition_Position                :=   LREAL#0.0;                    
+            _AxoSetPosition_Relative                :=   FALSE;                   
+            _AxoSetPosition_ExecutionMode           :=   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately;         
+            //***********SetOverride**************************
+            _AxoSetOverride_VelFactor               :=   LREAL#0.0;                     
+            _AxoSetOverride_AccFactor               :=   LREAL#0.0;                     
+            _AxoSetOverride_JerkFactor              :=   LREAL#0.0;        
+            //***********ReadParameter************************
+            _AxoReadParameter_ParameterNumber       :=   DINT#0;
+            //***********ReadReadParameter************************
+            _AxoReadRealParameter_ParameterNumber   :=   DINT#0;
+            //***********ReadBoolParameter********************
+            _AxoReadBoolParameter_ParameterNumber   :=   DINT#0;
+            //***********WriteParameter***********************
+            _AxoWriteParameter_ParameterNumber      :=   DINT#0;                 
+            _AxoWriteParameter_Value                :=   LINT#0;                     
+            _AxoWriteParameter_ExecutionMode        :=   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately;                     
+            //***********WriteRealParameter***********************
+            _AxoWriteRealParameter_ParameterNumber  :=   DINT#0;                 
+            _AxoWriteRealParameter_Value            :=   REAL#0.0;                     
+            _AxoWriteRealParameter_ExecutionMode    :=   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately;                     
+            //***********WriteBoolParameter*******************
+            _AxoWriteBoolParameter_ParameterNumber  :=   DINT#0;                 
+            _AxoWriteBoolParameter_Value            :=   FALSE;                  
+            _AxoWriteBoolParameter_ExecutionMode    :=   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately;                    
+            //***********ReadDigitalInput*********************
+            _AxoReadDigitalInput_InputNumber        :=   INT#0;
+            //***********ReadDigitalOutput********************
+            _AxoReadDigitalOutput_OutputNumber      :=   INT#0;
+            //***********WriteDigitalOutput*******************
+            _AxoWriteDigitalOutput_OutputNumber     :=   INT#0;
+            _AxoWriteDigitalOutput_Value            :=   FALSE;                   
+            _AxoWriteDigitalOutput_ExecutionMode    :=   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately;                  
+            //***********ReadMotionState**********************
+            _AxoReadMotionState_Source              :=   AXOpen.Components.Abstractions.Drives.eAxoSource#ActualValue;
+            //***********Jog**********************************
+            _AxoJog_Velocity                        :=   LREAL#0.0; 
+            _AxoJog_Acceleration                    :=   LREAL#0.0; 
+            _AxoJog_Deceleration                    :=   LREAL#0.0; 
+            _AxoJog_Jerk                            :=   LREAL#0.0; 
+            _AxoJog_Direction                       :=   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#CurrentDirection;
+            _AxoJogInVelocity                       :=   FALSE;
+            _AxoJog_Active                          :=   FALSE;
+            //************************************************
+
             RestoreTask.DoneWhen(TRUE);
         END_METHOD
 
@@ -2601,6 +2793,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoSetOverride_Task.SwitchOn();
             ELSE
                 AxoSetOverride_Task.SwitchOff();
+                // THIS.MC_SetOverride(AxisRef, FALSE);
             END_IF;
 
             AxoSetOverride  := AxoSetOverride_Task;
@@ -2629,6 +2822,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReadParameter_Task.SwitchOn();
             ELSE
                 AxoReadParameter_Task.SwitchOff();
+                // THIS.MC_ReadParameter(AxisRef, FALSE);
             END_IF;
 
             Valid   := AxoReadParameter_Valid;
@@ -2662,6 +2856,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReadRealParameter_Task.SwitchOn();
             ELSE
                 AxoReadRealParameter_Task.SwitchOff();
+                // THIS.MC_ReadRealParameter(AxisRef, FALSE);
             END_IF;
 
             Valid   := AxoReadRealParameter_Valid;
@@ -2695,6 +2890,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReadBoolParameter_Task.SwitchOn();
             ELSE
                 AxoReadBoolParameter_Task.SwitchOff();
+                // THIS.MC_ReadBoolParameter(AxisRef, FALSE);
             END_IF;
 
             Valid   := AxoReadBoolParameter_Valid;
@@ -2813,6 +3009,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReadDigitalInput_Task.SwitchOn();
             ELSE
                 AxoReadDigitalInput_Task.SwitchOff();
+                // THIS.MC_ReadDigitalInput(AxisRef, FALSE);
             END_IF;
 
             Valid               :=  AxoReadDigitalInput_Valid;
@@ -2843,10 +3040,10 @@ NAMESPACE AXOpen.Components.Drives
 
             IF Enable THEN
                 _AxoReadDigitalOutput_OutputNumber   :=  OutputNumber;
-
                 AxoReadDigitalOutput_Task.SwitchOn();
             ELSE
                 AxoReadDigitalOutput_Task.SwitchOff();
+                // THIS.MC_ReadDigitalOutput(AxisRef, FALSE);
             END_IF;
 
             Valid   := AxoReadDigitalOutput_Valid;
@@ -2905,6 +3102,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReadActualPosition_Task.SwitchOn();
             ELSE
                 AxoReadActualPosition_Task.SwitchOff();
+                // THIS.MC_ReadActualPosition(AxisRef, FALSE);
             END_IF;
 
             Valid       := AxoReadActualPosition_Valid;
@@ -2937,6 +3135,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReadActualVelocity_Task.SwitchOn();
             ELSE
                 AxoReadActualVelocity_Task.SwitchOff();
+                // THIS.MC_ReadActualVelocity(AxisRef, FALSE);
             END_IF;
 
             Valid       :=  AxoReadActualVelocity_Valid;
@@ -2969,6 +3168,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReadActualTorque_Task.SwitchOn();
             ELSE
                 AxoReadActualTorque_Task.SwitchOff();
+                // THIS.MC_ReadActualTorque(AxisRef, FALSE);
             END_IF;
 
             Valid   :=  AxoReadActualTorque_Valid;
@@ -3006,6 +3206,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReadStatus_Task.SwitchOn();
             ELSE
                 AxoReadStatus_Task.SwitchOff();
+                // THIS.MC_ReadStatus(AxisRef, FALSE);
             END_IF;
 
             Valid               :=  AxoReadStatus_Valid;
@@ -3048,6 +3249,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReadMotionState_Task.SwitchOn();
             ELSE
                 AxoReadMotionState_Task.SwitchOff();
+                // THIS.MC_ReadMotionState(AxisRef, FALSE);
             END_IF;
 
             Valid               :=  AxoReadMotionState_Valid;
@@ -3091,6 +3293,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReadAxisInfo_Task.SwitchOn();
             ELSE
                 AxoReadAxisInfo_Task.SwitchOff();
+                // THIS.ReadAxisInfo(AxisRef, FALSE);
             END_IF;
 
             Valid               :=  AxoReadAxisInfo_Valid;
@@ -3130,6 +3333,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReadAxisError_Task.SwitchOn();
             ELSE
                 AxoReadAxisError_Task.SwitchOff();
+                // THIS.MC_ReadAxisError(FALSE);
             END_IF;
 
             Valid           :=  AxoReadAxisError_Valid;

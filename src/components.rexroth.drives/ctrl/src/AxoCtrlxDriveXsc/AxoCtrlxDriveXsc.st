@@ -1489,16 +1489,16 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     ScalingConstantRequiredDeceleration := ScalingConstantRequiredAcceleration;
                     ScalingConstantActualDeceleration   := ScalingConstantActualAcceleration;
                     //  Torque
-                    ScalingConstantActualTorque       := TO_LREAL(_S_0_0093) *_exp[_S_0_0094 - 2] * TO_LREAL(_P_0_0450) * TO_LREAL(_S_0_0112) ;
-                    ScalingConstantRequiredTorque := LREAL#1.0/ScalingConstantActualTorque;
-                    
-                    _ScalingRead := TRUE;
-                    _State := UINT#0;
+                    ScalingConstantActualTorque         := TO_LREAL(_S_0_0093) *_exp[_S_0_0094 - 2] * TO_LREAL(_P_0_0450) * TO_LREAL(_S_0_0112) ;
+                    ScalingConstantRequiredTorque       := LREAL#1.0/ScalingConstantActualTorque;
+                    //  Jerk
+                    ScalingConstantRequiredJerk         :=  1000.0;
+                    ScalingConstantActualJerk           :=  0.001;
 
                     AxoStop_Deceleration := 1000.0;         // mm/s2
-                    AxoStop_Jerk := 1500.0;                 // mm/s3
+                    AxoStop_Jerk := 150000.0;               // mm/s3
                     AxoHalt_Deceleration := 1000.0;         // mm/s2
-                    AxoHalt_Jerk := 1500.0;                 // mm/s3
+                    AxoHalt_Jerk := 150000.0;               // mm/s3
                     AxoHome_Position := 0.0;                // mm
                     AxoHome_HommingMode := 551;             // Negative direction, travel range limit switch, negative edge (NC contact)
                     AxoHome_Velocity := 2.0;                // mm/s
@@ -1509,32 +1509,35 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     AxoMoveAbsolute_Velocity := 5.0;        // mm/s
                     AxoMoveAbsolute_Acceleration := 1000.0; // mm/s2
                     AxoMoveAbsolute_Deceleration := 1000.0; // mm/s2
-                    AxoMoveAbsolute_Jerk := 1500.0;         // mm/s3
+                    AxoMoveAbsolute_Jerk := 150000.0;       // mm/s3
                     AxoMoveRelative_Distance := 5.0;        // mm
                     AxoMoveRelative_Velocity := 5.0;        // mm/s
                     AxoMoveRelative_Acceleration := 1000.0; // mm/s2
                     AxoMoveRelative_Deceleration := 1000.0; // mm/s2
-                    AxoMoveRelative_Jerk := 1500.0;         // mm/s3
+                    AxoMoveRelative_Jerk := 150000.0;       // mm/s3
                     AxoMoveAdditive_Distance := 5.0;        // mm
                     AxoMoveAdditive_Velocity := 5.0;        // mm/s
                     AxoMoveAdditive_Acceleration := 1000.0; // mm/s2
                     AxoMoveAdditive_Deceleration := 1000.0; // mm/s2
-                    AxoMoveAdditive_Jerk := 1500.0;         // mm/s3
+                    AxoMoveAdditive_Jerk := 150000.0;       // mm/s3
                     AxoMoveVelocity_Velocity := 5.0;        // mm/s
                     AxoMoveVelocity_Acceleration := 1000.0; // mm/s2
                     AxoMoveVelocity_Deceleration := 1000.0; // mm/s2
-                    AxoMoveVelocity_Jerk := 1500.0;         // mm/s3
+                    AxoMoveVelocity_Jerk := 150000.0;       // mm/s3
                     AxoTorqueControl_Torque := 0.0;         // Nm
                     AxoTorqueControl_TorqueRamp := 1.0;     // Nm/s
                     AxoTorqueControl_Velocity := 5.0;       // mm/s
                     AxoTorqueControl_Acceleration := 1000.0;// mm/s2
                     AxoTorqueControl_Deceleration := 1000.0;// mm/s2
-                    AxoTorqueControl_Jerk := 1500.0;        // mm/s3
+                    AxoTorqueControl_Jerk := 150000.0;      // mm/s3
                     AxoJog_Velocity := 2.0;                 // mm/s
                     AxoJog_Acceleration := 500.0;           // mm/s2
                     AxoJog_Deceleration := 500.0;           // mm/s2
-                    AxoJog_Jerk := 1000.0;                  // mm/s3
+                    AxoJog_Jerk := 150000.0;                // mm/s3
                     AxisRefExt.Outputs.BipolarTorqueLimitation_S_0_0092_0_0 := INT#1000;  // 1000~~ 100%
+
+                    _ScalingRead := TRUE;
+                    _State := UINT#0;
                 END_IF;                                
                 RETURN;
             END_IF;
@@ -5918,7 +5921,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             
             AxisRefExt.Data.Cycle               := ULINT#0;
             _State                              := UINT#0;
-            // _xState                             := UINT#0;
             DriveStatus.Action.Id := UINT#0;
             DriveStatus.Error.Id  := UINT#0;
             Messenger.Restore();
@@ -5965,10 +5967,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             // AxisRefExt.Outputs.CommandDecceleration_S_0_0359_0_0 := DINT#0;
             // AxisRefExt.Outputs.CommandTorque_S_0_0080_0_0 := INT#0;
 
-            RestoreTask.DoneWhen(TRUE);
-
             SUPER.Restore();
 
+            RestoreTask.DoneWhen(TRUE);
         END_METHOD
         METHOD PRIVATE CallTimers
             VAR_INPUT

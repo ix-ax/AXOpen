@@ -2843,6 +2843,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Dummy : BOOL;
                 Velocity_   :   LREAL;                     
                 Direction_  :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;                         
+                VelocityWindowPerCent     :   LREAL := LREAL#5.0;
+                VelocityWindowMin         :   LREAL;
+                VelocityWindowMax         :   LREAL;                 
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -2850,10 +2853,15 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF(_AxisReference = NULL) THEN
                 Messenger.Activate(     UINT#1520, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1520;
+                InVelocity := FALSE;
                 RETURN;
             END_IF;
-
-            Messenger.ActivateOnCondition(ULINT#1521,Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection, eAxoMessageCategory#ProgrammingError);
+            IF Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection THEN
+                Messenger.Activate(     UINT#1521, eAxoMessageCategory#ProgrammingError);
+                DriveStatus.Error.Id := UINT#1521;
+                InVelocity := FALSE;
+                RETURN;
+            END_IF;
 
             IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection THEN
                 Velocity_ := Velocity;
@@ -2978,13 +2986,20 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#115;
                     END_IF;    
                 END_IF;
+                IF Direction_ = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection  THEN
+                    VelocityWindowMax := Velocity_ + (Velocity_ * VelocityWindowPerCent / REAL#100.0);
+                    VelocityWindowMin := Velocity_ - (Velocity_ * VelocityWindowPerCent / REAL#100.0);
+                ELSE
+                    VelocityWindowMax := Velocity_ - (Velocity_ * VelocityWindowPerCent / REAL#100.0);
+                    VelocityWindowMin := Velocity_ + (Velocity_ * VelocityWindowPerCent / REAL#100.0);
+                END_IF;
+                InVelocity := ActualVelocity >= VelocityWindowMin AND ActualVelocity <= VelocityWindowMax;                     
                 IF State = UINT#115 THEN
-                    IF TRUE THEN      
+                    IF InVelocity THEN      
                         State := UINT#116;
                     END_IF;    
                 END_IF;
                 IF State = UINT#116 THEN
-                    InVelocity := TRUE;            
                     IF NOT MC_MoveVelocityContinuousUpdate_SV THEN      
                         State := UINT#117;
                     END_IF;    
@@ -3097,6 +3112,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Dummy : BOOL;
                 Torque_          :   LREAL;
                 PositiveDirection_  : BOOL;
+                TorqueWindowPerCent     :   LREAL := LREAL#5.0;
+                TorqueWindowMin         :   LREAL;
+                TorqueWindowMax         :   LREAL;                
             END_VAR
 
             _AxisReference ?= AxisRef;
@@ -3300,6 +3318,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#126;
                     END_IF;    
                 END_IF;
+                IF PositiveDirection_  THEN
+                    TorqueWindowMax := Torque_ + (Torque_ * TorqueWindowPerCent / REAL#100.0);
+                    TorqueWindowMin := Torque_ - (Torque_ * TorqueWindowPerCent / REAL#100.0);
+                ELSE
+                    TorqueWindowMax := Torque_ - (Torque_ * TorqueWindowPerCent / REAL#100.0);
+                    TorqueWindowMin := Torque_ + (Torque_ * TorqueWindowPerCent / REAL#100.0);
+                END_IF;
+                InTorque := ActualTorque >= TorqueWindowMin AND ActualTorque <= TorqueWindowMax;                   
                 IF State = UINT#126 THEN
                     InTorque :=  _AxisReference^.Telegram111_In.POS_ZSW2.%X13;            
                     IF NOT MC_TorqueControlContinuousUpdate_SV THEN      
@@ -5478,7 +5504,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             MC_ReadAxisErrorValue			    := LINT#0;
             MC_ReadAxisErrorValid			    := FALSE;				
             LastMessageCode                     := ULINT#0;
-            MC_ResetExecute_PV				    := FALSE;        
+            MC_ResetExecute_PV				    := FALSE;           
             MC_ResetPower_PV				    := FALSE;
             
             AxisRefExt.Data.Cycle              := ULINT#0;
@@ -5541,9 +5567,10 @@ NAMESPACE AXOpen.Components.Festo.Drives
             AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit5 := FALSE;
             AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit6 := FALSE;    
             AxisRefExt.Telegram111_Out.STW2.TravelToFixStop := FALSE;
-            RestoreTask.DoneWhen(TRUE);
 
             SUPER.Restore();
+
+            RestoreTask.DoneWhen(TRUE);
         END_METHOD
     END_CLASS
 END_NAMESPACE
