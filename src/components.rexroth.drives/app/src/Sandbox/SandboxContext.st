@@ -115,7 +115,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                                     Velocity        :=  Velocity,
                                                     Acceleration    :=  LREAL#50.0,
                                                     Deceleration    :=  LREAL#50.0,
-                                                    Jerk            :=  LREAL#50.0
+                                                    Jerk            :=  LREAL#150000.0
                                                     ).IsDone()) THEN                
                     Sequencer.MoveNext();     
                 END_IF;    
@@ -139,7 +139,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                                     Velocity        :=  Velocity,
                                                     Acceleration    :=  LREAL#50.0,
                                                     Deceleration    :=  LREAL#50.0,
-                                                    Jerk            :=  LREAL#50.0
+                                                    Jerk            :=  LREAL#150000.0
                                                     ).IsDone()) THEN                
                     Sequencer.MoveNext();     
                 END_IF;    
@@ -155,7 +155,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                                     Velocity        :=  Velocity,
                                                     Acceleration    :=  LREAL#50.0,
                                                     Deceleration    :=  LREAL#50.0,
-                                                    Jerk            :=  LREAL#50.0
+                                                    Jerk            :=  LREAL#150000.0
                                                     ).IsDone()) THEN                
                     Sequencer.MoveNext();     
                 END_IF;    
@@ -249,7 +249,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                                     Velocity        :=  Velocity,
                                                     Acceleration    :=  LREAL#50.0,
                                                     Deceleration    :=  LREAL#50.0,
-                                                    Jerk            :=  LREAL#50.0
+                                                    Jerk            :=  LREAL#150000.0
                                                     ).IsDone()) THEN                
                     Sequencer.MoveNext();     
                 END_IF;    
@@ -273,7 +273,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                                     Velocity        :=  Velocity,
                                                     Acceleration    :=  LREAL#50.0,
                                                     Deceleration    :=  LREAL#50.0,
-                                                    Jerk            :=  LREAL#50.0
+                                                    Jerk            :=  LREAL#150000.0
                                                     ).IsDone()) THEN                
                     Sequencer.MoveNext();     
                 END_IF;    
@@ -289,7 +289,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                                     Velocity        :=  Velocity,
                                                     Acceleration    :=  LREAL#50.0,
                                                     Deceleration    :=  LREAL#50.0,
-                                                    Jerk            :=  LREAL#50.0
+                                                    Jerk            :=  LREAL#150000.0
                                                     ).IsDone()) THEN                
                     Sequencer.MoveNext();     
                 END_IF;    

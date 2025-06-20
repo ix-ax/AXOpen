@@ -378,8 +378,7 @@ NAMESPACE AXOpen.Core
                 _restoreCycleCount :=  _context.OpenCycleCount();
             END_IF;    
             Status := eAxoTaskState#Ready; 
-            ErrorDetails := '';   
-            
+            ErrorDetails := '';               
 
             IF IsDisabled THEN 
                 IF Status <> eAxoTaskState#Error THEN

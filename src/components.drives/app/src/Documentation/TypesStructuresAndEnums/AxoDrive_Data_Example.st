@@ -1,12 +1,7 @@
-
-NAMESPACE AXOpen.Components.Festo.Drives
+NAMESPACE AXOpen.Components.Drives
     {S7.extern=ReadWrite}
-    CLASS AxoCmmtAsAxisData
+    CLASS AxoDrive_Data_Example
         VAR PUBLIC
-            hwID                        :   WORD;
-            hwIdModuleAccessPoint       :   WORD;
-            hwIdTelegram111             :   WORD;
-            hwIdTelegram750             :   WORD;
             Cycle                       :   ULINT;
             OverrideVelocityFactor		:	LREAL := 1.0;	//LREAL value to be written
             OverrideAccelerationFactor	:	LREAL := 1.0;	//LREAL value to be written

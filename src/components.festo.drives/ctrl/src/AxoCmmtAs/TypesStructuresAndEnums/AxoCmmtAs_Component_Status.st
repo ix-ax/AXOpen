@@ -1,7 +1,7 @@
-NAMESPACE AXOpen.Components.Rexroth.Drives
+NAMESPACE AXOpen.Components.Festo.Drives
     {S7.extern=ReadWrite}
     {#ix-attr:[Container(Layout.Stack)]}
-    CLASS PUBLIC AxoCtrlxDriveXsc_Component_Status EXTENDS AXOpen.Components.Drives.AxoDrive_Status
+    CLASS PUBLIC AxoCmmtAs_Component_Status EXTENDS AXOpen.Components.Drives.AxoDrive_Status
         VAR PUBLIC 
             
         END_VAR 
