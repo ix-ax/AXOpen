@@ -11,54 +11,46 @@
 
         <AuthorizeView Roles="Administrator">
             <Authorized>
-                <a role="button" @onclick="ToggleInDesignMode">
-                    <Operon.Icons.HeroIcon Icon="adjustments-horizontal" Type="Operon.Icons.IconType.Outline" Class="size-6" />
-                </a>
-                @if (InDesignMode)
-                {
-                    <div class="flex flex-wrap justify-end my-2">
-                        <div class="z-100">
-                            <select class="select min-w-6" @onchange="(ChangeEventArgs args) => LoadAsync(args.Value.ToString())">
-                                @foreach (var item in GetAllFiles())
-                                {
-                                    <option value="@item" selected="@(CurrentView is null || CurrentView == "" ? item == DefaultView ? "selected" : null : item == CurrentView ? "selected" : null)">@item</option>
-                                }
-                            </select>
-                        </div>
-
-                        <Dropdown @ref="_dropdownOption">
-                            <DropdownButton>
-                                <button class="btn btn-primary" @onclick="_dropdownOption.Toggle">
-                                    Options
-                                    <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownOption?.Open ?? false ? "rotated" : null))" />
-                                </button>
-                            </DropdownButton>
-                            <DropdownBody Class="end">
-                                <a class="dropdown-item" @onclick="_modalControllerObjects.Toggle">Controller objects</a>
-                                <a class="dropdown-item" @onclick="_modalUsedObject.Toggle">Used objects</a>
-                                <a class="dropdown-item" @onclick="_modalCreateNew.Toggle">Create new</a>
-                                <a class="dropdown-item" @onclick="_modalCreateCopy.Toggle">Create copy</a>
-                                <a class="dropdown-item" @onclick="_modalViews.Toggle">Views</a>
-                                <a class="dropdown-item" @onclick="_modalBackground.Toggle">Background</a>
-                                <a class="dropdown-item" @onclick="() => EditSVG = !EditSVG">Toggle Edit SVG</a>
-                                @if (EditSVG)
-                                {
-                                    <a class="dropdown-item" @onclick="_modalBackgroundSVGInput.Toggle">Background SVG Input</a>
-                                }
-                                <a class="dropdown-item" @onclick="async () => await ChangeThemeAsync()">Change theme</a>
-                            </DropdownBody>
-                        </Dropdown>
-                    </div>
-                }
-                else
-                {
+                <div class="flex flex-wrap m-2 items-center">
                     <nav class="tab ms-2 my-2">
                         @foreach (var item in Views)
                         {
                             <button class="tab-item @(CurrentView is null || CurrentView == "" ? item == DefaultView ? "active" : null : item == CurrentView ? "active" : null)" @onclick="() => LoadAsync(item)">@item</button>
                         }
                     </nav>
-                }
+
+                    <div class="flex items-center ms-auto">
+                        @if (InDesignMode)
+                        {
+                            <Dropdown @ref="_dropdownOption">
+                                <DropdownButton>
+                                        <button class="btn btn-primary" @onclick="_dropdownOption.Toggle">
+                                            Options
+                                            <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownOption?.Open ?? false ? "rotated" : null))" />
+                                        </button>
+                                    </DropdownButton>
+                                    <DropdownBody Class="end">
+                                        <a class="dropdown-item" @onclick="_modalControllerObjects.Toggle">Controller objects</a>
+                                        <a class="dropdown-item" @onclick="_modalUsedObject.Toggle">Used objects</a>
+                                        <a class="dropdown-item" @onclick="_modalCreateNew.Toggle">Create new</a>
+                                        <a class="dropdown-item" @onclick="_modalCreateCopy.Toggle">Create copy</a>
+                                        <a class="dropdown-item" @onclick="_modalViews.Toggle">Views</a>
+                                        <a class="dropdown-item" @onclick="_modalBackground.Toggle">Background</a>
+                                        <a class="dropdown-item" @onclick="() => EditSVG = !EditSVG">Toggle Edit SVG</a>
+                                        @if (EditSVG)
+                                        {
+                                            <a class="dropdown-item" @onclick="_modalBackgroundSVGInput.Toggle">Background SVG Input</a>
+                                        }
+                                        <a class="dropdown-item" @onclick="async () => await ChangeThemeAsync()">Change theme</a>
+                                </DropdownBody>
+                            </Dropdown>
+                        }
+
+                        <button class="btn btn-no-bg-secondary p-1" @onclick="ToggleInDesignMode">
+                            <Operon.Icons.HeroIcon Icon="adjustments-horizontal" Type="Operon.Icons.IconType.Outline" Class="size-6" />
+                        </button>
+                    </div>
+                </div>
 
                 @if (InDesignMode && EditSVG)
                 {
@@ -127,7 +119,7 @@
                         </div>
                         <div class="modal-body">
                             <div class="flex flex-wrap">
-                                <BaseInput @bind-Value="SearchValue" Placeholder="Search" />
+                                <BaseInput @bind-Value="SearchValue" Placeholder="Search" Class="flex-1" />
                                 <button type="button" class="btn btn-primary" @onclick="Search">Search</button>
                             </div>
                             @if (SearchValue is null || SearchResult is null)
@@ -141,31 +133,29 @@
                             }
                             else
                             {
-                                <ul class="list-group">
                                     @foreach (var item in SearchResult)
                                     {
-                                        <li class="list-group-item flex! flex-wrap">
+                                        <div class="flex flex-wrap items-center ms-4 me-6">
                                             @switch (item)
                                             {
                                                 case ITwinObject obj:
-                                                    <Operon.Icons.HeroIcon Icon="cube" Type="Operon.Icons.IconType.Outline" Class="size-5 my-auto" />
+                                                    <Operon.Icons.HeroIcon Icon="cube" Type="Operon.Icons.IconType.Outline" Class="size-5 me-2" />
                                                     break;
                                                 case ITwinPrimitive prim:
-                                                    <Operon.Icons.HeroIcon Icon="credit-card" Type="Operon.Icons.IconType.Outline" Class="size-5 my-auto" />
+                                                    <Operon.Icons.HeroIcon Icon="credit-card" Type="Operon.Icons.IconType.Outline" Class="size-5 me-2" />
                                                     break;
                                             }
 
                                             <p class="truncate">@item.Symbol</p>
-                                            <a class="ms-auto my-auto" @onclick="() => AddChildrenAsync(item)">
+                                            <a class="ms-auto" @onclick="() => AddChildrenAsync(item)">
                                                 <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                             </a>
-                                        </li>
+                                        </div>
                                     }
-                                </ul>
                             }
                         </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-outline-red ms-auto" @onclick="() => _modalControllerObjects.CloseModal()">Close</button>
+                        <div class="modal-footer flex flex-col items-end">
+                            <button class="btn btn-outline-red" @onclick="() => _modalControllerObjects.CloseModal()">Close</button>
                         </div>
                     </Modal>
 
@@ -180,20 +170,20 @@
                             <ul class="list-group">
                                 @foreach (VisualComposerItemData child in _children)
                                 {
-                                    <li class="list-group-item flex! flex-wrap">
+                                    <li class="list-group-item flex! flex-wrap items-center">
                                         <p>@child.IdPlain</p>
-                                        <a class="ms-auto" @onclick="() => RemoveChildrenAsync(child)">
+                                        <a class="ms-auto mx-1" @onclick="() => { child.ModalSettingOpen = true; _modalUsedObject.CloseModal(); }">
+                                            <Operon.Icons.HeroIcon Icon="pencil-square" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                        </a>
+                                        <a class="mx-1 me-2" @onclick="() => RemoveChildrenAsync(child)">
                                             <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                         </a>
-                                        @* <a class="mx-2" data-bs-target="#settings-@child.Id.Replace('.', '_')-@child.UniqueGuid">
-                                            <Operon.Icons.HeroIcon Icon="pencil-square" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                        </a> *@
                                     </li>
                                 }
                             </ul>
                         </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-outline-red ms-auto" @onclick="() => _modalUsedObject.CloseModal()">Close</button>
+                        <div class="modal-footer flex flex-col items-end">
+                            <button class="btn btn-outline-red" @onclick="() => _modalUsedObject.CloseModal()">Close</button>
                         </div>
                     </Modal>
 
@@ -207,8 +197,8 @@
                         <div class="modal-body">
                             <BaseInput @bind-Value="FileName" Label="Name" />
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary ms-auto" @onclick="async () => { _modalCreateNew.CloseModal(); await CreateNewAsync(FileName); }">Create</button>
+                        <div class="modal-footer flex flex-col items-end">
+                            <button type="button" class="btn btn-primary" @onclick="async () => { _modalCreateNew.CloseModal(); await CreateNewAsync(FileName); }">Create</button>
                             <button type="button" class="btn btn-outline-red" @onclick="() => _modalCreateNew.CloseModal()">Close</button>
                         </div>
                     </Modal>
@@ -223,8 +213,8 @@
                         <div class="modal-body">
                             <BaseInput @bind-Value="FileName" Label="Name" />
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary ms-auto" @onclick="async () => { _modalCreateCopy.CloseModal(); await CreateCopyAsync(FileName); }">Create</button>
+                        <div class="modal-footer flex flex-col items-end">
+                            <button type="button" class="btn btn-primary" @onclick="async () => { _modalCreateCopy.CloseModal(); await CreateCopyAsync(FileName); }">Create</button>
                             <button class="btn btn-outline-red" @onclick="() => _modalCreateCopy.CloseModal()">Close</button>
                         </div>
                     </Modal>
@@ -242,25 +232,25 @@
                                 {
                                     <li class="list-group-item flex! flex-wrap">
                                         <p>@item.file</p>
-                                        <a class="ms-auto" @onclick="() => ClearScaleAndTranslateAsync(item.file)">
+                                        <a class="ms-auto mx-1" @onclick="() => ClearScaleAndTranslateAsync(item.file)">
                                             <Operon.Icons.HeroIcon Icon="arrow-uturn-left" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                         </a>
-                                        <a class="ms-2" @onclick="() => RemoveAsync(item.file)">
+                                        <a class=" mx-1" @onclick="() => RemoveAsync(item.file)">
                                             <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                         </a>
-                                        <a class="ms-2" @onclick="() => ChangeBaseViewsAsync(item.file)" title="@(Views.Contains(item.file) ? "Remove from base views" : "Add to base views")">
+                                        <a class=" mx-1" @onclick="() => ChangeBaseViewsAsync(item.file)" title="@(Views.Contains(item.file) ? "Remove from base views" : "Add to base views")">
                                             <Operon.Icons.HeroIcon Icon="@(Views.Contains(item.file) ? "minus" : "plus")" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                         </a>
 
-                                        <input type="checkbox" class="checkbox" checked="@(item.allowZoomingAndPanning ? "checked" : null)" @onclick="() => ChangeAllowZoomingAndPanningAsync(item.file)" />
+                                        <input type="checkbox" class="checkbox mx-1" checked="@(item.allowZoomingAndPanning ? "checked" : null)" @onclick="() => ChangeAllowZoomingAndPanningAsync(item.file)" />
 
-                                        <input type="checkbox" class="checkbox" checked="@(item.file == DefaultView ? "checked" : null)" @onclick="() => ChangeDefaultViewAsync(item.file)" />
+                                        <input type="checkbox" class="checkbox mx-1 me-2" checked="@(item.file == DefaultView ? "checked" : null)" @onclick="() => ChangeDefaultViewAsync(item.file)" />
                                     </li>
                                 }
                             </ul>
                         </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-outline-red ms-auto" @onclick="() => _modalViews.CloseModal()">Close</button>
+                        <div class="modal-footer flex flex-col items-end">
+                            <button class="btn btn-outline-red" @onclick="() => _modalViews.CloseModal()">Close</button>
                         </div>
                     </Modal>
 
@@ -280,7 +270,7 @@
                                         <p>Loading</p>
                                     }
                                 </AccordionItem>
-                                <AccordionItem Title="Set empty background">
+                                <AccordionItem Title="Color">
                                     <input type="color" class="" @bind="BackgroundColor" title="Choose color">
                                     <button type="button" class="btn btn-secondary" disabled="@(ImgSrc == null || ImgSrc == "" ? "disabled" : null)" @onclick="() => { ImgSrc = null; SaveAsync(); }">Clear image (only background color)</button>
                                 </AccordionItem>
@@ -290,8 +280,8 @@
                                 <BaseInput @bind-Value="BackgroundHeight" Label="Height" />
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-outline-red ms-auto" @onclick="() => _modalBackground.CloseModal()">Close</button>
+                        <div class="modal-footer flex flex-col items-end">
+                            <button class="btn btn-outline-red" @onclick="() => _modalBackground.CloseModal()">Close</button>
                         </div>
                     </Modal>
 
@@ -303,21 +293,24 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <textarea @bind="BackgroundSVGInput" @bind:event="oninput" style="width:100%;height:15vh;" />
+                            <div class="input-group input-group-col">
+                                <label for="textareaTailwind" class="me-2">SVG input</label>
+                                <textarea id="textareaTailwind" rows="10" @bind="BackgroundSVGInput" placeholder="SVG input"></textarea>
+                            </div>
                         </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-outline-red ms-auto" @onclick="() => _modalBackgroundSVGInput.CloseModal()">Close</button>
+                        <div class="modal-footer flex flex-col items-end">
+                            <button class="btn btn-outline-red" @onclick="() => _modalBackgroundSVGInput.CloseModal()">Close</button>
                         </div>
                     </Modal>
                 }
             </Authorized>
             <NotAuthorized>
-                <nav class="tab">
-                    @foreach (var item in Views)
-                    {
-                        <button class="tab-item @(CurrentView is null || CurrentView == "" ? item == DefaultView ? "active" : null : item == CurrentView ? "active" : null)" @onclick="() => LoadAsync(item)">@item</button>
-                    }
-                </nav>
+                <nav class="tab ms-2 my-2">
+                        @foreach (var item in Views)
+                        {
+                            <button class="tab-item @(CurrentView is null || CurrentView == "" ? item == DefaultView ? "active" : null : item == CurrentView ? "active" : null)" @onclick="() => LoadAsync(item)">@item</button>
+                        }
+                    </nav>
 
                 <ZoomableContainer Parent="this" Disable="!AllowZoomingAndPanning">
                     <div id="@_backgroundId" style="width: 100%; height: @((BackgroundHeight / BackgroundWidth) * ElementSize.Width)px;">
@@ -350,6 +343,8 @@
                 @RenderableContentControlFragment
             </div>
         </Modal>
+
+<script src="_content/Blazor.ContextMenu/blazorContextMenu.min.js"></script>
 
 @code {
     private Dropdown _dropdownOption { get; set; }
