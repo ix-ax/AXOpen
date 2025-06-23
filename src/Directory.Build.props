@@ -1,7 +1,7 @@
 <Project>
  <PropertyGroup>
-   <TargetFrameworks>net9.0;net8.0</TargetFrameworks>  
    <AxSharpRoot>D:\github\Inxton\MTS_Training_station_INT000053\axsharp\src\</AxSharpRoot>   
+   <TargetFrameworks>net9.0</TargetFrameworks>  
     <!-- Define output directories based on project names 
     <OutputPath>$(MSBuildThisFileDirectory)\.builds\bin\$(MSBuildProjectName)\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>$(MSBuildThisFileDirectory)\.builds\obj\$(MSBuildProjectName)\$(Configuration)\</IntermediateOutputPath>  -->
