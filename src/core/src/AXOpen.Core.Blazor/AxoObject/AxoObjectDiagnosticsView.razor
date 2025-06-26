@@ -12,22 +12,23 @@
 @inject AuthenticationStateProvider AuthenticationStateProvider;
 
  
-<div class="flex flex-col w-full h-full p-3">
     @if (MessageProvider.ActiveMessagesCount > 0)
     {
-        foreach (var message in MessageProvider.Messengers)
+        <div class="flex flex-col w-full h-full p-3">
+
+
+        @foreach (var message in MessageProvider.Messengers)
         {
             if (message.State != eAxoMessengerState.Idle)
             {
                 <AxoMessengerView Component="message"></AxoMessengerView>
             }
         }
+
+        </div>
+
     }
-    else
-    {
-        <AxoMessengerView></AxoMessengerView>
-    }
-</div>
+   
 
 @code
 {
