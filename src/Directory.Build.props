@@ -1,6 +1,7 @@
 <Project>
  <PropertyGroup>
-   <AxSharpRoot>..\..\axsharp\src</AxSharpRoot> 
+ <AxSharpRoot>$(MSBuildThisFileDirectory)..\..\axsharp\src\</AxSharpRoot>
+
    <TargetFrameworks>net9.0</TargetFrameworks>  
     <!-- Define output directories based on project names 
     <OutputPath>$(MSBuildThisFileDirectory)\.builds\bin\$(MSBuildProjectName)\$(Configuration)\</OutputPath>
