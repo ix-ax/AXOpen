@@ -1,20 +1,27 @@
-﻿name: "app_axopen.components.cognex.vision"
+name: "app_axopen.components.cognex.vision"
 version: '0.0.0-dev.0'
 type: app
 targets:
-  - llvm
+  # - llvm
   - "1500"
 variables:
-  APAX_BUILD_ARGS:
-    - "--debug" # Generate debug information for target "1500"
+  # APAX_BUILD_ARGS:
+  #   - "--debug" # Generate debug information for target "1500"
   # Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build. =>
-  PLC_NAME: "plc_line"
+  # PLC_NAME: "plc_line"
+  # DEFAULT_NAMESPACE: "AXOpen.Components.Cognex.Vision"
+  # AXTARGET: 192.168.100.120
+  # AXTARGETPLATFORMINPUT: .\bin\1500\
+  # AX_USERNAME: "adm"
+  # AX_TARGET_PWD: "123ABCDabcd$#!"
+  # USE_PLC_SIM_ADVANCED: "true"
+  PLC_NAME: "plc_main"
   DEFAULT_NAMESPACE: "AXOpen.Components.Cognex.Vision"
-  AXTARGET: 192.168.100.120
+  AXTARGET: 10.1.100.90
   AXTARGETPLATFORMINPUT: .\bin\1500\
-  AX_USERNAME: "adm"
-  AX_TARGET_PWD: "123ABCDabcd$#!"
-  USE_PLC_SIM_ADVANCED: "true"
+  AX_USERNAME: "admin"
+  AX_TARGET_PWD: "MTSservis1234+"
+  USE_PLC_SIM_ADVANCED: "false"
   # <= Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build.
 registries:
   "@inxton": "https://npm.pkg.github.com/"
@@ -172,10 +179,51 @@ scripts:
     apax test
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ibt' Finished in :" $(expr $(date +%s) - $START) "s"
   mm: |
-    apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
-
-
-
-
-
-
+    apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\$PLC_NAME\\$PLC_NAME.cer --continuously
+  # temp scripts    
+  ix: |
+    apax install
+    apax x
+  x: |
+    apax swfd
+    apax mm
+  y: |
+    apax swdd
+    apax mm    
+  gc: |
+    apax plc-cert --targetIP $AXTARGET --output-file "./certs/$PLC_NAME/$PLC_NAME.cer"
+  h: |
+    apax mod --targetIP $AXTARGET  -s Context._ReadHardwareIDFromSlot  -v false --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\$PLC_NAME\\$PLC_NAME.cer
+    apax mod --targetIP $AXTARGET  -s Context._ReadSlotFromHardwareID  -v true --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\$PLC_NAME\\$PLC_NAME.cer
+    apax mod --targetIP $AXTARGET  -s Context._Station -v 0 --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\$PLC_NAME\\$PLC_NAME.cer
+    apax mod --targetIP $AXTARGET  -s Context._hwID  -v 268 --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\$PLC_NAME\\$PLC_NAME.cer
+  s: |
+    apax mod --targetIP $AXTARGET  -s Context._ReadSlotFromHardwareID  -v false --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\$PLC_NAME\\$PLC_NAME.cer
+    apax mod --targetIP $AXTARGET  -s Context._ReadHardwareIDFromSlot  -v true --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\$PLC_NAME\\$PLC_NAME.cer
+    apax mod --targetIP $AXTARGET  -s Context._HardwareType  -v 4 --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\$PLC_NAME\\$PLC_NAME.cer
+    apax mod --targetIP $AXTARGET  -s Context._Station -v 11 --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\$PLC_NAME\\$PLC_NAME.cer
+    apax mod --targetIP $AXTARGET  -s Context._Slot -v 4 --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\$PLC_NAME\\$PLC_NAME.cer
+  ibs: |
+    apax install
+    apax build
+    apax swfdo
+    apax mm
+  dc1: |
+    apax mod --targetIP $AXTARGET  -s Context.ST40.X.C.Servo_MeasureAxisX.AxisRefExt.Outputs.SupplyUnitControlWord_S_0_1720_0_1.DCbusDischarge  -v true --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\$PLC_NAME\\$PLC_NAME.cer
+  dc0: |
+    apax mod --targetIP $AXTARGET  -s Context.ST40.X.C.Servo_MeasureAxisX.AxisRefExt.Outputs.SupplyUnitControlWord_S_0_1720_0_1.DCbusDischarge  -v false --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\$PLC_NAME\\$PLC_NAME.cer
+  b: |
+    START=$(date +%s)
+    apax build
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax build' Finished in :" $(expr $(date +%s) - $START) "s"
+  dd: |
+    START=$(date +%s)
+    apax gc
+    apax hwdo
+    apax swfdo
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax dd' Finished in :" $(expr $(date +%s) - $START) "s"
+  fd: |
+    START=$(date +%s)
+    apax hwfdo
+    apax swfdo
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax fd' Finished in :" $(expr $(date +%s) - $START) "s"
