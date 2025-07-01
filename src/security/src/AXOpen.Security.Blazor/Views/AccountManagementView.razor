@@ -15,63 +15,48 @@
 
 <AuthorizeView>
     <Authorized>
-        <div class="m-4">
-            <h2>@Localizer["Account Manage"]</h2>
-            <hr />
-            <div>
+        <div class="flex justify-center">
+            <div class="w-md">
+                <h2>@Localizer["Account Manage"]</h2>
+                <hr class="mb-2" />
                 <EditForm Model="@_model" OnValidSubmit="OnValidUpdate" Context="accountManagementContext">
                     <DataAnnotationsValidator />
                     <div class="input-group">
-                        <label class="me-2">@Localizer["Username"]</label>
+                        <label>@Localizer["Username"]</label>
                         <InputText @bind-Value="_model.Username" type="text" disabled />
                     </div>
                     <div class="input-group">
-                        <label class="me-2">@Localizer["Group"]</label>
+                        <label>@Localizer["Group"]</label>
                         <InputText @bind-Value="_model.Group" type="text" disabled />
                     </div>
                     <div class="input-group">
-                        <label class="me-2">Email</label>
+                        <label>Email</label>
                         <InputText @bind-Value="_model.Email" type="email" />
                         <ValidationMessage For="@(() => _model.Email)" />
                     </div>
                     @if (_model.CanUserChangePassword)
                     {
                         <div class="input-group">
-                            <label class="me-2">@Localizer["Old password"]</label>
+                            <label>@Localizer["Old password"]</label>
                             <InputText @bind-Value="_model.OldPassword" type="password" />
                             <ValidationMessage For="@(() => _model.OldPassword)" />
                         </div>
                         <div class="input-group">
-                            <label class="me-2">@Localizer["New password"]</label>
+                            <label>@Localizer["New password"]</label>
                             <InputText @bind-Value="_model.Password" type="password" />
                             <ValidationMessage For="@(() => _model.Password)" />
                         </div>
                         <div class="input-group">
-                            <label class="me-2">@Localizer["Confirm new password"]</label>
+                            <label>@Localizer["Confirm new password"]</label>
                             <InputText @bind-Value="_model.ConfirmPassword" type="password" />
                             <ValidationMessage For="@(() => _model.ConfirmPassword)" />
                         </div>
                     }
 
-                    <button type="submit" class="btn btn-primary mt-2">@Localizer["Update"]</button>
+                    <button type="submit" class="btn btn-primary mt-2 w-full">@Localizer["Update"]</button>
                 </EditForm>
             </div>
         </div>
-
-        @*<div class="modal fade" id="changeAuthorizationTokenModal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">@changeAuthorizationTokenTitle</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="SetDefault"></button>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary m-2" @onclick="WillChangeToken">@changeAuthorizationTokenButton</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="SetDefault">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>*@
     </Authorized>
     <NotAuthorized>
         <p>@Localizer["Sorry, you are not logged in. Please log in."]</p>
@@ -119,27 +104,4 @@
 
     private string changeAuthorizationTokenTitle = "Are you sure you want to change your authorization token?";
     private string changeAuthorizationTokenButton = "Change your authorization token";
-
-    //private void WillChangeToken()
-    //{
-    //    if (_blazorAuthenticationStateProvider.ExternalAuthorization.WillChangeToken)
-    //    {
-    //        _blazorAuthenticationStateProvider.ExternalAuthorization.WillChangeToken = false;
-    //        changeAuthorizationTokenTitle = "Read your authorization token and press OK";
-    //        changeAuthorizationTokenButton = "OK";
-    //    }
-    //    else
-    //    {
-    //        _blazorAuthenticationStateProvider.ExternalAuthorization.WillChangeToken = true;
-    //        changeAuthorizationTokenTitle = "Are you sure you want to change your authorization token?";
-    //        changeAuthorizationTokenButton = "Change your authorization token";
-    //    }
-    //}
-
-    //private void SetDefault()
-    //{
-    //    _blazorAuthenticationStateProvider.ExternalAuthorization.WillChangeToken = true;
-    //    changeAuthorizationTokenTitle = "Are you sure you want to change your authorization token?";
-    //    changeAuthorizationTokenButton = "Change your authorization token";
-    //}
 }

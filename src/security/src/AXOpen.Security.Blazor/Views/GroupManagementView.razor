@@ -14,7 +14,7 @@
         <tbody>
             @foreach (var group in _roleGroupManager.GetAllGroup())
             {
-                <tr @onclick="@(() => GroupClicked(group))" class="@((SelectedGroupN != null) ? ((SelectedGroupN.Name == group.Name) ? "active" : "") : "")">
+                <tr @onclick="@(() => GroupClicked(group))" class="cursor-pointer @((SelectedGroupN != null) ? ((SelectedGroupN.Name == group.Name) ? "active" : "") : "")">
                     <th>@group.Name</th>
                     <th>@group.Created</th>
                     <th>@group.Modified</th>
@@ -28,13 +28,13 @@
     <h5>@Localizer["Create new group"]:</h5>
     <div class="flex flex-wrap">
         <BaseInput @bind-Value="newGroupName" Label="@Localizer["Group name"]" Placeholder="@Localizer["Group name"]" />
-        <button class="btn btn-primary" @onclick="@(() => CreateGroup())">@Localizer["Create"]</button>
+        <button class="btn btn-primary size-fit self-end" @onclick="@(() => CreateGroup())">@Localizer["Create"]</button>
     </div>
 </div>
 
 @if (SelectedGroupN != null)
 {
-    <div class="mt-8 mx-4">
+    <div class="m-4">
         <h4 class="me-auto">@Localizer["Selected group:"] @SelectedGroupN.Name</h4>
         <div class="">
             <div class="flex flex-wrap justify-center">
@@ -89,7 +89,7 @@
 
     <Modal @ref="_modalDelete">
         <div class="modal-header">
-            <h2 class="text-xl font-bold">@Localizer["Delete group"]</h2>
+            <h4>@Localizer["Delete group"]</h4>
             <button type="button" class="cursor-pointer ms-auto my-auto" @onclick="() => _modalDelete.CloseModal()">
                 <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
             </button>
@@ -97,9 +97,9 @@
         <div class="modal-body">
             <h6>@Localizer["Do you want to delete group"] @SelectedGroupN.Name?</h6>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer flex justify-end gap-1">
             <button type="button" class="btn btn-secondary" @onclick="() => _modalDelete.CloseModal()">@Localizer["Close"]</button>
-            <button type="button" class="btn btn-danger m-2" @onclick="@(() => { _modalDelete.CloseModal(); DeleteGroup(SelectedGroupN); })">@Localizer["Delete"]</button>
+            <button type="button" class="btn btn-danger" @onclick="@(() => { _modalDelete.CloseModal(); DeleteGroup(SelectedGroupN); })">@Localizer["Delete"]</button>
         </div>
     </Modal>
 }

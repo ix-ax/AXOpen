@@ -1,4 +1,4 @@
-/*! tailwindcss v4.1.4 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.1.11 | MIT License | https://tailwindcss.com */
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
@@ -7,39 +7,104 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-50: oklch(97.1% 0.013 17.38);
+    --color-red-100: oklch(93.6% 0.032 17.717);
+    --color-red-200: oklch(88.5% 0.062 18.334);
+    --color-red-300: oklch(80.8% 0.114 19.571);
+    --color-red-400: oklch(70.4% 0.191 22.216);
     --color-red-500: oklch(63.7% 0.237 25.331);
     --color-red-600: oklch(57.7% 0.245 27.325);
+    --color-red-700: oklch(50.5% 0.213 27.518);
+    --color-red-800: oklch(44.4% 0.177 26.899);
+    --color-red-900: oklch(39.6% 0.141 25.723);
+    --color-red-950: oklch(25.8% 0.092 26.042);
     --color-orange-50: oklch(98% 0.016 73.684);
+    --color-orange-100: oklch(95.4% 0.038 75.164);
+    --color-orange-200: oklch(90.1% 0.076 70.697);
+    --color-orange-300: oklch(83.7% 0.128 66.29);
+    --color-orange-400: oklch(75% 0.183 55.934);
     --color-orange-500: oklch(70.5% 0.213 47.604);
     --color-orange-600: oklch(64.6% 0.222 41.116);
+    --color-orange-700: oklch(55.3% 0.195 38.402);
+    --color-orange-800: oklch(47% 0.157 37.304);
+    --color-orange-900: oklch(40.8% 0.123 38.172);
+    --color-orange-950: oklch(26.6% 0.079 36.259);
     --color-amber-500: oklch(76.9% 0.188 70.08);
     --color-amber-600: oklch(66.6% 0.179 58.318);
     --color-yellow-500: oklch(79.5% 0.184 86.047);
     --color-yellow-600: oklch(68.1% 0.162 75.834);
     --color-lime-500: oklch(76.8% 0.233 130.85);
     --color-lime-600: oklch(64.8% 0.2 131.684);
+    --color-green-50: oklch(98.2% 0.018 155.826);
+    --color-green-100: oklch(96.2% 0.044 156.743);
+    --color-green-200: oklch(92.5% 0.084 155.995);
+    --color-green-300: oklch(87.1% 0.15 154.449);
+    --color-green-400: oklch(79.2% 0.209 151.711);
     --color-green-500: oklch(72.3% 0.219 149.579);
     --color-green-600: oklch(62.7% 0.194 149.214);
+    --color-green-700: oklch(52.7% 0.154 150.069);
+    --color-green-800: oklch(44.8% 0.119 151.328);
+    --color-green-900: oklch(39.3% 0.095 152.535);
+    --color-green-950: oklch(26.6% 0.065 152.934);
     --color-emerald-500: oklch(69.6% 0.17 162.48);
     --color-emerald-600: oklch(59.6% 0.145 163.225);
     --color-teal-500: oklch(70.4% 0.14 182.503);
     --color-teal-600: oklch(60% 0.118 184.704);
+    --color-cyan-50: oklch(98.4% 0.019 200.873);
+    --color-cyan-100: oklch(95.6% 0.045 203.388);
+    --color-cyan-200: oklch(91.7% 0.08 205.041);
+    --color-cyan-300: oklch(86.5% 0.127 207.078);
+    --color-cyan-400: oklch(78.9% 0.154 211.53);
     --color-cyan-500: oklch(71.5% 0.143 215.221);
     --color-cyan-600: oklch(60.9% 0.126 221.723);
+    --color-cyan-700: oklch(52% 0.105 223.128);
+    --color-cyan-800: oklch(45% 0.085 224.283);
+    --color-cyan-900: oklch(39.8% 0.07 227.392);
+    --color-cyan-950: oklch(30.2% 0.056 229.695);
+    --color-sky-50: oklch(97.7% 0.013 236.62);
+    --color-sky-100: oklch(95.1% 0.026 236.824);
+    --color-sky-200: oklch(90.1% 0.058 230.902);
+    --color-sky-300: oklch(82.8% 0.111 230.318);
+    --color-sky-400: oklch(74.6% 0.16 232.661);
     --color-sky-500: oklch(68.5% 0.169 237.323);
     --color-sky-600: oklch(58.8% 0.158 241.966);
+    --color-sky-700: oklch(50% 0.134 242.749);
+    --color-sky-800: oklch(44.3% 0.11 240.79);
+    --color-sky-900: oklch(39.1% 0.09 240.876);
+    --color-sky-950: oklch(29.3% 0.066 243.157);
+    --color-blue-100: oklch(93.2% 0.032 255.585);
+    --color-blue-400: oklch(70.7% 0.165 254.624);
     --color-blue-500: oklch(62.3% 0.214 259.815);
     --color-blue-600: oklch(54.6% 0.245 262.881);
+    --color-blue-900: oklch(37.9% 0.146 265.522);
     --color-indigo-500: oklch(58.5% 0.233 277.117);
     --color-indigo-600: oklch(51.1% 0.262 276.966);
     --color-violet-500: oklch(60.6% 0.25 292.717);
     --color-violet-600: oklch(54.1% 0.281 293.009);
     --color-purple-500: oklch(62.7% 0.265 303.9);
     --color-purple-600: oklch(55.8% 0.288 302.321);
+    --color-fuchsia-50: oklch(97.7% 0.017 320.058);
+    --color-fuchsia-100: oklch(95.2% 0.037 318.852);
+    --color-fuchsia-200: oklch(90.3% 0.076 319.62);
+    --color-fuchsia-300: oklch(83.3% 0.145 321.434);
+    --color-fuchsia-400: oklch(74% 0.238 322.16);
     --color-fuchsia-500: oklch(66.7% 0.295 322.15);
     --color-fuchsia-600: oklch(59.1% 0.293 322.896);
+    --color-fuchsia-700: oklch(51.8% 0.253 323.949);
+    --color-fuchsia-800: oklch(45.2% 0.211 324.591);
+    --color-fuchsia-900: oklch(40.1% 0.17 325.612);
+    --color-fuchsia-950: oklch(29.3% 0.136 325.661);
+    --color-pink-50: oklch(97.1% 0.014 343.198);
+    --color-pink-100: oklch(94.8% 0.028 342.258);
+    --color-pink-200: oklch(89.9% 0.061 343.231);
+    --color-pink-300: oklch(82.3% 0.12 346.018);
+    --color-pink-400: oklch(71.8% 0.202 349.761);
     --color-pink-500: oklch(65.6% 0.241 354.308);
     --color-pink-600: oklch(59.2% 0.249 0.584);
+    --color-pink-700: oklch(52.5% 0.223 3.958);
+    --color-pink-800: oklch(45.9% 0.187 3.815);
+    --color-pink-900: oklch(40.8% 0.153 2.432);
+    --color-pink-950: oklch(28.4% 0.109 3.907);
     --color-rose-500: oklch(64.5% 0.246 16.439);
     --color-rose-600: oklch(58.6% 0.253 17.585);
     --color-slate-500: oklch(55.4% 0.046 257.417);
@@ -54,16 +119,16 @@
     --color-gray-700: oklch(37.3% 0.034 259.733);
     --color-gray-800: oklch(27.8% 0.033 256.848);
     --color-gray-900: oklch(21% 0.034 264.665);
+    --color-gray-950: oklch(13% 0.028 261.692);
     --color-zinc-500: oklch(55.2% 0.016 285.938);
     --color-zinc-600: oklch(44.2% 0.017 285.786);
     --color-neutral-500: oklch(55.6% 0 0);
     --color-neutral-600: oklch(43.9% 0 0);
     --color-stone-500: oklch(55.3% 0.013 58.071);
     --color-stone-600: oklch(44.4% 0.011 73.639);
-    --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
-    --container-xl: 36rem;
+    --container-md: 28rem;
     --text-xs: 0.75rem;
     --text-xs--line-height: calc(1 / 0.75);
     --text-sm: 0.875rem;
@@ -77,11 +142,11 @@
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 1.875rem;
-    --text-3xl--line-height: calc(2.25 / 1.875);
+    --text-3xl--line-height: calc(2 / 1.5);
     --text-4xl: 2.25rem;
-    --text-4xl--line-height: calc(2.5 / 2.25);
+    --text-4xl--line-height: calc(2 / 1.5);
     --text-5xl: 3rem;
-    --text-5xl--line-height: 1;
+    --text-5xl--line-height: calc(2 / 1.5);
     --font-weight-normal: 400;
     --font-weight-medium: 500;
     --font-weight-bold: 700;
@@ -92,24 +157,34 @@
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
-    --color-primary-500: var(--color-amber-500);
-    --color-primary-600: var(--color-amber-600);
-    --color-secondary-500: var(--color-emerald-500);
-    --color-secondary-600: var(--color-emerald-600);
+    --color-active-100: var(--color-sky-100);
     --color-active-500: var(--color-sky-500);
     --color-active-600: var(--color-sky-600);
+    --color-active-900: var(--color-sky-900);
+    --color-inactive-100: var(--color-pink-100);
     --color-inactive-500: var(--color-pink-500);
     --color-inactive-600: var(--color-pink-600);
+    --color-inactive-900: var(--color-pink-900);
+    --color-info-100: var(--color-cyan-100);
     --color-info-500: var(--color-cyan-500);
     --color-info-600: var(--color-cyan-600);
+    --color-info-900: var(--color-cyan-900);
+    --color-success-100: var(--color-green-100);
     --color-success-500: var(--color-green-500);
     --color-success-600: var(--color-green-600);
+    --color-success-900: var(--color-green-900);
+    --color-warning-100: var(--color-orange-100);
     --color-warning-500: var(--color-orange-500);
     --color-warning-600: var(--color-orange-600);
+    --color-warning-900: var(--color-orange-900);
+    --color-danger-100: var(--color-red-100);
     --color-danger-500: var(--color-red-500);
     --color-danger-600: var(--color-red-600);
+    --color-danger-900: var(--color-red-900);
+    --color-attention-100: var(--color-fuchsia-100);
     --color-attention-500: var(--color-fuchsia-500);
     --color-attention-600: var(--color-fuchsia-600);
+    --color-attention-900: var(--color-fuchsia-900);
   }
 }
 @layer base {
@@ -273,6 +348,12 @@
   .inset-0 {
     inset: calc(var(--spacing) * 0);
   }
+  .end-0 {
+    inset-inline-end: calc(var(--spacing) * 0);
+  }
+  .bottom-0 {
+    bottom: calc(var(--spacing) * 0);
+  }
   .z-40 {
     z-index: 40;
   }
@@ -288,6 +369,9 @@
   .m-2 {
     margin: calc(var(--spacing) * 2);
   }
+  .m-4 {
+    margin: calc(var(--spacing) * 4);
+  }
   .-mx-1 {
     margin-inline: calc(var(--spacing) * -1);
   }
@@ -300,23 +384,50 @@
   .mx-auto {
     margin-inline: auto;
   }
-  .my-2 {
-    margin-block: calc(var(--spacing) * 2);
+  .input {
+    margin-block: calc(var(--spacing) * 1);
+    width: 100%;
+    border-radius: calc(infinity * 1px);
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+    padding-inline: calc(var(--spacing) * 3);
+    padding-block: calc(var(--spacing) * 1);
+    border-color: var(--color-gray-200);
+    @media (prefers-color-scheme: dark) {
+      border-color: var(--color-gray-800);
+    }
+    &:focus {
+      outline-color: var(--color-gray-400);
+    }
+    @media (prefers-color-scheme: dark) {
+      &:focus {
+        outline-color: var(--color-gray-600);
+      }
+    }
   }
   .my-auto {
     margin-block: auto;
   }
+  .ms-1 {
+    margin-inline-start: calc(var(--spacing) * 1);
+  }
   .ms-2 {
     margin-inline-start: calc(var(--spacing) * 2);
+  }
+  .ms-4 {
+    margin-inline-start: calc(var(--spacing) * 4);
   }
   .ms-auto {
     margin-inline-start: auto;
   }
+  .me-1 {
+    margin-inline-end: calc(var(--spacing) * 1);
+  }
   .me-2 {
     margin-inline-end: calc(var(--spacing) * 2);
   }
-  .me-3 {
-    margin-inline-end: calc(var(--spacing) * 3);
+  .me-4 {
+    margin-inline-end: calc(var(--spacing) * 4);
   }
   .me-auto {
     margin-inline-end: auto;
@@ -336,9 +447,6 @@
   .mt-8 {
     margin-top: calc(var(--spacing) * 8);
   }
-  .mt-16 {
-    margin-top: calc(var(--spacing) * 16);
-  }
   .mr-3 {
     margin-right: calc(var(--spacing) * 3);
   }
@@ -347,9 +455,6 @@
   }
   .mb-3 {
     margin-bottom: calc(var(--spacing) * 3);
-  }
-  .mb-4 {
-    margin-bottom: calc(var(--spacing) * 4);
   }
   .ml-1 {
     margin-left: calc(var(--spacing) * 1);
@@ -366,11 +471,19 @@
   .hidden {
     display: none;
   }
+  .inline-block {
+    display: inline-block;
+  }
   .inline-flex {
     display: inline-flex;
   }
   .table {
     display: table;
+  }
+  .checkbox {
+    height: calc(var(--spacing) * 5);
+    width: calc(var(--spacing) * 5);
+    accent-color: var(--color-gray-500);
   }
   .size-4 {
     width: calc(var(--spacing) * 4);
@@ -384,17 +497,38 @@
     width: calc(var(--spacing) * 6);
     height: calc(var(--spacing) * 6);
   }
+  .size-fit {
+    width: fit-content;
+    height: fit-content;
+  }
+  .h-auto {
+    height: auto;
+  }
   .max-h-100 {
     max-height: calc(var(--spacing) * 100);
   }
-  .w-1\/13 {
-    width: calc(1/13 * 100%);
+  .max-h-screen {
+    max-height: 100vh;
   }
-  .w-6\/13 {
-    width: calc(6/13 * 100%);
-  }
-  .w-120 {
-    width: calc(var(--spacing) * 120);
+  .select {
+    width: 100%;
+    cursor: pointer;
+    border-radius: var(--radius-lg);
+    padding: calc(var(--spacing) * 2);
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+    &:focus {
+      --tw-outline-style: none;
+      outline-style: none;
+    }
+    background-color: var(--color-gray-200);
+    color: var(--color-gray-900);
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-gray-800);
+    }
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-gray-100);
+    }
   }
   .w-auto {
     width: auto;
@@ -402,8 +536,29 @@
   .w-full {
     width: 100%;
   }
-  .w-xl {
-    width: var(--container-xl);
+  .w-md {
+    width: var(--container-md);
+  }
+  .file {
+    max-width: 100%;
+    cursor: pointer;
+    border-radius: var(--radius-lg);
+    color: var(--color-gray-900);
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-gray-100);
+    }
+    &::file-selector-button {
+      cursor: pointer;
+      padding: calc(var(--spacing) * 2);
+      background-color: var(--color-gray-200);
+      color: var(--color-gray-900);
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-800);
+      }
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-100);
+      }
+    }
   }
   .min-w-4 {
     min-width: calc(var(--spacing) * 4);
@@ -432,11 +587,28 @@
   .justify-center {
     justify-content: center;
   }
+  .justify-end {
+    justify-content: flex-end;
+  }
+  .gap-1 {
+    gap: calc(var(--spacing) * 1);
+  }
   .gap-2 {
     gap: calc(var(--spacing) * 2);
   }
+  .self-end {
+    align-self: flex-end;
+  }
+  .truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
   .overflow-x-auto {
     overflow-x: auto;
+  }
+  .overflow-x-hidden {
+    overflow-x: hidden;
   }
   .overflow-y-auto {
     overflow-y: auto;
@@ -447,23 +619,22 @@
   .rounded-lg {
     border-radius: var(--radius-lg);
   }
-  .rounded-r-lg {
-    border-top-right-radius: var(--radius-lg);
-    border-bottom-right-radius: var(--radius-lg);
-  }
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
-  .border-t-2 {
+  .border-t-1 {
     border-top-style: var(--tw-border-style);
-    border-top-width: 2px;
+    border-top-width: 1px;
   }
   .border-gray-200 {
     border-color: var(--color-gray-200);
   }
   .border-transparent {
     border-color: transparent;
+  }
+  .bg-blue-100 {
+    background-color: var(--color-blue-100);
   }
   .bg-gray-50 {
     background-color: var(--color-gray-50);
@@ -474,20 +645,26 @@
   .bg-gray-200 {
     background-color: var(--color-gray-200);
   }
+  .bg-gray-300 {
+    background-color: var(--color-gray-300);
+  }
   .bg-gray-800\/70 {
     background-color: color-mix(in srgb, oklch(27.8% 0.033 256.848) 70%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       background-color: color-mix(in oklab, var(--color-gray-800) 70%, transparent);
     }
   }
+  .bg-green-100 {
+    background-color: var(--color-green-100);
+  }
   .bg-orange-50 {
     background-color: var(--color-orange-50);
   }
-  .bg-primary-500 {
-    background-color: var(--color-primary-500);
+  .bg-orange-100 {
+    background-color: var(--color-orange-100);
   }
-  .bg-white {
-    background-color: var(--color-white);
+  .bg-red-100 {
+    background-color: var(--color-red-100);
   }
   .p-1 {
     padding: calc(var(--spacing) * 1);
@@ -495,23 +672,17 @@
   .p-2 {
     padding: calc(var(--spacing) * 2);
   }
+  .p-3 {
+    padding: calc(var(--spacing) * 3);
+  }
   .p-4 {
     padding: calc(var(--spacing) * 4);
   }
   .px-1 {
     padding-inline: calc(var(--spacing) * 1);
   }
-  .px-2 {
-    padding-inline: calc(var(--spacing) * 2);
-  }
-  .px-3 {
-    padding-inline: calc(var(--spacing) * 3);
-  }
   .py-1 {
     padding-block: calc(var(--spacing) * 1);
-  }
-  .py-2 {
-    padding-block: calc(var(--spacing) * 2);
   }
   .text-center {
     text-align: center;
@@ -552,11 +723,14 @@
     --tw-font-weight: var(--font-weight-normal);
     font-weight: var(--font-weight-normal);
   }
+  .text-blue-400 {
+    color: var(--color-blue-400);
+  }
   .text-blue-500 {
     color: var(--color-blue-500);
   }
-  .text-gray-200 {
-    color: var(--color-gray-200);
+  .text-gray-100 {
+    color: var(--color-gray-100);
   }
   .text-gray-400 {
     color: var(--color-gray-400);
@@ -573,6 +747,18 @@
   .text-gray-800 {
     color: var(--color-gray-800);
   }
+  .text-gray-900 {
+    color: var(--color-gray-900);
+  }
+  .text-green-400 {
+    color: var(--color-green-400);
+  }
+  .text-orange-400 {
+    color: var(--color-orange-400);
+  }
+  .text-red-400 {
+    color: var(--color-red-400);
+  }
   .text-white {
     color: var(--color-white);
   }
@@ -580,18 +766,9 @@
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
-  .transition {
-    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
-  }
   .duration-100 {
     --tw-duration: 100ms;
     transition-duration: 100ms;
-  }
-  .duration-200 {
-    --tw-duration: 200ms;
-    transition-duration: 200ms;
   }
   .hover\:bg-gray-200 {
     &:hover {
@@ -607,25 +784,17 @@
       }
     }
   }
-  .hover\:bg-primary-600 {
+  .hover\:bg-gray-400 {
     &:hover {
       @media (hover: hover) {
-        background-color: var(--color-primary-600);
+        background-color: var(--color-gray-400);
       }
     }
   }
-  .hover\:font-normal {
+  .hover\:text-gray-600 {
     &:hover {
       @media (hover: hover) {
-        --tw-font-weight: var(--font-weight-normal);
-        font-weight: var(--font-weight-normal);
-      }
-    }
-  }
-  .hover\:text-gray-800 {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-gray-800);
+        color: var(--color-gray-600);
       }
     }
   }
@@ -640,9 +809,106 @@
       width: calc(var(--spacing) * 80);
     }
   }
-  .sm\:flex-row {
-    @media (width >= 40rem) {
-      flex-direction: row;
+  .dark\:border-gray-800 {
+    @media (prefers-color-scheme: dark) {
+      border-color: var(--color-gray-800);
+    }
+  }
+  .dark\:bg-blue-900 {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-blue-900);
+    }
+  }
+  .dark\:bg-gray-700 {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-gray-700);
+    }
+  }
+  .dark\:bg-gray-800 {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-gray-800);
+    }
+  }
+  .dark\:bg-gray-900 {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-gray-900);
+    }
+  }
+  .dark\:bg-gray-950 {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-gray-950);
+    }
+  }
+  .dark\:bg-green-900 {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-green-900);
+    }
+  }
+  .dark\:bg-orange-900 {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-orange-900);
+    }
+  }
+  .dark\:bg-red-900 {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-red-900);
+    }
+  }
+  .dark\:text-gray-100 {
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-gray-100);
+    }
+  }
+  .dark\:text-gray-200 {
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-gray-200);
+    }
+  }
+  .dark\:text-gray-300 {
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-gray-300);
+    }
+  }
+  .dark\:text-gray-400 {
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-gray-400);
+    }
+  }
+  .dark\:text-gray-600 {
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-gray-600);
+    }
+  }
+  .dark\:text-gray-900 {
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-gray-900);
+    }
+  }
+  .dark\:hover\:bg-gray-600 {
+    @media (prefers-color-scheme: dark) {
+      &:hover {
+        @media (hover: hover) {
+          background-color: var(--color-gray-600);
+        }
+      }
+    }
+  }
+  .dark\:hover\:bg-gray-700 {
+    @media (prefers-color-scheme: dark) {
+      &:hover {
+        @media (hover: hover) {
+          background-color: var(--color-gray-700);
+        }
+      }
+    }
+  }
+  .dark\:hover\:bg-gray-800 {
+    @media (prefers-color-scheme: dark) {
+      &:hover {
+        @media (hover: hover) {
+          background-color: var(--color-gray-800);
+        }
+      }
     }
   }
 }
@@ -656,6 +922,10 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
     text-wrap: wrap;
+    color: var(--color-gray-950);
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-gray-50);
+    }
   }
   h2 {
     overflow: hidden;
@@ -666,6 +936,10 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
     text-wrap: wrap;
+    color: var(--color-gray-950);
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-gray-50);
+    }
   }
   h3 {
     overflow: hidden;
@@ -676,6 +950,10 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
     text-wrap: wrap;
+    color: var(--color-gray-950);
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-gray-50);
+    }
   }
   h4 {
     overflow: hidden;
@@ -686,6 +964,10 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
     text-wrap: wrap;
+    color: var(--color-gray-950);
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-gray-50);
+    }
   }
   h5 {
     overflow: hidden;
@@ -696,6 +978,10 @@
     --tw-font-weight: var(--font-weight-normal);
     font-weight: var(--font-weight-normal);
     text-wrap: wrap;
+    color: var(--color-gray-950);
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-gray-50);
+    }
   }
   h6 {
     overflow: hidden;
@@ -706,6 +992,10 @@
     --tw-font-weight: var(--font-weight-normal);
     font-weight: var(--font-weight-normal);
     text-wrap: wrap;
+    color: var(--color-gray-950);
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-gray-50);
+    }
   }
   p {
     overflow: hidden;
@@ -716,6 +1006,10 @@
     --tw-font-weight: var(--font-weight-normal);
     font-weight: var(--font-weight-normal);
     text-wrap: wrap;
+    color: var(--color-gray-950);
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-gray-50);
+    }
   }
   a {
     cursor: pointer;
@@ -726,74 +1020,160 @@
     line-height: var(--tw-leading, var(--text-base--line-height));
     --tw-font-weight: var(--font-weight-normal);
     font-weight: var(--font-weight-normal);
+    color: var(--color-gray-950);
     &:hover {
       @media (hover: hover) {
-        --tw-font-weight: var(--font-weight-medium);
-        font-weight: var(--font-weight-medium);
+        color: var(--color-gray-900);
+      }
+    }
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-gray-50);
+    }
+    @media (prefers-color-scheme: dark) {
+      &:hover {
+        @media (hover: hover) {
+          color: var(--color-gray-100);
+        }
       }
     }
   }
   hr {
     opacity: 30%;
+    color: var(--color-gray-950);
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-gray-50);
+    }
+  }
+}
+.bg-primary {
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-950);
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-gray-800);
+  }
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-50);
+  }
+}
+.bg-primary-inverse {
+  background-color: var(--color-gray-800);
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-gray-200);
+  }
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.bg-secondary {
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-950);
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-gray-900);
+  }
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-50);
+  }
+}
+.bg-secondary-inverse {
+  background-color: var(--color-gray-900);
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-gray-100);
+  }
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
   }
 }
 .nav {
+  height: auto;
+  background-color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-gray-950);
+  }
+}
+.nav-item {
   display: flex;
-  border-top-right-radius: var(--radius-lg);
-  border-bottom-right-radius: var(--radius-lg);
-  border-left-style: var(--tw-border-style);
-  border-left-width: 2px;
-  border-color: var(--color-gray-300);
+  border-radius: var(--radius-lg);
   padding-block: calc(var(--spacing) * 2);
   padding-inline-start: calc(var(--spacing) * 3);
-  color: var(--color-gray-500);
-  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
   transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
   transition-duration: var(--tw-duration, var(--default-transition-duration));
   --tw-duration: 200ms;
   transition-duration: 200ms;
+  color: var(--color-gray-600);
   &:hover {
     @media (hover: hover) {
-      border-color: var(--color-gray-500);
+      color: var(--color-gray-700);
     }
   }
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-400);
+  }
+  @media (prefers-color-scheme: dark) {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-gray-300);
+      }
+    }
+  }
+}
+.nav-item.active {
+  color: var(--color-gray-800);
   &:hover {
     @media (hover: hover) {
-      color: var(--color-gray-800);
+      color: var(--color-gray-900);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-200);
+  }
+  @media (prefers-color-scheme: dark) {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-gray-100);
+      }
     }
   }
 }
-.nav-collapse-button {
-  transform: rotate(0deg);
-  transition: transform .2s linear;
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  :where(& > :not(:last-child)) {
+    --tw-space-x-reverse: 0;
+    margin-inline-start: calc(calc(var(--spacing) * 2) * var(--tw-space-x-reverse));
+    margin-inline-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-x-reverse)));
+  }
 }
-.nav-collapse-button.open {
-  transform: rotate(180deg);
-  transition: transform .2s linear;
+.breadcrumb-item > a {
+  color: var(--color-blue-500);
 }
-.nav-active {
-  border-color: var(--color-gray-600);
-  --tw-font-weight: var(--font-weight-bold);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-black);
+.breadcrumb-item.active {
+  color: var(--color-gray-800);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-200);
+  }
 }
-.simple-border {
-  border-radius: var(--radius-xl);
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-gray-300);
-  background-clip: border-box;
-  padding: calc(var(--spacing) * 2);
+.breadcrumb-item:not(:first-child)::before {
+  margin-right: calc(var(--spacing) * 2);
+  color: var(--color-gray-400);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-600);
+  }
+  content: "/";
 }
 .btn {
-  display: inline-flex;
+  display: flex;
   cursor: pointer;
-  border-radius: var(--radius-lg);
+  justify-content: center;
+  border-radius: calc(infinity * 1px);
   padding-inline: calc(var(--spacing) * 4);
   padding-block: calc(var(--spacing) * 2);
+  text-align: center;
   --tw-font-weight: var(--font-weight-medium);
   font-weight: var(--font-weight-medium);
-  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
   transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
   transition-duration: var(--tw-duration, var(--default-transition-duration));
   --tw-duration: 200ms;
@@ -805,646 +1185,19 @@
     opacity: 70%;
   }
 }
-.btn-red {
-  background-color: var(--color-red-500);
-  color: var(--color-white);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-red-600);
-    }
-  }
-}
-.btn-outline-red {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-red-500);
-  background-color: transparent;
-  color: var(--color-red-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-red-500);
-    }
-  }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-white);
-    }
-  }
-}
-.btn-no-bg-red {
-  background-color: transparent;
-  color: var(--color-red-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-gray-100);
-    }
-  }
-}
-.btn-orange {
-  background-color: var(--color-orange-500);
-  color: var(--color-white);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-orange-600);
-    }
-  }
-}
-.btn-outline-orange {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-orange-500);
-  background-color: transparent;
-  color: var(--color-orange-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-orange-500);
-    }
-  }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-white);
-    }
-  }
-}
-.btn-no-bg-orange {
-  background-color: transparent;
-  color: var(--color-orange-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-gray-100);
-    }
-  }
-}
-.btn-amber {
-  background-color: var(--color-amber-500);
-  color: var(--color-white);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-amber-600);
-    }
-  }
-}
-.btn-outline-amber {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-amber-500);
-  background-color: transparent;
-  color: var(--color-amber-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-amber-500);
-    }
-  }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-white);
-    }
-  }
-}
-.btn-no-bg-amber {
-  background-color: transparent;
-  color: var(--color-amber-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-gray-100);
-    }
-  }
-}
-.btn-yellow {
-  background-color: var(--color-yellow-500);
-  color: var(--color-white);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-yellow-600);
-    }
-  }
-}
-.btn-outline-yellow {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-yellow-500);
-  background-color: transparent;
-  color: var(--color-yellow-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-yellow-500);
-    }
-  }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-white);
-    }
-  }
-}
-.btn-no-bg-yellow {
-  background-color: transparent;
-  color: var(--color-yellow-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-gray-100);
-    }
-  }
-}
-.btn-lime {
-  background-color: var(--color-lime-500);
-  color: var(--color-white);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-lime-600);
-    }
-  }
-}
-.btn-outline-lime {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-lime-500);
-  background-color: transparent;
-  color: var(--color-lime-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-lime-500);
-    }
-  }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-white);
-    }
-  }
-}
-.btn-no-bg-lime {
-  background-color: transparent;
-  color: var(--color-lime-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-gray-100);
-    }
-  }
-}
-.btn-green {
-  background-color: var(--color-green-500);
-  color: var(--color-white);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-green-600);
-    }
-  }
-}
-.btn-outline-green {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-green-500);
-  background-color: transparent;
-  color: var(--color-green-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-green-500);
-    }
-  }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-white);
-    }
-  }
-}
-.btn-no-bg-green {
-  background-color: transparent;
-  color: var(--color-green-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-gray-100);
-    }
-  }
-}
-.btn-emerald {
-  background-color: var(--color-emerald-500);
-  color: var(--color-white);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-emerald-600);
-    }
-  }
-}
-.btn-outline-emerald {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-emerald-500);
-  background-color: transparent;
-  color: var(--color-emerald-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-emerald-500);
-    }
-  }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-white);
-    }
-  }
-}
-.btn-no-bg-emerald {
-  background-color: transparent;
-  color: var(--color-emerald-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-gray-100);
-    }
-  }
-}
-.btn-teal {
-  background-color: var(--color-teal-500);
-  color: var(--color-white);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-teal-600);
-    }
-  }
-}
-.btn-outline-teal {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-teal-500);
-  background-color: transparent;
-  color: var(--color-teal-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-teal-500);
-    }
-  }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-white);
-    }
-  }
-}
-.btn-no-bg-teal {
-  background-color: transparent;
-  color: var(--color-teal-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-gray-100);
-    }
-  }
-}
-.btn-cyan {
-  background-color: var(--color-cyan-500);
-  color: var(--color-white);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-cyan-600);
-    }
-  }
-}
-.btn-outline-cyan {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-cyan-500);
-  background-color: transparent;
-  color: var(--color-cyan-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-cyan-500);
-    }
-  }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-white);
-    }
-  }
-}
-.btn-no-bg-cyan {
-  background-color: transparent;
-  color: var(--color-cyan-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-gray-100);
-    }
-  }
-}
-.btn-sky {
-  background-color: var(--color-sky-500);
-  color: var(--color-white);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-sky-600);
-    }
-  }
-}
-.btn-outline-sky {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-sky-500);
-  background-color: transparent;
-  color: var(--color-sky-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-sky-500);
-    }
-  }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-white);
-    }
-  }
-}
-.btn-no-bg-sky {
-  background-color: transparent;
-  color: var(--color-sky-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-gray-100);
-    }
-  }
-}
-.btn-blue {
-  background-color: var(--color-blue-500);
-  color: var(--color-white);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-blue-600);
-    }
-  }
-}
-.btn-outline-blue {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-blue-500);
-  background-color: transparent;
-  color: var(--color-blue-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-blue-500);
-    }
-  }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-white);
-    }
-  }
-}
-.btn-no-bg-blue {
-  background-color: transparent;
-  color: var(--color-blue-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-gray-100);
-    }
-  }
-}
-.btn-indigo {
-  background-color: var(--color-indigo-500);
-  color: var(--color-white);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-indigo-600);
-    }
-  }
-}
-.btn-outline-indigo {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-indigo-500);
-  background-color: transparent;
-  color: var(--color-indigo-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-indigo-500);
-    }
-  }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-white);
-    }
-  }
-}
-.btn-no-bg-indigo {
-  background-color: transparent;
-  color: var(--color-indigo-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-gray-100);
-    }
-  }
-}
-.btn-violet {
-  background-color: var(--color-violet-500);
-  color: var(--color-white);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-violet-600);
-    }
-  }
-}
-.btn-outline-violet {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-violet-500);
-  background-color: transparent;
-  color: var(--color-violet-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-violet-500);
-    }
-  }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-white);
-    }
-  }
-}
-.btn-no-bg-violet {
-  background-color: transparent;
-  color: var(--color-violet-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-gray-100);
-    }
-  }
-}
-.btn-purple {
-  background-color: var(--color-purple-500);
-  color: var(--color-white);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-purple-600);
-    }
-  }
-}
-.btn-outline-purple {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-purple-500);
-  background-color: transparent;
-  color: var(--color-purple-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-purple-500);
-    }
-  }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-white);
-    }
-  }
-}
-.btn-no-bg-purple {
-  background-color: transparent;
-  color: var(--color-purple-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-gray-100);
-    }
-  }
-}
-.btn-fuchsia {
-  background-color: var(--color-fuchsia-500);
-  color: var(--color-white);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-fuchsia-600);
-    }
-  }
-}
-.btn-outline-fuchsia {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-fuchsia-500);
-  background-color: transparent;
-  color: var(--color-fuchsia-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-fuchsia-500);
-    }
-  }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-white);
-    }
-  }
-}
-.btn-no-bg-fuchsia {
-  background-color: transparent;
-  color: var(--color-fuchsia-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-gray-100);
-    }
-  }
-}
-.btn-pink {
-  background-color: var(--color-pink-500);
-  color: var(--color-white);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-pink-600);
-    }
-  }
-}
-.btn-outline-pink {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-pink-500);
-  background-color: transparent;
-  color: var(--color-pink-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-pink-500);
-    }
-  }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-white);
-    }
-  }
-}
-.btn-no-bg-pink {
-  background-color: transparent;
-  color: var(--color-pink-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-gray-100);
-    }
-  }
-}
-.btn-rose {
-  background-color: var(--color-rose-500);
-  color: var(--color-white);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-rose-600);
-    }
-  }
-}
-.btn-outline-rose {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-rose-500);
-  background-color: transparent;
-  color: var(--color-rose-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-rose-500);
-    }
-  }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-white);
-    }
-  }
-}
-.btn-no-bg-rose {
-  background-color: transparent;
-  color: var(--color-rose-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-gray-100);
-    }
-  }
-}
-.btn-slate {
-  background-color: var(--color-slate-500);
-  color: var(--color-white);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-slate-600);
-    }
-  }
-}
-.btn-outline-slate {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-slate-500);
-  background-color: transparent;
-  color: var(--color-slate-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-slate-500);
-    }
-  }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-white);
-    }
-  }
-}
-.btn-no-bg-slate {
-  background-color: transparent;
-  color: var(--color-slate-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-gray-100);
-    }
-  }
-}
-.btn-gray {
+.btn-primary {
   background-color: var(--color-gray-500);
-  color: var(--color-white);
   &:hover {
     @media (hover: hover) {
       background-color: var(--color-gray-600);
     }
   }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
 }
-.btn-outline-gray {
+.btn-outline-primary {
   border-style: var(--tw-border-style);
   border-width: 1px;
   border-color: var(--color-gray-500);
@@ -1457,11 +1210,18 @@
   }
   &:hover {
     @media (hover: hover) {
-      color: var(--color-white);
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
     }
   }
 }
-.btn-no-bg-gray {
+.btn-no-bg-primary {
   background-color: transparent;
   color: var(--color-gray-500);
   &:hover {
@@ -1469,189 +1229,108 @@
       background-color: var(--color-gray-100);
     }
   }
-}
-.btn-zinc {
-  background-color: var(--color-zinc-500);
-  color: var(--color-white);
   &:hover {
     @media (hover: hover) {
-      background-color: var(--color-zinc-600);
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
     }
   }
 }
-.btn-outline-zinc {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-zinc-500);
+.btn-no-bg-light-primary {
   background-color: transparent;
-  color: var(--color-zinc-500);
+  color: var(--color-gray-500);
   &:hover {
     @media (hover: hover) {
-      background-color: var(--color-zinc-500);
+      background-color: var(--color-gray-50);
     }
   }
   &:hover {
     @media (hover: hover) {
-      color: var(--color-white);
-    }
-  }
-}
-.btn-no-bg-zinc {
-  background-color: transparent;
-  color: var(--color-zinc-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-gray-100);
-    }
-  }
-}
-.btn-neutral {
-  background-color: var(--color-neutral-500);
-  color: var(--color-white);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-neutral-600);
-    }
-  }
-}
-.btn-outline-neutral {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-neutral-500);
-  background-color: transparent;
-  color: var(--color-neutral-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-neutral-500);
-    }
-  }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-white);
-    }
-  }
-}
-.btn-no-bg-neutral {
-  background-color: transparent;
-  color: var(--color-neutral-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-gray-100);
-    }
-  }
-}
-.btn-stone {
-  background-color: var(--color-stone-500);
-  color: var(--color-white);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-stone-600);
-    }
-  }
-}
-.btn-outline-stone {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-stone-500);
-  background-color: transparent;
-  color: var(--color-stone-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-stone-500);
-    }
-  }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-white);
-    }
-  }
-}
-.btn-no-bg-stone {
-  background-color: transparent;
-  color: var(--color-stone-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-gray-100);
-    }
-  }
-}
-.btn-primary {
-  background-color: var(--color-primary-500);
-  color: var(--color-white);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-primary-600);
-    }
-  }
-}
-.btn-outline-primary {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-primary-500);
-  background-color: transparent;
-  color: var(--color-primary-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-primary-500);
-    }
-  }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-white);
-    }
-  }
-}
-.btn-no-bg-primary {
-  background-color: transparent;
-  color: var(--color-primary-500);
-  &:hover {
-    @media (hover: hover) {
-      background-color: var(--color-gray-100);
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
     }
   }
 }
 .btn-secondary {
-  background-color: var(--color-secondary-500);
-  color: var(--color-white);
+  background-color: var(--color-gray-400);
   &:hover {
     @media (hover: hover) {
-      background-color: var(--color-secondary-600);
+      background-color: var(--color-gray-500);
     }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
   }
 }
 .btn-outline-secondary {
   border-style: var(--tw-border-style);
   border-width: 1px;
-  border-color: var(--color-secondary-500);
+  border-color: var(--color-gray-400);
   background-color: transparent;
-  color: var(--color-secondary-500);
+  color: var(--color-gray-400);
   &:hover {
     @media (hover: hover) {
-      background-color: var(--color-secondary-500);
+      background-color: var(--color-gray-500);
     }
   }
   &:hover {
     @media (hover: hover) {
-      color: var(--color-white);
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
     }
   }
 }
 .btn-no-bg-secondary {
   background-color: transparent;
-  color: var(--color-secondary-500);
+  color: var(--color-gray-400);
   &:hover {
     @media (hover: hover) {
       background-color: var(--color-gray-100);
     }
   }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-secondary {
+  background-color: transparent;
+  color: var(--color-gray-400);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
 }
 .btn-active {
   background-color: var(--color-active-500);
-  color: var(--color-white);
   &:hover {
     @media (hover: hover) {
       background-color: var(--color-active-600);
     }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
   }
 }
 .btn-outline-active {
@@ -1667,7 +1346,14 @@
   }
   &:hover {
     @media (hover: hover) {
-      color: var(--color-white);
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
     }
   }
 }
@@ -1679,14 +1365,40 @@
       background-color: var(--color-gray-100);
     }
   }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-active {
+  background-color: transparent;
+  color: var(--color-active-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
 }
 .btn-inactive {
   background-color: var(--color-inactive-500);
-  color: var(--color-white);
   &:hover {
     @media (hover: hover) {
       background-color: var(--color-inactive-600);
     }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
   }
 }
 .btn-outline-inactive {
@@ -1702,7 +1414,14 @@
   }
   &:hover {
     @media (hover: hover) {
-      color: var(--color-white);
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
     }
   }
 }
@@ -1714,14 +1433,40 @@
       background-color: var(--color-gray-100);
     }
   }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-inactive {
+  background-color: transparent;
+  color: var(--color-inactive-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
 }
 .btn-info {
   background-color: var(--color-info-500);
-  color: var(--color-white);
   &:hover {
     @media (hover: hover) {
       background-color: var(--color-info-600);
     }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
   }
 }
 .btn-outline-info {
@@ -1737,7 +1482,14 @@
   }
   &:hover {
     @media (hover: hover) {
-      color: var(--color-white);
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
     }
   }
 }
@@ -1749,14 +1501,40 @@
       background-color: var(--color-gray-100);
     }
   }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-info {
+  background-color: transparent;
+  color: var(--color-info-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
 }
 .btn-success {
   background-color: var(--color-success-500);
-  color: var(--color-white);
   &:hover {
     @media (hover: hover) {
       background-color: var(--color-success-600);
     }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
   }
 }
 .btn-outline-success {
@@ -1772,7 +1550,14 @@
   }
   &:hover {
     @media (hover: hover) {
-      color: var(--color-white);
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
     }
   }
 }
@@ -1784,14 +1569,40 @@
       background-color: var(--color-gray-100);
     }
   }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-success {
+  background-color: transparent;
+  color: var(--color-success-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
 }
 .btn-warning {
   background-color: var(--color-warning-500);
-  color: var(--color-white);
   &:hover {
     @media (hover: hover) {
       background-color: var(--color-warning-600);
     }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
   }
 }
 .btn-outline-warning {
@@ -1807,7 +1618,14 @@
   }
   &:hover {
     @media (hover: hover) {
-      color: var(--color-white);
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
     }
   }
 }
@@ -1819,14 +1637,40 @@
       background-color: var(--color-gray-100);
     }
   }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-warning {
+  background-color: transparent;
+  color: var(--color-warning-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
 }
 .btn-danger {
   background-color: var(--color-danger-500);
-  color: var(--color-white);
   &:hover {
     @media (hover: hover) {
       background-color: var(--color-danger-600);
     }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
   }
 }
 .btn-outline-danger {
@@ -1842,7 +1686,14 @@
   }
   &:hover {
     @media (hover: hover) {
-      color: var(--color-white);
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
     }
   }
 }
@@ -1854,14 +1705,40 @@
       background-color: var(--color-gray-100);
     }
   }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-danger {
+  background-color: transparent;
+  color: var(--color-danger-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
 }
 .btn-attention {
   background-color: var(--color-attention-500);
-  color: var(--color-white);
   &:hover {
     @media (hover: hover) {
       background-color: var(--color-attention-600);
     }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
   }
 }
 .btn-outline-attention {
@@ -1877,7 +1754,14 @@
   }
   &:hover {
     @media (hover: hover) {
-      color: var(--color-white);
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
     }
   }
 }
@@ -1889,29 +1773,1594 @@
       background-color: var(--color-gray-100);
     }
   }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-attention {
+  background-color: transparent;
+  color: var(--color-attention-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-red {
+  background-color: var(--color-red-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-red-600);
+    }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.btn-outline-red {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-red-500);
+  background-color: transparent;
+  color: var(--color-red-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-red-500);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-no-bg-red {
+  background-color: transparent;
+  color: var(--color-red-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-red {
+  background-color: transparent;
+  color: var(--color-red-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-orange {
+  background-color: var(--color-orange-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-orange-600);
+    }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.btn-outline-orange {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-orange-500);
+  background-color: transparent;
+  color: var(--color-orange-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-orange-500);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-no-bg-orange {
+  background-color: transparent;
+  color: var(--color-orange-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-orange {
+  background-color: transparent;
+  color: var(--color-orange-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-amber {
+  background-color: var(--color-amber-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-amber-600);
+    }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.btn-outline-amber {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-amber-500);
+  background-color: transparent;
+  color: var(--color-amber-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-amber-500);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-no-bg-amber {
+  background-color: transparent;
+  color: var(--color-amber-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-amber {
+  background-color: transparent;
+  color: var(--color-amber-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-yellow {
+  background-color: var(--color-yellow-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-yellow-600);
+    }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.btn-outline-yellow {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-yellow-500);
+  background-color: transparent;
+  color: var(--color-yellow-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-yellow-500);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-no-bg-yellow {
+  background-color: transparent;
+  color: var(--color-yellow-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-yellow {
+  background-color: transparent;
+  color: var(--color-yellow-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-lime {
+  background-color: var(--color-lime-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-lime-600);
+    }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.btn-outline-lime {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-lime-500);
+  background-color: transparent;
+  color: var(--color-lime-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-lime-500);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-no-bg-lime {
+  background-color: transparent;
+  color: var(--color-lime-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-lime {
+  background-color: transparent;
+  color: var(--color-lime-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-green {
+  background-color: var(--color-green-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-green-600);
+    }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.btn-outline-green {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-green-500);
+  background-color: transparent;
+  color: var(--color-green-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-green-500);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-no-bg-green {
+  background-color: transparent;
+  color: var(--color-green-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-green {
+  background-color: transparent;
+  color: var(--color-green-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-emerald {
+  background-color: var(--color-emerald-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-emerald-600);
+    }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.btn-outline-emerald {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-emerald-500);
+  background-color: transparent;
+  color: var(--color-emerald-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-emerald-500);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-no-bg-emerald {
+  background-color: transparent;
+  color: var(--color-emerald-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-emerald {
+  background-color: transparent;
+  color: var(--color-emerald-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-teal {
+  background-color: var(--color-teal-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-teal-600);
+    }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.btn-outline-teal {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-teal-500);
+  background-color: transparent;
+  color: var(--color-teal-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-teal-500);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-no-bg-teal {
+  background-color: transparent;
+  color: var(--color-teal-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-teal {
+  background-color: transparent;
+  color: var(--color-teal-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-cyan {
+  background-color: var(--color-cyan-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-cyan-600);
+    }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.btn-outline-cyan {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-cyan-500);
+  background-color: transparent;
+  color: var(--color-cyan-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-cyan-500);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-no-bg-cyan {
+  background-color: transparent;
+  color: var(--color-cyan-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-cyan {
+  background-color: transparent;
+  color: var(--color-cyan-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-sky {
+  background-color: var(--color-sky-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-sky-600);
+    }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.btn-outline-sky {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-sky-500);
+  background-color: transparent;
+  color: var(--color-sky-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-sky-500);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-no-bg-sky {
+  background-color: transparent;
+  color: var(--color-sky-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-sky {
+  background-color: transparent;
+  color: var(--color-sky-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-blue {
+  background-color: var(--color-blue-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-blue-600);
+    }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.btn-outline-blue {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-blue-500);
+  background-color: transparent;
+  color: var(--color-blue-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-blue-500);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-no-bg-blue {
+  background-color: transparent;
+  color: var(--color-blue-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-blue {
+  background-color: transparent;
+  color: var(--color-blue-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-indigo {
+  background-color: var(--color-indigo-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-indigo-600);
+    }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.btn-outline-indigo {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-indigo-500);
+  background-color: transparent;
+  color: var(--color-indigo-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-indigo-500);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-no-bg-indigo {
+  background-color: transparent;
+  color: var(--color-indigo-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-indigo {
+  background-color: transparent;
+  color: var(--color-indigo-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-violet {
+  background-color: var(--color-violet-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-violet-600);
+    }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.btn-outline-violet {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-violet-500);
+  background-color: transparent;
+  color: var(--color-violet-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-violet-500);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-no-bg-violet {
+  background-color: transparent;
+  color: var(--color-violet-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-violet {
+  background-color: transparent;
+  color: var(--color-violet-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-purple {
+  background-color: var(--color-purple-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-purple-600);
+    }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.btn-outline-purple {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-purple-500);
+  background-color: transparent;
+  color: var(--color-purple-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-purple-500);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-no-bg-purple {
+  background-color: transparent;
+  color: var(--color-purple-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-purple {
+  background-color: transparent;
+  color: var(--color-purple-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-fuchsia {
+  background-color: var(--color-fuchsia-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-fuchsia-600);
+    }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.btn-outline-fuchsia {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-fuchsia-500);
+  background-color: transparent;
+  color: var(--color-fuchsia-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-fuchsia-500);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-no-bg-fuchsia {
+  background-color: transparent;
+  color: var(--color-fuchsia-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-fuchsia {
+  background-color: transparent;
+  color: var(--color-fuchsia-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-pink {
+  background-color: var(--color-pink-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-pink-600);
+    }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.btn-outline-pink {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-pink-500);
+  background-color: transparent;
+  color: var(--color-pink-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-pink-500);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-no-bg-pink {
+  background-color: transparent;
+  color: var(--color-pink-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-pink {
+  background-color: transparent;
+  color: var(--color-pink-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-rose {
+  background-color: var(--color-rose-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-rose-600);
+    }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.btn-outline-rose {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-rose-500);
+  background-color: transparent;
+  color: var(--color-rose-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-rose-500);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-no-bg-rose {
+  background-color: transparent;
+  color: var(--color-rose-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-rose {
+  background-color: transparent;
+  color: var(--color-rose-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-slate {
+  background-color: var(--color-slate-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-slate-600);
+    }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.btn-outline-slate {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-slate-500);
+  background-color: transparent;
+  color: var(--color-slate-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-slate-500);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-no-bg-slate {
+  background-color: transparent;
+  color: var(--color-slate-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-slate {
+  background-color: transparent;
+  color: var(--color-slate-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-gray {
+  background-color: var(--color-gray-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-600);
+    }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.btn-outline-gray {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-gray-500);
+  background-color: transparent;
+  color: var(--color-gray-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-500);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-no-bg-gray {
+  background-color: transparent;
+  color: var(--color-gray-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-gray {
+  background-color: transparent;
+  color: var(--color-gray-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-zinc {
+  background-color: var(--color-zinc-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-zinc-600);
+    }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.btn-outline-zinc {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-zinc-500);
+  background-color: transparent;
+  color: var(--color-zinc-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-zinc-500);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-no-bg-zinc {
+  background-color: transparent;
+  color: var(--color-zinc-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-zinc {
+  background-color: transparent;
+  color: var(--color-zinc-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-neutral {
+  background-color: var(--color-neutral-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-neutral-600);
+    }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.btn-outline-neutral {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-neutral-500);
+  background-color: transparent;
+  color: var(--color-neutral-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-neutral-500);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-no-bg-neutral {
+  background-color: transparent;
+  color: var(--color-neutral-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-neutral {
+  background-color: transparent;
+  color: var(--color-neutral-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-stone {
+  background-color: var(--color-stone-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-stone-600);
+    }
+  }
+  color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-950);
+  }
+}
+.btn-outline-stone {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-stone-500);
+  background-color: transparent;
+  color: var(--color-stone-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-stone-500);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-no-bg-stone {
+  background-color: transparent;
+  color: var(--color-stone-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-900);
+      }
+    }
+  }
+}
+.btn-no-bg-light-stone {
+  background-color: transparent;
+  color: var(--color-stone-500);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-50);
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+}
+.btn-sm {
+  padding-inline: calc(var(--spacing) * 2);
+  padding-block: calc(var(--spacing) * 1);
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
+}
+.btn-lg {
+  padding-inline: calc(var(--spacing) * 6);
+  padding-block: calc(var(--spacing) * 2);
+  font-size: var(--text-lg);
+  line-height: var(--tw-leading, var(--text-lg--line-height));
 }
 .btn-group {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  border-radius: var(--radius-lg);
 }
 .btn-group > .btn {
   border-radius: 0;
   border-style: var(--tw-border-style);
   border-width: 1px;
   border-color: var(--color-gray-200);
+  @media (prefers-color-scheme: dark) {
+    border-color: var(--color-gray-800);
+  }
 }
 .btn-group > .btn:first-child {
-  border-top-left-radius: var(--radius-lg);
-  border-bottom-left-radius: var(--radius-lg);
+  border-top-left-radius: calc(infinity * 1px);
+  border-bottom-left-radius: calc(infinity * 1px);
 }
 .btn-group > .btn:last-child {
-  border-top-right-radius: var(--radius-lg);
-  border-bottom-right-radius: var(--radius-lg);
+  border-top-right-radius: calc(infinity * 1px);
+  border-bottom-right-radius: calc(infinity * 1px);
 }
 .disabled {
-  color: var(--color-gray-500);
+  pointer-events: none;
+  cursor: default;
+  opacity: 70%;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.input-group > input {
+  margin-block: calc(var(--spacing) * 1);
+  width: 100%;
+  border-radius: calc(infinity * 1px);
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  padding-inline: calc(var(--spacing) * 3);
+  padding-block: calc(var(--spacing) * 1);
+  border-color: var(--color-gray-200);
+  @media (prefers-color-scheme: dark) {
+    border-color: var(--color-gray-800);
+  }
+  &:focus {
+    outline-color: var(--color-gray-400);
+  }
+  @media (prefers-color-scheme: dark) {
+    &:focus {
+      outline-color: var(--color-gray-600);
+    }
+  }
+}
+.input-group > label {
+  margin-inline-start: calc(var(--spacing) * 1);
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
 }
 .invalid-feedback {
   margin-inline-start: calc(var(--spacing) * 1);
@@ -1931,93 +3380,59 @@
   line-height: var(--tw-leading, var(--text-sm--line-height));
 }
 .is-invalid {
+  border-color: var(--color-red-500) !important;
+  color: var(--color-red-500);
+  &:focus {
+    outline-color: var(--color-red-500) !important;
+  }
+}
+.field-validation-error {
+  margin-inline-start: calc(var(--spacing) * 1);
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
   color: var(--color-red-500);
 }
-.input {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+.validation-summary-errors {
+  margin-inline-start: calc(var(--spacing) * 1);
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
+  color: var(--color-red-500);
 }
-.input > input {
-  margin-block: calc(var(--spacing) * 1);
-  max-width: 100%;
+.textarea-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.textarea-group > textarea {
+  width: 100%;
   border-radius: var(--radius-lg);
   border-style: var(--tw-border-style);
   border-width: 1px;
-  border-color: var(--color-gray-200);
-  padding-inline: calc(var(--spacing) * 3);
-  padding-block: calc(var(--spacing) * 1);
-  &:focus {
-    outline-style: var(--tw-outline-style);
-    outline-width: 2px;
-  }
-  &:focus {
-    outline-color: var(--color-primary-500);
-  }
 }
-.input > label {
+.textarea-group > label {
+  margin-inline-start: calc(var(--spacing) * 1);
   font-size: var(--text-sm);
   line-height: var(--tw-leading, var(--text-sm--line-height));
-  color: var(--color-gray-800);
 }
-.input-checkbox {
-  margin-block: calc(var(--spacing) * 1);
+.checkbox-group {
   display: flex;
   align-items: center;
 }
-.input-checkbox > label:first-child {
-  position: relative;
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-}
-.input-checkbox > label:first-child > input {
+.checkbox-group > input {
   height: calc(var(--spacing) * 5);
   width: calc(var(--spacing) * 5);
-  cursor: pointer;
-  appearance: none;
-  border-radius: 0.25rem;
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-color: var(--color-gray-200);
-  transition-property: all;
-  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-  transition-duration: var(--tw-duration, var(--default-transition-duration));
-  &:checked {
-    border-color: var(--color-primary-500);
-  }
-  &:checked {
-    background-color: var(--color-primary-500);
-  }
+  accent-color: var(--color-gray-500);
 }
-.input-checkbox > label:first-child > span {
-  position: absolute;
-  top: calc(1/2 * 100%);
-  left: calc(1/2 * 100%);
-  --tw-translate-x: calc(calc(1/2 * 100%) * -1);
-  translate: var(--tw-translate-x) var(--tw-translate-y);
-  --tw-translate-y: calc(calc(1/2 * 100%) * -1);
-  translate: var(--tw-translate-x) var(--tw-translate-y);
-  transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
-  color: var(--color-white);
-  opacity: 0%;
-  &:is(:where(.peer):checked ~ *) {
-    opacity: 100%;
-  }
-}
-.input-checkbox > label:last-child {
-  margin-left: calc(var(--spacing) * 2);
-  cursor: pointer;
+.checkbox-group > label {
+  margin-inline-start: calc(var(--spacing) * 1);
   font-size: var(--text-sm);
   line-height: var(--tw-leading, var(--text-sm--line-height));
-  color: var(--color-gray-800);
 }
-.input-radio {
+.radio-group {
   display: flex;
   align-items: center;
-  column-gap: calc(var(--spacing) * 3);
 }
-.input-radio > input {
+.radio-group > input {
   position: relative;
   width: calc(var(--spacing) * 4);
   height: calc(var(--spacing) * 4);
@@ -2049,20 +3464,10 @@
     }
   }
   &:checked {
-    border-color: var(--color-primary-500);
+    border-color: var(--color-gray-500);
   }
   &:checked {
-    background-color: var(--color-primary-500);
-  }
-  &:focus-visible {
-    outline-style: var(--tw-outline-style);
-    outline-width: 2px;
-  }
-  &:focus-visible {
-    outline-offset: 2px;
-  }
-  &:focus-visible {
-    outline-color: var(--color-primary-500);
+    background-color: var(--color-gray-500);
   }
   &:disabled {
     border-color: var(--color-gray-200);
@@ -2076,69 +3481,317 @@
       background-color: var(--color-gray-400);
     }
   }
-  @media (forced-colors: active) {
-    appearance: auto;
-  }
-  @media (forced-colors: active) {
-    &::before {
-      content: var(--tw-content);
-      display: none;
-    }
-  }
 }
-.input-radio > label {
-  display: block;
-  color: var(--color-gray-800);
+.radio-group > label {
+  margin-inline-start: calc(var(--spacing) * 1);
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
 }
-.select {
+.select-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.select-group > select {
+  width: 100%;
   cursor: pointer;
   border-radius: var(--radius-lg);
-  background-color: var(--color-gray-100);
   padding: calc(var(--spacing) * 2);
   font-size: var(--text-sm);
   line-height: var(--tw-leading, var(--text-sm--line-height));
-  color: var(--color-gray-900);
   &:focus {
     --tw-outline-style: none;
     outline-style: none;
   }
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-900);
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-gray-800);
+  }
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-100);
+  }
 }
-.input-file {
+.select-group > label {
+  margin-inline-start: calc(var(--spacing) * 1);
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
+}
+.file-group {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
 }
-.input-file > input {
+.file-group > input {
   max-width: 100%;
   cursor: pointer;
   border-radius: var(--radius-lg);
   color: var(--color-gray-900);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-100);
+  }
+  &::file-selector-button {
+    cursor: pointer;
+    padding: calc(var(--spacing) * 2);
+    background-color: var(--color-gray-200);
+    color: var(--color-gray-900);
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-gray-800);
+    }
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-gray-100);
+    }
+  }
 }
-.input-file > label {
-  color: var(--color-gray-800);
+.file-group > label {
+  margin-inline-start: calc(var(--spacing) * 1);
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
 }
-.input-file > input::file-selector-button {
-  cursor: pointer;
-  background-color: var(--color-gray-50);
-  padding: calc(var(--spacing) * 2);
-  color: var(--color-gray-900);
+.color-group {
+  display: flex;
+  align-items: center;
+}
+.color-group > input {
+  border-radius: var(--radius-lg);
+}
+.color-group > label {
+  margin-inline-start: calc(var(--spacing) * 1);
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
 }
 .card {
   border-radius: var(--radius-xl);
-  background-color: var(--color-white);
-  background-clip: border-box;
   padding: calc(var(--spacing) * 4);
   --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
   box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  background-color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-gray-950);
+  }
 }
-.collapse-button-icon {
-  margin-block: auto;
-  transform: rotate(0deg);
-  transition: transform .2s linear;
+.card-title {
+  margin-bottom: calc(var(--spacing) * 2);
+  border-bottom-style: var(--tw-border-style);
+  border-bottom-width: 1px;
+  border-color: var(--color-gray-400);
+  @media (prefers-color-scheme: dark) {
+    border-color: var(--color-gray-600);
+  }
 }
-.collapse-button-icon.open {
-  transform: rotate(180deg);
-  transition: transform .2s linear;
+.card-body {
+  margin-block: calc(var(--spacing) * 1);
+}
+.card-footer {
+  margin-top: calc(var(--spacing) * 1);
+  display: flex;
+  flex-wrap: wrap;
+}
+.simple-border {
+  border-radius: var(--radius-xl);
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  padding: calc(var(--spacing) * 2);
+  border-color: var(--color-gray-300);
+  @media (prefers-color-scheme: dark) {
+    border-color: var(--color-gray-700);
+  }
+}
+.alert {
+  display: flex;
+  border-radius: var(--radius-lg);
+  padding-inline: calc(var(--spacing) * 4);
+  padding-block: calc(var(--spacing) * 4);
+  color: var(--color-gray-700);
+  color: var(--color-gray-700);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-300);
+  }
+}
+.alert-primary {
+  background-color: var(--color-gray-300);
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-gray-700);
+  }
+}
+.alert-secondary {
+  background-color: var(--color-gray-100);
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-gray-900);
+  }
+}
+.alert-active {
+  background-color: var(--color-active-100);
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-active-900);
+  }
+}
+.alert-inactive {
+  background-color: var(--color-inactive-100);
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-inactive-900);
+  }
+}
+.alert-info {
+  background-color: var(--color-info-100);
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-info-900);
+  }
+}
+.alert-success {
+  background-color: var(--color-success-100);
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-success-900);
+  }
+}
+.alert-warning {
+  background-color: var(--color-warning-100);
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-warning-900);
+  }
+}
+.alert-danger {
+  background-color: var(--color-danger-100);
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-danger-900);
+  }
+}
+.alert-attention {
+  background-color: var(--color-attention-100);
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-attention-900);
+  }
+}
+.list-group {
+  border-radius: var(--radius-lg);
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-gray-200);
+  background-color: var(--color-gray-50);
+  color: var(--color-gray-700);
+  @media (prefers-color-scheme: dark) {
+    border-color: var(--color-gray-800);
+  }
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-gray-950);
+  }
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-300);
+  }
+}
+.list-group-item {
+  display: block;
+  padding-inline: calc(var(--spacing) * 4);
+  padding-block: calc(var(--spacing) * 2);
+}
+.list-group-item:not(:last-child) {
+  border-bottom-style: var(--tw-border-style);
+  border-bottom-width: 1px;
+  border-color: var(--color-gray-200);
+  @media (prefers-color-scheme: dark) {
+    border-color: var(--color-gray-800);
+  }
+}
+.list-group-item-action {
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-200);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-gray-800);
+      }
+    }
+  }
+}
+.list-group-item-action.active {
+  background-color: var(--color-gray-200);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-300);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-gray-800);
+  }
+  @media (prefers-color-scheme: dark) {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-gray-700);
+      }
+    }
+  }
+}
+.list-group-item-action.disabled {
+  cursor: default;
+  color: var(--color-gray-600);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-400);
+  }
+}
+.tab {
+  display: inline-flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-radius: calc(infinity * 1px);
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  @media (width >= 40rem) {
+    flex-direction: row;
+  }
+  border-color: var(--color-gray-300);
+  @media (prefers-color-scheme: dark) {
+    border-color: var(--color-gray-700);
+  }
+}
+.tab-item {
+  display: flex;
+  cursor: pointer;
+  border-radius: calc(infinity * 1px);
+  padding-inline: calc(var(--spacing) * 4);
+  padding-block: calc(var(--spacing) * 2);
+  font-size: var(--text-base);
+  line-height: var(--tw-leading, var(--text-base--line-height));
+  --tw-font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-medium);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-300);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-gray-700);
+      }
+    }
+  }
+}
+.tab-item.active {
+  color: var(--color-gray-50);
+  background-color: var(--color-gray-400);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-500);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-gray-600);
+  }
+  @media (prefers-color-scheme: dark) {
+    &:hover {
+      @media (hover: hover) {
+        @media (prefers-color-scheme: dark) {
+          background-color: var(--color-gray-500);
+        }
+      }
+    }
+  }
 }
 .dropdown {
   position: relative;
@@ -2151,130 +3804,160 @@
   z-index: 10;
 }
 .dropdown-body-end {
-  position: absolute;
   right: calc(var(--spacing) * 0);
-  z-index: 10;
+  left: auto;
 }
-.alert {
-  display: flex;
-  border-radius: var(--radius-lg);
+.dropdown-item {
+  display: block;
   padding-inline: calc(var(--spacing) * 4);
-  padding-block: calc(var(--spacing) * 4);
+  padding-block: calc(var(--spacing) * 2);
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
   color: var(--color-gray-700);
-}
-.tab {
-  display: flex;
-  cursor: pointer;
-  border-bottom-style: var(--tw-border-style);
-  border-bottom-width: 2px;
-  border-color: var(--color-gray-300);
-  padding-inline: calc(var(--spacing) * 6);
-  padding-block: calc(var(--spacing) * 4);
-  font-size: var(--text-base);
-  line-height: var(--tw-leading, var(--text-base--line-height));
-  --tw-font-weight: var(--font-weight-medium);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-gray-500);
-  &:hover {
-    @media (hover: hover) {
-      border-color: var(--color-gray-800);
-    }
-  }
   &:hover {
     @media (hover: hover) {
       color: var(--color-gray-800);
     }
   }
-}
-.tab-active {
-  border-color: var(--color-primary-500);
-  --tw-font-weight: var(--font-weight-bold);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-primary-500);
-  &:hover {
-    @media (hover: hover) {
-      border-color: var(--color-primary-600);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-300);
+  }
+  @media (prefers-color-scheme: dark) {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-gray-200);
+      }
     }
   }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-primary-600);
-    }
+}
+.modal-header {
+  margin-bottom: calc(var(--spacing) * 4);
+  display: flex;
+  flex-wrap: wrap;
+}
+.modal-body {
+  margin-block: calc(var(--spacing) * 2);
+}
+.modal-footer {
+  margin-top: calc(var(--spacing) * 2);
+}
+.modal-sm {
+  width: 100vw;
+  @media (width >= 40rem) {
+    width: calc(var(--spacing) * 160);
+  }
+}
+.modal-md {
+  width: 100vw;
+  @media (width >= 48rem) {
+    width: calc(var(--spacing) * 192);
+  }
+}
+.modal-lg {
+  width: 100vw;
+  @media (width >= 64rem) {
+    width: calc(var(--spacing) * 256);
+  }
+}
+.modal-xl {
+  width: 100vw;
+  @media (width >= 80rem) {
+    width: calc(var(--spacing) * 320);
+  }
+}
+.modal-2xl {
+  width: 100vw;
+  @media (width >= 96rem) {
+    width: calc(var(--spacing) * 384);
   }
 }
 .accordion {
   width: 100%;
 }
-.accordion > .accordion-item {
+.accordion-item {
   width: 100%;
+  border-bottom-style: var(--tw-border-style);
+  border-bottom-width: 1px;
   padding-inline: calc(var(--spacing) * 4);
+  border-color: var(--color-gray-300);
+  @media (prefers-color-scheme: dark) {
+    border-color: var(--color-gray-700);
+  }
 }
-.accordion > .accordion-item > .accordion-button {
+.accordion-button {
   display: flex;
   width: 100%;
   cursor: pointer;
-  border-bottom-style: var(--tw-border-style);
-  border-bottom-width: 2px;
-  border-color: var(--color-gray-300);
   padding-inline: calc(var(--spacing) * 4);
   padding-block: calc(var(--spacing) * 4);
-  font-size: var(--text-base);
-  line-height: var(--tw-leading, var(--text-base--line-height));
-  --tw-font-weight: var(--font-weight-medium);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-gray-500);
-  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
   transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
   transition-duration: var(--tw-duration, var(--default-transition-duration));
   --tw-duration: 200ms;
   transition-duration: 200ms;
+  color: var(--color-gray-500);
   &:hover {
     @media (hover: hover) {
-      border-color: var(--color-gray-800);
+      color: var(--color-gray-600);
     }
   }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-gray-800);
-    }
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-500);
   }
-}
-.accordion > .accordion-item > .accordion-button.accordion-button-active {
-  border-color: var(--color-primary-500);
-  --tw-font-weight: var(--font-weight-bold);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-primary-500);
-  &:hover {
-    @media (hover: hover) {
-      border-color: var(--color-primary-600);
-    }
-  }
-  &:hover {
-    @media (hover: hover) {
-      color: var(--color-primary-600);
+  @media (prefers-color-scheme: dark) {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-gray-400);
+      }
     }
   }
 }
-.accordion > .accordion-item > .accordion-button > .accordion-button-icon {
-  margin-block: auto;
-  margin-inline-start: auto;
-  transform: rotate(0deg);
-  transition: transform .2s linear;
+.accordion-button.active {
+  color: var(--color-gray-600);
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-700);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-400);
+  }
+  @media (prefers-color-scheme: dark) {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-gray-300);
+      }
+    }
+  }
 }
-.accordion > .accordion-item > .accordion-button > .accordion-button-icon.open {
-  transform: rotate(180deg);
-  transition: transform .2s linear;
-}
-.accordion > .accordion-item > .accordion-body {
-  border-bottom-style: var(--tw-border-style);
-  border-bottom-width: 2px;
-  border-color: var(--color-gray-300);
+.accordion-body {
   padding-inline: calc(var(--spacing) * 1);
   padding-block: calc(var(--spacing) * 4);
 }
-.accordion > .accordion-item:last-child > .accordion-body {
-  border-bottom-style: var(--tw-border-style);
-  border-bottom-width: 0px;
+.icon-button-rotate {
+  margin-block: auto;
+  transform: rotate(0deg);
+  transition: transform .2s linear;
+}
+.icon-button-rotate.rotated {
+  transform: rotate(180deg);
+  transition: transform .2s linear;
+}
+.toast {
+  margin: calc(var(--spacing) * 2);
+  width: calc(var(--spacing) * 80);
+  border-radius: var(--radius-lg);
+  padding: calc(var(--spacing) * 2);
+  --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+  box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+}
+.toast-divider {
+  margin-top: calc(var(--spacing) * 1);
+  margin-bottom: calc(var(--spacing) * 2);
+  color: var(--color-gray-400);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-600);
+  }
 }
 .table {
   table-layout: auto;
@@ -2287,32 +3970,18 @@
     border-top-width: calc(1px * var(--tw-divide-y-reverse));
     border-bottom-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
   }
-  :where(& > :not(:last-child)) {
-    border-color: var(--color-gray-200);
-  }
+  border-radius: var(--radius-lg);
   text-align: left;
   font-size: var(--text-sm);
   line-height: var(--tw-leading, var(--text-sm--line-height));
   white-space: nowrap;
-}
-.table:not(.table-stripped) > tbody {
-  :where(& > :not(:last-child)) {
-    --tw-divide-y-reverse: 0;
-    border-bottom-style: var(--tw-border-style);
-    border-top-style: var(--tw-border-style);
-    border-top-width: calc(1px * var(--tw-divide-y-reverse));
-    border-bottom-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
-  }
   :where(& > :not(:last-child)) {
     border-color: var(--color-gray-200);
   }
-}
-.table-striped > tbody > tr {
-  &:nth-child(odd) {
-    background-color: var(--color-white);
-  }
-  &:nth-child(even) {
-    background-color: var(--color-gray-50);
+  @media (prefers-color-scheme: dark) {
+    :where(& > :not(:last-child)) {
+      border-color: var(--color-gray-400);
+    }
   }
 }
 .table th {
@@ -2325,6 +3994,9 @@
   --tw-tracking: var(--tracking-wider);
   letter-spacing: var(--tracking-wider);
   color: var(--color-gray-800);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-200);
+  }
 }
 .table td {
   padding-inline: calc(var(--spacing) * 6);
@@ -2332,19 +4004,98 @@
   font-size: var(--text-sm);
   line-height: var(--tw-leading, var(--text-sm--line-height));
   color: var(--color-gray-700);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-300);
+  }
 }
-.table > tbody > tr {
+.table-striped > tbody > tr {
+  &:nth-child(odd) {
+    background-color: var(--color-gray-50);
+  }
+  &:nth-child(even) {
+    background-color: var(--color-gray-100);
+  }
+  @media (prefers-color-scheme: dark) {
+    &:nth-child(odd) {
+      background-color: var(--color-gray-950);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    &:nth-child(even) {
+      background-color: var(--color-gray-900);
+    }
+  }
+}
+.table-hover > tbody > tr {
   --tw-duration: 100ms;
   transition-duration: 100ms;
   &:hover {
     @media (hover: hover) {
-      background-color: var(--color-gray-100);
+      background-color: var(--color-gray-200);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-gray-800);
+      }
     }
   }
 }
 .table-dense td {
   padding-inline: calc(var(--spacing) * 2);
   padding-block: calc(var(--spacing) * 1.5);
+}
+.pagination-number {
+  cursor: pointer;
+  border-radius: calc(infinity * 1px);
+  padding: calc(var(--spacing) * 2);
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+  --tw-duration: 200ms;
+  transition-duration: 200ms;
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-200);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-gray-800);
+      }
+    }
+  }
+}
+.pagination-number.active {
+  background-color: var(--color-gray-400);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-600);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-gray-600);
+  }
+  @media (prefers-color-scheme: dark) {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-gray-400);
+      }
+    }
+  }
+}
+.pagination-number.disabled {
+  color: var(--color-gray-400);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-gray-600);
+  }
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 @property --tw-rotate-x {
   syntax: "*";
@@ -2365,11 +4116,6 @@
 @property --tw-skew-y {
   syntax: "*";
   inherits: false;
-}
-@property --tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
 }
 @property --tw-font-weight {
   syntax: "*";
@@ -2444,22 +4190,7 @@
   syntax: "*";
   inherits: false;
 }
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --tw-translate-x {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
-@property --tw-translate-y {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
-@property --tw-translate-z {
+@property --tw-space-x-reverse {
   syntax: "*";
   inherits: false;
   initial-value: 0;
@@ -2481,12 +4212,12 @@
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
+      --tw-border-style: solid;
       --tw-rotate-x: initial;
       --tw-rotate-y: initial;
       --tw-rotate-z: initial;
       --tw-skew-x: initial;
       --tw-skew-y: initial;
-      --tw-border-style: solid;
       --tw-font-weight: initial;
       --tw-shadow: 0 0 #0000;
       --tw-shadow-color: initial;
@@ -2503,10 +4234,7 @@
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
       --tw-duration: initial;
-      --tw-outline-style: solid;
-      --tw-translate-x: 0;
-      --tw-translate-y: 0;
-      --tw-translate-z: 0;
+      --tw-space-x-reverse: 0;
       --tw-content: "";
       --tw-divide-y-reverse: 0;
       --tw-tracking: initial;

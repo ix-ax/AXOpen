@@ -16,7 +16,7 @@
         <tbody>
             @foreach (User user in AllUsers)
             {
-                <tr @onclick="@(() => RowClicked(user))" class="@((SelectedUser != null) ? ((SelectedUser.UserName == user.UserName) ? "active" : "") : "")">
+                <tr @onclick="@(() => RowClicked(user))" class="cursor-pointer @((SelectedUser != null) ? ((SelectedUser.UserName == user.UserName) ? "active" : "") : "")">
                     <th>@user.UserName</th>
                     <td>@user.CanUserChangePassword</td>
                     <td>@user.Created</td>
@@ -27,64 +27,66 @@
     </table>
 </div>
 
-<a class="btn btn-primary mt-4" role="button"
-   href="Identity/Account/Register?returnUrl=~/@(GetBaseUri())">
-    @Localizer["Create new user"]
-</a>
+<div class="flex flex-wrap">
+    <a class="btn btn-primary m-2" role="button"
+       href="Identity/Account/Register?returnUrl=~/@(GetBaseUri())">
+        @Localizer["Create new user"]
+    </a>
+</div>
 
 @if (SelectedUser != null)
 {
-    <div class="mt-8 mx-4">
+    <div class="m-4">
         <h4 class="me-auto">@Localizer["Selected user:"]</h4>
         <EditForm Model="@_model" OnValidSubmit="OnValidUpdate">
             <DataAnnotationsValidator />
             <div class="input-group">
-                <label class="me-2">@Localizer["Username"]</label>
+                <label>@Localizer["Username"]</label>
                 <InputText @bind-Value="_model.Username" type="text" disabled />
                 <ValidationMessage For="@(() => _model.Username)" />
             </div>
 
-            <div class="input-group">
+            <div class="checkbox-group">
                 <input type="checkbox" id="checkBoxCanUserChangePassword" @bind="_model.CanUserChangePassword" />
-                <label for="checkBoxCanUserChangePassword" class="ms-2">@Localizer["Can change password"]</label>
+                <label for="checkBoxCanUserChangePassword">@Localizer["Can change password"]</label>
             </div>
 
             <div class="input-group">
-                <label class="me-2">@Localizer["Password"]</label>
+                <label>@Localizer["Password"]</label>
                 <InputText @bind-Value="_model.Password" type="password" />
                 <ValidationMessage For="@(() => _model.Password)" />
             </div>
 
             <div class="input-group">
-                <label class="me-2">@Localizer["Confirm password"]</label>
+                <label>@Localizer["Confirm password"]</label>
                 <InputText @bind-Value="_model.ConfirmPassword" type="password" />
                 <ValidationMessage For="@(() => _model.ConfirmPassword)" />
             </div>
 
             <div class="input-group mt-2">
-                <label class="me-2">Email</label>
+                <label>Email</label>
                 <InputText @bind-Value="_model.Email" type="email" />
                 <ValidationMessage For="@(() => _model.Email)" />
             </div>
 
-            <div class="input-group">
+            <div class="checkbox-group">
                 <input type="checkbox" id="checkBoxEnableAutoLogOut" @bind="_model.EnableAutoLogOut" />
-                <label for="checkBoxEnableAutoLogOut" class="ms-2">@Localizer["Automatic Log Out"]</label>
+                <label for="checkBoxEnableAutoLogOut">@Localizer["Automatic Log Out"]</label>
             </div>
 
             <!-- Timeout (Hidden if EnableAutoLogOut is false) -->
             @if (_model.EnableAutoLogOut)
             {
                 <div class="input-group">
-                    <label class="me-2">[@Localizer["Minutes"]]</label>
+                    <label>[@Localizer["Minutes"]]</label>
                     <input type="number" @bind="_model.AutoLogOutTimeOutMinutes" id="checkAutoLogOutTimeOutMinutes" />
                     <ValidationMessage For="@(() => _model.AutoLogOutTimeOutMinutes)" />
                 </div>
             }
 
-            <div class="mt-3">
-                <label class="me-2">@Localizer["Group"]</label>
-                <select class="select min-w-6" @bind="@_model.Group">
+            <div class="select-group">
+                <label>@Localizer["Group"]</label>
+                <select class="min-w-6" @bind="@_model.Group">
                     <option selected disabled>@Localizer["Choose group"]</option>
                     @foreach (var group in _repositoryService.RoleGroupManager.GetAllGroup())
                     {
@@ -93,16 +95,16 @@
                 </select>
                 <ValidationMessage For="@(() => _model.Group)" />
             </div>
-            <div>
-                <button type="submit" class="btn btn-primary m-2">@Localizer["Update"]</button>
-                <button type="button" class="btn btn-danger m-2" @onclick="() => _modalDelete.Toggle()">@Localizer["Delete"]</button>
+            <div class="flex mt-2 justify-end gap-1">
+                <button type="submit" class="btn btn-primary">@Localizer["Update"]</button>
+                <button type="button" class="btn btn-danger" @onclick="() => _modalDelete.Toggle()">@Localizer["Delete"]</button>
             </div>
         </EditForm>
     </div>
 
     <Modal @ref="_modalDelete">
         <div class="modal-header">
-            <h2 class="text-xl font-bold">@Localizer["Delete user"]</h2>
+            <h4>@Localizer["Delete user"]</h4>
             <button type="button" class="cursor-pointer ms-auto my-auto" @onclick="() => _modalDelete.CloseModal()">
                 <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
             </button>
@@ -110,9 +112,9 @@
         <div class="modal-body">
             <h6>@Localizer["Do you want to delete user"] @SelectedUser.UserName?</h6>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer flex justify-end gap-1">
             <button type="button" class="btn btn-secondary" @onclick="() => _modalDelete.CloseModal()">@Localizer["Close"]</button>
-            <button type="button" class="btn btn-danger m-2" @onclick="@(() => { _modalDelete.CloseModal(); DeleteUser(SelectedUser); })">@Localizer["Delete"]</button>
+            <button type="button" class="btn btn-danger" @onclick="@(() => { _modalDelete.CloseModal(); DeleteUser(SelectedUser); })">@Localizer["Delete"]</button>
         </div>
     </Modal>
 }

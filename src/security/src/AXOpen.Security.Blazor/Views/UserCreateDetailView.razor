@@ -7,57 +7,57 @@
 
 <AuthorizeView Roles="Administrator">
     <Authorized Context="Auth">
-        <div class="mt-2 mx-4">
-            <h4>@Localizer["Create new user"]</h4>
-            <hr />
-            <div>
+        <div class="flex justify-center">
+            <div class="w-md">
+                <h4>@Localizer["Create new user"]</h4>
+                <hr class="mb-2" />
                 <EditForm Model="@_model" OnValidSubmit="OnValidSubmit">
                     <DataAnnotationsValidator />
                     <div class="input-group">
-                        <label class="me-2">@Localizer["Username"]</label>
+                        <label>@Localizer["Username"]</label>
                         <InputText @bind-Value="_model.Username" />
                         <ValidationMessage For="@(() => _model.Username)" />
                     </div>
                     <div class="input-group">
-                        <label class="me-2">@Localizer["Password"]</label>
+                        <label>@Localizer["Password"]</label>
                         <InputText @bind-Value="_model.Password" type="password" />
                         <ValidationMessage For="@(() => _model.Password)" />
                     </div>
                     <div class="input-group">
-                        <label class="me-2">@Localizer["Confirm password"]</label>
+                        <label>@Localizer["Confirm password"]</label>
                         <InputText @bind-Value="_model.ConfirmPassword" type="password" />
                         <ValidationMessage For="@(() => _model.ConfirmPassword)" />
                     </div>
 
-                    <div class="input-group">
+                    <div class="checkbox-group">
                         <input type="checkbox" id="checkBoxCanUserChangePassword" @bind="_model.CanUserChangePassword" />
-                        <label for="checkBoxCanUserChangePassword" class="ms-2">@Localizer["Can change password"]</label>
+                        <label for="checkBoxCanUserChangePassword">@Localizer["Can change password"]</label>
                     </div>
 
                     <div class="input-group">
-                        <label class="me-2">Email</label>
+                        <label>Email</label>
                         <InputText @bind-Value="_model.Email" type="email" />
                         <ValidationMessage For="@(() => _model.Email)" />
                     </div>
 
-                    <div class="input-group">
+                    <div class="checkbox-group">
                         <input type="checkbox" id="checkBoxEnableAutoLogOut" @bind="_model.EnableAutoLogOut" />
-                        <label for="checkBoxEnableAutoLogOut" class="ms-2">@Localizer["Automatic Log Out"]</label>
+                        <label for="checkBoxEnableAutoLogOut">@Localizer["Automatic Log Out"]</label>
                     </div>
 
                     <!-- Timeout (Hidden if EnableAutoLogOut is false) -->
                     @if (_model.EnableAutoLogOut)
                     {
                         <div class="input-group">
-                            <label class="me-2">[@Localizer["Minutes"]]</label>
+                            <label>[@Localizer["Minutes"]]</label>
                             <input type="number" @bind="_model.AutoLogOutTimeOutMinutes" id="checkAutoLogOutTimeOutMinutes" />
                             <ValidationMessage For="@(() => _model.AutoLogOutTimeOutMinutes)" />
                         </div>
                     }
 
-                    <div class="mt-3">
-                        <label class="me-2">@Localizer["Group"]</label>
-                        <select class="select min-w-6" @bind="@_model.Group">
+                    <div class="select-group">
+                        <label>@Localizer["Group"]</label>
+                        <select class="min-w-6" @bind="@_model.Group">
                             <option selected disabled>@Localizer["Choose group"]</option>
                             @foreach (var group in _repositoryService.RoleGroupManager.GetAllGroup())
                             {
@@ -67,7 +67,7 @@
                         <ValidationMessage For="@(() => _model.Group)" />
                     </div>
 
-                    <button type="submit" class="btn btn-primary">@Localizer["Create"]</button>
+                    <button type="submit" class="btn btn-primary mt-2 w-full">@Localizer["Create"]</button>
                 </EditForm>
             </div>
         </div>

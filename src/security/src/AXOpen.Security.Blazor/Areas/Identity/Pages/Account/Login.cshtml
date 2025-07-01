@@ -9,24 +9,22 @@
 }
 
 <div class="flex justify-center">
-    <div class="w-xl mt-16">
-        <h2>Log in</h2>
-        <hr />
-        <div>
-            <form id="account" method="post">
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="input-group">
-                    <label asp-for="Input.Username" class="me-2">@Localizer["Username"]</label>
-                    <input asp-for="Input.Username" />
-                    <span asp-validation-for="Input.Username" class="text-danger"></span>
-                </div>
-                <div class="input-group">
-                    <label asp-for="Input.Password" class="me-2">@Localizer["Password"]</label>
-                    <input asp-for="Input.Password" />
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <button type="submit" class="btn btn-primary w-full mt-2">@Localizer["Log in"]</button>
-            </form>
-        </div>
+    <div class="w-md">
+        <h4>Log in</h4>
+        <hr class="mb-2" />
+        <form id="account" method="post">
+            <div asp-validation-summary="All"></div>
+            <div class="input-group">
+                <label asp-for="Input.Username">@Localizer["Username"]</label>
+                <input asp-for="Input.Username" />
+                <span asp-validation-for="Input.Username"></span>
+            </div>
+            <div class="input-group">
+                <label asp-for="Input.Password">@Localizer["Password"]</label>
+                <input asp-for="Input.Password" />
+                <span asp-validation-for="Input.Password"></span>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2 w-full">@Localizer["Log in"]</button>
+        </form>
     </div>
 </div>
