@@ -13,7 +13,7 @@
             <Authorized>
                 <div class="flex flex-wrap m-2 items-center">
                     <nav class="tab ms-2 my-2">
-                        @foreach (var item in Views)
+                        @foreach (var item in GetAllFiles())
                         {
                             <button class="tab-item @(CurrentView is null || CurrentView == "" ? item == DefaultView ? "active" : null : item == CurrentView ? "active" : null)" @onclick="() => LoadAsync(item)">@item</button>
                         }
@@ -112,7 +112,7 @@
                 {
                     <Modal @ref="_modalControllerObjects">
                         <div class="modal-header">
-                            <h2 class="text-xl font-bold">Controller objects</h2>
+                            <h4>Controller objects</h4>
                             <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalControllerObjects.CloseModal()">
                                 <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                             </button>
@@ -154,14 +154,14 @@
                                     }
                             }
                         </div>
-                        <div class="modal-footer flex flex-col items-end">
+                        <div class="modal-footer flex justify-end gap-1">
                             <button class="btn btn-outline-red" @onclick="() => _modalControllerObjects.CloseModal()">Close</button>
                         </div>
                     </Modal>
 
                     <Modal @ref="_modalUsedObject">
                         <div class="modal-header">
-                            <h2 class="text-xl font-bold">Used components</h2>
+                            <h4>Used components</h4>
                             <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalUsedObject.CloseModal()">
                                 <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                             </button>
@@ -182,14 +182,14 @@
                                 }
                             </ul>
                         </div>
-                        <div class="modal-footer flex flex-col items-end">
+                        <div class="modal-footer flex justify-end gap-1">
                             <button class="btn btn-outline-red" @onclick="() => _modalUsedObject.CloseModal()">Close</button>
                         </div>
                     </Modal>
 
                     <Modal @ref="_modalCreateNew">
                         <div class="modal-header">
-                            <h2 class="text-xl font-bold">Create new</h2>
+                            <h4>Create new</h4>
                             <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalCreateNew.CloseModal()">
                                 <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                             </button>
@@ -197,7 +197,7 @@
                         <div class="modal-body">
                             <BaseInput @bind-Value="FileName" Label="Name" />
                         </div>
-                        <div class="modal-footer flex flex-col items-end">
+                        <div class="modal-footer flex justify-end gap-1">
                             <button type="button" class="btn btn-primary" @onclick="async () => { _modalCreateNew.CloseModal(); await CreateNewAsync(FileName); }">Create</button>
                             <button type="button" class="btn btn-outline-red" @onclick="() => _modalCreateNew.CloseModal()">Close</button>
                         </div>
@@ -205,7 +205,7 @@
 
                     <Modal @ref="_modalCreateCopy">
                         <div class="modal-header">
-                            <h2 class="text-xl font-bold">Modal Title</h2>
+                            <h4>Modal Title</h4>
                             <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalCreateCopy.CloseModal()">
                                 <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                             </button>
@@ -213,7 +213,7 @@
                         <div class="modal-body">
                             <BaseInput @bind-Value="FileName" Label="Name" />
                         </div>
-                        <div class="modal-footer flex flex-col items-end">
+                        <div class="modal-footer flex justify-end gap-1">
                             <button type="button" class="btn btn-primary" @onclick="async () => { _modalCreateCopy.CloseModal(); await CreateCopyAsync(FileName); }">Create</button>
                             <button class="btn btn-outline-red" @onclick="() => _modalCreateCopy.CloseModal()">Close</button>
                         </div>
@@ -221,7 +221,7 @@
 
                     <Modal @ref="_modalViews">
                         <div class="modal-header">
-                            <h2 class="text-xl font-bold">Views</h2>
+                            <h4>Views</h4>
                             <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalViews.CloseModal()">
                                 <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                             </button>
@@ -232,31 +232,31 @@
                                 {
                                     <li class="list-group-item flex! flex-wrap">
                                         <p>@item.file</p>
-                                        <a class="ms-auto mx-1" @onclick="() => ClearScaleAndTranslateAsync(item.file)">
+                                        <a class="ms-auto mx-1" @onclick="() => ClearScaleAndTranslateAsync(item.file)" title="Clear scale and translate">
                                             <Operon.Icons.HeroIcon Icon="arrow-uturn-left" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                         </a>
-                                        <a class=" mx-1" @onclick="() => RemoveAsync(item.file)">
+                                        <a class=" mx-1" @onclick="() => RemoveAsync(item.file)" title="Remove">
                                             <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                         </a>
                                         <a class=" mx-1" @onclick="() => ChangeBaseViewsAsync(item.file)" title="@(Views.Contains(item.file) ? "Remove from base views" : "Add to base views")">
                                             <Operon.Icons.HeroIcon Icon="@(Views.Contains(item.file) ? "minus" : "plus")" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                         </a>
 
-                                        <input type="checkbox" class="checkbox mx-1" checked="@(item.allowZoomingAndPanning ? "checked" : null)" @onclick="() => ChangeAllowZoomingAndPanningAsync(item.file)" />
+                                        <input type="checkbox" class="checkbox mx-1" checked="@(item.allowZoomingAndPanning ? "checked" : null)" @onclick="() => ChangeAllowZoomingAndPanningAsync(item.file)" title="Zooming and panning" />
 
-                                        <input type="checkbox" class="checkbox mx-1 me-2" checked="@(item.file == DefaultView ? "checked" : null)" @onclick="() => ChangeDefaultViewAsync(item.file)" />
+                                        <input type="checkbox" class="checkbox mx-1 me-2" checked="@(item.file == DefaultView ? "checked" : null)" @onclick="() => ChangeDefaultViewAsync(item.file)" title="Default view" />
                                     </li>
                                 }
                             </ul>
                         </div>
-                        <div class="modal-footer flex flex-col items-end">
+                        <div class="modal-footer flex justify-end gap-1">
                             <button class="btn btn-outline-red" @onclick="() => _modalViews.CloseModal()">Close</button>
                         </div>
                     </Modal>
 
                     <Modal @ref="_modalBackground">
                         <div class="modal-header">
-                            <h2 class="text-xl font-bold">Background</h2>
+                            <h4>Background</h4>
                             <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalBackground.CloseModal()">
                                 <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                             </button>
@@ -280,14 +280,14 @@
                                 <BaseInput @bind-Value="BackgroundHeight" Label="Height" />
                             </div>
                         </div>
-                        <div class="modal-footer flex flex-col items-end">
+                        <div class="modal-footer flex justify-end gap-1">
                             <button class="btn btn-outline-red" @onclick="() => _modalBackground.CloseModal()">Close</button>
                         </div>
                     </Modal>
 
                     <Modal @ref="_modalBackgroundSVGInput">
                         <div class="modal-header">
-                            <h2 class="text-xl font-bold">Modal Title</h2>
+                            <h4>Modal Title</h4>
                             <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalBackgroundSVGInput.CloseModal()">
                                 <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                             </button>
@@ -298,7 +298,7 @@
                                 <textarea id="textareaTailwind" rows="10" @bind="BackgroundSVGInput" placeholder="SVG input"></textarea>
                             </div>
                         </div>
-                        <div class="modal-footer flex flex-col items-end">
+                        <div class="modal-footer flex justify-end gap-1">
                             <button class="btn btn-outline-red" @onclick="() => _modalBackgroundSVGInput.CloseModal()">Close</button>
                         </div>
                     </Modal>

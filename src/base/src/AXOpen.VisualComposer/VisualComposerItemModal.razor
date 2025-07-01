@@ -6,7 +6,7 @@
         <Authorized>
             <Modal @bind-Open="Origin.ModalSettingOpen">
                 <div class="modal-header">
-                    <h2 class="text-xl font-bold">@Origin.IdPlain</h2>
+                    <h4>@Origin.IdPlain</h4>
                     <button type="button" class="cursor-pointer ms-auto my-auto" @onclick="() => { Origin.ModalSettingOpen = false; RemoveAsync(); }">
                         <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                     </button>
