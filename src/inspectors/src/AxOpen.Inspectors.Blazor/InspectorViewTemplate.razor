@@ -7,7 +7,7 @@
         <button class="accordion-button @(_accordionOpen ? "active" : null)" type="button" @onclick="() => _accordionOpen = !_accordionOpen">
             <p class="overflow-visible my-auto">@Name</p>
 
-            <div class="flex flex-row items-center justify-end w-full mx-2">
+            <div class="flex flex-row items-center justify-end w-full mx-2 gap-2">
                 @if (!_accordionOpen)
                 {
                     @if (IsAnalogInspectorData())
@@ -47,7 +47,7 @@
         @if (_accordionOpen)
         {
             <div class="accordion-body">
-                <div class="flex flex-row my-1">
+                <div class="flex flex-row my-1 gap-2">
                     @if (IsAnalogInspectorData())
                     {
                         <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).RequiredMin" Presentation="@Presentation" Class="w-1/3" />
