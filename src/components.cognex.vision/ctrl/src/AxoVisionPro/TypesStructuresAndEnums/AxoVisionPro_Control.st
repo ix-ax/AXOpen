@@ -7,9 +7,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             SetUserdata             : BOOL;
             InitiateJobLoad         : BOOL;
             InspectionResultsAck    : BOOL;
-            ID_Inspection           : WORD;   
+            ID_Inspection           : BYTE;   
             JobLoadID               : WORD;
-            WriteDataID             : WORD;
+            WriteDataID             : BYTE;
         END_VAR 
     END_CLASS    
 END_NAMESPACE

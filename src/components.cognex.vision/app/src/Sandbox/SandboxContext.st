@@ -45,14 +45,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 
 
         METHOD PROTECTED OVERRIDE Main
-
+            RETURN;
             THIS.InitializeRootObject(_rootObject);
 
             IF(ActivateManualControl) THEN
                 VisionPro.ActivateManualControl();
             END_IF;    
 
-            VisionPro.Run(parent := _rootObject, hwID := HwIdentifiers#CommunicationCard_HwID, CameraNo := UINT#1);
+            VisionPro.Run(parent := _rootObject, hwID := HwIdentifiers#vision_pro_HwID, CameraNo := BYTE#1);
 
         END_METHOD
     END_CLASS
