@@ -21,8 +21,7 @@
             currentPresentation = "Status-Display";
         }
         <RenderableContentControl Presentation="@currentPresentation" Context="@Header"
-                                  Class="w-full"
-                                  LayoutClass="justify-center" /> 
+                                  Class="w-full" /> 
     </div>
     <Accordion>
         <AccordionItem  Title="@this.Component.Symbol">
@@ -35,7 +34,6 @@
                                 Context=@detailsTab
                                 Presentation="@currentPresentation"
                                 Class="w-full"
-                                LayoutClass="justify-center"
                                 LayoutChildrenClass="ms-0"/>
                         </TabPage>
                     }
