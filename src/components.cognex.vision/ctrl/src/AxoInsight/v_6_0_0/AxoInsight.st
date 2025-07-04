@@ -91,6 +91,15 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             {#ix-set:AttributeName = "<#Trigger soft event#>"}
             SoftEventTask : AXOpen.Core.AxoTask;
 
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#User data to be sent#>"}
+            UserDataToSent : STRING;
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#User data offset#>"}
+            UserDataOffset : UINT;            
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#Send user data#>"}
+            SendUserDataTask : AXOpen.Core.AxoTask;
         END_VAR
 
         VAR PUBLIC //Config
@@ -730,6 +739,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             ChangeJobByNameTask.Run(THIS);
             ChangeJobByNumberTask.Run(THIS);
             SoftEventTask.Run(THIS);
+            SendUserDataTask.Run(THIS);
             HardwareDiagnosticsTask.Run(THIS,_hwID);
             //*************RESTORE********************
             RestoreTask.IsDisabled := FALSE;
@@ -739,7 +749,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             //****************************************
 
             //*************CLEAR*DATA*****************
-            ClearInspectionResultsTask.IsDisabled := RestoreTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SoftEventTask.IsBusy();
+            ClearInspectionResultsTask.IsDisabled := RestoreTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SoftEventTask.IsBusy() OR SendUserDataTask.IsBusy();
             IF ClearInspectionResultsTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
             END_IF;
@@ -818,7 +828,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             END_IF;
             //****************************************
             //*************READ***********************
-            TriggerTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SoftEventTask.IsBusy();
+            TriggerTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SoftEventTask.IsBusy() OR SendUserDataTask.IsBusy();
             IF TriggerTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#110;
             END_IF;
@@ -1000,7 +1010,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             //****************************************
 
             //*************CHANGE JOB BY NAME*********
-            ChangeJobByNameTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SoftEventTask.IsBusy();
+            ChangeJobByNameTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SoftEventTask.IsBusy() OR SendUserDataTask.IsBusy();
             IF ChangeJobByNameTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#120;
             END_IF;
@@ -1209,7 +1219,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             //****************************************
 
             //*************CHANGE JOB BY NUMBER*******
-            ChangeJobByNumberTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR SoftEventTask.IsBusy();
+            ChangeJobByNumberTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR SoftEventTask.IsBusy() OR SendUserDataTask.IsBusy();
             IF ChangeJobByNumberTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#140;
             END_IF;
@@ -1367,7 +1377,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             //****************************************
 
             //*************Soft event*****************
-            SoftEventTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy();
+            SoftEventTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy()  OR SendUserDataTask.IsBusy();
             IF SoftEventTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#150;
             END_IF;
@@ -1452,8 +1462,62 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             Messenger.ActivateOnCondition(ULINT#10050,SoftEventTask.HasError(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#10051,SoftEventTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#152,SoftEventTask.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF SoftEventTask.RestoreTriggered() AND _progress >= 340 AND _progress <= 349 THEN
+            IF SoftEventTask.RestoreTriggered() AND _progress >= 350 AND _progress <= 359 THEN
                 Status.Action.Id :=  UINT#152;
+                _progress := 0;
+            END_IF;   
+            //******************************************      
+
+            //*************SendUserData*****************
+            SendUserDataTask.IsDisabled :=   RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy()  OR SoftEventTask.IsBusy();
+            IF SendUserDataTask.StartTriggered() THEN
+                Status.Action.Id :=  UINT#160;
+            END_IF;
+            Messenger.ActivateOnCondition(ULINT#160,SendUserDataTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#161,SendUserDataTask.IsDone(), eAxoMessageCategory#Info);
+            IF SendUserDataTask.Execute(THIS) THEN
+                IF _progress = 0 THEN
+                    Status.Error.Id := UINT#0;
+                    TaskMessenger.Restore();
+                    THIS.CallTimers(FALSE);
+                    _progress := 360;
+                END_IF;
+
+                IF _progress = 360 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#560, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#560;
+                    END_IF;
+                    IF SetUserDataAsString(inValue := UserDataToSent, inPosition := UserDataOffset) THEN
+                        THIS.CallTimers(FALSE);
+                        _progress := 361;
+                    END_IF;
+                END_IF;
+                
+                IF _progress = 361 THEN
+                    SendUserDataTask.DoneWhen(TRUE);
+                    _progress := 0;            
+                END_IF;               
+
+                THIS.CallTimers(TRUE);
+                SendUserDataTask.ThrowWhen(_errorTimer.output);
+                Status.Action.Id := TO_UINT(_progress);
+            END_IF;
+            IF SendUserDataTask.DoneReached() THEN
+                Status.Action.Id :=  UINT#161;
+                Status.Error.Id :=  UINT#0;
+            ELSIF SendUserDataTask.ErrorOccured() THEN
+                Status.Action.Id :=  UINT#10060;
+                Status.Error.Id  :=  UINT#10060;
+            ELSIF SoftEventTask.AbortTriggered() THEN
+                Status.Action.Id :=  UINT#10061;
+                Status.Error.Id  :=  UINT#10061;
+            END_IF; 
+            Messenger.ActivateOnCondition(ULINT#10060,SendUserDataTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10061,SendUserDataTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#162,SendUserDataTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            IF SendUserDataTask.RestoreTriggered() AND _progress >= 360 AND _progress <= 369 THEN
+                Status.Action.Id :=  UINT#162;
                 _progress := 0;
             END_IF;   
             //******************************************      
