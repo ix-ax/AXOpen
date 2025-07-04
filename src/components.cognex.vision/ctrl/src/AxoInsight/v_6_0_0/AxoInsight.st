@@ -1488,7 +1488,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                         TaskMessenger.Activate( UINT#560, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#560;
                     END_IF;
-                    IF SetUserDataAsString(inValue := UserDataToSent, inPosition := UserDataOffset) THEN
+                    IF THIS.SetUserDataAsString(UserDataToSent, UserDataOffset) THEN
                         THIS.CallTimers(FALSE);
                         _progress := 361;
                     END_IF;
