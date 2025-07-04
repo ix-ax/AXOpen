@@ -449,8 +449,10 @@ namespace AXOpen.Components.Cognex.Vision
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1301, new AxoMessengerTextItem("Invalid value of the 'CameraNo' input variable, value too low!"                                                                           ,"Check the value of the 'CameraNo' input variable!")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1302, new AxoMessengerTextItem("Invalid value of the 'CameraNo' input variable, value too high!"                                                                          ,"Check the value of the 'CameraNo' input variable!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1303, new AxoMessengerTextItem("Result data size oversized!"                                                                                                              ,"Check the hardware configuration!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1303, new AxoMessengerTextItem("User data size oversized!"                                                                                                                ,"Check the hardware configuration!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1303, new AxoMessengerTextItem("No results to read: required result length is zero in 'ReadResultsTask'."                                                                 ,"Correct the required length.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1304, new AxoMessengerTextItem("Result data size oversized!"                                                                                                              ,"Check the hardware configuration!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1305, new AxoMessengerTextItem("No user data to send: required user data length is zero in 'SendDataTask'."                                                               ,"Correct the required length.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1306, new AxoMessengerTextItem("User data size oversized!"                                                                                                                ,"Check the hardware configuration!")),
 
 
                 // HardResetAllCamerasTask
@@ -716,8 +718,8 @@ namespace AXOpen.Components.Cognex.Vision
                 {
                     errorDescriptionDict.Add(0, "   ");
                     // HardResetAllCamerasTask
-                    errorDescriptionDict.Add(500, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(501, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(500, "Waiting for the signal/variable `Inputs.Status.CurentJobID` to greater then zero!");
+                    errorDescriptionDict.Add(501, "Waiting for the signal/variable `Inputs.Status.CurentJobID` to equal to zero!");
                     errorDescriptionDict.Add(502, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(503, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(504, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
@@ -727,9 +729,9 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(508, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(509, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     // ResetTask
-                    errorDescriptionDict.Add(510, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(511, "Waiting for the signal `Inputs.Status.WorkSensor` to be reseted!");
-                    errorDescriptionDict.Add(512, "Waiting for the signal `Inputs.Status.HomeSensor` to be set!");
+                    errorDescriptionDict.Add(510, "Waiting for the signal/variable `Inputs.Status.UserDataLockerJobID` to be equal to value of 'Config.CameraNo'  or equal to zero!");
+                    errorDescriptionDict.Add(511, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(512, "Waiting for the signal/variable `Inputs.Status.ReadDataLockerJobID` to be equal to value of 'Config.CameraNo'  or equal to zero!");
                     errorDescriptionDict.Add(513, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(514, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(515, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
@@ -1279,8 +1281,10 @@ namespace AXOpen.Components.Cognex.Vision
 
                     errorDescriptionDict.Add(1301, "Invalid value of the 'CameraNo' input variable, value too low!"                                                                           );
                     errorDescriptionDict.Add(1302, "Invalid value of the 'CameraNo' input variable, value too high!"                                                                          );
-                    errorDescriptionDict.Add(1303, "Result data size oversized!"                                                                                                              );
-                    errorDescriptionDict.Add(1304, "User data size oversized!"                                                                                                                );
+                    errorDescriptionDict.Add(1303, "No results to read: required result length is zero in 'ReadResultsTask'."                                                                 );
+                    errorDescriptionDict.Add(1304, "Result data size oversized!"                                                                                                              );
+                    errorDescriptionDict.Add(1305, "No user data to send: required user data length is zero in 'SendDataTask'."                                                               );
+                    errorDescriptionDict.Add(1306, "User data size oversized!");
 
 
                 // HardResetAllCamerasTask
@@ -1350,30 +1354,30 @@ namespace AXOpen.Components.Cognex.Vision
                     actionDescriptionDict.Add(50, "Restore has been executed.");
                     // HardResetAllCamerasTask
                     actionDescriptionDict.Add(100, "HardResetAllCamerasTask started.");
-                    actionDescriptionDict.Add(300, "HardResetAllCamerasTask running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(301, "HardResetAllCamerasTask running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(302, "HardResetAllCamerasTask running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(303, "HardResetAllCamerasTask running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(304, "HardResetAllCamerasTask running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(305, "HardResetAllCamerasTask running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(306, "HardResetAllCamerasTask running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(307, "HardResetAllCamerasTask running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(308, "HardResetAllCamerasTask running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(309, "HardResetAllCamerasTask running, <add the detailed description of the current action 10>");
+                    actionDescriptionDict.Add(300, "HardResetAllCamerasTask running.");
+                    actionDescriptionDict.Add(301, "HardResetAllCamerasTask running.");
+                    actionDescriptionDict.Add(302, "HardResetAllCamerasTask running.");
+                    actionDescriptionDict.Add(303, "HardResetAllCamerasTask running.");
+                    actionDescriptionDict.Add(304, "HardResetAllCamerasTask running.");
+                    actionDescriptionDict.Add(305, "HardResetAllCamerasTask running.");
+                    actionDescriptionDict.Add(306, "HardResetAllCamerasTask running.");
+                    actionDescriptionDict.Add(307, "HardResetAllCamerasTask running.");
+                    actionDescriptionDict.Add(308, "HardResetAllCamerasTask running.");
+                    actionDescriptionDict.Add(309, "HardResetAllCamerasTask running.");
                     actionDescriptionDict.Add(101, "HardResetAllCamerasTask finished succesfully.");
                     actionDescriptionDict.Add(102, "HardResetAllCamerasTask restored.");
                     // ResetTask
                     actionDescriptionDict.Add(110, "ResetTask started.");
-                    actionDescriptionDict.Add(310, "ResetTask running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(311, "ResetTask running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(312, "ResetTask running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(313, "ResetTask running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(314, "ResetTask running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(315, "ResetTask running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(316, "ResetTask running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(317, "ResetTask running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(318, "ResetTask running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(319, "ResetTask running, <add the detailed description of the current action 10>");
+                    actionDescriptionDict.Add(310, "ResetTask running.");
+                    actionDescriptionDict.Add(311, "ResetTask running.");
+                    actionDescriptionDict.Add(312, "ResetTask running.");
+                    actionDescriptionDict.Add(313, "ResetTask running.");
+                    actionDescriptionDict.Add(314, "ResetTask running.");
+                    actionDescriptionDict.Add(315, "ResetTask running.");
+                    actionDescriptionDict.Add(316, "ResetTask running.");
+                    actionDescriptionDict.Add(317, "ResetTask running.");
+                    actionDescriptionDict.Add(318, "ResetTask running.");
+                    actionDescriptionDict.Add(319, "ResetTask running.");
                     actionDescriptionDict.Add(111, "ResetTask finished succesfully.");
                     actionDescriptionDict.Add(112, "ResetTask restored.");
                     // TriggerTask

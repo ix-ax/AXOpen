@@ -1091,7 +1091,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                         Status.Error.Id :=      UINT#525;
                     END_IF;
 
-                    UserData.ToggleDataChangedFlag();
+                    // UserData.ToggleDataChangedFlag();
 
                     AcquisitionControl.SetOffline := TRUE;
                     InspectionControl.ExtendedUserDataSet := TRUE;
@@ -1692,7 +1692,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             FOR	_index := inPosition +_size TO _maxIndex BY UINT#1 DO	
                 UserData.Data[_index] := BYTE#0;
             END_FOR;
-            // UserData.ToggleDataChangedFlag();
+            UserData.ToggleDataChangedFlag();
 
             SetUserDataAsString := TRUE;
         END_METHOD
