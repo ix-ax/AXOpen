@@ -91,7 +91,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Change job by name#>"}
             ChangeJobByNameTask : AXOpen.Core.AxoTask;
-
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Required job number#>"}
@@ -100,6 +99,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
             {#ix-set:AttributeName = "<#Change job by number#>"}
             ChangeJobByNumberTask : AXOpen.Core.AxoTask;
 
+            {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Required soft event number#>"}
@@ -108,6 +108,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
             {#ix-set:AttributeName = "<#Trigger soft event#>"}
             SoftEventTask : AXOpen.Core.AxoTask;
 
+            {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#User data to be sent#>"}
             UserDataToSent : STRING;
@@ -122,6 +124,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
         VAR PUBLIC //Config
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Config")]}
+            {#ix-attr:[ReadOnly()]}
             Config      :   AxoInsight_Config;
         END_VAR
 
@@ -2466,7 +2469,11 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
             ChangeJobByNameTask.Restore();
             ChangeJobByNumberTask.Restore();
             SoftEventTask.Restore();
+            SendUserDataTask.Restore();
             HardwareDiagnosticsTask.Restore();
+
+            UserDataToSent := '';
+            UserDataOffset := UINT#0;            
 
             RequiredJobName := '';
             RequiredJobNumber := UINT#0;
