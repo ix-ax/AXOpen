@@ -504,197 +504,197 @@ namespace AXOpen.Components.Cognex.Vision
             {
                 new KeyValuePair<ulong, AxoMessengerTextItem>(0,    new AxoMessengerTextItem("  ", "  ")),
                 // HardResetAllCamerasTask
-                new KeyValuePair<ulong, AxoMessengerTextItem>(500,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(501,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(502,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(503,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(504,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(505,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(506,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(507,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(508,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(509,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(500,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.CurentJobID` to be greater then zero!"                                                     ,"Check the status of the `Inputs.Status.CurentJobID`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(501,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.CurentJobID` to be equal to zero!"                                                         ,"Check the status of the `Inputs.Status.CurentJobID`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(502,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(503,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(504,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(505,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(506,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(507,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(508,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(509,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
                 // ResetTask
-                new KeyValuePair<ulong, AxoMessengerTextItem>(510,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(511,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(512,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(513,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(514,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(515,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(516,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(517,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(518,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(519,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(510,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.UserDataLockerJobID` to be equal to value of 'Config.CameraNo'  or equal to zero!"         ,"Check the status of the `Inputs.Status.UserDataLockerJobID`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(511,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(512,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.ReadDataLockerJobID` to be equal to value of 'Config.CameraNo'  or equal to zero!"         ,"Check the status of the `Inputs.Status.ReadDataLockerJobID`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(513,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(514,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(515,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(516,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(517,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(518,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(519,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
                 // TriggerTask
-                new KeyValuePair<ulong, AxoMessengerTextItem>(520,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(521,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(522,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(523,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(524,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(525,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(526,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(527,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(528,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(529,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(520,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.SystemReady` to be set!"                                                                   ,"Check the status of the `Inputs.Status.SystemReady`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(521,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.Online` to be set!"                                                                        ,"Check the status of the `Inputs.Status.Online`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(522,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.SoftEvent.ResetAck` to be set!"                                                            ,"Check the status of the `Inputs.Status.SoftEvent.ResetAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(523,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.SoftEvent.TriggerAck` to be reseted!"                                                      ,"Check the status of the `Inputs.Status.SoftEvent.TriggerAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(524,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.SoftEvent.TriggerAck` to be set!"                                                          ,"Check the status of the `Inputs.Status.SoftEvent.TriggerAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(525,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.SoftEvent.TriggerAck` to be reseted!"                                                      ,"Check the status of the Inputs.Status.SoftEvent.TriggerAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(526,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(527,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(528,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(529,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
                 //TemplateTask_10steps_4
-                new KeyValuePair<ulong, AxoMessengerTextItem>(530,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(531,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(532,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(533,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(534,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(535,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(536,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(537,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(538,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(539,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(530,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(531,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(532,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(533,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(534,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(535,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(536,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(537,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(538,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(539,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
                 //TemplateTask_10steps_5
-                new KeyValuePair<ulong, AxoMessengerTextItem>(540,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(541,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(542,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(543,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(544,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(545,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(546,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(547,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(548,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(549,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(540,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(541,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(542,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(543,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(544,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(545,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(546,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(547,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(548,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(549,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
                 //TemplateTask_10steps_6
-                new KeyValuePair<ulong, AxoMessengerTextItem>(550,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(551,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(552,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(553,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(554,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(555,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(556,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(557,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(558,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(559,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(550,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(551,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(552,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(553,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(554,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(555,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(556,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(557,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(558,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(559,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
                 //ReadResultsTask
-                new KeyValuePair<ulong, AxoMessengerTextItem>(560,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(561,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(562,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(563,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(564,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(565,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(566,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(567,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(568,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(569,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(570,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(571,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(572,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(573,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(574,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(575,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(576,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(577,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(578,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(579,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(560,  new AxoMessengerTextItem("Waiting for the signal/variable `Waiting for system ready` to be set!"                                                                    ,"Check the status of the `Waiting for system ready`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(561,  new AxoMessengerTextItem("Waiting for the signal/variable `Waiting for online` to be set!"                                                                          ,"Check the status of the `Waiting for online`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(562,  new AxoMessengerTextItem("Waiting for the signal/variable `_readResultsJobID` to be greather or equal to zero and lower to ten!"                                    ,"Check the status of the `_readResultsJobID`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(563,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.ReadDataLockerJobID` to be equal to value of 'Config.CameraNo'  or equal to zero!"         ,"Check the status of the `Inputs.Status.ReadDataLockerJobID`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(564,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(565,  new AxoMessengerTextItem("Waiting for the variable `Inputs.Status.CurentJobID` to be equal to value of 'Outputs.Control.JobLoadID' and greather to zero, so as the the variable 'Inputs.Status.JobLoadComplete' to be set!"         ,"Check the statuses of the `Inputs.Status.CurentJobID` and 'Inputs.Status.JobLoadComplete' variables.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(566,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.ResultValid` to be set!"                                                                   ,"Check the status of the `Inputs.Status.ResultValid`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(567,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(568,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(569,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(570,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(571,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.ResultValid` to be reseted!"                                                               ,"Check the status of the `Inputs.Status.ResultValid`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(572,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(573,  new AxoMessengerTextItem("Waiting for the variable `Inputs.Status.CurentJobID` to be equal to zero and variable 'Inputs.Status.JobLoadComplete' to be set!"         ,"Check the statuses of the `Inputs.Status.CurentJobID` and 'Inputs.Status.JobLoadComplete' variables.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(574,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(575,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(576,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(577,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(578,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(579,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
                 //SendDataTask
-                new KeyValuePair<ulong, AxoMessengerTextItem>(580,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(581,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(582,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(583,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(584,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(585,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(586,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(587,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(588,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(589,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(590,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(591,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(592,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(593,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(594,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(595,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(596,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(597,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(598,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(599,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(580,  new AxoMessengerTextItem("Waiting for the signal/variable `Waiting for system ready` to be set!"                                                                    ,"Check the status of the `Waiting for system ready`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(581,  new AxoMessengerTextItem("Waiting for the signal/variable `Waiting for online` to be set!"                                                                          ,"Check the status of the `Waiting for online`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(582,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.UserDataLockerJobID` to be equal to value of 'Config.CameraNo'  or equal to zero!"         ,"Check the status of the `Inputs.Status.UserDataLockerJobID`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(583,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.UserDataLockerJobID` to be equal to value of 'Config.CameraNo'!"                           ,"Check the status of the `Inputs.Status.UserDataLockerJobID`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(584,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(585,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(586,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(587,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.SetUserDataAck` to be reseted!"                                                            ,"Check the status of the `Inputs.Status.SetUserDataAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(588,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.SetUserDataAck` to be set!"                                                                ,"Check the status of the `Inputs.Status.SetUserDataAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(589,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.SetUserDataAck` to be reseted!"                                                            ,"Check the status of the `Inputs.Status.SetUserDataAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(590,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(591,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.SoftEvent.DataHandlerDone` to be reseted!"                                                 ,"Check the status of the `Inputs.Status.SoftEvent.DataHandlerDone`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(592,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.SoftEvent.DataHandlerDone` to be set!"                                                     ,"Check the status of the `Inputs.Status.SoftEvent.DataHandlerDone`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(593,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.SoftEvent.DataHandlerDone` to be reseted!"                                                 ,"Check the status of the `Inputs.Status.SoftEvent.DataHandlerDone`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(594,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(595,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(596,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(597,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(598,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(599,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
                 //TemplateTask_20steps_3
-                new KeyValuePair<ulong, AxoMessengerTextItem>(600,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(601,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(602,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(603,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(604,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(605,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(606,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(607,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(608,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(609,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(610,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(611,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(612,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(613,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(614,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(615,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(616,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(617,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(618,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(619,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(600,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(601,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(602,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(603,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(604,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(605,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(606,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(607,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(608,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(609,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(610,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(611,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(612,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(613,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(614,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(615,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(616,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(617,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(618,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(619,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
                 //TemplateTask_20steps_4
-                new KeyValuePair<ulong, AxoMessengerTextItem>(620,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(621,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(622,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(623,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(624,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(625,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(626,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(627,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(628,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(629,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(630,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(631,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(632,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(633,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(634,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(635,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(636,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(637,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(638,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(639,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(620,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(621,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(622,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(623,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(624,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(625,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(626,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(627,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(628,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(629,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(630,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(631,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(632,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(633,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(634,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(635,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(636,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(637,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(638,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(639,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
                 //TemplateTask_20steps_5
-                new KeyValuePair<ulong, AxoMessengerTextItem>(640,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(641,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(642,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(643,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(644,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(645,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(646,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(647,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(648,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(649,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(650,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(651,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(652,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(653,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(654,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(655,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(656,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(657,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(658,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(659,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(640,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(641,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(642,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(643,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(644,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(645,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(646,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(647,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(648,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(649,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(650,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(651,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(652,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(653,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(654,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(655,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(656,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(657,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(658,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(659,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
                 //TemplateTask_20steps_6
-                new KeyValuePair<ulong, AxoMessengerTextItem>(660,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(661,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(662,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(663,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(664,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(665,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(666,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(667,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(668,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(669,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(670,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(671,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(672,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(673,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(674,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(675,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(676,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(677,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(678,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(679,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(660,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(661,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(662,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(663,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(664,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(665,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(666,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(667,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(668,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(669,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(670,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(671,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(672,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(673,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(674,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(675,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(676,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(677,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(678,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(679,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
 
 
 
@@ -718,197 +718,197 @@ namespace AXOpen.Components.Cognex.Vision
                 {
                     errorDescriptionDict.Add(0, "   ");
                     // HardResetAllCamerasTask
-                    errorDescriptionDict.Add(500, "Waiting for the signal/variable `Inputs.Status.CurentJobID` to greater then zero!");
-                    errorDescriptionDict.Add(501, "Waiting for the signal/variable `Inputs.Status.CurentJobID` to equal to zero!");
-                    errorDescriptionDict.Add(502, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(503, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(504, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(505, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(506, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(507, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(508, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(509, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(500, "Waiting for the signal/variable `Inputs.Status.CurentJobID` to be greater then zero!"                                                     );
+                    errorDescriptionDict.Add(501, "Waiting for the signal/variable `Inputs.Status.CurentJobID` to be equal to zero!"                                                         );
+                    errorDescriptionDict.Add(502, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(503, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(504, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(505, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(506, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(507, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(508, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(509, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
                     // ResetTask
-                    errorDescriptionDict.Add(510, "Waiting for the signal/variable `Inputs.Status.UserDataLockerJobID` to be equal to value of 'Config.CameraNo'  or equal to zero!");
-                    errorDescriptionDict.Add(511, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(512, "Waiting for the signal/variable `Inputs.Status.ReadDataLockerJobID` to be equal to value of 'Config.CameraNo'  or equal to zero!");
-                    errorDescriptionDict.Add(513, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(514, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(515, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(516, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(517, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(518, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(519, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(510, "Waiting for the signal/variable `Inputs.Status.UserDataLockerJobID` to be equal to value of 'Config.CameraNo'  or equal to zero!"         );
+                    errorDescriptionDict.Add(511, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(512, "Waiting for the signal/variable `Inputs.Status.ReadDataLockerJobID` to be equal to value of 'Config.CameraNo'  or equal to zero!"         );
+                    errorDescriptionDict.Add(513, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(514, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(515, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(516, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(517, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(518, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(519, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
                     // TriggerTask
-                    errorDescriptionDict.Add(520, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(521, "Waiting for the signal `Inputs.Status.HomeSensor` to be reseted!");
-                    errorDescriptionDict.Add(522, "Waiting for the signal `Inputs.Status.WorkSensor` to be set!");
-                    errorDescriptionDict.Add(523, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(524, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(525, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(526, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(527, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(528, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(529, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_10steps_4
-                    errorDescriptionDict.Add(530, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(531, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(532, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(533, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(534, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(535, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(536, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(537, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(538, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(539, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_10steps_5
-                    errorDescriptionDict.Add(540, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(541, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(542, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(543, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(544, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(545, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(546, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(547, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(548, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(549, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_10steps_6
-                    errorDescriptionDict.Add(550, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(551, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(552, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(553, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(554, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(555, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(556, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(557, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(558, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(559, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // ReadResultsTask
-                    errorDescriptionDict.Add(560, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(561, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(562, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(563, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(564, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(565, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(566, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(567, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(568, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(569, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(570, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(571, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(572, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(573, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(574, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(575, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(576, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(577, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(578, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(579, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // SendDataTask
-                    errorDescriptionDict.Add(580, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(581, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(582, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(583, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(584, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(585, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(586, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(587, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(588, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(589, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(590, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(591, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(592, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(593, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(594, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(595, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(596, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(597, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(598, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(599, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_20steps_3
-                    errorDescriptionDict.Add(600, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(601, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(602, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(603, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(604, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(605, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(606, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(607, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(608, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(609, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(610, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(611, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(612, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(613, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(614, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(615, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(616, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(617, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(618, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(619, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_20steps_4
-                    errorDescriptionDict.Add(620, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(621, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(622, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(623, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(624, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(625, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(626, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(627, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(628, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(629, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(630, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(631, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(632, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(633, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(634, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(635, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(636, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(637, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(638, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(639, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_20steps_5
-                    errorDescriptionDict.Add(640, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(641, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(642, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(643, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(644, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(645, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(646, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(647, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(648, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(649, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(650, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(651, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(652, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(653, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(654, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(655, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(656, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(657, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(658, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(659, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_20steps_6
-                    errorDescriptionDict.Add(660, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(661, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(662, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(663, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(664, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(665, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(666, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(667, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(668, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(669, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(670, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(671, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(672, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(673, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(674, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(675, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(676, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(677, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(678, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(679, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(520, "Waiting for the signal/variable `Inputs.Status.SystemReady` to be set!"                                                                   );
+                    errorDescriptionDict.Add(521, "Waiting for the signal/variable `Inputs.Status.Online` to be set!"                                                                        );
+                    errorDescriptionDict.Add(522, "Waiting for the signal/variable `Inputs.Status.SoftEvent.ResetAck` to be set!"                                                            );
+                    errorDescriptionDict.Add(523, "Waiting for the signal/variable `Inputs.Status.SoftEvent.TriggerAck` to be reseted!"                                                      );
+                    errorDescriptionDict.Add(524, "Waiting for the signal/variable `Inputs.Status.SoftEvent.TriggerAck` to be set!"                                                          );
+                    errorDescriptionDict.Add(525, "Waiting for the signal/variable `Inputs.Status.SoftEvent.TriggerAck` to be reseted!"                                                      );
+                    errorDescriptionDict.Add(526, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(527, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(528, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(529, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    //TemplateTask_10steps_4
+                    errorDescriptionDict.Add(530, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(531, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(532, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(533, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(534, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(535, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(536, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(537, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(538, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(539, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    //TemplateTask_10steps_5
+                    errorDescriptionDict.Add(540, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(541, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(542, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(543, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(544, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(545, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(546, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(547, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(548, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(549, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    //TemplateTask_10steps_6
+                    errorDescriptionDict.Add(550, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(551, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(552, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(553, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(554, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(555, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(556, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(557, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(558, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(559, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    //ReadResultsTask
+                    errorDescriptionDict.Add(560, "Waiting for the signal/variable `Waiting for system ready` to be set!"                                                                    );
+                    errorDescriptionDict.Add(561, "Waiting for the signal/variable `Waiting for online` to be set!"                                                                          );
+                    errorDescriptionDict.Add(562, "Waiting for the signal/variable `_readResultsJobID` to be greather or equal to zero and lower to ten!"                                    );
+                    errorDescriptionDict.Add(563, "Waiting for the signal/variable `Inputs.Status.ReadDataLockerJobID` to be equal to value of 'Config.CameraNo'  or equal to zero!"         );
+                    errorDescriptionDict.Add(564, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(565, "Waiting for the variable `Inputs.Status.CurentJobID` to be equal to value of 'Outputs.Control.JobLoadID' and greather to zero, so as the the variable 'Inputs.Status.JobLoadComplete' to be set!");
+                    errorDescriptionDict.Add(566, "Waiting for the signal/variable `Inputs.Status.ResultValid` to be set!"                                                                   );
+                    errorDescriptionDict.Add(567, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(568, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(569, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(570, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(571, "Waiting for the signal/variable `Inputs.Status.ResultValid` to be reseted!"                                                               );
+                    errorDescriptionDict.Add(572, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(573, "Waiting for the variable `Inputs.Status.CurentJobID` to be equal to zero and variable 'Inputs.Status.JobLoadComplete' to be set!"         );
+                    errorDescriptionDict.Add(574, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(575, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(576, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(577, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(578, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(579, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                //SendDataTask
+                    errorDescriptionDict.Add(580, "Waiting for the signal/variable `Waiting for system ready` to be set!"                                                                    );
+                    errorDescriptionDict.Add(581, "Waiting for the signal/variable `Waiting for online` to be set!"                                                                          );
+                    errorDescriptionDict.Add(582, "Waiting for the signal/variable `Inputs.Status.UserDataLockerJobID` to be equal to value of 'Config.CameraNo'  or equal to zero!"         );
+                    errorDescriptionDict.Add(583, "Waiting for the signal/variable `Inputs.Status.UserDataLockerJobID` to be equal to value of 'Config.CameraNo'!"                           );
+                    errorDescriptionDict.Add(584, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(585, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(586, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(587, "Waiting for the signal/variable `Inputs.Status.SetUserDataAck` to be reseted!"                                                            );
+                    errorDescriptionDict.Add(588, "Waiting for the signal/variable `Inputs.Status.SetUserDataAck` to be set!"                                                                );
+                    errorDescriptionDict.Add(589, "Waiting for the signal/variable `Inputs.Status.SetUserDataAck` to be reseted!"                                                            );
+                    errorDescriptionDict.Add(590, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(591, "Waiting for the signal/variable `Inputs.Status.SoftEvent.DataHandlerDone` to be reseted!"                                                 );
+                    errorDescriptionDict.Add(592, "Waiting for the signal/variable `Inputs.Status.SoftEvent.DataHandlerDone` to be set!"                                                     );
+                    errorDescriptionDict.Add(593, "Waiting for the signal/variable `Inputs.Status.SoftEvent.DataHandlerDone` to be reseted!"                                                 );
+                    errorDescriptionDict.Add(594, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(595, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(596, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(597, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(598, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(599, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    //TemplateTask_20steps_3
+                    errorDescriptionDict.Add(600, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(601, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(602, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(603, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(604, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(605, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(606, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(607, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(608, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(609, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(610, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(611, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(612, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(613, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(614, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(615, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(616, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(617, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(618, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(619, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                //TemplateTask_20steps_4
+                    errorDescriptionDict.Add(620, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(621, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(622, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(623, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(624, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(625, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(626, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(627, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(628, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(629, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(630, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(631, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(632, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(633, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(634, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(635, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(636, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(637, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(638, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(639, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    //TemplateTask_20steps_5
+                    errorDescriptionDict.Add(640, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(641, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(642, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(643, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(644, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(645, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(646, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(647, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(648, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(649, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(650, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(651, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(652, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(653, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(654, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(655, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(656, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(657, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(658, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(659, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    //TemplateTask_20steps_6
+                    errorDescriptionDict.Add(660, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(661, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(662, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(663, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(664, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(665, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(666, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(667, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(668, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(669, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(670, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(671, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(672, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(673, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(674, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(675, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(676, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(677, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(678, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(679, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
                     //  General alarms
                     errorDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!");
                     errorDescriptionDict.Add(701, "Input variable `hwId` has invalid value in `Run` method!"                                                                                  );
@@ -1382,13 +1382,13 @@ namespace AXOpen.Components.Cognex.Vision
                     actionDescriptionDict.Add(112, "ResetTask restored.");
                     // TriggerTask
                     actionDescriptionDict.Add(120, "TriggerTask started.");
-                    actionDescriptionDict.Add(320, "TriggerTask running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(321, "TriggerTask running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(322, "TriggerTask running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(323, "TriggerTask running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(324, "TriggerTask running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(325, "TriggerTask running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(326, "TriggerTask running, <add the detailed description of the current action 7>");
+                    actionDescriptionDict.Add(320, "TriggerTask running, Waiting for system ready");
+                    actionDescriptionDict.Add(321, "TriggerTask running, Waiting for online");
+                    actionDescriptionDict.Add(322, "TriggerTask running, camera reset before trigger");
+                    actionDescriptionDict.Add(323, "TriggerTask running, trigger set");
+                    actionDescriptionDict.Add(324, "TriggerTask running, wait for trigger ack");
+                    actionDescriptionDict.Add(325, "TriggerTask running, wait for trigger ack false>");
+                    actionDescriptionDict.Add(326, "TriggerTask running, trigger done>");
                     actionDescriptionDict.Add(327, "TriggerTask running, <add the detailed description of the current action 8>");
                     actionDescriptionDict.Add(328, "TriggerTask running, <add the detailed description of the current action 9>");
                     actionDescriptionDict.Add(329, "TriggerTask running, <add the detailed description of the current action 10>");
@@ -1439,22 +1439,22 @@ namespace AXOpen.Components.Cognex.Vision
 
                     // ReadResultsTask
                     actionDescriptionDict.Add(160, "ReadResultsTask started.");
-                    actionDescriptionDict.Add(360, "ReadResultsTask running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(361, "ReadResultsTask running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(362, "ReadResultsTask running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(363, "ReadResultsTask running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(364, "ReadResultsTask running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(365, "ReadResultsTask running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(366, "ReadResultsTask running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(367, "ReadResultsTask running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(368, "ReadResultsTask running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(369, "ReadResultsTask running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(370, "ReadResultsTask running, <add the detailed description of the current action 11>");
-                    actionDescriptionDict.Add(371, "ReadResultsTask running, <add the detailed description of the current action 12>");
-                    actionDescriptionDict.Add(372, "ReadResultsTask running, <add the detailed description of the current action 13>");
-                    actionDescriptionDict.Add(373, "ReadResultsTask running, <add the detailed description of the current action 14>");
-                    actionDescriptionDict.Add(374, "ReadResultsTask running, <add the detailed description of the current action 15>");
-                    actionDescriptionDict.Add(375, "ReadResultsTask running, <add the detailed description of the current action 16>");
+                    actionDescriptionDict.Add(360, "ReadResultsTask running, Waiting for system ready");
+                    actionDescriptionDict.Add(361, "ReadResultsTask running, Waiting for online");
+                    actionDescriptionDict.Add(362, "ReadResultsTask running, check correct JOBID");
+                    actionDescriptionDict.Add(363, "ReadResultsTask running, Wait for free Data Buffer");
+                    actionDescriptionDict.Add(364, "ReadResultsTask running, Lock Data Buffer");
+                    actionDescriptionDict.Add(365, "ReadResultsTask running, set bit user data");
+                    actionDescriptionDict.Add(366, "ReadResultsTask running, wait for result valid");
+                    actionDescriptionDict.Add(367, "ReadResultsTask running, calculate size variant data");
+                    actionDescriptionDict.Add(368, "ReadResultsTask running, check HW correct config");
+                    actionDescriptionDict.Add(369, "ReadResultsTask running, move data from HW to byte buffer");
+                    actionDescriptionDict.Add(370, "ReadResultsTask running, Read Data");
+                    actionDescriptionDict.Add(371, "ReadResultsTask running, set release result data ack");
+                    actionDescriptionDict.Add(372, "ReadResultsTask running, set for free Data Buffer");
+                    actionDescriptionDict.Add(373, "ReadResultsTask running, set bit user data");
+                    actionDescriptionDict.Add(374, "ReadResultsTask running, set release Locker");
+                    actionDescriptionDict.Add(375, "ReadResultsTask running, Result ack>");
                     actionDescriptionDict.Add(376, "ReadResultsTask running, <add the detailed description of the current action 17>");
                     actionDescriptionDict.Add(377, "ReadResultsTask running, <add the detailed description of the current action 18>");
                     actionDescriptionDict.Add(378, "ReadResultsTask running, <add the detailed description of the current action 19>");
@@ -1463,20 +1463,20 @@ namespace AXOpen.Components.Cognex.Vision
                     actionDescriptionDict.Add(162, "ReadResultsTask restored.");
                     // SendDataTask
                     actionDescriptionDict.Add(180, "SendDataTask started.");
-                    actionDescriptionDict.Add(380, "SendDataTask running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(381, "SendDataTask running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(382, "SendDataTask running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(383, "SendDataTask running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(384, "SendDataTask running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(385, "SendDataTask running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(386, "SendDataTask running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(387, "SendDataTask running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(388, "SendDataTask running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(389, "SendDataTask running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(390, "SendDataTask running, <add the detailed description of the current action 11>");
-                    actionDescriptionDict.Add(391, "SendDataTask running, <add the detailed description of the current action 12>");
-                    actionDescriptionDict.Add(392, "SendDataTask running, <add the detailed description of the current action 13>");
-                    actionDescriptionDict.Add(393, "SendDataTask running, <add the detailed description of the current action 14>");
+                    actionDescriptionDict.Add(380, "SendDataTask running, Waiting for system ready");
+                    actionDescriptionDict.Add(381, "SendDataTask running, Waiting for online");
+                    actionDescriptionDict.Add(382, "SendDataTask running, Wait for free Data Buffer");
+                    actionDescriptionDict.Add(383, "SendDataTask running, Lock Data Buffer");
+                    actionDescriptionDict.Add(384, "SendDataTask running, serialize User data DATA");
+                    actionDescriptionDict.Add(385, "SendDataTask running, check HW correct config");
+                    actionDescriptionDict.Add(386, "SendDataTask running, Fill User DATA");
+                    actionDescriptionDict.Add(387, "SendDataTask running, set bit user data");
+                    actionDescriptionDict.Add(388, "SendDataTask running, wait for confirm user data ack");
+                    actionDescriptionDict.Add(389, "SendDataTask running, wait for release user data ack");
+                    actionDescriptionDict.Add(390, "SendDataTask running, wait for release user data ack");
+                    actionDescriptionDict.Add(391, "SendDataTask running, data handler set");
+                    actionDescriptionDict.Add(392, "SendDataTask running, wait for data handler ack");
+                    actionDescriptionDict.Add(393, "SendDataTask running, wait for data handler ack false");
                     actionDescriptionDict.Add(394, "SendDataTask running, <add the detailed description of the current action 15>");
                     actionDescriptionDict.Add(395, "SendDataTask running, <add the detailed description of the current action 16>");
                     actionDescriptionDict.Add(396, "SendDataTask running, <add the detailed description of the current action 17>");

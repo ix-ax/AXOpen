@@ -13,10 +13,11 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentHeader()]}         
             {#ix-set:AttributeName = "<#Result data#>"}
+            {#ix-attr:[ReadOnly()]}
             {#ix-set:DisplayFormat = "string"}
             ResultData  :   AxoVisionPro_ResultData;
             {#ix-attr:[ComponentHeader()]}         
-            {#ix-set:AttributeName = "<#User results#>"}
+            {#ix-set:AttributeName = "<#User data#>"}
             {#ix-set:DisplayFormat = "string"}
             UserData  :   AxoVisionPro_ResultData;
             {#ix-attr:[ComponentHeader()]}
@@ -1501,7 +1502,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     _progress := 320;
                 END_IF;
     
-                IF _progress = 320 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 1>
+                IF _progress = 320 THEN                                                                                     // TriggerTask running: , Waiting for system ready
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#520;
@@ -1517,7 +1518,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
     
-                IF _progress = 321 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 2>
+                IF _progress = 321 THEN                                                                                     // TriggerTask running: , Waiting for online
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#521;
@@ -1529,7 +1530,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 322 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 3>
+                IF _progress = 322 THEN                                                                                     // TriggerTask running: , camera reset before trigger
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#522;
@@ -1544,7 +1545,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 323 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 4>
+                IF _progress = 323 THEN                                                                                     // TriggerTask running: , trigger set
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#523, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#523;
@@ -1557,7 +1558,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 324 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 5>
+                IF _progress = 324 THEN                                                                                     // TriggerTask running: , wait for trigger ack
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#524, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#524;
@@ -1570,7 +1571,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 325 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 6>
+                IF _progress = 325 THEN                                                                                     // TriggerTask running: , wait for trigger ack false
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#525, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#525;
@@ -1582,7 +1583,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 326 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 7>
+                IF _progress = 326 THEN                                                                                     // TriggerTask running: , trigger done
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#526, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#526;
@@ -2191,7 +2192,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 365 THEN          
+                IF _progress = 365 THEN                                                                                     // ReadResultsTask running: , set bit user data          
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#565, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#565;
@@ -2215,7 +2216,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         Status.Error.Id :=      UINT#566;
                     END_IF;
     
-                    IF Inputs.Status.ResultValid  THEN
+                    IF Inputs.Status.ResultValid THEN
                         THIS.CallTimers(FALSE);
                         _progress := 367;
                     END_IF;
@@ -2428,7 +2429,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     
                     Outputs.Control.JobLoadID := BYTE#0;
                     
-                    IF NOT Inputs.Status.ResultValid  THEN
+                    IF NOT Inputs.Status.ResultValid THEN
                         Outputs.Control.InspectionResultsAck := false;
                         THIS.CallTimers(FALSE);
                         _progress := 372;
@@ -2470,7 +2471,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 374 THEN                                                                                     // ReadResultsTask running: , <add the detailed description of the current action 15>
+                IF _progress = 374 THEN                                                                                     // ReadResultsTask running: , set release Locker
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#574, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#574;
@@ -2482,7 +2483,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 375 THEN                                                                                     // ReadResultsTask running: , <add the detailed description of the current action 16>
+                IF _progress = 375 THEN                                                                                     // ReadResultsTask running: , Result ack
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#575, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#575;

@@ -1,3 +1,4 @@
+USING AXOpen.Components.Cognex.Vision.v_24_0_0;
 USING AXOpen.Messaging.Static;
 USING AXOpen.Messaging;
 USING AXOpen.Core;
@@ -28,7 +29,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             _errorTimer             :   AXOpen.Timers.OnDelayTimer;
             _jobName                :   STRING;
             _inspectionCompleted    :   BOOL;
-            _data_in                :   ARRAY[0..254] OF BYTE;
+            _data_255               :   ARRAY[0..254] OF BYTE;
             _jobNumber              :   UINT;
             _softEventNumber        :   UINT;
             _UserDataChanged        :   BOOL;
@@ -43,6 +44,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             _inputsCount            :   UINT;
             _outputsAddress         :   UDINT;  
             _outputsCount           :   UINT; 
+            _userDataLength         :   UINT;            
+            _userData               :   AxoInsight_UserData;
         END_VAR
 
         VAR PUBLIC //Header
@@ -53,6 +56,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentHeader()]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:DisplayFormat = "string"}
             {#ix-set:AttributeName = "<#Inspection results#>"}
             InspectionResults : AxoInsight_ResultData;
 
@@ -94,14 +99,17 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Tasks")]}
-            {#ix-set:AttributeName = "<#User data to be sent#>"}
-            UserDataToSent : STRING;
+            {#ix-set:AttributeName = "<#User data to sent#>"}
+            UserDataToSent : AxoInsight_UserData;
+            {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Tasks")]}
-            {#ix-set:AttributeName = "<#User data offset#>"}
-            UserDataOffset : UINT;            
+            {#ix-set:AttributeName = "<#User data length#>"}
+            UserDataLength : UINT;            
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Send user data#>"}
             SendUserDataTask : AXOpen.Core.AxoTask;
+
         END_VAR
 
         VAR PUBLIC //Config
@@ -641,75 +649,75 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             END_IF;
 
             //***********Update inputs **************
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdAcquisitionStatus ,_data_in);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdAcquisitionStatus ,_data_255);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1201;
                 RETURN;
             END_IF;
 
-            AcquisitionStatus.TriggerReady                  :=      _data_in[0].%X0;
-            AcquisitionStatus.TriggerAcknowledge            :=      _data_in[0].%X1;
-            AcquisitionStatus.ExposureComplete              :=      _data_in[0].%X2;
-            AcquisitionStatus.MissedAcquisition             :=      _data_in[0].%X3;
-            AcquisitionStatus.OfflineReason0                :=      _data_in[0].%X4;
-            AcquisitionStatus.OfflineReason1                :=      _data_in[0].%X5;
-            AcquisitionStatus.OfflineReason2                :=      _data_in[0].%X6;
-            AcquisitionStatus.Online                        :=      _data_in[0].%X7;
+            AcquisitionStatus.TriggerReady                  :=      _data_255[0].%X0;
+            AcquisitionStatus.TriggerAcknowledge            :=      _data_255[0].%X1;
+            AcquisitionStatus.ExposureComplete              :=      _data_255[0].%X2;
+            AcquisitionStatus.MissedAcquisition             :=      _data_255[0].%X3;
+            AcquisitionStatus.OfflineReason0                :=      _data_255[0].%X4;
+            AcquisitionStatus.OfflineReason1                :=      _data_255[0].%X5;
+            AcquisitionStatus.OfflineReason2                :=      _data_255[0].%X6;
+            AcquisitionStatus.Online                        :=      _data_255[0].%X7;
 
-            AcquisitionStatus.AcquisitionID.%B1             :=      _data_in[1];	 
-            AcquisitionStatus.AcquisitionID.%B0             :=      _data_in[2];	 
+            AcquisitionStatus.AcquisitionID.%B1             :=      _data_255[1];	 
+            AcquisitionStatus.AcquisitionID.%B0             :=      _data_255[2];	 
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdInspectionStatus ,_data_in);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdInspectionStatus ,_data_255);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1202, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1202;
                 RETURN;
             END_IF;
 
-            InspectionStatus.SystemBusy                     :=      _data_in[0].%X0;
-            InspectionStatus.InspectionCompleted            :=      _data_in[0].%X1;
-            InspectionStatus.ResultsBufferOverrun           :=      _data_in[0].%X2;
-            InspectionStatus.ResultsValid                   :=      _data_in[0].%X3;
-            InspectionStatus.CommandExecuting               :=      _data_in[0].%X4;
-            InspectionStatus.CommandComplete                :=      _data_in[0].%X5;
-            InspectionStatus.CommandFailed                  :=      _data_in[0].%X6;
-            InspectionStatus.ExtendedUserDataSetAcknowledge :=      _data_in[0].%X0;
-            InspectionStatus.OverallJobPassFail             :=      _data_in[1].%X0;
-            InspectionStatus.TestRunReady                   :=      _data_in[1].%X1;
-            InspectionStatus.Error                          :=      _data_in[1].%X7;
+            InspectionStatus.SystemBusy                     :=      _data_255[0].%X0;
+            InspectionStatus.InspectionCompleted            :=      _data_255[0].%X1;
+            InspectionStatus.ResultsBufferOverrun           :=      _data_255[0].%X2;
+            InspectionStatus.ResultsValid                   :=      _data_255[0].%X3;
+            InspectionStatus.CommandExecuting               :=      _data_255[0].%X4;
+            InspectionStatus.CommandComplete                :=      _data_255[0].%X5;
+            InspectionStatus.CommandFailed                  :=      _data_255[0].%X6;
+            InspectionStatus.ExtendedUserDataSetAcknowledge :=      _data_255[0].%X0;
+            InspectionStatus.OverallJobPassFail             :=      _data_255[1].%X0;
+            InspectionStatus.TestRunReady                   :=      _data_255[1].%X1;
+            InspectionStatus.Error                          :=      _data_255[1].%X7;
 
-            InspectionStatus.ErrorCode.%B1                  :=      _data_in[2];	 
-            InspectionStatus.ErrorCode.%B0                  :=      _data_in[3];	 
+            InspectionStatus.ErrorCode.%B1                  :=      _data_255[2];	 
+            InspectionStatus.ErrorCode.%B0                  :=      _data_255[3];	 
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdCommandControl ,_data_in);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdCommandControl ,_data_255);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1203, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1203;
                 RETURN;
             END_IF;
 
-            CommandStatus.CurrentJobID.%B0                  :=      _data_in[1];
-            CommandStatus.CurrentJobID.%B1                  :=      _data_in[0];
+            CommandStatus.CurrentJobID.%B0                  :=      _data_255[1];
+            CommandStatus.CurrentJobID.%B1                  :=      _data_255[0];
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdSoftEventControl ,_data_in);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdSoftEventControl ,_data_255);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1204, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1204;
                 RETURN;
             END_IF;
             
-            SoftEventStatus.TriggerSoftEventAcknowledge.Data[0] :=      _data_in[0].%X0;
-            SoftEventStatus.TriggerSoftEventAcknowledge.Data[1] :=      _data_in[0].%X1;
-            SoftEventStatus.TriggerSoftEventAcknowledge.Data[2] :=      _data_in[0].%X2;
-            SoftEventStatus.TriggerSoftEventAcknowledge.Data[3] :=      _data_in[0].%X3;
-            SoftEventStatus.TriggerSoftEventAcknowledge.Data[4] :=      _data_in[0].%X4;
-            SoftEventStatus.TriggerSoftEventAcknowledge.Data[5] :=      _data_in[0].%X5;
-            SoftEventStatus.TriggerSoftEventAcknowledge.Data[6] :=      _data_in[0].%X6;
-            SoftEventStatus.TriggerSoftEventAcknowledge.Data[7] :=      _data_in[0].%X7;
+            SoftEventStatus.TriggerSoftEventAcknowledge.Data[0] :=      _data_255[0].%X0;
+            SoftEventStatus.TriggerSoftEventAcknowledge.Data[1] :=      _data_255[0].%X1;
+            SoftEventStatus.TriggerSoftEventAcknowledge.Data[2] :=      _data_255[0].%X2;
+            SoftEventStatus.TriggerSoftEventAcknowledge.Data[3] :=      _data_255[0].%X3;
+            SoftEventStatus.TriggerSoftEventAcknowledge.Data[4] :=      _data_255[0].%X4;
+            SoftEventStatus.TriggerSoftEventAcknowledge.Data[5] :=      _data_255[0].%X5;
+            SoftEventStatus.TriggerSoftEventAcknowledge.Data[6] :=      _data_255[0].%X6;
+            SoftEventStatus.TriggerSoftEventAcknowledge.Data[7] :=      _data_255[0].%X7;
 
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdResultData ,_data_in);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdResultData ,_data_255);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1205, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1205;
@@ -730,10 +738,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
 
             Config.ResultDataSize := _ResultDataSize;
 
-            Results.InspectionID.%B1        :=  _data_in[0];     
-            Results.InspectionID.%B0        :=  _data_in[1];     
-            Results.ResultCode.%B1          :=  _data_in[2];     
-            Results.ResultCode.%B0          :=  _data_in[3];     
+            Results.InspectionID.%B1        :=  _data_255[0];     
+            Results.InspectionID.%B0        :=  _data_255[1];     
+            Results.ResultCode.%B1          :=  _data_255[2];     
+            Results.ResultCode.%B0          :=  _data_255[3];     
             
             //**************************************Execute inline********************
             RestoreTask.Run(THIS);
@@ -963,7 +971,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     END_IF;
 
                     FOR _index := 0 TO (TO_INT(Config.ResultDataSize) - INT#1) DO
-                        InspectionResults.Data[_index] := _data_in[_index + 4];
+                        InspectionResults.Data[_index] := _data_255[_index + 4];
                     END_FOR;
                     FOR _index := Config.ResultDataSize TO 249 DO
                         InspectionResults.Data[_index] := BYTE#0;
@@ -1092,7 +1100,15 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
 
                     AcquisitionControl.SetOffline := TRUE;
 
-                    IF THIS.SetUserDataAsString(_jobName,UINT#0) THEN
+                    Serialize(UINT#0, _jobName, _data_255);
+                    FOR _index := INT#0 TO (LengthOf(_jobName) - INT#1) BY INT#1 DO
+                        _userData.Data[_index] := _data_255[_index + INT#1];
+                    END_FOR;
+                    FOR _index := LengthOf(_jobName) TO INT#253 BY INT#1 DO
+                        _userData.Data[_index] :=BYTE#0;
+                    END_FOR;
+                    
+                    IF THIS.SetUserData(_userData,TO_UINT(LengthOf(_jobName))) THEN
                         THIS.CallTimers(FALSE);
                         _progress := 325;
                     END_IF;
@@ -1491,7 +1507,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                         TaskMessenger.Activate( UINT#560, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#560;
                     END_IF;
-                    IF THIS.SetUserDataAsString(UserDataToSent, UserDataOffset) THEN
+                    IF THIS.SetUserData(_userData, _userDataLength) THEN
                         THIS.CallTimers(FALSE);
                         _progress := 361;
                     END_IF;
@@ -1695,6 +1711,22 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             SoftEvent := SoftEventTask.Invoke(THIS);
         END_METHOD
 
+        ///<summary>
+		/// Sends the user data from PLC to device. 
+        ///</summary>   
+        METHOD PUBLIC SendUserData : IAxoTaskState
+            VAR_IN_OUT
+                Data      :   AxoInsight_UserData;
+            END_VAR
+            VAR_INPUT
+                Length    :   UINT;	
+            END_VAR
+
+            _userDataLength :=  Length;
+            _userData       :=  Data;
+            SendUserData := SendUserDataTask.Invoke(THIS);
+        END_METHOD
+
         METHOD PRIVATE CallTimers
             VAR_INPUT
                 signal : BOOL;
@@ -1704,7 +1736,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             _errorTimer.OnDelay(THIS, signal , Config.ErrorTime );
         END_METHOD
 
-        METHOD INTERNAL AppendSuffix :STRING
+        METHOD INTERNAL AppendSuffix : STRING
             VAR_INPUT
                 jobName : STRING;
             END_VAR
@@ -1719,49 +1751,44 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             END_IF;
         END_METHOD
 
-        METHOD INTERNAL SetUserDataAsString :   BOOL
+        METHOD PRIVATE SetUserData :   BOOL
+            VAR_IN_OUT
+                Data      :   AxoInsight_UserData;
+            END_VAR
             VAR_INPUT
-                inValue     :   STRING;
-                inPosition  :   UINT;	
+                Length    :   UINT;	
             END_VAR
             VAR
                 _index : UINT;
-                _size : UINT;
                 _maxIndex : UINT; 
-                _data : ARRAY[0..255] OF BYTE;
             END_VAR
             
-            SetUserDataAsString := FALSE;
+            SetUserData := FALSE;
 
-            _size := TO_UINT(LengthOf(inValue));
+            _maxIndex := UINT#253;
 
-            _maxIndex := UINT#255;
-            
-            Messenger.ActivateOnCondition(ULINT#716, (inPosition +_size) >= TO_UINT(Config.UserDataSize), eAxoMessageCategory#Error);
-
-            IF (inPosition +_size) >= TO_UINT(Config.UserDataSize) THEN
+            IF (Length) >= TO_UINT(Config.UserDataSize) THEN
+                Messenger.Activate(UINT#716, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#716;
                 RETURN;
             END_IF;
 
-            Messenger.ActivateOnCondition(ULINT#717, (inPosition +_size) > _maxIndex ,eAxoMessageCategory#Error);
-            
-            IF (inPosition +_size) > _maxIndex THEN
+            IF (Length) > _maxIndex THEN
+                Messenger.Activate(UINT#717, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#717;
                 RETURN;
             END_IF;
 
-            Serialize(UINT#0, inValue, _data);
-            FOR	_index := UINT#0 TO _size BY UINT#1 DO	
-                UserData.Data[(inPosition + _index)] := _data[_index + UINT#1];
+            FOR	_index := UINT#0 TO Length BY UINT#1 DO	
+                UserData.Data[( _index)] := Data.Data[_index];
             END_FOR;
             
-            FOR	_index := inPosition +_size TO _maxIndex BY UINT#1 DO	
+            FOR	_index := Length TO _maxIndex BY UINT#1 DO	
                 UserData.Data[_index] := BYTE#0;
             END_FOR;
             UserData.ToggleDataChangedFlag();
 
-            SetUserDataAsString := TRUE;
+            SetUserData := TRUE;
         END_METHOD
 
         ///<summary>
@@ -1771,6 +1798,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             _jobName := RequiredJobName;
             _jobNumber := RequiredJobNumber;
             _softEventNumber := RequiredSoftEventNumber;
+            _userDataLength :=  UserDataLength; 
+            _userData       :=  UserDataToSent;
         END_METHOD
 
         ///<summary>
@@ -1796,8 +1825,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             SendUserDataTask.Restore();
             HardwareDiagnosticsTask.Restore();
 
-            UserDataToSent := '';
-            UserDataOffset := UINT#0;      
+            FOR _index := 0 TO 253 DO
+                UserDataToSent.Data[_index] := BYTE#0;
+            END_FOR;
+            UserDataLength := UINT#0;      
             RequiredJobName := '';
             RequiredJobNumber := UINT#0;
              

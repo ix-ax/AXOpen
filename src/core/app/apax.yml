@@ -1,4 +1,4 @@
-﻿name: "ix_axopencore"
+name: "ix_axopencore"
 version: '0.0.0-dev.0'
 type: app
 targets:
@@ -185,13 +185,3 @@ scripts:
     apax mon --targetIP $AXTARGET --file messages5.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
   mm6: |
     apax mon --targetIP $AXTARGET --file messages6.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
-
-
-
-
-
-
-
-
-
-
