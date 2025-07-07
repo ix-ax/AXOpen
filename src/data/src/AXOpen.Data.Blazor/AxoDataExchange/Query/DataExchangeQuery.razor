@@ -9,7 +9,7 @@
 
         @if (FilteredSymbols.Count > 0)
         {
-            <button class="btn btn-secondary"
+            <button class="btn btn-secondary items-center"
                     type="button"
                     @onclick="AddAllDisplayedToQuery">
                 <Operon.Icons.HeroIcon Icon="funnel" Type="Operon.Icons.IconType.Outline" Class="size-5" />
@@ -18,7 +18,7 @@
         }
         @if (FilteredSymbols.Count > 0)
         {
-            <button class="btn btn-secondary" type="button" @onclick="ClearFilter">
+            <button class="btn btn-secondary items-center" type="button" @onclick="ClearFilter">
                 <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                 @Localizer["Clean"]
             </button>
@@ -69,15 +69,15 @@
 
             @foreach (var symbol in GetDisplaySymbols())
             {
-                <p class="m-1">
+                <div class="flex flex-wrap items-center gap-1">
                     <button class="btn btn-secondary" type="button" @onclick="() => AddSymbolToQuery(symbol)">
                         <Operon.Icons.HeroIcon Icon="funnel" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                     </button>
                     <button class="btn btn-secondary" type="button" @onclick="() => AddSymbolToSorting(symbol)">
                         <Operon.Icons.HeroIcon Icon="adjustments-vertical" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                     </button>
-                    @symbol
-                </p>
+                    <p>@symbol</p>
+                </div>
             }
 
             <Operon.Components.Pagination Count="SymbolsQueryCount" @bind-PageSize="SymbolsQueryPageLimit" @bind-Selected="SymbolsQueryPage" PageSizeAndSelectedChangedAsync="PageSizeAndSelectedChangedAsync" />
@@ -88,7 +88,7 @@
     {
 
         <div class="card">
-            <div class="flex flex-wrap items-center gap-2">
+            <div class="flex flex-wrap items-center gap-1">
                 <label>@Localizer["Query"]</label>
                 <div>
 
@@ -132,7 +132,7 @@
                 <div>
                     @foreach (var sortSymbol in CurrentQuery.Sorting)
                     {
-                        <div class="flex flex-wrap items-center gap-2 my-1">
+                        <div class="flex flex-wrap items-center gap-1">
                             <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Remove"]"
                                     @onclick="() => RemoveSymbolFromSorting(sortSymbol.TrackSymbolId)">
                                 <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-5" />

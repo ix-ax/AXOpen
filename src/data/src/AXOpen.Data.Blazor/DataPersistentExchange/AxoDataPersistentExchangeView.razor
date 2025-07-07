@@ -10,6 +10,7 @@
 @using AXOpen.Data;
 @using Operon.Components.Dropdown
 @using Operon.Components.Toast
+@using Operon.Icons
 
 @if (Vm == null)
 {
@@ -80,9 +81,7 @@ else
 
                 <tr>
                     <td>
-                        <div class="spinner-border" role="status">
-                            <span class="visually-hidden">Loading...</span>
-                        </div>
+                        <IconSpinner Class="w-8 h-8" />
                     </td>
                 </tr>
 

@@ -6,35 +6,30 @@
 // Third party licenses: https://github.com/inxton/axsharp/blob/dev/notices.md
 
 using AXOpen.Base.Data;
-using AXOpen.Data.Interfaces;
-using AXOpen.Data;
-
-using AXOpen.Data.Interfaces;
-
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Forms;
-using System.IO;
-using AXOpen.Core;
+using AXOpen.Base.Data.Query;
 using AXOpen.Base.Dialogs;
-using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
-using static AXOpen.Data.DataExchangeViewModel;
-
+using AXOpen.Core;
+using AXOpen.Core;
 using AXOpen.Data;
-
+using AXOpen.Data;
+using AXOpen.Data;
+using AXOpen.Data.Interfaces;
+using AXOpen.Data.Interfaces;
+using AXOpen.Data.Interfaces;
+using AXOpen.Data.Query;
 using AXSharp.Connector;
+using AXSharp.Presentation.Blazor.Controls.Templates;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
-
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
-using AXOpen.Data.Interfaces;
-using AXOpen.Core;
-using AXOpen.Data;
-
-using System.Data.Common;
-using AXOpen.Data.Query;
-using AXOpen.Base.Data.Query;
-using AXSharp.Presentation.Blazor.Controls.Templates;
+using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Operon.Components.Toast;
+using System.Data.Common;
+using System.IO;
+using System.Security.Cryptography;
+using static AXOpen.Data.DataExchangeViewModel;
 
 namespace AXOpen.Data;
 
@@ -45,8 +40,6 @@ public partial class DataExchangeView : ComponentBase, IDisposable
     [Parameter] public DataExchangeViewModel Vm { get; set; }
 
     [Parameter] public string Presentation { get; set; } = "Status";
-
-    [Parameter] public bool ModalDataView { get; set; } = true;
 
     [Parameter] public bool EnableCreate { get; set; } = false;
     [Parameter] public bool EnableCopy { get; set; } = false;
@@ -262,32 +255,20 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     public async Task LoadCustomExportDataAsync()
     {
-        var result = await ProtectedLocalStore.GetAsync<ExportSettings>(Vm.DataExchange.ToString());
-        if (result.Success)
+        try
         {
-            Vm.ExportSet = result.Value;
+            var result = await ProtectedLocalStore.GetAsync<ExportSettings>(Vm.DataExchange.ToString());
+            if (result.Success)
+            {
+                Vm.ExportSet = result.Value;
+            }
+        }
+        catch (CryptographicException)
+        {
+            await ProtectedLocalStore.DeleteAsync(Vm.DataExchange.ToString());
         }
 
         StateHasChanged();
-    }
-
-    //-inject
-    protected void ReloadRecordAfterEditWithoutModal()
-    {
-        if (this.ModalDataView) return; // make a sense when is not modal window
-
-        string identifier = Vm.SelectedRecord.DataEntityId;
-
-        Vm.FillObservableRecordsAsync(Vm.BuidDefaultPredicates()).GetAwaiter();
-
-        var rec = Vm.Records.Where(e => e.DataEntityId == identifier).First();
-
-        if (rec != null)
-        {
-            Vm.SelectedRecord = rec;
-
-            this.StateHasChanged();
-        }
     }
 
     public void Dispose()

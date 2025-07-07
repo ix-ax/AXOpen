@@ -39,7 +39,7 @@ namespace AXOpen.Data
         public List<string> EntityIdsLastQueryMainExchange { set; get; } = new();
 
         public int FilteredCount { get; set; }
-        public int FilteredPage { get; set; } = 0;
+        public int FilteredPage { get; set; } = 1;
         public int FilteredPageLimit { get; set; } = 5; // default value
 
         public ObservableCollection<IBrowsableDataObject> Records { get; set; } = new ObservableCollection<IBrowsableDataObject>();

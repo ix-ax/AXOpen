@@ -9,7 +9,6 @@
 @if (IsNoActiveOperation())
 {
     <div class="flex flex-wrap gap-2">
-
         <!-- Selector -->
         @if (EnableCurrentView)
         {
@@ -37,13 +36,9 @@
 
                 @if (IsCurrentIdsDropdownOpen)
                 {
-                    <div class="simple-border p-2 bg-gray-50"
-                         style="position: absolute; z-index: 1000;">
-
+                    <div class="simple-border p-2 bg-gray-50" style="position: absolute; z-index: 1000;">
                         <div class="flex flex-wrap gap-2">
                             <button class="btn btn-primary w-100" @onclick="DistributedVM.ReadAllCurrentEntityIds">Reload All</button>
-
-
                             <table class="table table-hover table-striped mb-0">
                                 <thead>
                                     <tr>
@@ -51,7 +46,6 @@
                                         <th>@Localizer["In DataExchange"]</th>
                                     </tr>
                                 </thead>
-
                                 <tbody>
                                     @foreach (var ex in DistributedVM.AllExchanges)
                                     {
@@ -71,7 +65,6 @@
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
                 }
             </div>
@@ -109,11 +102,8 @@
 
             @if (IsDropdownOpen)
             {
-                <div class="simple-border p-2 bg-gray-50"
-                     style="position: absolute; z-index: 1000;">
-
+                <div class="simple-border p-2 bg-gray-50" style="position: absolute; z-index: 1000;">
                     <div class="flex flex-wrap gap-2">
-
                         <QuerySymbolConfigurationView SymbolConfiguration="@DistributedVM.DefaulQueryDataEntityId"
                                                       HideDescripion="true"
                                                       SymbolConfigurationChanged="
@@ -135,7 +125,6 @@
                                 }
                             </tr>
                         </thead>
-
                         <tbody>
                             @foreach (var rec in DistributedVM.Records)
                             {
@@ -159,20 +148,16 @@
                             }
                         </tbody>
                     </table>
-
                     @if (DistributedVM.FilteredCount >= MinPaginationLimit)
                     {
                         <Operon.Components.Pagination Count="(int)DistributedVM.FilteredCount" @bind-PageSize="Limit" @bind-Selected="Page" PageSizeAndSelectedChangedAsync="PageSizeAndSelectedChangedAsync" />
                     }
-
                 </div>
             }
         </div>
-
         <!-- Send to PLC button -->
         @if (!string.IsNullOrEmpty(SelectedEntity?.DataEntityId))
         {
-
             @if (DisableUserRoles)
             {
                 <div>
@@ -193,59 +178,55 @@
                     </Authorized>
                 </AuthorizeView>
             }
-
         }
     </div>
 }
 else
 {
-
     @if (this.BtnOperation == "SendToPlc-Ack")
     {
-                <div class="flex flex-wrap gap-2 w-full">
-                    <div class="">
-                        @if (DisableUserRoles)
-                        {
-                            <button type="button" class="btn btn-warning w-100 px-1 py-1"
-                                    @onclick="async () => {
-                                        await DistributedVM.SendToPlc(SelectedEntity.DataEntityId);
-                                        await DistributedVM.ReadAllCurrentEntityIds();
-                                        EndBtnOperation();
-                                        OnDataSend?.Invoke(SelectedEntity.DataEntityId);}">
-                                <div class="flex flex-wrap">
-                                    <span>@Localizer["Send to the PLC"]: "@SelectedEntity.DataEntityId"</span>
-                                </div>
-
-                            </button>
-                        }
-                        else
-                        {
-                            <AuthorizeView Roles="@DataExchangeRoleNames.can_data_send_to_plc">
-                                <Authorized>
-                                    <button type="button" class="btn btn-warning w-100 px-1 py-1"
-                                            @onclick="async () => {
-                                        await DistributedVM.SendToPlc(SelectedEntity.DataEntityId);
-                                        await DistributedVM.ReadAllCurrentEntityIds();
-                                        EndBtnOperation();
-                                        OnDataSend?.Invoke(SelectedEntity.DataEntityId);}">
-                                        <div class="flex flex-wrap">
-                                            <span>@Localizer["Send to the PLC"]: "@SelectedEntity.DataEntityId"</span>
-                                        </div>
-
-                                    </button>
-                                </Authorized>
-                            </AuthorizeView>
-                        }
+    <div class="flex flex-wrap gap-2 w-full">
+        <div class="">
+            @if (DisableUserRoles)
+            {
+                <button type="button" class="btn btn-warning w-100 px-1 py-1"
+                        @onclick="async () => {
+                            await DistributedVM.SendToPlc(SelectedEntity.DataEntityId);
+                            await DistributedVM.ReadAllCurrentEntityIds();
+                            EndBtnOperation();
+                            OnDataSend?.Invoke(SelectedEntity.DataEntityId);}">
+                    <div class="flex flex-wrap">
+                        <span>@Localizer["Send to the PLC"]: "@SelectedEntity.DataEntityId"</span>
                     </div>
-
-                    <div class="">
-                        <button type="button" class="btn btn-secondary w-100"
-                                @onclick='EndBtnOperation'>
+                </button>
+            }
+            else
+            {
+                <AuthorizeView Roles="@DataExchangeRoleNames.can_data_send_to_plc">
+                    <Authorized>
+                        <button type="button" class="btn btn-warning w-100 px-1 py-1"
+                                @onclick="async () => {
+                            await DistributedVM.SendToPlc(SelectedEntity.DataEntityId);
+                            await DistributedVM.ReadAllCurrentEntityIds();
+                            EndBtnOperation();
+                            OnDataSend?.Invoke(SelectedEntity.DataEntityId);}">
                             <div class="flex flex-wrap">
-                                <span>@Localizer["Close"]</span>
+                                <span>@Localizer["Send to the PLC"]: "@SelectedEntity.DataEntityId"</span>
                             </div>
                         </button>
-                    </div>
+                    </Authorized>
+                </AuthorizeView>
+            }
+        </div>
+
+        <div class="">
+            <button type="button" class="btn btn-secondary w-100"
+                    @onclick='EndBtnOperation'>
+                <div class="flex flex-wrap">
+                    <span>@Localizer["Close"]</span>
                 </div>
+            </button>
+        </div>
+    </div>
     }
 }

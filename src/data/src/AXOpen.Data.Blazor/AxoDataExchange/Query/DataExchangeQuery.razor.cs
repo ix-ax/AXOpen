@@ -116,7 +116,7 @@ namespace AXOpen.Data.Query
 
         public int SymbolsQueryCount { set; get; } // all symbols from query
 
-        private int _symbolsQueryPage;
+        private int _symbolsQueryPage = 1;
         public int SymbolsQueryPage // displaing only selected page
         {
             set
