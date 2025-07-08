@@ -5,65 +5,19 @@
 @using Operon.Components.Accordion
 @inherits RenderableComplexComponentBase<AxoByteArray>;
 
-<div>
-    <div class="row justify-content-between">
-        <div class="col-auto d-flex align-items-center">
-            <p class="mb-0">@Component.AttributeName</p>
-        </div>
-        <div class="col-auto d-flex align-items-center">
-            <button type="button" class="btn btn-secondary me-1" data-bs-toggle="modal" data-bs-target="#formatModal-@_id">Format</button>
-            @if (IsControllable & !IsReadOnly)
-            {
-                <button class="btn btn-primary" type="button" @onclick="() => UploadAndFormatData(null, null)">
-                    <span class="oi oi-data-transfer-upload" aria-hidden="true" />
-                </button>
-                <button class="btn btn-primary" type="button" @onclick="() => Download()">
-                    <span class="oi oi-data-transfer-download" aria-hidden="true" />
-                </button>
-            }
-            else
-            {
-                <button class="btn btn-primary" type="button" @onclick="() => UploadAndFormatData(null, null)">
-                    <span class="oi oi-reload" aria-hidden="true" />
-                </button>
-            }
-        </div>
-        <div class="col-auto d-flex align-items-center">
-        </div>
-    </div>
+<br/>
 
-
-    <div class="row mx-1 flex-nowrap gx-0" style="overflow-x: auto; width: 70vw;">
-
-        @if (this.Data != null)
-        {
-            @foreach (IndexedData<string> item in this.Data)
-            {
-                if (item != null && @item.Index != null && @item.Data != null)
-                {
-                    <div class="col-auto mx-1">
-                        <label>@item.Index</label>
-                        <div>
-                            <input class="form-control p-1" type="text" @bind=item.Data maxlength="@MaxLen" style="width: 2.5rem;">
-                        </div>
-                    </div>
-                }
-            }
-        }
-    </div>
-</div>
-
-<div class="modal fade" id="formatModal-@_id" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Display format</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <select class="form-control" @bind="@DisplayFormat">
-
-                    @foreach (var displayedFormat in DisplayedFormatList)
+<div class="w-full ml-auto mr-auto my-3 p-3 bg-white shadow rounded-lg">
+    <Accordion>
+    <AccordionItem Title="Data">
+        <div class="w-full">
+            <div class="flex flex-wrap justify-between items-center mb-4">
+                <div class="flex items-center">
+                    <p class="m-0">@Component.AttributeName</p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <button type="button" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600" data-bs-toggle="modal" data-bs-target="#formatModal-@_id">Format</button>
+                    @if (IsControllable & !IsReadOnly)
                     {
                         <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" type="button" @onclick="() => UploadAndFormatData(null, null)">
                             <span class="oi oi-data-transfer-upload" aria-hidden="true" />
