@@ -472,7 +472,10 @@ namespace AXOpen.VisualComposer
 
             if (SearchValue[0] == '"' && SearchValue[SearchValue.Length - 1] == '"')
             {
-                var regex = new Regex(SearchValue, RegexOptions.IgnoreCase | RegexOptions.Compiled);
+
+                var searchValueTrimmed = SearchValue.Substring(1, SearchValue.Length - 2);
+
+                var regex = new Regex(searchValueTrimmed, RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
                 foreach (ITwinObject obj in Objects)
                 {
