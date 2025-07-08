@@ -10,6 +10,11 @@ NAMESPACE AXOpen.Elements
         VAR PUBLIC
             
             {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Signal#>"}
+            _signal : BOOL;
+
             {#ix-set:AttributeName = "<#On#>"}
             {#ix-attr:[ComponentHeader()]}
             _setTask : AxoTask;
@@ -22,10 +27,7 @@ NAMESPACE AXOpen.Elements
             {#ix-set:PlcTextList = "[1]:'<#Expecting positive signal.#>':'<#Check your signal input.#>';[2]:'<#Expecting negative signal.#>':'<#Check your signal input.#>'"}
             _messengerInfo : AXOpen.Messaging.Static.AxoMessenger;
             
-            {#ix-attr:[ComponentDetails("Signal status")]}
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#Signal#>"}
-            _signal : BOOL;
+           
         END_VAR
 
         VAR PRIVATE
