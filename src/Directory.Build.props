@@ -2,17 +2,17 @@
  <PropertyGroup>
  <AxSharpRoot>$(MSBuildThisFileDirectory)..\..\axsharp\src\</AxSharpRoot>
 
-   <TargetFrameworks>net9.0</TargetFrameworks>  
+   <TargetFrameworks>net9.0;net8.0</TargetFrameworks>  
     <!-- Define output directories based on project names 
     <OutputPath>$(MSBuildThisFileDirectory)\.builds\bin\$(MSBuildProjectName)\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>$(MSBuildThisFileDirectory)\.builds\obj\$(MSBuildProjectName)\$(Configuration)\</IntermediateOutputPath>  -->
  </PropertyGroup>
 
- <ItemGroup>
+ <!-- <ItemGroup>
 	  <ProjectReference Include="$(AxSharpRoot)\AXSharp.abstractions\src\AXSharp.Abstractions\AXSharp.Abstractions.csproj" />	  	  
 	  <ProjectReference Include="$(AxSharpRoot)\AXSharp.connectors\src\AXSharp.Connector.S71500.WebAPI\AXSharp.Connector.S71500.WebAPI.csproj" />
 	  <ProjectReference Include="$(AxSharpRoot)\AXSharp.connectors\src\AXSharp.Connector\AXSharp.Connector.csproj" />	 	 
     <ProjectReference Include="$(AxSharpRoot)\AXSharp.blazor\src\AXSharp.Presentation.Blazor.Controls\AXSharp.Presentation.Blazor.Controls.csproj" />
 	  <ProjectReference Include="$(AxSharpRoot)\AXSharp.blazor\src\AXSharp.Presentation.Blazor\AXSharp.Presentation.Blazor.csproj" />	  	  
-  </ItemGroup>
+  </ItemGroup> -->
 </Project>
