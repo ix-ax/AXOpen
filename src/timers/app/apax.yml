@@ -2,11 +2,11 @@
 version: '0.0.0-dev.0'
 type: app
 targets:
-  - llvm
+  # - llvm
   - "1500"
 variables:
-  APAX_BUILD_ARGS:
-    - "--debug" # Generate debug information for target "1500"
+  # APAX_BUILD_ARGS:
+  #   - "--debug" # Generate debug information for target "1500"
   # Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build. =>
   PLC_NAME: "plc_line"
   DEFAULT_NAMESPACE: "AXOpen.Timers"
@@ -19,7 +19,7 @@ variables:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.24
+  "@inxton/ax.catalog": 0.0.28
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
@@ -173,6 +173,10 @@ scripts:
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ibt' Finished in :" $(expr $(date +%s) - $START) "s"
   mm: |
     apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
+
+
+
+
 
 
 

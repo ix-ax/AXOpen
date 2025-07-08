@@ -1,0 +1,99 @@
+Devices:
+- Name: CommunicationCard
+  Modules:
+  - Name: CommunicationCard
+    TypeIdentifier:
+      GsdId: DAP1
+      FileName: gsdml-v2.3-cognex-cc24-20140828.xml
+    Interfaces:
+    - Name: profinet
+      Label: X1
+      Addresses:
+        Configured:
+        - IPv4: 10.1.100.101/24
+        - ProfinetDeviceName: CommunicationCard
+  - Name: System_Control
+    TypeIdentifier:
+      GsdId: '101'
+      FileName: gsdml-v2.3-cognex-cc24-20140828.xml
+    Slot: 1
+  - Name: Engine_Control_1
+    TypeIdentifier:
+      GsdId: '401'
+      FileName: gsdml-v2.3-cognex-cc24-20140828.xml
+    Slot: 2
+  - Name: Engine_Control_2
+    TypeIdentifier:
+      GsdId: '401'
+      FileName: gsdml-v2.3-cognex-cc24-20140828.xml
+    Slot: 3
+  - Name: Engine_Control_3
+    TypeIdentifier:
+      GsdId: '401'
+      FileName: gsdml-v2.3-cognex-cc24-20140828.xml
+    Slot: 4
+  - Name: Engine_Control_4
+    TypeIdentifier:
+      GsdId: '401'
+      FileName: gsdml-v2.3-cognex-cc24-20140828.xml
+    Slot: 5
+  - Name: User_Data_240_bytes_1
+    TypeIdentifier:
+      GsdId: '705'
+      FileName: gsdml-v2.3-cognex-cc24-20140828.xml
+    Slot: 6
+  - Name: User_Data_240_bytes_2
+    TypeIdentifier:
+      GsdId: '705'
+      FileName: gsdml-v2.3-cognex-cc24-20140828.xml
+    Slot: 7
+  - Name: User_Data_240_bytes_3
+    TypeIdentifier:
+      GsdId: '705'
+      FileName: gsdml-v2.3-cognex-cc24-20140828.xml
+    Slot: 8
+  - Name: User_Data_240_bytes_4
+    TypeIdentifier:
+      GsdId: '705'
+      FileName: gsdml-v2.3-cognex-cc24-20140828.xml
+    Slot: 9
+  - Name: User_Data_240_bytes_5
+    TypeIdentifier:
+      GsdId: '705'
+      FileName: gsdml-v2.3-cognex-cc24-20140828.xml
+    Slot: 10
+  - Name: User_Data_64_bytes_1
+    TypeIdentifier:
+      GsdId: '703'
+      FileName: gsdml-v2.3-cognex-cc24-20140828.xml
+    Slot: 11
+  - Name: Result_Data_240_bytes_1
+    TypeIdentifier:
+      GsdId: '805'
+      FileName: gsdml-v2.3-cognex-cc24-20140828.xml
+    Slot: 12
+  - Name: Result_Data_240_bytes_2
+    TypeIdentifier:
+      GsdId: '805'
+      FileName: gsdml-v2.3-cognex-cc24-20140828.xml
+    Slot: 13
+  - Name: Result_Data_240_bytes_3
+    TypeIdentifier:
+      GsdId: '805'
+      FileName: gsdml-v2.3-cognex-cc24-20140828.xml
+    Slot: 14
+  - Name: Result_Data_240_bytes_4
+    TypeIdentifier:
+      GsdId: '805'
+      FileName: gsdml-v2.3-cognex-cc24-20140828.xml
+    Slot: 15
+  - Name: Result_Data_240_bytes_5
+    TypeIdentifier:
+      GsdId: '805'
+      FileName: gsdml-v2.3-cognex-cc24-20140828.xml
+    Slot: 16
+  - Name: Result_Data_64_bytes_1
+    TypeIdentifier:
+      GsdId: '803'
+      FileName: gsdml-v2.3-cognex-cc24-20140828.xml
+    Slot: 17

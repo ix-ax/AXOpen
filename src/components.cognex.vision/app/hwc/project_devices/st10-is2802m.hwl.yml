@@ -1,0 +1,124 @@
+Devices:
+- Name: st10-is2802m
+  Modules:
+  - Name: st10-is2802m
+    TypeIdentifier:
+      GsdId: DAP1
+      FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+    Interfaces:
+    - Name: profinet
+      Label: X1
+      Addresses:
+        Configured:
+        - IPv4: 10.1.100.10/24
+        - ProfinetDeviceName: st10-is2802m
+  - Name: Acquisition_Control
+    TypeIdentifier:
+      GsdId: '101'
+      FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+    Slot: 1
+  - Name: Acquisition_Status
+    TypeIdentifier:
+      GsdId: '204'
+      FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+    Slot: 2
+  - Name: Inspection_Control
+    TypeIdentifier:
+      GsdId: '102'
+      FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+    Slot: 3
+  - Name: Inspection_Status
+    TypeIdentifier:
+      GsdId: '203'
+      FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+    Slot: 4
+  - Name: Command_Control
+    TypeIdentifier:
+      GsdId: '108'
+      FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+    Slot: 5
+  - Name: SoftEvent_Control
+    TypeIdentifier:
+      GsdId: '106'
+      FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+    Slot: 6
+  # - Name: User_Data-16_bytes
+  #   TypeIdentifier:
+  #     GsdId: '301'
+  #     FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+  #   Slot: 7
+  # - Name: User_Data-32_bytes
+  #   TypeIdentifier:
+  #     GsdId: '302'
+  #     FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+  #   Slot: 7
+  # - Name: User_Data-64_bytes
+  #   TypeIdentifier:
+  #     GsdId: '303'
+  #     FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+  #   Slot: 7
+  # - Name: User_Data-128_bytes
+  #   TypeIdentifier:
+  #     GsdId: '304'
+  #     FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+  #   Slot: 7
+  - Name: User_Data-254_bytes_1
+    TypeIdentifier:
+      GsdId: '305'
+      FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+    Slot: 7
+  - Name: User_Data-254_bytes_2
+    TypeIdentifier:
+      GsdId: '305'
+      FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+    Slot: 8
+  - Name: User_Data-254_bytes_3
+    TypeIdentifier:
+      GsdId: '305'
+      FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+    Slot: 9
+  - Name: User_Data-254_bytes_4
+    TypeIdentifier:
+      GsdId: '305'
+      FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+    Slot: 10
+  # - Name: Result_Data-16_bytes
+  #   TypeIdentifier:
+  #     GsdId: '401'
+  #     FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+  #   Slot: 11
+  # - Name: Result_Data-32_bytes
+  #   TypeIdentifier:
+  #     GsdId: '402'
+  #     FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+  #   Slot: 11
+  # - Name: Result_Data-64_bytes
+  #   TypeIdentifier:
+  #     GsdId: '403'
+  #     FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+  #   Slot: 11
+  # - Name: Result_Data-128_bytes
+  #   TypeIdentifier:
+  #     GsdId: '404'
+  #     FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+  #   Slot: 11
+  - Name: Result_Data-250_bytes_1
+    TypeIdentifier:
+      GsdId: '405'
+      FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+    Slot: 11
+  - Name: Result_Data-250_bytes_2
+    TypeIdentifier:
+      GsdId: '40a'
+      FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+    Slot: 12
+  - Name: Result_Data-250_bytes_3
+    TypeIdentifier:
+      GsdId: '40a'
+      FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+    Slot: 13    
+  - Name: Result_Data-250_bytes_4
+    TypeIdentifier:
+      GsdId: '40a'
+      FileName: GSDML-V2.42-Cognex-IS2800ClassB-20230405.XML
+    Slot: 14    

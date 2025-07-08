@@ -7,8 +7,8 @@ files:
   - src
   - axsharp.companion.json
 variables:
-  APAX_BUILD_ARGS:
-    - "--debug"
+  # APAX_BUILD_ARGS:
+  #   - "--debug"
   AXUNIT_TARGET_IP: "172.20.30.110"
   SIM_ENABLED: "true"
 registries:
