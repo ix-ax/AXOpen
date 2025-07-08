@@ -9,8 +9,13 @@ NAMESPACE AXOpen.Elements
 
         VAR PUBLIC
             
-            // task, which checks if signal is on
             {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Signal#>"}
+            _signal : BOOL;
+
+            // task, which checks if signal is on
             {#ix-set:AttributeName = "<#Check on#>"}
             {#ix-attr:[ComponentHeader()]}
             _isTrueTask : AxoTask;
@@ -25,10 +30,6 @@ NAMESPACE AXOpen.Elements
             _messengerInfo : AXOpen.Messaging.Static.AxoMessenger;
             
 
-            {#ix-attr:[ComponentDetails("Signal status")]}
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#Signal#>"}
-            _signal : BOOL;
         END_VAR
        
         VAR PRIVATE
