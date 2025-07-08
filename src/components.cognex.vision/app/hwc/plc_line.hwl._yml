@@ -1,0 +1,19 @@
+Devices:
+- Name: plc_line
+  Modules:
+  - Apply:
+     TemplateName: 6ES7516-3AP03-0AB0_v3_1
+     Arguments:
+       PLCName: plc_line
+       IpAddress_X1: 192.168.100.120/24
+       ProfinetDeviceName_X1: plc_line_x1
+IoSystems:
+- Name: profinet_plc_line
+  ControllerInterfaces:
+  - Ref: plc_line/plc_line/profinet_x1
+  DeviceInterfaces:
+  - Ref: dm_280/dm_280/profinet
+  - Ref: dm_300/dm_300/profinet
+  - Ref: is7600/is7600/profinet
+  - Ref: is2800/is2800/profinet
+  - Ref: vision_pro/vision_pro/profinet

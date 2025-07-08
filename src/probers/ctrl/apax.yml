@@ -6,8 +6,8 @@ targets:
 files:
   - src
   - axsharp.companion.json
-variables:
-  APAX_BUILD_ARGS: [ -d ]
+# variables:
+  # APAX_BUILD_ARGS: [ -d ]
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 devDependencies:
