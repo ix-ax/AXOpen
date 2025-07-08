@@ -31,7 +31,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             END_IF;
 
             //<Initialization>        
-            Insight_7600.Run(parent := THIS, hwID :=  HwIdentifiers#is7600_HwID);
+            // Insight_7600.Run(parent := THIS, hwID :=  HwIdentifiers#is7600_HwID);
+            Insight_7600.Run(parent := THIS, hwID :=  HwIdentifiers#st20_is2000_navigation_HwID);
             //</Initialization>
             THIS.UseInSequencer();
         END_METHOD
