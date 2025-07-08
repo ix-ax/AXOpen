@@ -9,8 +9,10 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
 using Newtonsoft.Json.Linq;
 using Operon.Components;
+using System.Buffers;
 using System.Diagnostics;
 using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -155,20 +157,20 @@ namespace AXOpen.VisualComposer
             await SaveAsync();
         }
 
-        public void AddChildren(ITwinElement item, double left, double top, TransformType transform, 
-            string presentation, 
-            double width, 
-            double height, 
-            int zIndex, 
-            double scale, 
-            string roles, 
-            string? presentationTemplate, 
-            bool background, 
+        public void AddChildren(ITwinElement item, double left, double top, TransformType transform,
+            string presentation,
+            double width,
+            double height,
+            int zIndex,
+            double scale,
+            string roles,
+            string? presentationTemplate,
+            bool background,
             string backgroundColor,
             int pollingInterval)
         {
-            _children.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged),EventCallback.Factory.Create(this, SaveAsync), item, item.Symbol.ModalIdHelper(), 
-                                                        Guid.NewGuid(), left, top, transform, presentation, width, height, zIndex, scale, roles,  presentationTemplate, background, backgroundColor, pollingInterval));
+            _children.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), EventCallback.Factory.Create(this, SaveAsync), item, item.Symbol.ModalIdHelper(),
+                                                        Guid.NewGuid(), left, top, transform, presentation, width, height, zIndex, scale, roles, presentationTemplate, background, backgroundColor, pollingInterval));
         }
 
         public async Task RemoveChildrenAsync(VisualComposerItemData item)
@@ -219,19 +221,19 @@ namespace AXOpen.VisualComposer
             List<SerializableVisualComposerItem> serializableChildren = new List<SerializableVisualComposerItem>();
             foreach (var child in _children)
             {
-                serializableChildren.Add(new SerializableVisualComposerItem(child.Id, 
-                    child.Left, 
-                    child.Top, 
-                    child.Transform.ToString(), 
-                    child.Presentation, 
-                    child.Width, 
-                    child.Height, 
-                    child.ZIndex, 
-                    child.Scale, 
-                    child.Roles, 
-                    child.PresentationTemplate, 
-                    child.Background, 
-                    child.BackgroundColor, 
+                serializableChildren.Add(new SerializableVisualComposerItem(child.Id,
+                    child.Left,
+                    child.Top,
+                    child.Transform.ToString(),
+                    child.Presentation,
+                    child.Width,
+                    child.Height,
+                    child.ZIndex,
+                    child.Scale,
+                    child.Roles,
+                    child.PresentationTemplate,
+                    child.Background,
+                    child.BackgroundColor,
                     child.PollingInterval));
             }
 
@@ -285,22 +287,22 @@ namespace AXOpen.VisualComposer
                     var childObject = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper() == item.Id);
                     if (childObject != null)
                     {
-                        _children.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), 
-                            EventCallback.Factory.Create(this, SaveAsync), 
-                            childObject, 
-                            childObject.Symbol.ModalIdHelper(), 
-                            Guid.NewGuid(), 
-                            item.Left, 
-                            item.Top, 
-                            Types.TransformType.FromString(item.Transform), 
-                            item.Presentation, 
-                            item.Width, 
-                            item.Height, 
-                            item.ZIndex, 
-                            item.Scale, 
-                            item.Roles, 
-                            item.PresentationTemplate, 
-                            item.Background, 
+                        _children.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged),
+                            EventCallback.Factory.Create(this, SaveAsync),
+                            childObject,
+                            childObject.Symbol.ModalIdHelper(),
+                            Guid.NewGuid(),
+                            item.Left,
+                            item.Top,
+                            Types.TransformType.FromString(item.Transform),
+                            item.Presentation,
+                            item.Width,
+                            item.Height,
+                            item.ZIndex,
+                            item.Scale,
+                            item.Roles,
+                            item.PresentationTemplate,
+                            item.Background,
                             item.BackgroundColor,
                             item.PollingInterval));
                     }
@@ -354,7 +356,7 @@ namespace AXOpen.VisualComposer
 
         public async Task ClearScaleAndTranslateAsync(string fileName)
         {
-            if(fileName == CurrentView)
+            if (fileName == CurrentView)
             {
                 Scale = 1;
                 TranslateX = 0;
@@ -460,20 +462,61 @@ namespace AXOpen.VisualComposer
             if (SearchValue is null || SearchValue == "")
             {
                 SearchResult = null;
+                return;
             }
+
+            if (SearchResult == null)
+                SearchResult = new();
             else
+                SearchResult.Clear();
+
+            if (SearchValue[0] == '"' && SearchValue[SearchValue.Length - 1] == '"')
             {
-                if (SearchResult == null)
-                    SearchResult = new();
-                else
-                    SearchResult.Clear();
+                var regex = new Regex(SearchValue, RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
                 foreach (ITwinObject obj in Objects)
                 {
-                    SearchResult.AddRange(obj.GetChildren().Flatten(p => p.GetChildren()).ToList().FindAll(p => p.Symbol.Contains(SearchValue, StringComparison.OrdinalIgnoreCase)));
-                    SearchResult.AddRange(obj.RetrievePrimitives().ToList().FindAll(p => p.Symbol.Contains(SearchValue, StringComparison.OrdinalIgnoreCase)));
+                    var flatChildren = obj.GetChildren().Flatten(p => p.GetChildren());
+                    var primitives = obj.RetrievePrimitives();
+
+                    var matchingChildren = flatChildren.Where(p => regex.IsMatch(p.Symbol));
+
+                    var matchingPrimitives = primitives.Where(p => regex.IsMatch(p.Symbol));
+
+                    SearchResult.AddRange(matchingChildren);
+                    SearchResult.AddRange(matchingPrimitives);
                 }
             }
+            else
+            {
+                var searchTerms = SearchValue
+                    .Split(new[] { '.', ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(term => term.Trim())
+                    .ToList();
+
+                foreach (ITwinObject obj in Objects)
+                {
+                    var flatChildren = obj.GetChildren().Flatten(p => p.GetChildren());
+                    var primitives = obj.RetrievePrimitives();
+
+                    var matchingChildren = flatChildren.Where(p =>
+                        searchTerms.All(term =>
+                            p.Symbol.Contains(term, StringComparison.OrdinalIgnoreCase)));
+
+                    var matchingPrimitives = primitives.Where(p =>
+                        searchTerms.All(term =>
+                            p.Symbol.Contains(term, StringComparison.OrdinalIgnoreCase)));
+
+                    SearchResult.AddRange(matchingChildren);
+                    SearchResult.AddRange(matchingPrimitives);
+                }
+            }
+
+            //foreach (ITwinObject obj in Objects)
+            //{
+            //    SearchResult.AddRange(obj.GetChildren().Flatten(p => p.GetChildren()).ToList().FindAll(p => p.Symbol.Contains(SearchValue, StringComparison.OrdinalIgnoreCase)));
+            //    SearchResult.AddRange(obj.RetrievePrimitives().ToList().FindAll(p => p.Symbol.Contains(SearchValue, StringComparison.OrdinalIgnoreCase)));
+            //}
         }
 
         private bool isFileImported { get; set; } = false;
@@ -544,9 +587,9 @@ namespace AXOpen.VisualComposer
             _zoomableContainer = zoomableContainer;
         }
 
-        
 
-        private RenderableContentControl detailsRcc { get; set; } 
+
+        private RenderableContentControl detailsRcc { get; set; }
 
         public Modal DetailsModalWindow { get; set; }
 
@@ -603,7 +646,7 @@ namespace AXOpen.VisualComposer
         {
             foreach (var child in _children)
             {
-                if(child.MoveEvent != null)
+                if (child.MoveEvent != null)
                     child.MoveEvent.Invoke(this, eventArgs);
             }
         }
@@ -612,7 +655,7 @@ namespace AXOpen.VisualComposer
         {
             foreach (var child in _children)
             {
-                if(child.LeaveEvent != null)
+                if (child.LeaveEvent != null)
                     child.LeaveEvent.Invoke(this, eventArgs);
             }
         }
