@@ -144,7 +144,7 @@ namespace AXOpen.Data
                 if (predicates == null)
                     predicates = new PredicateContainer();
 
-                var res = this.Filter(predicates, FilteredPageLimit, FilteredPage * FilteredPageLimit);
+                var res = this.Filter(predicates, FilteredPageLimit, (FilteredPage - 1) * FilteredPageLimit);
 
             });
         }

@@ -174,7 +174,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
         set
         {
             Vm.Limit = value;
-            Vm.FillObservableRecordsAsync();
+            Vm.UpdateObservableRecords();
         }
         get
         {
@@ -187,7 +187,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
         set
         {
             Vm.Page = value;
-            Vm.FillObservableRecordsAsync();
+            Vm.UpdateObservableRecords();
         }
         get
         {

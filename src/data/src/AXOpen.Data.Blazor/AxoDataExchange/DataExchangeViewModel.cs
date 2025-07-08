@@ -218,7 +218,7 @@ namespace AXOpen.Data
 
         public virtual async Task Filter()
         {
-            Page = 0; // reset page => filtered count is unknown
+            Page = 1; // reset page => filtered count is unknown
 
             await FillObservableRecordsAsync(BuidDefaultPredicates());
         }
@@ -249,12 +249,12 @@ namespace AXOpen.Data
 
             LastFilter = predicates;
 
-            if (EntityIdsInjected.Count > 0 && Page * Limit >= EntityIdsInjected.Count) // is over limit => set last page
+            if (EntityIdsInjected.Count > 0 && (Page - 1) * Limit >= EntityIdsInjected.Count) // is over limit => set last page
             {
                 Page = (EntityIdsInjected.Count - 1) / Limit;
             }
 
-            Filter(predicates, Limit, Page * Limit);
+            Filter(predicates, Limit, (Page - 1) * Limit);
         }
 
         public virtual IEnumerable<IBrowsableDataObject> Filter(PredicateContainer predicates, int limit = 10, int skip = 0)
