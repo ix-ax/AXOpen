@@ -2,7 +2,8 @@
 @*@using AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog;*@
 @using axopen_integrations_blazor.Data
 @using AXOpen.Base.Dialogs
-@inject IAlertService DialogService
+@using Operon.Components.Toast
+@inject Operon.Components.Toast.IToastService DialogService
 @inject WeatherForecastService ForecastService
 
 <PageTitle>Weather forecast</PageTitle>
@@ -53,6 +54,6 @@ else
 
     public void CreateToast()
     {
-        DialogService.AddAlertDialog(eAlertType.Success, "Test", "test", 30);
+        DialogService.AddToast(eToastType.Success, "Test", "test", 30);
     }
 }

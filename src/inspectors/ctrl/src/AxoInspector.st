@@ -233,7 +233,7 @@ NAMESPACE AXOpen.Inspectors
             IF(_coordinator <> NULL) THEN
                 _step ?= _coordinator.GetCurrentStep();
                 IF(_step <> NULL) THEN
-                    _DL._inspectionDetails := _step^.StepDescription;
+                    _DL._inspectionDetails := _step^.Descr;
                 END_IF;    
             END_IF;   
         END_METHOD            

@@ -1,7 +1,8 @@
 ﻿@namespace AXOpen.Core
 @using AXSharp.Connector.ValueTypes
 @using AXSharp.Connector;
-@using AXSharp.Presentation.Blazor.Controls.Layouts.TabControlComponents;
+@*@using AXSharp.Presentation.Blazor.Controls.Layouts.TabControlComponents;*@
+@using Operon.Components.Accordion
 @inherits RenderableComplexComponentBase<AxoByteArray>;
 
 <div>
@@ -64,15 +65,69 @@
 
                     @foreach (var displayedFormat in DisplayedFormatList)
                     {
-                        <option value="@displayedFormat.DisplayFormat"> @displayedFormat.Description </option>
+                        <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" type="button" @onclick="() => UploadAndFormatData(null, null)">
+                            <span class="oi oi-data-transfer-upload" aria-hidden="true" />
+                        </button>
+                        <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" type="button" @onclick="() => Download()">
+                            <span class="oi oi-data-transfer-download" aria-hidden="true" />
+                        </button>
                     }
-                </select>
+                    else
+                    {
+                        <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" type="button" @onclick="() => UploadAndFormatData(null, null)">
+                            <span class="oi oi-reload" aria-hidden="true" />
+                        </button>
+                    }
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            <div class="w-full overflow-x-auto">
+                <div class="flex flex-wrap gap-2 p-2">
+                    @if (this.Data != null)
+                    {
+                        @foreach (IndexedData<string> item in this.Data)
+                        {
+                            if (item != null && @item.Index != null && @item.Data != null)
+                            {
+                                <div class="flex flex-col">
+                                    <label class="text-sm text-gray-600">@item.Index</label>
+                                    <input class="p-1 border rounded text-center min-w-[2rem] w-fit"
+                                           type="text"
+                                           @bind=item.Data
+                                           maxlength="@MaxLen"
+                                           style="width: @(Math.Max(2, item.Data?.Length ?? 2))ch;">
+                                </div>
+                            }
+                        }
+                    }
+                </div>
             </div>
         </div>
-    </div>
+        <div class="fixed inset-0 bg-black bg-opacity-50 hidden" id="formatModal-@_id" tabindex="-1" aria-hidden="true">
+            <div class="relative top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-lg">
+                <div class="bg-white rounded-lg shadow-xl">
+                    <div class="flex items-center justify-between p-4 border-b">
+                        <h1 class="text-xl font-medium" id="exampleModalLabel">Display format</h1>
+                        <button type="button" class="text-gray-400 hover:text-gray-500" data-bs-dismiss="modal" aria-label="Close">
+                            <span class="text-2xl">&times;</span>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <select class="w-full p-2 border rounded" @bind="@DisplayFormat">
+                            @foreach (var displayedFormat in DisplayedFormatList)
+                            {
+                                <option value="@displayedFormat.DisplayFormat"> @displayedFormat.Description </option>
+                            }
+                        </select>
+                    </div>
+                    <div class="flex justify-end p-4 border-t">
+                        <button type="button" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </AccordionItem>
+</Accordion>
 </div>
 
 @code {

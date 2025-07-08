@@ -3,17 +3,10 @@
 @using AXSharp.Connector
 @inherits RenderableComplexComponentBase<AxoInspector>
 
-<p type="button" class="btn btn-outline-primary"
-        data-bs-toggle="tooltip" 
-        data-bs-placement="top"
-        data-bs-custom-class="custom-tooltip"
-        data-bs-title="@Component.HumanReadable"
-        @onclick="SetCurrentObject">
+<p type="button" class="btn btn-outline-primary" @onclick="SetCurrentObject">
     @Component.AttributeName
     <GenericIconView Result="Data.Result.LastValue" HasLabel="false" />
 </p>
-
-
 
 @code {
     private AxoInspectorData? Data
@@ -27,7 +20,7 @@
     /// <inheritdoc />
     public override void ConfigurePolling()
     {
-        
+
     }
 
     private void SetCurrentObject()
@@ -36,8 +29,7 @@
         {
             if (rccContainer.ParentContainer is VisualComposerItem composerItem)
             {
-                composerItem.Parent.DetailsPresentationType = "Status";
-                composerItem.Parent.UpdateDetails(this.Component);
+                composerItem.Parent.OpenDetails(this.Component, "Status");
             }
         }
     }

@@ -12,6 +12,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<!-- <PackageReference Include="Inxton.Operon" /> -->
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.Authorization" />
 		<PackageReference Include="AXSharp.Abstractions" />
@@ -21,8 +22,8 @@
 		<PackageReference Include="AXOpen.KristofferStrube.Blazor.SVGEditor" />
 	</ItemGroup>
 
-	<ItemGroup>		
-		<!--<ProjectReference Include="C:\MTS\Blazor.SVGEditor\src\KristofferStrube.Blazor.SVGEditor\KristofferStrube.Blazor.SVGEditor.csproj" />-->
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\..\..\operon\src\Operon\Operon.csproj" />
 	</ItemGroup>
 	  
 </Project>

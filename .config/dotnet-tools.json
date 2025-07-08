@@ -3,7 +3,7 @@
   "isRoot": true,
   "tools": {
     "AXSharp.ixc": {
-      "version": "0.24.0-preview.158",
+      "version": "0.32.0-alpha.203",
       "commands": [
         "ixc"
       ],
@@ -17,21 +17,21 @@
       "rollForward": false
     },
     "AXSharp.ixd": {
-      "version": "0.24.0-preview.158",
+      "version": "0.32.0-alpha.203",
       "commands": [
         "ixd"
       ],
       "rollForward": false
     },
     "AXSharp.ixr": {
-      "version": "0.24.0-preview.158",
+      "version": "0.32.0-alpha.203",
       "commands": [
         "ixr"
       ],
       "rollForward": false
     },
     "microsoft.visualstudio.slngen.tool": {
-      "version": "12.0.3",
+      "version": "12.0.19",
       "commands": [
         "slngen"
       ],

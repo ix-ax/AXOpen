@@ -1,4 +1,6 @@
-﻿using AXOpen.VisualComposer.Serializing;
+﻿using AngleSharp.Dom;
+using AXOpen.VisualComposer.Serializing;
+using AXOpen.VisualComposer.Types;
 using AXSharp.Connector;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 using Microsoft.AspNetCore.Components;
@@ -6,11 +8,11 @@ using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
 using Newtonsoft.Json.Linq;
+using Operon.Components;
 using System.Diagnostics;
-using System.Xml.Linq;
 using System.Drawing;
+using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
-using AXOpen.VisualComposer.Types;
 
 namespace AXOpen.VisualComposer
 {
@@ -18,9 +20,6 @@ namespace AXOpen.VisualComposer
     {
         [Parameter]
         public ITwinObject[] Objects { get; set; }
-
-        [Parameter]
-        public bool ModalDetailView { get; set; } = true;
 
         [Parameter, EditorRequired]
         public string? Id { get; set; }
@@ -83,6 +82,8 @@ namespace AXOpen.VisualComposer
 
                 Id = Id.ComputeSha256Hash();
             }
+
+            detailsRcc = new RenderableContentControl();
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -191,7 +192,7 @@ namespace AXOpen.VisualComposer
                 Directory.CreateDirectory("VisualComposerSerialize/" + Id.CorrectFilePath());
             }
 
-            await Serializing.Serializing<SerializableObject>.SerializeAsync("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", new SerializableObject(0, 0, null, "#FFFFFF", "", new List<SerializableVisualComposerItem>(), "text-dark", 1, 0, 0, true));
+            await Serializing.Serializing<SerializableObject>.SerializeAsync("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + fileName.CorrectFilePath() + ".json", new SerializableObject(1000, 350, null, "#EBF9EB", "", new List<SerializableVisualComposerItem>(), "text-dark", 1, 0, 0, true));
 
             await LoadAsync(fileName);
         }
@@ -343,10 +344,10 @@ namespace AXOpen.VisualComposer
 
         public async Task ChangeThemeAsync()
         {
-            if (Theme == "text-dark")
-                Theme = "text-light";
+            if (Theme == "text-gray-900")
+                Theme = "text-gray-100";
             else
-                Theme = "text-dark";
+                Theme = "text-gray-900";
 
             await SaveAsync();
         }
@@ -543,60 +544,47 @@ namespace AXOpen.VisualComposer
             _zoomableContainer = zoomableContainer;
         }
 
-        private async Task ShowModal(string id)
+        
+
+        private RenderableContentControl detailsRcc { get; set; } 
+
+        public Modal DetailsModalWindow { get; set; }
+
+        //private string detailsPresentationType;
+
+        //public string DetailsPresentationType
+        //{
+        //    get => detailsPresentationType;
+        //    set
+        //    {
+        //        detailsPresentationType = value;
+        //        detailsRcc.Presentation = value;
+        //        this.StateHasChanged();
+        //    }
+        //}
+
+        private RenderFragment RenderableContentControlFragment => builder =>
         {
-            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/VisualComposerContainer.razor.js");
-            await jsObject.InvokeVoidAsync("showModal", id);
-        }
+            builder.OpenComponent<RenderableContentControl>(0);
+            builder.AddAttribute(1, "Context", detailsRcc.Context);
+            builder.AddAttribute(2, "Presentation", detailsRcc.Presentation);
+            builder.CloseComponent();
+        };
 
-
-        private RenderableContentControl detailsRcc { get; set; }
-
-        private bool DetailsVisibility { get; set; } = false;
-
-        private string detailsPresentationType;
-
-        public string DetailsPresentationType
+        public async Task OpenDetails(ITwinElement element, string presentationType = "Status-Display")
         {
-            get => detailsPresentationType;
-            set
+            DetailsModalWindow.Toggle();
+
+            // Ensure the RenderableContentControl is rendered before interacting with it
+            await InvokeAsync(() =>
             {
-                detailsPresentationType = value;
-                detailsRcc.Presentation = value;
-                this.StateHasChanged();
-            }
-        }
-
-        private void ToggleDetailsVisibility()
-        {
-            DetailsVisibility = !DetailsVisibility;
-
-            if (!DetailsVisibility)
-            {
-                detailsRcc.Presentation = "empty";
-                detailsRcc.ForceRender();
-                System.GC.Collect();
-            }
-            this.StateHasChanged();
-        }
-
-        public void UpdateDetails(ITwinElement element)
-        {
-            if (detailsRcc != null)
-            {
-                if (ModalDetailView)
+                if (detailsRcc != null)
                 {
-                    ShowModal("ModalDetailView-" + @Id.ModalIdHelper());
+                    detailsRcc.Context = element;
+                    detailsRcc.Presentation = presentationType;
+                    detailsRcc.ForceRender();
                 }
-                else
-                {
-                    DetailsVisibility = true;
-                }
-
-                this.StateHasChanged();
-                detailsRcc.Context = element;
-                detailsRcc?.ForceRender();
-            }
+            });
         }
 
         private bool InDesignMode { get; set; }

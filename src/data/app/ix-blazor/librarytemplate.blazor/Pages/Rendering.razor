@@ -3,7 +3,7 @@
 @using AXOpen.Data;
 @using librarytemplate
 @inject AuthenticationStateProvider _authenticationProvider
-@inject IAlertService _alertDialogService
+@inject Operon.Components.Toast.IToastService _alertDialogService
 
 <div class="card">
     <div class="card-header">
@@ -97,22 +97,24 @@
 
     protected override void OnInitialized()
     {
-        _vm_columndata = new DataExchangeViewModel { 
-            Model = Entry.Plc.AxoDataFragmentsExchangeContext.DataManager, 
-            AlertDialogService = _alertDialogService, 
-            AuthenticationProvider = _authenticationProvider };
+        _vm_columndata = new DataExchangeViewModel
+        {
+            Model = Entry.Plc.AxoDataFragmentsExchangeContext.DataManager,
+            ToastService = _alertDialogService,
+            AuthenticationProvider = _authenticationProvider
+        };
 
         _vm_modal = new DataExchangeViewModel
         {
             Model = Entry.Plc.AxoDataFragmentsExchangeContext.DataManager,
-            AlertDialogService = _alertDialogService,
+            ToastService = _alertDialogService,
             AuthenticationProvider = _authenticationProvider
         };
 
         _vm_export = new DataExchangeViewModel
         {
             Model = Entry.Plc.AxoDataFragmentsExchangeContext.DataManager,
-            AlertDialogService = _alertDialogService,
+            ToastService = _alertDialogService,
             AuthenticationProvider = _authenticationProvider
         };
     }

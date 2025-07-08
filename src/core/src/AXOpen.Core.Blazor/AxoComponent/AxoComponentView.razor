@@ -1,57 +1,17 @@
 ﻿@namespace AXOpen.Core
 @using AXSharp.Connector.ValueTypes
 @using AXSharp.Connector;
-@using AXSharp.Presentation.Blazor.Controls.Layouts.TabControlComponents;
+@using Operon.Components.Accordion
+@using Operon.Components.Tab
 @inherits RenderableComplexComponentBase<AxoComponent>;
 
-
-<div class="card border border-3 m-3 p-3 rounded-3">
-    <div class="card-header d-flex">
-        <div class="p-0 w-100"><h5>@Component.AttributeName</h5></div>
-        <div class="p-1 flex-shrink-1">
-            @if (containsDetailsAttribute)
-            {
-                <button class="btn btn-primary" type="button" @onclick="ToggleCollapseDetails">
-                    <span class="oi oi-chevron-top @(areDetailsCollapsed ? "open" : "")" aria-hidden="true"/>
-                </button>
-            }
-        </div>
-        <div class="p-1 flex-shrink-1">
-            
-            @switch (AlarmLevel)
-            {
-                case eAlarmLevel.NoAlarms:
-                    break;
-                case eAlarmLevel.Unacknowledged:
-                    <button class="btn btn-info" type="button" @onclick="ToggleAlarmsDetails">
-                        <i class="bi bi-emoji-neutral-fill bg-info" aria-hidden="true"></i>
-                    </button>
-                    break;
-                case eAlarmLevel.ActiveInfo:
-                    <button class="btn btn-info" type="button" @onclick="ToggleAlarmsDetails">
-                        <i class="bi bi-emoji-smile-fill bg-info" aria-hidden="true"></i>
-                    </button>
-                    break;
-                case eAlarmLevel.ActiveWarnings:
-                    <button class="btn btn-warning" type="button" @onclick="ToggleAlarmsDetails">
-                        <i class="bi bi-emoji-frown-fill bg-warning" aria-hidden="true"></i>
-                    </button>
-                    break;
-                case eAlarmLevel.ActiveErrors:
-                    <button class="btn btn-danger" type="button" @onclick="ToggleAlarmsDetails">
-                        <i class="bi bi-emoji-dizzy-fill bg-danger" aria-hidden="true"></i>
-                    </button>
-                    break;
-                default:
-                    <button class="btn btn-secondary" type="button" @onclick="ToggleAlarmsDetails">
-                        <i class="bi bi-emoji-frown-fill bg-secondary" aria-hidden="true"></i>
-                    </button>
-                    break;
-            }
-        </div>
-    </div>
-   
-    <div class="card-body">
+<div class="card flex-auto my-3 @BorderColorStatusClass">
+    <div class="flex flex-col w-full">
+        <h4>@Component.AttributeName</h4>
+        <AxoObjectDiagnosticsView @ref="diagnosticsViewRef" ObservedObjects="new ITwinObject[] { this.Component }"></AxoObjectDiagnosticsView>
+    </div>    
+    <!--Header/Main/Basic controls-->
+    <div>
         @if (@Component._isManuallyControllable.Cyclic)
         {
             currentPresentation = "Command-Control";
@@ -61,43 +21,150 @@
             currentPresentation = "Status-Display";
         }
         <RenderableContentControl Presentation="@currentPresentation" Context="@Header"
-                                  Class="bg-light rounded-3 shadow"
-                                  LayoutClass="align-items-end" />
+                                  Class="w-full" /> 
     </div>
-
-    @if (containsDetailsAttribute)
-    {
-        <div class="@(areDetailsCollapsed ? "collapse" : null)">
-            <div class="card card-body">
-                @if (!areDetailsCollapsed)
-                {
-                    <TabControl>
-                        @foreach (var detailsTab in DetailsTabs)
-                        {
-                            <TabPage Text="@detailsTab.HumanReadable">
-                                <RenderableContentControl 
-                                    Context=@detailsTab
-                                    Presentation="@currentPresentation"
-                                    Class="bg-light rounded-3 shadow"
-                                    LayoutClass="align-items-end" 
-                                    LayoutChildrenClass="ms-0"/>
-                            </TabPage>
-                        }
-                    </TabControl>
-                }
+    <Accordion>
+        <AccordionItem  Title="@this.Component.Symbol">
+            <div class="">
+                <Tab>
+                    @foreach (var detailsTab in DetailsTabs)
+                    {
+                        <TabPage Title="@detailsTab.HumanReadable">
+                            <RenderableContentControl
+                                Context=@detailsTab
+                                Presentation="@currentPresentation"
+                                Class="w-full"
+                                LayoutChildrenClass="ms-0"/>
+                        </TabPage>
+                    }
+                </Tab>
             </div>
-        </div>
-    }
+        </AccordionItem>
+    </Accordion>
+</div>
+
+@code
+{
+    private AxoObjectDiagnosticsView diagnosticsViewRef;
     
-    @if (AlarmLevel > eAlarmLevel.NoAlarms)
+    private string BorderColorStatusClass
     {
-        @if (!areAlarmsCollapsed)
+        get
         {
-            <AxoObjectDiagnosticsView ObservedObjects="new ITwinObject[] {this.Component}"></AxoObjectDiagnosticsView>
+            switch (this.AlarmLevel)
+            {
+                case eAlarmLevel.NoAlarms:
+                    return "border-0 border-inactive-100 ";
+                case eAlarmLevel.Unacknowledged:
+                    return "border-1 border-attention-200";
+                case eAlarmLevel.ActiveInfo:
+                    return "border-1 border-attention-100 shadow-xl shadow-attention-500/50";
+                case eAlarmLevel.ActiveWarnings:
+                    return "border-1 border-warning-500 shadow-xl shadow-warning-500/50";
+                case eAlarmLevel.ActiveErrors:
+                    return "border-2 border-danger-500 shadow-xl shadow-danger-500/50";
+                default:
+                    return "border-0 border-inactive-100";
+            }
         }
     }
-    else
-    {
-        areAlarmsCollapsed = true;
-    }
-</div>
+}
+
+@* <div class="card border border-1 border-inactive-100 m-3 p-3 rounded-3"> *@
+@*     <div class="flex flex-col"> *@
+@*         <div class="p-0"> *@
+@*             <h7>@Component.AttributeName</h7> *@
+@*         </div> *@
+@*         <div class="p-1 flex-shrink-1"> *@
+@*             @if (containsDetailsAttribute) *@
+@*             { *@
+@*                 <button class="btn btn-primary" type="button" @onclick="ToggleCollapseDetails"> *@
+@*                     <span class="oi oi-chevron-top @(areDetailsCollapsed ? "open" : "")" aria-hidden="true"/> *@
+@*                 </button> *@
+@*             } *@
+@*         </div> *@
+@*         <div class="p-1 flex-shrink-1"> *@
+@*              *@
+@*             @switch (AlarmLevel) *@
+@*             { *@
+@*                 case eAlarmLevel.NoAlarms: *@
+@*                     break; *@
+@*                 case eAlarmLevel.Unacknowledged: *@
+@*                     <button class="btn btn-info" type="button" @onclick="ToggleAlarmsDetails"> *@
+@*                         <i class="bi bi-emoji-neutral-fill bg-info" aria-hidden="true"></i> *@
+@*                     </button> *@
+@*                     break; *@
+@*                 case eAlarmLevel.ActiveInfo: *@
+@*                     <button class="btn btn-info" type="button" @onclick="ToggleAlarmsDetails"> *@
+@*                         <i class="bi bi-emoji-smile-fill bg-info" aria-hidden="true"></i> *@
+@*                     </button> *@
+@*                     break; *@
+@*                 case eAlarmLevel.ActiveWarnings: *@
+@*                     <button class="btn btn-warning" type="button" @onclick="ToggleAlarmsDetails"> *@
+@*                         <i class="bi bi-emoji-frown-fill bg-warning" aria-hidden="true"></i> *@
+@*                     </button> *@
+@*                     break; *@
+@*                 case eAlarmLevel.ActiveErrors: *@
+@*                     <button class="btn btn-danger" type="button" @onclick="ToggleAlarmsDetails"> *@
+@*                         <i class="bi bi-emoji-dizzy-fill bg-danger" aria-hidden="true"></i> *@
+@*                     </button> *@
+@*                     break; *@
+@*                 default: *@
+@*                     <button class="btn btn-secondary" type="button" @onclick="ToggleAlarmsDetails"> *@
+@*                         <i class="bi bi-emoji-frown-fill bg-secondary" aria-hidden="true"></i> *@
+@*                     </button> *@
+@*                     break; *@
+@*             } *@
+@*         </div> *@
+@*     </div> *@
+@*     *@
+@*     <div class="card-body"> *@
+@*         @if (@Component._isManuallyControllable.Cyclic) *@
+@*         { *@
+@*             currentPresentation = "Command-Control"; *@
+@*         } *@
+@*         else *@
+@*         { *@
+@*             currentPresentation = "Status-Display"; *@
+@*         } *@
+@*         <RenderableContentControl Presentation="@currentPresentation" Context="@Header" *@
+@*                                   Class="bg-light rounded-3 shadow" *@
+@*                                   LayoutClass="align-items-end" /> *@
+@*     </div> *@
+@* *@
+@*     @if (containsDetailsAttribute) *@
+@*     { *@
+@*         <div class="@(areDetailsCollapsed ? "collapse" : null)"> *@
+@*             <div class="card card-body"> *@
+@*                 @if (!areDetailsCollapsed) *@
+@*                 { *@
+@*                     <TabControl> *@
+@*                         @foreach (var detailsTab in DetailsTabs) *@
+@*                         { *@
+@*                             <TabPage Text="@detailsTab.HumanReadable"> *@
+@*                                 <RenderableContentControl  *@
+@*                                     Context=@detailsTab *@
+@*                                     Presentation="@currentPresentation" *@
+@*                                     Class="bg-light rounded-3 shadow" *@
+@*                                     LayoutClass="align-items-end"  *@
+@*                                     LayoutChildrenClass="ms-0"/> *@
+@*                             </TabPage> *@
+@*                         } *@
+@*                     </TabControl> *@
+@*                 } *@
+@*             </div> *@
+@*         </div> *@
+@*     } *@
+@*      *@
+@*     @if (AlarmLevel > eAlarmLevel.NoAlarms) *@
+@*     { *@
+@*         @if (!areAlarmsCollapsed) *@
+@*         { *@
+@*             <AxoObjectDiagnosticsView ObservedObjects="new ITwinObject[] {this.Component}"></AxoObjectDiagnosticsView> *@
+@*         } *@
+@*     } *@
+@*     else *@
+@*     { *@
+@*         areAlarmsCollapsed = true; *@
+@*     } *@
+@* </div> *@

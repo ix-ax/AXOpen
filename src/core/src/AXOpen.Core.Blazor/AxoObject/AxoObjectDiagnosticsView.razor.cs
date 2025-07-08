@@ -21,7 +21,7 @@ namespace AXOpen.Core
             {
                 if (rccContainer.ParentContainer is VisualComposerItem composerItem)
                 {
-                    composerItem.Parent.UpdateDetails(this.Component);
+                    composerItem.Parent.OpenDetails(this.Component);
                 }
             }
         }

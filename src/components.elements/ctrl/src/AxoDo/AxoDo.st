@@ -7,26 +7,25 @@ NAMESPACE AXOpen.Elements
     {S7.extern=ReadWrite}
     CLASS AxoDo EXTENDS AXOpen.Core.AxoComponent
 
-        VAR
-            _signal : BOOL;
-
-        END_VAR
-
         VAR PUBLIC
-
+            
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-set:AttributeName = "<#On#>"}
             {#ix-attr:[ComponentHeader()]}
             _setTask : AxoTask;
-
+            
             {#ix-set:AttributeName = "<#Off#>"}
             {#ix-attr:[ComponentHeader()]}
             _resetTask : AxoTask;
-
+            
             {#ix-set:AttributeName = "<#MessengerInfo#>"}
             {#ix-set:PlcTextList = "[1]:'<#Expecting positive signal.#>':'<#Check your signal input.#>';[2]:'<#Expecting negative signal.#>':'<#Check your signal input.#>'"}
             _messengerInfo : AXOpen.Messaging.Static.AxoMessenger;
-
+            
+            {#ix-attr:[ComponentDetails("Signal status")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Signal#>"}
+            _signal : BOOL;
         END_VAR
 
         VAR PRIVATE

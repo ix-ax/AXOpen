@@ -34,7 +34,6 @@ namespace AXOpen.Messaging.Static
 
         private async void AcknowledgeTask()
         {
-            this.ShowHelpText = false;
             Component.AcknowledgeRequest.Cyclic = true; 
             AxoApplication.Current.Logger.Information($"Message '{this.MessageText}' acknowledged.", this.Component, await GetCurrentUserIdentity());
         }
@@ -54,6 +53,7 @@ namespace AXOpen.Messaging.Static
         
         public override void ConfigurePolling()
         {
+            if(Component is null) return;
             StartPolling(Component.MessengerState, 500);
             StartPolling(Component.MessageCode, 500);
             StartPolling(Component.Category, 500);
@@ -64,6 +64,7 @@ namespace AXOpen.Messaging.Static
 
         public override void Dispose()
         {
+            if(Component is null) return;
             Component.StopPolling(this);
             base.Dispose();
         }
@@ -152,7 +153,7 @@ namespace AXOpen.Messaging.Static
             }
         }
         private string Description => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName;
-        private string Symbol => !(string.IsNullOrEmpty(Component.Symbol)) ? Component.Symbol : "Unable to retrieve symbol!";
+        private string Symbol => !(string.IsNullOrEmpty(Component.Symbol)) ? Component.Symbol.Replace(".", " . ") : "Unable to retrieve symbol!";
         private string MessageText => Component.GetMessageText();
         private string HelpText => Component.GetHelpText();
         private bool HelpTextDefined => Component.HelpTextDefined;
@@ -171,7 +172,6 @@ namespace AXOpen.Messaging.Static
             }
         }
         private bool IsActive => Component.State == eAxoMessengerState.ActiveAcknowledgeRequired || Component.State == eAxoMessengerState.ActiveAcknowledgeNotRequired || Component.State == eAxoMessengerState.ActiveAlreadyAcknowledged;
-
         private bool AcknowledgedBeforeFallen => Component.State == eAxoMessengerState.ActiveAlreadyAcknowledged;
         private bool HideAcknowledgeButton => Component.State <= eAxoMessengerState.Idle || Component.State == eAxoMessengerState.ActiveAcknowledgeNotRequired || Component.State == eAxoMessengerState.ActiveAlreadyAcknowledged;
         private bool HideHelpButton => MessengerState == eAxoMessengerState.Idle || !HelpTextDefined;

@@ -7,6 +7,7 @@ using AXSharp.Presentation;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Configuration;
+using Operon.Components.Toast;
 using Serilog.Core;
 using System.Collections.Frozen;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace AXOpen.Data
 
         protected readonly AuthenticationStateProvider Authentication;
         protected readonly IDistributedDataExchangeService distributedExchangeService;
-        protected readonly IAlertService AlertService;
+        protected readonly IToastService ToastService;
         protected readonly string GroupName;
 
         protected readonly PredicateContainer InjectedPredicateContainer;
@@ -38,7 +39,7 @@ namespace AXOpen.Data
         public List<string> EntityIdsLastQueryMainExchange { set; get; } = new();
 
         public int FilteredCount { get; set; }
-        public int FilteredPage { get; set; } = 0;
+        public int FilteredPage { get; set; } = 1;
         public int FilteredPageLimit { get; set; } = 5; // default value
 
         public ObservableCollection<IBrowsableDataObject> Records { get; set; } = new ObservableCollection<IBrowsableDataObject>();
@@ -75,14 +76,14 @@ namespace AXOpen.Data
         }
 
         public DistributedDataSelectorViewModel(
-            IAlertService alertService,
+            IToastService toastService,
             AuthenticationStateProvider authentication,
             IDistributedDataExchangeService distributedExchangeService,
             string groupName,
             PredicateContainer injectePredicateContainer )
         {
             this.distributedExchangeService = distributedExchangeService;
-            this.AlertService = alertService;
+            this.ToastService = toastService;
             this.InjectedPredicateContainer = injectePredicateContainer;
             this.GroupName = groupName;
             this.Authentication = authentication;
@@ -196,7 +197,7 @@ namespace AXOpen.Data
         {
             if (string.IsNullOrEmpty(identifier))
             {
-                AlertService?.AddAlertDialog(eAlertType.Warning, "Update data error", "Please enter valid identifier!", 20);
+                ToastService?.AddToast(eToastType.Warning, "Update data error", "Please enter valid identifier!", 20);
                 return;
             }
 
@@ -227,8 +228,8 @@ namespace AXOpen.Data
                 string sentExchanges = string.Join(", ", sentToPlc);
 
                 // Alert
-                AlertService?.AddAlertDialog(
-                    eAlertType.Info,
+                ToastService?.AddToast(
+                    eToastType.Info,
                     "Send record",
                     $"Record \"{identifier}\" was sent to: {sentExchanges}.",
                     7
@@ -246,8 +247,8 @@ namespace AXOpen.Data
                 string notEqualEntityIds = string.Join(", ", notExistInDb);
 
                 // Alert
-                AlertService?.AddAlertDialog(
-                    eAlertType.Warning,
+                ToastService?.AddToast(
+                    eToastType.Warning,
                     "Send error",
                     $"Record does not exist in the database for: {notEqualEntityIds}.",
                     14

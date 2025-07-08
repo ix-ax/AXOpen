@@ -1,46 +1,44 @@
 ﻿@using AXSharp.Connector;
 
 <div class="accordion-item">
-    <div class="accordion-header">
-        <div class="input-group flex-nowrap">
-            <span class="bi bi-boxes align-self-center mx-2" aria-hidden="true" />
-            <button class="accordion-button collapsed py-2 text-truncate" type="button" data-bs-toggle="collapse" data-bs-target="#@SourceTwinElement.Symbol.ModalIdHelper()" aria-expanded="false" aria-controls="@SourceTwinElement.Symbol.ModalIdHelper()" @onclick="() => IsExpanded = true">
-                @SourceTwinElement.Symbol
+    <div class="accordion-button @(IsExpanded ? "active" : null) flex flex-wrap items-center p-0!">
+        <div class="flex-1 flex flex-wrap items-center" @onclick="() => IsExpanded = !IsExpanded">
+            <Operon.Icons.HeroIcon Icon="cube" Type="Operon.Icons.IconType.Outline" Class="size-5 me-2" />
+            <p>@SourceTwinElement.Symbol</p>
+            <button class="ms-auto cursor-pointer">
+                <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 icon-button-rotate " + (IsExpanded ? "rotated" : null))" />
             </button>
-            <a class="text-decoration-none text-black p-2 align-self-center" style="cursor: pointer;" @onclick="() => Parent.AddChildrenAsync(SourceTwinElement)"><span class="bi bi-plus-lg" aria-hidden="true" /></a>
+        </div>
+        <div class="p-2 cursor-pointer" @onclick="() => Parent.AddChildrenAsync(SourceTwinElement)">
+            <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5" />
         </div>
     </div>
-
-    <div id="@SourceTwinElement.Symbol.ModalIdHelper()" class="accordion-collapse collapse">
-        @if (IsExpanded)
-        {
-            <div class="accordion-body">
-                <ul class="list-group">
-                    @if (SourceTwinElement is ITwinObject primary)
+    @if (IsExpanded)
+    {
+        <div class="accordion-body">
+            @if (SourceTwinElement is ITwinObject primary)
+            {
+                @foreach (var kid in primary.GetKids())
+                {
+                    if (kid is ITwinObject tobj)
                     {
-                        @foreach (var kid in primary.GetKids())
-                        {
-                            if (kid is ITwinObject tobj)
-                            {
-                                <AccordionComponent SourceTwinElement="tobj" Parent="@Parent" />
-                            }
-
-                            if (kid is ITwinPrimitive prim)
-                            {
-                                <li class="list-group-item d-flex">
-                                    <span class="bi bi-card-text me-2" aria-hidden="true" />
-                                    <p class="mb-0 text-truncate">@prim.Symbol</p>
-                                    <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => Parent.AddChildrenAsync(prim)"><span class="bi bi-plus-lg" aria-hidden="true" /></a>
-                                </li>
-                            }
-                        }
+                        <AccordionComponent SourceTwinElement="tobj" Parent="@Parent" />
                     }
-                </ul>
-            </div>
-        }
-    </div>
+                    else if (kid is ITwinPrimitive prim)
+                    {
+                        <div class="flex flex-wrap items-center ms-4 me-6">
+                            <Operon.Icons.HeroIcon Icon="credit-card" Type="Operon.Icons.IconType.Outline" Class="size-5 me-2" />
+                            <p class="truncate">@prim.Symbol</p>
+                            <a class="ms-auto" @onclick="() => Parent.AddChildrenAsync(prim)">
+                                <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                            </a>
+                        </div>
+                    }
+                }
+            }
+        </div>
+    }
 </div>
-
 
 @code {
     [Parameter]

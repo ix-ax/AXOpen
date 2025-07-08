@@ -4,6 +4,7 @@ using AXOpen.Core.Blazor.AxoDialogs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.DependencyInjection;
+using Operon.Components.Toast;
 
 
 namespace AXOpen.Core
@@ -13,7 +14,7 @@ namespace AXOpen.Core
         public static void AddAxoCoreServices(this IServiceCollection services)
         {
             services.AddSingleton<AxoDialogAndAlertContainer>();
-            services.AddScoped<IAlertService, AxoAlertService>();
+            services.AddScoped<IToastService, ToastService>();
 
 
             services.AddResponseCompression(opts =>

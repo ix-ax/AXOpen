@@ -34,7 +34,7 @@ namespace AXOpen.Core
 
             kids.Add(task.Status);
             kids.Add(task.IsDisabled);
-
+            kids.Add(task.ErrorDetails);
             kids.ForEach(p =>
             {
                 this.StartPolling(p, 250);
@@ -66,20 +66,49 @@ namespace AXOpen.Core
             Component.ResumeTask();
         }
 
+        private string AnimationClass
+        {
+            get
+            {
+                if (this.Component.IsDisabled.LastValue)
+                    return "";
+                switch ((eAxoTaskState)Component.Status.LastValue)
+                {
+                    case eAxoTaskState.Busy:
+                        return "animate-pulse";
+                    case eAxoTaskState.Done:
+                        return "";
+                    case eAxoTaskState.Aborted:
+                        return "";
+                    case eAxoTaskState.Error:
+                        return "";
+                    default:
+                        return "";
+                }
+            }
+        }
+        
+        
         private string ButtonClass
         {
             get
             {
+                if(this.Component.IsDisabled.LastValue)
+                    return "btn-inactive blur-[1px]";
                 switch ((eAxoTaskState)Component.Status.LastValue)
                 {
+                    case eAxoTaskState.Busy:
+                        return "btn-active shadow-xl shadow-active-500/50";
                     case eAxoTaskState.Done:
                         return "btn-success";
-
+                    case eAxoTaskState.Aborted:
+                        return "btn-attention";
                     case eAxoTaskState.Error:
                         return "btn-danger";
-
+                    case eAxoTaskState.Ready:
+                        return "btn-info";
                     default:
-                        return "btn-primary";
+                        return "btn-inactive";
                 }
             }
         }

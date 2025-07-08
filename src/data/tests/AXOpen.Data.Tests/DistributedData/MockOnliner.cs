@@ -44,7 +44,7 @@ namespace DistributedDataTest
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async override Task<T> OnlineToPlain<T>()
+        public async override Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
             return await (dynamic)this.OnlineToPlainAsync();
         }
@@ -134,9 +134,9 @@ namespace DistributedDataTest
             return plain;
         }
 
-        public async override Task PlainToOnline<T>(T plain)
+        public async override Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
         public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.DistributedDataTest.Context plain)
@@ -300,12 +300,12 @@ namespace DistributedDataTest
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async override Task<T> OnlineToPlain<T>()
+        public async override Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public new async Task<global::Pocos.DistributedDataTest.AxoProcess> OnlineToPlainAsync()
+        public new async Task<global::Pocos.DistributedDataTest.AxoProcess> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             global::Pocos.DistributedDataTest.AxoProcess plain = new global::Pocos.DistributedDataTest.AxoProcess();
             await this.ReadAsync<IgnoreOnPocoOperation>();
@@ -363,9 +363,9 @@ namespace DistributedDataTest
             return plain;
         }
 
-        public async override Task PlainToOnline<T>(T plain)
+        public async override Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain,priority);
         }
 
         public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.DistributedDataTest.AxoProcess plain)
@@ -501,9 +501,9 @@ namespace DistributedDataTest
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async override Task<T> OnlineToPlain<T>()
+        public async override Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
         public new async Task<global::Pocos.DistributedDataTest.FragmentExchange> OnlineToPlainAsync()
@@ -564,9 +564,9 @@ namespace DistributedDataTest
             return plain;
         }
 
-        public async override Task PlainToOnline<T>(T plain)
+        public async override Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
         public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.DistributedDataTest.FragmentExchange plain)
@@ -696,9 +696,9 @@ namespace DistributedDataTest
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async override Task<T> OnlineToPlain<T>()
+        public async override Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
         public new async Task<global::Pocos.DistributedDataTest.HeaderManager> OnlineToPlainAsync()
@@ -741,9 +741,9 @@ namespace DistributedDataTest
             return plain;
         }
 
-        public async override Task PlainToOnline<T>(T plain)
+        public async override Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
         public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.DistributedDataTest.HeaderManager plain)
@@ -852,9 +852,9 @@ namespace DistributedDataTest
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async override Task<T> OnlineToPlain<T>()
+        public async override Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
         public new async Task<global::Pocos.DistributedDataTest.HeaderData> OnlineToPlainAsync()
@@ -897,9 +897,9 @@ namespace DistributedDataTest
             return plain;
         }
 
-        public async override Task PlainToOnline<T>(T plain)
+        public async override Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
         public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.DistributedDataTest.HeaderData plain)
@@ -1029,9 +1029,9 @@ namespace DistributedDataTest
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async override Task<T> OnlineToPlain<T>()
+        public async override Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
         public new async Task<global::Pocos.DistributedDataTest.StationManager> OnlineToPlainAsync()
@@ -1074,12 +1074,12 @@ namespace DistributedDataTest
             return plain;
         }
 
-        public async override Task PlainToOnline<T>(T plain)
+        public async override Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.DistributedDataTest.StationManager plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.DistributedDataTest.StationManager plain, eAccessPriority priority = eAccessPriority.Normal)
         {
             await base._PlainToOnlineNoacAsync(plain);
 #pragma warning disable CS0612
@@ -1185,9 +1185,9 @@ namespace DistributedDataTest
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async override Task<T> OnlineToPlain<T>()
+        public async override Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
         public new async Task<global::Pocos.DistributedDataTest.StationData> OnlineToPlainAsync()
@@ -1230,12 +1230,12 @@ namespace DistributedDataTest
             return plain;
         }
 
-        public async override Task PlainToOnline<T>(T plain)
+        public async override Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.DistributedDataTest.StationData plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(global::Pocos.DistributedDataTest.StationData plain, eAccessPriority priority = eAccessPriority.Normal)
         {
             await base._PlainToOnlineNoacAsync(plain);
 #pragma warning disable CS0612

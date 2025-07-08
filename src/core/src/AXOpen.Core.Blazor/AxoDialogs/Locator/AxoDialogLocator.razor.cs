@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Operon.Components;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AXOpen.Core.Blazor.AxoDialogs
@@ -127,6 +128,8 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             await Refresh();
         }
 
+        
+
         /// <summary>
         /// Refreshes the UI state based on active dialogs.
         /// </summary>
@@ -149,6 +152,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// </summary>
         protected void Open()
         {
+            DialogModalContainer.OpenModal();
             ModalDisplay = "flex";
             ModalClass = "show";
             ShowBackdrop = true;
@@ -159,6 +163,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// </summary>
         protected void Close()
         {
+            DialogModalContainer.CloseModal();
             ModalDisplay = "none";
             ModalClass = string.Empty;
             ShowBackdrop = false;

@@ -6,6 +6,7 @@ using AXOpen.Base.Dialogs;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Operon.Components.Toast;
 using System.Security.Principal;
 
 namespace AxOpen.Security.Views
@@ -32,7 +33,7 @@ namespace AxOpen.Security.Views
             if (result.Succeeded)
             {
                 var msg = Localizer["User \"{0}\" successfully created.", _model.Username];
-                _alertDialogService?.AddAlertDialog(eAlertType.Success, Localizer["Created!"], msg, 10);
+                _toastService?.AddToast(eToastType.Success, Localizer["Created!"], msg, 10);
                 AxoApplication.Current.Logger.Information(msg, await GetCurrentIdentity());
 
                 if (!string.IsNullOrEmpty(ReturnUrl))
@@ -48,7 +49,7 @@ namespace AxOpen.Security.Views
             {
                 var msg = Localizer["User \"{0}\" was not created.", _model.Username] + $" {result.ToString()}";
 
-                _alertDialogService?.AddAlertDialog(eAlertType.Warning, Localizer["Not created!"], msg, 10);
+                _toastService?.AddToast(eToastType.Warning, Localizer["Not created!"], msg, 10);
                 AxoApplication.Current.Logger.Warning(msg, await GetCurrentIdentity());
             }
         }

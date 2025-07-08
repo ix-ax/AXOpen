@@ -29,12 +29,12 @@ namespace axosimple
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async override Task<T> OnlineToPlain<T>()
+        public async override Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public new async Task<Pocos.axosimple.ProcessData> OnlineToPlainAsync()
+        public new async Task<Pocos.axosimple.ProcessData> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             Pocos.axosimple.ProcessData plain = new Pocos.axosimple.ProcessData();
             await this.ReadAsync();
@@ -52,16 +52,16 @@ namespace axosimple
             return plain;
         }
 
-        public async override Task PlainToOnline<T>(T plain)
+        public async override Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.axosimple.ProcessData plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.axosimple.ProcessData plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await base.PlainToOnlineAsync(plain);
-            await this.Set.PlainToOnlineAsync(plain.Set);
-            await this.Manip.PlainToOnlineAsync(plain.Manip);
+            await base.PlainToOnlineAsync(plain, priority);
+            await this.Set.PlainToOnlineAsync(plain.Set, priority);
+            await this.Manip.PlainToOnlineAsync(plain.Manip, priority);
             return await this.WriteAsync();
         }
 
@@ -137,9 +137,9 @@ namespace examples.PneumaticManipulator
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async override Task<T> OnlineToPlain<T>()
+        public async override Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
         public new async Task<Pocos.examples.PneumaticManipulator.FragmentProcessData> OnlineToPlainAsync()
@@ -158,14 +158,14 @@ namespace examples.PneumaticManipulator
             return plain;
         }
 
-        public async override Task PlainToOnline<T>(T plain)
+        public async override Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.examples.PneumaticManipulator.FragmentProcessData plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.examples.PneumaticManipulator.FragmentProcessData plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await base.PlainToOnlineAsync(plain);
+            await base.PlainToOnlineAsync(plain, priority);
             CounterDelay.Cyclic = plain.CounterDelay;
             return await this.WriteAsync();
         }
@@ -229,12 +229,12 @@ namespace examples.PneumaticManipulator
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async override Task<T> OnlineToPlain<T>()
+        public async override Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
-        public new async Task<Pocos.examples.PneumaticManipulator.FragmentProcessDataManger> OnlineToPlainAsync()
+        public new async Task<Pocos.examples.PneumaticManipulator.FragmentProcessDataManger> OnlineToPlainAsync(eAccessPriority priority = eAccessPriority.Normal)
         {
             Pocos.examples.PneumaticManipulator.FragmentProcessDataManger plain = new Pocos.examples.PneumaticManipulator.FragmentProcessDataManger();
             await this.ReadAsync();
@@ -250,12 +250,12 @@ namespace examples.PneumaticManipulator
             return plain;
         }
 
-        public async override Task PlainToOnline<T>(T plain)
+        public async override Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
-            await this.PlainToOnlineAsync((dynamic)plain);
+            await this.PlainToOnlineAsync((dynamic)plain, priority);
         }
 
-        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.examples.PneumaticManipulator.FragmentProcessDataManger plain)
+        public async Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(Pocos.examples.PneumaticManipulator.FragmentProcessDataManger plain, eAccessPriority priority = eAccessPriority.Normal)
         {
             await base.PlainToOnlineAsync(plain);
             await this.Set.PlainToOnlineAsync(plain.Set);
