@@ -31,7 +31,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             END_IF;
 
             //<Initialization>        
-            VisionPro.Run(parent := THIS, hwID := HwIdentifiers#vision_pro_HwID, CameraNo := BYTE#1);
+            // VisionPro.Run(parent := THIS, hwID := HwIdentifiers#vision_pro_HwID, CameraNo := BYTE#1);
+            VisionPro.Run(parent := THIS, hwID := HwIdentifiers#CommunicationCard_HwID, CameraNo := BYTE#1);
             //</Initialization>
             THIS.UseInSequencer();
         END_METHOD

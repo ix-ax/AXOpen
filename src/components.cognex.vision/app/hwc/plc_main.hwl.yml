@@ -1,0 +1,27 @@
+Devices:
+- Name: plc_main
+  Modules:
+  - Apply:
+      TemplateName: 6ES7517-3AQ10-0AB0_v4_0
+      Arguments:
+        PLCName: plc_main
+        IpAddress_X1: 10.1.100.90/24
+        ProfinetDeviceName_X1: plc_main_x1
+        AdminName: admin
+IoSystems:
+- Name: profinet_plc_main
+  ControllerInterfaces:
+  - Ref: plc_main/plc_main/profinet_x1
+  DeviceInterfaces:
+  # - Ref: st40-meranie/st40-meranie/profinet
+  # - Ref: st30-cmmt-as-mp/st30-cmmt-as-mp/profinet
+  # - Ref: aes-d-bc-pnio/aes-d-bc-pnio/profinet
+  - Ref: st10-is2802m/st10-is2802m/profinet
+  - Ref: st10-dm280/st10-dm280/profinet
+  - Ref: st20-is2000-navigation/st20-is2000-navigation/profinet
+  # - Ref: st20-abb/st20-abb/profinet
+  # - Ref: et200sp_main/et200sp_main/profinet
+  # - Ref: plc_safety_x1/plc_safety_profinetx1/Interface
+  - Ref: CommunicationCard/CommunicationCard/profinet
+  # - Ref: st30-skrutkovanie/st30-skrutkovanie/profinet
+

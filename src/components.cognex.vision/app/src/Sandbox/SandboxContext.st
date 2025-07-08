@@ -52,7 +52,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 VisionPro.ActivateManualControl();
             END_IF;    
 
-            VisionPro.Run(parent := _rootObject, hwID := HwIdentifiers#vision_pro_HwID, CameraNo := BYTE#1);
+            // VisionPro.Run(parent := _rootObject, hwID := HwIdentifiers#vision_pro_HwID, CameraNo := BYTE#1);
 
         END_METHOD
     END_CLASS
