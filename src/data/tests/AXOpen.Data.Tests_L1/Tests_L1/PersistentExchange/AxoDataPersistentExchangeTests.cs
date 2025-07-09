@@ -5,27 +5,22 @@ using NSubstitute;
 
 namespace AXOpen.Data.Persistent.Tests
 {
+
+    using Tests_L1.PersistentData;
+
     public class AxoDataPersistentExchangeTests
     {
-        public class OnlineMockData : AxoDataPersistentExchangeExample.PersistentRootObject
-        {
-            public OnlineMockData(ITwinObject parent, string readableTail, string symbolTail) : base(parent, readableTail, symbolTail)
-            {
-            }
-        }
-
         [Fact()]
         public async void CreateInRepositoryTest()
         {
             const string PersistentGroupName = "default";
 
-            var parent = NSubstitute.Substitute.For<ITwinObject>();
-            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            var connector = new axopen_data_tests_l1TwinController(ConnectorAdapterBuilder.Build().CreateDummy());
+            var data = connector.Persistent.PersistentRootObject;
+            var sut = connector.Persistent.DataManager;
 
-            var data = new OnlineMockData(parent, "a", "b");
             var repo = new InMemoryRepository<AXOpen.Data.PersistentRecord>();
-            //var sut = new AXOpen.Data.AxoDataPersistentExchange(parent, "perExchange", "PerExchange");
-            //sut.InitializeRemoteDataExchange(data, repo);
+            //await sut.InitializeRemoteDataExchange(data, repo);
 
             PersistentRecord pr = new AXOpen.Data.PersistentRecord() { DataEntityId = PersistentGroupName };
 
@@ -54,13 +49,12 @@ namespace AXOpen.Data.Persistent.Tests
             const string PersistentGroupName = "default";
             const string PersistentGroupName_1 = "1";
 
-            var parent = NSubstitute.Substitute.For<ITwinObject>();
-            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            var connector = new axopen_data_tests_l1TwinController(ConnectorAdapterBuilder.Build().CreateDummy());
+            var data = connector.Persistent.PersistentRootObject;
+            var sut = connector.Persistent.DataManager;
 
-            var data = new OnlineMockData(parent, "a", "b");
             var repo = new InMemoryRepository<AXOpen.Data.PersistentRecord>();
-            // var sut = new AXOpen.Data.AxoDataPersistentExchange(parent, "perExchange", "PerExchange");
-            // await sut.InitializeRemoteDataExchange(data, repo);
+            //await sut.InitializeRemoteDataExchange(data, repo);
 
             PersistentRecord pr = new AXOpen.Data.PersistentRecord() { DataEntityId = PersistentGroupName };
             pr.Tags.Add(new TagObject() { Symbol = data.PersistentVariable_1.Symbol, Value = 10 });
@@ -93,13 +87,14 @@ namespace AXOpen.Data.Persistent.Tests
 
             const string PersistentGroupName = "default";
 
-            var parent = NSubstitute.Substitute.For<ITwinObject>();
-            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
 
-            var data = new OnlineMockData(parent, "a", "b");
+            var connector = new axopen_data_tests_l1TwinController(ConnectorAdapterBuilder.Build().CreateDummy());
+            var data = connector.Persistent.PersistentRootObject;
+            var sut = connector.Persistent.DataManager;
+
             var repo = new InMemoryRepository<AXOpen.Data.PersistentRecord>();
-            var sut = new AXOpen.Data.AxoDataPersistentExchange(parent, "perExchange", "PerExchange");
-            sut.InitializeRemoteDataExchange(data, repo);
+            await connector.Persistent.DataManager.InitializeRemoteDataExchange(data, repo); 
+
 
             PersistentRecord pr = new AXOpen.Data.PersistentRecord() { DataEntityId = PersistentGroupName };
 
@@ -127,13 +122,11 @@ namespace AXOpen.Data.Persistent.Tests
         {
             const string PersistentGroupName = "default";
 
-            var parent = NSubstitute.Substitute.For<ITwinObject>();
-            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            var connector = new axopen_data_tests_l1TwinController(ConnectorAdapterBuilder.Build().CreateDummy());
+            var data = connector.Persistent.PersistentRootObject;
+            var sut = connector.Persistent.DataManager;
 
-            var data = new OnlineMockData(parent, "a", "b");
             var repo = new InMemoryRepository<AXOpen.Data.PersistentRecord>();
-            var sut = new AXOpen.Data.AxoDataPersistentExchange(parent, "perExchange", "PerExchange");
-
             await sut.InitializeRemoteDataExchange(data, repo);
 
             data.NotPersistentVariable.Cyclic = true;
@@ -161,13 +154,12 @@ namespace AXOpen.Data.Persistent.Tests
             const string PersistentGroupName_1 = "1";
             const string PersistentGroupName_2 = "2";
 
-            var parent = NSubstitute.Substitute.For<ITwinObject>();
-            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
 
-            var data = new OnlineMockData(parent, "a", "b");
+            var connector = new axopen_data_tests_l1TwinController(ConnectorAdapterBuilder.Build().CreateDummy());
+            var data = connector.Persistent.PersistentRootObject;
+            var sut = connector.Persistent.DataManager;
+
             var repo = new InMemoryRepository<AXOpen.Data.PersistentRecord>();
-            var sut = new AXOpen.Data.AxoDataPersistentExchange(parent, "perExchange", "PerExchange");
-
             await sut.InitializeRemoteDataExchange(data, repo);
 
             var groups = sut.CollectedGroups;
@@ -196,12 +188,11 @@ namespace AXOpen.Data.Persistent.Tests
         {
             const string PersistentGroupName = "default";
 
-            var parent = NSubstitute.Substitute.For<ITwinObject>();
-            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            var connector = new axopen_data_tests_l1TwinController(ConnectorAdapterBuilder.Build().CreateDummy());
+            var data = connector.Persistent.PersistentRootObject;
+            var sut = connector.Persistent.DataManager;
 
-            var data = new OnlineMockData(parent, "a", "b");
             var repo = new InMemoryRepository<AXOpen.Data.PersistentRecord>();
-            var sut = new AXOpen.Data.AxoDataPersistentExchange(parent, "perExchange", "PerExchange");
 
             await sut.InitializeRemoteDataExchange(data, repo);
 
@@ -216,14 +207,13 @@ namespace AXOpen.Data.Persistent.Tests
         {
             const string PersistentGroupName = "default";
 
-            var parent = NSubstitute.Substitute.For<ITwinObject>();
-            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            var connector = new axopen_data_tests_l1TwinController(ConnectorAdapterBuilder.Build().CreateDummy());
+            var data = connector.Persistent.PersistentRootObject;
+            var sut = connector.Persistent.DataManager;
 
-            var data = new OnlineMockData(parent, "a", "b");
             var repo = new InMemoryRepository<AXOpen.Data.PersistentRecord>();
-            var sut = new AXOpen.Data.AxoDataPersistentExchange(parent, "perExchange", "PerExchange");
+            await sut.InitializeRemoteDataExchange(data, repo); 
 
-            await sut.InitializeRemoteDataExchange(data, repo);
 
             await sut.Operation.DataEntityIdentifier.SetAsync(PersistentGroupName);
             sut.Operation.StartTimeStamp.Cyclic = DateAndTime.Now;
