@@ -16,4 +16,8 @@
     <ProjectReference Include="..\ix\app_axopen_io.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\css\tailwind\" />
+  </ItemGroup>
+
 </Project>
